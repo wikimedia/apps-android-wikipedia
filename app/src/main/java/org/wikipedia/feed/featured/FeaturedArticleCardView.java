@@ -60,7 +60,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         extract(extract);
         image(imageUri);
 
-        header();
+        header(card);
         footer();
     }
 
