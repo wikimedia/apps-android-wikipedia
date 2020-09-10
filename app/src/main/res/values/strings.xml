@@ -594,6 +594,8 @@
     <string name="view_random_card_action">Roll the dice</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
+    <string name="view_main_page_card_subtitle">Main page on %s</string>
+    <string name="view_main_page_card_action">View main page</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
     <string name="view_featured_image_card_download">Download</string>
     <string name="menu_feed_card_dismiss">Hide this card</string>
@@ -630,6 +632,7 @@
     <string name="feed_item_type_featured_article">Daily featured article on Wikipedia</string>
     <string name="feed_item_type_trending">Daily most-viewed articles</string>
     <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
+    <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
