@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
@@ -35,6 +36,8 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
     private void header(@NonNull final BecauseYouReadCard card) {
         int age = (int) card.daysOld();
         headerView().setTitle(card.title())
+                .setImage(R.drawable.ic_restore_black_24dp)
+                .setImageCircleColor(R.color.base30)
                 .setLangCode(null)
                 .setCard(card)
                 .setCallback(getCallback());
