@@ -10,6 +10,7 @@ import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
@@ -32,6 +33,9 @@ public class MostReadCardView extends ListCardView<MostReadListCard> {
 
     private void header(@NonNull MostReadListCard card) {
         headerView().setTitle(card.title())
+                .setSubtitle(card.subtitle())
+                .setImage(R.drawable.ic_most_read)
+                .setImageCircleColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent))
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());

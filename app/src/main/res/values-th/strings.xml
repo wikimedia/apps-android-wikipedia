@@ -26,7 +26,6 @@
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
-  <string name="nav_item_history">ประวัติ</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
@@ -43,6 +42,7 @@
   <string name="history_item_delete_undo">เลิกทำ</string>
   <string name="notification_archive_undo">เลิกทำ</string>
   <string name="app_settings">การตั้งค่าแอป</string>
+  <string name="history_list_title">ประวัติ</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
   <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมดและปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
   <string name="dialog_message_clear_history_yes">ใช่</string>

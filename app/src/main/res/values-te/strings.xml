@@ -19,7 +19,6 @@
   <string name="page_tabs_back">వెనుకకు</string>
   <string name="nav_item_forward">ముందుకు</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
-  <string name="nav_item_history">చరిత్ర</string>
   <string name="nav_item_more">మరిన్ని</string>
   <string name="error_network_error">అంతర్జాలానికి అనుసంధానం కాలేకపోయాం.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>

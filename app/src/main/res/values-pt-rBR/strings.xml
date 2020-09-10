@@ -45,9 +45,9 @@
   <string name="search_hint_voice_search">Pesquisa por entrada de voz</string>
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar minhas listas</string>
-  <string name="nav_item_history">Histórico</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
+  <string name="nav_item_search">Pesquisar</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -62,6 +62,7 @@
   <string name="history_item_delete_undo">Desfazer</string>
   <string name="notification_archive_undo">Desfazer</string>
   <string name="app_settings">Configurações do aplicativo</string>
+  <string name="search_tab_tooltip">Toque no ícone novamente para começar a digitar diretamente um termo de pesquisa.</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -594,8 +595,6 @@
   <string name="view_random_card_action">Rolar os dados</string>
   <string name="view_next_random_article">Carregar outro artigo aleatório</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
-  <string name="view_main_page_card_subtitle">Página principal em %s</string>
-  <string name="view_main_page_card_action">Ver página principal</string>
   <string name="view_featured_image_card_title">Imagem do dia</string>
   <string name="view_featured_image_card_download">Baixar</string>
   <string name="menu_feed_card_dismiss">Ocultar este cartão</string>
@@ -631,7 +630,6 @@
   <string name="feed_item_type_featured_article">Artigo divulgado diariamente na Wikipedia</string>
   <string name="feed_item_type_trending">Artigos mais vistos diariamente</string>
   <string name="feed_item_type_featured_image">Imagem em destaque na Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Página principal da Wikipedia com conteúdo destacado diariamente</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed de Explorar</string>
@@ -963,4 +961,10 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cancelar</string>
+  <string name="talk_title">Discussão</string>
+  <string name="talk_user_title">Discussão: %s</string>
+  <string name="talk_new_topic">Novo tópico</string>
+  <string name="talk_page_empty">Esta página de discussão está vazia.</string>
+  <string name="talk_add_reply">Responder</string>
+  <string name="talk_no_subject">(Sem assunto)</string>
 </resources>

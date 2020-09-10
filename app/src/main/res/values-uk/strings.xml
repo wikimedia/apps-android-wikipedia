@@ -32,7 +32,6 @@
   <string name="search_hint_voice_search">Голосовий пошук</string>
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтрувати мої списки</string>
-  <string name="nav_item_history">Історія</string>
   <string name="nav_item_suggested_edits">Редагування</string>
   <string name="nav_item_more">Більше</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
@@ -578,8 +577,6 @@
   <string name="view_random_card_action">Кинути жереб</string>
   <string name="view_next_random_article">Завантажити іншу випадкову статтю</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
-  <string name="view_main_page_card_subtitle">Головна сторінка на %s</string>
-  <string name="view_main_page_card_action">Переглянути головну сторінку</string>
   <string name="view_featured_image_card_title">Зображення дня</string>
   <string name="view_featured_image_card_download">Завантажити</string>
   <string name="menu_feed_card_dismiss">Сховати цю картку</string>
@@ -616,7 +613,6 @@
   <string name="feed_item_type_featured_article">Вибрана стаття дня у Вікіпедії</string>
   <string name="feed_item_type_trending">Найбільш читані статті за день</string>
   <string name="feed_item_type_featured_image">Щоденне вибране зображення Вікісховища</string>
-  <string name="feed_item_type_main_page">Головна сторінка Вікіпедії з денним вибраним контентом</string>
   <string name="feed_item_type_randomizer">Згенерувати випадкові статті до читання</string>
   <string name="feed_item_type_suggested_edits">Пропозиції додати контент у Вікіпедію</string>
   <string name="feed_empty_message">У вашій стрічці нічого немає</string>
