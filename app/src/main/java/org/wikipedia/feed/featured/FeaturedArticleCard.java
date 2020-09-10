@@ -16,7 +16,7 @@ import org.wikipedia.util.DateUtil;
 
 public class FeaturedArticleCard extends WikiSiteCard {
     @NonNull private PageSummary page;
-    private int age;
+    int age;
 
     public FeaturedArticleCard(@NonNull PageSummary page, int age, @NonNull WikiSite wiki) {
         super(wiki);
@@ -65,13 +65,18 @@ public class FeaturedArticleCard extends WikiSiteCard {
     }
 
     @NonNull
-    @Override public CardType type() {
+    @Override
+    public CardType type() {
         return CardType.FEATURED_ARTICLE;
     }
 
     @NonNull
     public HistoryEntry historyEntry() {
-        return new HistoryEntry(page.getPageTitle(wikiSite()), HistoryEntry.SOURCE_FEED_FEATURED);
+        return new HistoryEntry(page.getPageTitle(wikiSite()), historyEntrySource());
+    }
+
+    public int historyEntrySource() {
+        return HistoryEntry.SOURCE_FEED_FEATURED;
     }
 
     @Override
