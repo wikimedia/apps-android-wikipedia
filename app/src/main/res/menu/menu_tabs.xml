@@ -16,7 +16,7 @@
     <item android:id="@+id/menu_reading_lists"
         android:title="@string/nav_item_reading_lists"
         app:showAsAction="never" />
-    <item android:id="@+id/menu_history"
-        android:title="@string/nav_item_history"
+    <item android:id="@+id/menu_search"
+        android:title="@string/nav_item_search"
         app:showAsAction="never" />
 </menu>

@@ -254,10 +254,17 @@
             android:name=".userprofile.ContributionDetailsActivity"
             android:theme="@style/AppTheme.Page" />
 
-         <activity
+        <activity
             android:name=".commons.FilePageActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
+            android:name=".talk.TalkTopicsActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".talk.TalkTopicActivity" />
 
         <provider
             android:authorities="${applicationId}"

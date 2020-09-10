@@ -24,7 +24,7 @@ enum class NavTab constructor(private val text: Int, private val id: Int, privat
             return ReadingListsFragment.newInstance()
         }
     },
-    HISTORY(R.string.nav_item_history, View.generateViewId(), R.drawable.ic_restore_black_24dp) {
+    SEARCH(R.string.nav_item_search, View.generateViewId(), R.drawable.ic_search_themed_24dp) {
         override fun newInstance(): Fragment {
             return HistoryFragment.newInstance()
         }

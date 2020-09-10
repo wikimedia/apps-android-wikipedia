@@ -59,26 +59,28 @@
             android:layout_marginTop="8dp">
 
             <TextView
+                android:id="@+id/list_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="10sp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:text="@string/search_recent_header"
-                android:textColor="?attr/material_theme_secondary_color"
-                android:textSize="14sp" />
+                android:textColor="?attr/primary_text_color"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/recent_searches_delete_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="end"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_gravity="end|center_vertical"
                 android:clickable="true"
+                android:contentDescription="@string/menu_clear_all_history"
                 android:focusable="true"
-                android:contentDescription="@string/button_clear_all_recent_searches"
                 android:foreground="?attr/actionBarItemBackground"
                 android:longClickable="true"
                 android:scaleType="centerInside"
@@ -87,17 +89,10 @@
 
         </FrameLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?attr/material_theme_border_color" />
-
         <ListView
             android:id="@+id/recent_searches_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:divider="?attr/material_theme_border_color"
-            android:dividerHeight="0.5dp" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
