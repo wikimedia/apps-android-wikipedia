@@ -592,6 +592,8 @@
   <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
+  <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
+  <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
@@ -627,6 +629,7 @@
   <string name="feed_item_type_featured_article">Short description for Explore feed card that contains the daily featured article</string>
   <string name="feed_item_type_trending">Short description for Explore feed card that contains daily trending articles</string>
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
+  <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>

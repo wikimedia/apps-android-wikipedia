@@ -6,18 +6,17 @@
     tools:layout_width="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <com.google.android.material.textview.MaterialTextView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/footerActionButton"
+        style="@style/TransparentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
+        android:textAllCaps="false"
         android:textColor="?attr/colorAccent"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textAlignment="textStart"
-        android:drawablePadding="4dp"
-        android:background="?attr/selectableItemBackground"
-        app:drawableEndCompat="@drawable/ic_baseline_arrow_right_alt_24px"
-        app:drawableTint="?attr/colorAccent" />
+        app:icon="@drawable/ic_baseline_arrow_right_alt_24px"
+        app:iconGravity="textEnd"
+        app:iconSize="24dp"
+        app:iconTint="?attr/colorAccent" />
 </merge>

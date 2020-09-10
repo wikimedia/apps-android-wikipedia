@@ -32,6 +32,7 @@ import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
+import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
@@ -61,7 +62,6 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
@@ -207,8 +207,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                HistoryEntry entry = new HistoryEntry(new PageTitle(SiteInfoClient.getMainPageForLang(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
-                        WikipediaApp.getInstance().getWikiSite()), HistoryEntry.SOURCE_MAIN_PAGE);
+                HistoryEntry entry = new HistoryEntry(MainPageClient.getMainPageTitle(), HistoryEntry.SOURCE_MAIN_PAGE);
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
