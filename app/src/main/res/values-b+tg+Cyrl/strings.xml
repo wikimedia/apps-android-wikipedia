@@ -17,7 +17,6 @@
   <string name="nav_item_forward">Пеш</string>
   <string name="search_hint">Ҷустуҷӯи Википедия</string>
   <string name="search_hint_search_languages">Ҷустани забон</string>
-  <string name="nav_item_history">Таърих</string>
   <string name="error_network_error">Ба Интернет пайваст шуда наметавонам.</string>
   <string name="page_error_retry">Дубора саъй кунед</string>
   <string name="card_offline_error_retry">Дубора саъй кунед</string>

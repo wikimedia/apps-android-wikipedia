@@ -14,7 +14,6 @@
   <string name="nav_item_forward">Алгъа</string>
   <string name="search_hint">Википедияда излемек</string>
   <string name="search_hint_search_languages">Тилни излемек</string>
-  <string name="nav_item_history">Тарих</string>
   <string name="error_network_error">Интернетге ялгъанмай.</string>
   <string name="page_error_retry">Такрар</string>
   <string name="card_offline_error_retry">Такрарламакъ</string>

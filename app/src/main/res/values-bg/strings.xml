@@ -22,7 +22,6 @@
   <string name="search_hint_voice_search">Гласово търсене</string>
   <string name="search_hint_search_languages">Търсене на език</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтриране на списъците</string>
-  <string name="nav_item_history">История</string>
   <string name="nav_item_suggested_edits">Редакции</string>
   <string name="nav_item_more">Още</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
@@ -544,8 +543,6 @@
   <string name="view_random_card_action">Хвърляне на зара</string>
   <string name="view_next_random_article">Зареждане на друга случайна страница</string>
   <string name="view_main_page_card_title">Днес в Уикипедия</string>
-  <string name="view_main_page_card_subtitle">Главна страница на %s</string>
-  <string name="view_main_page_card_action">Преглед на главната страница</string>
   <string name="view_featured_image_card_title">Картинка на деня</string>
   <string name="view_featured_image_card_download">Изтегляне</string>
   <string name="menu_feed_card_dismiss">Скриване на картата</string>
@@ -581,7 +578,6 @@
   <string name="feed_item_type_featured_article">Дневна избрана статия в Уикипедия</string>
   <string name="feed_item_type_trending">Дневно най-четени статии</string>
   <string name="feed_item_type_featured_image">Дневна избрана картинка от Общомедия</string>
-  <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
   <string name="feed_item_type_suggested_edits">Предложения за добавяне на съдържание към Уикипедия</string>
   <string name="feed_empty_message">Няма нищо във Вашата хранилка за Откриване</string>
