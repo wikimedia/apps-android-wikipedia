@@ -19,7 +19,6 @@
   <string name="nav_item_forward">Da-heul</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="search_hint_search_languages">Klask ur yezh</string>
-  <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="card_offline_error_retry">Klask en-dro</string>
@@ -466,8 +465,6 @@
   <string name="view_random_card_action">Stlepel an diñsoù</string>
   <string name="view_next_random_article">Kargañ ur pennad all dre zegouezh</string>
   <string name="view_main_page_card_title">Hiziv e Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Pajenn bennañ d\'an %s</string>
-  <string name="view_main_page_card_action">Gwelet ar bajenn bennañ</string>
   <string name="view_featured_image_card_title">Skeudenn an deiz</string>
   <string name="view_featured_image_card_download">Pellgargañ</string>
   <string name="menu_feed_card_dismiss">Kuzhat ar gartenn-mañ</string>

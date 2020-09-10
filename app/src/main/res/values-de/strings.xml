@@ -38,7 +38,6 @@
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_voice_search">Sprachsuche</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
-  <string name="nav_item_history">Verlauf</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vorgeschlagene Bearbeitungen</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
   <string name="page_error_retry">Erneut versuchen</string>
@@ -546,8 +545,6 @@
   <string name="view_random_card_action">Würfeln</string>
   <string name="view_next_random_article">Einen anderen zufälligen Artikel laden</string>
   <string name="view_main_page_card_title">Heute auf der Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hauptseite auf %s</string>
-  <string name="view_main_page_card_action">Hauptseite ansehen</string>
   <string name="view_featured_image_card_title">Bild des Tages</string>
   <string name="view_featured_image_card_download">Herunterladen</string>
   <string name="menu_feed_card_dismiss">Diese Karte ausblenden</string>
@@ -583,7 +580,6 @@
   <string name="feed_item_type_featured_article">Täglich auf Wikipedia vorgestellter Artikel</string>
   <string name="feed_item_type_trending">Täglich meistgelesene Artikel</string>
   <string name="feed_item_type_featured_image">Täglich auf Wikimedia Commons vorgestelltes Bild</string>
-  <string name="feed_item_type_main_page">Hauptseite der Wikipedia mit täglich vorgestelltem Inhalt</string>
   <string name="feed_item_type_randomizer">Zufällige Artikel zum Lesen erzeugen</string>
   <string name="feed_item_type_suggested_edits">Vorschläge zum Hinzufügen von Inhalten zu Wikipedia</string>
   <string name="feed_empty_message">Es gibt nichts in deinem Entdecken-Feed</string>

@@ -45,7 +45,6 @@
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
-  <string name="nav_item_history">Geschiedenis</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
@@ -579,8 +578,6 @@
   <string name="view_random_card_action">De dobbelsteen gooien</string>
   <string name="view_next_random_article">Ander willekeurige pagina laden</string>
   <string name="view_main_page_card_title">Vandaag op Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hoofdpagina op %s</string>
-  <string name="view_main_page_card_action">Hoofdpagina bekijken</string>
   <string name="view_featured_image_card_title">Afbeelding van de dag</string>
   <string name="view_featured_image_card_download">Downloaden</string>
   <string name="menu_feed_card_dismiss">Deze kaart verbergen</string>
@@ -615,7 +612,6 @@
   <string name="feed_item_type_featured_article">Dagelijks uitgelichte pagina op Wikipedia</string>
   <string name="feed_item_type_trending">Dagelijkse meeste bekeken pagina\'s</string>
   <string name="feed_item_type_featured_image">Dagelijkse uitgelichte afbeelding van Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Hoofdpagina van Wikipedia met dagelijkse uitgelichte inhoud</string>
   <string name="feed_item_type_randomizer">Genereert willekeurige pagina\'s om te lezen</string>
   <string name="feed_item_type_suggested_edits">Voorstellen om content aan Wikipedia toe te voegen</string>
   <string name="feed_empty_message">Er staat niets in uw Explore-feed</string>

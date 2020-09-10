@@ -32,7 +32,6 @@
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
-  <string name="nav_item_history">היסטוריה</string>
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
@@ -583,8 +582,6 @@
   <string name="view_random_card_action">להגריל</string>
   <string name="view_next_random_article">לטעון ערך אקראי נוסף</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
-  <string name="view_main_page_card_subtitle">הדף הראשי ב־%s</string>
-  <string name="view_main_page_card_action">הצגת הדף הראשי</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
   <string name="view_featured_image_card_download">הורדה</string>
   <string name="menu_feed_card_dismiss">הסתרת הכרטיס הזה</string>
@@ -622,7 +619,6 @@
   <string name="feed_item_type_featured_article">ערך מומלץ יומי בוויקיפדיה</string>
   <string name="feed_item_type_trending">הערכים המוצגים ביותר ביום</string>
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
-  <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>

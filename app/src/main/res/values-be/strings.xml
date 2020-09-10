@@ -18,7 +18,6 @@
   <string name="wikimedia">Вікімедыя</string>
   <string name="search_hint">Пошук у Вікіпедыі</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
-  <string name="nav_item_history">Гісторыя</string>
   <string name="error_network_error">Не атрымліваецца падключыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паўтарыць</string>
   <string name="page_error_back_to_main">Вярнуцца</string>
@@ -242,7 +241,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, дзякуй</string>
   <string name="view_main_page_card_title">Сёння ў Вікіпедыі</string>
-  <string name="view_main_page_card_subtitle">Галоўная старонка на %s</string>
   <string name="view_featured_image_card_title">Выява дня</string>
   <string name="view_featured_image_card_download">Загрузіць</string>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сёння</string>
