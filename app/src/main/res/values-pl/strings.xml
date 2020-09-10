@@ -48,9 +48,9 @@
   <string name="search_hint_voice_search">Wyszukiwanie za pomocą głosu</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
-  <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
+  <string name="nav_item_search">Szukaj</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="card_offline_error_retry">Ponów próbę</string>
@@ -65,6 +65,8 @@
   <string name="history_item_delete_undo">Cofnij</string>
   <string name="notification_archive_undo">Cofnij</string>
   <string name="app_settings">Ustawienia aplikacji</string>
+  <string name="search_tab_tooltip">Stuknij ikonę ponownie, aby bezpośrednio rozpocząć wyszukiwanie frazy.</string>
+  <string name="history_list_title">Historia</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
@@ -579,8 +581,6 @@
   <string name="view_random_card_action">Rzuć kostką</string>
   <string name="view_next_random_article">Załaduj inny losowy artykuł</string>
   <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
-  <string name="view_main_page_card_subtitle">Strona główna na %s</string>
-  <string name="view_main_page_card_action">Zobacz stronę główną</string>
   <string name="view_featured_image_card_title">Grafika dnia</string>
   <string name="view_featured_image_card_download">Pobierz</string>
   <string name="menu_feed_card_dismiss">Ukryj tę kartę</string>
@@ -616,7 +616,6 @@
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
   <string name="feed_item_type_trending">Najczęściej dzisiaj odwiedzane artykuły</string>
   <string name="feed_item_type_featured_image">Wyróżniony dzisiaj obraz z Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_item_type_suggested_edits">Sugestie dotyczące dodania treści do Wikipedii</string>
   <string name="feed_empty_message">W Twoim kanale Eksploruj nie ma nic</string>
@@ -884,4 +883,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anuluj</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Anuluj</string>
+  <string name="talk_title">Dyskusja</string>
+  <string name="talk_user_title">Dyskusja: %s</string>
+  <string name="talk_new_topic">Nowy wątek</string>
+  <string name="talk_page_empty">Ta strona dyskusji jest pusta</string>
+  <string name="talk_add_reply">Odpowiedz</string>
+  <string name="talk_no_subject">(Bez tematu)</string>
+  <string name="talk_reply_subject">Temat</string>
+  <string name="talk_reply_hint">Utwórz odpowiedź</string>
+  <string name="talk_message_hint">Utwórz wiadomość</string>
+  <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
+  <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
 </resources>

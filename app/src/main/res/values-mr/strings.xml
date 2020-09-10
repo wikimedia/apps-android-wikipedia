@@ -18,7 +18,6 @@
   <string name="app_name_alpha">विकिपीडिया अल्फा</string>
   <string name="wikimedia">विकिमिडिया</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
-  <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">आंतरजालाशी जुळू शकत नाही.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="page_error_back_to_main">परत जा</string>
@@ -293,7 +292,6 @@
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
   <string name="view_random_card_title">रैंडमाइझर</string>
   <string name="view_main_page_card_title">विकिपीडियावर आज</string>
-  <string name="view_main_page_card_subtitle">%s वरील मुख्य पान</string>
   <string name="view_featured_image_card_title">आजचे चित्र</string>
   <string name="view_featured_image_card_download">अधिभारण करा</string>
   <string name="menu_feed_card_dismiss">हा पत्ता लपवा</string>

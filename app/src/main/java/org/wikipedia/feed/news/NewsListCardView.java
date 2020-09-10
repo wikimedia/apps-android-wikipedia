@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;

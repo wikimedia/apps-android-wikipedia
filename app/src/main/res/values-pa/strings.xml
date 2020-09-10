@@ -21,7 +21,6 @@
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="search_hint_voice_search">ਅਵਾਜ਼ ਰਾਹੀਂ ਖੋਜ</string>
   <string name="search_hint_search_languages">ਭਾਸ਼ਾ ਖੋਜੋ</string>
-  <string name="nav_item_history">ਅਤੀਤ</string>
   <string name="nav_item_suggested_edits" fuzzy="true">ਸੁਝਾਈਆਂ ਸੋਧਾਂ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -306,7 +305,6 @@
   <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
   <string name="view_random_card_subtitle" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਤੋੰ ਕੋਈ ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਪੜ੍ਹੋ</string>
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
-  <string name="view_main_page_card_subtitle">ਮੁੱਖ ਸਫ਼ਾ %s ਨੂੰ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
   <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>
