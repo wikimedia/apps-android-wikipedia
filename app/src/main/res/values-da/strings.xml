@@ -29,7 +29,6 @@
   <string name="nav_item_forward">Frem</string>
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="search_hint_search_languages">Søg efter et sprog</string>
-  <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_more">Mere</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>
@@ -523,8 +522,6 @@
   <string name="view_random_card_action">Kast terningen</string>
   <string name="view_next_random_article">Indlæs en anden vilkårlig artikel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
-  <string name="view_main_page_card_action">Vis hovedsiden</string>
   <string name="view_featured_image_card_title">Dagens billede</string>
   <string name="view_featured_image_card_download">Hent</string>
   <string name="menu_feed_card_dismiss">Skjul dette kort</string>
@@ -560,7 +557,6 @@
   <string name="feed_item_type_featured_article">Dagens anbefalet artikel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest sete artikler</string>
   <string name="feed_item_type_featured_image">Dagens anbefalet billede fra Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Hovedside på Wikipedia med dagens anbefalet indhold</string>
   <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
   <string name="feed_empty_message">Der er intet i dit Udforsk-feed</string>
   <string name="feed_configure_onboarding_action">Tilpas</string>

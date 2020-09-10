@@ -31,7 +31,6 @@
   <string name="search_hint_voice_search">Tìm kiếm nhập giọng nói</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="filter_hint_filter_my_lists_and_articles">Lọc các danh sách của tôi.</string>
-  <string name="nav_item_history">Lịch sử</string>
   <string name="nav_item_suggested_edits">Sửa đổi</string>
   <string name="nav_item_more">Mở rộng.</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
@@ -559,8 +558,6 @@
   <string name="view_random_card_action">Tung xúc xắc</string>
   <string name="view_next_random_article">Một bài ngẫu nhiên nữa</string>
   <string name="view_main_page_card_title">Hôm nay tại Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Trang chính vào %s</string>
-  <string name="view_main_page_card_action">Xem trang chính</string>
   <string name="view_featured_image_card_title">Hình ảnh trong ngày</string>
   <string name="view_featured_image_card_download">Tải về</string>
   <string name="menu_feed_card_dismiss">Ẩn thẻ này</string>
@@ -596,7 +593,6 @@
   <string name="feed_item_type_featured_article">Bài viết chọn lọc trong ngày tại Wikipedia</string>
   <string name="feed_item_type_trending">Các bài viết được xem nhiều nhất trong ngày</string>
   <string name="feed_item_type_featured_image">Hình ảnh chọn lọc trong ngày từ Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Trang chính của Wikipedia với các nội dung chọn lọc hằng ngày</string>
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
   <string name="feed_item_type_suggested_edits">Đề xuất thêm nội dung vào Wikipedia</string>
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>

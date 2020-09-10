@@ -43,9 +43,9 @@
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
-  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
+  <string name="nav_item_search">Navigation menu item label for search.</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -60,6 +60,8 @@
   <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
   <string name="notification_archive_undo">Button label to undo the operation of archiving a notification.\n{{Identical|Undo}}</string>
   <string name="app_settings">Button text to take user to app settings screen</string>
+  <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
+  <string name="history_list_title">Label text for history items list.</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="dialog_message_clear_history_yes">Affirmative answer to clear the browsing history, as well close any tabs that are open.\n{{Identical|Yes}}</string>
@@ -592,8 +594,6 @@
   <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
-  <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
-  <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
@@ -629,7 +629,6 @@
   <string name="feed_item_type_featured_article">Short description for Explore feed card that contains the daily featured article</string>
   <string name="feed_item_type_trending">Short description for Explore feed card that contains daily trending articles</string>
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
-  <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
@@ -955,4 +954,15 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="talk_title">Title of menu item that leads to the talk page of the user.</string>
+  <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.</string>
+  <string name="talk_new_topic">Button label for creating a new talk topic.</string>
+  <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
+  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.</string>
+  <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
+  <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
+  <string name="talk_reply_hint">Hint for text field for composing a reply to the current talk page topic.</string>
+  <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
+  <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
+  <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
 </resources>

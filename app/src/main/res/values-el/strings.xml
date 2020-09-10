@@ -27,7 +27,6 @@
   <string name="search_hint_voice_search">Εισαγωγή φωνητικής αναζήτησης</string>
   <string name="search_hint_search_languages">Αναζήτηση για γλώσσα</string>
   <string name="filter_hint_filter_my_lists_and_articles">Φιλτράρισμα των λιστών μου</string>
-  <string name="nav_item_history">Ιστορικό</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Προτεινόμενες τροποποιήσεις</string>
   <string name="nav_item_more">Περισσότερα</string>
   <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>
@@ -539,8 +538,6 @@
   <string name="view_random_card_action">Ρίξτε το ζάρι</string>
   <string name="view_next_random_article">Φορτώσετε ένα άλλο τυχαίο λήμμα</string>
   <string name="view_main_page_card_title">Σήμερα στη Βικιπαίδεια</string>
-  <string name="view_main_page_card_subtitle">Κύρια σελίδα στο %s</string>
-  <string name="view_main_page_card_action">Δείτε την κεντρική σελίδα</string>
   <string name="view_featured_image_card_title">Εικόνα της ημέρας</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="menu_feed_card_dismiss">Απόκρυψη αυτής της κάρτας</string>
@@ -575,7 +572,6 @@
   <string name="feed_item_type_featured_article">Καθημερινό προβεβλημμένο λήμμα στη Βικιπαίδεια</string>
   <string name="feed_item_type_trending">Καθημερινά λήμματα με τις περισσότερες προβολές</string>
   <string name="feed_item_type_featured_image">Καθημερινή προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Κύρια σελίδα της Βικιπαίδειας με καθημερινό προβεβλημμένο περιεχόμενο</string>
   <string name="feed_item_type_randomizer">Δημιουργία τυχαίων άρθρων για ανάγνωση</string>
   <string name="feed_item_type_suggested_edits">Προτάσεις για προσθήκη περιεχομένου στη Βικιπαίδεια</string>
   <string name="feed_empty_message">Δεν υπάρχει τίποτα στην ροή εξερεύνησής σας</string>

@@ -19,7 +19,6 @@
   <string name="search_hint">Nadi di Wikipedia</string>
   <string name="search_hint_voice_search">Anadi n yinekcam s taɣect</string>
   <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
-  <string name="nav_item_history">Amazray</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Asnirem yettwasumren</string>
   <string name="error_network_error">Ur izmir ara ad yeqqen ar Internet.</string>
   <string name="page_error_retry">Ɛref̣ tikelt-nniḍen</string>
@@ -484,8 +483,6 @@
   <string name="view_random_card_subtitle">Ɣeṛ amagrad agacuran si Wikipedia</string>
   <string name="view_next_random_article">Sali-d amagrad nniden agacuran</string>
   <string name="view_main_page_card_title">Ass-a di Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Asebter agejdan di %s</string>
-  <string name="view_main_page_card_action">Sken asebter agejdan</string>
   <string name="view_featured_image_card_title">Tugna n wass</string>
   <string name="view_featured_image_card_download">Sider</string>
   <string name="menu_feed_card_dismiss">Ffer takarḍa-agi</string>

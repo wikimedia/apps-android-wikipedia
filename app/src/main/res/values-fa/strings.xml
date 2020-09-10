@@ -46,7 +46,6 @@
   <string name="nav_item_forward">جلو</string>
   <string name="search_hint">جستجو در ویکی‌پدیا</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
-  <string name="nav_item_history">تاریخچه</string>
   <string name="nav_item_suggested_edits" fuzzy="true">ویرایش‌های پیشنهادی</string>
   <string name="error_network_error">امکان اتصال به اینترنت وجود ندارد.</string>
   <string name="page_error_retry">تلاش دوباره</string>
@@ -554,8 +553,6 @@
   <string name="view_random_card_action">تاس را بیندازید</string>
   <string name="view_next_random_article">بارگیری مقالهٔ تصادفی دیگر</string>
   <string name="view_main_page_card_title">امروز در ویکی‌پدیا</string>
-  <string name="view_main_page_card_subtitle">صفحه اصلی در%s</string>
-  <string name="view_main_page_card_action">دیدن صفحه اصلی</string>
   <string name="view_featured_image_card_title">تصویر روز</string>
   <string name="view_featured_image_card_download">بارگیری</string>
   <string name="menu_feed_card_dismiss">مخفی کردن این کارت</string>
@@ -591,7 +588,6 @@
   <string name="feed_item_type_featured_article">مقالات ویژهٔ هر روز ویکی‌پدیا</string>
   <string name="feed_item_type_trending">مقالات پربازدید</string>
   <string name="feed_item_type_featured_image">تصویر روز ویکی‌انبار</string>
-  <string name="feed_item_type_main_page">صفحهٔ اصلی ویکی‌پدیا با متن مقالهٔ روز</string>
   <string name="feed_item_type_randomizer">مقالهٔ تصادفی برای خواندن</string>
   <string name="feed_item_type_suggested_edits">پیشنهادهایی برای افزودن محتوا به ویکی‌پدیا</string>
   <string name="feed_empty_message">در خوراک جستجویتان چیزی وجود ندارد.</string>

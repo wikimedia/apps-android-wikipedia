@@ -15,7 +15,6 @@
   <string name="search_hint">Pretražite Vikipediju</string>
   <string name="search_hint_voice_search">Pretraživanje pomoću glasovnog unosa</string>
   <string name="search_hint_search_languages">Pretražite jezike</string>
-  <string name="nav_item_history">Istorija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Predložene izmene</string>
   <string name="error_network_error">Nije moguće povezati se sa internetom.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
@@ -514,8 +513,6 @@
   <string name="view_random_card_action">Baci kocku</string>
   <string name="view_next_random_article">Učitaj drugi slučajni članak</string>
   <string name="view_main_page_card_title">Danas na Vikipediji</string>
-  <string name="view_main_page_card_subtitle">Glavna strana %s</string>
-  <string name="view_main_page_card_action">Prikaži glavnu stranu</string>
   <string name="view_featured_image_card_title">Slika dana</string>
   <string name="view_featured_image_card_download">Preuzmi</string>
   <string name="menu_feed_card_dismiss">Sakrij ovu karticu</string>
@@ -550,7 +547,6 @@
   <string name="feed_item_type_featured_article">Izabrani članak dana na Vikipediji</string>
   <string name="feed_item_type_trending">Najčitaniji članci za danas</string>
   <string name="feed_item_type_featured_image">Izabrana slika dana sa Vikiostave</string>
-  <string name="feed_item_type_main_page">Glavna strana Vikipedije sa sadržajem dana</string>
   <string name="feed_item_type_randomizer">Generišite slučajne članke za čitanje</string>
   <string name="feed_item_type_suggested_edits">Predlozi za dodavanje sadržaja na Vikipediji</string>
   <string name="feed_empty_message">Vaš fid „Istraži“ je prazan</string>

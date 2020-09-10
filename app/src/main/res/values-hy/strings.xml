@@ -18,7 +18,6 @@
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
   <string name="search_hint_voice_search">Ձայնային որոնում</string>
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
-  <string name="nav_item_history">Պատմություն</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>

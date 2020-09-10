@@ -20,7 +20,6 @@
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
-  <string name="nav_item_history">ისტორია</string>
   <string name="nav_item_suggested_edits" fuzzy="true">შემოთავაზებული რედაქტირებები</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
@@ -346,8 +345,6 @@
   <string name="view_random_card_subtitle">გადაფურცლეთ ვიკიპედიის შემთხვევითი სტატიების წასაკითხად.</string>
   <string name="view_random_card_action">გააგორეთ კამათელი</string>
   <string name="view_main_page_card_title">დღეს ვიკიპედიაში</string>
-  <string name="view_main_page_card_subtitle">მთავარი გვერდი %s-ზე</string>
-  <string name="view_main_page_card_action">მთავარი გვერდის ნახვა</string>
   <string name="view_featured_image_card_title">დღის სურათი</string>
   <string name="view_featured_image_card_download">გადმოწერა</string>
   <string name="menu_feed_card_dismiss">ამ ბარათის დამალვა</string>

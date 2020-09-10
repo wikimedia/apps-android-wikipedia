@@ -49,9 +49,10 @@
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="search_hint_voice_search">Ricerca vocale</string>
   <string name="search_hint_search_languages">Cerca una lingua</string>
-  <string name="nav_item_history">Cronologia</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Cerca negli elenchi</string>
   <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">Altro</string>
+  <string name="nav_item_search">Cerca</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="card_offline_error_retry">Riprova</string>
@@ -66,6 +67,8 @@
   <string name="history_item_delete_undo">Annulla</string>
   <string name="notification_archive_undo">Annulla</string>
   <string name="app_settings">Impostazioni dell\'applicazione</string>
+  <string name="search_tab_tooltip">Clicca di nuovo l\'icona per iniziare direttamente una ricerca.</string>
+  <string name="history_list_title">Cronologia</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
@@ -203,6 +206,7 @@
   <string name="preference_title_auto_upload_crash_reports">Invia segnalazioni di errori</string>
   <string name="preference_summary_auto_upload_crash_reports">Consenti all\'applicazione di inviare automaticamente i rapporti sugli arresti anomali a un fornitore di servizi di terze parti, in modo da poter rivedere il tuo arresto anomalo e correggere l\'errore più velocemente e più facilmente.</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
+  <string name="history_filter_list_hint">Cerca nella cronologia</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>
@@ -403,6 +407,7 @@
   <string name="reading_list_article_already_exists_message">Tutto bene! %1$s contiene già %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tutto bene! %s contiene già tutte le voci.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
+  <string name="reading_list_add_to_list_button">Aggiungi all\'elenco</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 voce, %2$.2f MB</item>
     <item quantity="other">%1$d voci, %2$.2f MB</item>
@@ -586,8 +591,6 @@
   <string name="view_random_card_action">Lancia i dadi</string>
   <string name="view_next_random_article">Carica un\'altra voce a caso</string>
   <string name="view_main_page_card_title">Oggi su Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Pagina principale del %s</string>
-  <string name="view_main_page_card_action">Visualizza la pagina principale</string>
   <string name="view_featured_image_card_title">Immagine del giorno</string>
   <string name="view_featured_image_card_download">Scarica</string>
   <string name="menu_feed_card_dismiss">Nascondi questa scheda</string>
@@ -623,7 +626,6 @@
   <string name="feed_item_type_featured_article">Voce del giorno su Wikipedia</string>
   <string name="feed_item_type_trending">Voci più viste al giorno</string>
   <string name="feed_item_type_featured_image">Immagine in primo piano quotidiana di Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
   <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
   <string name="feed_empty_message">Non c\'è nulla nel tuo feed Esplora</string>
@@ -929,4 +931,10 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annulla</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Annulla</string>
+  <string name="talk_title">Discussione</string>
+  <string name="talk_user_title">Discussione: %s</string>
+  <string name="talk_new_topic">Nuovo argomento</string>
+  <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
+  <string name="talk_add_reply">Rispondi</string>
+  <string name="talk_no_subject">(Nessun oggetto)</string>
 </resources>
