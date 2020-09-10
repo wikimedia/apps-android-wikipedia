@@ -80,6 +80,9 @@
                     app:iconTint="?attr/colorAccent"/>
 
             </com.google.android.flexbox.FlexboxLayout>
+
         </LinearLayout>
+
     </org.wikipedia.views.WikiCardView>
+    
 </LinearLayout>
