@@ -126,9 +126,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void header(@NonNull FeaturedArticleCard card) {
         headerView.setTitle(card.title())
-                .setSubtitle(card.subtitle())
-                .setImage(R.drawable.ic_star_black_24dp)
-                .setImageCircleColor(R.color.yellow50)
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
