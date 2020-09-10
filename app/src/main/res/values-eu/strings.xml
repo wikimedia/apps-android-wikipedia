@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Amaia
 * An13sa
 * Asierog
@@ -25,9 +26,7 @@
   <string name="nav_item_forward">Aurrera</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_voice_search">Ahotsaren bidez bilatu</string>
-  <string name="search_hint_search_history">Bilatu historia</string>
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
-  <string name="search_hint_search_my_lists_and_articles">Bilatu nire zerrendatan eta artikuluetan</string>
   <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Gomendatutako aldaketak</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
@@ -179,7 +178,6 @@
   <string name="preference_title_auto_upload_crash_reports">Bidali akatsen txostenak</string>
   <string name="preference_summary_auto_upload_crash_reports">Baimendu aplikazioa kraskadurari buruzko txostenak hirugarrenen zerbitzu-hornitzaile bati automatikoki bidaltzea, zure kraskadura berrikusteko eta akatsak azkarrago eta errazago konpondu ahal izateko.</string>
   <string name="editing_error_spamblacklist">Blokeatutako domeinuen (%s) linkak detektatu dira. Mesedez, ezaba itzazu eta berriz saiatu zaitez.</string>
-  <string name="history_search_list_hint">Bilatu historia</string>
   <string name="error_can_not_process_link">Ezin izan da esteka erakutsi</string>
   <string name="page_protected_autoconfirmed">Orri hau  erdi babestua dago.</string>
   <string name="page_protected_sysop">Orri hau erabat babestua dago.</string>
@@ -264,7 +262,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Baimendu</string>
   <string name="read_more_section">Irakurri gehiago</string>
   <string name="about_article_section">Artikulu honi buruz</string>
-  <string name="menu_gallery_visit_page">Joan fitxategiaren orrira</string>
+  <string name="menu_gallery_visit_image_page">Joan fitxategiaren orrira</string>
   <string name="gallery_error_draw_failed">Ezin da irudia marraztu.</string>
   <string name="license_title">%s-entzako lizentzia</string>
   <string name="gallery_menu_share">Partekatu</string>
@@ -331,8 +329,6 @@
   <string name="crash_report_relaunch_or_quit">Sentitzen dugu, Wikipedia aplikazioak errorea jasan du eta eten egin da.\n\nBerriro hasi ala irten nahiko zenuke?</string>
   <string name="crash_report_relaunch">Berriro ere hasi</string>
   <string name="crash_report_quit">Irten</string>
-  <string name="article_menu_bar_bookmark">Artikulu hau gehitu irakurtze zerrendara</string>
-  <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_header_edit_hint">Aldatu...</string>
   <string name="article_header_edit_description">Artikuluaren deskribapena aldatu</string>
   <string name="article_header_edit_lead_section">Sarrera aldatu</string>
@@ -429,7 +425,6 @@
   <string name="split_reading_list_message">Irakurketa zerrenda bakoitzeko %d artikuluen muga dago. Muga gainditu dituzten jada existitzen diren zerrendak beste zerrendatan banatu dira.</string>
   <string name="reading_list_article_limit_message">Ezin da zerrenda honetara gehitu. %2$d artikulu zerrenda bakoitzeko %1$s gatik mugara iritsi zara.</string>
   <string name="reading_lists_limit_message">Ezin duzu beste zerrenda sortu. 100 irakurketa zerrenden muga kontu bakoitzeko jada asetu duzu.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Irakurketa zerrendak sinkronizatu&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Irakurketa zerrendak gailu guztietan sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan, zerrendak gorde ahal izateko.</string>
   <string name="reading_lists_menu_create_list">Zerrenda berria sortu</string>
   <string name="reading_lists_menu_sort_by">Honen arabera sailkatu</string>
   <string name="reading_lists_refresh_sync_option">Sinkronizatzea freskatu</string>
@@ -524,7 +519,6 @@
   <string name="view_continue_reading_card_subtitle_today">gaur</string>
   <string name="view_continue_reading_card_subtitle_read_date">Irakurri %s</string>
   <string name="view_announcement_card_negative_action">Ez, eskerrik asko</string>
-  <string name="onboarding_negative_action">Ez, eskerrik asko</string>
   <string name="view_offline_card_text">Edukia ezin da azaldu konexiorik gabe.</string>
   <string name="view_featured_article_card_title">Nabarmendutako artikulua</string>
   <string name="view_featured_article_footer_save_button_label">Gorde</string>
@@ -585,7 +579,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Blokeatua dago %d artikulu deskribapen aldatu dituzun arte</string>
   <string name="suggested_edits_task_multilingual_negative">Ez da niretzat</string>
   <string name="suggested_edits_task_multilingual_positive">Hizkuntzak gehitu</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fitxategia</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fitxategia</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Egilea</string>
   <string name="suggested_edits_image_caption_summary_title_source">Jatorria</string>

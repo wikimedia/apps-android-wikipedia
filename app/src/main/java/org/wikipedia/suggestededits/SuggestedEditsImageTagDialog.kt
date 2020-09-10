@@ -117,7 +117,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     private inner class SearchTextWatcher : TextWatcher {
-        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) { }
+        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {}
 
         override fun onTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {
             currentSearchTerm = text.toString()
@@ -125,7 +125,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             imageTagsSearchText.postDelayed(searchRunnable, 500)
         }
 
-        override fun afterTextChanged(editable: Editable) { }
+        override fun afterTextChanged(editable: Editable) {}
     }
 
     private fun requestResults(searchTerm: String) {
@@ -172,7 +172,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         callback()?.onSearchDismiss(currentSearchTerm)
     }
 
-    private inner class ResultItemHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    private inner class ResultItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(item: MwQueryPage.ImageLabel) {
             itemView.findViewById<TextView>(R.id.labelName).text = item.label
             itemView.findViewById<TextView>(R.id.labelDescription).text = item.description

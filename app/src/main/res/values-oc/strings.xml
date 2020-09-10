@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * COMISSIONTOPOC
 * Cedric31
 * Envlh
@@ -15,7 +16,6 @@
   <string name="app_name_alpha">Wikipèdia Alfa</string>
   <string name="wikimedia">Wikimèdia</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
-  <string name="search_hint_search_history">Recercar dins l\'istoric</string>
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Impossible de se connectar a Internet.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
@@ -97,7 +97,6 @@
   <string name="preferences_privacy_settings_heading">Confidencialitat</string>
   <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
   <string name="preference_title_auto_upload_crash_reports">Mandar de rapòrts d’incident</string>
-  <string name="history_search_list_hint">Recercar dins l\'istoric</string>
   <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>
   <string name="page_protected_autoconfirmed">Aquesta pagina es estada semiprotegida.</string>
   <string name="page_protected_sysop">Aquesta pagina es estada entièrament protegida.</string>
@@ -153,7 +152,7 @@
   <string name="dialog_close_description">Tampar</string>
   <string name="preference_title_show_images">Veire los imatges</string>
   <string name="read_more_section">Ne saber mai</string>
-  <string name="menu_gallery_visit_page">Anar a la pagina del fichièr</string>
+  <string name="menu_gallery_visit_image_page">Anar a la pagina del fichièr</string>
   <string name="gallery_error_draw_failed">Impossible de dessenhar l’imatge.</string>
   <string name="license_title">Licéncia per la bibliotèca %s</string>
   <string name="gallery_menu_share">Partejar</string>
@@ -189,8 +188,6 @@
   <string name="crash_report_activity_title">Error de l\'aplicacion</string>
   <string name="crash_report_relaunch">Reaviar</string>
   <string name="crash_report_quit">Quitar</string>
-  <string name="article_menu_bar_bookmark">Apondre aqueste article a una lista de lectura</string>
-  <string name="article_menu_bar_share">Partejar lo ligam cap a la pagina</string>
   <string name="article_header_edit_hint">Modificar...</string>
   <string name="article_header_edit_description" fuzzy="true">Modificar la descripcion del títol</string>
   <string name="article_header_edit_lead_section">Modificar l\'introduccion</string>
@@ -253,6 +250,8 @@
   <string name="description_edit_help_about_wikidata">A prepaus de Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_too_short">Lo tèxt es tròp cort.</string>
+  <string name="description_starts_with_article" fuzzy="true">Comencetz pas los articles amb « a » o « lo ».</string>
   <string name="description_edit_success_saved" fuzzy="true">Descripcion publicada !</string>
   <string name="description_edit_success_done">Fait</string>
   <string name="description_edit_success_did_you_know">O sabiatz ?</string>

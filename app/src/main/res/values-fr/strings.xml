@@ -54,9 +54,8 @@
   <string name="nav_item_forward">Suivant</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
   <string name="search_hint_voice_search">Rechercher vocalement</string>
-  <string name="search_hint_search_history">Rechercher dans l’historique</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
-  <string name="search_hint_search_my_lists_and_articles">Rechercher dans mes listes et articles</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
   <string name="nav_item_history">Historique</string>
   <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_more">Plus</string>
@@ -87,7 +86,9 @@
   <string name="edit_section_find_in_page">Trouver dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
+  <string name="menu_page_add_to_default_list">Enregistrer</string>
   <string name="feed_card_add_to_list">Ajouter à la liste de lecture</string>
+  <string name="feed_card_add_to_default_list">Enregistrer</string>
   <string name="menu_page_share">Partager le lien</string>
   <string name="menu_page_open_a_new_tab">Ouvrir un nouvel onglet</string>
   <string name="menu_page_reading_lists">Listes de lecture</string>
@@ -209,7 +210,7 @@
   <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
   <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer automatiquement les rapports d’incident à un fournisseur de services tiers, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
   <string name="editing_error_spamblacklist">Détection de liens vers des domaines bloqués (%s) . Veuillez les supprimer et réessayer.</string>
-  <string name="history_search_list_hint">Rechercher dans l’historique</string>
+  <string name="history_filter_list_hint">Filtrer l’historique</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
@@ -297,7 +298,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
   <string name="read_more_section">En savoir plus</string>
   <string name="about_article_section">À propos de cet article</string>
-  <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
+  <string name="menu_gallery_visit_image_page">Aller à la page du fichier</string>
   <string name="gallery_error_draw_failed">Impossible d’afficher l’image.</string>
   <string name="license_title">Licence pour la bibliothèque %s</string>
   <string name="gallery_menu_share">Partager</string>
@@ -358,6 +359,10 @@
   <string name="location_permissions_enable_prompt">Activer les droits de géolocalisation pour voir les endroits proches de vous.</string>
   <string name="location_permissions_enable_action">Activer</string>
   <string name="error_webview_updating">Le WebView du système Android est actuellement en cours de mise à jour. Veuillez réessayer dans un moment.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d sélectionné</item>
+    <item quantity="other">%d sélectionnés</item>
+  </plurals>
   <string name="multi_select_items_selected">%d sélectionné</string>
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
@@ -377,8 +382,11 @@
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
   <string name="crash_report_quit">Quitter</string>
-  <string name="article_menu_bar_bookmark">Ajouter cet article à une liste de lecture</string>
-  <string name="article_menu_bar_share">Partager le lien vers la page</string>
+  <string name="article_menu_bar_save_button">Enregistrer</string>
+  <string name="article_menu_bar_language_button">Langue</string>
+  <string name="article_menu_bar_search_button">Rechercher</string>
+  <string name="article_menu_bar_theme_button">Thème</string>
+  <string name="article_menu_bar_contents_button">Contenu</string>
   <string name="article_header_edit_hint">Modifier...</string>
   <string name="article_header_edit_description">Modifier la description de l’article</string>
   <string name="article_header_edit_lead_section">Modifier l’introduction</string>
@@ -400,10 +408,20 @@
   <string name="reading_list_create_new">Créer un nouveau</string>
   <string name="reading_list_title_exists">La liste de lecture « %s » existe déjà.</string>
   <string name="reading_list_article_added_to_named">%1$s ajouté à %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">%s enregistré. Voulez-vous l’ajouter à une liste ?</string>
   <string name="reading_list_article_moved_to_named">%1$s déplacé vers %2$s .</string>
   <string name="reading_list_article_already_exists_message">Tout est bon ! %1$s contient déjà %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tout va bien ! %s contient déjà tous les articles.</string>
   <string name="reading_list_added_view_button">Afficher la liste</string>
+  <string name="reading_list_add_to_list_button">Ajouter à la liste</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 article, %2$.2f Mo</item>
+    <item quantity="other">%1$d articles, %2$.2f Mo</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d sur 1 article disponible hors ligne, %3$.2f Mo</item>
+    <item quantity="other">%1$d sur %2$d articles disponibles hors ligne, %3$.2f Mo</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f Mo</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f Mio</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d de 1 article disponible hors ligne, %2$.2f Mio</string>
@@ -428,6 +446,10 @@
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultative)</string>
   <string name="reading_list_item_deleted">%s supprimé de la liste</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d article supprimé de la liste</item>
+    <item quantity="other">%d articles supprimés de la liste</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d articles supprimés de la liste</string>
   <string name="reading_lists_item_deleted">%s supprimé des listes</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
@@ -458,6 +480,8 @@
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
   <string name="reading_lists_login_reminder_text">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
+  <string name="reading_lists_login_button">Connexion / rejoindre Wikipédia</string>
+  <string name="reading_lists_ignore_button">Pas maintenant</string>
   <string name="reading_lists_confirm_remote_delete_yes">Oui</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
@@ -486,7 +510,6 @@
   <string name="reading_list_move_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
   <string name="reading_list_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
   <string name="reading_lists_limit_message">Impossible de créer une autre liste. Vous avez atteint la limite de 100 listes de lecture par compte.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchroniser les listes de lecture&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
   <string name="reading_lists_menu_create_list">Créer une nouvelle liste</string>
   <string name="reading_lists_menu_sort_by">Trier par</string>
   <string name="reading_lists_refresh_sync_option">Rafraîchir la synchronisation</string>
@@ -592,6 +615,7 @@
   <string name="menu_feed_overflow_label">Plus d’options</string>
   <string name="feed_featured_image_share_subject">Image sélectionnée de Wikimedia Commons</string>
   <string name="feed">Explorer</string>
+  <string name="home">Accueil</string>
   <string name="most_read_list_card_title">Tendance</string>
   <string name="view_static_card_icon_content_description">Icône de la carte</string>
   <string name="view_card_news_title">Dans l’actualité</string>
@@ -602,7 +626,6 @@
   <string name="view_continue_reading_card_subtitle_today">aujourd’hui</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lire %s</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
-  <string name="onboarding_negative_action">Non merci</string>
   <string name="view_offline_card_text">Le contenu ne peut être chargé hors connexion.</string>
   <string name="view_featured_article_card_title">Article vedette</string>
   <string name="view_featured_article_footer_save_button_label">Enregistrer</string>
@@ -655,12 +678,18 @@
   <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier les descriptions d’article ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description de l\'article, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">commence généralement par une lettre minuscule</string>
+  <string name="description_edit_voice_input_description">Entrée voix</string>
+  <string name="description_too_short">Le texte est trop court.</string>
+  <string name="description_ends_with_punctuation">Le texte ne doit pas se terminer par une ponctuation.</string>
+  <string name="description_starts_with_article">Éviter de commencer avec des articles comme « un » ou « le ».</string>
+  <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description d’article publiée !</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l’article publiée ! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Légende de l’image publiée !</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Légende de l\'image publiée ! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Balise(s) de l’image publiée(s) !</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Cela vous a plu ? Aidez-nous à en ajouter davantage.</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
@@ -671,10 +700,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à éditer</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
-  <string name="suggested_edits_add_descriptions">Ajouter des descriptions d’articles</string>
-  <string name="suggested_edits_translate_descriptions">Traduire les descriptions de l’article</string>
-  <string name="suggested_edits_add_image_captions">Ajouter les légendes aux images</string>
-  <string name="suggested_edits_translate_image_captions">Traduire les légendes des images</string>
+  <string name="suggested_edits_describe_articles">Décrire les articles</string>
+  <string name="suggested_edits_caption_images">Légende d’images</string>
   <string name="suggested_edits_tag_images">Marquer les images</string>
   <string name="suggested_edits_review_description">Relire la description de l’article</string>
   <string name="suggested_edits_add_description_button">Ajouter une description</string>
@@ -701,7 +728,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Verrouillé tant que vous n’aurez pas modifié %d descriptions d’articles (vérifiées)</string>
   <string name="suggested_edits_task_multilingual_negative">Pas pour moi</string>
   <string name="suggested_edits_task_multilingual_positive">Ajouter des langues</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fichier</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fichier</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiste</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source</string>
@@ -717,7 +744,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Démarrer</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Légende de l’image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Description de l’image (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fichier</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fichier</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiste</string>
   <string name="suggested_edits_image_preview_dialog_tags">Balises</string>
   <string name="suggested_edits_image_preview_dialog_date">Date</string>
@@ -726,6 +753,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Plus d’informations</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Page du fichier sur Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Page du fichier sur Wikipédia</string>
+  <string name="suggested_edits_article_cta_image_tags">Ajouter des balises d’image</string>
   <string name="suggested_edits_article_cta_image_caption">Ajouter la légende de l’image</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Ajouter une légende d’image (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Afficher</string>
@@ -743,7 +771,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Marquer les images permet de les retrouver plus facilement.</string>
   <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous faciliterez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia dans ses articles.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
-  <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
   <string name="suggested_edits_image_tags_task_detail">Ajouter des balises personnalisées à une image pour la retrouver plus facilement.</string>
   <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_published_list">Balises publiées</string>
@@ -753,6 +780,7 @@
   <string name="suggested_edits_image_tags_add_tag">Ajouter une balise</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
   <string name="suggested_edits_image_captions_task_detail">Décrire une image pour aider les lecteurs à comprendre sa signification et son contexte.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Résumer un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions avec Modifications suggérées.</string>
@@ -775,6 +803,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suffisant</string>
   <string name="suggested_edits_quality_poor_text">Faible</string>
   <string name="suggested_edits_quality_bad_text">Mauvais</string>
+  <string name="suggested_edits_label">Modifications suggérées</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>
@@ -803,6 +832,10 @@
   <string name="suggested_edits_contribution_image_label">Image</string>
   <string name="suggested_edits_contribution_article_label">Article</string>
   <string name="suggested_edits_contribution_views">%s vues</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Déjà vu une fois dans les 30 derniers jours.</item>
+    <item quantity="other">Déjà vu %s fois dans les 30 derniers jours.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Vu %s fois dans les 30 derniers jours.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Vous avez ajouté %d balise</item>
@@ -810,16 +843,28 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hier</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Vous avez fait une contribution à Wikipédia en utilisant Modifications suggérées. Merci !</item>
+    <item quantity="other">Vous avez fait %d contributions à Wikipédia en utilisant Modifications suggérées. Merci !</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Vous avez édité pendant un jour complet. Continuez, %2$s !</item>
+    <item quantity="other">Vous avez modifié chaque jour pendant %1$d jusqu’à présent. Continuez, %2$s !</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Vos modifications ont été vues par une personne dans les 30 derniers jours. Merci, et continuez !</item>
+    <item quantity="other">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci, et continuez !</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Vous avez fait %d contributions à Wikipédia en utilisant les modifications suggérées. Merci !</string>
   <string name="suggested_edits_rewards_edit_streak">Vous avez modifié tous les jours depuis %1$d jusqu’à présent. Continuez la série en cours, %2$s !</string>
   <string name="suggested_edits_rewards_pageviews">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci, et continuez !</string>
   <string name="suggested_edits_rewards_edit_quality">Vos modifications jusqu’à présent sont %s. Continuez ! Nous attendons vos contributions.</string>
   <string name="suggested_edits_rewards_continue_button">Poursuivre</string>
-  <string name="suggested_edits_encourage_account_creation_title">Savez-vous que tout le monde peut modifier Wikipédia ?</string>
-  <string name="suggested_edits_encourage_account_creation_message">Modifications suggérées est une nouvelle façon de modifier Wikipédia sur Android. Il aide à faire de petites contributions vitales à Wikipédia. Notre but est de rendre les modifications plus faciles et plus accessibles à tout le monde ! Connectez-vous ou rejoignez Wikipédia pour démarrer.</string>
+  <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikiipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
-  <string name="suggested_edits_contribution_current_revision_text">Votre édition est actuelle sur Wikipédia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Votre édition est actuellement visible sur Wikipédia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>
@@ -837,6 +882,8 @@
     <item quantity="other">Vous avez ajouté %d caractères</item>
   </plurals>
   <string name="file_page_activity_title">Page du fichier</string>
+  <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
+  <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

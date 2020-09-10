@@ -13,7 +13,6 @@
   <string name="page_tabs_back">Кирегә</string>
   <string name="nav_item_forward">Алга</string>
   <string name="search_hint">Википедиядә эзләү</string>
-  <string name="search_hint_search_history">Эзләү тарихы</string>
   <string name="search_hint_search_languages">Тел буенча эзләү</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error">Интернетка тоташтырып булмый.</string>
@@ -187,7 +186,6 @@
   <string name="preference_title_notification_revert">Кире кайтару</string>
   <string name="view_continue_reading_card_subtitle_today">бүген</string>
   <string name="view_announcement_card_negative_action">Юк, рәхмәт</string>
-  <string name="onboarding_negative_action">Юк, рәхмәт</string>
   <string name="view_featured_article_footer_save_button_label">Саклау</string>
   <string name="view_static_card_save_button_label">Саклау</string>
   <string name="view_featured_article_footer_saved_button_label">Сакланган</string>

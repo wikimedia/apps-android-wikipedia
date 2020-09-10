@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Anders Feder
 * Christian List
+* Dargelf
 * Dipsacus fullonum
 * Fitoschido
 * Gorbi
@@ -27,10 +28,10 @@
   <string name="page_tabs_back">Tilbage</string>
   <string name="nav_item_forward">Frem</string>
   <string name="search_hint">Søg i Wikipedia</string>
-  <string name="search_hint_search_history">Søgehistorik</string>
   <string name="search_hint_search_languages">Søg efter et sprog</string>
-  <string name="search_hint_search_my_lists_and_articles">Søg i mine lister og artikler</string>
   <string name="nav_item_history">Historik</string>
+  <string name="nav_item_suggested_edits">Redigeringer</string>
+  <string name="nav_item_more">Mere</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>
   <string name="page_error_retry">Prøv igen</string>
   <string name="card_offline_error_retry">Prøv igen</string>
@@ -58,7 +59,9 @@
   <string name="edit_section_find_in_page">Søg på siden</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
   <string name="menu_page_add_to_list">Tilføj til læseliste</string>
+  <string name="menu_page_add_to_default_list">Gem</string>
   <string name="feed_card_add_to_list">Tilføj til læseliste</string>
+  <string name="feed_card_add_to_default_list">Gem</string>
   <string name="menu_page_share">Del link</string>
   <string name="menu_page_open_a_new_tab">Åbn en ny fane</string>
   <string name="menu_page_reading_lists">Læselister</string>
@@ -115,15 +118,17 @@
   <string name="menu_login">Log på</string>
   <string name="login_activity_title">Log ind</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
-  <string name="login_success_toast" fuzzy="true">Du er nu logget på!</string>
+  <string name="login_success_toast">Du er nu logget ind!</string>
   <string name="reset_password_title">Sæt din adgangskode</string>
   <string name="reset_password_description">Du loggede på med en midlertidig kode. For at afslutte indlogning, angiv venligst din nye adgangskode her.</string>
   <string name="reset_password_hint">Ny adgangskode</string>
   <string name="reset_password_button">Gem og logind</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
+  <string name="logout_prompt">Du vil blive logget ud fra alle enheder du er logget ind på. Vil du fortsætte?</string>
   <string name="logout_dialog_cancel_button_text">Annullér</string>
   <string name="logged_out_in_background_title">Logget af</string>
+  <string name="logged_out_in_background_dialog">Du har blevet logget ud af Wikipedia. Vil du logge ind igen?</string>
   <string name="logged_out_in_background_login">Log på</string>
   <string name="logged_out_in_background_cancel">Annullér</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
@@ -177,7 +182,6 @@
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Tillad appen at sende rapporter om nedbrud til HockeyApp / en tredjeparts-serviceudbyder automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
-  <string name="history_search_list_hint">Søg i historik</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne side er beskyttet.</string>
@@ -261,7 +265,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Tillad</string>
   <string name="read_more_section">Læs mere</string>
   <string name="about_article_section">Om denne artikel</string>
-  <string name="menu_gallery_visit_page">Gå til filside</string>
+  <string name="menu_gallery_visit_image_page">Gå til filside</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne billede.</string>
   <string name="license_title">Licens for %s</string>
   <string name="gallery_menu_share">Del</string>
@@ -330,8 +334,10 @@
   <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.\n\nVil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>
-  <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>
-  <string name="article_menu_bar_share">Del link til artiklen</string>
+  <string name="article_menu_bar_save_button">Gem</string>
+  <string name="article_menu_bar_language_button">Sprog</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Indhold</string>
   <string name="article_header_edit_hint">Rediger…</string>
   <string name="article_header_edit_description">Rediger artikelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger introduktion</string>
@@ -353,6 +359,7 @@
   <string name="reading_list_title_exists">Læselisten »%s« findes allerede.</string>
   <string name="reading_list_article_added_to_named">Tilføjede %1$s til %2$s.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
+  <string name="reading_list_add_to_list_button">Tilføj til liste</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d af 1 artikler tilgængelige offline, %2$.2f MB</string>
@@ -404,6 +411,8 @@
   <string name="reading_lists_sync_reminder_action">Aktiver synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkr. læselister</string>
   <string name="reading_lists_login_reminder_text">Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
+  <string name="reading_lists_login_button">Log på / registrer dig på Wikipedia</string>
+  <string name="reading_lists_ignore_button">Ikke nu</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artiklen hentes og vil være tilgængelig lokalt når færdig.</string>
@@ -430,7 +439,6 @@
   <string name="split_reading_list_message">Der er en begrænsning på %d artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
   <string name="reading_list_article_limit_message">Kan ikke tilføje til denne liste. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
   <string name="reading_lists_limit_message">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkroniser læselister&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
   <string name="reading_lists_menu_create_list">Opret ny liste</string>
   <string name="reading_lists_menu_sort_by">Sorter efter</string>
   <string name="reading_lists_refresh_sync_option">Opdater synkronisering</string>
@@ -525,6 +533,7 @@
   <string name="menu_feed_overflow_label">Flere indstillinger</string>
   <string name="feed_featured_image_share_subject">Fremhævet billede fra Wikimedia Commons</string>
   <string name="feed">Udforsk</string>
+  <string name="home">Hjem</string>
   <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">I nyhederne</string>
@@ -535,7 +544,6 @@
   <string name="view_continue_reading_card_subtitle_today">i dag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Læs %s</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
-  <string name="onboarding_negative_action">Nej tak</string>
   <string name="view_offline_card_text">Indhold kan ikke indlæses offline.</string>
   <string name="view_featured_article_card_title">Anbefalet artikel</string>
   <string name="view_featured_article_footer_save_button_label">Gem</string>
@@ -577,6 +585,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice" fuzzy="true">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
+  <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_edit_success_saved" fuzzy="true">Beskrivelsen blev offentliggjort!</string>
   <string name="description_edit_success_encouragement">Du har lige gjort Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Færdig</string>
@@ -588,8 +597,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
-  <string name="suggested_edits_add_descriptions">Tilføj artikelbeskrivelser</string>
-  <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
+  <string name="suggested_edits_describe_articles">Beskriv artikler</string>
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
   <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
@@ -605,13 +613,15 @@
   <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
   <string name="suggested_edits_task_multilingual_negative">Ikke noget for mig</string>
   <string name="suggested_edits_task_multilingual_positive">Tilføj sprog</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Billede</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
   <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fil</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
+  <string name="suggested_edits_label">Foreslåede redigeringer</string>
   <string name="suggested_edits_learn_more">Lær mere</string>
   <string name="suggested_edits_paused_title">Sat på pause</string>
   <string name="suggested_edits_disabled_title">Deaktiveret</string>
@@ -623,6 +633,7 @@
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
   <string name="suggested_edits_rewards_continue_button">Fortsæt</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Log på / registrer dig på Wikipedia</string>
   <string name="suggested_edits_contribution_current_revision_text">Din redigering findes nu på Wikipedia</string>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Du tilføjede %d tegn</item>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Agne1992
 * Eitvys200
 * Gediminas
@@ -21,9 +22,7 @@
   <string name="nav_item_forward">Pirmyn</string>
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="search_hint_voice_search">Paieškos įvestis balsu</string>
-  <string name="search_hint_search_history">Paieškos istorija</string>
   <string name="search_hint_search_languages">Ieškoti kalbos</string>
-  <string name="search_hint_search_my_lists_and_articles">Ieškoti tarp mano sąrašų ir straipsnių</string>
   <string name="nav_item_history">Istorija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Siūlomi keitimai</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
@@ -157,7 +156,6 @@
   <string name="preference_summary_eventlogging_opt_in">Leisti Vikimedijai rinkti informaciją apie programėlės naudojimą, taip ją tobulinant</string>
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Leisti programėlei siųsti trikčių ataskaitas į „HockeyApp“ arba trečiosios šalies paslaugų teikėjams automatiškai, tam kad mes galėtume peržiūrėti klaidas ir ištaisyti jas greičiau bei lengviau.</string>
-  <string name="history_search_list_hint">Paieškos istorija</string>
   <string name="error_can_not_process_link">Neįmanoma parodyti šios nuorodos</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
   <string name="page_protected_sysop">Šis puslapis buvo visiškai apsaugotas.</string>
@@ -223,7 +221,7 @@
   <string name="preference_title_show_images">Rodyti paveikslėlius</string>
   <string name="read_more_section">Skaityti daugiau</string>
   <string name="about_article_section">Apie šį straipsnį</string>
-  <string name="menu_gallery_visit_page">Eikite į failo puslapį</string>
+  <string name="menu_gallery_visit_image_page">Eikite į failo puslapį</string>
   <string name="gallery_error_draw_failed">Negalima pavaizduoti paveikslėlio</string>
   <string name="license_title">%s licencija</string>
   <string name="gallery_menu_share">Dalintis</string>
@@ -273,8 +271,6 @@
   <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.\n\nNorėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>
   <string name="crash_report_quit">Išeiti</string>
-  <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
-  <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_header_edit_hint">Redaguoti...</string>
   <string name="article_header_edit_description">Redaguoti straipsnio aprašymą</string>
   <string name="article_header_edit_lead_section">Redaguoti įžangą</string>

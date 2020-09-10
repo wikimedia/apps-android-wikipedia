@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Ahdan
+* Akmaie Ajam
 * Arifin.wijaya
 * ArlandGa
 * BaconSenpai
@@ -36,9 +37,8 @@
   <string name="nav_item_forward">Teruskan</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="search_hint_voice_search">Pencarian input suara</string>
-  <string name="search_hint_search_history">Cari riwayat</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
-  <string name="search_hint_search_my_lists_and_articles">Cari daftar dan artikel saya</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Pilih daftar saya</string>
   <string name="nav_item_history">Riwayat</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="nav_item_more">Selebihnya</string>
@@ -191,7 +191,7 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
-  <string name="history_search_list_hint">Cari riwayat</string>
+  <string name="history_filter_list_hint">Pilih riwayat</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi sebagian.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
@@ -279,7 +279,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Izinkan</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="about_article_section">Mengenai artikel ini</string>
-  <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
+  <string name="menu_gallery_visit_image_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
   <string name="license_title">Lisensi untuk %s</string>
   <string name="gallery_menu_share">Bagikan</string>
@@ -359,8 +359,6 @@
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
   <string name="crash_report_quit">Keluar</string>
-  <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
-  <string name="article_menu_bar_share">Bagikan pranala artikel</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting deskripsi judul</string>
   <string name="article_header_edit_lead_section">Sunting pengantar</string>
@@ -465,7 +463,6 @@
   <string name="split_reading_list_message">Ada batas %d artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
   <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronkan daftar bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <string name="reading_lists_menu_create_list">Buat daftar baru</string>
   <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
   <string name="reading_lists_refresh_sync_option">Segarkan sinkronisasi</string>
@@ -581,7 +578,6 @@
   <string name="view_continue_reading_card_subtitle_today">hari ini</string>
   <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
-  <string name="onboarding_negative_action">Tidak, terima kasih</string>
   <string name="view_offline_card_text">Konten tidak dapat dimuat saat luring.</string>
   <string name="view_featured_article_card_title">Artikel pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
@@ -639,7 +635,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Deksripsi artikel diterbitkan! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Takarir diterbitkan!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Takarir diterbitkan! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Takarir telah diterbitkan!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Takarir telah diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
   <string name="description_edit_success_did_you_know">Tahukah Anda?</string>
@@ -650,10 +646,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
-  <string name="suggested_edits_add_descriptions">Tambahkan deskripsi artikel</string>
-  <string name="suggested_edits_translate_descriptions">Terjemahkan deskripsi artikel</string>
-  <string name="suggested_edits_add_image_captions">Tambahkan takarir gambar</string>
-  <string name="suggested_edits_translate_image_captions">Terjemahkan takarir gambar</string>
   <string name="suggested_edits_tag_images">Tandai gambar</string>
   <string name="suggested_edits_review_description">Tinjau deskripsi artikel</string>
   <string name="suggested_edits_add_description_button">Tambahkan deskripsi</string>
@@ -680,7 +672,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Terkunci hingga Anda telah menyunting %d deskripsi artikel (diverifikasi)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Berkas</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Berkas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Seniman/Pembuat</string>
   <string name="suggested_edits_image_caption_summary_title_author">Penulis</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
@@ -696,7 +688,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Takarir gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Deskripsi gambar (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Berkas</string>
+  <string name="suggested_edits_image_preview_dialog_image">Berkas</string>
   <string name="suggested_edits_image_preview_dialog_artist">Seniman/Pembuat</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tag</string>
   <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>
@@ -722,7 +714,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dengan menambahkan tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nKami menyarankan secara otomatis beberapa tag, Anda juga dapat menambahkan tag oleh Anda sendiri.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar.</string>
-  <string name="suggested_edits_image_tags_snackbar">Tambahkan tag gambar untuk membuatnya lebih mudah ditemukan orang lain.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis atau tambahkan milik Anda.</string>
   <string name="suggested_edits_image_tags_choose">Pilih tag yang cocok</string>
   <string name="suggested_edits_image_tags_published_list">Tag yang telah diterbitkan</string>

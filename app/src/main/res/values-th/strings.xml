@@ -25,11 +25,9 @@
   <string name="nav_item_forward">ถัดไป</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
-  <string name="search_hint_search_history">ค้นหาประวัติ</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
-  <string name="search_hint_search_my_lists_and_articles">ค้นหารายการและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">แนะนำการแก้ไข</string>
+  <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
@@ -41,12 +39,12 @@
   <string name="error_back">ย้อนกลับ</string>
   <string name="menu_clear_all_history">ล้างประวัติ</string>
   <string name="history_item_deleted">ลบ %s ออกจากประวัติแล้ว</string>
-  <string name="history_items_deleted">ลบ %d บทความออกจากประวัติแล้ว</string>
+  <string name="history_items_deleted">ลบบทความ %d เรื่องออกจากประวัติแล้ว</string>
   <string name="history_item_delete_undo">เลิกทำ</string>
   <string name="notification_archive_undo">เลิกทำ</string>
   <string name="app_settings">การตั้งค่าแอป</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
-  <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมด และปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
+  <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมดและปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
   <string name="dialog_message_clear_history_yes">ใช่</string>
   <string name="dialog_message_clear_history_no">ไม่</string>
   <string name="share_via">แบ่งปันผ่าน</string>
@@ -77,8 +75,8 @@
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
   <string name="language_count_link_text">มีให้อ่านในอีก %d ภาษา</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;\nการแก้ไขจะถูกส่งผ่านที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ &lt;a href=\"https://#login\"&gt;ลงชื่อเข้าใช้&lt;/a&gt;</string>
+  <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
+  <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
@@ -100,15 +98,15 @@
   <string name="search_history_no_results">ไม่พบผลลัพธ์ในประวัติ</string>
   <string name="edit_section_captcha_message">กรุณากรอกข้อความที่ปรากฏด้านล่าง เพื่อป้องกันสแปมที่ทำงานอัตโนมัติ</string>
   <string name="edit_section_captcha_request_an_account_message">ไม่เห็นภาพหรือไม่? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;\nขอบัญชี&lt;/a&gt;</string>
-  <string name="edit_section_captcha_hint">ทวนคำอีกครั้งจากด้านบน</string>
+  <string name="edit_section_captcha_hint">กรอกคำที่เห็นด้านบน</string>
   <string name="title_captcha">กรอก CAPTCHA</string>
   <string name="edit_section_captcha_reload">แตะ CAPTCHA เพื่อโหลดใหม่</string>
   <string name="nav_item_login">เข้าสู่ระบบวิกิพีเดีย</string>
   <string name="login_username_hint">ชื่อผู้ใช้</string>
   <string name="login_password_hint">รหัสผ่าน</string>
   <string name="account_creation_password_hint">รหัสผ่าน</string>
-  <string name="login_2fa_hint">รหัสการพิสูจน์ตัวจริงสองระดับ</string>
-  <string name="login_2fa_other_workflow_error_msg">ต้องการการพิสูจน์ตัวจริงสองระดับ! โปรดกลับไปยังกิจกรรมหลักและเข้าสู่ระบบด้วยโทเค็น 2FA ของคุณ แล้วลองอีกครั้ง</string>
+  <string name="login_2fa_hint">รหัสการยืนยันตัวตนสองขั้นตอน</string>
+  <string name="login_2fa_other_workflow_error_msg">ต้องการการยืนยันตัวตนสองขั้นตอน! โปรดกลับไปยังกิจกรรมหลักและเข้าสู่ระบบด้วยโทเค็น 2FA ของคุณ แล้วลองอีกครั้ง</string>
   <string name="onboarding_card_login">เข้าสู่ระบบ</string>
   <string name="page_editing_login">เข้าสู่ระบบ</string>
   <string name="reading_lists_sync_login">เข้าสู่ระบบ</string>
@@ -121,12 +119,12 @@
   <string name="reset_password_description">คุณเข้าสู่ระบบด้วยรหัสผ่านชั่วคราว คุณต้องตั้งรหัสผ่านใหม่ที่นี่เพื่อให้การเข้าสู่ระบบเสร็จสมบูรณ์</string>
   <string name="reset_password_hint">รหัสผ่านใหม่</string>
   <string name="reset_password_button">บันทึกและเข้าสู่ระบบ</string>
-  <string name="preference_title_logout">ลงชื่อออก</string>
+  <string name="preference_title_logout">ออกจากระบบ</string>
   <string name="toast_logout_complete">ออกจากระบบแล้ว</string>
   <string name="logout_prompt">การกระทำนี้จะทำให้อุปกรณ์อื่นที่เข้าสู่ระบบไว้ออกจากระบบทั้งหมด ต้องการทำต่อหรือไม่?</string>
   <string name="logout_dialog_cancel_button_text">ยกเลิก</string>
   <string name="logged_out_in_background_title">ออกจากระบบแล้ว</string>
-  <string name="logged_out_in_background_dialog">คุณเพิ่งจะออกจากระบบจากวิกิพีเดีย คุณต้องการจะเข้าสู่ระบบอีกครั้งหรือไม่?</string>
+  <string name="logged_out_in_background_dialog">คุณออกจากระบบจากวิกิพีเดียแล้ว คุณต้องการจะเข้าสู่ระบบอีกครั้งหรือไม่?</string>
   <string name="logged_out_in_background_login">เข้าสู่ระบบ</string>
   <string name="logged_out_in_background_cancel">ยกเลิก</string>
   <string name="history_empty_title">ไม่มีบทความที่อ่านล่าสุด</string>
@@ -158,7 +156,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">เพิ่มที่อยู่อีเมล</string>
   <string name="create_account_button">สร้างบัญชี</string>
   <string name="create_account_name_unavailable">ไม่สามารถใช้ชื่อผู้ใช้ \"%s\" ได้ กรุณาเลือกชื่ออื่น</string>
-  <string name="create_account_ip_block_message">ขออภัย ที่อยู่ไอพีของคุณในตอนนี้ถูกบล็อคจากการสร้างบัญชีใหม่</string>
+  <string name="create_account_ip_block_message">ขออภัย เลขที่อยู่ไอพีของคุณถูกระงับการสร้างบัญชีใหม่ในขณะนี้</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">รายละเอียด</string>
   <string name="preferences_general_heading">ทั่วไป</string>
@@ -179,8 +177,7 @@
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้วิกิมีเดียเก็บข้อมูลการใช้แอปของคุณเพื่อพัฒนาแอปให้ดีขึ้น</string>
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานข้อขัดข้อง</string>
   <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอปส่งรายงานข้อขัดข้องไปยังบริการของบุคคลที่สามโดยอัตโนมัติ เพื่อเราจะได้ตรวจสอบและแก้ไขปัญหาได้รวดเร็วและง่ายดายยิ่งขึ้น</string>
-  <string name="editing_error_spamblacklist">ตรวจพบลิงก์ไปยังโดเมนที่ถูกปิดกั้น (%s) กรุณาลบและลองอีกครั้ง</string>
-  <string name="history_search_list_hint">ค้นหาประวัติ</string>
+  <string name="editing_error_spamblacklist">ตรวจพบลิงก์ไปยังโดเมนที่ถูกระงับ (%s) กรุณาลบและลองอีกครั้ง</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
   <string name="page_protected_autoconfirmed">หน้านี้ถูกกึ่งป้องกัน</string>
   <string name="page_protected_sysop">หน้านี้ถูกป้องกันสมบูรณ์</string>
@@ -200,19 +197,22 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ไลบรารีที่ใช้งาน</string>
   <string name="about_contributors_heading">ผู้มีส่วนร่วม</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_translators_translatewiki">แอปนี้แปลโดยผู้แปลอาสาสมัครจาก &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
+  <string name="about_app_license">ซอร์สโค้ดอยู่ที่ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; และ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ภายใต้ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; เนื้อหาถูกเผยแพร่ภายใต้ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; เว้นแต่จะระบุเป็นอย่างอื่น</string>
   <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
+  <string name="edit_abandon_confirm">หน้านี้ถูกแก้ไขแล้ว คุณแน่ใจหรือไม่ว่าต้องการออกโดยไม่บันทึกการเปลี่ยนแปลง?</string>
   <string name="edit_abandon_confirm_yes">ใช่</string>
   <string name="edit_abandon_confirm_no">ไม่</string>
   <string name="user_blocked_from_editing_title">ถูกบล็อก</string>
-  <string name="user_logged_in_blocked_from_editing">บัญชีของคุณถูกระงับไม่ให้แก้ไขหน้าบนวิกิภาษานี้</string>
-  <string name="user_anon_blocked_from_editing">ไอพี(IP)ของคุณถูกระงับไม่ให้แก้ไขหน้าบนวิกิภาษาน</string>
+  <string name="user_logged_in_blocked_from_editing">บัญชีของคุณถูกระงับการแก้ไขในวิกินี้</string>
+  <string name="user_anon_blocked_from_editing">เลขที่อยู่ไอพีของคุณถูกระงับการแก้ไข</string>
   <string name="edit_how_page_improved">คุณปรับปรุงบทความนี้อย่างไร?</string>
   <string name="edit_next">ถัดไป</string>
   <string name="edit_done">เผยแพร่</string>
@@ -230,9 +230,13 @@
   <string name="edit_conflict_message">หน้านี้ได้ถูกแก้ไขโดยผู้ใช้คนอื่นไปแล้ว และเมื่อคุณแก้ไขจึงมีการชนกันเกิดขึ้น คุณสามารถแก้ปัญหาเบื้องต้นโดยการคัดลอกการแก้ไขของคุณ และลองโหลดหน้านี้ใหม่ แล้วแก้ไขอีกครั้ง</string>
   <string name="find_next">ค้นหาถัดไป</string>
   <string name="find_previous">ค้นหาก่อนหน้า</string>
+  <string name="abusefilter_title_warn">การแก้ไขนี้อาจเป็นการแก้ไขที่ไม่สร้างสรรค์ คุณแน่ใจหรือไม่ว่าต้องการเผยแพร่การแก้ไขนี้?</string>
   <string name="text_size_select">ขนาดอักษร</string>
   <string name="page_similar_titles">หน้าที่คล้ายกัน</string>
   <string name="search_did_you_mean">หรือคุณหมายถึง \"%s\"</string>
+  <string name="clear_recent_searches_confirm">คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติการค้นหาของคุณ?</string>
+  <string name="clear_recent_searches_confirm_yes">ใช่</string>
+  <string name="clear_recent_searches_confirm_no">ไม่</string>
   <string name="error_browser_not_found">ไม่สามารถเปิดหน้าเว็บได้ (ไม่พบแอปเบราว์เซอร์)</string>
   <string name="table_close">ปิด</string>
   <string name="dialog_close_description">ปิด</string>
@@ -241,14 +245,14 @@
   <string name="gallery_share_error">ไม่สามารถแบ่งปันรูปภาพ: %s</string>
   <string name="gallery_save_progress">กำลังดาวน์โหลดไฟล์...</string>
   <string name="gallery_save_success">บันทึกไฟล์แล้ว</string>
-  <string name="gallery_error_video_failed">ไม่สามารถเล่นวีดีโอได้</string>
+  <string name="gallery_error_video_failed">ไม่สามารถเล่นวิดีโอได้</string>
   <string name="gallery_save_image_write_permission_rationale">การบันทึกรูปภาพต้องใช้สิทธิอนุญาตให้เขียนลงในที่เก็บข้อมูลในอุปกรณ์ของคุณ</string>
   <string name="err_cannot_save_file">ไม่สามารถบันทึกไฟล์ได้</string>
   <string name="expand_refs">แตะเพื่อขยาย</string>
   <string name="gallery_uploader_unknown">ไม่ทราบผู้อัปโหลด</string>
   <string name="menu_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_close_all_tabs">ปิดแท็บทั้งหมด</string>
-  <string name="close_all_tabs_confirm">คุณแน่ใจว่าต้องการปิดแท็บทั้งหมด?</string>
+  <string name="close_all_tabs_confirm">คุณแน่ใจหรือไม่ว่าต้องการปิดแท็บทั้งหมด?</string>
   <string name="button_close_tab">ปิดแท็บ</string>
   <string name="all_tab_items_closed">ปิดแท็บทั้งหมดแล้ว</string>
   <string name="page_view_in_browser">ดูหน้าในเบราว์เซอร์</string>
@@ -268,8 +272,6 @@
   <string name="enable_location_service">เปิดใช้งาน</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_quit">ออก</string>
-  <string name="article_menu_bar_bookmark">เพิ่มบทความนี้ลงไปยังรายการอ่าน</string>
-  <string name="article_menu_bar_share">แบ่งปันลิงก์บทความ</string>
   <string name="color_theme_light">สว่าง</string>
   <string name="color_theme_dark">มืด</string>
   <string name="nav_item_reading_lists">รายการของฉัน</string>
@@ -311,13 +313,14 @@
   <string name="description_edit_translate_description" fuzzy="true">แปลคำอธิบายชื่อเรื่อง</string>
   <string name="description_edit_add_image_caption">เติมคำบรรยายภาพ</string>
   <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
-  <string name="suggested_edits_translate_image_captions">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ศิลปิน</string>
   <string name="suggested_edits_image_caption_summary_title_author">คนเขียน</string>
   <string name="suggested_edits_image_caption_summary_title_source">จุดกำเนิด</string>
+  <string name="suggested_edits_ip_blocked_message">ดูเหมือนว่าเลขที่อยู่ไอพี (หรือช่วงเลขที่อยู่ไอพี) ของคุณถูกระงับการแก้ไขวิกิพีเดีย</string>
+  <string name="suggested_edits_ip_blocked_title">เลขที่อยู่ไอพีถูกระงับ</string>
   <string name="onboarding_skip">ข้าม</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
   <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>

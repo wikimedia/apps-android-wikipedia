@@ -17,9 +17,7 @@
   <string name="nav_item_forward">Առաջ</string>
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
   <string name="search_hint_voice_search">Ձայնային որոնում</string>
-  <string name="search_hint_search_history">Որոնումների պատմություն</string>
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
-  <string name="search_hint_search_my_lists_and_articles">Որոնել իմ ցանկերում և հոդվածներում</string>
   <string name="nav_item_history">Պատմություն</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
@@ -221,7 +219,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">այսօր</string>
   <string name="view_announcement_card_negative_action">Ոչ, շնորհակալություն</string>
-  <string name="onboarding_negative_action">Ոչ, շնորհակալություն</string>
   <string name="view_featured_article_card_title">Ընտրյալ հոդված</string>
   <string name="view_featured_article_footer_save_button_label">Հիշել</string>
   <string name="view_static_card_save_button_label">Հիշել</string>
@@ -241,18 +238,17 @@
   <string name="description_edit_help_about_wikidata">Վիքիտվյալների մասին</string>
   <string name="description_edit_success_done">Արված է</string>
   <string name="description_edit_tutorial_button_label_start_editing">Սկսել խմբագրել</string>
-  <string name="suggested_edits_add_descriptions">Ավելացնել հոդվածի նկարագրություններ</string>
   <string name="suggested_edits_add_translation_button">Նոր թարգմանություն</string>
   <string name="suggested_edits_edit_translation_button">Խմբագրել թարգմանություն</string>
   <string name="suggested_edits_my_contributions">Իմ ներդրումներ</string>
   <string name="suggested_edits_task_multilingual_positive">Ավելացնել լեզուներ</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Նիշք</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Նիշք</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Նկարիչ</string>
   <string name="suggested_edits_image_caption_summary_title_author">Հեղինակ</string>
   <string name="suggested_edits_image_caption_summary_title_source">Աղբյուր</string>
   <string name="suggested_edits_image_caption_summary_title_license">Արտոնագիր</string>
   <string name="suggested_edits_image_caption_summary_title_date">Ամսաթիվ</string>
-  <string name="suggested_edits_image_preview_dialog_file">Նիշք</string>
+  <string name="suggested_edits_image_preview_dialog_image">Նիշք</string>
   <string name="suggested_edits_image_preview_dialog_artist">Նկարիչ</string>
   <string name="suggested_edits_image_preview_dialog_date">Ամսաթիվ</string>
   <string name="suggested_edits_article_cta_snackbar_action">Դիտել</string>

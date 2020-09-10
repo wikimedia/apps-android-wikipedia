@@ -732,14 +732,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
     }
 
-    public static boolean shouldShowImageTagsTooltip() {
-        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
-    }
-
-    public static void setShouldShowImageTagsTooltip(boolean enabled) {
-        setBoolean(R.string.preference_key_show_image_tags_tooltip, enabled);
-    }
-
     public static boolean shouldShowSuggestedEditsTooltip() {
         return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true);
     }
@@ -849,14 +841,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_image_zoom_tooltip_shown, show);
     }
 
-    public static boolean isSuggestedEditsImageTagsNew() {
-        return getBoolean(R.string.preference_key_suggested_edits_image_tags_new, true);
-    }
-
-    public static void setSuggestedEditsImageTagsNew(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
-    }
-
     public static boolean isSuggestedEditsReactivationPassStageOne() {
         return getBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, true);
     }
@@ -933,12 +917,36 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, enabled);
     }
 
-    public static void incrementReadingListsVisitCount() {
-        setInt(R.string.preference_key_reading_lists_visit_count, getReadingListsVisitCount() + 1);
+    public static void incrementExploreFeedVisitCount() {
+        setInt(R.string.preference_key_explore_feed_visit_count, getExploreFeedVisitCount() + 1);
     }
 
-    public static int getReadingListsVisitCount() {
-        return getInt(R.string.preference_key_reading_lists_visit_count, 0);
+    public static int getExploreFeedVisitCount() {
+        return getInt(R.string.preference_key_explore_feed_visit_count, 0);
+    }
+
+    public static int getSelectedLanguagePositionInSearch() {
+        return getInt(R.string.preference_key_selected_language_position_in_search, 0);
+    }
+
+    public static void setSelectedLanguagePositionInSearch(int position) {
+        setInt(R.string.preference_key_selected_language_position_in_search, position);
+    }
+
+    public static boolean shouldShowOneTimeSequentialUserStatsTooltip() {
+        return getBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, true);
+    }
+
+    public static void shouldShowOneTimeSequentialUserStatsTooltip(boolean show) {
+        setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, show);
+    }
+
+    public static boolean shouldShowSearchTabTooltip() {
+        return getBoolean(R.string.preference_key_show_search_tab_tooltip, true);
+    }
+
+    public static void setShowSearchTabTooltip(boolean show) {
+        setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
     }
 
     private Prefs() { }

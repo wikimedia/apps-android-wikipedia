@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Nepaboy
 * SatyamMishra
 * Sfic
@@ -14,10 +15,9 @@
   <string name="nav_item_forward">आगे</string>
   <string name="search_hint">विकिपीडिया में खोजीं</string>
   <string name="search_hint_voice_search">आवाज इनपुट से खोज करीं</string>
-  <string name="search_hint_search_history">खोज इतिहास</string>
   <string name="search_hint_search_languages">भाषा खोजल जाय</string>
-  <string name="search_hint_search_my_lists_and_articles">हमार लिस्ट आ लेख में खोजीं</string>
   <string name="nav_item_history">इतिहास</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">सुझावित संपादन</string>
   <string name="error_network_error">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
   <string name="page_error_retry">दुबारा कोसिस करीं</string>
   <string name="card_offline_error_retry">दुबारा कोसिस करीं</string>
@@ -166,7 +166,6 @@
   <string name="preference_title_auto_upload_crash_reports">क्रैश रपट भेजीं</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
   <string name="editing_error_spamblacklist">ब्लॉक डोमेन (%s) से जुड़ल कड़ी मिलल बा। इनहन के हटाईं आ दोबारा कोसिस करीं।</string>
-  <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">ई कड़ी ना देखावल जा सकल</string>
   <string name="page_protected_autoconfirmed">ई पन्ना अर्ध-सुरक्षित बा।</string>
   <string name="page_protected_sysop">ई पन्ना पूरा तरीका से सुरक्षित बा।</string>
@@ -245,7 +244,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">एलाऊ करीं</string>
   <string name="read_more_section">अउरी पढ़ीं</string>
   <string name="about_article_section">एह लेख के बारे में</string>
-  <string name="menu_gallery_visit_page">फाइल पन्ना पर जाईं</string>
+  <string name="menu_gallery_visit_image_page">फाइल पन्ना पर जाईं</string>
   <string name="gallery_error_draw_failed">चित्र ना देखावल जा सकल।</string>
   <string name="license_title">%s खातिर लाइसेंस</string>
   <string name="gallery_menu_share">साझा करीं</string>
@@ -293,8 +292,6 @@
   <string name="view_wiki_error_message_offline">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
   <string name="crash_report_activity_title">एप्लीकेशन खराबी</string>
   <string name="crash_report_quit">छोड़ के हटीं</string>
-  <string name="article_menu_bar_bookmark">एह लेख के पढ़ाई सूची में जोड़ीं</string>
-  <string name="article_menu_bar_share">लेख के लिंक शेयर करीं</string>
   <string name="article_header_edit_hint">संपादन...</string>
   <string name="article_header_edit_description">लेख के बिबरन संपादित करीं</string>
   <string name="article_header_edit_lead_section">भूमिका संपादित करीं</string>

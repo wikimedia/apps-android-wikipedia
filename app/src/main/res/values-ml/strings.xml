@@ -17,9 +17,7 @@
   <string name="page_tabs_back">പുറകോട്ട്</string>
   <string name="nav_item_forward">മുന്നോട്ട്</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
-  <string name="search_hint_search_history">തിരച്ചിൽ ചരിത്രം</string>
   <string name="search_hint_search_languages">ഒരു ഭാഷക്കായി തിരയുക</string>
-  <string name="search_hint_search_my_lists_and_articles">എന്റെ പട്ടികകളിലും ലേഖനങ്ങളിലും തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -156,7 +154,6 @@
   <string name="preference_summary_eventlogging_opt_in">താങ്കൾ എങ്ങനെയാണ് ആപ് ഉപയോഗിച്ചതെന്ന വിവരങ്ങൾ ശേഖരിച്ച് ആപ് കൂടുതൽ മെച്ചപ്പെട്ടതാക്കാൻ വിക്കിമീഡിയയെ അനുവദിക്കുക</string>
   <string name="preference_title_auto_upload_crash_reports">നാശത്തിന്റെ റിപ്പോർട്ടുകൾ അയക്കുക</string>
   <string name="editing_error_spamblacklist">തടയപ്പെട്ട ഡൊമൈനുകളിലോട്ടുള്ള കണ്ണികൾ (%s) കണ്ടെത്താനായി. ദയവായി അവ ഒഴിവാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
-  <string name="history_search_list_hint">തിരച്ചിൽ ചരിത്രം</string>
   <string name="error_can_not_process_link">ഈ കണ്ണി പ്രദർശിപ്പിക്കാനാവില്ല</string>
   <string name="page_protected_autoconfirmed">ഈ താൾ അർദ്ധ-സംരക്ഷിതമാണ്.</string>
   <string name="page_protected_sysop">ഈ താൾ പൂർണ്ണമായും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു.</string>
@@ -225,7 +222,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">അനുവദിക്കുക</string>
   <string name="read_more_section">കൂടുതൽ വായിക്കുക</string>
   <string name="about_article_section">ഈ ലേഖനത്തെക്കുറിച്ച്</string>
-  <string name="menu_gallery_visit_page">പ്രമാണത്തിന്റെ താളിലേക്ക് പോകുക</string>
+  <string name="menu_gallery_visit_image_page">പ്രമാണത്തിന്റെ താളിലേക്ക് പോകുക</string>
   <string name="gallery_error_draw_failed">ചിത്രം വരയ്ക്കാൻ കഴിഞ്ഞില്ല</string>
   <string name="license_title">%s എന്നതിന്റെ അനുമതിപത്രം</string>
   <string name="gallery_menu_share">പങ്കുവയ്ക്കുക</string>
@@ -276,8 +273,6 @@
   <string name="crash_report_relaunch_or_quit">ഞങ്ങളോട് ക്ഷമിക്കൂ, വിക്കിപീഡിയ ആപ്പ് ഒരു പിഴവ് അഭിമുഖീകരിച്ചതിനാൽ നിർത്തേണ്ടി വന്നു.\n\nപുതിയതായി തുടങ്ങാൻ താങ്കൾ ആഗ്രഹിക്കുന്നുണ്ടോ, അതോ നിർത്തുകയാണോ?</string>
   <string name="crash_report_relaunch">വീണ്ടും തുടങ്ങുക</string>
   <string name="crash_report_quit">അടയ്ക്കുക</string>
-  <string name="article_menu_bar_bookmark">ഈ ലേഖനം വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
-  <string name="article_menu_bar_share">ലേഖനത്തിന്റെ കണ്ണി പങ്കുവയ്ക്കുക</string>
   <string name="article_header_edit_hint">തിരുത്തുക...</string>
   <string name="article_header_edit_description">ലേഖനത്തിന്റെ വിവരണം തിരുത്തുക</string>
   <string name="article_header_edit_lead_section">ആമുഖം തിരുത്തുക</string>
@@ -378,7 +373,6 @@
   <string name="view_continue_reading_card_subtitle_today">ഇന്ന്</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s വായിക്കുക</string>
   <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
-  <string name="onboarding_negative_action">വേണ്ട, നന്ദി</string>
   <string name="view_featured_article_card_title">തിരഞ്ഞെടുത്ത ലേഖനം</string>
   <string name="view_featured_article_footer_save_button_label">സേവ് ചെയ്യുക</string>
   <string name="view_static_card_save_button_label">സേവ് ചെയ്യുക</string>
@@ -416,10 +410,6 @@
   <string name="description_edit_tutorial_title_descriptions">ലേഖനനത്തിന്റെ വിവരണങ്ങൾ</string>
   <string name="description_edit_tutorial_keep_it_short">ചെറുതാക്കി വെക്കുക</string>
   <string name="description_edit_tutorial_button_label_start_editing">തിരുത്തി തുടങ്ങുക</string>
-  <string name="suggested_edits_add_descriptions">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
-  <string name="suggested_edits_translate_descriptions">ലേഖനത്തിന്റെ വിവരണങ്ങൾ തർജ്ജമ ചെയ്യുക</string>
-  <string name="suggested_edits_add_image_captions">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
-  <string name="suggested_edits_translate_image_captions">ചിത്രത്തിന്റെ തലവാചകം തർജ്ജമ ചെയ്യുക</string>
   <string name="suggested_edits_review_description">ലേഖനത്തിന്റെ വിവരണം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_add_description_button">വിവരണം ചേർക്കുക</string>
   <string name="suggested_edits_edit_description_button">വിവരണം തിരുത്തുക</string>

@@ -12,22 +12,16 @@ public enum PageActionTab implements EnumCode {
             cb.onAddToReadingListTabSelected();
         }
     },
-    SHARE() {
-        @Override
-        public void select(@NonNull Callback cb) {
-            cb.onSharePageTabSelected();
-        }
-    },
     CHOOSE_LANGUAGE() {
         @Override
         public void select(@NonNull Callback cb) {
             cb.onChooseLangTabSelected();
         }
     },
-    FIND_IN_PAGE() {
+    SEARCH() {
         @Override
         public void select(@NonNull Callback cb) {
-            cb.onFindInPageTabSelected();
+            cb.onSearchTabSelected();
         }
     },
     FONT_AND_THEME() {
@@ -60,9 +54,8 @@ public enum PageActionTab implements EnumCode {
 
     public interface Callback {
         void onAddToReadingListTabSelected();
-        void onSharePageTabSelected();
         void onChooseLangTabSelected();
-        void onFindInPageTabSelected();
+        void onSearchTabSelected();
         void onFontAndThemeTabSelected();
         void onViewToCTabSelected();
         void updateBookmark(boolean pageSaved);

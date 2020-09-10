@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">@string/app_name_prod</string>
     <string name="channel" />
     <string name="appcenter_id">eb167874-c1d6-5694-30a9-bcfd71d4c24d</string>
@@ -23,11 +23,13 @@
     <!-- Long press menu -->
     <string name="menu_long_press_share_page">@string/menu_page_share</string>
     <string name="menu_long_press_add_to_list">@string/menu_page_add_to_list</string>
+    <string name="menu_long_press_add_to_default_list">@string/menu_page_add_to_default_list</string>
 
     <!-- Link preview menu -->
     <string name="menu_link_preview_copy_link">@string/menu_long_press_copy_page</string>
     <string name="menu_link_preview_share_page">@string/menu_page_share</string>
     <string name="menu_link_preview_add_to_list">@string/menu_page_add_to_list</string>
+    <string name="menu_link_preview_add_to_default_list">@string/menu_page_add_to_default_list</string>
 
     <!-- The Feed -->
     <string name="nav_item_feed">@string/feed</string>

@@ -209,7 +209,7 @@ public interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp&rvlimit=1&converttitles=")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp|ids&rvlimit=1&converttitles=")
     @NonNull Observable<MwQueryResponse> getWikiTextForSection(@NonNull @Query("titles") String title, @Query("rvsection") int section);
 
     @FormUrlEncoded
@@ -219,14 +219,16 @@ public interface Service {
 
     @FormUrlEncoded
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=edit&nocreate=")
+    @POST(MW_API_PREFIX + "action=edit")
     @SuppressWarnings("checkstyle:parameternumber")
     @NonNull Observable<Edit> postEditSubmit(@NonNull @Field("title") String title,
-                                             @Field("section") int section,
+                                             @NonNull @Field("section") String section,
+                                             @Nullable @Field("sectiontitle") String newSectionTitle,
                                              @NonNull @Field("summary") String summary,
                                              @Nullable @Field("assert") String user,
-                                             @NonNull @Field("text") String text,
-                                             @Nullable @Field("basetimestamp") String baseTimeStamp,
+                                             @Nullable @Field("text") String text,
+                                             @Nullable @Field("appendtext") String appendText,
+                                             @Field("baserevid") long baseRevId,
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("captchaid") String captchaId,
                                              @Nullable @Field("captchaword") String captchaWord);
@@ -263,8 +265,9 @@ public interface Service {
     @NonNull Observable<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
                                                     @Query("languages") @NonNull String langList);
 
-    @GET(MW_API_PREFIX + "action=wbgetclaims")
-    @NonNull Observable<Claims> getClaims(@Query("entity") @NonNull String entity);
+    @GET(MW_API_PREFIX + "action=wbgetclaims") @NonNull
+    Observable<Claims> getClaims(@Query("entity") @NonNull String entity,
+                                 @Query("property") @Nullable String property);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
@@ -306,7 +309,7 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
     @FormUrlEncoded
-    Observable<MwPostResponse> postEditEntity(@NonNull @Field("id") String id,
+    Observable<EntityPostResponse> postEditEntity(@NonNull @Field("id") String id,
                                               @NonNull @Field("token") String token,
                                               @Nullable @Field("data") String data,
                                               @Nullable @Field("summary") String summary,

@@ -5,6 +5,8 @@
 * Anders Feder
 * BaRaN6161 TURK
 * Bencemac
+* Dbrant
+* Hamilton Abreu
 * Joao Xavier
 * Kaganer
 * KuboF
@@ -18,6 +20,7 @@
 * Nike
 * Omotecho
 * Patriccck
+* Ranveig
 * Robby
 * Sandipan
 * Shirayuki
@@ -38,9 +41,8 @@
   <string name="nav_item_forward">Button label for navigating to the next page.</string>
   <string name="search_hint">Hint text for the search box</string>
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
-  <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
-  <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
@@ -71,7 +73,9 @@
   <string name="edit_section_find_in_page">Menu item for invoking Find in page on a page in edit mode.</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
+  <string name="menu_page_add_to_default_list">Menu item for adding the current page to a default reading list.</string>
   <string name="feed_card_add_to_list">Menu item for adding the a card from the feed to a reading list.</string>
+  <string name="feed_card_add_to_default_list">Menu item for adding the a card from the feed to a default reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
   <string name="menu_page_open_a_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
@@ -193,7 +197,7 @@
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
-  <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user types.</string>
+  <string name="history_filter_list_hint">Hint for textbox that searches list of items in browsing history as user types.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
   <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
@@ -264,7 +268,7 @@
   <string name="clear_recent_searches_confirm_no">Negative answer to clear the search history.\n{{Identical|No}}</string>
   <string name="error_browser_not_found">Toast message shown when we try to open an external browser but none seems to be installed.</string>
   <string name="table_infobox">Text shown on the panel which, when tapped, displays the full infobox to the user, therefore exposing a set of information usually composed of factual and short statements.</string>
-  <string name="table_other">{{Identical|More information}}</string>
+  <string name="table_other">{{Identical|Meir informasjon}}</string>
   <string name="table_close">{{Identical|Close}}</string>
   <string name="widget_name_featured_page">Name of the Widget (as seen in the Android widget picker) that displays today\'s featured page.</string>
   <string name="widget_title_featured_page">Text shown inside the widget that tells the user that the link below is today\'s featured page.</string>
@@ -281,7 +285,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Positive option of the dialog that shows the confirmation of downloading articles using mobile data.\n{{Identical|Allow}}</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.\n\nThis section shows other automatically-selected articles, similarly to how it works with \"Related Articles\" ({{msg-mw|Relatedarticles-read-more-heading}}).\n\n{{Identical|Read more}}</string>
   <string name="about_article_section">Title of section that contains information specific to the current article.</string>
-  <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
+  <string name="menu_gallery_visit_image_page">Menu label for navigating to the image page for the current image being shown in the gallery.</string>
   <string name="gallery_error_draw_failed">Error message shown when the current image could not be displayed.</string>
   <string name="license_title">Title for activity displaying the license text for a library that we use. The \"%s\" symbol is replaced with the name of the library for which the license is being shown.</string>
   <string name="gallery_menu_share">Label for menu item to share the current image.\n{{Identical|Share}}</string>
@@ -342,6 +346,10 @@
   <string name="location_permissions_enable_prompt">Message shown informing the user that if they enable the Location permission, they will be able to see places nearby.</string>
   <string name="location_permissions_enable_action">Button label for requesting to turn on location permissions.</string>
   <string name="error_webview_updating">Error informing the user that the System WebView is being updated, meaning that the app cannot be launched right now, and that the user should try again in a moment.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">Toolbar title shown when the user is selecting multiple items in a list, and one item is currently selected.</item>
+    <item quantity="other">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</item>
+  </plurals>
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
@@ -361,8 +369,11 @@
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
   <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.\n{{Identical|Quit}}</string>
-  <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
-  <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
+  <string name="article_menu_bar_save_button">Button label for saving article to a reading list.\n{{identical|Save}}</string>
+  <string name="article_menu_bar_language_button">Button label for changing the article language.\n{{identical|Language}}</string>
+  <string name="article_menu_bar_search_button">Button label for searching an article.\n{{identical|Search}}</string>
+  <string name="article_menu_bar_theme_button">Button label for changing app theme.</string>
+  <string name="article_menu_bar_contents_button">Button label for opening the table of content of the article.</string>
   <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.\n{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
@@ -384,10 +395,20 @@
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
   <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets successfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
   <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
+  <string name="reading_list_add_to_list_button">Button label to add the article to a reading list.</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">Summary shown for a reading list that contains one article. The %2$.2f parameter is replaced with the cache size of the article.</item>
+    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages in the list, and  the %2$.2f parameter is the total number of megabytes saved to disk for offline page reading.</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">Detailed description shown for a reading list that contains one article; The %1$d parameter is the number pages saved to disk for offline reading (zero or one), and the %3$.2f parameter is the number of megabytes saved to disk for this list.</item>
+    <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list, and the %3$.2f parameter is the total number of megabytes saved to disk for this list.</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of megabytes saved to disk for offline page reading. The %1$.2f symbol is replaced with the cache size of the article.</string>
   <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1)(%1$d) the number of pages in the list, 2)(%2$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
   <string name="format_reading_list_statistical_detail_singular">Detailed description shown for a reading list that contains one article (singular); this string is formatted with two arguments: 1)(%1$d) the number, zero or one, of pages saved to disk for offline reading, 2)(%2$.2f) a parameter containing the number of megabytes saved to disk for offline page reading.</string>
@@ -412,6 +433,10 @@
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">Message shown when one article is removed from a reading list.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
+  </plurals>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.\n{{Identical|Undo}}</string>
@@ -472,7 +497,6 @@
   <string name="reading_list_move_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to move the article to that list, named \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
-  <string name="feed_reading_lists_sync_onboarding_text">User education message suggesting the users to log in to reap the benefits of synced reading lists</string>
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
@@ -568,8 +592,6 @@
   <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
-  <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
-  <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
@@ -578,6 +600,7 @@
   <string name="menu_feed_overflow_label">Label for toolbar menu item that shows the user more options, such as logging in and accessing the app settings.</string>
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
+  <string name="home">Menu item label for going to the home screen in the app.</string>
   <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
@@ -588,7 +611,6 @@
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date. The word should be in lowercase if appropriate for the language.\n{{Identical|Today}}</string>
   <string name="view_continue_reading_card_subtitle_read_date">Subtitle for number of days passed since the article was last seen and shown on cards in the feed. Use the %s parameter to insert the number of days passed since the content (an article) was last seen.\n\nThe word \"read\" is either past tense, as in \"(you have) read (this) 4 days ago\", or a participle as in \"(this was) read (by you) 4 days ago\".</string>
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
-  <string name="onboarding_negative_action">Text on negative action button on onboarding screen.\n{{Identical|No Thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
   <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed\n{{Identical|Featured article}}</string>
   <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
@@ -605,7 +627,6 @@
   <string name="feed_item_type_featured_article">Short description for Explore feed card that contains the daily featured article</string>
   <string name="feed_item_type_trending">Short description for Explore feed card that contains daily trending articles</string>
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
-  <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
@@ -641,12 +662,18 @@
   <string name="description_edit_anon_limit">Dialog message that informs the user that they must log in before making edits to additional descriptions.</string>
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="description_edit_helper_text_lowercase_warning">Warning message shows the article description usually begin with a lowercase letter.</string>
+  <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
+  <string name="description_too_short">Error text shown when a description is too short.</string>
+  <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
+  <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
+  <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Message shown on a snackbar that the image caption the user just added was saved.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Message shown on a snackbar that the image caption the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Message shown on a snackbar that leads the user to the specific Suggested edits feed.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
@@ -657,10 +684,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
-  <string name="suggested_edits_add_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be added.</string>
-  <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be translated.</string>
-  <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>
-  <string name="suggested_edits_translate_image_captions">Title of screen where the user chooses images that are missing captions to be translated.</string>
+  <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
+  <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
   <string name="suggested_edits_review_description">Title of the review article description page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding article description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
@@ -687,7 +712,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Hint message to users about why the translation tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
   <string name="suggested_edits_task_multilingual_negative">Negative action button text for editing tasks.</string>
   <string name="suggested_edits_task_multilingual_positive">Positive action button text for editing tasks.</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Label for the file name field shown in suggested edit card.\n{{Identical|File}}</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Label to show the artifact type shown in suggested edit card</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>
@@ -703,7 +728,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
-  <string name="suggested_edits_image_preview_dialog_file">Label for image file name on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_image">Label for image file name on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_tags">Label for image tags detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
@@ -712,6 +737,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Text for link to more details about the image on Wikipedia page.</string>
+  <string name="suggested_edits_article_cta_image_tags">Text for call to action button on article lead image, prompting the user to add tags to the lead image.</string>
   <string name="suggested_edits_article_cta_image_caption">Text for call to action button on article lead image, prompting the user to add a caption in the current app language.</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Text for call to action button on article lead image, prompting the user to add a caption in the %s language.</string>
   <string name="suggested_edits_article_cta_snackbar_action">Button text suggesting the user to view the image</string>
@@ -729,7 +755,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Title shown on the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Body text of the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Footnote shown on the onboarding screen for adding tags to images.</string>
-  <string name="suggested_edits_image_tags_snackbar">One-time message shown to users to encourage them to start tagging images.</string>
   <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
   <string name="suggested_edits_image_tags_published_list">Title for list of tags that have been published.</string>
@@ -762,6 +787,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
   <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor</string>
   <string name="suggested_edits_quality_bad_text">Suggested edits label text indicating that the edit quality of the user is bad</string>
+  <string name="suggested_edits_label">Label text for suggested edits.</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Label text for indicating how many contributions a user has made. For One contribution.</item>
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
@@ -790,40 +816,52 @@
   <string name="suggested_edits_contribution_image_label">Text label that indicates that the contribution is to an image file.\n{{identical|File}}</string>
   <string name="suggested_edits_contribution_article_label">Text label that indicates that the contribution is to an article.\n{{identical|Article}}</string>
   <string name="suggested_edits_contribution_views">Text label indicating that the associated data indicates the number of views that the contribution has. %s represents the type of contribution.</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Indicates that the contributions have been seen once in the past 30 days.</item>
+    <item quantity="other">Indicates how many times the contributions have been viewed in the past 30 days. The %s parameter is replaced by the number of views.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
+  <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Message shown about the number of contributions the user has made.</item>
+    <item quantity="other">Message shown about the number of contributions the user has made. The %d parameter represents the number of contrubutions.</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Message shown about the length of edit streak the user has made. The %2$s parameter represents the user name.</item>
+    <item quantity="other">Message shown about the length of edit streak the user has made. The %1$d parameter represents the length of edit streak and the %2$s parameter represents the user name.</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
+    <item quantity="other">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
   <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
   <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
-  <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
+  <string name="suggested_edits_rewards_edit_quality">Message shown to the user about the quality of their edits so far. The %s represents the quality, such as Excellent, Good, Okay, Bad, etc.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
-  <plurals name="suggested_edits_tags_diff_count_text">
-    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-  </plurals>
+  <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
-  <plurals name="suggested_edits_removed_contribution_label">
-    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is removed by the contribution.</item>
-    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
-  </plurals>
+  <string name="suggested_edits_removed_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</string>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
   </plurals>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
+  <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
+  <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>
@@ -888,7 +926,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
   <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Cancel}}</string>
-  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Ok}}</string>
+  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.\n{{Identical|OK}}</string>
   <string name="protected_page_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for protected editing of a page.\n{{Identical|OK}}</string>
   <string name="account_editing_blocked_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|OK}}</string>
@@ -914,5 +952,18 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_label">Label text for suggested edits.</string>
+  <string name="talk_title">Title of menu item that leads to the talk page of the user.</string>
+  <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.</string>
+  <string name="talk_new_topic">Button label for creating a new talk topic.</string>
+  <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
+  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.</string>
+  <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
+  <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
+  <string name="talk_reply_hint">Hint for text field for composing a reply to the current talk page topic.</string>
+  <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
+  <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
+  <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="nav_item_search">Navigation menu item label for search.</string>
+  <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
+  <string name="history_list_title">Label text for history items list.</string>
 </resources>

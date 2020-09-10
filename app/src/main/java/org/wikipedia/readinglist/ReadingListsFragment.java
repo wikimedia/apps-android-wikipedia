@@ -125,7 +125,7 @@ public class ReadingListsFragment extends Fragment implements
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
-        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, true));
+        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
         setUpScrollListener();
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -135,7 +135,6 @@ public class ReadingListsFragment extends Fragment implements
         }
 
         enableLayoutTransition(true);
-        Prefs.incrementReadingListsVisitCount();
         return view;
     }
 
@@ -400,7 +399,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void maybeShowListLimitMessage() {
-        if (displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+        if (actionMode == null && displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
             String message = getString(R.string.reading_lists_limit_message);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
         }
@@ -682,14 +681,13 @@ public class ReadingListsFragment extends Fragment implements
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false);
             onboardingView.setVisibility(View.GONE);
+            ((MainFragment) getParentFragment()).setBottomNavVisible(false);
             return super.onCreateActionMode(mode, menu);
         }
 
         @Override
         protected void onQueryChange(String s) {
             String searchString = s.trim();
-            ((MainFragment) getParentFragment())
-                    .setBottomNavVisible(searchString.length() == 0);
             updateLists(searchString, false);
         }
 
@@ -699,12 +697,13 @@ public class ReadingListsFragment extends Fragment implements
             enableLayoutTransition(true);
             actionMode = null;
             currentSearchQuery = null;
+            ((MainFragment) getParentFragment()).setBottomNavVisible(true);
             updateLists();
         }
 
         @Override
         protected String getSearchHintString() {
-            return requireContext().getResources().getString(R.string.search_hint_search_my_lists_and_articles);
+            return requireContext().getResources().getString(R.string.filter_hint_filter_my_lists_and_articles);
         }
 
         @Override
@@ -762,11 +761,10 @@ public class ReadingListsFragment extends Fragment implements
             }, false);
             onboardingView.setVisibility(View.VISIBLE);
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
-                && Prefs.getReadingListsVisitCount() < SHOW_ONBOARDING_VISIT_COUNT
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));
             onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text));
-            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), Prefs.getReadingListsVisitCount() == 0);
+            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true);
             onboardingView.setPositiveButton(R.string.reading_lists_login_button,
                     view -> {
                         if (getParentFragment() instanceof FeedFragment.Callback) {

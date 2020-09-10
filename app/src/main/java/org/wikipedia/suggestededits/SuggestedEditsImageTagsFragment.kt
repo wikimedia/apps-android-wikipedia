@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
@@ -29,11 +30,11 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -57,6 +58,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
     private var lastSearchTerm: String = ""
+    var invokeSource: InvokeSource = InvokeSource.SUGGESTED_EDITS
     private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -122,7 +124,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(callback().getLangCode())
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
@@ -223,6 +225,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnCheckedChangeListener(this)
         chip.setOnClickListener(this)
+        chip.setEnsureMinTouchTargetSize(true)
+        chip.ensureAccessibleTouchTarget(DimenUtil.dpToPx(48f).toInt())
         chip.tag = label
         if (label != null) {
             chip.isChecked = label.isSelected
@@ -356,20 +360,20 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 commentStr += " */"
 
                 disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate {
-                        publishing = false
-                    }
-                    .subscribe({
-                        if (it.pageInfo != null) {
-                            funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doAfterTerminate {
+                            publishing = false
                         }
-                        publishSuccess = true
-                        onSuccess()
-                    }, { caught ->
-                        onError(caught)
-                    })
+                        .subscribe({
+                            if (it.entity != null) {
+                                funnel?.logSaved(it.entity!!.lastRevId, invokeSource.getName())
+                            }
+                            publishSuccess = true
+                            onSuccess()
+                        }, { caught ->
+                            onError(caught)
+                        })
                 )
             }
 
@@ -384,7 +388,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
-        Prefs.setSuggestedEditsImageTagsNew(false)
         SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L

@@ -9,6 +9,7 @@
 * Envlh
 * Fitoschido
 * Gambollar
+* Gokalpselamet
 * Grkn gll
 * HakanIST
 * Hedda
@@ -21,6 +22,7 @@
 * McAang
 * Mirzali
 * MrSchipunov
+* MuratTheTurkish
 * Okkerem
 * Rapsar
 * Sayginer
@@ -30,6 +32,7 @@
 * ToprakM
 * Trockya
 * Tsiligkir
+* Uncitoyen
 * Uğurkent
 * Velg
 * Vito Genovese
@@ -45,9 +48,8 @@
   <string name="nav_item_forward">İleri</string>
   <string name="search_hint">Vikipedi\'de ara</string>
   <string name="search_hint_voice_search">Ses girişi arama</string>
-  <string name="search_hint_search_history">Arama geçmişi</string>
   <string name="search_hint_search_languages">Bir dil arayın</string>
-  <string name="search_hint_search_my_lists_and_articles">Listelerimde ve makalelerimde ara</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Liste süzgeci</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
@@ -78,7 +80,9 @@
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
+  <string name="menu_page_add_to_default_list">Kaydet</string>
   <string name="feed_card_add_to_list">Okuma listesine ekle</string>
+  <string name="feed_card_add_to_default_list">Kaydet</string>
   <string name="menu_page_share">Bağlantıyı paylaş</string>
   <string name="menu_page_open_a_new_tab">Yeni sekme aç</string>
   <string name="menu_page_reading_lists">Okuma listeleri</string>
@@ -200,7 +204,7 @@
   <string name="preference_title_auto_upload_crash_reports">Çökme raporlarını gönder</string>
   <string name="preference_summary_auto_upload_crash_reports">Uygulamanın kilitlenme raporlarını otomatik olarak üçüncü taraf bir servis sağlayıcıya göndermesine izin verin.</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
-  <string name="history_search_list_hint">Arama geçmişi</string>
+  <string name="history_filter_list_hint">Süzgeç geçmişi</string>
   <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
   <string name="page_protected_autoconfirmed">Bu sayfa yarı korumalıdır.</string>
   <string name="page_protected_sysop">Bu sayfa tam korumalıdır.</string>
@@ -288,7 +292,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
   <string name="read_more_section">Daha fazla bilgi</string>
   <string name="about_article_section">Bu madde hakkında</string>
-  <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
+  <string name="menu_gallery_visit_image_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
   <string name="license_title">%s için lisans</string>
   <string name="gallery_menu_share">Paylaş</string>
@@ -349,6 +353,10 @@
   <string name="location_permissions_enable_prompt">Yakınınızdaki yerleri görmek için konum izinlerini etkinleştirin.</string>
   <string name="location_permissions_enable_action">Aç</string>
   <string name="error_webview_updating">Android Sistem Web Görünümü şu an güncelleniyor. Lütfen birazdan tekrar deneyin.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d seçildi</item>
+    <item quantity="other">%d seçildi</item>
+  </plurals>
   <string name="multi_select_items_selected">%d seçili</string>
   <string name="error_message_generic">Bir hata meydana geldi</string>
   <string name="view_link_preview_error_button_dismiss">Kapat</string>
@@ -368,8 +376,11 @@
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>
   <string name="crash_report_quit">Çıkış</string>
-  <string name="article_menu_bar_bookmark">Bu makaleyi bir okuma listesine ekle</string>
-  <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
+  <string name="article_menu_bar_save_button">Kaydet</string>
+  <string name="article_menu_bar_language_button">Dil</string>
+  <string name="article_menu_bar_search_button">Ara</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">İçindekiler</string>
   <string name="article_header_edit_hint">Düzenle...</string>
   <string name="article_header_edit_description">Madde açıklamasını düzenle</string>
   <string name="article_header_edit_lead_section">Tanıtımı düzenle</string>
@@ -391,10 +402,20 @@
   <string name="reading_list_create_new">Yeni oluştur</string>
   <string name="reading_list_title_exists">\"%s\" adlı okuma listesi zaten mevcut.</string>
   <string name="reading_list_article_added_to_named">%1$s ile %2$s eklendi.</string>
+  <string name="reading_list_article_added_to_default_list">%s kaydedildi. Bunu bir listeye eklemek ister misiniz?</string>
   <string name="reading_list_article_moved_to_named">%1$s ile %2$s taşındı.</string>
   <string name="reading_list_article_already_exists_message">Hepsi iyi! %1$s zaten %2$s içeriyor.</string>
   <string name="reading_list_articles_already_exist_message">Hepsi iyi! %s zaten tüm maddeleri içeriyor.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
+  <string name="reading_list_add_to_list_button">Listeye ekle</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 madde, %2$.2f MB</item>
+    <item quantity="other">%1$d madde, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d - 1 madde çevrimdışı mevcut, %3$.2f MB</item>
+    <item quantity="other">%1$d - %2$d madde çevrimdışı mevcut, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çevrimdışı erişilebilir, %2$.2f MB</string>
@@ -419,6 +440,10 @@
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
   <string name="reading_list_item_deleted">%s listeden çıkarıldı</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d madde listeden kaldırıldı</item>
+    <item quantity="other">%d madde listeden kaldırıldı</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d maddesi listeden silindi</string>
   <string name="reading_lists_item_deleted">%s, listelerden çıkarıldı</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
@@ -449,6 +474,8 @@
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
   <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
+  <string name="reading_lists_login_button">Vikipedi\'ye oturum açın / katılın</string>
+  <string name="reading_lists_ignore_button">Şimdi değil</string>
   <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrimdışı olarak erişilebilir olacak.</string>
@@ -477,7 +504,6 @@
   <string name="reading_list_move_article_limit_message">Bu listeye taşınamıyor. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Okuma listelerini senkronize et&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
   <string name="reading_lists_menu_create_list">Yeni bir liste oluştur</string>
   <string name="reading_lists_menu_sort_by">Sıralama ölçütü:</string>
   <string name="reading_lists_refresh_sync_option">Senkronizasyonu yenile</string>
@@ -583,6 +609,7 @@
   <string name="menu_feed_overflow_label">Daha çok seçenek</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons\'tan seçkin resim</string>
   <string name="feed">Keşfet</string>
+  <string name="home">Anasayfa</string>
   <string name="most_read_list_card_title">Gündemdekiler</string>
   <string name="view_static_card_icon_content_description">Kart simgesi</string>
   <string name="view_card_news_title">Haberlerde</string>
@@ -593,7 +620,6 @@
   <string name="view_continue_reading_card_subtitle_today">bugün</string>
   <string name="view_continue_reading_card_subtitle_read_date">Sayfanın son görünümü %s</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
-  <string name="onboarding_negative_action">Hayır, teşekkürler</string>
   <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="view_featured_article_card_title">Seçkin madde</string>
   <string name="view_featured_article_footer_save_button_label">Kaydet</string>
@@ -646,12 +672,18 @@
   <string name="description_edit_anon_limit">Madde tanımlarını düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
   <string name="description_edit_license_notice">Madde tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_helper_text_lowercase_warning">genellikle küçük harfle başlar</string>
+  <string name="description_edit_voice_input_description">Ses girişi</string>
+  <string name="description_too_short">Metin çok kısa.</string>
+  <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
+  <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
+  <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Resim yazısı yayımlandı!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Resim yazısı yayımlandı! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Resim etiketi yayınlandı!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Resim etiket(ler)i yayımlandı!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Beğendiniz mi? Daha fazla eklememize yardım edin.</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Yapıldı</string>
   <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>
@@ -662,16 +694,14 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
-  <string name="suggested_edits_add_descriptions">Madde açıklaması ekle</string>
-  <string name="suggested_edits_translate_descriptions">Madde açıklamasını çevir</string>
-  <string name="suggested_edits_add_image_captions">Resim yazısı ekle</string>
-  <string name="suggested_edits_translate_image_captions">Resim başlıklarını çevir</string>
+  <string name="suggested_edits_describe_articles">Maddeleri tarif et</string>
+  <string name="suggested_edits_caption_images">Başlık resimleri</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
   <string name="suggested_edits_review_description">Madde açıklamasını incele</string>
   <string name="suggested_edits_add_description_button">Açıklama ekle</string>
-  <string name="suggested_edits_edit_description_button">Tanımı düzenle</string>
+  <string name="suggested_edits_edit_description_button">Açıklamayı düzenle</string>
   <string name="suggested_edits_add_translation_button">Çeviri ekle</string>
-  <string name="suggested_edits_edit_translation_button">Çeviri ekle</string>
+  <string name="suggested_edits_edit_translation_button">Çeviriyi düzenle</string>
   <string name="suggested_edits_add_caption_button">Altyazı ekle</string>
   <string name="suggested_edits_edit_caption_button">Altyazıyı düzenle</string>
   <string name="suggested_edits_review_image_caption">Resim altyazısını incele</string>
@@ -692,7 +722,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d madde açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Dosya</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Dosya</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Sanatçı</string>
   <string name="suggested_edits_image_caption_summary_title_author">Yazar</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kaynak</string>
@@ -708,7 +738,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Başla</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Resim yazısı (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Resim açıklaması (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Dosya</string>
+  <string name="suggested_edits_image_preview_dialog_image">Dosya</string>
   <string name="suggested_edits_image_preview_dialog_artist">Sanatçı</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiketler</string>
   <string name="suggested_edits_image_preview_dialog_date">Tarih</string>
@@ -717,6 +747,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Daha Fazla Bilgi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons\'taki dosya sayfası</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Vikipedi\'deki dosya sayfası</string>
+  <string name="suggested_edits_article_cta_image_tags">Resim etiketleri ekle</string>
   <string name="suggested_edits_article_cta_image_caption">Resim yazısı ekle</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Görüntüle</string>
@@ -734,7 +765,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Resim etiketleri ekleyerek, Vikipedi\'nin maddelerde ki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
-  <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
   <string name="suggested_edits_image_tags_task_detail">Bulmayı kolaylaştırmak için görüntüye özel etiketler ekleyin.</string>
   <string name="suggested_edits_image_tags_choose">Eşleşen etiketler ekleyin veya seçin</string>
   <string name="suggested_edits_image_tags_published_list">Yayınlanan etiketler</string>
@@ -767,6 +797,7 @@
   <string name="suggested_edits_quality_sufficient_text">Yeterli</string>
   <string name="suggested_edits_quality_poor_text">Zayıf</string>
   <string name="suggested_edits_quality_bad_text">Kötü</string>
+  <string name="suggested_edits_label">Önerilen düzenlemeler</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Katkı</item>
     <item quantity="other">Katkı</item>
@@ -795,10 +826,26 @@
   <string name="suggested_edits_contribution_image_label">Resim</string>
   <string name="suggested_edits_contribution_article_label">Madde</string>
   <string name="suggested_edits_contribution_views">%s görüntüleme</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Son 30 günde bir kez görüldü.</item>
+    <item quantity="other">Son 30 gün içinde %s kez görüldü.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Son 30 gün içinde %s kez görüldü.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d etiket eklediniz</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dün</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye bir katkı yaptınız. Teşekkür ederiz!</item>
+    <item quantity="other">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkür ederiz!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Bir gündür düzenleme yapıyorsunuz. Seriyi devam edin, %2$s!</item>
+    <item quantity="other">%1$d gündür düzenleme yapıyorsunuz. Seriyi devam etdin, %2$s!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Yaptığınız düzenlemeler, son 30 gün içinde bir kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
+    <item quantity="other">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Önerilen düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkürler!</string>
   <string name="suggested_edits_rewards_edit_streak">Her gün %1$d gün boyunca düzenlediniz. Art ardaya devam et, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam et!</string>
@@ -826,6 +873,8 @@
     <item quantity="other">%d karakter eklediniz</item>
   </plurals>
   <string name="file_page_activity_title">Dosya sayfası</string>
+  <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
+  <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -883,7 +932,7 @@
   <string name="wikipedia_languages_remove_dialog_content">Kalan Vikipedi dilleri için yalnızca İçeriği Keşfet ve hızlı arama filtrelerinde içerik görürsünüz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Tüm diller kaldırılamadı</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">İçeriği okumak ve içerikte arama yapmak için en az bir Vikipedi dili bırakın</string>
-  <string name="more_language_options">daha fazlası</string>
+  <string name="more_language_options">daha fazla</string>
   <string name="add_wikipedia_languages_text">Vikipedi dilleri ekleyin</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Uygulama dillerinden bir Çin varyasyonunu kaldırılsın mı?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Uygulama dillerinde hem geleneksel hem de basit Çince varyasyonları seçili. Uygulama dilleri ayarlarını güncellemek istiyor musunuz?</string>
@@ -908,7 +957,7 @@
   <string name="wikitext_reference">Kaynak</string>
   <string name="wikitext_preview_link">Önizleme bağlantısı</string>
   <string name="main_drawer_help">Yardım</string>
-  <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
+  <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
   <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>

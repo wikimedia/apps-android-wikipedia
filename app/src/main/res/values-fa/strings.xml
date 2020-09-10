@@ -45,9 +45,7 @@
   <string name="page_tabs_back">بازگشت</string>
   <string name="nav_item_forward">جلو</string>
   <string name="search_hint">جستجو در ویکی‌پدیا</string>
-  <string name="search_hint_search_history">تاریخچهٔ جستجو</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
-  <string name="search_hint_search_my_lists_and_articles">جستجو در فهرست‌ها و مقاله‌های من</string>
   <string name="nav_item_history">تاریخچه</string>
   <string name="nav_item_suggested_edits" fuzzy="true">ویرایش‌های پیشنهادی</string>
   <string name="error_network_error">امکان اتصال به اینترنت وجود ندارد.</string>
@@ -199,7 +197,6 @@
   <string name="preference_title_auto_upload_crash_reports">ارسال گزارش خطا در نرم‌افزار</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">اجازه‌دادن به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم، برای رفع کردن سریع‌تر آنها.</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
-  <string name="history_search_list_hint">تاریخچهٔ جستجو</string>
   <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
   <string name="page_protected_autoconfirmed">این صفحه نیمه‌محفاظت شده است.</string>
   <string name="page_protected_sysop">این صفحه به طور کامل محافظت شده است.</string>
@@ -285,7 +282,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">پذیرفتن</string>
   <string name="read_more_section">بیشتر بخوانید</string>
   <string name="about_article_section">دربارهٔ این مقاله</string>
-  <string name="menu_gallery_visit_page">رفتن به صفحه پرونده</string>
+  <string name="menu_gallery_visit_image_page">رفتن به صفحه پرونده</string>
   <string name="gallery_error_draw_failed">امکان ترسیم تصویر نیست.</string>
   <string name="license_title">مجوز برای %s</string>
   <string name="gallery_menu_share">به‌اشتراک‌گذاشتن</string>
@@ -360,8 +357,11 @@
   <string name="crash_report_relaunch_or_quit">با عرض پوزش نرم‌افزار با خطا خارج شد آیا قصد استفادهٔ مجدد دارید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>
   <string name="crash_report_quit">خروج</string>
-  <string name="article_menu_bar_bookmark">افزودن این مقاله به فهرست مطالعه</string>
-  <string name="article_menu_bar_share">اشتراک‌گذاری پیوند مقاله</string>
+  <string name="article_menu_bar_save_button">ذخیره</string>
+  <string name="article_menu_bar_language_button">زبان</string>
+  <string name="article_menu_bar_search_button">جستجو</string>
+  <string name="article_menu_bar_theme_button">پوسته</string>
+  <string name="article_menu_bar_contents_button">محتویات</string>
   <string name="article_header_edit_hint">ویرایش...</string>
   <string name="article_header_edit_description">ویرایش توضیحات مقاله</string>
   <string name="article_header_edit_lead_section">ویرایش مقدمه</string>
@@ -460,7 +460,6 @@
   <string name="split_reading_list_message">محدودیت %d مقاله برای هر فهرست وجود دارد. فهرستی که بیش از مقاله داشته باشد به چند فهرست تقسیم می‌شود.</string>
   <string name="reading_list_article_limit_message">امکان افزودن به این فهرست نیست. به محدودیت %2$d مقاله برای فهرست  «%1$s» رسیدید.</string>
   <string name="reading_lists_limit_message">امکان ایجاد فهرست دیگر نیست. شما به محدودیت ایجاد ۱۰۰ فهرست خواندن برای هر حساب کاربری رسیدید.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;همگام‌سازی لیست خواندان‌ها&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; فهرست خواندن‌ها همکنون می تواند در تمامی ابزار‌ها یکسان شود. به حساب کاربری خود وارد شوید و اجازه ذخیره به فهرست را بدهید.</string>
   <string name="reading_lists_menu_create_list">ساخت فهرست جدید</string>
   <string name="reading_lists_menu_sort_by">مرتب‌سازی بر اساس</string>
   <string name="reading_lists_refresh_sync_option">همگام‌سازی</string>
@@ -565,6 +564,7 @@
   <string name="menu_feed_overflow_label">گزینه‌های بیشتر</string>
   <string name="feed_featured_image_share_subject">تصویر برگزیده ویکی‌انبار</string>
   <string name="feed">مرور</string>
+  <string name="home">خانه</string>
   <string name="most_read_list_card_title">گریش‌ها</string>
   <string name="view_static_card_icon_content_description">آیکون کارت</string>
   <string name="view_card_news_title">در اخبار</string>
@@ -575,7 +575,6 @@
   <string name="view_continue_reading_card_subtitle_today">امروز</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s را بخوانید</string>
   <string name="view_announcement_card_negative_action">نه ممنون</string>
-  <string name="onboarding_negative_action">نه ممنون</string>
   <string name="view_offline_card_text">محتوی در زمان آفلاین در دسترس نیست.</string>
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
   <string name="view_featured_article_footer_save_button_label">ذخیره</string>
@@ -632,7 +631,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">توضیحات مقاله منتشر شد! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">عنوان تصویر منتشر شد!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">توضیحات تصویر منتشر شد!(%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">برچسب تصویر منتشر شد!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">برچسب تصویر منتشر شد!</string>
   <string name="description_edit_success_encouragement">شما ویکی‌پدیا را برای همه بهتر کردید</string>
   <string name="description_edit_success_done">انجام شد</string>
   <string name="description_edit_success_did_you_know">آیا می‌دانستید که؟</string>
@@ -643,10 +642,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">به طور ایده‌آل یک خط، بین دو تا دوازده کلمه</string>
   <string name="description_edit_tutorial_button_label_start_editing">آغاز ویرایش کردن</string>
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
-  <string name="suggested_edits_add_descriptions">افزودن توضیحات مقاله</string>
-  <string name="suggested_edits_translate_descriptions">ترجمه توضیحات مقاله</string>
-  <string name="suggested_edits_add_image_captions">افزودن عنوان تصویر</string>
-  <string name="suggested_edits_translate_image_captions">ترجمه عنوان تصویر</string>
   <string name="suggested_edits_tag_images">برچسب‌گذاری تصویرها</string>
   <string name="suggested_edits_review_description">مرور توضیحات مقاله</string>
   <string name="suggested_edits_add_description_button">افزدون توضیحات</string>
@@ -673,7 +668,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_multilingual_negative">برای شما نیست</string>
   <string name="suggested_edits_task_multilingual_positive">افزودن زبان</string>
-  <string name="suggested_edits_image_caption_summary_title_file">پرونده</string>
+  <string name="suggested_edits_image_caption_summary_title_image">پرونده</string>
   <string name="suggested_edits_image_caption_summary_title_artist">نام هنرمند</string>
   <string name="suggested_edits_image_caption_summary_title_author">پدیدآورنده</string>
   <string name="suggested_edits_image_caption_summary_title_source">منبع</string>

@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -57,13 +56,20 @@
                             android:id="@+id/userStatsClickTarget"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
-                            android:background="?attr/selectableItemBackground"
-                            android:paddingTop="12dp"
-                            android:paddingBottom="16dp"
                             android:paddingStart="16dp"
-                            android:paddingEnd="16dp">
+                            android:paddingTop="12dp"
+                            android:paddingEnd="16dp"
+                            android:paddingBottom="16dp">
+
+                            <androidx.constraintlayout.widget.Group
+                                android:id="@+id/userStatsViewsGroup"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:constraint_referenced_ids="userNameView,userStatsArrow,
+                                guideLineMiddle,contributionsStatsView,editStreakStatsView,pageViewStatsView,editQualityStatsView" />
 
                             <TextView
                                 android:id="@+id/userNameView"
@@ -174,8 +180,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/tasksRecyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/paper_color" />
+                        android:layout_height="wrap_content" />
 
                     <org.wikipedia.views.WikiCardView
                         android:layout_width="match_parent"
@@ -189,7 +194,10 @@
                             android:id="@+id/learnMoreCard"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="16dp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="8dp"
                             android:orientation="vertical"
                             android:clickable="true"
                             android:focusable="true"
@@ -216,7 +224,7 @@
                                 android:id="@+id/learnMoreButton"
                                 style="@style/FlatButton.Small"
                                 android:text="@string/suggested_edits_learn_more"
-                                android:layout_marginTop="14dp"
+                                android:layout_marginTop="6dp"
                                 app:layout_constraintTop_toBottomOf="@id/taskDescription"
                                 app:layout_constraintStart_toStartOf="@id/taskDescription"
                                 app:layout_constraintBottom_toBottomOf="parent"
