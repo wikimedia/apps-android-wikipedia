@@ -33,9 +33,7 @@ public class RandomCard extends FeaturedArticleCard {
         return CardType.RANDOM;
     }
 
-    @Override
-    @NonNull
-    public HistoryEntry historyEntry() {
-        return new HistoryEntry(page.getPageTitle(wikiSite()), HistoryEntry.SOURCE_FEED_RANDOM);
+    public int historyEntrySource() {
+        return HistoryEntry.SOURCE_FEED_RANDOM;
     }
 }
