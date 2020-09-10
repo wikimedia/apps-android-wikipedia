@@ -88,7 +88,6 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
-import org.wikipedia.suggestededits.SuggestionsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
@@ -1163,10 +1162,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
             snackbar.show();
         }
-    }
-
-    public void startSuggestionsActivity(@NonNull DescriptionEditActivity.Action action) {
-        startActivity(SuggestionsActivity.newIntent(requireActivity(), action));
     }
 
     /**
