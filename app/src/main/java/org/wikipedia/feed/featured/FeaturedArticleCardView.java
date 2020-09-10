@@ -124,13 +124,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         extractView.setText(StringUtil.fromHtml(extract));
     }
 
-    private void header() {
-        if (getCard() == null) {
-            return;
-        }
-        headerView.setTitle(getCard().title())
-                .setLangCode(getCard().wikiSite().languageCode())
-                .setCard(getCard())
+    private void header(@NonNull FeaturedArticleCard card) {
+        headerView.setTitle(card.title())
+                .setSubtitle(card.subtitle())
+                .setImage(R.drawable.ic_star_black_24dp)
+                .setImageCircleColor(R.color.yellow50)
+                .setLangCode(card.wikiSite().languageCode())
+                .setCard(card)
                 .setCallback(getCallback());
     }
 
