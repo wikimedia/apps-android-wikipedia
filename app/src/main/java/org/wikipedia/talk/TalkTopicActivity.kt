@@ -3,6 +3,8 @@ package org.wikipedia.talk
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -16,10 +18,14 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -27,15 +33,19 @@ import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
+import java.util.concurrent.TimeUnit
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val disposables = CompositeDisposable()
-    private var topicId: Int = 0
+    private var topicId: Int = -1
     private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
     private var userName: String = ""
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
+    private val textWatcher = ReplyTextWatcher()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var csrfClient: CsrfTokenClient? = null
+    private var currentRevision: Long = 0
 
     private var linkHandler: TalkLinkHandler? = null
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
@@ -45,6 +55,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topic)
+        setSupportActionBar(replyToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         linkHandler = TalkLinkHandler(this)
 
@@ -52,12 +64,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             wikiSite = WikiSite.forLanguageCode(intent.getStringExtra(EXTRA_LANGUAGE).orEmpty())
         }
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
-        topicId = intent.extras?.getInt(EXTRA_TOPIC, 0)!!
+        topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
+
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
 
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         talkRecyclerView.adapter = TalkReplyItemAdapter()
-
+        
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
 
         talkErrorView.setBackClickListener {
@@ -68,23 +82,66 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         talkReplyButton.setOnClickListener {
-            // TODO
+            replyActive = true
+            talkRecyclerView.adapter?.notifyDataSetChanged()
+            talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+            replySaveButton.visibility = View.VISIBLE
+            replyTextLayout.visibility = View.VISIBLE
+            replyTextLayout.requestFocus()
+            DeviceUtil.showSoftKeyboard(replyEditText)
+            talkReplyButton.hide()
         }
 
+        replySubjectText.addTextChangedListener(textWatcher)
+        replyEditText.addTextChangedListener(textWatcher)
+        replySaveButton.setOnClickListener {
+            onSaveClicked()
+        }
+
+        talkRefreshView.isEnabled = !isNewTopic()
         talkRefreshView.setOnRefreshListener {
             loadTopic()
         }
 
         talkReplyButton.visibility = View.GONE
-        loadTopic()
+
+        onInitialLoad()
     }
 
     public override fun onDestroy() {
         disposables.clear()
+        replySubjectText.removeTextChangedListener(textWatcher)
+        replyEditText.removeTextChangedListener(textWatcher)
         super.onDestroy()
     }
 
+    private fun onInitialLoad() {
+        if (isNewTopic()) {
+            replyActive = true
+            title = getString(R.string.talk_new_topic)
+            talkProgressBar.visibility = View.GONE
+            talkErrorView.visibility = View.GONE
+            replySaveButton.visibility = View.VISIBLE
+            replySubjectLayout.visibility = View.VISIBLE
+            replyTextLayout.hint = getString(R.string.talk_message_hint)
+            replyTextLayout.visibility = View.VISIBLE
+            replySubjectLayout.requestFocus()
+            DeviceUtil.showSoftKeyboard(replySubjectLayout)
+        } else {
+            replyActive = false
+            replyEditText.setText("")
+            replySaveButton.visibility = View.GONE
+            replySubjectLayout.visibility = View.GONE
+            replyTextLayout.visibility = View.GONE
+            replyTextLayout.hint = getString(R.string.talk_reply_hint)
+            loadTopic()
+        }
+    }
+
     private fun loadTopic() {
+        if (isNewTopic()) {
+            return
+        }
         disposables.clear()
         talkProgressBar.visibility = View.VISIBLE
         talkErrorView.visibility = View.GONE
@@ -92,8 +149,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    topic = response.topics?.find { t -> t.id == topicId }
+                .map { response ->
+                    val talkTopic = response.topics?.find { t -> t.id == topicId }!!
+                    TalkPageSeenDatabaseTable.setTalkTopicSeen(talkTopic)
+                    currentRevision = response.revision
+                    talkTopic
+                }
+                .subscribe({
+                    topic = it
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
@@ -127,6 +190,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
         }
+    }
+
+    private fun isNewTopic(): Boolean {
+        return topicId == -1
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
@@ -173,10 +240,122 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
     }
 
+    @Suppress("RedundantInnerClassModifier")
+    internal inner class ReplyTextWatcher: TextWatcher {
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        }
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            replySubjectLayout.error = null
+            replyTextLayout.error = null
+        }
+
+        override fun afterTextChanged(p0: Editable?) {
+        }
+    }
+
+    private fun onSaveClicked() {
+        val subject = replySubjectText.text.toString().trim()
+        var body = replyEditText.text.toString().trim()
+
+        if (isNewTopic() && subject.isEmpty()) {
+            replySubjectLayout.error = getString(R.string.talk_subject_empty)
+            replySubjectLayout.requestFocus()
+            return
+        } else if (body.isEmpty()) {
+            replyTextLayout.error = getString(R.string.talk_message_empty)
+            replyTextLayout.requestFocus()
+            return
+        }
+
+        // if the message is not signed, then sign it explicitly
+        if (!body.endsWith("~~~~")) {
+            body += " ~~~~"
+        }
+        if (!isNewTopic()) {
+            // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+            body = "\n\n" + body
+        }
+
+        talkProgressBar.visibility = View.VISIBLE
+        replySaveButton.isEnabled = false
+
+        csrfClient = CsrfTokenClient(wikiSite, wikiSite)
+        csrfClient?.request(false, object : CsrfTokenClient.Callback {
+            override fun success(token: String) {
+                doSave(token, subject, body)
+            }
+
+            override fun failure(caught: Throwable) {
+                onSaveError(caught)
+            }
+
+            override fun twoFactorPrompt() {
+                onSaveError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
+            }
+        })
+    }
+
+    private fun doSave(token: String, subject: String, body: String) {
+        disposables.add(ServiceFactory.get(wikiSite).postEditSubmit("User_talk:$userName",
+                if (isNewTopic()) "new" else topicId.toString(),
+                if (isNewTopic()) subject else null,
+                "", if (AccountUtil.isLoggedIn()) "user" else null,
+                if (isNewTopic()) body else null, if (isNewTopic()) null else body,
+                currentRevision, token, null, null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    waitForUpdatedRevision(it.edit()!!.newRevId())
+                }, {
+                    onSaveError(it)
+                }))
+    }
+
+    private fun waitForUpdatedRevision(newRevision: Long) {
+        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
+                .delay(2, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .map { response ->
+                    if (response.revision < newRevision) {
+                        throw IllegalStateException()
+                    }
+                    response
+                }
+                .retry(20) { t ->
+                    (t is IllegalStateException)
+                            || (isNewTopic() && t is HttpStatusException && t.code() == 404)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    onSaveSuccess()
+                }, { t ->
+                    L.e(t)
+                    onSaveError(t)
+                }))
+    }
+
+    private fun onSaveSuccess() {
+        talkProgressBar.visibility = View.GONE
+
+        if (isNewTopic()) {
+            setResult(RESULT_EDIT_SUCCESS)
+            finish()
+        } else {
+            onInitialLoad()
+        }
+    }
+
+    private fun onSaveError(t: Throwable) {
+        talkProgressBar.visibility = View.GONE
+        FeedbackUtil.showError(this, t)
+    }
+
     companion object {
         private const val EXTRA_LANGUAGE = "language"
         private const val EXTRA_USER_NAME = "userName"
         private const val EXTRA_TOPIC = "topicId"
+        const val RESULT_EDIT_SUCCESS = 1
 
         @JvmStatic
         fun newIntent(context: Context, language: String?, userName: String?, topicId: Int): Intent {
