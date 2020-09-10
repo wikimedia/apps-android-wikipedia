@@ -70,7 +70,6 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private static final int BATCH_SIZE = 20;
-    private static final int LARGE_BATCH_SIZE = 100;
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     /**
@@ -355,7 +354,7 @@ public class SearchResultsFragment extends Fragment {
 
     private Observable<Integer> doFullTextSearchResultsCountObservable(final String searchTerm) {
         return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
-                .concatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, LARGE_BATCH_SIZE, null, null))
+                .concatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.query() != null ? response.query().pages().size() : 0);
@@ -512,15 +511,8 @@ public class SearchResultsFragment extends Fragment {
             super(itemView);
         }
 
-        private ColorStateList accentColorStateList = new ColorStateList(
-                new int[][]{new int[]{}},
-                new int[]{ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)}
-        );
-
-        private ColorStateList secondaryColorStateList = new ColorStateList(
-                new int[][]{new int[]{}},
-                new int[]{ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color)}
-        );
+        private ColorStateList accentColorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
+        private ColorStateList secondaryColorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color));
 
         void bindItem(int position) {
             String langCode = WikipediaApp.getInstance().language().getAppLanguageCodes().get(position);
