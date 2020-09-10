@@ -47,7 +47,7 @@ public final class DateUtil {
     }
 
     public static String getFeedCardDayHeaderDate(int age) {
-        return getDateStringWithSkeletonPattern(new UtcDate(age).baseCalendar().getTime(), "MMMM d");
+        return getDateStringWithSkeletonPattern(new UtcDate(age).baseCalendar().getTime(), "EEEE MMM d");
     }
 
     public static String getFeedCardDateString(int age) {

@@ -2,17 +2,17 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.views.WikiCardView;
 
 import static org.wikipedia.util.L10nUtil.isLangRTL;
 
-public abstract class DefaultFeedCardView<T extends Card> extends LinearLayout implements FeedCardView<T> {
+public abstract class DefaultFeedCardView<T extends Card> extends WikiCardView implements FeedCardView<T> {
     @Nullable private T card;
     @Nullable private FeedAdapter.Callback callback;
 

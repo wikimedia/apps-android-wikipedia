@@ -1,10 +1,9 @@
-<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/search_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true">
 
@@ -17,18 +16,17 @@
         app:tint="?attr/material_theme_secondary_color" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="48dp"
+        android:layout_weight="1"
         android:text="@string/search_hint"
-        android:textColor="?attr/material_theme_de_emphasised_color" />
+        android:textColor="?attr/material_theme_de_emphasised_color"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/voice_search_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_gravity="end"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:contentDescription="@string/search_hint_voice_search"
@@ -36,4 +34,5 @@
         android:scaleType="center"
         app:srcCompat="@drawable/ic_mic_black_24dp"
         app:tint="?attr/material_theme_secondary_color" />
-</org.wikipedia.views.WikiCardView>
+
+</LinearLayout>
