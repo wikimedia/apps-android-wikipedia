@@ -309,7 +309,9 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             descTextView = v.findViewById(R.id.text);
             descTextView.setTextIsSelectable(true);
             yearTextView = v.findViewById(R.id.year);
+            yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesRecycler = v.findViewById(R.id.pages_recycler);
+            yearContainer = v.findViewById(R.id.years_text_container);
             yearSpace = v.findViewById(R.id.years_text_space);
             this.wiki = wiki;
             setRecycler();

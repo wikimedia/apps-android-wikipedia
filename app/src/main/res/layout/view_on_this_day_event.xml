@@ -31,12 +31,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="@null"
-            app:tint="?attr/chart_shade5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/otd_year_button_background" />
+            app:srcCompat="@drawable/otd_year_button_background"
+            app:tint="?attr/chart_shade5" />
 
         <TextView
             android:id="@+id/years_text"
@@ -77,8 +77,8 @@
                 android:layout_width="8dp"
                 android:layout_height="8dp"
                 android:contentDescription="@null"
-                app:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/otd_radio" />
+                app:srcCompat="@drawable/otd_radio"
+                app:tint="?attr/colorAccent" />
         </FrameLayout>
 
         <TextView
@@ -86,13 +86,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="serif"
             android:gravity="center_vertical"
+            android:lineSpacingExtra="8sp"
             android:textColor="?attr/colorAccent"
-            android:textSize="24sp"
-            android:typeface="serif"
+            android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="1894" />
-
     </LinearLayout>
 
     <org.wikipedia.views.AppTextView
@@ -111,10 +110,9 @@
     <org.wikipedia.views.NavMenuAwareRecyclerView
         android:id="@+id/pages_recycler"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="?attr/paper_color"
         android:clipToPadding="false"
         android:paddingStart="16dp" />
-
 </LinearLayout>
