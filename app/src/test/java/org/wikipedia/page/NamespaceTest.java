@@ -65,7 +65,7 @@ import static org.wikipedia.page.Namespace.USER_TALK;
 
     @Test public void testFromLegacyStringUserTalk() {
         //noinspection deprecation
-        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User Talk"), is(USER_TALK));
+        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User talk"), is(USER_TALK));
         assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("vi"), "Thảo luận Thành viên"), is(USER_TALK));
     }
 
