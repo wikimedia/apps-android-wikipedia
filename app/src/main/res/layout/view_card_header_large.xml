@@ -5,13 +5,6 @@
     tools:layout_width="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <View
-        android:id="@+id/view_card_header_large_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/selectableItemBackground"
-        android:focusable="true" />
-
     <TextView
         android:id="@+id/view_card_header_large_title"
         android:layout_width="0dp"

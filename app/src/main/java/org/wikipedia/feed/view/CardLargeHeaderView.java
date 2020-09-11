@@ -1,11 +1,9 @@
 package org.wikipedia.feed.view;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
@@ -23,14 +21,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CardLargeHeaderView extends ConstraintLayout {
-    @BindView(R.id.view_card_header_large_background)
-    View backgroundView;
-    @BindView(R.id.view_card_header_large_image)
-    FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_card_header_large_title)
-    TextView titleView;
-    @BindView(R.id.view_card_header_large_subtitle)
-    TextView subtitleView;
+    @BindView(R.id.view_card_header_large_image) FaceAndColorDetectImageView imageView;
+    @BindView(R.id.view_card_header_large_title) TextView titleView;
+    @BindView(R.id.view_card_header_large_subtitle) TextView subtitleView;
 
     public CardLargeHeaderView(Context context) {
         super(context);
@@ -73,30 +66,29 @@ public class CardLargeHeaderView extends ConstraintLayout {
     }
 
     private void resetBackgroundColor() {
-        setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
+        setGradientDrawableBackground(ContextCompat.getColor(getContext(), R.color.base100),
+                ContextCompat.getColor(getContext(), R.color.base20));
     }
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
 
         @Override
         public void onImageLoaded(@NonNull Palette palette) {
-            animateBackgroundColor(backgroundView, palette.getDominantColor((ContextCompat.getColor(getContext(), R.color.base20))));
+            setGradientDrawableBackground(palette.getLightMutedColor(ContextCompat.getColor(getContext(), R.color.base100)),
+                    palette.getMutedColor(ContextCompat.getColor(getContext(), R.color.base20)));
         }
 
         @Override
         public void onImageFailed() {
             resetBackgroundColor();
         }
+    }
 
-        private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
-            final int animDuration = 500;
-            ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor",
-                    ContextCompat.getColor(getContext(), R.color.base20),
-                    targetColor);
-            animator.setEvaluator(new ArgbEvaluator());
-            animator.setDuration(animDuration);
-            animator.setupStartValues();
-            animator.start();
-        }
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setGradientDrawableBackground(@ColorInt int leftColor, @ColorInt int rightColor) {
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[] { leftColor, rightColor });
+        gradientDrawable.setAlpha(70);
+        setBackground(gradientDrawable);
     }
 }

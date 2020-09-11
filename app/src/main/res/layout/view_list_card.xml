@@ -24,7 +24,8 @@
         <org.wikipedia.feed.view.CardLargeHeaderView
             android:id="@+id/view_list_card_large_header"
             android:layout_width="match_parent"
-            android:layout_height="96dp"/>
+            android:layout_height="wrap_content"
+            android:minHeight="96dp"/>
 
     </org.wikipedia.views.WikiCardView>
 
