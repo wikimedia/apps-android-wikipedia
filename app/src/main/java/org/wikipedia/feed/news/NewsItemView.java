@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -31,11 +32,15 @@ public class NewsItemView extends WikiCardView {
     @BindView(R.id.horizontal_scroll_list_item_text) TextView textView;
     @Nullable private FeedAdapter.Callback callback;
     @Nullable private NewsItem newsItem;
+    public static final int MARGIN = 8;
 
     public NewsItemView(@NonNull Context context) {
         super(context);
-        View view = inflate(getContext(), R.layout.view_horizontal_scroll_list_item_card, this);
-        view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        inflate(getContext(), R.layout.view_horizontal_scroll_list_item_card, this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        int margin = (int) DimenUtil.dpToPx(MARGIN);
+        layoutParams.setMargins(margin, margin, margin, margin);
+        setLayoutParams(layoutParams);
         ButterKnife.bind(this);
     }
 

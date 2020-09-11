@@ -23,7 +23,7 @@
         android:ellipsize="end"
         android:lineSpacingExtra="8sp"
         android:linksClickable="false"
-        android:maxLines="4"
+        android:maxLines="3"
         android:textColor="?attr/primary_text_color"
         android:textColorLink="?attr/primary_text_color"
         android:textSize="16sp" />
