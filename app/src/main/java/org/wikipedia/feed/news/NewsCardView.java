@@ -1,14 +1,8 @@
 package org.wikipedia.feed.news;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.Spanned;
-import android.text.style.StyleSpan;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,10 +14,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
-import org.wikipedia.richtext.RichTextUtil;
-import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,11 +25,10 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
     @BindView(R.id.news_pager) ViewPager2 newsPager;
     @BindView(R.id.header_view) CardHeaderView headerView;
     @BindView(R.id.rtl_container) View rtlContainer;
-    @BindView(R.id.news_item_indicator_view)
-    TabLayout newItemIndicatorView;
+    @BindView(R.id.news_item_indicator_view) TabLayout newItemIndicatorView;
 
     public interface Callback {
-        void onNewsItemSelected(@NonNull NewsItem card, ImageView transitionView);
+        void onNewsItemSelected(@NonNull NewsCard card, NewsItemView view);
     }
 
     public NewsCardView(@NonNull Context context) {
@@ -63,55 +52,30 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
                 .setCard(card)
                 .setCallback(getCallback());
     }
-    private class ViewHolder extends RecyclerView.ViewHolder {
-        private FaceAndColorDetectImageView faceAndColorDetectImageView;
-        private TextView text;
 
-        ViewHolder(View itemView) {
+    private class NewsItemHolder extends RecyclerView.ViewHolder {
+        NewsItemView itemView;
+
+        NewsItemHolder(NewsItemView itemView) {
             super(itemView);
-            faceAndColorDetectImageView = itemView.findViewById(R.id.horizontal_scroll_list_item_image);
-            text = itemView.findViewById(R.id.horizontal_scroll_list_item_text);
+            this.itemView = itemView;
         }
 
         void bindItem(NewsItem newsItem) {
-            if (newsItem.thumb() == null) {
-                faceAndColorDetectImageView.setVisibility(GONE);
-                text.setMaxLines(10);
-            } else {
-                faceAndColorDetectImageView.setVisibility(VISIBLE);
-                faceAndColorDetectImageView.loadImage(newsItem.thumb());
-            }
-            text.setText(removeImageCaption(StringUtil.fromHtml(newsItem.story())));
-            RichTextUtil.removeUnderlinesFromLinksAndMakeBold(text);
-
-            itemView.setOnClickListener((view) -> {
-                if (getCallback() != null) {
-                    getCallback().onNewsItemSelected(newsItem, faceAndColorDetectImageView);
-                }
-            });
+            itemView.setContents(newsItem);
         }
 
-        /* Remove the in-Wikitext thumbnail caption, which will almost certainly not apply here */
-        @NonNull
-        private CharSequence removeImageCaption(@NonNull Spanned text) {
-            Object[] spans = RichTextUtil.getSpans(text, 0, text.length());
-            for (Object span : spans) {
-                if (span instanceof StyleSpan && ((StyleSpan) span).getStyle() == Typeface.ITALIC) {
-                    int start = text.getSpanStart(span);
-                    int end = text.getSpanEnd(span);
-                    if (text.charAt(start) == '(' && text.charAt(end - 1) == ')') {
-                        L.v("Removing spanned text: " + text.subSequence(start, end));
-                        return RichTextUtil.remove(text, start, end);
-                    }
-                }
-            }
-            return text;
+        NewsItemView getView() {
+            return itemView;
         }
     }
+
     private class NewsAdapter extends RecyclerView.Adapter {
         private List<NewsItem> newsItems = new ArrayList<>();
+        private NewsCard card;
 
-        NewsAdapter(NewsCard card) {
+        NewsAdapter(@NonNull NewsCard card) {
+            this.card = card;
             this.newsItems.addAll(card.news());
         }
 
@@ -123,14 +87,28 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            View view = inflater.inflate(R.layout.view_horizontal_scroll_list_item_card, parent, false);
-            return new ViewHolder(view);
+            return new NewsItemHolder(new NewsItemView(getContext()));
         }
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-            ((ViewHolder) holder).bindItem(newsItems.get(position));
+            ((NewsItemHolder) holder).bindItem(newsItems.get(position));
+            ((NewsItemHolder) holder).getView().setOnClickListener(view -> {
+                if (getCallback() != null) {
+                    getCallback().onNewsItemSelected(card, ((NewsItemHolder) holder).getView());
+                }
+            });
+        }
+
+        @Override
+        public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
+            super.onViewAttachedToWindow(holder);
+            ((NewsItemHolder) holder).getView().setCallback(getCallback());
+        }
+
+        @Override
+        public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
+            ((NewsItemHolder) holder).getView().setCallback(null);
         }
     }
 }

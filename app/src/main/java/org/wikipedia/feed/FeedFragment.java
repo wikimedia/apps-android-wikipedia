@@ -9,7 +9,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,11 +35,11 @@ import org.wikipedia.feed.configure.LanguageItemAdapter;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.mostread.MostReadArticlesActivity;
 import org.wikipedia.feed.mostread.MostReadListCard;
-import org.wikipedia.feed.news.NewsItem;
+import org.wikipedia.feed.news.NewsCard;
+import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
@@ -106,7 +105,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
         void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
-        void onFeedNewsItemSelected(NewsItem card, ImageView view);
+        void onFeedNewsItemSelected(NewsCard card, NewsItemView view);
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
@@ -478,10 +477,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onNewsItemSelected(@NonNull NewsItem newsItem, ImageView transitionView) {
+        public void onNewsItemSelected(@NonNull NewsCard newsCard, NewsItemView view) {
             if (getCallback() != null) {
-                funnel.cardClicked(CardType.NEWS_ITEM, newsItem.links().get(0).getLang());
-                getCallback().onFeedNewsItemSelected(newsItem, transitionView);
+                funnel.cardClicked(newsCard.type(), newsCard.wikiSite().languageCode());
+                getCallback().onFeedNewsItemSelected(newsCard, view);
             }
         }
 

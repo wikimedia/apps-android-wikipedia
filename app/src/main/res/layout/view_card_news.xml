@@ -4,7 +4,7 @@
     android:id="@+id/rtl_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="16dp"
     android:orientation="vertical">
 
     <org.wikipedia.feed.view.CardHeaderView
@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="8dp"
         android:layout_gravity="center"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         app:tabBackground="@drawable/shape_tab_dot"
         app:tabGravity="center"
