@@ -82,6 +82,8 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
                 faceAndColorDetectImageView.loadImage(newsItem.thumb());
             }
             text.setText(removeImageCaption(StringUtil.fromHtml(newsItem.story())));
+            RichTextUtil.removeUnderlinesFromLinksAndMakeBold(text);
+
             itemView.setOnClickListener((view) -> {
                 if (getCallback() != null) {
                     getCallback().onNewsItemSelected(newsItem, faceAndColorDetectImageView);
