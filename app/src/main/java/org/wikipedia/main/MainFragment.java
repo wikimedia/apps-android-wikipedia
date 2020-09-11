@@ -12,6 +12,7 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -28,13 +29,13 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsActivity;
-import org.wikipedia.feed.news.NewsItemCard;
-import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
+import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.gallery.MediaDownloadReceiver;
@@ -313,10 +314,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         ShareUtil.shareText(requireContext(), entry.getTitle());
     }
 
-    @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
+    @Override public void onFeedNewsItemSelected(@NonNull NewsItem newsItem, @NonNull ImageView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), card.image() != null ? options.toBundle() : null);
+                makeSceneTransitionAnimation(requireActivity(), view, getString(R.string.transition_news_item));
+        startActivity(NewsActivity.newIntent(requireActivity(), newsItem, WikiSite.forLanguageCode(newsItem.links().get(0).getLang())), newsItem.thumb() != null ? options.toBundle() : null);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
