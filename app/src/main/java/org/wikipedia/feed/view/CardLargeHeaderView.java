@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.palette.graphics.Palette;
 
 import org.wikipedia.R;
 import org.wikipedia.util.StringUtil;
@@ -55,7 +56,7 @@ public class CardLargeHeaderView extends ConstraintLayout {
     @NonNull
     public CardLargeHeaderView setImage(@Nullable Uri uri) {
         imageView.setVisibility(uri == null ? GONE : VISIBLE);
-        imageView.loadImage(uri, true);
+        imageView.loadImage(uri, true, new ImageLoadListener());
         return this;
     }
 
@@ -75,14 +76,27 @@ public class CardLargeHeaderView extends ConstraintLayout {
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
     }
 
-    private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
-        final int animDuration = 500;
-        ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor",
-                ContextCompat.getColor(getContext(), R.color.base20),
-                targetColor);
-        animator.setEvaluator(new ArgbEvaluator());
-        animator.setDuration(animDuration);
-        animator.setupStartValues();
-        animator.start();
+    private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
+
+        @Override
+        public void onImageLoaded(@NonNull Palette palette) {
+            animateBackgroundColor(backgroundView, palette.getDominantColor((ContextCompat.getColor(getContext(), R.color.base20))));
+        }
+
+        @Override
+        public void onImageFailed() {
+            resetBackgroundColor();
+        }
+
+        private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
+            final int animDuration = 500;
+            ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor",
+                    ContextCompat.getColor(getContext(), R.color.base20),
+                    targetColor);
+            animator.setEvaluator(new ArgbEvaluator());
+            animator.setDuration(animDuration);
+            animator.setupStartValues();
+            animator.start();
+        }
     }
 }
