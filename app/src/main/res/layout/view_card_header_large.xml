@@ -41,6 +41,7 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_card_header_large_title"
+        app:layout_constraintEnd_toStartOf="@id/view_card_header_large_image"
         tools:text="Lorem ipsum" />
 
     <org.wikipedia.views.FaceAndColorDetectImageView

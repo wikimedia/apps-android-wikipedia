@@ -67,7 +67,7 @@ public class CardLargeHeaderView extends ConstraintLayout {
 
     @NonNull
     public CardLargeHeaderView setSubtitle(@Nullable CharSequence subtitle) {
-        subtitleView.setText(getResources().getString(R.string.view_continue_reading_card_subtitle_read_date, subtitle));
+        subtitleView.setText(subtitle);
         return this;
     }
 
