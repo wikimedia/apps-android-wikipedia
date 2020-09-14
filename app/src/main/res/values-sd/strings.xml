@@ -485,6 +485,8 @@
   <string name="view_random_card_action">ڇڪي کي گھمايو</string>
   <string name="view_next_random_article">ھڪ ٻيو بلاترتيب مضمون لاھيو</string>
   <string name="view_main_page_card_title">اڄ وڪيپيڊيا تي</string>
+  <string name="view_main_page_card_subtitle">%s تي مک صفحو</string>
+  <string name="view_main_page_card_action">مک صفحو ڏسو</string>
   <string name="view_featured_image_card_title">اڄ جي تصوير</string>
   <string name="view_featured_image_card_download">لاهيو</string>
   <string name="menu_feed_card_dismiss">ھن ڪارڊ کي لڪايو</string>
@@ -519,6 +521,7 @@
   <string name="feed_item_type_featured_article">وڪيپيڊيا تي روزانو چونڊيل مضمون</string>
   <string name="feed_item_type_trending">روزانو سڀ کان وڌيڪ ڏٺل مضمون</string>
   <string name="feed_item_type_featured_image">وڪيميڊيا العام مان روزانو نمايان ڪيل عڪس</string>
+  <string name="feed_item_type_main_page">روزانو نمايان ڪيو ويندڙ مواد سان وڪيپيڊيا جو مک صفحو</string>
   <string name="feed_item_type_randomizer">پڙھن لاءِ بلاترتيب مضمون پيدا ڪريو</string>
   <string name="feed_item_type_suggested_edits">وڪيپيڊيا ۾ مواد وجھڻ لاءِ صلاحون</string>
   <string name="feed_empty_message">توھان جي کوجنا رسد ۾ ڪاشيءِ ناھي</string>

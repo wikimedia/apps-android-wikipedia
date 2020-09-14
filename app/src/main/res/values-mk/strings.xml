@@ -21,6 +21,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
+  <string name="nav_item_search">Пребарај</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -35,6 +36,8 @@
   <string name="history_item_delete_undo">Врати</string>
   <string name="notification_archive_undo">Врати</string>
   <string name="app_settings">Поставки за прилогот</string>
+  <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
+  <string name="history_list_title">Историја</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -567,6 +570,8 @@
   <string name="view_random_card_action">Фрлете ги коцките</string>
   <string name="view_next_random_article">Вчитај друга случајна статија</string>
   <string name="view_main_page_card_title">Денес на Википедија</string>
+  <string name="view_main_page_card_subtitle">Главна страница на %s</string>
+  <string name="view_main_page_card_action">Погл. главната страница</string>
   <string name="view_featured_image_card_title">Слика на денот</string>
   <string name="view_featured_image_card_download">Преземи</string>
   <string name="menu_feed_card_dismiss">Скриј ја картичкава</string>
@@ -602,6 +607,7 @@
   <string name="feed_item_type_featured_article">Статија на денот на Википедија</string>
   <string name="feed_item_type_trending">Најпосетени статии за денес</string>
   <string name="feed_item_type_featured_image">Слика на денот од Ризницата</string>
+  <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>
@@ -933,4 +939,15 @@
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Откажи</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Откажи</string>
+  <string name="talk_title">Разговор</string>
+  <string name="talk_user_title">Разговор: %s</string>
+  <string name="talk_new_topic">Нова тема</string>
+  <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
+  <string name="talk_add_reply">Одговор</string>
+  <string name="talk_no_subject">(Без наслов)</string>
+  <string name="talk_reply_subject">Наслов</string>
+  <string name="talk_reply_hint">Напиши одговор</string>
+  <string name="talk_message_hint">Напиши порака</string>
+  <string name="talk_message_empty">Пораката не може да стои празна.</string>
+  <string name="talk_subject_empty">Насловот не може да стои празен.</string>
 </resources>

@@ -536,6 +536,8 @@
   <string name="view_random_card_action">Kast terning</string>
   <string name="view_next_random_article">Last en annen tilfeldig artikkel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Forsiden %s</string>
+  <string name="view_main_page_card_action">Vis forsiden</string>
   <string name="view_featured_image_card_title">Dagens bilde</string>
   <string name="view_featured_image_card_download">Last ned</string>
   <string name="menu_feed_card_dismiss">Skjul dette kortet</string>
@@ -570,6 +572,7 @@
   <string name="feed_item_type_featured_article">Dagens anbefalte artikkel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest leste artikler</string>
   <string name="feed_item_type_featured_image">Dagens utvalgte bilde fra Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Hovedsiden til Wikipedia med dagens fremhevede innhold</string>
   <string name="feed_item_type_randomizer">Tilfeldig utvalgte artikler</string>
   <string name="feed_item_type_suggested_edits">Forslag om å legge til innhold på Wikipedia</string>
   <string name="feed_empty_message">Det er ingenting her</string>

@@ -63,6 +63,7 @@
   <string name="notification_archive_undo">Desfazer</string>
   <string name="app_settings">Configurações do aplicativo</string>
   <string name="search_tab_tooltip">Toque no ícone novamente para começar a digitar diretamente um termo de pesquisa.</string>
+  <string name="history_list_title">Histórico</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -595,6 +596,8 @@
   <string name="view_random_card_action">Rolar os dados</string>
   <string name="view_next_random_article">Carregar outro artigo aleatório</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
+  <string name="view_main_page_card_subtitle">Página principal em %s</string>
+  <string name="view_main_page_card_action">Ver página principal</string>
   <string name="view_featured_image_card_title">Imagem do dia</string>
   <string name="view_featured_image_card_download">Baixar</string>
   <string name="menu_feed_card_dismiss">Ocultar este cartão</string>
@@ -630,6 +633,7 @@
   <string name="feed_item_type_featured_article">Artigo divulgado diariamente na Wikipedia</string>
   <string name="feed_item_type_trending">Artigos mais vistos diariamente</string>
   <string name="feed_item_type_featured_image">Imagem em destaque na Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Página principal da Wikipedia com conteúdo destacado diariamente</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed de Explorar</string>
@@ -967,4 +971,9 @@
   <string name="talk_page_empty">Esta página de discussão está vazia.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sem assunto)</string>
+  <string name="talk_reply_subject">Assunto</string>
+  <string name="talk_reply_hint">Compor resposta</string>
+  <string name="talk_message_hint">Compor mensagem</string>
+  <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
+  <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
 </resources>
