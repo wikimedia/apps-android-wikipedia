@@ -569,6 +569,8 @@
   <string name="view_random_card_action">Heitä noppaa</string>
   <string name="view_next_random_article">Lataa toinen satunnainen artikkeli</string>
   <string name="view_main_page_card_title">Tänään Wikipediassa</string>
+  <string name="view_main_page_card_subtitle">Etusivu %s</string>
+  <string name="view_main_page_card_action">Näytä etusivu</string>
   <string name="view_featured_image_card_title">Päivän kuva</string>
   <string name="view_featured_image_card_download">Lataa</string>
   <string name="menu_feed_card_dismiss">Piilota tämä kortti</string>
@@ -604,6 +606,7 @@
   <string name="feed_item_type_featured_article">Suositeltu artikkeli Wikipediassa</string>
   <string name="feed_item_type_trending">Päivittäin eniten katsotut artikkelit</string>
   <string name="feed_item_type_featured_image">Päivän kuva Wikimedia Commonsista</string>
+  <string name="feed_item_type_main_page">Wikipedian etusivu suositellulla artikkelilla</string>
   <string name="feed_item_type_randomizer">Tuota satunnaisia ​​artikkeleita luettavaksi</string>
   <string name="feed_empty_message">Tutki-syötteessäsi ei ole mitään</string>
   <string name="feed_configure_onboarding_action">Mukauta</string>

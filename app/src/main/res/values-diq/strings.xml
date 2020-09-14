@@ -380,6 +380,8 @@
   <string name="view_random_card_action">Zar çekerê</string>
   <string name="view_next_random_article">Yewna pela raştameyayi bar kerê</string>
   <string name="view_main_page_card_title">Wikipediya de noroc</string>
+  <string name="view_main_page_card_subtitle">Terixê %s de pelaseri</string>
+  <string name="view_main_page_card_action">Pelaseri bımocne</string>
   <string name="view_featured_image_card_title">Fotrafê roci</string>
   <string name="view_featured_image_card_download">Biya war</string>
   <string name="menu_feed_card_dismiss">Na qert bınımn</string>

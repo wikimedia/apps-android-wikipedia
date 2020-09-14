@@ -12,6 +12,7 @@
 * Macofe
 * Matrafox
 * Minisarm
+* NGC 54
 * SHaran (WMF)
 * Strainu
 * WebSourceContentRO
@@ -29,6 +30,7 @@
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
+  <string name="nav_item_search">Caută</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="card_offline_error_retry">Reîncercare</string>
@@ -43,6 +45,7 @@
   <string name="history_item_delete_undo">Anulează</string>
   <string name="notification_archive_undo">Anulare</string>
   <string name="app_settings">Setările din aplicație</string>
+  <string name="history_list_title">Istoric</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
@@ -554,6 +557,8 @@
   <string name="view_random_card_action">Dă cu zarul</string>
   <string name="view_next_random_article">Încarcă un alt articol aleatoriu</string>
   <string name="view_main_page_card_title">Astăzi la Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Pagina principală la %s</string>
+  <string name="view_main_page_card_action">Vezi pagina principală</string>
   <string name="view_featured_image_card_title">Imaginea zilei</string>
   <string name="view_featured_image_card_download">Descarcă</string>
   <string name="menu_feed_card_dismiss">Ascunde acest card</string>
@@ -589,6 +594,7 @@
   <string name="feed_item_type_featured_article">Articol recomandat zilnic pe Wikipedia</string>
   <string name="feed_item_type_trending">Articole zilnic cele mai vizionate</string>
   <string name="feed_item_type_featured_image">Imagine recomandată zilnic de la Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Pagina principală a Wikipedia cu conținut recomandat zilnic</string>
   <string name="feed_item_type_randomizer">Generați articole aleatorii pentru a fi citite</string>
   <string name="feed_item_type_suggested_edits">Sugestii pentru adăugarea de conținut la Wikipedia</string>
   <string name="feed_empty_message">Nu există nimic în feedul dvs. Explorează</string>
@@ -870,4 +876,8 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anulează</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Anulează</string>
+  <string name="talk_new_topic">Subiect nou</string>
+  <string name="talk_page_empty">Această pagină de discuție este goală.</string>
+  <string name="talk_add_reply">Răspunde</string>
+  <string name="talk_reply_subject">Subiect</string>
 </resources>
