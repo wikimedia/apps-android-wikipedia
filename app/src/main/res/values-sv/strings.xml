@@ -49,6 +49,8 @@
   <string name="history_item_delete_undo">Ångra</string>
   <string name="notification_archive_undo">Ångra</string>
   <string name="app_settings">Applikationsinställningar</string>
+  <string name="search_tab_tooltip">Tryck på ikonen igen för att börja skriva en sökterm.</string>
+  <string name="history_list_title">Historik</string>
   <string name="dialog_title_clear_history">Rensa läsarhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -581,6 +583,8 @@
   <string name="view_random_card_action">Kasta tärningen</string>
   <string name="view_next_random_article">Läs in en annan slumpartikel</string>
   <string name="view_main_page_card_title">Idag på Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Huvudsidan på %s</string>
+  <string name="view_main_page_card_action">Visa huvudsidan</string>
   <string name="view_featured_image_card_title">Dagens bild</string>
   <string name="view_featured_image_card_download">Ladda ned</string>
   <string name="menu_feed_card_dismiss">Dölj detta kort</string>
@@ -616,6 +620,7 @@
   <string name="feed_item_type_featured_article">Dagens utmärkta artikel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest lästa artiklar</string>
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
   <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
   <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
@@ -953,4 +958,9 @@
   <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
   <string name="talk_add_reply">Svara</string>
   <string name="talk_no_subject">(Inget ämne)</string>
+  <string name="talk_reply_subject">Ämne</string>
+  <string name="talk_reply_hint">Skriv svar</string>
+  <string name="talk_message_hint">Skriv meddelande</string>
+  <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
+  <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
 </resources>

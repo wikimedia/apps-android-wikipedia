@@ -19,6 +19,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Meng Lëschte filteren</string>
   <string name="nav_item_suggested_edits">Ännerungen</string>
   <string name="nav_item_more">Méi</string>
+  <string name="nav_item_search">Sichen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
@@ -32,6 +33,7 @@
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
   <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="app_settings">Astellunge vun der App</string>
+  <string name="history_list_title">Versiounen</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
@@ -467,6 +469,8 @@
   <string name="view_random_card_title">Zoufallsgenerator</string>
   <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Haaptsäit op %s</string>
+  <string name="view_main_page_card_action">Haaptsäit weisen</string>
   <string name="view_featured_image_card_title">Bild vum Dag</string>
   <string name="view_featured_image_card_download">Eroflueden</string>
   <string name="menu_feed_card_dismiss">Dës Kaart verstoppen</string>
@@ -658,4 +662,10 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="talk_title">Diskussioun</string>
+  <string name="talk_new_topic">Neit Thema</string>
+  <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
+  <string name="talk_add_reply">Äntweren</string>
+  <string name="talk_no_subject">(Kee Sujet)</string>
+  <string name="talk_reply_subject">Sujet</string>
 </resources>

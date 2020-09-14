@@ -465,6 +465,8 @@
   <string name="view_random_card_action">Stlepel an diñsoù</string>
   <string name="view_next_random_article">Kargañ ur pennad all dre zegouezh</string>
   <string name="view_main_page_card_title">Hiziv e Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Pajenn bennañ d\'an %s</string>
+  <string name="view_main_page_card_action">Gwelet ar bajenn bennañ</string>
   <string name="view_featured_image_card_title">Skeudenn an deiz</string>
   <string name="view_featured_image_card_download">Pellgargañ</string>
   <string name="menu_feed_card_dismiss">Kuzhat ar gartenn-mañ</string>

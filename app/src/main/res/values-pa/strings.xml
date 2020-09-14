@@ -305,6 +305,7 @@
   <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
   <string name="view_random_card_subtitle" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਤੋੰ ਕੋਈ ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਪੜ੍ਹੋ</string>
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
+  <string name="view_main_page_card_subtitle">ਮੁੱਖ ਸਫ਼ਾ %s ਨੂੰ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
   <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>

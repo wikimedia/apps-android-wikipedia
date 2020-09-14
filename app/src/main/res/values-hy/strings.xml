@@ -33,6 +33,7 @@
   <string name="history_item_delete_undo">Հետ շրջել</string>
   <string name="notification_archive_undo">Հետ շրջել</string>
   <string name="app_settings">Հավելվածի կարգավորումներ</string>
+  <string name="history_list_title">Պատմություն</string>
   <string name="dialog_title_clear_history">Մաքրել դիտումների պատմությունը</string>
   <string name="dialog_message_clear_history_yes">Այո</string>
   <string name="dialog_message_clear_history_no">Ոչ</string>

@@ -299,6 +299,8 @@
   <string name="view_random_card_action">បោះគ្រាប់ឡុកឡាក់</string>
   <string name="view_next_random_article">ផ្ទុកទំព័រចៃដន្យមួយទៀត</string>
   <string name="view_main_page_card_title">ថ្ងៃនេះនៅលើវិគីភីឌា</string>
+  <string name="view_main_page_card_subtitle">ទំព័រដើមនៅ %s</string>
+  <string name="view_main_page_card_action">មើលទំព័រដើម</string>
   <string name="view_featured_image_card_title">រូបភាពថ្ងៃនេះ</string>
   <string name="view_featured_image_card_download">ទាញ​យក</string>
   <string name="menu_feed_overflow_label">ជម្រើសបន្ថែម</string>

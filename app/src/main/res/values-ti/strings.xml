@@ -222,6 +222,8 @@
   <string name="view_random_card_title">ሃውራዊ</string>
   <string name="view_random_card_action">ዳዶ ወርወረ</string>
   <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፔዲያ</string>
+  <string name="view_main_page_card_subtitle">ኣብ %s መበገሲ ገጽ</string>
+  <string name="view_main_page_card_action">መበገሲ ገጽ ርኣይ</string>
   <string name="view_featured_image_card_title">ናይ ዕለት ምስሊ</string>
   <string name="view_featured_image_card_download">ኣውርድ</string>
   <string name="menu_feed_overflow_label">ተወሳኺ ኣማራጺታት</string>

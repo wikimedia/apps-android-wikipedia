@@ -3,6 +3,7 @@
 * 500000000006城
 * A Chinese Wikipedian
 * A Retired User
+* AYZ04
 * Abijeet Patro
 * Cwek
 * Davidzdh
@@ -59,6 +60,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
+  <string name="nav_item_search">搜索</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -73,6 +75,7 @@
   <string name="history_item_delete_undo">撤销</string>
   <string name="notification_archive_undo">撤销</string>
   <string name="app_settings">应用设置</string>
+  <string name="history_list_title">历史</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
   <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
   <string name="dialog_message_clear_history_yes">确认</string>
@@ -601,6 +604,8 @@
   <string name="view_random_card_action">掷骰子</string>
   <string name="view_next_random_article">加载另一个随机条目</string>
   <string name="view_main_page_card_title">维基百科今日</string>
+  <string name="view_main_page_card_subtitle">%s首页</string>
+  <string name="view_main_page_card_action">查看主页</string>
   <string name="view_featured_image_card_title">每日图片</string>
   <string name="view_featured_image_card_download">下载</string>
   <string name="menu_feed_card_dismiss">隐藏此卡片</string>
@@ -636,6 +641,7 @@
   <string name="feed_item_type_featured_article">维基百科上的每日典范条目</string>
   <string name="feed_item_type_trending">每日最多访问的条目</string>
   <string name="feed_item_type_featured_image">来自维基共享资源的每日特色图片</string>
+  <string name="feed_item_type_main_page">包含每日特色内容的维基百科首页</string>
   <string name="feed_item_type_randomizer">生成随机条目以阅读</string>
   <string name="feed_item_type_suggested_edits">向维基百科添加内容的建议</string>
   <string name="feed_empty_message">在您的探索订阅源中没有任何东西</string>
@@ -955,4 +961,15 @@
   <string name="text_input_dialog_ok_button_text">确定</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>
   <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
+  <string name="talk_title">讨论</string>
+  <string name="talk_user_title">讨论：%s</string>
+  <string name="talk_new_topic">新话题</string>
+  <string name="talk_page_empty">此讨论页为空。</string>
+  <string name="talk_add_reply">回复</string>
+  <string name="talk_no_subject">（无主题）</string>
+  <string name="talk_reply_subject">主题</string>
+  <string name="talk_reply_hint">撰写回复</string>
+  <string name="talk_message_hint">撰写信息</string>
+  <string name="talk_message_empty">该消息不能为空。</string>
+  <string name="talk_subject_empty">该主题不能为空。</string>
 </resources>

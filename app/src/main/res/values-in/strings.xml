@@ -557,6 +557,8 @@
   <string name="view_random_card_action">Melempar dadu</string>
   <string name="view_next_random_article">Muat artikel sembarang lainnya</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Halaman utama pada %s</string>
+  <string name="view_main_page_card_action">Lihat halaman utama</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>
   <string name="view_featured_image_card_download">Unduh</string>
   <string name="menu_feed_card_dismiss">Sembunyikan kartu ini</string>
@@ -591,6 +593,7 @@
   <string name="feed_item_type_featured_article">Artikel pilihan harian di Wikipedia</string>
   <string name="feed_item_type_trending">Artikel harian yang paling banyak dilihat</string>
   <string name="feed_item_type_featured_image">Gambar pilihan harian dari Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan isi pilihan harian</string>
   <string name="feed_item_type_randomizer">Menghasilkan sembarang artikel untuk dibaca</string>
   <string name="feed_item_type_suggested_edits">Tanggapan untuk menambahkan konten pada Wikipedia</string>
   <string name="feed_empty_message">Tidak ada apa-apa di umpan Jelajahi Anda</string>

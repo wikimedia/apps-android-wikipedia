@@ -220,10 +220,10 @@
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/it</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/it</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
@@ -591,6 +591,8 @@
   <string name="view_random_card_action">Lancia i dadi</string>
   <string name="view_next_random_article">Carica un\'altra voce a caso</string>
   <string name="view_main_page_card_title">Oggi su Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Pagina principale del %s</string>
+  <string name="view_main_page_card_action">Visualizza la pagina principale</string>
   <string name="view_featured_image_card_title">Immagine del giorno</string>
   <string name="view_featured_image_card_download">Scarica</string>
   <string name="menu_feed_card_dismiss">Nascondi questa scheda</string>
@@ -626,6 +628,7 @@
   <string name="feed_item_type_featured_article">Voce del giorno su Wikipedia</string>
   <string name="feed_item_type_trending">Voci più viste al giorno</string>
   <string name="feed_item_type_featured_image">Immagine in primo piano quotidiana di Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
   <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
   <string name="feed_empty_message">Non c\'è nulla nel tuo feed Esplora</string>
@@ -671,7 +674,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Didascalia dell\'immagine pubblicata!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Didascalia dell\'immagine pubblicata! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Etichetta/e immagine pubblicata!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Etichetta/e dell\'immagine pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
@@ -734,6 +737,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Ulteriori informazioni</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagina del file su Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Pagina dei file su Wikipedia</string>
+  <string name="suggested_edits_article_cta_image_tags">Aggiungi etichette all\'immagine</string>
   <string name="suggested_edits_article_cta_image_caption">Aggiungi didascalia immagine</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Aggiungi didascalia immagine (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visualizza</string>
@@ -937,4 +941,7 @@
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_add_reply">Rispondi</string>
   <string name="talk_no_subject">(Nessun oggetto)</string>
+  <string name="talk_reply_subject">Oggetto</string>
+  <string name="talk_reply_hint">Scrivi una risposta</string>
+  <string name="talk_message_hint">Scrivi un messaggio</string>
 </resources>
