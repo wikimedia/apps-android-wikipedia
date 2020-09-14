@@ -297,6 +297,7 @@
   <string name="user_option_sync_label">Voorkeure</string>
   <string name="notification_reverted_title">Wysiging teruggestel</string>
   <string name="view_main_page_card_title">Vandag op Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Hoofblad op %s</string>
   <string name="view_featured_image_card_title">Prent van die dag</string>
   <string name="view_featured_image_card_download">Laai af</string>
   <string name="feed">Verken</string>

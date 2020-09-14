@@ -584,6 +584,8 @@
   <string name="view_random_card_action">Tira el dau</string>
   <string name="view_next_random_article">Carrega un altre article a l\'atzar</string>
   <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
+  <string name="view_main_page_card_subtitle">Pàgina principal a %s</string>
+  <string name="view_main_page_card_action">Mostra la pàgina principal</string>
   <string name="view_featured_image_card_title">Foto del dia</string>
   <string name="view_featured_image_card_download">Descarrega</string>
   <string name="menu_feed_card_dismiss">Amaga la targeta</string>
@@ -619,6 +621,7 @@
   <string name="feed_item_type_featured_article">Articles destacats a la Viquipèdia</string>
   <string name="feed_item_type_trending">Articles més vistos del dia</string>
   <string name="feed_item_type_featured_image">Imatge destacada del dia a Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Pàgina principal de la Viquipèdia amb contingut destacat del dia</string>
   <string name="feed_item_type_randomizer">Genera articles a l\'atzar per llegir</string>
   <string name="feed_item_type_suggested_edits">Suggeriments per afegir contingut a la Viquipèdia</string>
   <string name="feed_empty_message">No hi ha res al canal Explora</string>
