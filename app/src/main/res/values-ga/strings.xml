@@ -478,6 +478,8 @@
   <string name="view_random_card_action">Caith an dílse</string>
   <string name="view_next_random_article">Lódáil alt randamach eile</string>
   <string name="view_main_page_card_title">Inniu ar Vicipéid</string>
+  <string name="view_main_page_card_subtitle">Príomhleathanach ar %s</string>
+  <string name="view_main_page_card_action">Féach ar príomhleathanach</string>
   <string name="view_featured_image_card_title">Pictiúr an lae</string>
   <string name="view_featured_image_card_download">Íoslódáil</string>
   <string name="menu_feed_card_dismiss">Folaigh an cárta seo</string>
@@ -512,6 +514,7 @@
   <string name="feed_item_type_featured_article">Alt roghnaithe an lae ar Vicipéid</string>
   <string name="feed_item_type_trending">Na hailt is amharctha gach lá</string>
   <string name="feed_item_type_featured_image">Íomhá roghnaithe gach lá ó Cómhaoin Wikimedia</string>
+  <string name="feed_item_type_main_page">Príomhleathanach na Vicipéide le hábhar roghnaithe gach lá</string>
   <string name="feed_item_type_randomizer">Gin ailt randamacha le léamh</string>
   <string name="feed_empty_message">Níl aon rud ar d\'fhotha Taiscéal</string>
   <string name="feed_configure_onboarding_action">Cuir in oiriúint</string>
