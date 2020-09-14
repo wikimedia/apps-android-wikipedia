@@ -543,6 +543,8 @@
   <string name="view_random_card_action">Hoďte kockou</string>
   <string name="view_next_random_article">Vložte ďalší náhodný článok</string>
   <string name="view_main_page_card_title">Dnes na Wikipédii</string>
+  <string name="view_main_page_card_subtitle">Hlavná stránka %s</string>
+  <string name="view_main_page_card_action">Zobraziť hlavnú stránku</string>
   <string name="view_featured_image_card_title">Obrázok dňa</string>
   <string name="view_featured_image_card_download">Prevziať</string>
   <string name="menu_feed_card_dismiss">Skryť túto kartu</string>
@@ -577,6 +579,7 @@
   <string name="feed_item_type_featured_article">Denný odporúčaný článok na Wikipédii</string>
   <string name="feed_item_type_trending">Najčastejšie prezerané články za tento deň</string>
   <string name="feed_item_type_featured_image">Denný odporúčaný obrázok z Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Hlavná stránka Wikipédie s odporúčaným obsahom</string>
   <string name="feed_item_type_randomizer">Generuje náhodné články na prečítanie</string>
   <string name="feed_item_type_suggested_edits">Návrhy na pridanie obsahu na Wikipédiu</string>
   <string name="feed_empty_message">Nič nie je vo vašom kanále Objaviť</string>

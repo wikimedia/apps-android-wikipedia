@@ -598,6 +598,8 @@
   <string name="view_random_card_action">Zar atın</string>
   <string name="view_next_random_article">Başka bir rastgele madde yükle</string>
   <string name="view_main_page_card_title">Vikipedi\'de bugün</string>
+  <string name="view_main_page_card_subtitle">%s tarihli anasayfa</string>
+  <string name="view_main_page_card_action">Ana sayfayı görüntüle</string>
   <string name="view_featured_image_card_title">Günün resmi</string>
   <string name="view_featured_image_card_download">İndir</string>
   <string name="menu_feed_card_dismiss">Bu kartı gizle</string>
@@ -633,6 +635,7 @@
   <string name="feed_item_type_featured_article">Vikipedi\'de günün seçkin maddesi</string>
   <string name="feed_item_type_trending">Günün en çok görüntülenen maddeleri</string>
   <string name="feed_item_type_featured_image">Wikimedia Commons\'ta günün seçkin resmi</string>
+  <string name="feed_item_type_main_page">Günün seçkin maddesi içeren Vikipedi anasayfası</string>
   <string name="feed_item_type_randomizer">Okumak için rastgele madde oluştur</string>
   <string name="feed_item_type_suggested_edits">Vikipedi\'ye içerik eklemek için öneriler</string>
   <string name="feed_empty_message">İçeriği Keşfet\'inizde hiçbir şey yok</string>

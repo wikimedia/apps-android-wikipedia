@@ -360,6 +360,8 @@
   <string name="preference_summary_notification_user_talk">സംവാദ താളുകളിൽനിന്നുള്ള സന്ദേശങ്ങൾ</string>
   <string name="view_because_you_read_card_title">താങ്കൾ വായിച്ചതിനാൽ</string>
   <string name="view_main_page_card_title">വിക്കിപീഡിയയിൽ ഇന്ന്</string>
+  <string name="view_main_page_card_subtitle">%s ലെ പ്രധാന താൾ</string>
+  <string name="view_main_page_card_action">പ്രധാന താൾ കാണുക</string>
   <string name="view_featured_image_card_title">ഇന്നത്തെ ചിത്രം</string>
   <string name="view_featured_image_card_download">ഡൗൺലോഡ് ചെയ്യുക</string>
   <string name="menu_feed_card_dismissed">കാർഡ് മറച്ചിരിക്കുന്നു.</string>

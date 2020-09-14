@@ -510,6 +510,8 @@
   <string name="view_random_card_action">Хараххын симэн баран</string>
   <string name="view_next_random_article">Атын түбэспиччэ ыстатыйа</string>
   <string name="view_main_page_card_title">Бикипиэдьийэҕэ бүгүн</string>
+  <string name="view_main_page_card_subtitle">%s сүрүн сирэйэ</string>
+  <string name="view_main_page_card_action">Сүрүн сирэйи көрүү</string>
   <string name="view_featured_image_card_title">Күннээҕи ойуу</string>
   <string name="view_featured_image_card_download">Хачайдаа</string>
   <string name="menu_feed_card_dismiss">Маны кистээ</string>
@@ -543,6 +545,7 @@
   <string name="feed_item_type_featured_article">Бикипиэдьийэ күннээҕи ыстатыйата</string>
   <string name="feed_item_type_trending">Бүгүн элбэхтик көрүллүбүт ыстатыйалар</string>
   <string name="feed_item_type_featured_image">Биики Хааһах күннээҕи ойуута</string>
+  <string name="feed_item_type_main_page">Бикипиэдьийэ сүрүн сирэйэ күн аайы уларыйар</string>
   <string name="feed_item_type_randomizer">Түбэспиччэ ыстатыйалаах ааҕыы испииһэгин оҥор</string>
   <string name="feed_item_type_suggested_edits">Кылгас быһаарыылары эбэргэ этии</string>
   <string name="feed_empty_message">Кураанах</string>
