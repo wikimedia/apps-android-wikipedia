@@ -43,6 +43,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_more">더 보기</string>
+  <string name="nav_item_search">검색</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="card_offline_error_retry">다시 시도</string>
@@ -57,6 +58,8 @@
   <string name="history_item_delete_undo">실행 취소</string>
   <string name="notification_archive_undo">실행 취소</string>
   <string name="app_settings">앱 설정</string>
+  <string name="search_tab_tooltip">검색 항목 입력을 바로 시작하려면 아이콘을 다시 탭하십시오.</string>
+  <string name="history_list_title">역사</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
@@ -580,6 +583,8 @@
   <string name="view_random_card_action">주사위 던지기</string>
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
+  <string name="view_main_page_card_subtitle">%s의 대문</string>
+  <string name="view_main_page_card_action">대문 문서 보기</string>
   <string name="view_featured_image_card_title">오늘의 이미지</string>
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
@@ -615,6 +620,7 @@
   <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
   <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>
   <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
+  <string name="feed_item_type_main_page">오늘의 알찬글을 보여주는 위키백과의 대문</string>
   <string name="feed_item_type_randomizer">읽어볼 임의 문서를 만듭니다</string>
   <string name="feed_item_type_suggested_edits">위키백과의 내용 추가 제안</string>
   <string name="feed_empty_message">탐색 피드에서 할 일이 없습니다</string>
@@ -914,4 +920,15 @@
   <string name="text_input_dialog_ok_button_text">확인</string>
   <string name="text_input_dialog_cancel_button_text">취소</string>
   <string name="custom_date_picker_dialog_cancel_button_text">취소</string>
+  <string name="talk_title">토론</string>
+  <string name="talk_user_title">토론: %s</string>
+  <string name="talk_new_topic">새 주제</string>
+  <string name="talk_page_empty">이 토론 문서는 비어있습니다.</string>
+  <string name="talk_add_reply">답변</string>
+  <string name="talk_no_subject">(주제 없음)</string>
+  <string name="talk_reply_subject">주제</string>
+  <string name="talk_reply_hint">답변 쓰기</string>
+  <string name="talk_message_hint">메시지 쓰기</string>
+  <string name="talk_message_empty">메시지는 빈 채로 둘 수 없습니다.</string>
+  <string name="talk_subject_empty">주제는 빈 채로 둘 수 없습니다.</string>
 </resources>

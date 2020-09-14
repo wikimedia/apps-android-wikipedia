@@ -497,6 +497,8 @@
   <string name="view_random_card_action">ၶွၼ်းမၢၵ်ႇထႅဝ်ႇ</string>
   <string name="view_next_random_article">ပိုတ်ႇပွင်ႈလိၵ်ႈၵမ်ႉမၢၼ် တၢင်ႇဢၼ်</string>
   <string name="view_main_page_card_title">မိူဝ်ႈၼႆႉ တီႈၼိူဝ် ဝီႇၶီႇၽီးတီးယႃး</string>
+  <string name="view_main_page_card_subtitle">ၼႃႈလိၵ်ႈႁူဝ်ႁႅၵ်ႇ တီႈ %s</string>
+  <string name="view_main_page_card_action">တူၺ်းၼႃးလိၵ်ႈႁူဝ်ႁႅၵ်ႈ</string>
   <string name="view_featured_image_card_title">ၶႅပ်းႁၢင်ႈ တႃႇ မိူဝ်ႈၼႆႉ</string>
   <string name="view_featured_image_card_download">လူတ်ႇလူင်း</string>
   <string name="menu_feed_card_dismiss">သိူင်ႇဝႆႉ ၶႅပ်းဢၼ်ၼႆႉ</string>
@@ -530,6 +532,7 @@
   <string name="feed_item_type_featured_article">ပွင်ႈၵႂၢမ်းၶိုၵ်ႉတွၼ်းၵူႈဝၼ်း ၵႃႈတီႈၼိူဝ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="feed_item_type_trending">ပွင်ႈၵႂၢမ်း ၸိူဝ်းထုၵ်ႇတူၺ်းၼမ် ၵူႈဝၼ်း</string>
   <string name="feed_item_type_featured_image">ၶႅပ်းႁၢင်ႈၶိုၵ်ႉတွၼ်ႈၵူႈဝၼ်း ၵႃႈတီႈၼိူဝ် ၶွၼ်ႇမွၼ်းဝီႇၶီႇမီႇတီႇယႃႇ</string>
+  <string name="feed_item_type_main_page">ၼႃႈလိၵ်ႈႁူဝ်ႁႅၵ်ႇႁင်း ဝီႇၶီႇၽီးတီးယႃး ဢၼ်ၶဝ်ႈပႃး လမ်းၼႂ်းၶိုၵ်ႉတွၼ်ႈၵူႈဝၼ်း</string>
   <string name="feed_item_type_randomizer">ၸူၵ်းဢွၵ်ႇ ပွင်ႈၵႂၢမ်းၵမ်ႉမၢၼ် တွၼ်ႈတႃႇလူ</string>
   <string name="feed_item_type_suggested_edits">ၶေႃႈၶႆၸႂ် တႃႇထႅမ်သႂ်ႇလမ်းၼႂ်း တီႈဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="feed_empty_message">တီႈပိုတ်ႇႁႃတႃႇလူၸဝ်ႈၵဝ်ႇၼၼ်ႉ ဢမ်ႇမီးသင်ဝႆႉ</string>

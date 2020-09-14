@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Aue Nai
 * Htawmonzel
+* MuratTheTurkish
 * Ninjastrikers
 -->
 <resources>
@@ -372,8 +373,14 @@
   <string name="reading_list_articles_already_exist_message">ခိုဟ်ရ! %s အလုံမွဲ လိက်ပရေင်ဂှ် နွံဒၟံင်တုဲတုဲရ။</string>
   <string name="reading_list_added_view_button">ဗဵု စရင်</string>
   <string name="reading_list_add_to_list_button">စုတ် ပ္ဍဲ စရင်</string>
-  <string name="format_reading_list_statistical_summary">{{ဗဟုဝစ်|မွဲ=၁ လိက်ပရေင်, %2$.2f MB|%1$d လိက်ပရေင်ဂမၠိုင်, %2$.2f MB}}</string>
-  <string name="format_reading_list_statistical_detail">{{ဗဟုဝစ်|မွဲ=%1$d ဂှ် လိက်ပရေင် ၁ ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB|%1$d %2$d လိက်ပရေင်ဂမၠိုင် ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB}}</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">၁ လိက်ပရေင်, %2$.2f MB</item>
+    <item quantity="other">%1$d လိက်ပရေင်ဂမၠိုင်, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d ဂှ် လိက်ပရေင် ၁ ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB</item>
+    <item quantity="other">%1$d %2$d လိက်ပရေင်ဂမၠိုင် ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">၁ လိက်ပရေင်, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d လိက်ပရေင်, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d of ၁ လိက်ပရေင် ဗှ်မ္ၚးလာင် ဂွံ, %2$.2f MB</string>
@@ -398,7 +405,10 @@
   <string name="reading_list_name_hint">ယၟု စရင်</string>
   <string name="reading_list_description_hint">ပရူ (ပၟိက်စိုတ်)</string>
   <string name="reading_list_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>
-  <string name="reading_list_articles_deleted">{{ဗဟုဝစ်|မွဲ=လိက်ပရေင် %d ပ္တိတ် နူကဵု စရင်| လိက်ပရေင် %d ပ္တိတ် နူ စရင်}}</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">လိက်ပရေင် %d ပ္တိတ် နူကဵု စရင်</item>
+    <item quantity="other"> လိက်ပရေင် %d ပ္တိတ် နူ စရင်</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d လိက်ပရေင် ပတိတ်ထောအ် နူစရင်</string>
   <string name="reading_lists_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>
   <string name="reading_list_item_delete_undo">ဟွံပ</string>
@@ -554,6 +564,8 @@
   <string name="view_random_card_action">ဖျေဟ် မပး</string>
   <string name="view_next_random_article">လုပ်ပၠောပ် လိက်ပရေင် ဂဇျောမ် တၞဟ်</string>
   <string name="view_main_page_card_title">တ္ၚဲဏအ် ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
+  <string name="view_main_page_card_subtitle">မုက်လိက် တမ် ပ္ဍဲ %s</string>
+  <string name="view_main_page_card_action">ဗဵု မုက်လိက် တမ်</string>
   <string name="view_featured_image_card_title">ဗီုရုပ် တၟေင် တ္ၚဲဏအ်</string>
   <string name="view_featured_image_card_download">တံင်လုပ်</string>
   <string name="menu_feed_card_dismiss">ဗဒန် ကာတ် ဏအ်</string>
@@ -589,6 +601,7 @@
   <string name="feed_item_type_featured_article">လိက်ပရေင်မုက်ဂတ လၟေင်တ္ၚဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="feed_item_type_trending">လိက်ပရေင် မၞိဟ်မဗှ်ဂၠိုင်အိုတ် လၟေင်တ္ၚဲ</string>
   <string name="feed_item_type_featured_image">ဗီုရုပ်မုက်ဂတ နူ ဝဳကဳပဳဒဳယာ ကောမ္မန် လၟေင်တ္ၚဲ</string>
+  <string name="feed_item_type_main_page">မုက်လိက် ဂတ ဝဳကဳပဳဒဳယာ နကဵု ပရူမုက်ဂတ လၟေင်တ္ၚဲ</string>
   <string name="feed_item_type_randomizer">ပချဳ လိက်ပရေင် ဂဇျောမ် သွက်ဂွံ ဗှ်</string>
   <string name="feed_item_type_suggested_edits">မကဵုကသပ် သွက်ဂွံ စုတ် ပရူပရာ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="feed_empty_message">ပ္ဍဲ Explore feed ဂှ် မုဟွံမွဲ</string>
@@ -781,10 +794,16 @@
     <item quantity="other">ဗဵုလဝ် %s အလန် ပ္ဍဲကဵု အခိင် မတုဲကၠုင် ၃၀ တ္ၚဲ</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">ဗဵုလဝ် %s အလန် ပ္ဍဲအခိင် မတုဲကၠုင် ၃၀ တ္ၚဲ။</string>
-  <string name="suggested_edits_image_tag_contribution_label">{{ဗဟုဝစ်|မွဲ=မၞးစုတ် %d ဒစင်|မၞးစုတ် %d ဒစင်}}</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">မၞးစုတ် %d ဒစင်</item>
+    <item quantity="other">မၞးစုတ် %d ဒစင်</item>
+  </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">နူကဏေအ်</string>
-  <string name="suggested_edits_rewards_contributions">{{ဗဟုဝစ်|မွဲ=မၞးလုပ်ကၠောန်လဝ် မွဲအလန် ပ္ဍဲဝဳကဳပဳဒဳယာ မစကာလဝ် အရာပလေဝ်ဒါန် မအာတ်မိက်။ တင်ဂုန်ရ။|မၞးကၠောန်ဂွံ %d အလန် သွက်ဝဳကဳပဳဒဳယာ မစကာလဝ် အရာပလေဝ်ဒါန် မအာတ်မိက်။ တင်ဂုန်ရ။}}</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">မၞးလုပ်ကၠောန်လဝ် မွဲအလန် ပ္ဍဲဝဳကဳပဳဒဳယာ မစကာလဝ် အရာပလေဝ်ဒါန် မအာတ်မိက်။ တင်ဂုန်ရ။</item>
+    <item quantity="other">မၞးကၠောန်ဂွံ %d အလန် သွက်ဝဳကဳပဳဒဳယာ မစကာလဝ် အရာပလေဝ်ဒါန် မအာတ်မိက်။ တင်ဂုန်ရ။</item>
+  </plurals>
   <plurals name="suggested_edits_rewards_edit_streaks">
     <item quantity="one">မၞးပလေဝ်ဒါန်လဝ် မွဲ ပ္ဍဲမွဲကၠိုဟ်တ္ၚဲ။ ဆက်ကၠောန် လ္ပဒေါအ်ညိ %2$s!</item>
     <item quantity="other">မၞးပလေဝ်ဒါန်ဂွံလဝ် ဇၟာပ်တ္ၚဲ သီုဖအိုတ်  %1$d တ္ၚဲ စဵုကဵုလၟုဟ်မ္ဂး။ ဆက်ကၠောန် လ္ပဒေါအ်ညိ %2$s!</item>
@@ -807,9 +826,18 @@
     <item quantity="one">%1$s ဒစာမ်</item>
     <item quantity="other">%1$s ဒစာမ်ဂမၠိုင်</item>
   </plurals>
-  <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝစ်|မွဲ=%1$s ဗီုပြင်သဏ္ဌာန်|%1$s ဗီုပြင်သဏ္ဌာန်ဂမၠိုင်}}</string>
-  <string name="suggested_edits_removed_contribution_label">{{ဗဟုဝစ်|မွဲ=မၞး ပ္တိတ်လဝ် ဗီုပြင်သဏ္ဌာန် %d|မၞး ပ္တိတ်လဝ် ဗီုပြင်သဏ္ဌာန် %d}}</string>
-  <string name="suggested_edits_added_contribution_label">{{ဗဟုဝစ်|မွဲ=မၞး စုတ်လဝ် ဗီုပြင်သဏ္ဌာန် %d|မၞး စုတ်လဝ် ဗီုပြင်သဏ္ဌာန်ဂမၠိုင် %d}}</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s ဗီုပြင်သဏ္ဌာန်</item>
+    <item quantity="other">%1$s ဗီုပြင်သဏ္ဌာန်ဂမၠိုင်</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">မၞး ပ္တိတ်လဝ် ဗီုပြင်သဏ္ဌာန် %d</item>
+    <item quantity="other">မၞး ပ္တိတ်လဝ် ဗီုပြင်သဏ္ဌာန် %d</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">မၞး စုတ်လဝ် ဗီုပြင်သဏ္ဌာန် %d</item>
+    <item quantity="other">မၞး စုတ်လဝ် ဗီုပြင်သဏ္ဌာန်ဂမၠိုင် %d</item>
+  </plurals>
   <string name="file_page_activity_title">ဝှာင်မုက်လိက်</string>
   <string name="file_page_add_image_caption_button">စုတ် ပရူပရာ ဗီုရုပ်</string>
   <string name="file_page_add_image_tags_button">စုတ် ဒစင် ဗီုရုပ်</string>

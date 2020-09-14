@@ -582,6 +582,8 @@
   <string name="view_random_card_action">サイコロを転がす</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
+  <string name="view_main_page_card_subtitle">%sのメインページ</string>
+  <string name="view_main_page_card_action">メインページを表示</string>
   <string name="view_featured_image_card_title">今日の一枚</string>
   <string name="view_featured_image_card_download">ダウンロード</string>
   <string name="menu_feed_card_dismiss">カードを隠す</string>
@@ -617,6 +619,7 @@
   <string name="feed_item_type_featured_article">ウィキペディアの今日の秀逸な記事</string>
   <string name="feed_item_type_trending">今日の最も閲覧された記事</string>
   <string name="feed_item_type_featured_image">ウィキメディア・コモンズより、今日の秀逸な画像</string>
+  <string name="feed_item_type_main_page">ウィキペディアのメインページ。今日の選り抜き記事や画像を表示</string>
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
   <string name="feed_item_type_suggested_edits">ウィキペディアへの内容追加のご提案</string>
   <string name="feed_empty_message">あなたの探索するフィードには何もありません。</string>
