@@ -29,6 +29,7 @@ public final class Constants {
     public static final int ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING = 63;
     public static final int ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT = 64;
     public static final int ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING = 65;
+    public static final int ACTIVITY_REQUEST_IMAGE_TAGS_EDIT = 66;
 
     public static final String INTENT_RETURN_TO_MAIN = "returnToMain";
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
@@ -48,7 +49,6 @@ public final class Constants {
     public static final String INTENT_EXTRA_INVOKE_SOURCE = "invokeSource";
     public static final String INTENT_EXTRA_ACTION = "intentAction";
 
-    public static final int MAX_SUGGESTION_RESULTS = 3;
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
 
@@ -91,11 +91,30 @@ public final class Constants {
         ON_THIS_DAY_CARD_FOOTER("onThisDayCardFooter"),
         LEAD_IMAGE("leadImage"),
         TABS_ACTIVITY("tabsActivity"),
-        FILE_PAGE_ACTIVITY("filePage");
+        FILE_PAGE_ACTIVITY("filePage"),
+        SNACKBAR_ACTION("snackbar"),
+        PAGE_ACTION_TAB("pageActionTab"),
+        TALK_ACTIVITY("talkActivity");
 
         private String name;
 
         InvokeSource(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+    public enum ImageEditType {
+        ADD_CAPTION("addCaption"),
+        ADD_CAPTION_TRANSLATION("addCaptionTranslation"),
+        ADD_TAGS("addTags");
+
+        private String name;
+
+        ImageEditType(String name) {
             this.name = name;
         }
 

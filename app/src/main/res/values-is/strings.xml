@@ -17,11 +17,8 @@
   <string name="nav_item_forward">Áfram</string>
   <string name="search_hint">Leita á Wikipedia</string>
   <string name="search_hint_voice_search">Leit með raddskipunum</string>
-  <string name="search_hint_search_history">Leitarferill</string>
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
-  <string name="search_hint_search_my_lists_and_articles">Leita í listunum mínum og greinum</string>
-  <string name="nav_item_history">Ferilskrá</string>
-  <string name="nav_item_suggested_edits">Tillögur að breytingum</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Tillögur að breytingum</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
   <string name="card_offline_error_retry">Reyna aftur</string>
@@ -171,7 +168,6 @@
   <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
   <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun sjálfkrafa til utanaðkomandi þjónustu þannig að við getum skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
-  <string name="history_search_list_hint">Leitarferill</string>
   <string name="error_can_not_process_link">Gat ekki birt þennan tengil</string>
   <string name="page_protected_autoconfirmed">Þessi síða er varin að hluta til.</string>
   <string name="page_protected_sysop">Þessi síða er varin í heild.</string>
@@ -259,7 +255,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Leyfa</string>
   <string name="read_more_section">Lesa meira</string>
   <string name="about_article_section">Um þessa grein</string>
-  <string name="menu_gallery_visit_page">Fara á síðu skráarinnar</string>
+  <string name="menu_gallery_visit_image_page">Fara á síðu skráarinnar</string>
   <string name="gallery_error_draw_failed">Gat ekki dregið upp myndina.</string>
   <string name="license_title">Notkunarleyfi fyrir %s</string>
   <string name="gallery_menu_share">Deila</string>
@@ -337,8 +333,6 @@
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
   <string name="crash_report_quit">Hætta</string>
-  <string name="article_menu_bar_bookmark">Bæta þessari grein á leslista</string>
-  <string name="article_menu_bar_share">Deila tengli á greinina</string>
   <string name="article_header_edit_hint">Breyta…</string>
   <string name="article_header_edit_description">Breyta lýsingu á grein</string>
   <string name="article_header_edit_lead_section">Breyta inngangi</string>
@@ -439,7 +433,6 @@
   <string name="split_reading_list_message">Leslistar eru takmarkaðir við %d greinar. Fyrirliggjandi listum sem hafa fleiri greinar en þau mörk, hefur verið skipt upp í fleiri lista.</string>
   <string name="reading_list_article_limit_message">Get ekki bætt á þennan lista. Þú hefur náð %2$d greina takmörkum á hvern lista fyrir \"%1$s\".</string>
   <string name="reading_lists_limit_message">Get ekki búið til annan lista. Þú hefur náð 100 leslista takmörkum á hvern notandaaðgang.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Samstilling leslista&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
   <string name="reading_lists_menu_create_list">Búa til nýjan lista</string>
   <string name="reading_lists_menu_sort_by">Raða eftir</string>
   <string name="reading_lists_refresh_sync_option">Uppfæra samstillingu</string>
@@ -555,7 +548,6 @@
   <string name="view_continue_reading_card_subtitle_today">í dag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lesa %s</string>
   <string name="view_announcement_card_negative_action">Nei, takk</string>
-  <string name="onboarding_negative_action">Nei, takk</string>
   <string name="view_offline_card_text">Efni er ekki hægt að hlaða inn án nettengingar.</string>
   <string name="view_featured_article_card_title">Forsíðugrein</string>
   <string name="view_featured_article_footer_save_button_label">Vista</string>
@@ -613,7 +605,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Lýsing geinar birt! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Myndatexti birtur!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Myndatexti birtur! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Myndamerki birt!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Myndamerki birt!</string>
   <string name="description_edit_success_encouragement">Þú varst að gera Wikipedia betri fyrir alla</string>
   <string name="description_edit_success_done">Lokið</string>
   <string name="description_edit_success_did_you_know">Vissir þú það?</string>
@@ -624,10 +616,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst ein lína, frá tveimur til tólf orða langt</string>
   <string name="description_edit_tutorial_button_label_start_editing">Hefja breytingar</string>
   <string name="description_edit_tutorial_promise">Ef ég byrja, lofa ég að misnota ekki þennan eiginleika.</string>
-  <string name="suggested_edits_add_descriptions">Bæta við lýsingum á greinar</string>
-  <string name="suggested_edits_translate_descriptions">Þýða lýsingar á greinar</string>
-  <string name="suggested_edits_add_image_captions">Bæta við myndatextum</string>
-  <string name="suggested_edits_translate_image_captions">Þýða myndatexta</string>
   <string name="suggested_edits_tag_images">Merkja myndir</string>
   <string name="suggested_edits_review_description">Yfirfara lýsingu á grein</string>
   <string name="suggested_edits_add_description_button">Bæta við lýsingu</string>
@@ -642,7 +630,6 @@
   <string name="suggested_edits_license_notice">Með því að bæta við lýsingu, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_image_caption_license_notice">Með því að bæta við myndatextanum, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_menu_info">Upplýsingar</string>
-  <string name="suggested_edits_tasks_activity_title">Tillögur að breytingum</string>
   <string name="suggested_edits_task_add_description_title">Bæta við lýsingum á greinar</string>
   <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
   <string name="suggested_edits_task_image_caption_title">Bæta við myndatextum</string>
@@ -655,7 +642,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Læst þangað til þú hefur gert %d breytingar á lýsingum greina (yfirfarnar)</string>
   <string name="suggested_edits_task_multilingual_negative">Ekkert fyrir mig</string>
   <string name="suggested_edits_task_multilingual_positive">Bæta við tungumálum</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Skrá</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Skrá</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Listamaður</string>
   <string name="suggested_edits_image_caption_summary_title_author">Höfundur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Uppruni</string>
@@ -694,7 +681,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Að merkja myndir gerir mun auðveldara að finna þær.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Með því að bæta við merkjum á myndir gerir mun auðveldara að finna þær á Commons, myndasafninu með frjálsum notkunarleyfum sem Wikipedia notar fyrir myndir í greinum sínum.\n\nSjálfvirkt er stungið upp á nokkrum merkjum en þú getur líka bætt við þínum eigin merkjum.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Einungis merki sem þú velur verður bætt á myndir.</string>
-  <string name="suggested_edits_image_tags_snackbar">Að bæta við merkjum á myndir gerir öðrum mun auðveldara að finna þær.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Að merkja myndir gerir mun auðveldara að finna þær. Veldu úr tillögum að merkjum eða bættu við þínum eigin merkjum.</string>
   <string name="suggested_edits_image_tags_choose">Bættu við eða veldu samsvarandi merki</string>
   <string name="suggested_edits_image_tags_published_list">Birt merki</string>
@@ -704,7 +690,7 @@
   <string name="suggested_edits_image_tags_add_tag">Bæta við merki</string>
   <string name="suggested_edits_image_zoom_tooltip">Klíptu til að renna að þessari mynd.</string>
   <string name="suggested_edits_encouragement_message">%s, takk fyrir breytingarnar þínar. Hér fyrir neðan geturðu séð fleiri leiðir til að leggja þitt af mörkum til Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hæ %s&lt;/b&gt;, issir þú að allir geta breytt efni á Wikipedia? Hér fyrir neðan geturðu séð ýmsar skemmtilegar leiðir til að bæta Wikipedia. Skemmtu þér vel!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hæ %s&lt;/b&gt;, issir þú að allir geta breytt efni á Wikipedia? Hér fyrir neðan geturðu séð ýmsar skemmtilegar leiðir til að bæta Wikipedia. Skemmtu þér vel!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Myndatextar lýsa myndum til að hjálpa notendum að skilja meiningu og samhengi myndanna.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Lýsingar á greinum draga saman efni greinar í örfáum orðum til að hjálpa lesendum að skilja umfjöllunarefnið í fljótu bragði.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Heildarfjöldi breytinga sem þú hefur gert út frá tillögum að breytingum.</string>
@@ -717,7 +703,7 @@
   <string name="suggested_edits_editing_tips_link_text">Ábendingar og góð ráð við breytingar</string>
   <string name="suggested_edits_help_page_link_text">Hjálparsíða fyrir tillögur að breytingum</string>
   <string name="suggested_edits_edit_streak_label_text">Breytingaruna</string>
-  <string name="suggested_edits_pageviews_label_text">Síðuflettingar</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Síðuflettingar</string>
   <string name="suggested_edits_quality_label_text">Gæði breytinga</string>
   <string name="suggested_edits_quality_perfect_text">Fullkomið</string>
   <string name="suggested_edits_quality_excellent_text">Frábært</string>

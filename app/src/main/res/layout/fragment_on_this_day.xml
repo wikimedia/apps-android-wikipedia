@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/paper_color"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -52,7 +51,7 @@
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="serif"
-                            android:textColor="?attr/toolbar_title_color"
+                            android:textColor="?attr/material_theme_primary_color"
                             android:textSize="24sp"
                             android:textStyle="normal"
                             android:transitionName="@string/transition_on_this_day"
@@ -63,7 +62,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center_vertical"
-                            android:tint="?attr/toolbar_icon_color"
+                            app:tint="?attr/toolbar_icon_color"
                             android:contentDescription="@null"
                             app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                     </LinearLayout>
@@ -74,7 +73,7 @@
                         android:alpha="0.5"
                         android:text="@string/on_this_day_card_title"
                         android:textAllCaps="true"
-                        android:textColor="?attr/toolbar_title_color"
+                        android:textColor="?attr/material_theme_primary_color"
                         android:textSize="14sp" />
 
                     <TextView
@@ -83,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:alpha="0.5"
-                        android:textColor="?attr/toolbar_title_color"
+                        android:textColor="?attr/material_theme_primary_color"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -96,7 +95,7 @@
                     android:layout_marginBottom="-36dp"
                     android:alpha="0.5"
                     android:contentDescription="@null"
-                    android:tint="?attr/toolbar_icon_color"
+                    app:tint="?attr/toolbar_icon_color"
                     app:srcCompat="@drawable/ic_event_black_24dp" />
             </FrameLayout>
 
@@ -125,7 +124,7 @@
                         android:gravity="center_vertical"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="8sp"
-                        android:textColor="?attr/toolbar_title_color"
+                        android:textColor="?attr/material_theme_primary_color"
                         android:textSize="20sp"
                         android:textStyle="normal"
                         tools:text="January 1" />
@@ -134,7 +133,7 @@
                         android:id="@+id/drop_down_toolbar"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:tint="?attr/toolbar_icon_color"
+                        app:tint="?attr/toolbar_icon_color"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                 </LinearLayout>
@@ -152,7 +151,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="@null"
-                        android:tint="?attr/toolbar_icon_color"
+                        app:tint="?attr/toolbar_icon_color"
                         app:srcCompat="@drawable/ic_empty_event" />
 
                     <TextView
@@ -162,7 +161,7 @@
                         android:layout_height="10dp"
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="8dp"
-                        android:textColor="?attr/toolbar_title_color"
+                        android:textColor="?attr/material_theme_primary_color"
                         android:textSize="8sp"
                         tools:text="12" />
                 </FrameLayout>

@@ -24,11 +24,8 @@
   <string name="nav_item_forward">Seguinte</string>
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="search_hint_voice_search">Procura con entrada por voz</string>
-  <string name="search_hint_search_history">Procurar no historial</string>
   <string name="search_hint_search_languages">Procurar unha lingua</string>
-  <string name="search_hint_search_my_lists_and_articles">Procurar as miñas listas e artigos</string>
-  <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Edicións suxeridas</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Edicións suxeridas</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -178,7 +175,6 @@
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir á aplicación enviar automaticamente informes de fallos a un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
-  <string name="history_search_list_hint">Historial de procuras</string>
   <string name="error_can_not_process_link">Non foi posible amosar esta ligazón</string>
   <string name="page_protected_autoconfirmed">Esta páxina está semiprotexida.</string>
   <string name="page_protected_sysop">Esta páxina está totalmente protexida.</string>
@@ -264,7 +260,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Ler máis</string>
   <string name="about_article_section">Acerca deste artigo</string>
-  <string name="menu_gallery_visit_page">Ir á páxina do ficheiro</string>
+  <string name="menu_gallery_visit_image_page">Ir á páxina do ficheiro</string>
   <string name="gallery_error_draw_failed">Non se pode amosar a imaxe.</string>
   <string name="license_title">Licenza para %s</string>
   <string name="gallery_menu_share">Compartir</string>
@@ -339,8 +335,6 @@
   <string name="crash_report_relaunch_or_quit">Sentímolo, a aplicación de Wikipedia tivo un erro e pechouse.\n\nGustaríalle volver a comezar ou saír?</string>
   <string name="crash_report_relaunch">Comezar de novo</string>
   <string name="crash_report_quit">Saír</string>
-  <string name="article_menu_bar_bookmark">Engadir este artigo a unha lista de lectura</string>
-  <string name="article_menu_bar_share">Compartir a ligazón do artigo</string>
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar a descrición do artigo</string>
   <string name="article_header_edit_lead_section">Editar introdución</string>
@@ -438,7 +432,6 @@
   <string name="split_reading_list_message">Hai un límite de %d artigos por cada lista de lectura. As listas existentes cun valor superior a este foron divididas en varias listas.</string>
   <string name="reading_list_article_limit_message">Non se pode engadir a esta lista. Alcanzou o límite de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Non se pode crear outra lista. Alcanzou o límite de 100 listas de lectura por conta.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronización das listas de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;As listas de lectura agora poden sincronizarse entre dispositivos. Entre coa súa conta de Wikipedia e permita que as súas listas sexan gardadas.</string>
   <string name="reading_lists_menu_create_list">Crear unha lista nova</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Actualizar sincronización</string>
@@ -553,7 +546,6 @@
   <string name="view_continue_reading_card_subtitle_today">hoxe</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lido %s</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
-  <string name="onboarding_negative_action">Non, grazas</string>
   <string name="view_offline_card_text">Non se pode cargar contido cando non hai conexión.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Gardar</string>
@@ -621,10 +613,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente unha liña, entre dúas e unha ducia de palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comezar a editar</string>
   <string name="description_edit_tutorial_promise">Ó comezar, comprométome a non abusar desta funcionalidade.</string>
-  <string name="suggested_edits_add_descriptions">Engadir descricións de artigos</string>
-  <string name="suggested_edits_translate_descriptions">Traducir descricións de artigos</string>
-  <string name="suggested_edits_add_image_captions">Engadir lendas de imaxe</string>
-  <string name="suggested_edits_translate_image_captions">Traducir lendas de imaxes</string>
   <string name="suggested_edits_review_description">Revisar descrición de artigo</string>
   <string name="suggested_edits_add_description_button">Engadir descrición</string>
   <string name="suggested_edits_edit_description_button">Editar descrición</string>
@@ -638,7 +626,6 @@
   <string name="suggested_edits_license_notice">Ó cambiar a descrición, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Ó engadir a lenda da imaxe, concordo cos &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title">Edicións suxeridas</string>
   <string name="suggested_edits_task_add_description_title">Engadir descricións de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
   <string name="suggested_edits_task_image_caption_title">Engadir lendas ás imaxes</string>
@@ -651,7 +638,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado ata que teña editado %d descricións de artigos (verificadas)</string>
   <string name="suggested_edits_task_multilingual_negative">Non é para min</string>
   <string name="suggested_edits_task_multilingual_positive">Engadir linguas</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Ficheiro</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Ficheiro</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Orixe</string>
@@ -686,7 +673,7 @@
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicado</string>
   <string name="suggested_edits_encouragement_message" fuzzy="true">%s, grazas polas súas edicións, Abaixo pode atopar máis formas de contribuír á Wikipedia</string>
-  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Ola %s&lt;/b&gt;, sabe que calquera persoa pode editar a Wikipedia? Atope abaixo algunhas formas divertidas de axudar a mellorar a Wikipedia. Divírtase editandoǃ</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;/b&gt;Ola %s&lt;/b&gt;, sabe que calquera persoa pode editar a Wikipedia? Atope abaixo algunhas formas divertidas de axudar a mellorar a Wikipedia. Divírtase editandoǃ</string>
   <string name="suggested_edits_quality_good_text">Boa</string>
   <string name="suggested_edits_quality_okay_text">Aceptar</string>
   <string name="suggested_edits_last_edited">Última edición</string>
@@ -694,7 +681,7 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
-  <string name="suggested_edits_contribution_image_label">Arquivo</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Arquivo</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visitas</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Engadiches %d caracteres</string>

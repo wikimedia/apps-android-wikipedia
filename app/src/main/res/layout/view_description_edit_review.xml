@@ -94,7 +94,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <org.wikipedia.views.FaceAndColorDetectImageView
+        <ImageView
             android:id="@+id/galleryImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

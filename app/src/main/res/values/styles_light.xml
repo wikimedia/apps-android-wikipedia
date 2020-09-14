@@ -6,7 +6,7 @@
         <!-- Overrides of base Android color definitions -->
 
         <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/base80</item>
+        <item name="android:windowBackground">?attr/paper_color</item>
 
         <!-- Background for popup menus, text areas -->
         <item name="android:colorBackground">@color/base90</item>
@@ -27,6 +27,7 @@
         <item name="colorError">@color/red50</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
+        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.Light.PopupMenu.Overflow</item>
         <item name="popupMenuStyle">@style/PopupMenuLight</item>
         <item name="dialogTheme">@style/DialogLight</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
@@ -40,7 +41,6 @@
         <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
-        <item name="toolbar_title_color">@color/black87</item>
         <item name="toolbar_icon_color">@color/base30</item>
         <item name="themed_icon_color">@color/accent50</item>
         <item name="nav_tab_background_color">@color/base100</item>
@@ -89,6 +89,7 @@
         <item name="reward_interstitial_quality_excellent_drawable">@drawable/ic_illustration_quality_excellent_light</item>
         <item name="reward_interstitial_quality_very_good_drawable">@drawable/ic_illustration_quality_very_good_light</item>
         <item name="reward_interstitial_quality_good_drawable">@drawable/ic_illustration_quality_good_light</item>
+        <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>

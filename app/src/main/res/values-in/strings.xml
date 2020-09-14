@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Ahdan
+* Akmaie Ajam
 * Arifin.wijaya
 * ArlandGa
 * BaconSenpai
@@ -36,11 +37,10 @@
   <string name="nav_item_forward">Teruskan</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="search_hint_voice_search">Pencarian input suara</string>
-  <string name="search_hint_search_history">Cari riwayat</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
-  <string name="search_hint_search_my_lists_and_articles">Cari daftar dan artikel saya</string>
-  <string name="nav_item_history">Riwayat</string>
-  <string name="nav_item_suggested_edits">Penyuntingan yang disarankan</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Pilih daftar saya</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
+  <string name="nav_item_more">Selebihnya</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="card_offline_error_retry">Coba lagi</string>
@@ -124,7 +124,7 @@
   <string name="reading_lists_sync_login">Masuk log</string>
   <string name="create_account_login">Masuk</string>
   <string name="menu_login">Masuk log</string>
-  <string name="login_activity_title" fuzzy="true">Masuk log Wikipedia</string>
+  <string name="login_activity_title">Masuk log</string>
   <string name="login_in_progress_dialog_message">Sedang masuk log…</string>
   <string name="login_success_toast">Berhasil masuk log!</string>
   <string name="reset_password_title">Setel kata sandi Anda</string>
@@ -190,7 +190,7 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
-  <string name="history_search_list_hint">Cari riwayat</string>
+  <string name="history_filter_list_hint">Pilih riwayat</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi sebagian.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
@@ -212,6 +212,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman kelompok&lt;/a&gt;</string>
@@ -277,7 +278,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Izinkan</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="about_article_section">Mengenai artikel ini</string>
-  <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
+  <string name="menu_gallery_visit_image_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
   <string name="license_title">Lisensi untuk %s</string>
   <string name="gallery_menu_share">Bagikan</string>
@@ -325,7 +326,9 @@
   <string name="page_offline_notice_last_date">Anda sedang membaca versi luring dari artikel ini yang disimpan pada %s</string>
   <string name="button_get_directions">Dapatkan petunjuk arah</string>
   <string name="error_no_maps_app">Tidak dapat menemukan aplikasi yang memberikan petunjuk arah.</string>
+  <string name="preference_title_customize_explore_feed">Jelajahi Umpan</string>
   <string name="preference_title_show_link_previews">Tampilkan pratayang pranala</string>
+  <string name="preference_summary_customize_explore_feed">Ubahsuai umpan Jelajah</string>
   <string name="preference_summary_show_link_previews">Tampilkan pratayang singkat artikel setelah menekan pranala.</string>
   <string name="preference_title_collapse_tables">Ciutkan tabel</string>
   <string name="preference_summary_collapse_tables">Secara otomatis menciutkan tabel dalam artikel, seperti kotak info, referensi, dan catatan.</string>
@@ -355,8 +358,6 @@
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
   <string name="crash_report_quit">Keluar</string>
-  <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
-  <string name="article_menu_bar_share">Bagikan pranala artikel</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting deskripsi judul</string>
   <string name="article_header_edit_lead_section">Sunting pengantar</string>
@@ -374,9 +375,11 @@
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="nav_item_reading_lists">Daftar saya</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
+  <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
   <string name="reading_list_create_new">Buat baru</string>
   <string name="reading_list_title_exists">Daftar bacaan \"%s\" sudah ada.</string>
   <string name="reading_list_article_added_to_named">Menambahkan %1$s ke %2$s</string>
+  <string name="reading_list_article_moved_to_named">Memindahkan %1$s ke %2$s</string>
   <string name="reading_list_article_already_exists_message">Berhasil! %1$s telah berisi %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Berhasil! %s telah berisi semua artikel.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
@@ -399,6 +402,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Hapus semua dari luring</string>
   <string name="reading_list_action_menu_save_all_for_offline">Simpan semua untuk luring</string>
   <string name="reading_list_action_menu_add_to_another_list">Tambah ke daftar lainnya</string>
+  <string name="reading_list_action_menu_move_to_another_list">Pindah ke daftar lain</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
@@ -419,6 +423,7 @@
   <string name="reading_list_article_offline">Tersedia secara luring</string>
   <string name="reading_list_article_make_offline">Jadikan artikel ini tersedia secara luring</string>
   <string name="reading_list_add_to_other_list">Tambahkan ke daftar bacaan yang lain</string>
+  <string name="reading_list_move_to_other_list">Pindahkan ke daftar bacaan lain</string>
   <string name="reading_list_remove_from_list">Hapus dari %s</string>
   <string name="reading_list_remove_from_lists">Hapus dari daftar bacaan</string>
   <string name="reading_list_select_item">Pilih</string>
@@ -457,7 +462,6 @@
   <string name="split_reading_list_message">Ada batas %d artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
   <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronkan daftar bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <string name="reading_lists_menu_create_list">Buat daftar baru</string>
   <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
   <string name="reading_lists_refresh_sync_option">Segarkan sinkronisasi</string>
@@ -573,7 +577,6 @@
   <string name="view_continue_reading_card_subtitle_today">hari ini</string>
   <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
-  <string name="onboarding_negative_action">Tidak, terima kasih</string>
   <string name="view_offline_card_text">Konten tidak dapat dimuat saat luring.</string>
   <string name="view_featured_article_card_title">Artikel pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
@@ -631,7 +634,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Deksripsi artikel diterbitkan! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Takarir diterbitkan!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Takarir diterbitkan! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Takarir telah diterbitkan!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Takarir telah diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
   <string name="description_edit_success_did_you_know">Tahukah Anda?</string>
@@ -642,10 +645,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
-  <string name="suggested_edits_add_descriptions">Tambahkan deskripsi artikel</string>
-  <string name="suggested_edits_translate_descriptions">Terjemahkan deskripsi artikel</string>
-  <string name="suggested_edits_add_image_captions">Tambahkan takarir gambar</string>
-  <string name="suggested_edits_translate_image_captions">Terjemahkan takarir gambar</string>
   <string name="suggested_edits_tag_images">Tandai gambar</string>
   <string name="suggested_edits_review_description">Tinjau deskripsi artikel</string>
   <string name="suggested_edits_add_description_button">Tambahkan deskripsi</string>
@@ -660,7 +659,6 @@
   <string name="suggested_edits_license_notice">Dengan menambah deskripsi, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dengan menambah takarir gambar, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_task_add_description_title">Tambahkan deskripsi artikel</string>
   <string name="suggested_edits_task_add_description_description">Menyumbang ke artikel tanpa deskripsi judul</string>
   <string name="suggested_edits_task_image_caption_title">Tambahkan takarir gambar</string>
@@ -673,7 +671,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Terkunci hingga Anda telah menyunting %d deskripsi artikel (diverifikasi)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Berkas</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Berkas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Seniman/Pembuat</string>
   <string name="suggested_edits_image_caption_summary_title_author">Penulis</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
@@ -689,12 +687,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Takarir gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Deskripsi gambar (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Berkas</string>
   <string name="suggested_edits_image_preview_dialog_artist">Seniman/Pembuat</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Tag</string>
   <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>
   <string name="suggested_edits_image_preview_dialog_source">Sumber/Fotografer</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensi</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Info lainnya</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Halaman berkas di Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Halaman berkas di Wikipedia</string>
   <string name="suggested_edits_article_cta_image_caption">Tambahkan takarir gambar</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Tambahkan takarir gambar (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Tampilkan</string>
@@ -712,7 +713,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dengan menambahkan tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nKami menyarankan secara otomatis beberapa tag, Anda juga dapat menambahkan tag oleh Anda sendiri.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar.</string>
-  <string name="suggested_edits_image_tags_snackbar">Tambahkan tag gambar untuk membuatnya lebih mudah ditemukan orang lain.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis atau tambahkan milik Anda.</string>
   <string name="suggested_edits_image_tags_choose">Pilih tag yang cocok</string>
   <string name="suggested_edits_image_tags_published_list">Tag yang telah diterbitkan</string>
@@ -720,17 +720,21 @@
   <string name="suggested_edits_image_tags_select_title">Anda belum memilih tag apa pun untuk gambar ini</string>
   <string name="suggested_edits_image_tags_select_text">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar. Tag yang tidak dipilih akan ditandai sebagai ditolak. Yakin ingin menandai semua tag sebagai ditolak?</string>
   <string name="suggested_edits_image_tags_add_tag">Tambahkan tag</string>
+  <string name="suggested_edits_image_zoom_tooltip">Cubit untuk memperbesar gambar ini</string>
   <string name="suggested_edits_encouragement_message">Terima kasih atas suntingan Anda, %s. Di bawah ini Anda dapat menemukan lebih banyak cara untuk berkontribusi ke Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hai %s&lt;/b&gt;, tahukah Anda bahwa semua orang dapat menyunting Wikipedia? Di bawah ini Anda dapat menemukan cara yang menyenangkan untuk membantu meningkatkan Wikipedia. Selamat menyunting!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Keterangan gambar menggambarkan suatu gambar untuk membantu pembaca memahami makna dan konteksnya.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hai %s&lt;/b&gt;, tahukah Anda bahwa semua orang dapat menyunting Wikipedia? Di bawah ini Anda dapat menemukan cara yang menyenangkan untuk membantu meningkatkan Wikipedia. Selamat menyunting!</string>
+  <string name="suggested_edits_image_captions_task_detail">Deskripsikan sebuah gambar untuk membantu pembaca memahami makna dan konteksnya.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rangkum sebuah artikel untuk membantu pembaca memahami subjek secara sekilas.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Jumlah total kontribusi Anda dengan Penyuntingan yang disarankan.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Berapa hari tanpa istirahat Anda berkontribusi melalui Penyuntingan yang disarankan. Jika Anda belum berkontribusi untuk sementara waktu, ini menunjukkan tanggal kontribusi terakhir Anda.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total tampilan halaman item yang Anda berkontribusi dalam 30 hari terakhir dengan Penyuntingan yang disarankan.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Penyuntingan yang disarankan terjeda hingga %1$s.&lt;/b&gt; Maaf %2$s, beberapa kontribusi terbaru Anda telah dibalikkan.\n\nKetahui cara untuk memperbaiki kemampuan penyuntingan Anda di Wikipedia dengan pranala di bawah.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Sepertinya alamat IP Anda (atau jangkauan alamat IP) saat ini terblokir untuk menyunting Wikipedia. Ketahui lebih lanjut dengan mengunjungi pranala di bawah ini.</string>
+  <string name="suggested_edits_disabled_message">Penyuntingan yang disarankan telah dinonaktifkan. Maaf %s, terlalu banyak kontribusi terakhir Anda yang telah dikembalikan.</string>
+  <string name="suggested_edits_ip_blocked_message">Sepertinya alamat IP (atau rentang alamat IP) Anda saat ini diblokir dari penyuntingan di Wikipedia.</string>
+  <string name="suggested_edits_editing_tips_link_text">Tips dan trik menyunting</string>
   <string name="suggested_edits_help_page_link_text">Halaman bantuan suntingan yang disarankan</string>
-  <string name="suggested_edits_pageviews_label_text">Kunjungan halaman</string>
+  <string name="suggested_edits_edit_streak_label_text">Suntingan runtun</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Kunjungan halaman</string>
   <string name="suggested_edits_quality_label_text">Kualitas suntingan</string>
   <string name="suggested_edits_quality_perfect_text">Sempurna</string>
   <string name="suggested_edits_quality_excellent_text">Luar biasa</string>
@@ -742,12 +746,35 @@
   <string name="suggested_edits_quality_bad_text">Buruk</string>
   <string name="suggested_edits_contribution">Kontribusi</string>
   <string name="suggested_edits_edit_streak_detail_text">%d hari</string>
+  <string name="suggested_edits_what_is_title">Apa itu saran penyuntingan?</string>
+  <string name="suggested_edits_what_is_text">Penyuntingan yang disarankan menghadirkan peluang untuk kontribusi kecil yang berharga bagi Wikipedia.</string>
+  <string name="suggested_edits_learn_more">Pelajari selengkapnya</string>
+  <string name="suggested_edits_paused_title">Dijeda</string>
+  <string name="suggested_edits_disabled_title">Dinonaktifkan</string>
+  <string name="suggested_edits_ip_blocked_title">IP diblokir</string>
   <string name="suggested_edits_last_edited">Suntingan terakhir</string>
   <string name="suggested_edits_last_edited_never">Tidak pernah</string>
   <string name="suggested_edits_task_new">baru</string>
   <string name="suggested_edits_cc0_notice">Dengan menerbitkan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Terima kasih telah menyunting Wikipedia! Mengapa Anda tidak melanjutkan dan keluar?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Punya waktu luang untuk membantu meningkatkan Wikipedia? Lihatlah penyuntingan yang disarankan berikut.</string>
+  <string name="suggested_edits_contributions_screen_title">%s kontribusi</string>
+  <string name="suggested_edits_contribution_language_label">Bahasa</string>
+  <string name="suggested_edits_contribution_date_time_label">Tanggal / Waktu</string>
+  <string name="suggested_edits_contribution_type_label">Jenis kontribusi</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Berkas</string>
+  <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_views">%s tampilan</string>
+  <string name="suggested_edits_contribution_seen_text">Dilihat %s kali dalam 30 hari terakhir.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Kemarin</string>
+  <string name="suggested_edits_rewards_continue_button">Lanjut</string>
+  <string name="suggested_edits_encourage_account_creation_title">Tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Penyuntingan yang disarankan adalah cara baru untuk mengedit Wikipedia di Android. Ini membantu Anda memberikan kontribusi kecil yang sangat berharga untuk Wikipedia.\nTujuan kami adalah membuat pengeditan lebih mudah dan lebih bisa diakses untuk semua orang! Masuk atau bergabung dengan Wikipedia untuk memulai.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Masuk log / gabung ke Wikipedia</string>
+  <string name="suggested_edits_contribution_type_image_tag">Tag gambar</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Revisi terkini</string>
+  <string name="file_page_activity_title">Halaman berkas</string>
   <string name="description_edit_revert_subtitle">Terima kasih telah menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu Anda mencoba yang terbaik, tapi salah satu peninjau memiliki kekhawatiran. Kemungkinan alasan penyuntingan Anda telah dibalikkan meliputi:</string>
   <string name="description_edit_revert_reason1">kontribusi Anda tidak mengikuti salah satu &lt;a href=\"%1$s\"&gt;pedoman&lt;/a&gt;.</string>
@@ -785,6 +812,7 @@
   <string name="back_to_top">Kembali ke atas</string>
   <string name="on_this_day_dialog_next_month">Bulan depan</string>
   <string name="on_this_day_dialog_previous_month">Bulan lalu</string>
+  <string name="on_this_day_open_date_picker">Buka pemilih tanggal</string>
   <plurals name="diff_years">
     <item quantity="one">Tahun lalu</item>
     <item quantity="other">%d tahun yang lalu</item>
@@ -818,6 +846,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Batal</string>
+  <string name="edit_type_all">Semua kontribusi</string>
   <string name="content_description_for_page_indicator">Halaman %1$d dari %2$d</string>
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Cetak miring</string>
@@ -829,7 +858,8 @@
   <string name="wikitext_preview_link">Pranala pratayang</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Masuk log / gabung ke Wikipedia</string>
-  <string name="main_tooltip_text" fuzzy="true">Tahukah %s, bahwa semua orang dapat menyunting Wikipedia?</string>
+  <string name="main_tooltip_text">Halo %s, tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
+  <string name="main_tooltip_text_v2">Tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
   <string name="main_tooltip_action_button">Memulai</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

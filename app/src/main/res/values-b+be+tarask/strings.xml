@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Jim-by
 * Red Winged Duck
 * Renessaince
@@ -13,10 +14,9 @@
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Наперад</string>
   <string name="search_hint">Пошук па Вікіпэдыі</string>
-  <string name="search_hint_search_history">Шукаць у гісторыі</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
-  <string name="search_hint_search_my_lists_and_articles">Пошук у сьпісах і артыкулах</string>
-  <string name="nav_item_history">Гісторыя</string>
+  <string name="nav_item_suggested_edits">Рэдагаваньні</string>
+  <string name="nav_item_more">Болей</string>
   <string name="error_network_error">Не атрымліваецца далучыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паспрабаваць ізноў</string>
   <string name="card_offline_error_retry">Паўтарыць</string>
@@ -62,6 +62,7 @@
   <string name="map_view_link_text">Паказаць на мапе</string>
   <string name="other_languages_indication_text">Чытаць іншай мовай</string>
   <string name="language_count_link_text">Даступна %d іншымі мовамі</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сыстэму&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
   <string name="preference_title_language">Мовы Вікіпэдыі</string>
@@ -84,12 +85,14 @@
   <string name="search_reading_lists_no_results">У сьпісах чытаньня вынікаў ня знойдзена</string>
   <string name="search_history_no_results">У гісторыі вынікаў ня знойдзена</string>
   <string name="edit_section_captcha_message">Каб найлепшым чынам дапамагчы нам абараніцца ад аўтаматычнага спаму, калі ласка, увядзіце словы, якія паданыя ніжэй</string>
+  <string name="edit_section_captcha_request_an_account_message">На бачыце выявы? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Падайце запыт на ўліковы рахунак&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Паўтарыце словы зьверху</string>
   <string name="title_captcha">Увядзіце сымбалі з малюнку</string>
   <string name="edit_section_captcha_reload">Націсьніце малюнак для абнаўленьня</string>
   <string name="nav_item_login">Увайсьці ў Вікіпэдыю</string>
   <string name="login_username_hint">Імя ўдзельніка</string>
   <string name="login_password_hint">Пароль</string>
+  <string name="account_creation_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
   <string name="login_2fa_other_workflow_error_msg">Неабходная двухфактарная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасьці і ўвайдзіце са сваім ключом 2FA, пасьля чаго паўтарыце спробу.</string>
   <string name="onboarding_card_login">Увайсьці</string>
@@ -97,20 +100,30 @@
   <string name="reading_lists_sync_login">Увайсьці</string>
   <string name="create_account_login">Увайсьці</string>
   <string name="menu_login">Увайсьці</string>
-  <string name="login_activity_title" fuzzy="true">Увайсьці ў Вікіпэдыю</string>
+  <string name="login_activity_title">Увайсьці</string>
   <string name="login_in_progress_dialog_message">Уваход у сыстэму…</string>
   <string name="login_success_toast">Увайшлі ў сыстэму!</string>
   <string name="reset_password_title">Задайце пароль</string>
+  <string name="reset_password_description">Вы ўвашлі з часовым паролем. Каб завершыць уваход, вы мусіце ўвесьці тут новы пароль.</string>
   <string name="reset_password_hint">Новы пароль</string>
+  <string name="reset_password_button">Захаваць і ўвайсьці</string>
   <string name="preference_title_logout">Выйсьці</string>
   <string name="toast_logout_complete">Вы выйшлі з сыстэмы</string>
+  <string name="logout_prompt">Вы выйдзеце з усіх прыладаў, на якіх у дадзены момант зарэгістраваныя. Хочаце працягнуць?</string>
   <string name="logout_dialog_cancel_button_text">Скасаваць</string>
+  <string name="logged_out_in_background_title">Вы выйшлі з сыстэмы</string>
+  <string name="logged_out_in_background_dialog">Вы выйшлі з уліковага запісу Вікіпэдыі. Жадаеце ўвайсьці зноўку?</string>
   <string name="logged_out_in_background_login">Увайсьці</string>
   <string name="logged_out_in_background_cancel">Скасаваць</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
   <string name="history_empty_message">Сачыце тут за тым, што вы ўжо чыталі.</string>
+  <string name="history_offline_articles_toast">Некаторыя старонкі ў гісторыі падчас офлайну могуць быць недаступнымі.</string>
+  <string name="search_empty_message">Шукайце і чытайце вольную энцыкляпэдыю вашай мовай</string>
+  <string name="search_empty_message_multilingual_upgrade">Шукаць у Вікіпэдыі іншымі мовамі</string>
+  <string name="delete_selected_items">Выдаліць выбраныя элемэнты</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЭДЫ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Імя ўдзельніка</string>
+  <string name="login_join_wikipedia">Далучайцеся да Вікіпэдыі</string>
   <string name="create_account_activity_title">Стварыць рахунак</string>
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>
@@ -130,7 +143,6 @@
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
-  <string name="history_search_list_hint">Гісторыя пошуку</string>
   <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
@@ -146,6 +158,7 @@
   <string name="about_contributors_heading">Аўтары</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license">Крынічны код даступны на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; і &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Прадукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;фундацыі «Вікімэдыя»&lt;/a&gt;</string>
   <string name="about_activity_title">Пра</string>
   <string name="edit_abandon_confirm">Старонка была зьмененая. Вы ўпэўнены, што жадаеце выйсьці без захаваньня Вашых зьменаў?</string>
@@ -161,6 +174,7 @@
   <string name="edit_summary_tag_links">Даданая спасылка</string>
   <string name="edit_summary_tag_other">Іншае</string>
   <string name="edit_summary_tag_other_hint">Іншыя шляхі якімі Вы палепшылі старонку</string>
+  <string name="edit_conflict_message">Гэтая старонка ўжо была зьмененая іншым удзельнікам і канфліктуе з вашым рэдагаваньнем. Калі ласка, скапіюйце свае рэдагаваньні, вярніцеся ды абнавеце старонку, а тады паспрабуйце адрэдагаваць ізноў.</string>
   <string name="find_next">Працягваць пошук</string>
   <string name="find_previous">Знайсьці папярэдняе</string>
   <string name="abusefilter_title_warn">Гэтае рэдагаваньне можа быць неканструктыўным. Вы ўпэўненыя, што жадаеце яго апублікаваць?</string>
@@ -187,7 +201,7 @@
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
   <string name="read_more_section">Даведацца болей</string>
-  <string name="menu_gallery_visit_page">Перайсьці на старонку файла</string>
+  <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
   <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
@@ -220,8 +234,6 @@
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>
   <string name="crash_report_quit">Выйсьці</string>
-  <string name="article_menu_bar_bookmark">Дадаць гэты артыкул да сьпісу чытаньня</string>
-  <string name="article_menu_bar_share">Падзяліцца спасылкай на артыкул</string>
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>

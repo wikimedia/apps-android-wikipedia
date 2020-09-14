@@ -11,12 +11,11 @@
     <string name="nav_item_forward">Forward</string>
     <string name="search_hint">Search Wikipedia</string>
     <string name="search_hint_voice_search">Voice input search</string>
-    <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_languages">Search for a language</string>
-    <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
-    <string name="nav_item_history">History</string>
-    <string name="nav_item_suggested_edits">Suggested edits</string>
+    <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
+    <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
+    <string name="nav_item_search">Search</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
     <string name="card_offline_error_retry">Retry</string>
@@ -31,6 +30,8 @@
     <string name="history_item_delete_undo">Undo</string>
     <string name="notification_archive_undo">Undo</string>
     <string name="app_settings">App settings</string>
+    <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
+    <string name="history_list_title">History</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>
@@ -48,7 +49,9 @@
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
+    <string name="menu_page_add_to_default_list">Save</string>
     <string name="feed_card_add_to_list">Add to reading list</string>
+    <string name="feed_card_add_to_default_list">Save</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
@@ -175,7 +178,7 @@
     <string name="preference_title_auto_upload_crash_reports">Send crash reports</string>
     <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
-    <string name="history_search_list_hint">Search history</string>
+    <string name="history_filter_list_hint">Filter history</string>
     <string name="error_can_not_process_link">Could not display this link</string>
     <string name="page_protected_autoconfirmed">This page has been semi-protected.</string>
     <string name="page_protected_sysop">This page has been fully protected.</string>
@@ -264,7 +267,7 @@
     <string name="dialog_title_download_only_over_wifi_allow">Allow</string>
     <string name="read_more_section">Read more</string>
     <string name="about_article_section">About this article</string>
-    <string name="menu_gallery_visit_page">Go to file page</string>
+    <string name="menu_gallery_visit_image_page">Go to image page</string>
     <string name="gallery_error_draw_failed">Could not draw the image.</string>
     <string name="license_title">License for %s</string>
     <string name="gallery_menu_share">Share</string>
@@ -325,6 +328,10 @@
     <string name="location_permissions_enable_prompt">Enable location permissions to see places near you.</string>
     <string name="location_permissions_enable_action">Turn on</string>
     <string name="error_webview_updating">The Android System WebView is currently being updated. Please try again in a moment.</string>
+    <plurals name="multi_items_selected">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
     <string name="multi_select_items_selected">%d selected</string>
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
@@ -349,8 +356,11 @@
     <!-- /Crash reporter -->
 
     <!-- Article menu bar -->
-    <string name="article_menu_bar_bookmark">Add this article to a reading list</string>
-    <string name="article_menu_bar_share">Share the article link</string>
+    <string name="article_menu_bar_save_button">Save</string>
+    <string name="article_menu_bar_language_button">Language</string>
+    <string name="article_menu_bar_search_button">Search</string>
+    <string name="article_menu_bar_theme_button">Theme</string>
+    <string name="article_menu_bar_contents_button">Contents</string>
     <string name="article_header_edit_hint">Edit…</string>
     <string name="article_header_edit_description">Edit article description</string>
     <string name="article_header_edit_lead_section">Edit introduction</string>
@@ -378,10 +388,20 @@
     <string name="reading_list_create_new">Create new</string>
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
     <string name="reading_list_article_added_to_named">Added %1$s to %2$s.</string>
+    <string name="reading_list_article_added_to_default_list">Saved %s. Do you want to add it to a list?</string>
     <string name="reading_list_article_moved_to_named">Moved %1$s to %2$s.</string>
     <string name="reading_list_article_already_exists_message">All good! %1$s already contains %2$s.</string>
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
+    <string name="reading_list_add_to_list_button">Add to list</string>
+    <plurals name="format_reading_list_statistical_summary">
+        <item quantity="one">1 article, %2$.2f MB</item>
+        <item quantity="other">%1$d articles, %2$.2f MB</item>
+    </plurals>
+    <plurals name="format_reading_list_statistical_detail">
+        <item quantity="one">%1$d of 1 article available offline, %3$.2f MB</item>
+        <item quantity="other">%1$d of %2$d articles available offline, %3$.2f MB</item>
+    </plurals>
     <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
     <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
     <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
@@ -406,6 +426,10 @@
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
+    <plurals name="reading_list_articles_deleted">
+        <item quantity="one">%d article removed from list</item>
+        <item quantity="other">%d articles removed from list</item>
+    </plurals>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
@@ -436,6 +460,8 @@
     <string name="reading_lists_sync_reminder_action">Enable syncing</string>
     <string name="reading_list_login_reminder_title">Sync reading lists</string>
     <string name="reading_lists_login_reminder_text">Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.</string>
+    <string name="reading_lists_login_button">Log in / join Wikipedia</string>
+    <string name="reading_lists_ignore_button">Not now</string>
     <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
     <string name="reading_lists_confirm_remote_delete_no">No</string>
     <string name="reading_list_article_save_in_progress">The article is being downloaded, and it will be available offline when complete.</string>
@@ -464,7 +490,6 @@
     <string name="reading_list_move_article_limit_message">Can\'t move to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
-    <string name="feed_reading_lists_sync_onboarding_text"><![CDATA[<strong>Sync reading lists</strong><br /><br />Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.]]></string>
     <string name="reading_lists_menu_create_list">Create new list</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
@@ -581,6 +606,7 @@
 
     <string name="feed_featured_image_share_subject">Featured image from Wikimedia Commons</string>
     <string name="feed">Explore</string>
+    <string name="home">Home</string>
     <string name="most_read_list_card_title">Trending</string>
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
@@ -591,7 +617,6 @@
     <string name="view_continue_reading_card_subtitle_today">today</string>
     <string name="view_continue_reading_card_subtitle_read_date">Read %s</string>
     <string name="view_announcement_card_negative_action">No thanks</string>
-    <string name="onboarding_negative_action">No thanks</string>
     <string name="view_offline_card_text">Content cannot be loaded when offline.</string>
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
@@ -647,7 +672,12 @@
     <string name="description_edit_anon_limit">Thanks for your continued interest in editing article descriptions! To make additional edits, please log in to your Wikipedia account.</string>
     <string name="description_edit_license_notice"><![CDATA[By changing the article description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="description_edit_helper_text_lowercase_warning">usually begin with a lowercase letter</string>
+    <string name="description_edit_voice_input_description">Voice input</string>
 
+    <string name="description_too_short">The text is too short.</string>
+    <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
+    <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
+    <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -657,6 +687,7 @@
     <string name="description_edit_success_saved_image_caption_snackbar">Image caption published!</string>
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
     <string name="description_edit_success_saved_image_tags_snackbar">Image tag(s) published!</string>
+    <string name="description_edit_success_se_general_feed_link_snackbar">Enjoyed that? Help us add more.</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
@@ -673,10 +704,8 @@
     <!-- /Description editing tutorial -->
 
     <!-- Suggested edits -->
-    <string name="suggested_edits_add_descriptions">Add article descriptions</string>
-    <string name="suggested_edits_translate_descriptions">Translate article descriptions</string>
-    <string name="suggested_edits_add_image_captions">Add image captions</string>
-    <string name="suggested_edits_translate_image_captions">Translate image captions</string>
+    <string name="suggested_edits_describe_articles">Describe articles</string>
+    <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>
     <string name="suggested_edits_review_description">Review article description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
@@ -691,7 +720,6 @@
     <string name="suggested_edits_license_notice"><![CDATA[By adding the description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_image_caption_license_notice"><![CDATA[By adding the image caption, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
-    <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_task_add_description_title">Add article descriptions</string>
     <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
     <string name="suggested_edits_task_image_caption_title">Add image captions</string>
@@ -704,7 +732,7 @@
     <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve edited %d article descriptions (verified)</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
-    <string name="suggested_edits_image_caption_summary_title_file">File</string>
+    <string name="suggested_edits_image_caption_summary_title_image">Image</string>
     <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
     <string name="suggested_edits_image_caption_summary_title_author">Author</string>
     <string name="suggested_edits_image_caption_summary_title_source">Source</string>
@@ -720,7 +748,7 @@
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
-    <string name="suggested_edits_image_preview_dialog_file">File</string>
+    <string name="suggested_edits_image_preview_dialog_image">Image</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
     <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
     <string name="suggested_edits_image_preview_dialog_date">Date</string>
@@ -729,6 +757,7 @@
     <string name="suggested_edits_image_preview_dialog_more_info">More Info</string>
     <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
     <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">File page on Wikipedia</string>
+    <string name="suggested_edits_article_cta_image_tags">Add image tags</string>
     <string name="suggested_edits_article_cta_image_caption">Add image caption</string>
     <string name="suggested_edits_article_cta_image_caption_in_language">Add image caption (%s)</string>
     <string name="suggested_edits_article_cta_snackbar_action">View</string>
@@ -746,7 +775,6 @@
     <string name="suggested_edits_image_tags_onboarding_title">Tagging images makes them easier to find.</string>
     <string name="suggested_edits_image_tags_onboarding_text">By adding image tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.</string>
     <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
-    <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
     <string name="suggested_edits_image_tags_task_detail">Add custom tags to an image to make it easier to find.</string>
     <string name="suggested_edits_image_tags_choose">Add or choose matching tags</string>
     <string name="suggested_edits_image_tags_published_list">Published tags</string>
@@ -756,7 +784,7 @@
     <string name="suggested_edits_image_tags_add_tag">Add tag</string>
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
-    <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
+    <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Wikipedia. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
     <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
     <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits.</string>
@@ -769,7 +797,7 @@
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
-    <string name="suggested_edits_pageviews_label_text">Pageviews</string>
+    <string name="suggested_edits_views_label_text">Views</string>
     <string name="suggested_edits_quality_label_text">Edit quality</string>
     <string name="suggested_edits_quality_perfect_text">Perfect</string>
     <string name="suggested_edits_quality_excellent_text">Excellent</string>
@@ -779,7 +807,7 @@
     <string name="suggested_edits_quality_sufficient_text">Sufficient</string>
     <string name="suggested_edits_quality_poor_text">Poor</string>
     <string name="suggested_edits_quality_bad_text">Bad</string>
-    <string name="suggested_edits_contribute">Contribute</string>
+    <string name="suggested_edits_label">Suggested edits</string>
     <plurals name="suggested_edits_contribution">
         <item quantity="one">Contribution</item>
         <item quantity="other">Contributions</item>
@@ -805,9 +833,13 @@
     <string name="suggested_edits_contribution_language_label">Language</string>
     <string name="suggested_edits_contribution_date_time_label">Date / Time</string>
     <string name="suggested_edits_contribution_type_label">Contribution type</string>
-    <string name="suggested_edits_contribution_image_label">File</string>
+    <string name="suggested_edits_contribution_image_label">Image</string>
     <string name="suggested_edits_contribution_article_label">Article</string>
     <string name="suggested_edits_contribution_views">%s views</string>
+    <plurals name="suggested_edits_contribution_seen_times">
+        <item quantity="one">Seen once in the past 30 days.</item>
+        <item quantity="other">Seen %s times in the past 30 days.</item>
+    </plurals>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <plurals name="suggested_edits_image_tag_contribution_label">
         <item quantity="one">You added %d tag</item>
@@ -815,6 +847,18 @@
     </plurals>
     <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
     <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
+    <plurals name="suggested_edits_rewards_contributions">
+        <item quantity="one">You\'ve made one contribution to Wikipedia using Suggested Edits. Thank you!</item>
+        <item quantity="other">You\'ve made %d contributions to Wikipedia using Suggested Edits. Thank you!</item>
+    </plurals>
+    <plurals name="suggested_edits_rewards_edit_streaks">
+        <item quantity="one">You\'ve been editing for one whole day. Keep the streak going, %2$s!</item>
+        <item quantity="other">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</item>
+    </plurals>
+    <plurals name="suggested_edits_rewards_page_views">
+        <item quantity="one">Your edits have been seen by one person in the last 30 days. Thanks, and keep going!</item>
+        <item quantity="other">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</item>
+    </plurals>
     <string name="suggested_edits_rewards_contribution">You\'ve made %d contributions to Wikipedia using Suggested edits. Thank you!</string>
     <string name="suggested_edits_rewards_edit_streak">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</string>
     <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
@@ -824,7 +868,7 @@
     <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
     <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
-    <string name="suggested_edits_contribution_current_revision">Current revision</string>
+    <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
     <plurals name="suggested_edits_tags_diff_count_text">
         <item quantity="one">%1$s tag</item>
         <item quantity="other">%1$s tags</item>
@@ -845,6 +889,8 @@
 
     <!-- File page -->
     <string name="file_page_activity_title">File page</string>
+    <string name="file_page_add_image_caption_button">Add image caption</string>
+    <string name="file_page_add_image_tags_button">Add image tags</string>
     <!-- /File page -->
 
     <!-- Description editing revert help -->
@@ -962,4 +1008,16 @@
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>
     <string name="custom_date_picker_dialog_cancel_button_text">Cancel</string>
+
+    <string name="talk_title">Talk</string>
+    <string name="talk_user_title">Talk: %s</string>
+    <string name="talk_new_topic">New topic</string>
+    <string name="talk_page_empty">This talk page is empty.</string>
+    <string name="talk_add_reply">Reply</string>
+    <string name="talk_no_subject">(No subject)</string>
+    <string name="talk_reply_subject">Subject</string>
+    <string name="talk_reply_hint">Compose response</string>
+    <string name="talk_message_hint">Compose message</string>
+    <string name="talk_message_empty">The message cannot be empty.</string>
+    <string name="talk_subject_empty">The subject cannot be empty.</string>
 </resources>

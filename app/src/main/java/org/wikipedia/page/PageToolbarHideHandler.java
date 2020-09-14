@@ -24,6 +24,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private boolean fadeEnabled;
+    private Boolean prevToolbarLight;
     @NonNull private PageFragment pageFragment;
     @NonNull private Toolbar toolbar;
     @NonNull private Drawable toolbarBackground;
@@ -57,6 +58,12 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice(pageFragment.requireContext()) - toolbarHeight) ? 0 : FULL_OPACITY;
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
+        boolean isToolbarLight = opacity != 0;
+        if (prevToolbarLight == null || prevToolbarLight != isToolbarLight) {
+            prevToolbarLight = isToolbarLight;
+            ((PageActivity) pageFragment.requireActivity()).requestLightStatusBar(prevToolbarLight);
+        }
+        pageFragment.setToolbarElevationEnabled(scrollY != 0);
     }
 
     private void updateChildIconTint(@NonNull ViewGroup viewGroup, float opacity) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arnobarnard
 * Biggs ZA
 * Envlh
@@ -14,9 +15,7 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Soek in Wikipedia</string>
-  <string name="search_hint_search_history">Soekgeskiedenis</string>
   <string name="search_hint_search_languages">Soek na ’n taal</string>
-  <string name="nav_item_history">Geskiedenis</string>
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
   <string name="page_error_retry">Probeer weer</string>
   <string name="page_error_back_to_main">Gaan terug</string>
@@ -128,7 +127,6 @@
   <string name="preference_summary_eventlogging_opt_in">Laat Wikimedia toe om inligting in te samel oor hoe u die toep gebruik om sodoende die toep te verbeter</string>
   <string name="preference_title_auto_upload_crash_reports">Stuur bomverslae</string>
   <string name="editing_error_spamblacklist">Skakels na geblokkeerder domeins (%s) gevind. Verwyder dit en probeer weer.</string>
-  <string name="history_search_list_hint">Soek geskiedenis</string>
   <string name="error_can_not_process_link">Kon nie hierdie skakel vertoon nie</string>
   <string name="page_protected_autoconfirmed">Hierdie blad is semi-beskerm.</string>
   <string name="page_protected_sysop">Hierdie blad is volledig beskerm.</string>
@@ -200,7 +198,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Laat toe</string>
   <string name="read_more_section">Lees meer</string>
   <string name="about_article_section">Oor dié artikel</string>
-  <string name="menu_gallery_visit_page">Gaan na lêer blad</string>
+  <string name="menu_gallery_visit_image_page">Gaan na lêer blad</string>
   <string name="gallery_error_draw_failed">Kon nie die beeld teken nie.</string>
   <string name="license_title">Lisensie vir %s</string>
   <string name="gallery_menu_share">Deel</string>
@@ -246,8 +244,6 @@
   <string name="crash_report_activity_title">Toepassingfout</string>
   <string name="crash_report_relaunch">Begin voor</string>
   <string name="crash_report_quit">Sluit Af</string>
-  <string name="article_menu_bar_bookmark">Voeg hierdie artikel toe tot leeslys</string>
-  <string name="article_menu_bar_share">Deel die artikelskakel</string>
   <string name="article_header_edit_hint">Wysig…</string>
   <string name="article_header_edit_description" fuzzy="true">Wysig titelbeskrywing</string>
   <string name="article_header_edit_lead_section">Wysig inleiding</string>
@@ -330,7 +326,6 @@
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Merk prente om dit makliker te maak vir ander om dit te vind</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Deur voorgestelde merkers te bevestig, kan u help om prente makliker te soek.\n\nMerkers word op rekenaar voorgestel, maar moet deur mense bekragtig word om akkuraatheid te verseker.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slegs merkers wat u kies, sal by prente gevoeg word.</string>
-  <string name="suggested_edits_image_tags_snackbar">Voeg prentetikette by om dit makliker te maak vir ander om dit te vind.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Merk prente om dit makliker te maak vir ander om dit te vind. Merkers word outomaties voorgestel, maar dit moet deur u bevestig word.</string>
   <string name="suggested_edits_image_tags_choose" fuzzy="true">Kies bypassende etikette</string>
   <string name="suggested_edits_image_tags_select_title">U het geen merkers vir hierdie prent gekies nie</string>

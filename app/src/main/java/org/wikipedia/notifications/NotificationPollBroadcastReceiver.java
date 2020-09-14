@@ -14,7 +14,6 @@ import androidx.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ABTestEditorRetentionNotificationFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
@@ -87,7 +86,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             // There seems to be a Samsung-specific issue where it doesn't update the existing
             // alarm correctly and adds it as a new one, and eventually hits the limit of 500
             // concurrent alarms, causing a crash.
-            L.logRemoteErrorIfProd(e);
+            L.e(e);
         }
     }
 
@@ -170,7 +169,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void onNotificationsComplete(@NonNull final Context context, @NonNull List<Notification> notifications) {
-        if (notifications.isEmpty()) {
+        if (notifications.isEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
             return;
         }
         boolean locallyKnownModified = false;
@@ -261,18 +260,10 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         if (days >= FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && days < SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY
                 && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(true);
-            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
-            funnel.logNotificationStage1();
-            if (funnel.shouldSeeNotification()) {
-                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one);
-            }
+            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one);
         } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(false);
-            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
-            funnel.logNotificationStage2();
-            if (funnel.shouldSeeNotification()) {
-                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two);
-            }
+            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two);
         }
     }
 

@@ -41,7 +41,7 @@ public final class ShareUtil {
      * Share some text and subject (title) as plain text using an activity chooser,
      * so that the user can choose the app with which to share the content.
      */
-    public static void shareText(final Context context, final String subject, final String text) {
+    private static void shareText(final Context context, final String subject, final String text) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
         shareIntent.putExtra(Intent.EXTRA_TEXT, text);
@@ -56,7 +56,7 @@ public final class ShareUtil {
     }
 
     public static void shareText(final Context context, final PageTitle title) {
-        shareText(context, title.getDisplayText(), UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link));
+        shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(), UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link));
     }
 
     /**

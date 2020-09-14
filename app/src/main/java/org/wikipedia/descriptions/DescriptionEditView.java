@@ -14,10 +14,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -25,9 +27,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
+import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -48,6 +52,8 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class DescriptionEditView extends LinearLayout {
+    private static final int TEXT_VALIDATE_DELAY_MILLIS = 1000;
+
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
     @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_save_button) ImageView saveButton;
@@ -62,14 +68,19 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
     @BindView(R.id.view_description_edit_page_summary_label) TextView pageSummaryLabel;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditBottomBarView bottomBarContainer;
+    @BindView(R.id.view_description_edit_scrollview) ScrollView scrollView;
 
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
     private Activity activity;
     private PageTitle pageTitle;
-    private SuggestedEditsSummary suggestedEditsSummary;
+    private PageSummaryForEdit pageSummaryForEdit;
     private Action action;
     private boolean isTranslationEdit;
+    private boolean isTextValid;
+
+    private Runnable textValidateRunnable = this::validateText;
+    private ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
 
     public interface Callback {
         void onSaveClick();
@@ -101,21 +112,23 @@ public class DescriptionEditView extends LinearLayout {
     public void setPageTitle(@NonNull PageTitle pageTitle) {
         this.pageTitle = pageTitle;
         originalDescription = pageTitle.getDescription();
+        setVoiceInput();
         setHintText();
-        setHelperText();
         setDescription(originalDescription);
         setReviewHeaderText(false);
+    }
+
+    private void setVoiceInput() {
+        pageDescriptionLayout.setEndIconOnClickListener(view -> {
+            if (callback != null) {
+                callback.onVoiceInputClick();
+            }
+        });
     }
 
     private void setHintText() {
         pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
         pageDescriptionLayout.setHint(getHintText(pageTitle.getWikiSite().languageCode()));
-    }
-
-    private void setHelperText() {
-        if (action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION) {
-            pageDescriptionLayout.setHelperText(getContext().getString(R.string.description_edit_helper_text_lowercase_warning));
-        }
     }
 
     private int getHeaderTextRes(boolean inReview) {
@@ -184,17 +197,17 @@ public class DescriptionEditView extends LinearLayout {
             toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.paper_color));
             saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
             cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
-            headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_title_color));
+            headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_primary_color));
             ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? Color.BLACK : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
             DeviceUtil.updateStatusBarTheme(activity, null, enabled);
             ((DescriptionEditActivity) activity).updateNavigationBarColor(enabled ? Color.BLACK : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         }
     }
 
-    public void setSummaries(@NonNull Activity activity, @NonNull SuggestedEditsSummary sourceSummary, SuggestedEditsSummary targetSummary) {
+    public void setSummaries(@NonNull Activity activity, @NonNull PageSummaryForEdit sourceSummary, PageSummaryForEdit targetSummary) {
         this.activity = activity;
         // the summary data that will bring to the review screen
-        suggestedEditsSummary = isTranslationEdit ? targetSummary : sourceSummary;
+        pageSummaryForEdit = isTranslationEdit ? targetSummary : sourceSummary;
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageSummaryLabel.setText(getLabelText(sourceSummary.getLang()));
@@ -204,12 +217,12 @@ public class DescriptionEditView extends LinearLayout {
                 && !TextUtils.isEmpty(sourceSummary.getPageTitle().getDescription())) {
             pageSummaryContainer.setVisibility(GONE);
         }
-        setConditionalLayoutDirection(pageSummaryContainer, isTranslationEdit ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
+        setConditionalLayoutDirection(this, isTranslationEdit ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
         setUpBottomBar();
     }
 
     private void setUpBottomBar() {
-        bottomBarContainer.setSummary(suggestedEditsSummary);
+        bottomBarContainer.setSummary(pageSummaryForEdit);
         bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
@@ -224,7 +237,7 @@ public class DescriptionEditView extends LinearLayout {
 
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), action == ADD_CAPTION || action == TRANSLATE_CAPTION);
+            pageReviewContainer.setSummary(pageSummaryForEdit, getDescription(), action == ADD_CAPTION || action == TRANSLATE_CAPTION);
             pageReviewContainer.show();
             bottomBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
@@ -245,14 +258,49 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     @NonNull public String getDescription() {
-        return pageDescriptionText.getText().toString();
+        return pageDescriptionText.getText().toString().trim();
     }
 
     public void setError(@Nullable CharSequence text) {
+        pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp);
+        ColorStateList colorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError));
+        pageDescriptionLayout.setErrorIconTintList(colorStateList);
+        pageDescriptionLayout.setErrorTextColor(colorStateList);
+        pageDescriptionLayout.setBoxStrokeErrorColor(colorStateList);
+        layoutErrorState(text);
+    }
+
+    private void setWarning(@Nullable CharSequence text) {
+        pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_warning_24);
+        ColorStateList colorStateList = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30));
+        pageDescriptionLayout.setErrorIconTintList(colorStateList);
+        pageDescriptionLayout.setErrorTextColor(colorStateList);
+        pageDescriptionLayout.setBoxStrokeErrorColor(colorStateList);
+        layoutErrorState(text);
+    }
+
+    private void clearError() {
+        pageDescriptionLayout.setError(null);
+    }
+
+    private void layoutErrorState(@Nullable CharSequence text) {
+        // explicitly clear the error, to prevent a glitch in the Material library.
+        clearError();
         pageDescriptionLayout.setError(text);
+        if (!TextUtils.isEmpty(text)) {
+            post(() -> {
+                if (isAttachedToWindow()) {
+                    scrollView.fullScroll(View.FOCUS_DOWN);
+                }
+            });
+        }
     }
 
     @OnClick(R.id.view_description_edit_save_button) void onSaveClick() {
+        validateText();
+        if (!saveButton.isEnabled()) {
+            return;
+        }
         if (callback != null) {
             callback.onSaveClick();
         }
@@ -274,14 +322,8 @@ public class DescriptionEditView extends LinearLayout {
         performReadArticleClick();
     }
 
-    @OnClick(R.id.view_description_edit_voice_input) void onVoiceInputClick() {
-        if (callback != null) {
-            callback.onVoiceInputClick();
-        }
-    }
-
     private void performReadArticleClick() {
-        if (callback != null && suggestedEditsSummary != null) {
+        if (callback != null && pageSummaryForEdit != null) {
             callback.onBottomBarClick();
         }
     }
@@ -289,8 +331,44 @@ public class DescriptionEditView extends LinearLayout {
     @OnTextChanged(value = R.id.view_description_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
+        if (funnel.shouldSeeChecks()) {
+            removeCallbacks(textValidateRunnable);
+            postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
+        } else {
+            isTextValid = true;
+            updateSaveButtonEnabled();
+            setError(null);
+        }
+    }
+
+    void validateText() {
+        if (!funnel.shouldSeeChecks()) {
+            return;
+        }
+        isTextValid = true;
+        String text = pageDescriptionText.getText().toString().toLowerCase().trim();
+
+        if (text.length() == 0) {
+            isTextValid = false;
+            clearError();
+        } else if (text.length() < 2) {
+            isTextValid = false;
+            setError(getContext().getString(R.string.description_too_short));
+        } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
+                && StringUtils.endsWithAny(text, ".", ",", "!", "?")) {
+            isTextValid = false;
+            setError(getContext().getString(R.string.description_ends_with_punctuation));
+        } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
+                && LanguageUtil.startsWithArticle(text, pageTitle.getWikiSite().languageCode())) {
+            setWarning(getContext().getString(R.string.description_starts_with_article));
+        } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
+                && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
+            setWarning(getContext().getString(R.string.description_starts_with_uppercase));
+        } else {
+            clearError();
+        }
+
         updateSaveButtonEnabled();
-        setError(null);
     }
 
     @OnEditorAction(R.id.view_description_edit_text)
@@ -318,13 +396,14 @@ public class DescriptionEditView extends LinearLayout {
     private void init() {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);
-        FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
+        FeedbackUtil.setButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
     }
 
     private void updateSaveButtonEnabled() {
         if (!TextUtils.isEmpty(pageDescriptionText.getText())
-                && !StringUtils.equals(originalDescription, pageDescriptionText.getText())) {
+                && !StringUtils.equals(originalDescription, pageDescriptionText.getText())
+                && isTextValid) {
             enableSaveButton(true, false);
         } else {
             enableSaveButton(false, false);

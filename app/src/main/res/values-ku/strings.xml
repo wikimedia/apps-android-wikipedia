@@ -4,6 +4,7 @@
 * Cûndûllah el-Kurdî
 * George Animal
 * Ghybu
+* Guherto
 * Kur
 * Mirzali
 -->
@@ -13,11 +14,11 @@
   <string name="app_name_alpha">Wîkîpediya Alfa</string>
   <string name="wikimedia">Wîkîmediya</string>
   <string name="nav_item_back">Vegere</string>
+  <string name="page_tabs_back">Vegere</string>
   <string name="nav_item_forward">Pêşve</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
-  <string name="search_hint_search_history">Dîroka lêgerînê</string>
   <string name="search_hint_search_languages">Li zimanekî bigere</string>
-  <string name="nav_item_history">Dîrok</string>
+  <string name="nav_item_suggested_edits">Guhertin</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>
@@ -84,7 +85,7 @@
   <string name="login_2fa_hint">Koda Pejirandina Nasnameyê ya Du-faktorî</string>
   <string name="login_2fa_other_workflow_error_msg">Pejirandina nasnameyê ya du-faktorî hewce ye! Xêra xwe vegere fealiyeta esas û bi kilîda xwe ya 2FA\'yê têkeve, paşê dîsa bicerribîne.</string>
   <string name="menu_login">Têkeve</string>
-  <string name="login_activity_title" fuzzy="true">Têkeve Wîkîpediyayê</string>
+  <string name="login_activity_title">Têkeve</string>
   <string name="login_in_progress_dialog_message">Niha têdikeve...</string>
   <string name="login_success_toast" fuzzy="true">Têketin serkeftî bû!</string>
   <string name="reset_password_title">Şîfreya xwe eyar bike</string>
@@ -129,7 +130,6 @@
   <string name="wikipedia_app_faq">Sepana Wîkîpediyayê PPP</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="preferences_heading_data_usage">Bikaranîna daneyê</string>
-  <string name="history_search_list_hint">Dîroka lêgerînê</string>
   <string name="error_can_not_process_link">Nikare vê lînkê nîşan bide</string>
   <string name="page_protected_autoconfirmed">Ev rûpel nîv-parastî ye</string>
   <string name="page_protected_sysop">Ev rûpel bi temamî parastî ye.</string>
@@ -185,7 +185,6 @@
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
   <string name="crash_report_relaunch">Cardin dest pê bike</string>
   <string name="crash_report_quit">Derkeve</string>
-  <string name="article_menu_bar_share">Girêdana gotarê parve bike</string>
   <string name="color_theme_dark">Tarî</string>
   <string name="color_theme_black">Reş</string>
   <string name="nav_item_reading_lists">Lîsteyên min</string>
@@ -222,9 +221,14 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
+  <string name="suggested_edits_paused_title">Sekinandî ye</string>
+  <string name="suggested_edits_ip_blocked_title">IP hatiye astengkirin</string>
+  <string name="suggested_edits_contribution_image_label">Wêne</string>
   <string name="suggested_edits_contribution_seen_text">%s caran hatiye dîtin di 30 rojên dawîn de.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Doh</string>
   <string name="suggested_edits_rewards_continue_button">Bidomîne</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Têkeve Wîkîpediyayê / beşdar bibe</string>
+  <string name="suggested_edits_contribution_current_revision_text">Guhertina te vê gavê li ser Wîkîpediyayê weşandî ye</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>
@@ -234,4 +238,5 @@
     <item quantity="one">Bila zimanê bijartî jê were rakirin?</item>
     <item quantity="other">Bila zimanên bijartî jê werin rakirin?</item>
   </plurals>
+  <string name="main_tooltip_text_v2">Te zanibû ku her kes dikare li ser Wîkîpediyayê sererastkirinan bike?</string>
 </resources>

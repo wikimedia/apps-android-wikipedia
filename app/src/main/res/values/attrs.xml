@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="toolbar_title_color" format="reference"/>
     <attr name="toolbar_icon_color" format="reference"/>
     <attr name="themed_icon_color" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />
@@ -21,6 +20,7 @@
     <attr name="reward_interstitial_quality_excellent_drawable" format="reference"/>
     <attr name="reward_interstitial_quality_very_good_drawable" format="reference"/>
     <attr name="reward_interstitial_quality_good_drawable" format="reference"/>
+    <attr name="sync_reading_list_prompt_drawable" format="reference"/>
 
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />

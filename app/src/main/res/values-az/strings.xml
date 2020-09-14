@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * AZISS
+* Abijeet Patro
 * Masalli qasimli
 * Neriman2003
 * Toghrul Rahimli
 * Verman1
 * Vesely35
 * Wertuose
+* Şeyx Şamil
 -->
 <resources>
   <string name="app_name_prod">Vikipediya</string>
@@ -17,10 +19,10 @@
   <string name="page_tabs_back">Geri</string>
   <string name="nav_item_forward">Növbəti</string>
   <string name="search_hint">Vikipediyada axtar</string>
-  <string name="search_hint_search_history">Tarixçədə axtarış</string>
   <string name="search_hint_search_languages">Dili axtar</string>
-  <string name="search_hint_search_my_lists_and_articles">Mənim siyahılarımı və məqalələrimi axtar</string>
-  <string name="nav_item_history">Tarixçə</string>
+  <string name="nav_item_suggested_edits">Redaktələr</string>
+  <string name="nav_item_more">Daha</string>
+  <string name="nav_item_search">Axtar</string>
   <string name="error_network_error">İnternetə qoşulmaq mümkün deyil.</string>
   <string name="page_error_retry">Yenidən cəhd edin</string>
   <string name="card_offline_error_retry">Yenidən cəhd edin</string>
@@ -48,7 +50,9 @@
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
   <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>
+  <string name="menu_page_add_to_default_list">Saxla</string>
   <string name="feed_card_add_to_list">Oxuma siyahısına əlavə et</string>
+  <string name="feed_card_add_to_default_list">Qeyd et</string>
   <string name="menu_page_share">İstinadı paylaş</string>
   <string name="menu_page_open_a_new_tab">Səhifəni yeni pəncərədə aç</string>
   <string name="menu_page_reading_lists">Oxunan siyahılar</string>
@@ -103,9 +107,9 @@
   <string name="reading_lists_sync_login">Daxil ol</string>
   <string name="create_account_login">Daxil ol</string>
   <string name="menu_login">Daxil ol</string>
-  <string name="login_activity_title" fuzzy="true">Vikipediyaya daxil olun</string>
+  <string name="login_activity_title">Daxil ol</string>
   <string name="login_in_progress_dialog_message">Daxil olursunuz...</string>
-  <string name="login_success_toast" fuzzy="true">Uğurla daxil olundu!</string>
+  <string name="login_success_toast">Daxil olundu!</string>
   <string name="reset_password_title">Şifrə təyin et</string>
   <string name="reset_password_description">Siz müvəqqəti parol ilə daxil oldunuz. \nDaxil olmağı bitirmək üçün buraya yeni bir parol yazmalısınız:</string>
   <string name="reset_password_hint">Yeni şifrə</string>
@@ -169,7 +173,6 @@
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
-  <string name="history_search_list_hint">Tarixçədə axtar</string>
   <string name="error_can_not_process_link">Bu linki göstərilə bilmədi</string>
   <string name="page_protected_autoconfirmed">Bu səhifə yarı-mühafizə edilir.</string>
   <string name="page_protected_sysop">Bu səhifə tam mühafizə edilir.</string>
@@ -249,8 +252,18 @@
   <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
   <string name="read_more_section">Əlaqəli məqalələr</string>
   <string name="about_article_section">Bu məqalə haqqında</string>
+  <string name="gallery_menu_share">Paylaş</string>
+  <string name="gallery_share_error">Şəkil paylaşıla bilmədi: %s</string>
+  <string name="gallery_save_progress">Fayl endirilir...</string>
+  <string name="gallery_save_success">Fayl saxlandı</string>
   <string name="close_all_tabs_confirm_yes">Bəli</string>
   <string name="close_all_tabs_confirm_no">Xeyr</string>
+  <string name="button_continue_to_article">Məqalə oxu</string>
+  <string name="button_continue_to_disambiguation">Oxşar səhifələrə bax</string>
+  <string name="reference_list_title">İstinadlar</string>
+  <string name="article_menu_bar_language_button">Dil</string>
+  <string name="article_menu_bar_search_button">Axtar</string>
+  <string name="article_header_edit_hint">Redaktə et...</string>
   <string name="color_theme_light">İşıqlı</string>
   <string name="color_theme_dark">Qaranlıq</string>
   <string name="color_theme_black">Qara</string>
@@ -260,10 +273,12 @@
   <string name="reading_list_save_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_create_new">Yenisini yarat</string>
   <string name="reading_list_added_view_button">Siyahıya bax</string>
+  <string name="reading_list_add_to_list_button">Siyahıya əlavə et</string>
   <string name="reading_list_menu_delete">Siyahını sil</string>
   <string name="reading_list_item_delete_undo">Geri qaytar</string>
   <string name="reading_lists_onboarding_for_example">Nümunə üçün</string>
   <string name="reading_list_select_item">Seç</string>
+  <string name="reading_lists_ignore_button">İndi yox</string>
   <string name="reading_lists_confirm_remote_delete_yes">Bəli</string>
   <string name="reading_lists_confirm_remote_delete_no">Xeyr</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">İmtina</string>
@@ -273,6 +288,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Yox, təşəkkür</string>
   <string name="default_reading_list_name">Saxlanıldı</string>
   <string name="default_reading_list_description">Saxlanan məqalələriniz üçün standart siyahı</string>
+  <string name="reading_lists_menu_create_list">Yeni siyahı yarat</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">İmtina</string>
@@ -281,17 +297,61 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">İmtina</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="notification_syncing_cancel_button">İmtina</string>
+  <string name="notifications_activity_title">Bildirişlər</string>
+  <string name="notifications_poll_enable_negative">İndi yox</string>
+  <string name="notifications_mark_unread">Oxunulmamış kimi işarələ</string>
+  <string name="preference_title_notification_system">Sistem</string>
   <string name="preference_title_notification_thanks">Təşəkkür</string>
+  <string name="preference_title_notification_login_fail">Daxil ol</string>
+  <string name="preference_title_notification_user_talk">Müzakirə səhifəsi</string>
+  <string name="preference_summary_notification_user_talk">Müzakirə səhifələrindən ismarıclar</string>
+  <string name="view_featured_image_card_title">Günün şəkli</string>
+  <string name="view_featured_image_card_download">Endir</string>
+  <string name="view_continue_reading_card_subtitle_today">bu gün</string>
+  <string name="view_featured_article_card_title">Seçilmiş məqalə</string>
+  <string name="feed_configure_menu_select_all">Hamısını göstər</string>
+  <string name="feed_configure_menu_deselect_all">Hamısını gizlət</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">İmtina</string>
+  <string name="description_edit_article_description_label">Məqalə</string>
+  <string name="description_edit_save">Yayımla</string>
+  <string name="description_edit_read">Oxu</string>
+  <string name="description_too_short">Mətn çox qısadır.</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Redaktəyə başla</string>
+  <string name="suggested_edits_add_translation_button">Tərcümə əlavə et</string>
+  <string name="suggested_edits_edit_translation_button">Tərcüməni redaktə et</string>
+  <string name="suggested_edits_my_contributions">Töhfələrim</string>
+  <string name="suggested_edits_menu_info">Məlumat</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Şəkil</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Mənbə</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lisenziya</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Tarix</string>
+  <string name="suggested_edits_image_preview_dialog_image">Şəkil</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Etiketlər</string>
+  <string name="suggested_edits_image_preview_dialog_date">Tarix</string>
+  <string name="suggested_edits_task_action_text_add">Əlavə et</string>
+  <string name="suggested_edits_task_action_text_translate">Tərcümə et</string>
+  <string name="suggested_edits_image_tags_publishing">Yayımlanır</string>
+  <string name="suggested_edits_image_tags_published">Yayımlandı</string>
   <string name="suggested_edits_paused_message">Təklif olunan düzəlişlər %1$s-ə qədər fasilə verilir. Bağışlayın %2$s, son töhfələriniz geri qaytarıldı.</string>
   <string name="suggested_edits_disabled_message">Təklif olunan düzəlişlər deaktiv edilmişdir. Üzr istəyirik %s, son töhfələrinizin çoxu geri qaytarıldı.</string>
   <string name="suggested_edits_ip_blocked_message">IP adresiniz Vikipediyanı redaktə etmək üçün bloklanıb.</string>
+  <string name="suggested_edits_quality_perfect_text">Mükəmməl</string>
+  <string name="suggested_edits_quality_excellent_text">Əla</string>
+  <string name="suggested_edits_quality_very_good_text">Çox yaxşı</string>
+  <string name="suggested_edits_quality_good_text">Yaxşı</string>
+  <string name="suggested_edits_quality_okay_text">Normal</string>
+  <string name="suggested_edits_quality_bad_text">Pis</string>
   <string name="suggested_edits_what_is_title">Təklif olunan düzəlişlər nədir?</string>
   <string name="suggested_edits_what_is_text">Təklif olunan düzəlişlər Vikipediyaya kiçik, lakin həyati əhəmiyyətli töhfələr üçün imkanlar təqdim edir.</string>
   <string name="suggested_edits_learn_more">Daha ətraflı öyrən</string>
   <string name="suggested_edits_paused_title">Durdu</string>
   <string name="suggested_edits_disabled_title">Bloklandı</string>
   <string name="suggested_edits_ip_blocked_title">IP bloklandı</string>
-  <string name="suggested_edits_contribution_current_revision">Cari düzəliş</string>
+  <string name="suggested_edits_contribution_language_label">Dil</string>
+  <string name="suggested_edits_contribution_image_label">Şəkil</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Dünən</string>
+  <string name="suggested_edits_rewards_continue_button">Davam et</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Cari düzəliş</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>
     <item quantity="other">%1$s etiketlər</item>
@@ -308,5 +368,24 @@
     <item quantity="one">%d simvolunu əlavə etdiniz</item>
     <item quantity="other">%d simvollarını əlavə etdiniz</item>
   </plurals>
+  <string name="onboarding_maybe_later">Bəlkə sonra</string>
+  <string name="app_shortcuts_random">Təsadüfi</string>
+  <string name="app_shortcuts_continue_reading">Oxumağa davam et</string>
+  <string name="app_shortcuts_search">Axtar</string>
+  <string name="this_year">Bu il</string>
+  <string name="back_to_top">Əvvələ qayıt</string>
+  <string name="on_this_day_dialog_next_month">Növbəti ay</string>
+  <string name="on_this_day_dialog_previous_month">Əvvəlki ay</string>
+  <string name="languages_list_activity_title">Dil əlavə et</string>
+  <string name="languages_list_all_text">Bütün dillər</string>
+  <string name="wikipedia_languages_title">Vikipediya dilləri</string>
+  <string name="wikipedia_languages_your_languages_text">Sizin dilləriniz</string>
+  <string name="wikipedia_languages_add_language_text">Dil əlavə et</string>
+  <string name="wikipedia_languages_remove_text">Dili sil</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Yox, təşəkkür</string>
+  <string name="remove_language_dialog_cancel_button_text">İmtina</string>
   <string name="edit_type_all">Bütün töhfələr</string>
+  <string name="wikitext_bold">Qalın</string>
+  <string name="wikitext_template">Şablon</string>
+  <string name="main_drawer_help">Kömək</string>
 </resources>

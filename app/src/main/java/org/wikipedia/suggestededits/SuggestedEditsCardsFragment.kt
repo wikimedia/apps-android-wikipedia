@@ -20,6 +20,7 @@ import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTestSuggestedEditsInterstitialFunnel
+import org.wikipedia.analytics.SuggestedEditsFeedFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -27,9 +28,10 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
+import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -45,28 +47,30 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
     private var sessionEditCount = 0
+    private var rewardInterstitialQACount = 0
+    private var funnel: SuggestedEditsFeedFunnel? = null
+
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
     var rewardInterstitialImage = -1
     var rewardInterstitialText = ""
-    var rewardInterstitialQACount = 0
 
     private val topTitle: PageTitle?
         get() {
             val f = topChild()
             return if (action == ADD_DESCRIPTION || action == ADD_CAPTION) {
-                f?.sourceSummary?.pageTitle?.description = f?.addedContribution
-                f?.sourceSummary?.pageTitle
+                f?.sourceSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.sourceSummaryForEdit?.pageTitle
             } else {
-                f?.targetSummary?.pageTitle?.description = f?.addedContribution
-                f?.targetSummary?.pageTitle
+                f?.targetSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.targetSummaryForEdit?.pageTitle
             }
         }
 
     private fun topBaseChild(): SuggestedEditsItemFragment? {
-            return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
-        }
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
+    }
 
     private fun topChild(): SuggestedEditsCardsItemFragment? {
         return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
@@ -76,6 +80,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         super.onCreate(savedInstanceState)
         retainInstance = true
         action = arguments?.getSerializable(INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
+
+        funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
 
         Prefs.setSuggestedEditsRewardInterstitialEnabled(true)
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
@@ -93,6 +99,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         cardsViewPager.offscreenPageLimit = 2
         cardsViewPager.registerOnPageChangeCallback(viewPagerListener)//   addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
+
+        funnel?.start()
 
         if (wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
@@ -122,12 +130,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
+        setHasOptionsMenu(action == ADD_IMAGE_TAGS)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_suggested_edits, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        if (action == ADD_IMAGE_TAGS) {
+            inflater.inflate(R.menu.menu_suggested_edits, menu)
+            ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -179,39 +189,36 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 isAddedContributionEmpty = child.addedContribution.isEmpty()
                 if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
             }
-            addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-
-            addContributionButton.setBackgroundResource(R.drawable.button_shape_add_reading_list)
+            addContributionButton.setIconResource((if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
             addContributionButton.isEnabled = child.publishEnabled()
             addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
 
         if (child != null && child is SuggestedEditsRewardsItemFragment) {
-            addContributionText?.text = getString(R.string.suggested_edits_rewards_continue_button)
-            addContributionImage.visibility = GONE
+            addContributionButton.text = getString(R.string.suggested_edits_rewards_continue_button)
+            addContributionButton.icon = null
         } else if (action == ADD_IMAGE_TAGS) {
-            if (addContributionText == null) {
+            if (addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
-                addContributionImage.visibility = VISIBLE
-                addContributionImage.setImageResource(R.drawable.ic_check_black_24dp)
+                addContributionButton.text = null
+                addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
             } else {
-                addContributionText?.text = getString(R.string.description_edit_save)
-                addContributionImage.visibility = GONE
+                addContributionButton.text = getString(R.string.description_edit_save)
+                addContributionButton.icon = null
             }
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
-            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
-            addContributionImage.visibility = VISIBLE
-        } else if (addContributionText != null) {
-            addContributionImage.visibility = VISIBLE
+            addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
+        } else if (addContributionButton.tag == "portrait") {
             if (action == ADD_CAPTION) {
-                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
+                addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
             } else {
-                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
+                addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
             }
         }
     }
 
     override fun onDestroyView() {
+        funnel?.stop()
         disposables.clear()
         cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
         cardsViewPager.adapter = null
@@ -231,12 +238,13 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            logSuccess()
             topChild()?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
             FeedbackUtil.showMessage(this,
                     when (action) {
                         ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
-                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -261,6 +269,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
     }
 
+    override fun logSuccess() {
+        funnel?.editSuccess()
+    }
+
     fun onSelectPage() {
         if (topBaseChild() is SuggestedEditsRewardsItemFragment) {
             nextPage(null)
@@ -268,7 +280,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             topBaseChild()!!.publish()
             fetchUserInfoForNextInterstitialState()
         } else if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
@@ -344,7 +356,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         sessionEditCount++
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
-            disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
+            disposables.add(UserContributionsStats.getEditCountsObservable()
                     .map { response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                         val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
@@ -353,14 +365,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                         if (editorTaskCounts.totalEdits == Prefs.getSuggestedEditsRewardInterstitialContributionOnInitialCount()
                                 || editorTaskCounts.totalEdits % Prefs.getSuggestedEditsRewardInterstitialContributionOnCount() == 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
+                            rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_contributions, editorTaskCounts.totalEdits, editorTaskCounts.totalEdits)
                         } else if (editorTaskCounts.editStreak % Prefs.getSuggestedEditsRewardInterstitialEditStreakOnCount() == 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
+                            rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_edit_streaks, editorTaskCounts.editStreak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
-                                && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
-                            when (SuggestedEditsUserStats.getRevertSeverity()) {
+                                && UserContributionsStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                            when (UserContributionsStats.getRevertSeverity()) {
                                 0 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
@@ -387,7 +399,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
                     .flatMap {
                         if (it) {
-                            SuggestedEditsUserStats.getPageViewsObservable()
+                            UserContributionsStats.getPageViewsObservable()
                         } else {
                             Observable.just(-1L)
                         }
@@ -395,7 +407,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     .subscribe({
                         if (it >= 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
+                            rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_page_views, it.toInt(), it)
                             Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                         }
                     }, { t ->
@@ -433,11 +445,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 updateBackButton(0)
             }
         }
+
         override fun onNothingSelected(parent: AdapterView<*>) {
         }
     }
 
-    private inner class ViewPagerAdapter constructor(fragment: Fragment): PositionAwareFragmentStateAdapter(fragment) {
+    private inner class ViewPagerAdapter constructor(fragment: Fragment) : PositionAwareFragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
@@ -470,7 +483,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         private var prevPosition: Int = 0
         private var nextPageSelectedAutomatic: Boolean = false
 
-        internal fun setNextPageSelectedAutomatic() {
+        fun setNextPageSelectedAutomatic() {
             nextPageSelectedAutomatic = true
         }
 
@@ -493,11 +506,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         when (rewardInterstitialQACount) {
             0 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, 100)
+                rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_contributions, 100, 100)
             }
             1 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, 100, AccountUtil.getUserName())
+                rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_edit_streaks, 100, 100, AccountUtil.getUserName())
             }
             2 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
@@ -517,7 +530,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             }
             6 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, 100)
+                rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_page_views, 100, 100)
             }
         }
 
@@ -529,10 +542,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     companion object {
-        fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
+        fun newInstance(action: DescriptionEditActivity.Action, invokeSource: InvokeSource): SuggestedEditsCardsFragment {
             val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
             val args = Bundle()
             args.putSerializable(INTENT_EXTRA_ACTION, action)
+            args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
             addTitleDescriptionsFragment.arguments = args
             return addTitleDescriptionsFragment
         }

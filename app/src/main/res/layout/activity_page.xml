@@ -30,27 +30,12 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/page_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:theme="@style/PageToolbarTheme"
-                app:titleTextColor="?attr/toolbar_icon_color">
+                android:layout_height="?attr/actionBarSize">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|end">
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/page_toolbar_button_search"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="@string/search_hint"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        app:srcCompat="@drawable/ic_search_themed_24dp"
-                        app:tint="?attr/toolbar_icon_color" />
 
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
@@ -80,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginTop="-7dp"
-                android:max="10000" />
+                android:indeterminate="true" />
 
         </FrameLayout>
 

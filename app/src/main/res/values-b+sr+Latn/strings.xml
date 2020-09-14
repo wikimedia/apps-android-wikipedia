@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Patriccck
+* Srđan
 -->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
@@ -10,14 +11,11 @@
   <string name="wikimedia">Vikimedija</string>
   <string name="nav_item_back">Nazad</string>
   <string name="page_tabs_back">Nazad</string>
-  <string name="nav_item_forward">Prosledi</string>
+  <string name="nav_item_forward">Napred</string>
   <string name="search_hint">Pretražite Vikipediju</string>
   <string name="search_hint_voice_search">Pretraživanje pomoću glasovnog unosa</string>
-  <string name="search_hint_search_history">Istorija pretrage</string>
   <string name="search_hint_search_languages">Pretražite jezike</string>
-  <string name="search_hint_search_my_lists_and_articles">Pretraži moje spiskove i člankove</string>
-  <string name="nav_item_history">Istorija</string>
-  <string name="nav_item_suggested_edits">Predložene izmene</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Predložene izmene</string>
   <string name="error_network_error">Nije moguće povezati se sa internetom.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -166,7 +164,6 @@
   <string name="preference_title_auto_upload_crash_reports">Šalji izveštaje o otkazivanjima</string>
   <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izveštaje o otkazivanjima nezavisnoj usluzi kako bismo ispitali vaš slučaj i ispravili grešku brže i lakše.</string>
   <string name="editing_error_spamblacklist">Otkriveni su linkovi do blokiranih domena (%s). Uklonite ih pa pokušajte ponovo.</string>
-  <string name="history_search_list_hint">Istorija pretrage</string>
   <string name="error_can_not_process_link">Nije moguće prikazati ovaj link</string>
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>
@@ -252,7 +249,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Dozvoli</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
-  <string name="menu_gallery_visit_page">Idi na stranicu datoteke</string>
+  <string name="menu_gallery_visit_image_page">Idi na stranicu datoteke</string>
   <string name="gallery_error_draw_failed">Nije moguće prikazati sliku.</string>
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Deli</string>
@@ -325,8 +322,6 @@
   <string name="crash_report_relaunch_or_quit">Aplikacija Vikipedija je naišla na grešku i obustavljena je.\n\nŽelite li ponovo da je pokrenete ili da izađete?</string>
   <string name="crash_report_relaunch">Pokreni ponovo</string>
   <string name="crash_report_quit">Izađi</string>
-  <string name="article_menu_bar_bookmark">Dodaj ovaj članak na listu za čitanje</string>
-  <string name="article_menu_bar_share">Deli link članka</string>
   <string name="article_header_edit_hint">Uredi…</string>
   <string name="article_header_edit_description">Uredi opis članka</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
@@ -424,7 +419,6 @@
   <string name="split_reading_list_message">Svaka lista za čitanje prima najviše %d članaka. Postojeće liste sa više članaka su razdvojene na nekoliko njih.</string>
   <string name="reading_list_article_limit_message">Dodavanje na ovu listu nije moguće. Dostigli ste ograničenje od %2$d članaka po listi za „%1$s”.</string>
   <string name="reading_lists_limit_message">Nije moguće napraviti drugu listu. Dostigli ste ograničenje od 100 liste za čitanje po nalogu.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinhronizacija lista za čitanje&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Liste za čitanje se sada mogu sinhronizovati među uređajima. Prijavite se sa nalogom na Vikipediji i dozvolite čuvanje lista.</string>
   <string name="reading_lists_menu_create_list">Napravi novu listu</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <string name="reading_lists_refresh_sync_option">Osveži sinhronizaciju</string>
@@ -539,7 +533,6 @@
   <string name="view_continue_reading_card_subtitle_today">danas</string>
   <string name="view_continue_reading_card_subtitle_read_date">Pročitano %s</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
-  <string name="onboarding_negative_action">Ne, hvala</string>
   <string name="view_offline_card_text">Sadržaj se ne može učitati kada ste oflajn.</string>
   <string name="view_featured_article_card_title">Sjajan članak</string>
   <string name="view_featured_article_footer_save_button_label">Sačuvaj</string>
@@ -607,10 +600,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Po mogućstvu jedan red, od dve do dvanaest reči</string>
   <string name="description_edit_tutorial_button_label_start_editing">Započni uređivanje</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrebiti ovu funkciju.</string>
-  <string name="suggested_edits_add_descriptions">Dodavanje opisa članka</string>
-  <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
-  <string name="suggested_edits_add_image_captions">Dodaj natpise slika</string>
-  <string name="suggested_edits_translate_image_captions">Prevedi natpise slika</string>
   <string name="suggested_edits_review_description">Pregled opisa članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Uredi opis</string>
@@ -624,7 +613,6 @@
   <string name="suggested_edits_license_notice">Dodavanjem opisa članka, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodavanjem natpisa slike, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacije</string>
-  <string name="suggested_edits_tasks_activity_title">Predložene izmene</string>
   <string name="suggested_edits_task_add_description_title">Dodavanje opisa članaka</string>
   <string name="suggested_edits_task_add_description_description">Doprinosi člancima bez opisa</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj natpise slika</string>
@@ -670,7 +658,7 @@
   <string name="suggested_edits_image_captions" fuzzy="true">Natpisi slika</string>
   <string name="suggested_edits_editing_tips_link_text">Saveti i trikovi za uređivanje</string>
   <string name="suggested_edits_help_page_link_text">Stranica za pomoć za predložene izmene</string>
-  <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvalitet izmena</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
   <string name="suggested_edits_quality_excellent_text">Odlično</string>

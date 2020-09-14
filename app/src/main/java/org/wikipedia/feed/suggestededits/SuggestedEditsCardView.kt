@@ -27,16 +27,12 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         inflate(getContext(), R.layout.view_suggested_edit_card, this)
     }
 
-    fun isTranslation(): Boolean {
-        return card!!.action == TRANSLATE_DESCRIPTION || card!!.action == TRANSLATE_CAPTION
-    }
-
     override fun setCard(card: SuggestedEditsCard) {
         super.setCard(card)
         this.card = card
 
-        if (card.sourceSummary != null) {
-            setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary.lang), this)
+        if (card.sourceSummaryForEdit != null) {
+            setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummaryForEdit.lang), this)
         }
 
         cardItemContainer.setOnClickListener {
@@ -75,14 +71,14 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun showAddDescriptionUI() {
         viewArticleTitle.visibility = View.VISIBLE
-        viewArticleTitle.text = StringUtil.fromHtml(card!!.sourceSummary!!.displayTitle!!)
-        callToActionText.text = if (card!!.action == TRANSLATE_DESCRIPTION) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_description_button)
+        viewArticleTitle.text = StringUtil.fromHtml(card!!.sourceSummaryForEdit!!.displayTitle!!)
+        callToActionText.text = if (card!!.action == TRANSLATE_DESCRIPTION) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummaryForEdit!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_description_button)
         showImageOrExtract()
     }
 
     private fun showTranslateDescriptionUI() {
         viewArticleTitle.visibility = View.VISIBLE
-        sourceDescription = card!!.sourceSummary!!.description!!
+        sourceDescription = card!!.sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
         viewArticleSubtitle.text = sourceDescription
         showAddDescriptionUI()
@@ -93,31 +89,31 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         viewArticleImage.visibility = View.VISIBLE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
-        viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
-        viewArticleTitle.text = StringUtil.removeNamespace(card!!.sourceSummary!!.displayTitle!!)
-        callToActionText.text = if (card!!.action == TRANSLATE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
+        viewArticleImage.loadImage(Uri.parse(card!!.sourceSummaryForEdit!!.thumbnailUrl))
+        viewArticleTitle.text = StringUtil.removeNamespace(card!!.sourceSummaryForEdit!!.displayTitle!!)
+        callToActionText.text = if (card!!.action == TRANSLATE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummaryForEdit!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
     }
 
     private fun showTranslateImageCaptionUI() {
         viewArticleTitle.visibility = View.VISIBLE
-        sourceDescription = card!!.sourceSummary!!.description!!
+        sourceDescription = card!!.sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
         viewArticleSubtitle.text = sourceDescription
         showAddImageCaptionUI()
     }
 
     private fun showImageOrExtract() {
-        if (card!!.sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
+        if (card!!.sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImage.visibility = View.GONE
             viewArticleExtract.visibility = View.VISIBLE
             divider.visibility = View.VISIBLE
-            viewArticleExtract.text = StringUtil.fromHtml(card!!.sourceSummary!!.extractHtml)
+            viewArticleExtract.text = StringUtil.fromHtml(card!!.sourceSummaryForEdit!!.extractHtml)
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             viewArticleImage.visibility = View.VISIBLE
             viewArticleExtract.visibility = View.GONE
             divider.visibility = View.GONE
-            viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
+            viewArticleImage.loadImage(Uri.parse(card!!.sourceSummaryForEdit!!.thumbnailUrl))
         }
     }
 
@@ -126,7 +122,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_mode_edit_white_24dp)
                 .setImageCircleColor(R.color.base30)
-                .setLangCode(if (card.action == TRANSLATE_CAPTION || card.action == TRANSLATE_DESCRIPTION) card.targetSummary!!.lang else "")
+                .setLangCode(if (card.action == TRANSLATE_CAPTION || card.action == TRANSLATE_DESCRIPTION) card.targetSummaryForEdit!!.lang else "")
                 .setCard(card)
                 .setCallback(callback)
     }

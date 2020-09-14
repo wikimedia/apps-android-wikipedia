@@ -2,6 +2,8 @@ package org.wikipedia.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -20,6 +22,9 @@ import androidx.fragment.app.Fragment;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.snackbar.Snackbar;
+import com.skydoves.balloon.ArrowConstraints;
+import com.skydoves.balloon.ArrowOrientation;
+import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -27,7 +32,7 @@ import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
+import org.wikipedia.suggestededits.SuggestionsActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +40,8 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
-    public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(8);
+    public static final int LENGTH_MEDIUM = (int) TimeUnit.SECONDS.toMillis(8);
+    public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(15);
     private static final int SNACKBAR_MAX_LINES = 10;
     private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
         showToastOverView(v, v.getContentDescription(), LENGTH_DEFAULT);
@@ -124,7 +130,7 @@ public final class FeedbackUtil {
         showMessage(activity, message);
     }
 
-    public static void setToolbarButtonLongPressToast(View... views) {
+    public static void setButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);
         }
@@ -172,6 +178,37 @@ public final class FeedbackUtil {
         return toast;
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon showTooltip(@NonNull View anchor, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
+        Balloon balloon = getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss);
+        if (aboveOrBelow) {
+            balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f));
+        } else {
+            balloon.showAlignBottom(anchor, 0, -DimenUtil.roundedDpToPx(8f));
+        }
+        if (!autoDismiss && anchor.getContext() instanceof MainActivity) {
+            ((MainActivity) anchor.getContext()).setCurrentTooltip(balloon);
+        }
+        return balloon;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon getTooltip(@NonNull Context context, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
+        return new Balloon.Builder(context)
+                .setText(text)
+                .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
+                .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+                .setArrowOrientation(aboveOrBelow ? ArrowOrientation.BOTTOM : ArrowOrientation.TOP)
+                .setArrowSize(24)
+                .setPadding(16)
+                .setTextSize(14f)
+                .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
+                .setTextColor(Color.WHITE)
+                .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+                .setDismissWhenTouchOutside(autoDismiss)
+                .build();
+    }
+
     private static View findBestView(Activity activity) {
         if (activity instanceof MainActivity) {
             return activity.findViewById(R.id.fragment_main_coordinator);
@@ -181,7 +218,7 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.random_coordinator_layout);
         } else if (activity instanceof ReadingListActivity) {
             return activity.findViewById(R.id.fragment_reading_list_coordinator);
-        } else if (activity instanceof SuggestedEditsCardsActivity) {
+        } else if (activity instanceof SuggestionsActivity) {
             return activity.findViewById(R.id.suggestedEditsCardsCoordinator);
         } else {
             return activity.findViewById(android.R.id.content);

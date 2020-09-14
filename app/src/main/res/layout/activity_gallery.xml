@@ -8,15 +8,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/black">
 
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/view_gallery_error"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@android:color/black"
-        android:orientation="vertical"
-        android:visibility="gone" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/gallery_item_pager"
         android:layout_width="match_parent"
@@ -105,7 +96,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/gallery_caption_translate_container"
+            android:id="@+id/gallery_cta_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
@@ -115,13 +106,13 @@
             tools:visibility="visible">
 
             <LinearLayout
-                android:id="@+id/gallery_caption_translate_button"
+                android:id="@+id/gallery_cta_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="12dp"
                 android:paddingBottom="16dp"
                 android:gravity="center_vertical"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
+                android:background="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
                     android:layout_width="@dimen/app_shortcut_icon_size"
@@ -130,7 +121,7 @@
                     app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
                 <TextView
-                    android:id="@+id/gallery_caption_translate_button_text"
+                    android:id="@+id/gallery_cta_button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -206,4 +197,13 @@
                 tools:text="Credits" />
         </LinearLayout>
     </LinearLayout>
+
+    <org.wikipedia.views.WikiErrorView
+        android:id="@+id/view_gallery_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@android:color/black"
+        android:orientation="vertical"
+        android:visibility="gone" />
 </FrameLayout>

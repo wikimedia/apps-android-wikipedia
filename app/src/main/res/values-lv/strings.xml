@@ -15,10 +15,8 @@
   <string name="page_tabs_back">Atpakaļ</string>
   <string name="nav_item_forward">Uz priekšu</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
-  <string name="search_hint_search_history">Meklēšanas vēsture</string>
   <string name="search_hint_search_languages">Meklēt valodu</string>
-  <string name="nav_item_history">Vēsture</string>
-  <string name="nav_item_suggested_edits">Ieteiktie labojumi</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Ieteiktie labojumi</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
   <string name="card_offline_error_retry">Mēģināt vēlreiz</string>
@@ -117,7 +115,6 @@
   <string name="preferences_heading_data_usage">Datu lietojums</string>
   <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
   <string name="preference_title_eventlogging_opt_in">Sūtīt lietojuma ziņojumus</string>
-  <string name="history_search_list_hint">Meklēšanas vēsture</string>
   <string name="page_protected_can_not_edit_title">Šī lapa ir aizsargāta</string>
   <string name="settings_item_preferences">Iestatījumi</string>
   <string name="settings_activity_title">Iestatījumi</string>
@@ -162,7 +159,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Atļaut</string>
   <string name="read_more_section">Lasīt vairāk</string>
   <string name="about_article_section">Par šo rakstu</string>
-  <string name="menu_gallery_visit_page">Doties uz faila lapu</string>
+  <string name="menu_gallery_visit_image_page">Doties uz faila lapu</string>
   <string name="license_title">Licence %s</string>
   <string name="gallery_menu_share">Dalīties</string>
   <string name="gallery_save_progress">Lejuplādē failu...</string>
@@ -200,7 +197,6 @@
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
   <string name="crash_report_relaunch">Sākt no jauna</string>
   <string name="crash_report_quit">Iziet</string>
-  <string name="article_menu_bar_share">Dalīties ar raksta saiti</string>
   <string name="article_header_edit_hint">Labot...</string>
   <string name="article_header_edit_description">Labot raksta aprakstu</string>
   <string name="article_header_edit_lead_section">Labot ievadu</string>
@@ -284,7 +280,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
-  <string name="onboarding_negative_action">Nē, paldies</string>
   <string name="view_featured_article_footer_save_button_label">Saglabāt</string>
   <string name="view_static_card_save_button_label">Saglabāt</string>
   <string name="view_featured_article_footer_saved_button_label">Saglabāts</string>
@@ -304,18 +299,18 @@
   <string name="description_edit_edit_description">Labot raksta aprakstu</string>
   <string name="description_edit_cancel_hint">Atcelt</string>
   <string name="description_edit_help_about_wikidata">Par Vikidatiem</string>
+  <string name="description_edit_voice_input_description">Balss ievade</string>
   <string name="description_edit_success_saved" fuzzy="true">Apraksts publicēts!</string>
   <string name="description_edit_success_encouragement">Tu tikko padarīji Vikipēdiju labāku visiem</string>
   <string name="description_edit_success_done">Gatavs</string>
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Tulkot aprakstus</string>
   <string name="suggested_edits_add_translation_button" fuzzy="true">Pievienot tulkojumu</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Labot tulkojumu</string>
   <string name="suggested_edits_my_contributions">Mans devums</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Pievienot aprakstus</string>
   <string name="suggested_edits_task_multilingual_positive">Pievienot valodas</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fails</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fails</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autors</string>
   <string name="suggested_edits_image_caption_summary_title_source">Avots</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licence</string>
@@ -362,4 +357,6 @@
   <string name="text_input_dialog_ok_button_text">Labi</string>
   <string name="text_input_dialog_cancel_button_text">Atcelt</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Atcelt</string>
+  <string name="talk_new_topic">Jauna tēma</string>
+  <string name="talk_add_reply">Atbildēt</string>
 </resources>

@@ -2,5 +2,4 @@
 <org.wikipedia.descriptions.DescriptionEditView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_description_edit_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color" />
+    android:layout_height="match_parent" />

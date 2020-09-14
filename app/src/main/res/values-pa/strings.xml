@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Babanwalia
 * Jimidar
 * Satdeep gill
@@ -19,11 +20,8 @@
   <string name="nav_item_forward">ਅੱਗੇ</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="search_hint_voice_search">ਅਵਾਜ਼ ਰਾਹੀਂ ਖੋਜ</string>
-  <string name="search_hint_search_history">ਖੋਜ ਦਾ ਇਤਿਹਾਸ</string>
   <string name="search_hint_search_languages">ਭਾਸ਼ਾ ਖੋਜੋ</string>
-  <string name="search_hint_search_my_lists_and_articles">ਮੇਰੀਆਂ ਸੂਚੀਆਂ ਅਤੇ ਲੇਖ ਖੋਜੋ</string>
-  <string name="nav_item_history">ਅਤੀਤ</string>
-  <string name="nav_item_suggested_edits">ਸੁਝਾਈਆਂ ਸੋਧਾਂ</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">ਸੁਝਾਈਆਂ ਸੋਧਾਂ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="card_offline_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -150,7 +148,6 @@
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
   <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
   <string name="preference_title_auto_upload_crash_reports">ਕਰੈਸ਼ ਰਿਪੋਰਟ ਭੇਜੋ</string>
-  <string name="history_search_list_hint">ਅਤੀਤ ਖੋਜੋ</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
@@ -223,7 +220,7 @@
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
-  <string name="menu_gallery_visit_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
+  <string name="menu_gallery_visit_image_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
   <string name="gallery_error_draw_failed">ਤਸਵੀਰ ਬਣਾ ਨਹੀਂ ਸਕੇ।</string>
   <string name="license_title">%s ਲਈ ਲਸੰਸ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
@@ -264,8 +261,6 @@
   <string name="crash_report_activity_title">ਆਦੇਸ਼ਕਾਰੀ ਦੀ ਗਲਤੀ</string>
   <string name="crash_report_relaunch">ਸ਼ੁਰੂ \'ਤੋਂ</string>
   <string name="crash_report_quit">ਛੱਡੋ</string>
-  <string name="article_menu_bar_bookmark">ਇਸ ਲੇਖ ਨੂੰ ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਜੋੜੋ</string>
-  <string name="article_menu_bar_share">ਲੇਖ ਦੀ ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="article_header_edit_hint">ਸੋਧੋ…</string>
   <string name="color_theme_select">ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="color_theme_light">ਹਲਕੀ</string>

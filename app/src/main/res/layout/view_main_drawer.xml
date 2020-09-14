@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_account_container"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="?attr/color_group_60"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -25,8 +25,9 @@
 
         <TextView
             android:id="@+id/main_drawer_account_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginStart="24dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="?attr/material_theme_secondary_color"
@@ -36,11 +37,11 @@
         <Button
             android:id="@+id/main_drawer_login_button"
             style="@style/TransparentButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
             android:text="@string/main_drawer_login" />
 
     </LinearLayout>
@@ -83,6 +84,26 @@
             android:layout_marginStart="24dp"
             android:layout_weight="1"
             android:text="@string/notifications_activity_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_drawer_talk_container"
+        style="@style/SideDrawerMenuItem">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_user_talk"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/talk_title" />
     </LinearLayout>
 
     <LinearLayout

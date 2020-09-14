@@ -25,10 +25,7 @@
   <string name="page_tabs_back">Reen</string>
   <string name="nav_item_forward">Antaŭen</string>
   <string name="search_hint">Serĉi tra Vikipedio</string>
-  <string name="search_hint_search_history">Serĉi tra historio</string>
   <string name="search_hint_search_languages">Serĉi lingvon</string>
-  <string name="search_hint_search_my_lists_and_articles">Serĉi miajn listojn kaj artikolojn</string>
-  <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne eblas konektiĝi al la interreto.</string>
   <string name="page_error_retry">Reprovi</string>
   <string name="card_offline_error_retry">Reprovi</string>
@@ -177,7 +174,6 @@
   <string name="preference_title_auto_upload_crash_reports">Sendi prikraŝajn raportojn</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
-  <string name="history_search_list_hint">Serĉi historion</string>
   <string name="error_can_not_process_link">Ne eblas montri ĉi tiun ligilon</string>
   <string name="page_protected_autoconfirmed">Ĉi tiu paĝo estas duon-protektita.</string>
   <string name="page_protected_sysop">Ĉi tiu paĝo estas tut-protektita.</string>
@@ -261,7 +257,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permesi</string>
   <string name="read_more_section">Legi plu</string>
   <string name="about_article_section">Pri ĉi tiu artikolo</string>
-  <string name="menu_gallery_visit_page">Iru al la dosiera paĝo</string>
+  <string name="menu_gallery_visit_image_page">Iru al la dosiera paĝo</string>
   <string name="gallery_error_draw_failed">Ne eblis montri la bildon.</string>
   <string name="license_title">Permesilo por %s</string>
   <string name="gallery_menu_share">Konigi</string>
@@ -331,8 +327,6 @@
   <string name="crash_report_relaunch_or_quit">Domaĝe, eraro okazis kaj la aplikaĵo Vikipedio fiaskis.\n\nĈu restarti aŭ ĉesi?</string>
   <string name="crash_report_relaunch">Rekomenci</string>
   <string name="crash_report_quit">Ĉesigi</string>
-  <string name="article_menu_bar_bookmark">Aldoni ĉi tiun artikolon al legolisto</string>
-  <string name="article_menu_bar_share">Konigi la artikolan ligilon</string>
   <string name="article_header_edit_hint">Redakti…</string>
   <string name="article_header_edit_description">Redakti priskribon de artikolo</string>
   <string name="article_header_edit_lead_section">Redakti enkondukon</string>
@@ -430,7 +424,6 @@
   <string name="split_reading_list_message">Estas maksimumo de po %d artikoloj en legolisto. Jam ekzistintaj listoj kun pli ol ĉi tiu maksimumo disdividiĝis en plurajn listojn.</string>
   <string name="reading_list_article_limit_message">Ne povas aldoni al ĉi tiu listo. Atingiĝis, por listo \"%1$s\", la maksimumo de po %2$d artikoloj en listo.</string>
   <string name="reading_lists_limit_message">Ne povas krei novan liston. Atingiĝis la maksimumo de po 100 legolistoj por konto.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronigado de legolistoj&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj.</string>
   <string name="reading_lists_menu_create_list">Krei novan liston</string>
   <string name="reading_lists_menu_sort_by">Ordigi laŭ</string>
   <string name="reading_lists_refresh_sync_option">Resinkronigi</string>
@@ -535,7 +528,6 @@
   <string name="view_continue_reading_card_subtitle_today">hodiaŭ</string>
   <string name="view_continue_reading_card_subtitle_read_date">Legita %s</string>
   <string name="view_announcement_card_negative_action">Ne, dankon</string>
-  <string name="onboarding_negative_action">Ne, dankon</string>
   <string name="view_offline_card_text">Enhavo ne povas esti ŝargita kiam eksterrete.</string>
   <string name="view_featured_article_card_title">Elstarigita artikolo</string>
   <string name="view_featured_article_footer_save_button_label">Konservi</string>
@@ -596,10 +588,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideale unu linio, inter du kaj dek du vortoj</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ekredakti</string>
   <string name="description_edit_tutorial_promise">Ekante, mi promesas ne misuzi ĉi tiun eblon</string>
-  <string name="suggested_edits_add_descriptions">Aldoni priskribojn al artikoloj</string>
-  <string name="suggested_edits_translate_descriptions">Traduki priskribojn de artikoloj</string>
-  <string name="suggested_edits_add_image_captions">Aldoni titolojn al bildoj</string>
-  <string name="suggested_edits_translate_image_captions">Traduki titolojn de bildoj</string>
   <string name="suggested_edits_review_description">Revizii priskribon de artikolo</string>
   <string name="suggested_edits_add_description_button">Aldoni priskribon</string>
   <string name="suggested_edits_edit_description_button">Redakti priskribon</string>
@@ -613,7 +601,6 @@
   <string name="suggested_edits_license_notice">Per aldonado de la priskribo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Per aldonado de la titolo de la bildo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informo</string>
-  <string name="suggested_edits_tasks_activity_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_task_add_description_title">Aldoni priskribojn al artikoloj</string>
   <string name="suggested_edits_task_add_description_description">Kontribui al artikloj sen priskriboj</string>
   <string name="suggested_edits_task_image_caption_title">Titoli bildojn</string>
@@ -652,7 +639,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
-  <string name="suggested_edits_contribute">Kontribui</string>
   <string name="suggested_edits_rewards_contribution" fuzzy="true">Vi faris %d kontribuojn al Vikipedio uzante sugestitajn redaktojn. Dankon!</string>
   <string name="suggested_edits_rewards_edit_streak">Vi redaktis ĉiun tagon dum %1$d tagoj ĝin nun. Tenu la daŭron, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Viaj redaktoj estis viditaj de %d homoj en la lasta 30 tagoj. Dankon Kaj daŭrigu!</string>

@@ -142,6 +142,11 @@
             android:key="@string/preference_key_remote_notifications_seen_time"
             android:title="@string/preference_key_remote_notifications_seen_time" />
 
+        <Preference
+            android:key="@string/preference_developer_clear_all_talk_topics"
+            android:title="@string/preference_developer_clear_all_talk_topics"
+            android:summary="Reset all talk page topics to unread." />
+
         <!-- TODO: expose in wildcard preference. -->
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"
@@ -177,10 +182,6 @@
             android:title="@string/preference_key_description_edit_tutorial_enabled" />
 
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_toc_tutorial_enabled"
-            android:title="@string/preference_key_toc_tutorial_enabled" />
-
-        <SwitchPreferenceCompat
             android:key="@string/preference_key_multilingual_search_tutorial_enabled"
             android:title="@string/preference_key_multilingual_search_tutorial_enabled" />
 
@@ -196,13 +197,14 @@
             android:key="@string/preference_key_reading_list_login_reminder_enabled"
             android:title="@string/preference_key_reading_list_login_reminder_enabled" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_explore_feed_visit_count"
+            android:title="@string/preference_key_explore_feed_visit_count" />
+
         <SwitchPreferenceCompat
             android:key="@string/preference_key_feed_customize_onboarding_card_enabled"
             android:title="@string/preference_key_feed_customize_onboarding_card_enabled" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_feed_readinglists_sync_onboarding_card_enabled"
-            android:title="@string/preference_key_feed_readinglists_sync_onboarding_card_enabled" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
@@ -224,10 +226,6 @@
         <SwitchPreferenceCompat
             android:key="@string/preference_key_show_description_edit_success_prompt"
             android:title="@string/preference_key_show_description_edit_success_prompt" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_suggested_edits_image_tags_new"
-            android:title="@string/preference_key_suggested_edits_image_tags_new" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_image_tags_onboarding_shown"
@@ -282,10 +280,6 @@
             android:title="@string/preference_key_show_suggested_edits_tooltip" />
 
         <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_image_tags_tooltip"
-            android:title="@string/preference_key_show_image_tags_tooltip" />
-
-        <SwitchPreferenceCompat
             android:key="@string/preference_key_show_edit_tasks_onboarding"
             android:title="@string/preference_key_show_edit_tasks_onboarding" />
 
@@ -323,6 +317,14 @@
             android:key="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
             android:title="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
             android:summary="The first local notification for editor reactivation has shown."/>
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_sequential_user_stats_tooltip"
+            android:title="@string/preference_key_show_sequential_user_stats_tooltip" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_show_search_tab_tooltip"
+            android:title="@string/preference_key_show_search_tab_tooltip" />
 
         <Preference
             android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"
@@ -372,6 +374,29 @@
             android:title="@string/preference_key_suggested_edits_reward_interstitial_qa_override"
             android:summary="@string/preference_developer_suggested_edits_reward_interstitial_QA_override"
             android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="A/B tests">
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_descriptionEditChecks"
+            android:title="Whether the user sees warnings when submitting descriptions and captions." />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_suggestedEditsInterstitial"
+            android:title="Whether the user sees interstitial screens (keep going!) when making suggested edits." />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_suggestedEditsSnackbar"
+            android:title="Whether the user sees a Snackbar action to 'Get Started' with suggested edits, after an unrelated edit." />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="ab_test_exploreVsHome"
+            android:title="Whether the user sees a Home icon/label, or Explore icon/label." />
+
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>
