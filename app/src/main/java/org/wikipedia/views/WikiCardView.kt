@@ -15,20 +15,27 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
     : MaterialCardView(context, attrs, defStyleAttr) {
 
     init {
-        radius = DimenUtil.dpToPx(12f)
+        radius = context.resources.getDimension(R.dimen.wiki_card_radius)
 
-        strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
-            Theme.DARK -> {
-                DimenUtil.roundedDpToPx(0f)
+        if (attrs != null) {
+            val array = context.obtainStyledAttributes(attrs, R.styleable.WikiCardView)
+            val hasBorder = array.getBoolean(R.styleable.WikiCardView_hasBorder, true)
+            if (hasBorder) {
+                strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
+                    Theme.DARK -> {
+                        DimenUtil.roundedDpToPx(0f)
+                    }
+                    Theme.BLACK -> {
+                        strokeColor = ContextCompat.getColor(context, R.color.base10)
+                        DimenUtil.roundedDpToPx(1f)
+                    }
+                    else -> {
+                        strokeColor = ContextCompat.getColor(context, R.color.base80)
+                        DimenUtil.roundedDpToPx(0.5f)
+                    }
+                }
             }
-            Theme.BLACK -> {
-                strokeColor = ContextCompat.getColor(context, R.color.base10)
-                DimenUtil.roundedDpToPx(1f)
-            }
-            else -> {
-                strokeColor = ContextCompat.getColor(context, R.color.base80)
-                DimenUtil.roundedDpToPx(0.5f)
-            }
+            array.recycle()
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {

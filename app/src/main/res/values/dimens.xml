@@ -114,4 +114,7 @@
     <!-- Bottom navigation values, they override the NavTab item width to make the entire NavTab be in full width -->
     <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>
+
+    <!-- WikiCard -->
+    <dimen name="wiki_card_radius">12dp</dimen>
 </resources>

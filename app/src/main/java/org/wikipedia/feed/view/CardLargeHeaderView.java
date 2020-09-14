@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
@@ -13,6 +14,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.palette.graphics.Palette;
 
+import com.google.android.material.card.MaterialCardView;
+
 import org.wikipedia.R;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -21,6 +24,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CardLargeHeaderView extends ConstraintLayout {
+    @BindView(R.id.view_card_header_large_border_container) View borderContainer;
+    @BindView(R.id.view_card_header_large_border_base) MaterialCardView borderBaseView;
+    @BindView(R.id.view_card_header_large_container) ConstraintLayout container;
     @BindView(R.id.view_card_header_large_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.view_card_header_large_title) TextView titleView;
     @BindView(R.id.view_card_header_large_subtitle) TextView subtitleView;
@@ -41,9 +47,9 @@ public class CardLargeHeaderView extends ConstraintLayout {
     }
 
     private void init() {
-        resetBackgroundColor();
         inflate(getContext(), R.layout.view_card_header_large, this);
         ButterKnife.bind(this);
+        resetBackgroundColor();
     }
 
     @NonNull
@@ -88,7 +94,15 @@ public class CardLargeHeaderView extends ConstraintLayout {
     private void setGradientDrawableBackground(@ColorInt int leftColor, @ColorInt int rightColor) {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
                 new int[] { leftColor, rightColor });
+
+        // card background
         gradientDrawable.setAlpha(70);
-        setBackground(gradientDrawable);
+        gradientDrawable.setCornerRadius(borderBaseView.getRadius());
+        container.setBackground(gradientDrawable);
+
+        // card border's background, which depends on the margin that is applied to the borderBaseView
+        gradientDrawable.setAlpha(90);
+        gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.wiki_card_radius));
+        borderContainer.setBackground(gradientDrawable);
     }
 }

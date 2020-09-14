@@ -19,6 +19,7 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="gone"
+        app:hasBorder="false"
         app:layout_constraintTop_toBottomOf="@id/view_list_card_header">
 
         <org.wikipedia.feed.view.CardLargeHeaderView
