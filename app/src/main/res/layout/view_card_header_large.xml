@@ -27,6 +27,7 @@
         android:id="@+id/view_card_header_large_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
