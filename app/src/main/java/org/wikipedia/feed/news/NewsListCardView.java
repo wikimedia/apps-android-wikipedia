@@ -30,7 +30,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
     }
 
     private void header(@NonNull NewsListCard card) {
-        headerView().setTitle(R.string.view_card_news_title)
+        headerView().setTitle(card.title())
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());

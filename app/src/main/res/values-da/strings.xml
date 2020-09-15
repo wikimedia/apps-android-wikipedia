@@ -29,7 +29,6 @@
   <string name="nav_item_forward">Frem</string>
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="search_hint_search_languages">Søg efter et sprog</string>
-  <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_more">Mere</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>

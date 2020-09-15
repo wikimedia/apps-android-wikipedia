@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1233qwer1234qwer4
 * Abijeet Patro
+* Bergrübe
 * Bxalber
 * Chronist
 * DVrandecic (WMF)
@@ -38,8 +39,8 @@
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_voice_search">Sprachsuche</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
-  <string name="nav_item_history">Verlauf</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vorgeschlagene Bearbeitungen</string>
+  <string name="nav_item_search">Suche</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
   <string name="page_error_retry">Erneut versuchen</string>
   <string name="card_offline_error_retry">Wiederholen</string>
@@ -54,6 +55,7 @@
   <string name="history_item_delete_undo">Rückgängig</string>
   <string name="notification_archive_undo">Rückgängig</string>
   <string name="app_settings">App-Einstellungen</string>
+  <string name="history_list_title">Historie</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -840,4 +842,8 @@
   <string name="text_input_dialog_ok_button_text">Okay</string>
   <string name="text_input_dialog_cancel_button_text">Abbrechen</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Abbrechen</string>
+  <string name="talk_user_title">Gespräch: %s</string>
+  <string name="talk_new_topic">Neues Thema</string>
+  <string name="talk_page_empty">Diese Gesprächsseite ist leer.</string>
+  <string name="talk_add_reply">Antworten</string>
 </resources>

@@ -42,7 +42,6 @@
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
-  <string name="nav_item_history">التاريخ</string>
   <string name="nav_item_suggested_edits">التعديلات</string>
   <string name="nav_item_more">المزيد</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>

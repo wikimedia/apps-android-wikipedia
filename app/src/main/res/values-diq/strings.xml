@@ -21,7 +21,6 @@
   <string name="search_hint">Wikipedia de bıvinê</string>
   <string name="search_hint_voice_search">Dekewtışê vengi cıgeyrayış</string>
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
-  <string name="nav_item_history">Tarix</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vurnayışê wesıbnayey</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
   <string name="page_error_retry">Anciya bıcerrebne</string>

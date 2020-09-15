@@ -64,9 +64,9 @@
   <string name="search_hint_voice_search">Búsqueda por voz</string>
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar mis listas</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>
+  <string name="nav_item_search">Buscar</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -943,4 +943,9 @@
   <string name="text_input_dialog_ok_button_text">Aceptar</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cancelar</string>
+  <string name="talk_title">Discusión</string>
+  <string name="talk_user_title">Discusión: %s</string>
+  <string name="talk_new_topic">Tema nuevo</string>
+  <string name="talk_page_empty">Esta página de discusión está vacía.</string>
+  <string name="talk_add_reply">Responder</string>
 </resources>

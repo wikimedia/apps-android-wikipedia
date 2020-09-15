@@ -15,7 +15,6 @@
   <string name="search_hint">Pretražite Vikipediju</string>
   <string name="search_hint_voice_search">Pretraživanje pomoću glasovnog unosa</string>
   <string name="search_hint_search_languages">Pretražite jezike</string>
-  <string name="nav_item_history">Istorija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Predložene izmene</string>
   <string name="error_network_error">Nije moguće povezati se sa internetom.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>

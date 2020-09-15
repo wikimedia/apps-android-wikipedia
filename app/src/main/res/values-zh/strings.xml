@@ -3,6 +3,7 @@
 * 500000000006城
 * A Chinese Wikipedian
 * A Retired User
+* AYZ04
 * Abijeet Patro
 * Cwek
 * Davidzdh
@@ -57,9 +58,9 @@
   <string name="search_hint_voice_search">语音输入搜索</string>
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
-  <string name="nav_item_history">历史记录</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
+  <string name="nav_item_search">搜索</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -74,6 +75,7 @@
   <string name="history_item_delete_undo">撤销</string>
   <string name="notification_archive_undo">撤销</string>
   <string name="app_settings">应用设置</string>
+  <string name="history_list_title">历史</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
   <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
   <string name="dialog_message_clear_history_yes">确认</string>
@@ -959,4 +961,15 @@
   <string name="text_input_dialog_ok_button_text">确定</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>
   <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
+  <string name="talk_title">讨论</string>
+  <string name="talk_user_title">讨论：%s</string>
+  <string name="talk_new_topic">新话题</string>
+  <string name="talk_page_empty">此讨论页为空。</string>
+  <string name="talk_add_reply">回复</string>
+  <string name="talk_no_subject">（无主题）</string>
+  <string name="talk_reply_subject">主题</string>
+  <string name="talk_reply_hint">撰写回复</string>
+  <string name="talk_message_hint">撰写信息</string>
+  <string name="talk_message_empty">该消息不能为空。</string>
+  <string name="talk_subject_empty">该主题不能为空。</string>
 </resources>

@@ -50,7 +50,6 @@
   <string name="search_hint_voice_search">Ses girişi arama</string>
   <string name="search_hint_search_languages">Bir dil arayın</string>
   <string name="filter_hint_filter_my_lists_and_articles">Liste süzgeci</string>
-  <string name="nav_item_history">Geçmiş</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>

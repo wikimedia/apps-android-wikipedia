@@ -35,9 +35,9 @@
   <string name="search_hint_voice_search">語音輸入搜尋</string>
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="filter_hint_filter_my_lists_and_articles">篩選我的清單</string>
-  <string name="nav_item_history">歷史</string>
   <string name="nav_item_suggested_edits">編輯</string>
   <string name="nav_item_more">更多</string>
+  <string name="nav_item_search">搜尋</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
   <string name="card_offline_error_retry">重試</string>
@@ -52,6 +52,8 @@
   <string name="history_item_delete_undo">還原</string>
   <string name="notification_archive_undo">還原</string>
   <string name="app_settings">應用程式設定</string>
+  <string name="search_tab_tooltip">再次輕觸圖標可直接開始輸入搜尋項。</string>
+  <string name="history_list_title">歷史</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除您的所有瀏覽記錄，並且關閉所有目前開啟的分頁。您確定嗎？</string>
   <string name="dialog_message_clear_history_yes">是</string>
@@ -950,4 +952,15 @@
   <string name="text_input_dialog_ok_button_text">確認</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>
   <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
+  <string name="talk_title">對話</string>
+  <string name="talk_user_title">對話：%s</string>
+  <string name="talk_new_topic">新話題</string>
+  <string name="talk_page_empty">此討論頁為空。</string>
+  <string name="talk_add_reply">回覆</string>
+  <string name="talk_no_subject">（無話題）</string>
+  <string name="talk_reply_subject">話題</string>
+  <string name="talk_reply_hint">撰寫回覆</string>
+  <string name="talk_message_hint">撰寫訊息</string>
+  <string name="talk_message_empty">訊息不能為空。</string>
+  <string name="talk_subject_empty">話題不能為空。</string>
 </resources>

@@ -381,7 +381,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private void startCaptionTranslation(GalleryItemFragment item) {
         PageTitle sourceTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
         PageTitle targetTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1))));
-        String currentCaption = item.getMediaInfo().getCaptions().get(app.getAppOrSystemLanguageCode());
+        String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
         if (TextUtils.isEmpty(currentCaption)) {
             currentCaption = StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString();
         }
@@ -630,7 +630,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
-                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), (captions, protectionInfoRsp, imageTags) -> {
+                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), sourceWiki.languageCode()), (captions, protectionInfoRsp, imageTags) -> {
                     item.getMediaInfo().setCaptions(captions);
                     return new Pair<>(protectionInfoRsp.query().isEditProtected(), imageTags.size());
                 })

@@ -18,7 +18,6 @@
   <string name="nav_item_forward">Adavane</string>
   <string name="search_hint">Serchar en Wikipedio</string>
   <string name="search_hint_search_languages">Serchar ula linguo</string>
-  <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne povas konektar kun la Internet</string>
   <string name="page_error_retry">Riprobar</string>
   <string name="card_offline_error_retry">Riprobar</string>

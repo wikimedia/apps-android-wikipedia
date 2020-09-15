@@ -34,7 +34,6 @@
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_voice_search">Hae äänitulon perusteella</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
-  <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits">Muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>

@@ -35,8 +35,8 @@
   <string name="wikimedia">विकिमीडिया</string>
   <string name="search_hint">विकिपीडिया में खोजें</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
-  <string name="nav_item_history">इतिहास</string>
   <string name="nav_item_more">और</string>
+  <string name="nav_item_search">खोजें</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
@@ -458,4 +458,6 @@
     <item quantity="other">%d साल पहले</item>
   </plurals>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
+  <string name="talk_title">वार्ता</string>
+  <string name="talk_add_reply">जवाब दें</string>
 </resources>
