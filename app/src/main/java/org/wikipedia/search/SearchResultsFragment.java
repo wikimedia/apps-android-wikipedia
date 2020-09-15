@@ -232,7 +232,6 @@ public class SearchResultsFragment extends Fragment {
                     searchErrorView.setVisibility(GONE);
                     handleResults(results, searchTerm, startTime);
                 }, caught -> {
-                    searchErrorView.setVisibility(View.VISIBLE);
                     searchErrorView.setVisibility(VISIBLE);
                     searchErrorView.setError(caught);
                     searchResultsContainer.setVisibility(GONE);
