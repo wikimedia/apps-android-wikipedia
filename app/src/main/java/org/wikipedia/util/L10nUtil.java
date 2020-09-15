@@ -140,6 +140,7 @@ public final class L10nUtil {
             for (int stringRes : strings) {
                 localizedStrings.put(stringRes, WikipediaApp.getInstance().getString(stringRes));
             }
+            return localizedStrings;
         }
         setDesiredLocale(config, targetLocale);
         SparseArray<String> localizedStrings = getTargetStrings(strings, config);
