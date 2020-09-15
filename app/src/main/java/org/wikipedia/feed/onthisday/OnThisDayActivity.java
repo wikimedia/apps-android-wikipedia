@@ -23,12 +23,6 @@ public class OnThisDayActivity extends SingleFragmentActivity<OnThisDayFragment>
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        getFragment().onBackPressed();
-    }
-
-    @Override
     protected OnThisDayFragment createFragment() {
         return OnThisDayFragment.newInstance(getIntent().getIntExtra(AGE, 0), getIntent().getParcelableExtra(WIKISITE));
     }

@@ -113,7 +113,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 }
                 updateContents(age);
                 ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayText.getCurrentTextColor(),
-                        ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
+                        ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
                 colorAnimation.addUpdateListener(animator -> {
                     if (dayText != null) {
                         dayText.setTextColor((Integer) animator.getAnimatedValue());
@@ -122,7 +122,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 colorAnimation.start();
             }, animDelay);
         } else {
-            dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
+            dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
             updateContents(age);
         }
 
