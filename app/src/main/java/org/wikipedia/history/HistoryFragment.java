@@ -457,7 +457,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         public boolean isEmpty() {
-            return getItemCount() == (HistorySearchCallback.is(actionMode) ? 0 : 1);
+            return (getItemCount() == 0)
+                    || (getItemCount() == 1 && historyEntries.get(0) instanceof SearchBar);
         }
 
         @Override
@@ -519,8 +520,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         public void hideHeader() {
-            historyEntries.remove(0);
-            notifyDataSetChanged();
+            if (!historyEntries.isEmpty() && historyEntries.get(0) instanceof SearchBar) {
+                historyEntries.remove(0);
+                notifyDataSetChanged();
+            }
         }
     }
 
