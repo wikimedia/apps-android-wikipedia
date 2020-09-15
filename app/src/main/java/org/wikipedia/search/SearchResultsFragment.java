@@ -50,6 +50,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static android.view.View.GONE;
+import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -493,7 +494,8 @@ public class SearchResultsFragment extends Fragment {
             // highlight search term within the text
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
-            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? GONE : VISIBLE);
+            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null)
+                    ? result.getType() == SearchResult.SearchResultType.SEARCH ? GONE : INVISIBLE : VISIBLE);
             ViewUtil.loadImageWithRoundedCorners(searchResultItemImage, result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
