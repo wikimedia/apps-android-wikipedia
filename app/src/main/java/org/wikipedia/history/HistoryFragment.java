@@ -303,7 +303,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
             List<Object> list = new ArrayList<>();
-            list.add(new SearchBar());
+            if (!HistorySearchCallback.is(actionMode)) {
+                list.add(new SearchBar());
+            }
             while (cursor.moveToNext()) {
                 IndexedHistoryEntry indexedEntry = new IndexedHistoryEntry(cursor);
                 // Check the previous item, see if the times differ enough
@@ -455,7 +457,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         public boolean isEmpty() {
-            return getItemCount() == 1;
+            return getItemCount() == (HistorySearchCallback.is(actionMode) ? 0 : 1);
         }
 
         @Override
@@ -515,6 +517,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             }
             super.onViewDetachedFromWindow(holder);
         }
+
+        public void hideHeader() {
+            historyEntries.remove(0);
+            notifyDataSetChanged();
+        }
     }
 
     private class ItemCallback implements PageItemView.Callback<IndexedHistoryEntry> {
@@ -556,6 +563,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
             ((MainFragment) getParentFragment()).setBottomNavVisible(false);
+            ((HistoryEntryItemAdapter)historyList.getAdapter()).hideHeader();
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -568,10 +576,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
-            if (!TextUtils.isEmpty(currentSearchQuery)) {
-                currentSearchQuery = "";
-                restartLoader();
-            }
+            currentSearchQuery = "";
+            restartLoader();
             actionMode = null;
             ((MainFragment) getParentFragment()).setBottomNavVisible(true);
         }
