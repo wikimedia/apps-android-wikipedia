@@ -14,7 +14,7 @@ object HistoryDbHelper {
 
     fun findHistoryItem(searchQuery: String): SearchResults {
         val db = WikipediaApp.getInstance().database.readableDatabase
-        val titleCol = PageHistoryContract.PageWithImage.API_TITLE.qualifiedName()
+        val titleCol = PageHistoryContract.PageWithImage.DISPLAY_TITLE.qualifiedName()
         var selection: String? = null
         var selectionArgs: Array<String>? = null
         var searchStr = searchQuery
@@ -23,10 +23,10 @@ object HistoryDbHelper {
             selection = "UPPER($titleCol) LIKE UPPER(?) ESCAPE '\\'"
             selectionArgs = arrayOf("%$searchStr%")
         }
-        db.query(PageHistoryContract.PageWithImage.TABLES, null,
+        db.query(PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION,
                 selection,
                 selectionArgs,
-                null, null, null).use { cursor ->
+                null, null, PageHistoryContract.PageWithImage.ORDER_MRU).use { cursor ->
             if (cursor.moveToFirst()) {
                 val indexedEntry = IndexedHistoryEntry(cursor)
                 val pageTitle: PageTitle = indexedEntry.entry.title
