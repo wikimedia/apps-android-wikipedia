@@ -12,16 +12,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/view_card_header_large_border_base"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?paper_color"
-            android:layout_margin="1dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp"/>
-    </FrameLayout>
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/view_card_header_large_border_base"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?paper_color"
+        android:layout_margin="1dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_card_header_large_container"
