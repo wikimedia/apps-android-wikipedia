@@ -113,11 +113,15 @@ public final class L10nUtil {
                 || dir == Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC;
     }
 
-    public static String getStringForArticleLanguage(PageTitle title, int resId) {
+    public static String getStringForArticleLanguage(@NonNull String languageCode, int resId) {
+        return getStringsForLocale(new Locale(languageCode), new int[]{resId}).get(resId);
+    }
+
+    public static String getStringForArticleLanguage(@NonNull PageTitle title, int resId) {
         return getStringsForLocale(new Locale(title.getWikiSite().languageCode()), new int[]{resId}).get(resId);
     }
 
-    public static SparseArray<String> getStringsForArticleLanguage(PageTitle title, int[] resId) {
+    public static SparseArray<String> getStringsForArticleLanguage(@NonNull PageTitle title, int[] resId) {
         return getStringsForLocale(new Locale(title.getWikiSite().languageCode()), resId);
     }
 
