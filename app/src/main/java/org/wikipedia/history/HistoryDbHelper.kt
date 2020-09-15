@@ -23,7 +23,7 @@ object HistoryDbHelper {
             selection = "UPPER($titleCol) LIKE UPPER(?) ESCAPE '\\'"
             selectionArgs = arrayOf("%$searchStr%")
         }
-        db.query(PageHistoryContract.PageWithImage.TABLES, null,
+        db.query(PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION,
                 selection,
                 selectionArgs,
                 null, null, PageHistoryContract.PageWithImage.ORDER_MRU).use { cursor ->
