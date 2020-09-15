@@ -227,6 +227,7 @@ public class SearchResultsFragment extends Fragment {
                         }))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(GONE);
                     handleResults(results, searchTerm, startTime);
@@ -337,6 +338,8 @@ public class SearchResultsFragment extends Fragment {
                     SearchResultsFragment.this.lastFullTextResults = results;
                     if (!resultList.isEmpty()) {
                         displayResults(resultList);
+                    } else {
+                        updateProgressBar(true);
                     }
                     return resultList.isEmpty() ? doFullTextSearchResultsCountObservable(searchTerm) : Observable.empty();
                 })
