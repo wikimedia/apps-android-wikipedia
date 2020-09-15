@@ -45,7 +45,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.year) TextView yearTextView;
-    @BindView(R.id.years_text_background) ImageView yearsInfoBackground;
     @BindView(R.id.years_text) TextView yearsInfoTextView;
     @BindView(R.id.year_layout) LinearLayout yearLayout;
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
@@ -61,7 +60,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
         initRecycler();
-        setGradientAndTextColor();
         setUpFooter();
     }
 
@@ -76,11 +74,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         //Todo: add transition
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
                 ON_THIS_DAY_CARD_FOOTER));
-    }
-
-    private void setGradientAndTextColor() {
-        yearsInfoBackground.setVisibility(GONE);
-        yearsInfoTextView.setVisibility(GONE);
     }
 
     private void initRecycler() {
@@ -148,6 +141,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         super.setCard(card);
         this.age = card.getAge();
         setLayoutDirectionByWikiSite(card.wikiSite(), rtlContainer);
+        yearsInfoTextView.setText(DateUtil.getYearDifferenceString(card.year()));
         setPagesRecycler(card);
         header(card);
     }

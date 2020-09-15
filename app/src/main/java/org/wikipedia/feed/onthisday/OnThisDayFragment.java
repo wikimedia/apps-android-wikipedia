@@ -1,7 +1,5 @@
 package org.wikipedia.feed.onthisday;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -112,17 +110,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                     return;
                 }
                 updateContents(age);
-                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayText.getCurrentTextColor(),
-                        ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
-                colorAnimation.addUpdateListener(animator -> {
-                    if (dayText != null) {
-                        dayText.setTextColor((Integer) animator.getAnimatedValue());
-                    }
-                });
-                colorAnimation.start();
             }, animDelay);
         } else {
-            dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
             updateContents(age);
         }
 
@@ -311,7 +300,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesRecycler = v.findViewById(R.id.pages_recycler);
-            yearContainer = v.findViewById(R.id.years_text_container);
             yearSpace = v.findViewById(R.id.years_text_space);
             this.wiki = wiki;
             setRecycler();
@@ -331,10 +319,10 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
             if (prevEvent != null && prevEvent.year() == event.year()) {
-                yearContainer.setVisibility(View.GONE);
+                //yearContainer.setVisibility(View.GONE);
                 yearSpace.setVisibility(View.GONE);
             } else {
-                yearContainer.setVisibility(View.VISIBLE);
+               // yearContainer.setVisibility(View.VISIBLE);
                 yearSpace.setVisibility(prevEvent == null ? View.GONE : View.VISIBLE);
             }
         }
@@ -345,6 +333,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             int pad3 = (int) DimenUtil.dpToPx(PADDING3);
 
             descTextView.setPaddingRelative(pad1, 0, 0, 0);
+            yearsInfoTextView.setPaddingRelative(pad1, 0, 0, 0);
             pagesRecycler.setPaddingRelative(pad2, 0, 0, 0);
             yearTextView.setPaddingRelative(pad3, 0, 0, 0);
         }
