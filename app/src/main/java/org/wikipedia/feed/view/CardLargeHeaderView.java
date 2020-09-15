@@ -96,7 +96,7 @@ public class CardLargeHeaderView extends ConstraintLayout {
                 new int[] { leftColor, rightColor });
 
         // card background
-        gradientDrawable.setAlpha(90);
+        gradientDrawable.setAlpha(70);
         gradientDrawable.setCornerRadius(borderBaseView.getRadius());
         container.setBackground(gradientDrawable);
 
