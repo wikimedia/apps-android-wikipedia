@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.R;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
