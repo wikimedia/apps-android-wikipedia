@@ -11,6 +11,9 @@ import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.SpecialAliasData;
+import org.wikipedia.staticdata.TalkAliasData;
+import org.wikipedia.staticdata.UserAliasData;
+import org.wikipedia.staticdata.UserTalkAliasData;
 
 import java.util.Locale;
 
@@ -177,17 +180,19 @@ public enum Namespace implements EnumCode {
             return Namespace.SPECIAL;
         }
 
-        // TODO: include User_talk namespace mappings in static language data.
-        if (name != null && name.contains("User talk")) {
-            return Namespace.USER_TALK;
+        if (TalkAliasData.valueFor(wiki.languageCode()).equals(name)
+                || TalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+            return Namespace.TALK;
         }
 
-        // This works for the links provided by the app itself since they always have the English
-        // version of the namespace.
-        // TODO: It would be nice to add a mapping table, as is done for File and Special,
-        // so we can also handle links passed to the app.
-        if (name != null && name.contains("Talk")) {
-            return Namespace.TALK;
+        if (UserAliasData.valueFor(wiki.languageCode()).equals(name)
+                || UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+            return Namespace.USER;
+        }
+
+        if (UserTalkAliasData.valueFor(wiki.languageCode()).equals(name)
+                || UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+            return Namespace.USER_TALK;
         }
 
         return Namespace.MAIN;

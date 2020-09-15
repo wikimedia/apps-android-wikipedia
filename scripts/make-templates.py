@@ -127,14 +127,20 @@ def postprocess_wikis(wiki_list):
 # Populate the aliases for "Special:" and "File:" in all wikis
 def populate_aliases(wikis):
     for wiki in wikis.wikis:
-        print(u"Fetching Special Page and File alias for %s" % wiki.lang)
+        print(u"Fetching namespace strings for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
               u"?action=query&meta=siteinfo&format=json&siprop=namespaces"
         data = json.loads(requests.get(url).text)
         # according to https://www.mediawiki.org/wiki/Manual:Namespace
         # -1 seems to be the ID for Special Pages
         wiki.props[u"special_alias"] = data[u"query"][u"namespaces"][u"-1"][u"*"]
-        # 6 is the ID for File pages
+        # Namespace 1: Talk
+        wiki.props[u"talk_alias"] = data[u"query"][u"namespaces"][u"1"][u"*"]
+        # Namespace 2: User
+        wiki.props[u"user_alias"] = data[u"query"][u"namespaces"][u"2"][u"*"]
+        # Namespace 3: User talk
+        wiki.props[u"user_talk_alias"] = data[u"query"][u"namespaces"][u"3"][u"*"]
+        # Namespace 6: File
         wiki.props[u"file_alias"] = data[u"query"][u"namespaces"][u"6"][u"*"]
     return wikis
 
@@ -176,5 +182,8 @@ chain(
     postprocess_wikis,
     render_template(u"basichash.java.jinja", u"SpecialAliasData", key=u"special_alias"),
     render_template(u"basichash.java.jinja", u"FileAliasData", key=u"file_alias"),
+    render_template(u"basichash.java.jinja", u"TalkAliasData", key=u"talk_alias"),
+    render_template(u"basichash.java.jinja", u"UserAliasData", key=u"user_alias"),
+    render_template(u"basichash.java.jinja", u"UserTalkAliasData", key=u"user_talk_alias"),
     render_template(u"basichash.java.jinja", u"MainPageNameData", key=u"main_page_name"),
 )

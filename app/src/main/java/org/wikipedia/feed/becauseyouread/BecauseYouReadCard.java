@@ -8,10 +8,10 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.L10nUtil;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     @Override
     @NonNull
     public String title() {
-        return WikipediaApp.getInstance().getString(R.string.view_because_you_read_card_title);
+        return L10nUtil.getStringForArticleLanguage(getPageTitle(), R.string.view_because_you_read_card_title);
     }
 
     @Override
