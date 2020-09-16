@@ -602,6 +602,7 @@
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
+  <string name="view_featured_image_card_share">Label for a button the user can click to share the image link of the Picture of the Day.\n{{Identical|Share}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
   <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
   <string name="menu_feed_card_edit_card_languages">Menu item used for opening the page of editing card languages</string>
