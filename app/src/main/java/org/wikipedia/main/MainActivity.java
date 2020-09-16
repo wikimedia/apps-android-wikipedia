@@ -140,7 +140,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             controlNavTabInFragment = false;
         } else {
             if (tab.equals(NavTab.SEARCH) && Prefs.shouldShowSearchTabTooltip()) {
-                FeedbackUtil.showTooltip(getFragment().tabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), true, true);
+                FeedbackUtil.showTooltip(getFragment().tabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), true, false);
                 Prefs.setShowSearchTabTooltip(false);
             }
             wordMark.setVisibility(GONE);

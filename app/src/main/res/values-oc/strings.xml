@@ -16,7 +16,6 @@
   <string name="app_name_alpha">Wikipèdia Alfa</string>
   <string name="wikimedia">Wikimèdia</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
-  <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Impossible de se connectar a Internet.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="page_error_back_to_main">Tornar en arrièr</string>

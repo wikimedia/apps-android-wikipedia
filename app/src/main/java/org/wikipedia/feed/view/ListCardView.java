@@ -24,6 +24,7 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
     }
 
     @BindView(R.id.view_list_card_header) CardHeaderView headerView;
+    @BindView(R.id.view_list_card_large_header_container) View largeHeaderContainer;
     @BindView(R.id.view_list_card_large_header) CardLargeHeaderView largeHeaderView;
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
     @BindView(R.id.view_list_card_more_container) View moreContentContainer;
@@ -54,6 +55,10 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
 
     protected CardHeaderView headerView() {
         return headerView;
+    }
+
+    protected View largeHeaderContainer() {
+        return largeHeaderContainer;
     }
 
     protected CardLargeHeaderView largeHeaderView() {

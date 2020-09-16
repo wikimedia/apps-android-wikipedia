@@ -33,9 +33,9 @@
   <string name="search_hint_voice_search">Pesquisa com entrada por voz</string>
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar as minhas listas</string>
-  <string name="nav_item_history">Histórico</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
+  <string name="nav_item_search">Pesquisar</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="page_error_retry">Tentar novamente</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -50,6 +50,8 @@
   <string name="history_item_delete_undo">Desfazer</string>
   <string name="notification_archive_undo">Desfazer</string>
   <string name="app_settings">Definições da aplicação</string>
+  <string name="search_tab_tooltip">Toque outra vez no ícone para começar diretamente a introduzir um termo de pesquisa.</string>
+  <string name="history_list_title">Historial</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto eliminará todo o seu histórico de navegação e fechará todos os separadores abertos. Tem a certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -951,4 +953,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cancelar</string>
+  <string name="talk_title">Discussão</string>
+  <string name="talk_user_title">Discussão: %s</string>
+  <string name="talk_new_topic">Tópico novo</string>
+  <string name="talk_page_empty">Esta página de discussão está vazia.</string>
+  <string name="talk_add_reply">Responder</string>
+  <string name="talk_no_subject">(Sem assunto)</string>
+  <string name="talk_reply_subject">Assunto</string>
+  <string name="talk_reply_hint">Redigir resposta</string>
+  <string name="talk_message_hint">Redigir mensagem</string>
+  <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
+  <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
 </resources>

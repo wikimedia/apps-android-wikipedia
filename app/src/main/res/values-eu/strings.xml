@@ -27,7 +27,6 @@
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_voice_search">Ahotsaren bidez bilatu</string>
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
-  <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Gomendatutako aldaketak</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>

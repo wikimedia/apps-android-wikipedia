@@ -26,9 +26,9 @@
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
-  <string name="nav_item_history">မှတ်တမ်း</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
   <string name="nav_item_more">ပို၍</string>
+  <string name="nav_item_search">ရှာဖွေရန်</string>
   <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="card_offline_error_retry">ပြန်လုပ်</string>
@@ -43,6 +43,7 @@
   <string name="history_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="notification_archive_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="app_settings">App အပြင်အဆင်များ</string>
+  <string name="history_list_title">ရာဇဝင်</string>
   <string name="dialog_title_clear_history">အသုံးပြုမှတ်တမ်း ရှင်းလင်းရန်</string>
   <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းများ အားလုံးကို ဖျက်ပြီး လက်ရှိဖွင့်ထားသမျှကို ပိတ်ပါမည်။ သင်သေချာပြီလား?</string>
   <string name="dialog_message_clear_history_yes">လုပ်မည်</string>
@@ -56,7 +57,9 @@
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
   <string name="menu_page_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="menu_page_add_to_default_list">သိမ်းရန်</string>
   <string name="feed_card_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
+  <string name="feed_card_add_to_default_list">သိမ်းရန်</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
   <string name="menu_page_open_a_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_page_reading_lists">စာရင်းများကို ဖတ်နေသည်</string>
@@ -344,6 +347,10 @@
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>
   <string name="crash_report_quit">ထွက်</string>
+  <string name="article_menu_bar_save_button">သိမ်းရန်</string>
+  <string name="article_menu_bar_language_button">ဘာသာစကား</string>
+  <string name="article_menu_bar_search_button">ရှာဖွေရန်</string>
+  <string name="article_menu_bar_contents_button">မာတိကာများ</string>
   <string name="article_header_edit_hint">ပြင်ဆင်...</string>
   <string name="article_header_edit_description">ဆောင်းပါးဖော်ပြချက်ကို တည်းဖြတ်ရန်</string>
   <string name="article_header_edit_lead_section">မိတ်ဆက် တည်းဖြတ်ရန်</string>
@@ -558,6 +565,7 @@
   <string name="menu_feed_overflow_label">နောက်ထပ် ရွေးချယ်စရာများ</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons မှ အထူးဓာတ်ပုံ</string>
   <string name="feed">ရှာဖွေစူးစမ်းပါ</string>
+  <string name="home">ပင်မ</string>
   <string name="most_read_list_card_title">ရေပန်းစားမှု</string>
   <string name="view_static_card_icon_content_description">ကဒ်ပုံ</string>
   <string name="view_card_news_title">သတင်းထဲတွင်</string>
@@ -698,7 +706,7 @@
   <string name="suggested_edits_ip_blocked_message">သင်၏အိုင်ပီလိပ်စာ (သို့မဟုတ် အိုင်ပီလိပ်စာများ၏ အတိုင်းအတာ) သည် ဝီကီပီးဒီးယား တည်းဖြတ်ခြင်းမှ လတ်တလော ပိတ်ပင်ခံထားရပုံရှိသည်။ ယင်းအကြောင်း အောက်ပါလင့်ခ်တွင် အလည်သွား၍ ပိုမိုလေ့လာပါ။</string>
   <string name="suggested_edits_editing_tips_link_text">တည်းဖြတ်ခြင်း နည်းလမ်းများ</string>
   <string name="suggested_edits_help_page_link_text">အကြံပြုထားသော တည်းဖြတ်မှုများ အကူညီစာမျက်နှာ</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">စာမျက်နှာကြည့်ရှုနှုန်း</string>
+  <string name="suggested_edits_views_label_text">ကြည့်ရှုနှုန်းများ</string>
   <string name="suggested_edits_quality_label_text">အရည်အသွေး ပြင်ဆင်ရန်</string>
   <string name="suggested_edits_quality_perfect_text">ပြည့်စုံ</string>
   <string name="suggested_edits_quality_excellent_text">အထူးကောင်းမွန်</string>
@@ -741,6 +749,8 @@
   <string name="suggested_edits_encourage_account_creation_login_button">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">လက်ရှိဗားရှင်း</string>
   <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
+  <string name="file_page_activity_title">ဖိုင်စာမျက်နှာ</string>
+  <string name="file_page_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>
   <string name="description_edit_revert_reason1">သင်၏ပံပိုးမှုသည် &lt;a href=\"%1$s\"&gt;လမ်းညွှန်များ&lt;/a&gt;များထဲကတစ်ခုနှင့် မကိုက်ညီပါ။</string>
@@ -826,4 +836,7 @@
   <string name="text_input_dialog_ok_button_text">အိုကေ</string>
   <string name="text_input_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="talk_title">ဆွေးနွေး</string>
+  <string name="talk_add_reply">အကြောင်းပြန်ရန်</string>
+  <string name="talk_reply_subject">အကြောင်းအရာ</string>
 </resources>

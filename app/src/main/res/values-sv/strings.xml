@@ -32,9 +32,9 @@
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
-  <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Fler</string>
+  <string name="nav_item_search">Sök</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="card_offline_error_retry">Försök igen</string>
@@ -49,6 +49,8 @@
   <string name="history_item_delete_undo">Ångra</string>
   <string name="notification_archive_undo">Ångra</string>
   <string name="app_settings">Applikationsinställningar</string>
+  <string name="search_tab_tooltip">Tryck på ikonen igen för att börja skriva en sökterm.</string>
+  <string name="history_list_title">Historik</string>
   <string name="dialog_title_clear_history">Rensa läsarhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -950,4 +952,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Avbryt</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Avbryt</string>
+  <string name="talk_title">Diskussion</string>
+  <string name="talk_user_title">Diskussion: %s</string>
+  <string name="talk_new_topic">Nytt ämne</string>
+  <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
+  <string name="talk_add_reply">Svara</string>
+  <string name="talk_no_subject">(Inget ämne)</string>
+  <string name="talk_reply_subject">Ämne</string>
+  <string name="talk_reply_hint">Skriv svar</string>
+  <string name="talk_message_hint">Skriv meddelande</string>
+  <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
+  <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
 </resources>

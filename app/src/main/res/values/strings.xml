@@ -244,6 +244,11 @@
     <string name="page_similar_titles">Similar pages</string>
     <string name="search_did_you_mean">Did you mean \"%s\"?</string>
     <string name="search_recent_header">Recent searches:</string>
+    <string name="search_results_count_zero">No results</string>
+    <plurals name="search_results_count">
+        <item quantity="one">1 result</item>
+        <item quantity="other">%d results</item>
+    </plurals>
     <string name="button_clear_all_recent_searches">Clear recent searches</string>
     <string name="clear_recent_searches_confirm">Are you sure you want to clear your search history?</string>
     <string name="clear_recent_searches_confirm_yes">Yes</string>
@@ -590,12 +595,13 @@
     <!-- The Feed -->
     <string name="view_because_you_read_card_title">Because you read</string>
     <string name="view_random_card_title">Randomizer</string>
-    <string name="view_random_card_subtitle">Flip through random articles to read from Wikipedia.</string>
-    <string name="view_random_card_action">Roll the dice</string>
+    <string name="view_random_article_card_title">Random article</string>
+    <string name="view_random_article_card_action">More random articles</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
     <string name="view_featured_image_card_download">Download</string>
+    <string name="view_featured_image_card_share">Share</string>
     <string name="menu_feed_card_dismiss">Hide this card</string>
     <string name="menu_feed_card_dismissed">Card hidden.</string>
     <string name="menu_feed_card_edit_card_languages">Edit card languages</string>

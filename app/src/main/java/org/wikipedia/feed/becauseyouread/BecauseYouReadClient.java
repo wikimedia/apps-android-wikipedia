@@ -1,6 +1,7 @@
 package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
@@ -40,22 +41,23 @@ public class BecauseYouReadClient implements FeedClient {
 
     private void getCardForHistoryEntry(@NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
-
-        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText())
+        disposables.add(Observable.zip(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getSummary(entry.getReferrer(), entry.getTitle().getPrefixedText()),
+                ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> response.getPages(Constants.SUGGESTION_REQUEST_ITEMS))
-                .subscribe(results -> FeedCoordinator.postCardsToCallback(cb, (results == null || results.size() == 0)
-                            ? Collections.emptyList() : Collections.singletonList(toBecauseYouReadCard(results, entry))),
+                .map(pair -> new Pair<>(pair.first, pair.second.getPages(Constants.SUGGESTION_REQUEST_ITEMS)))
+                .subscribe(pair -> FeedCoordinator.postCardsToCallback(cb, (pair.second == null || pair.second.size() == 0)
+                            ? Collections.emptyList() : Collections.singletonList(toBecauseYouReadCard(pair.second, pair.first, entry.getTitle().getWikiSite()))),
                         cb::error));
     }
 
     @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull List<PageSummary> results,
-                                                             @NonNull HistoryEntry entry) {
+                                                             @NonNull PageSummary pageSummary,
+                                                             @NonNull WikiSite wikiSite) {
         List<BecauseYouReadItemCard> itemCards = new ArrayList<>();
         for (PageSummary result : results) {
-            itemCards.add(new BecauseYouReadItemCard(result.getPageTitle(entry.getTitle().getWikiSite())));
+            itemCards.add(new BecauseYouReadItemCard(result.getPageTitle(wikiSite)));
         }
-        return new BecauseYouReadCard(entry, itemCards);
+        return new BecauseYouReadCard(pageSummary.getPageTitle(wikiSite), itemCards);
     }
 }

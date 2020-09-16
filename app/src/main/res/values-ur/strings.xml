@@ -27,7 +27,6 @@
   <string name="search_hint_voice_search">بذریعہ آواز تلاش</string>
   <string name="search_hint_search_languages">زبان تلاش کریں</string>
   <string name="filter_hint_filter_my_lists_and_articles">میری فہرست کو فلٹر کریں</string>
-  <string name="nav_item_history">تاریخچہ</string>
   <string name="nav_item_suggested_edits">ترامیم</string>
   <string name="nav_item_more">مزید</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>

@@ -28,7 +28,6 @@
   <string name="nav_item_forward">Fremover</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
-  <string name="nav_item_history">Logg</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>

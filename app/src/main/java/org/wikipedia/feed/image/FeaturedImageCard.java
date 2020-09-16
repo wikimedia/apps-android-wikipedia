@@ -6,11 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.L10nUtil;
 
 public class FeaturedImageCard extends Card {
     @NonNull private FeaturedImage featuredImage;
@@ -35,7 +35,7 @@ public class FeaturedImageCard extends Card {
     @Override
     @NonNull
     public String title() {
-        return WikipediaApp.getInstance().getString(R.string.view_featured_image_card_title);
+        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.view_featured_image_card_title);
     }
 
     @Override

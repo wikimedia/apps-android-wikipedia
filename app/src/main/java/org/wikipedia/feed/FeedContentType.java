@@ -52,11 +52,11 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new AggregatedFeedContentClient.TrendingArticles(aggregatedClient) : null;
         }
     },
-    RANDOM(5, R.string.view_random_card_title, R.string.feed_item_type_randomizer, false) {
+    RANDOM(5, R.string.view_random_card_title, R.string.feed_item_type_randomizer, true) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age % 2 == 0 ? new RandomClient() : null;
+            return isEnabled() ? new RandomClient() : null;
         }
     },
     FEATURED_ARTICLE(6, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article, true) {

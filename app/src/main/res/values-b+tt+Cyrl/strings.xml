@@ -14,7 +14,6 @@
   <string name="nav_item_forward">Алга</string>
   <string name="search_hint">Википедиядә эзләү</string>
   <string name="search_hint_search_languages">Тел буенча эзләү</string>
-  <string name="nav_item_history">Тарих</string>
   <string name="error_network_error">Интернетка тоташтырып булмый.</string>
   <string name="page_error_retry">Кабатлау</string>
   <string name="card_offline_error_retry">Кабатлау</string>

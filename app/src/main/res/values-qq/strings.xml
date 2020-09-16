@@ -9,6 +9,7 @@
 * Hamilton Abreu
 * Joao Xavier
 * Kaganer
+* Kizule
 * KuboF
 * Liuxinyu970226
 * MarcoAurelio
@@ -43,9 +44,9 @@
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
-  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
+  <string name="nav_item_search">Navigation menu item label for search.</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -60,6 +61,8 @@
   <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
   <string name="notification_archive_undo">Button label to undo the operation of archiving a notification.\n{{Identical|Undo}}</string>
   <string name="app_settings">Button text to take user to app settings screen</string>
+  <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
+  <string name="history_list_title">Label text for history items list.</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="dialog_message_clear_history_yes">Affirmative answer to clear the browsing history, as well close any tabs that are open.\n{{Identical|Yes}}</string>
@@ -262,6 +265,11 @@
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
+  <string name="search_results_count_zero">Text shown on the list that displays zero counts of the result from the search.</string>
+  <plurals name="search_results_count">
+    <item quantity="one">Text shown on the list that displays one count of the result from the search.</item>
+    <item quantity="other">Text shown on the list that displays numbers of counts of the result from the search. The \"%d\" symbol is replaced with the amount of the counts.</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>
   <string name="clear_recent_searches_confirm">Dialog message that asks if the user really wants to clear the search history.</string>
   <string name="clear_recent_searches_confirm_yes">Affirmative answer to clear the search history.\n{{Identical|Yes}}</string>
@@ -588,12 +596,13 @@
   <string name="preference_summary_notification_user_talk">Short summary explaining what User talk notifications are.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
-  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
-  <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
+  <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
+  <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
+  <string name="view_featured_image_card_share">Label for a button the user can click to share the image link of the Picture of the Day.\n{{Identical|Share}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
   <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
   <string name="menu_feed_card_edit_card_languages">Menu item used for opening the page of editing card languages</string>

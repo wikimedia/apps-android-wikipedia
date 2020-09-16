@@ -23,8 +23,8 @@
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="search_hint_voice_search">Paieškos įvestis balsu</string>
   <string name="search_hint_search_languages">Ieškoti kalbos</string>
-  <string name="nav_item_history">Istorija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Siūlomi keitimai</string>
+  <string name="nav_item_search">Paieška</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="card_offline_error_retry">Bandyti dar kartą</string>
@@ -39,6 +39,7 @@
   <string name="history_item_delete_undo">Anuliuoti</string>
   <string name="notification_archive_undo">Anuliuoti</string>
   <string name="app_settings">Programėlės nustatymai</string>
+  <string name="history_list_title">Istorija</string>
   <string name="dialog_title_clear_history">Išvalyti naršymo istoriją</string>
   <string name="dialog_message_clear_history">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
   <string name="dialog_message_clear_history_yes">Taip</string>
@@ -383,4 +384,14 @@
   <string name="back_to_top">Į viršų</string>
   <string name="on_this_day_dialog_next_month">Kitas mėnuo</string>
   <string name="on_this_day_dialog_previous_month">Ankstesnis mėnuo</string>
+  <string name="talk_title">Aptarimas</string>
+  <string name="talk_new_topic">Nauja tema</string>
+  <string name="talk_page_empty">Šis aptarimo puslapis tuščias.</string>
+  <string name="talk_add_reply">Atsakyti</string>
+  <string name="talk_no_subject">(Nėra temos)</string>
+  <string name="talk_reply_subject">Tema</string>
+  <string name="talk_reply_hint">Rašyti atsakymą</string>
+  <string name="talk_message_hint">Kurti žinutę</string>
+  <string name="talk_message_empty">Žinutė negali būti tuščia.</string>
+  <string name="talk_subject_empty">Tema negali būti tuščia.</string>
 </resources>
