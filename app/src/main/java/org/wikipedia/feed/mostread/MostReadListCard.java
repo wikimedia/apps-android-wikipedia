@@ -1,10 +1,7 @@
 package org.wikipedia.feed.mostread;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 
 import org.wikipedia.R;
@@ -30,19 +27,28 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
         this.wiki = wiki;
     }
 
-    @NonNull @Override public String title() {
+    @NonNull
+    @Override public String title() {
         return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.view_top_read_card_title);
     }
 
-    @Nullable @Override public String subtitle() {
+    @Nullable
+    @Override public String subtitle() {
         return DateUtil.getFeedCardDateString(articles.date());
     }
 
-    @NonNull @Override public CardType type() {
+    @NonNull
+    @Override public CardType type() {
         return CardType.MOST_READ_LIST;
     }
 
-    @NonNull @VisibleForTesting
+    @NonNull
+    public String footerActionText() {
+        return WikipediaApp.getInstance().getString(R.string.view_top_read_card_action);
+    }
+
+    @NonNull
+    @VisibleForTesting
     public static List<MostReadItemCard> toItems(@NonNull List<PageSummary> articles,
                                           @NonNull WikiSite wiki) {
         List<MostReadItemCard> cards = new ArrayList<>();
@@ -50,14 +56,6 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
             cards.add(new MostReadItemCard(article, wiki));
         }
         return cards;
-    }
-
-    @NonNull private String getString(@StringRes int id, @Nullable Object... formatArgs) {
-        return context().getString(id, formatArgs);
-    }
-
-    @NonNull private Context context() {
-        return WikipediaApp.getInstance();
     }
 
     @Override

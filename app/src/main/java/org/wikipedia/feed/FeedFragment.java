@@ -57,6 +57,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -506,15 +507,17 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onMoreContentSelected(@NonNull Card card) {
-            startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
-        }
-
-        @Override
         public void onSuggestedEditsCardClick(@NonNull SuggestedEditsCardView view) {
             funnel.cardClicked(view.getCard().type(), getCardLanguageCode(view.getCard()));
             suggestedEditsCardView = view;
             startDescriptionEditScreen();
+        }
+
+        @Override
+        public void onFooterClick(@NonNull Card card) {
+            if (card instanceof MostReadListCard) {
+                startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
+            }
         }
     }
 

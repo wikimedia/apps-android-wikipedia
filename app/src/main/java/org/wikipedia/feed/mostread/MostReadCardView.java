@@ -1,11 +1,12 @@
 package org.wikipedia.feed.mostread;
 
 import android.content.Context;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.R;
+import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
@@ -24,10 +25,16 @@ public class MostReadCardView extends ListCardView<MostReadListCard> {
     @Override public void setCard(@NonNull MostReadListCard card) {
         super.setCard(card);
         header(card);
+        footer(card);
         this.card = card;
         set(new RecyclerAdapter(card.items().subList(0, Math.min(card.items().size(), EVENTS_SHOWN))));
-        setMoreContentTextView(getContext().getString(R.string.view_top_read_card_action));
         setLayoutDirectionByWikiSite(card.wikiSite(), getLayoutDirectionView());
+    }
+
+    private void footer(@NonNull MostReadListCard card) {
+        footerView().setVisibility(View.VISIBLE);
+        footerView().setCallback(getFooterCallback(card));
+        footerView().setFooterActionText(card.footerActionText());
     }
 
     private void header(@NonNull MostReadListCard card) {
@@ -35,6 +42,14 @@ public class MostReadCardView extends ListCardView<MostReadListCard> {
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
+    }
+
+    public CardFooterView.Callback getFooterCallback(@NonNull MostReadListCard card) {
+        return () -> {
+            if (getCallback() != null) {
+                getCallback().onFooterClick(card);
+            }
+        };
     }
 
     private class RecyclerAdapter extends ListCardRecyclerAdapter<MostReadItemCard> {
