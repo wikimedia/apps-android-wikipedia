@@ -19,7 +19,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 
@@ -81,10 +80,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_VIEW_END);
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
             notificationsContainer.setVisibility(VISIBLE);
-
-            // TODO: remove feature flag when ready
-            talkContainer.setVisibility(ReleaseUtil.isPreBetaRelease() ? VISIBLE : GONE);
-
+            talkContainer.setVisibility(VISIBLE);
         } else {
             accountAvatar.setImageDrawable(requireContext().getDrawable(R.drawable.ic_login_24px));
             ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)));
