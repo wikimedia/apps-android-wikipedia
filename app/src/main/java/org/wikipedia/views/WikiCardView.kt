@@ -3,7 +3,6 @@ package org.wikipedia.views
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
-import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
 import org.wikipedia.R
@@ -17,19 +16,16 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
 
     init {
         var hasBorder = true
-        var shadowColor = if (WikipediaApp.getInstance().currentTheme == Theme.DARK)
-            ContextCompat.getColor(context, R.color.base0) else ContextCompat.getColor(context, R.color.base70)
         if (attrs != null) {
             val array = context.obtainStyledAttributes(attrs, R.styleable.WikiCardView)
             hasBorder = array.getBoolean(R.styleable.WikiCardView_hasBorder, true)
-            shadowColor = array.getColor(R.styleable.WikiCardView_shadowColor, ContextCompat.getColor(context, R.color.base70))
             array.recycle()
         }
 
-        setup(hasBorder, shadowColor)
+        setup(hasBorder)
     }
 
-    private fun setup(hasBorder: Boolean, @ColorInt shadowColor: Int) {
+    private fun setup(hasBorder: Boolean) {
         radius = context.resources.getDimension(R.dimen.wiki_card_radius)
         if (hasBorder) {
             strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
@@ -51,16 +47,16 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
             when (WikipediaApp.getInstance().currentTheme) {
                 Theme.DARK -> {
                     cardElevation = DimenUtil.dpToPx(8f)
-                    outlineAmbientShadowColor = shadowColor
-                    outlineSpotShadowColor = shadowColor
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base0)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base0)
                 }
                 Theme.BLACK -> {
                     cardElevation = 0f
                 }
                 else -> {
                     cardElevation = DimenUtil.dpToPx(8f)
-                    outlineAmbientShadowColor = shadowColor
-                    outlineSpotShadowColor = shadowColor
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base70)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base70)
                 }
             }
         } else {

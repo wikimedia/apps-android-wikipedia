@@ -24,7 +24,6 @@
         android:focusable="true"
         android:visibility="gone"
         app:hasBorder="false"
-        app:shadowColor="@color/base18"
         app:layout_constraintBottom_toTopOf="@id/view_list_card_list_container">
 
         <org.wikipedia.feed.view.CardLargeHeaderView
