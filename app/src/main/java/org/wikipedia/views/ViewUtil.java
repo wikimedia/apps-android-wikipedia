@@ -32,8 +32,17 @@ import java.util.Locale;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
-    private static MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(15)));
-    private static MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
+    private static final RoundedCorners ROUNDED_CORNERS = new RoundedCorners(DimenUtil.roundedDpToPx(15));
+    private static final MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), ROUNDED_CORNERS);
+    private static final MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
+
+    public static RoundedCorners getRoundedCorners() {
+        return ROUNDED_CORNERS;
+    }
+
+    public static MultiTransformation<Bitmap> getCenterCropLargeRoundedCorners() {
+        return CENTER_CROP_LARGE_ROUNDED_CORNERS;
+    }
 
     public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url) {
         loadImage(view, url, true, false, false);

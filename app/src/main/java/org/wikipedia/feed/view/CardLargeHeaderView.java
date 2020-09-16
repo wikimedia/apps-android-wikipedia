@@ -1,6 +1,7 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.util.AttributeSet;
@@ -17,12 +18,14 @@ import androidx.palette.graphics.Palette;
 import com.google.android.material.card.MaterialCardView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressWarnings("checkstyle:magicnumber")
 public class CardLargeHeaderView extends ConstraintLayout {
     @BindView(R.id.view_card_header_large_border_container) View borderContainer;
     @BindView(R.id.view_card_header_large_border_base) MaterialCardView borderBaseView;
@@ -77,11 +80,18 @@ public class CardLargeHeaderView extends ConstraintLayout {
     }
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
-
         @Override
         public void onImageLoaded(@NonNull Palette palette) {
-            setGradientDrawableBackground(palette.getLightMutedColor(ContextCompat.getColor(getContext(), R.color.base100)),
-                    palette.getMutedColor(ContextCompat.getColor(getContext(), R.color.base20)));
+            int color1 = palette.getDominantColor(ContextCompat.getColor(getContext(), R.color.base70));
+            int color2 = palette.getMutedColor(ContextCompat.getColor(getContext(), R.color.base30));
+            if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                color1 = darkenColor(color1);
+                color2 = darkenColor(color2);
+            } else {
+                color1 = lightenColor(color1);
+                color2 = lightenColor(color2);
+            }
+            setGradientDrawableBackground(color1, color2);
         }
 
         @Override
@@ -90,10 +100,30 @@ public class CardLargeHeaderView extends ConstraintLayout {
         }
     }
 
+    private static int lightenColor(@ColorInt int color) {
+        int r = (color & 0xff);
+        int g = (color & 0xff00) >> 8;
+        int b = (color & 0xff0000) >> 16;
+        r += ((0xff - r) / 2);
+        g += ((0xff - g) / 2);
+        b += ((0xff - b) / 2);
+        return Color.rgb(r, g, b);
+    }
+
+    private static int darkenColor(@ColorInt int color) {
+        int r = (color & 0xff);
+        int g = (color & 0xff00) >> 8;
+        int b = (color & 0xff0000) >> 16;
+        r -= (r / 2);
+        g -= (g / 2);
+        b -= (b / 2);
+        return Color.rgb(r, g, b);
+    }
+
     @SuppressWarnings("checkstyle:magicnumber")
     private void setGradientDrawableBackground(@ColorInt int leftColor, @ColorInt int rightColor) {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[] { leftColor, rightColor });
+                new int[] {leftColor, rightColor});
 
         // card background
         gradientDrawable.setAlpha(70);
