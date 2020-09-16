@@ -26,7 +26,6 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     public MostReadListCard(@NonNull MostReadArticles articles, @NonNull WikiSite wiki) {
         super(toItems(articles.articles(), wiki), wiki);
         this.articles = articles;
-        wikiSite(wiki);
     }
 
     @NonNull @Override public String title() {

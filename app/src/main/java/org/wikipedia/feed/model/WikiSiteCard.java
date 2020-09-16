@@ -14,8 +14,4 @@ public abstract class WikiSiteCard extends Card {
     @NonNull public WikiSite wikiSite() {
         return wiki;
     }
-
-    public void wikiSite(@NonNull WikiSite wiki) {
-        this.wiki = wiki;
-    }
 }

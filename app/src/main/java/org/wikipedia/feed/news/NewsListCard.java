@@ -16,16 +16,14 @@ import java.util.concurrent.TimeUnit;
 
 public class NewsListCard extends ListCard<NewsItemCard> {
     @NonNull private UtcDate date;
-    @NonNull private WikiSite wiki;
 
     public NewsListCard(@NonNull List<NewsItem> news, int age, @NonNull WikiSite wiki) {
         super(toItemCards(news, wiki), wiki);
         this.date = new UtcDate(age);
-        this.wiki = wiki;
     }
 
     @NonNull @Override public String title() {
-        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.view_card_news_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_card_news_title);
     }
 
     @NonNull @Override public CardType type() {
