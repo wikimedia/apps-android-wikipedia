@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -200,6 +201,9 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation "com.github.skydoves:balloon:1.2.1"
+
+    // For receiving push notifications for logged-in users.
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
