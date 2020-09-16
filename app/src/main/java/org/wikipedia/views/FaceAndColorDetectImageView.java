@@ -29,7 +29,6 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
@@ -37,7 +36,6 @@ import com.bumptech.glide.request.target.Target;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
@@ -50,9 +48,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private static final Paint DEFAULT_PAINT = new Paint(PAINT_FLAGS);
     private static final int BITMAP_COPY_WIDTH = 200;
     private static final CenterCropWithFace FACE_DETECT_TRANSFORM = new CenterCropWithFace();
-    private static final RoundedCorners ROUNDED_CORNERS = new RoundedCorners(DimenUtil.roundedDpToPx(15));
-    private static final MultiTransformation<Bitmap> FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS = new MultiTransformation<>(FACE_DETECT_TRANSFORM, ROUNDED_CORNERS);
-    private static final MultiTransformation<Bitmap> CENTER_CROP_AND_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), ROUNDED_CORNERS);
+    private static final MultiTransformation<Bitmap> FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS = new MultiTransformation<>(FACE_DETECT_TRANSFORM, ViewUtil.getRoundedCorners());
     private static final Paint PAINT_WHITE = new Paint();
     private static final Paint PAINT_DARK_OVERLAY = new Paint();
 
@@ -105,9 +101,10 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
 
                 @Override
                 public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                    if (resource != null) {
-                        Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
-                        listener.onImageLoaded(Palette.from(bitmap).generate());
+                    if (resource instanceof BitmapDrawable && ((BitmapDrawable) resource).getBitmap() != null) {
+                        listener.onImageLoaded(Palette.from(((BitmapDrawable) resource).getBitmap()).generate());
+                    } else {
+                        listener.onImageFailed();
                     }
                     return false;
                 }
@@ -117,7 +114,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         if (shouldDetectFace(uri)) {
             builder = builder.transform(roundedCorners ? FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS : FACE_DETECT_TRANSFORM);
         } else {
-            builder = builder.transform(roundedCorners ? CENTER_CROP_AND_ROUNDED_CORNERS : new CenterCrop());
+            builder = builder.transform(roundedCorners ? ViewUtil.getCenterCropLargeRoundedCorners() : new CenterCrop());
         }
 
         builder.into(this);
