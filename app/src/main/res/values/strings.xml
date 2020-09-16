@@ -936,7 +936,6 @@
     <string name="more_events_text">More on this day</string>
     <string name="events_count_text">%1$s events from %2$s–%3$d</string>
     <string name="this_year">This year</string>
-    <string name="back_to_top">Back to top</string>
     <string name="on_this_day_dialog_next_month">Next month</string>
     <string name="on_this_day_dialog_previous_month">Previous month</string>
     <string name="on_this_day_open_date_picker">Open date picker</string>
@@ -944,6 +943,8 @@
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
     </plurals>
+    <string name="end_of_scroll_message">You travelled through time 🚀 </string>
+    <string name="back_to_future">Back to the future</string>
     <!-- /On This Day -->
 
     <!-- MultiLingual -->

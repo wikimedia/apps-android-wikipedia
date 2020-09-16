@@ -352,8 +352,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     private class FooterViewHolder extends RecyclerView.ViewHolder {
         FooterViewHolder(View v) {
             super(v);
-            View backToTopView = v.findViewById(R.id.back_to_top_view);
-            backToTopView.setOnClickListener(v1 -> {
+            View backToFutureView = v.findViewById(R.id.back_to_future_text_view);
+            backToFutureView.setOnClickListener(v1 -> {
                 appBarLayout.setExpanded(true);
                 eventsRecycler.scrollToPosition(0);
             });
