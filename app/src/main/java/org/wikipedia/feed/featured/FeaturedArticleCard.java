@@ -64,7 +64,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
     @Nullable
     @Override
     public String extract() {
-        return page.getExtractHtml();
+        return page.getExtract();
     }
 
     @NonNull
