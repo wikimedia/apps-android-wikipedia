@@ -31,6 +31,7 @@ import java.util.Locale;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
+@SuppressWarnings("checkstyle:magicnumber")
 public final class ViewUtil {
     private static MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(15)));
     private static MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));

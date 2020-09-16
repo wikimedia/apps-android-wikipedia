@@ -93,7 +93,7 @@ public class CardLargeHeaderView extends ConstraintLayout {
     @SuppressWarnings("checkstyle:magicnumber")
     private void setGradientDrawableBackground(@ColorInt int leftColor, @ColorInt int rightColor) {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
-                new int[] { leftColor, rightColor });
+                new int[] {leftColor, rightColor});
 
         // card background
         gradientDrawable.setAlpha(70);
