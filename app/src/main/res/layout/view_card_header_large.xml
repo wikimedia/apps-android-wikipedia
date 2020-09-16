@@ -13,6 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/view_card_header_large_border_base"
             android:layout_width="match_parent"
@@ -21,6 +22,7 @@
             app:cardBackgroundColor="?paper_color"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"/>
+
     </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,10 +41,9 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:paddingStart="16dp"
-            android:paddingTop="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
             android:textColor="?attr/primary_text_color"
             android:textStyle="bold"
             android:textSize="16sp"
@@ -55,13 +56,16 @@
             android:id="@+id/view_card_header_large_subtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="16dp"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
+            android:lineSpacingExtra="8sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_card_header_large_title"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/view_card_header_large_image"
             tools:text="Lorem ipsum" />
 
@@ -72,10 +76,12 @@
             android:layout_height="80dp"
             android:scaleType="centerCrop"
             android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </merge>

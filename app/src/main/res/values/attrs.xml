@@ -122,5 +122,6 @@
 
     <declare-styleable name="WikiCardView">
         <attr name="hasBorder" format="boolean" />
+        <attr name="shadowColor" format="color" />
     </declare-styleable>
 </resources>
