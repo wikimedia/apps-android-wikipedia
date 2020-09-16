@@ -59,7 +59,12 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
     }
 
     private void image(@NonNull FeaturedImage image) {
-        containerView.post(() -> loadImage(image));
+        containerView.post(() -> {
+            if (!isAttachedToWindow()){
+                return;
+            }
+            loadImage(image);
+        });
     }
 
     private void loadImage(@NonNull FeaturedImage image) {
