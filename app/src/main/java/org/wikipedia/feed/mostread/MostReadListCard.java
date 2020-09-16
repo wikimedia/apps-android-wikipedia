@@ -31,7 +31,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @NonNull @Override public String title() {
-        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.most_read_list_card_title);
+        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.view_top_read_card_title);
     }
 
     @Nullable @Override public String subtitle() {

@@ -597,6 +597,8 @@
     <string name="view_random_card_title">Randomizer</string>
     <string name="view_random_article_card_title">Random article</string>
     <string name="view_random_article_card_action">More random articles</string>
+    <string name="view_top_read_card_title">Top read</string>
+    <string name="view_top_read_card_action">More top read</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
@@ -610,7 +612,6 @@
     <string name="feed_featured_image_share_subject">Featured image from Wikimedia Commons</string>
     <string name="feed">Explore</string>
     <string name="home">Home</string>
-    <string name="most_read_list_card_title">Trending</string>
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
     <plurals name="view_continue_reading_card_subtitle">
@@ -648,6 +649,8 @@
     <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
     <string name="feed_accessibility_card_load_more_button">Load more</string>
     <!-- /The Feed -->
+
+    <string name="top_read_activity_title">Top read on %s</string>
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
@@ -933,8 +936,6 @@
     <string name="app_shortcuts_random">Random</string>
     <string name="app_shortcuts_continue_reading">Continue reading</string>
     <string name="app_shortcuts_search">Search</string>
-    <string name="more_trending_text">More like this</string>
-    <string name="top_on_this_day">Trending on %1$s</string>
     <!-- /App Shortcuts -->
 
     <!-- On This Day -->
