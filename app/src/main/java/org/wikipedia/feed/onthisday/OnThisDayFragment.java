@@ -48,6 +48,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
@@ -115,9 +117,9 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             updateContents(age);
         }
 
-        progressBar.setVisibility(View.GONE);
-        eventsRecycler.setVisibility(View.GONE);
-        errorView.setVisibility(View.GONE);
+        progressBar.setVisibility(GONE);
+        eventsRecycler.setVisibility(GONE);
+        errorView.setVisibility(GONE);
         return view;
     }
 
@@ -133,17 +135,17 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     private void requestEvents(int month, int date) {
-        progressBar.setVisibility(View.VISIBLE);
-        eventsRecycler.setVisibility(View.GONE);
-        errorView.setVisibility(View.GONE);
+        progressBar.setVisibility(VISIBLE);
+        eventsRecycler.setVisibility(GONE);
+        errorView.setVisibility(GONE);
 
         disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> progressBar.setVisibility(View.GONE))
+                .doAfterTerminate(() -> progressBar.setVisibility(GONE))
                 .subscribe(response -> {
                     onThisDay = response;
-                    eventsRecycler.setVisibility(View.VISIBLE);
+                    eventsRecycler.setVisibility(VISIBLE);
                     eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
                     List<OnThisDay.Event> events = onThisDay.events();
                     int beginningYear = events.get(events.size() - 1).year();
@@ -152,8 +154,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 }, throwable -> {
                     L.e(throwable);
                     errorView.setError(throwable);
-                    errorView.setVisibility(View.VISIBLE);
-                    eventsRecycler.setVisibility(View.GONE);
+                    errorView.setVisibility(VISIBLE);
+                    eventsRecycler.setVisibility(GONE);
                 }));
     }
 
@@ -163,13 +165,13 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         getAppCompatActivity().getSupportActionBar().setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
-        indicatorLayout.setAlpha((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? HALF_ALPHA : 1.0f);
+        indicatorLayout.setVisibility((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? GONE : VISIBLE);
         indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
-                toolbarDropDown.setVisibility(View.GONE);
+                toolbarDropDown.setVisibility(GONE);
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {
-                toolbarDropDown.setVisibility(View.VISIBLE);
+                toolbarDropDown.setVisibility(VISIBLE);
             }
             final String newText = verticalOffset <= -appBarLayout.getTotalScrollRange()
                     ? DateUtil.getMonthOnlyDateString(date.getTime()) : "";
@@ -209,12 +211,12 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
 
     @Override
     public void onDatePicked(int month, int day) {
-        eventsRecycler.setVisibility(View.GONE);
+        eventsRecycler.setVisibility(GONE);
         if (Calendar.getInstance().get(Calendar.MONTH) != month || Calendar.getInstance().get(Calendar.DATE) != day) {
-            indicatorLayout.setAlpha(1.0f);
+            indicatorLayout.setVisibility(VISIBLE);
             indicatorLayout.setClickable(true);
         } else {
-            indicatorLayout.setAlpha(HALF_ALPHA);
+            indicatorLayout.setVisibility(GONE);
             indicatorLayout.setClickable(false);
         }
         date.set(CustomDatePicker.LEAP_YEAR, month, day, 0, 0);
@@ -234,7 +236,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @OnClick(R.id.indicator_layout)
     public void onIndicatorLayoutClicked() {
         onDatePicked(Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
-        indicatorLayout.setAlpha(HALF_ALPHA);
         indicatorLayout.setClickable(false);
     }
 
@@ -320,10 +321,10 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
             if (prevEvent != null && prevEvent.year() == event.year()) {
                 //yearContainer.setVisibility(View.GONE);
-                yearSpace.setVisibility(View.GONE);
+                yearSpace.setVisibility(GONE);
             } else {
                // yearContainer.setVisibility(View.VISIBLE);
-                yearSpace.setVisibility(prevEvent == null ? View.GONE : View.VISIBLE);
+                yearSpace.setVisibility(prevEvent == null ? GONE : VISIBLE);
             }
         }
 
@@ -343,7 +344,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 OnThisDayCardView.RecyclerAdapter recyclerAdapter = new OnThisDayCardView.RecyclerAdapter(getChildFragmentManager(), event.pages(), wiki, false);
                 pagesRecycler.setAdapter(recyclerAdapter);
             } else {
-                pagesRecycler.setVisibility(View.GONE);
+                pagesRecycler.setVisibility(GONE);
             }
         }
     }
