@@ -32,17 +32,22 @@ import java.util.Locale;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
+    private static MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(15)));
     private static MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
 
     public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url) {
-        loadImage(view, url, true, false);
+        loadImage(view, url, true, false, false);
+    }
+
+    public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url, boolean largeRoundedSize) {
+        loadImage(view, url, true, largeRoundedSize, false);
     }
 
     public static void loadImage(@NonNull ImageView view, @Nullable String url) {
-        loadImage(view, url, false, false);
+        loadImage(view, url, false, false, false);
     }
 
-    public static void loadImage(@NonNull ImageView view, @Nullable String url, boolean roundedCorners, boolean force) {
+    public static void loadImage(@NonNull ImageView view, @Nullable String url, boolean roundedCorners, boolean largeRoundedSize, boolean force) {
         Drawable placeholder = getPlaceholderDrawable(view.getContext());
         RequestBuilder<Drawable> builder = Glide.with(view)
                 .load((isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
@@ -50,7 +55,7 @@ public final class ViewUtil {
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .error(placeholder);
         if (roundedCorners) {
-            builder = builder.transform(CENTER_CROP_ROUNDED_CORNERS);
+            builder = builder.transform(largeRoundedSize ? CENTER_CROP_LARGE_ROUNDED_CORNERS : CENTER_CROP_ROUNDED_CORNERS);
         }
         builder.into(view);
     }

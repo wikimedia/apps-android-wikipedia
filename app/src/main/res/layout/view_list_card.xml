@@ -8,36 +8,58 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_list_card_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_header_height"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_list_card_large_header_container"/>
 
-    <org.wikipedia.feed.view.CardLargeHeaderView
-        android:id="@+id/view_list_card_large_header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_header_large_height"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_header" />
-
-    <org.wikipedia.views.NavMenuAwareRecyclerView
-        android:id="@+id/view_list_card_list"
+    <org.wikipedia.views.WikiCardView
+        android:id="@+id/view_list_card_large_header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipChildren="false"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_large_header" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:hasBorder="false"
+        app:layout_constraintBottom_toTopOf="@id/view_list_card_list_container">
+
+        <org.wikipedia.feed.view.CardLargeHeaderView
+            android:id="@+id/view_list_card_large_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </org.wikipedia.views.WikiCardView>
+
+    <org.wikipedia.views.WikiCardView
+        android:id="@+id/view_list_card_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/view_list_card_more_container">
+
+        <org.wikipedia.views.NavMenuAwareRecyclerView
+            android:id="@+id/view_list_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </org.wikipedia.views.WikiCardView>
 
     <LinearLayout
         android:id="@+id/view_list_card_more_container"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@+id/view_list_card_list"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:visibility="visible">
 
         <ImageView
