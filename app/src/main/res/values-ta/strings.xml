@@ -31,7 +31,6 @@
   <string name="nav_item_forward">முன்செல்</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="search_hint_search_languages">ஓர் மொழியை தேடுக</string>
-  <string name="nav_item_history">வரலாறு</string>
   <string name="nav_item_suggested_edits">தொகுப்புகள்</string>
   <string name="nav_item_more">மேலும்</string>
   <string name="error_network_error">இணைய இணைப்பு இல்லை.</string>

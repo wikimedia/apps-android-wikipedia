@@ -56,9 +56,9 @@
   <string name="search_hint_voice_search">Rechercher vocalement</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
-  <string name="nav_item_history">Historique</string>
   <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_more">Plus</string>
+  <string name="nav_item_search">Rechercher</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
   <string name="card_offline_error_retry">Réessayer</string>
@@ -73,6 +73,8 @@
   <string name="history_item_delete_undo">Annuler</string>
   <string name="notification_archive_undo">Annuler</string>
   <string name="app_settings">Paramètres de l’application</string>
+  <string name="search_tab_tooltip">Taper de nouveau sur l’icône pour commencer directement à saisir un terme de recherche.</string>
+  <string name="history_list_title">Historique</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
   <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>
   <string name="dialog_message_clear_history_yes">Oui</string>
@@ -974,4 +976,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuler</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Annuler</string>
+  <string name="talk_title">Discussion</string>
+  <string name="talk_user_title">Discussion : %s</string>
+  <string name="talk_new_topic">Nouveau sujet</string>
+  <string name="talk_page_empty">Cette page de discussion est vide.</string>
+  <string name="talk_add_reply">Répondre</string>
+  <string name="talk_no_subject">(Aucun sujet)</string>
+  <string name="talk_reply_subject">Sujet</string>
+  <string name="talk_reply_hint">Composer une réponse</string>
+  <string name="talk_message_hint">Composer un message</string>
+  <string name="talk_message_empty">Le message ne peut pas être vide.</string>
+  <string name="talk_subject_empty">Le sujet ne peut pas être vide.</string>
 </resources>

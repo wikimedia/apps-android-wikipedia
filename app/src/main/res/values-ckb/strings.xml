@@ -21,10 +21,9 @@
   <string name="page_tabs_back">گەڕانەوە</string>
   <string name="nav_item_forward">بۆ پێشەوە</string>
   <string name="search_hint">گەڕان بە ویکیپیدیا</string>
-  <string name="search_hint_voice_search">دەنگ لەناو گەڕان</string>
+  <string name="search_hint_voice_search">گەڕان بە دەنگ</string>
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="filter_hint_filter_my_lists_and_articles">فلتەرکردنی پێڕستەکەم</string>
-  <string name="nav_item_history">مێژوو</string>
   <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>

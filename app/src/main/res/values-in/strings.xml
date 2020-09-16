@@ -39,7 +39,6 @@
   <string name="search_hint_voice_search">Pencarian input suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="filter_hint_filter_my_lists_and_articles">Pilih daftar saya</string>
-  <string name="nav_item_history">Riwayat</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>

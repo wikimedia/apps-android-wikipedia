@@ -88,7 +88,7 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
-import org.wikipedia.suggestededits.SuggestionsActivity;
+import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
@@ -1098,8 +1098,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("footer_item", (String messageType, JsonObject messagePayload) -> {
             String itemType = messagePayload.get("itemType").getAsString();
             if ("talkPage".equals(itemType) && model.getTitle() != null) {
-                PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
-                visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getUri()));
+                // If we're currently looking at a User page, then go directly to the corresponding User Talk page.
+                if (model.getTitle().namespace() == Namespace.USER) {
+                    startActivity(TalkTopicsActivity.newIntent(requireActivity(), model.getTitle().getWikiSite().languageCode(), model.getTitle().getText()));
+                } else {
+                    PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
+                    visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getUri()));
+                }
             } else if ("languages".equals(itemType)) {
                 startLangLinksActivity();
             } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
@@ -1163,10 +1168,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
             snackbar.show();
         }
-    }
-
-    public void startSuggestionsActivity(@NonNull DescriptionEditActivity.Action action) {
-        startActivity(SuggestionsActivity.newIntent(requireActivity(), action));
     }
 
     /**

@@ -16,7 +16,6 @@
   <string name="nav_item_forward">Anonn</string>
   <string name="search_hint">Cuardaigh Vicipéid</string>
   <string name="search_hint_search_languages">Cuardaigh ar thóir teanga</string>
-  <string name="nav_item_history">Stair</string>
   <string name="error_network_error">Ní féidir nasc leis an Idirlíon.</string>
   <string name="page_error_retry">Atriail</string>
   <string name="card_offline_error_retry">Atriail</string>

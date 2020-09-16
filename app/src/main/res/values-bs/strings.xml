@@ -14,7 +14,6 @@
   <string name="nav_item_forward">Naprijed</string>
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
-  <string name="nav_item_history">Historija</string>
   <string name="nav_item_suggested_edits">Izmjene</string>
   <string name="nav_item_more">Više</string>
   <string name="error_network_error">Ne mogu se povezati na internet.</string>

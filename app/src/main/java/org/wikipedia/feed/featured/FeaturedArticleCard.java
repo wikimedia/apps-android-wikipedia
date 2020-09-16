@@ -13,21 +13,24 @@ import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.L10nUtil;
 
 public class FeaturedArticleCard extends WikiSiteCard {
     @NonNull private PageSummary page;
-    int age;
+    @NonNull private WikiSite wiki;
+    private int age;
 
     public FeaturedArticleCard(@NonNull PageSummary page, int age, @NonNull WikiSite wiki) {
         super(wiki);
         this.page = page;
         this.age = age;
+        this.wiki = wiki;
     }
 
     @Override
     @NonNull
     public String title() {
-        return WikipediaApp.getInstance().getString(R.string.view_featured_article_card_title);
+        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.view_featured_article_card_title);
     }
 
     @Override
@@ -61,7 +64,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
     @Nullable
     @Override
     public String extract() {
-        return page.getExtractHtml();
+        return page.getExtract();
     }
 
     @NonNull

@@ -1,8 +1,8 @@
 package org.wikipedia.feed.view;
 
-import android.animation.ArgbEvaluator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
@@ -13,23 +13,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.palette.graphics.Palette;
+
+import com.google.android.material.card.MaterialCardView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+@SuppressWarnings("checkstyle:magicnumber")
 public class CardLargeHeaderView extends ConstraintLayout {
-    @BindView(R.id.view_card_header_large_background)
-    View backgroundView;
-    @BindView(R.id.view_card_header_large_image)
-    FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_card_header_large_title)
-    TextView titleView;
-    @BindView(R.id.view_card_header_large_subtitle)
-    TextView subtitleView;
+    @BindView(R.id.view_card_header_large_border_container) View borderContainer;
+    @BindView(R.id.view_card_header_large_border_base) MaterialCardView borderBaseView;
+    @BindView(R.id.view_card_header_large_container) ConstraintLayout container;
+    @BindView(R.id.view_card_header_large_image) FaceAndColorDetectImageView imageView;
+    @BindView(R.id.view_card_header_large_title) TextView titleView;
+    @BindView(R.id.view_card_header_large_subtitle) TextView subtitleView;
 
     public CardLargeHeaderView(Context context) {
         super(context);
@@ -47,15 +50,15 @@ public class CardLargeHeaderView extends ConstraintLayout {
     }
 
     private void init() {
-        resetBackgroundColor();
         inflate(getContext(), R.layout.view_card_header_large, this);
         ButterKnife.bind(this);
+        resetBackgroundColor();
     }
 
     @NonNull
     public CardLargeHeaderView setImage(@Nullable Uri uri) {
         imageView.setVisibility(uri == null ? GONE : VISIBLE);
-        imageView.loadImage(uri);
+        imageView.loadImage(uri, true, new ImageLoadListener());
         return this;
     }
 
@@ -67,28 +70,69 @@ public class CardLargeHeaderView extends ConstraintLayout {
 
     @NonNull
     public CardLargeHeaderView setSubtitle(@Nullable CharSequence subtitle) {
-        subtitleView.setText(getResources().getString(R.string.view_continue_reading_card_subtitle_read_date, subtitle));
-        return this;
-    }
-
-    @NonNull
-    public CardLargeHeaderView onClickListener(@Nullable OnClickListener listener) {
-        backgroundView.setOnClickListener(listener);
+        subtitleView.setText(subtitle);
         return this;
     }
 
     private void resetBackgroundColor() {
-        setBackgroundColor(ContextCompat.getColor(getContext(), R.color.base20));
+        setGradientDrawableBackground(ContextCompat.getColor(getContext(), R.color.base100),
+                ContextCompat.getColor(getContext(), R.color.base20));
     }
 
-    private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
-        final int animDuration = 500;
-        ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor",
-                ContextCompat.getColor(getContext(), R.color.base20),
-                targetColor);
-        animator.setEvaluator(new ArgbEvaluator());
-        animator.setDuration(animDuration);
-        animator.setupStartValues();
-        animator.start();
+    private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
+        @Override
+        public void onImageLoaded(@NonNull Palette palette) {
+            int color1 = palette.getDominantColor(ContextCompat.getColor(getContext(), R.color.base70));
+            int color2 = palette.getMutedColor(ContextCompat.getColor(getContext(), R.color.base30));
+            if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                color1 = darkenColor(color1);
+                color2 = darkenColor(color2);
+            } else {
+                color1 = lightenColor(color1);
+                color2 = lightenColor(color2);
+            }
+            setGradientDrawableBackground(color1, color2);
+        }
+
+        @Override
+        public void onImageFailed() {
+            resetBackgroundColor();
+        }
+    }
+
+    private static int lightenColor(@ColorInt int color) {
+        int r = (color & 0xff);
+        int g = (color & 0xff00) >> 8;
+        int b = (color & 0xff0000) >> 16;
+        r += ((0xff - r) / 2);
+        g += ((0xff - g) / 2);
+        b += ((0xff - b) / 2);
+        return Color.rgb(r, g, b);
+    }
+
+    private static int darkenColor(@ColorInt int color) {
+        int r = (color & 0xff);
+        int g = (color & 0xff00) >> 8;
+        int b = (color & 0xff0000) >> 16;
+        r -= (r / 2);
+        g -= (g / 2);
+        b -= (b / 2);
+        return Color.rgb(r, g, b);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setGradientDrawableBackground(@ColorInt int leftColor, @ColorInt int rightColor) {
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
+                new int[] {leftColor, rightColor});
+
+        // card background
+        gradientDrawable.setAlpha(70);
+        gradientDrawable.setCornerRadius(borderBaseView.getRadius());
+        container.setBackground(gradientDrawable);
+
+        // card border's background, which depends on the margin that is applied to the borderBaseView
+        gradientDrawable.setAlpha(90);
+        gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.wiki_card_radius));
+        borderContainer.setBackground(gradientDrawable);
     }
 }

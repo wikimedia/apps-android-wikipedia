@@ -20,7 +20,6 @@
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
-  <string name="nav_item_history">ისტორია</string>
   <string name="nav_item_suggested_edits" fuzzy="true">შემოთავაზებული რედაქტირებები</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>

@@ -132,7 +132,7 @@ public class ListCardItemView extends ConstraintLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            ViewUtil.loadImageWithRoundedCorners(imageView, url);
+            ViewUtil.loadImageWithRoundedCorners(imageView, url, true);
         }
     }
 

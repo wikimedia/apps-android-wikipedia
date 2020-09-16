@@ -11,16 +11,6 @@ public final class FeaturedImage extends GalleryItem implements PostProcessingTy
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private ImageInfo image;
 
-    private int age;
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
     @NonNull
     public String title() {
         return title;

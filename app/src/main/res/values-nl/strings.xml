@@ -45,7 +45,6 @@
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
-  <string name="nav_item_history">Geschiedenis</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
