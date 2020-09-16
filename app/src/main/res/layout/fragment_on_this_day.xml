@@ -58,7 +58,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
                             android:layout_marginBottom="4dp"
-                            android:fontFamily="serif"
                             android:textColor="?attr/colorAccent"
                             android:textSize="24sp"
                             android:textStyle="bold"
@@ -110,13 +109,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:fontFamily="sans-serif-medium"
                         android:gravity="center_vertical"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="8sp"
                         android:textColor="?attr/colorAccent"
-                        android:textSize="20sp"
-                        android:textStyle="normal"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
                         tools:text="January 1" />
 
                     <ImageView
