@@ -73,7 +73,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
     public static final int PADDING1 = 21, PADDING2 = 38, PADDING3 = 21;
-    public static final float HALF_ALPHA = 0.5f;
     private WikiSite wiki;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -343,6 +342,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             if (event.pages() != null) {
                 OnThisDayCardView.RecyclerAdapter recyclerAdapter = new OnThisDayCardView.RecyclerAdapter(getChildFragmentManager(), event.pages(), wiki, false);
                 pagesRecycler.setAdapter(recyclerAdapter);
+                pagesRecycler.setVisibility(VISIBLE);
             } else {
                 pagesRecycler.setVisibility(GONE);
             }
