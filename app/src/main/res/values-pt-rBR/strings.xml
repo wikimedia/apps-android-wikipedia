@@ -266,6 +266,11 @@
   <string name="page_similar_titles">Páginas similares</string>
   <string name="search_did_you_mean">Você quis dizer “%s”?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
+  <string name="search_results_count_zero">Sem resultados</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultado</item>
+    <item quantity="other">%d resultados</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Apagar pesquisas recentes</string>
   <string name="clear_recent_searches_confirm">Tem certeza de que deseja apagar seu histórico de pesquisa?</string>
   <string name="clear_recent_searches_confirm_yes">Sim</string>

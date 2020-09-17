@@ -374,7 +374,7 @@
   <string name="format_reading_list_statistical_summary_singular">১টা প্ৰবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটা প্ৰবন্ধ, %2$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_detail_singular">1টাৰ %1$dটা প্ৰবন্ধ অফলাইন উপলব্ধ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$dটাৰ %2$dটা প্ৰবন্ধ অফলাইন উপলব্ধ, %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$dটাৰ ভিতৰৰ %1$dটা প্ৰবন্ধ অফলাইনত উপলব্ধ, %3$.2f MB</string>
   <string name="reading_list_sort">সজাওক</string>
   <string name="reading_list_sort_ellipsis">ক্ৰমে সজাওক…</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী সজাওক</string>
@@ -469,7 +469,7 @@
   <string name="notifications_poll_enable_negative">এতিয়া নহয়</string>
   <string name="notifications_empty_message">আপুনি সকলো জাননী চাই ল\'লে!</string>
   <string name="notification_preferences_title">জাননীৰ পছন্দসমূহ</string>
-  <string name="notifications_mark_unread">নপঢ়া বুলি চিন দিয়ক</string>
+  <string name="notifications_mark_unread">নপঢ়া বুলি চিহ্নিত কৰক</string>
   <string name="preference_title_notification_poll">মতদানৰ জাননীসমূহ</string>
   <string name="preference_title_notification_system">ছিষ্টেম</string>
   <string name="preference_summary_notification_system">ছিষ্টেমৰ তৰফৰ পৰা বাৰ্তা</string>
