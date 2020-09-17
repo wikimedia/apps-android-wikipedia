@@ -256,6 +256,11 @@
   <string name="page_similar_titles">相似的頁面</string>
   <string name="search_did_you_mean">您指的是不是「%s」？</string>
   <string name="search_recent_header">近期搜尋：</string>
+  <string name="search_results_count_zero">沒有結果</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 個結果</item>
+    <item quantity="other">%d 個結果</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">清除近期搜尋</string>
   <string name="clear_recent_searches_confirm">確定要清除搜尋歷史嗎？</string>
   <string name="clear_recent_searches_confirm_yes">是</string>
