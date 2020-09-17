@@ -313,7 +313,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
-//        DimenUtil.setViewHeight(pageHeaderView.getImageView(), DimenUtil.leadImageHeightForDevice(requireContext()));
+        DimenUtil.setViewHeight(pageHeaderView.getImageView(), DimenUtil.leadImageHeightForDevice(requireContext()));
 
         webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
