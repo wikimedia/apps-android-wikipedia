@@ -18,15 +18,14 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/news_item_indicator_view"
-        android:layout_width="wrap_content"
-        android:layout_height="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         app:tabBackground="@drawable/shape_tab_dot"
         app:tabGravity="center"
         app:tabIndicator="@null"
-        app:tabPaddingEnd="8dp"
+        app:tabPaddingEnd="24dp"
         app:tabPaddingStart="8dp"
         app:tabRippleColor="?attr/color_group_59" />
 </LinearLayout>
