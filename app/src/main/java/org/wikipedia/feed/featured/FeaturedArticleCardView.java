@@ -67,7 +67,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard(), getCard().historyEntry());
+            getCallback().onSelectPage(imageView, getCard(), getCard().historyEntry());
         }
     }
 
@@ -151,7 +151,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     public CardFooterView.Callback getFooterCallback() {
         return () -> {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onSelectPage(getCard(), new HistoryEntry(
+                getCallback().onSelectPage(null, getCard(), new HistoryEntry(
                         new PageTitle(SiteInfoClient.getMainPageForLang(getCard().wikiSite().languageCode()),
                                 getCard().wikiSite()), getCard().historyEntry().getSource()));
             }

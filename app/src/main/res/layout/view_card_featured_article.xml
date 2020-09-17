@@ -39,7 +39,8 @@
                     style="@style/ImageViewDefault"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:contentDescription="@null"/>
+                    android:contentDescription="@null"
+                    android:transitionName="@string/transition_feed_card_image"/>
 
             </FrameLayout>
 

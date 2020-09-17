@@ -33,7 +33,7 @@ import butterknife.OnLongClick;
 public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
-        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
+        void onSelectPage(@NonNull View imageView, @NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
         void onRemovePageFromList(@NonNull HistoryEntry entry);
@@ -82,7 +82,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     @OnClick void onClick(View view) {
         if (callback != null && entry != null && card != null) {
-            callback.onSelectPage(card, entry);
+            callback.onSelectPage(imageView, card, entry);
         }
     }
 

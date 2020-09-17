@@ -114,7 +114,7 @@ public class MostReadFragment extends Fragment {
 
     private class Callback implements ListCardItemView.Callback {
         @Override
-        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
+        public void onSelectPage(@NonNull View imageView, @NonNull Card card, @NonNull HistoryEntry entry) {
             startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
         }
 
