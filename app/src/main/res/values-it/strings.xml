@@ -270,6 +270,11 @@
   <string name="page_similar_titles">Pagine simili</string>
   <string name="search_did_you_mean">Forse cercavi: \"%s\"?</string>
   <string name="search_recent_header">Ricerche recenti:</string>
+  <string name="search_results_count_zero">Nessun risultato</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 risultato</item>
+    <item quantity="other">%d risultati</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Pulisci le ricerche recenti</string>
   <string name="clear_recent_searches_confirm">Sei sicuro di voler cancellare la tua cronologia di ricerca?</string>
   <string name="clear_recent_searches_confirm_yes">Sì</string>
