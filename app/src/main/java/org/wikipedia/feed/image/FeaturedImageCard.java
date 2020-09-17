@@ -7,20 +7,19 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.L10nUtil;
 
-public class FeaturedImageCard extends Card {
+public class FeaturedImageCard extends WikiSiteCard {
     @NonNull private FeaturedImage featuredImage;
     private int age;
-    @NonNull private WikiSite wiki;
 
     public FeaturedImageCard(@NonNull FeaturedImage featuredImage, int age, @NonNull WikiSite wiki) {
+        super(wiki);
         this.featuredImage = featuredImage;
         this.age = age;
-        this.wiki = wiki;
     }
 
     @NonNull
@@ -35,18 +34,13 @@ public class FeaturedImageCard extends Card {
     @Override
     @NonNull
     public String title() {
-        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.view_featured_image_card_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_featured_image_card_title);
     }
 
     @Override
     @NonNull
     public String subtitle() {
         return DateUtil.getFeedCardDateString(age);
-    }
-
-    @NonNull
-    public WikiSite wikiSite() {
-        return wiki;
     }
 
     @NonNull
