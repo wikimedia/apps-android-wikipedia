@@ -14,6 +14,7 @@
 * Hydra
 * Hzy980512
 * ITsu
+* Irati
 * Josephine W.
 * LNDDYL
 * Liuxinyu970226
@@ -970,6 +971,6 @@
   <string name="talk_reply_subject">主题</string>
   <string name="talk_reply_hint">撰写回复</string>
   <string name="talk_message_hint">撰写信息</string>
-  <string name="talk_message_empty">该消息不能为空。</string>
-  <string name="talk_subject_empty">该主题不能为空。</string>
+  <string name="talk_message_empty">消息不能为空。</string>
+  <string name="talk_subject_empty">主题不能为空。</string>
 </resources>

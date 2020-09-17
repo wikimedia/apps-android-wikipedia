@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* 1233qwer1234qwer4
 * 4elovek12345
 * Abijeet Patro
 * Alexander Istomin
@@ -464,7 +465,7 @@
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
   <string name="reading_list_articles_added_to_named">В список «%2$s» были добавлены статьи (%1$d)</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтоб включить синхронизацию</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтобы включить синхронизацию</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Войдите в систему, чтобы ваши списки чтения были сохранены в вашей учётной записи.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмена</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Войти</string>
