@@ -11,7 +11,6 @@ import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
@@ -33,16 +32,17 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {
-        int age = (int) card.daysOld();
         headerView().setTitle(card.title())
                 .setLangCode(null)
                 .setCard(card)
                 .setCallback(getCallback());
+
         largeHeaderView().setTitle(card.pageTitle())
                 .setImage(card.image())
-                .setSubtitle(DateUtil.getDaysAgoString(age))
-                .onClickListener(new SelectPageCallbackAdapter(card))
-                .setVisibility(VISIBLE);
+                .setSubtitle(card.extract());
+
+        largeHeaderContainer().setVisibility(VISIBLE);
+        largeHeaderContainer().setOnClickListener(new SelectPageCallbackAdapter(card));
     }
 
     private class SelectPageCallbackAdapter implements OnClickListener {

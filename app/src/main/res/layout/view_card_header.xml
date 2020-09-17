@@ -18,7 +18,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view_card_header_subtitle"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_lang_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
@@ -48,7 +48,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
-        app:layout_constraintStart_toEndOf="@+id/view_card_header_subtitle"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="zh-hant" />
 

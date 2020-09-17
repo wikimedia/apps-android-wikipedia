@@ -17,7 +17,6 @@
   <string name="search_hint">Guetar na Wikipedia</string>
   <string name="search_hint_voice_search">Busca con entrada por voz</string>
   <string name="search_hint_search_languages">Buscar una llingua</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ediciones suxeríes</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
   <string name="page_error_retry">Reintentar</string>

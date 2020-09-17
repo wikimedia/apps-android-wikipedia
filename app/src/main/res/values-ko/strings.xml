@@ -41,9 +41,9 @@
   <string name="search_hint_voice_search">음성 입력 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
-  <string name="nav_item_history">방문 기록</string>
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_more">더 보기</string>
+  <string name="nav_item_search">검색</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="card_offline_error_retry">다시 시도</string>
@@ -58,6 +58,8 @@
   <string name="history_item_delete_undo">실행 취소</string>
   <string name="notification_archive_undo">실행 취소</string>
   <string name="app_settings">앱 설정</string>
+  <string name="search_tab_tooltip">검색 항목 입력을 바로 시작하려면 아이콘을 다시 탭하십시오.</string>
+  <string name="history_list_title">역사</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
   <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="dialog_message_clear_history_yes">예</string>
@@ -918,4 +920,15 @@
   <string name="text_input_dialog_ok_button_text">확인</string>
   <string name="text_input_dialog_cancel_button_text">취소</string>
   <string name="custom_date_picker_dialog_cancel_button_text">취소</string>
+  <string name="talk_title">토론</string>
+  <string name="talk_user_title">토론: %s</string>
+  <string name="talk_new_topic">새 주제</string>
+  <string name="talk_page_empty">이 토론 문서는 비어있습니다.</string>
+  <string name="talk_add_reply">답변</string>
+  <string name="talk_no_subject">(주제 없음)</string>
+  <string name="talk_reply_subject">주제</string>
+  <string name="talk_reply_hint">답변 쓰기</string>
+  <string name="talk_message_hint">메시지 쓰기</string>
+  <string name="talk_message_empty">메시지는 빈 채로 둘 수 없습니다.</string>
+  <string name="talk_subject_empty">주제는 빈 채로 둘 수 없습니다.</string>
 </resources>

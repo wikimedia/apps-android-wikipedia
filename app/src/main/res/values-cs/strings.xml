@@ -37,9 +37,9 @@
   <string name="search_hint_voice_search">Vyhledávání hlasem</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
-  <string name="nav_item_history">Historie</string>
   <string name="nav_item_suggested_edits">Editace</string>
   <string name="nav_item_more">Více</string>
+  <string name="nav_item_search">Vyhledávání</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Znovu</string>
   <string name="card_offline_error_retry">Znovu</string>
@@ -54,6 +54,8 @@
   <string name="history_item_delete_undo">Vrátit</string>
   <string name="notification_archive_undo">Zpět</string>
   <string name="app_settings">Nastavení aplikace</string>
+  <string name="search_tab_tooltip">Chcete-li přímo začít vyhledávat, klepněte znovu na tuto ikonu.</string>
+  <string name="history_list_title">Historie</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené záložky. Jste si jisti?</string>
   <string name="dialog_message_clear_history_yes">Ano</string>
@@ -658,7 +660,8 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulek obrázku byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Popis obrázku (v jazyce %s) byl zveřejněn!</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Značka/y obrázků byla/y publikována/y!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Značka(y) obrázků byla(y) publikována(y)!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Bavilo vás to? Pomozte nám přidat další.</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
@@ -917,4 +920,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Zrušit</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Zrušit</string>
+  <string name="talk_title">Diskuse</string>
+  <string name="talk_user_title">Diskuse: %s</string>
+  <string name="talk_new_topic">Nové téma</string>
+  <string name="talk_page_empty">Tato diskusní stránka je prázdná.</string>
+  <string name="talk_add_reply">Odpovědět</string>
+  <string name="talk_no_subject">(Bez předmětu)</string>
+  <string name="talk_reply_subject">Předmět</string>
+  <string name="talk_reply_hint">Napište odpověď</string>
+  <string name="talk_message_hint">Napište zprávu</string>
+  <string name="talk_message_empty">Zpráva nemůže být prázdná.</string>
+  <string name="talk_subject_empty">Předmět nemůže být prázdný.</string>
 </resources>

@@ -18,7 +18,6 @@
   <string name="search_hint">Leita á Wikipedia</string>
   <string name="search_hint_voice_search">Leit með raddskipunum</string>
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
-  <string name="nav_item_history">Ferilskrá</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Tillögur að breytingum</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>

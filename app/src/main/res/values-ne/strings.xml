@@ -22,7 +22,6 @@
   <string name="search_hint">विकिपिडियामा खोज्नुहोस्</string>
   <string name="search_hint_voice_search">आवाज आगत खोज</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
-  <string name="nav_item_history">इतिहास</string>
   <string name="nav_item_suggested_edits" fuzzy="true">सुझाइएका सम्पादनहरू</string>
   <string name="nav_item_more">थप</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>

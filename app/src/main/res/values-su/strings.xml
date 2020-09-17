@@ -15,7 +15,6 @@
   <string name="nav_item_forward">Tuluykeun</string>
   <string name="search_hint">Paluruh Wikipédia</string>
   <string name="search_hint_search_languages">Sungsi basa</string>
-  <string name="nav_item_history">Jujutan</string>
   <string name="error_network_error">Teu bisa nyambungkeun kana internét</string>
   <string name="page_error_retry">Cobaan deui</string>
   <string name="card_offline_error_retry">Pecakan deui</string>

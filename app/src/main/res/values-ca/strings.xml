@@ -33,9 +33,9 @@
   <string name="search_hint_voice_search">Cerca d\'entrada de veu</string>
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar les meves llistes</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits">Edicions</string>
   <string name="nav_item_more">Més</string>
+  <string name="nav_item_search">Cerca</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
   <string name="card_offline_error_retry">Reintenta</string>
@@ -50,6 +50,8 @@
   <string name="history_item_delete_undo">Desfés</string>
   <string name="notification_archive_undo">Desfés</string>
   <string name="app_settings">Configuració de l\'aplicació</string>
+  <string name="search_tab_tooltip">Torneu a tocar la icona per a començar a teclejar un terme de cerca.</string>
+  <string name="history_list_title">Historial</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -951,4 +953,15 @@
   <string name="text_input_dialog_ok_button_text">D’acord</string>
   <string name="text_input_dialog_cancel_button_text">Cancel·la</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cancel·la</string>
+  <string name="talk_title">Discussió</string>
+  <string name="talk_user_title">Discussió: %s</string>
+  <string name="talk_new_topic">Tema nou</string>
+  <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
+  <string name="talk_add_reply">Respon</string>
+  <string name="talk_no_subject">(sense tema)</string>
+  <string name="talk_reply_subject">Tema</string>
+  <string name="talk_reply_hint">Redacta una resposta</string>
+  <string name="talk_message_hint">Redacta un missatge</string>
+  <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
+  <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
 </resources>

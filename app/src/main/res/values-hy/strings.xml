@@ -18,7 +18,6 @@
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
   <string name="search_hint_voice_search">Ձայնային որոնում</string>
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
-  <string name="nav_item_history">Պատմություն</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>
@@ -34,6 +33,7 @@
   <string name="history_item_delete_undo">Հետ շրջել</string>
   <string name="notification_archive_undo">Հետ շրջել</string>
   <string name="app_settings">Հավելվածի կարգավորումներ</string>
+  <string name="history_list_title">Պատմություն</string>
   <string name="dialog_title_clear_history">Մաքրել դիտումների պատմությունը</string>
   <string name="dialog_message_clear_history_yes">Այո</string>
   <string name="dialog_message_clear_history_no">Ոչ</string>
