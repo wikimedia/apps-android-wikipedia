@@ -25,6 +25,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
@@ -340,7 +341,7 @@ public class SearchResultsFragment extends Fragment {
                     } else {
                         updateProgressBar(true);
                     }
-                    return resultList.isEmpty() ? doFullTextSearchResultsCountObservable(searchTerm) : Observable.empty();
+                    return resultList.isEmpty() ? doSearchResultsCountObservable(searchTerm) : Observable.empty();
                 })
                 .toList()
                 .doAfterTerminate(() -> updateProgressBar(false))
@@ -355,12 +356,25 @@ public class SearchResultsFragment extends Fragment {
                 }));
     }
 
-    private Observable<Integer> doFullTextSearchResultsCountObservable(final String searchTerm) {
+    private Observable<Integer> doSearchResultsCountObservable(final String searchTerm) {
         return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
-                .concatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null))
+                .concatMap(langCode -> {
+                    if (langCode.equals(getSearchLanguageCode())) {
+                        return Observable.just(new MwQueryResponse());
+                    }
+                    return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .flatMap(response -> {
+                                        if (response.query() != null && response.query().pages() != null) {
+                                            return Observable.just(response);
+                                        }
+                                        return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null);
+                                    });
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> response.query() != null ? response.query().pages().size() : 0);
+                .map(response -> response.query() != null && response.query().pages() != null ? response.query().pages().size() : 0);
     }
 
     private void clearResults() {
