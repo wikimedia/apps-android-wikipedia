@@ -70,7 +70,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         }
     }
 
-    private class NewsAdapter extends RecyclerView.Adapter {
+    private class NewsAdapter extends RecyclerView.Adapter<NewsItemHolder> {
         private List<NewsItem> newsItems = new ArrayList<>();
         private NewsCard card;
 
@@ -86,29 +86,30 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
 
         @NonNull
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public NewsItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new NewsItemHolder(new NewsItemView(getContext()));
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-            ((NewsItemHolder) holder).bindItem(newsItems.get(position));
-            ((NewsItemHolder) holder).getView().setOnClickListener(view -> {
+        public void onBindViewHolder(@NonNull NewsItemHolder holder, int position) {
+            holder.bindItem(newsItems.get(position));
+            holder.getView().setOnClickListener(view -> {
                 if (getCallback() != null) {
-                    getCallback().onNewsItemSelected(card, ((NewsItemHolder) holder).getView());
+                    getCallback().onNewsItemSelected(card, holder.getView());
                 }
             });
         }
 
         @Override
-        public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
+        public void onViewAttachedToWindow(@NonNull NewsItemHolder holder) {
             super.onViewAttachedToWindow(holder);
-            ((NewsItemHolder) holder).getView().setCallback(getCallback());
+            holder.getView().setCallback(getCallback());
         }
 
         @Override
-        public void onViewDetachedFromWindow(@NonNull RecyclerView.ViewHolder holder) {
-            ((NewsItemHolder) holder).getView().setCallback(null);
+        public void onViewDetachedFromWindow(@NonNull NewsItemHolder holder) {
+            holder.getView().setCallback(null);
+            super.onViewDetachedFromWindow(holder);
         }
     }
 }
