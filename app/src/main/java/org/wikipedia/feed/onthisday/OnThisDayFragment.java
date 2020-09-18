@@ -170,8 +170,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         getAppCompatActivity().getSupportActionBar().setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
-        indicatorLayout.setVisibility((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? GONE : VISIBLE);
-        indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));
+        maybeHideDateIndicator();
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
                 toolbarDropDown.setVisibility(GONE);
@@ -184,6 +183,11 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 appBarLayout.post(() -> toolbarDay.setText(newText));
             }
         });
+    }
+
+    private void maybeHideDateIndicator() {
+        indicatorLayout.setVisibility((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? GONE : VISIBLE);
+        indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));
     }
 
     private AppCompatActivity getAppCompatActivity() {
@@ -217,17 +221,11 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @Override
     public void onDatePicked(int month, int day) {
         eventsRecycler.setVisibility(GONE);
-        if (Calendar.getInstance().get(Calendar.MONTH) != month || Calendar.getInstance().get(Calendar.DATE) != day) {
-            indicatorLayout.setVisibility(VISIBLE);
-            indicatorLayout.setClickable(true);
-        } else {
-            indicatorLayout.setVisibility(GONE);
-            indicatorLayout.setClickable(false);
-        }
         date.set(CustomDatePicker.LEAP_YEAR, month, day, 0, 0);
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         appBarLayout.setExpanded(true);
         requestEvents(month, day);
+        maybeHideDateIndicator();
     }
 
     @OnClick({R.id.day_container, R.id.toolbar_day_container})
@@ -241,7 +239,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @OnClick(R.id.indicator_layout)
     public void onIndicatorLayoutClicked() {
         onDatePicked(Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
-        indicatorLayout.setClickable(false);
     }
 
     private class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -324,10 +321,10 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 pagesViewPager.setOffscreenPageLimit(2);
                  new TabLayoutMediator(pagesIndicator, pagesViewPager, (tab, position) -> { }).attach();
                 pagesViewPager.setVisibility(VISIBLE);
-                indicatorLayout.setVisibility(VISIBLE);
+                pagesIndicator.setVisibility(VISIBLE);
             } else {
                 pagesViewPager.setVisibility(GONE);
-                indicatorLayout.setVisibility(GONE);
+                pagesIndicator.setVisibility(GONE);
             }
         }
     }
