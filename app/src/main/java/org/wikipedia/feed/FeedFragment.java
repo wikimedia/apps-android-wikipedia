@@ -57,7 +57,6 @@ import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
