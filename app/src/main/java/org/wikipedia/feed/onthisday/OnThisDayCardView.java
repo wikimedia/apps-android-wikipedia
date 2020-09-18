@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.tabs.TabLayout;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedFunnel;
@@ -51,6 +53,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.years_text) TextView yearsInfoTextView;
     @BindView(R.id.year_layout) LinearLayout yearLayout;
     @BindView(R.id.pages_pager) ViewPager2 pagesViewPager;
+    @BindView(R.id.pages_item_indicator_view) TabLayout indicatorView;
     @BindView(R.id.radio_image_view) View radio;
     @BindView(R.id.view_on_this_day_rtl_container) View rtlContainer;
     @BindView(R.id.card_footer_view) CardFooterView cardFooterView;
@@ -73,6 +76,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     private void setUpFooter() {
+        indicatorView.setVisibility(GONE);
         cardFooterView.setFooterActionText(getContext().getString(R.string.more_events_text));
         cardFooterView.setCallback(this);
     }

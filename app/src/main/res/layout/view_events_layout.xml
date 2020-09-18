@@ -17,7 +17,8 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:paddingEnd="3dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="24dp"
+        android:paddingTop="8dp">
 
         <include
             android:id="@+id/year_layout"

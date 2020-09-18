@@ -10,12 +10,6 @@
     android:clipToPadding="false"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/years_text_space"
-        android:layout_width="1dp"
-        android:layout_height="20dp"
-        android:visibility="gone" />
-
     <LinearLayout
         android:id="@+id/year_layout"
         android:layout_width="match_parent"

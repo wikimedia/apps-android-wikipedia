@@ -103,7 +103,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         setUpToolbar();
         eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
-        final int topDecorationDp = 0;
+        final int topDecorationDp = 24;
         eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         setUpRecycler(eventsRecycler);
 
@@ -296,10 +296,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         private TextView yearsInfoTextView;
         private ViewPager2 pagesViewPager;
         private TabLayout pagesIndicator;
-        private View yearContainer;
-        private View yearSpace;
         private WikiSite wiki;
-        TabLayoutMediator mediator;
 
         EventsViewHolder(View v, WikiSite wiki) {
             super(v);
@@ -309,7 +306,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesViewPager = v.findViewById(R.id.pages_pager);
             pagesIndicator = v.findViewById(R.id.pages_item_indicator_view);
-            yearSpace = v.findViewById(R.id.years_text_space);
             this.wiki = wiki;
         }
 
@@ -318,11 +314,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             descTextView.setVisibility(TextUtils.isEmpty(event.text()) ? GONE : VISIBLE);
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
-            if (prevEvent != null && (prevEvent.pages() == null || (prevEvent.year() == event.year()))) {
-                yearSpace.setVisibility(GONE);
-            } else {
-                yearSpace.setVisibility(prevEvent == null ? GONE : VISIBLE);
-            }
             setPagesViewPager(event);
         }
 
@@ -337,7 +328,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             } else {
                 pagesViewPager.setVisibility(GONE);
                 indicatorLayout.setVisibility(GONE);
-                yearSpace.setVisibility(GONE);
             }
         }
     }

@@ -40,7 +40,9 @@
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
 
                 <include
                     android:id="@+id/year_layout"
@@ -53,6 +55,7 @@
         android:id="@+id/card_footer_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp" />
 </LinearLayout>
