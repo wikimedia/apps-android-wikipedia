@@ -74,6 +74,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @BindView(R.id.indicator_layout) FrameLayout indicatorLayout;
     @BindView(R.id.toolbar_day) TextView toolbarDay;
     @BindView(R.id.drop_down_toolbar) ImageView toolbarDropDown;
+    @BindView(R.id.on_this_day_title_view) TextView onThisDayTitleView;
 
     @Nullable private OnThisDay onThisDay;
     private Calendar date;
@@ -93,6 +94,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     @Override
+    @SuppressWarnings("checkstyle:magicnumber")
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
@@ -109,27 +111,19 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
 
         errorView.setBackClickListener(v -> requireActivity().finish());
 
-        if (requireActivity().getWindow().getSharedElementEnterTransition() != null
-                && savedInstanceState == null) {
-            final int animDelay = 500;
-            dayText.postDelayed(() -> {
-                if (!isAdded() || dayText == null) {
-                    return;
-                }
-                updateContents(age);
-            }, animDelay);
-        } else {
+        final int animDelay = (requireActivity().getWindow().getSharedElementEnterTransition() != null
+                && savedInstanceState == null) ? 500 : 0;
+        onThisDayTitleView.postDelayed(() -> {
+            if (!isAdded() || onThisDayTitleView == null) {
+                return;
+            }
             updateContents(age);
-        }
+        }, animDelay);
 
         progressBar.setVisibility(GONE);
         eventsRecycler.setVisibility(GONE);
         errorView.setVisibility(GONE);
         return view;
-    }
-
-    public void onBackPressed() {
-        dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color));
     }
 
     private void updateContents(int age) {

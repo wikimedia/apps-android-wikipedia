@@ -131,4 +131,8 @@ public class CardHeaderView extends ConstraintLayout {
             }
         }
     }
+
+    public TextView getTitleView() {
+        return titleView;
+    }
 }

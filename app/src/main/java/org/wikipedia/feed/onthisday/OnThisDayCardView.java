@@ -1,5 +1,6 @@
 package org.wikipedia.feed.onthisday;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -84,9 +86,10 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @Override
     public void onFooterClicked() {
         funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
-        //Todo: add transition
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) getContext(),
+                headerView.getTitleView(), getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                ON_THIS_DAY_CARD_FOOTER));
+                ON_THIS_DAY_CARD_FOOTER), options.toBundle());
     }
 
     @Override
@@ -114,11 +117,12 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         header(card);
     }
 
-    @OnClick({R.id.view_on_this_day_click_container}) void onMoreClick() {
+    @OnClick({R.id.view_on_this_day_click_container}) void onCardClicked() {
         funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
-        //Todo: add transition
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) getContext(),
+                headerView.getTitleView(), getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                ON_THIS_DAY_CARD_BODY));
+                ON_THIS_DAY_CARD_BODY), options.toBundle());
     }
 
     private void updateOtdEventUI(OnThisDayCard card) {
