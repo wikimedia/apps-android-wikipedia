@@ -17,6 +17,7 @@
         android:fontFamily="sans-serif"
         android:textStyle="bold"
         android:lineSpacingExtra="8sp"
+        android:letterSpacing="0"
         android:paddingStart="8dp"
         app:icon="@drawable/ic_baseline_arrow_right_alt_24px"
         app:iconGravity="textEnd"
