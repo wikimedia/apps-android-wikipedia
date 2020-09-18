@@ -17,30 +17,34 @@ import java.util.List;
 
 public class MostReadCardView extends ListCardView<MostReadListCard> {
     private static final int EVENTS_SHOWN = 5;
-    private MostReadListCard card;
     public MostReadCardView(Context context) {
         super(context);
     }
 
     @Override public void setCard(@NonNull MostReadListCard card) {
         super.setCard(card);
-        header(card);
-        footer(card);
-        this.card = card;
+        header();
+        footer();
         set(new RecyclerAdapter(card.items().subList(0, Math.min(card.items().size(), EVENTS_SHOWN))));
         setLayoutDirectionByWikiSite(card.wikiSite(), getLayoutDirectionView());
     }
 
-    private void footer(@NonNull MostReadListCard card) {
+    private void footer() {
+        if (getCard() == null) {
+            return;
+        }
         footerView().setVisibility(View.VISIBLE);
-        footerView().setCallback(getFooterCallback(card));
-        footerView().setFooterActionText(card.footerActionText());
+        footerView().setCallback(getFooterCallback(getCard()));
+        footerView().setFooterActionText(getCard().footerActionText());
     }
 
-    private void header(@NonNull MostReadListCard card) {
-        headerView().setTitle(card.title())
-                .setLangCode(card.wikiSite().languageCode())
-                .setCard(card)
+    private void header() {
+        if (getCard() == null) {
+            return;
+        }
+        headerView().setTitle(getCard().title())
+                .setLangCode(getCard().wikiSite().languageCode())
+                .setCard(getCard())
                 .setCallback(getCallback());
     }
 
@@ -64,7 +68,7 @@ public class MostReadCardView extends ListCardView<MostReadListCard> {
         @Override
         public void onBindViewHolder(@NonNull DefaultViewHolder<ListCardItemView> holder, int position) {
             MostReadItemCard item = item(position);
-            holder.getView().setCard(card)
+            holder.getView().setCard(getCard())
                     .setHistoryEntry(new HistoryEntry(item.pageTitle(),
                             HistoryEntry.SOURCE_FEED_MOST_READ));
         }
