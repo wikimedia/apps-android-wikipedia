@@ -1,6 +1,8 @@
 package org.wikipedia.feed.onthisday;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +16,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
@@ -26,8 +33,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.CustomDatePicker;
@@ -72,7 +79,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     private Calendar date;
     private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
-    public static final int PADDING1 = 21, PADDING2 = 38, PADDING3 = 21;
     private WikiSite wiki;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -97,7 +103,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         setUpToolbar();
         eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
-        final int topDecorationDp = 24;
+        final int topDecorationDp = 0;
         eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         setUpRecycler(eventsRecycler);
 
@@ -288,10 +294,12 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         private TextView descTextView;
         private TextView yearTextView;
         private TextView yearsInfoTextView;
-        private RecyclerView pagesRecycler;
+        private ViewPager2 pagesViewPager;
+        private TabLayout pagesIndicator;
         private View yearContainer;
         private View yearSpace;
         private WikiSite wiki;
+        TabLayoutMediator mediator;
 
         EventsViewHolder(View v, WikiSite wiki) {
             super(v);
@@ -299,52 +307,37 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             descTextView.setTextIsSelectable(true);
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
-            pagesRecycler = v.findViewById(R.id.pages_recycler);
+            pagesViewPager = v.findViewById(R.id.pages_pager);
+            pagesIndicator = v.findViewById(R.id.pages_item_indicator_view);
             yearSpace = v.findViewById(R.id.years_text_space);
             this.wiki = wiki;
-            setRecycler();
-        }
-
-        private void setRecycler() {
-            if (pagesRecycler != null) {
-                pagesRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-                setUpRecycler(pagesRecycler);
-            }
         }
 
         public void setFields(@NonNull final OnThisDay.Event event, @Nullable OnThisDay.Event prevEvent) {
-            setPagesRecycler(event);
-            setPads();
             descTextView.setText(event.text());
+            descTextView.setVisibility(TextUtils.isEmpty(event.text()) ? GONE : VISIBLE);
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
-            if (prevEvent != null && prevEvent.year() == event.year()) {
-                //yearContainer.setVisibility(View.GONE);
+            if (prevEvent != null && (prevEvent.pages() == null || (prevEvent.year() == event.year()))) {
                 yearSpace.setVisibility(GONE);
             } else {
-               // yearContainer.setVisibility(View.VISIBLE);
                 yearSpace.setVisibility(prevEvent == null ? GONE : VISIBLE);
             }
+            setPagesViewPager(event);
         }
 
-        private void setPads() {
-            int pad1 = (int) DimenUtil.dpToPx(PADDING1);
-            int pad2 = (int) DimenUtil.dpToPx(PADDING2);
-            int pad3 = (int) DimenUtil.dpToPx(PADDING3);
-
-            descTextView.setPaddingRelative(pad1, 0, 0, 0);
-            yearsInfoTextView.setPaddingRelative(pad1, 0, 0, 0);
-            pagesRecycler.setPaddingRelative(pad2, 0, 0, 0);
-            yearTextView.setPaddingRelative(pad3, 0, 0, 0);
-        }
-
-        private void setPagesRecycler(OnThisDay.Event event) {
+        private void setPagesViewPager(OnThisDay.Event event) {
             if (event.pages() != null) {
-                OnThisDayCardView.RecyclerAdapter recyclerAdapter = new OnThisDayCardView.RecyclerAdapter(getChildFragmentManager(), event.pages(), wiki, false);
-                pagesRecycler.setAdapter(recyclerAdapter);
-                pagesRecycler.setVisibility(VISIBLE);
+                ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), event.pages(), wiki);
+                pagesViewPager.setAdapter(viewPagerAdapter);
+                pagesViewPager.setOffscreenPageLimit(2);
+                 new TabLayoutMediator(pagesIndicator, pagesViewPager, (tab, position) -> { }).attach();
+                pagesViewPager.setVisibility(VISIBLE);
+                indicatorLayout.setVisibility(VISIBLE);
             } else {
-                pagesRecycler.setVisibility(GONE);
+                pagesViewPager.setVisibility(GONE);
+                indicatorLayout.setVisibility(GONE);
+                yearSpace.setVisibility(GONE);
             }
         }
     }
@@ -357,6 +350,36 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 appBarLayout.setExpanded(true);
                 eventsRecycler.scrollToPosition(0);
             });
+        }
+    }
+     class ViewPagerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
+        private List<PageSummary> pages;
+        private WikiSite wiki;
+        private FragmentManager fragmentManager;
+
+         ViewPagerAdapter(@NonNull FragmentManager fragmentManager, @NonNull List<PageSummary> pages, @NonNull WikiSite wiki) {
+            this.pages = pages;
+            this.wiki = wiki;
+            this.fragmentManager = fragmentManager;
+        }
+
+        @NonNull @Override
+        public OnThisDayPagesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            View itemView = LayoutInflater.
+                    from(viewGroup.getContext()).
+                    inflate(R.layout.item_on_this_day_pages, viewGroup, false);
+            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), fragmentManager, (MaterialCardView) itemView, wiki);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull OnThisDayPagesViewHolder onThisDayPagesViewHolder, int i) {
+            onThisDayPagesViewHolder
+                    .setFields(pages.get(i));
+        }
+
+        @Override
+        public int getItemCount() {
+            return pages.size();
         }
     }
 }

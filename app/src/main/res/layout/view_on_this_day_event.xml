@@ -87,18 +87,26 @@
         layout="@layout/item_on_this_day_pages"
         android:layout_width="match_parent"
         android:layout_height="268dp"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
         android:visibility="gone" />
 
-    <org.wikipedia.views.NavMenuAwareRecyclerView
-        android:id="@+id/pages_recycler"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pages_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="?attr/paper_color"
-        android:clipToPadding="false"
-        android:paddingStart="16dp"
-        android:visibility="gone" />
+        android:layout_marginStart="12dp"
+        android:layout_height="wrap_content" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/pages_item_indicator_view"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        app:tabBackground="@drawable/shape_tab_dot"
+        app:tabGravity="center"
+        app:tabIndicator="@null"
+        app:tabPaddingEnd="8dp"
+        app:tabPaddingStart="8dp"
+        app:tabRippleColor="?attr/color_group_59"/>
 </LinearLayout>

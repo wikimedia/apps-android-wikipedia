@@ -1,27 +1,20 @@
 package org.wikipedia.feed.onthisday;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.card.MaterialCardView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.view.CardFooterView;
@@ -43,8 +36,6 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -59,7 +50,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.year) TextView yearTextView;
     @BindView(R.id.years_text) TextView yearsInfoTextView;
     @BindView(R.id.year_layout) LinearLayout yearLayout;
-    @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
+    @BindView(R.id.pages_pager) ViewPager2 pagesViewPager;
     @BindView(R.id.radio_image_view) View radio;
     @BindView(R.id.view_on_this_day_rtl_container) View rtlContainer;
     @BindView(R.id.card_footer_view) CardFooterView cardFooterView;
@@ -92,39 +83,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         //Todo: add transition
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
                 ON_THIS_DAY_CARD_FOOTER));
-    }
-
-    static class RecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
-        private List<PageSummary> pages;
-        private WikiSite wiki;
-        private final boolean isSingleCard;
-        private FragmentManager fragmentManager;
-
-        RecyclerAdapter(@NonNull FragmentManager fragmentManager, @NonNull List<PageSummary> pages, @NonNull WikiSite wiki, boolean isSingleCard) {
-            this.pages = pages;
-            this.wiki = wiki;
-            this.isSingleCard = isSingleCard;
-            this.fragmentManager = fragmentManager;
-        }
-
-        @NonNull @Override
-        public OnThisDayPagesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            View itemView = LayoutInflater.
-                    from(viewGroup.getContext()).
-                    inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), fragmentManager, (MaterialCardView) itemView, wiki, isSingleCard);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull OnThisDayPagesViewHolder onThisDayPagesViewHolder, int i) {
-            onThisDayPagesViewHolder
-                    .setFields(pages.get(i));
-        }
-
-        @Override
-        public int getItemCount() {
-            return pages.size();
-        }
     }
 
     @Override
@@ -160,7 +118,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     private void updateOtdEventUI(OnThisDayCard card) {
-        pagesRecycler.setVisibility(GONE);
+        pagesViewPager.setVisibility(GONE);
         PageSummary chosenPage = null;
         if (card.pages() != null) {
             otdEventView.setVisibility(VISIBLE);
