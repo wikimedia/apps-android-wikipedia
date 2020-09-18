@@ -257,6 +257,7 @@
   <string name="page_similar_titles">صفحات مشابهة</string>
   <string name="search_did_you_mean">هل تقصد \"%s\"؟</string>
   <string name="search_recent_header">أحدث عمليات البحث:</string>
+  <string name="search_results_count_zero">لا نتائج</string>
   <string name="button_clear_all_recent_searches">حذف أحدث عمليات البحث</string>
   <string name="clear_recent_searches_confirm">هل أنت متأكد من حذف سجل البحث؟</string>
   <string name="clear_recent_searches_confirm_yes">نعم</string>

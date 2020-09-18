@@ -19,17 +19,15 @@ import java.util.concurrent.TimeUnit;
 
 public class MostReadListCard extends ListCard<MostReadItemCard> {
     @NonNull private final MostReadArticles articles;
-    @NonNull private WikiSite wiki;
 
     public MostReadListCard(@NonNull MostReadArticles articles, @NonNull WikiSite wiki) {
         super(toItems(articles.articles(), wiki), wiki);
         this.articles = articles;
-        this.wiki = wiki;
     }
 
     @NonNull
     @Override public String title() {
-        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.view_top_read_card_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_top_read_card_title);
     }
 
     @Nullable
