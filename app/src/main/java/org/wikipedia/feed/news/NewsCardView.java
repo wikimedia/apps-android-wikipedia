@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -14,6 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
+import org.wikipedia.feed.view.FeedAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,11 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         inflate(getContext(), R.layout.view_card_news, this);
         ButterKnife.bind(this);
     }
+    @Override
+    public void setCallback(@Nullable FeedAdapter.Callback callback) {
+        super.setCallback(callback);
+        headerView.setCallback(callback);
+    }
 
     @Override public void setCard(@NonNull NewsCard card) {
         super.setCard(card);
@@ -49,8 +56,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
     private void header(@NonNull NewsCard card) {
         headerView.setTitle(card.title())
                 .setLangCode(card.wikiSite().languageCode())
-                .setCard(card)
-                .setCallback(getCallback());
+                .setCard(card);
     }
 
     private class NewsItemHolder extends RecyclerView.ViewHolder {
