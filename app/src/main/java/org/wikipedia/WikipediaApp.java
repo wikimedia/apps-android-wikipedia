@@ -38,6 +38,7 @@ import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
@@ -180,6 +181,10 @@ public class WikipediaApp extends Application {
         NotificationPollBroadcastReceiver.startPollTask(this);
 
         InstallReferrerListener.newInstance(this);
+
+        // For good measure, explicitly call our token subscription function, in case the
+        // API failed in previous attempts.
+        WikipediaFirebaseMessagingService.Companion.subscribeCurrentToken();
     }
 
     public int getVersionCode() {

@@ -26,6 +26,7 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
@@ -183,6 +184,7 @@ public class LoginActivity extends BaseActivity {
         Prefs.setReadingListPagesDeletedIds(Collections.emptySet());
         Prefs.setReadingListsDeletedIds(Collections.emptySet());
         ReadingListSyncAdapter.manualSyncWithForce();
+        WikipediaFirebaseMessagingService.Companion.subscribeCurrentToken();
         finish();
     }
 

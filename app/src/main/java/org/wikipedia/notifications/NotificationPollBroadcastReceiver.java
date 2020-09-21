@@ -21,6 +21,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.main.MainActivity;
+import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -102,6 +103,11 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     @SuppressLint("CheckResult")
     public static void pollNotifications(@NonNull final Context context) {
+        // If push notifications are active, then don't actually do any polling.
+        if (WikipediaFirebaseMessagingService.Companion.isPushEnabled()) {
+            return;
+        }
+
         ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getLastUnreadNotification()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

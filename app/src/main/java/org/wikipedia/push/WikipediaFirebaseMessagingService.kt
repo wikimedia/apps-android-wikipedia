@@ -5,6 +5,7 @@ import com.google.firebase.messaging.RemoteMessage
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
@@ -29,40 +30,19 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         //}
     }
 
-    /**
-     * Called if InstanceID token is updated. This may occur if the security of
-     * the previous token had been compromised. Note that this is called when the InstanceID token
-     * is initially generated so this is where you would retrieve the token.
-     */
+    // Called when a token is first generated for the app, or when a token is revoked and
+    // regenerated for security reasons.
     override fun onNewToken(token: String) {
         L.d("Received a new Firebase token...")
 
-        // Make sure to unsubscribe the previous token, if any
-        if (Prefs.getPushNotificationToken().isNotEmpty()) {
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(Prefs.getPushNotificationToken())
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
-                    .subscribe({
+        // As soon as we receive a new token, it's super important to save it in our Prefs, because
+        // another one might not be generated for a long time, and we should preserve it in case
+        // the subscription API happens to fail.
+        Prefs.setPushNotificationTokenOld(Prefs.getPushNotificationToken())
+        Prefs.setPushNotificationToken(token)
+        Prefs.setPushNotificationTokenSubscribed(false)
 
-                        L.d("Previous token unsubscribed successfully.")
-
-                    }, {
-                        L.e(it)
-                    })
-        }
-
-        ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(token)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .retry(SUBSCRIBE_RETRY_COUNT.toLong())
-                .subscribe({
-
-                    Prefs.setPushNotificationToken(token)
-
-                }, {
-                    L.e(it)
-                })
+        subscribeCurrentToken()
     }
 
     private fun handleCheckEcho() {
@@ -74,7 +54,51 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
 
     companion object {
         const val MESSAGE_TYPE_CHECK_ECHO = "checkEchoV1"
-        const val SUBSCRIBE_RETRY_COUNT = 5
-        const val UNSUBSCRIBE_RETRY_COUNT = 3
+        private const val SUBSCRIBE_RETRY_COUNT = 5
+        private const val UNSUBSCRIBE_RETRY_COUNT = 3
+
+        fun isPushEnabled(): Boolean {
+            return Prefs.getPushNotificationToken().isNotEmpty()
+                    && Prefs.isPushNotificationTokenSubscribed()
+        }
+
+        fun subscribeCurrentToken() {
+            if (!AccountUtil.isLoggedIn() || Prefs.isPushNotificationTokenSubscribed()) {
+                // Don't bother registering the token if the user is not logged in,
+                // or if the token was already subscribed successfully.
+                return
+            }
+            val token = Prefs.getPushNotificationToken()
+            val oldToken = Prefs.getPushNotificationTokenOld()
+
+            // Make sure to unsubscribe the previous token, if any
+            if (oldToken.isNotEmpty()) {
+                if (oldToken != token) {
+                    ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(Prefs.getPushNotificationToken())
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
+                            .subscribe({
+                                L.d("Previous token unsubscribed successfully.")
+                                Prefs.setPushNotificationTokenOld("")
+                            }, {
+                                L.e(it)
+                            })
+                } else {
+                    Prefs.setPushNotificationTokenOld("")
+                }
+            }
+
+            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(token)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .retry(SUBSCRIBE_RETRY_COUNT.toLong())
+                    .subscribe({
+                        L.d("Token subscribed successfully.")
+                        Prefs.setPushNotificationTokenSubscribed(true)
+                    }, {
+                        L.e(it)
+                    })
+        }
     }
 }
