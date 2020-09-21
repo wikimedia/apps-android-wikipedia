@@ -163,7 +163,7 @@
   <string name="send_feedback">ناردنی فیدباکی نەرمەواڵە</string>
   <string name="create_account_account_created_toast">ھەژمار دروست کرا!</string>
   <string name="preferences_heading_syncing">هاوکاتکردن</string>
-  <string name="preferences_heading_data_usage">بەکارھێنانی داتا</string>
+  <string name="preferences_heading_data_usage">بەکارھێنانی دراوە</string>
   <string name="preferences_heading_experimental">تاقیکاری</string>
   <string name="preference_title_sync_reading_lists_from_account">هاوکاتکردنی پێڕستی خوێندنەوە</string>
   <string name="preference_title_download_reading_list_articles">داگرتنی پێرستی خوێندنەوەی وتارەکان</string>
@@ -328,7 +328,7 @@
   <string name="reference_list_title">سەرچاوەکان</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">وێنەی تاریک (ڕووکاری تاریک)</string>
   <string name="preference_title_prefer_offline_content">ناوەڕۆکی دەرهێڵ پەسەند بکە</string>
-  <string name="preference_summary_prefer_offline_content">بەکارهێنانی داتا هەڵبگرە بە بارکردنی ئەو وتارانەی کەلە سەرهێڵ بەردەستن بەڵکو هەمیشە نوێترین وەشانی وتارێک بار بکەن</string>
+  <string name="preference_summary_prefer_offline_content">بەکارهێنانی دراوە هەڵبگرە بە بارکردنی ئەو وتارانەی کەلە سەرهێڵ بەردەستن بەڵکو هەمیشە نوێترین وەشانی وتارێک بار بکەن</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">ڕووکاری سیستم بگونجێنە</string>
   <string name="page_footer_license_text">ناوەڕۆک بەردەستە لەژێر $1 مەگەر بە پێچەوانەوە وترابێت</string>
   <string name="empty_tab_title">تابی نوێ</string>
@@ -565,8 +565,8 @@
   <string name="description_edit_translate_image_caption">وەرگێڕانی شرۆڤەی وێنە</string>
   <string name="description_edit_cancel_hint">ھەڵوەشاندنەوە</string>
   <string name="description_edit_help_title">زانیاری: وەسفەکانی وتار</string>
-  <string name="description_edit_help_about_wikidata">دەربارەی ویکیداتا</string>
-  <string name="description_edit_help_wikidata_guide">ڕێبەری ویکیداتا بۆ نووسینی وەسفەکان</string>
+  <string name="description_edit_help_about_wikidata">دەربارەی ویکیدراوە</string>
+  <string name="description_edit_help_wikidata_guide">ڕێبەری ویکیدراوە بۆ نووسینی وەسفەکان</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">سوپاس بۆ بەردەوامبوونت لە دەستکاریکردن! بۆ دەستکاریکردنی زیاتر، تکایە بچۆ ژوورەوە بۆ ھەژماری ویکیپیدیاکەت.</string>
   <string name="description_edit_license_notice">بە گۆڕینی ناوی وتارەکە، من &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt; پەسەند دەکەم و بەبێ پەشیمان بوونەوە بەشدارییەکانم بڵاو دەکەمەوە لەژێر مۆڵەتنامەی &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
