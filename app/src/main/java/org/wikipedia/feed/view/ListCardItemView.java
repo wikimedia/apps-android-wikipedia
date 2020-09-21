@@ -40,7 +40,7 @@ public class ListCardItemView extends ConstraintLayout {
         void onSharePage(@NonNull HistoryEntry entry);
     }
 
-    @BindView(R.id.view_list_card_number) LinearGradientNumberView numberView;
+    @BindView(R.id.view_list_card_number) GradientCircleNumberView numberView;
     @BindView(R.id.view_list_card_item_image) ImageView imageView;
     @BindView(R.id.view_list_card_item_title) TextView titleView;
     @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;

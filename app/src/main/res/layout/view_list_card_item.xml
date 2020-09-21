@@ -7,15 +7,14 @@
     tools:paddingTop="16dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <org.wikipedia.feed.view.LinearGradientNumberView
+    <org.wikipedia.feed.view.GradientCircleNumberView
         android:id="@+id/view_list_card_number"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginStart="16dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/view_list_card_item_title"
@@ -27,11 +26,9 @@
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/view_list_card_item_subtitle"
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_item_image"
         app:layout_constraintStart_toEndOf="@+id/view_list_card_number"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
 
     <org.wikipedia.views.GoneIfEmptyTextView
@@ -42,7 +39,6 @@
         android:layout_marginTop="2dp"
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/view_list_card_item_title"
         app:layout_constraintStart_toStartOf="@+id/view_list_card_item_title"
         app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
