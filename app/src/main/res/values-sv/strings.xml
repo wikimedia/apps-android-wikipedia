@@ -253,6 +253,7 @@
   <string name="page_similar_titles">Liknande sidor</string>
   <string name="search_did_you_mean">Menade du \"%s\"?</string>
   <string name="search_recent_header">Senaste sökningar:</string>
+  <string name="search_results_count_zero">Inga resultat</string>
   <string name="button_clear_all_recent_searches">Rensa senaste sökningar</string>
   <string name="clear_recent_searches_confirm">Är du säker på att du vill rensa din sökhistorik?</string>
   <string name="clear_recent_searches_confirm_yes">Ja</string>
