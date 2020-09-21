@@ -258,6 +258,7 @@
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_recent_header">Nedávná vyhledávání:</string>
+  <string name="search_results_count_zero">Žádné výsledky</string>
   <string name="button_clear_all_recent_searches">Vymazat nedávná vyhledávání</string>
   <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii vyhledávání?</string>
   <string name="clear_recent_searches_confirm_yes">Ano</string>

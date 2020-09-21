@@ -4,14 +4,14 @@
 * Joanmp17
 -->
 <resources>
-  <string name="app_name_prod">ዊኪፔዲያ</string>
-  <string name="app_name_beta">ዊኪፔዲያ በታ</string>
-  <string name="app_name_alpha">ዊኪፔዲያ ኣልፋ</string>
+  <string name="app_name_prod">ዊኪፐድያ</string>
+  <string name="app_name_beta">ዊኪፐድያ በታ</string>
+  <string name="app_name_alpha">ዊኪፐድያ ኣልፋ</string>
   <string name="wikimedia">ዊኪሜዲያ</string>
   <string name="nav_item_back">ተመለስ</string>
   <string name="page_tabs_back">ተመለስ</string>
   <string name="nav_item_forward">ዝቕጽል</string>
-  <string name="search_hint">ኣብ ውሽጢ ዊኪፔዲያ ድለይ</string>
+  <string name="search_hint">ኣብ ውሽጢ ዊኪፐድያ ድለይ</string>
   <string name="search_hint_voice_search">ብደሃይ ምድላይ</string>
   <string name="search_hint_search_languages">ቋንቋ ድለይ</string>
   <string name="nav_item_suggested_edits">ምምዕርራያት</string>
@@ -55,11 +55,11 @@
   <string name="map_view_link_text">ኣብ ካርታ ርኣይ</string>
   <string name="other_languages_indication_text">ብካልእ ቋንቋ ኣንብብ</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="preference_title_language">ናይ ዊኪፔዲያ ቋንቋታት</string>
+  <string name="preference_title_language">ናይ ዊኪፐድያ ቋንቋታት</string>
   <string name="langlinks_filter_hint">ምድላይ</string>
   <string name="langlinks_no_match">ምንም ቋንቋታት ኣይተረኸቡን</string>
   <string name="langlinks_activity_title">ካልኦት ቋንቋታት</string>
-  <string name="langlinks_your_wikipedia_languages">ናይ ዊኪፔዲያ ቋንቋታትካ</string>
+  <string name="langlinks_your_wikipedia_languages">ናይ ዊኪፐድያ ቋንቋታትኻ</string>
   <string name="menu_save_changes">ለውጥታት ኣሕቲሙ</string>
   <string name="edit_saved_successfully">ምምዕርራይ ተሓቲሙ!</string>
   <string name="dialog_message_edit_failed_retry">እንደገና ፈትን</string>
@@ -70,7 +70,7 @@
   <string name="search_reading_list_no_results">ብ\"%s\" ውጺኢታት ኣይተረኸቡን</string>
   <string name="search_history_no_results">ብታሪኽ ውጺኢታት ኣይተረኸቡን</string>
   <string name="title_captcha">ካፕቻ ኣእተው</string>
-  <string name="nav_item_login">ናብ ዊኪፔዲያ ብመንነት እተው</string>
+  <string name="nav_item_login">ናብ ዊኪፐድያ ብመንነት እተው</string>
   <string name="login_username_hint">ሽም ተጠቃሚ</string>
   <string name="login_password_hint">ቃለ-ምስጢር</string>
   <string name="account_creation_password_hint">ቃለ-ምስጢር</string>
@@ -91,7 +91,7 @@
   <string name="wp_stylized">&lt;big&gt;ዊ&lt;/big&gt;ኪፔዲ&lt;big&gt;ያ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ሽም ተጠቃሚ</string>
   <string name="login_dont_have_account">መንነት መፍለዪ የብልካን?</string>
-  <string name="login_join_wikipedia">ናብ ዊኪፔዲያ ተጸንበር</string>
+  <string name="login_join_wikipedia">ናብ ዊኪፐድያ ተጸንበር</string>
   <string name="login_forgot_password">መሕለፊ ቃልካ ረሲዕኻዮ?</string>
   <string name="create_account_activity_title">መንነት መፍለዪ ፍጠር</string>
   <string name="create_account_email_hint">ኢሜይል (ኣማራጽያዊ)</string>
@@ -111,7 +111,7 @@
   <string name="page_protected_can_not_edit_title">እዚ ገጽ ዝተሓለወ እዩ</string>
   <string name="settings_item_preferences">ኣቀማምጣታት</string>
   <string name="settings_activity_title">ኣቀማምጣታት</string>
-  <string name="about_description">ብዛዕባ ዊኪፔዲያ መተግበሪ</string>
+  <string name="about_description">ብዛዕባ ዊኪፐድያ መተግበሪ</string>
   <string name="privacy_policy_description">ናይ ስትረት ሕጊ</string>
   <string name="terms_of_use_description">ናይ ኣጠቓቕማ ኩነታት</string>
   <string name="about_wikipedia_url">https://ti.wikipedia.org/wiki/ዊኪፔዲያ:ብዛዕባ</string>
@@ -136,7 +136,7 @@
   <string name="clear_recent_searches_confirm_no">ኣይፋል</string>
   <string name="table_other">ተወሳኺ ሓበሬታ</string>
   <string name="table_close">ዕጸው</string>
-  <string name="widget_name_search">ኣብ ውሽጢ ዊኪፔዲያ ድለይ</string>
+  <string name="widget_name_search">ኣብ ውሽጢ ዊኪፐድያ ድለይ</string>
   <string name="alpha_update_notification_text">ንምውራድ ጠውቅ</string>
   <string name="dialog_close_description">ዕጸው</string>
   <string name="preference_title_show_images">ምስሊታት ኣርእይ</string>
@@ -162,7 +162,7 @@
   <string name="all_tab_items_closed">ኩሎም ጽላታት ዝተዓጸዉ።</string>
   <string name="format_error_server_message">መልእኽቲ፦ \"%s\"</string>
   <string name="button_continue_to_article">ጽሑፍ ኣንብብ</string>
-  <string name="nav_item_donate">ዊኪፔዲያ ድጋፍ ሃብ</string>
+  <string name="nav_item_donate">ዊኪፐድያ ድጋፍ ሃብ</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d ዝተመረጸ</item>
     <item quantity="other">%d ዝተመርጹ</item>
@@ -201,7 +201,7 @@
   <string name="reading_lists_onboarding_for_example">ንኣብነት</string>
   <string name="reading_lists_onboarding_got_it">ተረዲኡኒ</string>
   <string name="reading_list_select_item">ምረጽ</string>
-  <string name="reading_lists_login_button">ብመንነት እተው / ናብ ዊኪፔዲያ ተጸንበር</string>
+  <string name="reading_lists_login_button">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
   <string name="reading_lists_ignore_button">ሕጂ ዘይኮነ</string>
   <string name="reading_lists_confirm_remote_delete_yes">እወ</string>
   <string name="reading_lists_confirm_remote_delete_no">ኣይፋል</string>
@@ -233,7 +233,7 @@
     <item quantity="one">%1$d ጽሑፍ ይውርድ ኣሎ...</item>
     <item quantity="other">%1$d ጽሑፋት ይውርድ ኣሎ...</item>
   </plurals>
-  <string name="notification_echo_channel_description">ዊኪፔዲያ መፍለጢታት</string>
+  <string name="notification_echo_channel_description">ናይ ዊኪፐድያ መፍለጢታት</string>
   <string name="notifications_activity_title">መፍለጢታት</string>
   <string name="notifications_search">መፍለጢታት ምድላይ</string>
   <string name="notifications_poll_enable_negative">ሕጂ ዘይኮነ</string>
@@ -242,7 +242,7 @@
   <string name="preference_title_notification_user_talk">ምይይጥ ገጽ</string>
   <string name="view_random_card_title">ሃውራዊ</string>
   <string name="view_random_card_action">ዳዶ ወርወረ</string>
-  <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፔዲያ</string>
+  <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፐድያ</string>
   <string name="view_main_page_card_subtitle">ኣብ %s መበገሲ ገጽ</string>
   <string name="view_main_page_card_action">መበገሲ ገጽ ርኣይ</string>
   <string name="view_featured_image_card_title">ናይ ዕለት ምስሊ</string>
@@ -367,7 +367,7 @@
   <string name="onboarding_get_started">ኣጀማሪ</string>
   <string name="onboarding_got_it">ተረዲኡኒ</string>
   <string name="onboarding_multilingual_add_language_text">ቋንቋታት ወስኽ ወይ ኣመዓራርይ</string>
-  <string name="onboarding_welcome_title_v2">ናጻዊ መዝገበ ፍልጠት\n...ካብ 300 ልዕሊ ቋንቋታት</string>
+  <string name="onboarding_welcome_title_v2">ናጻ መዝገበ ፍልጠት\n...ካብ 300 ልዕሊ ቋንቋታት</string>
   <string name="app_shortcuts_random">ሃውራዊ</string>
   <string name="app_shortcuts_continue_reading">ምንባብ ቀጽል</string>
   <string name="app_shortcuts_search">ምድላይ</string>
@@ -382,13 +382,13 @@
   </plurals>
   <string name="languages_list_activity_title">ቋንቋ ወስኽ</string>
   <string name="languages_list_all_text">ኩሎም ቋንቋታት</string>
-  <string name="wikipedia_languages_title">ናይ ዊኪፔዲያ ቋንቋታት</string>
+  <string name="wikipedia_languages_title">ናይ ዊኪፐድያ ቋንቋታት</string>
   <string name="wikipedia_languages_your_languages_text">ቋንቋታትካ</string>
   <string name="wikipedia_languages_add_language_text">ቋንቋ ወስኽ</string>
   <string name="wikipedia_languages_remove_text">ቋንቋ ኣልግስ</string>
   <string name="wikipedia_languages_remove_action_mode_title">ቋንቋ ኣልግስ</string>
   <string name="more_language_options">ተወሳኺ</string>
-  <string name="add_wikipedia_languages_text">ናይ ዊኪፔዲያ ቋንቋታት ወስኽ</string>
+  <string name="add_wikipedia_languages_text">ናይ ዊኪፐድያ ቋንቋታት ወስኽ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ቋንቋታት ኣመዓራርይ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ኣይፋል፣ የቐንየለይ</string>
   <string name="remove_language_dialog_cancel_button_text">ኣትርፍ</string>
@@ -410,7 +410,7 @@
   <string name="wikitext_reference">መወከሲ</string>
   <string name="wikitext_preview_link">መጋጠሚ ኣቐዲሙ ረኣየ</string>
   <string name="main_drawer_help">ሓገዝ</string>
-  <string name="main_drawer_login">ብመንነት እተው / ናብ ዊኪፔዲያ ተጸንበር</string>
+  <string name="main_drawer_login">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
   <string name="main_tooltip_action_button">ኣጀማሪ</string>
   <string name="custom_date_picker_dialog_ok_button_text">ሕራይ</string>
   <string name="text_input_dialog_ok_button_text">ሕራይ</string>
