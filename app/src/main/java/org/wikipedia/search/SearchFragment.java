@@ -182,7 +182,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     public void onStart() {
         super.onStart();
         setUpLanguageScroll(Prefs.getSelectedLanguagePositionInSearch());
-        startSearch(query, false);
+        startSearch(query, langBtnClicked);
         searchView.setCloseButtonVisibility(query);
 
         if (!TextUtils.isEmpty(query)) {

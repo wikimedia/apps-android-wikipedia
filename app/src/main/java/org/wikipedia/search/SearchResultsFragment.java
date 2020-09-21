@@ -25,6 +25,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
@@ -38,6 +39,7 @@ import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -340,12 +342,26 @@ public class SearchResultsFragment extends Fragment {
                     } else {
                         updateProgressBar(true);
                     }
-                    return resultList.isEmpty() ? doFullTextSearchResultsCountObservable(searchTerm) : Observable.empty();
+                    return resultList.isEmpty() ? doSearchResultsCountObservable(searchTerm) : Observable.empty();
                 })
                 .toList()
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(list -> {
                     if (!list.isEmpty()) {
+
+                        // make a singleton list if all results are empty.
+                        int sum = 0;
+                        for (int count : list) {
+                            sum += count;
+                            if (sum > 0) {
+                                break;
+                            }
+                        }
+
+                        if (sum == 0) {
+                            list = Collections.singletonList(0);
+                        }
+
                         searchResultsCountCache.put(getSearchLanguageCode() + "-" + searchTerm, list);
                         displayResultsCount(list);
                     }
@@ -355,12 +371,25 @@ public class SearchResultsFragment extends Fragment {
                 }));
     }
 
-    private Observable<Integer> doFullTextSearchResultsCountObservable(final String searchTerm) {
+    private Observable<Integer> doSearchResultsCountObservable(final String searchTerm) {
         return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
-                .concatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null))
+                .concatMap(langCode -> {
+                    if (langCode.equals(getSearchLanguageCode())) {
+                        return Observable.just(new MwQueryResponse());
+                    }
+                    return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .flatMap(response -> {
+                                        if (response.query() != null && response.query().pages() != null) {
+                                            return Observable.just(response);
+                                        }
+                                        return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null);
+                                    });
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> response.query() != null ? response.query().pages().size() : 0);
+                .map(response -> response.query() != null && response.query().pages() != null ? response.query().pages().size() : 0);
     }
 
     private void clearResults() {
@@ -525,7 +554,7 @@ public class SearchResultsFragment extends Fragment {
             resultsText.setText(resultsCount == 0 ? getString(R.string.search_results_count_zero)
                     : getResources().getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount));
             resultsText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
-            languageCodeText.setVisibility(WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 1 ? View.GONE : View.VISIBLE);
+            languageCodeText.setVisibility(resultsCountList.size() == 1 ? View.GONE : View.VISIBLE);
             languageCodeText.setText(langCode);
             languageCodeText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
             languageCodeText.setBackgroundTintList(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
