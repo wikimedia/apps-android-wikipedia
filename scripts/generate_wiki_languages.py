@@ -11,6 +11,9 @@ import requests
 QUERY_SITEMATRIX = 'https://www.mediawiki.org/w/api.php?action=sitematrix' \
     '&format=json&formatversion=2&smtype=language&smstate=all'
 
+QUERY_LANGLIST = 'https://www.mediawiki.org/w/api.php?action=query&format=json' \
+    '&meta=siteinfo&formatversion=2&siprop=languages%7Clanguagevariants&siinlanguagecode='
+
 QUERY_ALLUSERS = '/w/api.php?action=query&format=json&formatversion=2&list=allusers' \
     '&aulimit=50&auactiveusers=1&auwitheditsonly=1'
 
@@ -34,6 +37,8 @@ def add_lang(key, local_name, eng_name, rank):
 
 
 data = json.loads(requests.get(QUERY_SITEMATRIX).text)
+
+lang_list_response = json.loads(requests.get(QUERY_LANGLIST).text)
 
 for key, value in data[u"sitematrix"].items():
     if type(value) is not dict:
@@ -71,7 +76,13 @@ for key, value in data[u"sitematrix"].items():
         continue
     if language_code == 'no':  # T114042
         language_code = 'nb'
-    add_lang(language_code, value[u"name"].replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
+
+    local_name = value[u"localname"]
+    for name in lang_list_response[u"query"][u"languages"]:
+        if name[u"code"] == language_code:
+            local_name = name[u"name"]
+
+    add_lang(language_code, value[u"name"].replace("'", "\\'"), local_name.replace("'", "\\'"), rank)
 
 
 add_lang(key='test', local_name='Test', eng_name='Test', rank=0)

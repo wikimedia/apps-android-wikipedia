@@ -857,6 +857,14 @@ public final class Prefs {
         return getString(R.string.preference_key_temporary_wikitext_storage, "");
     }
 
+    public static void setPushNotificationToken(@Nullable String token) {
+        setString(R.string.preference_key_push_notification_token, token);
+    }
+
+    public static String getPushNotificationToken() {
+        return getString(R.string.preference_key_push_notification_token, "");
+    }
+
     public static boolean isSuggestedEditsReactivationTestEnabled() {
         return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
     }

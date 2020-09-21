@@ -1,32 +1,32 @@
 package org.wikipedia.push
 
-import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
-
 
 class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-
         L.d("Message from: ${remoteMessage.from}")
 
-        // Check if message contains a data payload.
         remoteMessage.data.isNotEmpty().let {
             L.d("Message data payload: " + remoteMessage.data)
-            // If the data needs to be processed in a long-running task, spin up a job using WorkManager.
+
+            if (remoteMessage.data.containsValue(MESSAGE_TYPE_CHECK_ECHO)) {
+                handleCheckEcho()
+            }
         }
 
-        // Check if message contains a notification payload.
-        remoteMessage.notification?.let {
-            L.d("Message Notification Body: ${it.body}")
-        }
-
-        // TODO: show the notification!
-        // remoteMessage.notification?...
-
+        // The message could also contain a notification payload, but that's not how we're using it.
+        //remoteMessage.notification?.let {
+        //    ...
+        //}
     }
 
     /**
@@ -35,26 +35,46 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
      * is initially generated so this is where you would retrieve the token.
      */
     override fun onNewToken(token: String) {
-        L.d("Refreshed token: $token")
+        L.d("Received a new Firebase token...")
 
-        // TODO: send token to our servers to associate the token with the current user.
+        // Make sure to unsubscribe the previous token, if any
+        if (Prefs.getPushNotificationToken().isNotEmpty()) {
+            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(Prefs.getPushNotificationToken())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
+                    .subscribe({
 
+                        L.d("Previous token unsubscribed successfully.")
+
+                    }, {
+                        L.e(it)
+                    })
+        }
+
+        ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(token)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .retry(SUBSCRIBE_RETRY_COUNT.toLong())
+                .subscribe({
+
+                    Prefs.setPushNotificationToken(token)
+
+                }, {
+                    L.e(it)
+                })
+    }
+
+    private fun handleCheckEcho() {
+        if (!Prefs.notificationPollEnabled()) {
+            return
+        }
+        NotificationPollBroadcastReceiver.pollNotifications(this)
     }
 
     companion object {
-        fun subscribe() {
-            // TODO: is it necessary to do this?
-            FirebaseMessaging.getInstance().subscribeToTopic("wikipedia")
-                    .addOnFailureListener {
-                        L.e(it)
-                    }
-                    .addOnCompleteListener { task ->
-                        if (!task.isSuccessful) {
-                            L.d("Failed to subscribe to FCM.")
-                            return@addOnCompleteListener
-                        }
-                        L.d("Subscribed to FCM successfully.")
-                    }
-        }
+        const val MESSAGE_TYPE_CHECK_ECHO = "checkEchoV1"
+        const val SUBSCRIBE_RETRY_COUNT = 5
+        const val UNSUBSCRIBE_RETRY_COUNT = 3
     }
 }
