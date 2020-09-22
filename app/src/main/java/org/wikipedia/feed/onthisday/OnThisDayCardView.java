@@ -47,6 +47,7 @@ import butterknife.OnClick;
 import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_BODY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_FOOTER;
+import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_YEAR;
 
 public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements CardFooterView.Callback {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
@@ -89,7 +90,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) getContext(),
                 headerView.getTitleView(), getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                ON_THIS_DAY_CARD_FOOTER), options.toBundle());
+                ON_THIS_DAY_CARD_FOOTER, -1), options.toBundle());
     }
 
     @Override
@@ -117,12 +118,13 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         header(card);
     }
 
-    @OnClick({R.id.view_on_this_day_click_container}) void onCardClicked() {
+    @OnClick({R.id.view_on_this_day_click_container, R.id.year}) void onCardClicked(View view) {
+        boolean isYearClicked = view.getId() == R.id.year;
         funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) getContext(),
                 headerView.getTitleView(), getContext().getString(R.string.transition_on_this_day));
         getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                ON_THIS_DAY_CARD_BODY), options.toBundle());
+                isYearClicked ? ON_THIS_DAY_CARD_YEAR : ON_THIS_DAY_CARD_BODY, isYearClicked ? getCard().year() : -1), options.toBundle());
     }
 
     private void updateOtdEventUI(OnThisDayCard card) {

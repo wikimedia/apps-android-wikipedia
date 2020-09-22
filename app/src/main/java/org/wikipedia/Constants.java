@@ -89,6 +89,7 @@ public final class Constants {
         VOICE("voice"),
         ON_THIS_DAY_CARD_BODY("onThisDayCard"),
         ON_THIS_DAY_CARD_FOOTER("onThisDayCardFooter"),
+        ON_THIS_DAY_CARD_YEAR("onThisDayCardYear"),
         LEAD_IMAGE("leadImage"),
         TABS_ACTIVITY("tabsActivity"),
         FILE_PAGE_ACTIVITY("filePage"),

@@ -60,6 +60,7 @@ import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
+import static org.wikipedia.feed.onthisday.OnThisDayActivity.YEAR;
 
 public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback {
     @BindView(R.id.day) TextView dayText;
@@ -81,6 +82,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
     private WikiSite wiki;
+    private int yearClickedOnCardView;
+    private int positionToScrollTo;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @NonNull
@@ -102,6 +105,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         int age = requireActivity().getIntent().getIntExtra(AGE, 0);
         wiki = requireActivity().getIntent().getParcelableExtra(WIKISITE);
         date = DateUtil.getDefaultDateFor(age);
+        yearClickedOnCardView = requireActivity().getIntent().getIntExtra(YEAR, -1);
         setUpToolbar();
         eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
@@ -133,6 +137,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 (InvokeSource) requireActivity().getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private void requestEvents(int month, int date) {
         progressBar.setVisibility(VISIBLE);
         eventsRecycler.setVisibility(GONE);
@@ -141,12 +146,25 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> progressBar.setVisibility(GONE))
+                .doAfterTerminate(() -> {
+                    progressBar.setVisibility(GONE);
+                    eventsRecycler.postDelayed(() -> {
+                        if (positionToScrollTo != -1 && yearClickedOnCardView != -1) {
+                            eventsRecycler.scrollToPosition(positionToScrollTo);
+                        }
+                    }, 500);
+                })
                 .subscribe(response -> {
                     onThisDay = response;
                     eventsRecycler.setVisibility(VISIBLE);
                     eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
                     List<OnThisDay.Event> events = onThisDay.events();
+                    for (int i = 0; i < events.size(); i++) {
+                        if (yearClickedOnCardView == events.get(i).year()) {
+                            positionToScrollTo = i;
+                            break;
+                        }
+                    }
                     int beginningYear = events.get(events.size() - 1).year();
                     dayInfoTextView.setText(String.format(getString(R.string.events_count_text), Integer.toString(events.size()),
                             DateUtil.yearToStringWithEra(beginningYear), events.get(0).year()));
@@ -262,8 +280,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             if (holder instanceof EventsViewHolder) {
-                ((EventsViewHolder) holder).setFields(events.get(position),
-                        position > 0 ? events.get(position - 1) : null);
+                ((EventsViewHolder) holder).setFields(events.get(position), position);
                 if (funnel != null) {
                     funnel.scrolledToPosition(position);
                 }
@@ -300,7 +317,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             this.wiki = wiki;
         }
 
-        public void setFields(@NonNull final OnThisDay.Event event, @Nullable OnThisDay.Event prevEvent) {
+        public void setFields(@NonNull final OnThisDay.Event event, int position) {
             descTextView.setText(event.text());
             descTextView.setVisibility(TextUtils.isEmpty(event.text()) ? GONE : VISIBLE);
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
