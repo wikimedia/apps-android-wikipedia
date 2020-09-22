@@ -2,21 +2,38 @@ package org.wikipedia.feed.mostread;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.json.annotations.Required;
 
 import java.util.Date;
 import java.util.List;
 
-public final class MostReadArticles {
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private Date date;
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<PageSummary> articles;
+@SuppressWarnings("unused")
+public final class MostReadArticles extends PageSummary {
+    private int views;
+    private int rank;
+    @SerializedName("view_history") private List<ViewHistory> viewHistory;
 
-    @NonNull public Date date() {
-        return date;
+    public int getViews() {
+        return views;
     }
 
-    @NonNull public List<PageSummary> articles() {
-        return articles;
+    public List<ViewHistory> getViewHistory() {
+        return viewHistory;
+    }
+
+    public class ViewHistory {
+        private Date date;
+        private int views;
+
+        @NonNull
+        public Date getDate() {
+            return date;
+        }
+
+        public int getViews() {
+            return views;
+        }
     }
 }

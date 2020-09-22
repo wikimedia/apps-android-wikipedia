@@ -15,7 +15,7 @@ public class MostReadItemCard extends Card {
     @NonNull private final PageSummary page;
     @NonNull private final WikiSite wiki;
 
-    MostReadItemCard(@NonNull PageSummary page, @NonNull WikiSite wiki) {
+    MostReadItemCard(@NonNull MostReadArticles page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }

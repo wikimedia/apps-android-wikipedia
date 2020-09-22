@@ -7,7 +7,6 @@ import androidx.annotation.VisibleForTesting;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.util.DateUtil;
@@ -18,9 +17,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MostReadListCard extends ListCard<MostReadItemCard> {
-    @NonNull private final MostReadArticles articles;
+    @NonNull private final MostRead articles;
 
-    public MostReadListCard(@NonNull MostReadArticles articles, @NonNull WikiSite wiki) {
+    public MostReadListCard(@NonNull MostRead articles, @NonNull WikiSite wiki) {
         super(toItems(articles.articles(), wiki), wiki);
         this.articles = articles;
     }
@@ -47,10 +46,10 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @NonNull
     @VisibleForTesting
-    public static List<MostReadItemCard> toItems(@NonNull List<PageSummary> articles,
+    public static List<MostReadItemCard> toItems(@NonNull List<MostReadArticles> articles,
                                           @NonNull WikiSite wiki) {
         List<MostReadItemCard> cards = new ArrayList<>();
-        for (PageSummary article : articles) {
+        for (MostReadArticles article : articles) {
             cards.add(new MostReadItemCard(article, wiki));
         }
         return cards;

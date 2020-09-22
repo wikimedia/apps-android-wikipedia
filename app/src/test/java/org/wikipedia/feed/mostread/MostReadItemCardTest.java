@@ -17,11 +17,11 @@ import static org.hamcrest.Matchers.not;
 @RunWith(RobolectricTestRunner.class)
 public class MostReadItemCardTest {
     private static WikiSite TEST = WikiSite.forLanguageCode("test");
-    private MostReadArticles content;
+    private MostRead content;
 
     @Before public void setUp() throws Throwable {
         String json = TestFileUtil.readRawFile("mostread_2016_11_07.json");
-        content = GsonUnmarshaller.unmarshal(MostReadArticles.class, json);
+        content = GsonUnmarshaller.unmarshal(MostRead.class, json);
     }
 
     @Test public void testTitleNormalization() {
