@@ -7,6 +7,7 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import org.apache.commons.lang3.StringUtils;
@@ -249,10 +250,15 @@ public class LeadImagesHandler {
             if (imageName != null) {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
+
+                GalleryActivity.setTransitionBitmap(pageHeaderView.getImageView());
+                ActivityOptionsCompat options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation(getActivity(), pageHeaderView.getImageView(), getActivity().getString(R.string.transition_page_gallery));
+
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
                         parentFragment.getTitle(), filename, wiki, parentFragment.getRevision(),
                         GalleryFunnel.SOURCE_LEAD_IMAGE),
-                        Constants.ACTIVITY_REQUEST_GALLERY);
+                        Constants.ACTIVITY_REQUEST_GALLERY, options.toBundle());
             }
         }
     }
