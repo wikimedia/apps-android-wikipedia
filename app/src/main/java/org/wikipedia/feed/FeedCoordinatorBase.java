@@ -18,7 +18,7 @@ import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.mostread.MostReadListCard;
-import org.wikipedia.feed.news.NewsListCard;
+import org.wikipedia.feed.news.NewsCard;
 import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.feed.progress.ProgressCard;
@@ -289,7 +289,7 @@ public abstract class FeedCoordinatorBase {
     }
 
     private boolean isDailyCardType(@NonNull Card card) {
-        return card instanceof NewsListCard || card instanceof OnThisDayCard
+        return card instanceof NewsCard || card instanceof OnThisDayCard
                 || card instanceof MostReadListCard || card instanceof FeaturedArticleCard
                 || card instanceof FeaturedImageCard
                 || card instanceof FundraisingCard;
