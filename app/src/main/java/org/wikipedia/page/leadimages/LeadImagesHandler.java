@@ -196,7 +196,7 @@ public class LeadImagesHandler {
         }
     }
 
-    @Nullable private String getLeadImageUrl() {
+    @Nullable public String getLeadImageUrl() {
         String url = getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
         if (url == null) {
             return null;
@@ -251,7 +251,10 @@ public class LeadImagesHandler {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
 
-                GalleryActivity.setTransitionBitmap(pageHeaderView.getImageView());
+                //GalleryActivity.setTransitionBitmap(pageHeaderView.getImageView());
+
+                //GalleryActivity.setTransitionImageUrl(getLeadImageUrl());
+
                 ActivityOptionsCompat options = ActivityOptionsCompat.
                         makeSceneTransitionAnimation(getActivity(), pageHeaderView.getImageView(), getActivity().getString(R.string.transition_page_gallery));
 

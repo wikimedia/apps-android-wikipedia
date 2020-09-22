@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -101,6 +102,7 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
@@ -184,6 +186,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
+    private ImageView viewForTransition;
     private PageReferences references;
     private long revision;
     @Nullable private AvPlayer avPlayer;
@@ -617,6 +620,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onResume();
         initPageScrollFunnel();
         activeTimer.resume();
+
+        if (viewForTransition != null) {
+            ((ViewGroup) viewForTransition.getParent()).removeView(viewForTransition);
+            viewForTransition = null;
+        }
     }
 
     @Override
@@ -1162,13 +1170,33 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void startGalleryActivity(@NonNull String fileName) {
         if (app.isOnline()) {
 
-            GalleryActivity.setTransitionBitmap(pageHeaderView.getImageView());
-            ActivityOptionsCompat options = ActivityOptionsCompat.
-                    makeSceneTransitionAnimation(requireActivity(), pageHeaderView.getImageView(), getString(R.string.transition_page_gallery));
+            bridge.evaluate(JavaScriptActionHandler.getElementAtPosition(DimenUtil.roundedPxToDp(webView.getLastTouchX()), DimenUtil.roundedPxToDp(webView.getLastTouchY())), s -> {
+                JavaScriptActionHandler.Extents extents = GsonUtil.getDefaultGson().fromJson(s, JavaScriptActionHandler.Extents.class);
 
-            requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitle(), fileName,
-                    model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY, options.toBundle());
+                viewForTransition = new ImageView(requireActivity());
+                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(DimenUtil.roundedDpToPx(extents.getWidth()), DimenUtil.roundedDpToPx(extents.getHeight()));
+                params.topMargin = DimenUtil.roundedDpToPx(extents.getTop());
+                params.leftMargin = DimenUtil.roundedDpToPx(extents.getLeft());
+                viewForTransition.setLayoutParams(params);
+                viewForTransition.setTransitionName(getString(R.string.transition_page_gallery));
+                ((ViewGroup) webView.getParent()).addView(viewForTransition);
+
+                GalleryActivity.setTransitionExtents(extents);
+
+                viewForTransition.post(() -> {
+
+                    ActivityOptionsCompat options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation(requireActivity(), viewForTransition, getString(R.string.transition_page_gallery));
+
+                    requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                            model.getTitle(), fileName,
+                            model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY, options.toBundle());
+                });
+
+                ViewUtil.loadImage(viewForTransition, extents.getSrc());
+            });
+
+
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());

@@ -14,6 +14,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.getDensityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.log.L
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
@@ -144,5 +145,27 @@ object JavaScriptActionHandler {
                 "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 80px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
+    }
+
+    @JvmStatic
+    fun getElementAtPosition(x: Int, y: Int): String {
+        return "(function() {" +
+                "  let element = document.elementFromPoint(${x}, ${y});" +
+                "  let result = {};" +
+                "  result.left = element.getBoundingClientRect().left;" +
+                "  result.top = element.getBoundingClientRect().top;" +
+                "  result.width = element.clientWidth;" +
+                "  result.height = element.clientHeight;" +
+                "  result.src = element.src;" +
+                "  return result;" +
+                "})();"
+    }
+
+    class Extents {
+        val left: Float = 0f
+        val top: Float = 0f
+        val width: Float = 0f
+        val height: Float = 0f
+        val src: String = ""
     }
 }

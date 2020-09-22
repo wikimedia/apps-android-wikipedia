@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +15,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -38,6 +38,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
@@ -60,6 +61,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ImageUrlUtil;
@@ -68,6 +70,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
@@ -112,7 +115,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
-    private static Bitmap TRANSITION_BITMAP = null;
+    private static JavaScriptActionHandler.Extents TRANSITION_EXTENTS;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -260,9 +263,16 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             setControlsShowing(controlsShowing);
         });
 
-        if (TRANSITION_BITMAP != null) {
+        if (TRANSITION_EXTENTS != null) {
+
+            float aspect = TRANSITION_EXTENTS.getHeight() / TRANSITION_EXTENTS.getWidth();
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(DimenUtil.getDisplayWidthPx(), (int)(DimenUtil.getDisplayWidthPx() * aspect));
+            params.gravity = Gravity.CENTER_VERTICAL;
+            transitionReceiver.setLayoutParams(params);
+
             transitionReceiver.setVisibility(View.VISIBLE);
-            transitionReceiver.setImageBitmap(TRANSITION_BITMAP);
+            ViewUtil.loadImage(transitionReceiver, TRANSITION_EXTENTS.getSrc());
+
         } else {
             transitionReceiver.setVisibility(View.GONE);
         }
@@ -370,32 +380,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         startCaptionEdit(item);
     }
 
-
-    public static void setTransitionBitmap(@NonNull View view) {
-        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        Bitmap bitmap = Bitmap.createBitmap(view.getMeasuredWidth(), view.getMeasuredHeight(),
-                Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        view.layout(0, 0, view.getWidth(), view.getHeight());
-        view.draw(canvas);
-        setTransitionBitmap(bitmap);
-    }
-
-    public static void setTransitionBitmap(@NonNull Bitmap bitmap) {
-        clearTransitionBitmap();
-        TRANSITION_BITMAP = bitmap;
-    }
-
-    private static void clearTransitionBitmap() {
-        if (TRANSITION_BITMAP == null) {
-            return;
-        }
-        try {
-            TRANSITION_BITMAP.recycle();
-        } catch (Exception e) {
-            // ignore errors
-        }
-        TRANSITION_BITMAP = null;
+    public static void setTransitionExtents(@NonNull JavaScriptActionHandler.Extents extents) {
+        TRANSITION_EXTENTS = extents;
     }
 
     private void startCaptionEdit(GalleryItemFragment item) {
@@ -510,6 +496,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (item != null && item.getImageTitle() != null && funnel != null) {
             funnel.logGalleryClose(pageTitle, item.getImageTitle().getDisplayText());
         }
+
+        if (TRANSITION_EXTENTS != null) {
+            transitionReceiver.setVisibility(View.VISIBLE);
+            TRANSITION_EXTENTS = null;
+        }
+
         super.onBackPressed();
     }
 
@@ -683,6 +675,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * Populate the description and license text fields with data from the current gallery item.
      */
     public void layOutGalleryDescription() {
+        transitionReceiver.setVisibility(View.GONE);
+
         GalleryItemFragment item = getCurrentItem();
         if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
             infoContainer.setVisibility(View.GONE);
