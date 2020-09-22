@@ -25,6 +25,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -184,7 +185,10 @@ public class LoginActivity extends BaseActivity {
         Prefs.setReadingListPagesDeletedIds(Collections.emptySet());
         Prefs.setReadingListsDeletedIds(Collections.emptySet());
         ReadingListSyncAdapter.manualSyncWithForce();
+
+        NotificationPollBroadcastReceiver.pollNotifications(WikipediaApp.getInstance());
         WikipediaFirebaseMessagingService.Companion.subscribeCurrentToken();
+
         finish();
     }
 

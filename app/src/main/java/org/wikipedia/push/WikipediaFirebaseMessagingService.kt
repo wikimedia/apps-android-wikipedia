@@ -6,7 +6,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
@@ -57,24 +59,43 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private const val SUBSCRIBE_RETRY_COUNT = 5
         private const val UNSUBSCRIBE_RETRY_COUNT = 3
 
-        fun isPushEnabled(): Boolean {
+        fun isUsingPush(): Boolean {
             return Prefs.getPushNotificationToken().isNotEmpty()
                     && Prefs.isPushNotificationTokenSubscribed()
         }
 
         fun subscribeCurrentToken() {
-            if (!AccountUtil.isLoggedIn() || Prefs.isPushNotificationTokenSubscribed()) {
+            if (!AccountUtil.isLoggedIn()
+                    || Prefs.isPushNotificationTokenSubscribed()
+                    || Prefs.getPushNotificationToken().isEmpty()) {
                 // Don't bother registering the token if the user is not logged in,
                 // or if the token was already subscribed successfully.
                 return
             }
+
+            CsrfTokenClient(WikipediaApp.getInstance().wikiSite).request(false, object : CsrfTokenClient.Callback {
+                override fun success(token: String) {
+                    subscribeWithCsrf(token)
+                }
+
+                override fun failure(t: Throwable) {
+                    L.e(t)
+                }
+
+                override fun twoFactorPrompt() {
+                    // ignore
+                }
+            })
+        }
+
+        private fun subscribeWithCsrf(csrfToken: String) {
             val token = Prefs.getPushNotificationToken()
             val oldToken = Prefs.getPushNotificationTokenOld()
 
             // Make sure to unsubscribe the previous token, if any
             if (oldToken.isNotEmpty()) {
                 if (oldToken != token) {
-                    ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(Prefs.getPushNotificationToken())
+                    ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, Prefs.getPushNotificationToken())
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
@@ -83,13 +104,17 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                                 Prefs.setPushNotificationTokenOld("")
                             }, {
                                 L.e(it)
+                                if (it is MwException && it.error.title == "echo-push-token-not-found") {
+                                    // token was not found in the database, so consider it gone.
+                                    Prefs.setPushNotificationTokenOld("")
+                                }
                             })
                 } else {
                     Prefs.setPushNotificationTokenOld("")
                 }
             }
 
-            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(token)
+            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).subscribePush(csrfToken, token)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(SUBSCRIBE_RETRY_COUNT.toLong())
@@ -98,6 +123,10 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                         Prefs.setPushNotificationTokenSubscribed(true)
                     }, {
                         L.e(it)
+                        if (it is MwException && it.error.title == "echo-push-token-exists") {
+                            // token already exists in the database, so consider it subscribed.
+                            Prefs.setPushNotificationTokenSubscribed(true)
+                        }
                     })
         }
     }
