@@ -35,13 +35,13 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.mostread.MostReadArticlesActivity;
 import org.wikipedia.feed.mostread.MostReadListCard;
-import org.wikipedia.feed.news.NewsItemCard;
+import org.wikipedia.feed.news.NewsCard;
+import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
-import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
@@ -102,7 +102,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
         void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
-        void onFeedNewsItemSelected(NewsItemCard card, HorizontalScrollingListCardItemView view);
+        void onFeedNewsItemSelected(NewsCard card, NewsItemView view);
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
@@ -447,10 +447,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
+        public void onNewsItemSelected(@NonNull NewsCard newsCard, NewsItemView view) {
             if (getCallback() != null) {
-                funnel.cardClicked(card.type(), card.wikiSite().languageCode());
-                getCallback().onFeedNewsItemSelected(card, view);
+                funnel.cardClicked(newsCard.type(), newsCard.wikiSite().languageCode());
+                getCallback().onFeedNewsItemSelected(newsCard, view);
             }
         }
 
