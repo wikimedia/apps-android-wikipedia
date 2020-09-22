@@ -50,7 +50,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         setLayoutDirectionByWikiSite(card.wikiSite(), rtlContainer);
         newsPager.setOffscreenPageLimit(2);
         newsPager.setAdapter(new NewsAdapter(card));
-        new TabLayoutMediator(newItemIndicatorView, newsPager, (tab, position) -> { }).attach();
+        new TabLayoutMediator(newItemIndicatorView, newsPager, (tab, position) -> tab.view.setClickable(false)).attach();
     }
 
     private void header(@NonNull NewsCard card) {

@@ -25,7 +25,7 @@
         app:tabBackground="@drawable/shape_tab_dot"
         app:tabGravity="center"
         app:tabIndicator="@null"
-        app:tabPaddingEnd="24dp"
+        app:tabPaddingEnd="8dp"
         app:tabPaddingStart="8dp"
         app:tabRippleColor="?attr/color_group_59" />
 </LinearLayout>
