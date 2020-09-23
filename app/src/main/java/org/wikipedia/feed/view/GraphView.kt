@@ -17,20 +17,16 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
     private var maxY = 0
 
     private val linePaint = Paint().apply {
-//        val paintShader: Shader = LinearGradient(0f, 0f, width.toFloat(), height.toFloat(),
-//                intArrayOf(gradientColor2, gradientColor1, gradientColor2),
-//                floatArrayOf(0f, 0.5f, 1f), Shader.TileMode.REPEAT)
-//        shader = paintShader
         color = Color.BLACK
         strokeWidth = 7f
         isAntiAlias = true
     }
 
-    fun setData(newDataSet: List<MostReadArticles.ViewHistory>) {
-        maxX = newDataSet.size
-        maxY = newDataSet.maxByOrNull { it.views }?.views ?: 0
+    fun setData(viewHistoryList: List<MostReadArticles.ViewHistory>) {
+        maxX = viewHistoryList.size
+        maxY = viewHistoryList.maxByOrNull { it.views }?.views ?: 0
         dataSet.clear()
-        dataSet.addAll(newDataSet)
+        dataSet.addAll(viewHistoryList)
         invalidate()
     }
 
