@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -40,7 +42,6 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.CustomDatePicker;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.HeaderMarginItemDecoration;
-import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.Calendar;
@@ -112,7 +113,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         final int topDecorationDp = 24;
         eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         setUpRecycler(eventsRecycler);
-
+        eventsRecycler.addOnScrollListener(new EventScrollListener());
         errorView.setBackClickListener(v -> requireActivity().finish());
 
         final int animDelay = (requireActivity().getWindow().getSharedElementEnterTransition() != null
@@ -128,6 +129,25 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         eventsRecycler.setVisibility(GONE);
         errorView.setVisibility(GONE);
         return view;
+    }
+
+    private class EventScrollListener extends RecyclerView.OnScrollListener {
+        LinearLayoutManager layoutManager = ((LinearLayoutManager) eventsRecycler.getLayoutManager());
+
+        @Override
+        public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            int visiblePosition = layoutManager.findFirstCompletelyVisibleItemPosition();
+            if (visiblePosition > -1) {
+                View itemView = layoutManager.findViewByPosition(visiblePosition);
+                Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
+                ImageView radioImageIndicatorView;
+                if (itemView != null) {
+                    radioImageIndicatorView = itemView.findViewById(R.id.radio_image_view);
+                    radioImageIndicatorView.startAnimation(pulse);
+                }
+            }
+        }
     }
 
     private void updateContents(int age) {
@@ -220,11 +240,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     private void setUpRecycler(RecyclerView recycler) {
-        recycler.addItemDecoration(new MarginItemDecoration(requireContext(),
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical,
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical));
         recycler.addOnItemTouchListener(new DontInterceptTouchListener());
         recycler.setNestedScrollingEnabled(true);
         recycler.setClipToPadding(false);
