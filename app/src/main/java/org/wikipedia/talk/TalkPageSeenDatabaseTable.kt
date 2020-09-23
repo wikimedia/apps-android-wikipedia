@@ -1,9 +1,9 @@
 package org.wikipedia.talk
 
-import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.provider.BaseColumns
+import androidx.core.content.contentValuesOf
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.DbUtil
@@ -28,11 +28,7 @@ object TalkPageSeenDatabaseTable : DatabaseTable<String?>(TABLE, URI) {
         return SHA.`val`(cursor)
     }
 
-    override fun toContentValues(obj: String?): ContentValues {
-        val contentValues = ContentValues()
-        contentValues.put(SHA.name, obj)
-        return contentValues
-    }
+    override fun toContentValues(obj: String?) = contentValuesOf(SHA.name to obj)
 
     override fun getDBVersionIntroducedAt(): Int {
         return DB_VER_INTRODUCED
