@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -54,10 +53,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.year) TextView yearTextView;
     @BindView(R.id.years_text) TextView yearsInfoTextView;
-    @BindView(R.id.year_layout) LinearLayout yearLayout;
     @BindView(R.id.pages_pager) ViewPager2 pagesViewPager;
     @BindView(R.id.pages_item_indicator_view) TabLayout indicatorView;
-    @BindView(R.id.radio_image_view) View radio;
     @BindView(R.id.view_on_this_day_rtl_container) View rtlContainer;
     @BindView(R.id.card_footer_view) CardFooterView cardFooterView;
     @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView otdEventImage;
