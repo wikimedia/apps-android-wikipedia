@@ -901,6 +901,7 @@
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
   <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
+  <string name="view_top_read_card_pageviews_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
   <string name="top_read_activity_title">Title for the screen with all top read links. \"%s\" represents the date string</string>
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>

@@ -599,6 +599,7 @@
     <string name="view_random_article_card_action">More random articles</string>
     <string name="view_top_read_card_title">Top read</string>
     <string name="view_top_read_card_action">More top read</string>
+    <string name="view_top_read_card_pageviews_suffix">%d k</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_featured_image_card_title">Picture of the day</string>

@@ -72,6 +72,8 @@ public class MostReadCardView extends ListCardView<MostReadListCard> {
                     .setHistoryEntry(new HistoryEntry(item.pageTitle(),
                             HistoryEntry.SOURCE_FEED_MOST_READ));
             holder.getView().setNumber(position + 1);
+            holder.getView().setPageViews(item.getPageViews());
+            holder.getView().setGraphView(item.getViewHistory());
         }
     }
 }
