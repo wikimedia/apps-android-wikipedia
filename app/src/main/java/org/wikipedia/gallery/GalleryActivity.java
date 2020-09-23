@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.transition.Transition;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.Menu;
@@ -116,6 +117,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
     private static JavaScriptActionHandler.Extents TRANSITION_EXTENTS;
+    private boolean contentAfterTransitionLoaded;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -263,6 +265,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             setControlsShowing(controlsShowing);
         });
 
+
         if (TRANSITION_EXTENTS != null) {
 
             float aspect = TRANSITION_EXTENTS.getHeight() / TRANSITION_EXTENTS.getWidth();
@@ -276,6 +279,41 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         } else {
             transitionReceiver.setVisibility(View.GONE);
         }
+
+        getWindow().getSharedElementEnterTransition().addListener(new Transition.TransitionListener() {
+            @Override
+            public void onTransitionStart(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                if (isDestroyed()) {
+                    return;
+                }
+                if (contentAfterTransitionLoaded) {
+                    transitionReceiver.post(() -> {
+                        if (isDestroyed()) {
+                            return;
+                        }
+                        hideTransitionReceiver();
+                        contentAfterTransitionLoaded = false;
+                    });
+                }
+            }
+
+            @Override
+            public void onTransitionCancel(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionPause(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionResume(Transition transition) {
+            }
+        });
+
 
         loadGalleryContent();
     }
@@ -498,11 +536,26 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
 
         if (TRANSITION_EXTENTS != null) {
-            transitionReceiver.setVisibility(View.VISIBLE);
+            showTransitionReceiver();
             TRANSITION_EXTENTS = null;
         }
 
         super.onBackPressed();
+    }
+
+
+    public void onMediaLoaded() {
+        contentAfterTransitionLoaded = true;
+        hideTransitionReceiver();
+    }
+
+    private void showTransitionReceiver() {
+        transitionReceiver.setAlpha(1f);
+        transitionReceiver.setVisibility(View.VISIBLE);
+    }
+
+    private void hideTransitionReceiver() {
+        transitionReceiver.setVisibility(View.GONE);
     }
 
     /**
@@ -675,8 +728,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      * Populate the description and license text fields with data from the current gallery item.
      */
     public void layOutGalleryDescription() {
-        transitionReceiver.setVisibility(View.GONE);
-
         GalleryItemFragment item = getCurrentItem();
         if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
             infoContainer.setVisibility(View.GONE);
