@@ -254,12 +254,12 @@ public class LeadImagesHandler {
 
                 JavaScriptActionHandler.ImageHitInfo hitInfo = new JavaScriptActionHandler.ImageHitInfo(pageHeaderView.image.getLeft(),
                         pageHeaderView.image.getTop(), pageHeaderView.image.getWidth(), pageHeaderView.image.getHeight(),
-                        getLeadImageUrl());
+                        getLeadImageUrl(), true);
 
                 GalleryActivity.setTransitionInfo(hitInfo);
 
                 ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(getActivity(), pageHeaderView.getImageView(), getActivity().getString(R.string.transition_page_gallery));
+                        makeSceneTransitionAnimation(getActivity(), pageHeaderView.image, getActivity().getString(R.string.transition_page_gallery));
 
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
                         parentFragment.getTitle(), filename, wiki, parentFragment.getRevision(),
