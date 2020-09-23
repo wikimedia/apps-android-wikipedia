@@ -197,7 +197,7 @@ public class LeadImagesHandler {
         }
     }
 
-    @Nullable public String getLeadImageUrl() {
+    @Nullable private String getLeadImageUrl() {
         String url = getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
         if (url == null) {
             return null;
