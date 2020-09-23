@@ -14,7 +14,6 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.getDensityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.log.L
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
@@ -161,11 +160,6 @@ object JavaScriptActionHandler {
                 "})();"
     }
 
-    class Extents {
-        val left: Float = 0f
-        val top: Float = 0f
-        val width: Float = 0f
-        val height: Float = 0f
-        val src: String = ""
+    data class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f, val src: String = "") {
     }
 }

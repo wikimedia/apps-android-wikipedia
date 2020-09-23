@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.transition.Transition;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.Menu;
@@ -116,8 +115,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
-    private static JavaScriptActionHandler.Extents TRANSITION_EXTENTS;
-    private boolean contentAfterTransitionLoaded;
+    private static JavaScriptActionHandler.ImageHitInfo TRANSITION_INFO;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -265,57 +263,32 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             setControlsShowing(controlsShowing);
         });
 
+        if (TRANSITION_INFO != null
+                && TRANSITION_INFO.getWidth() > 0 && TRANSITION_INFO.getHeight() > 0) {
 
-        if (TRANSITION_EXTENTS != null) {
-
-            float aspect = TRANSITION_EXTENTS.getHeight() / TRANSITION_EXTENTS.getWidth();
+            float aspect = TRANSITION_INFO.getHeight() / TRANSITION_INFO.getWidth();
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(DimenUtil.getDisplayWidthPx(), (int)(DimenUtil.getDisplayWidthPx() * aspect));
             params.gravity = Gravity.CENTER_VERTICAL;
             transitionReceiver.setLayoutParams(params);
 
             transitionReceiver.setVisibility(View.VISIBLE);
-            ViewUtil.loadImage(transitionReceiver, TRANSITION_EXTENTS.getSrc());
+            ViewUtil.loadImage(transitionReceiver, TRANSITION_INFO.getSrc());
 
-        } else {
-            transitionReceiver.setVisibility(View.GONE);
-        }
-
-        getWindow().getSharedElementEnterTransition().addListener(new Transition.TransitionListener() {
-            @Override
-            public void onTransitionStart(Transition transition) {
-            }
-
-            @Override
-            public void onTransitionEnd(Transition transition) {
+            final int transitionMillis = 500;
+            transitionReceiver.postDelayed(() -> {
                 if (isDestroyed()) {
                     return;
                 }
-                if (contentAfterTransitionLoaded) {
-                    transitionReceiver.post(() -> {
-                        if (isDestroyed()) {
-                            return;
-                        }
-                        hideTransitionReceiver();
-                        contentAfterTransitionLoaded = false;
-                    });
-                }
-            }
+                loadGalleryContent();
+            }, transitionMillis);
 
-            @Override
-            public void onTransitionCancel(Transition transition) {
-            }
+        } else {
 
-            @Override
-            public void onTransitionPause(Transition transition) {
-            }
+            TRANSITION_INFO = null;
+            transitionReceiver.setVisibility(View.GONE);
+            loadGalleryContent();
 
-            @Override
-            public void onTransitionResume(Transition transition) {
-            }
-        });
-
-
-        loadGalleryContent();
+        }
     }
 
     @Override public void onDestroy() {
@@ -328,6 +301,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             unbinder.unbind();
         }
 
+        TRANSITION_INFO = null;
         super.onDestroy();
     }
 
@@ -418,8 +392,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         startCaptionEdit(item);
     }
 
-    public static void setTransitionExtents(@NonNull JavaScriptActionHandler.Extents extents) {
-        TRANSITION_EXTENTS = extents;
+    public static void setTransitionInfo(@NonNull JavaScriptActionHandler.ImageHitInfo hitInfo) {
+        TRANSITION_INFO = hitInfo;
     }
 
     private void startCaptionEdit(GalleryItemFragment item) {
@@ -535,9 +509,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             funnel.logGalleryClose(pageTitle, item.getImageTitle().getDisplayText());
         }
 
-        if (TRANSITION_EXTENTS != null) {
+        if (TRANSITION_INFO != null) {
             showTransitionReceiver();
-            TRANSITION_EXTENTS = null;
         }
 
         super.onBackPressed();
@@ -545,7 +518,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
 
     public void onMediaLoaded() {
-        contentAfterTransitionLoaded = true;
         hideTransitionReceiver();
     }
 
@@ -662,7 +634,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mediaList -> {
-                    updateProgressBar(false);
                     applyGalleryList(mediaList.getItems("image", "video"));
                 }, caught -> {
                     updateProgressBar(false);
@@ -679,7 +650,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
             featuredImage.setAge(getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0));
-            updateProgressBar(false);
             applyGalleryList(Collections.singletonList(new MediaListItem(featuredImage.title())));
         } else {
             fetchGalleryItems();

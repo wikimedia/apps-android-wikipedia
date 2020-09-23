@@ -17,6 +17,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -244,16 +245,18 @@ public class LeadImagesHandler {
         });
     }
 
-    public void openImageInGallery(@Nullable  String language) {
+    public void openImageInGallery(@Nullable String language) {
         if (getPage() != null && isLeadImageEnabled()) {
             String imageName = getPage().getPageProperties().getLeadImageName();
             if (imageName != null) {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
 
-                //GalleryActivity.setTransitionBitmap(pageHeaderView.getImageView());
+                JavaScriptActionHandler.ImageHitInfo hitInfo = new JavaScriptActionHandler.ImageHitInfo(pageHeaderView.image.getLeft(),
+                        pageHeaderView.image.getTop(), pageHeaderView.image.getWidth(), pageHeaderView.image.getHeight(),
+                        getLeadImageUrl());
 
-                //GalleryActivity.setTransitionImageUrl(getLeadImageUrl());
+                GalleryActivity.setTransitionInfo(hitInfo);
 
                 ActivityOptionsCompat options = ActivityOptionsCompat.
                         makeSceneTransitionAnimation(getActivity(), pageHeaderView.getImageView(), getActivity().getString(R.string.transition_page_gallery));
