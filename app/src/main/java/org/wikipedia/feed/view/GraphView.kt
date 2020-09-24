@@ -15,9 +15,10 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
     private val dataSet = mutableListOf<MostReadArticles.ViewHistory>()
     private var maxX = 0
     private var maxY = 0
+    private val path = Path()
 
-    private val linePaint = Paint().apply {
-        color = Color.BLACK
+    private val pathPaint = Paint().apply {
+        style = Paint.Style.STROKE
         strokeWidth = 7f
         isAntiAlias = true
     }
@@ -32,17 +33,20 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
-        dataSet.forEachIndexed { index, currentDataPoint ->
-            if (index < dataSet.size - 1) {
-                val nextDataPoint = dataSet[index + 1]
-                val startX = index.scaleX()
-                val startY = currentDataPoint.views.scaleY()
-                val endX = (index + 1).scaleX()
-                val endY = nextDataPoint.views.scaleY()
-                canvas.drawLine(startX, startY, endX, endY, linePaint)
+        path.reset()
+        path.moveTo(0f, 0f)
+        dataSet.forEachIndexed { index, data ->
+            if (index < dataSet.size) {
+                path.lineTo(index.scaleX(), data.views.scaleY())
             }
         }
+        canvas.drawPath(path, pathPaint)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
+        pathPaint.shader =  LinearGradient(0f, 0f, width.toFloat(), height.toFloat(),
+                intArrayOf(gradientColor2, gradientColor1, gradientColor2),
+                floatArrayOf(0f, 0.5f, 1f), Shader.TileMode.MIRROR)
     }
 
     private fun Int.scaleX() = toFloat() / maxX * width
