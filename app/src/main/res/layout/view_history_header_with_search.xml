@@ -12,7 +12,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:transitionName="@string/transition_search_bar">
 
         <include
             android:id="@+id/search_card"
