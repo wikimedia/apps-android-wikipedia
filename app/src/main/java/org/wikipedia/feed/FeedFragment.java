@@ -97,7 +97,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Nullable private SuggestedEditsCardView suggestedEditsCardView;
 
     public interface Callback {
-        void onFeedSearchRequested();
+        void onFeedSearchRequested(View view);
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedSelectPageFromExistingTab(HistoryEntry entry);
@@ -415,9 +415,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSearchRequested() {
+        public void onSearchRequested(View view) {
             if (getCallback() != null) {
-                getCallback().onFeedSearchRequested();
+                getCallback().onFeedSearchRequested(view);
             }
         }
 
