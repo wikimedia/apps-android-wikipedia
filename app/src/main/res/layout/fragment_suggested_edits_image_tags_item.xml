@@ -31,15 +31,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <!-- Container layout is necessary to make the ImageView zoomable in-place. -->
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHeight_percent="0.65"
-            android:layout_marginTop="64dp"
-            android:scaleType="fitCenter"
-            android:contentDescription="@null"/>
+            android:layout_marginTop="64dp">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:contentDescription="@null"/>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/imageCaption"
