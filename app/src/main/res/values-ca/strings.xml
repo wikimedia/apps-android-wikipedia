@@ -254,6 +254,11 @@
   <string name="page_similar_titles">Pàgines similars</string>
   <string name="search_did_you_mean">Volíeu dir «%s»?</string>
   <string name="search_recent_header">Cerques recents:</string>
+  <string name="search_results_count_zero">No hi ha cap resultat</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultat</item>
+    <item quantity="other">%d resultats</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Esborra les cerques recents</string>
   <string name="clear_recent_searches_confirm">Segur que voleu esborrar l\'historial de cerca?</string>
   <string name="clear_recent_searches_confirm_yes">Sí</string>
