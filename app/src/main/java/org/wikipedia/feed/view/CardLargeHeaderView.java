@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.palette.graphics.Palette;
 
 import com.google.android.material.card.MaterialCardView;
@@ -101,23 +102,11 @@ public class CardLargeHeaderView extends ConstraintLayout {
     }
 
     private static int lightenColor(@ColorInt int color) {
-        int r = (color & 0xff);
-        int g = (color & 0xff00) >> 8;
-        int b = (color & 0xff0000) >> 16;
-        r += ((0xff - r) / 2);
-        g += ((0xff - g) / 2);
-        b += ((0xff - b) / 2);
-        return Color.rgb(r, g, b);
+        return ColorUtils.blendARGB(color, Color.WHITE, 0.3f);
     }
 
     private static int darkenColor(@ColorInt int color) {
-        int r = (color & 0xff);
-        int g = (color & 0xff00) >> 8;
-        int b = (color & 0xff0000) >> 16;
-        r -= (r / 2);
-        g -= (g / 2);
-        b -= (b / 2);
-        return Color.rgb(r, g, b);
+        return ColorUtils.blendARGB(color, Color.BLACK, 0.3f);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
