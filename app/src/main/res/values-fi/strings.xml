@@ -50,6 +50,7 @@
   <string name="history_item_delete_undo">Kumoa</string>
   <string name="notification_archive_undo">Kumoa</string>
   <string name="app_settings">Sovellusasetukset</string>
+  <string name="history_list_title">Historia</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="dialog_message_clear_history_yes">Kyllä</string>
@@ -876,4 +877,9 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Peruuta</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Peruuta</string>
+  <string name="talk_add_reply">Vastaa</string>
+  <string name="talk_no_subject">(Ei aihetta)</string>
+  <string name="talk_reply_subject">Aihe</string>
+  <string name="talk_message_hint">Kirjoita viesti</string>
+  <string name="talk_message_empty">Viesti ei voi olla tyhjä.</string>
 </resources>
