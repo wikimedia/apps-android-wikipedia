@@ -198,8 +198,8 @@ public class SearchResultsFragment extends Fragment {
 
         disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
                 Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                        (searchTerm.length() > 2) ? Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)) : Observable.just(new SearchResults()),
-                        (searchTerm.length() > 2) ? Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)) : Observable.just(new SearchResults()),
                         (searchResponse, readingListSearchResults, historySearchResults) -> {
 
                             SearchResults searchResults;
