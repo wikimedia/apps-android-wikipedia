@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.feed.mostread.MostReadArticles
 
-
 class GraphView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
     private val gradientColor1 = ContextCompat.getColor(context, R.color.accent50)
     private val gradientColor2 = ContextCompat.getColor(context, R.color.green50)
@@ -33,10 +32,11 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
         path.reset()
-        path.moveTo(0f, 0f)
+        path.moveTo(0.scaleX(), dataSet[0].views.scaleY())
         dataSet.forEachIndexed { index, data ->
-            if (index < dataSet.size) {
+            if (index > 0 && index < dataSet.size) {
                 path.lineTo(index.scaleX(), data.views.scaleY())
             }
         }

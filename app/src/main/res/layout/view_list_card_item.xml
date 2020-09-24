@@ -51,13 +51,13 @@
         android:layout_marginTop="8dp"
         android:visibility="gone"
         android:scaleY="-1"
-        app:layout_constraintStart_toStartOf="@+id/view_list_card_item_subtitle"
+        app:layout_constraintStart_toStartOf="@+id/view_list_card_item_title"
         app:layout_constraintTop_toBottomOf="@id/view_list_card_item_subtitle"
         tools:text="Lorem ipsum" />
 
     <TextView
         android:id="@+id/view_list_card_item_pageviews"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:fontFamily="sans-serif-medium"
@@ -66,7 +66,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/view_list_card_item_title"
         app:layout_constraintStart_toEndOf="@+id/view_list_card_item_graph"
         app:layout_constraintTop_toBottomOf="@id/view_list_card_item_subtitle"
         tools:text="Lorem ipsum" />

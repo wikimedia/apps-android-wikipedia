@@ -157,7 +157,8 @@ public class ListCardItemView extends ConstraintLayout {
 
     public void setPageViews(int pageViews) {
         pageViewsView.setVisibility(VISIBLE);
-        pageViewsView.setText(getContext().getString(R.string.view_top_read_card_pageviews_suffix, Math.round(pageViews / 1000f)));
+        pageViewsView.setText((pageViews < 1000) ? String.valueOf(pageViews)
+                : getContext().getString(R.string.view_top_read_card_pageviews_suffix, Math.round(pageViews / 1000f)));
     }
 
     public void setGraphView(@NonNull List<MostReadArticles.ViewHistory> viewHistories) {
