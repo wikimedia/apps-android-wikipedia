@@ -218,9 +218,10 @@ public class SearchResultsFragment extends Fragment {
                                 searchResults = new SearchResults();
                             }
                             handleSuggestion(searchResults.getSuggestion());
-                            List<SearchResult> resultList = new ArrayList<>(readingListSearchResults.getResults());
-                            resultList.addAll(historySearchResults.getResults());
+                            List<SearchResult> resultList = new ArrayList<>();
                             addSearchResultsFromTabs(resultList);
+                            resultList.addAll(readingListSearchResults.getResults());
+                            resultList.addAll(historySearchResults.getResults());
                             resultList.addAll(searchResults.getResults());
                             return resultList;
                         }))
