@@ -408,6 +408,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                     deleteSelectedPages();
                 }
             });
+            FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton);
             searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
         }
 
