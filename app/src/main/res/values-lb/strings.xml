@@ -214,6 +214,7 @@
   <string name="page_similar_titles">Änlech Säiten</string>
   <string name="search_did_you_mean">Mengt Dir \"%s\"?</string>
   <string name="search_recent_header">Rezent gesicht:</string>
+  <string name="search_results_count_zero">Keng Resultater</string>
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>
   <string name="clear_recent_searches_confirm">Sidd Dir sécher datt Dir Ären Historique vum Siche läsche wëllt?</string>
   <string name="clear_recent_searches_confirm_yes">Jo</string>
@@ -663,6 +664,7 @@
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
   <string name="talk_title">Diskussioun</string>
+  <string name="talk_user_title">Diskussioun: %s</string>
   <string name="talk_new_topic">Neit Thema</string>
   <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
   <string name="talk_add_reply">Äntweren</string>
