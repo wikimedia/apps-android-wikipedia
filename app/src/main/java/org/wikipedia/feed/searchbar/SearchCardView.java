@@ -1,6 +1,7 @@
 package org.wikipedia.feed.searchbar;
 
 import android.content.Context;
+import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.DefaultFeedCardView;
@@ -14,7 +15,7 @@ import butterknife.OnClick;
 
 public class SearchCardView extends DefaultFeedCardView<SearchCard> {
     public interface Callback {
-        void onSearchRequested();
+        void onSearchRequested(View view);
         void onVoiceSearchRequested();
     }
 
@@ -28,9 +29,9 @@ public class SearchCardView extends DefaultFeedCardView<SearchCard> {
         FeedbackUtil.setButtonLongPressToast(findViewById(R.id.voice_search_button));
     }
 
-    @OnClick(R.id.search_container) void onSearchClick() {
+    @OnClick(R.id.search_container) void onSearchClick(View v) {
         if (getCallback() != null) {
-            getCallback().onSearchRequested();
+            getCallback().onSearchRequested(v);
         }
     }
 

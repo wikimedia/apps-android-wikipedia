@@ -793,9 +793,9 @@
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Wikipedia. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
     <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
-    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits.</string>
-    <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed via Suggested edits. If you haven\'t contributed in a while, it shows your last contribution date.</string>
-    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits.</string>
+    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions so far.</string>
+    <string name="suggested_edits_edit_streak_stat_tooltip">How many days in a row that you have made contributions. If you haven\'t contributed in a while, it shows your last contribution date.</string>
+    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items to which you have contributed in the last 30 days.</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
     <string name="suggested_edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
     <string name="suggested_edits_disabled_message">Suggested edits is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>
