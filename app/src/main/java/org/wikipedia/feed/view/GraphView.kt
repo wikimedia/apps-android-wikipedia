@@ -32,12 +32,11 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
         path.reset()
-        path.moveTo(0.scaleX(), dataSet[0].views.scaleY())
+        path.moveTo(0.scaleX(), dataSet[0].views.scaleY() + 3f)
         dataSet.forEachIndexed { index, data ->
             if (index > 0 && index < dataSet.size) {
-                path.lineTo(index.scaleX(), data.views.scaleY())
+                path.lineTo(index.scaleX(), data.views.scaleY() + 3f)
             }
         }
         canvas.drawPath(path, pathPaint)
@@ -49,6 +48,6 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
                 floatArrayOf(0f, 0.5f, 1f), Shader.TileMode.MIRROR)
     }
 
-    private fun Int.scaleX() = toFloat() / maxX * width
-    private fun Int.scaleY() = toFloat() / maxY * height
+    private fun Int.scaleX() = toFloat() / maxX * (width - 10)
+    private fun Int.scaleY() = toFloat() / maxY * (height - 10)
 }
