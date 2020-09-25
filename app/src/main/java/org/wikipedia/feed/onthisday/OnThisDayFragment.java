@@ -344,7 +344,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
 
         public void animateRadioButton() {
             Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
-                radioButtonImageView.startAnimation(pulse);
+            radioButtonImageView.startAnimation(pulse);
         }
     }
 
