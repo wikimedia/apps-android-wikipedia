@@ -40,6 +40,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
     @BindView(R.id.view_featured_article_card_content_container) View contentContainerView;
+    @BindView(R.id.view_featured_article_card_content) View contentView;
     @BindView(R.id.view_featured_article_card_transition_image) ImageView transitionImageView;
     public FeaturedArticleCardView(Context context) {
         super(context);
@@ -69,7 +70,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-            ViewUtil.setCachedBitmap(ViewUtil.getBitmapFromView(contentContainerView));
+            ViewUtil.setCachedBitmap(ViewUtil.getBitmapFromView(contentView));
             ViewUtil.setViewCachedBitmap(transitionImageView);
             transitionImageView.setVisibility(View.VISIBLE);
             transitionImageView.post(() -> {
