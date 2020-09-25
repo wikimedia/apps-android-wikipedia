@@ -13,6 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/page_transition_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="fitStart"
+            android:transitionName="@string/transition_featured_article_card"/>
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/page_fragment"
             android:name="org.wikipedia.page.PageFragment"

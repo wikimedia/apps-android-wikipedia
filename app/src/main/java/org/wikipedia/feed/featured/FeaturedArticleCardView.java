@@ -3,6 +3,7 @@ package org.wikipedia.feed.featured;
 import android.content.Context;
 import android.net.Uri;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ImageZoomHelper;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +40,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
     @BindView(R.id.view_featured_article_card_content_container) View contentContainerView;
-
+    @BindView(R.id.view_featured_article_card_transition_image) ImageView transitionImageView;
     public FeaturedArticleCardView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_card_featured_article, this);
@@ -49,7 +51,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     public void setCard(@NonNull FeaturedArticleCard card) {
         super.setCard(card);
         setLayoutDirectionByWikiSite(card.wikiSite(), contentContainerView);
-
         String articleTitle = card.articleTitle();
         String articleSubtitle = card.articleSubtitle();
         String extract = card.extract();
@@ -59,6 +60,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         articleSubtitle(articleSubtitle);
         extract(extract);
         image(imageUri);
+        resetTransitionImageView();
 
         header(card);
         footer();
@@ -67,7 +69,15 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard(), getCard().historyEntry());
+            ViewUtil.setCachedBitmap(ViewUtil.getBitmapFromView(contentContainerView));
+            ViewUtil.setViewCachedBitmap(transitionImageView);
+            transitionImageView.setVisibility(View.VISIBLE);
+            transitionImageView.post(() -> {
+                if (!isAttachedToWindow()) {
+                    return;
+                }
+                getCallback().onSelectPage(getCard(), getCard().historyEntry(), transitionImageView);
+            });
         }
     }
 
@@ -110,6 +120,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
         headerView.setCallback(callback);
+    }
+
+    private void resetTransitionImageView() {
+        transitionImageView.setVisibility(GONE);
+        transitionImageView.setImageBitmap(null);
     }
 
     private void articleTitle(@NonNull String articleTitle) {

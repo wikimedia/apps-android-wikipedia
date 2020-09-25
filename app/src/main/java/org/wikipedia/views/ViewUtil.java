@@ -41,6 +41,8 @@ public final class ViewUtil {
         return ROUNDED_CORNERS;
     }
 
+    public static Bitmap cachedBitmap;
+
     public static MultiTransformation<Bitmap> getCenterCropLargeRoundedCorners() {
         return CENTER_CROP_LARGE_ROUNDED_CORNERS;
     }
@@ -98,6 +100,16 @@ public final class ViewUtil {
         Canvas canvas = new Canvas(returnedBitmap);
         view.draw(canvas);
         return returnedBitmap;
+    }
+
+    public static void setCachedBitmap(@NonNull Bitmap bitmap) {
+        cachedBitmap = bitmap;
+    }
+
+    public static void setViewCachedBitmap(@NonNull ImageView view) {
+        if (cachedBitmap != null) {
+            view.setImageBitmap(cachedBitmap);
+        }
     }
 
     public static void formatLangButton(@NonNull TextView langButton, @NonNull String langCode,

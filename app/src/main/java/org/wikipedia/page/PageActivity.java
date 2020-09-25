@@ -127,6 +127,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
+    @BindView(R.id.page_fragment) View pageFragmentView;
+    @BindView(R.id.page_transition_image) ImageView transitionImage;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -178,6 +180,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         updateProgressBar(false);
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
+
+        ViewUtil.setViewCachedBitmap(transitionImage);
 
         setSupportActionBar(toolbar);
         clearActionBarTitle();
@@ -526,6 +530,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (pageFragment.onBackPressed()) {
             return;
         }
+        transitionImage.animate().alpha(100);
+        pageFragmentView.setVisibility(View.GONE);
         super.onBackPressed();
     }
 

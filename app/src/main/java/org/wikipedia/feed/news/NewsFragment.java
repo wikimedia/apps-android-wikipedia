@@ -163,6 +163,11 @@ public class NewsFragment extends Fragment {
         }
 
         @Override
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull View transitionView) {
+            // ignore
+        }
+
+        @Override
         public void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault) {
             if (addToDefault) {
                 ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), entry.getTitle(), NEWS_ACTIVITY,

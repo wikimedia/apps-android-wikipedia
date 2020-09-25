@@ -34,6 +34,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
+        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull View transitionView);
         void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
         void onRemovePageFromList(@NonNull HistoryEntry entry);

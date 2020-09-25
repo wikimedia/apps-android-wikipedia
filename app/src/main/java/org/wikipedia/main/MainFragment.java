@@ -282,11 +282,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override public void onFeedSelectPageFromExistingTab(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()));
+    }
+
+    @Override
+    public void onFeedSelectPageWithAnimation(HistoryEntry entry, View transitionView) {
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(requireActivity(), transitionView, getString(R.string.transition_featured_article_card));
+        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), options.toBundle());
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault) {
@@ -358,12 +366,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_LOGIN);
     }
 
-    @Nullable
-    public Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
-        // TODO: add future transition animations.
-        return null;
-    }
-
     @Override
     public void updateToolbarElevation(boolean elevate) {
         if (callback() != null) {
@@ -378,7 +380,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLoadPage(@NonNull HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override
@@ -389,9 +391,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
         if (inNewTab) {
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         } else {
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
         }
     }
 
