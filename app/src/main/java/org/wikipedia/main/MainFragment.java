@@ -65,6 +65,7 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
@@ -294,7 +295,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), transitionView, getString(R.string.transition_featured_article_card));
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), options.toBundle());
+        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), DimenUtil.isLandscape(requireContext()) ? null : options.toBundle());
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault) {

@@ -181,7 +181,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
-        ViewUtil.setViewCachedBitmap(transitionImage);
+        if (!DimenUtil.isLandscape(this)) {
+            ViewUtil.setViewCachedBitmap(transitionImage);
+        }
 
         setSupportActionBar(toolbar);
         clearActionBarTitle();
@@ -530,7 +532,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (pageFragment.onBackPressed()) {
             return;
         }
-        transitionImage.animate().alpha(100);
         pageFragmentView.setVisibility(View.GONE);
         super.onBackPressed();
     }

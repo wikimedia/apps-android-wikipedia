@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@null"
+            android:layout_marginTop="?attr/actionBarSize"
             android:scaleType="fitStart"
             android:transitionName="@string/transition_featured_article_card"/>
 
