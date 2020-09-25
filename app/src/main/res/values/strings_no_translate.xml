@@ -58,6 +58,7 @@
 
     <!-- Transition names -->
     <string name="transition_news_item">newsItemTransition</string>
+    <string name="transition_search_bar">searchBarTransition</string>
     <string name="transition_random_activity">randomActivityTransition</string>
     <string name="transition_on_this_day">onThisDayTransition</string>
     <string name="transition_floating_queue">floatingQueue</string>

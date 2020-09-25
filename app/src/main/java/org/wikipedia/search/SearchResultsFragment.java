@@ -75,10 +75,6 @@ public class SearchResultsFragment extends Fragment {
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
-    /**
-     * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
-     */
-    private static final int NANO_TO_MILLI = 1_000_000;
 
     @BindView(R.id.search_results_display) View searchResultsDisplay;
     @BindView(R.id.search_results_container) View searchResultsContainer;
@@ -198,8 +194,9 @@ public class SearchResultsFragment extends Fragment {
 
         disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
                 Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                        Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)),
-                        Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)), (searchResponse, readingListSearchResults, historySearchResults) -> {
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchResponse, readingListSearchResults, historySearchResults) -> {
 
                             SearchResults searchResults;
                             if (searchResponse != null && searchResponse.query() != null && searchResponse.query().pages() != null) {
@@ -221,9 +218,10 @@ public class SearchResultsFragment extends Fragment {
                                 searchResults = new SearchResults();
                             }
                             handleSuggestion(searchResults.getSuggestion());
-                            List<SearchResult> resultList = new ArrayList<>(readingListSearchResults.getResults());
-                            resultList.addAll(historySearchResults.getResults());
+                            List<SearchResult> resultList = new ArrayList<>();
                             addSearchResultsFromTabs(resultList);
+                            resultList.addAll(readingListSearchResults.getResults());
+                            resultList.addAll(historySearchResults.getResults());
                             resultList.addAll(searchResults.getResults());
                             return resultList;
                         }))
@@ -242,6 +240,9 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void addSearchResultsFromTabs(List<SearchResult> resultList) {
+        if (currentSearchTerm.length() < 2) {
+            return;
+        }
         List<Tab> tabList = WikipediaApp.getInstance().getTabList();
         for (Tab tab : tabList) {
             if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
@@ -660,7 +661,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private int displayTime(long startTime) {
-        return (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+        return (int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime);
     }
 
     @Nullable
