@@ -509,7 +509,8 @@ public class ReadingListDbHelper {
                 null, null, null)) {
             if (cursor.moveToFirst()) {
                 ReadingListPage readingListPage = ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
-                return new SearchResults(Collections.singletonList(new SearchResult(new PageTitle(readingListPage.title(), readingListPage.wiki(), readingListPage.thumbUrl()),
+                return new SearchResults(Collections.singletonList(new SearchResult(new PageTitle(readingListPage.apiTitle(),
+                        readingListPage.wiki(),readingListPage.thumbUrl(), readingListPage.description(), readingListPage.title()),
                         SearchResult.SearchResultType.READING_LIST)));
             }
         }
