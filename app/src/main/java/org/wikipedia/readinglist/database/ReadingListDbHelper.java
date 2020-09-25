@@ -510,7 +510,7 @@ public class ReadingListDbHelper {
             if (cursor.moveToFirst()) {
                 ReadingListPage readingListPage = ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
                 return new SearchResults(Collections.singletonList(new SearchResult(new PageTitle(readingListPage.apiTitle(),
-                        readingListPage.wiki(),readingListPage.thumbUrl(), readingListPage.description(), readingListPage.title()),
+                        readingListPage.wiki(), readingListPage.thumbUrl(), readingListPage.description(), readingListPage.title()),
                         SearchResult.SearchResultType.READING_LIST)));
             }
         }
