@@ -113,7 +113,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         final int topDecorationDp = 24;
         eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         setUpRecycler(eventsRecycler);
-        eventsRecycler.addOnScrollListener(new EventScrollListener());
         errorView.setBackClickListener(v -> requireActivity().finish());
 
         final int animDelay = (requireActivity().getWindow().getSharedElementEnterTransition() != null
@@ -129,25 +128,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         eventsRecycler.setVisibility(GONE);
         errorView.setVisibility(GONE);
         return view;
-    }
-
-    private class EventScrollListener extends RecyclerView.OnScrollListener {
-        LinearLayoutManager layoutManager = ((LinearLayoutManager) eventsRecycler.getLayoutManager());
-
-        @Override
-        public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-            super.onScrolled(recyclerView, dx, dy);
-            int visiblePosition = layoutManager.findFirstCompletelyVisibleItemPosition();
-            if (visiblePosition > -1) {
-                View itemView = layoutManager.findViewByPosition(visiblePosition);
-                Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
-                ImageView radioImageIndicatorView;
-                if (itemView != null) {
-                    radioImageIndicatorView = itemView.findViewById(R.id.radio_image_view);
-                    radioImageIndicatorView.startAnimation(pulse);
-                }
-            }
-        }
     }
 
     private void updateContents(int age) {
@@ -311,6 +291,12 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         public int getItemViewType(int position) {
             return position < events.size() ? VIEW_TYPE_ITEM : VIEW_TYPE_FOOTER;
         }
+
+        @Override
+        public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
+            super.onViewAttachedToWindow(holder);
+            ((EventsViewHolder) holder).animateRadioButton();
+        }
     }
 
     private class EventsViewHolder extends RecyclerView.ViewHolder {
@@ -319,6 +305,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         private TextView yearsInfoTextView;
         private ViewPager2 pagesViewPager;
         private TabLayout pagesIndicator;
+        private ImageView radioButtonImageView;
         private WikiSite wiki;
 
         EventsViewHolder(View v, WikiSite wiki) {
@@ -329,6 +316,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesViewPager = v.findViewById(R.id.pages_pager);
             pagesIndicator = v.findViewById(R.id.pages_item_indicator_view);
+            radioButtonImageView = v.findViewById(R.id.radio_image_view);
             this.wiki = wiki;
         }
 
@@ -352,6 +340,11 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 pagesViewPager.setVisibility(GONE);
                 pagesIndicator.setVisibility(GONE);
             }
+        }
+
+        public void animateRadioButton() {
+            Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
+                radioButtonImageView.startAnimation(pulse);
         }
     }
 
