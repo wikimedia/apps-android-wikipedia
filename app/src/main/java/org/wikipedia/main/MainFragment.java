@@ -34,7 +34,7 @@ import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsCard;
-import org.wikipedia.feed.news.NewsItemView;
+import org.wikipedia.feed.news.NewsCardItemFragment;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.gallery.MediaDownloadReceiver;
@@ -313,7 +313,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         ShareUtil.shareText(requireContext(), entry.getTitle());
     }
 
-    @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
+    @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsCardItemFragment view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
         startActivity(NewsActivity.newIntent(requireActivity(), view.getNewsItem(), newsCard.wikiSite()),

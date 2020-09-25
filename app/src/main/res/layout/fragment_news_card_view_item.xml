@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_card_list_item_base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/news_card_list_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:transitionName="@string/transition_news_item" />
+
+        <TextView
+            android:id="@+id/news_card_list_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="13dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:lineSpacingExtra="8sp"
+            android:linksClickable="false"
+            android:maxLines="3"
+            android:textColor="?attr/primary_text_color"
+            android:textColorLink="?attr/primary_text_color"
+            android:textSize="16sp" />
+    </LinearLayout>
+</org.wikipedia.views.WikiCardView>
