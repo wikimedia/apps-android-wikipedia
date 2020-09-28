@@ -111,7 +111,7 @@
   <string name="langlinks_your_wikipedia_languages">ウィキペディアの言語</string>
   <string name="menu_save_changes">変更を公開</string>
   <string name="edit_saved_successfully">公開しました!</string>
-  <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
+  <string name="dialog_message_edit_failed">編集に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
   <string name="dialog_message_edit_failed_cancel">キャンセル</string>
   <string name="dialog_message_leaving_edit">変更はまだ公開されていません。本当にこのページを離れてもいいですか?</string>
@@ -119,7 +119,7 @@
   <string name="dialog_message_leaving_edit_stay">留まる</string>
   <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">検索結果なし</string>
-  <string name="search_reading_list_no_results">\'\'%s\'\'は見つかりませんでした</string>
+  <string name="search_reading_list_no_results">「%s」は見つかりませんでした</string>
   <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
@@ -187,7 +187,7 @@
   <string name="create_account_ip_block_details">詳細</string>
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
-  <string name="send_feedback">フィードバックを送る</string>
+  <string name="send_feedback">フィードバックを送信</string>
   <string name="create_account_account_created_toast">アカウントを作成しました!</string>
   <string name="preferences_heading_syncing">同期</string>
   <string name="preferences_heading_data_usage">通信量</string>
@@ -196,8 +196,8 @@
   <string name="preference_title_download_reading_list_articles">あとで読むリストの記事をダウンロード</string>
   <string name="preference_summary_sync_reading_lists">ウィキペディアアカウントにあとで読むリストを保存することで、異なるデバイス間でリストを同期させる</string>
   <string name="preference_summary_sync_reading_lists_from_account">あなたのウィキペディアアカウント %s にあとで読むリストを保存して、リストをデバイス間で同期させる</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">アカウント%sから同期中のあとで読むリストを削除しますか？</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">この操作で、これまでに同期されたあとで読むリストをクラウド上のストレージから完全に削除します。本当にすべての同期中のあとで読むリストを %s のアカウントから削除しますか？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">「%s」から同期中のあとで読むリストを削除しますか?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">この操作で、これまでに同期されたあとで読むリストをクラウド上のストレージから完全に削除します。本当にすべての同期中のあとで読むリストを 「%s」のアカウントから削除しますか?</string>
   <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
@@ -776,8 +776,8 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアをより良くするための素早く簡単な方法を以下にご紹介します。始めてすぐ、あなたは自分が編集した内容が反映されるのを見ることができます。良い編集を!</string>
   <string name="suggested_edits_image_captions_task_detail">読者が意味と文脈を理解できるように、画像について説明してください。</string>
   <string name="suggested_edits_add_descriptions_task_detail">読者が一目でその主題を理解できるように要約してください。</string>
-  <string name="suggested_edits_contributions_stat_tooltip">編集提案の投稿回数</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">編集提案からの投稿を何日間休みなしで続けたかです。しばらく投稿していない場合には最後の投稿日が表示されます。</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">編集提案の投稿回数</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">編集提案からの投稿を何日間休みなしで続けたかです。しばらく投稿していない場合には最後の投稿日が表示されます。</string>
   <string name="suggested_edits_disabled_message">編集提案は無効にされました。申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_ip_blocked_message">ご使用のIPアドレスまたはIPアドレスの範囲は現在ウィキペディアの編集からブロックされているようです。</string>
   <string name="suggested_edits_editing_tips_link_text">編集のヒントとコツ</string>
@@ -830,6 +830,10 @@
   <plurals name="suggested_edits_rewards_contributions">
     <item quantity="one">あなたは提案された編集を使って1件の編集をしました。ありがとうございます!</item>
     <item quantity="other">あなたは提案された編集を使って%d件の編集をしました。ありがとうございます!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">過去30日の間にあなたの編集が1人に見られています。これからもよろしくお願いします。</item>
+    <item quantity="other">過去30日の間にあなたの編集が%d人に見られています。これからもよろしくお願いします。</item>
   </plurals>
   <string name="suggested_edits_rewards_contribution">あなたは提案された編集を使って%d件の編集をしました。ありがとうございます!</string>
   <string name="suggested_edits_rewards_pageviews">あなたの編集は30日間に%d人に見られています。これからもよろしくお願いします!</string>
