@@ -26,6 +26,7 @@
 * Okkerem
 * Rapsar
 * Sayginer
+* Stonecy
 * Sucsuzz
 * SwornToTranslate29
 * TmY e12
@@ -776,9 +777,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Aşağıda Vikipedi\'yi geliştirmeye yardımcı olacak bazı hızlı ve kolay yollar bulabilirsiniz. Başladığınız anda yaptığınız farkı göreceksiniz. Mutlu düzenlemeler!</string>
   <string name="suggested_edits_image_captions_task_detail">Okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tanımlayın.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir maddeyi özetleyin.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Önerilen düzenlemelerle ara vermeden kaç gün katkıda bulundunuz. Bir süredir katkıda bulunmadıysanız, son katkı tarihinizi gösterir.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içerisinde katkıda bulunduğunuz öğelerin sayfa görüntüleme sayısı Önerilen düzenlemelerle.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Şimdiye kadarki toplam katkı sayınız.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Arka arkaya kaç gün katkıda bulunduğunuz. Bir süredir katkıda bulunmadıysanız, son katkı tarihinizi gösterir.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içinde katkıda bulunduğunuz öğelerin toplam sayfa görüntülemeleri.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Katkılarınızdan birinin kaç kez geri alındığına bağlı olarak (başka bir düzenleyici tarafından geri alındı). Geri alınan düzenlemeler: %d.</string>
   <string name="suggested_edits_paused_message">Önerilen düzenlemeler %1$s kadar duraklatıldı. Maalesef %2$s, en son katkılarınızdan bazıları geri alındı.</string>
   <string name="suggested_edits_disabled_message">Önerilen düzenlemeler devre dışı bırakıldı. Maalesef %s, yakın zamanda yaptığınız katkıların çoğu geri alındı.</string>
