@@ -96,8 +96,10 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/pages_item_indicator_view"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="-16dp"
+        android:background="@android:color/transparent"
         app:tabBackground="@drawable/shape_tab_dot"
         app:tabGravity="center"
         app:tabIndicator="@null"

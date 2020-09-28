@@ -336,7 +336,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 pagesViewPager.setOffscreenPageLimit(2);
                  new TabLayoutMediator(pagesIndicator, pagesViewPager, (tab, position) -> { }).attach();
                 pagesViewPager.setVisibility(VISIBLE);
-                pagesIndicator.setVisibility(VISIBLE);
+                pagesIndicator.setVisibility(event.pages().size() == 1 ? GONE : VISIBLE);
             } else {
                 pagesViewPager.setVisibility(GONE);
                 pagesIndicator.setVisibility(GONE);
