@@ -183,6 +183,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         if (!DimenUtil.isLandscape(this)) {
             ViewUtil.setViewCachedBitmap(transitionImage);
+            ViewUtil.setCachedBitmap(null);
         }
 
         setSupportActionBar(toolbar);

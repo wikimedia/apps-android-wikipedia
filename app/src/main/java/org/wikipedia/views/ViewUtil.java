@@ -102,7 +102,7 @@ public final class ViewUtil {
         return returnedBitmap;
     }
 
-    public static void setCachedBitmap(@NonNull Bitmap bitmap) {
+    public static void setCachedBitmap(@Nullable Bitmap bitmap) {
         cachedBitmap = bitmap;
     }
 

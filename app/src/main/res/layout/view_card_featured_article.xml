@@ -39,6 +39,7 @@
                 android:id="@+id/view_featured_article_card_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?paper_color"
                 android:orientation="vertical">
 
                 <FrameLayout
