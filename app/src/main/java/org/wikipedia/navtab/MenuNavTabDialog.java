@@ -14,11 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.ImageViewCompat;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 
@@ -68,6 +71,13 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @Override public void onDestroyView() {
         super.onDestroyView();
         callback = null;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        BottomSheetBehavior.from((View) getView().getParent()).setPeekHeight(DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.navTabDialogPeekHeight)));
     }
 
     public void updateState() {

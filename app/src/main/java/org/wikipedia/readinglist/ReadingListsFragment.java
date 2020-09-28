@@ -133,6 +133,7 @@ public class ReadingListsFragment extends Fragment implements
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
+        searchEmptyView.setVisibility(View.GONE);
 
         enableLayoutTransition(true);
         return view;

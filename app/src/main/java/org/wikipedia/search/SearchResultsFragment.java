@@ -75,10 +75,6 @@ public class SearchResultsFragment extends Fragment {
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
-    /**
-     * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
-     */
-    private static final int NANO_TO_MILLI = 1_000_000;
 
     @BindView(R.id.search_results_display) View searchResultsDisplay;
     @BindView(R.id.search_results_container) View searchResultsContainer;
@@ -222,9 +218,10 @@ public class SearchResultsFragment extends Fragment {
                                 searchResults = new SearchResults();
                             }
                             handleSuggestion(searchResults.getSuggestion());
-                            List<SearchResult> resultList = new ArrayList<>(readingListSearchResults.getResults());
-                            resultList.addAll(historySearchResults.getResults());
+                            List<SearchResult> resultList = new ArrayList<>();
                             addSearchResultsFromTabs(resultList);
+                            resultList.addAll(readingListSearchResults.getResults());
+                            resultList.addAll(historySearchResults.getResults());
                             resultList.addAll(searchResults.getResults());
                             return resultList;
                         }))
@@ -664,7 +661,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private int displayTime(long startTime) {
-        return (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+        return (int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime);
     }
 
     @Nullable
