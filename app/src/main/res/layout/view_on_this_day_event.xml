@@ -14,7 +14,7 @@
         android:id="@+id/year_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-4.5dp"
+        android:layout_marginStart="-13.5dp"
         android:background="@android:color/transparent"
         android:clipChildren="false"
         android:clipToPadding="false"
@@ -22,8 +22,8 @@
         android:orientation="horizontal">
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:background="?attr/paper_color"
             android:paddingTop="3dp"
             android:paddingBottom="3dp">
@@ -32,6 +32,7 @@
                 android:id="@+id/radio_image_view"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
+                android:layout_gravity="center"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/otd_radio"
                 app:tint="?attr/colorAccent" />
@@ -41,7 +42,7 @@
             android:id="@+id/year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="4dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="8sp"
             android:textColor="?attr/colorAccent"
