@@ -16,7 +16,7 @@ public class OnThisDayActivity extends SingleFragmentActivity<OnThisDayFragment>
     public static final String YEAR = "year";
     public static final String WIKISITE = "wikisite";
 
-    public static Intent newIntent(@NonNull Context context, int age, WikiSite wikiSite, InvokeSource invokeSource, int year) {
+    public static Intent newIntent(@NonNull Context context, int age, @NonNull WikiSite wikiSite, @NonNull InvokeSource invokeSource, int year) {
         return new Intent(context, OnThisDayActivity.class)
                 .putExtra(AGE, age)
                 .putExtra(WIKISITE, wikiSite)

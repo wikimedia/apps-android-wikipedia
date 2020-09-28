@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.card.MaterialCardView;
-
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -50,7 +48,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     private PageSummary selectedPage;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull FragmentManager fragmentManager, @NonNull MaterialCardView v, @NonNull WikiSite wiki) {
+    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull FragmentManager fragmentManager, @NonNull View v, @NonNull WikiSite wiki) {
         super(v);
         ButterKnife.bind(this, v);
         this.wiki = wiki;

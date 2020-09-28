@@ -23,7 +23,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -366,7 +365,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), fragmentManager, (MaterialCardView) itemView, wiki);
+            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), fragmentManager, itemView, wiki);
         }
 
         @Override
