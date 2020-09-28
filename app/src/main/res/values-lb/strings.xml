@@ -572,6 +572,7 @@
   <string name="suggested_edits_image_tags_published">Verëffentlecht</string>
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_label">Proposéiert Ännerungen</string>
   <string name="suggested_edits_what_is_title">Wat si proposéiert Ännerungen?</string>
