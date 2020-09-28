@@ -294,7 +294,9 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         @Override
         public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
             super.onViewAttachedToWindow(holder);
-            ((EventsViewHolder) holder).animateRadioButton();
+            if (holder instanceof EventsViewHolder) {
+                ((EventsViewHolder) holder).animateRadioButton();
+            }
         }
     }
 
