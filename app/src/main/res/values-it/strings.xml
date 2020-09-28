@@ -228,6 +228,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie usate</string>
   <string name="about_contributors_heading">Contributori</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
@@ -408,6 +409,7 @@
   <string name="reading_list_create_new">Crea nuovo</string>
   <string name="reading_list_title_exists">L\'elenco di lettura \"%s\" già esiste.</string>
   <string name="reading_list_article_added_to_named">%1$s aggiunta a %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">%s salvato. Vuoi aggiungerlo ad un elenco?</string>
   <string name="reading_list_article_moved_to_named">Spostato %1$s in %2$s.</string>
   <string name="reading_list_article_already_exists_message">Tutto bene! %1$s contiene già %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tutto bene! %s contiene già tutte le voci.</string>
@@ -416,6 +418,10 @@
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 voce, %2$.2f MB</item>
     <item quantity="other">%1$d voci, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d di 1 voce disponile in assenza di connessione Internet, %3$.2f MB</item>
+    <item quantity="other">%1$d di %2$d voci disponili in assenza di connessione Internet, %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
@@ -435,13 +441,17 @@
   <string name="reading_list_action_menu_save_for_offline">Salva per offline</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Rimuovi tutto da offline</string>
   <string name="reading_list_action_menu_save_all_for_offline">Salva tutto per offline</string>
-  <string name="reading_list_action_menu_add_to_another_list">Aggiungi ad un\'altra lista</string>
-  <string name="reading_list_action_menu_move_to_another_list">Sposta in un\'altra lista</string>
+  <string name="reading_list_action_menu_add_to_another_list">Aggiungi ad un altro elenco</string>
+  <string name="reading_list_action_menu_move_to_another_list">Sposta in un altro elenco</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
   <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
-  <string name="reading_list_items_deleted">%d voci rimosse dalla lista</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d voce rimossa dall\'elenco</item>
+    <item quantity="other">%d voci rimosse dall\'elenco</item>
+  </plurals>
+  <string name="reading_list_items_deleted">%d voci rimosse dagli elenchi</string>
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>
@@ -680,6 +690,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Didascalia dell\'immagine pubblicata!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Didascalia dell\'immagine pubblicata! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Etichetta/e dell\'immagine pubblicata!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Ti è piaciuto? Aiutaci ad aggiungere altro.</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
@@ -691,6 +702,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
   <string name="suggested_edits_describe_articles">Descrivi voce</string>
+  <string name="suggested_edits_caption_images">Didascalia delle immagini</string>
   <string name="suggested_edits_tag_images">Etichetta le immagini</string>
   <string name="suggested_edits_review_description">Revisiona descrizione della voce</string>
   <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
@@ -772,9 +784,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, qui sotto puoi scoprire dei modi veloci e semplici per migliorare Wikipedia. Vedrai subito come anche tu fai la differenza, immediatamente dopo aver iniziato. Buone modifiche!</string>
   <string name="suggested_edits_image_captions_task_detail">Descrivi un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Riassumi una voce per aiutare i lettori a comprenderne l\'argomento a colpo d\'occhio.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Il numero totale di contributi con modifiche suggerite.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate delle voci a cui hai contribuito negli ultimi 30 giorni con modifiche suggerite.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Il tuo numero totale di contributi finora.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni consecutivi hai dato dei contributi. Se non hai contribuito per un po\', mostra la data del tuo ultimo contributo.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate degli elementi a cui hai contribuito negli ultimi 30 giorni.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">In base a quante volte uno dei tuoi contributi è stato ripristinato (annullato da un altro editore). Modifiche ripristinate: %d.</string>
   <string name="suggested_edits_paused_message">Le modifiche suggerite vengono sospese fino al %1$s. Siamo spiacenti %2$s, alcuni dei tuoi contributi recenti sono stati annullati.</string>
   <string name="suggested_edits_disabled_message">Le modifiche suggerite sono disabilitate. Siamo spiacenti %s, troppi dei tuoi contributi recenti sono stati annullati.</string>
@@ -821,6 +833,10 @@
   <string name="suggested_edits_contribution_image_label">Immagine</string>
   <string name="suggested_edits_contribution_article_label">Voce</string>
   <string name="suggested_edits_contribution_views">%s visualizzazioni</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Visto una volta negli ultimi 30 giorni.</item>
+    <item quantity="other">Visto %s volte negli ultimi 30 giorni.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">%s visite negli ultimi 30 giorni.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Hai aggiunto %d etichetta</item>
@@ -830,6 +846,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Le modifiche suggerite sono un nuovo modo per modificare Wikipedia su Android. Ti aiuta a dare piccoli ma vitali contributi a Wikipedia. Il nostro obiettivo è rendere la modifica più semplice ed accessibile a tutti! Accedi o unisciti a Wikipedia per iniziare.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Entra / unisciti a Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
   <string name="suggested_edits_contribution_current_revision_text">La tua modifica è attualmente online su Wikipedia</string>
@@ -850,6 +867,8 @@
     <item quantity="other">Hai aggiunto %d caratteri</item>
   </plurals>
   <string name="file_page_activity_title">Pagina del file</string>
+  <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
+  <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>
@@ -949,4 +968,6 @@
   <string name="talk_reply_subject">Oggetto</string>
   <string name="talk_reply_hint">Scrivi una risposta</string>
   <string name="talk_message_hint">Scrivi un messaggio</string>
+  <string name="talk_message_empty">Il messaggio non può essere vuoto.</string>
+  <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
 </resources>

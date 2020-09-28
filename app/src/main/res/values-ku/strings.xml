@@ -87,7 +87,7 @@
   <string name="menu_login">Têkeve</string>
   <string name="login_activity_title">Têkeve</string>
   <string name="login_in_progress_dialog_message">Niha têdikeve...</string>
-  <string name="login_success_toast" fuzzy="true">Têketin serkeftî bû!</string>
+  <string name="login_success_toast">Tê ketî!</string>
   <string name="reset_password_title">Şîfreya xwe eyar bike</string>
   <string name="reset_password_description">Te bi şîfreyek demkî têket. Ji bo ku çalakiya têketinê temam bikî, xêra xwe şîfreya xwe ya nû li vir binivîse.</string>
   <string name="reset_password_hint">Şîfreya nû</string>
@@ -167,7 +167,7 @@
   <string name="preference_title_show_images">Wêneyan nîşan bide</string>
   <string name="read_more_section">Zêdetir bixwîne</string>
   <string name="gallery_menu_share">Parve bike</string>
-  <string name="gallery_save_success" fuzzy="true">Pel bi awayekî serkeftî hate tomarkirin.</string>
+  <string name="gallery_save_success">Pel hate tomarkirin.</string>
   <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>
   <string name="cc_logo">Lîsansa Creative Commonsê</string>
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
