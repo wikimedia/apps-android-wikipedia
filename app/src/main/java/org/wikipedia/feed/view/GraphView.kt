@@ -18,7 +18,9 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
 
     private val pathPaint = Paint().apply {
         style = Paint.Style.STROKE
-        strokeWidth = 7f
+        strokeWidth = GRAPH_STROKE_WIDTH
+        strokeCap = Paint.Cap.ROUND
+        pathEffect = CornerPathEffect(GRAPH_STROKE_WIDTH)
         isAntiAlias = true
     }
 
@@ -33,10 +35,11 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         path.reset()
-        path.moveTo(0.scaleX(), dataSet[0].views.scaleY() + 3f)
         dataSet.forEachIndexed { index, data ->
-            if (index > 0 && index < dataSet.size) {
-                path.lineTo(index.scaleX(), data.views.scaleY() + 3f)
+            if (index == 0) {
+                path.moveTo(index.scaleX() + GRAPH_MARGIN, data.views.scaleY() + (GRAPH_MARGIN / 2))
+            } else if (index < dataSet.size) {
+                path.lineTo(index.scaleX() + GRAPH_MARGIN, data.views.scaleY() + (GRAPH_MARGIN / 2))
             }
         }
         canvas.drawPath(path, pathPaint)
@@ -48,6 +51,11 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
                 floatArrayOf(0f, 0.5f, 1f), Shader.TileMode.MIRROR)
     }
 
-    private fun Int.scaleX() = toFloat() / maxX * (width - 10)
-    private fun Int.scaleY() = toFloat() / maxY * (height - 10)
+    private fun Int.scaleX() = toFloat() / maxX * (width - GRAPH_MARGIN)
+    private fun Int.scaleY() = toFloat() / maxY * (height - GRAPH_MARGIN)
+
+    companion object {
+        const val GRAPH_MARGIN = 6f
+        const val GRAPH_STROKE_WIDTH = 7f
+    }
 }
