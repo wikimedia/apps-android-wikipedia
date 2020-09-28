@@ -711,9 +711,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
   <string name="suggested_edits_image_captions_task_detail">Popíšte obrázok, aby ste čitateľom pomohli pochopiť jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Zhrňte článok a pomôžte čitateľom ihneď pochopiť predmet článku.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet príspevkov s Navrhovanými úpravami.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Koľko dní bez prestávky ste prispievali pomocou Navrhovaných úprav. Pokiaľ ste nejakú dobu neprispievali, zobrazuje dátum vášho posledného príspevku.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položiek, ku ktorým ste za posledných 30 dní prispeli pomocou Navrhovaných úprav.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Váš celkový počet príspevkov s Navrhovanými úpravami.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Koľko dní bez prestávky ste prispievali pomocou Navrhovaných úprav. Pokiaľ ste nejakú dobu neprispievali, zobrazuje dátum vášho posledného príspevku.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Celkový počet zobrazení položiek, ku ktorým ste za posledných 30 dní prispeli pomocou Navrhovaných úprav.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Na základe toho, koľkokrát boli vaše príspevky vrátené (iným používateľom). Vrátene úpravy: %d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Navrhované úpravy sú pozastavené do %1$s.&lt;/b&gt; Ľutujeme %2$s, niektoré vaše nedávne príspevky boli vrátené.\n\nNa nižšie uvedenom odkaze sa dozviete, ako zlepšiť svoje editačné schopnosti na Wikipédii.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Navrhované úpravy sú vypnuté.&lt;/b&gt; Ľutujeme %s, veľke množstvo vašich nedávnych príspevkov bolo vrátených.\n\nPrečítajte si, čo to znamená, pomocou odkazu nižšie.</string>
