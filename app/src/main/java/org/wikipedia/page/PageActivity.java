@@ -182,6 +182,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
         if (!DimenUtil.isLandscape(this)) {
+            pageFragmentView.setVisibility(View.GONE);
             ViewUtil.setViewCachedBitmap(transitionImage);
             ViewUtil.setCachedBitmap(null);
         }
@@ -458,6 +459,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (!pageFragment.isAdded()) {
                 return;
             }
+
             // Close the link preview, if one is open.
             hideLinkPreview();
 
@@ -519,6 +521,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
         bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, showDefaultList, listDialogDismissListener);
+    }
+
+    public void showPageFragmentView() {
+        if (!DimenUtil.isLandscape(this)) {
+            pageFragmentView.setVisibility(View.VISIBLE);
+        }
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
