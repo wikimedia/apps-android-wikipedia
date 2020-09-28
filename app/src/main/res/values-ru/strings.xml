@@ -285,6 +285,7 @@
   <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
   <string name="search_recent_header">Последние поиски:</string>
+  <string name="search_results_count_zero">Ничего не найдено</string>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
   <string name="clear_recent_searches_confirm_yes">Да</string>
