@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -39,7 +41,6 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.CustomDatePicker;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.HeaderMarginItemDecoration;
-import org.wikipedia.views.MarginItemDecoration;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.Calendar;
@@ -111,7 +112,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         final int topDecorationDp = 24;
         eventsRecycler.addItemDecoration(new HeaderMarginItemDecoration(topDecorationDp, 0));
         setUpRecycler(eventsRecycler);
-
         errorView.setBackClickListener(v -> requireActivity().finish());
 
         final int animDelay = (requireActivity().getWindow().getSharedElementEnterTransition() != null
@@ -219,11 +219,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     private void setUpRecycler(RecyclerView recycler) {
-        recycler.addItemDecoration(new MarginItemDecoration(requireContext(),
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical,
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
-                R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical));
         recycler.addOnItemTouchListener(new DontInterceptTouchListener());
         recycler.setNestedScrollingEnabled(true);
         recycler.setClipToPadding(false);
@@ -295,6 +290,12 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         public int getItemViewType(int position) {
             return position < events.size() ? VIEW_TYPE_ITEM : VIEW_TYPE_FOOTER;
         }
+
+        @Override
+        public void onViewAttachedToWindow(@NonNull RecyclerView.ViewHolder holder) {
+            super.onViewAttachedToWindow(holder);
+            ((EventsViewHolder) holder).animateRadioButton();
+        }
     }
 
     private class EventsViewHolder extends RecyclerView.ViewHolder {
@@ -303,6 +304,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         private TextView yearsInfoTextView;
         private ViewPager2 pagesViewPager;
         private TabLayout pagesIndicator;
+        private ImageView radioButtonImageView;
         private WikiSite wiki;
 
         EventsViewHolder(View v, WikiSite wiki) {
@@ -313,6 +315,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesViewPager = v.findViewById(R.id.pages_pager);
             pagesIndicator = v.findViewById(R.id.pages_item_indicator_view);
+            radioButtonImageView = v.findViewById(R.id.radio_image_view);
             this.wiki = wiki;
         }
 
@@ -336,6 +339,11 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 pagesViewPager.setVisibility(GONE);
                 pagesIndicator.setVisibility(GONE);
             }
+        }
+
+        public void animateRadioButton() {
+            Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
+            radioButtonImageView.startAnimation(pulse);
         }
     }
 
