@@ -294,7 +294,9 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         }
         if (overlayView != null) {
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,
-                    contents.isDisambiguation() ? R.string.button_continue_to_disambiguation : R.string.button_continue_to_article));
+                    contents.isDisambiguation() ? R.string.button_continue_to_disambiguation
+                            : pageTitle.namespace() == Namespace.TALK || pageTitle.namespace() == Namespace.USER_TALK
+                            ? R.string.button_continue_to_talk_page : R.string.button_continue_to_article));
         }
     }
 

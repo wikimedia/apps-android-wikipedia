@@ -16,6 +16,7 @@ import androidx.core.text.HtmlCompat;
 
 import com.google.gson.Gson;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
 import java.text.Collator;
@@ -86,12 +87,12 @@ public final class StringUtil {
         return String.format("x%08x", i);
     }
 
-    public static String addUnderscores(@NonNull String text) {
-        return text.replace(" ", "_");
+    public static String addUnderscores(@Nullable String text) {
+        return StringUtils.defaultString(text).replace(" ", "_");
     }
 
-    public static String removeUnderscores(@NonNull String text) {
-        return text.replace("_", " ");
+    public static String removeUnderscores(@Nullable String text) {
+        return StringUtils.defaultString(text).replace("_", " ");
     }
 
     public static boolean hasSectionAnchor(@NonNull String text) {
