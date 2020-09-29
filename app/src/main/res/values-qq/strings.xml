@@ -334,6 +334,7 @@
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="button_continue_to_talk_page">Button to continue to the talk page that is currently being previewed.</string>
   <string name="button_continue_to_disambiguation">Button to continue to the disambiguation page for the selected title.</string>
   <string name="link_preview_disambiguation_description">Message shown when a selected title refers to more than one page, ending with a colon after which the disambiguations will be listed.</string>
   <string name="button_add_to_reading_list">Button text for adding the current page to a reading list.</string>
