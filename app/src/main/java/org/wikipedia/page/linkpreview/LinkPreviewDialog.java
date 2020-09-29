@@ -33,6 +33,7 @@ import org.wikipedia.gallery.MediaList;
 import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.StringUtil;
@@ -153,7 +154,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         if (overlayView == null && containerView != null) {
             overlayView = new LinkPreviewOverlayView(getContext());
             overlayView.setCallback(new OverlayViewCallback());
-            overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
+            overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,
+                    pageTitle.namespace() == Namespace.TALK || pageTitle.namespace() == Namespace.USER_TALK ? R.string.button_continue_to_talk_page : R.string.button_continue_to_article));
             overlayView.setSecondaryButtonText(getStringForArticleLanguage(pageTitle, R.string.menu_long_press_open_in_new_tab));
             overlayView.showTertiaryButton(location != null);
             containerView.addView(overlayView);
