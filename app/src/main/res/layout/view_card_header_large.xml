@@ -37,6 +37,7 @@
 
         <TextView
             android:id="@+id/view_card_header_large_title"
+            style="@style/MaterialListTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -46,7 +47,6 @@
             android:layout_marginTop="16dp"
             android:textColor="?attr/primary_text_color"
             android:textStyle="bold"
-            android:textSize="16sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view_card_header_large_image"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +54,7 @@
 
         <TextView
             android:id="@+id/view_card_header_large_subtitle"
+            style="@style/MaterialListSubtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -62,7 +63,6 @@
             android:layout_marginBottom="16dp"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
-            android:lineSpacingExtra="8sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_card_header_large_title"
             app:layout_constraintBottom_toBottomOf="parent"
