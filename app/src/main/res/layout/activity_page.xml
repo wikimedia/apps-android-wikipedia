@@ -40,7 +40,6 @@
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
                         android:layout_width="48dp"
-                        android:layout_marginTop="2dp"
                         android:layout_height="match_parent"
                         android:contentDescription="@string/menu_page_show_tabs" />
 
