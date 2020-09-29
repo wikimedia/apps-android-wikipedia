@@ -23,13 +23,11 @@ public class OnThisDayCard extends WikiSiteCard {
     private FeedAdapter.Callback callback;
     private OnThisDay.Event eventShownOnCard;
     private int age;
-    private WikiSite wiki;
 
     public OnThisDayCard(@NonNull List<OnThisDay.Event> events, @NonNull WikiSite wiki, int age) {
         super(wiki);
         this.date = DateUtil.getDefaultDateFor(age);
         this.age = age;
-        this.wiki = wiki;
         int randomIndex = 0;
         if (events.size() > 1) {
             randomIndex = new Random().nextInt(events.size() - 1);
@@ -51,7 +49,7 @@ public class OnThisDayCard extends WikiSiteCard {
     }
 
     @Override @NonNull public String title() {
-        return L10nUtil.getStringForArticleLanguage(wiki.languageCode(), R.string.on_this_day_card_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.on_this_day_card_title);
     }
 
     @Override @NonNull public String subtitle() {

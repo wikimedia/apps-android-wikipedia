@@ -33,8 +33,8 @@ import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsActivity;
-import org.wikipedia.feed.news.NewsItemCard;
-import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
+import org.wikipedia.feed.news.NewsCard;
+import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.gallery.MediaDownloadReceiver;
@@ -140,7 +140,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
             if (getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
-                openSearchActivity(NAV_MENU, null);
+                openSearchActivity(NAV_MENU, null, null);
                 return true;
             }
             viewPager.setCurrentItem(item.getOrder(), false);
@@ -191,7 +191,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchActivity(VOICE, searchQuery);
+            openSearchActivity(VOICE, searchQuery, null);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
@@ -251,7 +251,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
             startActivity(RandomActivity.newIntent(requireActivity(), APP_SHORTCUTS));
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
-            openSearchActivity(APP_SHORTCUTS, null);
+            openSearchActivity(APP_SHORTCUTS, null, null);
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             startActivity(PageActivity.newIntent(requireActivity()));
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
@@ -267,8 +267,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @Override public void onFeedSearchRequested() {
-        openSearchActivity(FEED_BAR, null);
+    @Override public void onFeedSearchRequested(View view) {
+        openSearchActivity(FEED_BAR, null, view);
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -313,10 +313,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         ShareUtil.shareText(requireContext(), entry.getTitle());
     }
 
-    @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
+    @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), card.image() != null ? options.toBundle() : null);
+        startActivity(NewsActivity.newIntent(requireActivity(), view.getNewsItem(), newsCard.wikiSite()),
+                view.getNewsItem().thumb() != null ? options.toBundle() : null);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
@@ -462,9 +463,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query, @Nullable View transitionView) {
         Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
-        startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
+        ActivityOptionsCompat options = null;
+        if (transitionView != null) {
+            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), transitionView, getString(R.string.transition_search_bar));
+        }
+        startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options != null ? options.toBundle() : null);
     }
 
     private void goToTab(@NonNull NavTab tab) {

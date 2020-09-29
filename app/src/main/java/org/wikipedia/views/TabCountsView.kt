@@ -1,15 +1,13 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.graphics.PorterDuff
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
-import androidx.annotation.IdRes
-import androidx.annotation.Nullable
 import kotlinx.android.synthetic.main.view_tabs_count.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -41,7 +39,7 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
 
     fun setColor(@ColorInt color: Int) {
         tabsCountText.setTextColor(color)
-        tabsCountText.background.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+        tabsCountText.backgroundTintList = ColorStateList.valueOf(color)
     }
 
     companion object {

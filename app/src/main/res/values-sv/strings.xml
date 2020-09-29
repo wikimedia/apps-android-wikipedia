@@ -253,6 +253,11 @@
   <string name="page_similar_titles">Liknande sidor</string>
   <string name="search_did_you_mean">Menade du \"%s\"?</string>
   <string name="search_recent_header">Senaste sökningar:</string>
+  <string name="search_results_count_zero">Inga resultat</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultat</item>
+    <item quantity="other">%d resultat</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Rensa senaste sökningar</string>
   <string name="clear_recent_searches_confirm">Är du säker på att du vill rensa din sökhistorik?</string>
   <string name="clear_recent_searches_confirm_yes">Ja</string>
@@ -761,9 +766,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hej, %s.&lt;/b&gt; Nedan kan du hitta några snabba och enkla sätt att förbättra Wikipedia. Du kommer se skillnaden du gör så fort du kommer igång. Lycka till med redigeringen!</string>
   <string name="suggested_edits_image_captions_task_detail">Beskriv en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Sammanfatta en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Ditt totala antal bidrag med redigeringsförslag.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Antal dagar i rad du har bidragit via redigeringsförslag. Om du inte har bidragit på ett tag kommer datumet för ditt senaste bidrag visas.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt du har bidragit till de senaste 30 dagarna med redigeringsförslag.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Ditt hittills totala antal bidrag med redigeringsförslag.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Antal dagar i rad du har bidragit. Om du inte har bidragit på ett tag kommer datumet för ditt senaste bidrag visas.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt till vilka du har bidragit till de senaste 30 dagarna.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baserat på hur många gånger ett av dina bidrag har återställts (blivit ogjord av en annan redigerare). Återställda redigeringar: %d.</string>
   <string name="suggested_edits_paused_message">Redigeringsförslag pausas t.o.m. %1$s. Förlåt, %2$s. Några av dina senaste bidrag har återställts.</string>
   <string name="suggested_edits_disabled_message">Redigeringsförslag har inaktiverats. Förlåt, %s. Alltför många av dina senaste bidrag har återställts.</string>

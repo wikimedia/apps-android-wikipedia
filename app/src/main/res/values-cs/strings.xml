@@ -258,6 +258,7 @@
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_recent_header">Nedávná vyhledávání:</string>
+  <string name="search_results_count_zero">Žádné výsledky</string>
   <string name="button_clear_all_recent_searches">Vymazat nedávná vyhledávání</string>
   <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii vyhledávání?</string>
   <string name="clear_recent_searches_confirm_yes">Ano</string>
@@ -756,9 +757,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, níže naleznete tipy na rychlé a snadné způsoby, jak vylepšit Wikipedii. Rozdíl svých změn uvidíte hned, jak začnete. Přejeme šťastné editování!</string>
   <string name="suggested_edits_image_captions_task_detail">Popište obrázek, abyste čtenářům pomohli pochopit jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Shrňte článek a pomozte čtenářům snáze pochopit téma článku.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje se datum vašeho posledního příspěvku.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet návštěvnosti položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Váš celkový počet příspěvků s Navrhováním editací.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje se datum vašeho posledního příspěvku.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Celkový počet návštěvnosti položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny jinými uživateli. Vrácené editace: %d.</string>
   <string name="suggested_edits_paused_message">Navrhování editací je pozastaveno do %1$s. Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.</string>
   <string name="suggested_edits_disabled_message">Navrhování editací je vypnuto. Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.</string>

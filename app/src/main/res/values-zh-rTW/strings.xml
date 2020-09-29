@@ -256,6 +256,11 @@
   <string name="page_similar_titles">相似的頁面</string>
   <string name="search_did_you_mean">您指的是不是「%s」？</string>
   <string name="search_recent_header">近期搜尋：</string>
+  <string name="search_results_count_zero">沒有結果</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 個結果</item>
+    <item quantity="other">%d 個結果</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">清除近期搜尋</string>
   <string name="clear_recent_searches_confirm">確定要清除搜尋歷史嗎？</string>
   <string name="clear_recent_searches_confirm_yes">是</string>
@@ -764,9 +769,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：在下方，您可以找到一些快速且簡易的方式來改善維基百科，您一開始就會看到您所做出的更改。來快樂地編輯吧！</string>
   <string name="suggested_edits_image_captions_task_detail">描述圖片來幫助讀者了解含意與脈絡。</string>
   <string name="suggested_edits_add_descriptions_task_detail">概括條目來幫助讀者一目瞭然主題內容。</string>
-  <string name="suggested_edits_contributions_stat_tooltip">您的建議編輯總數。</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">您透過建議編輯做出貢獻的連續天數。如果您已有一段時間未貢獻，則顯示最後貢獻日期。</string>
-  <string name="suggested_edits_page_views_stat_tooltip">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數。</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">您的建議編輯總數。</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您透過建議編輯做出貢獻的連續天數。如果您已有一段時間未貢獻，則顯示最後貢獻日期。</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">基於您的編輯裡有多少次被回退（被其他編輯者撤銷）。回退編輯數：%d。</string>
   <string name="suggested_edits_paused_message">建議編輯被暫停至 %1$s。很抱歉，%2$s，您最近有太多編輯被回退。</string>
   <string name="suggested_edits_disabled_message">建議編輯已停用。很抱歉，%s，您最近有太多編輯被回退。</string>

@@ -709,9 +709,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához. Jó szerkesztést!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">A képfeliratok segítenek az olvasóknak megérteni a képek jelentését és tartalmát.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">A szócikkleírás összefoglalja a cikk tartalmát, hogy az olvasók gyorsan megérthessék, miről szól.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">A Javasolt szerkesztésekkel végzett közreműködések teljes száma.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Hány napig működtél közre megszakítás nélkül a Javasolt szerkesztésekben. Ha egy ideje már nem működtél közre, akkor az utolsó közreműködés idejét mutatja.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Azon lapok megtekintési száma, amelyekben az elmúlt 30 nap során közreműködtél a Javasolt szerkesztések segítségével.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">A Javasolt szerkesztésekkel végzett közreműködések teljes száma.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Hány napig működtél közre megszakítás nélkül a Javasolt szerkesztésekben. Ha egy ideje már nem működtél közre, akkor az utolsó közreműködés idejét mutatja.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Azon lapok megtekintési száma, amelyekben az elmúlt 30 nap során közreműködtél a Javasolt szerkesztések segítségével.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Az alapján, hogy hányszor volt visszavonva a közreműködések (más szerkesztő által visszaállítva). Visszavont szerkesztések: %d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések felfüggesztésre került eddig: %1$s&lt;/b&gt; Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések letiltásra került.&lt;/b&gt; Bocsi %s, túl sok közreműködésed lett visszavonva mostanában.</string>
