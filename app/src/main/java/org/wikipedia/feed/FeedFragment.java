@@ -22,10 +22,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.commons.FilePageActivity;
-import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
 import org.wikipedia.feed.configure.LanguageItemAdapter;
@@ -42,18 +39,13 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
-import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
-import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
@@ -72,10 +64,6 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
@@ -239,7 +227,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             SuggestedEditsFunnel.reset();
             if (resultCode == RESULT_OK) {
                 if (suggestedEditsCardView != null && suggestedEditsCardView.getCard() != null) {
-                    suggestedEditsCardView.refreshCardContent();
+                  /*  suggestedEditsCardView.refreshCardContent();
                     SuggestedEditsSnackbars.show(requireActivity(), suggestedEditsCardView.getCard().getAction(), true,
                             app.language().getAppLanguageCodes().get(1), true, () -> {
                         PageTitle pageTitle = suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
@@ -251,14 +239,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                         } else {
                             startActivity(PageActivity.newIntentForNewTab(requireContext(), new HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle));
                         }
-                    });
+                    });*/
                 }
             }
         }
     }
 
     private void startDescriptionEditScreen() {
-        if (suggestedEditsCardView == null) {
+       /* if (suggestedEditsCardView == null) {
             return;
         }
         DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
@@ -272,7 +260,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
                 suggestedEditsCardView.getCard().getSourceSummaryForEdit(), suggestedEditsCardView.getCard().getTargetSummaryForEdit(),
                 action, FEED),
-                ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+                ACTIVITY_REQUEST_DESCRIPTION_EDIT);*/
     }
 
     @Override
