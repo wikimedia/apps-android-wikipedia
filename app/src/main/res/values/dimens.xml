@@ -67,7 +67,6 @@
     <dimen name="view_list_card_margin_horizontal">8dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
-    <dimen name="view_card_header_height">48dp</dimen>
     <dimen name="view_card_footer_height">48dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
