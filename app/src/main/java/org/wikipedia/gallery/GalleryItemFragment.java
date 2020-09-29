@@ -125,7 +125,12 @@ public class GalleryItemFragment extends Fragment {
             }
         });
 
-        imageView.setOnMatrixChangeListener(rect -> ((GalleryActivity) requireActivity()).setViewPagerEnabled(imageView.getScale() <= 1f));
+        imageView.setOnMatrixChangeListener(rect -> {
+            if (!isAdded() || imageView == null) {
+                return;
+            }
+            ((GalleryActivity) requireActivity()).setViewPagerEnabled(imageView.getScale() <= 1f);
+        });
 
         return rootView;
     }
