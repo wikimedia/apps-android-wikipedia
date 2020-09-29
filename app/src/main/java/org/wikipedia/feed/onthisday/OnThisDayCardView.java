@@ -43,7 +43,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_BODY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_FOOTER;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_YEAR;
@@ -63,13 +62,10 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.otd_event_page) View otdEventView;
     private FeedFunnel funnel = new FeedFunnel(WikipediaApp.getInstance());
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-
     private int age;
-    private Context context;
 
     public OnThisDayCardView(@NonNull Context context) {
         super(context);
-        this.context = context;
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
         setUpFooter();
@@ -86,8 +82,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) getContext(),
                 headerView.getTitleView(), getContext().getString(R.string.transition_on_this_day));
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                ON_THIS_DAY_CARD_FOOTER, -1), options.toBundle());
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, -1, getCard().wikiSite(),
+                ON_THIS_DAY_CARD_FOOTER), options.toBundle());
     }
 
     @Override
@@ -120,8 +116,8 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) getContext(),
                 headerView.getTitleView(), getContext().getString(R.string.transition_on_this_day));
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                isYearClicked ? ON_THIS_DAY_CARD_YEAR : ON_THIS_DAY_CARD_BODY, isYearClicked ? getCard().year() : -1), options.toBundle());
+        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, isYearClicked ? getCard().year() : -1,
+                getCard().wikiSite(), isYearClicked ? ON_THIS_DAY_CARD_YEAR : ON_THIS_DAY_CARD_BODY), options.toBundle());
     }
 
     private void updateOtdEventUI(OnThisDayCard card) {
@@ -148,7 +144,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                     PageTitle pageTitle = finalChosenPage.getPageTitle(card.wikiSite());
                     HistoryEntry entry = new HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD);
 
-                    context.startActivity(PageActivity.newIntentForCurrentTab(context, entry, pageTitle));
+                    getContext().startActivity(PageActivity.newIntentForCurrentTab(getContext(), entry, pageTitle));
                 });
                 otdEventView.setOnLongClickListener(view -> {
                     PageTitle pageTitle = finalChosenPage.getPageTitle(card.wikiSite());
@@ -158,31 +154,31 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                         @Override
                         public void onAddRequest(boolean addToDefault) {
                             if (addToDefault) {
-                                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList((AppCompatActivity) getContext(), entry.getTitle(), NEWS_ACTIVITY,
+                                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList((AppCompatActivity) getContext(), entry.getTitle(), ON_THIS_DAY_CARD_BODY,
                                         readingListId ->
                                                 bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
-                                                        MoveToReadingListDialog.newInstance(readingListId, entry.getTitle(), NEWS_ACTIVITY)));
+                                                        MoveToReadingListDialog.newInstance(readingListId, entry.getTitle(), ON_THIS_DAY_CARD_BODY)));
                             } else {
                                 bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
-                                        AddToReadingListDialog.newInstance(entry.getTitle(), NEWS_ACTIVITY));
+                                        AddToReadingListDialog.newInstance(entry.getTitle(), ON_THIS_DAY_CARD_BODY));
                             }
                         }
 
                         @Override
                         public void onMoveRequest(@Nullable ReadingListPage page) {
                             bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
-                                    MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), NEWS_ACTIVITY));
+                                    MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_CARD_BODY));
                         }
 
                         @Override
                         public void onDeleted(@Nullable ReadingListPage page) {
                             FeedbackUtil.showMessage((AppCompatActivity) getContext(),
-                                    context.getResources().getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
+                                    getContext().getResources().getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
                         }
 
                         @Override
                         public void onShare() {
-                            ShareUtil.shareText(context, entry.getTitle());
+                            ShareUtil.shareText(getContext(), entry.getTitle());
                         }
                     }).show(entry.getTitle());
 

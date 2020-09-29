@@ -82,7 +82,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
     private WikiSite wiki;
-    private int yearClickedOnCardView;
+    private int yearOnCardView;
     private int positionToScrollTo;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -97,7 +97,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     @Override
-    @SuppressWarnings("checkstyle:magicnumber")
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
@@ -105,7 +104,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         int age = requireActivity().getIntent().getIntExtra(AGE, 0);
         wiki = requireActivity().getIntent().getParcelableExtra(WIKISITE);
         date = DateUtil.getDefaultDateFor(age);
-        yearClickedOnCardView = requireActivity().getIntent().getIntExtra(YEAR, -1);
+        yearOnCardView = requireActivity().getIntent().getIntExtra(YEAR, -1);
         setUpToolbar();
         eventsRecycler.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
@@ -114,6 +113,16 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         setUpRecycler(eventsRecycler);
         errorView.setBackClickListener(v -> requireActivity().finish());
 
+        setUpTransitionAnimation(savedInstanceState, age);
+
+        progressBar.setVisibility(GONE);
+        eventsRecycler.setVisibility(GONE);
+        errorView.setVisibility(GONE);
+        return view;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setUpTransitionAnimation(Bundle savedInstanceState, int age) {
         final int animDelay = (requireActivity().getWindow().getSharedElementEnterTransition() != null
                 && savedInstanceState == null) ? 500 : 0;
         onThisDayTitleView.postDelayed(() -> {
@@ -122,11 +131,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             }
             updateContents(age);
         }, animDelay);
-
-        progressBar.setVisibility(GONE);
-        eventsRecycler.setVisibility(GONE);
-        errorView.setVisibility(GONE);
-        return view;
     }
 
     private void updateContents(int age) {
@@ -148,7 +152,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 .doAfterTerminate(() -> {
                     progressBar.setVisibility(GONE);
                     eventsRecycler.postDelayed(() -> {
-                        if (positionToScrollTo != -1 && yearClickedOnCardView != -1) {
+                        if (positionToScrollTo != -1 && yearOnCardView != -1) {
                             eventsRecycler.scrollToPosition(positionToScrollTo);
                         }
                     }, 500);
@@ -159,7 +163,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                     eventsRecycler.setAdapter(new RecyclerAdapter(onThisDay.events(), wiki));
                     List<OnThisDay.Event> events = onThisDay.events();
                     for (int i = 0; i < events.size(); i++) {
-                        if (yearClickedOnCardView == events.get(i).year()) {
+                        if (yearOnCardView == events.get(i).year()) {
                             positionToScrollTo = i;
                             break;
                         }
@@ -274,7 +278,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             if (holder instanceof EventsViewHolder) {
-                ((EventsViewHolder) holder).setFields(events.get(position), position);
+                ((EventsViewHolder) holder).setFields(events.get(position));
                 if (funnel != null) {
                     funnel.scrolledToPosition(position);
                 }
@@ -321,7 +325,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             this.wiki = wiki;
         }
 
-        public void setFields(@NonNull final OnThisDay.Event event, int position) {
+        public void setFields(@NonNull final OnThisDay.Event event) {
             descTextView.setText(event.text());
             descTextView.setVisibility(TextUtils.isEmpty(event.text()) ? GONE : VISIBLE);
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
