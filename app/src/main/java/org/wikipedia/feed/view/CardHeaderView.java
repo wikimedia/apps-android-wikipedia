@@ -35,7 +35,7 @@ public class CardHeaderView extends ConstraintLayout {
     @BindView(R.id.view_list_card_header_lang_code) TextView langCodeView;
     @Nullable private Card card;
     @Nullable private Callback callback;
-    private static final int PADDING = 3;
+    private static final int PADDING = 4;
 
     public CardHeaderView(Context context) {
         super(context);
