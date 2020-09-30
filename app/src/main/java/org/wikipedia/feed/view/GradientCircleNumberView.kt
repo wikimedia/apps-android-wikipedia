@@ -32,7 +32,7 @@ internal class GradientCircleNumberView constructor(context: Context, attrs: Att
                 intArrayOf(gradientColor2, gradientColor1, gradientColor2),
                 floatArrayOf(0f, 0.5f, 1f), TileMode.CLAMP)
         val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(gradientColor1, gradientColor2))
-        gradientDrawable.cornerRadius = 30f
+        gradientDrawable.cornerRadius = 90f
         numberView.paint.shader = textShader
         baseNumberView.background = gradientDrawable
     }
