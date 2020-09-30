@@ -24,8 +24,10 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.GraphView;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,7 +50,8 @@ public class ListCardItemView extends ConstraintLayout {
     @BindView(R.id.view_list_card_item_title) TextView titleView;
     @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
     @BindView(R.id.view_list_card_item_pageviews) TextView pageViewsView;
-    @BindView(R.id.view_list_card_item_graph) GraphView graphView;
+    @BindView(R.id.view_list_card_item_graph)
+    GraphView graphView;
 
     @Nullable private Card card;
     @Nullable private Callback callback;
@@ -162,8 +165,12 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     public void setGraphView(@NonNull List<MostReadArticles.ViewHistory> viewHistories) {
+        List<Float> dataSet = new ArrayList<>();
+        for (MostReadArticles.ViewHistory viewHistory : viewHistories) {
+            dataSet.add(viewHistory.getViews());
+        }
         graphView.setVisibility(VISIBLE);
-        graphView.setData(viewHistories);
+        graphView.setData(dataSet);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

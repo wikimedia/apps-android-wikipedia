@@ -25,14 +25,14 @@ public final class MostReadArticles extends PageSummary {
 
     public class ViewHistory {
         private Date date;
-        private int views;
+        private float views;
 
         @NonNull
         public Date getDate() {
             return date;
         }
 
-        public int getViews() {
+        public float getViews() {
             return views;
         }
     }

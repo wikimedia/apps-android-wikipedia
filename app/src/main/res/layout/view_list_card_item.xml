@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
         tools:text="Lorem ipsum" />
 
-    <org.wikipedia.feed.view.GraphView
+    <org.wikipedia.views.GraphView
         android:id="@+id/view_list_card_item_graph"
         android:layout_width="54dp"
         android:layout_height="13dp"
