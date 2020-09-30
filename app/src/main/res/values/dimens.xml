@@ -90,9 +90,6 @@
     <!-- Dialog -->
     <dimen name="dialog_line_spacing_extra">5sp</dimen>
 
-    <!-- Article bottom toolbar -->
-    <dimen name="bottom_toolbar_height">56dp</dimen>
-
     <!-- Randomizer -->
     <dimen name="randomizer_card_view_bottom_padding">0dp</dimen>
     <dimen name="randomizer_text_view_height">164dp</dimen>
