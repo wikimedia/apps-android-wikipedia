@@ -11,8 +11,7 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_on_this_day_card_header"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
-
+        android:layout_height="wrap_content" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_on_this_day_rtl_container"

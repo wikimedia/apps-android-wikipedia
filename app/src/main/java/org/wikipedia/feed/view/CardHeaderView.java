@@ -11,13 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.util.DimenUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +35,7 @@ public class CardHeaderView extends ConstraintLayout {
     @BindView(R.id.view_list_card_header_lang_code) TextView langCodeView;
     @Nullable private Card card;
     @Nullable private Callback callback;
+    private static final int PADDING = 3;
 
     public CardHeaderView(Context context) {
         super(context);
@@ -54,6 +55,7 @@ public class CardHeaderView extends ConstraintLayout {
     private void init() {
         inflate(getContext(), R.layout.view_card_header, this);
         ButterKnife.bind(this);
+        setPadding(0, 0, 0, DimenUtil.roundedDpToPx(PADDING));
     }
 
     @NonNull public CardHeaderView setCard(@NonNull Card card) {
@@ -86,10 +88,6 @@ public class CardHeaderView extends ConstraintLayout {
             langCodeView.setText(langCode);
         }
         return this;
-    }
-
-    @VisibleForTesting @Nullable Card getCard() {
-        return card;
     }
 
     @OnClick(R.id.view_list_card_header_menu) void onMenuClick(View v) {
