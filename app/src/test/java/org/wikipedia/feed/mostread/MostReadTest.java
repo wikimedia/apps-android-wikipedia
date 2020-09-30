@@ -19,14 +19,14 @@ import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(RobolectricTestRunner.class)
 @SuppressWarnings("checkstyle:magicnumber")
-public class MostReadArticlesTest {
-    @NonNull public static MostReadArticles unmarshal(@NonNull String filename) throws Throwable {
+public class MostReadTest {
+    @NonNull public static MostRead unmarshal(@NonNull String filename) throws Throwable {
         String json = TestFileUtil.readRawFile(filename);
-        return GsonUnmarshaller.unmarshal(MostReadArticles.class, json);
+        return GsonUnmarshaller.unmarshal(MostRead.class, json);
     }
 
     @Test public void testUnmarshalManyArticles() throws Throwable {
-        MostReadArticles subject = unmarshal("most_read.json");
+        MostRead subject = unmarshal("most_read.json");
 
         assertThat(subject.date(), is(date("2016-06-01Z")));
 

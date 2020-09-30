@@ -49,7 +49,7 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         super.setCard(card);
         image(card.baseImage());
         description(defaultString(card.description()));  //Can check language before doing this if we want
-        header(card);
+        header();
         setClickListeners();
     }
 
@@ -84,10 +84,13 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         shareButton.setOnClickListener(new CardShareListener());
     }
 
-    private void header(@NonNull FeaturedImageCard card) {
-        headerView.setTitle(card.title())
+    private void header() {
+        if (getCard() == null) {
+            return;
+        }
+        headerView.setTitle(getCard().title())
                 .setLangCode(null)
-                .setCard(card)
+                .setCard(getCard())
                 .setCallback(getCallback());
     }
 
