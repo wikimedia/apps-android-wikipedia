@@ -1,7 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/view_feed_day_header_margin_bottom"
     android:paddingStart="8dp"
     android:paddingEnd="8dp">
 
