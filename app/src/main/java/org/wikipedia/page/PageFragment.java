@@ -574,6 +574,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
 
+        if (title.namespace() == Namespace.USER_TALK) {
+            startActivity(TalkTopicsActivity.newIntent(requireActivity(), title.getWikiSite().languageCode(), title.getText()));
+            return;
+        }
+
         // If it's a Special page, launch it in an external browser, since mobileview
         // doesn't support the Special namespace.
         // TODO: remove when Special pages are properly returned by the server

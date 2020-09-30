@@ -23,6 +23,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -72,7 +73,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
     @BindView(R.id.gallery_video) VideoView videoView;
     @BindView(R.id.gallery_video_thumbnail) ImageView videoThumbnail;
     @BindView(R.id.gallery_video_play_button) View videoPlayButton;
-    @BindView(R.id.gallery_image) ImageView imageView;
+    @BindView(R.id.gallery_image) PhotoView imageView;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -128,6 +129,14 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
                 ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
+
+        imageView.setOnMatrixChangeListener(rect -> {
+            if (!isAdded() || imageView == null) {
+                return;
+            }
+            ((GalleryActivity) requireActivity()).setViewPagerEnabled(imageView.getScale() <= 1f);
+        });
+
         return rootView;
     }
 

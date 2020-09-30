@@ -557,6 +557,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 LinkPreviewDialog.newInstance(new HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null));
     }
 
+    public void setViewPagerEnabled(boolean enabled) {
+        galleryPager.setUserInputEnabled(enabled);
+    }
+
     /**
      * LinkMovementMethod for handling clicking of links in the description or metadata
      * text fields. For internal links, this activity will close, and pass the page title as

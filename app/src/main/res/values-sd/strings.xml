@@ -643,9 +643,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;سلام %s&lt;/b&gt;، ڇا توھان کي ڄاڻ ھئي تہ ھرڪوئي وڪيپيڊيا کي سنواري سگھي ٿو؟ ھيٺ توھان وڪيپيڊيا کي بھتر بڻائڻ جا طريقا ڏسي سگھو ٿا. خوشگوار سنوارڪاري!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي. جيڪڏھن توھان ڪجھ وقت ڀاڱيداري ناھي ڪئي، تہ اھو توھان جي آخري ڀاڱيداريءَ جي تاريخ ڏيکاري ٿو.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي. جيڪڏھن توھان ڪجھ وقت ڀاڱيداري ناھي ڪئي، تہ اھو توھان جي آخري ڀاڱيداريءَ جي تاريخ ڏيکاري ٿو.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
   <string name="suggested_edits_editing_tips_link_text">سنوارڻ جا مشورا ۽ شرڪتون</string>
   <string name="suggested_edits_help_page_link_text">صلاح-ڏنل سنوارن جو مدد صفحو</string>
   <string name="suggested_edits_views_label_text">ڏيٺون</string>

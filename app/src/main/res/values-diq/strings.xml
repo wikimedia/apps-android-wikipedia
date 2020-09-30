@@ -21,7 +21,10 @@
   <string name="search_hint">Wikipedia de bıvinê</string>
   <string name="search_hint_voice_search">Dekewtışê vengi cıgeyrayış</string>
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Vurnayışê wesıbnayey</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Parzûnê listanê mı</string>
+  <string name="nav_item_suggested_edits">Vurnayışi</string>
+  <string name="nav_item_more">Zêde</string>
+  <string name="nav_item_search">Cıgeyrayış</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
   <string name="page_error_retry">Anciya bıcerrebne</string>
   <string name="card_offline_error_retry">Anciya bıcerrebne</string>
@@ -36,6 +39,7 @@
   <string name="history_item_delete_undo">Peyser biya</string>
   <string name="notification_archive_undo">Peyser biya</string>
   <string name="app_settings">Eyarê Appi</string>
+  <string name="history_list_title">Veror</string>
   <string name="dialog_title_clear_history">verore cı besterne</string>
   <string name="dialog_message_clear_history">No,verorê perer hemın do besterno u akerda taba hemın racıno.  Şıma xo emeli?</string>
   <string name="dialog_message_clear_history_yes">Eya</string>
@@ -49,7 +53,9 @@
   <string name="edit_section_find_in_page">Pele de bıvêne</string>
   <string name="menu_page_font_and_theme">Nuşıs u thema</string>
   <string name="menu_page_add_to_list">Lista wendışi ra cı ke</string>
+  <string name="menu_page_add_to_default_list">Qeyd ke</string>
   <string name="feed_card_add_to_list">Lista wendışi ke</string>
+  <string name="feed_card_add_to_default_list">Qeyd ke</string>
   <string name="menu_page_share">Gıre pay ke</string>
   <string name="menu_page_open_a_new_tab">Taba newiye de akerê</string>
   <string name="menu_page_reading_lists">Listanê waniyayışan</string>
@@ -103,7 +109,7 @@
   <string name="reading_lists_sync_login">Cı kewe</string>
   <string name="create_account_login">Cı kewe</string>
   <string name="menu_login">Cı kewe</string>
-  <string name="login_activity_title" fuzzy="true">Wikipediya kewe</string>
+  <string name="login_activity_title">Cı kewe</string>
   <string name="login_in_progress_dialog_message">Ronıştışo abêno...</string>
   <string name="login_success_toast">Ronıştış abıyayo!</string>
   <string name="reset_password_title">Parolay ho eyar kerê</string>
@@ -154,6 +160,7 @@
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
   <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
   <string name="preference_title_auto_upload_crash_reports">Raporê progunayışi bırışê</string>
+  <string name="history_filter_list_hint">Verorê parzûni</string>
   <string name="error_can_not_process_link">No gıre nêmocneya</string>
   <string name="page_protected_autoconfirmed">Ena pela nim şevekneyaya</string>
   <string name="page_protected_sysop">Ena pela tam şevekneyaya</string>
@@ -201,7 +208,13 @@
   <string name="page_similar_titles">Zey cı peri</string>
   <string name="search_did_you_mean">To ker kı vacê %s?</string>
   <string name="search_recent_header">Cıgeyrışo peyên:</string>
+  <string name="search_results_count_zero">Netice çıno</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 netice</item>
+    <item quantity="other">%d neticeyi</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Cıgeyrışanê peyênan pak kı</string>
+  <string name="clear_recent_searches_confirm">Şıma wazenê cıgeyrayışê hoyê peyêni bıesternê?</string>
   <string name="clear_recent_searches_confirm_yes">Eya</string>
   <string name="clear_recent_searches_confirm_no">Nê</string>
   <string name="table_infobox">Zanayışê pratiki</string>
@@ -271,6 +284,11 @@
   <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
   <string name="crash_report_quit">Veciyayış</string>
+  <string name="article_menu_bar_save_button">Qeyd ke</string>
+  <string name="article_menu_bar_language_button">Zıwan</string>
+  <string name="article_menu_bar_search_button">Cıgeyrayış</string>
+  <string name="article_menu_bar_theme_button">Thema</string>
+  <string name="article_menu_bar_contents_button">Zerrek</string>
   <string name="article_header_edit_hint">Bıvurne...</string>
   <string name="article_header_edit_description">Şınasnayışê pela  bımocne</string>
   <string name="article_header_edit_lead_section">Şınasnayışi bıvurnê</string>
@@ -292,6 +310,11 @@
   <string name="reading_list_article_added_to_named">%1$s ya %2$s defineya.</string>
   <string name="reading_list_article_already_exists_message">Pêro wwşi! Xora  %1$s miyan de %2$s ihtiwa keno .</string>
   <string name="reading_list_added_view_button">Listi Bıvin</string>
+  <string name="reading_list_add_to_list_button">Liste cı ke</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 meqale, %2$.2f MB</item>
+    <item quantity="other">%1$d meqaleyi, %2$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 meqale, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d meqaley , %2$.2f MB</string>
   <string name="reading_list_sort">Weçine</string>
@@ -326,8 +349,11 @@
   <string name="reading_list_article_offline">Resayışê offline</string>
   <string name="reading_list_remove_from_list">%s ra wedarne</string>
   <string name="reading_list_select_item">Weçine</string>
+  <string name="reading_lists_login_button">Cıkewe /tewrê Wikipedia be</string>
+  <string name="reading_lists_ignore_button">Enewke nê</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
+  <string name="reading_list_articles_added_to_named">%1$d meqaleyi debiyayê %2$s</string>
   <string name="reading_list_delete_confirm">Şıma qayılê na listay wendışi %s besterê?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Seba senkronizeyi ronıştış akerê</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bıtexelne</string>
@@ -415,6 +441,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Bıtexelne</string>
   <string name="description_edit_text_hint">Şınasiya meqaley</string>
   <string name="description_edit_article_description_label">Meqale</string>
+  <string name="description_edit_translate_article_description_label_per_language">Şınasiya meqaley (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Şınasiya meqaley (%s)</string>
   <string name="description_edit_add_caption_label">Şınastiya resımi</string>
   <string name="description_edit_add_caption_hint">Bınnuştey resimi</string>
   <string name="description_edit_translate_caption_label_per_language">Bınnuştey resimi (%s)</string>
@@ -425,7 +453,10 @@
   <string name="description_edit_translate_description">Şınastiya meqaley açarnê</string>
   <string name="description_edit_edit_description">Şınasnayışê pela  bımocne</string>
   <string name="description_edit_add_image_caption">Bınnuştey resimi cı kerê</string>
+  <string name="description_edit_edit_image_caption">Bınnuştey resımi bıvurne</string>
+  <string name="description_edit_translate_image_caption">Bınnuştey resımi açarnê</string>
   <string name="description_edit_cancel_hint">Bıtexelne</string>
+  <string name="description_edit_help_title">Zang:Şınasiya meqaley</string>
   <string name="description_edit_help_about_wikidata">Heqê Wikidata</string>
   <string name="description_edit_success_saved">Şınastiya meqaley çapneyê</string>
   <string name="description_edit_success_saved_snackbar">Şınastiya meqaley çapneyê</string>
@@ -463,12 +494,16 @@
   <string name="suggested_edits_image_caption_summary_title_date">Tarix</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Şınastiya resımi (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Resım</string>
   <string name="suggested_edits_image_preview_dialog_artist">Senetkar</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Etiketi</string>
   <string name="suggested_edits_image_preview_dialog_date">Tarix</string>
   <string name="suggested_edits_image_preview_dialog_source">Çıme/Fotrafkar</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisansdayış</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Tayêna melumat</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons de pela dosyeyan</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Pela dosyay Wikipedia</string>
+  <string name="suggested_edits_article_cta_image_tags">Etiketê resımi cı ke</string>
   <string name="suggested_edits_article_cta_image_caption">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Bınnuştey resimi cı kerê (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Bıvêne</string>
@@ -478,6 +513,8 @@
   <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="suggested_edits_task_action_text_add">Cı ke</string>
   <string name="suggested_edits_task_action_text_translate">Açarne</string>
+  <string name="suggested_edits_image_tags_publishing">Çapnayeno</string>
+  <string name="suggested_edits_image_tags_published">Çapneya</string>
   <string name="suggested_edits_help_page_link_text">Pela pheştiya wesıbnaye vurnayışa</string>
   <string name="suggested_edits_edit_streak_label_text">Xeter bıvurnê</string>
   <string name="suggested_edits_views_label_text" fuzzy="true">Asayışê pela</string>

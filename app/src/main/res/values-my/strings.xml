@@ -705,7 +705,7 @@
   <string name="suggested_edits_image_tags_publishing">လွှင့်တင်နေသည်</string>
   <string name="suggested_edits_image_tags_published">လွှင့်တင်ခဲ့သော</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များသည် ဆောင်းပါးတစ်ခုကို အကျဉ်းချုပ်ဖော်ပြပေးပြီး တချက်ကြည့်ရုံဖြင့် အကြောင်းအရာကို စာဖတ်သူများ နားလည်စေရန် ကူညီပေးသည်။</string>
-  <string name="suggested_edits_contributions_stat_tooltip">အကြံပြုထားသောတည်းဖြတ်မှုများနှင့် သင်၏စုစုပေါင်းပံ့ပိုးမှုများ အရေအတွက်</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">အကြံပြုထားသောတည်းဖြတ်မှုများနှင့် သင်၏စုစုပေါင်းပံ့ပိုးမှုများ အရေအတွက်</string>
   <string name="suggested_edits_paused_message">အကြံပြုထားသော ပြင်ဆင်မှုများကို %1$s အထိ ခေတ္တရပ်နားလိုက်ပါတယ်။ %2$s ဝမ်းနည်းပါတယ်။ သင့်ရဲ့အချို့သော မကြာသေးမီကပံ့ပိုးမှာမျာဟာ ပြန်သွားခဲ့ရတယ်။</string>
   <string name="suggested_edits_disabled_message">အကြံပြုတည်းဖြတ်မှုများကိုပိတ်ထားသည်။ %s ဝမ်းနည်းပါသည်။ သင်၏လတ်တလောပံ့ပိုးမှုများကိုပြန်လည်ရုပ်သိမ်းပြီးပါပြီ</string>
   <string name="suggested_edits_ip_blocked_message">သင်၏အိုင်ပီလိပ်စာ (သို့မဟုတ် အိုင်ပီလိပ်စာများ၏ အတိုင်းအတာ) သည် ဝီကီပီးဒီးယား တည်းဖြတ်ခြင်းမှ လတ်တလော ပိတ်ပင်ခံထားရပုံရှိသည်။ ယင်းအကြောင်း အောက်ပါလင့်ခ်တွင် အလည်သွား၍ ပိုမိုလေ့လာပါ။</string>

@@ -334,6 +334,7 @@
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="button_continue_to_talk_page">Button to continue to the talk page that is currently being previewed.</string>
   <string name="button_continue_to_disambiguation">Button to continue to the disambiguation page for the selected title.</string>
   <string name="link_preview_disambiguation_description">Message shown when a selected title refers to more than one page, ending with a colon after which the disambiguations will be listed.</string>
   <string name="button_add_to_reading_list">Button text for adding the current page to a reading list.</string>
@@ -968,7 +969,7 @@
   <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.</string>
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
-  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.</string>
+  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
   <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
   <string name="talk_reply_hint">Hint for text field for composing a reply to the current talk page topic.</string>
