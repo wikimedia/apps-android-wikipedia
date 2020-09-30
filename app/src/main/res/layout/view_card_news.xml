@@ -10,7 +10,7 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/header_view"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="wrap_content" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/news_pager"
