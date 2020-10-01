@@ -17,7 +17,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.util.DimenUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +34,6 @@ public class CardHeaderView extends ConstraintLayout {
     @BindView(R.id.view_list_card_header_lang_code) TextView langCodeView;
     @Nullable private Card card;
     @Nullable private Callback callback;
-    private static final int PADDING = 4;
 
     public CardHeaderView(Context context) {
         super(context);
@@ -55,7 +53,6 @@ public class CardHeaderView extends ConstraintLayout {
     private void init() {
         inflate(getContext(), R.layout.view_card_header, this);
         ButterKnife.bind(this);
-        setPadding(0, 0, 0, DimenUtil.roundedDpToPx(PADDING));
     }
 
     @NonNull public CardHeaderView setCard(@NonNull Card card) {

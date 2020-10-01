@@ -63,7 +63,7 @@
     <dimen name="view_feed_padding_top">4dp</dimen>
     <dimen name="view_feed_search_padding_bottom">8dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
-    <dimen name="view_feed_day_header_margin_bottom">-28dp</dimen>
+    <dimen name="view_feed_day_header_margin_bottom">-24dp</dimen>
     <dimen name="view_list_card_margin_vertical">12dp</dimen>
     <dimen name="view_list_card_margin_horizontal">8dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
