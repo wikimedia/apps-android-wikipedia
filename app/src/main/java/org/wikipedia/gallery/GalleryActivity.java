@@ -527,7 +527,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void hideTransitionReceiver() {
-        transitionReceiver.setVisibility(View.GONE);
+        final int hideDelayMillis = 250;
+        transitionReceiver.postDelayed(() -> {
+            if (isDestroyed() || transitionReceiver == null) {
+                return;
+            }
+            transitionReceiver.setVisibility(View.GONE);
+        }, hideDelayMillis);
     }
 
     /**

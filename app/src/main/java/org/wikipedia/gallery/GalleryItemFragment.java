@@ -314,7 +314,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
     }
 
     private void loadImage(String url) {
-        imageView.setVisibility(View.VISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
@@ -324,11 +324,13 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
 
     @Override
     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+        ((GalleryActivity) requireActivity()).onMediaLoaded();
         return false;
     }
 
     @Override
     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+        imageView.setVisibility(View.VISIBLE);
         ((GalleryActivity) requireActivity()).onMediaLoaded();
         return false;
     }
