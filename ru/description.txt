@@ -30,7 +30,7 @@
 
 Конфиденциальность данных: https://m.wikimediafoundation.org/wiki/Privacy_policy
 
-Конфидециальность данных при отчётах о сбоях, посылаемых сторонним поставщикам услуг: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+Конфиденциальность данных при отчётах о сбоях, посылаемых сторонним поставщикам услуг: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
 Правила пользования: https://m.wikimediafoundation.org/wiki/Terms_of_Use
 
