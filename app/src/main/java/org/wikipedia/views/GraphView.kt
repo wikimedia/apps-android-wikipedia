@@ -7,9 +7,10 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.feed.mostread.MostReadArticles
+import org.wikipedia.util.ResourceUtil
 
 class GraphView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
-    private val gradientColor1 = ContextCompat.getColor(context, R.color.accent50)
+    private val gradientColor1 = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
     private val gradientColor2 = ContextCompat.getColor(context, R.color.green50)
     private val dataSet = mutableListOf<Float>()
     private var maxX = 0f
@@ -47,8 +48,8 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
 
     override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
         pathPaint.shader =  LinearGradient(0f, 0f, width.toFloat(), height.toFloat(),
-                intArrayOf(gradientColor2, gradientColor1, gradientColor2),
-                floatArrayOf(0f, 0.5f, 1f), Shader.TileMode.MIRROR)
+                intArrayOf(gradientColor1, gradientColor2),
+                floatArrayOf(0f, 1f), Shader.TileMode.MIRROR)
     }
 
     private fun Int.scaleX() = toFloat() / maxX * (width - GRAPH_MARGIN)

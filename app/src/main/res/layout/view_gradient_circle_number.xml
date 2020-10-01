@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="2dp"
+        android:layout_margin="1.5dp"
         android:background="@drawable/shape_circle"
         android:backgroundTint="?paper_color"/>
 
@@ -21,7 +21,7 @@
         android:id="@+id/numberView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif"
         android:textSize="12sp"
         android:textColor="?paper_color"
         android:gravity="center"
