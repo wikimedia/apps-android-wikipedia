@@ -45,6 +45,9 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
     }
 
     @Override public void setCard(@NonNull NewsCard card) {
+        if (card.equals(getCard())) {
+            return;
+        }
         super.setCard(card);
         header(card);
         setLayoutDirectionByWikiSite(card.wikiSite(), rtlContainer);
