@@ -486,6 +486,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             }
             currentPosition = position;
         }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            hideTransitionReceiver(false);
+        }
     }
 
     @Override
@@ -518,22 +523,28 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
 
     public void onMediaLoaded() {
-        hideTransitionReceiver();
+        hideTransitionReceiver(true);
     }
 
     private void showTransitionReceiver() {
-        transitionReceiver.setAlpha(1f);
         transitionReceiver.setVisibility(View.VISIBLE);
     }
 
-    private void hideTransitionReceiver() {
-        final int hideDelayMillis = 250;
-        transitionReceiver.postDelayed(() -> {
-            if (isDestroyed() || transitionReceiver == null) {
-                return;
-            }
+    private void hideTransitionReceiver(boolean delay) {
+        if (transitionReceiver.getVisibility() == View.GONE) {
+            return;
+        }
+        if (delay) {
+            final int hideDelayMillis = 250;
+            transitionReceiver.postDelayed(() -> {
+                if (isDestroyed() || transitionReceiver == null) {
+                    return;
+                }
+                transitionReceiver.setVisibility(View.GONE);
+            }, hideDelayMillis);
+        } else {
             transitionReceiver.setVisibility(View.GONE);
-        }, hideDelayMillis);
+        }
     }
 
     /**
