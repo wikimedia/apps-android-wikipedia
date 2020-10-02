@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.palette.graphics.Palette;
 
 import com.google.android.material.card.MaterialCardView;
@@ -82,8 +83,8 @@ public class CardLargeHeaderView extends ConstraintLayout {
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
         @Override
         public void onImageLoaded(@NonNull Palette palette) {
-            int color1 = palette.getDominantColor(ContextCompat.getColor(getContext(), R.color.base70));
-            int color2 = palette.getMutedColor(ContextCompat.getColor(getContext(), R.color.base30));
+            int color1 = palette.getLightVibrantColor(ContextCompat.getColor(getContext(), R.color.base70));
+            int color2 = palette.getLightMutedColor(ContextCompat.getColor(getContext(), R.color.base30));
             if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
                 color1 = darkenColor(color1);
                 color2 = darkenColor(color2);
@@ -101,23 +102,11 @@ public class CardLargeHeaderView extends ConstraintLayout {
     }
 
     private static int lightenColor(@ColorInt int color) {
-        int r = (color & 0xff);
-        int g = (color & 0xff00) >> 8;
-        int b = (color & 0xff0000) >> 16;
-        r += ((0xff - r) / 2);
-        g += ((0xff - g) / 2);
-        b += ((0xff - b) / 2);
-        return Color.rgb(r, g, b);
+        return ColorUtils.blendARGB(color, Color.WHITE, 0.3f);
     }
 
     private static int darkenColor(@ColorInt int color) {
-        int r = (color & 0xff);
-        int g = (color & 0xff00) >> 8;
-        int b = (color & 0xff0000) >> 16;
-        r -= (r / 2);
-        g -= (g / 2);
-        b -= (b / 2);
-        return Color.rgb(r, g, b);
+        return ColorUtils.blendARGB(color, Color.BLACK, 0.3f);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

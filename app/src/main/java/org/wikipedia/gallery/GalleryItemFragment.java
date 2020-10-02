@@ -18,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -66,7 +68,7 @@ public class GalleryItemFragment extends Fragment {
     @BindView(R.id.gallery_video) VideoView videoView;
     @BindView(R.id.gallery_video_thumbnail) ImageView videoThumbnail;
     @BindView(R.id.gallery_video_play_button) View videoPlayButton;
-    @BindView(R.id.gallery_image) ImageView imageView;
+    @BindView(R.id.gallery_image) PhotoView imageView;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -122,6 +124,14 @@ public class GalleryItemFragment extends Fragment {
                 ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
+
+        imageView.setOnMatrixChangeListener(rect -> {
+            if (!isAdded() || imageView == null) {
+                return;
+            }
+            ((GalleryActivity) requireActivity()).setViewPagerEnabled(imageView.getScale() <= 1f);
+        });
+
         return rootView;
     }
 

@@ -93,7 +93,7 @@ public class NewsFragment extends Fragment {
 
         setConditionalLayoutDirection(view, wiki.languageCode());
 
-        Uri imageUri = item.featureImage();
+        Uri imageUri = item.thumb();
         if (imageUri == null) {
             appBarLayout.setExpanded(false, false);
         }

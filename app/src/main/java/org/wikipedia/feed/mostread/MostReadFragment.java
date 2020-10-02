@@ -62,7 +62,7 @@ public class MostReadFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
         MostReadListCard card = GsonUnmarshaller.unmarshal(MostReadListCard.class, requireActivity().getIntent().getStringExtra(MOST_READ_CARD));
 
-        getAppCompatActivity().getSupportActionBar().setTitle(String.format(getString(R.string.top_on_this_day), card.subtitle()));
+        getAppCompatActivity().getSupportActionBar().setTitle(String.format(getString(R.string.top_read_activity_title), card.subtitle()));
         setConditionalLayoutDirection(view, card.wikiSite().languageCode());
 
         initRecycler();
