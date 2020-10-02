@@ -30,7 +30,7 @@
                 android:id="@+id/view_featured_article_card_transition_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:transitionName="@string/transition_featured_article_card"
+                android:transitionName="@string/transition_feed_page_card"
                 android:visibility="gone"
                 android:contentDescription="@null" />
 
