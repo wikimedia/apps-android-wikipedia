@@ -9,8 +9,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
-public abstract class ViewHideHandler
-        implements ObservableWebView.OnScrollChangeListener,
+public class ViewHideHandler implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnUpOrCancelMotionEventListener,
         ObservableWebView.OnDownMotionEventListener, ObservableWebView.OnClickListener {
     @NonNull private final View hideableView;
@@ -116,7 +115,8 @@ public abstract class ViewHideHandler
         return false;
     }
 
-    protected abstract void onScrolled(int oldScrollY, int scrollY);
+    protected void onScrolled(int oldScrollY, int scrollY) {
+    }
 
     private void ensureDisplayed() {
         ViewAnimations.ensureTranslationY(hideableView, 0);

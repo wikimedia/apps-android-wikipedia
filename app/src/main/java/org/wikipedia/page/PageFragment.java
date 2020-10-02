@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.ActionMode;
 import android.view.ActionProvider;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -174,6 +175,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private WikiErrorView errorView;
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
+    private ViewHideHandler bottomBarHideHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -327,6 +329,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         tabLayout.setPageActionTabsCallback(pageActionTabsCallback);
 
         errorView = rootView.findViewById(R.id.page_error);
+
+        bottomBarHideHandler = new ViewHideHandler(tabLayout, null, Gravity.BOTTOM);
+        bottomBarHideHandler.setScrollView(webView);
 
         return rootView;
     }
