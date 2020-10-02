@@ -25,7 +25,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -64,7 +63,7 @@ import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.YEAR;
 
 public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback {
-    @BindView(R.id.day) MaterialButton dayText;
+    @BindView(R.id.day) TextView dayText;
     @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
@@ -151,6 +150,9 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
+                    if (!isAdded()) {
+                        return;
+                    }
                     progressBar.setVisibility(GONE);
                     eventsRecycler.postDelayed(() -> {
                         if (positionToScrollTo != -1 && yearOnCardView != -1) {
@@ -239,7 +241,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         maybeHideDateIndicator();
     }
 
-    @OnClick({R.id.day, R.id.toolbar_day_container})
+    @OnClick({R.id.day_container, R.id.toolbar_day_container})
     public void onCalendarClicked() {
         CustomDatePicker newFragment = new CustomDatePicker();
         newFragment.setSelectedDay(date.get(Calendar.MONTH), date.get(Calendar.DATE));

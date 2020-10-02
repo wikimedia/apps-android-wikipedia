@@ -134,8 +134,12 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
             PageSummary finalChosenPage = chosenPage;
 
             if (chosenPage != null) {
-                otdEventImage.setVisibility((chosenPage.getThumbnailUrl() == null) ? View.GONE : VISIBLE);
-                otdEventImage.loadImage(Uri.parse(chosenPage.getThumbnailUrl()));
+                if (chosenPage.getThumbnailUrl() == null) {
+                    otdEventImage.setVisibility(GONE);
+                } else {
+                    otdEventImage.setVisibility(VISIBLE);
+                    otdEventImage.loadImage(Uri.parse(chosenPage.getThumbnailUrl()));
+                }
                 otdEventDescription.setText(chosenPage.getDescription());
                 otdEventDescription.setVisibility(TextUtils.isEmpty(chosenPage.getDescription()) ? View.GONE : View.VISIBLE);
                 otdEventTitle.setMaxLines(TextUtils.isEmpty(chosenPage.getDescription()) ? 2 : 1);

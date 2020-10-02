@@ -42,7 +42,7 @@
             android:id="@+id/year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="6dp"
             android:gravity="center_vertical"
             android:lineSpacingExtra="8sp"
             android:textColor="?attr/colorAccent"
@@ -81,7 +81,7 @@
         android:id="@+id/otd_event_page"
         layout="@layout/item_on_this_day_pages"
         android:layout_width="match_parent"
-        android:layout_height="268dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:visibility="gone" />
