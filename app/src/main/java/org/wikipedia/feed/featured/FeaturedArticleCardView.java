@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -42,11 +44,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_content_container) View contentContainerView;
     @BindView(R.id.view_featured_article_card_content) View contentView;
     @BindView(R.id.view_featured_article_card_transition_image) ImageView transitionImageView;
+
+    private static final float SUM_OF_CARD_HORIZONTAL_MARGINS = DimenUtil.dpToPx(24f);
+
     public FeaturedArticleCardView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_card_featured_article, this);
         ButterKnife.bind(this);
-        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     public void setCard(@NonNull FeaturedArticleCard card) {
@@ -162,8 +166,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         if (uri == null) {
             imageContainerView.setVisibility(GONE);
         } else {
+            imageContainerView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    (int) (DimenUtil.leadImageHeightForDevice(getContext()) - SUM_OF_CARD_HORIZONTAL_MARGINS)));
             imageContainerView.setVisibility(VISIBLE);
             imageView.loadImage(uri);
+            ImageZoomHelper.setViewZoomable(imageView);
         }
     }
 

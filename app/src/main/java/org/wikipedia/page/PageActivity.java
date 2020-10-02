@@ -180,12 +180,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
-        if (!DimenUtil.isLandscape(this)) {
-            pageFragmentView.setVisibility(View.GONE);
-            ViewUtil.setViewCachedBitmap(transitionImage);
-            ViewUtil.setCachedBitmap(null);
-        }
-
+        setTransitionImage();
         setSupportActionBar(toolbar);
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -671,6 +666,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
         overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
+    }
+
+    private void setTransitionImage() {
+        if (!DimenUtil.isLandscape(this)) {
+            pageFragmentView.setVisibility(View.GONE);
+            ViewUtil.setViewCachedBitmap(transitionImage);
+            ViewUtil.setCachedBitmap(null);
+        }
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {

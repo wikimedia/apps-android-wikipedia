@@ -44,12 +44,12 @@
                 <FrameLayout
                     android:id="@+id/view_featured_article_card_image_container"
                     android:layout_width="match_parent"
-                    android:layout_height="192dp"
+                    android:layout_height="match_parent"
+                    android:minHeight="192dp"
                     app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header">
 
                     <org.wikipedia.views.FaceAndColorDetectImageView
                         android:id="@+id/view_featured_article_card_image"
-                        style="@style/ImageViewDefault"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@null"/>
