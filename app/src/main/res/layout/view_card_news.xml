@@ -4,17 +4,19 @@
     android:id="@+id/rtl_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clipChildren="false">
 
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/header_view"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="wrap_content" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/news_pager"
         android:layout_width="match_parent"
-        android:layout_height="288dp" />
+        android:layout_height="288dp"
+        android:clipChildren="false"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/news_item_indicator_view"

@@ -9,7 +9,6 @@
         android:id="@+id/view_featured_article_card_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <org.wikipedia.views.WikiCardView

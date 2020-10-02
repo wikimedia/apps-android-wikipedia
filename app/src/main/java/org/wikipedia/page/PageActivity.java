@@ -110,7 +110,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
-    private static final int SE_FEED_LINK_SNACKBAR_SHOW_LIMIT = 2;
 
     public enum TabPosition {
         CURRENT_TAB,

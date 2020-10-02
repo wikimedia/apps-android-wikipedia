@@ -44,6 +44,8 @@ public class PageSummary {
     @Nullable private String timestamp;
     @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
+    public PageSummary() { }
+
     public PageSummary(@NonNull String displayTitle, @NonNull String prefixTitle, @Nullable String description,
                        @Nullable String extract, @Nullable String thumbnail, @NonNull String lang) {
         this.titles = new Titles(displayTitle, prefixTitle);

@@ -36,12 +36,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/bottom_toolbar_height" />
+            android:layout_marginBottom="?attr/actionBarSize" />
 
         <org.wikipedia.page.PageActionTabLayout
             android:id="@+id/page_actions_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/bottom_toolbar_height"
+            android:layout_height="?attr/actionBarSize"
             android:background="?attr/paper_color"
             android:layout_gravity="bottom"
             android:elevation="8dp"/>
