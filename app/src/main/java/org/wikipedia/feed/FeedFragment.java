@@ -135,7 +135,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
         feedView.setAdapter(feedAdapter);
         feedView.addOnScrollListener(feedScrollListener);
-
+        feedView.requestDisallowInterceptTouchEvent(true);
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(this::refresh);
 

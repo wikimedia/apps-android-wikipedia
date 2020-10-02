@@ -133,6 +133,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         viewPager.setUserInputEnabled(false);
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(this));
         viewPager.registerOnPageChangeCallback(pageChangeCallback);
+        viewPager.requestDisallowInterceptTouchEvent(true);
         FeedbackUtil.setButtonLongPressToast(moreContainer);
 
         tabLayout.setOnNavigationItemSelectedListener(item -> {
