@@ -15,7 +15,7 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.log.L
 
 class SuggestedEditsCard(
-        val wiki: WikiSite,
+        wiki: WikiSite,
         val action: Action,
         val sourceSummaryForEdit: PageSummaryForEdit?,
         val targetSummaryForEdit: PageSummaryForEdit?,
@@ -29,7 +29,7 @@ class SuggestedEditsCard(
 
     override fun title(): String {
         return L10nUtil.getStringForArticleLanguage(targetSummaryForEdit?.lang
-                ?: wiki.languageCode(), R.string.suggested_edits_feed_card_title)
+                ?: wikiSite().languageCode(), R.string.suggested_edits_feed_card_title)
     }
 
     override fun subtitle(): String {

@@ -26,6 +26,7 @@
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
+  <string name="filter_hint_filter_my_lists_and_articles">မိမိ၏စာရင်းများ စစ်ထုတ်ရန်</string>
   <string name="nav_item_suggested_edits">တည်းဖြတ်မှုများ</string>
   <string name="nav_item_more">ပို၍</string>
   <string name="nav_item_search">ရှာဖွေရန်</string>
@@ -180,6 +181,7 @@
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်များအား ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်များအား အလိုအလျောက် ပေးပို့စေခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူလျှင်မြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စေရန် ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားသော ဒိုမိန်းများ (%s) သို့ ချိတ်ဆက်ထားမှု ရှိနေသည်။ ကျေးဇူးပြု၍ ယင်းတို့ကို ဖယ်ရှားပြီး ထပ်မံကြိုးစားပါ။</string>
+  <string name="history_filter_list_hint">စစ်ထုတ်မှု ရာဇဝင်</string>
   <string name="error_can_not_process_link">ဤလင့်ခ်အား ပြသနိုင်ခြင်း မရှိပါ</string>
   <string name="page_protected_autoconfirmed">ဤစာမျက်နှာအား တစ်စိတ်တစ်ပိုင်း ကာကွယ်ထားသည်။</string>
   <string name="page_protected_sysop">ဤစာမျက်နှာအား အပြည့်အဝ ကာကွယ်ထားသည်။</string>
@@ -376,6 +378,7 @@
   <string name="reading_list_article_already_exists_message">အားလုံးကောင်းပါတယ်! %1$sမှာ%2$sပါပါတယ်</string>
   <string name="reading_list_articles_already_exist_message">အားလုံးကောင်းပါတယ်! %sမှာ ဆောင်းပါးအားလုံးပါပြီးသားပါ</string>
   <string name="reading_list_added_view_button">စာရင်းအား ကြည့်ရန်</string>
+  <string name="reading_list_add_to_list_button">စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="format_reading_list_statistical_summary_singular">ဆောင်းပါး ၁ ခု၊ %1$.2f မက်ဂါဘိုက်</string>
   <string name="format_reading_list_statistical_summary_plural">ဆောင်းပါး %1$d ခု၊ %2$.2f မက်ဂါဘိုက်</string>
   <string name="format_reading_list_statistical_detail_singular">ဆောင်းပါး ၁ ခု၏ %1$d ကို အင်တာနက်မရှိပဲ ဖတ်ရှုနိုင်သည်၊ %2$.2f မက်ဂါဘိုက်။</string>
@@ -626,6 +629,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ဖော်ပြချက်တည်းဖြတ်မှုကို ဆက်တိုက်စိတ်ဝင်စားသည့်အတွက် ကျေးဇူးတင်ပါသည်၊ ထပ်တိုးတည်းဖြတ်မှုများ လုပ်ဆောင်ရန် ကျေးဇူးပြု၍ ဝီကီပီးဒီးယားအကောင့်ထဲသို့ ဝင်ရောက်ပါ။</string>
   <string name="description_edit_license_notice">ဆောင်းပါးဖော်ပြချက်ကို ပြောင်းလဲရာတွင် &lt;a href=\"%1$s\"&gt;အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ&lt;/a&gt;ကို သဘောတူလိုက်နာပြီး မိမိ၏ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် အချောသတ်ထုတ်ပြန်ပါမည်။</string>
+  <string name="description_too_short">စာသားမှာ တိုတောင်းလွန်းသည်။</string>
   <string name="description_edit_success_saved">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
   <string name="description_edit_success_saved_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">ဆောင်းပါးဖော်ပြချက် လွှင့်တင်ပြီး (%s)</string>
@@ -641,6 +645,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
+  <string name="suggested_edits_describe_articles">ဆောင်းပါးများ ဖော်ပြရန်</string>
   <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_edit_description_button">ဖော်ပြချက် တည်းဖြတ်ရန်</string>
@@ -700,7 +705,7 @@
   <string name="suggested_edits_image_tags_publishing">လွှင့်တင်နေသည်</string>
   <string name="suggested_edits_image_tags_published">လွှင့်တင်ခဲ့သော</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များသည် ဆောင်းပါးတစ်ခုကို အကျဉ်းချုပ်ဖော်ပြပေးပြီး တချက်ကြည့်ရုံဖြင့် အကြောင်းအရာကို စာဖတ်သူများ နားလည်စေရန် ကူညီပေးသည်။</string>
-  <string name="suggested_edits_contributions_stat_tooltip">အကြံပြုထားသောတည်းဖြတ်မှုများနှင့် သင်၏စုစုပေါင်းပံ့ပိုးမှုများ အရေအတွက်</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">အကြံပြုထားသောတည်းဖြတ်မှုများနှင့် သင်၏စုစုပေါင်းပံ့ပိုးမှုများ အရေအတွက်</string>
   <string name="suggested_edits_paused_message">အကြံပြုထားသော ပြင်ဆင်မှုများကို %1$s အထိ ခေတ္တရပ်နားလိုက်ပါတယ်။ %2$s ဝမ်းနည်းပါတယ်။ သင့်ရဲ့အချို့သော မကြာသေးမီကပံ့ပိုးမှာမျာဟာ ပြန်သွားခဲ့ရတယ်။</string>
   <string name="suggested_edits_disabled_message">အကြံပြုတည်းဖြတ်မှုများကိုပိတ်ထားသည်။ %s ဝမ်းနည်းပါသည်။ သင်၏လတ်တလောပံ့ပိုးမှုများကိုပြန်လည်ရုပ်သိမ်းပြီးပါပြီ</string>
   <string name="suggested_edits_ip_blocked_message">သင်၏အိုင်ပီလိပ်စာ (သို့မဟုတ် အိုင်ပီလိပ်စာများ၏ အတိုင်းအတာ) သည် ဝီကီပီးဒီးယား တည်းဖြတ်ခြင်းမှ လတ်တလော ပိတ်ပင်ခံထားရပုံရှိသည်။ ယင်းအကြောင်း အောက်ပါလင့်ခ်တွင် အလည်သွား၍ ပိုမိုလေ့လာပါ။</string>
@@ -837,6 +842,7 @@
   <string name="text_input_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="talk_title">ဆွေးနွေး</string>
+  <string name="talk_page_empty">ဤဆွေးနွေးချက်စာမျက်နှာမှာ ဗလာဖြစ်နေသည်။</string>
   <string name="talk_add_reply">အကြောင်းပြန်ရန်</string>
   <string name="talk_reply_subject">အကြောင်းအရာ</string>
 </resources>

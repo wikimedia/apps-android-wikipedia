@@ -172,7 +172,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
-        toolbar.setNavigationOnClickListener((v) -> requireActivity().finish());
+        toolbar.setNavigationOnClickListener((v) -> requireActivity().supportFinishAfterTransition());
 
         initSearchView();
         return view;
@@ -182,7 +182,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     public void onStart() {
         super.onStart();
         setUpLanguageScroll(Prefs.getSelectedLanguagePositionInSearch());
-        startSearch(query, false);
+        startSearch(query, langBtnClicked);
         searchView.setCloseButtonVisibility(query);
 
         if (!TextUtils.isEmpty(query)) {

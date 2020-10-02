@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* 1233qwer1234qwer4
 * 4elovek12345
 * Abijeet Patro
 * Alexander Istomin
@@ -82,6 +83,7 @@
   <string name="history_item_delete_undo">Вернуть</string>
   <string name="notification_archive_undo">Отменить</string>
   <string name="app_settings">Настройки приложения</string>
+  <string name="history_list_title">История</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -283,6 +285,7 @@
   <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
   <string name="search_recent_header">Последние поиски:</string>
+  <string name="search_results_count_zero">Ничего не найдено</string>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
   <string name="clear_recent_searches_confirm_yes">Да</string>
@@ -385,6 +388,7 @@
   <string name="crash_report_relaunch">Перезапустить</string>
   <string name="crash_report_quit">Выйти</string>
   <string name="article_menu_bar_save_button">Сохранить</string>
+  <string name="article_menu_bar_language_button">Язык</string>
   <string name="article_menu_bar_theme_button">Тема оформления</string>
   <string name="article_header_edit_hint">Править…</string>
   <string name="article_header_edit_description">Изменить описание статьи</string>
@@ -464,7 +468,7 @@
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
   <string name="reading_list_articles_added_to_named">В список «%2$s» были добавлены статьи (%1$d)</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтоб включить синхронизацию</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтобы включить синхронизацию</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Войдите в систему, чтобы ваши списки чтения были сохранены в вашей учётной записи.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмена</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Войти</string>
@@ -890,4 +894,5 @@
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Отмена</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отмена</string>
+  <string name="talk_title">Обсуждение</string>
 </resources>

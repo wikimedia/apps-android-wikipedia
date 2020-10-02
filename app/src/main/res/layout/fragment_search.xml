@@ -20,6 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:paddingStart="-2dp"
             android:theme="@style/ToolbarTheme"
+            android:transitionName="@string/transition_search_bar"
             app:navigationIcon="@drawable/ic_arrow_back_themed_24dp">
 
             <LinearLayout

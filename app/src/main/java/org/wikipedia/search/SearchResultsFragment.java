@@ -25,6 +25,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
@@ -38,6 +39,7 @@ import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -73,10 +75,6 @@ public class SearchResultsFragment extends Fragment {
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
-    /**
-     * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
-     */
-    private static final int NANO_TO_MILLI = 1_000_000;
 
     @BindView(R.id.search_results_display) View searchResultsDisplay;
     @BindView(R.id.search_results_container) View searchResultsContainer;
@@ -196,8 +194,9 @@ public class SearchResultsFragment extends Fragment {
 
         disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
                 Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                        Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)),
-                        Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)), (searchResponse, readingListSearchResults, historySearchResults) -> {
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchResponse, readingListSearchResults, historySearchResults) -> {
 
                             SearchResults searchResults;
                             if (searchResponse != null && searchResponse.query() != null && searchResponse.query().pages() != null) {
@@ -219,9 +218,10 @@ public class SearchResultsFragment extends Fragment {
                                 searchResults = new SearchResults();
                             }
                             handleSuggestion(searchResults.getSuggestion());
-                            List<SearchResult> resultList = new ArrayList<>(readingListSearchResults.getResults());
-                            resultList.addAll(historySearchResults.getResults());
+                            List<SearchResult> resultList = new ArrayList<>();
                             addSearchResultsFromTabs(resultList);
+                            resultList.addAll(readingListSearchResults.getResults());
+                            resultList.addAll(historySearchResults.getResults());
                             resultList.addAll(searchResults.getResults());
                             return resultList;
                         }))
@@ -240,6 +240,9 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void addSearchResultsFromTabs(List<SearchResult> resultList) {
+        if (currentSearchTerm.length() < 2) {
+            return;
+        }
         List<Tab> tabList = WikipediaApp.getInstance().getTabList();
         for (Tab tab : tabList) {
             if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
@@ -340,12 +343,26 @@ public class SearchResultsFragment extends Fragment {
                     } else {
                         updateProgressBar(true);
                     }
-                    return resultList.isEmpty() ? doFullTextSearchResultsCountObservable(searchTerm) : Observable.empty();
+                    return resultList.isEmpty() ? doSearchResultsCountObservable(searchTerm) : Observable.empty();
                 })
                 .toList()
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(list -> {
                     if (!list.isEmpty()) {
+
+                        // make a singleton list if all results are empty.
+                        int sum = 0;
+                        for (int count : list) {
+                            sum += count;
+                            if (sum > 0) {
+                                break;
+                            }
+                        }
+
+                        if (sum == 0) {
+                            list = Collections.singletonList(0);
+                        }
+
                         searchResultsCountCache.put(getSearchLanguageCode() + "-" + searchTerm, list);
                         displayResultsCount(list);
                     }
@@ -355,12 +372,25 @@ public class SearchResultsFragment extends Fragment {
                 }));
     }
 
-    private Observable<Integer> doFullTextSearchResultsCountObservable(final String searchTerm) {
+    private Observable<Integer> doSearchResultsCountObservable(final String searchTerm) {
         return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
-                .concatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null))
+                .concatMap(langCode -> {
+                    if (langCode.equals(getSearchLanguageCode())) {
+                        return Observable.just(new MwQueryResponse());
+                    }
+                    return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .flatMap(response -> {
+                                        if (response.query() != null && response.query().pages() != null) {
+                                            return Observable.just(response);
+                                        }
+                                        return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null);
+                                    });
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> response.query() != null ? response.query().pages().size() : 0);
+                .map(response -> response.query() != null && response.query().pages() != null ? response.query().pages().size() : 0);
     }
 
     private void clearResults() {
@@ -525,7 +555,7 @@ public class SearchResultsFragment extends Fragment {
             resultsText.setText(resultsCount == 0 ? getString(R.string.search_results_count_zero)
                     : getResources().getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount));
             resultsText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
-            languageCodeText.setVisibility(WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 1 ? View.GONE : View.VISIBLE);
+            languageCodeText.setVisibility(resultsCountList.size() == 1 ? View.GONE : View.VISIBLE);
             languageCodeText.setText(langCode);
             languageCodeText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
             languageCodeText.setBackgroundTintList(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
@@ -571,7 +601,7 @@ public class SearchResultsFragment extends Fragment {
                 searchResultIcon.setVisibility(VISIBLE);
                 searchResultIcon.setImageResource(result.getType() == SearchResult.SearchResultType.HISTORY
                         ? R.drawable.ic_restore_black_24dp : result.getType() == SearchResult.SearchResultType.TAB_LIST
-                        ? R.drawable.ic_tab_single_24px : R.drawable.ic_bookmark_border_white_24dp);
+                        ? R.drawable.ic_tab_one_24px : R.drawable.ic_bookmark_white_24dp);
             }
 
             // highlight search term within the text
@@ -631,7 +661,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private int displayTime(long startTime) {
-        return (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+        return (int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime);
     }
 
     @Nullable
