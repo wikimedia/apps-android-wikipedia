@@ -14,7 +14,7 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 /** Schemas for this abstract funnel are expected to have appInstallID and sessionToken fields. When
@@ -71,7 +71,7 @@ abstract class Funnel {
      * @return Event Data to be sent to server
      */
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(new Date()));
+        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(ZonedDateTime.now()));
         preprocessData(eventData, DEFAULT_APP_INSTALL_ID_KEY, app.getAppInstallID());
         preprocessSessionToken(eventData);
         return eventData;

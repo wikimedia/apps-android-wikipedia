@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -15,13 +16,13 @@ import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsCard;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -176,9 +177,13 @@ public class AggregatedFeedContentClient {
 
         private void requestAggregated() {
             aggregatedClient.cancel();
-            UtcDate date = DateUtil.getUtcRequestDateFor(age);
+            final LocalDate localDate = LocalDate.now(ZoneOffset.UTC).minusDays(age);
             aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.getAggregatedLanguages())
-                    .flatMap(lang -> ServiceFactory.getRest(WikiSite.forLanguageCode(lang)).getAggregatedFeed(date.year(), date.month(), date.date()).subscribeOn(Schedulers.io()), Pair::new)
+                    .flatMap(lang -> ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
+                            .getAggregatedFeed("" + localDate.getYear(),
+                                    StringUtils.leftPad("" + localDate.getMonthValue(), 2, '0'),
+                                    StringUtils.leftPad("" + localDate.getDayOfMonth(), 2, '0'))
+                            .subscribeOn(Schedulers.io()), Pair::new)
                     .toList()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(pairList -> {

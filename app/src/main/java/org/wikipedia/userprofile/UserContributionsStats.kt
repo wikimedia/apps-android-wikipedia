@@ -9,6 +9,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.settings.Prefs
+import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -118,20 +119,18 @@ object UserContributionsStats {
         return getRevertSeverity() > REVERT_SEVERITY_DISABLE_THRESHOLD
     }
 
-    fun maybePauseAndGetEndDate(): Date? {
+    fun maybePauseAndGetEndDate(): LocalDateTime? {
         val pauseDate = Prefs.getSuggestedEditsPauseDate()
-        var pauseEndDate: Date? = null
+        var pauseEndDate: LocalDateTime? = null
 
         // Are we currently in a pause period?
-        if (pauseDate.time != 0L) {
-            val cal = Calendar.getInstance()
-            cal.time = pauseDate
-            cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-            pauseEndDate = cal.time
+        val zeroMillis = LocalDateTime.of(1970, 1, 1, 0, 0)
+        if (pauseDate != LocalDateTime.of(1970, 1, 1, 0, 0)) {
+            pauseEndDate = pauseDate.plusDays(PAUSE_DURATION_DAYS.toLong())
 
-            if (Date().after((pauseEndDate))) {
+            if (LocalDateTime.now().isAfter(pauseEndDate)) {
                 // We've exceeded the pause period, so remove it.
-                Prefs.setSuggestedEditsPauseDate(Date(0))
+                Prefs.setSuggestedEditsPauseDate(zeroMillis)
                 pauseEndDate = null
             }
         }
@@ -139,13 +138,10 @@ object UserContributionsStats {
         if (getRevertSeverity() > REVERT_SEVERITY_PAUSE_THRESHOLD) {
             // Do we need to impose a new pause?
             if (totalReverts > Prefs.getSuggestedEditsPauseReverts()) {
-                val cal = Calendar.getInstance()
-                cal.time = Date()
-                Prefs.setSuggestedEditsPauseDate(cal.time)
+                Prefs.setSuggestedEditsPauseDate(LocalDateTime.now())
                 Prefs.setSuggestedEditsPauseReverts(totalReverts)
 
-                cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-                pauseEndDate = cal.time
+                pauseEndDate = LocalDateTime.now().plusDays(PAUSE_DURATION_DAYS.toLong())
             }
         }
         return pauseEndDate

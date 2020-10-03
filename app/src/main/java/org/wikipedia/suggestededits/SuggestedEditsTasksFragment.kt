@@ -345,7 +345,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
+            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message,
+                    DateUtil.getShortDateString(pauseEndDate.toLocalDate()), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logPaused()
             UserContributionEvent.logPaused()

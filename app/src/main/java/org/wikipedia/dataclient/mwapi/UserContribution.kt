@@ -1,7 +1,7 @@
 package org.wikipedia.dataclient.mwapi
 
 import org.wikipedia.util.DateUtil
-import java.text.ParseException
+import java.time.format.DateTimeParseException
 import java.util.*
 
 class UserContribution {
@@ -26,7 +26,7 @@ class UserContribution {
         if (parsedDate == null) {
             try {
                 parsedDate = DateUtil.iso8601DateParse(timestamp)
-            } catch (e: ParseException) {
+            } catch (e: DateTimeParseException) {
                 // ignore
             }
         }

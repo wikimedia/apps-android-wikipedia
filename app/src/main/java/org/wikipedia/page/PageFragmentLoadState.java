@@ -231,7 +231,7 @@ public class PageFragmentLoadState {
         }
         try {
             String dateStr = DateUtil.getShortDateString(DateUtil
-                    .getHttpLastModifiedDate(dateHeader));
+                    .getHttpLastModifiedDate(dateHeader).toLocalDate());
             Toast.makeText(fragment.requireContext().getApplicationContext(),
                     fragment.getString(R.string.page_offline_notice_last_date, dateStr),
                     Toast.LENGTH_LONG).show();

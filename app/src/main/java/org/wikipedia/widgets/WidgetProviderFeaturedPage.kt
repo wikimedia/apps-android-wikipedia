@@ -21,10 +21,11 @@ import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.MainPageNameData
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
+import java.time.LocalDate
+import java.time.ZoneOffset
 
 class WidgetProviderFeaturedPage : AppWidgetProvider() {
 
@@ -66,8 +67,11 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         val mainPageTitle = PageTitle(
                 MainPageNameData.valueFor(app.appOrSystemLanguageCode),
                 app.wikiSite)
-        val date = DateUtil.getUtcRequestDateFor(0)
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getAggregatedFeed(date.year(), date.month(), date.date())
+        val localDate = LocalDate.now(ZoneOffset.UTC)
+        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite)
+                .getAggregatedFeed(localDate.year.toString(),
+                        localDate.monthValue.toString().padStart(2, '0'),
+                        localDate.dayOfMonth.toString().padStart(2, '0'))
                 .flatMap { response: AggregatedFeedContent ->
                     if (response.tfa() != null) {
                         Observable.just(response.tfa())

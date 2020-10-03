@@ -5,21 +5,21 @@ import androidx.annotation.NonNull;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.util.L10nUtil;
 
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class NewsCard extends WikiSiteCard {
-    @NonNull private UtcDate date;
-    @NonNull private List<NewsItem> news;
+    @NonNull private final LocalDate date;
+    @NonNull private final List<NewsItem> news;
 
     public NewsCard(@NonNull List<NewsItem> news, int age, @NonNull WikiSite wiki) {
         super(wiki);
         this.news = news;
-        this.date = new UtcDate(age);
+        this.date = LocalDate.now(ZoneOffset.UTC).minusDays(age);
     }
 
     @NonNull @Override public String title() {
@@ -30,7 +30,7 @@ public class NewsCard extends WikiSiteCard {
         return CardType.NEWS_LIST;
     }
 
-    @NonNull public UtcDate date() {
+    @NonNull public LocalDate date() {
         return date;
     }
     @NonNull public List<NewsItem> news() {
@@ -38,6 +38,6 @@ public class NewsCard extends WikiSiteCard {
     }
 
     @Override protected int dismissHashCode() {
-        return (int) TimeUnit.MILLISECONDS.toDays(date.baseCalendar().getTime().getTime()) + wikiSite().hashCode();
+        return (int) date.toEpochDay() + wikiSite().hashCode();
     }
 }

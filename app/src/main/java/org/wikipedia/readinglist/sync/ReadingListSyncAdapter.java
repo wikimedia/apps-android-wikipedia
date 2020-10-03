@@ -29,10 +29,11 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import java.text.ParseException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -565,9 +566,9 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             return lastSyncTime;
         }
         try {
-            Date date = DateUtil.getHttpLastModifiedDate(lastDateHeader);
-            return DateUtil.iso8601DateFormat(date);
-        } catch (ParseException e) {
+            ZonedDateTime date = DateUtil.getHttpLastModifiedDate(lastDateHeader);
+            return DateTimeFormatter.ISO_INSTANT.format(date.toInstant());
+        } catch (DateTimeParseException e) {
             return lastSyncTime;
         }
     }

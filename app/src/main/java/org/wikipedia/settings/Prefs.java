@@ -20,9 +20,9 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -796,15 +796,15 @@ public final class Prefs {
         setBoolean(R.string.preference_key_match_system_theme, enabled);
     }
 
-    public static Date getSuggestedEditsPauseDate() {
-        Date date = new Date(0);
+    public static LocalDateTime getSuggestedEditsPauseDate() {
+        LocalDateTime date = LocalDateTime.of(1970, 1, 1, 0, 0);
         if (contains(R.string.preference_key_suggested_edits_pause_date)) {
             date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
         }
         return date;
     }
 
-    public static void setSuggestedEditsPauseDate(Date date) {
+    public static void setSuggestedEditsPauseDate(LocalDateTime date) {
         setString(R.string.preference_key_suggested_edits_pause_date, DateUtil.dbDateFormat(date));
     }
 
