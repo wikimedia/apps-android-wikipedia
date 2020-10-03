@@ -6,8 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.view_suggested_edit_card.view.headerView
-import kotlinx.android.synthetic.main.view_suggested_edits_cards.view.*
+import kotlinx.android.synthetic.main.view_suggested_edits_card.view.*
 import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -16,18 +15,17 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback {
-    interface Callback {
-        fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
-    }
-
     private var card: SuggestedEditsCard? = null
     private var view: View
 
     init {
-        view = inflate(getContext(), R.layout.view_suggested_edits_cards, this)
+        view = inflate(getContext(), R.layout.view_suggested_edits_card, this)
     }
 
     override fun setCard(card: SuggestedEditsCard) {
+        if (card == getCard()) {
+            return
+        }
         super.setCard(card)
         this.card = card
         header(card)
@@ -44,15 +42,20 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun setUpPagerWithSECards() {
-        seCardsPager.adapter = SECardsPagerAdapter(view.context as AppCompatActivity)
+        seCardsPager.adapter = SECardsPagerAdapter(view.context as AppCompatActivity, card)
+        seCardsPager.offscreenPageLimit = 3
         TabLayoutMediator(seCardsIndicatorLayout, seCardsPager)
         { tab: TabLayout.Tab, position: Int -> tab.view.isClickable = false }.attach()
     }
 
-    class SECardsPagerAdapter(activity: AppCompatActivity?) : PositionAwareFragmentStateAdapter(activity!!) {
+    class SECardsPagerAdapter(activity: AppCompatActivity?, card: SuggestedEditsCard?) : PositionAwareFragmentStateAdapter(activity!!) {
+
         private val seCardTypeList = ArrayList<DescriptionEditActivity.Action>()
+        private var card: SuggestedEditsCard? = null
+
 
         init {
+            this.card = card
             seCardTypeList.add(ADD_DESCRIPTION)
             seCardTypeList.add(ADD_CAPTION)
             seCardTypeList.add(ADD_IMAGE_TAGS)
@@ -63,7 +66,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         }
 
         override fun createFragment(position: Int): Fragment {
-            return SuggestedEditsCardItemFragment.newInstance("", "")
+            return SuggestedEditsCardItemFragment.newInstance(card!!.age, seCardTypeList[position])
         }
     }
 

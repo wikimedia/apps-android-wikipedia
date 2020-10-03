@@ -1,18 +1,139 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.wikipedia.feed.suggestededits.SuggestedEditsCardItemFragment">
 
     <org.wikipedia.views.WikiCardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp">
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/seFeedCardProgressBar">
 
-        <TextView
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/suggestedEditsFragmentViewGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="cardItemContainer,viewArticleImage,
+                                viewArticleContainer,viewArticleTitle,articleDescriptionPlaceHolder1,articleDescriptionPlaceHolder2,viewArticleExtract,viewArticleSubtitle,callToActionButton" />
+
+        <LinearLayout
+            android:id="@+id/cardItemContainer"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/red30" />
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/viewArticleImage"
+                android:layout_width="match_parent"
+                android:layout_height="201dp" />
+
+            <LinearLayout
+                android:id="@+id/viewArticleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/viewArticleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:fontFamily="serif"
+                    android:lineSpacingExtra="4sp"
+                    android:maxLines="2"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    tools:text="Lorem ipsum" />
+
+                <View
+                    android:id="@+id/articleDescriptionPlaceHolder1"
+                    android:layout_width="222dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/tab_placeholder_text_color" />
+
+                <View
+                    android:id="@+id/articleDescriptionPlaceHolder2"
+                    android:layout_width="148dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/tab_placeholder_text_color" />
+
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/viewArticleSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="5dp"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="6sp"
+                    android:maxLines="3"
+                    android:textColor="?attr/secondary_text_color"
+                    android:textSize="14sp"
+                    tools:text="Lorem ipsum" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="@dimen/divider_width_for_article"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?attr/material_theme_border_color" />
+
+                <TextView
+                    android:id="@+id/viewArticleExtract"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="10sp"
+                    android:minLines="3"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="14sp"
+                    tools:text="Lorem ipsum" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/callToActionButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/view_card_footer_height"
+                    android:layout_marginBottom="11dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04"
+                    android:lineSpacingExtra="2sp"
+                    android:text="@string/suggested_edits_task_add_description_title"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_add_gray_white_24dp"
+                    app:iconSize="24dp"
+                    app:iconTint="?attr/colorAccent" />
+
+            </LinearLayout>
+        </LinearLayout>
     </org.wikipedia.views.WikiCardView>
-</FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/seFeedCardProgressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:elevation="12dp"
+        android:indeterminate="true"
+        android:indeterminateTint="?attr/colorAccent"
+        android:progressBackgroundTint="@color/accent30"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>
