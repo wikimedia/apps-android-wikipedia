@@ -239,7 +239,7 @@
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
   <string name="edit_abandon_confirm_yes">はい</string>
   <string name="edit_abandon_confirm_no">いいえ</string>
-  <string name="user_blocked_from_editing_title">ブロック済</string>
+  <string name="user_blocked_from_editing_title">ブロック済み</string>
   <string name="user_logged_in_blocked_from_editing">あなたの利用者アカウントはこのウィキで編集ブロックされています。</string>
   <string name="user_anon_blocked_from_editing">あなたの IP アドレスは編集ブロックされています。</string>
   <string name="edit_how_page_improved">このページでどんな点を改善しましたか?</string>
@@ -337,6 +337,7 @@
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="text_copied">テキストがクリップボードにコピーされました。</string>
   <string name="button_continue_to_article">記事を読む</string>
+  <string name="button_continue_to_talk_page">ノートページを開く</string>
   <string name="button_continue_to_disambiguation">類似のページを表示</string>
   <string name="link_preview_disambiguation_description">この記事名は複数のページと関係があります</string>
   <string name="button_add_to_reading_list">あとで読むリストに追加</string>
@@ -377,7 +378,7 @@
   <string name="empty_tab_title">新しいタブ</string>
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
-  <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
+  <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
   <string name="article_menu_bar_save_button">保存</string>
@@ -696,6 +697,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">説明は1行のみで、30文字程度で書いてください</string>
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">この機能を悪用しないことを約束して、スタートする。</string>
+  <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
   <string name="suggested_edits_review_description">記事の説明を確認</string>
   <string name="suggested_edits_add_description_button">説明を追加</string>
@@ -762,6 +764,7 @@
   <string name="suggested_edits_image_tags">画像タグ</string>
   <string name="suggested_edits_image_tags_publishing">公開中</string>
   <string name="suggested_edits_image_tags_published">公開されました</string>
+  <string name="suggested_edits_image_tags_onboarding_title">画像にタグをつけることにより画像を探しやすくできます。</string>
   <string name="suggested_edits_image_tags_onboarding_text">画像にタグを追加すると、画像がコモンズで検索にヒットしやすくなります。コモンズは、ウィキペディアが記事に使用する画像をまとめたフリーライセンスの画像保存庫です。</string>
   <string name="suggested_edits_image_tags_onboarding_note">あなたが確認したタグのみ画像に追加されます。</string>
   <string name="suggested_edits_image_tags_task_detail">画像がもっと見つかりやすくなるよう、固有のタグを追加してください。</string>
@@ -802,8 +805,8 @@
     <item quantity="one">%d 日</item>
     <item quantity="other">%d 日</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">編集提案とはなんですか?</string>
-  <string name="suggested_edits_what_is_text">ウィキペディアへの小さいけれど重要な編集を提案する機能です。</string>
+  <string name="suggested_edits_what_is_title">編集提案とは</string>
+  <string name="suggested_edits_what_is_text">ウィキペディアへの小さいながらも重要な編集を提案する機能です。</string>
   <string name="suggested_edits_learn_more">詳細</string>
   <string name="suggested_edits_paused_title">一時停止</string>
   <string name="suggested_edits_disabled_title">無効</string>
