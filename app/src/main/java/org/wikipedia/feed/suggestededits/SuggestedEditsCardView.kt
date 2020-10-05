@@ -16,11 +16,7 @@ import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback {
     private var card: SuggestedEditsCard? = null
-    private var view: View
-
-    init {
-        view = inflate(getContext(), R.layout.view_suggested_edits_card, this)
-    }
+    private var view: View = inflate(getContext(), R.layout.view_suggested_edits_card, this)
 
     override fun setCard(card: SuggestedEditsCard) {
         if (card == getCard()) {
