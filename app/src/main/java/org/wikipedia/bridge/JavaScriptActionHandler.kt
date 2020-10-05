@@ -145,4 +145,21 @@ object JavaScriptActionHandler {
                 "document.head.appendChild(style);" +
                 "})();"
     }
+
+    @JvmStatic
+    fun getElementAtPosition(x: Int, y: Int): String {
+        return "(function() {" +
+                "  let element = document.elementFromPoint(${x}, ${y});" +
+                "  let result = {};" +
+                "  result.left = element.getBoundingClientRect().left;" +
+                "  result.top = element.getBoundingClientRect().top;" +
+                "  result.width = element.clientWidth;" +
+                "  result.height = element.clientHeight;" +
+                "  result.src = element.src;" +
+                "  return result;" +
+                "})();"
+    }
+
+    data class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
+                            val src: String = "", val centerCrop: Boolean = false)
 }

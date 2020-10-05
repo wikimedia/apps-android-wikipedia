@@ -33,6 +33,8 @@ public class ObservableWebView extends WebView {
     private long lastScrollTime;
     private int totalAmountScrolled;
     private int drawEventsWhileSwiping;
+    private float lastTouchX;
+    private float lastTouchY;
 
     /**
     * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
@@ -159,6 +161,9 @@ public class ObservableWebView extends WebView {
             return true;
         }
 
+        lastTouchX = event.getX();
+        lastTouchY = event.getY();
+
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
                 for (OnDownMotionEventListener listener : onDownMotionEventListeners) {
@@ -191,6 +196,14 @@ public class ObservableWebView extends WebView {
                 break;
         }
         return super.onTouchEvent(event);
+    }
+
+    public float getLastTouchX() {
+        return lastTouchX;
+    }
+
+    public float getLastTouchY() {
+        return lastTouchY;
     }
 
     private void handleMouseRightClick(float x, float y) {
