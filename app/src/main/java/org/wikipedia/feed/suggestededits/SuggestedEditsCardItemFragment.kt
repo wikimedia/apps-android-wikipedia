@@ -3,7 +3,6 @@ package org.wikipedia.feed.suggestededits
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -343,7 +342,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun addImageTags() {
-        Log.e("#####", "HERETag" + cardActionType)
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
         disposables.add(EditingSuggestionsProvider
                 .getNextImageWithMissingTags(MAX_RETRY_LIMIT)
