@@ -451,11 +451,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onMoreContentSelected(@NonNull Card card) {
-            startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
-        }
-
-        @Override
         public void onFooterClick(@NonNull Card card) {
             if (card instanceof MostReadListCard) {
                 startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
