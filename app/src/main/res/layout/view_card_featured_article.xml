@@ -72,7 +72,7 @@
                         android:maxLines="3"
                         android:paddingTop="15dp"
                         android:textColor="?attr/primary_text_color"
-                        android:textSize="26sp"
+                        android:textSize="23sp"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Lorem ipsum" />
 
@@ -86,7 +86,7 @@
                         android:paddingBottom="5dp"
                         android:lineSpacingMultiplier="1.1"
                         android:textColor="?attr/secondary_text_color"
-                        android:textSize="13sp"
+                        android:textSize="12sp"
                         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_article_title"
                         tools:text="Lorem ipsum" />
 
@@ -110,7 +110,7 @@
                         android:paddingTop="10dp"
                         android:paddingBottom="16dp"
                         android:textColor="?attr/primary_text_color"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         tools:text="Lorem ipsum" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
