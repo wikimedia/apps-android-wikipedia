@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.DefaultFeedCardView;
+import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -83,6 +84,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
 
         if (card.hasFooterCaption()) {
             footerTextView.setText(StringUtil.fromHtml(card.footerCaption()));
+            RichTextUtil.removeUnderlinesFromLinks(footerTextView);
         } else {
             footerTextView.setVisibility(GONE);
             footerBorderView.setVisibility(GONE);
