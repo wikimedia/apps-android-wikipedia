@@ -334,6 +334,7 @@
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
   <string name="button_continue_to_article">Ler artigo</string>
+  <string name="button_continue_to_talk_page">Ver página de discussão</string>
   <string name="button_continue_to_disambiguation">Ver páginas semelhantes</string>
   <string name="link_preview_disambiguation_description">Este título está relacionado com mais do que uma página:</string>
   <string name="button_add_to_reading_list">Adicionar à lista de leitura</string>
