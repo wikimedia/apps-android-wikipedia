@@ -22,6 +22,7 @@
             app:statusBarScrim="?attr/paper_color">
 
             <FrameLayout
+                android:id="@+id/header_frame_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
