@@ -1,5 +1,7 @@
 package org.wikipedia.push
 
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -60,7 +62,8 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private const val UNSUBSCRIBE_RETRY_COUNT = 3
 
         fun isUsingPush(): Boolean {
-            return Prefs.getPushNotificationToken().isNotEmpty()
+            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS
+                    && Prefs.getPushNotificationToken().isNotEmpty()
                     && Prefs.isPushNotificationTokenSubscribed()
         }
 
