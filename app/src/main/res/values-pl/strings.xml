@@ -332,6 +332,7 @@
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
   <string name="button_continue_to_article">Przeczytaj artykuł</string>
+  <string name="button_continue_to_talk_page">Otwórz stronę dyskusji</string>
   <string name="button_continue_to_disambiguation">Pokaż podobne strony</string>
   <string name="link_preview_disambiguation_description">Ten tytuł odnosi się do więcej niż jednej strony:</string>
   <string name="button_add_to_reading_list">Dodaj do listy czytanych</string>

@@ -19,6 +19,7 @@
   <string name="search_hint_voice_search">Ձայնային որոնում</string>
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
+  <string name="nav_item_more">Ավելին</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>
   <string name="card_offline_error_retry">Կրկին փորձել</string>
@@ -163,11 +164,13 @@
   <string name="close_all_tabs_confirm_yes">Այո</string>
   <string name="close_all_tabs_confirm_no">Ոչ</string>
   <string name="button_continue_to_article">Կարդալ հոդված</string>
+  <string name="button_continue_to_talk_page">Բացել քննարկման էջը</string>
   <string name="nav_item_donate">Օգնե՜նք Վիքիպեդիային</string>
   <string name="location_permissions_enable_action">Միացնել</string>
   <string name="view_link_preview_error_button_dismiss">Փակել</string>
   <string name="reference_list_title">Ծանոթագրություններ</string>
   <string name="crash_report_quit">Ելք</string>
+  <string name="article_menu_bar_language_button">Լեզու</string>
   <string name="article_header_edit_hint">Խմբագրել...</string>
   <string name="color_theme_dark">Մուք</string>
   <string name="color_theme_black">Սև</string>
@@ -210,6 +213,7 @@
   <string name="preference_title_notification_thanks">Շնորհակալություն</string>
   <string name="preference_title_notification_revert">Հետ շրջել</string>
   <string name="preference_summary_notification_revert">Ձեր խմբագրումներից մեկը շրջվել է</string>
+  <string name="preference_title_notification_login_fail">Մուտք</string>
   <string name="preference_title_notification_user_talk">Քննարկման էջ</string>
   <string name="view_featured_image_card_title">Օրվա պատկեր</string>
   <string name="view_featured_image_card_download">Ներբեռնել</string>
@@ -222,7 +226,7 @@
   <string name="view_featured_article_card_title">Ընտրյալ հոդված</string>
   <string name="view_featured_article_footer_save_button_label">Հիշել</string>
   <string name="view_static_card_save_button_label">Հիշել</string>
-  <string name="feed_configure_menu_select_all">Ույց տալ բոլորը</string>
+  <string name="feed_configure_menu_select_all">Ցույց տալ բոլորը</string>
   <string name="feed_configure_menu_deselect_all">Թաքցնել բոլորը</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Լավ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
@@ -271,6 +275,8 @@
   <string name="suggested_edits_contribution_language_label">Լեզու</string>
   <string name="suggested_edits_contribution_image_label" fuzzy="true">Նիշք</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Երեկ</string>
+  <string name="suggested_edits_rewards_continue_button">Շարունակել</string>
   <string name="description_edit_login_cancel_button_text">Չեղարկել</string>
   <string name="onboarding_skip">Բաց թողնել</string>
   <string name="onboarding_continue">Շարունակել</string>
