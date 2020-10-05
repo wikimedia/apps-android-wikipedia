@@ -322,6 +322,7 @@
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
+  <string name="button_continue_to_talk_page">Obre la pàgina de discussió</string>
   <string name="button_continue_to_disambiguation">Mosta pàgines semblants</string>
   <string name="link_preview_disambiguation_description">Aquest títol es relaciona a més d\'una pàgina:</string>
   <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>
@@ -767,9 +768,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, a continuació podeu trobar com millorar ràpidament i fàcil la Viquipèdia. Vegeu la diferència tan bon punt hi comenceu. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Descriure una imatge ajuda als lectors a entendre el seu significat i context.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resumir un article ajuda als lectors a entendre la temàtica d\'un primer cop d\'ull.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions des de les edicions suggerides.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits heu contribuït des de les edicions suggerides. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies des de les edicions suggerides.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions fins ara.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits hi heu fet contribucions. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basta en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
   <string name="suggested_edits_paused_message">Les edicions suggerides s\'han posat en pausa fins al %1$s. Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.</string>
   <string name="suggested_edits_disabled_message">S\'han inhabilitat les edicions suggerides. Ho sentim %s, s\'han revertit massa contribucions recents.</string>

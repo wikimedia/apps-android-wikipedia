@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
@@ -56,6 +58,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ImageUrlUtil;
@@ -64,6 +67,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
@@ -105,10 +109,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_REVISION = "revision";
     public static final String EXTRA_SOURCE = "source";
 
+    private static JavaScriptActionHandler.ImageHitInfo TRANSITION_INFO;
+
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageTitle pageTitle;
 
+    @BindView(R.id.gallery_transition_receiver) ImageView transitionReceiver;
     @BindView(R.id.gallery_toolbar_container) ViewGroup toolbarContainer;
     @BindView(R.id.gallery_toolbar) Toolbar toolbar;
     @BindView(R.id.gallery_toolbar_gradient) View toolbarGradient;
@@ -241,7 +248,33 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             }
             setControlsShowing(controlsShowing);
         });
-        loadGalleryContent();
+
+        if (TRANSITION_INFO != null
+                && TRANSITION_INFO.getWidth() > 0 && TRANSITION_INFO.getHeight() > 0) {
+
+            float aspect = TRANSITION_INFO.getHeight() / TRANSITION_INFO.getWidth();
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(DimenUtil.getDisplayWidthPx(), (int)(DimenUtil.getDisplayWidthPx() * aspect));
+            params.gravity = Gravity.CENTER_VERTICAL;
+            transitionReceiver.setLayoutParams(params);
+
+            transitionReceiver.setVisibility(View.VISIBLE);
+            ViewUtil.loadImage(transitionReceiver, TRANSITION_INFO.getSrc(), TRANSITION_INFO.getCenterCrop(), false, false);
+
+            final int transitionMillis = 500;
+            transitionReceiver.postDelayed(() -> {
+                if (isDestroyed()) {
+                    return;
+                }
+                loadGalleryContent();
+            }, transitionMillis);
+
+        } else {
+
+            TRANSITION_INFO = null;
+            transitionReceiver.setVisibility(View.GONE);
+            loadGalleryContent();
+
+        }
     }
 
     @Override public void onDestroy() {
@@ -254,6 +287,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             unbinder.unbind();
         }
 
+        TRANSITION_INFO = null;
         super.onDestroy();
     }
 
@@ -342,6 +376,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             return;
         }
         startCaptionEdit(item);
+    }
+
+    public static void setTransitionInfo(@NonNull JavaScriptActionHandler.ImageHitInfo hitInfo) {
+        TRANSITION_INFO = hitInfo;
     }
 
     private void startCaptionEdit(GalleryItemFragment item) {
@@ -434,6 +472,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             }
             currentPosition = position;
         }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            hideTransitionReceiver(false);
+        }
     }
 
     @Override
@@ -456,7 +499,38 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (item != null && item.getImageTitle() != null && funnel != null) {
             funnel.logGalleryClose(pageTitle, item.getImageTitle().getDisplayText());
         }
+
+        if (TRANSITION_INFO != null) {
+            showTransitionReceiver();
+        }
+
         super.onBackPressed();
+    }
+
+
+    public void onMediaLoaded() {
+        hideTransitionReceiver(true);
+    }
+
+    private void showTransitionReceiver() {
+        transitionReceiver.setVisibility(View.VISIBLE);
+    }
+
+    private void hideTransitionReceiver(boolean delay) {
+        if (transitionReceiver.getVisibility() == View.GONE) {
+            return;
+        }
+        if (delay) {
+            final int hideDelayMillis = 250;
+            transitionReceiver.postDelayed(() -> {
+                if (isDestroyed() || transitionReceiver == null) {
+                    return;
+                }
+                transitionReceiver.setVisibility(View.GONE);
+            }, hideDelayMillis);
+        } else {
+            transitionReceiver.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -484,6 +558,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void showLinkPreview(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
                 LinkPreviewDialog.newInstance(new HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null));
+    }
+
+    public void setViewPagerEnabled(boolean enabled) {
+        galleryPager.setUserInputEnabled(enabled);
     }
 
     /**
@@ -563,7 +641,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mediaList -> {
-                    updateProgressBar(false);
                     applyGalleryList(mediaList.getItems("image", "video"));
                 }, caught -> {
                     updateProgressBar(false);

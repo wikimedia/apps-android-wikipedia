@@ -42,8 +42,8 @@
   <string name="menu_page_add_to_default_list">ኣቐምጥ</string>
   <string name="feed_card_add_to_default_list">ኣቐምጥ</string>
   <string name="menu_page_share">መጋጠሚ ኣካፍል</string>
-  <string name="menu_page_open_a_new_tab">ሓድሽ ጽላት ከፈት</string>
-  <string name="menu_long_press_open_page">ከፈት</string>
+  <string name="menu_page_open_a_new_tab">ሓድሽ ጽላት ክፈት</string>
+  <string name="menu_long_press_open_page">ክፈት</string>
   <string name="menu_long_press_open_in_new_tab">ኣብ ሓድሽ ጽላት ውሽጢ ከፈት</string>
   <string name="menu_long_press_copy_page">ናይ መጋጠሚ ኣድራሻ ቅዳሕ</string>
   <string name="menu_text_select_define">ገለጸ</string>
@@ -160,6 +160,7 @@
   <string name="unnamed_tab_closed">ጽላት ዝተዓጽወ።</string>
   <string name="tab_item_closed">%s ዝተዓጽወ።</string>
   <string name="all_tab_items_closed">ኩሎም ጽላታት ዝተዓጸዉ።</string>
+  <string name="page_view_in_browser">ገጽ ኣብ መዳህሰሲ ርኣይ</string>
   <string name="format_error_server_message">መልእኽቲ፦ \"%s\"</string>
   <string name="button_continue_to_article">ጽሑፍ ኣንብብ</string>
   <string name="nav_item_donate">ዊኪፐድያ ድጋፍ ሃብ</string>
@@ -176,7 +177,9 @@
   <string name="crash_report_quit">ዕጸው</string>
   <string name="article_menu_bar_save_button">ኣቐምጥ</string>
   <string name="article_menu_bar_language_button">ቋንቋ</string>
+  <string name="article_menu_bar_search_button">ድለይ</string>
   <string name="article_menu_bar_theme_button">ገጽታ</string>
+  <string name="article_menu_bar_contents_button">ትሕዝቶታት</string>
   <string name="article_header_edit_hint">ኣመዓራርይ...</string>
   <string name="color_theme_select">ገጽታ</string>
   <string name="color_theme_light">ብሩህ</string>
@@ -200,6 +203,7 @@
   <string name="reading_list_item_delete_undo">ፈትሐ</string>
   <string name="reading_lists_onboarding_for_example">ንኣብነት</string>
   <string name="reading_lists_onboarding_got_it">ተረዲኡኒ</string>
+  <string name="reading_list_remove_from_list">ካብ %s ኣልግስ</string>
   <string name="reading_list_select_item">ምረጽ</string>
   <string name="reading_lists_login_button">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
   <string name="reading_lists_ignore_button">ሕጂ ዘይኮነ</string>
@@ -248,7 +252,7 @@
   <string name="view_featured_image_card_title">ናይ ዕለት ምስሊ</string>
   <string name="view_featured_image_card_download">ኣውርድ</string>
   <string name="menu_feed_overflow_label">ተወሳኺ ኣማራጺታት</string>
-  <string name="feed">ዳህሰሰ</string>
+  <string name="feed">ዳህስስ</string>
   <string name="view_card_news_title">ዜና ውሽጢ</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">ትማሊ</item>
@@ -336,6 +340,7 @@
   <string name="suggested_edits_task_action_text_translate">ተርጉም</string>
   <string name="suggested_edits_image_captions">ናይ ምስሊ መግለጺ ጽሑፋት</string>
   <string name="suggested_edits_image_tags_published">ተሓቲሙ</string>
+  <string name="suggested_edits_views_label_text">ትርኢታት</string>
   <string name="suggested_edits_quality_perfect_text">ፍጹም</string>
   <string name="suggested_edits_quality_excellent_text">ንኡድ</string>
   <string name="suggested_edits_quality_very_good_text">ብጣዕሚ ጽቡቕ</string>
@@ -358,7 +363,12 @@
   <string name="suggested_edits_contribution_date_time_label">ዕለት / ሰዓት</string>
   <string name="suggested_edits_contribution_image_label">ምስሊ</string>
   <string name="suggested_edits_contribution_article_label">ጽሑፍ</string>
+  <string name="suggested_edits_contribution_views">%s ትርኢታት</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ትማሊ</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s ፊደል</item>
+    <item quantity="other">%1$s ፊደላት</item>
+  </plurals>
   <string name="description_edit_login_cancel_button_text">ኣትርፍ</string>
   <string name="size_gb">%.2f ጂቢ</string>
   <string name="size_mb">%.2f ኤምቢ</string>
@@ -367,7 +377,7 @@
   <string name="onboarding_get_started">ኣጀማሪ</string>
   <string name="onboarding_got_it">ተረዲኡኒ</string>
   <string name="onboarding_multilingual_add_language_text">ቋንቋታት ወስኽ ወይ ኣመዓራርይ</string>
-  <string name="onboarding_welcome_title_v2">ናጻ መዝገበ ፍልጠት\n...ካብ 300 ልዕሊ ቋንቋታት</string>
+  <string name="onboarding_welcome_title_v2">ናጻ ኢንሳይክሎፐድያ\n...ካብ 300 ልዕሊ ቋንቋታት</string>
   <string name="app_shortcuts_random">ሃውራዊ</string>
   <string name="app_shortcuts_continue_reading">ምንባብ ቀጽል</string>
   <string name="app_shortcuts_search">ምድላይ</string>

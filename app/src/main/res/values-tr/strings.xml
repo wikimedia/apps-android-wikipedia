@@ -26,6 +26,7 @@
 * Okkerem
 * Rapsar
 * Sayginer
+* Stonecy
 * Sucsuzz
 * SwornToTranslate29
 * TmY e12
@@ -52,6 +53,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Liste süzgeci</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
+  <string name="nav_item_search">Ara</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="card_offline_error_retry">Tekrar dene</string>
@@ -66,6 +68,8 @@
   <string name="history_item_delete_undo">Geri al</string>
   <string name="notification_archive_undo">Geri al</string>
   <string name="app_settings">Uygulama ayarları</string>
+  <string name="search_tab_tooltip">Doğrudan bir arama terimi yazmaya başlamak için simgeye tekrar dokunun.</string>
+  <string name="history_list_title">Geçmiş</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
@@ -268,6 +272,11 @@
   <string name="page_similar_titles">Benzer sayfalar</string>
   <string name="search_did_you_mean">Bunu mu demek istediniz: \"%s\"?</string>
   <string name="search_recent_header">Son aramalar:</string>
+  <string name="search_results_count_zero">Sonuç yok</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 sonuç</item>
+    <item quantity="other">%d sonuç</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Son aramaları temizle</string>
   <string name="clear_recent_searches_confirm">Arama geçmişini temizlemek istediğinizden emin misiniz?</string>
   <string name="clear_recent_searches_confirm_yes">Evet</string>
@@ -331,6 +340,7 @@
   <string name="address_copied">Adres panoya kopyalandı.</string>
   <string name="text_copied">Metin panoya kopyalandı.</string>
   <string name="button_continue_to_article">Maddeyi oku</string>
+  <string name="button_continue_to_talk_page">Tartışma sayfasını aç</string>
   <string name="button_continue_to_disambiguation">Benzer sayfaları görüntüle</string>
   <string name="link_preview_disambiguation_description">Bu başlık birden fazla sayfayla ilişkilidir:</string>
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
@@ -776,9 +786,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Aşağıda Vikipedi\'yi geliştirmeye yardımcı olacak bazı hızlı ve kolay yollar bulabilirsiniz. Başladığınız anda yaptığınız farkı göreceksiniz. Mutlu düzenlemeler!</string>
   <string name="suggested_edits_image_captions_task_detail">Okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tanımlayın.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir maddeyi özetleyin.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Önerilen düzenlemelerle ara vermeden kaç gün katkıda bulundunuz. Bir süredir katkıda bulunmadıysanız, son katkı tarihinizi gösterir.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içerisinde katkıda bulunduğunuz öğelerin sayfa görüntüleme sayısı Önerilen düzenlemelerle.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Şimdiye kadarki toplam katkı sayınız.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Arka arkaya kaç gün katkıda bulunduğunuz. Bir süredir katkıda bulunmadıysanız, son katkı tarihinizi gösterir.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içinde katkıda bulunduğunuz öğelerin toplam sayfa görüntülemeleri.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Katkılarınızdan birinin kaç kez geri alındığına bağlı olarak (başka bir düzenleyici tarafından geri alındı). Geri alınan düzenlemeler: %d.</string>
   <string name="suggested_edits_paused_message">Önerilen düzenlemeler %1$s kadar duraklatıldı. Maalesef %2$s, en son katkılarınızdan bazıları geri alındı.</string>
   <string name="suggested_edits_disabled_message">Önerilen düzenlemeler devre dışı bırakıldı. Maalesef %s, yakın zamanda yaptığınız katkıların çoğu geri alındı.</string>
@@ -964,4 +974,15 @@
   <string name="text_input_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_cancel_button_text">İptal</string>
   <string name="custom_date_picker_dialog_cancel_button_text">İptal</string>
+  <string name="talk_title">Mesaj</string>
+  <string name="talk_user_title">Mesaj: %s</string>
+  <string name="talk_new_topic">Yeni konu</string>
+  <string name="talk_page_empty">Bu tartışma sayfası boş.</string>
+  <string name="talk_add_reply">Yanıtla</string>
+  <string name="talk_no_subject">(Konu yok)</string>
+  <string name="talk_reply_subject">Konu</string>
+  <string name="talk_reply_hint">Yanıt oluştur</string>
+  <string name="talk_message_hint">Mesaj oluştur</string>
+  <string name="talk_message_empty">Mesaj boş olamaz.</string>
+  <string name="talk_subject_empty">Konu boş olamaz.</string>
 </resources>

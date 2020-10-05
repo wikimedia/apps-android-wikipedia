@@ -39,8 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@id/view_list_card_more_container">
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toTopOf="@id/view_list_card_footer">
 
         <org.wikipedia.views.NavMenuAwareRecyclerView
             android:id="@+id/view_list_card_list"
@@ -49,38 +49,11 @@
 
     </org.wikipedia.views.WikiCardView>
 
-    <LinearLayout
-        android:id="@+id/view_list_card_more_container"
+    <org.wikipedia.feed.view.CardFooterView
+        android:id="@+id/view_list_card_footer"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
+        android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:visibility="visible">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
-            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
-
-        <TextView
-            android:id="@+id/view_list_card_more_text"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:textAllCaps="true"
-            android:textColor="?attr/secondary_text_color" />
-
-    </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

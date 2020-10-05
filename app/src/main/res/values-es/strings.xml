@@ -41,6 +41,7 @@
 * Pginer
 * Remux
 * Rodm23
+* Rodney Araujo
 * Ryo567
 * SRuizR
 * Sporeunai
@@ -81,6 +82,7 @@
   <string name="history_item_delete_undo">Deshacer</string>
   <string name="notification_archive_undo">Deshacer</string>
   <string name="app_settings">Configuración de aplicación</string>
+  <string name="history_list_title">Historial</string>
   <string name="dialog_title_clear_history">Borrar el historial de navegación</string>
   <string name="dialog_message_clear_history">¿Confirmas que quieres vaciar el historial de navegación y cerrar cualesquier pestañas abiertas?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -351,6 +353,7 @@
   <string name="address_copied">Dirección copiada en el portapapeles.</string>
   <string name="text_copied">Texto copiado en el portapapeles.</string>
   <string name="button_continue_to_article">Leer artículo</string>
+  <string name="button_continue_to_talk_page">Ver página de discusión</string>
   <string name="button_continue_to_disambiguation">Ver páginas similares</string>
   <string name="link_preview_disambiguation_description">Este título hace referencia a más de una página:</string>
   <string name="button_add_to_reading_list">Añadir a lista de lectura</string>
@@ -775,9 +778,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola, %s&lt;/b&gt;, abajo puedes encontrar algunas formas rápidas y fáciles para ayuda a mejorar Wikipedia. Verás la diferencia que estás haciendo tan pronto como empieces. ¡Feliz edición!</string>
   <string name="suggested_edits_image_captions_task_detail">Describe una imagen para ayudar a los lectores a comprender su significado y contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resume un artículo para ayudar a los lectores a comprender el tema en un vistazo.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">El número total de tus contribuciones con Ediciones sugeridas.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos días seguidos has contribuido a Ediciones sugeridas. Si hace tiempo que no contribuyes, mostrará la fecha de tu última contribución.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de páginas vistas de elementos a los que contribuiste en los últimos 30 días con ediciones sugeridas.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">El número total de tus contribuciones con Ediciones sugeridas.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Cuántos días seguidos has contribuido a Ediciones sugeridas. Si hace tiempo que no contribuyes, mostrará la fecha de tu última contribución.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Total de páginas vistas de elementos a los que contribuiste en los últimos 30 días con ediciones sugeridas.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basado en la cantidad de veces que una de tus contribuciones ha sido revertida (anulado por otro editor). Ediciones revertidas: %d.</string>
   <string name="suggested_edits_paused_message">Las ediciones sugeridas están pausadas hasta %1$s. Lo sentimos %2$s, algunas de tus contribuciones recientes se han revertido.</string>
   <string name="suggested_edits_disabled_message">Las ediciones sugeridas están desactivadas. Lo sentimos %s, muchas de tus contribuciones recientes se han revertido.</string>
@@ -953,4 +956,6 @@
   <string name="talk_new_topic">Tema nuevo</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
+  <string name="talk_no_subject">(Sin asunto)</string>
+  <string name="talk_reply_subject">Asunto</string>
 </resources>

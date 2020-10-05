@@ -762,9 +762,9 @@
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, encontra abaixo algumas formas rápidas e divertidas de ajudar a melhorar a Wikipédia. Verá a diferença que está a fazer logo que começar. Divirta-se a editar!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a compreenderem imediatamente o assunto.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">O seu número total de contribuições com \"Edições sugeridas\"</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Durante quantos dias consecutivos contribuiu usando \"Edições sugeridas\". Se não contribui há algum tempo, mostra a data da última contribuição.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de visitas às páginas para as quais contribuiu nos últimos 30 dias com \"Edições sugeridas\"</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">O seu número total de contribuições com \"Edições sugeridas\"</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Durante quantos dias consecutivos contribuiu usando \"Edições sugeridas\". Se não contribui há algum tempo, mostra a data da última contribuição.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Total de visitas às páginas para as quais contribuiu nos últimos 30 dias com \"Edições sugeridas\"</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Com base no número de vezes que uma das suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
   <string name="suggested_edits_paused_message">\"Edições sugeridas\" estará interrompida até %1$s. Desculpe, %2$s, mas algumas das suas contribuições recentes foram revertidas.</string>
   <string name="suggested_edits_disabled_message">\"Edições sugeridas\" está desativada. Desculpe, %s, foram revertidas demasiadas das suas contribuições recentes.</string>

@@ -345,6 +345,7 @@
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
   <string name="text_copied">Texte copié dans le presse-papier.</string>
   <string name="button_continue_to_article">Lire l’article</string>
+  <string name="button_continue_to_talk_page">Ouvrir la page de discussion</string>
   <string name="button_continue_to_disambiguation">Afficher les pages similaires</string>
   <string name="link_preview_disambiguation_description">Ce titre fait référence à plus d’une page :</string>
   <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
@@ -790,9 +791,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
   <string name="suggested_edits_image_captions_task_detail">Décrire une image pour aider les lecteurs à comprendre sa signification et son contexte.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Résumer un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions avec Modifications suggérées.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Pendant combien de jours sans arrêt vous avez contribué avec les Modifications suggérées. Si vous n’avez pas contribué depuis longtemps, ceci affiche la date de votre dernière contribution.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours avec Modifications suggérées.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions jusqu\'à présent.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Pendant combien de jours contigus avez-vous contribué. Si vous n’avez pas contribué depuis longtemps, ceci affiche la date de votre dernière contribution.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basé sur combien de fois une de vos contributions a été annulée (défaite par un autre utilisateur). Modifications annulées : %d.</string>
   <string name="suggested_edits_paused_message">Les modifications suggérées sont en pause jusqu’au %1$s. Désolé %2$s, certaines de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_disabled_message">Les modifications suggérées sont désactivées. Désolé %s, trop de vos contributions récentes ont été annulées.</string>
