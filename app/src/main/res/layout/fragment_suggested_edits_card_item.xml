@@ -11,15 +11,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/seFeedCardProgressBar">
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/suggestedEditsFragmentViewGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="cardItemContainer,viewArticleImage,
-                                viewArticleContainer,viewArticleTitle,articleDescriptionPlaceHolder1,articleDescriptionPlaceHolder2,viewArticleExtract,viewArticleSubtitle,callToActionButton" />
+            app:constraint_referenced_ids="cardItemContainer,viewArticleImage,viewArticleContainer,
+            viewArticleTitle,articleDescriptionPlaceHolder1,articleDescriptionPlaceHolder2,
+            viewArticleExtract,viewArticleSubtitle,callToActionButton" />
 
         <LinearLayout
             android:id="@+id/cardItemContainer"
@@ -56,20 +56,6 @@
                     android:textSize="24sp"
                     tools:text="Lorem ipsum" />
 
-                <View
-                    android:id="@+id/articleDescriptionPlaceHolder1"
-                    android:layout_width="222dp"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="10dp"
-                    android:background="?attr/tab_placeholder_text_color" />
-
-                <View
-                    android:id="@+id/articleDescriptionPlaceHolder2"
-                    android:layout_width="148dp"
-                    android:layout_height="8dp"
-                    android:layout_marginTop="12dp"
-                    android:background="?attr/tab_placeholder_text_color" />
-
                 <org.wikipedia.views.GoneIfEmptyTextView
                     android:id="@+id/viewArticleSubtitle"
                     android:layout_width="match_parent"
@@ -81,14 +67,32 @@
                     android:maxLines="3"
                     android:textColor="?attr/secondary_text_color"
                     android:textSize="14sp"
+                    android:visibility="gone"
                     tools:text="Lorem ipsum" />
+
+                <View
+                    android:id="@+id/articleDescriptionPlaceHolder1"
+                    android:layout_width="222dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/tab_placeholder_text_color"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/articleDescriptionPlaceHolder2"
+                    android:layout_width="148dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/tab_placeholder_text_color"
+                    android:visibility="gone" />
 
                 <View
                     android:id="@+id/divider"
                     android:layout_width="@dimen/divider_width_for_article"
                     android:layout_height="1dp"
                     android:layout_marginTop="24dp"
-                    android:background="?attr/material_theme_border_color" />
+                    android:background="?attr/material_theme_border_color"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/viewArticleExtract"
@@ -106,7 +110,7 @@
                     android:id="@+id/callToActionButton"
                     style="@style/FlatButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/view_card_footer_height"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="11dp"
                     android:fontFamily="sans-serif-medium"
                     android:letterSpacing="0.04"

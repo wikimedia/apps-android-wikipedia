@@ -1,6 +1,5 @@
 package org.wikipedia.feed.suggestededits
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -21,6 +20,9 @@ import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.GalleryFunnel
+import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -29,11 +31,16 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditActivity.RESULT_OK
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+import org.wikipedia.gallery.GalleryActivity
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
+import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
@@ -54,6 +61,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private var targetSummaryForEdit: PageSummaryForEdit? = null
     private var imageTagPage: MwQueryPage? = null
     private var sourceDescription: String = ""
+    private var itemClickable = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +71,10 @@ class SuggestedEditsCardItemFragment : Fragment() {
         }
         if (appLanguages.size > 1) {
             targetLanguage = appLanguages[age % appLanguages.size]
+            if (cardActionType == ADD_DESCRIPTION)
+                cardActionType = TRANSLATE_DESCRIPTION
+            if (cardActionType == ADD_CAPTION)
+                cardActionType = TRANSLATE_CAPTION
         }
     }
 
@@ -76,21 +88,44 @@ class SuggestedEditsCardItemFragment : Fragment() {
         updateContents()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            if (!isAdded)
+                return
+            SuggestedEditsFunnel.get().log()
+            SuggestedEditsFunnel.reset()
+            if (cardActionType != null) {
+                fetchCardTypeEdit()
+                SuggestedEditsSnackbars.show(requireActivity(), cardActionType, true,
+                        targetLanguage, true, openPageListener)
+            }
+        }
+    }
+
+
+    private val openPageListener = object : SuggestedEditsSnackbars.OpenPageListener {
+        override fun open() {
+            val pageTitle: PageTitle = sourceSummaryForEdit!!.pageTitle
+            if (cardActionType === ADD_IMAGE_TAGS) {
+                startActivity(FilePageActivity.newIntent(requireActivity(), pageTitle))
+            } else if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
+                startActivity(GalleryActivity.newIntent(requireActivity(),
+                        pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+            } else {
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
+            }
+        }
+    }
+
     private fun updateContents() {
         seFeedCardProgressBar.visibility = VISIBLE
-        cardView.visibility = GONE
-
         suggestedEditsFragmentViewGroup.addOnClickListener {
-            Log.e("#####", "CLICK")
-            startDescriptionEditScreen()
-
+            if (itemClickable) {
+                startDescriptionEditScreen()
+            }
         }
-        seFeedCardProgressBar.bringToFront()
-        when (cardActionType) {
-            ADD_DESCRIPTION -> if (targetLanguage == null || targetLanguage.equals(appLanguages[0])) addDescription() else translateDescription()
-            ADD_CAPTION -> if (targetLanguage == null || targetLanguage.equals(appLanguages[0])) addCaption() else translateCaption()
-            else -> tagImage()
-        }
+        fetchCardTypeEdit()
     }
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {
@@ -116,33 +151,14 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
-            /* SuggestedEditsFunnel.get().log()
-             SuggestedEditsFunnel.reset()*/
-            if (resultCode == Activity.RESULT_OK) {
-                /* if (suggestedEditsCardItemView != null && suggestedEditsCardItemView.getCard() != null) {
-                   suggestedEditsCardView.refreshCardContent();
-                     SuggestedEditsSnackbars.show(requireActivity(), suggestedEditsCardView.getCard().getAction(), true,
-                             app.language().getAppLanguageCodes().get(1), true, () -> {
-                         PageTitle pageTitle = suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
-                         if (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) {
-                             startActivity(FilePageActivity.newIntent(requireActivity(), pageTitle));
-                         } else if (suggestedEditsCardView.getCard().getAction() == ADD_CAPTION || suggestedEditsCardView.getCard().getAction() == TRANSLATE_CAPTION) {
-                             startActivity(GalleryActivity.newIntent(requireActivity(),
-                                     pageTitle, pageTitle.getPrefixedText(), pageTitle.getWikiSite(), 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE));
-                         } else {
-                             startActivity(PageActivity.newIntentForNewTab(requireContext(), new HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle));
-                         }
-                     });
-                   }*/
-            }
+    private fun fetchCardTypeEdit() {
+        when (cardActionType) {
+            ADD_DESCRIPTION -> addDescription()
+            TRANSLATE_DESCRIPTION -> translateDescription()
+            ADD_CAPTION -> addCaption()
+            TRANSLATE_CAPTION -> translateCaption()
+            ADD_IMAGE_TAGS -> addImageTags()
         }
-    }
-
-    fun getCardView(): View {
-        return cardView
     }
 
     override fun onDestroyView() {
@@ -152,9 +168,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun updateUI() {
+        itemClickable = true
         seFeedCardProgressBar.visibility = GONE
-        cardView.visibility = VISIBLE
-        viewArticleSubtitle.visibility = GONE
         when (cardActionType) {
             TRANSLATE_DESCRIPTION -> showTranslateDescriptionUI()
             ADD_CAPTION -> showAddImageCaptionUI()
@@ -163,70 +178,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
             else -> showAddDescriptionUI()
         }
 
-    }
-
-    private fun showImageTagsUI() {
-        articleDescriptionPlaceHolder1.visibility = GONE
-        articleDescriptionPlaceHolder2.visibility = GONE
-        viewArticleImage.visibility = VISIBLE
-        viewArticleExtract.visibility = GONE
-        divider.visibility = GONE
-        viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageTagPage!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
-        viewArticleTitle.visibility = GONE
-    }
-
-    private fun showAddDescriptionUI() {
-        articleDescriptionPlaceHolder1.visibility = VISIBLE
-        articleDescriptionPlaceHolder2.visibility = VISIBLE
-        viewArticleTitle.visibility = VISIBLE
-        viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle!!)
-        showImageOrExtract()
-    }
-
-    private fun showTranslateDescriptionUI() {
-        articleDescriptionPlaceHolder1.visibility = GONE
-        articleDescriptionPlaceHolder2.visibility = GONE
-        viewArticleTitle.visibility = VISIBLE
-        sourceDescription = sourceSummaryForEdit!!.description!!
-        viewArticleSubtitle.visibility = VISIBLE
-        viewArticleSubtitle.text = sourceDescription
-        showAddDescriptionUI()
-    }
-
-    private fun showAddImageCaptionUI() {
-        articleDescriptionPlaceHolder1.visibility = GONE
-        articleDescriptionPlaceHolder2.visibility = GONE
-        viewArticleTitle.visibility = VISIBLE
-        viewArticleImage.visibility = VISIBLE
-        viewArticleExtract.visibility = GONE
-        divider.visibility = GONE
-        viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.thumbnailUrl))
-        viewArticleTitle.text = StringUtil.removeNamespace(sourceSummaryForEdit!!.displayTitle!!)
-    }
-
-    private fun showTranslateImageCaptionUI() {
-        articleDescriptionPlaceHolder1.visibility = GONE
-        articleDescriptionPlaceHolder2.visibility = GONE
-        viewArticleTitle.visibility = VISIBLE
-        sourceDescription = sourceSummaryForEdit!!.description!!
-        viewArticleSubtitle.visibility = VISIBLE
-        viewArticleSubtitle.text = sourceDescription
-        showAddImageCaptionUI()
-    }
-
-    private fun showImageOrExtract() {
-        if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
-            viewArticleImage.visibility = GONE
-            viewArticleExtract.visibility = VISIBLE
-            divider.visibility = VISIBLE
-            viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit!!.extractHtml)
-            viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
-        } else {
-            viewArticleImage.visibility = VISIBLE
-            viewArticleExtract.visibility = GONE
-            divider.visibility = GONE
-            viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.thumbnailUrl))
-        }
     }
 
     private fun addDescription() {
@@ -391,7 +342,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 }))
     }
 
-    private fun tagImage() {
+    private fun addImageTags() {
+        Log.e("#####", "HERETag" + cardActionType)
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
         disposables.add(EditingSuggestionsProvider
                 .getNextImageWithMissingTags(MAX_RETRY_LIMIT)
@@ -403,6 +355,59 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 }, {
                     L.e(it)
                 }))
+    }
+
+    private fun showImageTagsUI() {
+        viewArticleImage.visibility = VISIBLE
+        viewArticleExtract.visibility = GONE
+        viewArticleTitle.visibility = GONE
+        showItemImage()
+    }
+
+    private fun showAddDescriptionUI() {
+        articleDescriptionPlaceHolder1.visibility = VISIBLE
+        articleDescriptionPlaceHolder2.visibility = VISIBLE
+        viewArticleTitle.visibility = VISIBLE
+        divider.visibility = VISIBLE
+        viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle!!)
+        viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit!!.extractHtml)
+        viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+        showItemImage()
+    }
+
+    private fun showTranslateDescriptionUI() {
+        sourceDescription = sourceSummaryForEdit!!.description!!
+        viewArticleSubtitle.visibility = VISIBLE
+        viewArticleSubtitle.text = sourceDescription
+        showAddDescriptionUI()
+    }
+
+    private fun showAddImageCaptionUI() {
+        viewArticleTitle.visibility = VISIBLE
+        viewArticleExtract.visibility = GONE
+        viewArticleTitle.text = StringUtil.removeNamespace(sourceSummaryForEdit!!.displayTitle!!)
+        showItemImage()
+    }
+
+    private fun showTranslateImageCaptionUI() {
+        sourceDescription = sourceSummaryForEdit!!.description!!
+        viewArticleSubtitle.visibility = VISIBLE
+        viewArticleSubtitle.text = sourceDescription
+        showAddImageCaptionUI()
+    }
+
+    private fun showItemImage() {
+        viewArticleImage.visibility = VISIBLE
+        if (cardActionType == ADD_IMAGE_TAGS) {
+            viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize
+            (imageTagPage!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+        } else {
+            if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
+                viewArticleImage.visibility = GONE
+            } else {
+                viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.thumbnailUrl))
+            }
+        }
     }
 
     companion object {
