@@ -22,6 +22,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 
@@ -90,7 +91,10 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_VIEW_END);
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
             notificationsContainer.setVisibility(VISIBLE);
-            talkContainer.setVisibility(VISIBLE);
+
+            // TODO: remove when ready
+            talkContainer.setVisibility(ReleaseUtil.isPreBetaRelease() ? VISIBLE : GONE);
+
         } else {
             accountAvatar.setImageDrawable(requireContext().getDrawable(R.drawable.ic_login_24px));
             ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)));

@@ -62,6 +62,7 @@
     <string name="transition_random_activity">randomActivityTransition</string>
     <string name="transition_on_this_day">onThisDayTransition</string>
     <string name="transition_floating_queue">floatingQueue</string>
+    <string name="transition_page_gallery">pageGalleryTransition</string>
 
     <!-- Miscellaneous -->
     <string name="text_size_percent">%d%%</string>

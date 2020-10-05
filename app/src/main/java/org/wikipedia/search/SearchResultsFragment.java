@@ -601,7 +601,7 @@ public class SearchResultsFragment extends Fragment {
                 searchResultIcon.setVisibility(VISIBLE);
                 searchResultIcon.setImageResource(result.getType() == SearchResult.SearchResultType.HISTORY
                         ? R.drawable.ic_restore_black_24dp : result.getType() == SearchResult.SearchResultType.TAB_LIST
-                        ? R.drawable.ic_tab_single_24px : R.drawable.ic_bookmark_border_white_24dp);
+                        ? R.drawable.ic_tab_one_24px : R.drawable.ic_bookmark_white_24dp);
             }
 
             // highlight search term within the text
@@ -626,7 +626,7 @@ public class SearchResultsFragment extends Fragment {
             getView().setLongClickable(true);
             getView().setOnClickListener(view -> {
                 Callback callback = callback();
-                if (callback != null) {
+                if (callback != null && position < totalResults.size()) {
                     callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
                 }
             });

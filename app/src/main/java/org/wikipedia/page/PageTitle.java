@@ -143,7 +143,7 @@ public class PageTitle implements Parcelable {
         parts = text.split("#", -1);
         text = parts[0];
         if (parts.length > 1) {
-            this.fragment = decodeURL(parts[1]).replace(" ", "_");
+            this.fragment = StringUtil.addUnderscores(decodeURL(parts[1]));
         } else {
             this.fragment = null;
         }
@@ -180,7 +180,7 @@ public class PageTitle implements Parcelable {
         }
 
         // Properties has the accurate namespace but it doesn't exist. Guess based on title.
-        return Namespace.fromLegacyString(wiki, namespace);
+        return Namespace.fromLegacyString(wiki, StringUtil.removeUnderscores(namespace));
     }
 
     @NonNull public WikiSite getWikiSite() {
@@ -188,7 +188,7 @@ public class PageTitle implements Parcelable {
     }
 
     @NonNull public String getText() {
-        return text.replace(" ", "_");
+        return StringUtil.addUnderscores(text);
     }
 
     @Nullable public String getFragment() {
@@ -217,7 +217,7 @@ public class PageTitle implements Parcelable {
     }
 
     @NonNull public String getDisplayText() {
-        return displayText == null ? getPrefixedText().replace("_", " ") : displayText;
+        return displayText == null ? StringUtil.removeUnderscores(getPrefixedText()) : displayText;
     }
 
     public void setDisplayText(@Nullable String displayText) {
