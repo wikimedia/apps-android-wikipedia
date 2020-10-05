@@ -19,6 +19,7 @@ import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource.FEED
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
@@ -32,6 +33,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.descriptions.DescriptionEditActivity.RESULT_OK
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+import org.wikipedia.feed.model.CardType
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
@@ -61,6 +63,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private var imageTagPage: MwQueryPage? = null
     private var sourceDescription: String = ""
     private var itemClickable = false
+    private var funnel = FeedFunnel(app)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,6 +124,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         seFeedCardProgressBar.visibility = VISIBLE
         suggestedEditsFragmentViewGroup.addOnClickListener {
             if (itemClickable) {
+                funnel.cardClicked(CardType.SUGGESTED_EDITS, if (targetLanguage != null) langFromCode else targetLanguage)
                 startDescriptionEditScreen()
             }
         }
@@ -161,7 +165,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        //funnel?.stop()
         disposables.clear()
         super.onDestroyView()
     }

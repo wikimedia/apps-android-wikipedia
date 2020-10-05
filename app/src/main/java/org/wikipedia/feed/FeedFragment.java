@@ -35,7 +35,6 @@ import org.wikipedia.feed.news.NewsCard;
 import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
-import org.wikipedia.feed.suggestededits.SuggestedEditsCardItemFragment;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
@@ -76,7 +75,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private boolean shouldElevateToolbar;
-    @Nullable private SuggestedEditsCardItemFragment suggestedEditsCardItemView;
 
     public interface Callback {
         void onFeedSearchRequested(View view);
