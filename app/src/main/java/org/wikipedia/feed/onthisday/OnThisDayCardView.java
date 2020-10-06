@@ -131,7 +131,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                     break;
                 }
             }
-            PageSummary finalChosenPage = chosenPage;
+            final PageSummary finalChosenPage = chosenPage;
 
             if (chosenPage != null) {
                 if (chosenPage.getThumbnailUrl() == null) {

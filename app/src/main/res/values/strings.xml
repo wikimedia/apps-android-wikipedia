@@ -952,8 +952,8 @@
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
     </plurals>
-    <string name="end_of_scroll_message">You travelled through time 🚀 </string>
-    <string name="back_to_future">Back to the future</string>
+    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀 </string>
+    <string name="on_this_day_back_to_future">Back to the future</string>
     <!-- /On This Day -->
 
     <!-- MultiLingual -->

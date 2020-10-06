@@ -119,7 +119,7 @@
                         android:id="@+id/drop_down_toolbar"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        app:tint="?attr/toolbar_icon_color"
+                        app:tint="?attr/colorAccent"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                 </LinearLayout>

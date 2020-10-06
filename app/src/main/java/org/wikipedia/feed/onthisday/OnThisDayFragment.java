@@ -122,7 +122,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private void setUpTransitionAnimation(Bundle savedInstanceState, int age) {
+    private void setUpTransitionAnimation(@Nullable Bundle savedInstanceState, int age) {
         final int animDelay = (requireActivity().getWindow().getSharedElementEnterTransition() != null
                 && savedInstanceState == null) ? 500 : 0;
         onThisDayTitleView.postDelayed(() -> {

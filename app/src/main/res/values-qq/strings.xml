@@ -974,6 +974,6 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
-  <string name="back_to_future">Button label for scrolling the content to the top.</string>
-  <string name="end_of_scroll_message">Label text shown to user when they have scrolled through the events till teh end.</string>
+  <string name="on_this_day_back_to_future">Button label for scrolling the content to the top.</string>
+  <string name="on_this_day_end_of_scroll_message">Label text shown to user when they have scrolled through the events till teh end.</string>
 </resources>
