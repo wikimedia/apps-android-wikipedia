@@ -93,7 +93,7 @@ public final class DimenUtil {
     }
 
 
-    private static float getStatusBarHeight(Context context) {
+    public static float getStatusBarHeight(Context context) {
         int id = getStatusBarId(context);
         return id > 0 ? DimenUtil.getDimension(id) : 0;
     }

@@ -18,8 +18,10 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -180,7 +182,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
-        setTransitionImage();
         setSupportActionBar(toolbar);
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -438,6 +439,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
+        setTransitionImage(title);
+
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
@@ -534,6 +537,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app.getSessionFunnel().backPressed();
         if (pageFragment.onBackPressed()) {
             return;
+        }
+
+        if (DimenUtil.isLandscape(this)) {
+            transitionImage.setImageBitmap(null);
         }
         pageFragmentView.setVisibility(View.GONE);
         super.onBackPressed();
@@ -668,8 +675,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
     }
 
-    private void setTransitionImage() {
+    private void setTransitionImage(@NonNull PageTitle title) {
         if (!DimenUtil.isLandscape(this)) {
+
+            if (TextUtils.isEmpty(title.getThumbUrl())) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this) + (int) DimenUtil.getStatusBarHeight(this) + (int) DimenUtil.dpToPx(16f);
+                transitionImage.setLayoutParams(layoutParams);
+            }
+
             pageFragmentView.setVisibility(View.GONE);
             ViewUtil.setViewCachedBitmap(transitionImage);
             ViewUtil.setCachedBitmap(null);
