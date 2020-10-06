@@ -70,9 +70,9 @@
                         android:fontFamily="serif"
                         android:lineSpacingMultiplier="1.1"
                         android:maxLines="3"
-                        android:paddingTop="15dp"
+                        android:paddingTop="14.5dp"
                         android:textColor="?attr/primary_text_color"
-                        android:textSize="23sp"
+                        android:textSize="23.3sp"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Lorem ipsum" />
 
