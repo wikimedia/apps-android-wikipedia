@@ -626,7 +626,7 @@ public class SearchResultsFragment extends Fragment {
             getView().setLongClickable(true);
             getView().setOnClickListener(view -> {
                 Callback callback = callback();
-                if (callback != null) {
+                if (callback != null && position < totalResults.size()) {
                     callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
                 }
             });

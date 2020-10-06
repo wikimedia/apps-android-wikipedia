@@ -10,55 +10,11 @@
     android:clipToPadding="false"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/years_text_space"
-        android:layout_width="1dp"
-        android:layout_height="20dp"
-        android:visibility="gone" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/years_text_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-12dp"
-        android:layout_marginBottom="12dp"
-        android:background="?attr/paper_color"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp">
-
-        <ImageView
-            android:id="@+id/years_text_background"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:contentDescription="@null"
-            app:tint="?attr/chart_shade5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/otd_year_button_background" />
-
-        <TextView
-            android:id="@+id/years_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:paddingStart="6dp"
-            android:paddingTop="1dp"
-            android:paddingEnd="6dp"
-            android:paddingBottom="3dp"
-            android:textColor="?attr/chart_shade7"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="123 years ago" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <LinearLayout
         android:id="@+id/year_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-4.5dp"
+        android:layout_marginStart="-13.5dp"
         android:background="@android:color/transparent"
         android:clipChildren="false"
         android:clipToPadding="false"
@@ -66,8 +22,8 @@
         android:orientation="horizontal">
 
         <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:background="?attr/paper_color"
             android:paddingTop="3dp"
             android:paddingBottom="3dp">
@@ -76,24 +32,37 @@
                 android:id="@+id/radio_image_view"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
+                android:layout_gravity="center"
                 android:contentDescription="@null"
-                app:tint="?attr/chart_shade5"
-                app:srcCompat="@drawable/otd_radio" />
+                app:srcCompat="@drawable/otd_radio"
+                app:tint="?attr/colorAccent" />
         </FrameLayout>
 
         <TextView
             android:id="@+id/year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="serif"
+            android:layout_marginStart="6dp"
             android:gravity="center_vertical"
-            android:textColor="?attr/material_theme_primary_color"
-            android:textSize="24sp"
-            android:typeface="serif"
+            android:lineSpacingExtra="8sp"
+            android:textColor="?attr/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="1894" />
-
     </LinearLayout>
+
+    <org.wikipedia.views.AppTextView
+        android:id="@+id/years_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="2dp"
+        android:lineSpacingExtra="8sp"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/text"
@@ -108,13 +77,33 @@
         android:textSize="16sp"
         tools:text="Thomas Edison films American sharpshooter Annie Oakley, which is instrumental in her hiring by Buffalo Bill for his Wild West Show." />
 
-    <org.wikipedia.views.NavMenuAwareRecyclerView
-        android:id="@+id/pages_recycler"
+    <include
+        android:id="@+id/otd_event_page"
+        layout="@layout/item_on_this_day_pages"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:layout_marginTop="8dp"
-        android:background="?attr/paper_color"
-        android:clipToPadding="false"
-        android:paddingStart="16dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:visibility="gone" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pages_pager"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/pages_item_indicator_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-16dp"
+        android:background="@android:color/transparent"
+        app:tabBackground="@drawable/shape_tab_dot"
+        app:tabGravity="center"
+        app:tabIndicator="@null"
+        app:tabPaddingEnd="8dp"
+        app:tabPaddingStart="8dp"
+        app:tabRippleColor="?attr/color_group_59"/>
 </LinearLayout>
