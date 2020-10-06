@@ -32,9 +32,9 @@
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
-  <string name="nav_item_history">היסטוריה</string>
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
+  <string name="nav_item_search">חיפוש</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="card_offline_error_retry">ניסיון חוזר</string>
@@ -49,6 +49,8 @@
   <string name="history_item_delete_undo">ביטול</string>
   <string name="notification_archive_undo">ביטול</string>
   <string name="app_settings">הגדרות היישום</string>
+  <string name="search_tab_tooltip">לחץ על הסמל שוב כדי להתחיל ישר להקליד את מילת החיפוש.</string>
+  <string name="history_list_title">היסטוריה</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="dialog_message_clear_history_yes">כן</string>
@@ -251,6 +253,7 @@
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
+  <string name="search_results_count_zero">אין תוצאות</string>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
   <string name="clear_recent_searches_confirm_yes">כן</string>
@@ -667,7 +670,8 @@
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">כיתוב התמונה פורסם!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">כיתוב התמונה פורסם! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">תגיות התמונה פורסמו!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">תגי התמונה פורסמו!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">נהנית? תעזור לנו להוסיף עוד.</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
@@ -763,9 +767,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
   <string name="suggested_edits_image_captions_task_detail">נא לתאר את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
   <string name="suggested_edits_add_descriptions_task_detail">נא לסכם את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
@@ -942,4 +946,15 @@
   <string name="text_input_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_cancel_button_text">ביטול</string>
   <string name="custom_date_picker_dialog_cancel_button_text">ביטול</string>
+  <string name="talk_title">שיחה</string>
+  <string name="talk_user_title">שיחה: %s</string>
+  <string name="talk_new_topic">נושא חדש</string>
+  <string name="talk_page_empty">דף השיחה הזה ריק.</string>
+  <string name="talk_add_reply">להגיב</string>
+  <string name="talk_no_subject">(ללא כותרת)</string>
+  <string name="talk_reply_subject">כותרת</string>
+  <string name="talk_reply_hint">כתיבת תגובה</string>
+  <string name="talk_message_hint">כתיבת הודעה</string>
+  <string name="talk_message_empty">ההודעה אינה יכולה להיות ריקה.</string>
+  <string name="talk_subject_empty">הכותרת אינה יכולה להיות ריקה.</string>
 </resources>

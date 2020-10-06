@@ -17,7 +17,6 @@
   <string name="search_hint">Guetar na Wikipedia</string>
   <string name="search_hint_voice_search">Busca con entrada por voz</string>
   <string name="search_hint_search_languages">Buscar una llingua</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ediciones suxeríes</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -693,9 +692,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Los pies d\'imaxe describen una imaxe p\'ayudar los llectores a entender el so significáu y contestu.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Les descripciones d\'artículos resumen un artículu p\'ayudar a que los llectores puedan enterase de la tema del artículu d\'una güeyada.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">El númberu total de les tos contribuciones con Ediciones suxeríes.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos díes siguíos contribuyisti a Ediciones suxeríes. Si va tiempu que nun contribuyes, apaecerá la fecha de la to última contribución.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de páxines vistes d\'elementos a los que contribuyisti nos postreros 30 díes con ediciones suxeríes.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">El númberu total de les tos contribuciones con Ediciones suxeríes.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Cuántos díes siguíos contribuyisti a Ediciones suxeríes. Si va tiempu que nun contribuyes, apaecerá la fecha de la to última contribución.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Total de páxines vistes d\'elementos a los que contribuyisti nos postreros 30 díes con ediciones suxeríes.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basándose na cantidá de vegaes qu\'una de les tos contribuciones revirtióse (foi anulada por otru editor). Ediciones revertíes: %d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Les Ediciones suxeríes tán en posa hasta %1$s.&lt;/b&gt; Sentímoslo, %2$s: dalgunes de les tos contribuciones de recién revertiéronse.\n\nDeprende cómo ameyorar les tos habilidaes d\'edición na Wikipedia consultando l\'enllaz d\'abaxo.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Les ediciones suxeríes tán desactivaes&lt;/b&gt;. Sentímoslo, %s: munches de les tos contribuciones de recién revertiéronse.\n\nConsulta lo que significa nel enllaz d\'abaxo.</string>

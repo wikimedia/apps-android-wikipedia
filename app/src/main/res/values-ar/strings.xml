@@ -42,7 +42,6 @@
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
-  <string name="nav_item_history">التاريخ</string>
   <string name="nav_item_suggested_edits">التعديلات</string>
   <string name="nav_item_more">المزيد</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
@@ -74,7 +73,7 @@
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="feed_card_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="menu_page_share">شارك الوصلة</string>
-  <string name="menu_page_open_a_new_tab">افتح تبويبًا جديدًا</string>
+  <string name="menu_page_open_a_new_tab">افتح تبويبا جديدا</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
   <string name="menu_page_recently_viewed">طالعتها مؤخرًا</string>
   <string name="menu_long_press_open_page">افتح</string>
@@ -258,6 +257,7 @@
   <string name="page_similar_titles">صفحات مشابهة</string>
   <string name="search_did_you_mean">هل تقصد \"%s\"؟</string>
   <string name="search_recent_header">أحدث عمليات البحث:</string>
+  <string name="search_results_count_zero">لا نتائج</string>
   <string name="button_clear_all_recent_searches">حذف أحدث عمليات البحث</string>
   <string name="clear_recent_searches_confirm">هل أنت متأكد من حذف سجل البحث؟</string>
   <string name="clear_recent_searches_confirm_yes">نعم</string>
@@ -728,9 +728,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها:%d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>

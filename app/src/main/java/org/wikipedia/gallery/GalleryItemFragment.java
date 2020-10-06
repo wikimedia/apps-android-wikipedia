@@ -1,6 +1,7 @@
 package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,6 +18,12 @@ import android.widget.VideoView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -52,7 +59,7 @@ import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 
-public class GalleryItemFragment extends Fragment {
+public class GalleryItemFragment extends Fragment implements RequestListener<Drawable> {
     private static final String ARG_PAGETITLE = "pageTitle";
     private static final String ARG_GALLERY_ITEM = "galleryItem";
 
@@ -66,7 +73,7 @@ public class GalleryItemFragment extends Fragment {
     @BindView(R.id.gallery_video) VideoView videoView;
     @BindView(R.id.gallery_video_thumbnail) ImageView videoThumbnail;
     @BindView(R.id.gallery_video_play_button) View videoPlayButton;
-    @BindView(R.id.gallery_image) ImageView imageView;
+    @BindView(R.id.gallery_image) PhotoView imageView;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -122,6 +129,14 @@ public class GalleryItemFragment extends Fragment {
                 ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
+
+        imageView.setOnMatrixChangeListener(rect -> {
+            if (!isAdded() || imageView == null) {
+                return;
+            }
+            ((GalleryActivity) requireActivity()).setViewPagerEnabled(imageView.getScale() <= 1f);
+        });
+
         return rootView;
     }
 
@@ -299,12 +314,25 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void loadImage(String url) {
-        imageView.setVisibility(View.VISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-        ViewUtil.loadImageWithWhiteBackground(imageView, url);
+        ViewUtil.loadImageWithWhiteBackground(imageView, url, this);
         // TODO: show error if loading failed.
+    }
+
+    @Override
+    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+        ((GalleryActivity) requireActivity()).onMediaLoaded();
+        return false;
+    }
+
+    @Override
+    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+        imageView.setVisibility(View.VISIBLE);
+        ((GalleryActivity) requireActivity()).onMediaLoaded();
+        return false;
     }
 
     private void shareImage() {

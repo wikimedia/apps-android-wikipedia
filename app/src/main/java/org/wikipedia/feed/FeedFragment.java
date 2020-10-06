@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -96,11 +93,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private FeedFunnel funnel;
     private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
-    private boolean searchIconVisible;
+    private boolean shouldElevateToolbar;
     @Nullable private SuggestedEditsCardView suggestedEditsCardView;
 
     public interface Callback {
-        void onFeedSearchRequested();
+        void onFeedSearchRequested(View view);
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedSelectPageFromExistingTab(HistoryEntry entry);
@@ -204,7 +201,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     public boolean shouldElevateToolbar() {
-        return searchIconVisible;
+        return shouldElevateToolbar;
     }
 
     @Override
@@ -297,33 +294,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onDestroy() {
         super.onDestroy();
         coordinator.reset();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_feed, menu);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        MenuItem searchItem = menu.findItem(R.id.menu_feed_search);
-        if (searchItem != null) {
-            searchItem.setVisible(searchIconVisible);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_feed_search:
-                if (getCallback() != null) {
-                    getCallback().onFeedSearchRequested();
-                }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     @Override
@@ -445,9 +415,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSearchRequested() {
+        public void onSearchRequested(View view) {
             if (getCallback() != null) {
-                getCallback().onFeedSearchRequested();
+                getCallback().onFeedSearchRequested(view);
             }
         }
 
@@ -570,9 +540,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
-            boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
-            if (shouldShowSearchIcon != searchIconVisible) {
-                searchIconVisible = shouldShowSearchIcon;
+            boolean shouldElevate = feedView.getFirstVisibleItemPosition() != 0;
+            if (shouldElevate != shouldElevateToolbar) {
+                shouldElevateToolbar = shouldElevate;
                 requireActivity().invalidateOptionsMenu();
                 if (getCallback() != null) {
                     getCallback().updateToolbarElevation(shouldElevateToolbar());

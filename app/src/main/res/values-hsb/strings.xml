@@ -15,7 +15,6 @@
   <string name="nav_item_forward">Dale</string>
   <string name="search_hint">Wikipediju přepytać</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
-  <string name="nav_item_history">Historija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Namjetowane změny</string>
   <string name="error_network_error">Njemóžu so z internetom zwjazać.</string>
   <string name="page_error_retry">Znowa spytać</string>

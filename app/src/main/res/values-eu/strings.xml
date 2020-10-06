@@ -27,7 +27,6 @@
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="search_hint_voice_search">Ahotsaren bidez bilatu</string>
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
-  <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Gomendatutako aldaketak</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>
@@ -638,7 +637,7 @@
   <string name="onboarding_multilingual_add_language_text">Hizkuntzak gehitu ala aldatu</string>
   <string name="onboarding_welcome_title_v2">Entziklopedia Askea\n...300 hizkuntza baino gehiagotan</string>
   <string name="app_shortcuts_random">Ausazkoa</string>
-  <string name="app_shortcuts_continue_reading">Irakurtzen jarraitu</string>
+  <string name="app_shortcuts_continue_reading">Jarraitu irakurtzen</string>
   <string name="app_shortcuts_search">Bilatu</string>
   <string name="more_trending_text">Honen antzeko gehiago</string>
   <string name="top_on_this_day">%1$s(e)ra bideratu</string>

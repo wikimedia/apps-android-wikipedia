@@ -43,6 +43,7 @@
     <dimen name="themeChooserSheetPeekHeight">420dp</dimen>
     <dimen name="readingListSheetPeekHeight">360dp</dimen>
     <dimen name="imagePreviewSheetPeekHeight">280dp</dimen>
+    <dimen name="navTabDialogPeekHeight">400dp</dimen>
     <!-- Default size of images in Link Preview thumbnail gallery -->
     <dimen name="linkPreviewImageSize">112dp</dimen>
 
@@ -89,9 +90,6 @@
 
     <!-- Dialog -->
     <dimen name="dialog_line_spacing_extra">5sp</dimen>
-
-    <!-- Article bottom toolbar -->
-    <dimen name="bottom_toolbar_height">56dp</dimen>
 
     <!-- Randomizer -->
     <dimen name="randomizer_card_view_bottom_padding">0dp</dimen>

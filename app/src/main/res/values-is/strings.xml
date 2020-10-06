@@ -18,7 +18,6 @@
   <string name="search_hint">Leita á Wikipedia</string>
   <string name="search_hint_voice_search">Leit með raddskipunum</string>
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
-  <string name="nav_item_history">Ferilskrá</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Tillögur að breytingum</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
@@ -694,9 +693,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hæ %s&lt;/b&gt;, issir þú að allir geta breytt efni á Wikipedia? Hér fyrir neðan geturðu séð ýmsar skemmtilegar leiðir til að bæta Wikipedia. Skemmtu þér vel!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Myndatextar lýsa myndum til að hjálpa notendum að skilja meiningu og samhengi myndanna.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Lýsingar á greinum draga saman efni greinar í örfáum orðum til að hjálpa lesendum að skilja umfjöllunarefnið í fljótu bragði.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Heildarfjöldi breytinga sem þú hefur gert út frá tillögum að breytingum.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Hve marga daga í röð þú hefur gert breytingar út frá tillögum að breytingum. Ef þú hefur ekki nýtt þér þetta í einhvern tíma, þá birtist dagsetningin þegar þú gerðir það síðast.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Heildarfjöldi síðuflettinga á atriði sem þú hefur gert síðustu 30 daga út frá tillögum að breytingum.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Heildarfjöldi breytinga sem þú hefur gert út frá tillögum að breytingum.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Hve marga daga í röð þú hefur gert breytingar út frá tillögum að breytingum. Ef þú hefur ekki nýtt þér þetta í einhvern tíma, þá birtist dagsetningin þegar þú gerðir það síðast.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Heildarfjöldi síðuflettinga á atriði sem þú hefur gert síðustu 30 daga út frá tillögum að breytingum.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Byggt á því hversu oft eitthvað atriði frá þér hefur verið afturkallað (tekið til baka af öðrum þáttakanda). Afturkallaðar breytingar: %d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Tillögur að breytingum eru í dvala til %1$s.&lt;/b&gt; Því miður %2$s, sumt af því sem þú hefur unnið við hefur verið afturkallað.\n\nÞú getur lært meira til að bæta vinnuna þína á Wikipedia með því að fylgja tenglinum hér fyrir neðan.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Tillögur að breytingum eru ekki virkar.&lt;/b&gt; Því miður %s, of margt af því sem þú hefur unnið við hefur verið afturkallað.\n\nÞú getur séð hvað þetta þýðir með því að fylgja tenglinum hér fyrir neðan.</string>

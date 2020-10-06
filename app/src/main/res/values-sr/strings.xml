@@ -7,6 +7,7 @@
 * Bjankuloski06
 * Dbrant
 * Fendo99
+* Kizule
 * MarinaSimic
 * Milicevic01
 * Obsuser
@@ -29,7 +30,6 @@
   <string name="search_hint">Претражите Википедију</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_languages">Претражите језике</string>
-  <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Измене</string>
   <string name="nav_item_more">Више</string>
   <string name="error_network_error">Није могуће повезати се с интернетом.</string>

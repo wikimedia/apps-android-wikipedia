@@ -32,7 +32,6 @@
   <string name="search_hint_voice_search">Голосовий пошук</string>
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтрувати мої списки</string>
-  <string name="nav_item_history">Історія</string>
   <string name="nav_item_suggested_edits">Редагування</string>
   <string name="nav_item_more">Більше</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
@@ -755,9 +754,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо, %s&lt;/b&gt;, нижче ви можете знайти деякі швидкі і прості способи покращити Вікіпедію. Ви одразу побачите свій вплив, щойно почнете. Приємного редагування!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишіть зображення, щоб допомогти читачам зрозуміти його значення та контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Підсумуйте вміст статті, щоб допомогти читачам зрозуміти предмет статті з першого погляду.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок через список пропонованих редагувань. Якщо ви довго не робили внесок, то показується дата останнього внеску.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Кількість ваших редагувань з Пропонованих.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Скільки днів поспіль ви робили внесок через список пропонованих редагувань. Якщо ви довго не робили внесок, то показується дата останнього внеску.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші редагування було скасовано (іншим редактором). Кількість таких редагувань: %d.</string>
   <string name="suggested_edits_paused_message">Пропоновані редагування було тимчасово відключено до %1$s. Перепрошуємо, %2$s, але деякі з ваших останніх редагувань було скасовано.</string>
   <string name="suggested_edits_disabled_message">Пропоновані редагування було відключено. Перепрошуємо, %s, але забагато з ваших останніх редагувань було скасовано.</string>

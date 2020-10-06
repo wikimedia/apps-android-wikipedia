@@ -20,6 +20,7 @@ import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTestSuggestedEditsInterstitialFunnel
+import org.wikipedia.analytics.SuggestedEditsFeedFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -47,6 +48,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     private var resettingViewPager: Boolean = false
     private var sessionEditCount = 0
     private var rewardInterstitialQACount = 0
+    private var funnel: SuggestedEditsFeedFunnel? = null
+
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
@@ -78,6 +81,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         retainInstance = true
         action = arguments?.getSerializable(INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
 
+        funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
+
         Prefs.setSuggestedEditsRewardInterstitialEnabled(true)
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
         SuggestedEditsFunnel.get().impression(action)
@@ -94,6 +99,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         cardsViewPager.offscreenPageLimit = 2
         cardsViewPager.registerOnPageChangeCallback(viewPagerListener)//   addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
+
+        funnel?.start()
 
         if (wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
@@ -211,6 +218,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     override fun onDestroyView() {
+        funnel?.stop()
         disposables.clear()
         cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
         cardsViewPager.adapter = null
@@ -230,6 +238,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+            logSuccess()
             topChild()?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
             FeedbackUtil.showMessage(this,
                     when (action) {
@@ -258,6 +267,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
             updateActionButton()
         }
+    }
+
+    override fun logSuccess() {
+        funnel?.editSuccess()
     }
 
     fun onSelectPage() {
@@ -529,10 +542,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     companion object {
-        fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
+        fun newInstance(action: DescriptionEditActivity.Action, invokeSource: InvokeSource): SuggestedEditsCardsFragment {
             val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
             val args = Bundle()
             args.putSerializable(INTENT_EXTRA_ACTION, action)
+            args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
             addTitleDescriptionsFragment.arguments = args
             return addTitleDescriptionsFragment
         }

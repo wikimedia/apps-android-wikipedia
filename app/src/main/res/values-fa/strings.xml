@@ -46,7 +46,6 @@
   <string name="nav_item_forward">جلو</string>
   <string name="search_hint">جستجو در ویکی‌پدیا</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
-  <string name="nav_item_history">تاریخچه</string>
   <string name="nav_item_suggested_edits" fuzzy="true">ویرایش‌های پیشنهادی</string>
   <string name="error_network_error">امکان اتصال به اینترنت وجود ندارد.</string>
   <string name="page_error_retry">تلاش دوباره</string>

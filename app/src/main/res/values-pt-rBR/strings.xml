@@ -45,9 +45,9 @@
   <string name="search_hint_voice_search">Pesquisa por entrada de voz</string>
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar minhas listas</string>
-  <string name="nav_item_history">Histórico</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
+  <string name="nav_item_search">Pesquisar</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -62,6 +62,8 @@
   <string name="history_item_delete_undo">Desfazer</string>
   <string name="notification_archive_undo">Desfazer</string>
   <string name="app_settings">Configurações do aplicativo</string>
+  <string name="search_tab_tooltip">Toque no ícone novamente para começar a digitar diretamente um termo de pesquisa.</string>
+  <string name="history_list_title">Histórico</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
   <string name="dialog_message_clear_history_yes">Sim</string>
@@ -264,6 +266,11 @@
   <string name="page_similar_titles">Páginas similares</string>
   <string name="search_did_you_mean">Você quis dizer “%s”?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
+  <string name="search_results_count_zero">Sem resultados</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultado</item>
+    <item quantity="other">%d resultados</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Apagar pesquisas recentes</string>
   <string name="clear_recent_searches_confirm">Tem certeza de que deseja apagar seu histórico de pesquisa?</string>
   <string name="clear_recent_searches_confirm_yes">Sim</string>
@@ -327,6 +334,7 @@
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
   <string name="button_continue_to_article">Ler artigo</string>
+  <string name="button_continue_to_talk_page">Ver página de discussão</string>
   <string name="button_continue_to_disambiguation">Ver páginas semelhantes</string>
   <string name="link_preview_disambiguation_description">Este título está relacionado com mais do que uma página:</string>
   <string name="button_add_to_reading_list">Adicionar à lista de leitura</string>
@@ -772,9 +780,9 @@
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, abaixo, você pode encontrar maneiras rápidas e fáceis de ajudar a melhorar a Wikipédia. Você verá a diferença que está fazendo assim que começa. Edição feliz!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a entender rapidamente o assunto.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu por meio das edições sugeridas. Se você não contribui há algum tempo, ele mostra sua última data de contribuição.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página dos itens nos quais você contribuiu nos últimos 30 dias com edições sugeridas.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições até agora.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias consecutivos você fez contribuições. Se você não contribui há algum tempo, ele mostra a data da última contribuição.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página de itens para os quais você contribuiu nos últimos 30 dias.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.</string>
   <string name="suggested_edits_disabled_message">As edições sugeridas estão desativadas.Desculpa %s, muitas das suas recentes contribuições foram revertidas.</string>
@@ -963,4 +971,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cancelar</string>
+  <string name="talk_title">Discussão</string>
+  <string name="talk_user_title">Discussão: %s</string>
+  <string name="talk_new_topic">Novo tópico</string>
+  <string name="talk_page_empty">Esta página de discussão está vazia.</string>
+  <string name="talk_add_reply">Responder</string>
+  <string name="talk_no_subject">(Sem assunto)</string>
+  <string name="talk_reply_subject">Assunto</string>
+  <string name="talk_reply_hint">Compor resposta</string>
+  <string name="talk_message_hint">Compor mensagem</string>
+  <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
+  <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
 </resources>

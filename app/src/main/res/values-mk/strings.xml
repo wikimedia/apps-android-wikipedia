@@ -19,9 +19,9 @@
   <string name="search_hint_voice_search">Гласовно пребарување</string>
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
-  <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
+  <string name="nav_item_search">Пребарај</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -36,6 +36,8 @@
   <string name="history_item_delete_undo">Врати</string>
   <string name="notification_archive_undo">Врати</string>
   <string name="app_settings">Поставки за прилогот</string>
+  <string name="search_tab_tooltip">Повторно допрете ја иконата за да почнете со непосредно внесување на саканото пребарување.</string>
+  <string name="history_list_title">Историја</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -238,6 +240,11 @@
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
+  <string name="search_results_count_zero">Нема исход</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 ставка</item>
+    <item quantity="other">%d ставки</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Исчисти скорешни пребарувања</string>
   <string name="clear_recent_searches_confirm">Дали сте сигурни дека сакате да ја избришете историјата на пребарувања?</string>
   <string name="clear_recent_searches_confirm_yes">Да</string>
@@ -301,6 +308,7 @@
   <string name="address_copied">Адресата е ставена во меѓускладот</string>
   <string name="text_copied">Текстот е ставен во меѓускладот.</string>
   <string name="button_continue_to_article">Прочитајте ја статијата</string>
+  <string name="button_continue_to_talk_page">Отвори разговорна страница</string>
   <string name="button_continue_to_disambiguation">Погл. слични страници</string>
   <string name="link_preview_disambiguation_description">Насловот се однесува на повеќе од една страница:</string>
   <string name="button_add_to_reading_list">Додај во список за читање</string>
@@ -746,9 +754,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
   <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси со „Предложени уредувања“.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале со „Предложени уредувања“. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси досега.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредивте во изминатите 30 дена.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања (поништени од друг корисник). Отповикани уредувања: %d.</string>
   <string name="suggested_edits_paused_message">Предложените уредувања се во прекин до %1$s. За жал, %2$s, некои од вашите скорешни уредувања се отповикани.</string>
   <string name="suggested_edits_disabled_message">Предложените уредувања се оневозможени. За жал, %s, имате премногу отповикани скорешни уредувања.</string>
@@ -937,4 +945,15 @@
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Откажи</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Откажи</string>
+  <string name="talk_title">Разговор</string>
+  <string name="talk_user_title">Разговор: %s</string>
+  <string name="talk_new_topic">Нова тема</string>
+  <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
+  <string name="talk_add_reply">Одговор</string>
+  <string name="talk_no_subject">(Без наслов)</string>
+  <string name="talk_reply_subject">Наслов</string>
+  <string name="talk_reply_hint">Напиши одговор</string>
+  <string name="talk_message_hint">Напиши порака</string>
+  <string name="talk_message_empty">Пораката не може да стои празна.</string>
+  <string name="talk_subject_empty">Насловот не може да стои празен.</string>
 </resources>

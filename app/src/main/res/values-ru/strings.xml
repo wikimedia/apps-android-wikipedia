@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* 1233qwer1234qwer4
 * 4elovek12345
 * Abijeet Patro
 * Alexander Istomin
@@ -66,7 +67,6 @@
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_voice_search">Голосовой поиск</string>
   <string name="search_hint_search_languages">Поиск языка</string>
-  <string name="nav_item_history">История</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
@@ -83,6 +83,7 @@
   <string name="history_item_delete_undo">Вернуть</string>
   <string name="notification_archive_undo">Отменить</string>
   <string name="app_settings">Настройки приложения</string>
+  <string name="history_list_title">История</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -96,7 +97,9 @@
   <string name="edit_section_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
   <string name="menu_page_add_to_list">Добавить в список для чтения</string>
+  <string name="menu_page_add_to_default_list">Сохранить</string>
   <string name="feed_card_add_to_list">Добавить в список для чтения</string>
+  <string name="feed_card_add_to_default_list">Сохранить</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
   <string name="menu_page_open_a_new_tab">Открыть новую вкладку</string>
   <string name="menu_page_reading_lists">Списки для чтения</string>
@@ -282,6 +285,7 @@
   <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
   <string name="search_recent_header">Последние поиски:</string>
+  <string name="search_results_count_zero">Ничего не найдено</string>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
   <string name="clear_recent_searches_confirm_yes">Да</string>
@@ -383,6 +387,9 @@
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
   <string name="crash_report_quit">Выйти</string>
+  <string name="article_menu_bar_save_button">Сохранить</string>
+  <string name="article_menu_bar_language_button">Язык</string>
+  <string name="article_menu_bar_theme_button">Тема оформления</string>
   <string name="article_header_edit_hint">Править…</string>
   <string name="article_header_edit_description">Изменить описание статьи</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
@@ -403,6 +410,7 @@
   <string name="reading_list_create_new">Создать новый</string>
   <string name="reading_list_title_exists">Список для чтения «%s» уже существует.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
+  <string name="reading_list_add_to_list_button">Добавить в список</string>
   <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статей, %2$.2f МБ</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d из 1 статьи доступно без подключения к интернету, %2$.2f МБ</string>
@@ -454,12 +462,13 @@
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_lists_login_reminder_text">Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
+  <string name="reading_lists_ignore_button">Не сейчас</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Нет</string>
   <string name="reading_list_article_save_in_progress">Страница скачивается. По завершению загрузки она будет доступна в офлайне.</string>
   <string name="reading_list_articles_added_to_named">В список «%2$s» были добавлены статьи (%1$d)</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить %s?</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтоб включить синхронизацию</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Войдите, чтобы включить синхронизацию</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Войдите в систему, чтобы ваши списки чтения были сохранены в вашей учётной записи.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Отмена</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Войти</string>
@@ -885,4 +894,5 @@
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Отмена</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отмена</string>
+  <string name="talk_title">Обсуждение</string>
 </resources>

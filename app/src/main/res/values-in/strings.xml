@@ -39,7 +39,6 @@
   <string name="search_hint_voice_search">Pencarian input suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="filter_hint_filter_my_lists_and_articles">Pilih daftar saya</string>
-  <string name="nav_item_history">Riwayat</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>
@@ -726,9 +725,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hai %s&lt;/b&gt;, tahukah Anda bahwa semua orang dapat menyunting Wikipedia? Di bawah ini Anda dapat menemukan cara yang menyenangkan untuk membantu meningkatkan Wikipedia. Selamat menyunting!</string>
   <string name="suggested_edits_image_captions_task_detail">Deskripsikan sebuah gambar untuk membantu pembaca memahami makna dan konteksnya.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rangkum sebuah artikel untuk membantu pembaca memahami subjek secara sekilas.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Jumlah total kontribusi Anda dengan Penyuntingan yang disarankan.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Berapa hari tanpa istirahat Anda berkontribusi melalui Penyuntingan yang disarankan. Jika Anda belum berkontribusi untuk sementara waktu, ini menunjukkan tanggal kontribusi terakhir Anda.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total tampilan halaman item yang Anda berkontribusi dalam 30 hari terakhir dengan Penyuntingan yang disarankan.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Jumlah total kontribusi Anda dengan Penyuntingan yang disarankan.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Berapa hari tanpa istirahat Anda berkontribusi melalui Penyuntingan yang disarankan. Jika Anda belum berkontribusi untuk sementara waktu, ini menunjukkan tanggal kontribusi terakhir Anda.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Total tampilan halaman item yang Anda berkontribusi dalam 30 hari terakhir dengan Penyuntingan yang disarankan.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Penyuntingan yang disarankan terjeda hingga %1$s.&lt;/b&gt; Maaf %2$s, beberapa kontribusi terbaru Anda telah dibalikkan.\n\nKetahui cara untuk memperbaiki kemampuan penyuntingan Anda di Wikipedia dengan pranala di bawah.</string>
   <string name="suggested_edits_disabled_message">Penyuntingan yang disarankan telah dinonaktifkan. Maaf %s, terlalu banyak kontribusi terakhir Anda yang telah dikembalikan.</string>
   <string name="suggested_edits_ip_blocked_message">Sepertinya alamat IP (atau rentang alamat IP) Anda saat ini diblokir dari penyuntingan di Wikipedia.</string>

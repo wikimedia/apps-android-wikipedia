@@ -18,6 +18,7 @@
 * Quoclinh94
 * Thanhtai2009
 * Vinhtantran
+* Yosari101
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -31,7 +32,6 @@
   <string name="search_hint_voice_search">Tìm kiếm nhập giọng nói</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="filter_hint_filter_my_lists_and_articles">Lọc các danh sách của tôi.</string>
-  <string name="nav_item_history">Lịch sử</string>
   <string name="nav_item_suggested_edits">Sửa đổi</string>
   <string name="nav_item_more">Mở rộng.</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
@@ -720,7 +720,9 @@
   <string name="suggested_edits_image_tags">Thẻ hình ảnh</string>
   <string name="suggested_edits_image_tags_publishing">Đang xuất bản</string>
   <string name="suggested_edits_image_tags_published">Đã xuất bản</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Tổng số đóng góp của bạn với Sửa đổi gợi ý.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Tổng số đóng góp của bạn với Sửa đổi gợi ý.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Số ngày đóng góp tài nguyên liên tiếp của bạn. Nếu bạn không đóng góp trong một khoảng thời gian, ngày đóng góp mới nhất sẽ được hiển thị.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Tổng số lượt tải của trang bạn đã đóng góp trong 30 ngày gần đây</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Có vẻ như địa chỉ IP (hoặc dãy địa chỉ IP) của bạn hiện đang bị chặn sửa đổi Wikipedia. Tìm hiểu thêm thế có nghĩa là gì bằng cách tới liên kết dưới đây.</string>
   <string name="suggested_edits_views_label_text">Lượt xem</string>
   <string name="suggested_edits_contribution_image_label">Hình ảnh</string>

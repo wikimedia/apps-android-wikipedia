@@ -22,7 +22,6 @@
   <string name="search_hint_voice_search">Гласово търсене</string>
   <string name="search_hint_search_languages">Търсене на език</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтриране на списъците</string>
-  <string name="nav_item_history">История</string>
   <string name="nav_item_suggested_edits">Редакции</string>
   <string name="nav_item_more">Още</string>
   <string name="error_network_error">Няма връзка с интернет.</string>

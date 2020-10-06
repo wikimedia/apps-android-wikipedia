@@ -32,6 +32,7 @@ import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
+import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
@@ -61,7 +62,6 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
@@ -140,7 +140,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
             if (getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
-                openSearchActivity(NAV_MENU, null);
+                openSearchActivity(NAV_MENU, null, null);
                 return true;
             }
             viewPager.setCurrentItem(item.getOrder(), false);
@@ -191,7 +191,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchActivity(VOICE, searchQuery);
+            openSearchActivity(VOICE, searchQuery, null);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
@@ -207,8 +207,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                HistoryEntry entry = new HistoryEntry(new PageTitle(SiteInfoClient.getMainPageForLang(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
-                        WikipediaApp.getInstance().getWikiSite()), HistoryEntry.SOURCE_MAIN_PAGE);
+                HistoryEntry entry = new HistoryEntry(MainPageClient.getMainPageTitle(), HistoryEntry.SOURCE_MAIN_PAGE);
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
@@ -251,7 +250,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
             startActivity(RandomActivity.newIntent(requireActivity(), APP_SHORTCUTS));
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
-            openSearchActivity(APP_SHORTCUTS, null);
+            openSearchActivity(APP_SHORTCUTS, null, null);
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             startActivity(PageActivity.newIntent(requireActivity()));
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
@@ -267,8 +266,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @Override public void onFeedSearchRequested() {
-        openSearchActivity(FEED_BAR, null);
+    @Override public void onFeedSearchRequested(View view) {
+        openSearchActivity(FEED_BAR, null, view);
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -464,9 +463,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query, @Nullable View transitionView) {
         Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
-        startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
+        ActivityOptionsCompat options = null;
+        if (transitionView != null) {
+            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), transitionView, getString(R.string.transition_search_bar));
+        }
+        startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options != null ? options.toBundle() : null);
     }
 
     private void goToTab(@NonNull NavTab tab) {

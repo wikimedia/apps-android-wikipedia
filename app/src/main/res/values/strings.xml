@@ -244,6 +244,11 @@
     <string name="page_similar_titles">Similar pages</string>
     <string name="search_did_you_mean">Did you mean \"%s\"?</string>
     <string name="search_recent_header">Recent searches:</string>
+    <string name="search_results_count_zero">No results</string>
+    <plurals name="search_results_count">
+        <item quantity="one">1 result</item>
+        <item quantity="other">%d results</item>
+    </plurals>
     <string name="button_clear_all_recent_searches">Clear recent searches</string>
     <string name="clear_recent_searches_confirm">Are you sure you want to clear your search history?</string>
     <string name="clear_recent_searches_confirm_yes">Yes</string>
@@ -307,6 +312,7 @@
     <string name="address_copied">Address copied to clipboard.</string>
     <string name="text_copied">Text copied to clipboard.</string>
     <string name="button_continue_to_article">Read article</string>
+    <string name="button_continue_to_talk_page">Open talk page</string>
     <string name="button_continue_to_disambiguation">View similar pages</string>
     <string name="link_preview_disambiguation_description">This title relates to more than one page:</string>
     <string name="button_add_to_reading_list">Add to reading list</string>
@@ -594,6 +600,8 @@
     <string name="view_random_card_action">Roll the dice</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
+    <string name="view_main_page_card_subtitle">Main page on %s</string>
+    <string name="view_main_page_card_action">View main page</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
     <string name="view_featured_image_card_download">Download</string>
     <string name="menu_feed_card_dismiss">Hide this card</string>
@@ -630,6 +638,7 @@
     <string name="feed_item_type_featured_article">Daily featured article on Wikipedia</string>
     <string name="feed_item_type_trending">Daily most-viewed articles</string>
     <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
+    <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
@@ -783,9 +792,9 @@
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Wikipedia. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
     <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
-    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits.</string>
-    <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed via Suggested edits. If you haven\'t contributed in a while, it shows your last contribution date.</string>
-    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits.</string>
+    <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions so far.</string>
+    <string name="suggested_edits_edit_streak_stat_tooltip">How many days in a row that you have made contributions. If you haven\'t contributed in a while, it shows your last contribution date.</string>
+    <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items to which you have contributed in the last 30 days.</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
     <string name="suggested_edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
     <string name="suggested_edits_disabled_message">Suggested edits is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>

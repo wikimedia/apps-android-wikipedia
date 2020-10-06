@@ -12,6 +12,7 @@
 * Macofe
 * Matrafox
 * Minisarm
+* NGC 54
 * SHaran (WMF)
 * Strainu
 * WebSourceContentRO
@@ -28,8 +29,8 @@
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
-  <string name="nav_item_history">Istoric</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
+  <string name="nav_item_search">Caută</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="card_offline_error_retry">Reîncercare</string>
@@ -44,6 +45,7 @@
   <string name="history_item_delete_undo">Anulează</string>
   <string name="notification_archive_undo">Anulare</string>
   <string name="app_settings">Setările din aplicație</string>
+  <string name="history_list_title">Istoric</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
@@ -724,9 +726,9 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Bună%s&lt;/b&gt;, știați că toată lumea poate edita Wikipedia? Mai jos puteți găsi modalități distractive de a ajuta la îmbunătățirea Wikipedia. Editare fericită!</string>
   <string name="suggested_edits_image_captions_task_detail">Descrieți o imagine pentru a ajuta cititorii să înțeleagă sensul și contextul acesteia.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rezumați un articol pentru a ajuta cititorii să înțeleagă subiectul dintr-o privire.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Numărul total de contribuții cu Modificări sugerate.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Câte zile fără pauză ați contribuit prin Modificări sugerate. Dacă nu ați contribuit într-o perioadă, aceasta arată data ultimei contribuții.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Vizualizări totale de pagini ale articolelor la care ați contribuit în ultimele 30 de zile cu modificări sugerate.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Numărul total de contribuții cu Modificări sugerate.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Câte zile fără pauză ați contribuit prin Modificări sugerate. Dacă nu ați contribuit într-o perioadă, aceasta arată data ultimei contribuții.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Vizualizări totale de pagini ale articolelor la care ați contribuit în ultimele 30 de zile cu modificări sugerate.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Pe baza de câte ori a fost revenită una dintre contribuțiile dvs. (anulată de un alt editor). Modificări anulate: %d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Modificările sugerate sunt întrerupte până %1$s.&lt;/b&gt; Scuze %2$s, o parte din contribuțiile dvs. recente au fost anulate.\n\nAflați cum să vă îmbunătățiți abilitățile de editare pe Wikipedia cu linkul de mai jos.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Editările sugerate sunt dezactivate.&lt;/b&gt; Ne pare rău %s, prea multe contribuții recente au fost anulate.\n\nAflați ce înseamnă asta cu linkul de mai jos.</string>
@@ -874,4 +876,8 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anulează</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Anulează</string>
+  <string name="talk_new_topic">Subiect nou</string>
+  <string name="talk_page_empty">Această pagină de discuție este goală.</string>
+  <string name="talk_add_reply">Răspunde</string>
+  <string name="talk_reply_subject">Subiect</string>
 </resources>

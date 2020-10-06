@@ -16,7 +16,6 @@
   <string name="nav_item_forward">ទៅមុខ</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
   <string name="search_hint_search_languages">ស្វែងរកភាសា</string>
-  <string name="nav_item_history">ប្រវត្តិ</string>
   <string name="error_network_error">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ។</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="page_error_back_to_main">បកក្រោយ</string>

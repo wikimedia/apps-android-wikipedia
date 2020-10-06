@@ -37,9 +37,9 @@
   <string name="search_hint_voice_search">Vyhledávání hlasem</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
-  <string name="nav_item_history">Historie</string>
   <string name="nav_item_suggested_edits">Editace</string>
   <string name="nav_item_more">Více</string>
+  <string name="nav_item_search">Vyhledávání</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Znovu</string>
   <string name="card_offline_error_retry">Znovu</string>
@@ -54,6 +54,8 @@
   <string name="history_item_delete_undo">Vrátit</string>
   <string name="notification_archive_undo">Zpět</string>
   <string name="app_settings">Nastavení aplikace</string>
+  <string name="search_tab_tooltip">Chcete-li přímo začít vyhledávat, klepněte znovu na tuto ikonu.</string>
+  <string name="history_list_title">Historie</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené záložky. Jste si jisti?</string>
   <string name="dialog_message_clear_history_yes">Ano</string>
@@ -256,6 +258,7 @@
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_recent_header">Nedávná vyhledávání:</string>
+  <string name="search_results_count_zero">Žádné výsledky</string>
   <string name="button_clear_all_recent_searches">Vymazat nedávná vyhledávání</string>
   <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii vyhledávání?</string>
   <string name="clear_recent_searches_confirm_yes">Ano</string>
@@ -658,7 +661,8 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulek obrázku byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Popis obrázku (v jazyce %s) byl zveřejněn!</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Značka/y obrázků byla/y publikována/y!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Značka(y) obrázků byla(y) publikována(y)!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Bavilo vás to? Pomozte nám přidat další.</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
@@ -753,9 +757,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, níže naleznete tipy na rychlé a snadné způsoby, jak vylepšit Wikipedii. Rozdíl svých změn uvidíte hned, jak začnete. Přejeme šťastné editování!</string>
   <string name="suggested_edits_image_captions_task_detail">Popište obrázek, abyste čtenářům pomohli pochopit jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Shrňte článek a pomozte čtenářům snáze pochopit téma článku.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje se datum vašeho posledního příspěvku.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet návštěvnosti položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový dosavadní počet příspěvků.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Počet dní v řadě, během nichž jste přispívali. Pokud jste nějakou dobu nepřispívali, zobrazuje se datum vašeho posledního příspěvku.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet návštěvnosti položek, k nimž jste za posledních 30 dní přispěli.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny jinými uživateli. Vrácené editace: %d.</string>
   <string name="suggested_edits_paused_message">Navrhování editací je pozastaveno do %1$s. Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.</string>
   <string name="suggested_edits_disabled_message">Navrhování editací je vypnuto. Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.</string>
@@ -917,4 +921,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Zrušit</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Zrušit</string>
+  <string name="talk_title">Diskuse</string>
+  <string name="talk_user_title">Diskuse: %s</string>
+  <string name="talk_new_topic">Nové téma</string>
+  <string name="talk_page_empty">Tato diskusní stránka je prázdná.</string>
+  <string name="talk_add_reply">Odpovědět</string>
+  <string name="talk_no_subject">(Bez předmětu)</string>
+  <string name="talk_reply_subject">Předmět</string>
+  <string name="talk_reply_hint">Napište odpověď</string>
+  <string name="talk_message_hint">Napište zprávu</string>
+  <string name="talk_message_empty">Zpráva nemůže být prázdná.</string>
+  <string name="talk_subject_empty">Předmět nemůže být prázdný.</string>
 </resources>

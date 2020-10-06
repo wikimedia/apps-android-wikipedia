@@ -24,9 +24,9 @@
   <string name="search_hint_voice_search">Pretraživanje glasom</string>
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje popise</string>
-  <string name="nav_item_history">Povijest</string>
   <string name="nav_item_suggested_edits">Uređivanjā</string>
   <string name="nav_item_more">Više</string>
+  <string name="nav_item_search">Pretraživanje</string>
   <string name="error_network_error">Nije moguće spojiti se na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -41,6 +41,8 @@
   <string name="history_item_delete_undo">Vrati</string>
   <string name="notification_archive_undo">Vrati</string>
   <string name="app_settings">Postavke aplikacije</string>
+  <string name="search_tab_tooltip">Dodirnite sličicu ponovo da biste izravno započeli unositi pretražni pojam.</string>
+  <string name="history_list_title">Povijest</string>
   <string name="dialog_title_clear_history">Izbriši povijest</string>
   <string name="dialog_message_clear_history">Izbrisat ćete povijest i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
@@ -763,4 +765,15 @@
   <string name="text_input_dialog_ok_button_text">U redu</string>
   <string name="text_input_dialog_cancel_button_text">Odustani</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Odustani</string>
+  <string name="talk_title">Razgovor sa suradnikom/suradnicom</string>
+  <string name="talk_user_title">Razgovor sa suradnikom/suradnicom: %s</string>
+  <string name="talk_new_topic">Nova tema</string>
+  <string name="talk_page_empty">Razgovorna stranica nema sadržaja.</string>
+  <string name="talk_add_reply">Odgovori</string>
+  <string name="talk_no_subject">(Bez naslova.)</string>
+  <string name="talk_reply_subject">Predmet</string>
+  <string name="talk_reply_hint">Sastavljanje odgovora</string>
+  <string name="talk_message_hint">Sastavljanje poruke</string>
+  <string name="talk_message_empty">Poruka ne može biti bez sadržaja.</string>
+  <string name="talk_subject_empty">Predmet ne može biti bez sadržaja.</string>
 </resources>

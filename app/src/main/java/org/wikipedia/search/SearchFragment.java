@@ -172,7 +172,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
-        toolbar.setNavigationOnClickListener((v) -> requireActivity().finish());
+        toolbar.setNavigationOnClickListener((v) -> requireActivity().supportFinishAfterTransition());
 
         initSearchView();
         return view;
@@ -182,7 +182,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     public void onStart() {
         super.onStart();
         setUpLanguageScroll(Prefs.getSelectedLanguagePositionInSearch());
-        startSearch(query, false);
+        startSearch(query, langBtnClicked);
         searchView.setCloseButtonVisibility(query);
 
         if (!TextUtils.isEmpty(query)) {
@@ -207,6 +207,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
                 position = app.language().getAppLanguageCodes().indexOf(searchLanguageCode);
             }
+            searchResultsFragment.clearSearchResultsCountCache();
             Prefs.setSelectedLanguagePositionInSearch(position);
         }
     }
@@ -227,7 +228,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         }
     }
 
-    private void setUpLanguageScroll(int position) {
+    public void setUpLanguageScroll(int position) {
         searchLanguageCode = app.language().getAppLanguageCode();
         if (app.language().getAppLanguageCodes().size() > 1) {
             position = app.language().getAppLanguageCodes().size() > position ? position : 0;

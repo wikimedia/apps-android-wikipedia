@@ -34,7 +34,6 @@
   <string name="search_hint">Hae Wikipediasta</string>
   <string name="search_hint_voice_search">Hae äänitulon perusteella</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
-  <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits">Muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
@@ -51,6 +50,7 @@
   <string name="history_item_delete_undo">Kumoa</string>
   <string name="notification_archive_undo">Kumoa</string>
   <string name="app_settings">Sovellusasetukset</string>
+  <string name="history_list_title">Historia</string>
   <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi ja sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="dialog_message_clear_history_yes">Kyllä</string>
@@ -249,6 +249,11 @@
   <string name="page_similar_titles">Samankaltaiset sivut</string>
   <string name="search_did_you_mean">Tarkoititko \"%s\"?</string>
   <string name="search_recent_header">Äskettäin tehdyt haut:</string>
+  <string name="search_results_count_zero">Ei hakutuloksia</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 hakutulos</item>
+    <item quantity="other">%d hakutulosta</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Tyhjennä äskettäin tehdyt haut</string>
   <string name="clear_recent_searches_confirm">Haluatko varmasti tyhjentää hakuhistorian?</string>
   <string name="clear_recent_searches_confirm_yes">Kyllä</string>
@@ -416,6 +421,10 @@
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
   <string name="reading_list_item_deleted">%s poistettu listasta</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d artikkeli poistettu listalta</item>
+    <item quantity="other">%d artikkelia poistettu listalta</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
   <string name="reading_lists_item_deleted">%s poistettu listoista</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
@@ -877,4 +886,13 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Peruuta</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Peruuta</string>
+  <string name="talk_user_title">Keskustelu käyttäjästä: %s</string>
+  <string name="talk_new_topic">Uusi aihe</string>
+  <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
+  <string name="talk_add_reply">Vastaa</string>
+  <string name="talk_no_subject">(Ei aihetta)</string>
+  <string name="talk_reply_subject">Aihe</string>
+  <string name="talk_reply_hint">Kirjoita vastaus</string>
+  <string name="talk_message_hint">Kirjoita viesti</string>
+  <string name="talk_message_empty">Viesti ei voi olla tyhjä.</string>
 </resources>

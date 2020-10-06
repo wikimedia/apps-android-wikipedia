@@ -8,6 +8,7 @@
 * Giorgi Balakhadze
 * MIKHEIL
 * Mehman97
+* Გიო ოქრო
 -->
 <resources>
   <string name="app_name_prod">ვიკიპედია</string>
@@ -20,7 +21,6 @@
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
-  <string name="nav_item_history">ისტორია</string>
   <string name="nav_item_suggested_edits" fuzzy="true">შემოთავაზებული რედაქტირებები</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
@@ -251,6 +251,7 @@
   <string name="address_copied">მისამათი დაკოპირებულია.</string>
   <string name="text_copied">ტექსტი დაკოპირებულია.</string>
   <string name="button_continue_to_article">სტატიის წაკითხვა</string>
+  <string name="link_preview_disambiguation_description">ეს სათაური დაკავშირებულია ერთზე მეტ გვერდთან</string>
   <string name="button_add_to_reading_list">საკითხავ სიაში დამატება</string>
   <string name="page_offline_notice_cannot_load_while_offline">სტატიის გახსნა შეუძლებელია, როცა ინტერნეტი არაა.</string>
   <string name="button_get_directions">მიმართულების მოძიება</string>

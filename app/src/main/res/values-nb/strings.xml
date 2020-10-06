@@ -28,7 +28,6 @@
   <string name="nav_item_forward">Fremover</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
-  <string name="nav_item_history">Logg</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
@@ -690,9 +689,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, under finner du noen raske og enkle måter du kan forbedre Wikipedia på. Prøv dem gjerne ut!</string>
   <string name="suggested_edits_image_captions_task_detail">Beskriv et bilde for å hjelpe lesere å forstå bildets motiv og kontekst.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Oppsummer en artikkel for å hjelpe lesere å raskt forstå hva den handler om.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Totalt antall bidrag du har gjort her.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Antall dager i strekk du har redigert her. Hvis du ikke har bidratt på en stund, vises i stedet datoen for ditt siste bidrag.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Antall sidevisninger de siste 30 dagene for artikler og bilder du har bidratt til.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Totalt antall bidrag du har gjort her.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Antall dager i strekk du har redigert her. Hvis du ikke har bidratt på en stund, vises i stedet datoen for ditt siste bidrag.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Antall sidevisninger de siste 30 dagene for artikler og bilder du har bidratt til.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basert på hvor mange ganger et av bidragene dine har blitt tilbakestilt (gjort om av en annen bdiragsyter). Tilbakestilte redigeringer: %d.</string>
   <string name="suggested_edits_paused_message">Redigeringsforslag er deaktivert frem til %1$s. Beklager %2$s, men noen av de siste bidragene dine har blitt tilbakestilt.</string>
   <string name="suggested_edits_disabled_message">Redigeringsforslag er deaktivert. Beklager %s, for mange av de siste bidragene dine har blitt tilbakestilt.</string>

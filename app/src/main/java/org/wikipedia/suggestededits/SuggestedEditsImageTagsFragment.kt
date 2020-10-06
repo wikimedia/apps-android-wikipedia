@@ -49,6 +49,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         fun getSinglePage(): MwQueryPage?
         fun updateActionButton()
         fun nextPage(sourceFragment: Fragment?)
+        fun logSuccess()
     }
 
     var publishing: Boolean = false
@@ -417,6 +418,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 updateLicenseTextShown()
                 publishOverlayContainer.visibility = GONE
                 callback().nextPage(this)
+                callback().logSuccess()
                 updateTagChips()
             }
         }, duration * 3)

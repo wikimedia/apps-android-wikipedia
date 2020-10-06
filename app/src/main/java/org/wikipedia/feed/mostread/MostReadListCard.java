@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.L10nUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @NonNull @Override public String title() {
-        return getString(R.string.most_read_list_card_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.most_read_list_card_title);
     }
 
     @Nullable @Override public String subtitle() {

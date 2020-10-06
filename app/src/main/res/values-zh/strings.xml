@@ -3,6 +3,7 @@
 * 500000000006城
 * A Chinese Wikipedian
 * A Retired User
+* AYZ04
 * Abijeet Patro
 * Cwek
 * Davidzdh
@@ -13,6 +14,7 @@
 * Hydra
 * Hzy980512
 * ITsu
+* Irati
 * Josephine W.
 * LNDDYL
 * Liuxinyu970226
@@ -57,9 +59,9 @@
   <string name="search_hint_voice_search">语音输入搜索</string>
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
-  <string name="nav_item_history">历史记录</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
+  <string name="nav_item_search">搜索</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -74,6 +76,7 @@
   <string name="history_item_delete_undo">撤销</string>
   <string name="notification_archive_undo">撤销</string>
   <string name="app_settings">应用设置</string>
+  <string name="history_list_title">历史</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
   <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
   <string name="dialog_message_clear_history_yes">确认</string>
@@ -778,9 +781,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s阁下&lt;/b&gt;，下面，您可以找到一些快速又简单的方法来帮助改进维基百科。你一开始就会看到你做出的更改。祝您编辑顺利!</string>
   <string name="suggested_edits_image_captions_task_detail">描述图片以帮助读者理解图像的含义和上下文。</string>
   <string name="suggested_edits_add_descriptions_task_detail">总结条目以帮助读者一目了然地了解主题。</string>
-  <string name="suggested_edits_contributions_stat_tooltip">您的贡献总数和建议编辑。</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
-  <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">您的贡献总数和建议编辑。</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">根据你的一个贡献被回退了多少次（被其他编辑者撤销）。被回退的编辑：%d。</string>
   <string name="suggested_edits_paused_message">建议编辑已暂停，直到%1$s。抱歉%2$s，您最近的一些贡献已经被回退了。</string>
   <string name="suggested_edits_disabled_message">建议编辑已被禁用。抱歉 %s，您近期的贡献有太多被回退了。</string>
@@ -959,4 +962,15 @@
   <string name="text_input_dialog_ok_button_text">确定</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>
   <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
+  <string name="talk_title">讨论</string>
+  <string name="talk_user_title">讨论：%s</string>
+  <string name="talk_new_topic">新话题</string>
+  <string name="talk_page_empty">此讨论页为空。</string>
+  <string name="talk_add_reply">回复</string>
+  <string name="talk_no_subject">（无主题）</string>
+  <string name="talk_reply_subject">主题</string>
+  <string name="talk_reply_hint">撰写回复</string>
+  <string name="talk_message_hint">撰写信息</string>
+  <string name="talk_message_empty">消息不能为空。</string>
+  <string name="talk_subject_empty">主题不能为空。</string>
 </resources>

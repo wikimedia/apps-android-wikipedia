@@ -3,10 +3,12 @@ package org.wikipedia.feed.news;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
+import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.feed.model.UtcDate;
+import org.wikipedia.util.L10nUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,10 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     public NewsListCard(@NonNull List<NewsItem> news, int age, @NonNull WikiSite wiki) {
         super(toItemCards(news, wiki), wiki);
         this.date = new UtcDate(age);
+    }
+
+    @NonNull @Override public String title() {
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_card_news_title);
     }
 
     @NonNull @Override public CardType type() {
