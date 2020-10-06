@@ -240,8 +240,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             if (resultCode == RESULT_OK) {
                 if (suggestedEditsCardView != null && suggestedEditsCardView.getCard() != null) {
                     suggestedEditsCardView.refreshCardContent();
-                    SuggestedEditsSnackbars.show(requireActivity(), suggestedEditsCardView.getCard().getAction(), true,
-                            app.language().getAppLanguageCodes().get(1), true, () -> {
+                    String editLanguage = app.language().getAppLanguageCodes().size() > 1 ? app.language().getAppLanguageCodes().get(1) : app.language().getAppLanguageCode();
+                    SuggestedEditsSnackbars.show(requireActivity(), suggestedEditsCardView.getCard().getAction(), true, editLanguage, true, () -> {
                         PageTitle pageTitle = suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
                         if (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) {
                             startActivity(FilePageActivity.newIntent(requireActivity(), pageTitle));
