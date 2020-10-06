@@ -908,7 +908,6 @@
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
-  <string name="back_to_top">Button label for scrolling the content to the top.</string>
   <string name="on_this_day_dialog_next_month">Image content description that shows it will trigger the calendar to the next month.</string>
   <string name="on_this_day_dialog_previous_month">Image content description that shows it will trigger the calendar to the previous month.</string>
   <string name="on_this_day_open_date_picker">View content description that shows it will trigger to open the date picker dialog.</string>
@@ -975,4 +974,6 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="on_this_day_back_to_future">Button label for scrolling the content to the top.</string>
+  <string name="on_this_day_end_of_scroll_message">Label text shown to user when they have scrolled through the events till teh end.</string>
 </resources>

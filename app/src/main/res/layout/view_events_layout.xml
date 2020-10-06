@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="27dp"
-    android:background="?attr/chart_shade5"
+    android:background="?attr/chip_background_color"
     android:clipChildren="false"
     android:clipToPadding="false">
 
@@ -17,7 +17,8 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:paddingEnd="3dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="24dp"
+        android:paddingTop="8dp">
 
         <include
             android:id="@+id/year_layout"

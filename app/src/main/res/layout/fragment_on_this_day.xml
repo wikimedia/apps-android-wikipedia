@@ -8,7 +8,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="196dp"
         android:background="?attr/paper_color"
         android:fitsSystemWindows="true">
 
@@ -33,71 +33,58 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
-                    android:layout_marginStart="72dp"
-                    android:orientation="vertical"
-                    android:paddingBottom="20dp">
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/on_this_day_title_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/on_this_day_card_title"
+                        android:textColor="?attr/primary_text_color"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:transitionName="@string/transition_on_this_day" />
 
                     <LinearLayout
                         android:id="@+id/day_container"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:background="?android:selectableItemBackground"
-                        android:contentDescription="@string/on_this_day_open_date_picker">
+                        android:contentDescription="@string/on_this_day_open_date_picker"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/day"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="4dp"
-                            android:fontFamily="serif"
-                            android:textColor="?attr/material_theme_primary_color"
+                            android:textColor="?attr/colorAccent"
                             android:textSize="24sp"
-                            android:textStyle="normal"
-                            android:transitionName="@string/transition_on_this_day"
+                            android:textStyle="bold"
                             tools:text="January 1" />
 
                         <ImageView
                             android:id="@+id/drop_down"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:layout_gravity="center_vertical"
-                            app:tint="?attr/toolbar_icon_color"
+                            android:layout_gravity="bottom"
                             android:contentDescription="@null"
-                            app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
+                            app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp"
+                            app:tint="?attr/colorAccent" />
                     </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.5"
-                        android:text="@string/on_this_day_card_title"
-                        android:textAllCaps="true"
-                        android:textColor="?attr/material_theme_primary_color"
-                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/day_info_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:alpha="0.5"
-                        android:textColor="?attr/material_theme_primary_color"
-                        android:textSize="14sp" />
+                        android:textColor="?attr/primary_text_color"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/calendar"
-                    android:layout_width="96dp"
-                    android:layout_height="106dp"
-                    android:layout_gravity="bottom|end"
-                    android:layout_marginBottom="-36dp"
-                    android:alpha="0.5"
-                    android:contentDescription="@null"
-                    app:tint="?attr/toolbar_icon_color"
-                    app:srcCompat="@drawable/ic_event_black_24dp" />
+
             </FrameLayout>
 
             <androidx.appcompat.widget.Toolbar
@@ -121,20 +108,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:fontFamily="sans-serif-medium"
                         android:gravity="center_vertical"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="8sp"
-                        android:textColor="?attr/material_theme_primary_color"
-                        android:textSize="20sp"
-                        android:textStyle="normal"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
                         tools:text="January 1" />
 
                     <ImageView
                         android:id="@+id/drop_down_toolbar"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        app:tint="?attr/toolbar_icon_color"
+                        app:tint="?attr/colorAccent"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                 </LinearLayout>
@@ -145,14 +131,13 @@
                     android:layout_height="24dp"
                     android:layout_gravity="end"
                     android:layout_marginEnd="16dp"
-                    android:alpha="0.5"
                     android:clickable="false">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="@null"
-                        app:tint="?attr/toolbar_icon_color"
+                        app:tint="?attr/colorAccent"
                         app:srcCompat="@drawable/ic_empty_event" />
 
                     <TextView
@@ -162,7 +147,7 @@
                         android:layout_height="10dp"
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="8dp"
-                        android:textColor="?attr/material_theme_primary_color"
+                        android:textColor="?attr/colorAccent"
                         android:textSize="8sp"
                         tools:text="12" />
                 </FrameLayout>
