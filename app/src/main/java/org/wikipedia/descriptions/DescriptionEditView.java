@@ -364,11 +364,17 @@ public class DescriptionEditView extends LinearLayout {
         } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
                 && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
             setWarning(getContext().getString(R.string.description_starts_with_uppercase));
+        } else if (isKeyBoardLanguageDifferent()) {
+            setWarning(getContext().getString(R.string.description_is_in_different_language));
         } else {
             clearError();
         }
 
         updateSaveButtonEnabled();
+    }
+
+    private boolean isKeyBoardLanguageDifferent() {
+        return true;
     }
 
     @OnEditorAction(R.id.view_description_edit_text)
