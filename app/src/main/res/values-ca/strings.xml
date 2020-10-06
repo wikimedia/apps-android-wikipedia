@@ -322,6 +322,7 @@
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
+  <string name="button_continue_to_talk_page">Obre la pàgina de discussió</string>
   <string name="button_continue_to_disambiguation">Mosta pàgines semblants</string>
   <string name="link_preview_disambiguation_description">Aquest títol es relaciona a més d\'una pàgina:</string>
   <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>

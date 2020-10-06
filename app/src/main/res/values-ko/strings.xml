@@ -328,6 +328,7 @@
   <string name="address_copied">주소가 클립보드에 복사되었습니다.</string>
   <string name="text_copied">텍스트가 클립보드에 복사되었습니다.</string>
   <string name="button_continue_to_article">문서 읽기</string>
+  <string name="button_continue_to_talk_page">토론 문서 열기</string>
   <string name="button_continue_to_disambiguation">비슷한 문서 보기</string>
   <string name="link_preview_disambiguation_description">이 제목은 하나 이상의 문서와 관련이 있습니다:</string>
   <string name="button_add_to_reading_list">읽기 목록에 추가</string>
