@@ -13,86 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <LinearLayout
-            android:id="@+id/transition_container"
+        <org.wikipedia.views.WikiArticleCardView
+            android:id="@+id/wiki_article_card_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?paper_color"
-            android:orientation="vertical">
-
-            <org.wikipedia.views.FaceAndColorDetectImageView
-                android:id="@+id/transition_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:minHeight="192dp"
-                android:transitionName="@string/transition_article_image"
-                android:contentDescription="@null"
-                app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header"/>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
-
-                <TextView
-                    android:id="@+id/transition_title_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:fontFamily="serif"
-                    android:lineSpacingMultiplier="1.1"
-                    android:maxLines="3"
-                    android:paddingTop="15dp"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="26sp"
-                    android:transitionName="@string/transition_article_title"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Lorem ipsum" />
-
-                <org.wikipedia.views.GoneIfEmptyTextView
-                    android:id="@+id/transition_description_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="3"
-                    android:paddingTop="1dp"
-                    android:paddingBottom="5dp"
-                    android:lineSpacingMultiplier="1.1"
-                    android:textColor="?attr/secondary_text_color"
-                    android:textSize="13sp"
-                    android:transitionName="@string/transition_article_description"
-                    app:layout_constraintTop_toBottomOf="@id/transition_title_view"
-                    tools:text="Lorem ipsum" />
-
-                <View
-                    android:layout_width="@dimen/divider_width_for_article"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="?attr/material_theme_border_color"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/transition_description_view"
-                    app:layout_constraintBottom_toTopOf="@id/transition_summary_view"/>
-
-                <TextView
-                    android:id="@+id/transition_summary_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:lineSpacingMultiplier="1.3"
-                    android:maxLines="8"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="16dp"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="16sp"
-                    android:transitionName="@string/transition_article_summary"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="Lorem ipsum" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
+            android:layout_height="wrap_content" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/page_fragment"

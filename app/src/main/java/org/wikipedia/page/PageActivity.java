@@ -25,7 +25,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -70,15 +69,13 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
-import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
-import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
+import org.wikipedia.views.WikiArticleCardView;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 import java.util.ArrayList;
@@ -134,11 +131,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
     @BindView(R.id.page_fragment) View pageFragmentView;
-    @BindView(R.id.transition_container) View transitionContainer;
-    @BindView(R.id.transition_image_view) FaceAndColorDetectImageView transitionImageView;
-    @BindView(R.id.transition_title_view) TextView transitionTitleView;
-    @BindView(R.id.transition_description_view) GoneIfEmptyTextView transitionDescriptionView;
-    @BindView(R.id.transition_summary_view) TextView transitionSummaryView;
+    @BindView(R.id.wiki_article_card_view) WikiArticleCardView wikiArticleCardView;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -448,7 +441,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        setTransitionImage(title);
+        setTransitionViews(title);
 
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
@@ -679,28 +672,28 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
     }
 
-    private void setTransitionImage(@NonNull PageTitle title) {
+    private void setTransitionViews(@NonNull PageTitle title) {
 
         pageFragmentView.setVisibility(View.GONE);
 
         Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
         if (uri == null) {
-            transitionImageView.setVisibility(View.GONE);
+            wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this)
                     + (int) DimenUtil.getStatusBarHeight(this)
                     + (int) DimenUtil.dpToPx(16f);
-            transitionContainer.setLayoutParams(layoutParams);
+            wikiArticleCardView.setLayoutParams(layoutParams);
         } else {
-            transitionImageView.setVisibility(View.VISIBLE);
-            transitionImageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     DimenUtil.leadImageHeightForDevice(this)));
-            transitionImageView.loadImage(uri);
+            wikiArticleCardView.getImageContainer().setVisibility(View.VISIBLE);
+            wikiArticleCardView.getImageView().loadImage(uri);
         }
 
-        transitionTitleView.setText(StringUtil.fromHtml(title.getDisplayText()));
-        transitionDescriptionView.setText(title.getDescription());
-        transitionSummaryView.setText(title.getExtract());
+        wikiArticleCardView.setTitle(title.getDisplayText());
+        wikiArticleCardView.setDescription(title.getDescription());
+        wikiArticleCardView.setExtract(title.getExtract());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
