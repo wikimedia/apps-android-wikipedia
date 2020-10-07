@@ -23,7 +23,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -68,8 +70,11 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
@@ -129,7 +134,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
     @BindView(R.id.page_fragment) View pageFragmentView;
-    @BindView(R.id.page_transition_image) ImageView transitionImage;
+    @BindView(R.id.transition_container) View transitionContainer;
+    @BindView(R.id.transition_image_view) FaceAndColorDetectImageView transitionImageView;
+    @BindView(R.id.transition_title_view) TextView transitionTitleView;
+    @BindView(R.id.transition_description_view) GoneIfEmptyTextView transitionDescriptionView;
+    @BindView(R.id.transition_summary_view) TextView transitionSummaryView;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -521,9 +530,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     public void showPageFragmentView() {
-        if (!DimenUtil.isLandscape(this)) {
-            pageFragmentView.setVisibility(View.VISIBLE);
-        }
+        pageFragmentView.setVisibility(View.VISIBLE);
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
@@ -539,9 +546,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        if (DimenUtil.isLandscape(this)) {
-            transitionImage.setImageBitmap(null);
-        }
         pageFragmentView.setVisibility(View.GONE);
         super.onBackPressed();
     }
@@ -676,18 +680,27 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private void setTransitionImage(@NonNull PageTitle title) {
-        if (!DimenUtil.isLandscape(this)) {
 
-            if (TextUtils.isEmpty(title.getThumbUrl())) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-                layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this) + (int) DimenUtil.getStatusBarHeight(this) + (int) DimenUtil.dpToPx(16f);
-                transitionImage.setLayoutParams(layoutParams);
-            }
+        pageFragmentView.setVisibility(View.GONE);
 
-            pageFragmentView.setVisibility(View.GONE);
-            ViewUtil.setViewCachedBitmap(transitionImage);
-            ViewUtil.setCachedBitmap(null);
+        Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
+        if (uri == null) {
+            transitionImageView.setVisibility(View.GONE);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this)
+                    + (int) DimenUtil.getStatusBarHeight(this)
+                    + (int) DimenUtil.dpToPx(16f);
+            transitionContainer.setLayoutParams(layoutParams);
+        } else {
+            transitionImageView.setVisibility(View.VISIBLE);
+            transitionImageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    DimenUtil.leadImageHeightForDevice(this)));
+            transitionImageView.loadImage(uri);
         }
+
+        transitionTitleView.setText(StringUtil.fromHtml(title.getDisplayText()));
+        transitionDescriptionView.setText(title.getDescription());
+        transitionSummaryView.setText(title.getExtract());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {

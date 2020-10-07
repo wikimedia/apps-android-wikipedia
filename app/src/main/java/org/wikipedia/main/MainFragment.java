@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -290,9 +291,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()));
     }
 
-    @Override public void onFeedSelectPageWithAnimation(HistoryEntry entry, View transitionView) {
+    @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation(requireActivity(), transitionView, getString(R.string.transition_feed_page_card));
+                makeSceneTransitionAnimation(requireActivity(), sharedElements);
         startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), DimenUtil.isLandscape(requireContext()) ? null : options.toBundle());
     }
 

@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.util.Pair;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
@@ -39,7 +40,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
-        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull View transitionView);
+        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements);
         void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
         void onRemovePageFromList(@NonNull HistoryEntry entry);
