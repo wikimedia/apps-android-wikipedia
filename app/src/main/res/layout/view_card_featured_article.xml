@@ -77,7 +77,6 @@
                     android:lineSpacingMultiplier="1.1"
                     android:textColor="?attr/secondary_text_color"
                     android:textSize="12sp"
-                    android:visibility="gone"
                     android:transitionName="@string/transition_article_description"
                     app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_article_title"
                     tools:text="Lorem ipsum" />

@@ -42,7 +42,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
     @BindView(R.id.view_featured_article_card_content_container) View contentContainerView;
     @BindView(R.id.view_featured_article_card_content) View contentView;
-//    @BindView(R.id.view_featured_article_card_transition_image) ImageView transitionImageView;
 
     public static final float SUM_OF_CARD_HORIZONTAL_MARGINS = DimenUtil.dpToPx(24f);
 
@@ -64,7 +63,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         articleSubtitle(articleSubtitle);
         extract(extract);
         image(imageUri);
-//        resetTransitionImageView();
 
         header();
         footer();
@@ -73,20 +71,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-//            ViewUtil.setCachedBitmap(ViewUtil.getBitmapFromView(contentView));
-//            ViewUtil.setViewCachedBitmap(transitionImageView);
-//            transitionImageView.setVisibility(View.VISIBLE);
-//            transitionImageView.post(() -> {
-//                if (!isAttachedToWindow()) {
-//                    return;
-//                }
-
                 getCallback().onSelectPage(getCard(), getCard().historyEntry(),
                         new Pair[] {new Pair<>(imageView, imageView.getTransitionName()),
                         new Pair<>(articleTitleView, articleTitleView.getTransitionName()),
                         new Pair<>(articleSubtitleView, articleSubtitleView.getTransitionName()),
                         new Pair<>(extractView, extractView.getTransitionName())});
-//            });
         }
     }
 
@@ -130,11 +119,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         super.setCallback(callback);
         headerView.setCallback(callback);
     }
-
-//    private void resetTransitionImageView() {
-//        transitionImageView.setVisibility(GONE);
-//        transitionImageView.setImageBitmap(null);
-//    }
 
     private void articleTitle(@NonNull String articleTitle) {
         articleTitleView.setText(StringUtil.fromHtml(articleTitle));
