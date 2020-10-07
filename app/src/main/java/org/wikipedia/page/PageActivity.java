@@ -677,12 +677,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         pageFragmentView.setVisibility(View.GONE);
 
         Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
-        if (uri == null) {
-            wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
+        if (uri == null || DimenUtil.isLandscape(this)) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this)
                     + (int) DimenUtil.getStatusBarHeight(this)
                     + (int) DimenUtil.dpToPx(16f);
+            wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
             wikiArticleCardView.setLayoutParams(layoutParams);
         } else {
             wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,

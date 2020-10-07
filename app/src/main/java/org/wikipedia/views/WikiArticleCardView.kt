@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.core.util.Pair
 import kotlinx.android.synthetic.main.view_wiki_article_card.view.*
 import org.wikipedia.R
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 
 class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
@@ -36,9 +37,16 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
     }
 
     fun getSharedElements(): Array<Pair<View, String>> {
-        return arrayOf(Pair(imageView, imageView.transitionName),
-                Pair(articleTitle, articleTitle.transitionName),
-                Pair(articleDescription, articleDescription.transitionName),
+        val shareElements: MutableList<Pair<View, String>> = mutableListOf(Pair(articleTitle, articleTitle.transitionName),
                 Pair(articleExtract, articleExtract.transitionName))
+
+        if (!DimenUtil.isLandscape(context)) {
+            shareElements.add(Pair(imageView, imageView.transitionName))
+        }
+
+        if (articleDescription.text.isNotEmpty()) {
+            shareElements.add(Pair(articleDescription, articleDescription.transitionName))
+        }
+        return shareElements.toTypedArray()
     }
 }

@@ -61,7 +61,6 @@
     <string name="transition_search_bar">searchBarTransition</string>
     <string name="transition_random_activity">randomActivityTransition</string>
     <string name="transition_on_this_day">onThisDayTransition</string>
-    <string name="transition_feed_page_card">feedPageTransition</string>
     <string name="transition_article_image">articleImageTransition</string>
     <string name="transition_article_title">articleTitleTransition</string>
     <string name="transition_article_description">articleDescriptionTransition</string>
