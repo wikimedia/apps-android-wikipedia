@@ -207,6 +207,18 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
     @NonNull Observable<MwQueryResponse> getUnreadNotificationWikis();
 
+    @FormUrlEncoded
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
+    @NonNull Observable<MwQueryResponse> subscribePush(@Field("token") @NonNull String csrfToken,
+                                                       @Field("providertoken") @NonNull String providerToken);
+
+    @FormUrlEncoded
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=delete&provider=fcm")
+    @NonNull Observable<MwQueryResponse> unsubscribePush(@Field("token") @NonNull String csrfToken,
+                                                         @Field("providertoken") @NonNull String providerToken);
+
     // ------- Editing -------
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp|ids&rvlimit=1&converttitles=")
