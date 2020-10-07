@@ -68,12 +68,12 @@ for key, value in data[u"sitematrix"].items():
         if len(unique_device_response[u"items"]) > 0:
             rank = unique_device_response[u"items"][0][u"devices"]
     print ("Rank for " + language_code + ": " + str(rank))
-    if language_code == 'zh':
-        add_lang(key='zh-hans', local_name=u'简体中文',
-                 eng_name='Simplified Chinese', rank=rank)
-        add_lang(key='zh-hant', local_name=u'繁體中文',
-                 eng_name='Traditional Chinese', rank=rank)
-        continue
+    # if language_code == 'zh':
+    #     add_lang(key='zh-hans', local_name=u'简体中文',
+    #              eng_name='Simplified Chinese', rank=rank)
+    #     add_lang(key='zh-hant', local_name=u'繁體中文',
+    #              eng_name='Traditional Chinese', rank=rank)
+    #     continue
     if language_code == 'no':  # T114042
         language_code = 'nb'
 
@@ -81,6 +81,15 @@ for key, value in data[u"sitematrix"].items():
     for name in lang_list_response[u"query"][u"languages"]:
         if name[u"code"] == language_code:
             lang_name = name[u"name"]
+
+    # add language variants into the list
+    if language_code in lang_list_response[u"query"][u"languagevariants"]:
+        print ("Language code: " + language_code + " has variants")
+        language_variants = lang_list_response[u"query"][u"languagevariants"].get(language_code).get(language_code)
+        for variant in language_variants[u"fallbacks"]:
+            for name in lang_list_response[u"query"][u"languages"]:
+                if name[u"code"] == variant:
+                    add_lang(variant, name[u"name"].replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
 
     add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
 
