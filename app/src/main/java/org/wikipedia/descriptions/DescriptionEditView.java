@@ -23,6 +23,8 @@ import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
+import com.google.firebase.ml.naturallanguage.languageid.FirebaseLanguageIdentification;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
@@ -347,7 +349,7 @@ public class DescriptionEditView extends LinearLayout {
         }
         isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase().trim();
-
+        checkKeyboardLanguage(text);
         if (text.length() == 0) {
             isTextValid = false;
             clearError();
@@ -364,8 +366,6 @@ public class DescriptionEditView extends LinearLayout {
         } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
                 && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
             setWarning(getContext().getString(R.string.description_starts_with_uppercase));
-        } else if (isKeyBoardLanguageDifferent()) {
-            setWarning(getContext().getString(R.string.description_is_in_different_language));
         } else {
             clearError();
         }
@@ -373,8 +373,16 @@ public class DescriptionEditView extends LinearLayout {
         updateSaveButtonEnabled();
     }
 
-    private boolean isKeyBoardLanguageDifferent() {
-        return true;
+    private void checkKeyboardLanguage(String text) {
+        FirebaseLanguageIdentification languageIdentifier =
+                FirebaseNaturalLanguage.getInstance().getLanguageIdentification();
+        languageIdentifier.identifyLanguage(text)
+                .addOnSuccessListener(
+                        languageCode -> {
+                            if (!languageCode.equals("und") && !languageCode.equals(pageSummaryForEdit.getLang())) {
+                                setWarning(getContext().getString(R.string.description_is_in_different_language));
+                            }
+                        });
     }
 
     @OnEditorAction(R.id.view_description_edit_text)
