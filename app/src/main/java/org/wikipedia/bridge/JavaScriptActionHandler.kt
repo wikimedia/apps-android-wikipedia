@@ -21,7 +21,7 @@ import kotlin.math.roundToInt
 object JavaScriptActionHandler {
     @JvmStatic
     fun setTopMargin(top: Int): String {
-        return String.format("pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
+        return String.format(Locale.ROOT, "pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
     }
 
     @JvmStatic
@@ -79,7 +79,7 @@ object JavaScriptActionHandler {
             (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) 0 else (leadImageHeightForDevice(context) / getDensityScalar()).roundToInt() - topActionBarHeight)
         val topMargin = topActionBarHeight + 16
 
-        return String.format("{" +
+        return String.format(Locale.ROOT, "{" +
                 "   \"platform\": \"android\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
                 "   \"l10n\": {" +
