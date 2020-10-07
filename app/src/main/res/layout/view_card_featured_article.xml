@@ -59,9 +59,9 @@
                     android:fontFamily="serif"
                     android:lineSpacingMultiplier="1.1"
                     android:maxLines="3"
-                    android:paddingTop="14.5dp"
+                    android:paddingTop="15dp"
                     android:textColor="?attr/primary_text_color"
-                    android:textSize="23.3sp"
+                    android:textSize="26sp"
                     android:transitionName="@string/transition_article_title"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Lorem ipsum" />
@@ -76,7 +76,7 @@
                     android:paddingBottom="5dp"
                     android:lineSpacingMultiplier="1.1"
                     android:textColor="?attr/secondary_text_color"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     android:transitionName="@string/transition_article_description"
                     app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_article_title"
                     tools:text="Lorem ipsum" />
@@ -101,7 +101,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="16dp"
                     android:textColor="?attr/primary_text_color"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     android:transitionName="@string/transition_article_summary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:text="Lorem ipsum" />

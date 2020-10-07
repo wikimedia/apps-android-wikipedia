@@ -95,7 +95,7 @@
     <dimen name="randomizer_text_view_height">164dp</dimen>
 
     <!-- Divider width -->
-    <dimen name="divider_width_for_article">55dp</dimen>
+    <dimen name="divider_width_for_article">60dp</dimen>
 
     <!-- Snackbar -->
     <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
