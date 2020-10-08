@@ -20,6 +20,7 @@ QUERY_ALLUSERS = '/w/api.php?action=query&format=json&formatversion=2&list=allus
 lang_keys = []
 lang_local_names = []
 lang_eng_names = []
+lang_variant_fallbacks = []
 lang_rank = []
 
 
@@ -34,6 +35,13 @@ def add_lang(key, local_name, eng_name, rank):
     lang_local_names.insert(rank_pos, local_name)
     lang_eng_names.insert(rank_pos, eng_name)
     lang_rank.insert(rank_pos, rank)
+
+def add_variant_fallbacks(variant, fallbacks):
+    # use comma to separate values, and the first item is the key
+    separator = ","
+    variant_fallbacks = variant + "," + separator.join(fallbacks)
+    print("Variant fallbacks " + variant_fallbacks)
+    lang_variant_fallbacks.append(variant_fallbacks)
 
 
 data = json.loads(requests.get(QUERY_SITEMATRIX).text)
@@ -84,12 +92,13 @@ for key, value in data[u"sitematrix"].items():
         print ("Language code: " + language_code + " has variants")
         language_variants = lang_list_response[u"query"][u"languagevariants"].get(language_code)
         for variant, fallbacks in language_variants.items():
-            
+
             if variant == language_code:
                 continue
 
             variant_lang_name = ""
             en_lang_name = ""
+
             for name in lang_list_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
                     variant_lang_name = name[u"name"]
@@ -99,10 +108,10 @@ for key, value in data[u"sitematrix"].items():
                 if name[u"code"] == variant:
                     en_lang_name = name[u"name"]
                     break
-
-            # TODO: add variants
-
+                    
             add_lang(variant, variant_lang_name.replace("'", "\\'"), en_lang_name.replace("'", "\\'"), rank)
+            add_variant_fallbacks(variant, fallbacks[u"fallbacks"])
+
         continue
 
     add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
@@ -118,11 +127,13 @@ x = lb.ElementMaker(nsmap={'tools': NAMESPACE})
 keys = [x.item(k) for k in lang_keys]
 local_names = [x.item(k) for k in lang_local_names]
 eng_names = [x.item(k) for k in lang_eng_names]
+variant_fallbacks = [x.item(k) for k in lang_variant_fallbacks]
 
 resources = x.resources(
     getattr(x, 'string-array')(*keys, name='preference_language_keys'),
     getattr(x, 'string-array')(*local_names, name='preference_language_local_names'),
-    getattr(x, 'string-array')(*eng_names, name='preference_language_canonical_names'))
+    getattr(x, 'string-array')(*eng_names, name='preference_language_canonical_names'),
+    getattr(x, 'string-array')(*variant_fallbacks, name='preference_language_variants_fallbacks'))
 resources.set(TOOLS + 'ignore', 'MissingTranslation')
 
 with open('../app/src/main/res/values/languages_list.xml', 'wb') as f:
