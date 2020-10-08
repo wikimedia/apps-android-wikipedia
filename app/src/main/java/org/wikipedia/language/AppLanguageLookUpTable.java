@@ -11,9 +11,12 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 
 import java.lang.ref.SoftReference;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 /** Immutable look up table for all app supported languages. All article languages may not be
   * present in this table as it is statically bundled with the app. */
@@ -45,6 +48,9 @@ public class AppLanguageLookUpTable {
 
     // Native names for all app supported languages in fixed order.
     @NonNull private SoftReference<List<String>> localizedNamesRef = new SoftReference<>(null);
+
+    // Fallback language codes for language variants
+    @NonNull private SoftReference<Map<String, List<String>>> variantsFallbacksRef = new SoftReference<>(null);
 
     public AppLanguageLookUpTable(@NonNull Context context) {
         resources = context.getResources();
@@ -90,6 +96,11 @@ public class AppLanguageLookUpTable {
         return name;
     }
 
+    @Nullable
+    public List<String> getVariantFallbacks(@Nullable String code) {
+        return getVariantsFallbacks().get(code);
+    }
+
     private List<String> getCanonicalNames() {
         List<String> names = canonicalNamesRef.get();
         if (names == null) {
@@ -106,6 +117,20 @@ public class AppLanguageLookUpTable {
             localizedNamesRef = new SoftReference<>(names);
         }
         return names;
+    }
+
+    private Map<String, List<String>> getVariantsFallbacks() {
+        Map<String, List<String>> map = variantsFallbacksRef.get();
+        if (map == null) {
+            map = new HashMap<>();
+            for (String fallbacks : getStringList(R.array.preference_language_variants_fallbacks)) {
+                String[] array = fallbacks.split(",");
+                if (array.length > 1) {
+                    map.put(array[0], new ArrayList<>(Arrays.asList(array).subList(1, array.length)));
+                }
+            }
+        }
+        return map;
     }
 
     public boolean isSupportedCode(@Nullable String code) {
