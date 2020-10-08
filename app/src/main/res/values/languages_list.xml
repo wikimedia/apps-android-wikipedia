@@ -10,14 +10,14 @@
     <item>pt</item>
     <item>it</item>
     <item>id</item>
+    <item>zh-hk</item>
     <item>zh-hans</item>
+    <item>zh-tw</item>
+    <item>zh-my</item>
     <item>zh-hant</item>
     <item>zh-cn</item>
-    <item>zh-tw</item>
-    <item>zh-hk</item>
-    <item>zh-sg</item>
     <item>zh-mo</item>
-    <item>zh-my</item>
+    <item>zh-sg</item>
     <item>ar</item>
     <item>pl</item>
     <item>fa</item>
@@ -39,11 +39,17 @@
     <item>nb</item>
     <item>ms</item>
     <item>da</item>
+    <item>sr-el</item>
     <item>sr-ec</item>
     <item>hr</item>
     <item>bg</item>
     <item>bn</item>
+    <item>kk-latn</item>
+    <item>kk-cn</item>
+    <item>kk-kz</item>
     <item>kk-cyrl</item>
+    <item>kk-tr</item>
+    <item>kk-arab</item>
     <item>ca</item>
     <item>sk</item>
     <item>ta</item>
@@ -67,6 +73,7 @@
     <item>kn</item>
     <item>ur</item>
     <item>uz-latn</item>
+    <item>uz-cyrl</item>
     <item>af</item>
     <item>ky</item>
     <item>sw</item>
@@ -92,7 +99,7 @@
     <item>la</item>
     <item>als</item>
     <item>bcl</item>
-    <item>tg</item>
+    <item>tg-latn</item>
     <item>eo</item>
     <item>war</item>
     <item>as</item>
@@ -126,6 +133,7 @@
     <item>oc</item>
     <item>ilo</item>
     <item>ku-latn</item>
+    <item>ku-arab</item>
     <item>ce</item>
     <item>li</item>
     <item>vls</item>
@@ -188,6 +196,7 @@
     <item>zea</item>
     <item>os</item>
     <item>mt</item>
+    <item>crh-cyrl</item>
     <item>crh-latn</item>
     <item>udm</item>
     <item>kab</item>
@@ -267,6 +276,7 @@
     <item>bi</item>
     <item>cu</item>
     <item>zh-min-nan</item>
+    <item>ike-latn</item>
     <item>ike-cans</item>
     <item>mdf</item>
     <item>pfl</item>
@@ -324,14 +334,14 @@
     <item>português</item>
     <item>italiano</item>
     <item>Bahasa Indonesia</item>
+    <item>中文（香港）‎</item>
     <item>中文（简体）‎</item>
+    <item>中文（台灣）‎</item>
+    <item>中文（马来西亚）‎</item>
     <item>中文（繁體）‎</item>
     <item>中文（中国大陆）‎</item>
-    <item>中文（台灣）‎</item>
-    <item>中文（香港）‎</item>
-    <item>中文（新加坡）‎</item>
     <item>中文（澳門）‎</item>
-    <item>中文（马来西亚）‎</item>
+    <item>中文（新加坡）‎</item>
     <item>العربية</item>
     <item>polski</item>
     <item>فارسی</item>
@@ -353,11 +363,17 @@
     <item>norsk bokmål</item>
     <item>Bahasa Melayu</item>
     <item>dansk</item>
+    <item>srpski (latinica)‎</item>
     <item>српски (ћирилица)‎</item>
     <item>hrvatski</item>
     <item>български</item>
     <item>বাংলা</item>
+    <item>qazaqşa (latın)‎</item>
+    <item>قازاقشا (جۇنگو)‏</item>
+    <item>қазақша (Қазақстан)‎</item>
     <item>қазақша (кирил)‎</item>
+    <item>qazaqşa (Türkïya)‎</item>
+    <item>قازاقشا (تٴوتە)‏</item>
     <item>català</item>
     <item>slovenčina</item>
     <item>தமிழ்</item>
@@ -381,6 +397,7 @@
     <item>ಕನ್ನಡ</item>
     <item>اردو</item>
     <item>oʻzbekcha</item>
+    <item>ўзбекча</item>
     <item>Afrikaans</item>
     <item>Кыргызча</item>
     <item>Kiswahili</item>
@@ -406,7 +423,7 @@
     <item>Latina</item>
     <item>Alemannisch</item>
     <item>Bikol Central</item>
-    <item>тоҷикӣ</item>
+    <item>tojikī</item>
     <item>Esperanto</item>
     <item>Winaray</item>
     <item>অসমীয়া</item>
@@ -440,6 +457,7 @@
     <item>occitan</item>
     <item>Ilokano</item>
     <item>kurdî (latînî)‎</item>
+    <item>كوردي (عەرەبی)‏</item>
     <item>нохчийн</item>
     <item>Limburgs</item>
     <item>West-Vlams</item>
@@ -502,6 +520,7 @@
     <item>Zeêuws</item>
     <item>Ирон</item>
     <item>Malti</item>
+    <item>къырымтатарджа (Кирилл)‎</item>
     <item>qırımtatarca (Latin)‎</item>
     <item>удмурт</item>
     <item>Taqbaylit</item>
@@ -581,6 +600,7 @@
     <item>Bislama</item>
     <item>словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ</item>
     <item>Bân-lâm-gú</item>
+    <item>inuktitut</item>
     <item>ᐃᓄᒃᑎᑐᑦ</item>
     <item>мокшень</item>
     <item>Pälzisch</item>
@@ -638,14 +658,14 @@
     <item>Portuguese</item>
     <item>Italian</item>
     <item>Indonesian</item>
+    <item>Chinese (Hong Kong)</item>
     <item>Simplified Chinese</item>
+    <item>Chinese (Taiwan)</item>
+    <item>Chinese (Malaysia)</item>
     <item>Traditional Chinese</item>
     <item>Chinese (China)</item>
-    <item>Chinese (Taiwan)</item>
-    <item>Chinese (Hong Kong)</item>
-    <item>Chinese (Singapore)</item>
     <item>Chinese (Macau)</item>
-    <item>Chinese (Malaysia)</item>
+    <item>Chinese (Singapore)</item>
     <item>Arabic</item>
     <item>Polish</item>
     <item>Persian</item>
@@ -667,11 +687,17 @@
     <item>Norwegian</item>
     <item>Malay</item>
     <item>Danish</item>
+    <item>Serbian (Latin script)</item>
     <item>Serbian (Cyrillic script)</item>
     <item>Croatian</item>
     <item>Bulgarian</item>
     <item>Bangla</item>
+    <item>Kazakh (Latin script)</item>
+    <item>Kazakh (China)</item>
+    <item>Kazakh (Kazakhstan)</item>
     <item>Kazakh (Cyrillic script)</item>
+    <item>Kazakh (Turkey)</item>
+    <item>Kazakh (Arabic script)</item>
     <item>Catalan</item>
     <item>Slovak</item>
     <item>Tamil</item>
@@ -695,6 +721,7 @@
     <item>Kannada</item>
     <item>Urdu</item>
     <item>Uzbek (Latin script)</item>
+    <item>Uzbek (Cyrillic script)</item>
     <item>Afrikaans</item>
     <item>Kyrgyz</item>
     <item>Swahili</item>
@@ -720,7 +747,7 @@
     <item>Latin</item>
     <item>Alemannisch</item>
     <item>Central Bikol</item>
-    <item>Tajik</item>
+    <item>Tajik (Latin script)</item>
     <item>Esperanto</item>
     <item>Waray</item>
     <item>Assamese</item>
@@ -754,6 +781,7 @@
     <item>Occitan</item>
     <item>Iloko</item>
     <item>Kurdish (Latin script)</item>
+    <item>Kurdish (Arabic script)</item>
     <item>Chechen</item>
     <item>Limburgish</item>
     <item>West Flemish</item>
@@ -816,6 +844,7 @@
     <item>Zeelandic</item>
     <item>Ossetic</item>
     <item>Maltese</item>
+    <item>Crimean Tatar (Cyrillic script)</item>
     <item>Crimean Tatar (Latin script)</item>
     <item>Udmurt</item>
     <item>Kabyle</item>
@@ -895,6 +924,7 @@
     <item>Bislama</item>
     <item>Church Slavic</item>
     <item>Chinese (Min Nan)</item>
+    <item>Eastern Canadian (Latin script)</item>
     <item>Eastern Canadian (Aboriginal syllabics)</item>
     <item>Moksha</item>
     <item>Palatine German</item>

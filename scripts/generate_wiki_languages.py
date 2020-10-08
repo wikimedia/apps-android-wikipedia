@@ -82,11 +82,14 @@ for key, value in data[u"sitematrix"].items():
     # add language variants into the list
     if language_code in lang_list_response[u"query"][u"languagevariants"]:
         print ("Language code: " + language_code + " has variants")
-        language_variants = lang_list_response[u"query"][u"languagevariants"].get(language_code).get(language_code)
-        
-        for variant in language_variants[u"fallbacks"]:
+        language_variants = lang_list_response[u"query"][u"languagevariants"].get(language_code)
+        for variant, fallbacks in language_variants.items():
+            
+            if variant == language_code:
+                continue
+
             variant_lang_name = ""
-            lang_name_in_en = ""
+            en_lang_name = ""
             for name in lang_list_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
                     variant_lang_name = name[u"name"]
@@ -94,10 +97,12 @@ for key, value in data[u"sitematrix"].items():
 
             for name in lang_list_en_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
-                    lang_name_in_en = name[u"name"]
+                    en_lang_name = name[u"name"]
                     break
 
-            add_lang(variant, variant_lang_name.replace("'", "\\'"), lang_name_in_en.replace("'", "\\'"), rank)
+            # TODO: add variants
+
+            add_lang(variant, variant_lang_name.replace("'", "\\'"), en_lang_name.replace("'", "\\'"), rank)
         continue
 
     add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
