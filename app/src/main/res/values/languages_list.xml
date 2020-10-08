@@ -638,14 +638,14 @@
     <item>Portuguese</item>
     <item>Italian</item>
     <item>Indonesian</item>
-    <item>Chinese</item>
-    <item>Chinese</item>
-    <item>Chinese</item>
-    <item>Chinese</item>
-    <item>Chinese</item>
-    <item>Chinese</item>
-    <item>Chinese</item>
-    <item>Chinese</item>
+    <item>Simplified Chinese</item>
+    <item>Traditional Chinese</item>
+    <item>Chinese (China)</item>
+    <item>Chinese (Taiwan)</item>
+    <item>Chinese (Hong Kong)</item>
+    <item>Chinese (Singapore)</item>
+    <item>Chinese (Macau)</item>
+    <item>Chinese (Malaysia)</item>
     <item>Arabic</item>
     <item>Polish</item>
     <item>Persian</item>
@@ -667,11 +667,11 @@
     <item>Norwegian</item>
     <item>Malay</item>
     <item>Danish</item>
-    <item>Serbian</item>
+    <item>Serbian (Cyrillic script)</item>
     <item>Croatian</item>
     <item>Bulgarian</item>
     <item>Bangla</item>
-    <item>Kazakh</item>
+    <item>Kazakh (Cyrillic script)</item>
     <item>Catalan</item>
     <item>Slovak</item>
     <item>Tamil</item>
@@ -694,7 +694,7 @@
     <item>Asturian</item>
     <item>Kannada</item>
     <item>Urdu</item>
-    <item>Uzbek</item>
+    <item>Uzbek (Latin script)</item>
     <item>Afrikaans</item>
     <item>Kyrgyz</item>
     <item>Swahili</item>
@@ -753,13 +753,13 @@
     <item>Belarusian (Taraškievica orthography)</item>
     <item>Occitan</item>
     <item>Iloko</item>
-    <item>Kurdish</item>
+    <item>Kurdish (Latin script)</item>
     <item>Chechen</item>
     <item>Limburgish</item>
     <item>West Flemish</item>
     <item>Bashkir</item>
-    <item>Gan Chinese</item>
-    <item>Gan Chinese</item>
+    <item>Gan (Simplified)</item>
+    <item>Gan (Traditional)</item>
     <item>Western Punjabi</item>
     <item>Interlingua</item>
     <item>Mazanderani</item>
@@ -816,7 +816,7 @@
     <item>Zeelandic</item>
     <item>Ossetic</item>
     <item>Maltese</item>
-    <item>Crimean Turkish</item>
+    <item>Crimean Tatar (Latin script)</item>
     <item>Udmurt</item>
     <item>Kabyle</item>
     <item>Veps</item>
@@ -895,7 +895,7 @@
     <item>Bislama</item>
     <item>Church Slavic</item>
     <item>Chinese (Min Nan)</item>
-    <item>Inuktitut</item>
+    <item>Eastern Canadian (Aboriginal syllabics)</item>
     <item>Moksha</item>
     <item>Palatine German</item>
     <item>Sango</item>

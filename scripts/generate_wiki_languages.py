@@ -39,6 +39,7 @@ def add_lang(key, local_name, eng_name, rank):
 data = json.loads(requests.get(QUERY_SITEMATRIX).text)
 
 lang_list_response = json.loads(requests.get(QUERY_LANGLIST).text)
+lang_list_en_response = json.loads(requests.get(QUERY_LANGLIST + "en").text)
 
 for key, value in data[u"sitematrix"].items():
     if type(value) is not dict:
@@ -82,11 +83,21 @@ for key, value in data[u"sitematrix"].items():
     if language_code in lang_list_response[u"query"][u"languagevariants"]:
         print ("Language code: " + language_code + " has variants")
         language_variants = lang_list_response[u"query"][u"languagevariants"].get(language_code).get(language_code)
+        
         for variant in language_variants[u"fallbacks"]:
+            variant_lang_name = ""
+            variant_lang_name_in_en = ""
             for name in lang_list_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
-                    add_lang(variant, name[u"name"].replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
+                    variant_lang_name = name[u"name"]
                     break
+
+            for name in lang_list_en_response[u"query"][u"languages"]:
+                if name[u"code"] == variant:
+                    variant_lang_name_in_en = name[u"name"]
+                    break
+
+            add_lang(variant, variant_lang_name.replace("'", "\\'"), variant_lang_name_in_en.replace("'", "\\'"), rank)
         continue
 
     add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
