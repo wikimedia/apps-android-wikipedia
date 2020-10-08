@@ -40,8 +40,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun setUpPagerWithSECards() {
         seCardsPager.adapter = SECardsPagerAdapter(view.context as AppCompatActivity, card)
         seCardsPager.offscreenPageLimit = 3
-        TabLayoutMediator(seCardsIndicatorLayout, seCardsPager)
-        { tab: TabLayout.Tab, position: Int -> tab.view.isClickable = false }.attach()
+        TabLayoutMediator(seCardsIndicatorLayout, seCardsPager) { _: TabLayout.Tab, _: Int -> }.attach()
     }
 
     class SECardsPagerAdapter(activity: AppCompatActivity?, card: SuggestedEditsCard?) : PositionAwareFragmentStateAdapter(activity!!) {

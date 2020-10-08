@@ -34,7 +34,6 @@ import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsCard;
 import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.feed.random.RandomCardView;
-import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
@@ -284,10 +283,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onShowCard(@Nullable Card card) {
             if (card != null) {
                 funnel.cardShown(card.type(), getCardLanguageCode(card));
-
-                if (card instanceof SuggestedEditsCard) {
-                    ((SuggestedEditsCard) card).logImpression();
-                }
             }
         }
 

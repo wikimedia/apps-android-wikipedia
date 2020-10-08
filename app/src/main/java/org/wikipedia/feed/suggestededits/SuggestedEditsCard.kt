@@ -25,8 +25,4 @@ class SuggestedEditsCard(
     override fun subtitle(): String {
         return DateUtil.getFeedCardDateString(age)
     }
-
-    fun logImpression() {
-       // SuggestedEditsFunnel.get(InvokeSource.FEED).impression(action)
     }
-}

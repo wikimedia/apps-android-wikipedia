@@ -25,7 +25,6 @@
             android:id="@+id/cardItemContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical">
@@ -33,6 +32,7 @@
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:id="@+id/viewArticleImage"
                 android:layout_width="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:layout_height="201dp" />
 
             <LinearLayout
@@ -52,6 +52,7 @@
                     android:fontFamily="serif"
                     android:lineSpacingExtra="4sp"
                     android:maxLines="2"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="24sp"
                     tools:text="Lorem ipsum" />
@@ -62,6 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="5dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:ellipsize="end"
                     android:lineSpacingExtra="6sp"
                     android:maxLines="3"
@@ -101,9 +103,10 @@
                     android:layout_marginTop="14dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="10sp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:minLines="3"
                     android:textColor="?attr/primary_text_color"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     tools:text="Lorem ipsum" />
 
                 <com.google.android.material.button.MaterialButton

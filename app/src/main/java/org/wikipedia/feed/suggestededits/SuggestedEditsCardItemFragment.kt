@@ -49,7 +49,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 private const val AGE = "age"
-private const val CARD_TYPE = "param2"
+private const val CARD_TYPE = "cardType"
 
 class SuggestedEditsCardItemFragment : Fragment() {
     private var age = 0
@@ -81,6 +81,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
             if (cardActionType == ADD_CAPTION && !targetLanguage.equals(appLanguages[0]))
                 cardActionType = TRANSLATE_CAPTION
         }
+        SuggestedEditsFunnel.get(FEED).impression(cardActionType)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -196,7 +197,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun addDescription() {
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_description_button)
         disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(forLanguageCode(langFromCode), MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
@@ -219,8 +219,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun translateDescription() {
         cardActionType = TRANSLATE_DESCRIPTION
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
-                app.language().getAppLanguageCanonicalName(targetLanguage))
         if (targetLanguage!!.isEmpty()) {
             return
         }
@@ -258,7 +256,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun addCaption() {
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_caption)
         disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -300,8 +297,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun translateCaption() {
         cardActionType = TRANSLATE_CAPTION
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
-                app.language().getAppLanguageCanonicalName(targetLanguage))
         if (targetLanguage!!.isEmpty()) {
             return
         }
@@ -358,7 +353,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun addImageTags() {
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
         disposables.add(EditingSuggestionsProvider
                 .getNextImageWithMissingTags(MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
@@ -372,13 +366,13 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun showImageTagsUI() {
-        viewArticleImage.visibility = VISIBLE
-        viewArticleExtract.visibility = GONE
-        viewArticleTitle.visibility = GONE
-        showItemImage()
+        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
+        showAddImageCaptionUI()
+        viewArticleExtract.text = StringUtil.removeNamespace(imageTagPage!!.title())
     }
 
     private fun showAddDescriptionUI() {
+        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_description_button)
         articleDescriptionPlaceHolder1.visibility = VISIBLE
         articleDescriptionPlaceHolder2.visibility = VISIBLE
         viewArticleTitle.visibility = VISIBLE
@@ -390,6 +384,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun showTranslateDescriptionUI() {
+        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
+                app.language().getAppLanguageCanonicalName(targetLanguage))
         sourceDescription = sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
@@ -397,13 +393,16 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun showAddImageCaptionUI() {
-        viewArticleTitle.visibility = VISIBLE
-        viewArticleExtract.visibility = GONE
-        viewArticleTitle.text = StringUtil.removeNamespace(sourceSummaryForEdit!!.displayTitle!!)
+        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_caption)
+        viewArticleTitle.visibility = GONE
+        viewArticleExtract.visibility = VISIBLE
+        viewArticleExtract.text = StringUtil.removeNamespace(if (sourceSummaryForEdit != null) sourceSummaryForEdit!!.displayTitle!! else "")
         showItemImage()
     }
 
     private fun showTranslateImageCaptionUI() {
+        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
+                app.language().getAppLanguageCanonicalName(targetLanguage))
         sourceDescription = sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
