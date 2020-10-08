@@ -33,6 +33,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.descriptions.DescriptionEditActivity.RESULT_OK
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
@@ -384,12 +385,12 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun showTranslateDescriptionUI() {
+        showAddDescriptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
         sourceDescription = sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
-        showAddDescriptionUI()
     }
 
     private fun showAddImageCaptionUI() {
@@ -401,12 +402,12 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun showTranslateImageCaptionUI() {
+        showAddImageCaptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
         sourceDescription = sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
-        showAddImageCaptionUI()
     }
 
     private fun showItemImage() {
@@ -417,8 +418,10 @@ class SuggestedEditsCardItemFragment : Fragment() {
         } else {
             if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
                 viewArticleImage.visibility = GONE
+                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
             } else {
                 viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.thumbnailUrl))
+                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
             }
         }
     }
