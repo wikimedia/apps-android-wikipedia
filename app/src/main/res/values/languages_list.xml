@@ -18,7 +18,6 @@
     <item>zh-sg</item>
     <item>zh-mo</item>
     <item>zh-my</item>
-    <item>zh</item>
     <item>ar</item>
     <item>pl</item>
     <item>fa</item>
@@ -41,12 +40,10 @@
     <item>ms</item>
     <item>da</item>
     <item>sr-ec</item>
-    <item>sr</item>
     <item>hr</item>
     <item>bg</item>
     <item>bn</item>
     <item>kk-cyrl</item>
-    <item>kk</item>
     <item>ca</item>
     <item>sk</item>
     <item>ta</item>
@@ -70,7 +67,6 @@
     <item>kn</item>
     <item>ur</item>
     <item>uz-latn</item>
-    <item>uz</item>
     <item>af</item>
     <item>ky</item>
     <item>sw</item>
@@ -96,7 +92,6 @@
     <item>la</item>
     <item>als</item>
     <item>bcl</item>
-    <item>tg</item>
     <item>tg</item>
     <item>eo</item>
     <item>war</item>
@@ -131,14 +126,12 @@
     <item>oc</item>
     <item>ilo</item>
     <item>ku-latn</item>
-    <item>ku</item>
     <item>ce</item>
     <item>li</item>
     <item>vls</item>
     <item>ba</item>
     <item>gan-hans</item>
     <item>gan-hant</item>
-    <item>gan</item>
     <item>pnb</item>
     <item>ia</item>
     <item>mzn</item>
@@ -196,7 +189,6 @@
     <item>os</item>
     <item>mt</item>
     <item>crh-latn</item>
-    <item>crh</item>
     <item>udm</item>
     <item>kab</item>
     <item>vep</item>
@@ -276,7 +268,6 @@
     <item>cu</item>
     <item>zh-min-nan</item>
     <item>ike-cans</item>
-    <item>iu</item>
     <item>mdf</item>
     <item>pfl</item>
     <item>sg</item>
@@ -341,7 +332,6 @@
     <item>中文（新加坡）‎</item>
     <item>中文（澳門）‎</item>
     <item>中文（马来西亚）‎</item>
-    <item>中文</item>
     <item>العربية</item>
     <item>polski</item>
     <item>فارسی</item>
@@ -364,12 +354,10 @@
     <item>Bahasa Melayu</item>
     <item>dansk</item>
     <item>српски (ћирилица)‎</item>
-    <item>српски / srpski</item>
     <item>hrvatski</item>
     <item>български</item>
     <item>বাংলা</item>
     <item>қазақша (кирил)‎</item>
-    <item>қазақша</item>
     <item>català</item>
     <item>slovenčina</item>
     <item>தமிழ்</item>
@@ -393,7 +381,6 @@
     <item>ಕನ್ನಡ</item>
     <item>اردو</item>
     <item>oʻzbekcha</item>
-    <item>oʻzbekcha/ўзбекча</item>
     <item>Afrikaans</item>
     <item>Кыргызча</item>
     <item>Kiswahili</item>
@@ -419,7 +406,6 @@
     <item>Latina</item>
     <item>Alemannisch</item>
     <item>Bikol Central</item>
-    <item>тоҷикӣ</item>
     <item>тоҷикӣ</item>
     <item>Esperanto</item>
     <item>Winaray</item>
@@ -454,14 +440,12 @@
     <item>occitan</item>
     <item>Ilokano</item>
     <item>kurdî (latînî)‎</item>
-    <item>kurdî</item>
     <item>нохчийн</item>
     <item>Limburgs</item>
     <item>West-Vlams</item>
     <item>башҡортса</item>
     <item>赣语（简体）‎</item>
     <item>贛語（繁體）‎</item>
-    <item>贛語</item>
     <item>پنجابی</item>
     <item>interlingua</item>
     <item>مازِرونی</item>
@@ -519,7 +503,6 @@
     <item>Ирон</item>
     <item>Malti</item>
     <item>qırımtatarca (Latin)‎</item>
-    <item>qırımtatarca</item>
     <item>удмурт</item>
     <item>Taqbaylit</item>
     <item>vepsän kel’</item>
@@ -599,7 +582,6 @@
     <item>словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ</item>
     <item>Bân-lâm-gú</item>
     <item>ᐃᓄᒃᑎᑐᑦ</item>
-    <item>ᐃᓄᒃᑎᑐᑦ/inuktitut</item>
     <item>мокшень</item>
     <item>Pälzisch</item>
     <item>Sängö</item>
@@ -664,7 +646,6 @@
     <item>Chinese</item>
     <item>Chinese</item>
     <item>Chinese</item>
-    <item>Chinese</item>
     <item>Arabic</item>
     <item>Polish</item>
     <item>Persian</item>
@@ -687,11 +668,9 @@
     <item>Malay</item>
     <item>Danish</item>
     <item>Serbian</item>
-    <item>Serbian</item>
     <item>Croatian</item>
     <item>Bulgarian</item>
     <item>Bangla</item>
-    <item>Kazakh</item>
     <item>Kazakh</item>
     <item>Catalan</item>
     <item>Slovak</item>
@@ -715,7 +694,6 @@
     <item>Asturian</item>
     <item>Kannada</item>
     <item>Urdu</item>
-    <item>Uzbek</item>
     <item>Uzbek</item>
     <item>Afrikaans</item>
     <item>Kyrgyz</item>
@@ -742,7 +720,6 @@
     <item>Latin</item>
     <item>Alemannisch</item>
     <item>Central Bikol</item>
-    <item>Tajik</item>
     <item>Tajik</item>
     <item>Esperanto</item>
     <item>Waray</item>
@@ -777,12 +754,10 @@
     <item>Occitan</item>
     <item>Iloko</item>
     <item>Kurdish</item>
-    <item>Kurdish</item>
     <item>Chechen</item>
     <item>Limburgish</item>
     <item>West Flemish</item>
     <item>Bashkir</item>
-    <item>Gan Chinese</item>
     <item>Gan Chinese</item>
     <item>Gan Chinese</item>
     <item>Western Punjabi</item>
@@ -841,7 +816,6 @@
     <item>Zeelandic</item>
     <item>Ossetic</item>
     <item>Maltese</item>
-    <item>Crimean Turkish</item>
     <item>Crimean Turkish</item>
     <item>Udmurt</item>
     <item>Kabyle</item>
@@ -921,7 +895,6 @@
     <item>Bislama</item>
     <item>Church Slavic</item>
     <item>Chinese (Min Nan)</item>
-    <item>Inuktitut</item>
     <item>Inuktitut</item>
     <item>Moksha</item>
     <item>Palatine German</item>

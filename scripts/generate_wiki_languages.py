@@ -68,7 +68,7 @@ for key, value in data[u"sitematrix"].items():
         if len(unique_device_response[u"items"]) > 0:
             rank = unique_device_response[u"items"][0][u"devices"]
     print ("Rank for " + language_code + ": " + str(rank))
-    
+
     if language_code == 'no':  # T114042
         language_code = 'nb'
 
@@ -87,6 +87,7 @@ for key, value in data[u"sitematrix"].items():
                 if name[u"code"] == variant:
                     add_lang(variant, name[u"name"].replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
                     break
+        continue
 
     add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
 
