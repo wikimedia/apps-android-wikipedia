@@ -1,9 +1,7 @@
 package org.wikipedia.feed.suggestededits
 
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
@@ -25,4 +23,4 @@ class SuggestedEditsCard(
     override fun subtitle(): String {
         return DateUtil.getFeedCardDateString(age)
     }
-    }
+}
