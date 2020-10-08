@@ -254,6 +254,12 @@
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="search_results_count_zero">אין תוצאות</string>
+  <plurals name="search_results_count">
+    <item quantity="one">תוצאה אחת</item>
+    <item quantity="two">שתי תוצאות</item>
+    <item quantity="many">%dתוצאות</item>
+    <item quantity="other">%d תוצאות</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
   <string name="clear_recent_searches_confirm_yes">כן</string>
@@ -317,6 +323,7 @@
   <string name="address_copied">הכתובת הועתקה ללוח.</string>
   <string name="text_copied">הטקסט הועתק ללוח.</string>
   <string name="button_continue_to_article">לקרוא את הערך</string>
+  <string name="button_continue_to_talk_page">לפתוח את דף השיחה</string>
   <string name="button_continue_to_disambiguation">הצגת דפים דומים</string>
   <string name="link_preview_disambiguation_description">הכותרת מתייחסת ליותר מדף אחד:</string>
   <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
@@ -767,9 +774,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
   <string name="suggested_edits_image_captions_task_detail">נא לתאר את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
   <string name="suggested_edits_add_descriptions_task_detail">נא לסכם את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך עד עכשיו.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים ברצף תרמת. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
