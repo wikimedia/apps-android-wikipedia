@@ -179,7 +179,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun updateUI() {
         itemClickable = true
         seFeedCardProgressBar.visibility = GONE
-
+        callToActionButton.visibility = VISIBLE
         if (sourceSummaryForEdit != null) {
             cardView.layoutDirection = if (L10nUtil.isLangRTL(if (targetSummaryForEdit != null)
                         targetSummaryForEdit!!.lang else sourceSummaryForEdit!!.lang))

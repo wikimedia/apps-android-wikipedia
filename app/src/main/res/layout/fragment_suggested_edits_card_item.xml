@@ -32,8 +32,8 @@
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:id="@+id/viewArticleImage"
                 android:layout_width="match_parent"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:layout_height="201dp" />
+                android:layout_height="201dp"
+                android:background="?attr/selectableItemBackgroundBorderless" />
 
             <LinearLayout
                 android:id="@+id/viewArticleContainer"
@@ -48,11 +48,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:ellipsize="end"
                     android:fontFamily="serif"
                     android:lineSpacingExtra="4sp"
                     android:maxLines="2"
-                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="24sp"
                     tools:text="Lorem ipsum" />
@@ -101,9 +101,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:ellipsize="end"
                     android:lineSpacingExtra="10sp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:minLines="3"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="16sp"
@@ -121,6 +121,7 @@
                     android:text="@string/suggested_edits_task_add_description_title"
                     android:textColor="?attr/colorAccent"
                     android:textSize="14sp"
+                    android:visibility="gone"
                     app:icon="@drawable/ic_add_gray_white_24dp"
                     app:iconSize="24dp"
                     app:iconTint="?attr/colorAccent" />
