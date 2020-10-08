@@ -86,7 +86,7 @@ for key, value in data[u"sitematrix"].items():
         
         for variant in language_variants[u"fallbacks"]:
             variant_lang_name = ""
-            variant_lang_name_in_en = ""
+            lang_name_in_en = ""
             for name in lang_list_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
                     variant_lang_name = name[u"name"]
@@ -94,10 +94,10 @@ for key, value in data[u"sitematrix"].items():
 
             for name in lang_list_en_response[u"query"][u"languages"]:
                 if name[u"code"] == variant:
-                    variant_lang_name_in_en = name[u"name"]
+                    lang_name_in_en = name[u"name"]
                     break
 
-            add_lang(variant, variant_lang_name.replace("'", "\\'"), variant_lang_name_in_en.replace("'", "\\'"), rank)
+            add_lang(variant, variant_lang_name.replace("'", "\\'"), lang_name_in_en.replace("'", "\\'"), rank)
         continue
 
     add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
