@@ -12,6 +12,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
