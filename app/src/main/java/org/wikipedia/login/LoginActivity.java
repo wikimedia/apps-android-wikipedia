@@ -187,8 +187,7 @@ public class LoginActivity extends BaseActivity {
         ReadingListSyncAdapter.manualSyncWithForce();
 
         NotificationPollBroadcastReceiver.pollNotifications(WikipediaApp.getInstance());
-        WikipediaFirebaseMessagingService.Companion.subscribeCurrentToken();
-
+        WikipediaFirebaseMessagingService.Companion.updateSubscription();
         finish();
     }
 

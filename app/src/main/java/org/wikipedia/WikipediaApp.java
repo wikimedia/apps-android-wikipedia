@@ -184,7 +184,7 @@ public class WikipediaApp extends Application {
 
         // For good measure, explicitly call our token subscription function, in case the
         // API failed in previous attempts.
-        WikipediaFirebaseMessagingService.Companion.subscribeCurrentToken();
+        WikipediaFirebaseMessagingService.Companion.updateSubscription();
     }
 
     public int getVersionCode() {

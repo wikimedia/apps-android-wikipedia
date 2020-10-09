@@ -47,7 +47,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         Prefs.setPushNotificationToken(token)
         Prefs.setPushNotificationTokenSubscribed(false)
 
-        subscribeCurrentToken()
+        updateSubscription()
     }
 
     private fun handleCheckEcho() {
@@ -68,18 +68,18 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                     && Prefs.isPushNotificationTokenSubscribed()
         }
 
-        fun subscribeCurrentToken() {
-            if (!AccountUtil.isLoggedIn()
-                    || Prefs.isPushNotificationTokenSubscribed()
-                    || Prefs.getPushNotificationToken().isEmpty()) {
-                // Don't bother registering the token if the user is not logged in,
-                // or if the token was already subscribed successfully.
+        fun updateSubscription() {
+            if (!AccountUtil.isLoggedIn()) {
+                // Don't bother registering the token if the user is not logged in
                 return
             }
 
             CsrfTokenClient(WikipediaApp.getInstance().wikiSite).request(false, object : CsrfTokenClient.Callback {
                 override fun success(token: String) {
-                    subscribeWithCsrf(token)
+                    if (!Prefs.isPushNotificationTokenSubscribed() && Prefs.getPushNotificationToken().isNotEmpty()) {
+                        subscribeWithCsrf(token)
+                    }
+                    setNotificationOptions(token)
                 }
 
                 override fun failure(t: Throwable) {
@@ -131,6 +131,28 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                             // token already exists in the database, so consider it subscribed.
                             Prefs.setPushNotificationTokenSubscribed(true)
                         }
+                    })
+        }
+
+        private fun setNotificationOptions(csrfToken: String) {
+            val optionList = ArrayList<String>()
+
+            optionList.add("echo-subscriptions-push-edit-user-talk=" + if (Prefs.notificationUserTalkEnabled()) "1" else "0")
+            optionList.add("echo-subscriptions-push-login-fail=" + if (Prefs.notificationLoginFailEnabled()) "1" else "0")
+            optionList.add("echo-subscriptions-push-mention=" + if (Prefs.notificationMentionEnabled()) "1" else "0")
+            optionList.add("echo-subscriptions-push-thank-you-edit=" + if (Prefs.notificationMilestoneEnabled()) "1" else "0")
+            optionList.add("echo-subscriptions-push-reverted=" + if (Prefs.notificationRevertEnabled()) "1" else "0")
+            optionList.add("echo-subscriptions-push-edit-thank=" + if (Prefs.notificationThanksEnabled()) "1" else "0")
+            // Explicitly enable cross-wiki notifications
+            optionList.add("echo-cross-wiki-notifications=1")
+
+            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).postSetOptions(optionList.joinToString(separator = "|"), csrfToken)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        L.d("Notification options successfully.")
+                    }, {
+                        L.e(it)
                     })
         }
 
