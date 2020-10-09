@@ -40,7 +40,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
-import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -238,7 +237,6 @@ public class LangLinksActivity extends BaseActivity {
     }
 
     private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
-        boolean haveVariantEntry = false;
         for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
             PageTitle link = it.next();
             String languageCode = link.getWikiSite().languageCode();
@@ -252,7 +250,6 @@ public class LangLinksActivity extends BaseActivity {
             } else if (languageVariants != null) {
                 // remove the language code and replace it with its variants
                 it.remove();
-                haveVariantEntry = true;
                 for (String variant : languageVariants) {
                     it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(variant) : link.getPrefixedText(),
                             WikiSite.forLanguageCode(variant)));
@@ -260,9 +257,7 @@ public class LangLinksActivity extends BaseActivity {
             }
         }
 
-        if (!haveVariantEntry) {
-            addVariantEntriesIfNeeded(title, languageEntries);
-        }
+        addVariantEntriesIfNeeded(title, languageEntries);
     }
 
     private void sortLanguageEntriesByMru(List<PageTitle> entries) {
@@ -280,22 +275,18 @@ public class LangLinksActivity extends BaseActivity {
 
     @VisibleForTesting
     public void addVariantEntriesIfNeeded(@NonNull PageTitle title,
-                                                 @NonNull List<PageTitle> languageEntries) {
-        Set<String> languagesHaveVariants = app.language().getLanguagesHaveVariants();
-        if (languagesHaveVariants != null) {
-            for (String mainLanguageCode : languagesHaveVariants) {
-                if (title.getWikiSite().languageCode().startsWith(mainLanguageCode + "-")) {
-                    List<String> languageVariants = app.language().getLanguageVariants(mainLanguageCode);
-                    if (languageVariants != null) {
-                        for (String languageCode : languageVariants) {
-                            if (!title.getWikiSite().languageCode().contains(languageCode)) {
-                                PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
-                                pageTitle.setText(StringUtil.removeNamespace(title.getPrefixedText()));
-                                languageEntries.add(pageTitle);
-                            }
-                        }
+                                          @NonNull List<PageTitle> languageEntries) {
+
+        String parentLanguageCode = app.language().getParentLanguageCode(title.getWikiSite().languageCode());
+        if (parentLanguageCode != null) {
+            List<String> languageVariants = app.language().getLanguageVariants(parentLanguageCode);
+            if (languageVariants != null) {
+                for (String languageCode : languageVariants) {
+                    if (!title.getWikiSite().languageCode().contains(languageCode)) {
+                        PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
+                        pageTitle.setText(StringUtil.removeNamespace(title.getPrefixedText()));
+                        languageEntries.add(pageTitle);
                     }
-                    break;
                 }
             }
         }

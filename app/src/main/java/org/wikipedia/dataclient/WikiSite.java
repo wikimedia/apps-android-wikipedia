@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
@@ -256,19 +257,7 @@ public class WikiSite implements Parcelable {
 
     @NonNull
     private static String languageCodeToSubdomain(@NonNull String languageCode) {
-        switch (languageCode) {
-            case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_MY_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE:
-                return AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
-            default:
-                return normalizeLanguageCode(languageCode);
-        }
+        return StringUtils.defaultString(WikipediaApp.getInstance().language().getParentLanguageCode(languageCode), normalizeLanguageCode(languageCode));
     }
 
     @NonNull public static String normalizeLanguageCode(@NonNull String languageCode) {
