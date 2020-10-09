@@ -10,8 +10,8 @@ import org.wikipedia.page.PageTitle;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 @RunWith(RobolectricTestRunner.class)
 public class LangLinksActivityTest{
