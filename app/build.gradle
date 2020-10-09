@@ -52,6 +52,11 @@ android {
     }
 
     sourceSets {
+
+        prod { java.srcDirs += 'src/extra/java' }
+        beta { java.srcDirs += 'src/extra/java' }
+        alpha { java.srcDirs += 'src/extra/java' }
+
         test {
             java.srcDirs += 'src/testlib/java'
         }

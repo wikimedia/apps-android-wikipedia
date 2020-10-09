@@ -159,13 +159,13 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                     })
         }
 
-        fun unsubscribePush(csrfToken: String): Observable<Any> {
+        fun unsubscribePush(csrfToken: String): Observable<MwQueryResponse> {
             Prefs.setPushNotificationTokenOld("")
             Prefs.setPushNotificationTokenSubscribed(false)
             return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, Prefs.getPushNotificationToken())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong()) as Observable<Any>
+                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
         }
     }
 }
