@@ -95,16 +95,6 @@ android {
             versionName computeVersionName('dev')
             applicationIdSuffix '.dev'
         }
-        labsPCS {
-            versionName computeVersionName('dev')
-            applicationIdSuffix '.dev'
-            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"https://mobileapps.wmflabs.org/%2$s/v1/"'
-        }
-        localPCS {
-            versionName computeVersionName('dev')
-            applicationIdSuffix '.dev'
-            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"http://10.0.2.2:8888/%2$s/v1/"'
-        }
         prod {
             versionName computeVersionName('r')
             signingConfig signingConfigs.prod
