@@ -70,15 +70,13 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
 
         fun updateSubscription() {
             if (!AccountUtil.isLoggedIn()) {
-                // Don't bother registering the token if the user is not logged in
+                // Don't bother doing anything if the user is not logged in.
                 return
             }
 
             CsrfTokenClient(WikipediaApp.getInstance().wikiSite).request(false, object : CsrfTokenClient.Callback {
                 override fun success(token: String) {
-                    if (!Prefs.isPushNotificationTokenSubscribed() && Prefs.getPushNotificationToken().isNotEmpty()) {
-                        subscribeWithCsrf(token)
-                    }
+                    subscribeWithCsrf(token)
                     setNotificationOptions(token)
                 }
 
@@ -93,6 +91,11 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         }
 
         private fun subscribeWithCsrf(csrfToken: String) {
+            if (Prefs.isPushNotificationTokenSubscribed() || Prefs.getPushNotificationToken().isEmpty()) {
+                // Don't do anything if the token is already subscribed, or if the token is empty.
+                return
+            }
+
             val token = Prefs.getPushNotificationToken()
             val oldToken = Prefs.getPushNotificationTokenOld()
 
