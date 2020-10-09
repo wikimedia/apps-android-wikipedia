@@ -26,6 +26,7 @@ public class AppLanguageLookUpTable {
     public static final String CHINESE_CN_LANGUAGE_CODE = "zh-cn";
     public static final String CHINESE_HK_LANGUAGE_CODE = "zh-hk";
     public static final String CHINESE_MO_LANGUAGE_CODE = "zh-mo";
+    public static final String CHINESE_MY_LANGUAGE_CODE = "zh-my";
     public static final String CHINESE_SG_LANGUAGE_CODE = "zh-sg";
     public static final String CHINESE_TW_LANGUAGE_CODE = "zh-tw";
     public static final String CHINESE_YUE_LANGUAGE_CODE = "zh-yue";

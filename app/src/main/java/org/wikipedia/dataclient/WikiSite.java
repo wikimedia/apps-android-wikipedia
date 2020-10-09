@@ -262,6 +262,7 @@ public class WikiSite implements Parcelable {
             case AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE:
             case AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE:
             case AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.CHINESE_MY_LANGUAGE_CODE:
             case AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE:
             case AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE:
                 return AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
