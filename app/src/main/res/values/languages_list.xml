@@ -972,33 +972,15 @@
     <item>Test</item>
     <item>Pangasinan</item>
   </string-array>
-  <string-array name="preference_language_variants_fallbacks">
-    <item>ike-latn,iu</item>
-    <item>ike-cans,iu</item>
-    <item>crh-cyrl,crh-latn</item>
-    <item>crh-latn,crh-cyrl</item>
-    <item>zh-hk,zh-hant,zh-mo,zh-tw</item>
-    <item>zh-hans,zh-cn,zh-sg,zh-my</item>
-    <item>zh-tw,zh-hant,zh-hk,zh-mo</item>
-    <item>zh-my,zh-hans,zh-sg,zh-cn</item>
-    <item>zh-hant,zh-tw,zh-hk,zh-mo</item>
-    <item>zh-cn,zh-hans,zh-sg,zh-my</item>
-    <item>zh-mo,zh-hant,zh-hk,zh-tw</item>
-    <item>zh-sg,zh-hans,zh-cn,zh-my</item>
-    <item>uz-latn,uz</item>
-    <item>uz-cyrl,uz</item>
-    <item>gan-hans,gan</item>
-    <item>gan-hant,gan</item>
-    <item>tg-latn,tg</item>
-    <item>ku-latn,ku-arab</item>
-    <item>ku-arab,ku-latn</item>
-    <item>kk-latn,kk</item>
-    <item>kk-cn,kk-arab</item>
-    <item>kk-kz,kk-cyrl</item>
-    <item>kk-cyrl,kk</item>
-    <item>kk-tr,kk-latn</item>
-    <item>kk-arab,kk</item>
-    <item>sr-el,sr</item>
-    <item>sr-ec,sr</item>
+  <string-array name="preference_language_variants">
+    <item>iu,ike-latn,ike-cans</item>
+    <item>crh,crh-cyrl,crh-latn</item>
+    <item>zh,zh-hk,zh-hans,zh-tw,zh-my,zh-hant,zh-cn,zh-mo,zh-sg</item>
+    <item>uz,uz-latn,uz-cyrl</item>
+    <item>gan,gan-hans,gan-hant</item>
+    <item>tg,tg-latn</item>
+    <item>ku,ku-latn,ku-arab</item>
+    <item>kk,kk-latn,kk-cn,kk-kz,kk-cyrl,kk-tr,kk-arab</item>
+    <item>sr,sr-el,sr-ec</item>
   </string-array>
 </resources>
