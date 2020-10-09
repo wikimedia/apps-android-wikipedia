@@ -12,6 +12,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
@@ -159,13 +160,13 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                     })
         }
 
-        fun unsubscribePush(csrfToken: String): Observable<Any> {
+        fun unsubscribePush(csrfToken: String): Observable<MwQueryResponse> {
             Prefs.setPushNotificationTokenOld("")
             Prefs.setPushNotificationTokenSubscribed(false)
             return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, Prefs.getPushNotificationToken())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong()) as Observable<Any>
+                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
         }
     }
 }
