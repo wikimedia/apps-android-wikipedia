@@ -5,6 +5,7 @@ import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -131,6 +132,15 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                             Prefs.setPushNotificationTokenSubscribed(true)
                         }
                     })
+        }
+
+        fun unsubscribePush(csrfToken: String): Observable<Any> {
+            Prefs.setPushNotificationTokenOld("")
+            Prefs.setPushNotificationTokenSubscribed(false)
+            return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, Prefs.getPushNotificationToken())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .retry(UNSUBSCRIBE_RETRY_COUNT.toLong()) as Observable<Any>
         }
     }
 }
