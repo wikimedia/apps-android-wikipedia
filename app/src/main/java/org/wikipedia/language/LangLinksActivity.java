@@ -257,7 +257,7 @@ public class LangLinksActivity extends BaseActivity {
             }
         }
 
-        addVariantEntriesIfNeeded(title, languageEntries);
+        addVariantEntriesIfNeeded(app.language(), title, languageEntries);
     }
 
     private void sortLanguageEntriesByMru(List<PageTitle> entries) {
@@ -274,12 +274,12 @@ public class LangLinksActivity extends BaseActivity {
     }
 
     @VisibleForTesting
-    public void addVariantEntriesIfNeeded(@NonNull PageTitle title,
-                                          @NonNull List<PageTitle> languageEntries) {
+    public static void addVariantEntriesIfNeeded(@NonNull AppLanguageState language, @NonNull PageTitle title,
+                                                 @NonNull List<PageTitle> languageEntries) {
 
-        String parentLanguageCode = app.language().getParentLanguageCode(title.getWikiSite().languageCode());
+        String parentLanguageCode = language.getParentLanguageCode(title.getWikiSite().languageCode());
         if (parentLanguageCode != null) {
-            List<String> languageVariants = app.language().getLanguageVariants(parentLanguageCode);
+            List<String> languageVariants = language.getLanguageVariants(parentLanguageCode);
             if (languageVariants != null) {
                 for (String languageCode : languageVariants) {
                     if (!title.getWikiSite().languageCode().contains(languageCode)) {
