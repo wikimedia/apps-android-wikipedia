@@ -19,6 +19,7 @@
         android:layout_height="200dp"
         android:layout_gravity="center_vertical"
         android:transitionName="@string/transition_page_gallery"
+        android:scaleType="fitCenter"
         android:contentDescription="@null"/>
 
     <FrameLayout
