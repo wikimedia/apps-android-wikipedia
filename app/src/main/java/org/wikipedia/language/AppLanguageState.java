@@ -14,6 +14,7 @@ import org.wikipedia.util.StringUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.language.AppLanguageLookUpTable.TEST_LANGUAGE_CODE;
@@ -152,5 +153,15 @@ public class AppLanguageState {
     @Nullable
     public String getAppLanguageLocalizedName(@Nullable String code) {
         return appLanguageLookUpTable.getLocalizedName(code);
+    }
+
+    @Nullable
+    public List<String> getLanguageVariants(@Nullable String code) {
+        return appLanguageLookUpTable.getLanguageVariants(code);
+    }
+
+    @Nullable
+    public Set<String> getLanguagesHaveVariants() {
+        return appLanguageLookUpTable.getLanguagesHaveVariants();
     }
 }

@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 /** Immutable look up table for all app supported languages. All article languages may not be
   * present in this table as it is statically bundled with the app. */
@@ -100,6 +101,11 @@ public class AppLanguageLookUpTable {
     @Nullable
     public List<String> getLanguageVariants(@Nullable String code) {
         return getLanguagesVariants().get(code);
+    }
+
+    @Nullable
+    public Set<String> getLanguagesHaveVariants() {
+        return getLanguagesVariants().keySet();
     }
 
     private List<String> getCanonicalNames() {
