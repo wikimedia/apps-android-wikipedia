@@ -317,6 +317,7 @@
   <string name="address_copied">Osoite kopioitu leikepöydälle.</string>
   <string name="text_copied">Teksti kopioitu leikepöydälle.</string>
   <string name="button_continue_to_article">Lue artikkeli</string>
+  <string name="button_continue_to_talk_page">Avaa keskustelusivu</string>
   <string name="button_continue_to_disambiguation">Katso samankaltaisia sivuja</string>
   <string name="link_preview_disambiguation_description">Tämä otsikko koskee useampaa kuin yhtä sivua:</string>
   <string name="button_add_to_reading_list">Lisää lukulistaan</string>

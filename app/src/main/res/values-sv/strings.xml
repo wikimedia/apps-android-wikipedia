@@ -321,6 +321,7 @@
   <string name="address_copied">Adressen kopierades till urklipp.</string>
   <string name="text_copied">Texten kopierades till urklipp.</string>
   <string name="button_continue_to_article">Läs artikeln</string>
+  <string name="button_continue_to_talk_page">Öppna diskussionssidan</string>
   <string name="button_continue_to_disambiguation">Visa liknande sidor</string>
   <string name="link_preview_disambiguation_description">Denna titel relaterar till fler än en sida:</string>
   <string name="button_add_to_reading_list">Lägg till i läslista</string>
