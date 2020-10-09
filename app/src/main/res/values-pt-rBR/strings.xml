@@ -266,6 +266,11 @@
   <string name="page_similar_titles">Páginas similares</string>
   <string name="search_did_you_mean">Você quis dizer “%s”?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
+  <string name="search_results_count_zero">Sem resultados</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultado</item>
+    <item quantity="other">%d resultados</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Apagar pesquisas recentes</string>
   <string name="clear_recent_searches_confirm">Tem certeza de que deseja apagar seu histórico de pesquisa?</string>
   <string name="clear_recent_searches_confirm_yes">Sim</string>
@@ -329,6 +334,7 @@
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
   <string name="button_continue_to_article">Ler artigo</string>
+  <string name="button_continue_to_talk_page">Ver página de discussão</string>
   <string name="button_continue_to_disambiguation">Ver páginas semelhantes</string>
   <string name="link_preview_disambiguation_description">Este título está relacionado com mais do que uma página:</string>
   <string name="button_add_to_reading_list">Adicionar à lista de leitura</string>
@@ -774,9 +780,9 @@
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, abaixo, você pode encontrar maneiras rápidas e fáceis de ajudar a melhorar a Wikipédia. Você verá a diferença que está fazendo assim que começa. Edição feliz!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a entender rapidamente o assunto.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu por meio das edições sugeridas. Se você não contribui há algum tempo, ele mostra sua última data de contribuição.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página dos itens nos quais você contribuiu nos últimos 30 dias com edições sugeridas.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições até agora.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias consecutivos você fez contribuições. Se você não contribui há algum tempo, ele mostra a data da última contribuição.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página de itens para os quais você contribuiu nos últimos 30 dias.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.</string>
   <string name="suggested_edits_disabled_message">As edições sugeridas estão desativadas.Desculpa %s, muitas das suas recentes contribuições foram revertidas.</string>

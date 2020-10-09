@@ -17,6 +17,7 @@
 * McDutchie
 * Metalhead64
 * Minh Nguyen
+* MuratTheTurkish
 * Nemo bis
 * Nike
 * Omotecho
@@ -265,6 +266,11 @@
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
+  <string name="search_results_count_zero">Text shown on the list that displays zero counts of the result from the search.</string>
+  <plurals name="search_results_count">
+    <item quantity="one">Text shown on the list that displays one count of the result from the search.</item>
+    <item quantity="other">Text shown on the list that displays numbers of counts of the result from the search. The \"%d\" symbol is replaced with the amount of the counts.</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>
   <string name="clear_recent_searches_confirm">Dialog message that asks if the user really wants to clear the search history.</string>
   <string name="clear_recent_searches_confirm_yes">Affirmative answer to clear the search history.\n{{Identical|Yes}}</string>
@@ -328,6 +334,7 @@
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="button_continue_to_talk_page">Button to continue to the talk page that is currently being previewed.</string>
   <string name="button_continue_to_disambiguation">Button to continue to the disambiguation page for the selected title.</string>
   <string name="link_preview_disambiguation_description">Message shown when a selected title refers to more than one page, ending with a colon after which the disambiguations will be listed.</string>
   <string name="button_add_to_reading_list">Button text for adding the current page to a reading list.</string>
@@ -384,7 +391,7 @@
   <string name="color_theme_select">Label that describes color theme selection\n{{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme\n{{Identical|Light}}</string>
   <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>
-  <string name="color_theme_black">Button label for Black color theme\n{{Identical|Black}}</string>
+  <string name="color_theme_black">Button label for Black color theme</string>
   <string name="color_theme_sepia">Button label for Sepia color theme</string>
   <string name="color_theme_test_title">An example header title for previewing color theme changes.</string>
   <string name="color_theme_test_text">Sample descriptive text giving the user instructions on using the text size slider.</string>
@@ -618,7 +625,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">Subtitle for number of days passed since the article was last seen and shown on cards in the feed. Use the %s parameter to insert the number of days passed since the content (an article) was last seen.\n\nThe word \"read\" is either past tense, as in \"(you have) read (this) 4 days ago\", or a participle as in \"(this was) read (by you) 4 days ago\".</string>
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
-  <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed\n{{Identical|Featured article}}</string>
+  <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed</string>
   <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
   <string name="view_static_card_save_button_label">Text on button that indicates user can save article to reading lists.\n{{Identical|Save}}</string>
   <string name="view_featured_article_footer_saved_button_label">Button label for when the current featured article is already saved to a reading list, but may now be removed from the list, or saved to a different list.\n{{Identical|Saved}}</string>
@@ -963,7 +970,7 @@
   <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.</string>
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
-  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.</string>
+  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
   <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
   <string name="talk_reply_hint">Hint for text field for composing a reply to the current talk page topic.</string>

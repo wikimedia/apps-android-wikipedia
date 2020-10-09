@@ -6,13 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.L10nUtil;
 
 public class FeaturedArticleCard extends WikiSiteCard {
     @NonNull private PageSummary page;
@@ -27,7 +27,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
     @Override
     @NonNull
     public String title() {
-        return WikipediaApp.getInstance().getString(R.string.view_featured_article_card_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_featured_article_card_title);
     }
 
     @Override

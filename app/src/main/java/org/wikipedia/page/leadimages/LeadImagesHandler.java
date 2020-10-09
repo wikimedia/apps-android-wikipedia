@@ -7,6 +7,7 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import org.apache.commons.lang3.StringUtils;
@@ -16,6 +17,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -243,16 +245,26 @@ public class LeadImagesHandler {
         });
     }
 
-    public void openImageInGallery(@Nullable  String language) {
+    public void openImageInGallery(@Nullable String language) {
         if (getPage() != null && isLeadImageEnabled()) {
             String imageName = getPage().getPageProperties().getLeadImageName();
             if (imageName != null) {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
+
+                JavaScriptActionHandler.ImageHitInfo hitInfo = new JavaScriptActionHandler.ImageHitInfo(pageHeaderView.image.getLeft(),
+                        pageHeaderView.image.getTop(), pageHeaderView.image.getWidth(), pageHeaderView.image.getHeight(),
+                        getLeadImageUrl(), true);
+
+                GalleryActivity.setTransitionInfo(hitInfo);
+
+                ActivityOptionsCompat options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation(getActivity(), pageHeaderView.image, getActivity().getString(R.string.transition_page_gallery));
+
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
                         parentFragment.getTitle(), filename, wiki, parentFragment.getRevision(),
                         GalleryFunnel.SOURCE_LEAD_IMAGE),
-                        Constants.ACTIVITY_REQUEST_GALLERY);
+                        Constants.ACTIVITY_REQUEST_GALLERY, options.toBundle());
             }
         }
     }

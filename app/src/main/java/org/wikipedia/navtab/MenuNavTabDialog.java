@@ -14,11 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.ImageViewCompat;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
@@ -72,6 +75,13 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         callback = null;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        BottomSheetBehavior.from((View) getView().getParent()).setPeekHeight(DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.navTabDialogPeekHeight)));
+    }
+
     public void updateState() {
         if (AccountUtil.isLoggedIn()) {
             accountAvatar.setImageDrawable(requireContext().getDrawable(R.drawable.ic_baseline_person_24));
@@ -83,7 +93,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
             notificationsContainer.setVisibility(VISIBLE);
 
-            // TODO: remove feature flag when ready
+            // TODO: remove when ready
             talkContainer.setVisibility(ReleaseUtil.isPreBetaRelease() ? VISIBLE : GONE);
 
         } else {

@@ -11,6 +11,8 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.log.L
 
 class SuggestedEditsCard(
         wiki: WikiSite,
@@ -26,7 +28,8 @@ class SuggestedEditsCard(
     }
 
     override fun title(): String {
-        return WikipediaApp.getInstance().getString(R.string.suggested_edits_feed_card_title)
+        return L10nUtil.getStringForArticleLanguage(targetSummaryForEdit?.lang
+                ?: wikiSite().languageCode(), R.string.suggested_edits_feed_card_title)
     }
 
     override fun subtitle(): String {

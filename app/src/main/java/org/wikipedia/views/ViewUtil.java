@@ -20,6 +20,7 @@ import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestListener;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
@@ -55,14 +56,23 @@ public final class ViewUtil {
     }
 
     public static void loadImageWithWhiteBackground(@NonNull ImageView view, @Nullable String url) {
+        loadImageWithWhiteBackground(view, url, null);
+    }
+
+    public static void loadImageWithWhiteBackground(@NonNull ImageView view, @Nullable String url, @Nullable RequestListener<Drawable> listener) {
         Drawable placeholder = getPlaceholderDrawable(view.getContext());
-        Glide.with(view)
+        RequestBuilder<Drawable> builder = Glide.with(view)
                 .load(!TextUtils.isEmpty(url) ? Uri.parse(url) : null)
                 .placeholder(placeholder)
                 .error(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
-                .transform(new WhiteBackgroundTransformation())
-                .into(view);
+                .transform(new WhiteBackgroundTransformation());
+
+        if (listener != null) {
+            builder = builder.listener(listener);
+        }
+
+        builder.into(view);
     }
 
     static Drawable getPlaceholderDrawable(@NonNull Context context) {

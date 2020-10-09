@@ -13,6 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <ImageView
+        android:id="@+id/gallery_transition_receiver"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_vertical"
+        android:transitionName="@string/transition_page_gallery"
+        android:contentDescription="@null"/>
+
     <FrameLayout
         android:id="@+id/gallery_toolbar_container"
         android:layout_width="match_parent"
