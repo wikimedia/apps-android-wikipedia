@@ -51,7 +51,7 @@ public class AppLanguageLookUpTable {
     @NonNull private SoftReference<List<String>> localizedNamesRef = new SoftReference<>(null);
 
     // Fallback language codes for language variants
-    @NonNull private SoftReference<Map<String, List<String>>> variantsFallbacksRef = new SoftReference<>(null);
+    @NonNull private SoftReference<Map<String, List<String>>> languagesVariantsRef = new SoftReference<>(null);
 
     public AppLanguageLookUpTable(@NonNull Context context) {
         resources = context.getResources();
@@ -131,7 +131,7 @@ public class AppLanguageLookUpTable {
     }
 
     private Map<String, List<String>> getLanguagesVariants() {
-        Map<String, List<String>> map = variantsFallbacksRef.get();
+        Map<String, List<String>> map = languagesVariantsRef.get();
         if (map == null) {
             map = new HashMap<>();
             for (String fallbacks : getStringList(R.array.preference_language_variants)) {

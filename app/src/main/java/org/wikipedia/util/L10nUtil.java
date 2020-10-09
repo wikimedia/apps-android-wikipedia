@@ -191,8 +191,7 @@ public final class L10nUtil {
     }
 
     private static Locale getDesiredLocale(@NonNull Locale desiredLocale) {
-        // TODO: maybe use AppLanguageLookUpTable.getVariantFallbacks()?
-        // TODO: maybe other language variants also have this issue, we need to add manually.
+        // TODO: maybe other language variants also have this issue, we need to add manually. e.g. kk?
         switch(desiredLocale.getLanguage()) {
             case TRADITIONAL_CHINESE_LANGUAGE_CODE:
             case CHINESE_TW_LANGUAGE_CODE:
@@ -218,8 +217,7 @@ public final class L10nUtil {
         if (desiredLocale.getLanguage().equals(CHINESE_LANGUAGE_CODE)) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
-            String appLanguageCode = WikipediaApp.getInstance().language().getAppLanguageCode();
-            config.setLocale(getDesiredLocale(new Locale(appLanguageCode)));
+            config.setLocale(getDesiredLocale(new Locale(WikipediaApp.getInstance().language().getAppLanguageCode())));
         } else {
             config.setLocale(getDesiredLocale(desiredLocale));
         }
