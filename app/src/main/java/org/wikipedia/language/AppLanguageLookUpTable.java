@@ -98,8 +98,8 @@ public class AppLanguageLookUpTable {
     }
 
     @Nullable
-    public List<String> getVariantFallbacks(@Nullable String code) {
-        return getVariantsFallbacks().get(code);
+    public List<String> getLanguageVariants(@Nullable String code) {
+        return getLanguagesVariants().get(code);
     }
 
     private List<String> getCanonicalNames() {
@@ -120,11 +120,11 @@ public class AppLanguageLookUpTable {
         return names;
     }
 
-    private Map<String, List<String>> getVariantsFallbacks() {
+    private Map<String, List<String>> getLanguagesVariants() {
         Map<String, List<String>> map = variantsFallbacksRef.get();
         if (map == null) {
             map = new HashMap<>();
-            for (String fallbacks : getStringList(R.array.preference_language_variants_fallbacks)) {
+            for (String fallbacks : getStringList(R.array.preference_language_variants)) {
                 String[] array = fallbacks.split(",");
                 if (array.length > 1) {
                     map.put(array[0], new ArrayList<>(Arrays.asList(array).subList(1, array.length)));
