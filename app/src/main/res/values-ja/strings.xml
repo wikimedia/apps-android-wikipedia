@@ -64,7 +64,7 @@
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
   <string name="history_item_delete_undo">元に戻す</string>
   <string name="notification_archive_undo">取り消す</string>
-  <string name="app_settings">設定</string>
+  <string name="app_settings">アプリの設定</string>
   <string name="search_tab_tooltip">再度アイコンをタップして直接検索ワードを入力することができます。</string>
   <string name="history_list_title">履歴</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
@@ -95,8 +95,8 @@
   <string name="reading_list_page_share">共有</string>
   <string name="menu_text_select_edit_here">ここを編集</string>
   <string name="last_updated_text">最終更新: %s</string>
-  <string name="talk_page_link_text">ノート</string>
-  <string name="edit_history_link_text">編集履歴</string>
+  <string name="talk_page_link_text">トークページを表示</string>
+  <string name="edit_history_link_text">編集履歴を表示</string>
   <string name="map_view_link_text">地図で見る</string>
   <string name="other_languages_indication_text">別の言語で閲覧</string>
   <string name="language_count_link_text">他に%dの言語で利用可能</string>
@@ -123,7 +123,7 @@
   <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
-  <string name="edit_section_captcha_request_an_account_message">画像が見られませんか? &lt;a href=https://ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成&gt;アカウント作成の申請&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">画像が見られませんか? &lt;a href=\"https://ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成\"&gt;アカウント作成の申請&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
@@ -141,7 +141,7 @@
   <string name="login_activity_title">ログイン</string>
   <string name="login_in_progress_dialog_message">ログイン中…</string>
   <string name="login_success_toast">ログインしました!</string>
-  <string name="reset_password_title">パスワードを設定する</string>
+  <string name="reset_password_title">パスワードを設定</string>
   <string name="reset_password_description">あなたは一時的なパスワードでログインしています。ログインを完了するには、新しいパスワードをここで設定してください。</string>
   <string name="reset_password_hint">新しいパスワード</string>
   <string name="reset_password_button">保存してログイン</string>
@@ -165,7 +165,7 @@
   <string name="login_join_wikipedia">ウィキペディアに参加</string>
   <string name="login_forgot_password">パスワードを忘れた場合はこちら</string>
   <string name="create_account_already_have">既にアカウントをお持ちですか?</string>
-  <string name="create_account_activity_title">アカウント作成</string>
+  <string name="create_account_activity_title">アカウントを作成</string>
   <string name="dialog_create_account_checking_progress">検証中</string>
   <string name="create_account_email_hint">メール (省略可能)</string>
   <string name="create_account_password_repeat_hint">パスワード (再入力)</string>
@@ -179,11 +179,11 @@
   <string name="email_recommendation_dialog_message">メールアドレスはオプションではありますが、もしパスワードを忘れた場合にアカウント復元に必要なため&lt;b&gt;強く推奨します&lt;/b&gt;。</string>
   <string name="email_recommendation_message">アカウント復元にはメールアドレスが必要なため推奨します。</string>
   <string name="email_recommendation_dialog_create_without_email_action">メールアドレスなしで先に進む</string>
-  <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを設定</string>
+  <string name="email_recommendation_dialog_create_with_email_action">メールアドレスを追加</string>
   <string name="create_account_button">アカウント作成</string>
   <string name="create_account_name_unavailable">ユーザー名「%s」はご利用になれません。別の名前を選んでください。</string>
   <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
-  <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/Wikipedia:FAQ 投稿ブロック</string>
+  <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/Wikipedia:FAQ_投稿ブロック</string>
   <string name="create_account_ip_block_details">詳細</string>
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
@@ -234,7 +234,7 @@
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
   <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 ライセンス&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;クリエイティブ・コモンズ表示 - 継承ライセンス&lt;/a&gt;の下で提供されます。</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ウィキメディア財団&lt;/a&gt;の製品</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ウィキメディア財団&lt;/a&gt;のプロダクト</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
   <string name="edit_abandon_confirm_yes">はい</string>
@@ -304,7 +304,7 @@
   <string name="gallery_share_error">画像が共有できませんでした: %s</string>
   <string name="gallery_save_progress">ファイルをダウンロードしています…</string>
   <string name="gallery_save_success">ファイルを保存しました。</string>
-  <string name="gallery_error_video_failed">動画を再生できません</string>
+  <string name="gallery_error_video_failed">動画を再生できませんでした。</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込む許可は画像の保存に必要になります。</string>
   <string name="gallery_add_image_caption_button">画像キャプションを追加</string>
   <string name="gallery_add_image_caption_in_language_button">画像キャプションを追加 (%s)</string>
@@ -318,7 +318,7 @@
   <string name="gallery_not_available_offline_snackbar_dismiss">閉じる</string>
   <string name="menu_new_tab">新規タブ</string>
   <string name="menu_close_all_tabs">すべてのタブを閉じる</string>
-  <string name="close_all_tabs_confirm">本当に全てのタブを閉じてよろしいですか?</string>
+  <string name="close_all_tabs_confirm">本当にすべてのタブを閉じてよろしいですか?</string>
   <string name="close_all_tabs_confirm_yes">はい</string>
   <string name="close_all_tabs_confirm_no">いいえ</string>
   <string name="button_close_tab">タブを閉じる</string>
@@ -346,7 +346,7 @@
   <string name="page_offline_notice_last_date">あなたが読んでいる記事は%sに保存されたオフライン版です。</string>
   <string name="button_get_directions">ルートを検索</string>
   <string name="error_no_maps_app">ルートを示すアプリが見つかりませんでした。</string>
-  <string name="preference_title_customize_explore_feed">「探してみよう」フィード</string>
+  <string name="preference_title_customize_explore_feed">探索フィード</string>
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
   <string name="preference_summary_customize_explore_feed">「探してみよう」フィードをカスタマイズ</string>
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
@@ -354,13 +354,13 @@
   <string name="preference_summary_collapse_tables">記事内の基本データ、参考文献、脚注などの表を自動的に閉じる</string>
   <string name="nav_item_donate">ウィキペディアを支援する</string>
   <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
-  <string name="location_service_disabled">位置情報サービスが停止されています。</string>
+  <string name="location_service_disabled">位置情報サービスが無効です。</string>
   <string name="enable_location_service">有効にする</string>
   <string name="location_permissions_enable_prompt">位置情報サービスの権限を有効にして、近くの場所を表示します。</string>
   <string name="location_permissions_enable_action">有効にする</string>
   <string name="error_webview_updating">Android System WebViewは更新中です。しばらくしてからもう一度お試しください。</string>
   <plurals name="multi_items_selected">
-    <item quantity="other">%d 件の選択</item>
+    <item quantity="other">%d件選択</item>
   </plurals>
   <string name="multi_select_items_selected">%d件選択</string>
   <string name="error_message_generic">エラーが発生しました</string>
@@ -390,9 +390,9 @@
   <string name="article_header_edit_description">記事の説明を編集</string>
   <string name="article_header_edit_lead_section">導入部を編集</string>
   <string name="color_theme_select">テーマ</string>
-  <string name="color_theme_light">明</string>
+  <string name="color_theme_light">ライト</string>
   <string name="color_theme_dark">ダーク</string>
-  <string name="color_theme_black">黒</string>
+  <string name="color_theme_black">ブラック</string>
   <string name="color_theme_sepia">セピア</string>
   <string name="color_theme_test_title">サンプルテキスト</string>
   <string name="color_theme_test_text">スライダーをドラッグして記事を読むときに使用するテキストのサイズを変更します。アプリのその他の部分で利用するテキストサイズを設定するには、システムのテキストサイズを変更します。</string>
@@ -442,7 +442,7 @@
   <string name="reading_list_action_menu_add_to_another_list">別のリストに追加</string>
   <string name="reading_list_action_menu_move_to_another_list">別のリストに移動</string>
   <string name="reading_list_name_sample">あなたのあとで読むリスト</string>
-  <string name="reading_list_name_hint">このリストの名称</string>
+  <string name="reading_list_name_hint">このリストの名前</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
   <string name="reading_list_item_deleted">%s はリストから削除されました</string>
   <plurals name="reading_list_articles_deleted">
@@ -486,10 +486,10 @@
   <string name="reading_list_article_save_in_progress">記事がダウンロードされ、完了したら記事をオフラインで利用できるようになります。</string>
   <string name="reading_list_articles_added_to_named">%1$dに%2$sを追加しました</string>
   <string name="reading_list_articles_moved_to_named">%1$d記事を%2$sに移動しました</string>
-  <string name="reading_list_delete_confirm">%s を本当に削除しますか?</string>
+  <string name="reading_list_delete_confirm">%sを本当に削除しますか?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">ログインして同期を有効にする</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">ログインして、あとで読むリストをアカウントに保存することを許可</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">中止</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">キャンセル</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">ログイン</string>
   <string name="reading_list_turned_sync_off_dialog_title">あとで読むリストの同期はオフになりました</string>
   <string name="reading_list_turned_sync_off_dialog_text">あとで読むリストの同期はあなたのアカウントではオフになっており、ログイン済みのデバイス上での保存された記事は今後バックアップされません。設定であとで読むリストの同期をオンにしてください。</string>
@@ -499,7 +499,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_text">あとで読むリストに保存された記事は、あなたのウィキペディアアカウントと同期できるようになりました。&lt;a href=\"#faq\"&gt;もっと詳しく&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">やめます</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">いいえ</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
@@ -509,7 +509,7 @@
   <string name="reading_list_move_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました</string>
   <string name="reading_list_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました。</string>
   <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
-  <string name="reading_lists_menu_create_list">リストを新規作成</string>
+  <string name="reading_lists_menu_create_list">新しいリストを作成</string>
   <string name="reading_lists_menu_sort_by">並び順:</string>
   <string name="reading_lists_refresh_sync_option">同期を更新</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ログイン / 登録</string>
@@ -525,17 +525,17 @@
   <string name="reading_list_menu_last_sync">最後の同期: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
-  <string name="reading_list_remove_from_list_dialog_cancel_button_text">中止</string>
-  <string name="reading_list_delete_dialog_cancel_button_text">中止</string>
-  <string name="reading_list_remove_from_offline_cancel_button_text">中止</string>
-  <string name="reading_list_download_using_mobile_data_cancel_button_text">中止</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">キャンセル</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">キャンセル</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">キャンセル</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">キャンセル</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">設定</string>
   <string name="notification_reverted_title">編集が差し戻されました</string>
   <string name="notification_channel_description">ダウンロードの進行状況</string>
   <string name="notification_syncing_pause_button">一時停止</string>
   <string name="notification_syncing_resume_button">継続</string>
-  <string name="notification_syncing_cancel_button">中止</string>
+  <string name="notification_syncing_cancel_button">キャンセル</string>
   <string name="notification_syncing_reading_list_channel_description">あとで読むリストを同期中です</string>
   <string name="notification_many_unread">未読のお知らせが%d件あります</string>
   <plurals name="notification_channel_name">
@@ -572,7 +572,7 @@
   <string name="notifications_archive">既読にしてアーカイブ</string>
   <plurals name="notification_archive_message">
     <item quantity="one">通知をアーカイブしました</item>
-    <item quantity="other">通知を%d件アーカイブしました</item>
+    <item quantity="other">%d件の通知をアーカイブしました</item>
   </plurals>
   <string name="notifications_poll_enable_title">通知を有効にする</string>
   <string name="notifications_poll_enable_positive">有効にする</string>
@@ -613,7 +613,7 @@
   <string name="menu_feed_card_edit_card_languages">カードの言語を編集</string>
   <string name="menu_feed_overflow_label">その他の操作</string>
   <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
-  <string name="feed">探索する</string>
+  <string name="feed">探索</string>
   <string name="home">ホーム</string>
   <string name="most_read_list_card_title">トレンド</string>
   <string name="view_static_card_icon_content_description">カードアイコン</string>
@@ -630,13 +630,13 @@
   <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_static_card_save_button_label">保存</string>
   <string name="view_featured_article_footer_saved_button_label">保存しました</string>
-  <string name="feed_configure_activity_title">「探索する」カードのカスタマイズ</string>
+  <string name="feed_configure_activity_title">探索フィードをカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
   <string name="feed_configure_menu_select_all">すべて表示</string>
   <string name="feed_configure_menu_deselect_all">すべて隠す</string>
   <string name="feed_configure_language_warning">すべてのウィキペディアの言語で、すべてのカードの種類が利用できるわけではないことにご留意ください。設定で言語を選んでください。</string>
   <string name="feed_item_type_news">最近の出来事の記事</string>
-  <string name="feed_item_type_on_this_day">過去に起こったこの日の出来事</string>
+  <string name="feed_item_type_on_this_day">この日起きた過去の出来事</string>
   <string name="feed_item_type_because_you_read">最近の閲覧履歴からお勧めの記事</string>
   <string name="feed_item_type_featured_article">ウィキペディアの今日の秀逸な記事</string>
   <string name="feed_item_type_trending">今日の最も閲覧された記事</string>
@@ -644,15 +644,15 @@
   <string name="feed_item_type_main_page">ウィキペディアのメインページ。今日の選り抜き記事や画像を表示</string>
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
   <string name="feed_item_type_suggested_edits">ウィキペディアへの内容追加のご提案</string>
-  <string name="feed_empty_message">あなたの探索するフィードには何もありません。</string>
+  <string name="feed_empty_message">あなたの探索フィードには何もありません。</string>
   <string name="feed_configure_onboarding_action">カスタマイズ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
-  <string name="customize_lang_selection_dialog_cancel_button_text">中止</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Exploreフィードをカスタマイズする&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;フィードに表示するコンテンツを選択して、お気に入りのタイプのコンテンツに優先順位を付けることができるようになりました。</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">キャンセル</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;探索フィードをカスタマイズする&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;フィードに表示するコンテンツを選択して、お気に入りのタイプのコンテンツに優先順位を付けることができるようになりました。</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">キャンセル</string>
   <string name="feed_accessibility_card_text">フィード一覧はこれで最後です。</string>
-  <string name="feed_accessibility_card_load_more_button">さらに読む</string>
+  <string name="feed_accessibility_card_load_more_button">さらに読み込む</string>
   <string name="description_edit_text_hint">記事の説明</string>
   <string name="description_edit_article_description_label">記事</string>
   <string name="description_edit_translate_article_description_label_per_language">記事の説明 (%s)</string>
@@ -697,6 +697,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">説明は1行のみで、30文字程度で書いてください</string>
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">この機能を悪用しないことを約束して、スタートする。</string>
+  <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
   <string name="suggested_edits_review_description">記事の説明を確認</string>
@@ -716,7 +717,7 @@
   <string name="suggested_edits_task_add_description_description">説明が未記入の記事に着手する</string>
   <string name="suggested_edits_task_image_caption_title">画像キャプションを追加</string>
   <string name="suggested_edits_task_image_caption_description">画像にキャプションを追加する</string>
-  <string name="suggested_edits_task_translate_caption_title">画像キャプションの編集</string>
+  <string name="suggested_edits_task_translate_caption_title">画像キャプションを翻訳</string>
   <string name="suggested_edits_task_translate_caption_description">画像のキャプションを他の言語に翻訳</string>
   <string name="suggested_edits_task_multilingual_title">多言語話者の編集者向けのタスク</string>
   <string name="suggested_edits_task_multilingual_description">2言語以上で読み書きができる編集者向けに編集タスクがあります。</string>
@@ -724,15 +725,15 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">最低%d件の (有効な) 編集をするまでロックされています</string>
   <string name="suggested_edits_task_multilingual_negative">私向けではありません</string>
   <string name="suggested_edits_task_multilingual_positive">言語を追加</string>
-  <string name="suggested_edits_image_caption_summary_title_image">ファイル</string>
+  <string name="suggested_edits_image_caption_summary_title_image">画像</string>
   <string name="suggested_edits_image_caption_summary_title_artist">アーティスト</string>
   <string name="suggested_edits_image_caption_summary_title_author">著者</string>
   <string name="suggested_edits_image_caption_summary_title_source">情報源</string>
   <string name="suggested_edits_image_caption_summary_title_license">ライセンス</string>
   <string name="suggested_edits_image_caption_summary_title_date">日付</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="one">1 件の投稿</item>
-    <item quantity="other">%d 件の投稿</item>
+    <item quantity="one">1件の投稿</item>
+    <item quantity="other">%d件の投稿</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">編集提案</string>
   <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
@@ -748,15 +749,15 @@
   <string name="suggested_edits_image_preview_dialog_licensing">ライセンス</string>
   <string name="suggested_edits_image_preview_dialog_more_info">詳細情報</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ウィキメディア コモンズのファイルページ</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Wikipedia のファイルページ</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">ウィキペディアのファイルページ</string>
   <string name="suggested_edits_article_cta_image_tags">画像タグを追加</string>
   <string name="suggested_edits_article_cta_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">画像キャプションを追加 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
   <string name="suggested_edits_feed_card_add_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_feed_card_translate_image_caption">画像キャプションを追加 (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">画像タグ使用</string>
-  <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか？ アプリを使った編集について、アンケートに回答をお願いします。</string>
+  <string name="suggested_edits_feed_card_add_image_tags">画像タグを追加</string>
+  <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか? アプリを使った編集について、アンケートに回答をお願いします。</string>
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="suggested_edits_task_action_text_add">追加</string>
   <string name="suggested_edits_task_action_text_translate">翻訳</string>
@@ -779,8 +780,11 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアをより良くするための素早く簡単な方法を以下にご紹介します。始めてすぐ、あなたは自分が編集した内容が反映されるのを見ることができます。良い編集を!</string>
   <string name="suggested_edits_image_captions_task_detail">読者が意味と文脈を理解できるように、画像について説明してください。</string>
   <string name="suggested_edits_add_descriptions_task_detail">読者が一目でその主題を理解できるように要約してください。</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">編集提案の投稿回数</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">編集提案からの投稿を何日間休みなしで続けたかです。しばらく投稿していない場合には最後の投稿日が表示されます。</string>
+  <string name="suggested_edits_contributions_stat_tooltip">これまでの編集回数</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">投稿を何日間連続で行ったかです。しばらく投稿していない場合には最後の投稿日が表示されます。</string>
+  <string name="suggested_edits_page_views_stat_tooltip">過去30日間の、投稿したアイテムへの総ページビュー数です。</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">あなたの投稿が巻き戻された（他の編集者に取り消された）回数を基づいています。巻き戻された編集数：%d。</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">編集提案は%1$sまでに無効にされました。申し訳ありません、%2$sさん。あなたの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_disabled_message">編集提案は無効にされました。申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_ip_blocked_message">ご使用のIPアドレスまたはIPアドレスの範囲は現在ウィキペディアの編集からブロックされているようです。</string>
   <string name="suggested_edits_editing_tips_link_text">編集のヒントとコツ</string>
@@ -802,8 +806,8 @@
     <item quantity="other">投稿</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
-    <item quantity="one">%d 日</item>
-    <item quantity="other">%d 日</item>
+    <item quantity="one">%d日</item>
+    <item quantity="other">%d日</item>
   </plurals>
   <string name="suggested_edits_what_is_title">編集提案とは</string>
   <string name="suggested_edits_what_is_text">ウィキペディアへの小さいながらも重要な編集を提案する機能です。</string>
@@ -816,6 +820,8 @@
   <string name="suggested_edits_task_new">新規</string>
   <string name="suggested_edits_cc0_notice">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0ライセンス&lt;/a&gt;の下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="suggested_edits_reactivation_notification_title">編集提案</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">ウィキペディアを編集していただきありがとうございます! このまま編集を続けてみてはどうでしょうか?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">ウィキペディアを編集する時間がありますか? 提案された編集を確認してください。</string>
   <string name="suggested_edits_contributions_screen_title">%sさんの投稿記録</string>
   <string name="suggested_edits_contribution_language_label">言語</string>
   <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
@@ -823,6 +829,10 @@
   <string name="suggested_edits_contribution_image_label">画像</string>
   <string name="suggested_edits_contribution_article_label">記事</string>
   <string name="suggested_edits_contribution_views">%s表示</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">過去30日間に1回見られました。</item>
+    <item quantity="other">過去30日間に%s回見られました。</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">過去30日間で%s回の閲覧がありました。</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">%dつのタグを追加しました</item>
@@ -839,6 +849,7 @@
     <item quantity="other">過去30日の間にあなたの編集が%d人に見られています。これからもよろしくお願いします。</item>
   </plurals>
   <string name="suggested_edits_rewards_contribution">あなたは提案された編集を使って%d件の編集をしました。ありがとうございます!</string>
+  <string name="suggested_edits_rewards_edit_streak">%1$d日間編集し続けています。このまま頑張ってください、%2$sさん!</string>
   <string name="suggested_edits_rewards_pageviews">あなたの編集は30日間に%d人に見られています。これからもよろしくお願いします!</string>
   <string name="suggested_edits_rewards_continue_button">続行</string>
   <string name="suggested_edits_encourage_account_creation_title">誰でもウィキペディアを編集できることはご存知でしたか?</string>
@@ -879,7 +890,7 @@
   <string name="onboarding_continue">続ける</string>
   <string name="onboarding_get_started">始めよう</string>
   <string name="onboarding_maybe_later">あとで</string>
-  <string name="onboarding_explore_title">新ツールで探検しよう</string>
+  <string name="onboarding_explore_title">新しいツールで探検しよう</string>
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
@@ -949,7 +960,7 @@
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
   <string name="main_tooltip_text">%sさん、ウィキペディアは誰でも編集できることをご存知でしたか?</string>
-  <string name="main_tooltip_text_v2">ウィキペディアは誰もが編集できることをご存知ですか？</string>
+  <string name="main_tooltip_text_v2">ウィキペディアは誰もが編集できることをご存知ですか?</string>
   <string name="main_tooltip_action_button">始める</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
