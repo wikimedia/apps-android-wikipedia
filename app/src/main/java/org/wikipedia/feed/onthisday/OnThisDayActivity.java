@@ -26,6 +26,7 @@ public class OnThisDayActivity extends SingleFragmentActivity<OnThisDayFragment>
     public void onBackPressed() {
         super.onBackPressed();
         getFragment().onBackPressed();
+        finish();
     }
 
     @Override
