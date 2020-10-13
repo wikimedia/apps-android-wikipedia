@@ -70,26 +70,28 @@ public class LangLinksActivityTest{
     private List<PageTitle> getExpectedZhHantResults() {
         List<PageTitle> result = getBaseLanguageEntries();
         // this order follows the order in languages_list.xml
-        result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-hk")));
-        result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-hans")));
-        result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-tw")));
-        result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-my")));
-        result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-cn")));
-        result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-mo")));
-        result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode("zh-sg")));
+        List<String> variants = WikipediaApp.getInstance().language().getLanguageVariants("zh");
+        if (variants != null) {
+            for (String languageCode : variants) {
+                if (!languageCode.equals("zh-hant")) {
+                    result.add(new PageTitle("洋基體育場 (1923年)", WikiSite.forLanguageCode(languageCode)));
+                }
+            }
+        }
         return result;
     }
 
     private List<PageTitle> getExpectedZhHansResults() {
         List<PageTitle> result = getBaseLanguageEntries();
         // this order follows the order in languages_list.xml
-        result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-hk")));
-        result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-tw")));
-        result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-my")));
-        result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-hant")));
-        result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-cn")));
-        result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-mo")));
-        result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode("zh-sg")));
+        List<String> variants = WikipediaApp.getInstance().language().getLanguageVariants("zh");
+        if (variants != null) {
+            for (String languageCode : variants) {
+                if (!languageCode.equals("zh-hans")) {
+                    result.add(new PageTitle("洋基体育场 (1923年)", WikiSite.forLanguageCode(languageCode)));
+                }
+            }
+        }
         return result;
     }
 }
