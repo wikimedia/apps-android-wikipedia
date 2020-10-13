@@ -23,14 +23,14 @@ import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
-import com.google.firebase.ml.naturallanguage.languageid.FirebaseLanguageIdentification;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
+import org.wikipedia.language.FirebaseLanguageDetector;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
@@ -53,7 +53,7 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLAT
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
-public class DescriptionEditView extends LinearLayout {
+public class DescriptionEditView extends LinearLayout implements FirebaseLanguageDetector.Callback {
     private static final int TEXT_VALIDATE_DELAY_MILLIS = 1000;
 
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
@@ -349,7 +349,11 @@ public class DescriptionEditView extends LinearLayout {
         }
         isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase().trim();
-        checkKeyboardLanguage(text);
+
+        FirebaseLanguageDetector firebaseLanguageDetector = new FirebaseLanguageDetector();
+        firebaseLanguageDetector.setCallback(this);
+        firebaseLanguageDetector.detectLanguageFromText(text);
+
         if (text.length() == 0) {
             isTextValid = false;
             clearError();
@@ -371,18 +375,6 @@ public class DescriptionEditView extends LinearLayout {
         }
 
         updateSaveButtonEnabled();
-    }
-
-    private void checkKeyboardLanguage(String text) {
-        FirebaseLanguageIdentification languageIdentifier =
-                FirebaseNaturalLanguage.getInstance().getLanguageIdentification();
-        languageIdentifier.identifyLanguage(text)
-                .addOnSuccessListener(
-                        languageCode -> {
-                            if (!languageCode.equals("und") && !languageCode.equals(pageSummaryForEdit.getLang())) {
-                                setWarning(getContext().getString(R.string.description_is_in_different_language));
-                            }
-                        });
     }
 
     @OnEditorAction(R.id.view_description_edit_text)
@@ -451,5 +443,13 @@ public class DescriptionEditView extends LinearLayout {
     public void setAction(Action action) {
         this.action = action;
         isTranslationEdit = (action == TRANSLATE_CAPTION || action == TRANSLATE_DESCRIPTION);
+    }
+
+    @Override
+    public void onLanguageDetectionSuccess(@NotNull String languageCode) {
+        if (!languageCode.equals("und") && !languageCode.equals(pageSummaryForEdit.getLang())) {
+            setWarning(getContext().getString(R.string.description_is_in_different_language,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.getLang())));
+        }
     }
 }
