@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Aftabuzzaman
+* Al Riaz Uddin Ripon
 * Bellayet
 * Bodhisattwa
 * Elias Ahmmad
@@ -28,7 +29,7 @@
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="wikimedia">উইকিমিডিয়া</string>
   <string name="nav_item_back">পিছনে যান</string>
-  <string name="page_tabs_back">পিছনে</string>
+  <string name="page_tabs_back">পিছনে যান</string>
   <string name="nav_item_forward">সামনে যান</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_voice_search">কণ্ঠ দ্বারা অনুসন্ধান</string>
@@ -43,13 +44,14 @@
   <string name="article_load_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="offline_load_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="page_error_back_to_main">ফিরে যান</string>
-  <string name="error_back">পিছনে যান</string>
-  <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
+  <string name="error_back">ফিরে যান</string>
+  <string name="menu_clear_all_history">ইতিহাস পরিষ্কার</string>
   <string name="history_item_deleted">ইতিহাস থেকে %s সরানো হয়েছে</string>
   <string name="history_items_deleted">ইতিহাস থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="history_item_delete_undo">পূর্বাবস্থা</string>
   <string name="notification_archive_undo">পূর্বাবস্থায় ফেরান</string>
   <string name="app_settings">অ্যাপ সেটিং</string>
+  <string name="history_list_title">ইতিহাস</string>
   <string name="dialog_title_clear_history">ব্রাউজ করার ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="dialog_message_clear_history_yes">হ্যাঁ</string>
@@ -63,7 +65,9 @@
   <string name="edit_section_find_in_page">পাতায় খুজুন</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
+  <string name="menu_page_add_to_default_list">সংরক্ষণ</string>
   <string name="feed_card_add_to_list">পড়ার তালিকায় যোগ করুন</string>
+  <string name="feed_card_add_to_default_list">সংরক্ষণ</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
   <string name="menu_page_open_a_new_tab">নতুন ট্যাব খুলুন</string>
   <string name="menu_page_reading_lists">পড়ার তালিকা</string>

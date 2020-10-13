@@ -254,6 +254,12 @@
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
   <string name="search_results_count_zero">אין תוצאות</string>
+  <plurals name="search_results_count">
+    <item quantity="one">תוצאה אחת</item>
+    <item quantity="two">שתי תוצאות</item>
+    <item quantity="many">%dתוצאות</item>
+    <item quantity="other">%d תוצאות</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">ניקוי החיפושים האחרונים</string>
   <string name="clear_recent_searches_confirm">האם באמת רצית לנקות את היסטוריית החיפוש שלך?</string>
   <string name="clear_recent_searches_confirm_yes">כן</string>
@@ -317,6 +323,7 @@
   <string name="address_copied">הכתובת הועתקה ללוח.</string>
   <string name="text_copied">הטקסט הועתק ללוח.</string>
   <string name="button_continue_to_article">לקרוא את הערך</string>
+  <string name="button_continue_to_talk_page">לפתוח את דף השיחה</string>
   <string name="button_continue_to_disambiguation">הצגת דפים דומים</string>
   <string name="link_preview_disambiguation_description">הכותרת מתייחסת ליותר מדף אחד:</string>
   <string name="button_add_to_reading_list">הוספה לרשימת קריאה</string>
@@ -389,6 +396,12 @@
   <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="reading_list_add_to_list_button">הוספת לרשימה</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">ערך אחד, %2$.2f מ״ב</item>
+    <item quantity="two">שני ערכים %2$.2f מ״ב</item>
+    <item quantity="many">%1$d ערכים, %2$.2f מ״ב</item>
+    <item quantity="other">%1$d ערכים, %2$.2f מ״ב</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d מתוך 1 ערכים זמינים ללא חיבור לרשת, %2$.2f מ\"ב</string>
@@ -767,9 +780,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
   <string name="suggested_edits_image_captions_task_detail">נא לתאר את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
   <string name="suggested_edits_add_descriptions_task_detail">נא לסכם את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך עד עכשיו.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים ברצף תרמת. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
@@ -825,28 +838,39 @@
     <item quantity="one">הוספת תג אחד</item>
     <item quantity="other">הוספת %d תגים</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
+  <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
+  <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
   <string name="suggested_edits_rewards_continue_button">המשך</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="suggested_edits_encourage_account_creation_message">’עריכות מוצעות’ היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה על מנת להתחיל.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="suggested_edits_contribution_type_image_tag">תג תמונה</string>
   <string name="suggested_edits_contribution_current_revision_text">העריכה שלך פורסמה כעת בוויקיפדיה</string>
-  <plurals name="suggested_edits_tags_diff_count_text" fuzzy="true">
+  <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">תג אחד</item>
+    <item quantity="two">שני תגים</item>
+    <item quantity="many">%1$s תגים</item>
     <item quantity="other">%1$s תגים</item>
   </plurals>
-  <plurals name="suggested_edits_contribution_diff_count_text" fuzzy="true">
+  <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">תו אחד</item>
+    <item quantity="two">שני תווים</item>
+    <item quantity="many">%1$s תווים</item>
     <item quantity="other">%1$s תווים</item>
   </plurals>
-  <plurals name="suggested_edits_removed_contribution_label" fuzzy="true">
+  <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="one">הסרת תו אחד</item>
+    <item quantity="two">הסרת שני תווים</item>
+    <item quantity="many">הסרת %d תווים</item>
     <item quantity="other">הסרת %d תווים</item>
   </plurals>
-  <plurals name="suggested_edits_added_contribution_label" fuzzy="true">
+  <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">הוספת תו אחד</item>
+    <item quantity="two">הוספת שני תווים</item>
+    <item quantity="many">הוספת %d תווים</item>
     <item quantity="other">הוספת %d תווים</item>
   </plurals>
   <string name="file_page_activity_title">דף קובץ</string>
