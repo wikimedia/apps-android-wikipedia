@@ -139,13 +139,13 @@ public final class UriUtil {
     /** For internal links only */
     @NonNull
     public static String removeInternalLinkPrefix(@NonNull String link) {
-        return link.replaceFirst("/wiki/|/zh.*/", "");
+        return link.replaceFirst("/(wiki|zh.*)/", "");
     }
 
     /** For links that could be internal or external links */
     @NonNull
     private static String removeLinkPrefix(@NonNull String link) {
-        return link.replaceFirst("^.*?/wiki/", "");
+        return link.replaceFirst("^.*?/(wiki|zh.*)/", "");
     }
 
     /** Removes an optional fragment portion of a URL */
