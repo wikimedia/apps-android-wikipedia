@@ -130,6 +130,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun updateContents() {
         seFeedCardProgressBar.visibility = VISIBLE
+        suggestedEditsFragmentViewGroup.visibility = GONE
         suggestedEditsFragmentViewGroup.addOnClickListener {
             if (itemClickable) {
                 funnel.cardClicked(CardType.SUGGESTED_EDITS, if (targetLanguage != null && targetLanguage.equals(langFromCode)) langFromCode else targetLanguage)
@@ -180,6 +181,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun updateUI() {
         itemClickable = true
         seFeedCardProgressBar.visibility = GONE
+        suggestedEditsFragmentViewGroup.visibility = VISIBLE
         callToActionButton.visibility = VISIBLE
         if (sourceSummaryForEdit != null) {
             cardView.layoutDirection = if (L10nUtil.isLangRTL(if (targetSummaryForEdit != null)
