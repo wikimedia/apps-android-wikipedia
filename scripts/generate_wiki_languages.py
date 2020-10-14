@@ -113,6 +113,9 @@ for key, value in data[u"sitematrix"].items():
             add_lang(variant, variant_lang_name.replace("'", "\\'"), en_lang_name.replace("'", "\\'"), rank)
 
         add_variant(language_code_variants)
+
+    # skip adding zh language code since it has manually added language variants in the previous version
+    if language_code == 'zh':
         continue
 
     add_lang(language_code, lang_name.replace("'", "\\'"), value[u"localname"].replace("'", "\\'"), rank)
