@@ -11,6 +11,7 @@ import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 
 import org.apache.commons.lang3.StringUtils;
+import org.intellij.lang.annotations.RegExp;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
@@ -25,6 +26,7 @@ public final class UriUtil {
     public static final String LOCAL_URL_LOGIN = "#login";
     public static final String LOCAL_URL_CUSTOMIZE_FEED = "#customizefeed";
     public static final String LOCAL_URL_LANGUAGES = "#languages";
+    @RegExp public static final String WIKI_REGEX = "/(wiki|[a-z]{2,3}|[a-z]{2,3}-.*)/";
 
     /**
      * Decodes a URL-encoded string into its UTF-8 equivalent. If the string cannot be decoded, the
@@ -103,7 +105,7 @@ public final class UriUtil {
         return (!TextUtils.isEmpty(uri.getAuthority())
                 && uri.getAuthority().endsWith("wikipedia.org")
                 && !TextUtils.isEmpty(uri.getPath())
-                && uri.getPath().matches("^" + getWikiRegex() + ".*"))
+                && uri.getPath().matches("^" + WIKI_REGEX + ".*"))
                 && (uri.getFragment() == null
                 || (uri.getFragment().length() > 0
                 && !uri.getFragment().startsWith("cite")));
@@ -136,21 +138,16 @@ public final class UriUtil {
         return parts.length > 1 && !parts[0].equals("wiki") ? parts[0] : "";
     }
 
-    @NonNull
-    public static String getWikiRegex() {
-        return "/(wiki|[a-z]{2,3}|[a-z]{2,3}-.*)/";
-    }
-
     /** For internal links only */
     @NonNull
     public static String removeInternalLinkPrefix(@NonNull String link) {
-        return link.replaceFirst(getWikiRegex(), "");
+        return link.replaceFirst(WIKI_REGEX, "");
     }
 
     /** For links that could be internal or external links */
     @NonNull
     public static String removeLinkPrefix(@NonNull String link) {
-        return link.replaceFirst("^.*?" + getWikiRegex(), "");
+        return link.replaceFirst("^.*?" + WIKI_REGEX, "");
     }
 
     /** Removes an optional fragment portion of a URL */

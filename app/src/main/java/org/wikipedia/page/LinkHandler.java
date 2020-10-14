@@ -89,12 +89,12 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         // TODO: remove this after the endpoint supporting language variants
         String convertedText = UriUtil.getTitleFromUrl(href);
         if (!convertedText.equals(titleString)) {
-            titleString = convertedText;
+            titleString = convertedText;`
         }
 
         L.d("Link clicked was " + uri.toString());
         if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
-                && (uri.getPath().matches("^" + UriUtil.getWikiRegex() + ".*"))) {
+                && (uri.getPath().matches("^" + UriUtil.WIKI_REGEX + ".*"))) {
             WikiSite site = new WikiSite(uri);
             if (site.subdomain().equals(getWikiSite().subdomain())
                     && !site.languageCode().equals(getWikiSite().languageCode())) {
