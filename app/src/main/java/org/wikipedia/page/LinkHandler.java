@@ -89,7 +89,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         // TODO: remove this after the endpoint supporting language variants
         String convertedText = UriUtil.getTitleFromUrl(href);
         if (!convertedText.equals(titleString)) {
-            titleString = convertedText;`
+            titleString = convertedText;
         }
 
         L.d("Link clicked was " + uri.toString());
