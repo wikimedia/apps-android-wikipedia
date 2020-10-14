@@ -160,7 +160,7 @@ public class AppLanguageState {
     }
 
     @Nullable
-    public String getParentLanguageCode(@Nullable String code) {
-        return appLanguageLookUpTable.getParentLanguageCodeFromVariant(code);
+    public String getDefaultLanguageCode(@Nullable String code) {
+        return appLanguageLookUpTable.getDefaultLanguageCodeFromVariant(code);
     }
 }

@@ -260,7 +260,7 @@ public class WikiSite implements Parcelable {
 
     @NonNull
     private static String languageCodeToSubdomain(@NonNull String languageCode) {
-        return StringUtils.defaultString(WikipediaApp.getInstance().language().getParentLanguageCode(languageCode), normalizeLanguageCode(languageCode));
+        return StringUtils.defaultString(WikipediaApp.getInstance().language().getDefaultLanguageCode(languageCode), normalizeLanguageCode(languageCode));
     }
 
     @NonNull public static String normalizeLanguageCode(@NonNull String languageCode) {

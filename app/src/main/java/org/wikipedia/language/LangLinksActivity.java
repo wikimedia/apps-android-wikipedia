@@ -277,7 +277,7 @@ public class LangLinksActivity extends BaseActivity {
     public static void addVariantEntriesIfNeeded(@NonNull AppLanguageState language, @NonNull PageTitle title,
                                                  @NonNull List<PageTitle> languageEntries) {
 
-        String parentLanguageCode = language.getParentLanguageCode(title.getWikiSite().languageCode());
+        String parentLanguageCode = language.getDefaultLanguageCode(title.getWikiSite().languageCode());
         if (parentLanguageCode != null) {
             List<String> languageVariants = language.getLanguageVariants(parentLanguageCode);
             if (languageVariants != null) {

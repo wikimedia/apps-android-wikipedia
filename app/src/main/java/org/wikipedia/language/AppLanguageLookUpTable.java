@@ -103,7 +103,7 @@ public class AppLanguageLookUpTable {
     }
 
     @Nullable
-    public String getParentLanguageCodeFromVariant(@Nullable String code) {
+    public String getDefaultLanguageCodeFromVariant(@Nullable String code) {
         for (Map.Entry<String, List<String>> entry : getLanguagesVariants().entrySet()) {
             if (entry.getValue().contains(code)) {
                 return entry.getKey();
