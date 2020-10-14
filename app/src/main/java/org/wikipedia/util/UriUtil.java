@@ -136,16 +136,21 @@ public final class UriUtil {
         return parts.length > 1 && !parts[0].equals("wiki") ? parts[0] : "";
     }
 
+    @NonNull
+    public static String getWikiRegex() {
+        return "/(wiki|[a-z]{2,3}|[a-z]{2,3}-.*)/";
+    }
+
     /** For internal links only */
     @NonNull
     public static String removeInternalLinkPrefix(@NonNull String link) {
-        return link.replaceFirst("/(wiki|zh.*)/", "");
+        return link.replaceFirst(getWikiRegex(), "");
     }
 
     /** For links that could be internal or external links */
     @NonNull
     private static String removeLinkPrefix(@NonNull String link) {
-        return link.replaceFirst("^.*?/(wiki|zh.*)/", "");
+        return link.replaceFirst("^.*?" + getWikiRegex(), "");
     }
 
     /** Removes an optional fragment portion of a URL */
