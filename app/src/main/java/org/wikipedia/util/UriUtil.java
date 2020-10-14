@@ -103,7 +103,7 @@ public final class UriUtil {
         return (!TextUtils.isEmpty(uri.getAuthority())
                 && uri.getAuthority().endsWith("wikipedia.org")
                 && !TextUtils.isEmpty(uri.getPath())
-                && uri.getPath().startsWith("/wiki"))
+                && uri.getPath().matches("^" + getWikiRegex() + ".*"))
                 && (uri.getFragment() == null
                 || (uri.getFragment().length() > 0
                 && !uri.getFragment().startsWith("cite")));
