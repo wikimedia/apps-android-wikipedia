@@ -12,6 +12,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp">
 
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/seCardErrorView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
         <ProgressBar
             android:id="@+id/seFeedCardProgressBar"
             android:layout_width="wrap_content"

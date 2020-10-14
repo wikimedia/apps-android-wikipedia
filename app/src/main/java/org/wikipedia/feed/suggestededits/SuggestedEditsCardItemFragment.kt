@@ -3,6 +3,7 @@ package org.wikipedia.feed.suggestededits
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -47,7 +48,6 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 
 private const val AGE = "age"
 private const val CARD_TYPE = "cardType"
@@ -129,13 +129,16 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun updateContents() {
-        seFeedCardProgressBar.visibility = VISIBLE
         suggestedEditsFragmentViewGroup.visibility = GONE
         suggestedEditsFragmentViewGroup.addOnClickListener {
             if (itemClickable) {
                 funnel.cardClicked(CardType.SUGGESTED_EDITS, if (targetLanguage != null && targetLanguage.equals(langFromCode)) langFromCode else targetLanguage)
                 startDescriptionEditScreen()
             }
+        }
+        seCardErrorView.setBackClickListener {
+            seCardErrorView.visibility = GONE
+            fetchCardTypeEdit()
         }
         fetchCardTypeEdit()
     }
@@ -164,6 +167,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun fetchCardTypeEdit() {
+        seFeedCardProgressBar.visibility = VISIBLE
         when (cardActionType) {
             ADD_DESCRIPTION -> addDescription()
             TRANSLATE_DESCRIPTION -> translateDescription()
@@ -216,7 +220,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     )
                     updateUI()
                 }, {
-                    L.e(it)
+                    showError(it)
                 }))
     }
 
@@ -254,7 +258,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     )
                     updateUI()
                 }, {
-                    L.e(it)
+                    showError(it)
                 }))
     }
 
@@ -294,7 +298,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                         updateUI()
                     }
                 }, {
-                    L.e(it)
+                    showError(it)
                 }))
     }
 
@@ -350,8 +354,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
                                 )
                         )
                     }
+                    updateUI()
                 }, {
-                    L.e(it)
+                    showError(it)
                 }))
     }
 
@@ -364,13 +369,13 @@ class SuggestedEditsCardItemFragment : Fragment() {
                     imageTagPage = page
                     updateUI()
                 }, {
-                    L.e(it)
+                    showError(it)
                 }))
     }
 
     private fun showImageTagsUI() {
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
         showAddImageCaptionUI()
+        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
         viewArticleExtract.text = StringUtil.removeNamespace(imageTagPage!!.title())
     }
 
@@ -426,6 +431,13 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
             }
         }
+    }
+
+    fun showError(caught: Throwable?) {
+        seFeedCardProgressBar.visibility = GONE
+        seCardErrorView.setError(caught)
+        seCardErrorView.visibility = VISIBLE
+        seCardErrorView.bringToFront()
     }
 
     companion object {
