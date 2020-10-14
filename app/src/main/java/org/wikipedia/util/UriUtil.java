@@ -149,7 +149,7 @@ public final class UriUtil {
 
     /** For links that could be internal or external links */
     @NonNull
-    private static String removeLinkPrefix(@NonNull String link) {
+    public static String removeLinkPrefix(@NonNull String link) {
         return link.replaceFirst("^.*?" + getWikiRegex(), "");
     }
 
