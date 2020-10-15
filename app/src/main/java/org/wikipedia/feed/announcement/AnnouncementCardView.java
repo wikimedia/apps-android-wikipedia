@@ -19,6 +19,7 @@ import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.WikiCardView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +31,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         void onAnnouncementNegativeAction(@NonNull Card card);
     }
 
+    @BindView(R.id.view_announcement_container) WikiCardView container;
     @BindView(R.id.view_announcement_header_image) FaceAndColorDetectImageView headerImageView;
     @BindView(R.id.view_announcement_text) TextView textView;
     @BindView(R.id.view_announcement_action_positive) Button actionViewPositive;
@@ -91,7 +93,10 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         }
 
         if (card.hasBorder()) {
-          //Todo: To be updated after design input is available
+            container.setStrokeColor(getResources().getColor(R.color.red30));
+            container.setStrokeWidth(10);
+        } else {
+            container.setDefaultBorder();
         }
     }
 
