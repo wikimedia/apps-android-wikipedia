@@ -539,6 +539,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
+        // If user enter PageActivity in portrait and leave in landscape,
+        // we should hide the transition animation view to prevent bad animation.
         if (DimenUtil.isLandscape(this)) {
             wikiArticleCardView.setVisibility(View.GONE);
         }
