@@ -539,6 +539,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
+        if (DimenUtil.isLandscape(this)) {
+            wikiArticleCardView.setVisibility(View.GONE);
+        }
         pageFragmentView.setVisibility(View.GONE);
         super.onBackPressed();
     }
