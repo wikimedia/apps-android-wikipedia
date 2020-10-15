@@ -264,6 +264,10 @@
   <string name="search_did_you_mean">Bedoelde u \"%s\"?</string>
   <string name="search_recent_header">Recente zoekopdrachten:</string>
   <string name="search_results_count_zero">Geen resultaten</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultaat</item>
+    <item quantity="other">%d resultaten</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Recente zoekopdrachten wissen</string>
   <string name="clear_recent_searches_confirm">Weet u zeker dat u uw zoekgeschiedenis wilt wissen?</string>
   <string name="clear_recent_searches_confirm_yes">Ja</string>
@@ -327,6 +331,7 @@
   <string name="address_copied">Het adres is gekopieerd naar het klembord.</string>
   <string name="text_copied">De tekst is gekopieerd naar het klembord.</string>
   <string name="button_continue_to_article">Pagina lezen</string>
+  <string name="button_continue_to_talk_page">Overlegpagina openen</string>
   <string name="button_continue_to_disambiguation">Toon vergelijkbare pagina\'s</string>
   <string name="link_preview_disambiguation_description">Deze titel heeft betrekking op meer dan één pagina:</string>
   <string name="button_add_to_reading_list">Aan leeslijst toevoegen</string>
@@ -883,12 +888,15 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuleren</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Annuleren</string>
+  <string name="talk_title">Overleg</string>
+  <string name="talk_user_title">Overleg: %s</string>
   <string name="talk_new_topic">Nieuw onderwerp</string>
   <string name="talk_page_empty">Deze overlegpagina is leeg.</string>
   <string name="talk_add_reply">Reageren</string>
   <string name="talk_no_subject">(Geen onderwerp)</string>
   <string name="talk_reply_subject">Onderwerp</string>
   <string name="talk_reply_hint">Stel een reactie op</string>
+  <string name="talk_message_hint">Bericht opstellen</string>
   <string name="talk_message_empty">Het bericht mag niet leeg zijn.</string>
   <string name="talk_subject_empty">Het onderwerp mag niet leeg zijn.</string>
 </resources>

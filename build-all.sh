@@ -6,4 +6,5 @@ make-release() { ./scripts/make-release.py "$@"; }
 
 make-release --beta
 make-release --prod
-make-release --amazon
+make-release --channel amazon
+make-release --channel samsung

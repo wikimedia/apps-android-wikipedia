@@ -673,6 +673,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">이미지 태그가 게시되었습니다!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">즐거우셨나요? 더 추가해 주세요.</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
@@ -683,6 +684,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">2개부터 12개 사이의 단어에 한 줄이 적당합니다</string>
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
+  <string name="suggested_edits_describe_articles">문서 설명 추가</string>
+  <string name="suggested_edits_caption_images">이미지 캡션 추가</string>
   <string name="suggested_edits_tag_images">이미지 태그하기</string>
   <string name="suggested_edits_review_description">문서 설명 검토</string>
   <string name="suggested_edits_add_description_button">설명 추가</string>
@@ -765,8 +768,8 @@
   <string name="suggested_edits_image_captions_task_detail">이미지 설명은 독자가 그림의 의미나 맥락을 파악하는 데 도움을 줍니다.</string>
   <string name="suggested_edits_add_descriptions_task_detail">문서 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
   <string name="suggested_edits_contributions_stat_tooltip">지금까지의 당신의 총 기여 수입니다.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">편집 제안을 통해 연속해서 기여한 날짜입니다. 최근 기여가 없는 경우, 최근 기여 날짜를 표시합니다.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">최근 30일 동안 편집 제안을 통해 수정한 항목들의 총 조회수입니다.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">지금까지 기여한 일수입니다. 한동안 기여가 없는 경우, 최근 기여 날짜를 표시합니다.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">최근 30일 동안 기여한 항목들의 총 조회수입니다.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">당신의 편집이 (다른 편집자에 의하여) 몇 번 되돌려졌는지를 기반으로 합니다.\n되돌려진 편집: %d건.</string>
   <string name="suggested_edits_paused_message">편집 제안이 %1$s까지 일시 중단되었습니다. %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님 죄송합니다. 최근 기여의 대다수가 되돌려졌습니다.</string>
@@ -813,10 +816,26 @@
   <string name="suggested_edits_contribution_image_label">그림</string>
   <string name="suggested_edits_contribution_article_label">문서</string>
   <string name="suggested_edits_contribution_views">%s건 조회</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">지난 30일 간 한 번 조회함.</item>
+    <item quantity="other">지난 30일 간 %s번 조회함.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">지난 30일 동안 %s건 조회되었습니다.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d개의 태그를 추가했습니다</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">편집 제안을 사용하여 위키백과에 한 차례 기여하셨습니다. 감사합니다!</item>
+    <item quantity="other">편집 제한을 사용하여 위키백과에 %d차례 기여하셨습니다. 감사합니다!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">하루 종일 편집하셨습니다. 계속 기여해 주세요, %2$s님!</item>
+    <item quantity="other">지금까지 %1$d일 동안 매일 편집하셨습니다. 계속 기여해 주세요, %2$s님!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">지난 30일 동안 한 분께서 당신의 편집을 보고 계십니다. 고맙습니다. 편집을 계속해 주세요!</item>
+    <item quantity="other">지난 30일 동안 %d분께서 당신의 편집을 보고 계십니다. 고맙습니다. 편집을 계속해 주세요!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">편집 제안을 통하여 %d건의 기여를 해주셨습니다. 감사드립니다!</string>
   <string name="suggested_edits_rewards_edit_streak">%1$d 동안 하루도 거르지 않고 편집을 해주셨습니다. %2$s님, 계속 기여해주세요!</string>
   <string name="suggested_edits_rewards_pageviews">지난 30일 동안 당신의 편집을 %d명의 사람들이 보았습니다. 감사드립니다, 계속 기여해주세요!</string>
