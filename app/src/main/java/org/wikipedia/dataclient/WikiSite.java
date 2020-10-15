@@ -100,7 +100,7 @@ public class WikiSite implements Parcelable {
         }
 
         // Use default subdomain in authority to prevent error when requesting endpoints. e.g. zh-tw.wikipedia.org
-        if (authority.contains("wikipedia.org")) {
+        if (authority.contains("wikipedia.org") && !TextUtils.isEmpty(subdomain())) {
             authority = subdomain() + ".wikipedia.org";
         }
 
