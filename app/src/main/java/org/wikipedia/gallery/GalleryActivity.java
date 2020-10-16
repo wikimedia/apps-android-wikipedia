@@ -267,8 +267,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 && TRANSITION_INFO.getWidth() > 0 && TRANSITION_INFO.getHeight() > 0) {
 
             float aspect = TRANSITION_INFO.getHeight() / TRANSITION_INFO.getWidth();
-            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(DimenUtil.getDisplayWidthPx(), (int)(DimenUtil.getDisplayWidthPx() * aspect));
-            params.gravity = Gravity.CENTER_VERTICAL;
+
+            FrameLayout.LayoutParams params = DimenUtil.getDisplayWidthPx() < DimenUtil.getDisplayHeightPx()
+                    ? new FrameLayout.LayoutParams(DimenUtil.getDisplayWidthPx(), (int)(DimenUtil.getDisplayWidthPx() * aspect))
+                    : new FrameLayout.LayoutParams((int)(DimenUtil.getDisplayHeightPx() / aspect), DimenUtil.getDisplayHeightPx());
+            params.gravity = Gravity.CENTER;
             transitionReceiver.setLayoutParams(params);
 
             transitionReceiver.setVisibility(View.VISIBLE);

@@ -15,9 +15,9 @@
 
     <ImageView
         android:id="@+id/gallery_transition_receiver"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="center"
         android:transitionName="@string/transition_page_gallery"
         android:scaleType="fitCenter"
         android:contentDescription="@null"/>
