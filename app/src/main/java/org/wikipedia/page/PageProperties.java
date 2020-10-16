@@ -266,22 +266,24 @@ public class PageProperties implements Parcelable {
                 && TextUtils.equals(wikiBaseItem, that.wikiBaseItem);
     }
 
+    @SuppressWarnings("NewApi")
     @Override
     public int hashCode() {
+        // Even though lint shows NewApi warnings, the method implementations are added to the APK.
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
-        result = 31 * result + (geo != null ? geo.hashCode() : 0);
-        result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
-        result = 31 * result + (isMainPage ? 1 : 0);
-        result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
-        result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
+        result = 31 * result + Objects.hashCode(geo);
+        result = 31 * result + Objects.hashCode(editProtectionStatus);
+        result = 31 * result + Boolean.hashCode(isMainPage);
+        result = 31 * result + Objects.hashCode(leadImageUrl);
+        result = 31 * result + Objects.hashCode(leadImageName);
         result = 31 * result + leadImageWidth;
         result = 31 * result + leadImageHeight;
-        result = 31 * result + (wikiBaseItem != null ? wikiBaseItem.hashCode() : 0);
-        result = 31 * result + (canEdit ? 1 : 0);
+        result = 31 * result + Objects.hashCode(wikiBaseItem);
+        result = 31 * result + Boolean.hashCode(canEdit);
         result = 31 * result + pageId;
         result = 31 * result + namespace.code();
-        result = 31 * result + (int) revisionId;
+        result = 31 * result + Long.hashCode(revisionId);
         return result;
     }
 }
