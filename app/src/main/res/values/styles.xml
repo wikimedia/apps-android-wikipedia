@@ -239,6 +239,17 @@
         <item name="android:textColor">@color/base30</item>
     </style>
 
+    <style name="App.Button.Circle" parent="@style/Widget.MaterialComponents.Button.Icon">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="strokeColor">@color/accent50</item>
+    </style>
+
     <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="backgroundTint">?attr/color_group_22</item>
         <item name="android:textColor">?attr/colorAccent</item>
