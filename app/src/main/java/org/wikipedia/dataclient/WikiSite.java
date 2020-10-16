@@ -96,6 +96,9 @@ public class WikiSite implements Parcelable {
         if (languageCode.equals(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
             languageCode = LanguageUtil.getFirstSelectedChineseVariant();
         }
+
+        // TODO: should use the default language code on the authority to prevent incorrect url such as zh-tw.wikipedia.org.
+
         this.uri = new Uri.Builder()
                 .scheme(tempUri.getScheme())
                 .encodedAuthority(authority)

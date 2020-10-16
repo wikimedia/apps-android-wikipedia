@@ -111,10 +111,6 @@ android {
             applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
         }
-        amazon {
-            versionName computeVersionName('amazon')
-            signingConfig signingConfigs.prod
-        }
         fdroid {
             versionName computeVersionName('fdroid')
             signingConfig signingConfigs.prod

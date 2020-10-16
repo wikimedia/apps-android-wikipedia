@@ -52,4 +52,27 @@ public class UriUtilTest {
         assertThat(UriUtil.decodeURL("%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F"), is("Википедия"));
         assertThat(UriUtil.decodeURL("Sentence%20with%20spaces"), is("Sentence with spaces"));
     }
+
+    @Test
+    public void testRemoveInternalLinkPrefix() {
+        assertThat(UriUtil.removeInternalLinkPrefix("/wiki/核武器"), is("核武器"));
+        assertThat(UriUtil.removeInternalLinkPrefix("/zh/核武器"), is("核武器"));
+        assertThat(UriUtil.removeInternalLinkPrefix("/zh-tw/核武器"), is("核武器"));
+        assertThat(UriUtil.removeInternalLinkPrefix("/zh-hant/核武器"), is("核武器"));
+        assertThat(UriUtil.removeInternalLinkPrefix("/sr-ec/Барак_Обама"), is("Барак_Обама"));
+        assertThat(UriUtil.removeInternalLinkPrefix("/sr-el/Барак_Обама"), is("Барак_Обама"));
+        assertThat(UriUtil.removeInternalLinkPrefix("/crh-cyrl/Bağçasaray"), is("Bağçasaray"));
+    }
+
+    @Test
+    public void testRemoveLinkPrefix() {
+        assertThat(UriUtil.removeLinkPrefix("https://zh.wikipedia.org/wiki/核武器"), is("核武器"));
+        assertThat(UriUtil.removeLinkPrefix("https://zh.wikipedia.org/zh/核武器"), is("核武器"));
+        assertThat(UriUtil.removeLinkPrefix("https://zh.wikipedia.org/zh-tw/核武器"), is("核武器"));
+        assertThat(UriUtil.removeLinkPrefix("https://zh.wikipedia.org/zh-hant/核武器"), is("核武器"));
+        assertThat(UriUtil.removeLinkPrefix("https://zh-tw.wikipedia.org/wiki/核武器"), is("核武器"));
+        assertThat(UriUtil.removeLinkPrefix("https://sr.wikipedia.org/sr/Барак_Обама"), is("Барак_Обама"));
+        assertThat(UriUtil.removeLinkPrefix("https://sr.wikipedia.org/sr-el/Барак_Обама"), is("Барак_Обама"));
+        assertThat(UriUtil.removeLinkPrefix("https://sr.wikipedia.org/sr-ec/Барак_Обама"), is("Барак_Обама"));
+    }
 }
