@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.app.ActivityOptionsCompat;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
@@ -24,6 +25,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -331,10 +333,24 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private GalleryThumbnailScrollView.GalleryViewListener galleryViewListener
             = new GalleryThumbnailScrollView.GalleryViewListener() {
         @Override
-        public void onGalleryItemClicked(String imageName) {
+        public void onGalleryItemClicked(@NonNull ImageView view, @NonNull String thumbUrl, @NonNull String imageName) {
+            ActivityOptionsCompat options = null;
+
+            if (view.getDrawable() != null) {
+
+                JavaScriptActionHandler.ImageHitInfo hitInfo = new JavaScriptActionHandler.ImageHitInfo(0, 0,
+                        view.getDrawable().getIntrinsicWidth(), view.getDrawable().getIntrinsicHeight(), thumbUrl, false);
+
+                GalleryActivity.setTransitionInfo(hitInfo);
+                view.setTransitionName(getActivity().getString(R.string.transition_page_gallery));
+
+                options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation(getActivity(), view, getActivity().getString(R.string.transition_page_gallery));
+            }
+
             startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
                     pageTitle.getWikiSite(), revision, GalleryFunnel.SOURCE_LINK_PREVIEW),
-                    Constants.ACTIVITY_REQUEST_GALLERY);
+                    Constants.ACTIVITY_REQUEST_GALLERY, options != null ? options.toBundle() : null);
         }
     };
 
