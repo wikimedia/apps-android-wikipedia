@@ -103,10 +103,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
             // Make sure to unsubscribe the previous token, if any
             if (oldToken.isNotEmpty()) {
                 if (oldToken != token) {
-                    ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, Prefs.getPushNotificationToken())
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())
+                    unsubscribePushToken(csrfToken, oldToken)
                             .subscribe({
                                 L.d("Previous token unsubscribed successfully.")
                                 Prefs.setPushNotificationTokenOld("")
@@ -160,10 +157,8 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                     })
         }
 
-        fun unsubscribePush(csrfToken: String): Observable<MwQueryResponse> {
-            Prefs.setPushNotificationTokenOld("")
-            Prefs.setPushNotificationTokenSubscribed(false)
-            return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, Prefs.getPushNotificationToken())
+        fun unsubscribePushToken(csrfToken: String, pushToken: String): Observable<MwQueryResponse> {
+            return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, pushToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .retry(UNSUBSCRIBE_RETRY_COUNT.toLong())

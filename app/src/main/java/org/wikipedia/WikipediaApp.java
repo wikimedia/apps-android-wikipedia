@@ -363,12 +363,14 @@ public class WikipediaApp extends Application {
     public void logOut() {
         L.d("Logging out");
         AccountUtil.removeAccount();
+        Prefs.setPushNotificationTokenSubscribed(false);
+        Prefs.setPushNotificationTokenOld("");
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
-                    String token = response.query().csrfToken();
-                    return WikipediaFirebaseMessagingService.Companion.unsubscribePush(token)
-                            .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(token).subscribeOn(Schedulers.io()));
+                    String csrfToken = response.query().csrfToken();
+                    return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
+                            .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(csrfToken).subscribeOn(Schedulers.io()));
                 })
                 .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
                 .subscribe(response -> L.d("Logout complete."), L::e);
