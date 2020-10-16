@@ -185,6 +185,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun updateUI() {
         itemClickable = true
         seFeedCardProgressBar.visibility = GONE
+        seCardErrorView.visibility = GONE
         suggestedEditsFragmentViewGroup.visibility = VISIBLE
         callToActionButton.visibility = VISIBLE
         if (sourceSummaryForEdit != null) {
