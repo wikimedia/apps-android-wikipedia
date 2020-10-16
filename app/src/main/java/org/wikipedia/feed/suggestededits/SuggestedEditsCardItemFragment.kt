@@ -389,7 +389,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         viewArticleTitle.visibility = VISIBLE
         divider.visibility = VISIBLE
         viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle!!)
-        viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit!!.extractHtml)
+        viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit!!.extract)
         viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         showItemImage()
     }
