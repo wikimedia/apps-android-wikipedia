@@ -10,6 +10,9 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.settings.Prefs
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
 import kotlin.math.ceil
 
 object UserContributionsStats {
@@ -53,25 +56,15 @@ object UserContributionsStats {
         val qLangMap = HashMap<String, HashSet<String>>()
 
         for (userContribution in response.query()!!.userContributions()) {
-            var descLang = ""
-            val strArr = userContribution.comment.split(" ")
-            for (str in strArr) {
-                if (str.contains("wbsetdescription")) {
-                    val descArr = str.split("|")
-                    if (descArr.size > 1) {
-                        descLang = descArr[1]
-                        break
-                    }
-                }
-            }
-            if (descLang.isEmpty()) {
+            val descLang = userContribution.comment.split(" ")
+                    .filter { "wbsetdescription" in it }
+                    .flatMap { it.split("|") }
+                    .getOrNull(1)
+            if (descLang.isNullOrEmpty()) {
                 continue
             }
 
-            if (!qLangMap.containsKey(userContribution.title)) {
-                qLangMap[userContribution.title] = HashSet()
-            }
-            qLangMap[userContribution.title]!!.add(descLang)
+            qLangMap.getOrPut(userContribution.title, { HashSet() }).add(descLang)
         }
 
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -81,17 +74,14 @@ object UserContributionsStats {
                         return@flatMap Observable.just(0L)
                     }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
-                    for (entityKey in it.entities().keys) {
-                        val entity = it.entities()[entityKey]!!
+                    it.entities().forEach { (entityKey, entity) ->
                         for (qKey in qLangMap.keys) {
                             if (qKey == entityKey) {
                                 for (lang in qLangMap[qKey]!!) {
                                     val dbName = WikiSite.forLanguageCode(lang).dbName()
                                     if (entity.sitelinks().containsKey(dbName)) {
-                                        if (!langArticleMap.containsKey(lang)) {
-                                            langArticleMap[lang] = ArrayList()
-                                        }
-                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
+                                        langArticleMap.getOrPut(lang, { ArrayList() })
+                                                .add(entity.sitelinks()[dbName]!!.title)
                                     }
                                 }
                                 break
@@ -99,27 +89,19 @@ object UserContributionsStats {
                         }
                     }
 
-                    val observableList = ArrayList<Observable<MwQueryResponse>>()
-
-                    for (lang in langArticleMap.keys) {
-                        val site = WikiSite.forLanguageCode(lang)
-                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
+                    val observableList = langArticleMap.map { (key, value) ->
+                        val site = WikiSite.forLanguageCode(key)
+                        ServiceFactory.get(site).getPageViewsForTitles(value.joinToString("|"))
                                 .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread()))
+                                .observeOn(AndroidSchedulers.mainThread())
                     }
 
                     Observable.zip(observableList) { resultList ->
-                        var totalPageViews = 0L
-                        for (result in resultList) {
-                            if (result is MwQueryResponse && result.query() != null) {
-                                for (page in result.query()!!.pages()!!) {
-                                    for (day in page.pageViewsMap.values) {
-                                        totalPageViews += day ?: 0
-                                    }
-                                }
-                            }
-                        }
-                        totalPageViews
+                        resultList.filterIsInstance<MwQueryResponse>()
+                                .mapNotNull { it.query() }
+                                .flatMap { it.pages()!! }
+                                .flatMap { it.pageViewsMap.values }
+                                .sumOf { it ?: 0 }
                     }
                 }
     }
