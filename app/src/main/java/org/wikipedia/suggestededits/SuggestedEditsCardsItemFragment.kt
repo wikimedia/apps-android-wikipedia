@@ -16,10 +16,10 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -129,6 +129,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
                                         null,
+                                        null,
                                         imageInfo.timestamp,
                                         imageInfo.user,
                                         imageInfo.metadata
@@ -168,6 +169,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         StringUtil.removeHTMLTags(title),
                                         fileCaption,
                                         imageInfo.thumbUrl,
+                                        null,
                                         null,
                                         imageInfo.timestamp,
                                         imageInfo.user,

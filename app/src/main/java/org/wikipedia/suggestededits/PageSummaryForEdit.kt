@@ -12,6 +12,7 @@ data class PageSummaryForEdit(
         var displayTitle: String?,
         var description: String?,
         var thumbnailUrl: String?,
+        var extract: String? = null,
         var extractHtml: String? = null,
         var timestamp: String? = null,
         var user: String? = null,

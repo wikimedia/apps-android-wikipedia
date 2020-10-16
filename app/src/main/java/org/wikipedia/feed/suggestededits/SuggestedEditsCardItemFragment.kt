@@ -216,6 +216,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             pageSummary.displayTitle,
                             pageSummary.description,
                             pageSummary.thumbnailUrl,
+                            pageSummary.extract,
                             pageSummary.extractHtml
                     )
                     updateUI()
@@ -291,6 +292,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                                 imageInfo.metadata!!.imageDescription(),
                                 imageInfo.thumbUrl,
                                 null,
+                                null,
                                 imageInfo.timestamp,
                                 imageInfo.user,
                                 imageInfo.metadata
@@ -336,6 +338,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                                 StringUtil.removeHTMLTags(title),
                                 fileCaption,
                                 imageInfo.thumbUrl,
+                                null,
                                 null,
                                 imageInfo.timestamp,
                                 imageInfo.user,
