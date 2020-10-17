@@ -244,8 +244,8 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
                         String thumbUrl = "";
                         if (getMediaInfo() != null && !TextUtils.isEmpty(getMediaInfo().getThumbUrl())) {
                             thumbUrl = getMediaInfo().getThumbUrl();
-                        } else if (GalleryActivity.TRANSITION_INFO != null){
-                            thumbUrl = GalleryActivity.TRANSITION_INFO.getSrc();
+                        } else if (((GalleryActivity) requireActivity()).getTransitionInfo() != null) {
+                            thumbUrl = ((GalleryActivity) requireActivity()).getTransitionInfo().getSrc();
                         }
                         if (TextUtils.isEmpty(thumbUrl)) {
                             throw new Throwable("Thumbnail URL is empty.");

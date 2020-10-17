@@ -115,7 +115,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
-    public static JavaScriptActionHandler.ImageHitInfo TRANSITION_INFO;
+    private static JavaScriptActionHandler.ImageHitInfo TRANSITION_INFO;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -397,6 +397,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     public static void setTransitionInfo(@NonNull JavaScriptActionHandler.ImageHitInfo hitInfo) {
         TRANSITION_INFO = hitInfo;
+    }
+
+    public JavaScriptActionHandler.ImageHitInfo getTransitionInfo() {
+        return TRANSITION_INFO;
     }
 
     private void startCaptionEdit(GalleryItemFragment item) {
