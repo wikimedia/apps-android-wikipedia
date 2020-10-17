@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -23,6 +24,8 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
+import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.page.PageActivity;
@@ -35,9 +38,15 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.LinearLayoutTouchIntercept;
 import org.wikipedia.views.TabCountsView;
+import org.wikipedia.watchlist.WatchListItem;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -52,6 +61,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     @Nullable private Balloon currentTooltip;
 
     private boolean controlNavTabInFragment;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);
@@ -88,6 +98,20 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
         }
 
         getToolbar().setNavigationIcon(null);
+        getWatchList();
+    }
+
+    private void getWatchList() {
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode("en")).getWatchlist(null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    List<WatchListItem> watchListItemList = response.query().watchlist();
+                    for (WatchListItem item : watchListItemList) {
+                        Log.e("WATCHLIST", "TITLE: " + item.title());
+                    }
+                }, caught -> {
+                }));
     }
 
     @Override

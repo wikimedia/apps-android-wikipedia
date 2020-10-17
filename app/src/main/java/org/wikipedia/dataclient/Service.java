@@ -339,5 +339,21 @@ public interface Service {
     Observable<MwPostResponse> postReviewImageLabels(@NonNull @Field("filename") String fileName,
                                                      @NonNull @Field("token") String token,
                                                      @NonNull @Field("batch") String batchLabels);
+    // ------- Watchlist -------
 
+    @GET(MW_API_PREFIX + "action=query&format=json&list=watchlist&continue=")
+    @NonNull Observable<MwQueryResponse> getWatchlist(@Nullable @Query("continue") String cont);
+
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=watch&format=json")
+    @FormUrlEncoded
+    Observable<EntityPostResponse> unWatch(@Field("unwatch") int unwatch,
+                                                  @NonNull @Field("pageids") String pageIds,
+                                                  @NonNull @Field("token") String token);
+
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=watch&format=json")
+    @FormUrlEncoded
+    Observable<EntityPostResponse> watch(@NonNull @Field("pageids") String pageIds,
+                                         @NonNull @Field("token") String token);
 }
