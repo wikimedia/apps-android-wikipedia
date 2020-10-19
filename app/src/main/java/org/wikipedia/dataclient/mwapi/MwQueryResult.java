@@ -57,6 +57,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return tokens != null ? tokens.csrf() : null;
     }
 
+    @Nullable public String getToken() {
+        return  tokens != null ? tokens.watch() : null;
+    }
+
     @Nullable public String createAccountToken() {
         return tokens != null ? tokens.createAccount() : null;
     }
@@ -219,9 +223,14 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         @Nullable private String createAccount;
         @SuppressWarnings("unused,NullableProblems") @SerializedName("logintoken")
         @Nullable private String login;
+        @SuppressWarnings("unused,NullableProblems") @SerializedName("watchtoken")
+        @Nullable private String watch;
 
         @Nullable private String csrf() {
             return csrf;
+        }
+        @Nullable private String watch() {
+            return watch;
         }
 
         @Nullable private String createAccount() {

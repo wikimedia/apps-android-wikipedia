@@ -341,19 +341,17 @@ public interface Service {
                                                      @NonNull @Field("batch") String batchLabels);
     // ------- Watchlist -------
 
-    @GET(MW_API_PREFIX + "action=query&format=json&list=watchlist&continue=")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist")
     @NonNull Observable<MwQueryResponse> getWatchlist(@Nullable @Query("continue") String cont);
 
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=watch&format=json")
+    @POST(MW_API_PREFIX + "action=watch")
     @FormUrlEncoded
-    Observable<EntityPostResponse> unWatch(@Field("unwatch") int unwatch,
-                                                  @NonNull @Field("pageids") String pageIds,
-                                                  @NonNull @Field("token") String token);
+    Observable<EntityPostResponse> unWatch(@Nullable @Field("unwatch") Integer unwatch,
+                                            @Field("pageids") String pageIds,
+                                           @NonNull @Field("token") String token);
 
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=watch&format=json")
-    @FormUrlEncoded
-    Observable<EntityPostResponse> watch(@NonNull @Field("pageids") String pageIds,
-                                         @NonNull @Field("token") String token);
+    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")
+    @NonNull Observable<MwQueryResponse> getWatchToken();
 }
