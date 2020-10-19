@@ -124,11 +124,8 @@ public final class UriUtil {
     public static String getFilenameFromUploadUrl(@NonNull String url) {
         String[] splitArray = url.split("/");
         String thumbnailName = splitArray[splitArray.length - 1];
-        if (splitArray.length > 2) {
-            String originalFilename = splitArray[splitArray.length - 2];
-            if (originalFilename.matches("^[\\w,\\s-]+\\.[A-Za-z]{3}$")) {
-                return originalFilename;
-            }
+        if (url.contains("/thumb/") && splitArray.length > 2) {
+            return splitArray[splitArray.length - 2];
         }
         return thumbnailName;
     }

@@ -82,6 +82,7 @@ public class UriUtilTest {
         assertThat(UriUtil.getFilenameFromUploadUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/256px-President_Barack_Obama.jpg"), is("President_Barack_Obama.jpg"));
         assertThat(UriUtil.getFilenameFromUploadUrl("https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg"), is("President_Barack_Obama.jpg"));
         assertThat(UriUtil.getFilenameFromUploadUrl("https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/Avengers_Endgame_poster.jpg/216px-Avengers_Endgame_poster.jpg"), is("Avengers_Endgame_poster.jpg"));
+        assertThat(UriUtil.getFilenameFromUploadUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Needle_Galaxy_4565.jpeg/320px-Needle_Galaxy_4565.jpeg"), is("Needle_Galaxy_4565.jpeg"));
         assertThat(UriUtil.getFilenameFromUploadUrl(""), is(""));
     }
 }
