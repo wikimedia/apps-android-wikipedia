@@ -3,7 +3,7 @@ package org.wikipedia.feed.featured;
 import android.content.Context;
 import android.net.Uri;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,10 +18,9 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.util.StringUtil;
-import org.wikipedia.views.FaceAndColorDetectImageView;
-import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ImageZoomHelper;
+import org.wikipedia.views.WikiArticleCardView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,24 +31,20 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     @BindView(R.id.view_featured_article_card_header) CardHeaderView headerView;
     @BindView(R.id.view_featured_article_card_footer) CardFooterView footerView;
-    @BindView(R.id.view_featured_article_card_image_container) View imageContainerView;
-    @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
-    @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
-    @BindView(R.id.view_featured_article_card_extract) TextView extractView;
+    @BindView(R.id.view_wiki_article_card) WikiArticleCardView wikiArticleCardView;
     @BindView(R.id.view_featured_article_card_content_container) View contentContainerView;
+
+    public static final float SUM_OF_CARD_HORIZONTAL_MARGINS = DimenUtil.dpToPx(24f);
 
     public FeaturedArticleCardView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_card_featured_article, this);
         ButterKnife.bind(this);
-        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     public void setCard(@NonNull FeaturedArticleCard card) {
         super.setCard(card);
         setLayoutDirectionByWikiSite(card.wikiSite(), contentContainerView);
-
         String articleTitle = card.articleTitle();
         String articleSubtitle = card.articleSubtitle();
         String extract = card.extract();
@@ -64,10 +59,10 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         footer();
     }
 
-    @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
+    @OnClick({R.id.view_wiki_article_card})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard(), getCard().historyEntry());
+                getCallback().onSelectPage(getCard(), getCard().historyEntry(), wikiArticleCardView.getSharedElements());
         }
     }
 
@@ -113,15 +108,15 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void articleTitle(@NonNull String articleTitle) {
-        articleTitleView.setText(StringUtil.fromHtml(articleTitle));
+        wikiArticleCardView.setTitle(articleTitle);
     }
 
     private void articleSubtitle(@Nullable String articleSubtitle) {
-        articleSubtitleView.setText(articleSubtitle);
+        wikiArticleCardView.setDescription(articleSubtitle);
     }
 
     private void extract(@Nullable String extract) {
-        extractView.setText(StringUtil.fromHtml(extract));
+        wikiArticleCardView.setExtract(extract);
     }
 
     private void header() {
@@ -144,10 +139,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void image(@Nullable Uri uri) {
         if (uri == null) {
-            imageContainerView.setVisibility(GONE);
+            wikiArticleCardView.getImageContainer().setVisibility(GONE);
         } else {
-            imageContainerView.setVisibility(VISIBLE);
-            imageView.loadImage(uri);
+            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    (int) (DimenUtil.leadImageHeightForDevice(getContext()) - SUM_OF_CARD_HORIZONTAL_MARGINS)));
+            wikiArticleCardView.getImageContainer().setVisibility(VISIBLE);
+            wikiArticleCardView.getImageView().loadImage(uri);
+            ImageZoomHelper.setViewZoomable(wikiArticleCardView.getImageView());
         }
     }
 

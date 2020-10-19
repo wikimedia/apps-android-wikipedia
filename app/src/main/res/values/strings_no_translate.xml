@@ -61,7 +61,10 @@
     <string name="transition_search_bar">searchBarTransition</string>
     <string name="transition_random_activity">randomActivityTransition</string>
     <string name="transition_on_this_day">onThisDayTransition</string>
-    <string name="transition_floating_queue">floatingQueue</string>
+    <string name="transition_article_image">articleImageTransition</string>
+    <string name="transition_article_title">articleTitleTransition</string>
+    <string name="transition_article_description">articleDescriptionTransition</string>
+    <string name="transition_article_summary">articleSummaryTransition</string>
     <string name="transition_page_gallery">pageGalleryTransition</string>
 
     <!-- Miscellaneous -->
