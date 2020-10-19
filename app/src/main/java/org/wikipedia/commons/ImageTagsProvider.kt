@@ -7,7 +7,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.wikidata.Claims
 import org.wikipedia.dataclient.wikidata.Entities
-import java.util.*
+import kotlin.collections.ArrayList
 
 object ImageTagsProvider {
     @JvmStatic
@@ -16,12 +16,8 @@ object ImageTagsProvider {
                 .subscribeOn(Schedulers.io())
                 .onErrorReturnItem(Claims())
                 .flatMap { claims ->
-                    val depicts = claims.claims()["P180"]
-                    val ids = mutableListOf<String?>()
-                    depicts?.forEach {
-                        ids.add(it.mainSnak?.dataValue?.value)
-                    }
-                    if (ids.isEmpty()) {
+                    val ids = claims.claims()["P180"]?.map { it.mainSnak?.dataValue?.value }
+                    if (ids.isNullOrEmpty()) {
                         Observable.just(Entities())
                     } else {
                         ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(ids.joinToString(separator = "|"), langCode)
@@ -30,17 +26,11 @@ object ImageTagsProvider {
                 .subscribeOn(Schedulers.io())
                 .map { entities ->
                     val tags = HashMap<String, MutableList<String>>()
-                    entities.entities().forEach {
-                        it.value.labels().values.forEach { label ->
-                            if (tags[label.language()].isNullOrEmpty()) {
-                                tags[label.language()] = mutableListOf(label.value())
-                            } else {
-                                tags[label.language()]!!.add(label.value())
+                    entities.entities().flatMap { it.value.labels().values }
+                            .forEach { label ->
+                                tags.getOrPut(label.language(), { ArrayList() }).add(label.value())
                             }
-                        }
-                    }
                     tags
                 }
     }
 }
-

@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_announcement_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:clipChildren="false"
-    android:clipToPadding="false">
-
-    <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/view_announcement_header_image"
-        style="@style/ImageViewDefault"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:contentDescription="@null" />
-
-    <TextView
-        android:id="@+id/view_announcement_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="12dp"
-        android:lineSpacingMultiplier="1.21"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="?attr/primary_text_color"
-        android:textSize="14sp"
-        tools:text="Lorem ipsum" />
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:hasBorder="false">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginBottom="12dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:clipToPadding="false"
-        android:clipChildren="false">
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
-        <Button
-            android:id="@+id/view_announcement_action_negative"
-            style="@style/TransparentButton"
-            android:layout_width="wrap_content"
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/view_announcement_header_image"
+            style="@style/ImageViewDefault"
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/view_announcement_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="@string/view_announcement_card_negative_action"
-            android:textColor="?attr/secondary_text_color" />
-
-        <Button
-            android:id="@+id/view_announcement_action_positive"
-            style="@style/App.Button.Blue"
-            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:lineSpacingMultiplier="1.21"
+            android:fontFamily="sans-serif"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="16sp"
             tools:text="Lorem ipsum" />
+
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:flexWrap="wrap"
+            app:justifyContent="flex_start">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/view_announcement_action_positive"
+                style="@style/FlatButton.Small"
+                android:layout_marginEnd="8dp"
+                app:iconSize="20dp"
+                app:iconTint="?attr/colorAccent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/view_announcement_action_negative"
+                style="@style/FlatButton.Small.Transparent"
+                android:text="@string/view_announcement_card_negative_action"
+                android:visibility="gone"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <View
+            android:id="@+id/view_announcement_footer_border"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/chip_background_color"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:id="@+id/view_announcement_footer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="?attr/secondary_text_color"
+            android:textSize="12sp"
+            tools:text="Lorem ipsum" />
+
     </LinearLayout>
 
-    <View
-        android:id="@+id/view_announcement_footer_border"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?attr/chip_background_color"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
-
-    <TextView
-        android:id="@+id/view_announcement_footer_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textColor="?attr/secondary_text_color"
-        android:textSize="12sp"
-        tools:text="Lorem ipsum" />
-
-</LinearLayout>
+</org.wikipedia.views.WikiCardView>

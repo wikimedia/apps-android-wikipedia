@@ -195,6 +195,7 @@
   <string name="edit_preview">Kucken ouni ze späicheren</string>
   <string name="edit_undo">Réckgängeg maachen</string>
   <string name="edit_redo">Widderhuelen</string>
+  <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
@@ -320,6 +321,7 @@
   <string name="reading_list_title_exists">D\'Lieslëscht \"%s\" gëtt et schonn.</string>
   <string name="reading_list_article_moved_to_named">%1$s geréckelt op %2$s .</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
+  <string name="reading_list_add_to_list_button">Op d\'Lëscht dobäisetzen</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 Artikel, %2$.2f MB</item>
     <item quantity="other">%1$d Artikelen, %2$.2f MB</item>
@@ -334,8 +336,11 @@
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
   <string name="reading_list_sort_by_recent">Nom Datum vum derbäisetzen zortéieren (neisten)</string>
   <string name="reading_list_sort_by_recent_desc">Nom Datum vum derbäisetzen zortéieren (eelsten)</string>
+  <string name="reading_list_sort_by_created_desc">Nom Datum vum Uleeën zortéieren (eelsten)</string>
   <string name="reading_list_menu_delete">Lëscht läschen</string>
   <string name="reading_list_menu_rename">Numm/Beschreiwung änneren</string>
+  <string name="reading_list_action_menu_remove_from_offline">Aus der Offline-Lëscht eraushuelen</string>
+  <string name="reading_list_action_menu_save_for_offline">Fir offline späicheren</string>
   <string name="reading_list_action_menu_remove_all_from_offline">All aus dem offline eraushuelen</string>
   <string name="reading_list_action_menu_save_all_for_offline">All fir offline späicheren</string>
   <string name="reading_list_action_menu_add_to_another_list">Op eng aner Lëscht derbäisetzen</string>
@@ -369,11 +374,13 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatioun aktivéieren</string>
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
+  <string name="reading_lists_login_button">Aloggen / bäi Wikipedia matmaachen</string>
   <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
   <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir %s läsche wëllt?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Alogge fir Synchronisatioun z\'aktivéieren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>
   <string name="reading_list_turned_sync_off_dialog_title">Synchronisatioun vu Lieslëschten ass ausgeschalt</string>
@@ -480,6 +487,7 @@
   <string name="menu_feed_overflow_label">Méi Optiounen</string>
   <string name="feed_featured_image_share_subject">Qualitéitsbild vu Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
+  <string name="home">Haaptsäit</string>
   <string name="most_read_list_card_title">Beléift</string>
   <string name="view_static_card_icon_content_description">Kaartesymbol</string>
   <string name="view_card_news_title">An den Neiegkeeten</string>
@@ -574,6 +582,13 @@
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
   <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_quality_excellent_text">Exzellent</string>
+  <string name="suggested_edits_quality_very_good_text">Ganz gutt</string>
+  <string name="suggested_edits_quality_good_text">Gutt</string>
+  <string name="suggested_edits_quality_okay_text">OK</string>
+  <string name="suggested_edits_quality_sufficient_text">Genügend</string>
+  <string name="suggested_edits_quality_poor_text">Schwaach</string>
+  <string name="suggested_edits_quality_bad_text">Schlecht</string>
   <string name="suggested_edits_label">Proposéiert Ännerungen</string>
   <string name="suggested_edits_what_is_title">Wat si proposéiert Ännerungen?</string>
   <string name="suggested_edits_learn_more">Fir méi ze wëssen</string>

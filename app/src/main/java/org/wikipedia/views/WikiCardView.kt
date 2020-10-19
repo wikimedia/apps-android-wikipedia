@@ -28,19 +28,7 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
     private fun setup(hasBorder: Boolean) {
         radius = context.resources.getDimension(R.dimen.wiki_card_radius)
         if (hasBorder) {
-            strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
-                Theme.DARK -> {
-                    DimenUtil.roundedDpToPx(0f)
-                }
-                Theme.BLACK -> {
-                    strokeColor = ContextCompat.getColor(context, R.color.base10)
-                    DimenUtil.roundedDpToPx(1f)
-                }
-                else -> {
-                    strokeColor = ContextCompat.getColor(context, R.color.base80)
-                    DimenUtil.roundedDpToPx(0.5f)
-                }
-            }
+            setDefaultBorder()
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -64,5 +52,21 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         }
 
         setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
+    }
+
+    fun setDefaultBorder() {
+        strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
+            Theme.DARK -> {
+                DimenUtil.roundedDpToPx(0f)
+            }
+            Theme.BLACK -> {
+                strokeColor = ContextCompat.getColor(context, R.color.base10)
+                DimenUtil.roundedDpToPx(1f)
+            }
+            else -> {
+                strokeColor = ContextCompat.getColor(context, R.color.base80)
+                DimenUtil.roundedDpToPx(0.5f)
+            }
+        }
     }
 }
