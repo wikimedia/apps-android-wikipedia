@@ -21,6 +21,13 @@
             android:layout_height="16dp"
             android:visibility="gone" />
 
+        <ImageView
+            android:id="@+id/page_image_transition_holder"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:transitionName="@string/transition_page_gallery"
+            android:contentDescription="@null"/>
+
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/page_error"
             android:layout_width="match_parent"

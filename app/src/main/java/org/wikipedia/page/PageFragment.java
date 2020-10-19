@@ -176,6 +176,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
     private PageActionTabLayout tabLayout;
+    private ImageView imageTransitionHolder;
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -186,7 +187,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
-    private ImageView viewForTransition;
     private PageReferences references;
     private long revision;
     @Nullable private AvPlayer avPlayer;
@@ -331,6 +331,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         tabLayout.setPageActionTabsCallback(pageActionTabsCallback);
 
         errorView = rootView.findViewById(R.id.page_error);
+        imageTransitionHolder = rootView.findViewById(R.id.page_image_transition_holder);
 
         return rootView;
     }
@@ -626,10 +627,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         initPageScrollFunnel();
         activeTimer.resume();
 
-        if (viewForTransition != null) {
-            ((ViewGroup) viewForTransition.getParent()).removeView(viewForTransition);
-            viewForTransition = null;
-        }
+        CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(1, 1);
+        imageTransitionHolder.setLayoutParams(params);
+        imageTransitionHolder.setVisibility(View.GONE);
     }
 
     @Override
@@ -1181,30 +1181,27 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 }
                 JavaScriptActionHandler.ImageHitInfo hitInfo = GsonUtil.getDefaultGson().fromJson(s, JavaScriptActionHandler.ImageHitInfo.class);
 
-                viewForTransition = new ImageView(requireActivity());
-                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(DimenUtil.roundedDpToPx(hitInfo.getWidth()), DimenUtil.roundedDpToPx(hitInfo.getHeight()));
+                CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(DimenUtil.roundedDpToPx(hitInfo.getWidth()), DimenUtil.roundedDpToPx(hitInfo.getHeight()));
                 params.topMargin = DimenUtil.roundedDpToPx(hitInfo.getTop());
                 params.leftMargin = DimenUtil.roundedDpToPx(hitInfo.getLeft());
-                viewForTransition.setLayoutParams(params);
-                viewForTransition.setTransitionName(getString(R.string.transition_page_gallery));
-                ((ViewGroup) webView.getParent()).addView(viewForTransition);
+                imageTransitionHolder.setLayoutParams(params);
+                imageTransitionHolder.setVisibility(View.VISIBLE);
+                ViewUtil.loadImage(imageTransitionHolder, hitInfo.getSrc());
 
                 GalleryActivity.setTransitionInfo(hitInfo);
 
-                viewForTransition.post(() -> {
+                webView.post(() -> {
                     if (!isAdded()) {
                         return;
                     }
 
                     ActivityOptionsCompat options = ActivityOptionsCompat.
-                            makeSceneTransitionAnimation(requireActivity(), viewForTransition, getString(R.string.transition_page_gallery));
+                            makeSceneTransitionAnimation(requireActivity(), imageTransitionHolder, getString(R.string.transition_page_gallery));
 
                     requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
                             model.getTitle(), fileName,
                             model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY, options.toBundle());
                 });
-
-                ViewUtil.loadImage(viewForTransition, hitInfo.getSrc());
             });
 
         } else {
