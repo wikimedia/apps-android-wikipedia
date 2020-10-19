@@ -21,7 +21,10 @@
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">შემოთავაზებული რედაქტირებები</string>
+  <string name="filter_hint_filter_my_lists_and_articles">ჩემი სიის გაფილტვრა</string>
+  <string name="nav_item_suggested_edits">რედაქტირებები</string>
+  <string name="nav_item_more">მეტი</string>
+  <string name="nav_item_search">ძებნა</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
   <string name="card_offline_error_retry">გამეორება</string>
@@ -36,6 +39,8 @@
   <string name="history_item_delete_undo">დაბრუნება</string>
   <string name="notification_archive_undo">გაუქმება</string>
   <string name="app_settings">აპლიკაციის პარამეტრები</string>
+  <string name="search_tab_tooltip">ხელახლა შეეხეთ ხატულას საძიებო ტერმინის აკრეფის პირდაპირ დაწყებისათვის</string>
+  <string name="history_list_title">ისტორია</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="dialog_message_clear_history_yes">დიახ</string>
@@ -49,7 +54,9 @@
   <string name="edit_section_find_in_page">გვერდზე ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
   <string name="menu_page_add_to_list">საკითხავ სიაში დამატება</string>
+  <string name="menu_page_add_to_default_list">შენახვა</string>
   <string name="feed_card_add_to_list">საკითხავ სიაში დამატება</string>
+  <string name="feed_card_add_to_default_list">შენახვა</string>
   <string name="menu_page_share">ბმულის გაზიარება</string>
   <string name="menu_page_open_a_new_tab">ახალ ჩანართში გახსნა</string>
   <string name="menu_page_reading_lists">საკითხავი სია</string>
@@ -105,7 +112,7 @@
   <string name="reading_lists_sync_login">შესვლა</string>
   <string name="create_account_login">შესვლა</string>
   <string name="menu_login">შესვლა</string>
-  <string name="login_activity_title" fuzzy="true">ვიკიპედიაში შესვლა</string>
+  <string name="login_activity_title">შესვლა</string>
   <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>
   <string name="login_success_toast">შესული!</string>
   <string name="reset_password_title">დააყენეთ პაროლი</string>
@@ -122,7 +129,9 @@
   <string name="logged_out_in_background_cancel">გაუქმება</string>
   <string name="history_empty_title">ბოლოს ნანახი გვერდები არაა</string>
   <string name="history_empty_message">აკონტროლეთ რაც უკვე წაიკითხეთ.</string>
+  <string name="history_offline_articles_toast">კავშირგარეთ ყოფნის დროს ისტორიაში ზოგიერთი სტატია შესაძლოა არ გამოჩნდეს</string>
   <string name="search_empty_message">მოძებნეთ და წაიკითხეთ თავისუფალ ენციკლოპედიაში თქვენს მშობლიურ ენაზე</string>
+  <string name="search_empty_message_multilingual_upgrade">ვიკიპედიის ძებნა მეტ ენაზე</string>
   <string name="delete_selected_items">არჩეული ელემენტების წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>
@@ -400,4 +409,5 @@
     <item quantity="one">შარშან</item>
     <item quantity="other">%d წლის წინ</item>
   </plurals>
+  <string name="more_language_options">მეტი</string>
 </resources>
