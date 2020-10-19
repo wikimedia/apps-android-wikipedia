@@ -6,6 +6,11 @@
             android:name="@string/preference_key_app_channel"
             android:value="F-Droid"
             tools:replace="android:value" />
+
+        <service
+            android:name=".push.WikipediaFirebaseMessagingService"
+            tools:node="remove"/>
+
     </application>
 
 </manifest>
