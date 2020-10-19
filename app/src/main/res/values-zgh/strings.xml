@@ -8,11 +8,19 @@
 <resources>
   <string name="app_name_prod">ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
   <string name="wikimedia">ⵡⵉⴽⵉⵎⵉⴷⵢⴰ</string>
+  <string name="nav_item_back">ⴰⵖⵓⵍ</string>
+  <string name="page_tabs_back">ⴰⵖⵓⵍ</string>
+  <string name="nav_item_forward">ⵙⵙⵉⴼⴹ</string>
   <string name="search_hint">ⵔⵣⵓ ⴳ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
-  <string name="search_hint_search_languages">ⵔⵣⵓ ⵉ ⵢⴰⵏ ⵜⵓⵜⵍⴰⵢⵜ</string>
+  <string name="search_hint_search_languages">ⵔⵣⵓ ⵖⴼ ⵢⴰⵏ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="nav_item_suggested_edits">ⵉⵙⵏⴼⵍⵏ</string>
   <string name="nav_item_more">ⵓⴳⴳⴰⵔ</string>
   <string name="nav_item_search">ⵔⵣⵓ</string>
+  <string name="page_error_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
+  <string name="card_offline_error_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
+  <string name="storage_access_error_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
+  <string name="article_load_error_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
+  <string name="offline_load_error_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
   <string name="page_error_back_to_main">ⴷⴷⵓ ⴷⴼⵔ</string>
   <string name="error_back">ⴷⴷⵓ ⴷⴼⵔ</string>
   <string name="menu_clear_all_history">ⵙⵙⴼⴹ ⴰⵎⵣⵔⵓⵢ</string>
@@ -41,7 +49,7 @@
   <string name="menu_text_select_edit_here">ⵙⵏⴼⵍ ⴷⴰ</string>
   <string name="talk_page_link_text">ⵥⵕ ⵜⴰⵙⵏⴰ ⵏ ⵓⵎⵙⴰⵡⴰⵍ</string>
   <string name="edit_history_link_text">ⵥⵕ ⴰⵏⵙⴼⵍ ⵏ ⵓⵎⵣⵔⵓⵢ</string>
-  <string name="map_view_link_text">ⵥⵕ ⴳ ⵜⴽⴰⵔⴹⴰ</string>
+  <string name="map_view_link_text">ⵥⵕ ⴳ ⵜⴽⴰⵕⴹⴰ</string>
   <string name="other_languages_indication_text">ⵖⵔ ⵙ ⵛⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵢⴰⴹⵏ</string>
   <string name="language_count_link_text">ⵉⵍⵍⴰ ⵙ %d ⵜⵓⵜⵍⴰⵢⵉⵏ ⵢⴰⴹⵏ</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
@@ -50,11 +58,12 @@
   <string name="langlinks_activity_title">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵢⴰⴹⵏⵉⵏ</string>
   <string name="langlinks_your_wikipedia_languages">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
   <string name="menu_save_changes">ⴼⵙⵔ ⵉⵙⵏⴼⵍⵏ</string>
+  <string name="dialog_message_edit_failed_retry">ⴰⵔⵎ ⴷⴰⵖ</string>
   <string name="dialog_message_edit_failed_cancel">ⵙⵔ</string>
   <string name="dialog_message_leaving_edit_leave">ⴼⵍ</string>
   <string name="dialog_message_leaving_edit_stay">ⵇⵇⵉⵎ</string>
   <string name="title_captcha">ⵙⵉⴷⴼ CAPTCHA</string>
-  <string name="nav_item_login">ⴽⵛⵎ ⵖⵕ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
+  <string name="nav_item_login">ⴽⵛⵎ ⵖⵔ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
   <string name="login_username_hint">ⵉⵙⵎ ⵏ ⵓⵙⵎⵔⴰⵙ</string>
   <string name="login_password_hint">ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ</string>
   <string name="account_creation_password_hint">ⵜⴰⴳⵓⵔⵉ ⵏ ⵓⵣⵔⴰⵢ</string>
@@ -98,7 +107,7 @@
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ⵉⵎⵙⵙⵓⵖⵍⵏ</string>
   <string name="about_app_license_heading">ⵜⵓⵔⴰⴳⵜ</string>
-  <string name="about_activity_title">ⵅⴼ</string>
+  <string name="about_activity_title">ⵖⴼ</string>
   <string name="edit_abandon_confirm_yes">ⵢⴰⵀ</string>
   <string name="edit_abandon_confirm_no">ⵓⵀⵓ</string>
   <string name="edit_done">ⴼⵙⵔ</string>
@@ -161,7 +170,7 @@
   <string name="preference_title_notification_thanks">ⵜⴰⵏⵎⵎⵉⵔⵜ</string>
   <string name="view_featured_image_card_download">ⴰⴳⵎ</string>
   <string name="home">ⴰⵙⵏⵓⴱⴳ</string>
-  <string name="view_continue_reading_card_subtitle_today">ⴰⵙⵙ ⴰ</string>
+  <string name="view_continue_reading_card_subtitle_today">ⴰⵙⵙⴰ</string>
   <string name="view_announcement_card_negative_action">ⵓⵀⵓ, ⵜⴰⵏⵎⵎⵉⵔⵜ</string>
   <string name="view_featured_article_footer_save_button_label">ⵃⴹⵓ</string>
   <string name="view_static_card_save_button_label">ⵃⴹⵓ</string>
@@ -171,9 +180,11 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">ⵙⵔ</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ⵡⴰⵅⵅⴰ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ⵙⵔ</string>
+  <string name="feed_accessibility_card_load_more_button">ⵣⴷⵎ ⵓⴳⴳⴰⵔ</string>
   <string name="description_edit_article_description_label">ⴰⵎⴳⵔⴰⴷ</string>
   <string name="description_edit_save">ⴼⵙⵔ</string>
   <string name="description_edit_read">ⵖⵔ</string>
+  <string name="description_edit_cancel_hint">ⵙⵔ</string>
   <string name="description_edit_success_done">ⵙⵖⵣⵏ</string>
   <string name="description_edit_success_did_you_know">ⵉⵙ ⵜⵙⵙⵏⴷ?</string>
   <string name="suggested_edits_image_caption_summary_title_author">ⴰⵎⴳⴰⵢ</string>
@@ -190,10 +201,12 @@
   <string name="suggested_edits_contribution_date_time_label">ⴰⵙⴰⴽⵓⴷ/ⴰⴽⵓⴷ</string>
   <string name="suggested_edits_contribution_views">%s ⵜⴰⵏⵏⴰⵢⵉⵏ</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ⴰⵙⵙⵏⵏⴰⴹ</string>
+  <string name="description_edit_login_cancel_button_text">ⵙⵔ</string>
   <string name="size_gb">%.2f ⴳⴱ</string>
   <string name="size_mb">%.2f ⵎⴱ</string>
   <string name="onboarding_multilingual_add_language_text">ⵔⵏⵓ ⵏⵖ ⵙⵏⴼⵍ ⵜⵓⵜⵍⴰⵢⵉⵏ</string>
   <string name="app_shortcuts_search">ⵔⵣⵓ</string>
+  <string name="on_this_day_card_title">ⴳ ⵡⴰⵙⵙ ⴰ</string>
   <string name="this_year">ⴰⵙⵙⴳⴳⵯⴰⵙ ⴰⴷ</string>
   <string name="languages_list_activity_title">ⵔⵏⵓ ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="languages_list_all_text">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵎⴰⵕⵕⴰ</string>
