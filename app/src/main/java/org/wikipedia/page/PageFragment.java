@@ -1179,32 +1179,35 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 if (!isAdded()) {
                     return;
                 }
+
+                ActivityOptionsCompat options = null;
                 JavaScriptActionHandler.ImageHitInfo hitInfo = GsonUtil.getDefaultGson().fromJson(s, JavaScriptActionHandler.ImageHitInfo.class);
 
-                viewForTransition = new ImageView(requireActivity());
-                ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(DimenUtil.roundedDpToPx(hitInfo.getWidth()), DimenUtil.roundedDpToPx(hitInfo.getHeight()));
-                params.topMargin = DimenUtil.roundedDpToPx(hitInfo.getTop());
-                params.leftMargin = DimenUtil.roundedDpToPx(hitInfo.getLeft());
-                viewForTransition.setLayoutParams(params);
-                viewForTransition.setTransitionName(getString(R.string.transition_page_gallery));
-                ((ViewGroup) webView.getParent()).addView(viewForTransition);
+                if (hitInfo != null) {
+                    viewForTransition = new ImageView(requireActivity());
+                    ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(DimenUtil.roundedDpToPx(hitInfo.getWidth()), DimenUtil.roundedDpToPx(hitInfo.getHeight()));
+                    params.topMargin = DimenUtil.roundedDpToPx(hitInfo.getTop());
+                    params.leftMargin = DimenUtil.roundedDpToPx(hitInfo.getLeft());
+                    viewForTransition.setLayoutParams(params);
+                    viewForTransition.setTransitionName(getString(R.string.transition_page_gallery));
+                    ((ViewGroup) webView.getParent()).addView(viewForTransition);
 
-                GalleryActivity.setTransitionInfo(hitInfo);
+                    GalleryActivity.setTransitionInfo(hitInfo);
+                    options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation(requireActivity(), viewForTransition, getString(R.string.transition_page_gallery));
 
-                viewForTransition.post(() -> {
+                    ViewUtil.loadImage(viewForTransition, hitInfo.getSrc());
+                }
+                final Bundle bundle = options != null ? options.toBundle() : null;
+
+                webView.post(() -> {
                     if (!isAdded()) {
                         return;
                     }
-
-                    ActivityOptionsCompat options = ActivityOptionsCompat.
-                            makeSceneTransitionAnimation(requireActivity(), viewForTransition, getString(R.string.transition_page_gallery));
-
                     requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
                             model.getTitle(), fileName,
-                            model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY, options.toBundle());
+                            model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY, bundle);
                 });
-
-                ViewUtil.loadImage(viewForTransition, hitInfo.getSrc());
             });
 
         } else {
