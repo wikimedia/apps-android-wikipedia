@@ -130,7 +130,7 @@
   <string name="edit_zoom_in">ኣዕብይ</string>
   <string name="edit_zoom_out">ኣንእስ</string>
   <string name="edit_summary_tag_other">ካልእ</string>
-  <string name="text_size_select">ናይ ቅርጺ ፈደል መጠን</string>
+  <string name="text_size_select">መጠን ቅርጺ ፊደል</string>
   <string name="page_similar_titles">ተመሳሳሊ ገጻት</string>
   <string name="clear_recent_searches_confirm_yes">እወ</string>
   <string name="clear_recent_searches_confirm_no">ኣይፋል</string>
@@ -219,7 +219,7 @@
   <string name="reading_list_saved_list_rename">%1$s (ብተጠቃሚ ዝተፈጠረ)</string>
   <string name="reading_lists_menu_create_list">ሓድሽ ዝርዝር ፍጠር</string>
   <string name="reading_lists_menu_sort_by">ጎጅል ብ</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ብመንነት እተው / መንነት መፍለዪ ፍጠር</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ብመንነት እተው / ተመዝገብ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ሕራይ</string>
   <string name="reading_list_delete_dialog_ok_button_text">ሕራይ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">ኣትርፍ</string>
@@ -295,14 +295,14 @@
   <string name="description_edit_success_done">ተወዲኡ</string>
   <string name="description_edit_success_did_you_know">ትፈልጡ ዶ?</string>
   <string name="description_edit_tutorial_title_descriptions">ናይ ጽሑፍ መግለጺታት</string>
-  <string name="suggested_edits_review_description">ናይ ጽሑፍ መግለጺ ገምገመ</string>
+  <string name="suggested_edits_review_description">ናይ ጽሑፍ መግለጺ ገምግም</string>
   <string name="suggested_edits_add_description_button">መግለጺ ወስኽ</string>
   <string name="suggested_edits_edit_description_button">መግለጺ ኣመዓራርይ</string>
   <string name="suggested_edits_add_translation_button">ትርጉም ወስኽ</string>
   <string name="suggested_edits_edit_translation_button">ትርጉም ኣመዓራርይ</string>
   <string name="suggested_edits_add_caption_button">መግለጺ ጽሑፍ ወስኽ</string>
   <string name="suggested_edits_edit_caption_button">መግለጺ ጽሑፍ ኣመዓራርይ</string>
-  <string name="suggested_edits_review_image_caption">ናይ ምስሊ መግለጺ ጽሑፍ ገምገመ</string>
+  <string name="suggested_edits_review_image_caption">ናይ ምስሊ መግለጺ ጽሑፍ ገምግም</string>
   <string name="suggested_edits_my_contributions">ኣበርክቶታተይ</string>
   <string name="suggested_edits_menu_info">ሓበሬታ</string>
   <string name="suggested_edits_task_add_description_title">ናይ ጽሑፍ መግለጺታት ወስኽ</string>
