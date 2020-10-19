@@ -241,16 +241,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
-                        String thumbUrl = "";
-                        if (getMediaInfo() != null && !TextUtils.isEmpty(getMediaInfo().getThumbUrl())) {
-                            thumbUrl = getMediaInfo().getThumbUrl();
-                        } else if (((GalleryActivity) requireActivity()).getTransitionInfo() != null) {
-                            thumbUrl = ((GalleryActivity) requireActivity()).getTransitionInfo().getSrc();
-                        }
-                        if (TextUtils.isEmpty(thumbUrl)) {
-                            throw new Throwable("Thumbnail URL is empty.");
-                        }
-                        loadImage(ImageUrlUtil.getUrlForPreferredSize(thumbUrl, PREFERRED_GALLERY_IMAGE_SIZE));
+                        loadImage(ImageUrlUtil.getUrlForPreferredSize(getMediaInfo().getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE));
                     }
                 }, throwable -> {
                     FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);

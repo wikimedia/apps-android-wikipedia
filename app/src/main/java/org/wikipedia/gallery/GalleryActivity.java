@@ -399,10 +399,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         TRANSITION_INFO = hitInfo;
     }
 
-    public JavaScriptActionHandler.ImageHitInfo getTransitionInfo() {
-        return TRANSITION_INFO;
-    }
-
     private void startCaptionEdit(GalleryItemFragment item) {
         PageTitle title = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
         String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
@@ -729,7 +725,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         GalleryItemFragment item = getCurrentItem();
         if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
             infoContainer.setVisibility(View.GONE);
-            updateProgressBar(false);
             return;
         }
         updateProgressBar(true);
