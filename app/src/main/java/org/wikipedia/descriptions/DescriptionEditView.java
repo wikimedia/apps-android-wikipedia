@@ -31,8 +31,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.language.LanguageUtil;
-import org.wikipedia.language.MlKitLanguageDetector;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.mlkit.MlKitLanguageDetector;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -447,7 +447,7 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
 
     @Override
     public void onLanguageDetectionSuccess(@NotNull String languageCode) {
-        if (!languageCode.equals("und") && !languageCode.equals(pageSummaryForEdit.getLang())) {
+        if (!languageCode.equals(pageSummaryForEdit.getLang())) {
             setWarning(getContext().getString(R.string.description_is_in_different_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.getLang())));
         }

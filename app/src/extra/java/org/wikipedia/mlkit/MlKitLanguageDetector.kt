@@ -1,4 +1,4 @@
-package org.wikipedia.language
+package org.wikipedia.mlkit
 
 import com.google.mlkit.nl.languageid.LanguageIdentification
 
@@ -12,7 +12,9 @@ class MlKitLanguageDetector {
         val languageIdentifier = LanguageIdentification.getClient()
         languageIdentifier.identifyLanguage(text)
                 .addOnSuccessListener { languageCode: String ->
-                    callback?.onLanguageDetectionSuccess(languageCode)
+                    if (languageCode != "und") {
+                        callback?.onLanguageDetectionSuccess(languageCode)
+                    }
                 }
     }
 }
