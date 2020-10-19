@@ -49,6 +49,9 @@ android {
         signingConfig signingConfigs.debug
 
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
+        buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
+        buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
+        buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
     }
 
     sourceSets {
@@ -94,6 +97,9 @@ android {
         dev {
             versionName computeVersionName('dev')
             applicationIdSuffix '.dev'
+            buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
+            buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.beta.wmflabs.org"'
+            buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.beta.wmflabs.org"'
         }
         prod {
             versionName computeVersionName('r')
@@ -151,7 +157,7 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
-    String mockitoCore = 'org.mockito:mockito-core:1.9.5'
+    String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.4'
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '20.3.0'
@@ -207,13 +213,14 @@ dependencies {
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
 
     testImplementation 'junit:junit:4.13'
-    testImplementation mockitoCore
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation "commons-io:commons-io:2.6"
+    testImplementation 'org.hamcrest:hamcrest:2.2'
 
-    androidTestImplementation mockitoCore
+    androidTestImplementation "org.mockito:mockito-inline:$mockitoVersion"
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
     androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
