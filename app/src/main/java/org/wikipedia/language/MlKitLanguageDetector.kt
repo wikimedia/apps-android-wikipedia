@@ -2,7 +2,7 @@ package org.wikipedia.language
 
 import com.google.mlkit.nl.languageid.LanguageIdentification
 
-class FirebaseLanguageDetector {
+class MlKitLanguageDetector {
     interface Callback {
         fun onLanguageDetectionSuccess(languageCode: String)
     }
@@ -12,9 +12,7 @@ class FirebaseLanguageDetector {
         val languageIdentifier = LanguageIdentification.getClient()
         languageIdentifier.identifyLanguage(text)
                 .addOnSuccessListener { languageCode: String ->
-                    if (callback != null) {
-                        callback!!.onLanguageDetectionSuccess(languageCode)
-                    }
+                    callback?.onLanguageDetectionSuccess(languageCode)
                 }
     }
 }

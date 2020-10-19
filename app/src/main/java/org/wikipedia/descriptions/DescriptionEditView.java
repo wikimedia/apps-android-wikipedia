@@ -30,7 +30,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
-import org.wikipedia.language.FirebaseLanguageDetector;
+import org.wikipedia.language.MlKitLanguageDetector;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
@@ -53,7 +53,7 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLAT
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
-public class DescriptionEditView extends LinearLayout implements FirebaseLanguageDetector.Callback {
+public class DescriptionEditView extends LinearLayout implements MlKitLanguageDetector.Callback {
     private static final int TEXT_VALIDATE_DELAY_MILLIS = 1000;
 
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
@@ -350,9 +350,9 @@ public class DescriptionEditView extends LinearLayout implements FirebaseLanguag
         isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase().trim();
 
-        FirebaseLanguageDetector firebaseLanguageDetector = new FirebaseLanguageDetector();
-        firebaseLanguageDetector.setCallback(this);
-        firebaseLanguageDetector.detectLanguageFromText(text);
+        MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
+        mlKitLanguageDetector.setCallback(this);
+        mlKitLanguageDetector.detectLanguageFromText(text);
 
         if (text.length() == 0) {
             isTextValid = false;
