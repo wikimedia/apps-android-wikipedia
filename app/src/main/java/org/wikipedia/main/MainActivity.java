@@ -38,7 +38,6 @@ import org.wikipedia.views.TabCountsView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -53,7 +52,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     @Nullable private Balloon currentTooltip;
 
     private boolean controlNavTabInFragment;
-    private CompositeDisposable disposables = new CompositeDisposable();
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);

@@ -13,7 +13,6 @@ import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
-import org.wikipedia.watchlist.WatchListItem;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,7 +35,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
-    @SerializedName("watchlist") @Nullable private List<WatchListItem> watchlist;
+    @SerializedName("watchlist") @Nullable private List<MwQueryPage> watchlistPages;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -130,8 +129,8 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return userContributions != null ? userContributions : Collections.emptyList();
     }
 
-    @NonNull public List<WatchListItem> watchlist() {
-        return watchlist != null ? watchlist : Collections.emptyList();
+    @NonNull public List<MwQueryPage> watchlist() {
+        return watchlistPages != null ? watchlistPages : Collections.emptyList();
     }
 
     public boolean isEditProtected() {
