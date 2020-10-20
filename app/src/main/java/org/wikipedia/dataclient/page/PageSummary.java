@@ -16,6 +16,7 @@ import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.UriUtil;
 
 /**
  * Represents a summary of a page, useful for page previews.
@@ -168,10 +169,9 @@ public class PageSummary {
 
     @Nullable
     public String getLeadImageName() {
-        if (getOriginalImageUrl() == null) {
+        if (getThumbnailUrl() == null) {
             return null;
         }
-        String[] originalImageSplitArray = getOriginalImageUrl().split("/");
-        return originalImageSplitArray[originalImageSplitArray.length - 1];
+        return UriUtil.getFilenameFromUploadUrl(getThumbnailUrl());
     }
 }
