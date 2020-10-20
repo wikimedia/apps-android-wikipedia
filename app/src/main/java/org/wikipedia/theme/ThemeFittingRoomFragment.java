@@ -1,5 +1,6 @@
 package org.wikipedia.theme;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,10 @@ import androidx.fragment.app.Fragment;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.events.ChangeFontFamilyEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.WebViewInvalidateEvent;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -41,6 +44,7 @@ public class ThemeFittingRoomFragment extends Fragment {
 
         testImage.loadImage(R.drawable.w_nav_mark);
         updateTextSize();
+        updateFontFamily();
         return view;
     }
 
@@ -59,11 +63,21 @@ public class ThemeFittingRoomFragment extends Fragment {
         testTitle.setTextSize(fontSize * titleMultiplier);
     }
 
+    private void updateFontFamily() {
+        Typeface currentTypeface = Prefs.getFontFamily().equals(getResources().getString(R.string.font_family_sans_serif))
+                ? Typeface.SANS_SERIF : Typeface.SERIF;
+        testTitle.setTypeface(currentTypeface);
+        testText.setTypeface(currentTypeface);
+    }
+
     private class EventBusConsumer implements Consumer<Object> {
         @Override
         public void accept(Object event) {
             if (event instanceof ChangeTextSizeEvent) {
                 updateTextSize();
+                testText.post(() -> WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent()));
+            } else if (event instanceof ChangeFontFamilyEvent) {
+                updateFontFamily();
                 testText.post(() -> WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent()));
             }
         }

@@ -89,6 +89,7 @@ object JavaScriptActionHandler {
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
                 "   \"theme\": \"${app.currentTheme.funnelName}\"," +
+                "   \"bodyFont\": \"${Prefs.getFontFamily()}\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +

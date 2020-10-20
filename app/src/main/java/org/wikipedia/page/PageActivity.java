@@ -47,6 +47,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
+import org.wikipedia.events.ChangeFontFamilyEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.gallery.GalleryActivity;
@@ -847,6 +848,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (pageFragment != null && pageFragment.getWebView() != null) {
                     pageFragment.updateFontSize();
                 }
+            } else if (event instanceof ChangeFontFamilyEvent) {
+                // TODO: refresh webview?
             } else if (event instanceof ArticleSavedOrDeletedEvent) {
                 if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
                     Prefs.shouldShowBookmarkToolTip(false);

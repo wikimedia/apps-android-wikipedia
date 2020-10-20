@@ -240,7 +240,6 @@
     <string name="abusefilter_title_disallow">You cannot publish this edit. Please go back and change it.</string>
     <string name="abusefilter_text_warn"><![CDATA[An automated filter has identified this edit as potentially unconstructive. It may contain one or more of the following:<br /><br />· Typing in all caps<br />· Blanking articles or spamming<br />· Irrelevant external links or images<br />· Repeating characters]]></string>
     <string name="abusefilter_text_disallow"><![CDATA[An automated filter has identified this edit as potentially unconstructive, or potential vandalism.<br /><br />Wikipedia is an encyclopedia and only neutral, notable content belongs here.]]></string>
-    <string name="text_size_select">Font size</string>
     <string name="page_similar_titles">Similar pages</string>
     <string name="search_did_you_mean">Did you mean \"%s\"?</string>
     <string name="search_recent_header">Recent searches:</string>
@@ -385,6 +384,7 @@
     <string name="text_size_increase">Increase text size</string>
     <string name="text_size_decrease">Decrease text size</string>
     <string name="text_size_percent_default">%s (Default)</string>
+    <string name="text_style_title">Font</string>
     <!-- /Theme -->
 
     <!-- Reading lists -->

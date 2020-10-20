@@ -17,6 +17,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.button.MaterialButton;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -47,6 +48,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.button_theme_dark) TextView buttonThemeDark;
     @BindView(R.id.button_theme_black) TextView buttonThemeBlack;
     @BindView(R.id.button_theme_sepia) TextView buttonThemeSepia;
+    @BindView(R.id.button_font_family_sans_serif) MaterialButton buttonFontFamilySansSerif;
+    @BindView(R.id.button_font_family_serif) MaterialButton buttonFontFamilySerif;
     @BindView(R.id.button_theme_light_highlight) View buttonThemeLightHighlight;
     @BindView(R.id.button_theme_dark_highlight) View buttonThemeDarkHighlight;
     @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
@@ -80,6 +83,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         buttonThemeDark.setOnClickListener(new ThemeButtonListener(Theme.DARK));
         buttonThemeBlack.setOnClickListener(new ThemeButtonListener(Theme.BLACK));
         buttonThemeSepia.setOnClickListener(new ThemeButtonListener(Theme.SEPIA));
+        buttonFontFamilySansSerif.setOnClickListener(new FontFamilyListener());
+        buttonFontFamilySerif.setOnClickListener(new FontFamilyListener());
 
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -207,6 +212,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     private void updateComponents() {
         updateFontSize();
+        updateFontFamily();
         updateThemeButtons();
         updateDimImagesSwitch();
         updateMatchSystemThemeSwitch();
@@ -235,6 +241,12 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         } else {
             fontChangeProgressBar.setVisibility(View.GONE);
         }
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void updateFontFamily() {
+        buttonFontFamilySansSerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySansSerif.getTag()) ? 5 : 0);
+        buttonFontFamilySerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySerif.getTag()) ? 5 : 0);
     }
 
     private void updateThemeButtons() {
@@ -268,6 +280,15 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             if (app.getCurrentTheme() != theme) {
                 funnel.logThemeChange(app.getCurrentTheme(), theme);
                 app.setCurrentTheme(theme);
+            }
+        }
+    }
+
+    private final class FontFamilyListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            if (v.getTag() != null) {
+                app.setFontFamily((String) v.getTag());
             }
         }
     }
