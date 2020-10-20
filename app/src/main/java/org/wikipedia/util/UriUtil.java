@@ -120,6 +120,16 @@ public final class UriUtil {
         return title.getUri() + "?wprov=" + context.getString(provId);
     }
 
+    @NonNull
+    public static String getFilenameFromUploadUrl(@NonNull String url) {
+        String[] splitArray = url.split("/");
+        String thumbnailName = splitArray[splitArray.length - 1];
+        if (url.contains("/thumb/") && splitArray.length > 2) {
+            return splitArray[splitArray.length - 2];
+        }
+        return thumbnailName;
+    }
+
     /**
      * Note that while this method also replaces '_' with spaces it doesn't fully decode the string.
      */
