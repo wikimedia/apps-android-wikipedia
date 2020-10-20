@@ -442,7 +442,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
         seFeedCardProgressBar.visibility = GONE
         seCardErrorView.setError(caught)
         seCardErrorView.visibility = VISIBLE
-        seCardErrorView.bringToFront()
     }
 
     companion object {
