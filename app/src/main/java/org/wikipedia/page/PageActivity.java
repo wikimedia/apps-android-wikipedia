@@ -677,6 +677,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private void setTransitionViews(@NonNull PageTitle title) {
 
         pageFragmentView.setVisibility(View.GONE);
