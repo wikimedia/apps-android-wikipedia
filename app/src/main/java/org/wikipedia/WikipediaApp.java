@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.summaries.EditSummary;
-import org.wikipedia.events.ChangeFontFamilyEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
@@ -305,7 +304,7 @@ public class WikipediaApp extends Application {
     public void setFontFamily(@NonNull String fontFamily) {
         if (!fontFamily.equals(Prefs.getFontFamily())) {
             Prefs.setFontFamily(fontFamily);
-            bus.post(new ChangeFontFamilyEvent());
+            bus.post(new ThemeChangeEvent());
         }
     }
 

@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.ChangeFontFamilyEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.settings.Prefs;
@@ -75,9 +74,6 @@ public class ThemeFittingRoomFragment extends Fragment {
         public void accept(Object event) {
             if (event instanceof ChangeTextSizeEvent) {
                 updateTextSize();
-                testText.post(() -> WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent()));
-            } else if (event instanceof ChangeFontFamilyEvent) {
-                updateFontFamily();
                 testText.post(() -> WikipediaApp.getInstance().getBus().post(new WebViewInvalidateEvent()));
             }
         }
