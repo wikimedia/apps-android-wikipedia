@@ -246,7 +246,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             source.description,
                             source.thumbnailUrl,
                             source.extract,
-                            source.extract
+                            source.extractHtml
                     )
 
                     targetSummaryForEdit = PageSummaryForEdit(
