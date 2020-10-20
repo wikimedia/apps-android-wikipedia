@@ -84,6 +84,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     source.displayTitle,
                                     source.description,
                                     source.thumbnailUrl,
+                                    source.extract,
                                     source.extractHtml
                             )
 
@@ -94,6 +95,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.displayTitle,
                                     target.description,
                                     target.thumbnailUrl,
+                                    target.extract,
                                     target.extractHtml
                             )
                             updateContents()
@@ -204,6 +206,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,
+                                    pageSummary.extract,
                                     pageSummary.extractHtml
                             )
                             updateContents()

@@ -24,7 +24,7 @@ data class PageSummaryForEdit(
                 displayTitle: String?,
                 description: String?,
                 thumbnailUrl: String?
-    ) : this(title, lang, pageTitle, displayTitle, description, thumbnailUrl, null)
+    ) : this(title, lang, pageTitle, displayTitle, description, thumbnailUrl, null,null)
 
     fun getPreferredSizeThumbnailUrl(): String = ImageUrlUtil.getUrlForPreferredSize(thumbnailUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
 }

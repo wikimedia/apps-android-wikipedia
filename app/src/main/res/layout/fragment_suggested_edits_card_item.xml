@@ -48,8 +48,7 @@
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:id="@+id/viewArticleImage"
                 android:layout_width="match_parent"
-                android:layout_height="201dp"
-                android:background="?attr/selectableItemBackgroundBorderless" />
+                android:layout_height="201dp" />
 
             <LinearLayout
                 android:id="@+id/viewArticleContainer"

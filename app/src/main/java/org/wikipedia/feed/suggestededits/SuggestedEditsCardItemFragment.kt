@@ -3,7 +3,6 @@ package org.wikipedia.feed.suggestededits
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -246,7 +245,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             source.displayTitle,
                             source.description,
                             source.thumbnailUrl,
-                            source.extractHtml
+                            source.extract,
+                            source.extract
                     )
 
                     targetSummaryForEdit = PageSummaryForEdit(
@@ -256,6 +256,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                             target.displayTitle,
                             target.description,
                             target.thumbnailUrl,
+                            target.extract,
                             target.extractHtml
                     )
                     updateUI()
