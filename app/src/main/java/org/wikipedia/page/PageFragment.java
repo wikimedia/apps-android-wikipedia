@@ -244,7 +244,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onFontAndThemeTabSelected() {
-            showBottomSheet(new ThemeChooserDialog());
+            showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
         }
 
         @Override

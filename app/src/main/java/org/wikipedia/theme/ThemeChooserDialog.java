@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.button.MaterialButton;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -38,6 +39,8 @@ import butterknife.OnCheckedChanged;
 import butterknife.Unbinder;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
+
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;
@@ -68,9 +71,18 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private WikipediaApp app;
     private Unbinder unbinder;
     private AppearanceChangeFunnel funnel;
+    private Constants.InvokeSource invokeSource;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private boolean updatingFont = false;
+
+    public static ThemeChooserDialog newInstance(@NonNull Constants.InvokeSource source) {
+        ThemeChooserDialog dialog = new ThemeChooserDialog();
+        Bundle args = new Bundle();
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
+        dialog.setArguments(args);
+        return dialog;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -128,8 +140,9 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
+        invokeSource = (Constants.InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
         disposables.add(app.getBus().subscribe(new EventBusConsumer()));
-        funnel = new AppearanceChangeFunnel(app, app.getWikiSite());
+        funnel = new AppearanceChangeFunnel(app, app.getWikiSite(), invokeSource);
     }
 
     @Override
@@ -288,7 +301,9 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         @Override
         public void onClick(View v) {
             if (v.getTag() != null) {
-                app.setFontFamily((String) v.getTag());
+                String newFontFamily = (String) v.getTag();
+                funnel.logFontThemeChange(Prefs.getFontFamily(), newFontFamily);
+                app.setFontFamily(newFontFamily);
             }
         }
     }
