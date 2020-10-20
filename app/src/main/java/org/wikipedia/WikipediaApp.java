@@ -31,7 +31,7 @@ import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
@@ -281,7 +281,7 @@ public class WikipediaApp extends Application {
         if (theme != currentTheme) {
             currentTheme = theme;
             Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
-            bus.post(new ThemeChangeEvent());
+            bus.post(new ThemeFontChangeEvent());
         }
     }
 
@@ -304,7 +304,7 @@ public class WikipediaApp extends Application {
     public void setFontFamily(@NonNull String fontFamily) {
         if (!fontFamily.equals(Prefs.getFontFamily())) {
             Prefs.setFontFamily(fontFamily);
-            bus.post(new ThemeChangeEvent());
+            bus.post(new ThemeFontChangeEvent());
         }
     }
 
