@@ -47,9 +47,7 @@ object EditingSuggestionsProvider {
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
-                            for (page in pages) {
-                                articlesWithMissingDescriptionCache.push(page.title())
-                            }
+                            pages.forEach { articlesWithMissingDescriptionCache.push(it.title()) }
                             if (!articlesWithMissingDescriptionCache.empty()) {
                                 title = articlesWithMissingDescriptionCache.pop()
                             }
@@ -94,8 +92,8 @@ object EditingSuggestionsProvider {
                                         || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                                     continue
                                 }
-                                articlesWithTranslatableDescriptionCache.push(Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
-                                        PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)))
+                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki)
+                                        to PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
                             }
                             if (!articlesWithTranslatableDescriptionCache.empty()) {
                                 sourceAndTargetPageTitles = articlesWithTranslatableDescriptionCache.pop()
@@ -135,9 +133,7 @@ object EditingSuggestionsProvider {
                 ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
-                            for (page in pages) {
-                                imagesWithMissingCaptionsCache.push(page.title())
-                            }
+                            pages.forEach { imagesWithMissingCaptionsCache.push(it.title()) }
                             var item: String? = null
                             if (!imagesWithMissingCaptionsCache.empty()) {
                                 item = imagesWithMissingCaptionsCache.pop()
@@ -177,7 +173,7 @@ object EditingSuggestionsProvider {
                                 if (!page.captions.containsKey(sourceLang) || page.captions.containsKey(targetLang)) {
                                     continue
                                 }
-                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang] ?: error(""), page.title()))
+                                imagesWithTranslatableCaptionCache.push((page.captions[sourceLang] ?: error("")) to page.title())
                             }
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()
@@ -208,14 +204,7 @@ object EditingSuggestionsProvider {
                                 if (page.imageInfo()!!.mimeType != "image/jpeg") {
                                     continue
                                 }
-                                var hasTags = false
-                                for (revision in page.revisions()) {
-                                    if (revision.getContentFromSlot("mediainfo").contains("P180")) {
-                                        hasTags = true
-                                        break
-                                    }
-                                }
-                                if (!hasTags) {
+                                if (page.revisions().none { "P180" in it.getContentFromSlot("mediainfo") }) {
                                     imagesWithMissingTagsCache.push(page)
                                 }
                             }

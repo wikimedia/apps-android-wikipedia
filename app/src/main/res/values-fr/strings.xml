@@ -148,7 +148,7 @@
   <string name="menu_login">Connexion</string>
   <string name="login_activity_title">Se connecter</string>
   <string name="login_in_progress_dialog_message">Connexion en cours…</string>
-  <string name="login_success_toast">Connecté !</string>
+  <string name="login_success_toast">Connecté !</string>
   <string name="reset_password_title">Définir votre mot de passe</string>
   <string name="reset_password_description">Vous êtes connecté avec un mot de passe temporaire. Pour finaliser votre connexion, veuillez définir votre nouveau mot de passe ici.</string>
   <string name="reset_password_hint">Nouveau mot de passe</string>
@@ -234,10 +234,10 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
-  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l\'équipe&lt;/a&gt;</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l’équipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -305,7 +305,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Autoriser</string>
   <string name="read_more_section">En savoir plus</string>
   <string name="about_article_section">À propos de cet article</string>
-  <string name="menu_gallery_visit_image_page">Aller à la page du fichier</string>
+  <string name="menu_gallery_visit_image_page">Aller à la page de l’image</string>
   <string name="gallery_error_draw_failed">Impossible d’afficher l’image.</string>
   <string name="license_title">Licence pour la bibliothèque %s</string>
   <string name="gallery_menu_share">Partager</string>
@@ -345,6 +345,7 @@
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
   <string name="text_copied">Texte copié dans le presse-papier.</string>
   <string name="button_continue_to_article">Lire l’article</string>
+  <string name="button_continue_to_talk_page">Ouvrir la page de discussion</string>
   <string name="button_continue_to_disambiguation">Afficher les pages similaires</string>
   <string name="link_preview_disambiguation_description">Ce titre fait référence à plus d’une page :</string>
   <string name="button_add_to_reading_list">Ajouter à la liste de lecture</string>
@@ -393,7 +394,7 @@
   <string name="article_menu_bar_language_button">Langue</string>
   <string name="article_menu_bar_search_button">Rechercher</string>
   <string name="article_menu_bar_theme_button">Thème</string>
-  <string name="article_menu_bar_contents_button">Contenu</string>
+  <string name="article_menu_bar_contents_button">Contenus</string>
   <string name="article_header_edit_hint">Modifier...</string>
   <string name="article_header_edit_description">Modifier la description de l’article</string>
   <string name="article_header_edit_lead_section">Modifier l’introduction</string>
@@ -422,12 +423,12 @@
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_add_to_list_button">Ajouter à la liste</string>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="one">1 article, %2$.2f Mo</item>
-    <item quantity="other">%1$d articles, %2$.2f Mo</item>
+    <item quantity="one">1 article, %2$.2f Mio</item>
+    <item quantity="other">%1$d articles, %2$.2f Mio</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d sur 1 article disponible hors ligne, %3$.2f Mo</item>
-    <item quantity="other">%1$d sur %2$d articles disponibles hors ligne, %3$.2f Mo</item>
+    <item quantity="one">%1$d sur 1 article disponible hors ligne, %3$.2f Mio</item>
+    <item quantity="other">%1$d sur %2$d articles disponibles hors ligne, %3$.2f Mio</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f Mo</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f Mio</string>
@@ -487,7 +488,7 @@
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
   <string name="reading_lists_login_reminder_text">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
-  <string name="reading_lists_login_button">Connexion / rejoindre Wikipédia</string>
+  <string name="reading_lists_login_button">Se connecter / rejoindre Wikipédia</string>
   <string name="reading_lists_ignore_button">Pas maintenant</string>
   <string name="reading_lists_confirm_remote_delete_yes">Oui</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
@@ -685,7 +686,7 @@
   <string name="description_edit_anon_limit">Merci pour votre intérêt renouvelé à modifier les descriptions d’article ! Pour faire plus de modifications, veuillez vous connecter à votre compte Wikipédia.</string>
   <string name="description_edit_license_notice">En modifiant la description de l\'article, j’accepte les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et de placer de façon irrévocable mes contributions sous la licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">commence généralement par une lettre minuscule</string>
-  <string name="description_edit_voice_input_description">Entrée voix</string>
+  <string name="description_edit_voice_input_description">Entrée vocale</string>
   <string name="description_too_short">Le texte est trop court.</string>
   <string name="description_ends_with_punctuation">Le texte ne doit pas se terminer par une ponctuation.</string>
   <string name="description_starts_with_article">Éviter de commencer avec des articles comme « un » ou « le ».</string>
@@ -735,7 +736,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Verrouillé tant que vous n’aurez pas modifié %d descriptions d’articles (vérifiées)</string>
   <string name="suggested_edits_task_multilingual_negative">Pas pour moi</string>
   <string name="suggested_edits_task_multilingual_positive">Ajouter des langues</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Fichier</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Image</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiste</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source</string>
@@ -751,7 +752,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Démarrer</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Légende de l’image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Description de l’image (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">Fichier</string>
+  <string name="suggested_edits_image_preview_dialog_image">Image</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiste</string>
   <string name="suggested_edits_image_preview_dialog_tags">Balises</string>
   <string name="suggested_edits_image_preview_dialog_date">Date</string>
@@ -772,27 +773,27 @@
   <string name="suggested_edits_task_action_text_add">Ajouter</string>
   <string name="suggested_edits_task_action_text_translate">Traduire</string>
   <string name="suggested_edits_image_captions">Légende des images</string>
-  <string name="suggested_edits_image_tags">Balises de l’image</string>
+  <string name="suggested_edits_image_tags">Balises d’image</string>
   <string name="suggested_edits_image_tags_publishing">Publication</string>
   <string name="suggested_edits_image_tags_published">Publié</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Marquer les images permet de les retrouver plus facilement.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous faciliterez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia dans ses articles.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Baliser les images permet de les retrouver plus facilement.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous faciliterez la recherche d’images sur Commons, le dépôt d’images sous licence libre utilisé par Wikipédia dans ses articles.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
   <string name="suggested_edits_image_tags_task_detail">Ajouter des balises personnalisées à une image pour la retrouver plus facilement.</string>
   <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_published_list">Balises publiées</string>
   <string name="suggested_edits_image_tags_search">Rechercher des balises</string>
-  <string name="suggested_edits_image_tags_select_title">Vous n’avez pas sélectionné de balise pour cette image</string>
-  <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisirez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
+  <string name="suggested_edits_image_tags_select_title">Vous n’avez sélectionné aucune balise pour cette image</string>
+  <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisissez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
   <string name="suggested_edits_image_tags_add_tag">Ajouter une balise</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
   <string name="suggested_edits_image_captions_task_detail">Décrire une image pour aider les lecteurs à comprendre sa signification et son contexte.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Résumer un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Votre nombre total de contributions avec Modifications suggérées.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Pendant combien de jours sans arrêt vous avez contribué avec les Modifications suggérées. Si vous n’avez pas contribué depuis longtemps, ceci affiche la date de votre dernière contribution.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours avec Modifications suggérées.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Résumer un article pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions jusqu\'à présent.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Nombre de jours contigus où vous avez contribué. Si vous n’avez pas contribué depuis longtemps, ceci affiche la date de votre dernière contribution.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basé sur combien de fois une de vos contributions a été annulée (défaite par un autre utilisateur). Modifications annulées : %d.</string>
   <string name="suggested_edits_paused_message">Les modifications suggérées sont en pause jusqu’au %1$s. Désolé %2$s, certaines de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_disabled_message">Les modifications suggérées sont désactivées. Désolé %s, trop de vos contributions récentes ont été annulées.</string>
@@ -819,8 +820,8 @@
     <item quantity="one">%d jour</item>
     <item quantity="other">%d jours</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">Que sont les suggestions de modification ?</string>
-  <string name="suggested_edits_what_is_text">Les modifications suggérées présentent des opportunités pour des petites contributions mais vitales pour Wikipedia.</string>
+  <string name="suggested_edits_what_is_title">Que sont les suggestions de modification ?</string>
+  <string name="suggested_edits_what_is_text">Les modifications suggérées présentent des opportunités pour des petites contributions mais vitales pour Wikipédia.</string>
   <string name="suggested_edits_learn_more">En savoir plus</string>
   <string name="suggested_edits_paused_title">En pause</string>
   <string name="suggested_edits_disabled_title">Désactivé</string>
@@ -830,11 +831,11 @@
   <string name="suggested_edits_task_new">nouveau</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">Merci d\'avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour continuer à améliorer Wikipédia ? Consultez ces suggestions de modifications.</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Merci d’avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour continuer à améliorer Wikipédia ? Consultez ces suggestions de modifications.</string>
   <string name="suggested_edits_contributions_screen_title">contributions de %s</string>
   <string name="suggested_edits_contribution_language_label">Langue</string>
-  <string name="suggested_edits_contribution_date_time_label">Date / Heure</string>
+  <string name="suggested_edits_contribution_date_time_label">Date / heure</string>
   <string name="suggested_edits_contribution_type_label">Type de contribution</string>
   <string name="suggested_edits_contribution_image_label">Image</string>
   <string name="suggested_edits_contribution_article_label">Article</string>
@@ -845,7 +846,7 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Vu %s fois dans les 30 derniers jours.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
-    <item quantity="one">Vous avez ajouté %d balise</item>
+    <item quantity="one">Vous avez ajouté une balise</item>
     <item quantity="other">Vous avez ajouté %d balises</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
@@ -855,23 +856,23 @@
     <item quantity="other">Vous avez fait %d contributions à Wikipédia en utilisant Modifications suggérées. Merci !</item>
   </plurals>
   <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Vous avez édité pendant un jour complet. Continuez, %2$s !</item>
-    <item quantity="other">Vous avez modifié chaque jour pendant %1$d jusqu’à présent. Continuez, %2$s !</item>
+    <item quantity="one">Vous avez modifié durant un jour complet. Continuez, %2$s !</item>
+    <item quantity="other">Vous avez modifié durant chacun des %1$d derniers jours jusqu’à présent. Continuez, %2$s !</item>
   </plurals>
   <plurals name="suggested_edits_rewards_page_views">
     <item quantity="one">Vos modifications ont été vues par une personne dans les 30 derniers jours. Merci, et continuez !</item>
     <item quantity="other">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci, et continuez !</item>
   </plurals>
-  <string name="suggested_edits_rewards_contribution">Vous avez fait %d contributions à Wikipédia en utilisant les modifications suggérées. Merci !</string>
+  <string name="suggested_edits_rewards_contribution">Vous avez fait %d contributions à Wikipédia en utilisant les Modifications suggérées. Merci !</string>
   <string name="suggested_edits_rewards_edit_streak">Vous avez modifié tous les jours depuis %1$d jusqu’à présent. Continuez la série en cours, %2$s !</string>
-  <string name="suggested_edits_rewards_pageviews">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci, et continuez !</string>
+  <string name="suggested_edits_rewards_pageviews">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci et continuez sur votre lancée !</string>
   <string name="suggested_edits_rewards_edit_quality">Vos modifications jusqu’à présent sont %s. Continuez ! Nous attendons vos contributions.</string>
   <string name="suggested_edits_rewards_continue_button">Poursuivre</string>
   <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
-  <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikiipédia</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
-  <string name="suggested_edits_contribution_current_revision_text">Votre édition est actuellement visible sur Wikipédia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Votre modification est maintenant visible sur Wikipédia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>
@@ -974,15 +975,15 @@
   <string name="wikitext_preview_link">Lien vers l’aperçu</string>
   <string name="main_drawer_help">Aide</string>
   <string name="main_drawer_login">Se connecter / rejoindre Wikipédia</string>
-  <string name="main_tooltip_text">Bonjour, %s, saviez-vous que chacun peutmettre à jour Wikipédia ?</string>
-  <string name="main_tooltip_text_v2">Savez-vous que tout le monde peut modifier Wikipédia ?</string>
+  <string name="main_tooltip_text">Bonjour %s, saviez-vous que chacun peut mettre à jour Wikipédia ?</string>
+  <string name="main_tooltip_text_v2">Saviez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="main_tooltip_action_button">Démarrer</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuler</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Annuler</string>
   <string name="talk_title">Discussion</string>
-  <string name="talk_user_title">Discussion : %s</string>
+  <string name="talk_user_title">Discussion : %s</string>
   <string name="talk_new_topic">Nouveau sujet</string>
   <string name="talk_page_empty">Cette page de discussion est vide.</string>
   <string name="talk_add_reply">Répondre</string>

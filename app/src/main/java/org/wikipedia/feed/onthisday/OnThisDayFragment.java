@@ -60,6 +60,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
     @BindView(R.id.on_this_day_progress) ProgressBar progressBar;
+    @BindView(R.id.header_frame_layout) FrameLayout headerFrameLayout;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.app_bar) AppBarLayout appBarLayout;
     @BindView(R.id.on_this_day_error_view) WikiErrorView errorView;
@@ -177,6 +178,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         indicatorLayout.setAlpha((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? HALF_ALPHA : 1.0f);
         indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+            headerFrameLayout.setAlpha(1.0f - Math.abs(verticalOffset / (float) appBarLayout.getTotalScrollRange()));
             if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
                 toolbarDropDown.setVisibility(View.GONE);
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {

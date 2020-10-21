@@ -26,6 +26,7 @@
 * Okkerem
 * Rapsar
 * Sayginer
+* Sezgin İbiş
 * Stonecy
 * Sucsuzz
 * SwornToTranslate29
@@ -53,6 +54,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Liste süzgeci</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
+  <string name="nav_item_search">Ara</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="card_offline_error_retry">Tekrar dene</string>
@@ -67,6 +69,8 @@
   <string name="history_item_delete_undo">Geri al</string>
   <string name="notification_archive_undo">Geri al</string>
   <string name="app_settings">Uygulama ayarları</string>
+  <string name="search_tab_tooltip">Doğrudan bir arama terimi yazmaya başlamak için simgeye tekrar dokunun.</string>
+  <string name="history_list_title">Geçmiş</string>
   <string name="dialog_title_clear_history">Tarama geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu işlem, tüm tarama geçmişinizi silecek ve bütün açık sekmelerinizi kapatacak. Emin misiniz?</string>
   <string name="dialog_message_clear_history_yes">Evet</string>
@@ -105,7 +109,7 @@
   <string name="edit_save_action_license_anon">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="preference_title_language">Vikipedi dilleri</string>
   <string name="langlinks_filter_hint">Ara</string>
-  <string name="langlinks_empty">Bu sayfa, diğer dillerde mevcut değil.</string>
+  <string name="langlinks_empty">Bu sayfa diğer dillerde mevcut değil.</string>
   <string name="langlinks_no_match">Dil bulunamadı</string>
   <string name="langlinks_activity_title">Diğer diller</string>
   <string name="langlinks_your_wikipedia_languages">Vikipedi dilleriniz</string>
@@ -269,6 +273,11 @@
   <string name="page_similar_titles">Benzer sayfalar</string>
   <string name="search_did_you_mean">Bunu mu demek istediniz: \"%s\"?</string>
   <string name="search_recent_header">Son aramalar:</string>
+  <string name="search_results_count_zero">Sonuç yok</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 sonuç</item>
+    <item quantity="other">%d sonuç</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Son aramaları temizle</string>
   <string name="clear_recent_searches_confirm">Arama geçmişini temizlemek istediğinizden emin misiniz?</string>
   <string name="clear_recent_searches_confirm_yes">Evet</string>
@@ -332,6 +341,7 @@
   <string name="address_copied">Adres panoya kopyalandı.</string>
   <string name="text_copied">Metin panoya kopyalandı.</string>
   <string name="button_continue_to_article">Maddeyi oku</string>
+  <string name="button_continue_to_talk_page">Tartışma sayfasını aç</string>
   <string name="button_continue_to_disambiguation">Benzer sayfaları görüntüle</string>
   <string name="link_preview_disambiguation_description">Bu başlık birden fazla sayfayla ilişkilidir:</string>
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
@@ -965,4 +975,15 @@
   <string name="text_input_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_cancel_button_text">İptal</string>
   <string name="custom_date_picker_dialog_cancel_button_text">İptal</string>
+  <string name="talk_title">Mesaj</string>
+  <string name="talk_user_title">Mesaj: %s</string>
+  <string name="talk_new_topic">Yeni konu</string>
+  <string name="talk_page_empty">Bu tartışma sayfası boş.</string>
+  <string name="talk_add_reply">Yanıtla</string>
+  <string name="talk_no_subject">(Konu yok)</string>
+  <string name="talk_reply_subject">Konu</string>
+  <string name="talk_reply_hint">Yanıt oluştur</string>
+  <string name="talk_message_hint">Mesaj oluştur</string>
+  <string name="talk_message_empty">Mesaj boş olamaz.</string>
+  <string name="talk_subject_empty">Konu boş olamaz.</string>
 </resources>

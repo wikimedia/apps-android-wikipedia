@@ -5,7 +5,7 @@ Script that builds one or more release apks.
 Does the following things in several steps:
 
 Step 1: (e.g., --beta):
-    - Runs the selected (clean) Gradle builds (e.g. beta, amazon, or prod)
+    - Runs the selected (clean) Gradle builds (e.g. beta, prod, custom)
 
 Step 2: (e.g., --beta --push):
     - Creates an annotated tag called 'releases/versionName'
@@ -22,7 +22,7 @@ To run
 Note: the apk file locations are printed to stdout
 6) manual step: test the apk(s): adb install -r <apk file>
 7) python scripts/make-release.py --prod --push
-8) compile release note of prod using (replace "r/*" with "beta/*" or "amazon/*")
+8) compile release note of prod using
     git log --pretty=format:"%h | %cr | %s" --abbrev-commit --no-merges `git tag -l r/*|tail -1`..
 9) Upload prod apk to Play Store and to releases.mediawiki.org
 
@@ -180,9 +180,6 @@ def main():
     group.add_argument('--prod',
                        help='Step 1: Google Play stable.',
                        action='store_true')
-    group.add_argument('--amazon',
-                       help='Step 1: Amazon stable release.',
-                       action='store_true')
     group.add_argument('--channel',
                        help='Step 1: Custom versionName&channel. OEMs w/ Play')
     group.add_argument('--app',
@@ -200,9 +197,6 @@ def main():
     elif args.prod:
         flavors = ['prod']
         targets = ['r']
-    elif args.amazon:
-        flavors = ['amazon']
-        targets = flavors
     elif args.channel:
         flavors = ['custom']
         targets = [args.channel]
@@ -212,7 +206,7 @@ def main():
         targets = [args.app]
         custom_channel = args.app
     else:
-        print('Error. Please specify --beta, --prod, or --amazon')
+        print('Error. Please specify --beta, --prod, etc.')
         sys.exit(-1)
 
     if args.push:

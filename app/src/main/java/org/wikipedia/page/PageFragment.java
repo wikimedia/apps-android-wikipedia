@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -101,6 +103,7 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
@@ -174,6 +177,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
     private PageActionTabLayout tabLayout;
+    private ImageView imageTransitionHolder;
     private ToCHandler tocHandler;
     private ViewHideHandler bottomBarHideHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
@@ -329,6 +333,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         tabLayout.setPageActionTabsCallback(pageActionTabsCallback);
 
         errorView = rootView.findViewById(R.id.page_error);
+        imageTransitionHolder = rootView.findViewById(R.id.page_image_transition_holder);
 
         bottomBarHideHandler = new ViewHideHandler(tabLayout, null, Gravity.BOTTOM);
         bottomBarHideHandler.setScrollView(webView);
@@ -626,6 +631,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onResume();
         initPageScrollFunnel();
         activeTimer.resume();
+
+        CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(1, 1);
+        imageTransitionHolder.setLayoutParams(params);
+        imageTransitionHolder.setVisibility(View.GONE);
     }
 
     @Override
@@ -1170,9 +1179,39 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     private void startGalleryActivity(@NonNull String fileName) {
         if (app.isOnline()) {
-            requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitle(), fileName,
-                    model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
+
+            bridge.evaluate(JavaScriptActionHandler.getElementAtPosition(DimenUtil.roundedPxToDp(webView.getLastTouchX()), DimenUtil.roundedPxToDp(webView.getLastTouchY())), s -> {
+                if (!isAdded()) {
+                    return;
+                }
+
+                ActivityOptionsCompat options = null;
+                JavaScriptActionHandler.ImageHitInfo hitInfo = GsonUtil.getDefaultGson().fromJson(s, JavaScriptActionHandler.ImageHitInfo.class);
+
+                if (hitInfo != null) {
+                    CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(DimenUtil.roundedDpToPx(hitInfo.getWidth()), DimenUtil.roundedDpToPx(hitInfo.getHeight()));
+                    params.topMargin = DimenUtil.roundedDpToPx(hitInfo.getTop());
+                    params.leftMargin = DimenUtil.roundedDpToPx(hitInfo.getLeft());
+                    imageTransitionHolder.setLayoutParams(params);
+                    imageTransitionHolder.setVisibility(View.VISIBLE);
+                    ViewUtil.loadImage(imageTransitionHolder, hitInfo.getSrc());
+
+                    GalleryActivity.setTransitionInfo(hitInfo);
+                    options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation(requireActivity(), imageTransitionHolder, getString(R.string.transition_page_gallery));
+                }
+                final Bundle bundle = options != null ? options.toBundle() : null;
+
+                webView.post(() -> {
+                    if (!isAdded()) {
+                        return;
+                    }
+                    requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                            model.getTitle(), fileName,
+                            model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY, bundle);
+                });
+            });
+
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
