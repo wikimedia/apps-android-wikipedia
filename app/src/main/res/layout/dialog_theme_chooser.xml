@@ -129,26 +129,30 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_theme_light"
-                style="@style/App.Button.Circle"
+                style="@style/ThemeColorCircularButton"
                 android:layout_margin="5dp"
+                android:textColor="@color/base10"
                 android:backgroundTint="@color/color_state_white"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_theme_sepia"
-                style="@style/App.Button.Circle"
+                style="@style/ThemeColorCircularButton"
                 android:layout_margin="5dp"
+                android:textColor="@color/base10"
                 android:backgroundTint="@color/papyrus"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_theme_dark"
-                style="@style/App.Button.Circle"
+                style="@style/ThemeColorCircularButton"
                 android:layout_margin="5dp"
+                android:textColor="@color/base90"
                 android:backgroundTint="@color/color_state_gray" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_theme_black"
-                style="@style/App.Button.Circle"
+                style="@style/ThemeColorCircularButton"
                 android:layout_margin="5dp"
+                android:textColor="@color/base90"
                 android:backgroundTint="@color/color_state_black" />
 
         </LinearLayout>
