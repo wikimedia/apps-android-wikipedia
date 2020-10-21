@@ -153,4 +153,14 @@ public class AppLanguageState {
     public String getAppLanguageLocalizedName(@Nullable String code) {
         return appLanguageLookUpTable.getLocalizedName(code);
     }
+
+    @Nullable
+    public List<String> getLanguageVariants(@Nullable String code) {
+        return appLanguageLookUpTable.getLanguageVariants(code);
+    }
+
+    @Nullable
+    public String getDefaultLanguageCode(@Nullable String code) {
+        return appLanguageLookUpTable.getDefaultLanguageCodeFromVariant(code);
+    }
 }

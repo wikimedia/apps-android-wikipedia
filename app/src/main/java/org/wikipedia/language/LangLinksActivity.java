@@ -37,7 +37,6 @@ import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
@@ -238,32 +237,27 @@ public class LangLinksActivity extends BaseActivity {
     }
 
     private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
-        boolean haveChineseEntry = false;
         for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
             PageTitle link = it.next();
             String languageCode = link.getWikiSite().languageCode();
+            List<String> languageVariants = app.language().getLanguageVariants(languageCode);
 
             if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE.equals(languageCode)) {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
                 it.remove();
                 it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode(AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE)));
-            } else if (AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE.equals(languageCode)) {
-                // Replace Chinese with Simplified and Traditional dialects.
-                haveChineseEntry = true;
+            } else if (languageVariants != null) {
+                // remove the language code and replace it with its variants
                 it.remove();
-                for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
-                        AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-
-                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
-                            WikiSite.forLanguageCode(dialect)));
+                for (String variant : languageVariants) {
+                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(variant) : link.getPrefixedText(),
+                            WikiSite.forLanguageCode(variant)));
                 }
             }
         }
 
-        if (!haveChineseEntry) {
-            addChineseEntriesIfNeeded(title, languageEntries);
-        }
+        addVariantEntriesIfNeeded(app.language(), title, languageEntries);
     }
 
     private void sortLanguageEntriesByMru(List<PageTitle> entries) {
@@ -280,18 +274,19 @@ public class LangLinksActivity extends BaseActivity {
     }
 
     @VisibleForTesting
-    public static void addChineseEntriesIfNeeded(@NonNull PageTitle title,
+    public static void addVariantEntriesIfNeeded(@NonNull AppLanguageState language, @NonNull PageTitle title,
                                                  @NonNull List<PageTitle> languageEntries) {
 
-        // TODO: setup PageTitle in correct variant
-        if (title.getWikiSite().languageCode().startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
-            String[] chineseLanguageCodes = {AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE};
-
-            for (String languageCode : chineseLanguageCodes) {
-                if (!title.getWikiSite().languageCode().contains(languageCode)) {
-                    PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
-                    pageTitle.setText(StringUtil.removeNamespace(title.getPrefixedText()));
-                    languageEntries.add(pageTitle);
+        String parentLanguageCode = language.getDefaultLanguageCode(title.getWikiSite().languageCode());
+        if (parentLanguageCode != null) {
+            List<String> languageVariants = language.getLanguageVariants(parentLanguageCode);
+            if (languageVariants != null) {
+                for (String languageCode : languageVariants) {
+                    if (!title.getWikiSite().languageCode().contains(languageCode)) {
+                        PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
+                        pageTitle.setText(StringUtil.removeNamespace(title.getPrefixedText()));
+                        languageEntries.add(pageTitle);
+                    }
                 }
             }
         }
