@@ -403,7 +403,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         showAddDescriptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        sourceDescription = sourceSummaryForEdit!!.description!!
+        sourceDescription = if (sourceSummaryForEdit != null) sourceSummaryForEdit!!.displayTitle!! else ""
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
     }
