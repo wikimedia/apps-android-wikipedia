@@ -23,7 +23,13 @@ import static android.text.format.DateUtils.getRelativeTimeSpanString;
 import static java.lang.System.currentTimeMillis;
 import static java.util.Locale.SIMPLIFIED_CHINESE;
 import static java.util.Locale.TRADITIONAL_CHINESE;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_MY_LANGUAGE_CODE;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
@@ -158,6 +164,7 @@ public final class L10nUtil {
         Resources targetResources = new Resources(WikipediaApp.getInstance().getResources().getAssets(),
                                                   WikipediaApp.getInstance().getResources().getDisplayMetrics(),
                                                   altConfig);
+
         for (int stringRes : strings) {
             localizedStrings.put(stringRes, targetResources.getString(stringRes));
         }
@@ -183,29 +190,36 @@ public final class L10nUtil {
         return getRelativeTimeSpanString(date.getTime(), currentTimeMillis(), SECOND_IN_MILLIS, 0).toString();
     }
 
+    private static Locale getDesiredLocale(@NonNull Locale desiredLocale) {
+        // TODO: maybe other language variants also have this issue, we need to add manually. e.g. kk?
+        switch(desiredLocale.getLanguage()) {
+            case TRADITIONAL_CHINESE_LANGUAGE_CODE:
+            case CHINESE_TW_LANGUAGE_CODE:
+            case CHINESE_HK_LANGUAGE_CODE:
+            case CHINESE_MO_LANGUAGE_CODE:
+                return TRADITIONAL_CHINESE;
+            case SIMPLIFIED_CHINESE_LANGUAGE_CODE:
+            case CHINESE_CN_LANGUAGE_CODE:
+            case CHINESE_SG_LANGUAGE_CODE:
+            case CHINESE_MY_LANGUAGE_CODE:
+                return SIMPLIFIED_CHINESE;
+            default:
+                return desiredLocale;
+        }
+    }
+
     public static void setDesiredLocale(@NonNull Configuration config, @NonNull Locale desiredLocale) {
         // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.
         // And this might only happen in Chinese variant
 
-        if (desiredLocale.getLanguage().equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-            config.setLocale(TRADITIONAL_CHINESE);
-        } else if (desiredLocale.getLanguage().equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
-            config.setLocale(SIMPLIFIED_CHINESE);
-        } else if (desiredLocale.getLanguage().equals(CHINESE_LANGUAGE_CODE)) {
+        if (desiredLocale.getLanguage().equals(CHINESE_LANGUAGE_CODE)) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
-            String appLanguageCode = WikipediaApp.getInstance().language().getAppLanguageCode();
-            if (appLanguageCode.equals(TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-                config.setLocale(TRADITIONAL_CHINESE);
-            } else if (appLanguageCode.equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
-                config.setLocale(SIMPLIFIED_CHINESE);
-            } else {
-                config.setLocale(desiredLocale);
-            }
+            config.setLocale(getDesiredLocale(new Locale(WikipediaApp.getInstance().language().getAppLanguageCode())));
         } else {
-            config.setLocale(desiredLocale);
+            config.setLocale(getDesiredLocale(desiredLocale));
         }
     }
 
