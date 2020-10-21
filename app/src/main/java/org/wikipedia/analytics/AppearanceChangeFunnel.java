@@ -10,7 +10,7 @@ import org.wikipedia.theme.Theme;
 
 public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
-    private static final int REV_ID = 18113727;
+    private static final int REV_ID = 20563487;
     private InvokeSource source;
 
     public AppearanceChangeFunnel(WikipediaApp app, WikiSite wiki, InvokeSource source) {
