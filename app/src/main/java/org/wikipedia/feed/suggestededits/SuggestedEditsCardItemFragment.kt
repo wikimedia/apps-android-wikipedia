@@ -420,7 +420,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         showAddImageCaptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        sourceDescription = sourceSummaryForEdit!!.description!!
+        sourceDescription = if (sourceSummaryForEdit != null) sourceSummaryForEdit!!.displayTitle!! else ""
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
     }
