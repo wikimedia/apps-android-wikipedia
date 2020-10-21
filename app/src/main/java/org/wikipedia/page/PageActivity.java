@@ -699,7 +699,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         wikiArticleCardView.setTitle(title.getDisplayText());
         wikiArticleCardView.setDescription(title.getDescription());
-        wikiArticleCardView.setExtract(title.getExtract());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {

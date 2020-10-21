@@ -37,7 +37,7 @@
             android:fontFamily="serif"
             android:lineSpacingMultiplier="1.1"
             android:maxLines="3"
-            android:paddingTop="15dp"
+            android:paddingTop="14dp"
             android:textColor="?attr/primary_text_color"
             android:textSize="26sp"
             android:transitionName="@string/transition_article_title"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="3"
-            android:paddingTop="1dp"
+            android:paddingTop="2dp"
             android:paddingBottom="5dp"
             android:lineSpacingMultiplier="1.1"
             android:textColor="?attr/secondary_text_color"
@@ -58,11 +58,13 @@
             app:layout_constraintTop_toBottomOf="@id/articleTitle" />
 
         <View
+            android:id="@+id/articleDivider"
             android:layout_width="@dimen/divider_width_for_article"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="5dp"
             android:background="?attr/material_theme_border_color"
+            android:transitionName="@string/transition_article_divider"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/articleDescription"
             app:layout_constraintBottom_toTopOf="@id/articleExtract"/>
@@ -78,7 +80,6 @@
             android:paddingBottom="16dp"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
-            android:transitionName="@string/transition_article_summary"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
