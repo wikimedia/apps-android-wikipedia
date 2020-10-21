@@ -97,6 +97,16 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.url(), is("https://zh.wikipedia.org"));
     }
 
+    @Test public void testCtorUriLangVariantInSubdomain() {
+        WikiSite subject = new WikiSite("zh-tw.wikipedia.org/wiki/Foo");
+        assertThat(subject.authority(), is("zh.wikipedia.org"));
+        assertThat(subject.subdomain(), is("zh"));
+        assertThat(subject.languageCode(), is("zh-tw"));
+        assertThat(subject.scheme(), is("https"));
+        assertThat(subject.dbName(), is("zhwiki"));
+        assertThat(subject.url(), is("https://zh.wikipedia.org"));
+    }
+
     @Test public void testCtorMobileUriLangVariant() {
         WikiSite subject = new WikiSite("zh.m.wikipedia.org/zh-hant/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
