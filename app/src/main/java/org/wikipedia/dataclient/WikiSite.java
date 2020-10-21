@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
@@ -92,12 +93,16 @@ public class WikiSite implements Parcelable {
         } else {
             languageCode = authorityToLanguageCode(authority);
         }
+
         // This prevents showing mixed Chinese variants article when the URL is /zh/ or /wiki/ in zh.wikipedia.org
         if (languageCode.equals(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
             languageCode = LanguageUtil.getFirstSelectedChineseVariant();
         }
 
-        // TODO: should use the default language code on the authority to prevent incorrect url such as zh-tw.wikipedia.org.
+        // Use default subdomain in authority to prevent error when requesting endpoints. e.g. zh-tw.wikipedia.org
+        if (authority.contains("wikipedia.org") && !TextUtils.isEmpty(subdomain())) {
+            authority = subdomain() + ".wikipedia.org";
+        }
 
         this.uri = new Uri.Builder()
                 .scheme(tempUri.getScheme())
@@ -259,18 +264,7 @@ public class WikiSite implements Parcelable {
 
     @NonNull
     private static String languageCodeToSubdomain(@NonNull String languageCode) {
-        switch (languageCode) {
-            case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE:
-                return AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
-            default:
-                return normalizeLanguageCode(languageCode);
-        }
+        return StringUtils.defaultString(WikipediaApp.getInstance().language().getDefaultLanguageCode(languageCode), normalizeLanguageCode(languageCode));
     }
 
     @NonNull public static String normalizeLanguageCode(@NonNull String languageCode) {
