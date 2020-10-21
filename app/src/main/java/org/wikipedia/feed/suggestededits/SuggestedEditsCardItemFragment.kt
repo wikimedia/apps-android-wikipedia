@@ -149,7 +149,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun startDescriptionEditScreen() {
-        if (!isAdded) {
+        if (!isAdded || sourceSummaryForEdit == null) {
             return
         }
         if (cardActionType == ADD_IMAGE_TAGS) {
@@ -182,6 +182,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun updateUI() {
+        if (!isAdded || (cardActionType != ADD_IMAGE_TAGS && sourceSummaryForEdit == null)) {
+            return
+        }
         itemClickable = true
         seFeedCardProgressBar.visibility = GONE
         seCardErrorView.visibility = GONE
