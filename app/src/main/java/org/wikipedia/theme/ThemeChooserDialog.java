@@ -17,6 +17,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.button.MaterialButton;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -43,14 +44,10 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.buttonIncreaseTextSize) TextView buttonIncreaseTextSize;
     @BindView(R.id.text_size_percent) TextView textSizePercent;
     @BindView(R.id.text_size_seek_bar) DiscreteSeekBar textSizeSeekBar;
-    @BindView(R.id.button_theme_light) TextView buttonThemeLight;
-    @BindView(R.id.button_theme_dark) TextView buttonThemeDark;
-    @BindView(R.id.button_theme_black) TextView buttonThemeBlack;
-    @BindView(R.id.button_theme_sepia) TextView buttonThemeSepia;
-    @BindView(R.id.button_theme_light_highlight) View buttonThemeLightHighlight;
-    @BindView(R.id.button_theme_dark_highlight) View buttonThemeDarkHighlight;
-    @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
-    @BindView(R.id.button_theme_sepia_highlight) View buttonThemeSepiaHighlight;
+    @BindView(R.id.button_theme_light) MaterialButton buttonThemeLight;
+    @BindView(R.id.button_theme_dark) MaterialButton buttonThemeDark;
+    @BindView(R.id.button_theme_black) MaterialButton buttonThemeBlack;
+    @BindView(R.id.button_theme_sepia) MaterialButton buttonThemeSepia;
     @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
     @BindView(R.id.theme_chooser_match_system_theme_switch) SwitchCompat matchSystemThemeSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
@@ -238,14 +235,16 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateThemeButtons() {
-        buttonThemeLightHighlight.setVisibility(app.getCurrentTheme() == Theme.LIGHT ? View.VISIBLE : View.GONE);
-        buttonThemeLight.setClickable(app.getCurrentTheme() != Theme.LIGHT);
-        buttonThemeSepiaHighlight.setVisibility(app.getCurrentTheme() == Theme.SEPIA ? View.VISIBLE : View.GONE);
-        buttonThemeSepia.setClickable(app.getCurrentTheme() != Theme.SEPIA);
-        buttonThemeDarkHighlight.setVisibility(app.getCurrentTheme() == Theme.DARK ? View.VISIBLE : View.GONE);
-        buttonThemeDark.setClickable(app.getCurrentTheme() != Theme.DARK);
-        buttonThemeBlackHighlight.setVisibility(app.getCurrentTheme() == Theme.BLACK ? View.VISIBLE : View.GONE);
-        buttonThemeBlack.setClickable(app.getCurrentTheme() != Theme.BLACK);
+        updateThemeButtonStroke(buttonThemeLight, app.getCurrentTheme() == Theme.LIGHT);
+        updateThemeButtonStroke(buttonThemeSepia, app.getCurrentTheme() == Theme.SEPIA);
+        updateThemeButtonStroke(buttonThemeDark, app.getCurrentTheme() == Theme.DARK);
+        updateThemeButtonStroke(buttonThemeBlack, app.getCurrentTheme() == Theme.BLACK);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumbers")
+    private void updateThemeButtonStroke(@NonNull MaterialButton button, boolean selected) {
+        button.setStrokeWidth(selected ? 10 : 0);
+        button.setClickable(!selected);
     }
 
     private void updateDimImagesSwitch() {
