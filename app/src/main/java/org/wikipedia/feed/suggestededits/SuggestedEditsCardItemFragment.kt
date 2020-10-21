@@ -403,7 +403,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         showAddDescriptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        sourceDescription = if (sourceSummaryForEdit != null) sourceSummaryForEdit!!.displayTitle!! else ""
+        sourceDescription = if (sourceSummaryForEdit != null) sourceSummaryForEdit!!.description!! else ""
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
     }
@@ -420,7 +420,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         showAddImageCaptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        sourceDescription = if (sourceSummaryForEdit != null) sourceSummaryForEdit!!.displayTitle!! else ""
+        sourceDescription = if (sourceSummaryForEdit != null) sourceSummaryForEdit!!.description!! else ""
         viewArticleSubtitle.visibility = VISIBLE
         viewArticleSubtitle.text = sourceDescription
     }
