@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -134,7 +133,6 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     private void init() {
         inflate(getContext(), R.layout.view_page_header, this);
         ButterKnife.bind(this);
-        ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
         gradientViewTop.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
         gradientViewBottom.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
     }

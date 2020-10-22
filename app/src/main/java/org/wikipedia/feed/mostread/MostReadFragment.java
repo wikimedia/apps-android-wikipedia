@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -116,6 +117,11 @@ public class MostReadFragment extends Fragment {
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
             startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
+        }
+
+        @Override
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements) {
+            // ignore
         }
 
         @Override

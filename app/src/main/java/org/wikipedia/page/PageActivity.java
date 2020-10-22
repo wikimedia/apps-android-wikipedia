@@ -18,9 +18,12 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -72,6 +75,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
+import org.wikipedia.views.WikiArticleCardView;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 import java.util.ArrayList;
@@ -126,6 +130,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
+    @BindView(R.id.page_fragment) View pageFragmentView;
+    @BindView(R.id.wiki_article_card_view) WikiArticleCardView wikiArticleCardView;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -435,6 +441,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
+        setTransitionViews(title);
+
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
@@ -450,6 +458,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (!pageFragment.isAdded()) {
                 return;
             }
+
             // Close the link preview, if one is open.
             hideLinkPreview();
 
@@ -513,6 +522,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, showDefaultList, listDialogDismissListener);
     }
 
+    public void showPageFragmentView() {
+        pageFragmentView.setVisibility(View.VISIBLE);
+    }
+
     // Note: back button first handled in {@link #onOptionsItemSelected()};
     @Override
     public void onBackPressed() {
@@ -525,6 +538,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (pageFragment.onBackPressed()) {
             return;
         }
+
+        // If user enter PageActivity in portrait and leave in landscape,
+        // we should hide the transition animation view to prevent bad animation.
+        if (DimenUtil.isLandscape(this)) {
+            wikiArticleCardView.setVisibility(View.GONE);
+        }
+        pageFragmentView.setVisibility(View.GONE);
         super.onBackPressed();
     }
 
@@ -655,6 +675,31 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
         overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setTransitionViews(@NonNull PageTitle title) {
+
+        pageFragmentView.setVisibility(View.GONE);
+
+        Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
+        if (uri == null || DimenUtil.isLandscape(this)) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this)
+                    + (int) DimenUtil.getStatusBarHeight(this)
+                    + (int) DimenUtil.dpToPx(16f);
+            wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
+            wikiArticleCardView.setLayoutParams(layoutParams);
+        } else {
+            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    DimenUtil.leadImageHeightForDevice(this)));
+            wikiArticleCardView.getImageContainer().setVisibility(View.VISIBLE);
+            wikiArticleCardView.getImageView().loadImage(uri);
+        }
+
+        wikiArticleCardView.setTitle(title.getDisplayText());
+        wikiArticleCardView.setDescription(title.getDescription());
+        wikiArticleCardView.setExtract(title.getExtract());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {

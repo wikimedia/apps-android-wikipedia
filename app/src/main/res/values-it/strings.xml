@@ -339,6 +339,7 @@
   <string name="address_copied">Indirizzo copiato negli appunti.</string>
   <string name="text_copied">Testo copiato negli appunti.</string>
   <string name="button_continue_to_article">Leggi la voce</string>
+  <string name="button_continue_to_talk_page">Apri la pagina di discussione</string>
   <string name="button_continue_to_disambiguation">Vedi pagine simili</string>
   <string name="link_preview_disambiguation_description">Questo titolo si riferisce a più di una pagina:</string>
   <string name="button_add_to_reading_list">Aggiungi all\'elenco di lettura</string>
