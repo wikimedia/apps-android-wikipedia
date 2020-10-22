@@ -55,15 +55,15 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice(pageFragment.requireContext()) - toolbarHeight) ? 0 : FULL_OPACITY;
-        toolbarBackground.setAlpha(opacity);
-        updateChildIconTint(toolbar, opacity);
-        boolean isToolbarLight = opacity != 0;
-        if (prevToolbarLight == null || prevToolbarLight != isToolbarLight) {
-            prevToolbarLight = isToolbarLight;
-            ((PageActivity) pageFragment.requireActivity()).requestLightStatusBar(prevToolbarLight);
-        }
-        pageFragment.setToolbarElevationEnabled(scrollY != 0);
+        //int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice(pageFragment.requireContext()) - toolbarHeight) ? 0 : FULL_OPACITY;
+        //toolbarBackground.setAlpha(opacity);
+        //updateChildIconTint(toolbar, opacity);
+        //boolean isToolbarLight = opacity != 0;
+        //if (prevToolbarLight == null || prevToolbarLight != isToolbarLight) {
+        //    prevToolbarLight = isToolbarLight;
+        //    ((PageActivity) pageFragment.requireActivity()).requestLightStatusBar(prevToolbarLight);
+        //}
+        //pageFragment.setToolbarElevationEnabled(scrollY != 0);
     }
 
     private void updateChildIconTint(@NonNull ViewGroup viewGroup, float opacity) {

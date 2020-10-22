@@ -36,7 +36,7 @@
 
     <!-- Default width of the lead image to be downloaded -->
     <dimen name="leadImageWidth">640dp</dimen>
-    <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.4</item>
+    <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.45</item>
 
     <!-- Default height with which bottom sheets peek out from the bottom -->
     <dimen name="bottomSheetPeekHeight">320dp</dimen>

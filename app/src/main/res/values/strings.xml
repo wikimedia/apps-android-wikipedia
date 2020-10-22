@@ -45,7 +45,7 @@
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
-    <string name="menu_page_find_in_page">Find in page</string>
+    <string name="menu_page_find_in_page">Find in article</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>

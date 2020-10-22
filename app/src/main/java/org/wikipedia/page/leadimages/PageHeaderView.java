@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.LinearLayoutOverWebView;
 import org.wikipedia.views.ObservableWebView;
@@ -30,7 +33,6 @@ import static org.wikipedia.util.GradientUtil.getPowerGradient;
 
 public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_page_header_image) FaceAndColorDetectImageView image;
-    @BindView(R.id.view_page_header_image_gradient_top) View gradientViewTop;
     @BindView(R.id.view_page_header_image_gradient_bottom) View gradientViewBottom;
     @BindView(R.id.call_to_action_container) View callToActionContainer;
     @BindView(R.id.call_to_action_text) TextView callToActionTextView;
@@ -127,7 +129,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
 
     private void updateScroll(int scrollY) {
         int offset = Math.min(getHeight(), scrollY);
-        image.setTranslationY(offset / 2);
+        image.setTranslationY(0);
         setTranslationY(-offset);
     }
 
@@ -135,7 +137,10 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         inflate(getContext(), R.layout.view_page_header, this);
         ButterKnife.bind(this);
         ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
-        gradientViewTop.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
         gradientViewBottom.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
+
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)image.getLayoutParams();
+        params.topMargin = DimenUtil.getToolbarHeightPx(getContext()) + DimenUtil.getStatusBarHeightPx(getContext());
+        image.setLayoutParams(params);
     }
 }

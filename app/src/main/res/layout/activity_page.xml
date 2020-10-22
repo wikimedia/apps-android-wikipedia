@@ -37,6 +37,18 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|end">
 
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/page_toolbar_button_search"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/search_hint"
+                        android:background="@drawable/shape_search_box"
+                        android:drawablePadding="8dp"
+                        android:paddingStart="8dp"
+                        app:drawableStartCompat="@drawable/ic_search_themed_24dp"/>
+
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
                         android:layout_width="48dp"
