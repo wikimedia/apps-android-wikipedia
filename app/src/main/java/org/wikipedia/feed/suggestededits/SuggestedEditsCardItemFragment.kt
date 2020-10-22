@@ -14,7 +14,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_card_item.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
 import org.wikipedia.Constants.InvokeSource.FEED
@@ -63,7 +62,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private var sourceSummaryForEdit: PageSummaryForEdit? = null
     private var targetSummaryForEdit: PageSummaryForEdit? = null
     private var imageTagPage: MwQueryPage? = null
-    private var sourceDescription: String = ""
     private var itemClickable = false
     private var funnel = FeedFunnel(app)
     private var previousImageTagPage: MwQueryPage? = null
@@ -404,16 +402,17 @@ class SuggestedEditsCardItemFragment : Fragment() {
         showAddDescriptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        sourceDescription = if (sourceSummaryForEdit != null && !sourceSummaryForEdit!!.description.isNullOrEmpty()) sourceSummaryForEdit!!.description!! else ""
         viewArticleSubtitle.visibility = VISIBLE
-        viewArticleSubtitle.text = sourceDescription
+        viewArticleSubtitle.text = if (sourceSummaryForEdit != null && !sourceSummaryForEdit!!.description.isNullOrEmpty())
+            sourceSummaryForEdit!!.description!! else ""
     }
 
     private fun showAddImageCaptionUI() {
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_caption)
         viewArticleTitle.visibility = GONE
         viewArticleExtract.visibility = VISIBLE
-        viewArticleExtract.text = StringUtil.removeNamespace(if (sourceSummaryForEdit != null && !sourceSummaryForEdit!!.displayTitle.isNullOrEmpty()) sourceSummaryForEdit!!.displayTitle!! else "")
+        viewArticleExtract.text = StringUtil.removeNamespace(if (sourceSummaryForEdit != null && !sourceSummaryForEdit!!.displayTitle.isNullOrEmpty())
+            sourceSummaryForEdit!!.displayTitle!! else "")
         showItemImage()
     }
 
@@ -421,9 +420,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
         showAddImageCaptionUI()
         callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        sourceDescription = if (sourceSummaryForEdit != null && !sourceSummaryForEdit!!.description.isNullOrEmpty()) sourceSummaryForEdit!!.description!! else ""
         viewArticleSubtitle.visibility = VISIBLE
-        viewArticleSubtitle.text = sourceDescription
+        viewArticleSubtitle.text = if (sourceSummaryForEdit != null && !sourceSummaryForEdit!!.description.isNullOrEmpty())
+            sourceSummaryForEdit!!.description!! else ""
     }
 
     private fun showItemImage() {
