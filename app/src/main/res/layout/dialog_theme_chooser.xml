@@ -122,124 +122,38 @@
             android:textColor="?attr/primary_text_color" />
 
         <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="-4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="-4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:clipChildren="false">
 
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_theme_light"
+                style="@style/ThemeColorCircularButton"
+                android:layout_margin="5dp"
+                android:textColor="@color/base10"
+                android:backgroundTint="@color/color_state_white"/>
 
-                <Button
-                    android:id="@+id/button_theme_light"
-                    style="@style/App.Button.White"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/color_theme_light" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_theme_sepia"
+                style="@style/ThemeColorCircularButton"
+                android:layout_margin="5dp"
+                android:textColor="@color/base10"
+                android:backgroundTint="@color/papyrus"/>
 
-                <View
-                    android:id="@+id/button_theme_light_highlight"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="6dp"
-                    android:background="?attr/button_highlight_border_shape"
-                    android:elevation="4dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_theme_dark"
+                style="@style/ThemeColorCircularButton"
+                android:layout_margin="5dp"
+                android:textColor="@color/base90"
+                android:backgroundTint="@color/color_state_gray" />
 
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/button_theme_sepia"
-                    style="@style/App.Button.White"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/color_theme_sepia"
-                    android:backgroundTint="@color/papyrus"/>
-
-                <View
-                    android:id="@+id/button_theme_sepia_highlight"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="6dp"
-                    android:background="?attr/button_highlight_border_shape"
-                    android:elevation="4dp" />
-
-            </FrameLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="300dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="-4dp"
-            android:layout_marginEnd="-4dp"
-            android:layout_marginBottom="16dp"
-            android:clipChildren="false">
-
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/button_theme_dark"
-                    style="@style/App.Button.Gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/color_theme_dark" />
-
-                <View
-                    android:id="@+id/button_theme_dark_highlight"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="6dp"
-                    android:background="?attr/button_highlight_border_shape"
-                    android:elevation="4dp" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <Button
-                    android:id="@+id/button_theme_black"
-                    style="@style/App.Button.Black"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@string/color_theme_black" />
-
-                <View
-                    android:id="@+id/button_theme_black_highlight"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="6dp"
-                    android:background="?attr/button_highlight_border_shape"
-                    android:elevation="4dp" />
-
-            </FrameLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_theme_black"
+                style="@style/ThemeColorCircularButton"
+                android:layout_margin="5dp"
+                android:textColor="@color/base90"
+                android:backgroundTint="@color/color_state_black" />
 
         </LinearLayout>
 

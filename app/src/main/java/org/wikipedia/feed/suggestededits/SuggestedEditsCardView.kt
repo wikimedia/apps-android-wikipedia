@@ -19,7 +19,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
 
-    private var sourceDescription: String = ""
     private val app = WikipediaApp.getInstance()
     private var card: SuggestedEditsCard? = null
 
@@ -78,9 +77,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun showTranslateDescriptionUI() {
         viewArticleTitle.visibility = View.VISIBLE
-        sourceDescription = card!!.sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
-        viewArticleSubtitle.text = sourceDescription
+        viewArticleSubtitle.text = card!!.sourceSummaryForEdit?.description
         showAddDescriptionUI()
     }
 
@@ -96,9 +94,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun showTranslateImageCaptionUI() {
         viewArticleTitle.visibility = View.VISIBLE
-        sourceDescription = card!!.sourceSummaryForEdit!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
-        viewArticleSubtitle.text = sourceDescription
+        viewArticleSubtitle.text = card!!.sourceSummaryForEdit?.description
         showAddImageCaptionUI()
     }
 
