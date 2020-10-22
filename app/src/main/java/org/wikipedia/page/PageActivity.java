@@ -683,8 +683,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @SuppressWarnings("checkstyle:magicnumber")
     private void setTransitionViews(@NonNull PageTitle title) {
 
-        Transition sharedElementEnterTransition = getWindow().getSharedElementEnterTransition();
-        sharedElementEnterTransition.addListener(transitionListener);
+        getWindow().getSharedElementEnterTransition().addListener(transitionListener);
 
         pageFragmentView.setVisibility(View.GONE);
 
