@@ -64,7 +64,7 @@
     <string name="transition_article_image">articleImageTransition</string>
     <string name="transition_article_title">articleTitleTransition</string>
     <string name="transition_article_description">articleDescriptionTransition</string>
-    <string name="transition_article_summary">articleSummaryTransition</string>
+    <string name="transition_article_divider">articleDivider</string>
     <string name="transition_page_gallery">pageGalleryTransition</string>
 
     <!-- Miscellaneous -->

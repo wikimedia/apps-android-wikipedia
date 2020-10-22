@@ -38,7 +38,7 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
 
     fun getSharedElements(): Array<Pair<View, String>> {
         val shareElements: MutableList<Pair<View, String>> = mutableListOf(Pair(articleTitle, articleTitle.transitionName),
-                Pair(articleExtract, articleExtract.transitionName))
+                Pair(articleDivider, articleDivider.transitionName))
 
         if (!DimenUtil.isLandscape(context)) {
             shareElements.add(Pair(imageView, imageView.transitionName))
