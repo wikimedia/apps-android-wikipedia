@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.transition.Transition;
 import android.view.ActionMode;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -135,6 +136,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
+    private boolean hasTransitionAnimation;
 
     private WikipediaApp app;
     private Set<ActionMode> currentActionModes = new HashSet<>();
@@ -541,10 +543,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         // If user enter PageActivity in portrait and leave in landscape,
         // we should hide the transition animation view to prevent bad animation.
-        if (DimenUtil.isLandscape(this)) {
+        if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
             wikiArticleCardView.setVisibility(View.GONE);
+        } else {
+            pageFragmentView.setVisibility(View.GONE);
         }
-        pageFragmentView.setVisibility(View.GONE);
         super.onBackPressed();
     }
 
@@ -680,6 +683,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @SuppressWarnings("checkstyle:magicnumber")
     private void setTransitionViews(@NonNull PageTitle title) {
 
+        Transition sharedElementEnterTransition = getWindow().getSharedElementEnterTransition();
+        sharedElementEnterTransition.addListener(transitionListener);
+
         pageFragmentView.setVisibility(View.GONE);
 
         Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
@@ -700,6 +706,34 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         wikiArticleCardView.setTitle(title.getDisplayText());
         wikiArticleCardView.setDescription(title.getDescription());
     }
+
+    private final Transition.TransitionListener transitionListener = new Transition.TransitionListener() {
+        @Override
+        public void onTransitionStart(Transition transition) {
+            toolbarContainerView.setAlpha(0);
+        }
+
+        @Override
+        public void onTransitionEnd(Transition transition) {
+            toolbarContainerView.setAlpha(1);
+            hasTransitionAnimation = true;
+        }
+
+        @Override
+        public void onTransitionCancel(Transition transition) {
+
+        }
+
+        @Override
+        public void onTransitionPause(Transition transition) {
+
+        }
+
+        @Override
+        public void onTransitionResume(Transition transition) {
+
+        }
+    };
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
         @Override
