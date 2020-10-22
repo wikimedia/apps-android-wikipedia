@@ -81,7 +81,7 @@
   <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
   <string name="dialog_message_clear_history_yes">确认</string>
   <string name="dialog_message_clear_history_no">取消</string>
-  <string name="share_via">分享到…</string>
+  <string name="share_via">分享方式</string>
   <string name="image_share_via">分享到…</string>
   <string name="search_redirect_from">重定向自%s</string>
   <string name="menu_page_show_tabs">显示标签页</string>
@@ -124,15 +124,15 @@
   <string name="dialog_message_edit_failed">更改保存失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
-  <string name="dialog_message_leaving_edit">当前更改未保存，确认要离开该页面吗？</string>
+  <string name="dialog_message_leaving_edit">您的更改还没有发布。您确认要离开该页面吗？</string>
   <string name="dialog_message_leaving_edit_leave">确认</string>
   <string name="dialog_message_leaving_edit_stay">取消</string>
   <string name="menu_show_toc">目录</string>
-  <string name="search_no_results_found">未找到结果</string>
+  <string name="search_no_results_found">没有搜索结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
-  <string name="edit_section_captcha_message">为了防止非法的自动更改，请输入下面显示的文字</string>
+  <string name="edit_section_captcha_message">为了防止机器人垃圾信息，请输入下面显示的文字</string>
   <string name="edit_section_captcha_request_an_account_message">无法显示图片？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号申请\"&gt;新账号申请&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">请输入验证码中的文字</string>
   <string name="title_captcha">输入验证码</string>
@@ -150,13 +150,13 @@
   <string name="menu_login">登录</string>
   <string name="login_activity_title">登录</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
-  <string name="login_success_toast">已登录！</string>
+  <string name="login_success_toast">登录成功！</string>
   <string name="reset_password_title">重设密码</string>
   <string name="reset_password_description">您使用了通过电子邮件发送的临时密码登录。要完成登录，您必须在此设置一个新密码。</string>
   <string name="reset_password_hint">新密码</string>
   <string name="reset_password_button">保存并登录</string>
   <string name="preference_title_logout">退出</string>
-  <string name="toast_logout_complete">已退出</string>
+  <string name="toast_logout_complete">已退出登录</string>
   <string name="logout_prompt">您的账号将在当前登录的所有设备下线。要继续吗？</string>
   <string name="logout_dialog_cancel_button_text">取消</string>
   <string name="logged_out_in_background_title">已退出登录</string>
@@ -175,10 +175,10 @@
   <string name="login_join_wikipedia">加入维基百科</string>
   <string name="login_forgot_password">忘记密码了？</string>
   <string name="create_account_already_have">已经有账户了？</string>
-  <string name="create_account_activity_title">注册</string>
+  <string name="create_account_activity_title">创建账户</string>
   <string name="dialog_create_account_checking_progress">正在验证</string>
   <string name="create_account_email_hint">电子邮件（可选）</string>
-  <string name="create_account_password_repeat_hint">重新输入密码</string>
+  <string name="create_account_password_repeat_hint">确认密码</string>
   <string name="create_account_passwords_mismatch_error">密码不匹配</string>
   <string name="create_account_email_error">电子邮件地址无效</string>
   <string name="create_account_username_error">用户名中包含非法字符</string>
@@ -219,7 +219,7 @@
   <string name="page_protected_autoconfirmed">该页面受到半保护。</string>
   <string name="page_protected_sysop">该页面受到全保护。</string>
   <string name="page_protected_other">该页面的保护等级：%s</string>
-  <string name="page_protected_can_not_edit">对不起，您的账户目前没有足够特权来编辑该页面。</string>
+  <string name="page_protected_can_not_edit">对不起，您的账户目前没有足够的权限来编辑该页面。</string>
   <string name="page_protected_can_not_edit_anon">对不起，该页面目前不能匿名编辑。</string>
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="settings_item_preferences">设置</string>
@@ -244,7 +244,7 @@
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
   <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;维基媒体基金会&lt;/a&gt;产品</string>
   <string name="about_activity_title">关于</string>
   <string name="edit_abandon_confirm">页面已经被修改。您确认不保存您的更改而离开？</string>
   <string name="edit_abandon_confirm_yes">确定</string>
@@ -302,13 +302,13 @@
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
   <string name="about_article_section">关于此条目</string>
-  <string name="menu_gallery_visit_image_page">前往文件页面</string>
+  <string name="menu_gallery_visit_image_page">前往图像页面</string>
   <string name="gallery_error_draw_failed">无法显示图像。</string>
   <string name="license_title">%s的许可协议</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
   <string name="gallery_save_progress">下载文件…</string>
-  <string name="gallery_save_success">已保存文件。</string>
+  <string name="gallery_save_success">文件保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="gallery_save_image_write_permission_rationale">需要写入您设备存储的权限才能保存图片。</string>
   <string name="gallery_add_image_caption_button">添加图像说明</string>
