@@ -16,10 +16,10 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -84,6 +84,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     source.displayTitle,
                                     source.description,
                                     source.thumbnailUrl,
+                                    source.extract,
                                     source.extractHtml
                             )
 
@@ -94,6 +95,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.displayTitle,
                                     target.description,
                                     target.thumbnailUrl,
+                                    target.extract,
                                     target.extractHtml
                             )
                             updateContents()
@@ -128,6 +130,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         StringUtil.removeHTMLTags(title),
                                         imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
+                                        null,
                                         null,
                                         imageInfo.timestamp,
                                         imageInfo.user,
@@ -169,6 +172,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         fileCaption,
                                         imageInfo.thumbUrl,
                                         null,
+                                        null,
                                         imageInfo.timestamp,
                                         imageInfo.user,
                                         imageInfo.metadata
@@ -202,6 +206,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,
+                                    pageSummary.extract,
                                     pageSummary.extractHtml
                             )
                             updateContents()
