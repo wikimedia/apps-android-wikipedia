@@ -347,9 +347,9 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=watch")
     @FormUrlEncoded
-    Observable<EntityPostResponse> watch(@Nullable @Field("unwatch") Integer unwatch,
-                                           @Field("pageids") String pageIds,
-                                           @NonNull @Field("token") String token);
+    Observable<EntityPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,
+                                             @Field("pageids") String pageIds,
+                                             @NonNull @Field("token") String token);
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")
