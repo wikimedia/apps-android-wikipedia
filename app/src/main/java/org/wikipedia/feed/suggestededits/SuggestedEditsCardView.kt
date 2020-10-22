@@ -44,10 +44,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     class SECardsPagerAdapter(activity: AppCompatActivity?, card: SuggestedEditsCard?) : PositionAwareFragmentStateAdapter(activity!!) {
-
         private val seCardTypeList = ArrayList<DescriptionEditActivity.Action>()
         private var card: SuggestedEditsCard? = null
-
 
         init {
             this.card = card

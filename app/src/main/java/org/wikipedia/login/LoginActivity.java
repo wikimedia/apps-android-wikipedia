@@ -108,7 +108,9 @@ public class LoginActivity extends BaseActivity {
         }
 
         // always go to account creation before logging in
-        startCreateAccountActivity();
+        if (savedInstanceState == null) {
+            startCreateAccountActivity();
+        }
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL);
