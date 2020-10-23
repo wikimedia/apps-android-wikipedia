@@ -20,8 +20,10 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
 
@@ -29,6 +31,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.MathUtil;
+import org.wikipedia.util.WhiteBackgroundTransformation;
 import org.wikipedia.util.log.L;
 
 import java.security.MessageDigest;
@@ -40,6 +43,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private static final Paint DEFAULT_PAINT = new Paint(PAINT_FLAGS);
     private static final int BITMAP_COPY_WIDTH = 200;
     private static final CenterCropWithFace FACE_DETECT_TRANSFORM = new CenterCropWithFace();
+    private static final MultiTransformation<Bitmap> CENTER_CROP_WHITE_BACKGROUND = new MultiTransformation<>(new CenterCrop(), new WhiteBackgroundTransformation());
     private static final Paint PAINT_WHITE = new Paint();
     private static final Paint PAINT_DARK_OVERLAY = new Paint();
 
@@ -76,7 +80,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         if (shouldDetectFace(uri)) {
             builder = builder.transform(FACE_DETECT_TRANSFORM);
         } else {
-            builder = builder.centerCrop();
+            builder = builder.transform(CENTER_CROP_WHITE_BACKGROUND);
         }
 
         builder.into(this);
