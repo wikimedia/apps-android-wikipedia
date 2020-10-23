@@ -26,7 +26,7 @@ public class URLSpanBoldNoUnderline extends URLSpanNoUnderline {
 
     @Override public void updateDrawState(TextPaint paint) {
         super.updateDrawState(paint);
-        paint.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
     }
 
     @Override public String toString() {
