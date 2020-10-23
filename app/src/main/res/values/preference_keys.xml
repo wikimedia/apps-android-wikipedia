@@ -8,6 +8,7 @@
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_key_color_theme">colorTheme</string>
     <string name="preference_key_previous_color_theme">previousColorTheme</string>
+    <string name="preference_key_font_family">fontFamily</string>
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
     <string name="preference_key_language_app">languageApp</string>
@@ -126,4 +127,7 @@
     <string name="preference_key_selected_language_position_in_search">selectedLanguagePositionInSearch</string>
     <string name="preference_key_show_sequential_user_stats_tooltip">showSequentialUserStatsTooltip</string>
     <string name="preference_key_show_search_tab_tooltip">showSearchTabTooltip</string>
+    <string name="preference_key_push_notification_token">pushNotificationToken</string>
+    <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
+    <string name="preference_key_push_notification_token_old">pushNotificationTokenOld</string>
 </resources>

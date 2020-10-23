@@ -129,6 +129,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&list=watchlist&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
     @NonNull Observable<MwQueryResponse> getWatchlist();
 
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=options")
+    @NonNull Observable<MwPostResponse> postSetOptions(@NonNull @Field("change") String change,
+                                                       @NonNull @Field("token") String token);
+
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -209,6 +214,18 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=unreadnotificationpages&unplimit=max&unpwikis=*")
     @NonNull Observable<MwQueryResponse> getUnreadNotificationWikis();
+
+    @FormUrlEncoded
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
+    @NonNull Observable<MwQueryResponse> subscribePush(@Field("token") @NonNull String csrfToken,
+                                                       @Field("providertoken") @NonNull String providerToken);
+
+    @FormUrlEncoded
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=delete&provider=fcm")
+    @NonNull Observable<MwQueryResponse> unsubscribePush(@Field("token") @NonNull String csrfToken,
+                                                         @Field("providertoken") @NonNull String providerToken);
 
     // ------- Editing -------
 

@@ -38,7 +38,6 @@
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="list_separator_drawable">@drawable/divider_dark</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_dark</item>
-        <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
         <item name="toolbar_icon_color">@android:color/white</item>

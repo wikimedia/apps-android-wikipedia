@@ -31,13 +31,14 @@ import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
@@ -180,6 +181,10 @@ public class WikipediaApp extends Application {
         NotificationPollBroadcastReceiver.startPollTask(this);
 
         InstallReferrerListener.newInstance(this);
+
+        // For good measure, explicitly call our token subscription function, in case the
+        // API failed in previous attempts.
+        WikipediaFirebaseMessagingService.Companion.updateSubscription();
     }
 
     public int getVersionCode() {
@@ -276,7 +281,7 @@ public class WikipediaApp extends Application {
         if (theme != currentTheme) {
             currentTheme = theme;
             Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
-            bus.post(new ThemeChangeEvent());
+            bus.post(new ThemeFontChangeEvent());
         }
     }
 
@@ -294,6 +299,13 @@ public class WikipediaApp extends Application {
             return true;
         }
         return false;
+    }
+
+    public void setFontFamily(@NonNull String fontFamily) {
+        if (!fontFamily.equals(Prefs.getFontFamily())) {
+            Prefs.setFontFamily(fontFamily);
+            bus.post(new ThemeFontChangeEvent());
+        }
     }
 
     public void putCrashReportProperty(String key, String value) {
@@ -358,9 +370,15 @@ public class WikipediaApp extends Application {
     public void logOut() {
         L.d("Logging out");
         AccountUtil.removeAccount();
+        Prefs.setPushNotificationTokenSubscribed(false);
+        Prefs.setPushNotificationTokenOld("");
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
-                .flatMap(response -> ServiceFactory.get(getWikiSite()).postLogout(response.query().csrfToken()).subscribeOn(Schedulers.io()))
+                .flatMap(response -> {
+                    String csrfToken = response.query().csrfToken();
+                    return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
+                            .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(csrfToken).subscribeOn(Schedulers.io()));
+                })
                 .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
                 .subscribe(response -> L.d("Logout complete."), L::e);
     }

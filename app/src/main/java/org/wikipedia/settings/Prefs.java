@@ -87,6 +87,14 @@ public final class Prefs {
         setInt(R.string.preference_key_previous_color_theme, theme);
     }
 
+    public static String getFontFamily() {
+        return getString(R.string.preference_key_font_family, "sans-serif");
+    }
+
+    public static void setFontFamily(String fontFamily) {
+        setString(R.string.preference_key_font_family, fontFamily);
+    }
+
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
         setString(R.string.preference_key_cookie_map, GsonMarshaller.marshal(cookies));
     }
@@ -855,6 +863,30 @@ public final class Prefs {
 
     public static String getTemporaryWikitext() {
         return getString(R.string.preference_key_temporary_wikitext_storage, "");
+    }
+
+    public static void setPushNotificationToken(@Nullable String token) {
+        setString(R.string.preference_key_push_notification_token, token);
+    }
+
+    public static String getPushNotificationToken() {
+        return getString(R.string.preference_key_push_notification_token, "");
+    }
+
+    public static void setPushNotificationTokenOld(@Nullable String token) {
+        setString(R.string.preference_key_push_notification_token_old, token);
+    }
+
+    public static String getPushNotificationTokenOld() {
+        return getString(R.string.preference_key_push_notification_token_old, "");
+    }
+
+    public static boolean isPushNotificationTokenSubscribed() {
+        return getBoolean(R.string.preference_key_push_notification_token_subscribed, false);
+    }
+
+    public static void setPushNotificationTokenSubscribed(boolean subscribed) {
+        setBoolean(R.string.preference_key_push_notification_token_subscribed, subscribed);
     }
 
     public static boolean isSuggestedEditsReactivationTestEnabled() {
