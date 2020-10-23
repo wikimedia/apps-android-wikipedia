@@ -37,7 +37,7 @@ import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
-import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
@@ -289,7 +289,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private class NonExclusiveBusConsumer implements Consumer<Object> {
         @Override
         public void accept(Object event) {
-            if (event instanceof ThemeChangeEvent) {
+            if (event instanceof ThemeFontChangeEvent) {
                 BaseActivity.this.recreate();
             }
         }
