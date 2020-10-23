@@ -87,6 +87,14 @@ public final class Prefs {
         setInt(R.string.preference_key_previous_color_theme, theme);
     }
 
+    public static String getFontFamily() {
+        return getString(R.string.preference_key_font_family, "sans-serif");
+    }
+
+    public static void setFontFamily(String fontFamily) {
+        setString(R.string.preference_key_font_family, fontFamily);
+    }
+
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
         setString(R.string.preference_key_cookie_map, GsonMarshaller.marshal(cookies));
     }
