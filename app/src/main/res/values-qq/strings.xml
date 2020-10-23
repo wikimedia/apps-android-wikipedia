@@ -262,7 +262,6 @@
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
   <string name="abusefilter_text_disallow">Explanation of why the edit was not allowed: potentially unconstructive, or potential vandalism.</string>
-  <string name="text_size_select">Label that describes text size selection\n{{Identical|Font size}}</string>
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
@@ -399,6 +398,7 @@
   <string name="text_size_increase">Button hint for increasing the text size used in articles.</string>
   <string name="text_size_decrease">Button hint for decreasing the text size used in articles.</string>
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
+  <string name="text_style_title">Label that describes text style selection\n{{Identical|Font}}</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>

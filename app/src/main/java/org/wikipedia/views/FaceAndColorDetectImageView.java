@@ -37,6 +37,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.MathUtil;
+import org.wikipedia.util.WhiteBackgroundTransformation;
 import org.wikipedia.util.log.L;
 
 import java.security.MessageDigest;
@@ -49,6 +50,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private static final int BITMAP_COPY_WIDTH = 200;
     private static final CenterCropWithFace FACE_DETECT_TRANSFORM = new CenterCropWithFace();
     private static final MultiTransformation<Bitmap> FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS = new MultiTransformation<>(FACE_DETECT_TRANSFORM, ViewUtil.getRoundedCorners());
+    private static final MultiTransformation<Bitmap> CENTER_CROP_WHITE_BACKGROUND = new MultiTransformation<>(new CenterCrop(), new WhiteBackgroundTransformation());
     private static final Paint PAINT_WHITE = new Paint();
     private static final Paint PAINT_DARK_OVERLAY = new Paint();
 
@@ -114,7 +116,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         if (shouldDetectFace(uri)) {
             builder = builder.transform(roundedCorners ? FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS : FACE_DETECT_TRANSFORM);
         } else {
-            builder = builder.transform(roundedCorners ? ViewUtil.getCenterCropLargeRoundedCorners() : new CenterCrop());
+            builder = builder.transform(roundedCorners ? ViewUtil.getCenterCropLargeRoundedCorners() : CENTER_CROP_WHITE_BACKGROUND);
         }
 
         builder.into(this);

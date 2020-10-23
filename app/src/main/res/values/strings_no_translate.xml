@@ -75,4 +75,7 @@
     <string name="empty" />
     <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
 
+    <!-- Font family -->
+    <string name="font_family_sans_serif">sans-serif</string>
+    <string name="font_family_serif">serif</string>
 </resources>
