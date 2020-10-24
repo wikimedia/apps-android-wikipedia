@@ -48,6 +48,7 @@ import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
@@ -573,7 +574,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void talkClick() {
             if (AccountUtil.isLoggedIn()) {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getAppOrSystemLanguageCode(), AccountUtil.getUserName()));
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getAppOrSystemLanguageCode(),
+                        Namespace.USER_TALK.name() + ":" + AccountUtil.getUserName()));
             }
         }
 

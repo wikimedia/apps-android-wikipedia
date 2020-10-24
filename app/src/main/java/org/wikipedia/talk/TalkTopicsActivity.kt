@@ -32,7 +32,7 @@ import org.wikipedia.views.FooterMarginItemDecoration
 
 class TalkTopicsActivity : BaseActivity() {
     private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
-    private var userName: String = ""
+    private var pageTitle: String = ""
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
 
@@ -43,8 +43,8 @@ class TalkTopicsActivity : BaseActivity() {
         if (intent.hasExtra(EXTRA_LANGUAGE)) {
             wikiSite = WikiSite.forLanguageCode(intent.getStringExtra(EXTRA_LANGUAGE).orEmpty())
         }
-        userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
-        title = getString(R.string.talk_user_title, StringUtil.removeUnderscores(userName))
+        pageTitle = intent.getStringExtra(EXTRA_PAGE_TITLE).orEmpty()
+        title = getString(R.string.talk_user_title, StringUtil.removeUnderscores(pageTitle))
 
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
@@ -59,7 +59,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         talkNewTopicButton.setOnClickListener {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, -1))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), pageTitle, -1))
         }
 
         talkRefreshView.setOnRefreshListener {
@@ -115,7 +115,7 @@ class TalkTopicsActivity : BaseActivity() {
         talkErrorView.visibility = View.GONE
         talkEmptyContainer.visibility = View.GONE
 
-        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(pageTitle)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -181,7 +181,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, id))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), pageTitle, id))
         }
     }
 
@@ -201,13 +201,13 @@ class TalkTopicsActivity : BaseActivity() {
 
     companion object {
         private const val EXTRA_LANGUAGE = "language"
-        private const val EXTRA_USER_NAME = "userName"
+        private const val EXTRA_PAGE_TITLE = "pageTitle"
 
         @JvmStatic
-        fun newIntent(context: Context, language: String?, userName: String?): Intent {
+        fun newIntent(context: Context, language: String?, pageTitle: String?): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
                     .putExtra(EXTRA_LANGUAGE, language.orEmpty())
-                    .putExtra(EXTRA_USER_NAME, userName.orEmpty())
+                    .putExtra(EXTRA_PAGE_TITLE, pageTitle.orEmpty())
         }
     }
 }

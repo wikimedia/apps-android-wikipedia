@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.intellij.lang.annotations.RegExp;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
@@ -118,6 +119,15 @@ public final class UriUtil {
     public static String getUrlWithProvenance(Context context, PageTitle title,
                                               @StringRes int provId) {
         return title.getUri() + "?wprov=" + context.getString(provId);
+    }
+
+    public static String getTalkPageTitle(@NonNull PageTitle pageTitle) {
+        // TODO: taking care of uppercase/lowercase
+        String title = pageTitle.getPrefixedText();
+        if (pageTitle.namespace() == Namespace.USER) {
+            title = title.replaceFirst("^" + Namespace.USER.name(), Namespace.USER_TALK.name());
+        }
+        return title;
     }
 
     @NonNull
