@@ -26,9 +26,8 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
-            setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
-        } else if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE) {
+        // TODO not set result code when nothing is changed
+        if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE) {
             setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED);
         }
     }

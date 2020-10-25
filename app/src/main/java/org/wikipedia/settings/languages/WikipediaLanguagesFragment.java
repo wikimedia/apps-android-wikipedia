@@ -3,6 +3,7 @@ package org.wikipedia.settings.languages;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,6 +65,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     private AppLanguageSettingsFunnel funnel;
     private String invokeSource;
     private String initialLanguageList;
+    private String finalLanguageList;
     private int interactionsCount;
     private boolean isLanguageSearched = false;
 
@@ -110,7 +112,16 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
     @Override
     public void onDestroyView() {
-        funnel.logLanguageSetting(invokeSource, initialLanguageList, StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes()), interactionsCount, isLanguageSearched);
+        finalLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
+
+        if (!finalLanguageList.equals(initialLanguageList)) {
+            Log.d("BZ_TEST", "languages have been changed");
+            requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
+        } else {
+            Log.d("BZ_TEST", "languages have not been changed");
+        }
+
+        funnel.logLanguageSetting(invokeSource, initialLanguageList, finalLanguageList, interactionsCount, isLanguageSearched);
         recyclerView.setAdapter(null);
         unbinder.unbind();
         unbinder = null;
@@ -434,7 +445,6 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                         .setPositiveButton(R.string.remove_language_dialog_ok_button_text, (dialog, i) -> {
                             deleteSelectedLanguages();
                             finishActionMode();
-                            requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
                         })
                         .setNegativeButton(R.string.remove_language_dialog_cancel_button_text, null);
             } else {
