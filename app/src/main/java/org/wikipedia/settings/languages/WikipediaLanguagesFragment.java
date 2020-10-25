@@ -116,7 +116,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
         if (!finalLanguageList.equals(initialLanguageList)) {
             Log.d("BZ_TEST", "languages have been changed");
-            requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
+            // TODO do something so main fragment knows language list has been changed
         } else {
             Log.d("BZ_TEST", "languages have not been changed");
         }
@@ -271,6 +271,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                     intent.putExtra(SESSION_TOKEN, funnel.getSessionToken());
                     startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
                     finishActionMode();
+                    requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
                 });
             }
         }
