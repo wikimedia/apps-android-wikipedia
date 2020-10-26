@@ -198,7 +198,6 @@
   <string name="find_last_occurence">ഇത് അവസാനത്തെ പ്രത്യക്ഷപ്പെടലാണ്</string>
   <string name="abusefilter_title_warn">ഇത് ഒരു നല്ലതല്ലാത്ത തിരുത്തായിരിക്കാം. ഇത് പ്രസിദ്ധീകരിക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
   <string name="abusefilter_title_disallow">താങ്കൾക്ക് ഈ തിരുത്ത് പ്രസിദ്ധീകരിക്കാൻ സാദ്ധ്യമല്ല. തിരിച്ചുപോയി മാറ്റം വരുത്തുക.</string>
-  <string name="text_size_select">ഫോണ്ടിന്റെ വലിപ്പം</string>
   <string name="page_similar_titles">ഇതുപോലുള്ള താളുകൾ</string>
   <string name="search_did_you_mean">ഉദ്ദേശിച്ചത്  \"%s\" എന്നാണോ?</string>
   <string name="search_recent_header">സമീപകാല തിരച്ചിലുകൾ:</string>

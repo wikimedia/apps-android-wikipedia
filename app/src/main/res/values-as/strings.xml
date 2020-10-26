@@ -232,7 +232,6 @@
   <string name="abusefilter_title_disallow">আপুনি এই সম্পাদনাটো প্ৰকাশ কৰিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
   <string name="abusefilter_text_warn">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বুলি চিহ্নিত কৰিছে। ইয়াত তলৰ এটা বা অধিক থাকিব পাৰে:&lt;br /&gt;&lt;br /&gt;· প্ৰবন্ধ খালি কৰা বা স্পামিং&lt;br /&gt;· অপ্ৰয়োজনীয় বাহ্যিক সংযোগ বা ছবি&lt;br /&gt;· চিহ্নৰ পুনৰাবৃত্তি</string>
   <string name="abusefilter_text_disallow">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বা ধ্বংসমূলক বুলি চিহ্নিত কৰিছে।&lt;br /&gt;&lt;br /&gt;ৱিকিপিডিয়া এখন বিশ্বকোষ আৰু ইয়াত কেৱল নিৰপেক্ষ, উল্লেখযোগ্য বিষয় থাকিব পাৰে।</string>
-  <string name="text_size_select">ফ\'ণ্টৰ আকাৰ</string>
   <string name="page_similar_titles">একে ধৰণৰ পৃষ্ঠা</string>
   <string name="search_did_you_mean">আপুনি \"%s\" বুজাইছেনে?</string>
   <string name="search_recent_header">শেহতীয়া সন্ধানসমূহ:</string>
