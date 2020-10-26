@@ -152,7 +152,6 @@
   <string name="abusefilter_title_disallow" fuzzy="true">ఈ సవరణని మీరు భద్రపరచలేరు. దయచేసి వెనెక్కి వెళ్లి మార్చండి.</string>
   <string name="abusefilter_text_warn">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను అనిర్మాణాత్మకంగా ఉన్నట్టు గుర్తించింది. సవరణలో వీటిలో ఒకటి లేదా ఎక్కువ ఉండి ఉండవచ్చు: &lt;br /&gt;&lt;br /&gt;· అన్ని పెద్ద అక్షరాలలో టైపు చేయటం &lt;br /&gt;· వ్యాసాని ఖాళీ లేదా స్పామ్ చేయటం &lt;br /&gt;· అసందర్భోచిత బయటి లింకులు లేదా చిత్రాలు &lt;br /&gt;· పునరావృతమవుతున్న అక్షరాలు</string>
   <string name="abusefilter_text_disallow">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను బహుశా అనిర్మాణాత్మకంగా లేదా విధ్వంసకారంగా ఉన్నట్టు గుర్తించింది.&lt;br /&gt;&lt;br /&gt;వికీపీడియా ఒక ఎన్సైక్లోపీడియా, అందులో నిష్పక్షపాతకమైన, ముఖ్యమైన విషయాలు మాత్రమే ఉండాలి.</string>
-  <string name="text_size_select">ఖతి పరిమాణం</string>
   <string name="page_similar_titles">పోలిన పేజీలు</string>
   <string name="search_did_you_mean">ఇదేనా మీరంటున్నది \"%s\"?</string>
   <string name="search_recent_header">ఇటీవల వెతికినవి:</string>

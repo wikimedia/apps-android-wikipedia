@@ -234,7 +234,6 @@
   <string name="abusefilter_title_disallow">Ezin duzu aldaketa hau argitaratu. Mesedez itzul zaitez eta alda ezazu.</string>
   <string name="abusefilter_text_warn">Iragazki automatizatu batek aldaketa hau ezezagun potentzial gisa identifikatu du. Hurrengotariko baten bat izan daiteke:&lt;br /&gt;&lt;br /&gt;· Typing in all caps&lt;br /&gt;· Blanking articles or spamming&lt;br /&gt;· Irrelevant external links or images&lt;br /&gt;· Errepikaturiko karaktereak</string>
   <string name="abusefilter_text_disallow">Iragazki automatizatu batek aldaketa hau potentzialki ezezaguna edo bandalismo gisa identifikatu du.&lt;br /&gt;&lt;br /&gt;Wikipedia entziklopedia bat da, eta hemen bakarrik egon daitezke eduki neutralak eta onargarriak.</string>
-  <string name="text_size_select">Letra-tamaina</string>
   <string name="page_similar_titles">Antzeko orrialdeak</string>
   <string name="search_did_you_mean">\"%s\" esan nahi zenuen?</string>
   <string name="search_recent_header">Azken bilaketak:</string>

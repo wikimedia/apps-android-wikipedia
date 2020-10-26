@@ -237,7 +237,6 @@
   <string name="abusefilter_title_disallow">ناتوانی ئەم گۆڕانکارییە پاشەکەوت بکەی. تکایە بگەڕێوە و بیگۆڕە.</string>
   <string name="abusefilter_text_warn">فیلتەرێکی خۆگەڕ ئەم دەستکارییەی بە ڕوخێنەر دیاری کردووە و ناتوانیت پاشەکەوتی بکەیت. لەوانەیە بەھۆی یەکێک یان زیاتر لەم ھۆکارانە بێت:&lt;br /&gt;&lt;br /&gt;· نووسینی تەواوی بە کاپس&lt;br /&gt;· واڵا کردنەوەی وتارەکە یان خراپکاری&lt;br /&gt;· بەستەری نەناسراوی دەرەکی بۆ وێنە&lt;br /&gt;· بەردەوام نووسینی یەک پیت</string>
   <string name="abusefilter_text_disallow">فیلتەرێکی خۆگەڕ ئەم دەستکارییەی بە بێ بایەخ دیاری کردووە، وا دیارە ئەمە بۆ خراپکاری ئەنجام دراوە.&lt;br /&gt;&lt;br /&gt;ویکیپیدیا زانستنامەیە و بێلایەنە، تەنھا ناوەڕۆکی باوەڕپێکراو و دیار دەبێت لێرە ھەبن.</string>
-  <string name="text_size_select">قەبارەی فۆنت</string>
   <string name="page_similar_titles">پەڕە لێکچووەکان</string>
   <string name="search_did_you_mean">مەبەستت ئەمە بوو\"%s\"؟</string>
   <string name="search_recent_header">گەڕانە نوێکان:</string>

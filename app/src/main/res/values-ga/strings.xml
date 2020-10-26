@@ -209,7 +209,6 @@
   <string name="find_last_occurence">Is é seo an tarlú deireanach</string>
   <string name="abusefilter_title_warn">Is dócha gur athrú neamhfhiúntach é seo. An bhfuil tú cinnte gur mhaith leat é a fhoilsiú?</string>
   <string name="abusefilter_title_disallow">Ní féidir leat an t-athrú seo a fhoilsiú. Gabh siar agus athraigh é.</string>
-  <string name="text_size_select">Clómhéid</string>
   <string name="page_similar_titles">Leathanaigh den chineál céanna</string>
   <string name="search_did_you_mean">An raibh \"%s\" á lorg agat?</string>
   <string name="search_recent_header">Cuardaigh dheireanacha:</string>

@@ -154,7 +154,6 @@
   <string name="abusefilter_title_disallow">Вы не можаце захаваць гэтую праўку. Калі ласка, вярніцеся назад і зменіце яе.</string>
   <string name="abusefilter_text_warn">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную. Яна можа ўтрымоўваць адно або некалькі з наступных дзеянняў:&lt;br /&gt;&lt;br /&gt;· Друкаваць загалоўнымі літарамі&lt;br /&gt;· Штампоўка артыкулаў або спам&lt;br /&gt;· Непадыходныя знешнія спасылкі ці выявы&lt;br /&gt;· Паўтаральныя сімвалы</string>
   <string name="abusefilter_text_disallow">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедыя — гэта энцыклапедыя, і тут прымальна толькі нейтральнае і значнае змесціва.</string>
-  <string name="text_size_select">Памер шрыфта</string>
   <string name="page_similar_titles">Падобныя старонкі</string>
   <string name="search_did_you_mean">Магчыма, вы мелі на ўвазе \"%s\"?</string>
   <string name="search_recent_header">Апошнія пошукі:</string>

@@ -265,7 +265,6 @@
   <string name="abusefilter_title_disallow">Nie możesz opublikować tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
   <string name="abusefilter_text_disallow">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną lub wandalizm.&lt;br /&gt;&lt;br /&gt;Wikipedia to encyklopedia i mogą w niej się znaleźć wyłącznie neutralne encyklopedyczne treści.</string>
-  <string name="text_size_select">Rozmiar czcionki</string>
   <string name="page_similar_titles">Podobne strony</string>
   <string name="search_did_you_mean">Czy chodziło Ci o \"%s\"?</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
@@ -393,6 +392,7 @@
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="text_size_percent_default">%s (domyślnie)</string>
+  <string name="text_style_title">Czcionka</string>
   <string name="nav_item_reading_lists">Moje listy</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_move_to">Przejdź do listy lektur</string>

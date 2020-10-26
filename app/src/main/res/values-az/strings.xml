@@ -229,7 +229,6 @@
   <string name="abusefilter_title_disallow">Bu redaktəni dərc edə bilməzsiniz. Geri qayıdın və dəyişdirin.</string>
   <string name="abusefilter_text_warn">Avtomatik filtr bu redaktoru potensial olaraq qeyri-konstruktiv olaraq müəyyən etmişdir. Aşağıdakılardan bir və ya daha çoxunu ehtiva edə bilər: &lt;br /&gt; &lt;br /&gt; Bütün hərfləri böyük hərflə yazma &lt;br /&gt; Məqalələrin məzmununu silmə və ya spam &lt;br /&gt;  Əlaqəsiz xarici keçidlər və ya şəkillər &lt;br /&gt; Təkrarlanan simvollar</string>
   <string name="abusefilter_text_disallow">Avtomatlaşdırılmış filtr bu redaktəni potensial olaraq qeyri-konstruktiv və ya vandalizm kimi müəyyən etmişdir.&lt;br /&gt;&lt;br /&gt;Vikipediya bir ensiklopediyadır və bura yalnız neytral, əhəmiyyətli məzmun əlavə oluna bilər.</string>
-  <string name="text_size_select">Şrift ölçüsü</string>
   <string name="page_similar_titles">Oxşar səhifələr</string>
   <string name="search_did_you_mean">Bəlkə \"%s\" axtarırsınız?</string>
   <string name="search_recent_header">Son axtarışlar:</string>

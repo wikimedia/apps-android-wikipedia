@@ -239,7 +239,6 @@
   <string name="abusefilter_title_disallow">آپ اس ترمیم کو شائع نہیں کرسکتے۔ واپس جاکر اسے بدلیں۔</string>
   <string name="abusefilter_text_warn">ایک خودکار فلٹر نے اس ترمیم کو امکانی طور پر غیر تعمیری سمجھا ہے۔ اس کی درج ذیل وجوہات ہو سکتی ہیں:&lt;br /&gt;&lt;br /&gt;\nمضمون کو خالی کرنا یا تشہیری مواد شامل کرنا۔&lt;br /&gt;غیرمتعلقہ خارجی روابط یا تصاویر۔&lt;br /&gt;ٹائپ شدہ حروف کی تکرار۔</string>
   <string name="abusefilter_text_disallow">ایک خودکار فلٹر نے اس ترمیم شناخت امکانی طور پر غیرتعمیری یا امکانی طور پر تخریب کاری کے طور پر کی ہے۔ &lt;br /&gt;&lt;br /&gt; ویکیپیدیا ایک دائرۃالمعارف ہے اور صرف غیرجانبدار، قابل ذکر مواد یہاں سے تعلق رکھتا ہے۔</string>
-  <string name="text_size_select">فانٹ سائز</string>
   <string name="page_similar_titles">یکساں صفحات</string>
   <string name="search_did_you_mean">کیا آپ کی مراد %s ہے؟</string>
   <string name="search_recent_header">حالیہ تلاش شدہ:</string>

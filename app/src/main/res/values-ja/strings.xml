@@ -266,7 +266,6 @@
   <string name="abusefilter_title_disallow">この編集は公開できません。戻って修正してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;・すべて大文字で書かれている&lt;br /&gt;・記事が白紙化されている、もしくはスパムである&lt;br /&gt;・関係のない外部リンクや画像が挿入されている&lt;br /&gt;・一定の文字が繰り返されている</string>
   <string name="abusefilter_text_disallow">自動フィルターによって、この編集が建設的でないか、荒らしである可能性があると判断されました。&lt;br /&gt;&lt;br /&gt;ウィキペディアは百科事典であり、中立的で特筆性のあるコンテンツのみを記載する必要があります。</string>
-  <string name="text_size_select">フォントサイズ</string>
   <string name="page_similar_titles">類似したページ</string>
   <string name="search_did_you_mean">もしかして: 「%s」</string>
   <string name="search_recent_header">最近の検索:</string>
@@ -402,6 +401,7 @@
   <string name="text_size_increase">テキストサイズを拡大します</string>
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
+  <string name="text_style_title">フォント</string>
   <string name="nav_item_reading_lists">マイリスト</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>

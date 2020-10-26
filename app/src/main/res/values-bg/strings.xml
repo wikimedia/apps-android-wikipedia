@@ -234,7 +234,6 @@
   <string name="abusefilter_title_disallow">Не може да публикувате тази редакция. Моля, върнете се и я променете.</string>
   <string name="abusefilter_text_warn">Автоматичен филтър установи, че тази редакция потенциално не е конструктивна. Може да съдържа едно или повече от следните:&lt;br /&gt;&lt;br /&gt;· Писане само с главни букви&lt;br /&gt;· Изпразване на страница или спам&lt;br /&gt;· Неуместни външни препратки или изображения&lt;br /&gt;· Повтарящи се символи</string>
   <string name="abusefilter_text_disallow">Автоматичен филтър установи, че тази редакция потенциално не е конструктивна или е потенциален вандализъм.&lt;br /&gt;&lt;br /&gt;Уикипедия е енциклопедия и само неутрално и значимо съдържание има място тук.</string>
-  <string name="text_size_select">Размер на шрифта</string>
   <string name="page_similar_titles">Подобни страници</string>
   <string name="search_did_you_mean">Може би имахте предвид %s?</string>
   <string name="search_recent_header">Последни търсения:</string>

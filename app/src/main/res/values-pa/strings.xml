@@ -199,7 +199,6 @@
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
   <string name="abusefilter_title_warn" fuzzy="true">ਇਹ ਇੱਕ ਬੇਉਸਾਰੂ ਸੋਧ ਹੋ ਸਕਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਸਾਂਭ ਸਕਦੇ। ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਪਿੱਛੇ ਜਾਉ ਅਤੇ ਇਹਨੂੰ ਬਦਲੋ।</string>
-  <string name="text_size_select">ਅੱਖਰਾਂ ਦਾ ਅਕਾਰ</string>
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
   <string name="search_did_you_mean">ਕੀ ਤੁਹਾਡਾ ਮਤਲਬ \"%s\" ਹੈ?</string>
   <string name="search_recent_header">ਹਾਲੀਆ ਖੋਜਾਂ</string>

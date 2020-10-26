@@ -181,7 +181,6 @@
   <string name="abusefilter_title_disallow">Вы ня можаце апублікаваць гэтае рэдагаваньне. Калі ласка, вярніцеся і зьмяніце яго.</string>
   <string name="abusefilter_text_warn">Аўтаматызаваны фільтар вызначыў гэтае рэдагаваньне як патэнцыйна неканструктыўнае. Яно можа ўтрымліваць адно з:&lt;br /&gt;&lt;br /&gt;· Набранае вялікімі літарамі&lt;br /&gt;· Выдаленьне артыкула ці спам&lt;br /&gt;· Неадпаверныя вонкавыя спасылкі ці выявы&lt;br /&gt;· Паўтараючыяся сымбалі</string>
   <string name="abusefilter_text_disallow">Аўтаматызаваны фільтар вызначыў гэтае рэдагаваньне як патэнцыйна неканструктыўнае ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпэдыя гэта энцыкляпэдыя і тут могуць існаваць толькі нэўтральныя і зьмястоўныя артыкулы.</string>
-  <string name="text_size_select">Памер штыфту</string>
   <string name="page_similar_titles">Падобныя старонкі</string>
   <string name="search_did_you_mean">Вы мелі на ўвазе \"%s\"?</string>
   <string name="search_recent_header">Апошнія пошукавыя запыты:</string>
