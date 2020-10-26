@@ -8,14 +8,14 @@
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/imageContainer"
+        android:id="@+id/articleImageContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:minHeight="192dp"
         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/imageView"
+            android:id="@+id/articleImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:transitionName="@string/transition_article_image"

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.accessibility.AccessibilityCard;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
-import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
@@ -29,8 +28,7 @@ import org.wikipedia.views.DefaultViewHolder;
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
     public interface Callback extends ListCardItemView.Callback, CardHeaderView.Callback,
             FeaturedImageCardView.Callback, SearchCardView.Callback, NewsCardView.Callback,
-            AnnouncementCardView.Callback, RandomCardView.Callback, ListCardView.Callback,
-            BecauseYouReadCardView.Callback {
+            AnnouncementCardView.Callback, RandomCardView.Callback, ListCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onRetryFromOffline();

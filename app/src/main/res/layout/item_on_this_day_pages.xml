@@ -19,7 +19,8 @@
             style="@style/ImageViewDefault"
             android:layout_width="match_parent"
             android:layout_height="148dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:transitionName="@string/transition_article_image" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +41,8 @@
                 android:maxLines="1"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:transitionName="@string/transition_article_title" />
 
             <TextView
                 android:id="@+id/page_list_item_description"
@@ -51,7 +53,8 @@
                 android:maxLines="3"
                 android:layout_marginBottom="12dp"
                 android:textColor="?attr/primary_text_color"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:transitionName="@string/transition_article_description" />
         </LinearLayout>
     </LinearLayout>
 </org.wikipedia.views.WikiCardView>
