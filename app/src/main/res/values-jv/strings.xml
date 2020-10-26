@@ -224,7 +224,6 @@
   <string name="abusefilter_title_disallow">Kowé ora bisa mbabar besutan iki. Mangga balik lan owahi.</string>
   <string name="abusefilter_text_warn">Saringan otomatis ngonangi yèn besutan iki ngemu surasa sing ora mbangun. Bokmanawa sebabé salah siji saka iki:&lt;br /&gt;&lt;br /&gt;· Tulisané mawa huruf gedhé kabèh&lt;br /&gt;· Ngosongaké artikel utawa nyampah&lt;br /&gt;· Pranala njaba utawa gambar sing ora salaras&lt;br /&gt;· Karakter sing mbolan-mbalèni</string>
   <string name="abusefilter_text_disallow">Saringan otomatis ngonangi yèn besutan iki duwé potènsi sing ora mbangun, utawa vandhalisme.&lt;br /&gt;&lt;br /&gt;Wikipédia iku bauwarna lan mligi kontèn sing ora bot-sih tur wigati sing kena dipacak ing kéné.</string>
-  <string name="text_size_select">Ukuran fon</string>
   <string name="page_similar_titles">Kaca sairib</string>
   <string name="search_did_you_mean">Bokmanawa sing koarepaké \"%s\"?</string>
   <string name="search_recent_header">Golèkan mentas waé:</string>

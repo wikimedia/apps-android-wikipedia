@@ -200,7 +200,6 @@
   <string name="abusefilter_title_disallow">Ne možete objaviti ovu izmjenu. Vratite se i promijenite je.</string>
   <string name="abusefilter_text_warn">Automatizirani filter označio je Vašu izmjenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sljedećeg:&lt;br /&gt;&lt;br /&gt;· Pisanje svega velikim slovima&lt;br /&gt;· Brisanje ili dodavanje neželjenog sadržaja&lt;br /&gt;· Nevažne vanjske linkove ili slike&lt;br /&gt;· Nekoliko istih znakova uzastopno</string>
   <string name="abusefilter_text_disallow">Automatizirani filter označio je Vašu izmjenu kao potencijalno nekonstruktivnu ili vandalizam.&lt;br /&gt;&lt;br /&gt;Wikipedia je enciklopedija i pripada joj samo neutralan i provjerljiv sadržaj.</string>
-  <string name="text_size_select">Veličina fonta</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Jeste li mislili \"%s\"?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>

@@ -216,7 +216,6 @@
   <string name="abusefilter_title_disallow">N\'hallit ket embann ar c\'hemm-mañ. Kit war ho kiz ha kemmit anezhañ.</string>
   <string name="abusefilter_text_warn">Ur sil emgefre en deus anavezet ar c\'hemm-mañ. Hervezañ ne zegaso ket kalz a dra. Ennañ e c\'hallfe bezañ un elfenn pe meur a hini &lt;br/br/&gt;Bizskrivañ pep tra gant pennlizherennoù&lt;br/&gt;. Pennadoù goullo pe posteloù strobus &lt;br/&gt;. Liammoù pe skeudennoù diavaez  diazaz&lt;br/&gt;. Arouezennoù bizskrivet en-dro.</string>
   <string name="abusefilter_text_disallow">Ur sil emgefreek en deus anavezet ar c\'hemm-mañ evel unan na zegas ket kalz a dra pe evel un dra a zegas drast &lt;br/&gt;&lt;br/&gt;. Un holloueziadur eo Wikipedia. Ne c\'haller lakaat nemet traoù neptu ha pouezus e-barzh.</string>
-  <string name="text_size_select">Ment ar font</string>
   <string name="page_similar_titles">Pajennoù kar</string>
   <string name="search_did_you_mean">\"%s\" emezit-c\'hwi ?</string>
   <string name="search_recent_header">Enklaskoù nevez :</string>

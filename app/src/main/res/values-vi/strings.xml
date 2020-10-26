@@ -243,7 +243,6 @@
   <string name="abusefilter_title_disallow">Bạn không thể đăng sửa đổi này. Vui lòng quay lại và chỉnh sửa nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
   <string name="abusefilter_text_disallow">Một bộ lọc đã tự động nhận ra sửa đổi này có thể không mang tính xây dựng hoặc là sự phá hoại.&lt;br /&gt;&lt;br /&gt;Là một bách khoa toàn thư, Wikipedia chỉ chấp nhận các nội dung trung lập và nổi bật.</string>
-  <string name="text_size_select">Kích thước chữ</string>
   <string name="page_similar_titles">Trang tương tự</string>
   <string name="search_did_you_mean">Có phải bạn muốn tìm “%s”?</string>
   <string name="search_recent_header">Tìm kiếm gần đây:</string>

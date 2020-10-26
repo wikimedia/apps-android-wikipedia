@@ -241,7 +241,6 @@
   <string name="abusefilter_title_disallow">Nu puteți salva această modificare. Mergeți înapoi și schimbați-o.</string>
   <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>
   <string name="abusefilter_text_disallow">Un filtru automat a identificat această modificare ca potențial neconstructivă sau o potențială acțiune de vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia este o enciclopedie și acceptă doar conținut neutru și notabil.</string>
-  <string name="text_size_select">Dimensiunea fontului</string>
   <string name="page_similar_titles">Pagini similare</string>
   <string name="search_did_you_mean">Vă refereați la „%s”?</string>
   <string name="search_recent_header">Căutări recente:</string>
