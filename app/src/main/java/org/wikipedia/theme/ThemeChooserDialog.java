@@ -69,7 +69,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private AppearanceChangeFunnel funnel;
     private Constants.InvokeSource invokeSource;
     private CompositeDisposable disposables = new CompositeDisposable();
-    private static final int ACTIVATE_BUTTON_STROKE_WIDTH = DimenUtil.roundedDpToPx(2f);
+    private static final int BUTTON_STROKE_WIDTH = DimenUtil.roundedDpToPx(2f);
 
     private boolean updatingFont = false;
 
@@ -254,8 +254,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateFontFamily() {
-        buttonFontFamilySansSerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySansSerif.getTag()) ? ACTIVATE_BUTTON_STROKE_WIDTH : 0);
-        buttonFontFamilySerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySerif.getTag()) ? ACTIVATE_BUTTON_STROKE_WIDTH : 0);
+        buttonFontFamilySansSerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySansSerif.getTag()) ? BUTTON_STROKE_WIDTH : 0);
+        buttonFontFamilySerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySerif.getTag()) ? BUTTON_STROKE_WIDTH : 0);
     }
 
     private void updateThemeButtons() {
@@ -266,7 +266,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateThemeButtonStroke(@NonNull MaterialButton button, boolean selected) {
-        button.setStrokeWidth(selected ? ACTIVATE_BUTTON_STROKE_WIDTH : 0);
+        button.setStrokeWidth(selected ? BUTTON_STROKE_WIDTH : 0);
         button.setClickable(!selected);
     }
 
