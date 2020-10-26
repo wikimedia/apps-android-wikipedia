@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -34,15 +33,11 @@ import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -198,18 +193,5 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         } else {
             otdEventView.setVisibility(GONE);
         }
-    }
-
-    @SuppressWarnings("unchecked")
-    private Pair<View, String>[] getSharedElements() {
-        List<Pair<View, String>> sharedElements = new ArrayList<>();
-        sharedElements.add(new Pair<>(otdEventTitle, otdEventTitle.getTransitionName()));
-        if (!TextUtils.isEmpty(otdEventDescription.getText())) {
-            sharedElements.add(new Pair<>(otdEventDescription, otdEventDescription.getTransitionName()));
-        }
-        if (!DimenUtil.isLandscape(getContext()) && otdEventImage.getVisibility() == View.VISIBLE) {
-            sharedElements.add(new Pair<>(otdEventImage, otdEventImage.getTransitionName()));
-        }
-        return sharedElements.toArray(new Pair[]{});
     }
 }
