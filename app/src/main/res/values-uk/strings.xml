@@ -246,7 +246,6 @@
   <string name="abusefilter_title_disallow">Ви не можете опублікувати це редагування. Будь ласка, поверніться назад і змініть його.</string>
   <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>
   <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значимий вміст.</string>
-  <string name="text_size_select">Розмір шрифту</string>
   <string name="page_similar_titles">Подібні сторінки</string>
   <string name="search_did_you_mean">Ви мали на увазі \"%s\"?</string>
   <string name="search_recent_header">Недавні пошукові запити:</string>

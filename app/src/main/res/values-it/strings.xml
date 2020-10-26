@@ -97,7 +97,7 @@
   <string name="reading_list_page_share">Condividi</string>
   <string name="menu_text_select_edit_here">Modifica qui</string>
   <string name="last_updated_text">Ultimo aggiornamento %s</string>
-  <string name="talk_page_link_text">Visualizza la pagina di discussione</string>
+  <string name="talk_page_link_text">Vedi la pagina di discussione</string>
   <string name="edit_history_link_text">Visualizza cronologia delle modifiche</string>
   <string name="map_view_link_text">Visualizza sulla mappa</string>
   <string name="other_languages_indication_text">Leggi in un\'altra lingua</string>
@@ -267,7 +267,6 @@
   <string name="abusefilter_title_disallow">Non puoi pubblicare questa modifica. Per favore torna indietro e modificala.</string>
   <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>
   <string name="abusefilter_text_disallow">Un filtro automatico ha identificato questa modifica come potenzialmente inconcludente, o potenziale vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia è un\'enciclopedia e devono esserci solo contenuti neutrali e degni di nota.</string>
-  <string name="text_size_select">Dimensione carattere</string>
   <string name="page_similar_titles">Pagine simili</string>
   <string name="search_did_you_mean">Forse cercavi: \"%s\"?</string>
   <string name="search_recent_header">Ricerche recenti:</string>
@@ -373,7 +372,7 @@
   <string name="view_wiki_error_message_timeout">Impossibile connettersi a Wikipedia. Controlla la connessione di rete o riprova più tardi</string>
   <string name="reference_title">Riferimento %s</string>
   <string name="reference_list_title">Note</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (in tema Scuro e Nero)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (nel tema Scuro e Nero)</string>
   <string name="preference_title_prefer_offline_content">Preferisci contenuti in assenza di connessione</string>
   <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili in assenza di connessione anziché caricare sempre l\'ultima versione di una voce</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
@@ -404,6 +403,7 @@
   <string name="text_size_increase">Aumenta la dimensione del testo</string>
   <string name="text_size_decrease">Diminuisci la dimensione del testo</string>
   <string name="text_size_percent_default">%s (predefinito)</string>
+  <string name="text_style_title">Tipo di carattere</string>
   <string name="nav_item_reading_lists">I miei elenchi</string>
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
   <string name="reading_list_move_to">Sposta nell\'elenco di lettura</string>
@@ -845,6 +845,10 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Hai effettuato una modifica su Wikipedia utilizzando Modifiche suggerite. Grazie!</item>
+    <item quantity="other">Hai effettuato %d modifiche su Wikipedia utilizzando Modifiche suggerite. Grazie!</item>
+  </plurals>
   <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Le modifiche suggerite sono un nuovo modo per modificare Wikipedia su Android. Ti aiuta a dare piccoli ma vitali contributi a Wikipedia. Il nostro obiettivo è rendere la modifica più semplice ed accessibile a tutti! Accedi o unisciti a Wikipedia per iniziare.</string>

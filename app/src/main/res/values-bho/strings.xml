@@ -219,7 +219,6 @@
   <string name="find_last_occurence">ई बाद के बदलाव परिणाम बा</string>
   <string name="abusefilter_title_warn">ई बिघटनकारी संपादन हो सके ला। आप सही में एकरा के प्रकाशित कइल चाहत बानी?</string>
   <string name="abusefilter_title_disallow">आप ई संपादन प्रकाशित नइखीं क सकत। वापिस लवट के एकरा के बदलीं।</string>
-  <string name="text_size_select">फोंट साइज</string>
   <string name="page_similar_titles">अइसने पन्ना</string>
   <string name="search_did_you_mean">राउर मतलब बा %s?</string>
   <string name="search_recent_header">हाल के खोज</string>
