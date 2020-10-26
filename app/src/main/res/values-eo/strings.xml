@@ -230,7 +230,6 @@
   <string name="abusefilter_title_disallow">Vi ne povas publikigi ĉi tiun redakton. Bonvolu reveni kaj ŝanĝi ĝin.</string>
   <string name="abusefilter_text_warn">Aŭtomatigita filtrilo identigis ĉi tiun redakton kiel eble malhelpan. Ĝi eble enhavas unu aŭ pli da de la jeno:&lt;br /&gt;&lt;br /&gt;· Tajpado nur en majuskoj&lt;br /&gt;· Malplenigo de artikoloj aŭ spamado&lt;br /&gt;· Senrilataj eksteraj ligoj aŭ bildoj· Ripetantaj signoj</string>
   <string name="abusefilter_text_disallow">Aŭtomatigita filtrilo identigis ĉi tiun redakton kiel eble malhelpan, aŭ vandalismon.&lt;br /&gt;&lt;br /&gt;Vikipedio estas enciklopedio kaj nur neŭtrala, menciinda enhavo aperu ĉi tie.</string>
-  <string name="text_size_select">Tipara grando</string>
   <string name="page_similar_titles">Similaj paĝoj</string>
   <string name="search_did_you_mean">Ĉu vi celis \"%s\"?</string>
   <string name="search_recent_header">Lastaj serĉoj:</string>

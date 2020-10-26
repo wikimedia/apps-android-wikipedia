@@ -237,7 +237,6 @@
   <string name="abusefilter_title_disallow">Du kan ikke offentliggøre denne redigering. Gå venligst tilbage og ændr den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
   <string name="abusefilter_text_disallow">Et automatisk filter har identificeret denne redigering som potentielt ukonstruktiv, eller potentielt hærværk.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopædi, og kun neutralt og relevant indhold hører til her.</string>
-  <string name="text_size_select">Skriftstørrelse</string>
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_did_you_mean">Mente du »%s«?</string>
   <string name="search_recent_header">Seneste søgninger:</string>
@@ -352,6 +351,7 @@
   <string name="text_size_increase">Øg tekststørrelse</string>
   <string name="text_size_decrease">Sænk tekststørrelse</string>
   <string name="text_size_percent_default">%s (standard)</string>
+  <string name="text_style_title">Skrifttype</string>
   <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_save_to">Gem til læseliste</string>
   <string name="reading_list_create_new">Opret ny</string>

@@ -250,7 +250,6 @@
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Volte atrás e altere-a, por favor.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou esta edição como não sendo construtiva. Ela pode conter os seguintes erros:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de maiúsculas;&lt;br /&gt;· Esvaziamento de artigos e spam;&lt;br /&gt;· Imagens ou hiperligações externas irrelevantes;&lt;br /&gt;· Repetição de caracteres</string>
   <string name="abusefilter_text_disallow">Um filtro automático identificou esta edição como não construtiva ou um potencial vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipédia é uma enciclopédia e só pretende ter conteúdo neutro e importante.</string>
-  <string name="text_size_select">Tamanho da fonte</string>
   <string name="page_similar_titles">Páginas semelhantes</string>
   <string name="search_did_you_mean">Queria dizer \"%s\"?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>

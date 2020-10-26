@@ -236,7 +236,6 @@
   <string name="abusefilter_title_disallow">Не можете да го објавите уредувањево. Вратете се и изменето го.</string>
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>
   <string name="abusefilter_text_disallow">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно или потенцијално вандалистичко. &lt;br /&gt;&lt;br /&gt;Википедија е енциклопедија —  тука припаѓа само неутрална и значајна содржина.</string>
-  <string name="text_size_select">Големина на фонтот</string>
   <string name="page_similar_titles">Слични страници</string>
   <string name="search_did_you_mean">Дали мислевте на „%s“?</string>
   <string name="search_recent_header">Скорешни пребарувања:</string>
@@ -373,6 +372,7 @@
   <string name="text_size_increase">Зголеми текст</string>
   <string name="text_size_decrease">Намали текст</string>
   <string name="text_size_percent_default">%s (по основно)</string>
+  <string name="text_style_title">Фонт</string>
   <string name="nav_item_reading_lists">Мои списоци</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_move_to">Премести во списокот за читање</string>

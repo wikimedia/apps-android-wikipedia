@@ -246,7 +246,6 @@
   <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা প্রকাশ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
   <string name="abusefilter_text_warn">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক হিসাবে চিহ্নিত করেছে। এতে নিম্নলিখিতগুলি এক বা একাধিক বার থাকতে পারে:&lt;br /&gt;&lt;br /&gt;· নিবন্ধ খালি করা বা স্প্যামিং করা&lt;br /&gt;· অপ্রাসঙ্গিক বাহ্যিক লিঙ্ক বা ছবি&lt;br /&gt;· অক্ষরের পুনরাবৃত্তি</string>
   <string name="abusefilter_text_disallow">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক বা ধ্বংসপ্রবণতার প্রচেষ্টা হিসাবে চিহ্নিত করেছে।&lt;br /&gt;&lt;br /&gt;উইকিপিডিয়া একটি বিশ্বকোষ এবং শুধুমাত্র নিরপেক্ষ, উল্লেখযোগ্য বিষয়বস্তু এখানে অন্তর্ভুক্ত হবে।</string>
-  <string name="text_size_select">ফন্টের আকার</string>
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
   <string name="search_did_you_mean">আপনি কি \"%s\" বুঝাচ্ছেন?</string>
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান:</string>

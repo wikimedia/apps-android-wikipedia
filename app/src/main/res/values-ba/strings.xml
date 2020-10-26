@@ -238,7 +238,6 @@
   <string name="abusefilter_title_disallow">Һеҙ был публикацияны һаҡлай алмайһығыҙ. Зинһар, кире ҡайтығыҙ һәм уны үҙгәртегеҙ.</string>
   <string name="abusefilter_text_warn">Автоматлаштырылған фильтр был төҙәтеүҙе конструктив түгел тип һанай. Ул түбәндәге бер нисә ғәмәлде үҙ эсенә ала: :&lt;br /&gt;&lt;br /&gt;·Баш хәреф менән баҫырға. Мәҡәләләрҙе мисәтләү йәки спам&lt;br /&gt;· Тура килмәгән тышҡы һылтанмалар йәки һүрәттәр&lt;br /&gt;· Ҡабатланған символдар</string>
   <string name="abusefilter_text_disallow">Автоматлаштырылған фильтр был төҙәтеүҙе хаталы йәки емереү теләге кеүек билдәләне..&lt;br /&gt;&lt;br /&gt;Википедия - ул энциклопедия, бында нейтраль йәки әһәмиәтле  нәмәләр генә ҡабул ителә</string>
-  <string name="text_size_select">Шрифт ҙурлығы</string>
   <string name="page_similar_titles">Оҡшаш биттәр</string>
   <string name="search_did_you_mean">Бәлки һеҙ %s-ҙы күҙ уңында тотҡанһығыҙҙыр?</string>
   <string name="search_recent_header">Һуңғы эҙләүҙәр</string>
