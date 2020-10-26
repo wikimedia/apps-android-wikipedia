@@ -69,7 +69,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private AppearanceChangeFunnel funnel;
     private Constants.InvokeSource invokeSource;
     private CompositeDisposable disposables = new CompositeDisposable();
-    private final int ACTIVATE_BUTTON_STROKE_WIDTH = DimenUtil.roundedDpToPx(2f);
+    private static final int ACTIVATE_BUTTON_STROKE_WIDTH = DimenUtil.roundedDpToPx(2f);
 
     private boolean updatingFont = false;
 
@@ -253,7 +253,6 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
     private void updateFontFamily() {
         buttonFontFamilySansSerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySansSerif.getTag()) ? ACTIVATE_BUTTON_STROKE_WIDTH : 0);
         buttonFontFamilySerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySerif.getTag()) ? ACTIVATE_BUTTON_STROKE_WIDTH : 0);
@@ -266,7 +265,6 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         updateThemeButtonStroke(buttonThemeBlack, app.getCurrentTheme() == Theme.BLACK);
     }
 
-    @SuppressWarnings("checkstyle:magicnumbers")
     private void updateThemeButtonStroke(@NonNull MaterialButton button, boolean selected) {
         button.setStrokeWidth(selected ? ACTIVATE_BUTTON_STROKE_WIDTH : 0);
         button.setClickable(!selected);
