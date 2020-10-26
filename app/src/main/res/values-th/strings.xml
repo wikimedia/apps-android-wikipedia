@@ -265,7 +265,7 @@
   <string name="about_article_section">เกี่ยวกับบทความนี้</string>
   <string name="menu_gallery_visit_image_page">ไปยังหน้าภาพ</string>
   <string name="gallery_error_draw_failed">ไม่สามารถวาดภาพได้</string>
-  <string name="license_title" fuzzy="true">สัญญาอนุญาตสำหรับ $1</string>
+  <string name="license_title" fuzzy="true">สัญญาอนุญาตสำหรับ %s</string>
   <string name="gallery_menu_share">แบ่งปัน</string>
   <string name="gallery_share_error">ไม่สามารถแบ่งปันรูปภาพ: %s</string>
   <string name="gallery_save_progress">กำลังดาวน์โหลดไฟล์...</string>
