@@ -26,7 +26,6 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // TODO not set result code when nothing is changed - how do we know that?
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
         } else if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE) {
