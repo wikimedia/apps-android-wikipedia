@@ -25,8 +25,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
@@ -35,7 +33,9 @@ import org.wikipedia.analytics.OnThisDayFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.feed.news.IndicatorDotDecor;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.CustomDatePicker;
@@ -314,7 +314,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         private TextView yearTextView;
         private TextView yearsInfoTextView;
         private ViewPager2 pagesViewPager;
-        private TabLayout pagesIndicator;
         private ImageView radioButtonImageView;
         private WikiSite wiki;
 
@@ -325,7 +324,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesViewPager = v.findViewById(R.id.pages_pager);
-            pagesIndicator = v.findViewById(R.id.pages_item_indicator_view);
             radioButtonImageView = v.findViewById(R.id.radio_image_view);
             this.wiki = wiki;
         }
@@ -338,17 +336,20 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             setPagesViewPager(event);
         }
 
+        @SuppressWarnings("checkstyle:magicnumber")
         private void setPagesViewPager(OnThisDay.Event event) {
             if (event.pages() != null) {
                 ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), event.pages(), wiki);
                 pagesViewPager.setAdapter(viewPagerAdapter);
                 pagesViewPager.setOffscreenPageLimit(2);
-                 new TabLayoutMediator(pagesIndicator, pagesViewPager, (tab, position) -> { }).attach();
                 pagesViewPager.setVisibility(VISIBLE);
-                pagesIndicator.setVisibility(event.pages().size() == 1 ? GONE : VISIBLE);
+                if (event.pages().size() > 1) {
+                    pagesViewPager.addItemDecoration(new IndicatorDotDecor(DimenUtil.roundedDpToPx(4),
+                            DimenUtil.roundedDpToPx(8), 75, ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
+                            ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
+                }
             } else {
                 pagesViewPager.setVisibility(GONE);
-                pagesIndicator.setVisibility(GONE);
             }
         }
 

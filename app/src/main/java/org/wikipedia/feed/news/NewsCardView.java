@@ -63,7 +63,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         newsRecyclerView.setNestedScrollingEnabled(false);
         newsRecyclerView.setClipToPadding(false);
         newsRecyclerView.setAdapter(new NewsAdapter(card));
-        newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(4),
+        newsRecyclerView.addItemDecoration(new IndicatorDotDecor(DimenUtil.roundedDpToPx(4),
                 DimenUtil.roundedDpToPx(8), 75, ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
                 ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
         final SnapHelper snapHelper = new PagerSnapHelper();

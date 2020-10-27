@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerViewIndicatorDotDecor extends RecyclerView.ItemDecoration {
+public class IndicatorDotDecor extends RecyclerView.ItemDecoration {
 
     private final int indicatorHeight;
     private final int indicatorItemPadding;
@@ -21,8 +21,8 @@ public class RecyclerViewIndicatorDotDecor extends RecyclerView.ItemDecoration {
     private final Paint inactivePaint = new Paint();
     private final Paint activePaint = new Paint();
 
-    public RecyclerViewIndicatorDotDecor(int radius, int padding, int indicatorHeight, @ColorInt int colorInactive,
-                                         @ColorInt int colorActive) {
+    public IndicatorDotDecor(int radius, int padding, int indicatorHeight, @ColorInt int colorInactive,
+                             @ColorInt int colorActive) {
         float strokeWidth = Resources.getSystem().getDisplayMetrics().density * 1;
         this.radius = radius;
         inactivePaint.setStrokeCap(Paint.Cap.ROUND);
