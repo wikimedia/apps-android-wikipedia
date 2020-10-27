@@ -282,8 +282,9 @@ public class PageTitle implements Parcelable {
         return namespace().special();
     }
 
-    public boolean isUser() {
-        return namespace().user();
+    public PageTitle pageTitleForTalkPage() {
+        return new PageTitle(namespace().user() || namespace().userTalk() ? Namespace.USER_TALK.name() : Namespace.TALK.name(),
+                StringUtil.removeNamespace(getPrefixedText()), getWikiSite());
     }
 
     /**

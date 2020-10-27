@@ -24,6 +24,7 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -85,7 +86,8 @@ class TalkTopicsActivity : BaseActivity() {
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                 if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
-                    pageTitle = PageTitle(pageTitle.namespace, StringUtil.removeNamespace(pageTitle.prefixedText), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
+                    pageTitle = PageTitle(pageTitle.namespace, StringUtil.removeNamespace(pageTitle.prefixedText),
+                            WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
                     loadTopics()
                 }
             }
@@ -94,6 +96,8 @@ class TalkTopicsActivity : BaseActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_talk, menu)
+        val item = menu!!.findItem(R.id.menu_change_language)
+        item.isVisible = pageTitle.namespace == Namespace.USER_TALK.name
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -107,6 +111,7 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun loadTopics() {
+        invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
 
         disposables.clear()

@@ -182,8 +182,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
-        if (title.namespace() == Namespace.USER_TALK || title.isTalkPage) {
-            startActivity(newIntent(this, title))
+        if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
+            startActivity(newIntent(this, title.pageTitleForTalkPage()))
         } else {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
