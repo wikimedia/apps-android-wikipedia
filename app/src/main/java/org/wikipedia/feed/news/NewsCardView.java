@@ -26,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NewsCardView extends DefaultFeedCardView<NewsCard> {
-    @BindView(R.id.newsRecyclerView) RecyclerView newsRecyclerView;
+    @BindView(R.id.news_recycler_view) RecyclerView newsRecyclerView;
     @BindView(R.id.header_view) CardHeaderView headerView;
     @BindView(R.id.rtl_container) View rtlContainer;
 
