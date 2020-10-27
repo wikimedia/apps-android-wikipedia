@@ -78,7 +78,9 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     private PageSummaryForEdit pageSummaryForEdit;
     private Action action;
     private boolean isTranslationEdit;
+    private boolean isLanguageWrong;
     private boolean isTextValid;
+    private MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
 
     private Runnable textValidateRunnable = this::validateText;
     private ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
@@ -333,13 +335,19 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
         if (funnel.shouldSeeChecks()) {
-            removeCallbacks(textValidateRunnable);
-            postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
+            enqueueValidateText();
+            isLanguageWrong = false;
+            mlKitLanguageDetector.detectLanguageFromText(pageDescriptionText.getText().toString());
         } else {
             isTextValid = true;
             updateSaveButtonEnabled();
             setError(null);
         }
+    }
+
+    private void enqueueValidateText() {
+        removeCallbacks(textValidateRunnable);
+        postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
     }
 
     void validateText() {
@@ -348,10 +356,6 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
         }
         isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase().trim();
-
-        MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
-        mlKitLanguageDetector.setCallback(this);
-        mlKitLanguageDetector.detectLanguageFromText(text);
 
         if (text.length() == 0) {
             isTextValid = false;
@@ -369,6 +373,9 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
         } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
                 && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
             setWarning(getContext().getString(R.string.description_starts_with_uppercase));
+        } else if (isLanguageWrong) {
+            setWarning(getContext().getString(R.string.description_is_in_different_language,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.getLang())));
         } else {
             clearError();
         }
@@ -403,6 +410,7 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
         ButterKnife.bind(this);
         FeedbackUtil.setButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
+        mlKitLanguageDetector.setCallback(this);
     }
 
     private void updateSaveButtonEnabled() {
@@ -447,8 +455,8 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     @Override
     public void onLanguageDetectionSuccess(@NonNull String languageCode) {
         if (!languageCode.equals(pageSummaryForEdit.getLang())) {
-            setWarning(getContext().getString(R.string.description_is_in_different_language,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.getLang())));
+            isLanguageWrong = true;
+            enqueueValidateText();
         }
     }
 }
