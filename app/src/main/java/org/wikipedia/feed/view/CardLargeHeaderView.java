@@ -128,6 +128,6 @@ public class CardLargeHeaderView extends ConstraintLayout {
     }
 
     public Pair<View, String>[] getSharedElements() {
-        return TransitionUtil.getSharedElements(getContext(), titleView, subtitleView, imageView);
+        return TransitionUtil.getSharedElements(getContext(), imageView);
     }
 }

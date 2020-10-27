@@ -94,7 +94,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     @OnClick void onClick(View view) {
         if (callback != null && entry != null && card != null) {
-            callback.onSelectPage(card, entry, TransitionUtil.getSharedElements(getContext(), titleView, subtitleView, imageView));
+            callback.onSelectPage(card, entry, TransitionUtil.getSharedElements(getContext(), imageView));
         }
     }
 

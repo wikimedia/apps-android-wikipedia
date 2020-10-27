@@ -147,7 +147,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                 otdEventView.setOnClickListener(view -> {
                     if (getCallback() != null) {
                         getCallback().onSelectPage(card, new HistoryEntry(finalChosenPage.getPageTitle(card.wikiSite()),
-                                HistoryEntry.SOURCE_ON_THIS_DAY_CARD), TransitionUtil.getSharedElements(getContext(), otdEventTitle, otdEventDescription, otdEventImage));
+                                HistoryEntry.SOURCE_ON_THIS_DAY_CARD), TransitionUtil.getSharedElements(getContext(), otdEventImage));
                     }
                 });
                 otdEventView.setOnLongClickListener(view -> {
