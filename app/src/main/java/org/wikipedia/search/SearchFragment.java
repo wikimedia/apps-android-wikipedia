@@ -170,8 +170,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        initialLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
-
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
                 R.id.search_panel_recent);
@@ -180,6 +178,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
                 R.id.fragment_search_results);
 
         toolbar.setNavigationOnClickListener((v) -> requireActivity().supportFinishAfterTransition());
+
+        initialLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
 
         initSearchView();
         return view;
