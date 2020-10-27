@@ -37,7 +37,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
                 android:text="@string/text_style_title"
-                android:textColor="?attr/section_title_color" />
+                android:textColor="?attr/primary_text_color"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/text_size_percent"
@@ -109,25 +110,31 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_sans_serif"
+                    style="@style/App.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif"
+                    android:textColor="?attr/primary_text_color"
+                    android:textStyle="bold"
+                    android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_sans_serif"
                     android:tag="@string/font_family_sans_serif"
-                    app:strokeColor="@color/accent50"
-                    style="@style/App.Button.White" />
+                    app:strokeColor="?attr/colorAccent" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_serif"
+                    style="@style/App.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="serif"
+                    android:textColor="?attr/primary_text_color"
+                    android:textStyle="bold"
+                    android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_serif"
                     android:tag="@string/font_family_serif"
-                    app:strokeColor="@color/accent50"
-                    style="@style/App.Button.White" />
+                    app:strokeColor="?attr/colorAccent" />
 
             </LinearLayout>
 
@@ -144,7 +151,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/color_theme_select"
-                android:textColor="?attr/section_title_color" />
+                android:textColor="?attr/primary_text_color"
+                android:textStyle="bold"/>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/theme_chooser_match_system_theme_switch"
