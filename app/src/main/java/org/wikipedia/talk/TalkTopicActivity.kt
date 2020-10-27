@@ -25,6 +25,8 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -36,10 +38,9 @@ import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
+    private lateinit var pageTitle: PageTitle
     private val disposables = CompositeDisposable()
     private var topicId: Int = -1
-    private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
-    private var userName: String = ""
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
     private val textWatcher = ReplyTextWatcher()
@@ -60,19 +61,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         title = ""
         linkHandler = TalkLinkHandler(this)
 
-        if (intent.hasExtra(EXTRA_LANGUAGE)) {
-            wikiSite = WikiSite.forLanguageCode(intent.getStringExtra(EXTRA_LANGUAGE).orEmpty())
-        }
-        userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
+        pageTitle = GsonUnmarshaller.unmarshal(PageTitle::class.java, intent.getStringExtra(EXTRA_PAGE_TITLE))
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
-        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
 
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         talkRecyclerView.adapter = TalkReplyItemAdapter()
         
-        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
 
         talkErrorView.setBackClickListener {
             finish()
@@ -146,7 +144,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkProgressBar.visibility = View.VISIBLE
         talkErrorView.visibility = View.GONE
 
-        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
@@ -185,7 +183,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
         if (title.namespace() == Namespace.USER_TALK || title.isTalkPage) {
-            startActivity(newIntent(this, title.wikiSite.languageCode(), UriUtil.getTalkPageTitle(title)))
+            startActivity(newIntent(this, title))
         } else {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
@@ -224,7 +222,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
         override fun getWikiSite(): WikiSite {
-            return this@TalkTopicActivity.wikiSite
+            return this@TalkTopicActivity.pageTitle.wikiSite
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
@@ -280,7 +278,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkProgressBar.visibility = View.VISIBLE
         replySaveButton.isEnabled = false
 
-        csrfClient = CsrfTokenClient(wikiSite, wikiSite)
+        csrfClient = CsrfTokenClient(pageTitle.wikiSite, pageTitle.wikiSite)
         csrfClient?.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
                 doSave(token, subject, body)
@@ -297,7 +295,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun doSave(token: String, subject: String, body: String) {
-        disposables.add(ServiceFactory.get(wikiSite).postEditSubmit("User_talk:$userName",
+        disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
                 if (isNewTopic()) "new" else topicId.toString(),
                 if (isNewTopic()) subject else null,
                 "", if (AccountUtil.isLoggedIn()) "user" else null,
@@ -313,7 +311,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun waitForUpdatedRevision(newRevision: Long) {
-        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
                 .delay(2, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .map { response ->
@@ -352,16 +350,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        private const val EXTRA_LANGUAGE = "language"
-        private const val EXTRA_USER_NAME = "userName"
+        private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_TOPIC = "topicId"
         const val RESULT_EDIT_SUCCESS = 1
 
         @JvmStatic
-        fun newIntent(context: Context, language: String?, userName: String?, topicId: Int): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int): Intent {
             return Intent(context, TalkTopicActivity::class.java)
-                    .putExtra(EXTRA_LANGUAGE, language.orEmpty())
-                    .putExtra(EXTRA_USER_NAME, userName.orEmpty())
+                    .putExtra(EXTRA_PAGE_TITLE, GsonMarshaller.marshal(pageTitle))
                     .putExtra(EXTRA_TOPIC, topicId)
         }
     }

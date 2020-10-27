@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.DimenUtil;
@@ -143,7 +144,8 @@ public final class NotificationPresenter {
         WikiSite wiki = new WikiSite(link.getUrl());
         PageTitle title = wiki.titleForUri(Uri.parse(link.getUrl()));
         PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode,
-                TalkTopicsActivity.newIntent(context, wiki.languageCode(), title.getText()),
+                TalkTopicsActivity.newIntent(context, new PageTitle(title.isUser()
+                        ? Namespace.USER_TALK.name() : Namespace.TALK.name(), StringUtil.removeNamespace(title.getPrefixedText()), wiki)),
                 PendingIntent.FLAG_UPDATE_CURRENT);
         builder.addAction(0, StringUtil.fromHtml(link.getLabel()).toString(), pendingIntent);
     }

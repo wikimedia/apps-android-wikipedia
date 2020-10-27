@@ -97,6 +97,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -1168,7 +1169,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     private void startTalkTopicActivity(@NonNull PageTitle pageTitle) {
         // If we're currently looking at a User page, then go directly to the corresponding User Talk page.
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.getWikiSite().languageCode(), UriUtil.getTalkPageTitle(pageTitle)));
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), new PageTitle(pageTitle.isUser()
+                ? Namespace.USER_TALK.name() : Namespace.TALK.name(), StringUtil.removeNamespace(pageTitle.getPrefixedText()), pageTitle.getWikiSite())));
     }
 
     private void startGalleryActivity(@NonNull String fileName) {

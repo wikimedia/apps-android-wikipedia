@@ -66,6 +66,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ObservableWebView;
@@ -492,8 +493,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 startActivity(FilePageActivity.newIntent(this, title));
                 finish();
                 return true;
-            } else if (title.namespace() == Namespace.USER_TALK) {
-                startActivity(TalkTopicsActivity.newIntent(this, title.getWikiSite().languageCode(), title.getText()));
+            } else if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
+                startActivity(TalkTopicsActivity.newIntent(this, new PageTitle(title.isUser()
+                        ? Namespace.USER_TALK.name() : Namespace.TALK.name(), StringUtil.removeNamespace(title.getPrefixedText()), title.getWikiSite())));
                 finish();
                 return true;
             }

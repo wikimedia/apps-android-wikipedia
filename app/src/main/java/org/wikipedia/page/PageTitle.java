@@ -282,6 +282,10 @@ public class PageTitle implements Parcelable {
         return namespace().special();
     }
 
+    public boolean isUser() {
+        return namespace().user();
+    }
+
     /**
      * Check if the Title represents a talk page
      *
