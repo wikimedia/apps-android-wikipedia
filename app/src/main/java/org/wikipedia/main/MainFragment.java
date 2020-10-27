@@ -26,9 +26,14 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -36,6 +41,8 @@ import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsActivity;
 import org.wikipedia.feed.news.NewsCard;
 import org.wikipedia.feed.news.NewsItemView;
+import org.wikipedia.feed.suggestededits.SeCardsViewHolder;
+import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.gallery.MediaDownloadReceiver;
@@ -63,6 +70,9 @@ import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
+import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
@@ -84,6 +94,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
@@ -91,6 +102,10 @@ import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         HistoryFragment.Callback, LinkPreviewDialog.Callback {
@@ -104,6 +119,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
+    private SeCardsViewHolder seCardsViewHolder;
 
     // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
     private static final int SHOW_EDITS_SNACKBAR_COUNT = 2;
@@ -189,6 +205,33 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == Activity.RESULT_OK) {
+            MwQueryPage previousImageTagPage = seCardsViewHolder.getImageTagPage();
+            PageSummaryForEdit previousSourceSummaryForEdit = seCardsViewHolder.getSourceSummaryForEdit();
+            SuggestedEditsFunnel.get().log();
+            SuggestedEditsFunnel.reset();
+
+            if (seCardsViewHolder.getCardActionType() != null) {
+                SuggestedEditsSnackbars.OpenPageListener openPageListener = () -> {
+                    if (seCardsViewHolder.getCardActionType() == ADD_IMAGE_TAGS) {
+                        startActivity(FilePageActivity.newIntent(requireActivity(), new PageTitle(previousImageTagPage.title(), new WikiSite(WikipediaApp.getInstance().language().getAppLanguageCode()))));
+                        return;
+                    }
+                    PageTitle pageTitle = previousSourceSummaryForEdit.getPageTitle();
+                    if (seCardsViewHolder.getCardActionType() == ADD_CAPTION || seCardsViewHolder.getCardActionType() == TRANSLATE_CAPTION) {
+                        startActivity(GalleryActivity.newIntent(requireActivity(),
+                                pageTitle, pageTitle.getPrefixedText(), pageTitle.getWikiSite(), 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE));
+                    } else {
+                        startActivity(PageActivity.newIntentForNewTab(requireContext(), new HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle));
+                    }
+                };
+
+                SuggestedEditsSnackbars.show(requireActivity(), seCardsViewHolder.getCardActionType(), true,
+                        seCardsViewHolder.getTargetLanguage(), true, openPageListener);
+            }
+            seCardsViewHolder.fetchCardTypeEdit();
+        }
+
         if (requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
@@ -326,6 +369,33 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
         startActivity(NewsActivity.newIntent(requireActivity(), view.getNewsItem(), newsCard.wikiSite()),
                 view.getNewsItem().thumb() != null ? options.toBundle() : null);
+    }
+
+    @Override
+    public void onFeedSeCardClicked(SuggestedEditsCard card, SeCardsViewHolder viewHolder) {
+        this.seCardsViewHolder = viewHolder;
+        DescriptionEditActivity.Action cardActionType = viewHolder.getCardActionType();
+        if (cardActionType == ADD_IMAGE_TAGS) {
+            startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(requireContext(), viewHolder.getImageTagPage(), FEED), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            return;
+        }
+
+        if (viewHolder.getSourceSummaryForEdit() == null) {
+            return;
+        }
+
+        PageTitle pageTitle = (cardActionType == TRANSLATE_DESCRIPTION || cardActionType == TRANSLATE_CAPTION)
+                ? viewHolder.getTargetSummaryForEdit().getPageTitle() : viewHolder.getSourceSummaryForEdit().getPageTitle();
+
+        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
+                viewHolder.getSourceSummaryForEdit(), viewHolder.getTargetSummaryForEdit(),
+                cardActionType, FEED),
+                ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+    }
+
+    @Override
+    public void onFeedSeCardFooterClicked() {
+        goToTab(NavTab.EDITS);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {

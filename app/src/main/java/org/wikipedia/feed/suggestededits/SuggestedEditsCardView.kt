@@ -2,19 +2,27 @@ package org.wikipedia.feed.suggestededits
 
 import android.content.Context
 import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
+import androidx.constraintlayout.widget.Group
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_suggested_edits_card.view.*
 import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.feed.model.CardType
+import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback, CardFooterView.Callback {
+    interface Callback {
+        fun onSeCardClicked(card: SuggestedEditsCard, view: SeCardsViewHolder?)
+        fun onSeCardFooterClicked()
+    }
+
     private var card: SuggestedEditsCard? = null
     private var view: View = inflate(getContext(), R.layout.view_suggested_edits_card, this)
 
@@ -34,21 +42,20 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun updateContents() {
-        setUpPagerWithSECards()
+        setUpSECardsRecyclerView()
+        cardFooter.setFooterActionText(context.getString(R.string.suggested_card_more_edits))
+        cardFooter.callback = this
     }
 
-    private fun setUpPagerWithSECards() {
-        seCardsPager.adapter = SECardsPagerAdapter(view.context as AppCompatActivity, card)
-        seCardsPager.offscreenPageLimit = 3
-        TabLayoutMediator(seCardsIndicatorLayout, seCardsPager) { _: TabLayout.Tab, _: Int -> }.attach()
+    private fun setUpSECardsRecyclerView() {
+        seCardsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        seCardsRecyclerView.adapter = SECardsRecyclerViewAdapter()
     }
 
-    class SECardsPagerAdapter(activity: AppCompatActivity?, card: SuggestedEditsCard?) : PositionAwareFragmentStateAdapter(activity!!) {
+    internal inner class SECardsRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val seCardTypeList = ArrayList<DescriptionEditActivity.Action>()
-        private var card: SuggestedEditsCard? = null
 
         init {
-            this.card = card
             seCardTypeList.add(ADD_DESCRIPTION)
             seCardTypeList.add(ADD_CAPTION)
             seCardTypeList.add(ADD_IMAGE_TAGS)
@@ -58,8 +65,28 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             return seCardTypeList.size
         }
 
-        override fun createFragment(position: Int): Fragment {
-            return SuggestedEditsCardItemFragment.newInstance(card!!.age, seCardTypeList[position])
+        override fun onCreateViewHolder(@NonNull parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
+            return SeCardsViewHolder((parent.context as AppCompatActivity).layoutInflater
+                    .inflate(R.layout.view_suggested_edits_card_item, parent, false), )
+        }
+
+        override fun onBindViewHolder(@NonNull holder: RecyclerView.ViewHolder, pos: Int) {
+            (holder as SeCardsViewHolder).bindItem(card!!.age, seCardTypeList[pos])
+            holder.suggestedEditsFragmentViewGroup.addOnClickListener({
+                if (holder.itemClickable) {
+                    holder.funnel.cardClicked(CardType.SUGGESTED_EDITS, if (holder.targetLanguage != null
+                            && holder.targetLanguage.equals(holder.langFromCode)) holder.langFromCode else holder.targetLanguage)
+                    if (callback != null) {
+                        callback!!.onSeCardClicked(card!!, holder)
+                    }
+                }
+            }, holder)
+        }
+
+        private fun Group.addOnClickListener(listener: View.OnClickListener, @NonNull holder: RecyclerView.ViewHolder) {
+            referencedIds.forEach { id ->
+                holder.itemView.findViewById<View>(id).setOnClickListener(listener)
+            }
         }
     }
 
@@ -72,5 +99,11 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override fun updateCardContent(card: SuggestedEditsCard) {
         setCard(card)
+    }
+
+    override fun onFooterClicked() {
+        if (callback != null) {
+            callback!!.onSeCardFooterClicked()
+        }
     }
 }

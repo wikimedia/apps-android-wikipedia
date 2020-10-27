@@ -35,6 +35,8 @@ import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsCard;
 import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.feed.random.RandomCardView;
+import org.wikipedia.feed.suggestededits.SeCardsViewHolder;
+import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
@@ -87,6 +89,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsCard card, NewsItemView view);
+        void onFeedSeCardClicked(SuggestedEditsCard card, SeCardsViewHolder view);
+        void onFeedSeCardFooterClicked();
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
@@ -459,6 +463,21 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onFooterClick(@NonNull Card card) {
             if (card instanceof MostReadListCard) {
                 startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
+            }
+        }
+
+        @Override
+        public void onSeCardClicked(SuggestedEditsCard card, SeCardsViewHolder view) {
+            if (getCallback() != null) {
+                funnel.cardClicked(card.type(), card.wikiSite().languageCode());
+                getCallback().onFeedSeCardClicked(card, view);
+            }
+        }
+
+        @Override
+        public void onSeCardFooterClicked() {
+            if (getCallback() != null) {
+                getCallback().onFeedSeCardFooterClicked();
             }
         }
     }
