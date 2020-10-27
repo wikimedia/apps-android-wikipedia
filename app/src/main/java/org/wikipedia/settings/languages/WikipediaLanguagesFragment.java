@@ -271,7 +271,6 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                     intent.putExtra(SESSION_TOKEN, funnel.getSessionToken());
                     startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
                     finishActionMode();
-                    requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
                 });
             }
         }
@@ -446,6 +445,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                         .setPositiveButton(R.string.remove_language_dialog_ok_button_text, (dialog, i) -> {
                             deleteSelectedLanguages();
                             finishActionMode();
+                            requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
                         })
                         .setNegativeButton(R.string.remove_language_dialog_cancel_button_text, null);
             } else {
