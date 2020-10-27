@@ -37,6 +37,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.CabSearchView;
 import org.wikipedia.views.LanguageScrollView;
@@ -85,6 +86,10 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private String searchLanguageCode;
     private String tempLangCodeHolder;
     private boolean langBtnClicked = false;
+
+    private String initialLanguageList;
+    private String finalLanguageList;
+
     public static final int RESULT_LANG_CHANGED = 1;
     public static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
     public static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 8;
@@ -165,6 +170,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        initialLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
+
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
                 R.id.search_panel_recent);
@@ -201,7 +208,12 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
             int position = 0;
-            requireActivity().setResult(RESULT_LANG_CHANGED);
+
+            finalLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
+            if (!finalLanguageList.equals(initialLanguageList)) {
+                requireActivity().setResult(RESULT_LANG_CHANGED);
+            }
+
             if (data != null && data.hasExtra(ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
             } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
