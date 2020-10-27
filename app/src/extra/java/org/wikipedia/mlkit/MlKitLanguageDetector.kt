@@ -9,10 +9,11 @@ class MlKitLanguageDetector {
     }
 
     var callback: Callback? = null
+    private val languageIdentifier = LanguageIdentification.getClient(LanguageIdentificationOptions.Builder()
+            .setConfidenceThreshold(0.65f)
+            .build())
+
     fun detectLanguageFromText(text: String) {
-        val languageIdentifier = LanguageIdentification.getClient(LanguageIdentificationOptions.Builder()
-                .setConfidenceThreshold(0.65f)
-                .build())
         languageIdentifier.identifyLanguage(text)
                 .addOnSuccessListener { languageCode: String ->
                     if (languageCode != "und") {
