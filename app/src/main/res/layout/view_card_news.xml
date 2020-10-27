@@ -12,22 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/news_pager"
+    <org.wikipedia.views.NavMenuAwareRecyclerView
+        android:id="@+id/newsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="288dp"
-        android:clipChildren="false"/>
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/news_item_indicator_view"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:background="@android:color/transparent"
-        app:tabBackground="@drawable/shape_tab_dot"
-        app:tabGravity="center"
-        app:tabIndicator="@null"
-        app:tabPaddingEnd="8dp"
-        app:tabPaddingStart="8dp"
-        app:tabRippleColor="?attr/color_group_59" />
+        android:layout_height="wrap_content"/>
 </LinearLayout>
