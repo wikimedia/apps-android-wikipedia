@@ -30,6 +30,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.language.LanguageUtil;
+import org.wikipedia.mlkit.MlKitLanguageDetector;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.DeviceUtil;
@@ -51,7 +52,7 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLAT
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
-public class DescriptionEditView extends LinearLayout {
+public class DescriptionEditView extends LinearLayout implements MlKitLanguageDetector.Callback {
     private static final int TEXT_VALIDATE_DELAY_MILLIS = 1000;
 
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
@@ -348,6 +349,10 @@ public class DescriptionEditView extends LinearLayout {
         isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase().trim();
 
+        MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
+        mlKitLanguageDetector.setCallback(this);
+        mlKitLanguageDetector.detectLanguageFromText(text);
+
         if (text.length() == 0) {
             isTextValid = false;
             clearError();
@@ -437,5 +442,13 @@ public class DescriptionEditView extends LinearLayout {
     public void setAction(Action action) {
         this.action = action;
         isTranslationEdit = (action == TRANSLATE_CAPTION || action == TRANSLATE_DESCRIPTION);
+    }
+
+    @Override
+    public void onLanguageDetectionSuccess(@NonNull String languageCode) {
+        if (!languageCode.equals(pageSummaryForEdit.getLang())) {
+            setWarning(getContext().getString(R.string.description_is_in_different_language,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.getLang())));
+        }
     }
 }
