@@ -25,7 +25,6 @@ import androidx.core.widget.ImageViewCompat;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
@@ -446,7 +445,7 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     }
 
     @Override
-    public void onLanguageDetectionSuccess(@NotNull String languageCode) {
+    public void onLanguageDetectionSuccess(@NonNull String languageCode) {
         if (!languageCode.equals(pageSummaryForEdit.getLang())) {
             setWarning(getContext().getString(R.string.description_is_in_different_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.getLang())));
