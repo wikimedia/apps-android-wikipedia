@@ -215,7 +215,6 @@
   <string name="abusefilter_title_disallow">Njemóžeš wozjewić tutu změnu. Prošu dźi wróćo a přeměń ju.</string>
   <string name="abusefilter_text_warn">Awtomatiski filter je tutu změnu jako potencielnje njekonstruktiwnu spóznał. Móhła wobsahować jednu abo wjacore ze slědowacych wěcow:&lt;br /&gt;&lt;br /&gt;· Pisanje jenož z wulkimi pismikami&lt;br /&gt;· Wuprózdnjenje nastawkow abo spam&lt;br /&gt;· Njerelewantne eksterne wotkazy abo wobrazy&lt;br /&gt;· Wospjetowane znamješka</string>
   <string name="abusefilter_text_disallow">Awtomatiski filter je tutu změnu jako potencielnje njekonstruktiwnu abo potencielny wandalizm spóznał.&lt;br /&gt;&lt;br /&gt;Wikipedija je encyklopedija a jeničce neutralny, relewantny wobsah tule słuša.</string>
-  <string name="text_size_select">Wulkosć pisma</string>
   <string name="page_similar_titles">Podobne strony</string>
   <string name="search_did_you_mean">Sy měnił(a) \"%s\"?</string>
   <string name="search_recent_header">Njedawne pytanja:</string>

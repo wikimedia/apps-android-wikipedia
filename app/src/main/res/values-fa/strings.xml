@@ -261,7 +261,6 @@
   <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را منتشر کنید. لطفاً بازگردید و تغییرش دهید.</string>
   <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
   <string name="abusefilter_text_disallow">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده، یا خرابکاری بالقوه شناسایی کرده‌است.&lt;br /&gt;&lt;br /&gt;ویکی‌پدیا یک دانشنامه است و فقط محتوای بی طرف و قابل توجه به اینجا تعلق دارند.</string>
-  <string name="text_size_select">اندازهٔ قلم</string>
   <string name="page_similar_titles">معانی مشابه</string>
   <string name="search_did_you_mean">منظورتان «%s» بود؟</string>
   <string name="search_recent_header">جستجوهای اخیر:</string>

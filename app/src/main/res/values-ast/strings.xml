@@ -227,7 +227,6 @@
   <string name="abusefilter_title_disallow">Nun puedes espublizar esta edición. Por favor vuelve atrás y cámbiala.</string>
   <string name="abusefilter_text_warn">Un filtru automáticu identificó esta edición como posiblemente non constructiva. Puede contener una o más de les siguientes:&lt;br /&gt;&lt;br /&gt;· Escribir too en mayúscules&lt;br /&gt;· Dexar artículos en blancu o facer spam&lt;br /&gt;· Enllaces o imaxes esternos irrelevantes&lt;br /&gt;· Caráuteres repetíos</string>
   <string name="abusefilter_text_disallow">Un filtru automáticu identificó esta edición como potencialmente non constructiva, o posible vandalismu.&lt;br /&gt;&lt;br /&gt;Wikipedia ye una enciclopedia y sólo puede ponese equí conteníu neutral y notable.</string>
-  <string name="text_size_select">Tamañu de lletra</string>
   <string name="page_similar_titles">Páxines asemeyaes</string>
   <string name="search_did_you_mean">¿Queríes dicir «%s»?</string>
   <string name="search_recent_header">Guetes recientes:</string>

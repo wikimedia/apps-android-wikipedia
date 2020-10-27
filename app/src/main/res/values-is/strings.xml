@@ -228,7 +228,6 @@
   <string name="abusefilter_title_disallow">Þú getur ekki gefið út þessa breytingu. Farðu til baka og breyttu henni.</string>
   <string name="abusefilter_text_warn">Sjálfvirk sía hefur greint þessa breytingu sem mögulega eyðileggjandi. Hún gæti innihaldið eitt af eftirtöldu:&lt;br /&gt;&lt;br /&gt;· Eintómir hástafir&lt;br /&gt;· Tæming greina eða þvaður&lt;br /&gt;· Óviðeigandi ytri tenglar eða myndir&lt;br /&gt;· Endurteknir stafir</string>
   <string name="abusefilter_text_disallow">Sjálfvirk sía hefur greint þessa breytingu sem eyðileggjandi eða sem tilraun til skemmdarverks. &lt;br /&gt;&lt;br /&gt;Wikipedia er alfræðirit og því tilheyrir aðeins hlutlaust og markvert efni.</string>
-  <string name="text_size_select">Leturstærð</string>
   <string name="page_similar_titles">Áþekkar síður</string>
   <string name="search_did_you_mean">Áttir þú við \"%s\"?</string>
   <string name="search_recent_header">Nýlegar leitir:</string>

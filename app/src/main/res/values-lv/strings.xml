@@ -146,7 +146,6 @@
   <string name="edit_conflict_title">Labošanas konflikts</string>
   <string name="find_next">Atrast nākamo</string>
   <string name="find_previous">Atrast iepriekšējo</string>
-  <string name="text_size_select">Fonta lielums</string>
   <string name="page_similar_titles">Līdzīgas lapas</string>
   <string name="search_did_you_mean">Vai jūs domājāt \"%s\"?</string>
   <string name="clear_recent_searches_confirm_yes">Jā</string>

@@ -200,7 +200,6 @@
   <string name="find_previous">Rasti ankstesnį</string>
   <string name="abusefilter_title_warn">Panašu, kad šie pakeitimai nekonstruktyvūs. Ar tikrai norite juos paskelbti?</string>
   <string name="abusefilter_title_disallow">Jūs negalite išsaugoti šio keitimo. Prašome grįžti atgal ir pakeisti jį.</string>
-  <string name="text_size_select">Šrifto dydis</string>
   <string name="page_similar_titles">Panašūs puslapiai</string>
   <string name="search_did_you_mean">Ar turėjote omenyje „%s“?</string>
   <string name="search_recent_header">Naujausios paieškos:</string>

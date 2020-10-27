@@ -222,7 +222,6 @@
   <string name="find_last_occurence">यो अन्तिम घटना हो</string>
   <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
-  <string name="text_size_select">लिपि आकार</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>

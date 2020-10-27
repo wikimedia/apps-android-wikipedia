@@ -254,7 +254,6 @@
   <string name="abusefilter_title_disallow">Tuto editaci nemůžete zveřejnit. Prosím, vraťte se zpět a změnte ji.</string>
   <string name="abusefilter_text_warn">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní. Mohla obsahovat něco z:&lt;br /&gt;&lt;br /&gt;· Text pouze velkými písmeny&lt;br /&gt;· Mazání obsahu nebo spam&lt;br /&gt;· Nerelevantní externí odkazy nebo obrázky&lt;br /&gt;· Opakované znaky</string>
   <string name="abusefilter_text_disallow">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní nebo možný vandalismus.&lt;br /&gt;&lt;br /&gt;Wikipedie je encyklopedie, do které patří pouze neutrální, významný obsah.</string>
-  <string name="text_size_select">Velikost písma</string>
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_recent_header">Nedávná vyhledávání:</string>
