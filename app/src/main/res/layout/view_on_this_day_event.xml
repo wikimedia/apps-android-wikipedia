@@ -86,24 +86,12 @@
         android:layout_marginTop="12dp"
         android:visibility="gone" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/pages_pager"
-        android:layout_width="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="12dp"
-        android:layout_height="wrap_content" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/pages_item_indicator_view"
+    <org.wikipedia.views.NavMenuAwareRecyclerView
+        android:id="@+id/pages_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="-16dp"
-        android:background="@android:color/transparent"
-        app:tabBackground="@drawable/shape_tab_dot"
-        app:tabGravity="center"
-        app:tabIndicator="@null"
-        app:tabPaddingEnd="8dp"
-        app:tabPaddingStart="8dp"
-        app:tabRippleColor="?attr/color_group_59"/>
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="true" />
 </LinearLayout>

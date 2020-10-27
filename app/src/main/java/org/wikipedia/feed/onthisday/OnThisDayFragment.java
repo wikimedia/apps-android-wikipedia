@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -21,12 +22,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
@@ -68,7 +66,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
     @BindView(R.id.on_this_day_progress) ProgressBar progressBar;
-    @BindView(R.id.header_frame_layout) FrameLayout headerFrameLayout;
+    @BindView(R.id.header_layout) LinearLayout headerFrameLayout;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.app_bar) AppBarLayout appBarLayout;
     @BindView(R.id.on_this_day_error_view) WikiErrorView errorView;
@@ -313,8 +311,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         private TextView descTextView;
         private TextView yearTextView;
         private TextView yearsInfoTextView;
-        private ViewPager2 pagesViewPager;
-        private TabLayout pagesIndicator;
+        private RecyclerView pagesRecycler;
         private ImageView radioButtonImageView;
         private WikiSite wiki;
 
@@ -324,31 +321,34 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             descTextView.setTextIsSelectable(true);
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
-            pagesViewPager = v.findViewById(R.id.pages_pager);
-            pagesIndicator = v.findViewById(R.id.pages_item_indicator_view);
+            pagesRecycler = v.findViewById(R.id.pages_recycler);
             radioButtonImageView = v.findViewById(R.id.radio_image_view);
             this.wiki = wiki;
+            setRecycler();
+        }
+
+        private void setRecycler() {
+            if (pagesRecycler != null) {
+                pagesRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+                setUpRecycler(pagesRecycler);
+            }
         }
 
         public void setFields(@NonNull final OnThisDay.Event event) {
+            setPagesRecycler(event);
             descTextView.setText(event.text());
             descTextView.setVisibility(TextUtils.isEmpty(event.text()) ? GONE : VISIBLE);
             yearTextView.setText(DateUtil.yearToStringWithEra(event.year()));
             yearsInfoTextView.setText(DateUtil.getYearDifferenceString(event.year()));
-            setPagesViewPager(event);
         }
 
-        private void setPagesViewPager(OnThisDay.Event event) {
+        private void setPagesRecycler(OnThisDay.Event event) {
             if (event.pages() != null) {
-                ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), event.pages(), wiki);
-                pagesViewPager.setAdapter(viewPagerAdapter);
-                pagesViewPager.setOffscreenPageLimit(2);
-                 new TabLayoutMediator(pagesIndicator, pagesViewPager, (tab, position) -> { }).attach();
-                pagesViewPager.setVisibility(VISIBLE);
-                pagesIndicator.setVisibility(event.pages().size() == 1 ? GONE : VISIBLE);
+                PagesRecyclerAdapter pagesRecyclerAdapter = new PagesRecyclerAdapter(getChildFragmentManager(), event.pages(), wiki);
+                pagesRecycler.setAdapter(pagesRecyclerAdapter);
+                pagesRecycler.setVisibility(VISIBLE);
             } else {
-                pagesViewPager.setVisibility(GONE);
-                pagesIndicator.setVisibility(GONE);
+                pagesRecycler.setVisibility(GONE);
             }
         }
 
@@ -368,12 +368,12 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             });
         }
     }
-     class ViewPagerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
+     class PagesRecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
         private List<PageSummary> pages;
         private WikiSite wiki;
         private FragmentManager fragmentManager;
 
-         ViewPagerAdapter(@NonNull FragmentManager fragmentManager, @NonNull List<PageSummary> pages, @NonNull WikiSite wiki) {
+         PagesRecyclerAdapter(@NonNull FragmentManager fragmentManager, @NonNull List<PageSummary> pages, @NonNull WikiSite wiki) {
             this.pages = pages;
             this.wiki = wiki;
             this.fragmentManager = fragmentManager;

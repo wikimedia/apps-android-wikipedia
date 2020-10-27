@@ -21,19 +21,14 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="?attr/paper_color">
 
-            <FrameLayout
-                android:id="@+id/header_frame_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax">
-
                 <LinearLayout
+                    android:id="@+id/header_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginStart="16dp"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="parallax"
                     android:orientation="vertical">
 
                     <TextView
@@ -85,7 +80,6 @@
                 </LinearLayout>
 
 
-            </FrameLayout>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -167,6 +161,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipChildren="false"
+            android:nestedScrollingEnabled="true"
             android:clipToPadding="false"
             android:scrollbars="vertical" />
 

@@ -11,9 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
-import androidx.viewpager2.widget.ViewPager2;
-
-import com.google.android.material.tabs.TabLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -52,8 +50,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.year) TextView yearTextView;
     @BindView(R.id.years_text) TextView yearsInfoTextView;
-    @BindView(R.id.pages_pager) ViewPager2 pagesViewPager;
-    @BindView(R.id.pages_item_indicator_view) TabLayout indicatorView;
+    @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
     @BindView(R.id.view_on_this_day_rtl_container) View rtlContainer;
     @BindView(R.id.card_footer_view) CardFooterView cardFooterView;
     @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView otdEventImage;
@@ -72,7 +69,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     private void setUpFooter() {
-        indicatorView.setVisibility(GONE);
         cardFooterView.setFooterActionText(getContext().getString(R.string.more_events_text));
         cardFooterView.setCallback(this);
     }
@@ -121,7 +117,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     }
 
     private void updateOtdEventUI(OnThisDayCard card) {
-        pagesViewPager.setVisibility(GONE);
+        pagesRecycler.setVisibility(GONE);
         PageSummary chosenPage = null;
         if (card.pages() != null) {
             otdEventView.setVisibility(VISIBLE);
