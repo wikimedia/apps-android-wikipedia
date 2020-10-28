@@ -86,9 +86,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private String searchLanguageCode;
     private String tempLangCodeHolder;
     private boolean langBtnClicked = false;
-
     private String initialLanguageList;
-    private String finalLanguageList;
 
     public static final int RESULT_LANG_CHANGED = 1;
     public static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
@@ -209,7 +207,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
             int position = 0;
 
-            finalLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
+            String finalLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
             if (!finalLanguageList.equals(initialLanguageList)) {
                 requireActivity().setResult(RESULT_LANG_CHANGED);
             }
