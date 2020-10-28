@@ -7,15 +7,20 @@ import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.Group
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import kotlinx.android.synthetic.main.view_suggested_edits_card.view.*
 import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.model.CardType
+import org.wikipedia.feed.news.RecyclerViewIndicatorDotDecor
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
 
 class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback, CardFooterView.Callback {
     interface Callback {
@@ -24,6 +29,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private var card: SuggestedEditsCard? = null
+    private var isSnapHelperAttached: Boolean = false
     private var view: View = inflate(getContext(), R.layout.view_suggested_edits_card, this)
 
     override fun setCard(card: SuggestedEditsCard) {
@@ -50,6 +56,18 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun setUpSECardsRecyclerView() {
         seCardsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         seCardsRecyclerView.adapter = SECardsRecyclerViewAdapter()
+        seCardsRecyclerView.addItemDecoration(RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(4f),
+                DimenUtil.roundedDpToPx(8f), DimenUtil.roundedDpToPx(20f), ResourceUtil.getThemedColor(context, R.attr.chart_shade5),
+                ResourceUtil.getThemedColor(context, R.attr.colorAccent)))
+        setUpSnapHelper()
+    }
+
+    private fun setUpSnapHelper() {
+        if (!isSnapHelperAttached) {
+            val snapHelper: SnapHelper = PagerSnapHelper()
+            snapHelper.attachToRecyclerView(seCardsRecyclerView)
+            isSnapHelperAttached = true
+        }
     }
 
     internal inner class SECardsRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
