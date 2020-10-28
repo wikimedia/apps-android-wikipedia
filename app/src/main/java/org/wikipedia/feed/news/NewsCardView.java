@@ -17,7 +17,6 @@ import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.views.DontInterceptTouchListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
     @BindView(R.id.news_recycler_view) RecyclerView newsRecyclerView;
     @BindView(R.id.header_view) CardHeaderView headerView;
     @BindView(R.id.rtl_container) View rtlContainer;
+    private boolean isSnapHelperAttached;
 
     public interface Callback {
         void onNewsItemSelected(@NonNull NewsCard card, NewsItemView view);
@@ -39,6 +39,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         inflate(getContext(), R.layout.view_card_news, this);
         ButterKnife.bind(this);
     }
+
     @Override
     public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
@@ -59,16 +60,21 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
     private void setUpRecycler(NewsCard card) {
         newsRecyclerView.setHasFixedSize(true);
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        newsRecyclerView.addOnItemTouchListener(new DontInterceptTouchListener());
         newsRecyclerView.setNestedScrollingEnabled(false);
         newsRecyclerView.setClipToPadding(false);
         newsRecyclerView.setAdapter(new NewsAdapter(card));
         newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(4),
-                DimenUtil.roundedDpToPx(8), 75, ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
+                DimenUtil.roundedDpToPx(8), DimenUtil.roundedDpToPx(20), ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
                 ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
-        final SnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(newsRecyclerView);
+        setUpSnapHelper();
+    }
 
+    private void setUpSnapHelper() {
+        if (!isSnapHelperAttached) {
+            final SnapHelper snapHelper = new PagerSnapHelper();
+            snapHelper.attachToRecyclerView(newsRecyclerView);
+            isSnapHelperAttached = true;
+        }
     }
 
     private void header(@NonNull NewsCard card) {
