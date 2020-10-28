@@ -6,16 +6,17 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
-
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
+import androidx.recyclerview.widget.SnapHelper;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NewsCardView extends DefaultFeedCardView<NewsCard> {
-    @BindView(R.id.news_pager) ViewPager2 newsPager;
+    @BindView(R.id.news_recycler_view) RecyclerView newsRecyclerView;
     @BindView(R.id.header_view) CardHeaderView headerView;
     @BindView(R.id.rtl_container) View rtlContainer;
-    @BindView(R.id.news_item_indicator_view) TabLayout newItemIndicatorView;
+    private boolean isSnapHelperAttached;
 
     public interface Callback {
         void onNewsItemSelected(@NonNull NewsCard card, NewsItemView view);
@@ -38,6 +39,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         inflate(getContext(), R.layout.view_card_news, this);
         ButterKnife.bind(this);
     }
+
     @Override
     public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
@@ -51,9 +53,28 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         super.setCard(card);
         header(card);
         setLayoutDirectionByWikiSite(card.wikiSite(), rtlContainer);
-        newsPager.setOffscreenPageLimit(2);
-        newsPager.setAdapter(new NewsAdapter(card));
-        new TabLayoutMediator(newItemIndicatorView, newsPager, (tab, position) -> { }).attach();
+        setUpRecycler(card);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void setUpRecycler(NewsCard card) {
+        newsRecyclerView.setHasFixedSize(true);
+        newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        newsRecyclerView.setNestedScrollingEnabled(false);
+        newsRecyclerView.setClipToPadding(false);
+        newsRecyclerView.setAdapter(new NewsAdapter(card));
+        newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(4),
+                DimenUtil.roundedDpToPx(8), DimenUtil.roundedDpToPx(20), ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
+                ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
+        setUpSnapHelper();
+    }
+
+    private void setUpSnapHelper() {
+        if (!isSnapHelperAttached) {
+            final SnapHelper snapHelper = new PagerSnapHelper();
+            snapHelper.attachToRecyclerView(newsRecyclerView);
+            isSnapHelperAttached = true;
+        }
     }
 
     private void header(@NonNull NewsCard card) {
