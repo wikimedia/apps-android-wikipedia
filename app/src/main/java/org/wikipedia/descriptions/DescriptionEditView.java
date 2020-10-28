@@ -30,6 +30,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.language.LanguageUtil;
+import org.wikipedia.mlkit.MlKitLanguageDetector;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.DeviceUtil;
@@ -51,7 +52,7 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLAT
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
-public class DescriptionEditView extends LinearLayout {
+public class DescriptionEditView extends LinearLayout implements MlKitLanguageDetector.Callback {
     private static final int TEXT_VALIDATE_DELAY_MILLIS = 1000;
 
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
@@ -77,7 +78,9 @@ public class DescriptionEditView extends LinearLayout {
     private PageSummaryForEdit pageSummaryForEdit;
     private Action action;
     private boolean isTranslationEdit;
+    private boolean isLanguageWrong;
     private boolean isTextValid;
+    private MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
 
     private Runnable textValidateRunnable = this::validateText;
     private ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
@@ -332,13 +335,19 @@ public class DescriptionEditView extends LinearLayout {
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
         if (funnel.shouldSeeChecks()) {
-            removeCallbacks(textValidateRunnable);
-            postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
+            enqueueValidateText();
+            isLanguageWrong = false;
+            mlKitLanguageDetector.detectLanguageFromText(pageDescriptionText.getText().toString());
         } else {
             isTextValid = true;
             updateSaveButtonEnabled();
             setError(null);
         }
+    }
+
+    private void enqueueValidateText() {
+        removeCallbacks(textValidateRunnable);
+        postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
     }
 
     void validateText() {
@@ -364,6 +373,9 @@ public class DescriptionEditView extends LinearLayout {
         } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
                 && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
             setWarning(getContext().getString(R.string.description_starts_with_uppercase));
+        } else if (isLanguageWrong) {
+            setWarning(getContext().getString(R.string.description_is_in_different_language,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageSummaryForEdit.getLang())));
         } else {
             clearError();
         }
@@ -398,6 +410,7 @@ public class DescriptionEditView extends LinearLayout {
         ButterKnife.bind(this);
         FeedbackUtil.setButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
+        mlKitLanguageDetector.setCallback(this);
     }
 
     private void updateSaveButtonEnabled() {
@@ -437,5 +450,13 @@ public class DescriptionEditView extends LinearLayout {
     public void setAction(Action action) {
         this.action = action;
         isTranslationEdit = (action == TRANSLATE_CAPTION || action == TRANSLATE_DESCRIPTION);
+    }
+
+    @Override
+    public void onLanguageDetectionSuccess(@NonNull String languageCode) {
+        if (!languageCode.equals(pageSummaryForEdit.getLang())) {
+            isLanguageWrong = true;
+            enqueueValidateText();
+        }
     }
 }
