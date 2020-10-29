@@ -38,6 +38,10 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         super(context);
         inflate(getContext(), R.layout.view_card_news, this);
         ButterKnife.bind(this);
+        newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(4),
+                DimenUtil.roundedDpToPx(8), DimenUtil.roundedDpToPx(20),
+                ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
+                ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
     }
 
     @Override
@@ -63,9 +67,6 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         newsRecyclerView.setNestedScrollingEnabled(false);
         newsRecyclerView.setClipToPadding(false);
         newsRecyclerView.setAdapter(new NewsAdapter(card));
-        newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(4),
-                DimenUtil.roundedDpToPx(8), DimenUtil.roundedDpToPx(20), ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
-                ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
         setUpSnapHelper();
     }
 
