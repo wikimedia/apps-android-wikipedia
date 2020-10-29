@@ -159,7 +159,6 @@
   <string name="edit_summary_tag_other">Drugo</string>
   <string name="find_next">Najdi naslednje</string>
   <string name="find_previous">Najdi prejšnje</string>
-  <string name="text_size_select">Velikost pisave</string>
   <string name="page_similar_titles">Podobne strani</string>
   <string name="search_did_you_mean">Ali ste mislili \"%s\"?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>

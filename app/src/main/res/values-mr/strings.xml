@@ -169,7 +169,6 @@
   <string name="abusefilter_title_disallow">आपण हे संपादन जतन करु शकत नाही.कृपया परत जाउन ते बदला.</string>
   <string name="abusefilter_text_warn">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' असे नोंदविलेले आहे.यात खालीलपैकी एक वा एकाधिक असू शकते &lt;br /&gt;&lt;br /&gt;· सर्व अक्षरे ठळक&lt;br /&gt;लेख कोरा करणे किंवा उत्पात&lt;br /&gt;·असंबंधित दुवे किंवा चित्रे&lt;br /&gt;·त्याच वर्णांची वारंवारिता</string>
   <string name="abusefilter_text_disallow">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' किंवा \'उच्चपातळीचा उत्पात\' असे नोंदविलेले आहे.&lt;br /&gt;&lt;br /&gt;विकिपीडिया हा विश्वकोश आहे व त्यात फक्त तटस्थ व लिखाणायोग्य आशय असतो.</string>
-  <string name="text_size_select">टंकाचा आकार</string>
   <string name="page_similar_titles">सारखी पाने</string>
   <string name="search_did_you_mean">तुम्हाला \"%s\" म्हणायचे आहे काय?</string>
   <string name="search_recent_header">अलीकडील शोध:</string>

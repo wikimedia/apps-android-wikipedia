@@ -3,16 +3,19 @@ package org.wikipedia.analytics;
 import androidx.annotation.NonNull;
 
 import org.json.JSONObject;
+import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.theme.Theme;
 
 public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
-    private static final int REV_ID = 18113727;
+    private static final int REV_ID = 20566858;
+    private final InvokeSource source;
 
-    public AppearanceChangeFunnel(WikipediaApp app, WikiSite wiki) {
+    public AppearanceChangeFunnel(WikipediaApp app, WikiSite wiki, InvokeSource source) {
         super(app, SCHEMA_NAME, REV_ID, wiki);
+        this.source = source;
     }
 
     public void logFontSizeChange(float currentFontSize, float newFontSize) {
@@ -31,5 +34,19 @@ public class AppearanceChangeFunnel extends Funnel {
         );
     }
 
+    public void logFontThemeChange(String currentFontFamily, String newFontFamily) {
+        log(
+                "action", "fontThemeChange",
+                "current_value", currentFontFamily,
+                "new_value", newFontFamily
+        );
+    }
+
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
+
+    @Override
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        preprocessData(eventData, "invoke_source", source.ordinal());
+        return super.preprocessData(eventData);
+    }
 }

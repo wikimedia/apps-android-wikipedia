@@ -251,7 +251,6 @@
   <string name="abusefilter_title_disallow">Du kannst diese Bearbeitung nicht veröffentlichen. Bitte gehe zurück und ändere sie ab.</string>
   <string name="abusefilter_text_warn">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv identifiziert. Sie könnte eine oder mehrere der folgenden Dinge beinhalten:&lt;br /&gt;&lt;br /&gt;· Eingeben aller Kapitälchen&lt;br /&gt;· Artikel leeren oder Einbringen von Spam&lt;br /&gt;· Irrelevante externe Links oder Bilder&lt;br /&gt;· Wiederholte Zeichen</string>
   <string name="abusefilter_text_disallow">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv oder als potenziellen Vandalismus identifiziert.&lt;br /&gt;&lt;br /&gt;Wikipedia ist eine Enzyklopädie und ausschließlich neutraler, relevanter Inhalt gehört hierher.</string>
-  <string name="text_size_select">Schriftgröße</string>
   <string name="page_similar_titles">Ähnliche Seiten</string>
   <string name="search_did_you_mean">Meintest du „%s“?</string>
   <string name="search_recent_header">Letzte Suchanfragen:</string>

@@ -222,7 +222,6 @@
   <string name="abusefilter_title_disallow">Ne možete da objavite ovu izmenu. Vratite se nazad i promenite je.</string>
   <string name="abusefilter_text_warn">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sledećeg:&lt;br /&gt;&lt;br /&gt;· Pisanje velikim slovima&lt;br /&gt;· Pražnjenje članka ili spamovanje&lt;br /&gt;· Irelevantne spoljašnje linkove ili slike&lt;br /&gt;· Ponavljanje znakova</string>
   <string name="abusefilter_text_disallow">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu ili mogući vandalizam.&lt;br /&gt;&lt;br /&gt;Vikipedija je enciklopedija — ovde pripada samo neutralan i značajan sadržaj.</string>
-  <string name="text_size_select">Veličina fonta</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Da li ste mislili na „%s”?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>

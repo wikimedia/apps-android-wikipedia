@@ -206,7 +206,6 @@
   <string name="abusefilter_title_disallow">आप इस संपादन को प्रकाशित नहीं कर सकते। कृपया पीछे जा कर इसे बदलें।</string>
   <string name="abusefilter_text_warn">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक पाया है। इसमें एक या एक से अधिक निम्न कारण हो सकते हैं:&lt;br/&gt;&lt;br/&gt;सभी को कैपिटल लैटर में लिखना&lt;br/&gt;।लेखों को रिक्त करना या स्पैमिंग&lt;br/&gt;। अक्षरों को बार बार दोहराना।</string>
   <string name="abusefilter_text_disallow">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक या बर्बरता युक्त पाया है।&lt;br/&gt;&lt;br/&gt;विकिपीडिया एक इनसाइक्लोपीडिया है और केवल तटस्थ(न्यूट्रल), नोट करने योग्य सामग्री ही यहाँ रखी जा सकती है।</string>
-  <string name="text_size_select">अक्षर का आकार</string>
   <string name="page_similar_titles">समरूप पृष्ठ</string>
   <string name="search_did_you_mean">क्या आपका मतलब \"%s\" है?</string>
   <string name="search_recent_header">हाल की खोजें</string>

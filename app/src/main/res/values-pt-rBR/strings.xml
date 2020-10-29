@@ -262,7 +262,6 @@
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou que esta edição contém possíveis erros. Ela pode conter uma ou mais das seguintes características:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de letras maiúsculas;&lt;br/&gt;· Entradas em branco ou com spam;&lt;br/&gt;· Imagens ou ligações externas irrelevantes; e&lt;br/&gt;· Repetição de caracteres.</string>
   <string name="abusefilter_text_disallow">Um filtro automático identificou que esta edição possivelmente contém erros ou vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipédia é uma enciclopédia e somente conteúdo neutro e notável podem ser adicionados aqui.</string>
-  <string name="text_size_select">Tamanho da fonte</string>
   <string name="page_similar_titles">Páginas similares</string>
   <string name="search_did_you_mean">Você quis dizer “%s”?</string>
   <string name="search_recent_header">Pesquisas recentes:</string>
@@ -399,6 +398,7 @@
   <string name="text_size_increase">Aumentar o tamanho do texto</string>
   <string name="text_size_decrease">Diminuir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
+  <string name="text_style_title">Fonte</string>
   <string name="nav_item_reading_lists">Minhas listas</string>
   <string name="reading_list_save_to">Salvar na lista de leitura</string>
   <string name="reading_list_move_to">Mover à lista de leitura</string>
@@ -680,6 +680,7 @@
   <string name="description_ends_with_punctuation">O texto não deve terminar com pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos como \"a\", \"o\" \"as\" ou \"os\".</string>
   <string name="description_starts_with_uppercase">Comece com uma letra minúscula, a menos que a primeira palavra seja um nome próprio.</string>
+  <string name="description_is_in_different_language">O texto parece estar em um idioma inesperado. O idioma deve ser %s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>

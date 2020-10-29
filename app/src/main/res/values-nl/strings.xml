@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Aranka
 * Dbrant
 * Dutchy45
 * Elroy
@@ -259,7 +260,6 @@
   <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
   <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van pagina\'s of spammen&lt;br /&gt;· Irrelevant externe koppelingen of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>
   <string name="abusefilter_text_disallow">Een geautomatiseerde filter heeft deze bewerking als niet-constructief of potentieel vandalisme geïdentificeerd.&lt;br /&gt;&lt;br /&gt;Wikipedia is een encyclopedie en alleen neutrale, relevante inhoud hoort hier thuis.</string>
-  <string name="text_size_select">Lettergrootte</string>
   <string name="page_similar_titles">Vergelijkbare pagina\'s</string>
   <string name="search_did_you_mean">Bedoelde u \"%s\"?</string>
   <string name="search_recent_header">Recente zoekopdrachten:</string>
@@ -393,6 +393,7 @@
   <string name="text_size_increase">Tekstgrootte vergroten</string>
   <string name="text_size_decrease">Tekstgrootte verkleinen</string>
   <string name="text_size_percent_default">%s (standaard)</string>
+  <string name="text_style_title">Lettertype</string>
   <string name="nav_item_reading_lists">Mijn lijsten</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
