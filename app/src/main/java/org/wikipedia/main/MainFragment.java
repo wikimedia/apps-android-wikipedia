@@ -328,6 +328,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 view.getNewsItem().thumb() != null ? options.toBundle() : null);
     }
 
+    @Override
+    public void onFeedSeCardFooterClicked() {
+        goToTab(NavTab.EDITS);
+    }
+
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
         final String thumbUrl = card.baseImage().getThumbnailUrl();
         final String fullSizeUrl = card.baseImage().getOriginal().getSource();
