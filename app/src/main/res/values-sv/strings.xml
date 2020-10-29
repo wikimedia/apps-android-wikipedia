@@ -333,8 +333,8 @@
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
   <string name="preference_summary_customize_explore_feed">Anpassa utforskarflödet</string>
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
-  <string name="preference_title_collapse_tables">Stäng tabeller</string>
-  <string name="preference_summary_collapse_tables">Stänger automatiskt tabeller i artiklar, som inforutor, referenser och anmärkningar.</string>
+  <string name="preference_title_collapse_tables">Fäll ihop tabeller</string>
+  <string name="preference_summary_collapse_tables">Fäller automatiskt ihop tabeller i artiklar, som inforutor, referenser och anmärkningar.</string>
   <string name="nav_item_donate">Stöd Wikipedia</string>
   <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
   <string name="location_service_disabled">Platstjänster är inaktiverade.</string>
@@ -667,6 +667,7 @@
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
   <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
+  <string name="description_is_in_different_language">Texten verkar vara på ett oväntat språk. Språket bör vara %s.</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeskrivningen har publicerats! (%s)</string>
