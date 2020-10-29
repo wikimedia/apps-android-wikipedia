@@ -110,6 +110,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
+
+        WikipediaApp.getInstance().putCrashReportProperty("app_local_class_name", getLocalClassName());
     }
 
     @Override protected void onDestroy() {
