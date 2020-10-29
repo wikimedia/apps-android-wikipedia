@@ -23,8 +23,12 @@ public class RecyclerViewIndicatorDotDecor extends RecyclerView.ItemDecoration {
 
     public RecyclerViewIndicatorDotDecor(int radius, int padding, int indicatorHeight, @ColorInt int colorInactive,
                                          @ColorInt int colorActive) {
-        float strokeWidth = Resources.getSystem().getDisplayMetrics().density * 1;
         this.radius = radius;
+        this.indicatorItemPadding = padding;
+        this.indicatorHeight = indicatorHeight;
+
+        float strokeWidth = Resources.getSystem().getDisplayMetrics().density * 1;
+
         inactivePaint.setStrokeCap(Paint.Cap.ROUND);
         inactivePaint.setStrokeWidth(strokeWidth);
         inactivePaint.setStyle(Paint.Style.FILL);
@@ -36,9 +40,6 @@ public class RecyclerViewIndicatorDotDecor extends RecyclerView.ItemDecoration {
         activePaint.setStyle(Paint.Style.FILL);
         activePaint.setAntiAlias(true);
         activePaint.setColor(colorActive);
-
-        this.indicatorItemPadding = padding;
-        this.indicatorHeight = indicatorHeight;
     }
 
     @Override
