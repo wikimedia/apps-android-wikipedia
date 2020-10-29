@@ -179,9 +179,12 @@ public class ObservableWebView extends WebView {
             case MotionEvent.ACTION_UP:
                 if (Math.abs(event.getX() - touchStartX) <= touchSlop
                         && Math.abs(event.getY() - touchStartY) <= touchSlop) {
-                    for (OnClickListener listener : onClickListeners) {
-                        if (listener.onClick(event.getX(), event.getY())) {
-                            return true;
+                    WebView.HitTestResult result = getHitTestResult();
+                    if (result.getType() == HitTestResult.UNKNOWN_TYPE) {
+                        for (OnClickListener listener : onClickListeners) {
+                            if (listener.onClick(event.getX(), event.getY())) {
+                                return true;
+                            }
                         }
                     }
                 }

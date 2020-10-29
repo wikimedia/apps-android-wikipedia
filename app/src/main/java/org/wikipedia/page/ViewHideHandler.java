@@ -111,7 +111,11 @@ public class ViewHideHandler implements ObservableWebView.OnScrollChangeListener
 
     @Override
     public boolean onClick(float x, float y) {
-        ensureDisplayed();
+        if (hideableView.getTranslationY() != 0f) {
+            ensureDisplayed();
+        } else {
+            ensureHidden();
+        }
         return false;
     }
 
