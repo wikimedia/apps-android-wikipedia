@@ -111,7 +111,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         maybeShowLoggedOutInBackgroundDialog();
 
-        Prefs.setLocalClassName(getLocalClassName());
+        if (!(this instanceof CrashReportActivity)) {
+            Prefs.setLocalClassName(getLocalClassName());
+        }
     }
 
     @Override protected void onDestroy() {
