@@ -10,11 +10,17 @@ import kotlinx.android.synthetic.main.view_suggested_edits_card.view.*
 import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context),
+        SuggestedEditsFeedClient.Callback, CardFooterView.Callback {
+    interface Callback {
+        fun onSeCardFooterClicked()
+    }
+
     private var card: SuggestedEditsCard? = null
     private var view: View = inflate(getContext(), R.layout.view_suggested_edits_card, this)
 
@@ -35,6 +41,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         setUpPagerWithSECards()
+        cardFooter.setFooterActionText(context.getString(R.string.suggested_card_more_edits))
+        cardFooter.callback = this
     }
 
     private fun setUpPagerWithSECards() {
@@ -72,5 +80,11 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override fun updateCardContent(card: SuggestedEditsCard) {
         setCard(card)
+    }
+
+    override fun onFooterClicked() {
+        if (callback != null) {
+            callback!!.onSeCardFooterClicked()
+        }
     }
 }
