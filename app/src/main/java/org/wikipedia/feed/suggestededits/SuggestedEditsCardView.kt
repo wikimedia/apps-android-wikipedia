@@ -15,8 +15,8 @@ import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context)
-        , SuggestedEditsFeedClient.Callback, CardFooterView.Callback {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context),
+        SuggestedEditsFeedClient.Callback, CardFooterView.Callback {
     interface Callback {
         fun onSeCardFooterClicked()
     }
