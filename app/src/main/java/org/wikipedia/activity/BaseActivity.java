@@ -110,6 +110,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
+
+        if (!(this instanceof CrashReportActivity)) {
+            Prefs.setLocalClassName(getLocalClassName());
+        }
     }
 
     @Override protected void onDestroy() {
