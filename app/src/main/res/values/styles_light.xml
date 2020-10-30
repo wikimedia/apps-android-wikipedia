@@ -31,6 +31,7 @@
         <item name="popupMenuStyle">@style/PopupMenuLight</item>
         <item name="dialogTheme">@style/DialogLight</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogLight</item>
+        <item name="appTouchRippleTheme">@style/RippleThemeLight</item>
 
         <!-- Overrides of our own custom style attributes -->
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
@@ -114,6 +115,10 @@
         <item name="colorSwitchThumbNormal">@color/base90</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>
+    </style>
+
+    <style name="RippleThemeLight" parent="Base.ThemeOverlay.AppCompat">
+        <item name="theme">@style/Base.ThemeOverlay.AppCompat</item>
     </style>
 
 </resources>

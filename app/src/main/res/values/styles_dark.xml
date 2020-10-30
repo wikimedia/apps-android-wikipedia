@@ -31,6 +31,7 @@
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
         <item name="dialogTheme">@style/DialogDark</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
+        <item name="appTouchRippleTheme">@style/RippleThemeDark</item>
 
         <!-- Overrides of our own custom style attributes -->
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_dark</item>
@@ -116,4 +117,7 @@
         <item name="android:disabledAlpha">1.0</item>
     </style>
 
+    <style name="RippleThemeDark" parent="Base.ThemeOverlay.AppCompat">
+        <item name="theme">@style/Base.ThemeOverlay.AppCompat.Dark</item>
+    </style>
 </resources>
