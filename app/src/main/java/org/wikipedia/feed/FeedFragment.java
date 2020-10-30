@@ -80,7 +80,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedSearchRequested(View view);
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
-        void onFeedSelectPageFromExistingTab(HistoryEntry entry);
         void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] shareElements);
         void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
@@ -321,14 +320,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public final void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements) {
             if (getCallback() != null) {
                 getCallback().onFeedSelectPageWithAnimation(entry, sharedElements);
-                funnel.cardClicked(card.type(), getCardLanguageCode(card));
-            }
-        }
-
-        @Override
-        public void onSelectPageFromExistingTab(@NonNull Card card, @NonNull HistoryEntry entry) {
-            if (getCallback() != null) {
-                getCallback().onFeedSelectPageFromExistingTab(entry);
                 funnel.cardClicked(card.type(), getCardLanguageCode(card));
             }
         }

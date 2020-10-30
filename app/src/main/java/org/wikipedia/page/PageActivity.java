@@ -68,6 +68,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -374,10 +375,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             }
             // Special cases:
             // If the app was launched from an external deeplink to a "Special:" page, or if the
-            // link is to a page in the "donate." domain (e.g. a "thank you" page after having
-            // donated), then bounce it out to an external browser, since we don't have the same
-            // cookie state as the browser does.
-            if (title.isSpecial() || wiki.languageCode().toLowerCase().equals("donate")) {
+            // link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
+            // after having donated), then bounce it out to an external browser, since we don't have
+            // the same cookie state as the browser does.
+            String language = wiki.languageCode().toLowerCase();
+            boolean isDonationRelated = language.equals("donate") || language.equals("thankyou");
+            if (title.isSpecial() || isDonationRelated) {
                 visitInExternalBrowser(this, uri);
                 finish();
                 return;
@@ -706,6 +709,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             wikiArticleCardView.setTitle(title.getDisplayText());
             wikiArticleCardView.setDescription(title.getDescription());
             wikiArticleCardView.setLoaded(true);
+            L10nUtil.setConditionalLayoutDirection(wikiArticleCardView, title.getWikiSite().languageCode());
         }
     }
 
