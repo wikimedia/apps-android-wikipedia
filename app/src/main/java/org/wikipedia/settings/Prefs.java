@@ -981,5 +981,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
     }
 
+    public static void setLocalClassName(@Nullable String className) {
+        setString(R.string.preference_key_crash_report_local_class_name, className);
+    }
+
+    public static String getLocalClassName() {
+        return getString(R.string.preference_key_crash_report_local_class_name, "");
+    }
+
     private Prefs() { }
 }
