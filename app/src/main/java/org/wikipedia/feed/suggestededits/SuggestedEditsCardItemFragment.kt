@@ -149,11 +149,14 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun startDescriptionEditScreen() {
-        if (!isAdded || sourceSummaryForEdit == null) {
+        if (!isAdded) {
             return
         }
         if (cardActionType == ADD_IMAGE_TAGS) {
             startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(requireActivity(), imageTagPage!!, FEED), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+            return
+        }
+        if (sourceSummaryForEdit == null) {
             return
         }
         val pageTitle: PageTitle = if (cardActionType == TRANSLATE_DESCRIPTION || cardActionType == TRANSLATE_CAPTION)
