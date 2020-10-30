@@ -68,6 +68,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -706,6 +707,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         wikiArticleCardView.setTitle(title.getDisplayText());
         wikiArticleCardView.setDescription(title.getDescription());
+        L10nUtil.setConditionalLayoutDirection(wikiArticleCardView, title.getWikiSite().languageCode());
     }
 
     private final Transition.TransitionListener transitionListener = new Transition.TransitionListener() {

@@ -26,7 +26,6 @@ import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
@@ -37,6 +36,7 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -145,10 +145,10 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                 otdEventTitle.setMaxLines(TextUtils.isEmpty(chosenPage.getDescription()) ? 2 : 1);
                 otdEventTitle.setText(StringUtil.fromHtml(chosenPage.getDisplayTitle()));
                 otdEventView.setOnClickListener(view -> {
-                    PageTitle pageTitle = finalChosenPage.getPageTitle(card.wikiSite());
-                    HistoryEntry entry = new HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD);
-
-                    getContext().startActivity(PageActivity.newIntentForCurrentTab(getContext(), entry, pageTitle));
+                    if (getCallback() != null) {
+                        getCallback().onSelectPage(card, new HistoryEntry(finalChosenPage.getPageTitle(card.wikiSite()),
+                                HistoryEntry.SOURCE_ON_THIS_DAY_CARD), TransitionUtil.getSharedElements(getContext(), otdEventImage));
+                    }
                 });
                 otdEventView.setOnLongClickListener(view -> {
                     PageTitle pageTitle = finalChosenPage.getPageTitle(card.wikiSite());

@@ -24,6 +24,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.GraphView;
 import org.wikipedia.views.ViewUtil;
@@ -93,7 +94,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     @OnClick void onClick(View view) {
         if (callback != null && entry != null && card != null) {
-            callback.onSelectPage(card, entry);
+            callback.onSelectPage(card, entry, TransitionUtil.getSharedElements(getContext(), imageView));
         }
     }
 
