@@ -27,6 +27,7 @@
 * Katunchik
 * Mailman
 * MaxBioHazard
+* Megakott
 * Monirec
 * Mouse21
 * Movses
@@ -281,7 +282,6 @@
   <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
   <string name="abusefilter_text_disallow">Автоматизированный фильтр определил эту правку как потенциально неконструктивную или как потенциальный вандализм.&lt;br /&gt;&lt;br /&gt;Википедия — это энциклопедия, и здесь приемлемо только нейтральное и значимое содержимое.</string>
-  <string name="text_size_select">Размер шрифта</string>
   <string name="page_similar_titles">Похожие страницы</string>
   <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
   <string name="search_recent_header">Последние поиски:</string>
@@ -405,6 +405,7 @@
   <string name="text_size_increase">Увеличить размер шрифта</string>
   <string name="text_size_decrease">Уменьшить размер шрифта</string>
   <string name="text_size_percent_default">%s (по умолчанию)</string>
+  <string name="text_style_title">Шрифт</string>
   <string name="nav_item_reading_lists">Мои списки</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_create_new">Создать новый</string>

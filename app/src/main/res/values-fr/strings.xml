@@ -273,7 +273,6 @@
   <string name="abusefilter_title_disallow">Vous ne pouvez pas publier cette modification. Veuillez revenir en arrière et la changer.</string>
   <string name="abusefilter_text_warn">Un filtre automatique a identifié cette modification comme potentiellement non constructive. Elle pourrait contenir un ou plusieurs des éléments suivants :&lt;br /&gt;&lt;br /&gt;· Saisie toute en majuscules&lt;br /&gt;· Découpage d’articles ou pourriel&lt;br /&gt;· Liens ou images externes inappropriés&lt;br /&gt;· Caractères répétés</string>
   <string name="abusefilter_text_disallow">Un filtre automatique a identifié cette modification comme étant potentiellement non constructive ou comme un acte de vandalisme éventuel.&lt;br /&gt;&lt;br /&gt; Wikipédia est une encyclopédie et seul un contenu neutre et respectable peut y figurer.</string>
-  <string name="text_size_select">Taille de police</string>
   <string name="page_similar_titles">Pages semblables</string>
   <string name="search_did_you_mean">Voulez-vous dire « %s » ?</string>
   <string name="search_recent_header">Recherches récentes :</string>
@@ -410,6 +409,7 @@
   <string name="text_size_increase">Agrandir le texte</string>
   <string name="text_size_decrease">Réduire la taille du texte</string>
   <string name="text_size_percent_default">%s (par défaut)</string>
+  <string name="text_style_title">Police</string>
   <string name="nav_item_reading_lists">Mes listes</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
   <string name="reading_list_move_to">Déplacer vers la liste de lecture</string>
@@ -691,6 +691,7 @@
   <string name="description_ends_with_punctuation">Le texte ne doit pas se terminer par une ponctuation.</string>
   <string name="description_starts_with_article">Éviter de commencer avec des articles comme « un » ou « le ».</string>
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
+  <string name="description_is_in_different_language">Le texte semble être dans une langue inattendue. La langue devrait être %s.</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description d’article publiée !</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l’article publiée ! (%s)</string>

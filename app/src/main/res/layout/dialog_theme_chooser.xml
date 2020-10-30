@@ -18,153 +18,198 @@
         android:layout_gravity="top|end"
         android:layout_margin="8dp" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:text="@string/text_size_select"
-            android:textColor="?attr/section_title_color" />
-
-        <TextView
-            android:id="@+id/text_size_percent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="?attr/secondary_text_color"
-            android:textSize="16sp"
-            tools:text="100% (Default)" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp">
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <TextView
-                android:id="@+id/buttonDecreaseTextSize"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center_vertical"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/text_size_decrease"
-                android:focusable="true"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="4dp"
-                android:text="T"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:text="@string/text_style_title"
                 android:textColor="?attr/primary_text_color"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textStyle="bold"/>
 
-            <org.wikipedia.views.DiscreteSeekBar
-                android:id="@+id/text_size_seek_bar"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/text_size_percent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:max="@integer/maxTextSizeMultiplier"
-                android:progressBackgroundTint="?attr/chart_shade5"
-                app:centerDrawable="@drawable/ic_seek_bar_center"
-                app:min="@integer/minTextSizeMultiplier"
-                app:tickDrawable="@drawable/ic_seek_bar_tick" />
+                android:gravity="center"
+                android:textColor="?attr/secondary_text_color"
+                android:textSize="16sp"
+                tools:text="100% (Default)" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/buttonDecreaseTextSize"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/text_size_decrease"
+                    android:focusable="true"
+                    android:gravity="center_horizontal|bottom"
+                    android:paddingBottom="4dp"
+                    android:text="T"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+                <org.wikipedia.views.DiscreteSeekBar
+                    android:id="@+id/text_size_seek_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:max="@integer/maxTextSizeMultiplier"
+                    android:progressBackgroundTint="?attr/chart_shade5"
+                    app:centerDrawable="@drawable/ic_seek_bar_center"
+                    app:min="@integer/minTextSizeMultiplier"
+                    app:tickDrawable="@drawable/ic_seek_bar_tick" />
+
+                <TextView
+                    android:id="@+id/buttonIncreaseTextSize"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/text_size_increase"
+                    android:focusable="true"
+                    android:gravity="center_horizontal|bottom"
+                    android:paddingBottom="2dp"
+                    android:text="T"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_font_family_sans_serif"
+                    style="@style/App.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:textColor="?attr/primary_text_color"
+                    android:textStyle="bold"
+                    android:backgroundTint="?attr/paper_color"
+                    android:text="@string/font_family_sans_serif"
+                    android:tag="@string/font_family_sans_serif"
+                    app:strokeColor="?attr/colorAccent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_font_family_serif"
+                    style="@style/App.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:textColor="?attr/primary_text_color"
+                    android:textStyle="bold"
+                    android:backgroundTint="?attr/paper_color"
+                    android:text="@string/font_family_serif"
+                    android:tag="@string/font_family_serif"
+                    app:strokeColor="?attr/colorAccent" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="?attr/material_theme_border_color" />
 
             <TextView
-                android:id="@+id/buttonIncreaseTextSize"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center_vertical"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="@string/text_size_increase"
-                android:focusable="true"
-                android:gravity="center_horizontal|bottom"
-                android:paddingBottom="2dp"
-                android:text="T"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/color_theme_select"
                 android:textColor="?attr/primary_text_color"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/theme_chooser_match_system_theme_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
+                android:textColor="?attr/primary_text_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clipChildren="false">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_theme_light"
+                    style="@style/ThemeColorCircularButton"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/base10"
+                    android:backgroundTint="@color/color_state_white"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_theme_sepia"
+                    style="@style/ThemeColorCircularButton"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/base10"
+                    android:backgroundTint="@color/papyrus"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_theme_dark"
+                    style="@style/ThemeColorCircularButton"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/base90"
+                    android:backgroundTint="@color/color_state_gray" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_theme_black"
+                    style="@style/ThemeColorCircularButton"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/base90"
+                    android:backgroundTint="@color/color_state_black" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical"
+                android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
+                android:textColor="?attr/section_title_color" />
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="?attr/material_theme_border_color" />
+    </ScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/color_theme_select"
-            android:textColor="?attr/section_title_color" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/theme_chooser_match_system_theme_switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
-            android:textColor="?attr/primary_text_color" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:clipChildren="false">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_theme_light"
-                style="@style/ThemeColorCircularButton"
-                android:layout_margin="5dp"
-                android:textColor="@color/base10"
-                android:backgroundTint="@color/color_state_white"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_theme_sepia"
-                style="@style/ThemeColorCircularButton"
-                android:layout_margin="5dp"
-                android:textColor="@color/base10"
-                android:backgroundTint="@color/papyrus"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_theme_dark"
-                style="@style/ThemeColorCircularButton"
-                android:layout_margin="5dp"
-                android:textColor="@color/base90"
-                android:backgroundTint="@color/color_state_gray" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_theme_black"
-                style="@style/ThemeColorCircularButton"
-                android:layout_margin="5dp"
-                android:textColor="@color/base90"
-                android:backgroundTint="@color/color_state_black" />
-
-        </LinearLayout>
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:gravity="center_vertical"
-            android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
-            android:textColor="?attr/section_title_color" />
-
-    </LinearLayout>
 </FrameLayout>

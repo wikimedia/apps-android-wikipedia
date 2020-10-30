@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.button.MaterialButton;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -39,11 +40,15 @@ import butterknife.Unbinder;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;
     @BindView(R.id.buttonIncreaseTextSize) TextView buttonIncreaseTextSize;
     @BindView(R.id.text_size_percent) TextView textSizePercent;
     @BindView(R.id.text_size_seek_bar) DiscreteSeekBar textSizeSeekBar;
+    @BindView(R.id.button_font_family_sans_serif) MaterialButton buttonFontFamilySansSerif;
+    @BindView(R.id.button_font_family_serif) MaterialButton buttonFontFamilySerif;
     @BindView(R.id.button_theme_light) MaterialButton buttonThemeLight;
     @BindView(R.id.button_theme_dark) MaterialButton buttonThemeDark;
     @BindView(R.id.button_theme_black) MaterialButton buttonThemeBlack;
@@ -62,9 +67,19 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private WikipediaApp app;
     private Unbinder unbinder;
     private AppearanceChangeFunnel funnel;
+    private Constants.InvokeSource invokeSource;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private static final int BUTTON_STROKE_WIDTH = DimenUtil.roundedDpToPx(2f);
 
     private boolean updatingFont = false;
+
+    public static ThemeChooserDialog newInstance(@NonNull Constants.InvokeSource source) {
+        ThemeChooserDialog dialog = new ThemeChooserDialog();
+        Bundle args = new Bundle();
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
+        dialog.setArguments(args);
+        return dialog;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -77,6 +92,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         buttonThemeDark.setOnClickListener(new ThemeButtonListener(Theme.DARK));
         buttonThemeBlack.setOnClickListener(new ThemeButtonListener(Theme.BLACK));
         buttonThemeSepia.setOnClickListener(new ThemeButtonListener(Theme.SEPIA));
+        buttonFontFamilySansSerif.setOnClickListener(new FontFamilyListener());
+        buttonFontFamilySerif.setOnClickListener(new FontFamilyListener());
 
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -120,8 +137,9 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
+        invokeSource = (Constants.InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
         disposables.add(app.getBus().subscribe(new EventBusConsumer()));
-        funnel = new AppearanceChangeFunnel(app, app.getWikiSite());
+        funnel = new AppearanceChangeFunnel(app, app.getWikiSite(), invokeSource);
     }
 
     @Override
@@ -204,6 +222,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     private void updateComponents() {
         updateFontSize();
+        updateFontFamily();
         updateThemeButtons();
         updateDimImagesSwitch();
         updateMatchSystemThemeSwitch();
@@ -234,6 +253,11 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
+    private void updateFontFamily() {
+        buttonFontFamilySansSerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySansSerif.getTag()) ? BUTTON_STROKE_WIDTH : 0);
+        buttonFontFamilySerif.setStrokeWidth(Prefs.getFontFamily().equals(buttonFontFamilySerif.getTag()) ? BUTTON_STROKE_WIDTH : 0);
+    }
+
     private void updateThemeButtons() {
         updateThemeButtonStroke(buttonThemeLight, app.getCurrentTheme() == Theme.LIGHT);
         updateThemeButtonStroke(buttonThemeSepia, app.getCurrentTheme() == Theme.SEPIA);
@@ -241,9 +265,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         updateThemeButtonStroke(buttonThemeBlack, app.getCurrentTheme() == Theme.BLACK);
     }
 
-    @SuppressWarnings("checkstyle:magicnumbers")
     private void updateThemeButtonStroke(@NonNull MaterialButton button, boolean selected) {
-        button.setStrokeWidth(selected ? 10 : 0);
+        button.setStrokeWidth(selected ? BUTTON_STROKE_WIDTH : 0);
         button.setClickable(!selected);
     }
 
@@ -267,6 +290,17 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             if (app.getCurrentTheme() != theme) {
                 funnel.logThemeChange(app.getCurrentTheme(), theme);
                 app.setCurrentTheme(theme);
+            }
+        }
+    }
+
+    private final class FontFamilyListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            if (v.getTag() != null) {
+                String newFontFamily = (String) v.getTag();
+                funnel.logFontThemeChange(Prefs.getFontFamily(), newFontFamily);
+                app.setFontFamily(newFontFamily);
             }
         }
     }

@@ -230,7 +230,6 @@
   <string name="abusefilter_title_disallow">မၞး တြးပတိတ် အရာမပလေဝ်ဒါန်ဏအ် ဟွံဂွံ၊၊ ပဂုန်တုဲ ကလေင်တုဲ ပလေဝ်ထောအ်ညိ၊၊</string>
   <string name="abusefilter_text_warn">မဂွံဆဵုကေတ် အရာမဒါန်ပလေဝ် လပါ်ခိုဟ်ဟွံသေင်၊၊ ဟိုတ်နူ အရာတအ်ဏအ် ပါလုပ်ဒၟံင် &lt;br /&gt;&lt;br /&gt;· Typing in all caps&lt;br /&gt; ဒှ်မာန်၊၊ Blanking articles or spamming&lt;br /&gt;· Irrelevant external links or images&lt;br /&gt;· မအရေဝ်တအ်ဂှ် ပလေဝ်ထောအ်ညိ၊၊</string>
   <string name="abusefilter_text_disallow">မဂွံဆဵုကေတ် အရာမဒါန်ပလေဝ် လပါ်ခိုဟ်ဟွံသေင် ဟွံသေင်မ္ဂး ဒှ်အရာမပလီုပလာ်၊၊&lt;br /&gt;&lt;br /&gt; ဝဳကဳပဳဒဳယာဂှ် ဒှ်ပြကိုဟ်အညာ တုဲ ဒှ်အရာမမံင်လဒေါဝ်ဟေင်ရ၊၊</string>
-  <string name="text_size_select">ဇမၞော် ဝှန်မလိက်</string>
   <string name="page_similar_titles">မုက်လိက် မတုပ်သၟဟ်</string>
   <string name="search_did_you_mean">မၞး မိက်ဂွံ ဟီု %s ဟာ？</string>
   <string name="search_recent_header">မဂၠာဲ ပြဟ်ဟ်ဏအ်</string>

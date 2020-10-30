@@ -249,7 +249,6 @@
   <string name="abusefilter_title_disallow">Nem teheted közzé ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
   <string name="abusefilter_text_warn">Egy automatikus szűrő potenciálisan nem konstruktívnak találta a szerkesztésedet. Az alábbiak közül egyet vagy többet tartalmazhat:&lt;br /&gt;&lt;br /&gt;· Csupa nagybetűs szöveg&lt;br /&gt;· A szócikk teljes tartalmának eltávolítása vagy spam&lt;br /&gt;· Irreleváns külső linkek vagy képek&lt;br /&gt;· Karakterismétlés</string>
   <string name="abusefilter_text_disallow">Egy automatikus szűrő potenciálisan nem konstruktívnak vagy vandálnak találta a szerkesztésedet.&lt;br /&gt;&lt;br /&gt;A Wikipédia egy enciklopédia és csak semleges, nevezetes tartalom való ide.</string>
-  <string name="text_size_select">Betűméret</string>
   <string name="page_similar_titles">Hasonló lapok</string>
   <string name="search_did_you_mean">Így értetted: „%s”?</string>
   <string name="search_recent_header">Legutóbbi keresések:</string>
@@ -386,6 +385,7 @@
   <string name="text_size_increase">Betűméret növelése</string>
   <string name="text_size_decrease">Betűméret csökkentése</string>
   <string name="text_size_percent_default">%s (alapértelmezett)</string>
+  <string name="text_style_title">Betűtípus</string>
   <string name="nav_item_reading_lists">Listáim</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_move_to">Mozgatás olvasólistára</string>
@@ -667,6 +667,7 @@
   <string name="description_ends_with_punctuation">A szöveg nem végződhet írásjellel.</string>
   <string name="description_starts_with_article">Kerüld az „egy” vagy „a”/„az” névelővel kezdődő szócikkleírásokat.</string>
   <string name="description_starts_with_uppercase">Kis kezdőbetűvel kezdd a szócikkleírást, hacsak nem tulajdonnév az első szó.</string>
+  <string name="description_is_in_different_language">Úgy tűnik, a szöveg nem várt nyelven látható, miközben %s nyelven kéne megjelennie.</string>
   <string name="description_edit_success_saved">Szócikkleírás közzétéve!</string>
   <string name="description_edit_success_saved_snackbar">Szócikkleírás közzétéve!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
@@ -769,7 +770,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Hány egymást követő nap volt alkalmad szerkeszteni? Ha egy ideje nem voltál aktív, akkor az utolsó közreműködés idejét mutatja.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Összes megtekintés száma azokon az oldalakon, melyeken az elmúlt 30 napban dolgozál.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Az alapján, hogy hányszor volt visszavonva a közreműködések (más szerkesztő által visszaállítva). Visszavont szerkesztések: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések felfüggesztésre került eddig: %1$s&lt;/b&gt; Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
+  <string name="suggested_edits_paused_message">A Javasolt szerkesztések felfüggesztésre került eddig: %1$s Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések letiltásra került.&lt;/b&gt; Bocsi %s, túl sok közreműködésed lett visszavonva mostanában.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Úgí tűni, hogy az IP-címed (vagy egy IP-cím tartomány) jelenleg el van tiltva a Wikipédia szerkesztésétől. Az alábbi hivatkozásra kattintva többet megtudhatsz arról, hogy az mit is jelent pontosan.</string>
   <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>

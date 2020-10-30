@@ -133,7 +133,6 @@
   <string name="edit_conflict_message">Aquesta pagina foguèt ja modificada per un autre utilizaire, e es en conflicte amb la vòstra publicacion. Merce de copiar las vòstras publicacions, tornar a la pagina precedenta e refrescar la pagina, puèi ensajatz de publicar tornamai.</string>
   <string name="find_next">Recercar lo seguent</string>
   <string name="find_previous">Recercar lo precedent</string>
-  <string name="text_size_select">Talha de poliça</string>
   <string name="page_similar_titles">Paginas similaras</string>
   <string name="search_did_you_mean">Volètz dire « %s » ?</string>
   <string name="search_recent_header">Recèrcas recentas :</string>

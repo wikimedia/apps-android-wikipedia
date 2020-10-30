@@ -249,7 +249,6 @@
   <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך לכאן.</string>
-  <string name="text_size_select">גודל גופן</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
@@ -345,6 +344,12 @@
   <string name="location_permissions_enable_prompt">נא להפעיל הרשאת מיקום כדי לראות מקומות לידך.</string>
   <string name="location_permissions_enable_action">להפעיל</string>
   <string name="error_webview_updating">מתבצע עדכון של Android System WebView. נא לנסות שוב בעוד רגע.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">נבחר אחד</item>
+    <item quantity="two">נבחרו %d</item>
+    <item quantity="many">נבחרו %d</item>
+    <item quantity="other">נבחרו %d</item>
+  </plurals>
   <string name="multi_select_items_selected">נבחרו %d</string>
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
@@ -384,6 +389,7 @@
   <string name="text_size_increase">הגדלת הטקסט</string>
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
+  <string name="text_style_title">גופן</string>
   <string name="nav_item_reading_lists">רשימות</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
@@ -401,6 +407,12 @@
     <item quantity="two">שני ערכים %2$.2f מ״ב</item>
     <item quantity="many">%1$d ערכים, %2$.2f מ״ב</item>
     <item quantity="other">%1$d ערכים, %2$.2f מ״ב</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d מתוך ערך אחד זמינים מקומית, %3$.2f מ״ב</item>
+    <item quantity="two">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
+    <item quantity="many">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
+    <item quantity="other">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
@@ -841,6 +853,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
+  <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
   <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
   <string name="suggested_edits_rewards_continue_button">המשך</string>

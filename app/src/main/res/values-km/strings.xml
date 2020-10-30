@@ -168,7 +168,6 @@
   <string name="find_previous">ស្វែងរក​មុន</string>
   <string name="abusefilter_title_warn">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់បោះផ្សាយវាមែនទេ?</string>
   <string name="abusefilter_title_disallow">អ្នកមិនអាចបោះផ្សាយកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
-  <string name="text_size_select">ទំហំអក្សរ</string>
   <string name="page_similar_titles">ទំព័រស្រដៀង</string>
   <string name="search_did_you_mean">អ្នកប្រហែលជាចង់រក \"%s\" មែនទេ?</string>
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>

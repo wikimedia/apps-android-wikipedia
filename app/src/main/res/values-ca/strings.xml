@@ -16,6 +16,7 @@
 * Lluis tgn
 * Macofe
 * Mguix
+* SMP
 * Ssola
 * Toniher
 * Unapersona
@@ -250,7 +251,6 @@
   <string name="abusefilter_title_disallow">No podeu publicar la modificació. Aneu enrere i canvieu-la.</string>
   <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs o imatges irrellevants&lt;br /&gt;· Caràcters que es repeteixin</string>
   <string name="abusefilter_text_disallow">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial.&lt;br /&gt;&lt;br /&gt;La Viquipèdia és una enciclopèdia i només hi tenen cabuda els continguts neutrals i notoris.</string>
-  <string name="text_size_select">Mida de lletra</string>
   <string name="page_similar_titles">Pàgines similars</string>
   <string name="search_did_you_mean">Volíeu dir «%s»?</string>
   <string name="search_recent_header">Cerques recents:</string>
@@ -387,6 +387,7 @@
   <string name="text_size_increase">Augmenta la mida del text</string>
   <string name="text_size_decrease">Redueix la mida del text</string>
   <string name="text_size_percent_default">%s (per defecte)</string>
+  <string name="text_style_title">Tipus de lletra</string>
   <string name="nav_item_reading_lists">Les meves llistes</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
