@@ -25,8 +25,8 @@
   <string name="page_error_back_to_main">ተመለስ</string>
   <string name="error_back">ተመለስ</string>
   <string name="menu_clear_all_history">ታሪኽ ኣጽርይ</string>
-  <string name="history_item_delete_undo">ፈትሐ</string>
-  <string name="notification_archive_undo">ፈትሐ</string>
+  <string name="history_item_delete_undo">ምለስ</string>
+  <string name="notification_archive_undo">ምለስ</string>
   <string name="app_settings">መተግበሪ ኣቀማምጣታት</string>
   <string name="history_list_title">ታሪኽ</string>
   <string name="dialog_message_clear_history_yes">እወ</string>
@@ -125,12 +125,11 @@
   <string name="edit_next">ዝቕጽል</string>
   <string name="edit_done">ኣሕቲሙ</string>
   <string name="edit_preview">ኣቐደሚ ትርኢት</string>
-  <string name="edit_undo">ፈትሐ</string>
+  <string name="edit_undo">ምለስ</string>
   <string name="edit_redo">እንደገና ፈጽም</string>
   <string name="edit_zoom_in">ኣዕብይ</string>
   <string name="edit_zoom_out">ኣንእስ</string>
   <string name="edit_summary_tag_other">ካልእ</string>
-  <string name="text_size_select">መጠን ቅርጺ ፊደል</string>
   <string name="page_similar_titles">ተመሳሳሊ ገጻት</string>
   <string name="clear_recent_searches_confirm_yes">እወ</string>
   <string name="clear_recent_searches_confirm_no">ኣይፋል</string>
@@ -200,7 +199,7 @@
   <string name="reading_list_sort">ጎጅል</string>
   <string name="reading_list_sort_ellipsis">ጎጅል ብ...</string>
   <string name="reading_list_menu_delete">ዝርዝር ሰርዝ</string>
-  <string name="reading_list_item_delete_undo">ፈትሐ</string>
+  <string name="reading_list_item_delete_undo">ምለስ</string>
   <string name="reading_lists_onboarding_for_example">ንኣብነት</string>
   <string name="reading_lists_onboarding_got_it">ተረዲኡኒ</string>
   <string name="reading_list_remove_from_list">ካብ %s ኣልግስ</string>

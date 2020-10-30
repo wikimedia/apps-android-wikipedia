@@ -213,7 +213,6 @@
   <string name="abusefilter_title_disallow">Anjeun teu bisa medalkeun ieu éditan. Pék balik deui tuluy robah.</string>
   <string name="abusefilter_text_warn">Panyaring otomatis geus ngadidéntifikasi ieu éditan minangka poténsial teu konstruktif. Ieu meureun eusina hiji atawa leuwih perkara di handap:&lt;br /&gt;&lt;br /&gt;· Ngetik kalawan sagemblengna huruf badag&lt;br /&gt;· Ngosongkeun artikel atawa spam &lt;br /&gt;· Tutumbu luar atawa gambar nu teu rélevan &lt;br /&gt;· Karakter éta deui éta deui</string>
   <string name="abusefilter_text_disallow">Panyaringqn otomatis geus ngidéntifikasi ieu éditan téh minangka poténsial teu konstruktif atawa poténsial vandalismeu.&lt;br /&gt;&lt;br /&gt;Ari Wikipédia nyaéta énsiklopédi anu éstuning nétral, kontęn penting nu aya didieu mah euy.</string>
-  <string name="text_size_select">Ukuran aksara</string>
   <string name="page_similar_titles">Kaca nu sarua</string>
   <string name="search_did_you_mean">Maksud anjeun \'\'%s\'\' lain?</string>
   <string name="search_recent_header">Pamaluruhan kiwari:</string>

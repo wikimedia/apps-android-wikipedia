@@ -172,7 +172,6 @@
   <string name="abusefilter_title_disallow">U kan nie hierdie wysiging publiseer nie. Gaan asseblief terug en verander dit.</string>
   <string name="abusefilter_text_warn">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief geïdentifiseer. Dit mag een of meer van die volgende bevat:&lt;br /&gt;&lt;br /&gt;· Tik van alles in hoofletters&lt;br /&gt;· Leegmaak van artikels of pespos&lt;br /&gt;· Irrelevante eksterne skakels&lt;br /&gt;· Herhalende karakter</string>
   <string name="abusefilter_text_disallow">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief, of potensiële vandalisme geïdentifiseer.&lt;br /&gt;&lt;br /&gt;Wikipedia is \'n ensiklopedie en slegs neutrale, noemenswaardige inhoud behoort hier.</string>
-  <string name="text_size_select">Lettergrootte</string>
   <string name="page_similar_titles">Soortgelyke bladsye</string>
   <string name="search_did_you_mean">Bedoel u \"%s\"?</string>
   <string name="search_recent_header">Onlangse soektogte</string>

@@ -13,6 +13,7 @@
 * Kanon und wikipedia
 * Kkairri
 * Los688
+* Mirinano
 * Omotecho
 * Otokoume
 * Penn Station
@@ -27,6 +28,7 @@
 * Takot
 * Thibaut120094
 * Tmv
+* Waki285
 * Wat
 * Wicklo
 * WwLMvmT
@@ -183,7 +185,7 @@
   <string name="create_account_button">アカウント作成</string>
   <string name="create_account_name_unavailable">ユーザー名「%s」はご利用になれません。別の名前を選んでください。</string>
   <string name="create_account_ip_block_message">申し訳ありませんが現在あなたのIPアドレスはアカウント作成がブロックされています。</string>
-  <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/Wikipedia:FAQ_投稿ブロック</string>
+  <string name="create_account_ip_block_help_url">https://ja.wikipedia.org/wiki/ヘルプ:あなたが投稿ブロックされたら</string>
   <string name="create_account_ip_block_details">詳細</string>
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
@@ -208,7 +210,7 @@
   <string name="error_can_not_process_link">このリンクを表示できませんでした</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
-  <string name="page_protected_other">このページは %s レベルに保護されています。</string>
+  <string name="page_protected_other">このページは、次のレベルに保護されています:%s</string>
   <string name="page_protected_can_not_edit">残念ながら、あなたのアカウントにはこのページを編集する権限がありません。</string>
   <string name="page_protected_can_not_edit_anon">申し訳ありませんがこのページは現在匿名編集できません。</string>
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
@@ -265,7 +267,6 @@
   <string name="abusefilter_title_disallow">この編集は公開できません。戻って修正してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;・すべて大文字で書かれている&lt;br /&gt;・記事が白紙化されている、もしくはスパムである&lt;br /&gt;・関係のない外部リンクや画像が挿入されている&lt;br /&gt;・一定の文字が繰り返されている</string>
   <string name="abusefilter_text_disallow">自動フィルターによって、この編集が建設的でないか、荒らしである可能性があると判断されました。&lt;br /&gt;&lt;br /&gt;ウィキペディアは百科事典であり、中立的で特筆性のあるコンテンツのみを記載する必要があります。</string>
-  <string name="text_size_select">フォントサイズ</string>
   <string name="page_similar_titles">類似したページ</string>
   <string name="search_did_you_mean">もしかして: 「%s」</string>
   <string name="search_recent_header">最近の検索:</string>
@@ -401,6 +402,7 @@
   <string name="text_size_increase">テキストサイズを拡大します</string>
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
+  <string name="text_style_title">フォント</string>
   <string name="nav_item_reading_lists">マイリスト</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>

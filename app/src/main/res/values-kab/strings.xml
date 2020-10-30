@@ -225,7 +225,6 @@
   <string name="abusefilter_title_disallow">Ur tezmireḍ ara ad tessuffɣeḍ taẓrigt-agi. Ma ulac aɣilif, uɣal ar deffir sakin beddel-it.</string>
   <string name="abusefilter_text_warn">Imzizdig awurman yufa-d asnifel-agi d ayen ur yelhin ara. Yezmer d akken yegber kra  n iferdisen-agi::&lt;br /&gt;&lt;br /&gt;. Tira s usekkil ameqqran &lt;br /&gt;. Beṭṭu n imagraden neɣ n ispamen &lt;br /&gt;. Iseɣwan neɣ tugniwin tizɣarayin ur ilaqen ara&lt;br /&gt;.  Tulsa n uisekkilen</string>
   <string name="abusefilter_text_disallow">Imzizdig awurman yufa-d tazrigt-agi d akken diri-tt, neɣ ahat d asexseṛ.&lt;br /&gt;&lt;br /&gt;Wikipedia d tasanayt tarawsant, s ugbur yelhan.</string>
-  <string name="text_size_select">Teɣzi n tsefsit</string>
   <string name="page_similar_titles">Isebtar icuban</string>
   <string name="search_did_you_mean">Tebɣiḍ ad tiniḍ \"%s\"?</string>
   <string name="search_recent_header">Inadiyen n melmi kan:</string>

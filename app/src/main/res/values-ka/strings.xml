@@ -210,7 +210,6 @@
   <string name="find_previous">წინას მოძიება</string>
   <string name="abusefilter_title_warn">შესაძლოა ეს არაკონსტრუქციული რედაქტირებაა. გსურთ მისი გამოქვეყნება?</string>
   <string name="abusefilter_title_disallow">ამ ცვლილების გამოქვეყნება არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
-  <string name="text_size_select">შრიფტის ზომა</string>
   <string name="page_similar_titles">მსგავსი გვერდები</string>
   <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_recent_header">ბოლოს მოძიებულები</string>

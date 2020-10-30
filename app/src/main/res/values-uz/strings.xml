@@ -212,7 +212,6 @@
   <string name="abusefilter_title_disallow">Siz ushbu tahrirni nashr qila olmaysiz. Iltimos, orqaga qayting va uni o‘zgartiring.</string>
   <string name="abusefilter_text_warn">Avtomatlashtirilgan filtr ushbu tahrirni potentsial bo‘lmagan deb topdi. U quyidagilardan birini yoki bir nechtasini o‘z ichiga olishi mumkin: &lt;br/&gt; &lt;br/&gt; Barcha shriftlarda yozish &lt;br/&gt; Maqolalarni bo‘shatish yoki spam yuborish &lt;br /&gt; Tashqi aloqalar yoki rasmlarning ahamiyatsizligi &lt;br /&gt; Takrorlanayotgan belgilar</string>
   <string name="abusefilter_text_disallow">Avtomatlashtirilgan filtr ushbu tahrirni konstruktiv yoki potentsial buzg‘unchilik deb topdi. &lt;br/&gt;&lt;br/&gt; Vikipediya ensiklopediya bo‘lib, faqat neytral va diqqatga sazovor tarkib shu yerda joylashgan.</string>
-  <string name="text_size_select">Shrift o‘lchami</string>
   <string name="page_similar_titles">O‘xshash sahifalar</string>
   <string name="search_did_you_mean">%s deb o‘ylayapsizmi?</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>

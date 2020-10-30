@@ -33,7 +33,7 @@ import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
@@ -290,7 +290,7 @@ public class WikipediaApp extends Application {
         if (theme != currentTheme) {
             currentTheme = theme;
             Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
-            bus.post(new ThemeChangeEvent());
+            bus.post(new ThemeFontChangeEvent());
         }
     }
 
@@ -308,6 +308,13 @@ public class WikipediaApp extends Application {
             return true;
         }
         return false;
+    }
+
+    public void setFontFamily(@NonNull String fontFamily) {
+        if (!fontFamily.equals(Prefs.getFontFamily())) {
+            Prefs.setFontFamily(fontFamily);
+            bus.post(new ThemeFontChangeEvent());
+        }
     }
 
     public void putCrashReportProperty(String key, String value) {
@@ -403,6 +410,8 @@ public class WikipediaApp extends Application {
             if (appLanguageState != null) {
                 putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
                 putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
+                putCrashReportProperty("app_install_id", getAppInstallID());
+                putCrashReportProperty("app_local_class_name", Prefs.getLocalClassName());
             }
         }
     }
