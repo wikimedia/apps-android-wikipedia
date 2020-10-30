@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.util.Pair;
 import androidx.palette.graphics.Palette;
 
 import com.google.android.material.card.MaterialCardView;
@@ -21,6 +22,7 @@ import com.google.android.material.card.MaterialCardView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -123,5 +125,9 @@ public class CardLargeHeaderView extends ConstraintLayout {
         gradientDrawable.setAlpha(90);
         gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.wiki_card_radius));
         borderContainer.setBackground(gradientDrawable);
+    }
+
+    public Pair<View, String>[] getSharedElements() {
+        return TransitionUtil.getSharedElements(getContext(), imageView);
     }
 }

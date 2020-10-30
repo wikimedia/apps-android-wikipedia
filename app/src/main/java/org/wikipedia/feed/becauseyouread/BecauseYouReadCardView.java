@@ -1,12 +1,10 @@
 package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardRecyclerAdapter;
 import org.wikipedia.feed.view.ListCardView;
@@ -16,9 +14,6 @@ import org.wikipedia.views.DefaultViewHolder;
 import java.util.List;
 
 public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
-    public interface Callback {
-        void onSelectPageFromExistingTab(@NonNull Card card, @NonNull HistoryEntry entry);
-    }
 
     public BecauseYouReadCardView(Context context) {
         super(context);
@@ -42,22 +37,12 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
                 .setSubtitle(card.extract());
 
         largeHeaderContainer().setVisibility(VISIBLE);
-        largeHeaderContainer().setOnClickListener(new SelectPageCallbackAdapter(card));
-    }
-
-    private class SelectPageCallbackAdapter implements OnClickListener {
-        @NonNull private final BecauseYouReadCard card;
-
-        SelectPageCallbackAdapter(@NonNull BecauseYouReadCard card) {
-            this.card = card;
-        }
-
-        @Override public void onClick(View view) {
+        largeHeaderContainer().setOnClickListener(view -> {
             if (getCallback() != null) {
-                getCallback().onSelectPageFromExistingTab(card, new HistoryEntry(card.getPageTitle(),
-                        HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
+                getCallback().onSelectPage(card, new HistoryEntry(card.getPageTitle(),
+                        HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), largeHeaderView().getSharedElements());
             }
-        }
+        });
     }
 
     private class RecyclerAdapter extends ListCardRecyclerAdapter<BecauseYouReadItemCard> {

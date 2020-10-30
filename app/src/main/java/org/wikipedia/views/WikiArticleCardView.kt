@@ -6,9 +6,11 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.util.Pair
 import kotlinx.android.synthetic.main.view_wiki_article_card.view.*
+import kotlinx.android.synthetic.main.view_wiki_article_card.view.articleExtract
+import kotlinx.android.synthetic.main.view_wiki_article_card.view.articleTitle
 import org.wikipedia.R
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.TransitionUtil
 
 class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
@@ -25,11 +27,11 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
     }
 
     fun getImageContainer(): View {
-        return imageContainer
+        return articleImageContainer
     }
 
     fun getImageView(): FaceAndColorDetectImageView {
-        return imageView
+        return articleImage
     }
 
     fun setExtract(extract: String?) {
@@ -37,16 +39,6 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
     }
 
     fun getSharedElements(): Array<Pair<View, String>> {
-        val shareElements: MutableList<Pair<View, String>> = mutableListOf(Pair(articleTitle, articleTitle.transitionName),
-                Pair(articleDivider, articleDivider.transitionName))
-
-        if (!DimenUtil.isLandscape(context)) {
-            shareElements.add(Pair(imageView, imageView.transitionName))
-        }
-
-        if (articleDescription.text.isNotEmpty()) {
-            shareElements.add(Pair(articleDescription, articleDescription.transitionName))
-        }
-        return shareElements.toTypedArray()
+        return TransitionUtil.getSharedElements(context, articleTitle, articleDescription, articleImage, articleDivider)
     }
 }
