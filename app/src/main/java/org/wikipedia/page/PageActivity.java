@@ -685,29 +685,32 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void setTransitionViews(@NonNull PageTitle title) {
+        // Should only set the view after running the transition animation from Explore feed.
+        if (!wikiArticleCardView.isLoaded()) {
+            getWindow().getSharedElementEnterTransition().addListener(transitionListener);
 
-        getWindow().getSharedElementEnterTransition().addListener(transitionListener);
+            pageFragmentView.setVisibility(View.GONE);
 
-        pageFragmentView.setVisibility(View.GONE);
+            Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
+            if (uri == null || DimenUtil.isLandscape(this)) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this)
+                        + (int) DimenUtil.getStatusBarHeight(this)
+                        + (int) DimenUtil.dpToPx(16f);
+                wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
+                wikiArticleCardView.setLayoutParams(layoutParams);
+            } else {
+                wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                        DimenUtil.leadImageHeightForDevice(this)));
+                wikiArticleCardView.getImageContainer().setVisibility(View.VISIBLE);
+                wikiArticleCardView.getImageView().loadImage(uri);
+            }
 
-        Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
-        if (uri == null || DimenUtil.isLandscape(this)) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this)
-                    + (int) DimenUtil.getStatusBarHeight(this)
-                    + (int) DimenUtil.dpToPx(16f);
-            wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
-            wikiArticleCardView.setLayoutParams(layoutParams);
-        } else {
-            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    DimenUtil.leadImageHeightForDevice(this)));
-            wikiArticleCardView.getImageContainer().setVisibility(View.VISIBLE);
-            wikiArticleCardView.getImageView().loadImage(uri);
+            wikiArticleCardView.setTitle(title.getDisplayText());
+            wikiArticleCardView.setDescription(title.getDescription());
+            wikiArticleCardView.setLoaded(true);
+            L10nUtil.setConditionalLayoutDirection(wikiArticleCardView, title.getWikiSite().languageCode());
         }
-
-        wikiArticleCardView.setTitle(title.getDisplayText());
-        wikiArticleCardView.setDescription(title.getDescription());
-        L10nUtil.setConditionalLayoutDirection(wikiArticleCardView, title.getWikiSite().languageCode());
     }
 
     private final Transition.TransitionListener transitionListener = new Transition.TransitionListener() {

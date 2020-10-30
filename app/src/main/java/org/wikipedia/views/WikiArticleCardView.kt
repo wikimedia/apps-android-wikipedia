@@ -14,6 +14,8 @@ import org.wikipedia.util.TransitionUtil
 
 class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
+    var isLoaded: Boolean = false
+
     init {
         View.inflate(context, R.layout.view_wiki_article_card, this)
     }
