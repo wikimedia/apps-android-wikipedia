@@ -320,7 +320,7 @@
   <string name="reading_list_title_exists">D\'Lieslëscht \"%s\" gëtt et schonn.</string>
   <string name="reading_list_article_moved_to_named">%1$s geréckelt op %2$s .</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
-  <string name="reading_list_add_to_list_button">Op d\'Lëscht dobäisetzen</string>
+  <string name="reading_list_add_to_list_button">Op d\'Lëscht derbäisetzen</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 Artikel, %2$.2f MB</item>
     <item quantity="other">%1$d Artikelen, %2$.2f MB</item>
@@ -373,7 +373,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatioun aktivéieren</string>
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
-  <string name="reading_lists_login_button">Aloggen / bäi Wikipedia matmaachen</string>
+  <string name="reading_lists_login_button">Aloggen / bei Wikipedia matmaachen</string>
   <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
