@@ -94,7 +94,7 @@
                     android:layout_width="222dp"
                     android:layout_height="8dp"
                     android:layout_marginTop="10dp"
-                    android:background="?attr/tab_placeholder_text_color"
+                    android:background="?attr/color_group_22"
                     android:visibility="gone" />
 
                 <View
@@ -102,7 +102,7 @@
                     android:layout_width="148dp"
                     android:layout_height="8dp"
                     android:layout_marginTop="12dp"
-                    android:background="?attr/tab_placeholder_text_color"
+                    android:background="?attr/color_group_22"
                     android:visibility="gone" />
 
                 <View
