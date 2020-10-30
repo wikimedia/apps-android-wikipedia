@@ -853,6 +853,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
+  <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
   <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
   <string name="suggested_edits_rewards_continue_button">המשך</string>

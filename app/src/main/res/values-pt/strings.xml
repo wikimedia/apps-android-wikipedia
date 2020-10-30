@@ -386,6 +386,7 @@
   <string name="text_size_increase">Aumentar o tamanho do texto</string>
   <string name="text_size_decrease">Reduzir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
+  <string name="text_style_title">Fonte</string>
   <string name="nav_item_reading_lists">As minhas listas</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_move_to">Mover para lista de leitura</string>
@@ -667,6 +668,7 @@
   <string name="description_ends_with_punctuation">O texto não pode terminar com um sinal de pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos, como \"um\" e \"o\".</string>
   <string name="description_starts_with_uppercase">Comece por letra minúscula, a menos que a primeira palavra seja um substantivo próprio.</string>
+  <string name="description_is_in_different_language">O texto parece estar numa língua inesperada. A língua devia ser %s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>

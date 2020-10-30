@@ -13,6 +13,7 @@
 * Kanon und wikipedia
 * Kkairri
 * Los688
+* Mirinano
 * Omotecho
 * Otokoume
 * Penn Station
@@ -209,7 +210,7 @@
   <string name="error_can_not_process_link">このリンクを表示できませんでした</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
-  <string name="page_protected_other">このページは %s レベルに保護されています。</string>
+  <string name="page_protected_other">このページは、次のレベルに保護されています:%s</string>
   <string name="page_protected_can_not_edit">残念ながら、あなたのアカウントにはこのページを編集する権限がありません。</string>
   <string name="page_protected_can_not_edit_anon">申し訳ありませんがこのページは現在匿名編集できません。</string>
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
