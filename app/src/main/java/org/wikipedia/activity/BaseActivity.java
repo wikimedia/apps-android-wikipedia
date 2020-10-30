@@ -111,7 +111,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         maybeShowLoggedOutInBackgroundDialog();
 
-        WikipediaApp.getInstance().putCrashReportProperty("app_local_class_name", getLocalClassName());
+        Prefs.setLocalClassName(getLocalClassName());
     }
 
     @Override protected void onDestroy() {

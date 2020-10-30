@@ -402,6 +402,7 @@ public class WikipediaApp extends Application {
                 putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
                 putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
                 putCrashReportProperty("app_install_id", getAppInstallID());
+                putCrashReportProperty("app_local_class_name", Prefs.getLocalClassName());
             }
         }
     }
