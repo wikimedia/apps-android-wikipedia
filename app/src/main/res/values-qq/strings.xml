@@ -366,7 +366,7 @@
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
   <string name="view_wiki_error_message_timeout">Error message shown when a network operation takes too long and times out.</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
-  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.\n{{Identical|References}}</string>
+  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.\n{{Identical|Reference}}</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
