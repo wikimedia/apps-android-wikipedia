@@ -673,7 +673,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Képaláírás közzétéve! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Képcímkék közzétéve!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Képcímkék közzétéve!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">Élvezted? Segíts nekünk még több hozzáadásával!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
@@ -772,11 +772,11 @@
   <string name="suggested_edits_edit_quality_stat_tooltip">Az alapján, hogy hányszor volt visszavonva a közreműködések (más szerkesztő által visszaállítva). Visszavont szerkesztések: %d.</string>
   <string name="suggested_edits_paused_message">A Javasolt szerkesztések felfüggesztésre került eddig: %1$s Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések letiltásra került.&lt;/b&gt; Bocsi %s, túl sok közreműködésed lett visszavonva mostanában.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Úgí tűni, hogy az IP-címed (vagy egy IP-cím tartomány) jelenleg el van tiltva a Wikipédia szerkesztésétől. Az alábbi hivatkozásra kattintva többet megtudhatsz arról, hogy az mit is jelent pontosan.</string>
+  <string name="suggested_edits_ip_blocked_message">Úgy tűnik, hogy az IP-címed (vagy az IP-cím tartományod) jelenleg el van tiltva a Wikipédia szerkesztésétől.</string>
   <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>
   <string name="suggested_edits_help_page_link_text">Javasolt szerkesztések súgó oldal</string>
   <string name="suggested_edits_edit_streak_label_text">Szerkesztési széria</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Megtekintések</string>
+  <string name="suggested_edits_views_label_text">Megtekintések</string>
   <string name="suggested_edits_quality_label_text">Szerkesztési minőség</string>
   <string name="suggested_edits_quality_perfect_text">Tökéletes</string>
   <string name="suggested_edits_quality_excellent_text">Kiváló</string>
@@ -839,6 +839,10 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Bejelentkezés/regisztrálás a Wikipédiába</string>
   <string name="suggested_edits_contribution_type_image_tag">Képcímke</string>
   <string name="suggested_edits_contribution_current_revision_text">A szerkesztésed jelenleg látható a Wikipédián</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Hozzáadtál egy karaktert</item>
+    <item quantity="other">Hozzáadtál %d karaktert</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
@@ -910,6 +914,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Mégse</string>
+  <string name="edit_type_all">Minden közreműködés</string>
   <string name="content_description_for_page_indicator">%1$d. lap / %2$d</string>
   <string name="wikitext_bold">Félkövér</string>
   <string name="wikitext_italic">Dőlt</string>
@@ -921,10 +926,21 @@
   <string name="wikitext_preview_link">Link előnézete</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="main_tooltip_text">Helló %s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="main_tooltip_text_v2">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
   <string name="main_tooltip_action_button">Kezdés</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Mégse</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Mégse</string>
+  <string name="talk_title">Vitalap</string>
+  <string name="talk_new_topic">Új téma létrehozása</string>
+  <string name="talk_page_empty">Ez a vitalap üres.</string>
+  <string name="talk_add_reply">Válasz</string>
+  <string name="talk_no_subject">(Nincs tárgy)</string>
+  <string name="talk_reply_subject">Tárgy</string>
+  <string name="talk_reply_hint">Válasz megfogalmazása</string>
+  <string name="talk_message_hint">Üzenet megfogalmazása</string>
+  <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
+  <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
 </resources>
