@@ -3,8 +3,6 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-import com.android.build.gradle.internal.dsl.ProductFlavor
-
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
 final File REPO_PROPS_FILE = new File('repo.properties')
