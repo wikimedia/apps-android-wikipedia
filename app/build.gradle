@@ -57,6 +57,7 @@ android {
         beta { java.srcDirs += 'src/extra/java' }
         alpha { java.srcDirs += 'src/extra/java' }
         dev { java.srcDirs += 'src/extra/java' }
+        custom { java.srcDirs += 'src/extra/java' }
 
         test {
             java.srcDirs += 'src/testlib/java'
@@ -201,12 +202,14 @@ dependencies {
     betaImplementation "com.google.mlkit:language-id:$mlKitVersion"
     alphaImplementation "com.google.mlkit:language-id:$mlKitVersion"
     devImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    customImplementation "com.google.mlkit:language-id:$mlKitVersion"
 
     // For receiving push notifications for logged-in users.
     prodImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
     betaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
     alphaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
     devImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
+    customImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
@@ -260,7 +263,7 @@ private static Properties loadProperties(File file) {
 addSyncContentProviderAuthority 'readinglists', 'reading_lists'
 
 private void addSyncContentProviderAuthority(String path, String name) {
-    android.productFlavors.all { ProductFlavor flavor ->
+    android.productFlavors.all { flavor ->
         String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
         resValue 'string', "${name.toLowerCase()}_authority", authority
         buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
