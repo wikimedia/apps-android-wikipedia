@@ -38,8 +38,15 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         super(context);
         inflate(getContext(), R.layout.view_card_news, this);
         ButterKnife.bind(this);
-        newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(4),
-                DimenUtil.roundedDpToPx(8), DimenUtil.roundedDpToPx(20),
+        setUpIndicatorDots();
+    }
+
+    private void setUpIndicatorDots() {
+        final int indicatorRadius = 4;
+        final int indicatorPadding = 8;
+        final int indicatorHeight = 20;
+        newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(indicatorRadius),
+                DimenUtil.roundedDpToPx(indicatorPadding), DimenUtil.roundedDpToPx(indicatorHeight),
                 ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
                 ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
     }
