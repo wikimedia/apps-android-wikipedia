@@ -2,6 +2,7 @@ package org.wikipedia.page
 
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Color
 import android.net.Uri
 import android.widget.ScrollView
 import org.wikipedia.WikipediaApp

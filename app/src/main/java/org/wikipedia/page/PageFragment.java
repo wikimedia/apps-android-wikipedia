@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -1470,7 +1472,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     private void maybeShowAnnouncement() {
         if (Prefs.hasVisitedArticlePage()) {
-            disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getAnnouncements()
+            disposables.add(ServiceFactory.getLocalRest(getTitle().getWikiSite(), "http://10.0.0.51:8889/en.wikipedia.org/v1/").getAnnouncements()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(list -> {
@@ -1482,6 +1484,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                                     && !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
                                 AnnouncementDialog dialog = new AnnouncementDialog(requireActivity(), announcement);
                                 dialog.setCancelable(false);
+                                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                                 dialog.show();
                                 break;
                             }
