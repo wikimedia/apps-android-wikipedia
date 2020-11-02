@@ -2,7 +2,6 @@ package org.wikipedia.feed.suggestededits
 
 import android.content.Context
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
