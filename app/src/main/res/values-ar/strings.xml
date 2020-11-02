@@ -23,6 +23,7 @@
 * NEHAOUA
 * PhiberOptik
 * Shbib Al-Subaie
+* Sonic N800
 * Tala Ali
 * Youssef
 * بدارين
@@ -337,7 +338,7 @@
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_customize_explore_feed">تخصيص خلاصة الاستكشاف</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
-  <string name="preference_title_collapse_tables">طوي الجداول</string>
+  <string name="preference_title_collapse_tables">طَيّ الجداول</string>
   <string name="preference_summary_collapse_tables">تلقائيا اطو الجداول في المقالات، مثل صناديق المعلومات، المراجع، والملاحظات.</string>
   <string name="nav_item_donate">ادعم ويكيبيديا</string>
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
