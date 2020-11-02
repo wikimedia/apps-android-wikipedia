@@ -186,7 +186,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
 
-        toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
+        toolbarHideHandler = new PageToolbarHideHandler(toolbarContainerView, tabsButton);
 
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         containerWithNavTrigger.setCallback(this);
@@ -587,16 +587,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageLoadErrorBackPressed() {
         finish();
-    }
-
-    @Override
-    public void onPageHideAllContent() {
-        toolbarHideHandler.setFadeEnabled(false);
-    }
-
-    @Override
-    public void onPageSetToolbarFadeEnabled(boolean enabled) {
-        toolbarHideHandler.setFadeEnabled(enabled);
     }
 
     @Override

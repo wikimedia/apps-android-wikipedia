@@ -152,8 +152,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
-        void onPageHideAllContent();
-        void onPageSetToolbarFadeEnabled(boolean enabled);
         void onPageSetToolbarElevationEnabled(boolean enabled);
         void onPageCloseActionMode();
     }
@@ -412,12 +410,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             pageFragmentLoadState.loadFromBackStack();
         } else {
             loadMainPageInForegroundTab();
-        }
-    }
-
-    void setToolbarFadeEnabled(boolean enabled) {
-        if (callback() != null) {
-            callback().onPageSetToolbarFadeEnabled(enabled);
         }
     }
 
@@ -1221,9 +1213,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         leadImagesHandler.hide();
         bridge.loadBlankPage();
         webView.setVisibility(View.INVISIBLE);
-        if (callback() != null) {
-            callback().onPageHideAllContent();
-        }
     }
 
     @Override
