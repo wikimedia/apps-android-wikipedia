@@ -28,7 +28,8 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp">
+            android:paddingTop="12dp"
+            android:paddingBottom="16dp">
 
             <TextView
                 android:id="@+id/page_list_item_title"
