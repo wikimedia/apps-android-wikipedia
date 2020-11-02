@@ -290,7 +290,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), sharedElements);
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), DimenUtil.isLandscape(requireContext()) ? null : options.toBundle());
+        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()),
+                DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault) {
