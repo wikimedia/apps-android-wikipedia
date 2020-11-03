@@ -10,7 +10,7 @@ import org.wikipedia.feed.model.CardType;
 
 public class AnnouncementCard extends Card {
     @NonNull private final Announcement announcement;
-    private boolean removeMargin;
+    private boolean isDialog;
 
     public AnnouncementCard(@NonNull Announcement announcement) {
         this.announcement = announcement;
@@ -56,12 +56,12 @@ public class AnnouncementCard extends Card {
         return announcement.hasBorder();
     }
 
-    public void setRemoveMargin(boolean removeMargin) {
-        this.removeMargin = removeMargin;
+    public void isDialog(boolean isDialog) {
+        this.isDialog = isDialog;
     }
 
-    public boolean isRemoveMargin() {
-        return removeMargin;
+    public boolean isDialog() {
+        return isDialog;
     }
 
     @NonNull @Override public Uri image() {

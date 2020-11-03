@@ -100,12 +100,12 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
             container.setDefaultBorder();
         }
 
-        if (card.isRemoveMargin()) {
+        if (card.isDialog()) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) container.getLayoutParams();
             layoutParams.setMarginStart(0);
             layoutParams.setMarginEnd(0);
             container.setLayoutParams(layoutParams);
-            container.requestLayout();
+            container.setRadius(0);
         }
     }
 
