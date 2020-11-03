@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,6 +35,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -165,7 +167,10 @@ public class NewsFragment extends Fragment {
 
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements) {
-            // ignore
+            ActivityOptionsCompat options = ActivityOptionsCompat.
+                    makeSceneTransitionAnimation(requireActivity(), sharedElements);
+            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()),
+                    DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
         }
 
         @Override
