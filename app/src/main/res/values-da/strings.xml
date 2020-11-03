@@ -29,8 +29,10 @@
   <string name="nav_item_forward">Frem</string>
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="search_hint_search_languages">Søg efter et sprog</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrer mine lister</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_more">Mere</string>
+  <string name="nav_item_search">Søg</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>
   <string name="page_error_retry">Prøv igen</string>
   <string name="card_offline_error_retry">Prøv igen</string>
@@ -45,6 +47,7 @@
   <string name="history_item_delete_undo">Fortryd</string>
   <string name="notification_archive_undo">Fortryd</string>
   <string name="app_settings">Programindstillinger</string>
+  <string name="history_list_title">Historik</string>
   <string name="dialog_title_clear_history">Ryd browserhistorikken</string>
   <string name="dialog_message_clear_history">Dette vil slette hele browserhistorikken og lukke alle åbne faner. Er du sikker?</string>
   <string name="dialog_message_clear_history_yes">Ja</string>
@@ -181,6 +184,7 @@
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Tillad appen at sende rapporter om nedbrud til HockeyApp / en tredjeparts-serviceudbyder automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
+  <string name="history_filter_list_hint">Filtrer historik</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne side er beskyttet.</string>
@@ -220,6 +224,7 @@
   <string name="edit_next">Næste</string>
   <string name="edit_done">Offentliggør</string>
   <string name="edit_preview">Forhåndsvis</string>
+  <string name="edit_undo">Fortryd</string>
   <string name="edit_zoom_in">Zoom in</string>
   <string name="edit_zoom_out">Zoom ud</string>
   <string name="edit_summary_tag_typo">Rettet stavefejl</string>
@@ -240,6 +245,11 @@
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_did_you_mean">Mente du »%s«?</string>
   <string name="search_recent_header">Seneste søgninger:</string>
+  <string name="search_results_count_zero">Ingen resultater</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultat</item>
+    <item quantity="other">%d resultater</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Ryd seneste søgninger</string>
   <string name="clear_recent_searches_confirm">Er du sikker på du ønsker at slette din søgehistorik?</string>
   <string name="clear_recent_searches_confirm_yes">Ja</string>
@@ -269,7 +279,7 @@
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_save_progress">Henter fil…</string>
-  <string name="gallery_save_success" fuzzy="true">Filen er gemt.</string>
+  <string name="gallery_save_success">Filen blev gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder.</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
@@ -284,6 +294,7 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Luk fane</string>
+  <string name="unnamed_tab_closed">Fanen blev lukket.</string>
   <string name="tab_item_closed">%s lukket.</string>
   <string name="all_tab_items_closed">Alle faner lukket.</string>
   <string name="tool_tip_bookmark_icon_title">Tilføj til læseliste</string>
@@ -328,12 +339,14 @@
   <string name="preference_title_prefer_offline_content">Fortræk lokalt indhold</string>
   <string name="preference_summary_prefer_offline_content">Spar på dataforbruget ved at indlæse artikler, som er tilgængeligt lokalt frem for altid at indlæse den seneste version af en artikel</string>
   <string name="empty_tab_title">Ny fane</string>
+  <string name="menu_save_all_tabs">Gem alle faner</string>
   <string name="crash_report_activity_title">Applikationsfejl</string>
   <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.\n\nVil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>
   <string name="article_menu_bar_save_button">Gem</string>
   <string name="article_menu_bar_language_button">Sprog</string>
+  <string name="article_menu_bar_search_button">Søg</string>
   <string name="article_menu_bar_theme_button">Tema</string>
   <string name="article_menu_bar_contents_button">Indhold</string>
   <string name="article_header_edit_hint">Rediger…</string>
@@ -357,6 +370,8 @@
   <string name="reading_list_create_new">Opret ny</string>
   <string name="reading_list_title_exists">Læselisten »%s« findes allerede.</string>
   <string name="reading_list_article_added_to_named">Tilføjede %1$s til %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Gemte %s. Ønsker du at tilføj den til en liste?</string>
+  <string name="reading_list_article_moved_to_named">Flyttede %1$s til %2$s</string>
   <string name="reading_list_added_view_button">Vis liste</string>
   <string name="reading_list_add_to_list_button">Tilføj til liste</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
@@ -378,6 +393,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Fjern alle fra lokal version</string>
   <string name="reading_list_action_menu_save_all_for_offline">Gem alle lokalt</string>
   <string name="reading_list_action_menu_add_to_another_list">Tilføj til en anden liste</string>
+  <string name="reading_list_action_menu_move_to_another_list">Flyt til en anden liste</string>
   <string name="reading_list_name_sample">Min læseliste</string>
   <string name="reading_list_name_hint">Navn på denne liste</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
@@ -398,6 +414,7 @@
   <string name="reading_list_article_offline">Tilgængelig offline</string>
   <string name="reading_list_article_make_offline">Gør denne artikel tilgængelig offline</string>
   <string name="reading_list_add_to_other_list">Tilføj til en anden læseliste</string>
+  <string name="reading_list_move_to_other_list">Flyt til en anden læseliste</string>
   <string name="reading_list_remove_from_list">Fjern fra %s</string>
   <string name="reading_list_remove_from_lists">Fjern fra læselister</string>
   <string name="reading_list_select_item">Vælg</string>
@@ -450,7 +467,7 @@
     <item quantity="one">Denne artikel vil ikke længere være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil ikke længere være tilgængelige lokalt.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Læselisterne blev synkroniseret</string>
+  <string name="reading_list_toast_last_sync">Læselisterne blev synkroniseret</string>
   <string name="reading_list_menu_last_sync">Sidste synkronosering: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -516,6 +533,8 @@
   <string name="preference_summary_notification_milestone">Visse antal redigeringer er opnået</string>
   <string name="preference_title_notification_thanks">Tak</string>
   <string name="preference_summary_notification_thanks">Nogen takkede dig for en redigering</string>
+  <string name="preference_title_notification_user_talk">Diskussionsside</string>
+  <string name="preference_summary_notification_user_talk">Beskeder fra diskussionssider</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia.</string>
@@ -568,13 +587,15 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpas dit Udforsk-feed&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan nu vælge, hvad der skal vises i dit feed, og også prioritere dine foretrukne typer indhold.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annullér</string>
+  <string name="feed_accessibility_card_load_more_button">Indlæs mere</string>
   <string name="description_edit_text_hint">Artikelbeskrivelse</string>
   <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikelbeskrivelse (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Artikelbeskrivelse (%s)</string>
+  <string name="description_edit_add_caption_label">Billedebeskrivelse</string>
   <string name="description_edit_save">Offentliggør</string>
   <string name="description_edit_read">Læs</string>
-  <string name="description_edit_add_description" fuzzy="true">Tilføj titelbeskrivelse</string>
+  <string name="description_edit_add_description">Tilføj artikelbeskrivelse</string>
   <string name="description_edit_translate_description">Oversæt artikelbeskrivelse</string>
   <string name="description_edit_edit_description">Redigér artikelbeskrivelse</string>
   <string name="description_edit_cancel_hint">Annuller</string>
@@ -585,7 +606,8 @@
   <string name="description_edit_anon_limit" fuzzy="true">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice" fuzzy="true">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
   <string name="description_too_short">Teksten er for kort.</string>
-  <string name="description_edit_success_saved" fuzzy="true">Beskrivelsen blev offentliggjort!</string>
+  <string name="description_edit_success_saved">Artikelbeskrivelsen blev offentliggjort!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Nyder du dette? Hjælp as med at tilføje mere.</string>
   <string name="description_edit_success_encouragement">Du har lige gjort Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Færdig</string>
   <string name="description_edit_success_did_you_know">Vidste du at?</string>
@@ -597,14 +619,14 @@
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
   <string name="suggested_edits_describe_articles">Beskriv artikler</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
+  <string name="suggested_edits_review_description">Korrekturlæs artikelbeskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
   <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
   <string name="suggested_edits_add_translation_button">Tilføj oversættelse</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
+  <string name="suggested_edits_edit_translation_button">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
   <string name="suggested_edits_no_description">Denne fil har ingen beskrivelse</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
+  <string name="suggested_edits_task_add_description_title">Tilføj artikelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
   <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
@@ -613,31 +635,61 @@
   <string name="suggested_edits_task_multilingual_negative">Ikke noget for mig</string>
   <string name="suggested_edits_task_multilingual_positive">Tilføj sprog</string>
   <string name="suggested_edits_image_caption_summary_title_image">Billede</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Kunstner</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Forfatter</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
   <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
+  <string name="suggested_edits_feed_card_add_description_button">Tilføj artikelbeskrivelse</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Tilføj artikelbeskrivelse (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Billedebeskrivelse (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Kunstner</string>
+  <string name="suggested_edits_image_preview_dialog_date">Dato</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filside på Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filside på Wikipedia</string>
+  <string name="suggested_edits_task_action_text_add">Tilføj</string>
+  <string name="suggested_edits_task_action_text_translate">Oversæt</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
+  <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
+  <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_quality_excellent_text">Glimrende</string>
+  <string name="suggested_edits_quality_very_good_text">Meget godt</string>
+  <string name="suggested_edits_quality_good_text">Godt</string>
+  <string name="suggested_edits_quality_okay_text">Ok</string>
+  <string name="suggested_edits_quality_sufficient_text">Tilstrækkeligt</string>
+  <string name="suggested_edits_quality_poor_text">Svagt</string>
+  <string name="suggested_edits_quality_bad_text">Dårligt</string>
   <string name="suggested_edits_label">Foreslåede redigeringer</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d dag</item>
+    <item quantity="other">%d dage</item>
+  </plurals>
+  <string name="suggested_edits_what_is_title">Hvad er redigeringforslag?</string>
   <string name="suggested_edits_learn_more">Lær mere</string>
   <string name="suggested_edits_paused_title">Sat på pause</string>
   <string name="suggested_edits_disabled_title">Deaktiveret</string>
   <string name="suggested_edits_ip_blocked_title">IP-blokeret</string>
   <string name="suggested_edits_last_edited">Sidst redigeret</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
+  <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
   <string name="suggested_edits_contribution_language_label">Sprog</string>
+  <string name="suggested_edits_contribution_date_time_label">Dato / Tid</string>
   <string name="suggested_edits_contribution_image_label">Billede</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_seen_text">Set %s gange de sidste 30 dage.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
   <string name="suggested_edits_rewards_continue_button">Fortsæt</string>
+  <string name="suggested_edits_encourage_account_creation_title">Vidste du at gud og hver mand kan redigere Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log på / registrer dig på Wikipedia</string>
   <string name="suggested_edits_contribution_current_revision_text">Din redigering findes nu på Wikipedia</string>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Du tilføjede %d tegn</item>
     <item quantity="other">Du tilføjede %d tegn</item>
   </plurals>
+  <string name="file_page_activity_title">Filside</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
@@ -709,6 +761,7 @@
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
   <string name="edit_type_all">Alle bidrag</string>
+  <string name="content_description_for_page_indicator">Side %1$d af %2$d</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>
@@ -721,4 +774,9 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annullér</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Annullér</string>
+  <string name="talk_new_topic">Nyt emne</string>
+  <string name="talk_page_empty">Diskussionssiden er tom.</string>
+  <string name="talk_add_reply">Svar</string>
+  <string name="talk_no_subject">(Intet emne)</string>
+  <string name="talk_reply_subject">Emne</string>
 </resources>
