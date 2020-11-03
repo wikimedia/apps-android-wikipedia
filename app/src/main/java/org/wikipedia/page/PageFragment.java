@@ -1472,7 +1472,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     private void maybeShowAnnouncement() {
         if (Prefs.hasVisitedArticlePage()) {
-            disposables.add(ServiceFactory.getLocalRest(getTitle().getWikiSite(), "http://10.0.0.51:8889/en.wikipedia.org/v1/").getAnnouncements()
+            disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getAnnouncements()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(list -> {

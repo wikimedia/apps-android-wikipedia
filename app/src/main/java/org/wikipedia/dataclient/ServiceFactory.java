@@ -68,11 +68,6 @@ public final class ServiceFactory {
         return TextUtils.isEmpty(Prefs.getMediaWikiBaseUrl()) ? wiki.url() + "/" : Prefs.getMediaWikiBaseUrl();
     }
 
-    public static RestService getLocalRest(@NonNull WikiSite wiki, @NonNull String host) {
-        Retrofit r = createRetrofit(wiki, host);
-        return r.create(RestService.class);
-    }
-
     public static String getRestBasePath(@NonNull WikiSite wiki) {
         String path = TextUtils.isEmpty(Prefs.getRestbaseUriFormat())
                 ? wiki.url() + "/" + RestService.REST_API_PREFIX
