@@ -1484,7 +1484,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                                     && !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
                                 AnnouncementDialog dialog = new AnnouncementDialog(requireActivity(), announcement);
                                 dialog.setCancelable(false);
-                                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                                 dialog.show();
                                 break;
                             }
