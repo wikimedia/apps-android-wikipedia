@@ -64,6 +64,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
@@ -184,6 +185,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         searchButton.setOnClickListener(view -> startActivity(SearchActivity.newIntent(PageActivity.this, TOOLBAR, null)));
 
+        tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(toolbarContainerView, tabsButton);

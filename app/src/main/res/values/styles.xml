@@ -84,6 +84,10 @@
         <item name="colorControlNormal">?attr/toolbar_icon_color</item>
     </style>
 
+    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="colorControlNormal">?attr/material_theme_de_emphasised_color</item>
+    </style>
+
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/toolbar_icon_color</item>
         <item name="colorControlActivated">?attr/toolbar_icon_color</item>
