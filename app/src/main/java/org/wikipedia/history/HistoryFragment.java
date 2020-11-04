@@ -324,7 +324,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         SearchCardViewHolder(View itemView) {
             super(itemView);
-            searchWikiCardView = itemView.findViewById(R.id.wiki_card_for_search);
+            searchWikiCardView = itemView.findViewById(R.id.search_container);
             View searchCardView = itemView.findViewById(R.id.search_card);
             AppCompatImageView voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
             historyFilterButton = itemView.findViewById(R.id.history_filter);
@@ -349,7 +349,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 }
             });
             FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton);
-            searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
+            //searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
         }
 
         public void bindItem() {
