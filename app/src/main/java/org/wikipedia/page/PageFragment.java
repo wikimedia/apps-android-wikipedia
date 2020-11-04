@@ -1,5 +1,8 @@
 package org.wikipedia.page;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -244,7 +247,23 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onFontAndThemeTabSelected() {
-            showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
+            // If we're looking at the top of the article, then scroll down a bit so that at least
+            // some of the text is shown.
+            if (webView.getScrollY() < DimenUtil.leadImageHeightForDevice(requireActivity())) {
+                final int animDuration = 250;
+                ObjectAnimator anim = ObjectAnimator.ofInt(webView, "scrollY", webView.getScrollY(), DimenUtil.leadImageHeightForDevice(requireActivity()));
+                anim.setDuration(animDuration)
+                        .addListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                super.onAnimationEnd(animation);
+                                showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
+                            }
+                        });
+                anim.start();
+            } else {
+                showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
+            }
         }
 
         @Override

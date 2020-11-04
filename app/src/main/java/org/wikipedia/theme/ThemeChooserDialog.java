@@ -26,7 +26,6 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -120,9 +119,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         });
 
         updateComponents();
-        if (!(requireActivity() instanceof PageActivity)) {
-            disableBackgroundDim();
-        }
+        disableBackgroundDim();
         return rootView;
     }
 
