@@ -120,6 +120,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
         updateComponents();
         disableBackgroundDim();
+        setNavigationBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
         return rootView;
     }
 
