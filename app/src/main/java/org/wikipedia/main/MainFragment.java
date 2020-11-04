@@ -578,7 +578,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
         @Override
         public void historyClick() {
-            goToTab(NavTab.SEARCH);
+            if (!(getCurrentFragment() instanceof HistoryFragment)) {
+                goToTab(NavTab.SEARCH);
+            }
         }
 
         @Override
