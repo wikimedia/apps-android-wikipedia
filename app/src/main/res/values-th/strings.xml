@@ -29,6 +29,7 @@
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
+  <string name="nav_item_search">ค้นหา</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
@@ -265,7 +266,7 @@
   <string name="about_article_section">เกี่ยวกับบทความนี้</string>
   <string name="menu_gallery_visit_image_page">ไปยังหน้าภาพ</string>
   <string name="gallery_error_draw_failed">ไม่สามารถวาดภาพได้</string>
-  <string name="license_title" fuzzy="true">สัญญาอนุญาตสำหรับ %s</string>
+  <string name="license_title">สัญญาอนุญาตสำหรับ %s</string>
   <string name="gallery_menu_share">แบ่งปัน</string>
   <string name="gallery_share_error">ไม่สามารถแบ่งปันรูปภาพ: %s</string>
   <string name="gallery_save_progress">กำลังดาวน์โหลดไฟล์...</string>
@@ -286,6 +287,7 @@
   <string name="close_all_tabs_confirm_yes">ใช่</string>
   <string name="close_all_tabs_confirm_no">ไม่</string>
   <string name="button_close_tab">ปิดแท็บ</string>
+  <string name="unnamed_tab_closed">ปิดแท็บแล้ว</string>
   <string name="tab_item_closed">ปิด %s แล้ว</string>
   <string name="all_tab_items_closed">ปิดแท็บทั้งหมดแล้ว</string>
   <string name="tool_tip_bookmark_icon_title">เพิ่มลงในรายการอ่าน</string>
@@ -518,6 +520,8 @@
   <string name="preference_title_notification_thanks">ขอบคุณ</string>
   <string name="preference_summary_notification_thanks">มีใครบางคนขอบคุณคุณสำหรับการแก้ไข</string>
   <string name="preference_title_notification_revert">ย้อน</string>
+  <string name="preference_title_notification_user_talk">หน้าคุย</string>
+  <string name="preference_summary_notification_user_talk">ข้อความจากหน้าคุย</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
   <string name="view_random_card_subtitle">พลิกไปมาระหว่างบทความเพื่ออ่านจากวิกิพีเดีย</string>
@@ -593,7 +597,12 @@
   <string name="description_edit_help_title">ข้อมูล: คำอธิบายบทความ</string>
   <string name="description_edit_help_about_wikidata">เกี่ยวกับวิกิสนเทศ</string>
   <string name="description_edit_help_wikidata_guide">คู่มือวิกิสนเทศเกี่ยวกับการเขียนคำอธิบาย</string>
-  <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
+  <string name="description_edit_success_saved">เผยแพร่คำอธิบายบทความแล้ว!</string>
+  <string name="description_edit_success_saved_snackbar">เผยแพร่คำอธิบายบทความแล้ว!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">เผยแพร่คำอธิบายบทความแล้ว! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">เผยแพร่คำบรรยายภาพแล้ว!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">เผยแพร่คำบรรยายภาพแล้ว! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">เผยแพร่ป้ายกำกับภาพแล้ว!</string>
   <string name="description_edit_success_encouragement">คุณทำให้วิกิพีเดียดีขึ้นสำหรับทุกคน</string>
   <string name="description_edit_success_done">เสร็จสิ้น</string>
   <string name="description_edit_success_did_you_know">คุณรู้หรือไม่</string>
@@ -604,19 +613,27 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ควรเขียนให้พอดีหนึ่งบรรทัด และเขียนตั้งแต่ 2-12 คำ</string>
   <string name="description_edit_tutorial_button_label_start_editing">เริ่มแก้ไข</string>
   <string name="description_edit_tutorial_promise">ฉันสัญญาว่าจะไม่ใช้คุณลักษณะนี้ในทางที่ผิด</string>
+  <string name="suggested_edits_review_description">ตรวจทานคำอธิบายบทความ</string>
   <string name="suggested_edits_add_description_button">เพิ่มคำอธิบาย</string>
   <string name="suggested_edits_edit_description_button">แก้ไขคำอธิบาย</string>
   <string name="suggested_edits_add_translation_button">เพิ่มการแปล</string>
   <string name="suggested_edits_edit_translation_button">แก้ไขการแปล</string>
   <string name="suggested_edits_add_caption_button">เพิ่มคำบรรยาย</string>
   <string name="suggested_edits_edit_caption_button">แก้ไขคำบรรยาย</string>
+  <string name="suggested_edits_review_image_caption">ตรวจทานคำบรรยายภาพ</string>
   <string name="suggested_edits_my_contributions">การมีส่วนร่วมของฉัน</string>
   <string name="suggested_edits_no_description">ไฟล์นี้ไม่มีคำอธิบาย</string>
+  <string name="suggested_edits_menu_info">ข้อมูล</string>
+  <string name="suggested_edits_task_add_description_title">เพิ่มคำอธิบายบทความ</string>
+  <string name="suggested_edits_task_add_description_description">มีส่วนร่วมกับบทความโดยไม่มีคำอธิบาย</string>
+  <string name="suggested_edits_task_image_caption_title">เพิ่มคำบรรยายภาพ</string>
+  <string name="suggested_edits_task_image_caption_description">เพิ่มคำบรรยายสั้น ๆ ที่ขาดไปให้กับภาพ</string>
   <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
   <string name="suggested_edits_task_multilingual_title">งานเพิ่มเติมสำหรับผู้แก้ไขแบบหลายภาษา</string>
   <string name="suggested_edits_task_multilingual_description">มีงานแปลหากคุณอ่านและเขียนในภาษาของวิกิพีเดียมากกว่าหนึ่งภาษา</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำบรรยายภาพ</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายบทความ (ตรวจสอบแล้ว)</string>
   <string name="suggested_edits_task_multilingual_negative">ไม่ใช่สำหรับฉัน</string>
   <string name="suggested_edits_task_multilingual_positive">เพิ่มภาษา</string>
   <string name="suggested_edits_image_caption_summary_title_image">ภาพ</string>
@@ -625,19 +642,50 @@
   <string name="suggested_edits_image_caption_summary_title_source">จุดกำเนิด</string>
   <string name="suggested_edits_image_caption_summary_title_license">สัญญาอนุญาต</string>
   <string name="suggested_edits_image_caption_summary_title_date">วันที่</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 การมีส่วนร่วม</item>
+    <item quantity="other">%d การมีส่วนร่วม</item>
+  </plurals>
   <string name="suggested_edits_feed_card_title">การแก้ไขที่แนะนำ</string>
   <string name="suggested_edits_feed_card_add_description_button">เพิ่มคำอธิบายบทความ</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">เพิ่มคำอธิบายบทความ (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">เริ่มต้นใช้งาน</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">คำบรรยายภาพ (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">คำอธิบายภาพ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ภาพ</string>
   <string name="suggested_edits_image_preview_dialog_artist">ศิลปิน</string>
   <string name="suggested_edits_image_preview_dialog_tags">ป้ายกำกับ</string>
   <string name="suggested_edits_image_preview_dialog_date">วันที่</string>
   <string name="suggested_edits_image_preview_dialog_source">ที่มา/ผู้ถ่ายภาพ</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">การอนุญาตใช้สิทธิ</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">ข้อมูลเพิ่มเติม</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">หน้าไฟล์บนวิกิมีเดียคอมมอนส์</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">หน้าไฟล์บนวิกิพีเดีย</string>
+  <string name="suggested_edits_article_cta_image_tags">เพิ่มป้ายกำกับภาพ</string>
+  <string name="suggested_edits_article_cta_image_caption">เพิ่มคำบรรยายภาพ</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">เพิ่มคำบรรยายภาพ (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">ดู</string>
+  <string name="suggested_edits_feed_card_add_image_caption">เพิ่มคำบรรยายภาพ</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">เพิ่มคำบรรยายภาพ (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">เพิ่มป้ายกำกับภาพ</string>
+  <string name="suggested_edits_task_action_text_add">เพิ่ม</string>
+  <string name="suggested_edits_task_action_text_translate">แปล</string>
+  <string name="suggested_edits_image_captions">คำบรรยายภาพ</string>
+  <string name="suggested_edits_image_tags">ป้ายกำกับภาพ</string>
   <string name="suggested_edits_image_tags_publishing">กำลังเผยแพร่</string>
   <string name="suggested_edits_image_tags_published">เผยแพร่แล้ว</string>
   <string name="suggested_edits_ip_blocked_message">ดูเหมือนว่าเลขที่อยู่ไอพี (หรือช่วงเลขที่อยู่ไอพี) ของคุณถูกระงับการแก้ไขวิกิพีเดีย</string>
+  <string name="suggested_edits_edit_streak_label_text">ความต่อเนื่องในการแก้ไข</string>
   <string name="suggested_edits_views_label_text">จำนวนครั้งที่ดู</string>
+  <string name="suggested_edits_quality_label_text">คุณภาพในการแก้ไข</string>
+  <string name="suggested_edits_quality_perfect_text">สมบูรณ์แบบ</string>
+  <string name="suggested_edits_quality_excellent_text">ดีเยี่ยม</string>
+  <string name="suggested_edits_quality_very_good_text">ดีมาก</string>
+  <string name="suggested_edits_quality_good_text">ดี</string>
+  <string name="suggested_edits_quality_okay_text">ใช้ได้</string>
+  <string name="suggested_edits_quality_sufficient_text">พอใช้</string>
+  <string name="suggested_edits_quality_poor_text">แย่</string>
+  <string name="suggested_edits_quality_bad_text">แย่มาก</string>
   <string name="suggested_edits_label">การแก้ไขที่แนะนำ</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">การมีส่วนร่วม</item>
@@ -647,6 +695,8 @@
     <item quantity="one">%d วัน</item>
     <item quantity="other">%d วัน</item>
   </plurals>
+  <string name="suggested_edits_learn_more">เรียนรู้เพิ่มเติม</string>
+  <string name="suggested_edits_disabled_title">ปิดใช้งาน</string>
   <string name="suggested_edits_ip_blocked_title">เลขที่อยู่ไอพีถูกระงับ</string>
   <string name="suggested_edits_last_edited">แก้ไขล่าสุดเมื่อ</string>
   <string name="suggested_edits_last_edited_never">ไม่เคย</string>

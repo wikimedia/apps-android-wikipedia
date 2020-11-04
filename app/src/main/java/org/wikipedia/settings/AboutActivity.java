@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,19 +17,17 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static org.wikipedia.util.DeviceUtil.mailAppExists;
 
 public class AboutActivity extends BaseActivity {
     @BindView(R.id.about_contributors) TextView contributorsTextView;
     @BindView(R.id.about_translators) TextView translatorsTextView;
     @BindView(R.id.activity_about_libraries) TextView librariesTextView;
     @BindView(R.id.about_app_license) TextView appLicenseTextView;
-    @BindView(R.id.send_feedback_text) Button feedbackTextView;
     @BindView(R.id.about_wmf) TextView wmfTextView;
 
     @Override
@@ -52,11 +49,6 @@ public class AboutActivity extends BaseActivity {
 
         findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener());
 
-        //if there's no Email app, hide the Feedback link.
-        if (!mailAppExists(this)) {
-            feedbackTextView.setVisibility(View.GONE);
-        }
-
         makeEverythingClickable(findViewById(R.id.about_container));
     }
 
@@ -65,7 +57,11 @@ public class AboutActivity extends BaseActivity {
                 .setAction(Intent.ACTION_SENDTO)
                 .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App "
                         + BuildConfig.VERSION_NAME + " Feedback"));
-        startActivity(intent);
+        try {
+            startActivity(intent);
+        } catch (Exception e) {
+            L.e(e);
+        }
     }
 
     private void makeEverythingClickable(ViewGroup vg) {

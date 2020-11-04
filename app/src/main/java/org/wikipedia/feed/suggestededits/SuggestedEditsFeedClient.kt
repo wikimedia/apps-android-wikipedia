@@ -2,6 +2,7 @@ package org.wikipedia.feed.suggestededits
 
 import android.content.Context
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
@@ -128,6 +129,13 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
         }
         disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true, MAX_RETRY_LIMIT)
+                .map {
+                    if (it.second.description.isNullOrEmpty()) {
+                        throw EditingSuggestionsProvider.ListEmptyException()
+                    }
+                    it
+                }
+                .retry(MAX_RETRY_LIMIT) { t: Throwable -> t is EditingSuggestionsProvider.ListEmptyException }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
