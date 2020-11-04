@@ -320,16 +320,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class SearchCardViewHolder extends DefaultViewHolder<View> {
         private ImageView historyFilterButton;
         private ImageView clearHistoryButton;
-        private WikiCardView searchWikiCardView;
 
         SearchCardViewHolder(View itemView) {
             super(itemView);
-            searchWikiCardView = itemView.findViewById(R.id.search_container);
-            View searchCardView = itemView.findViewById(R.id.search_card);
+            WikiCardView searchCardView = itemView.findViewById(R.id.search_card);
             AppCompatImageView voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
             historyFilterButton = itemView.findViewById(R.id.history_filter);
             clearHistoryButton = itemView.findViewById(R.id.history_delete);
-            searchCardView.setOnClickListener(view -> ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, searchWikiCardView));
+            searchCardView.setOnClickListener(view -> ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, searchCardView));
             voiceSearchButton.setOnClickListener(view -> ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested());
             historyFilterButton.setOnClickListener(view -> {
                 if (actionMode == null) {
@@ -349,7 +347,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 }
             });
             FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton);
-            //searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
+            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
         }
 
         public void bindItem() {
