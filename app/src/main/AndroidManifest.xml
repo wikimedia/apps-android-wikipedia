@@ -358,7 +358,8 @@
 
         <service
             android:name=".push.WikipediaFirebaseMessagingService"
-            android:exported="false">
+            android:exported="false"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
