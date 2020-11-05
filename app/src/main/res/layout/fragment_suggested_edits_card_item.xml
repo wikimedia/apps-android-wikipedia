@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:focusable="true">
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/seCardErrorView"
@@ -29,14 +31,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="64dp"
             android:layout_marginBottom="64dp" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/suggestedEditsFragmentViewGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="cardItemContainer,viewArticleImage,viewArticleContainer,
-            viewArticleTitle,articleDescriptionPlaceHolder1,articleDescriptionPlaceHolder2,
-            viewArticleExtract,viewArticleSubtitle,callToActionButton" />
 
         <LinearLayout
             android:id="@+id/cardItemContainer"
@@ -57,7 +51,6 @@
                 android:id="@+id/viewArticleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:addStatesFromChildren="true"
                 android:orientation="vertical"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp">

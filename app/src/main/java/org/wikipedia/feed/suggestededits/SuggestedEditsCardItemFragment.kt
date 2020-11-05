@@ -128,13 +128,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun updateContents() {
-        suggestedEditsFragmentViewGroup.visibility = GONE
-        suggestedEditsFragmentViewGroup.addOnClickListener {
-            if (itemClickable) {
-                funnel.cardClicked(CardType.SUGGESTED_EDITS, if (targetLanguage != null && targetLanguage.equals(langFromCode)) langFromCode else targetLanguage)
-                startDescriptionEditScreen()
-            }
-        }
+        cardItemContainer.setOnClickListener(startDescriptionEditScreenListener())
+        callToActionButton.setOnClickListener(startDescriptionEditScreenListener())
         seCardErrorView.setBackClickListener {
             seCardErrorView.visibility = GONE
             fetchCardTypeEdit()
@@ -142,9 +137,10 @@ class SuggestedEditsCardItemFragment : Fragment() {
         fetchCardTypeEdit()
     }
 
-    private fun Group.addOnClickListener(listener: View.OnClickListener) {
-        referencedIds.forEach { id ->
-            cardView.findViewById<View>(id).setOnClickListener(listener)
+    private fun startDescriptionEditScreenListener() = View.OnClickListener {
+        if (itemClickable) {
+            funnel.cardClicked(CardType.SUGGESTED_EDITS, if (targetLanguage != null && targetLanguage.equals(langFromCode)) langFromCode else targetLanguage)
+            startDescriptionEditScreen()
         }
     }
 
@@ -191,7 +187,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
         itemClickable = true
         seFeedCardProgressBar.visibility = GONE
         seCardErrorView.visibility = GONE
-        suggestedEditsFragmentViewGroup.visibility = VISIBLE
         callToActionButton.visibility = VISIBLE
         if (sourceSummaryForEdit != null) {
             cardView.layoutDirection = if (L10nUtil.isLangRTL(if (targetSummaryForEdit != null)
