@@ -6,6 +6,7 @@
 * Chsasank
 * JVRKPRASAD
 * Kiranmayee
+* MuratTheTurkish
 * Praveen Illa
 * Veeven
 * రహ్మానుద్దీన్
@@ -122,6 +123,7 @@
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
+  <string name="about_wikipedia_url">https://te.wikipedia.org/wiki/వికీపీడియా:గురించి</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
