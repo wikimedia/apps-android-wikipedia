@@ -357,7 +357,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             WikiSite wiki = new WikiSite(uri);
             PageTitle title = wiki.titleForUri(uri);
             HistoryEntry historyEntry = new HistoryEntry(title,
-                    intent.hasExtra(Constants.INTENT_EXTRA_VIEW_FROM_NOTIFICATION)
+                    intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID)
                             ? HistoryEntry.SOURCE_NOTIFICATION_SYSTEM : HistoryEntry.SOURCE_EXTERNAL_LINK);
             if (intent.hasExtra(Intent.EXTRA_REFERRER)) {
                 // Populate the referrer with the externally-referring URL, e.g. an external Browser URL.

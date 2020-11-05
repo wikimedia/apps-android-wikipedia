@@ -29,6 +29,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.NotificationFunnel;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
@@ -88,6 +89,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        if (savedInstanceState == null) {
+            NotificationFunnel.processIntent(getIntent());
         }
 
         NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());

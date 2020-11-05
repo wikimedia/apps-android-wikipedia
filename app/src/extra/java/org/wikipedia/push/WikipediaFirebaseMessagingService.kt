@@ -64,9 +64,11 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private const val UNSUBSCRIBE_RETRY_COUNT = 3
 
         fun isUsingPush(): Boolean {
-            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS
-                    && Prefs.getPushNotificationToken().isNotEmpty()
-                    && Prefs.isPushNotificationTokenSubscribed()
+            return false
+
+            //return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS
+            //        && Prefs.getPushNotificationToken().isNotEmpty()
+            //        && Prefs.isPushNotificationTokenSubscribed()
         }
 
         fun updateSubscription() {

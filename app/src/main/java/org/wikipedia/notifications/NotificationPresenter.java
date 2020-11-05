@@ -28,8 +28,6 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 
 public final class NotificationPresenter {
-    private static final int REQUEST_CODE_ACTIVITY = 0;
-    private static final int REQUEST_CODE_ACTION = 1;
     private static final String CHANNEL_ID = "MEDIAWIKI_ECHO_CHANNEL";
 
     public static void showNotification(@NonNull Context context, @NonNull Notification n, @NonNull String wikiSiteName) {
@@ -37,28 +35,28 @@ public final class NotificationPresenter {
         @DrawableRes int iconResId = R.drawable.ic_speech_bubbles;
         @ColorRes int iconColor = R.color.accent50;
 
-        NotificationCompat.Builder builder = getDefaultBuilder(context);
+        NotificationCompat.Builder builder = getDefaultBuilder(context, n.id(), n.type());
 
         title = StringUtil.fromHtml(n.getContents() != null ? n.getContents().getHeader() : "").toString();
 
         if (n.getContents() != null && n.getContents().getLinks() != null
                 && n.getContents().getLinks().getPrimary() != null) {
             if (Notification.CATEGORY_EDIT_USER_TALK.equals(n.category())) {
-                addActionForTalkPage(context, builder, n.getContents().getLinks().getPrimary(), REQUEST_CODE_ACTION);
+                addActionForTalkPage(context, builder, n.getContents().getLinks().getPrimary(), n);
             } else {
-                addAction(context, builder, n.getContents().getLinks().getPrimary(), REQUEST_CODE_ACTION);
+                addAction(context, builder, n.getContents().getLinks().getPrimary(), n);
             }
         }
         if (n.getContents() != null && n.getContents().getLinks() != null
                 && n.getContents().getLinks().getSecondary() != null && n.getContents().getLinks().getSecondary().size() > 0) {
-            addAction(context, builder, n.getContents().getLinks().getSecondary().get(0), REQUEST_CODE_ACTION + 1);
+            addAction(context, builder, n.getContents().getLinks().getSecondary().get(0), n);
         }
         if (n.getContents() != null && n.getContents().getLinks() != null
                 && n.getContents().getLinks().getSecondary() != null && n.getContents().getLinks().getSecondary().size() > 1) {
-            addAction(context, builder, n.getContents().getLinks().getSecondary().get(1), REQUEST_CODE_ACTION + 2);
+            addAction(context, builder, n.getContents().getLinks().getSecondary().get(1), n);
         }
 
-        Intent activityIntent = NotificationActivity.newIntent(context);
+        Intent activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id(), n.type());
 
         String s = n.category();
         if (Notification.CATEGORY_EDIT_USER_TALK.equals(s)) {
@@ -85,13 +83,19 @@ public final class NotificationPresenter {
     }
 
     public static void showMultipleUnread(@NonNull Context context, int unreadCount) {
-        NotificationCompat.Builder builder = getDefaultBuilder(context);
+        NotificationCompat.Builder builder = getDefaultBuilder(context, unreadCount, NotificationPollBroadcastReceiver.TYPE_MULTIPLE);
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
-                R.drawable.ic_notifications_black_24dp, R.color.accent50, true, NotificationActivity.newIntent(context));
+                R.drawable.ic_notifications_black_24dp, R.color.accent50, true,
+                addIntentExtras(NotificationActivity.newIntent(context), unreadCount, NotificationPollBroadcastReceiver.TYPE_MULTIPLE));
     }
 
-    public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context) {
+    public static Intent addIntentExtras(@NonNull Intent intent, long id, @NonNull String type) {
+        return intent.putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type);
+    }
+
+    public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context, long id, String type) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
@@ -107,14 +111,15 @@ public final class NotificationPresenter {
         return new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setAutoCancel(true);
+                .setAutoCancel(true)
+                .setDeleteIntent(NotificationPollBroadcastReceiver.getCancelNotificationPendingIntent(context, id, type));
     }
 
     @SuppressWarnings("checkstyle:parameternumber")
     public static void showNotification(@NonNull Context context, @NonNull NotificationCompat.Builder builder, int id,
                                         @NonNull String title, @NonNull String text, @NonNull CharSequence longText,
                                         @DrawableRes int icon, @ColorRes int color, boolean drawIconCircle, @NonNull Intent bodyIntent) {
-        builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
+        builder.setContentIntent(PendingIntent.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
                 .setLargeIcon(drawNotificationBitmap(context, color, icon, drawIconCircle))
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
@@ -126,10 +131,9 @@ public final class NotificationPresenter {
         notificationManager.notify(id, builder.build());
     }
 
-    private static void addAction(Context context, NotificationCompat.Builder builder, Notification.Link link, int requestCode) {
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode,
-                new Intent(Intent.ACTION_VIEW, Uri.parse(link.getUrl())).putExtra(Constants.INTENT_EXTRA_VIEW_FROM_NOTIFICATION, true),
-                PendingIntent.FLAG_UPDATE_CURRENT);
+    private static void addAction(Context context, NotificationCompat.Builder builder, Notification.Link link, Notification n) {
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
+                addIntentExtras(new Intent(Intent.ACTION_VIEW, Uri.parse(link.getUrl())), n.id(), n.type()), 0);
         String labelStr;
         if (!TextUtils.isEmpty(link.getTooltip())) {
             labelStr = StringUtil.fromHtml(link.getTooltip()).toString();
@@ -139,12 +143,11 @@ public final class NotificationPresenter {
         builder.addAction(0, labelStr, pendingIntent);
     }
 
-    private static void addActionForTalkPage(Context context, NotificationCompat.Builder builder, Notification.Link link, int requestCode) {
+    private static void addActionForTalkPage(Context context, NotificationCompat.Builder builder, Notification.Link link, Notification n) {
         WikiSite wiki = new WikiSite(link.getUrl());
         PageTitle title = wiki.titleForUri(Uri.parse(link.getUrl()));
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode,
-                TalkTopicsActivity.newIntent(context, wiki.languageCode(), title.getText()),
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
+                addIntentExtras(TalkTopicsActivity.newIntent(context, wiki.languageCode(), title.getText()), n.id(), n.type()), 0);
         builder.addAction(0, StringUtil.fromHtml(link.getLabel()).toString(), pendingIntent);
     }
 

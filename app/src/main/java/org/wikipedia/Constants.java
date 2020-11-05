@@ -39,7 +39,8 @@ public final class Constants {
 
     public static final String INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber";
     public static final String INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList";
-    public static final String INTENT_EXTRA_VIEW_FROM_NOTIFICATION = "viewFromNotification";
+    public static final String INTENT_EXTRA_NOTIFICATION_ID = "notificationId";
+    public static final String INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType";
 
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume";
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel";
