@@ -59,7 +59,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         footer();
     }
 
-    @OnClick({R.id.view_wiki_article_card})
+    @OnClick({R.id.view_featured_article_card_content_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
                 getCallback().onSelectPage(getCard(), getCard().historyEntry(), wikiArticleCardView.getSharedElements());
