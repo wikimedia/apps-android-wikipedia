@@ -48,15 +48,13 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
         super.onActivityResult(requestCode, resultCode, data);
 
         String finalLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
-        List<Boolean> finalFeedCardsEnabled = Prefs.getFeedCardsEnabled();
-        List<Integer> finalFeedCardsOrder = Prefs.getFeedCardsOrder();
 
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE
                 && (!finalLanguageList.equals(initialLanguageList))) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
         } else if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE
-                && (!finalFeedCardsEnabled.equals(initialFeedCardsEnabled)
-                || !finalFeedCardsOrder.equals(initialFeedCardsOrder))) {
+                && (!Prefs.getFeedCardsEnabled().equals(initialFeedCardsEnabled)
+                || !Prefs.getFeedCardsOrder().equals(initialFeedCardsOrder))) {
             setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED);
         }
     }
