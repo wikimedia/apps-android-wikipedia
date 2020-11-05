@@ -7,6 +7,7 @@
 * Guherto
 * Kur
 * Mirzali
+* MuratTheTurkish
 -->
 <resources>
   <string name="app_name_prod">Wîkîpediya</string>
@@ -140,6 +141,7 @@
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
+  <string name="about_wikipedia_url">https://ku.wikipedia.org/wiki/Wîkîpediya:Derbarê_Wîkîpediyayê_de</string>
   <string name="about_contributors_heading">Tevkar</string>
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_app_license_heading">Destûr</string>

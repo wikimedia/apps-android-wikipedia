@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Bsitzmann
+* MuratTheTurkish
 * Pichnat Thong
 * Sovichet
 * Y.snsqr
@@ -142,6 +143,7 @@
   <string name="about_description">អំពីកម្មវិធីវិគីភីឌា</string>
   <string name="privacy_policy_description">គោលការណ៍នៃ​ភាពឯកជន</string>
   <string name="terms_of_use_description">លក្ខខណ្ឌប្រើប្រាស់</string>
+  <string name="about_wikipedia_url">https://km.wikipedia.org/wiki/វិគីភីឌា:អំពីវិគីភីឌា</string>
   <string name="about_libraries_heading">បណ្ណាល័យដែលបានប្រើ</string>
   <string name="about_contributors_heading">អ្នករួមចំណែក</string>
   <string name="about_translators_heading">អ្នកបកប្រែ</string>
