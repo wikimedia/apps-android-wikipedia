@@ -146,7 +146,7 @@
   <string name="license_title">ን%s ፍቓድ</string>
   <string name="gallery_menu_share">ኣካፍል</string>
   <string name="gallery_save_progress">ፋይል ይውርድ ኣሎ...</string>
-  <string name="gallery_save_success">ፋይል ዝትቐመጠ።</string>
+  <string name="gallery_save_success">ፋይል ዝተቐመጠ።</string>
   <string name="gallery_add_image_caption_button">ናይ ምስሊ መግለጺ ጽሑፍ ወስኽ</string>
   <string name="gallery_add_image_caption_in_language_button">ናይ ምስሊ መግለጺ ጽሑፋት ወስኽ (%s)</string>
   <string name="captcha_image">ካፕቻ ምስሊ</string>
@@ -214,7 +214,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ኣቀማምጣታት</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">እዚ እንደገና ኣይተርእይ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ኣይፋል፣ የቐንየለይ</string>
-  <string name="default_reading_list_name">ዝትቐመጠ</string>
+  <string name="default_reading_list_name">ዝተቐመጠ</string>
   <string name="reading_list_saved_list_rename">%1$s (ብተጠቃሚ ዝተፈጠረ)</string>
   <string name="reading_lists_menu_create_list">ሓድሽ ዝርዝር ፍጠር</string>
   <string name="reading_lists_menu_sort_by">ጎጅል ብ</string>
@@ -262,7 +262,7 @@
   <string name="view_announcement_card_negative_action">ኣይፋል፣ የቐንየለይ</string>
   <string name="view_featured_article_footer_save_button_label">ኣቐምጥ</string>
   <string name="view_static_card_save_button_label">ኣቐምጥ</string>
-  <string name="view_featured_article_footer_saved_button_label">ዝትቐመጠ</string>
+  <string name="view_featured_article_footer_saved_button_label">ዝተቐመጠ</string>
   <string name="feed_configure_onboarding_action">ይገብሮም</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ሕራይ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ኣትርፍ</string>
