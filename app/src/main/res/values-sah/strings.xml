@@ -5,6 +5,7 @@
 * Envlh
 * HalanTul
 * Krivoshapkina
+* MuratTheTurkish
 * Patriccck
 * Алгыс
 * Марианна
@@ -182,7 +183,7 @@
   <string name="about_description">Бикипиэдьийэ дьибилгэтин туһунан</string>
   <string name="privacy_policy_description">Бүк охсунуу</string>
   <string name="terms_of_use_description">Туһаныы сиэрэ</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://sah.m.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
+  <string name="about_wikipedia_url">https://sah.wikipedia.org/wiki/Бикипиэдьийэ:Туһунан</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
