@@ -161,7 +161,6 @@ public class ListCardItemView extends ConstraintLayout {
         numberView.setNumber(number);
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
     public void setPageViews(int pageViews) {
         pageViewsView.setVisibility(VISIBLE);
         pageViewsView.setText(getPageViewText(pageViews));
@@ -176,6 +175,7 @@ public class ListCardItemView extends ConstraintLayout {
         graphView.setData(dataSet);
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private String getPageViewText(int pageViews) {
         if (pageViews < 1000) {
             return String.valueOf(pageViews);
