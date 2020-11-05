@@ -108,7 +108,7 @@ object EditingSuggestionsProvider {
                             t is ListEmptyException
                         }
             }
-        }.flatMap { it -> getSummary(it) }
+        }.flatMap { getSummary(it) }
                 .doFinally { mutex.release() }
     }
 
