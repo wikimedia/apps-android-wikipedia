@@ -55,8 +55,8 @@ public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
                 && (!finalLanguageList.equals(initialLanguageList))) {
             setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
         } else if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE
-                && (!initialFeedCardsEnabled.equals(finalFeedCardsEnabled)
-                || !initialFeedCardsOrder.equals(finalFeedCardsOrder))) {
+                && (!finalFeedCardsEnabled.equals(initialFeedCardsEnabled)
+                || !finalFeedCardsOrder.equals(initialFeedCardsOrder))) {
             setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED);
         }
     }
