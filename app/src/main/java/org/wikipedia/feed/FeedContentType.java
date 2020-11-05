@@ -24,18 +24,11 @@ import java.util.List;
 import java.util.Map;
 
 public enum FeedContentType implements EnumCode {
-    NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
+    FEATURED_ARTICLE(6, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article, true) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age == 0 ? new AggregatedFeedContentClient.InTheNews(aggregatedClient) : null;
-        }
-    },
-    ON_THIS_DAY(1, R.string.on_this_day_card_title, R.string.feed_item_type_on_this_day, true) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() ? new AggregatedFeedContentClient.OnThisDayFeed(aggregatedClient) : null;
+            return isEnabled() ? new AggregatedFeedContentClient.FeaturedArticle(aggregatedClient) : null;
         }
     },
     TRENDING_ARTICLES(3, R.string.view_top_read_card_title, R.string.feed_item_type_trending, true) {
@@ -43,20 +36,6 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             return isEnabled() ? new AggregatedFeedContentClient.TrendingArticles(aggregatedClient) : null;
-        }
-    },
-    RANDOM(5, R.string.view_random_card_title, R.string.feed_item_type_randomizer, true) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() ? new RandomClient() : null;
-        }
-    },
-    FEATURED_ARTICLE(6, R.string.view_featured_article_card_title, R.string.feed_item_type_featured_article, true) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() ? new AggregatedFeedContentClient.FeaturedArticle(aggregatedClient) : null;
         }
     },
     FEATURED_IMAGE(7, R.string.view_featured_image_card_title, R.string.feed_item_type_featured_image, false) {
@@ -71,6 +50,27 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             return isEnabled() ? new BecauseYouReadClient() : null;
+        }
+    },
+    NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
+            return isEnabled() && age == 0 ? new AggregatedFeedContentClient.InTheNews(aggregatedClient) : null;
+        }
+    },
+    ON_THIS_DAY(1, R.string.on_this_day_card_title, R.string.feed_item_type_on_this_day, true) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
+            return isEnabled() ? new AggregatedFeedContentClient.OnThisDayFeed(aggregatedClient) : null;
+        }
+    },
+    RANDOM(5, R.string.view_random_card_title, R.string.feed_item_type_randomizer, true) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
+            return isEnabled() ? new RandomClient() : null;
         }
     },
     SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
