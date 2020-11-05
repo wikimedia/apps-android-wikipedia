@@ -164,8 +164,7 @@ public class ListCardItemView extends ConstraintLayout {
     @SuppressWarnings("checkstyle:magicnumber")
     public void setPageViews(int pageViews) {
         pageViewsView.setVisibility(VISIBLE);
-        pageViewsView.setText((pageViews < 1000) ? String.valueOf(pageViews)
-                : getContext().getString(R.string.view_top_read_card_pageviews_suffix, Math.round(pageViews / 1000f)));
+        pageViewsView.setText(getPageViewText(pageViews));
     }
 
     public void setGraphView(@NonNull List<MostReadArticles.ViewHistory> viewHistories) {
@@ -175,6 +174,16 @@ public class ListCardItemView extends ConstraintLayout {
         }
         graphView.setVisibility(VISIBLE);
         graphView.setData(dataSet);
+    }
+
+    private String getPageViewText(int pageViews) {
+        if (pageViews < 1000) {
+            return String.valueOf(pageViews);
+        } else if (pageViews < 1000000) {
+            return getContext().getString(R.string.view_top_read_card_pageviews_k_suffix, Math.round(pageViews / 1000f));
+        } else {
+            return getContext().getString(R.string.view_top_read_card_pageviews_m_suffix, Math.round(pageViews / 1000000f));
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
