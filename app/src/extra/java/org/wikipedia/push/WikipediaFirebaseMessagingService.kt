@@ -158,6 +158,9 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         }
 
         fun unsubscribePushToken(csrfToken: String, pushToken: String): Observable<MwQueryResponse> {
+            if (pushToken.isEmpty()) {
+                return Observable.just(MwQueryResponse())
+            }
             return ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unsubscribePush(csrfToken, pushToken)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

@@ -11,6 +11,7 @@
 * IKhitron
 * Inkbug
 * Matanya
+* MuratTheTurkish
 * Or
 * Shoham
 * Steeve815
@@ -201,7 +202,7 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
-  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/ויקיפדיה:אודות</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>

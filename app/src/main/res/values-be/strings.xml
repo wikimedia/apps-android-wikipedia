@@ -8,6 +8,7 @@
 * Liashko
 * Maksim L.
 * Mechanizatar
+* MuratTheTurkish
 * SimondR
 * Unomano
 -->
@@ -123,6 +124,7 @@
   <string name="about_description">Пра дадатак «Вікіпедыя»</string>
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
+  <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
   <string name="about_libraries_heading">Выкарыстаныя бібліятэкі</string>

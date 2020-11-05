@@ -360,6 +360,8 @@
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>
   <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
+  <string name="reading_list_article_added_to_named">เพิ่ม %1$s ลงใน %2$s แล้ว</string>
+  <string name="reading_list_article_moved_to_named">ย้าย %1$s ไปยัง %2$s แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
   <string name="format_reading_list_statistical_summary_singular">1 บทความ, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d บทความ, %2$.2f MB</string>
@@ -380,6 +382,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">เอาทั้งหมดออกจากออฟไลน์</string>
   <string name="reading_list_action_menu_save_all_for_offline">บันทึกทั้งหมดสำหรับออฟไลน์</string>
   <string name="reading_list_action_menu_add_to_another_list">เพิ่มลงในรายการอื่น</string>
+  <string name="reading_list_action_menu_move_to_another_list">ย้ายไปยังรายการอื่น</string>
   <string name="reading_list_name_sample">รายการอ่านของฉัน</string>
   <string name="reading_list_name_hint">ชื่อรายการนี้</string>
   <string name="reading_list_description_hint">คำอธิบาย (ไม่ระบุก็ได้)</string>
@@ -400,6 +403,7 @@
   <string name="reading_list_article_offline">ใช้ได้ขณะออฟไลน์</string>
   <string name="reading_list_article_make_offline">ทำให้บทความนี้ใช้ได้ขณะออฟไลน์</string>
   <string name="reading_list_add_to_other_list">เพิ่มลงในรายการอ่านอื่น</string>
+  <string name="reading_list_move_to_other_list">ย้ายไปยังรายการอ่านอื่น</string>
   <string name="reading_list_remove_from_list">เอาออกจาก %s</string>
   <string name="reading_list_remove_from_lists">ลบออกจากรายการอ่าน</string>
   <string name="reading_list_select_item">เลือก</string>

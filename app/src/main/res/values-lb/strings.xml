@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Envlh
 * Les Meloures
+* MuratTheTurkish
 * Robby
 * Soued031
 -->
@@ -170,6 +171,7 @@
   <string name="about_description">Iwwer d\'Wikipedia App</string>
   <string name="privacy_policy_description">Dateschutz</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
+  <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
