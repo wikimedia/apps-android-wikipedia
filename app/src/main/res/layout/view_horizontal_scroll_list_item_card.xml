@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="288dp"
-    android:background="?attr/selectableItemBackground"
     android:orientation="vertical">
 
     <org.wikipedia.views.FaceAndColorDetectImageView

@@ -53,7 +53,7 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         }
 
         setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        rippleColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_59))
+        rippleColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color))
     }
 
     fun setDefaultBorder() {
