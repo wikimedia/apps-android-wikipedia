@@ -4,6 +4,7 @@
 * Cymrodor
 * Johnogwen123
 * Lloffiwr
+* MuratTheTurkish
 * Robin Owain
 -->
 <resources>
@@ -164,6 +165,7 @@
   <string name="about_description">Ynglyn ag ap Wicipedia</string>
   <string name="privacy_policy_description">Polisi preifatrwydd</string>
   <string name="terms_of_use_description">Termau Defnyddiwr</string>
+  <string name="about_wikipedia_url">https://cy.wikipedia.org/wiki/Wicipedia:Ynglŷn_â_Wicipedia</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Y llyfrgelloedd a ddefnyddir</string>
