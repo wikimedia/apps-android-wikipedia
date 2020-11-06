@@ -58,7 +58,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     public interface Callback {
         void onToggleDimImages();
-        void onCancel();
+        void onCancelThemeChooser();
     }
 
     private enum FontSizeAction { INCREASE, DECREASE, RESET }
@@ -153,11 +153,11 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @Override
-    public void onCancel(DialogInterface dialog) {
+    public void onCancel(@NonNull DialogInterface dialog) {
         super.onCancel(dialog);
         if (callback() != null) {
             // noinspection ConstantConditions
-            callback().onCancel();
+            callback().onCancelThemeChooser();
         }
     }
 

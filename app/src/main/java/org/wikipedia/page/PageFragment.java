@@ -161,10 +161,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageCloseActionMode();
     }
 
+    private static final String ARG_THEME_CHANGE_SCROLLED = "themeChangeScrolled";
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
+
     private boolean pageRefreshed;
     private boolean errorState = false;
-
-    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -183,6 +184,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private boolean scrolledUpForThemeChange;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -250,6 +252,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             // If we're looking at the top of the article, then scroll down a bit so that at least
             // some of the text is shown.
             if (webView.getScrollY() < DimenUtil.leadImageHeightForDevice(requireActivity())) {
+                scrolledUpForThemeChange = true;
                 final int animDuration = 250;
                 ObjectAnimator anim = ObjectAnimator.ofInt(webView, "scrollY", webView.getScrollY(), DimenUtil.leadImageHeightForDevice(requireActivity()));
                 anim.setDuration(animDuration)
@@ -262,6 +265,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         });
                 anim.start();
             } else {
+                scrolledUpForThemeChange = false;
                 showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
             }
         }
@@ -352,7 +356,16 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         errorView = rootView.findViewById(R.id.page_error);
         imageTransitionHolder = rootView.findViewById(R.id.page_image_transition_holder);
 
+        if (savedInstanceState != null) {
+            scrolledUpForThemeChange = savedInstanceState.getBoolean(ARG_THEME_CHANGE_SCROLLED, false);
+        }
         return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(ARG_THEME_CHANGE_SCROLLED, scrolledUpForThemeChange);
     }
 
     @Override
@@ -1318,7 +1331,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public void onCancel() {
+    public void onCancelThemeChooser() {
+        if (scrolledUpForThemeChange) {
+            final int animDuration = 250;
+            ObjectAnimator.ofInt(webView, "scrollY", webView.getScrollY(), 0)
+                    .setDuration(animDuration)
+                    .start();
+        }
     }
 
     @Override
