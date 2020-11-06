@@ -10,7 +10,6 @@ import org.wikipedia.feed.model.CardType;
 
 public class AnnouncementCard extends Card {
     @NonNull private final Announcement announcement;
-    private boolean isDialog;
 
     public AnnouncementCard(@NonNull Announcement announcement) {
         this.announcement = announcement;
@@ -56,12 +55,8 @@ public class AnnouncementCard extends Card {
         return announcement.hasBorder();
     }
 
-    public void isDialog(boolean isDialog) {
-        this.isDialog = isDialog;
-    }
-
-    public boolean isDialog() {
-        return isDialog;
+    @NonNull public String placement() {
+        return announcement.placement();
     }
 
     @NonNull @Override public Uri image() {

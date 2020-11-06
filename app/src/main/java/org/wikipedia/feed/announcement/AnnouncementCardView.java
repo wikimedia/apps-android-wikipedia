@@ -26,6 +26,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
+
 public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> {
     public interface Callback {
         void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri);
@@ -100,7 +102,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
             container.setDefaultBorder();
         }
 
-        if (card.isDialog()) {
+        if (card.placement().equals(PLACEMENT_ARTICLE)) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) container.getLayoutParams();
             layoutParams.setMarginStart(0);
             layoutParams.setMarginEnd(0);
