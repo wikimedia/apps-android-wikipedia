@@ -83,7 +83,6 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
 
         PageTitle pageTitle = ((EditSectionActivity)requireActivity()).getPageTitle();
         model.setTitle(pageTitle);
-        model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 

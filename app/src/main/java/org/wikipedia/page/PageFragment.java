@@ -274,10 +274,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return model.getTitle();
     }
 
-    @Nullable public PageTitle getTitleOriginal() {
-        return model.getTitleOriginal();
-    }
-
     @NonNull public ShareHandler getShareHandler() {
         return shareHandler;
     }
@@ -770,7 +766,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         errorView.setVisibility(View.GONE);
 
         model.setTitle(title);
-        model.setTitleOriginal(title);
         model.setCurEntry(entry);
         model.setReadingListPage(null);
         model.setForceNetwork(isRefresh);
@@ -833,7 +828,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully);
             // and reload the page...
-            loadPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
+            loadPage(model.getTitle(), model.getCurEntry(), false, false);
         }
     }
 
