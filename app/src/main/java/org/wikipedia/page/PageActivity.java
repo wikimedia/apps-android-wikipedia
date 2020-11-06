@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -28,7 +27,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
@@ -57,6 +55,7 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.talk.TalkTopicsActivity;
@@ -65,6 +64,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
@@ -126,6 +126,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
+    @BindView(R.id.page_toolbar_button_search) View searchButton;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -134,7 +135,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private Set<ActionMode> currentActionModes = new HashSet<>();
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    private PageToolbarHideHandler toolbarHideHandler;
+    private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -182,15 +183,17 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
+        searchButton.setOnClickListener(view -> startActivity(SearchActivity.newIntent(PageActivity.this, TOOLBAR, null)));
 
-        toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
+        tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
+        FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
+        tabsButton.updateTabCount();
+
+        toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
 
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         containerWithNavTrigger.setCallback(this);
 
-        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().setStatusBarColor(ContextCompat.getColor(pageFragment.requireContext(), R.color.black12));
         ViewCompat.setOnApplyWindowInsetsListener(drawerLayout, (v, insets) -> {
             toolbarContainerView.setPadding(0, insets.getSystemWindowInsetTop(), 0, 0);
             pageFragment.updateInsets(insets);
@@ -200,7 +203,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                pageFragment.openSearchActivity(TOOLBAR);
+                startActivity(SearchActivity.newIntent(this, TOOLBAR, null));
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -216,18 +219,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
         }
-    }
-
-    public void requestLightStatusBar(boolean light) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return;
-        }
-        if (app.getCurrentTheme().isDark()) {
-            return;
-        }
-        getWindow().getDecorView().setSystemUiVisibility(light
-                ? getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                : getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -602,16 +593,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageHideAllContent() {
-        toolbarHideHandler.setFadeEnabled(false);
-    }
-
-    @Override
-    public void onPageSetToolbarFadeEnabled(boolean enabled) {
-        toolbarHideHandler.setFadeEnabled(enabled);
-    }
-
-    @Override
     public void onPageSetToolbarElevationEnabled(boolean enabled) {
         toolbarContainerView.setElevation(DimenUtil.dpToPx(enabled ? DimenUtil.getDimension(R.dimen.toolbar_default_elevation) : 0));
     }
@@ -798,8 +779,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeFinished(ActionMode mode) {
         super.onActionModeFinished(mode);
         currentActionModes.remove(mode);
-        toolbarHideHandler.onScrolled(pageFragment.getWebView().getScrollY(),
-                pageFragment.getWebView().getScrollY());
     }
 
     protected void clearActionBarTitle() {

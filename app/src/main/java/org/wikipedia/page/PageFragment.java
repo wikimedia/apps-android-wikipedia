@@ -155,8 +155,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
-        void onPageHideAllContent();
-        void onPageSetToolbarFadeEnabled(boolean enabled);
         void onPageSetToolbarElevationEnabled(boolean enabled);
         void onPageCloseActionMode();
     }
@@ -239,7 +237,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onSearchTabSelected() {
-            openSearchActivity(PAGE_ACTION_TAB);
+            showFindInPage();
         }
 
         @Override
@@ -345,6 +343,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         refreshView.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
+        int swipeOffset = getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
+        refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
 
         tabLayout = rootView.findViewById(R.id.page_actions_tab_layout);
         tabLayout.setPageActionTabsCallback(pageActionTabsCallback);
@@ -440,12 +440,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             pageFragmentLoadState.loadFromBackStack();
         } else {
             loadMainPageInForegroundTab();
-        }
-    }
-
-    void setToolbarFadeEnabled(boolean enabled) {
-        if (callback() != null) {
-            callback().onPageSetToolbarFadeEnabled(enabled);
         }
     }
 
@@ -1248,9 +1242,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         leadImagesHandler.hide();
         bridge.loadBlankPage();
         webView.setVisibility(View.INVISIBLE);
-        if (callback() != null) {
-            callback().onPageHideAllContent();
-        }
     }
 
     @Override

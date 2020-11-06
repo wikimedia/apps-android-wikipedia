@@ -140,7 +140,6 @@ public class PageFragmentLoadState {
     public void onConfigurationChanged() {
         leadImagesHandler.loadLeadImage();
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
-        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
@@ -242,7 +241,6 @@ public class PageFragmentLoadState {
 
         leadImagesHandler.loadLeadImage();
 
-        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
         fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
