@@ -93,6 +93,10 @@ public class PageSummary {
         return thumbnail == null ? null : thumbnail.getUrl();
     }
 
+    public void setDescription(@Nullable String description) {
+        this.description = description;
+    }
+
     @Nullable
     public String getDescription() {
         return description;
