@@ -130,7 +130,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
         disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true, MAX_RETRY_LIMIT)
                 .map {
-                    if (it.second.description.isNullOrEmpty()) {
+                    if (it.first.description.isNullOrEmpty()) {
                         throw EditingSuggestionsProvider.ListEmptyException()
                     }
                     it
@@ -139,8 +139,8 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
-                    val source = pair.second
-                    val target = pair.first
+                    val source = pair.first
+                    val target = pair.second
 
                     val sourceSummary = PageSummaryForEdit(
                             source.apiTitle,
