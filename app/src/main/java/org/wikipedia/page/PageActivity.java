@@ -853,12 +853,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
                     Prefs.shouldShowBookmarkToolTip(false);
                 }
-                if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitleOriginal() == null) {
+                if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitle() == null) {
                     return;
                 }
                 for (ReadingListPage page : ((ArticleSavedOrDeletedEvent) event).getPages()) {
-                    if (page.apiTitle().equals(pageFragment.getTitleOriginal().getPrefixedText())
-                            && page.wiki().languageCode().equals(pageFragment.getTitleOriginal().getWikiSite().languageCode())) {
+                    if (page.apiTitle().equals(pageFragment.getTitle().getPrefixedText())
+                            && page.wiki().languageCode().equals(pageFragment.getTitle().getWikiSite().languageCode())) {
                         pageFragment.updateBookmarkAndMenuOptionsFromDao();
                     }
                 }

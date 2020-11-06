@@ -50,7 +50,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
     @NonNull
     @Override
     public WikiSite getWikiSite() {
-        return fragment.getTitleOriginal().getWikiSite();
+        return fragment.getTitle().getWikiSite();
     }
 
     @Nullable
