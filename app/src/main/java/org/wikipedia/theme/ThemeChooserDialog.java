@@ -26,7 +26,6 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -59,7 +58,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     public interface Callback {
         void onToggleDimImages();
-        void onCancel();
+        void onCancelThemeChooser();
     }
 
     private enum FontSizeAction { INCREASE, DECREASE, RESET }
@@ -120,9 +119,8 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         });
 
         updateComponents();
-        if (!(requireActivity() instanceof PageActivity)) {
-            disableBackgroundDim();
-        }
+        disableBackgroundDim();
+        setNavigationBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
         return rootView;
     }
 
@@ -155,11 +153,11 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @Override
-    public void onCancel(DialogInterface dialog) {
+    public void onCancel(@NonNull DialogInterface dialog) {
         super.onCancel(dialog);
         if (callback() != null) {
             // noinspection ConstantConditions
-            callback().onCancel();
+            callback().onCancelThemeChooser();
         }
     }
 
