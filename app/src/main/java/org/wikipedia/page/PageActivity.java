@@ -18,10 +18,8 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -674,15 +672,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
             Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
             if (uri == null || DimenUtil.isLandscape(this)) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-                layoutParams.topMargin = DimenUtil.getToolbarHeightPx(this)
-                        + DimenUtil.getStatusBarHeightPx(this)
-                        + (int) DimenUtil.dpToPx(16f);
                 wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
-                wikiArticleCardView.setLayoutParams(layoutParams);
             } else {
                 wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                        DimenUtil.leadImageHeightForDevice(this)));
+                        DimenUtil.leadImageHeightForDevice(this) - DimenUtil.getToolbarHeightPx(this)));
                 wikiArticleCardView.getImageContainer().setVisibility(View.VISIBLE);
                 wikiArticleCardView.getImageView().loadImage(uri);
             }

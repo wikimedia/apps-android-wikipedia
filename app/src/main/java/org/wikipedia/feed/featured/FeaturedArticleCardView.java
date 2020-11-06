@@ -142,7 +142,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             wikiArticleCardView.getImageContainer().setVisibility(GONE);
         } else {
             wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    (int) (DimenUtil.leadImageHeightForDevice(getContext()) - SUM_OF_CARD_HORIZONTAL_MARGINS)));
+                    (int) (DimenUtil.leadImageHeightForDevice(getContext()) - DimenUtil.getToolbarHeightPx(getContext()) - SUM_OF_CARD_HORIZONTAL_MARGINS)));
             wikiArticleCardView.getImageContainer().setVisibility(VISIBLE);
             wikiArticleCardView.getImageView().loadImage(uri);
             ImageZoomHelper.setViewZoomable(wikiArticleCardView.getImageView());
