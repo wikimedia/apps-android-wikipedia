@@ -45,7 +45,7 @@
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
-    <string name="menu_page_find_in_page">Find in page</string>
+    <string name="menu_page_find_in_page">Find in article</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -326,7 +326,7 @@
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
-    <string name="nav_item_donate">Support Wikipedia</string>
+    <string name="nav_item_donate">Donate</string>
     <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
     <string name="location_service_disabled">Location services are disabled.</string>
     <string name="enable_location_service">Enable</string>

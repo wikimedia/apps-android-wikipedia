@@ -243,8 +243,8 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
-                    val source = pair.second
-                    val target = pair.first
+                    val source = pair.first
+                    val target = pair.second
 
                     sourceSummaryForEdit = PageSummaryForEdit(
                             source.apiTitle,

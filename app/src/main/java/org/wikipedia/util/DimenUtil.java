@@ -92,10 +92,9 @@ public final class DimenUtil {
         return WikipediaApp.getInstance().getResources();
     }
 
-
-    public static float getStatusBarHeight(Context context) {
+    public static int getStatusBarHeightPx(Context context) {
         int id = getStatusBarId(context);
-        return id > 0 ? DimenUtil.getDimension(id) : 0;
+        return id > 0 ? roundedDpToPx(getDimension(id)) : 0;
     }
 
     public static float getNavigationBarHeight(Context context) {

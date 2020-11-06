@@ -35,12 +35,29 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/page_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/PageToolbarTheme"
+                app:contentInsetStartWithNavigation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|end">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/page_toolbar_button_search"
+                        android:layout_width="0dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/search_hint"
+                        android:textColor="?attr/material_theme_secondary_color"
+                        android:background="@drawable/shape_search_box"
+                        android:drawablePadding="8dp"
+                        android:paddingStart="12dp"
+                        android:layout_marginEnd="4dp"
+                        app:drawableTint="?attr/material_theme_de_emphasised_color"
+                        app:drawableStartCompat="@drawable/ic_search_themed_24dp"/>
 
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
@@ -59,7 +76,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                        app:tint="?attr/toolbar_icon_color" />
+                        app:tint="?attr/material_theme_de_emphasised_color" />
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
 

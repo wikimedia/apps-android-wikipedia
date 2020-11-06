@@ -73,7 +73,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             TRANSLATE_DESCRIPTION -> {
                 disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
                         .map {
-                            if (it.second.description.isNullOrEmpty()) {
+                            if (it.first.description.isNullOrEmpty()) {
                                 throw EditingSuggestionsProvider.ListEmptyException()
                             }
                             it
@@ -82,8 +82,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pair ->
-                            val source = pair.second
-                            val target = pair.first
+                            val source = pair.first
+                            val target = pair.second
 
                             sourceSummaryForEdit = PageSummaryForEdit(
                                     source.apiTitle,

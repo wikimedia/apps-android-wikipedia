@@ -59,7 +59,6 @@ import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
-import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.SiteInfoClient;
@@ -582,13 +581,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
 
         @Override
-        public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
+        public void historyClick() {
+            if (!(getCurrentFragment() instanceof HistoryFragment)) {
+                goToTab(NavTab.SEARCH);
+            }
         }
 
         @Override
-        public void aboutClick() {
-            startActivity(new Intent(requireActivity(), AboutActivity.class));
+        public void settingsClick() {
+            startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
         }
     }
 }

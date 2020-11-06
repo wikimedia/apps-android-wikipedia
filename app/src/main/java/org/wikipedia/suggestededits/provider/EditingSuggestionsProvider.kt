@@ -80,7 +80,7 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode()), WikiSite.normalizeLanguageCode(targetLang))
                         .map { pages ->
-                            var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
+                            var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
@@ -92,28 +92,34 @@ object EditingSuggestionsProvider {
                                         || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                                     continue
                                 }
-                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki)
-                                        to PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
+                                val sourceTitle = PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)
+                                sourceTitle.description = entity.descriptions()[sourceWiki.languageCode()]?.value()
+                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
                             }
                             if (!articlesWithTranslatableDescriptionCache.empty()) {
-                                sourceAndTargetPageTitles = articlesWithTranslatableDescriptionCache.pop()
+                                targetAndSourcePageTitles = articlesWithTranslatableDescriptionCache.pop()
                             }
-                            if (sourceAndTargetPageTitles == null) {
+                            if (targetAndSourcePageTitles == null) {
                                 throw ListEmptyException()
                             }
-                            sourceAndTargetPageTitles
+                            targetAndSourcePageTitles
                         }
                         .retry(retryLimit) { t: Throwable ->
                             t is ListEmptyException
                         }
             }
-        }.flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
+        }.flatMap { getSummary(it) }
                 .doFinally { mutex.release() }
     }
 
-    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
-        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
-                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText), { source, target -> Pair(source, target) })
+    private fun getSummary(targetAndSourcePageTitles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
+        return Observable.zip(ServiceFactory.getRest(targetAndSourcePageTitles.first.wikiSite).getSummary(null, targetAndSourcePageTitles.first.prefixedText),
+                ServiceFactory.getRest(targetAndSourcePageTitles.second.wikiSite).getSummary(null, targetAndSourcePageTitles.second.prefixedText), { target, source ->
+            if (target.description.isNullOrEmpty()) {
+                target.description = targetAndSourcePageTitles.first.description
+            }
+            Pair(source, target)
+        })
     }
 
     fun getNextImageWithMissingCaption(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<String> {
