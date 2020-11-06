@@ -135,7 +135,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private Set<ActionMode> currentActionModes = new HashSet<>();
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    private PageToolbarHideHandler toolbarHideHandler;
+    private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -187,8 +187,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
+        tabsButton.updateTabCount();
 
-        toolbarHideHandler = new PageToolbarHideHandler(toolbarContainerView, tabsButton);
+        toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
 
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         containerWithNavTrigger.setCallback(this);
@@ -778,8 +779,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeFinished(ActionMode mode) {
         super.onActionModeFinished(mode);
         currentActionModes.remove(mode);
-        toolbarHideHandler.onScrolled(pageFragment.getWebView().getScrollY(),
-                pageFragment.getWebView().getScrollY());
     }
 
     protected void clearActionBarTitle() {
