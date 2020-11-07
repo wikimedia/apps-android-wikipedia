@@ -46,6 +46,11 @@
     <string name="preference_developer_suggested_edits_reward_interstitial_edit_quality_on_day">Show the edit quality card on every [number] day.\nDefault is 14</string>
     <string name="preference_developer_suggested_edits_reward_interstitial_pageviews_on_day">Show the pageviews card on every [number] day.\nDefault is 30</string>
     <string name="preference_developer_suggested_edits_reward_interstitial_QA_override">This will override the existing logic and show the reward interstitial sequentially by swiping to the next card</string>
+
+    <string name="preference_developer_event_platform_intake_base_uri_title">Override Event Platform intake base URI</string>
+    <string name="preference_developer_send_event_platform_test_event_title">Send test event</string>
+    <string name="preference_developer_send_event_platform_test_event_summary">Send a test event to the configured Event Platform intake endpoint</string>
+
     <string name="preference_developer_clear_all_talk_topics">clearAllTalkTopics</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
