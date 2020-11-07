@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.util.Pair
+import org.wikipedia.settings.Prefs
 
 object TransitionUtil {
     @JvmStatic
@@ -15,7 +16,9 @@ object TransitionUtil {
             if (it is TextView && it.text.isNotEmpty()) {
                 shareElements.add(Pair(it, it.transitionName))
             }
-            if (it is ImageView && it.visibility == View.VISIBLE && !DimenUtil.isLandscape(context)) {
+            if (it is ImageView && it.visibility == View.VISIBLE
+                    && !DimenUtil.isLandscape(context)
+                    && Prefs.isImageDownloadEnabled()) {
                 shareElements.add(Pair(it, it.transitionName))
             }
         }
