@@ -67,7 +67,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
             galleryImage.visibility = GONE
         } else {
             galleryImage.visibility = VISIBLE
-            ViewUtil.loadImageWithWhiteBackground(galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
+            ViewUtil.loadImage(galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
         }
         licenseView.darkLicenseView()
     }
