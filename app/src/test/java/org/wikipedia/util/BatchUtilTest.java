@@ -13,8 +13,8 @@ import org.wikipedia.testlib.TestLatch;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 @RunWith(RobolectricTestRunner.class) public class BatchUtilTest {
     private ArrayList<PageTitle> titles;
