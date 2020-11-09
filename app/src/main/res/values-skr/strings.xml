@@ -35,7 +35,7 @@
   <string name="search_redirect_from">%s کنوں ری ڈائرکٹ تھی ڳیا</string>
   <string name="menu_page_show_tabs">ٹیب ݙکھاؤ</string>
   <string name="menu_page_other_languages">زبان وٹاؤ</string>
-  <string name="menu_page_find_in_page">ورقے وچ ڳولو</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ورقے وچ ڳولو</string>
   <string name="menu_page_font_and_theme">فانٹ  تے تھیم</string>
   <string name="menu_page_add_to_list">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="menu_page_add_to_default_list">بچاؤ</string>

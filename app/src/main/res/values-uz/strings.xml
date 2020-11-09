@@ -47,7 +47,7 @@
   <string name="search_redirect_from">%s dan yo‘naltirildi</string>
   <string name="menu_page_show_tabs">Tablarni ko‘rsatish</string>
   <string name="menu_page_other_languages">Boshqa tillarda o‘qish</string>
-  <string name="menu_page_find_in_page">Sahifadan topish</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Sahifadan topish</string>
   <string name="edit_section_find_in_page">Sahifadan topish</string>
   <string name="menu_page_font_and_theme">Shrift va mavzu</string>
   <string name="menu_page_add_to_list">O‘qish ro‘yxati qo‘shish</string>
@@ -287,7 +287,7 @@
   <string name="preference_summary_show_link_previews">Havolalarni bosish paytida maqolalarni tezda ko‘rib chiqishni ko‘rsating.</string>
   <string name="preference_title_collapse_tables">Xatcho‘plarni yopmoq</string>
   <string name="preference_summary_collapse_tables">Infoboks, ma’lumotnomalar va eslatmalar kabi maqolalardagi jadvallar avtomatik ravishda yopiladi.</string>
-  <string name="nav_item_donate">Qo‘llab-quvvatlamoq</string>
+  <string name="nav_item_donate" fuzzy="true">Qo‘llab-quvvatlamoq</string>
   <string name="error_voice_search_not_available">Ovoz aniqlashtirgich mavjud emas.</string>
   <string name="location_service_disabled">Joylashuv xizmatlari o‘chirilgan.</string>
   <string name="enable_location_service">Yoqmoq</string>

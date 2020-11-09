@@ -39,7 +39,7 @@
   <string name="search_redirect_from">Dipindahkeun ti %s</string>
   <string name="menu_page_show_tabs">Témbongkeun tab</string>
   <string name="menu_page_other_languages">Robah basa</string>
-  <string name="menu_page_find_in_page">Panggihan dina kaca</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Panggihan dina kaca</string>
   <string name="edit_section_find_in_page">Panggihan dina kaca</string>
   <string name="menu_page_font_and_theme">Aksara jeung téma</string>
   <string name="menu_page_add_to_list">Tambahkeun kana daptar bacaan</string>
@@ -277,7 +277,7 @@
   <string name="error_no_maps_app">Teu bisa manggihan aplikasi nu méré pituduh arah.</string>
   <string name="preference_title_show_link_previews">Témbongkeun pramidang tutumbu</string>
   <string name="preference_summary_show_link_previews">Pidangkeun pramidang singget artikel sanggeus neken tutumbu.</string>
-  <string name="nav_item_donate">Rojong Wikipédia</string>
+  <string name="nav_item_donate" fuzzy="true">Rojong Wikipédia</string>
   <string name="error_voice_search_not_available">Hampura, wawanohan sora teu sayaga.</string>
   <string name="location_service_disabled">Layanan lokasi dipaéhan.</string>
   <string name="enable_location_service">Hirupan</string>

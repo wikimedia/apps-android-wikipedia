@@ -15,9 +15,9 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
 import static org.wikipedia.json.GsonMarshaller.marshal;
 import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
