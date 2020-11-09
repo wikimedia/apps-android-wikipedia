@@ -83,6 +83,9 @@ public final class NotificationPresenter {
     }
 
     public static void showMultipleUnread(@NonNull Context context, int unreadCount) {
+        // When showing the multiple-unread notification, we pass the unreadCount as the "id"
+        // purely for analytics purposes, to get a sense of how many unread notifications are
+        // typically queued up when the user has more than two of them.
         NotificationCompat.Builder builder = getDefaultBuilder(context, unreadCount, NotificationPollBroadcastReceiver.TYPE_MULTIPLE);
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
