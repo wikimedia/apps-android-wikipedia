@@ -41,7 +41,7 @@
   <string name="search_redirect_from">Redirixío dende %s</string>
   <string name="menu_page_show_tabs">Amosar llingüetes</string>
   <string name="menu_page_other_languages">Camudar llingua</string>
-  <string name="menu_page_find_in_page">Alcontrar na páxina</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Alcontrar na páxina</string>
   <string name="edit_section_find_in_page">Alcontrar na páxina</string>
   <string name="menu_page_font_and_theme">Tipografía y tema</string>
   <string name="menu_page_add_to_list">Añadir a llista de llectura</string>
@@ -305,7 +305,7 @@
   <string name="preference_summary_show_link_previews">Amosar una vista previa rápida de los artículos al pulsiar nos enllaces.</string>
   <string name="preference_title_collapse_tables">Plegar les tables</string>
   <string name="preference_summary_collapse_tables">Plegar automáticamente les tables de los artículos, tales como fiches, referencies y notes</string>
-  <string name="nav_item_donate">Sofita a Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Sofita a Wikipedia</string>
   <string name="error_voice_search_not_available">La reconocencia de voz nun ta disponible.</string>
   <string name="location_service_disabled">Los servicios de llocalización tan desactivaos.</string>
   <string name="enable_location_service">Activar</string>

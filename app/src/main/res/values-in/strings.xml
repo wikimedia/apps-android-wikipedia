@@ -68,7 +68,7 @@
   <string name="search_redirect_from">Dialihkan dari %s</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ubah bahasa</string>
-  <string name="menu_page_find_in_page">Cari di halaman</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Cari di halaman</string>
   <string name="edit_section_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke daftar bacaan</string>
@@ -343,7 +343,7 @@
   <string name="preference_summary_show_link_previews">Tampilkan pratayang singkat artikel setelah menekan pranala.</string>
   <string name="preference_title_collapse_tables">Ciutkan tabel</string>
   <string name="preference_summary_collapse_tables">Secara otomatis menciutkan tabel dalam artikel, seperti kotak info, referensi, dan catatan.</string>
-  <string name="nav_item_donate">Dukung Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Dukung Wikipedia</string>
   <string name="error_voice_search_not_available">Maaf, pengenalan suara tidak tersedia.</string>
   <string name="location_service_disabled">Layanan lokasi dinonaktifkan.</string>
   <string name="enable_location_service">Aktifkan</string>

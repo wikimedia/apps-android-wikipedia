@@ -85,7 +85,7 @@
   <string name="search_redirect_from">Redirigé depuis %s</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
-  <string name="menu_page_find_in_page">Rechercher dans la page</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Rechercher dans la page</string>
   <string name="edit_section_find_in_page">Trouver dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
@@ -360,7 +360,7 @@
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
-  <string name="nav_item_donate">Soutenir Wikipédia</string>
+  <string name="nav_item_donate" fuzzy="true">Soutenir Wikipédia</string>
   <string name="error_voice_search_not_available">Désolé, la reconnaissance vocale n’est pas disponible.</string>
   <string name="location_service_disabled">Les services de géolocalisation sont désactivés.</string>
   <string name="enable_location_service">Activer</string>

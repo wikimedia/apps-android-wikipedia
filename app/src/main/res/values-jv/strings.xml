@@ -44,7 +44,7 @@
   <string name="search_redirect_from">Ingalihan saka %s</string>
   <string name="menu_page_show_tabs">Tuduhaké tab</string>
   <string name="menu_page_other_languages">Owah basa</string>
-  <string name="menu_page_find_in_page">Golèk ing kaca</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Golèk ing kaca</string>
   <string name="edit_section_find_in_page">Golèk ing kaca</string>
   <string name="menu_page_font_and_theme">Fon lan irah-irahan</string>
   <string name="menu_page_add_to_list">Wuwuhaké ing pratélan wacan</string>
@@ -291,7 +291,7 @@
   <string name="error_no_maps_app">Ora bisa nemu aplikasi kang nyawisaké pituduh.</string>
   <string name="preference_title_show_link_previews">Tuduhaké pratuduhing pranala</string>
   <string name="preference_summary_show_link_previews">Tuduhaké pratuduh rikat saka artikel nalika nunyuk ing pranala.</string>
-  <string name="nav_item_donate">Sengkuyung Wikipédia</string>
+  <string name="nav_item_donate" fuzzy="true">Sengkuyung Wikipédia</string>
   <string name="error_voice_search_not_available">Nyuwun pangapura, paniti swara ora cumawis.</string>
   <string name="location_service_disabled">Layanan pernah mati.</string>
   <string name="enable_location_service">Urubaké</string>

@@ -37,7 +37,7 @@
   <string name="search_redirect_from">%s битеннән юнәлтелде</string>
   <string name="menu_page_show_tabs">Өстәмәләрне курсәтү</string>
   <string name="menu_page_other_languages">Телне сайлау</string>
-  <string name="menu_page_find_in_page">Биттә табу</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Биттә табу</string>
   <string name="edit_section_find_in_page">Биттә табу</string>
   <string name="menu_page_font_and_theme">Шрифтны һәм бизәлешне үзгәртү</string>
   <string name="menu_page_add_to_list">Уку исемлегенә өстәү</string>

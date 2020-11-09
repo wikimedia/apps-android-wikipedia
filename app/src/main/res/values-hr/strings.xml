@@ -52,7 +52,7 @@
   <string name="search_redirect_from">Preusmjereno sa %s</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promijeni jezik</string>
-  <string name="menu_page_find_in_page">Pronađi na stranici</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Pronađi na stranici</string>
   <string name="edit_section_find_in_page">Traži na stranici</string>
   <string name="menu_page_font_and_theme">Vrsta pisma i dizajn stranice</string>
   <string name="menu_page_add_to_list">Dodaj na popis za čitanje</string>
@@ -312,7 +312,7 @@
   <string name="preference_summary_show_link_previews">Prikaži brzi pregled članka pritiskom na link</string>
   <string name="preference_title_collapse_tables">Sažmi tablice</string>
   <string name="preference_summary_collapse_tables">U članku automatski skuplja tablice kao što su infookviri, izvori i bilješke.</string>
-  <string name="nav_item_donate">Podržite Wikipediju</string>
+  <string name="nav_item_donate" fuzzy="true">Podržite Wikipediju</string>
   <string name="error_voice_search_not_available">Nažalost, prepoznavanje govora nije dostupno.</string>
   <string name="location_service_disabled">Lokacijske usluge su onemogućene.</string>
   <string name="enable_location_service">Omogući</string>

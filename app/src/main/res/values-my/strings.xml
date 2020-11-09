@@ -55,7 +55,7 @@
   <string name="search_redirect_from">%s မှ ပြန်ညွှန်းထားသည်</string>
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
-  <string name="menu_page_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
+  <string name="menu_page_find_in_page" fuzzy="true">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
   <string name="menu_page_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
@@ -323,7 +323,7 @@
   <string name="preference_summary_show_link_previews">လင့်ခ်များအား နှိပ်ခြင်းဖြင့် ဆောင်းပါးနမူနာအား ပြသပါ။</string>
   <string name="preference_title_collapse_tables">ဇယားများ ချဲ့ရန်</string>
   <string name="preference_summary_collapse_tables">ဆောင်းပါးများရှိ infobox များ၊ အကိုးအကားများနှင့် မှတ်စုများကဲ့သို့သော ဇယားများကို အလိုအလျောက် ချဲ့ကားစေမည်</string>
-  <string name="nav_item_donate">ဝီကီပီးဒီးယားကို ကူညီထောက်ပံ့</string>
+  <string name="nav_item_donate" fuzzy="true">ဝီကီပီးဒီးယားကို ကူညီထောက်ပံ့</string>
   <string name="error_voice_search_not_available">စိတ်မကောင်းပါ။ အသံမှတ်သားခိုင်းစေခြင်း မရရှိနိုင်ပါ။</string>
   <string name="location_service_disabled">တည်နေရာဝန်ဆောင်မှုများ ပိတ်ထားသည်။</string>
   <string name="enable_location_service">လုပ်ဆောင်ပါ</string>

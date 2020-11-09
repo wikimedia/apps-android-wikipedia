@@ -41,7 +41,7 @@
   <string name="search_redirect_from">Перанакіравана з %s</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>
   <string name="menu_page_other_languages">Зьмяніць мову</string>
-  <string name="menu_page_find_in_page">Знайсьці на старонцы</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Знайсьці на старонцы</string>
   <string name="edit_section_find_in_page">Знайсьці на старонцы</string>
   <string name="menu_page_font_and_theme">Шрыфт і афармленьне</string>
   <string name="menu_page_add_to_list">Дадаць у сьпіс чытаньня</string>
@@ -230,7 +230,7 @@
   <string name="error_no_maps_app">Немагчыма знайсьці дастасаваньняў якія падаюць накіраваньні.</string>
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі выгляд артыкулаў пры доўгім націсканьні на спасылку.</string>
-  <string name="nav_item_donate">Падтрымаць Вікіпэдыю</string>
+  <string name="nav_item_donate" fuzzy="true">Падтрымаць Вікіпэдыю</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>

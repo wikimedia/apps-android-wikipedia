@@ -45,7 +45,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View listsContainer;
     private View onboardingContainer;
     private View onboardingButton;
-    private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
+    private final CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private boolean showDefaultList;
     List<ReadingList> readingLists = new ArrayList<>();
     InvokeSource invokeSource;
@@ -55,7 +55,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     static final String SHOW_DEFAULT_LIST = "showDefaultList";
 
     @Nullable private DialogInterface.OnDismissListener dismissListener;
-    private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
+    private final ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
     public static AddToReadingListDialog newInstance(@NonNull PageTitle title,
                                                      @NonNull InvokeSource source) {
@@ -273,12 +273,13 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
-    private class ReadingListItemHolder extends RecyclerView.ViewHolder {
-        private ReadingListItemView itemView;
+    private static class ReadingListItemHolder extends RecyclerView.ViewHolder {
+        private final ReadingListItemView itemView;
 
         ReadingListItemHolder(ReadingListItemView itemView) {
             super(itemView);
             this.itemView = itemView;
+            itemView.setLongClickable(false);
         }
 
         void bindItem(ReadingList readingList) {

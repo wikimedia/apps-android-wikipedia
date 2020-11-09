@@ -40,7 +40,7 @@
   <string name="search_redirect_from">%s എന്നതിൽനിന്നും തിരിച്ചുവിടപ്പെട്ടപ്രകാരം</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
   <string name="menu_page_other_languages">ഭാഷ മാറ്റുക</string>
-  <string name="menu_page_find_in_page">താളിൽ കണ്ടെത്തുക</string>
+  <string name="menu_page_find_in_page" fuzzy="true">താളിൽ കണ്ടെത്തുക</string>
   <string name="edit_section_find_in_page">താളിൽ കണ്ടെത്തുക</string>
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
   <string name="menu_page_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
@@ -255,7 +255,7 @@
   <string name="button_get_directions">ദിശ ലഭിക്കുക</string>
   <string name="preference_title_show_link_previews">കണ്ണി എങ്ങനെയുണ്ടെന്ന് കാണിക്കുക</string>
   <string name="preference_title_collapse_tables">പട്ടികകൾ അടയ്ക്കുക</string>
-  <string name="nav_item_donate">വിക്കിപീഡിയയ്ക്ക് പിന്തുണയേകുക</string>
+  <string name="nav_item_donate" fuzzy="true">വിക്കിപീഡിയയ്ക്ക് പിന്തുണയേകുക</string>
   <string name="location_service_disabled">സ്ഥലവുമായി ബന്ധപ്പെട്ട സേവനങ്ങൾ പ്രവർത്തനരഹിതമാണ്.</string>
   <string name="enable_location_service">സജ്ജമാക്കുക</string>
   <string name="location_permissions_enable_prompt">താങ്കളുടെ അടുത്തുള്ള സ്ഥലങ്ങൾ കാണുവാൻ സ്ഥലവുമായി ബന്ധപ്പെട്ട അനുമതികൾ പ്രാവർത്തികമാക്കുക.</string>

@@ -60,7 +60,7 @@
   <string name="search_redirect_from">%s szócikkből átirányítva</string>
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
   <string name="menu_page_other_languages">Nyelvváltás</string>
-  <string name="menu_page_find_in_page">Keresés a lapon</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Keresés a lapon</string>
   <string name="edit_section_find_in_page">Keresés a lapon</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_add_to_list">Hozzáadás az olvasólistához</string>
@@ -335,7 +335,7 @@
   <string name="preference_summary_show_link_previews">A szócikk rövid előnézetének megjelenítése linkek megérintésekor.</string>
   <string name="preference_title_collapse_tables">Táblázatok összecsukása</string>
   <string name="preference_summary_collapse_tables">Automatikusan összecsukja a szócikkek táblázatait, mint például az infoboxokat, jegyzeteket és megjegyzéseket.</string>
-  <string name="nav_item_donate">Támogasd a Wikipédiát!</string>
+  <string name="nav_item_donate" fuzzy="true">Támogasd a Wikipédiát!</string>
   <string name="error_voice_search_not_available">Sajnáljuk, a hangfelismerés nem elérhető.</string>
   <string name="location_service_disabled">A helyszolgáltatások nem érhetők el.</string>
   <string name="enable_location_service">Engedélyezés</string>
