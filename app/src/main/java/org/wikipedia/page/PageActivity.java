@@ -671,7 +671,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             pageFragmentView.setVisibility(View.GONE);
 
             Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
-            if (uri == null || DimenUtil.isLandscape(this)) {
+            if (uri == null || DimenUtil.isLandscape(this) || !Prefs.isImageDownloadEnabled()) {
                 wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
             } else {
                 wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
