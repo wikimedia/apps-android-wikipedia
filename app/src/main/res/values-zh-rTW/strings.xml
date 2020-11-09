@@ -64,7 +64,7 @@
   <string name="search_redirect_from">重新導向自 %s</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
-  <string name="menu_page_find_in_page">於頁面尋找</string>
+  <string name="menu_page_find_in_page" fuzzy="true">於頁面尋找</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
@@ -339,7 +339,7 @@
   <string name="preference_summary_show_link_previews">在輕觸連結時，顯示條目的快速預覽。</string>
   <string name="preference_title_collapse_tables">折疊表格</string>
   <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
-  <string name="nav_item_donate">支持維基百科</string>
+  <string name="nav_item_donate" fuzzy="true">支持維基百科</string>
   <string name="error_voice_search_not_available">很抱歉，不提供語音辨識。</string>
   <string name="location_service_disabled">已停用位置服務。</string>
   <string name="enable_location_service">啟用</string>

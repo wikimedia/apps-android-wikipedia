@@ -34,7 +34,7 @@
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
-  <string name="menu_page_find_in_page">పుటలో వెతకండి</string>
+  <string name="menu_page_find_in_page" fuzzy="true">పుటలో వెతకండి</string>
   <string name="menu_page_font_and_theme">ఖతి, అలంకారం</string>
   <string name="menu_page_add_to_default_list">భద్రపరుచు</string>
   <string name="feed_card_add_to_default_list">భద్రపరుచు</string>
@@ -206,7 +206,7 @@
   <string name="button_continue_to_disambiguation">ఇటువంటి పేజీలను చూడండి</string>
   <string name="link_preview_disambiguation_description">ఈ శీర్షిక ఒకటికంటే ఎక్కువ పేజీలకు చెందుతుంది:</string>
   <string name="button_get_directions">నిర్దేశాలను పొందండి</string>
-  <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
+  <string name="nav_item_donate" fuzzy="true">వికీపీడియాకి తోడ్పడండి</string>
   <string name="empty_tab_title">కొత్త ట్యాబు</string>
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>

@@ -54,7 +54,7 @@
   <string name="search_redirect_from">%s से अनुप्रेषित</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
-  <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
+  <string name="menu_page_find_in_page" fuzzy="true">पृष्ठ में ढूंढें</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_add_to_list">पढ़ने वाली सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
@@ -269,7 +269,7 @@
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>
   <string name="preference_summary_show_link_previews">लिंक्स पर टैप करने पर लेख का छोटा प्रीव्यू दिखाएँ।</string>
-  <string name="nav_item_donate">विकिपीडिया का साथ दें</string>
+  <string name="nav_item_donate" fuzzy="true">विकिपीडिया का साथ दें</string>
   <string name="error_voice_search_not_available">क्षमा करें, आवाज की पहचान उपलब्ध नहीं है।</string>
   <string name="location_service_disabled">स्थिति सेवाएं बंद हैं।</string>
   <string name="enable_location_service">चालू करें</string>

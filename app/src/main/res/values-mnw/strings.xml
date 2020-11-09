@@ -43,7 +43,7 @@
   <string name="search_redirect_from">ကလေင်ထ္ၜး နူကဵု %s</string>
   <string name="menu_page_show_tabs">ထ္ၜး မုက်တေပ်</string>
   <string name="menu_page_other_languages">သၠာဲ အရေဝ်ဘာသာ</string>
-  <string name="menu_page_find_in_page">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
   <string name="edit_section_find_in_page">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
   <string name="menu_page_font_and_theme">ဝှန် ကေုာံ ပရူပရာ</string>
   <string name="menu_page_add_to_list">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
@@ -310,7 +310,7 @@
   <string name="preference_summary_show_link_previews">ထ္ၜး ဗဗဵုကၠာ လိက်ပရေင် ကာလ ကောန်လဴ မၞုံ လတူလေန်၊၊</string>
   <string name="preference_title_collapse_tables">ပဒေါမ်ဖျေံသ္ၚိအၚ်တအ်</string>
   <string name="preference_summary_collapse_tables">ပ္ဍဲလိက်ပရေၚ်ဂမၠိုၚ် ပဒေါမ်ဖျေံသ္ၚိအၚ်တအ်အလဵုလဵု, ညံၚ်ရဴ ကဠာတၚ်နၚ်ဂမၠိုၚ်, စၞောန်ဂမၠိုၚ်, ကေုာံ တၚ်စၟတ်ဂမၠိုၚ်.</string>
-  <string name="nav_item_donate">ထံက်ပင် ဝဳကဳပဳဒဳယာ</string>
+  <string name="nav_item_donate" fuzzy="true">ထံက်ပင် ဝဳကဳပဳဒဳယာ</string>
   <string name="error_voice_search_not_available">သၠးအခေါင်၊ ဝှာင်ရမ္သာင်ဂှ် ဟွံလုပ်အဝေါင်၊၊</string>
   <string name="location_service_disabled">Location services ဂှ် လုပ်ဟွံဂွံ၊၊</string>
   <string name="enable_location_service">ဒှ်မာန်</string>

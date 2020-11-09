@@ -54,7 +54,7 @@
   <string name="search_redirect_from">เปลี่ยนทางจาก %s</string>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
-  <string name="menu_page_find_in_page">ค้นหาในหน้า</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ค้นหาในหน้า</string>
   <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
   <string name="menu_page_font_and_theme">แบบอักษรและชุดตกแต่ง</string>
   <string name="menu_page_add_to_list">เพิ่มในรายการอ่าน</string>
@@ -314,7 +314,7 @@
   <string name="preference_summary_show_link_previews">แสดงตัวอย่างอย่างเร็วของบทความ เมื่อแตะบนลิงก์</string>
   <string name="preference_title_collapse_tables">ยุบตาราง</string>
   <string name="preference_summary_collapse_tables">ยุบตารางในบทความ เช่น กล่องข้อมูล แหล่งอ้างอิง และหมายเหตุโดยอัตโนมัติ</string>
-  <string name="nav_item_donate">สนับสนุนวิกิพีเดีย</string>
+  <string name="nav_item_donate" fuzzy="true">สนับสนุนวิกิพีเดีย</string>
   <string name="error_voice_search_not_available">ขออภัย การรับรองเสียงไม่พร้อมให้บริการ</string>
   <string name="location_service_disabled">บริการที่ตั้งถูกปิดใช้งาน</string>
   <string name="enable_location_service">เปิดใช้งาน</string>
@@ -706,9 +706,14 @@
   <string name="suggested_edits_last_edited_never">ไม่เคย</string>
   <string name="suggested_edits_task_new">ใหม่</string>
   <string name="suggested_edits_reactivation_notification_title">การแก้ไขที่แนะนำ</string>
+  <string name="suggested_edits_contributions_screen_title">เรื่องที่มีส่วนร่วมของ %s</string>
   <string name="suggested_edits_contribution_language_label">ภาษา</string>
   <string name="suggested_edits_contribution_date_time_label">วันที่ / เวลา</string>
+  <string name="suggested_edits_contribution_type_label">ชนิดการมีส่วนร่วม</string>
+  <string name="suggested_edits_contribution_image_label">ภาพ</string>
+  <string name="suggested_edits_contribution_article_label">บทความ</string>
   <string name="suggested_edits_contribution_date_yesterday_text">เมื่อวานนี้</string>
+  <string name="file_page_activity_title">หน้าไฟล์</string>
   <string name="description_edit_revert_subtitle">ขอบคุณที่แก้ไขวิกิพีเดีย!</string>
   <string name="description_edit_revert_intro">เรารู้ว่าคุณพยายามอย่างดีที่สุด แต่ผู้ตรวจทานคนใดคนหนึ่งมีข้อสงสัย เหตุผลที่เป็นไปได้ที่การแก้ไขของคุณถูกย้อนมี:</string>
   <string name="description_edit_revert_reason1">การมีส่วนร่วมของคุณไม่สอดคล้องตาม&lt;a href=\"%1$s\"&gt;แนวปฏิบัติ&lt;/a&gt;ข้อใดข้อหนึ่ง</string>

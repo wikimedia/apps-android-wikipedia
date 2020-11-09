@@ -52,7 +52,7 @@
   <string name="search_redirect_from">Presmerované z %s</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
-  <string name="menu_page_find_in_page">Nájsť na stránke</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Nájsť na stránke</string>
   <string name="edit_section_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
@@ -316,7 +316,7 @@
   <string name="preference_summary_show_link_previews">Po kliknutí na odkaz zobraziť rýchly náhľad článkov.</string>
   <string name="preference_title_collapse_tables">Zbaliť tabuľky</string>
   <string name="preference_summary_collapse_tables">Automaticky zbalí tabuľky v článkoch, ako sú infoboxy, referencie a poznámky.</string>
-  <string name="nav_item_donate">Podporte Wikipédiu</string>
+  <string name="nav_item_donate" fuzzy="true">Podporte Wikipédiu</string>
   <string name="error_voice_search_not_available">Ospravedlňujeme sa, rozpoznávanie hlasu nie je k dispozícii.</string>
   <string name="location_service_disabled">Služby určovania polohy sú zakázané.</string>
   <string name="enable_location_service">Povoliť</string>

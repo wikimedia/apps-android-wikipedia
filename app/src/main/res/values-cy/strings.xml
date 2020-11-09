@@ -42,7 +42,7 @@
   <string name="search_redirect_from">Ailgyfeiriad o %s</string>
   <string name="menu_page_show_tabs">Dangos y tabiau</string>
   <string name="menu_page_other_languages">Efallai y dylid uwchraddio\'r cyfieithiad hwn</string>
-  <string name="menu_page_find_in_page">Chwilio yn y dudalen</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Chwilio yn y dudalen</string>
   <string name="edit_section_find_in_page">Chwilio yn y dudalen</string>
   <string name="menu_page_font_and_theme">Ffont a thema</string>
   <string name="menu_page_add_to_list">Ychwanegu at y rhestr ddarllen</string>
@@ -246,7 +246,7 @@
   <string name="error_no_maps_app">Methwyd a chael hyd i apiau-canfod-cyfarwyddiadau.</string>
   <string name="preference_title_show_link_previews">Dangos rhagolygon dolennau</string>
   <string name="preference_summary_show_link_previews">Dangos rhagolygon cyflym o erthyglau pan rydych yn tapio\'r dolennau.</string>
-  <string name="nav_item_donate">Cefnogwch Wicipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Cefnogwch Wicipedia</string>
   <string name="error_voice_search_not_available">Ymddiheurwn! Nid yw\'r gallu i adnabod llais ar gael.</string>
   <string name="enable_location_service">Rhoi ar waith</string>
   <string name="error_webview_updating">Ceisiwch eto nes ymlaen.</string>

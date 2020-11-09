@@ -29,7 +29,7 @@
   <string name="search_redirect_from">Redirigit dempuèi %s</string>
   <string name="menu_page_show_tabs">Afichar los onglets</string>
   <string name="menu_page_other_languages">Cambiar de lenga</string>
-  <string name="menu_page_find_in_page">Recercar dins la pagina</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Recercar dins la pagina</string>
   <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
   <string name="menu_page_add_to_list">Apondre a la lista de lectura</string>
   <string name="menu_page_share">Partejar lo ligam</string>
@@ -179,7 +179,7 @@
   <string name="button_continue_to_article">Legir l’article</string>
   <string name="button_get_directions">Obténer las direccions</string>
   <string name="preference_title_show_link_previews">Afichar los apercebuts de ligam</string>
-  <string name="nav_item_donate">Sosténer Wikipèdia</string>
+  <string name="nav_item_donate" fuzzy="true">Sosténer Wikipèdia</string>
   <string name="error_voice_search_not_available">O planhèm, la reconeissença vocala es pas disponibla.</string>
   <string name="location_service_disabled">Los servicis de localizacion son desactivats.</string>
   <string name="enable_location_service">Activar</string>

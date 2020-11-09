@@ -41,7 +41,7 @@
   <string name="search_redirect_from">Preusmerjeno iz %s</string>
   <string name="menu_page_show_tabs">Pokaži zavihke</string>
   <string name="menu_page_other_languages">Spremeni jezik</string>
-  <string name="menu_page_find_in_page">Najdi na strani</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Najdi na strani</string>
   <string name="edit_section_find_in_page">Najdi na strani</string>
   <string name="menu_page_font_and_theme">Pisava in tema</string>
   <string name="menu_page_add_to_list">Dodaj na bralni seznam</string>
@@ -187,7 +187,7 @@
   <string name="button_continue_to_disambiguation">Oglej si podobne strani</string>
   <string name="button_add_to_reading_list">Dodaj na bralni seznam</string>
   <string name="button_get_directions">Pridobite navodila za pot</string>
-  <string name="nav_item_donate">Podprite Wikipedijo</string>
+  <string name="nav_item_donate" fuzzy="true">Podprite Wikipedijo</string>
   <string name="enable_location_service">Omogoči</string>
   <string name="location_permissions_enable_action">Vklopi</string>
   <string name="multi_select_items_selected">%d izbrano</string>

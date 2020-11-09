@@ -62,7 +62,7 @@
   <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
-  <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
+  <string name="menu_page_find_in_page" fuzzy="true">এই পাতায় অনুসন্ধান</string>
   <string name="edit_section_find_in_page">পাতায় খুজুন</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
@@ -311,7 +311,7 @@
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
-  <string name="nav_item_donate">দান করুন</string>
+  <string name="nav_item_donate" fuzzy="true">দান করুন</string>
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ শনাক্তকরণ উপলব্ধ নয়।</string>
   <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
   <string name="enable_location_service">সক্রিয় করুন</string>

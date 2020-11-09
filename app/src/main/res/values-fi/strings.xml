@@ -64,7 +64,7 @@
   <string name="search_redirect_from">Ohjattu sivulta %s</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieli</string>
-  <string name="menu_page_find_in_page">Etsi sivulta</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Etsi sivulta</string>
   <string name="edit_section_find_in_page">Etsi sivulta</string>
   <string name="menu_page_font_and_theme">Kirjasin ja teema</string>
   <string name="menu_page_add_to_list">Lisää lukulistaan</string>
@@ -339,7 +339,7 @@
   <string name="preference_summary_show_link_previews">Näytä pikainen artikkelien esikatselu linkkejä napautettaessa.</string>
   <string name="preference_title_collapse_tables">Supista taulukot</string>
   <string name="preference_summary_collapse_tables">Supista taulukot automaattisesti artikkeleissa, kuten tietolaatikot, viitteet ja huomautukset.</string>
-  <string name="nav_item_donate">Tue Wikipediaa</string>
+  <string name="nav_item_donate" fuzzy="true">Tue Wikipediaa</string>
   <string name="error_voice_search_not_available">Pahoittelut, puheentunnistus ei ole käytettävissä.</string>
   <string name="location_service_disabled">Sijaintipalvelut eivät ole käytössä.</string>
   <string name="enable_location_service">Ota käyttöön</string>
