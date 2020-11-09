@@ -208,7 +208,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     }
 
     private static Bitmap.Config getNonNullConfig(@NonNull Bitmap bitmap) {
-        return bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888;
+        return bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.RGB_565;
     }
 
     public static void applyMatrixWithBackground(@NonNull Bitmap inBitmap, @NonNull Bitmap targetBitmap, @NonNull Matrix matrix) {
