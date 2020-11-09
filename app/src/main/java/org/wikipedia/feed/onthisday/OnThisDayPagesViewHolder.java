@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.card.MaterialCardView;
-
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -48,14 +46,12 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     private Activity activity;
     private FragmentManager fragmentManager;
     private PageSummary selectedPage;
-    private final boolean isSingleCard;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull FragmentManager fragmentManager, @NonNull MaterialCardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
+    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull FragmentManager fragmentManager, @NonNull View v, @NonNull WikiSite wiki) {
         super(v);
         ButterKnife.bind(this, v);
         this.wiki = wiki;
-        this.isSingleCard = isSingleCard;
         this.activity = activity;
         this.fragmentManager = fragmentManager;
         DeviceUtil.setContextClickAsLongClick(parent);
@@ -82,7 +78,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @OnClick(R.id.parent) void onBaseViewClicked() {
         PageTitle pageTitle = selectedPage.getPageTitle(wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
-                isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+                HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
         activity.startActivity(PageActivity.newIntentForCurrentTab(activity, entry, pageTitle));
     }
@@ -90,7 +86,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
         PageTitle pageTitle = selectedPage.getPageTitle(wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
-                isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+                HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
         new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
             @Override

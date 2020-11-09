@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
@@ -46,6 +47,11 @@ public class FeaturedArticleCard extends WikiSiteCard {
         return page.getDescription();
     }
 
+    @NonNull
+    public String footerActionText() {
+        return WikipediaApp.getInstance().getString(R.string.view_main_page_card_title);
+    }
+
     @Override
     @Nullable
     public Uri image() {
@@ -56,16 +62,22 @@ public class FeaturedArticleCard extends WikiSiteCard {
     @Nullable
     @Override
     public String extract() {
-        return page.getExtractHtml();
+        return page.getExtract();
     }
 
-    @NonNull @Override public CardType type() {
+    @NonNull
+    @Override
+    public CardType type() {
         return CardType.FEATURED_ARTICLE;
     }
 
     @NonNull
-    public HistoryEntry historyEntry(int source) {
-        return new HistoryEntry(page.getPageTitle(wikiSite()), source);
+    public HistoryEntry historyEntry() {
+        return new HistoryEntry(page.getPageTitle(wikiSite()), historyEntrySource());
+    }
+
+    public int historyEntrySource() {
+        return HistoryEntry.SOURCE_FEED_FEATURED;
     }
 
     @Override

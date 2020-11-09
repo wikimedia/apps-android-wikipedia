@@ -491,6 +491,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim());
                     }
                 });
+
+                ((PageActivity) requireActivity()).showPageFragmentView();
             }
 
             @Override

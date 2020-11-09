@@ -1,65 +1,50 @@
 package org.wikipedia.feed.featured;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.events.ArticleSavedOrDeletedEvent;
-import org.wikipedia.feed.view.ActionFooterView;
+import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.views.FaceAndColorDetectImageView;
-import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ImageZoomHelper;
+import org.wikipedia.views.WikiArticleCardView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+import butterknife.OnLongClick;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard> {
 
     @BindView(R.id.view_featured_article_card_header) CardHeaderView headerView;
-    @BindView(R.id.view_featured_article_card_footer) ActionFooterView footerView;
-    @BindView(R.id.view_featured_article_card_image_container) View imageContainerView;
-    @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
-    @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
-    @BindView(R.id.view_featured_article_card_extract) TextView extractView;
-    @BindView(R.id.view_featured_article_card_text_container) View textContainerView;
-    private CompositeDisposable disposables = new CompositeDisposable();
+    @BindView(R.id.view_featured_article_card_footer) CardFooterView footerView;
+    @BindView(R.id.view_wiki_article_card) WikiArticleCardView wikiArticleCardView;
+    @BindView(R.id.view_featured_article_card_content_container) View contentContainerView;
+
+    public static final float SUM_OF_CARD_HORIZONTAL_MARGINS = DimenUtil.dpToPx(24f);
 
     public FeaturedArticleCardView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_card_featured_article, this);
         ButterKnife.bind(this);
-        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     public void setCard(@NonNull FeaturedArticleCard card) {
         super.setCard(card);
-        setLayoutDirectionByWikiSite(card.wikiSite(), textContainerView);
-
+        setLayoutDirectionByWikiSite(card.wikiSite(), contentContainerView);
         String articleTitle = card.articleTitle();
         String articleSubtitle = card.articleSubtitle();
         String extract = card.extract();
@@ -70,28 +55,51 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         extract(extract);
         image(imageUri);
 
-        header(card);
-        footer(card);
+        header();
+        footer();
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        disposables.clear();
-        super.onDetachedFromWindow();
-    }
-
-    @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_text_container})
+    @OnClick({R.id.view_featured_article_card_content_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard(),
-                    getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                getCallback().onSelectPage(getCard(), getCard().historyEntry(), wikiArticleCardView.getSharedElements());
         }
+    }
+
+    @OnLongClick(R.id.view_featured_article_card_content_container)
+    boolean onLongClick(View view) {
+        if (getCallback() != null && getCard() != null) {
+            new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+                @Override
+                public void onAddRequest(boolean addToDefault) {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onAddPageToList(getCard().historyEntry(), addToDefault);
+                    }
+                }
+
+                @Override
+                public void onMoveRequest(@Nullable ReadingListPage page) {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onMovePageToList(page.listId(), getCard().historyEntry());
+                    }
+                }
+
+                @Override
+                public void onDeleted(@Nullable ReadingListPage page) {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onRemovePageFromList(getCard().historyEntry());
+                    }
+                }
+
+                @Override
+                public void onShare() {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onSharePage(getCard().historyEntry());
+                    }
+                }
+            }).show(getCard().historyEntry().getTitle());
+        }
+        return false;
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
@@ -100,135 +108,54 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void articleTitle(@NonNull String articleTitle) {
-        articleTitleView.setText(StringUtil.fromHtml(articleTitle));
+        wikiArticleCardView.setTitle(articleTitle);
     }
 
     private void articleSubtitle(@Nullable String articleSubtitle) {
-        articleSubtitleView.setText(articleSubtitle);
+        wikiArticleCardView.setDescription(articleSubtitle);
     }
 
     private void extract(@Nullable String extract) {
-        extractView.setText(StringUtil.fromHtml(extract));
+        wikiArticleCardView.setExtract(extract);
     }
 
-    private void header(@NonNull FeaturedArticleCard card) {
-        headerView.setTitle(card.title())
-                .setSubtitle(card.subtitle())
-                .setImage(R.drawable.ic_star_black_24dp)
-                .setImageCircleColor(R.color.yellow50)
-                .setLangCode(card.wikiSite().languageCode())
-                .setCard(card)
+    private void header() {
+        if (getCard() == null) {
+            return;
+        }
+        headerView.setTitle(getCard().title())
+                .setLangCode(getCard().wikiSite().languageCode())
+                .setCard(getCard())
                 .setCallback(getCallback());
     }
 
-    @SuppressLint("CheckResult")
-    private void footer(@NonNull FeaturedArticleCard card) {
-        PageTitle title = new PageTitle(card.articleTitle(), card.wikiSite());
-        Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(title) != null)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(pageInList -> {
-                    int actionIcon = pageInList
-                            ? R.drawable.ic_bookmark_white_24dp
-                            : R.drawable.ic_bookmark_border_black_24dp;
-
-                    int actionText = pageInList
-                            ? R.string.view_featured_article_footer_saved_button_label
-                            : R.string.view_featured_article_footer_save_button_label;
-
-                    footerView.actionIcon(actionIcon)
-                            .actionText(actionText)
-                            .onActionListener(pageInList
-                                    ? new CardBookmarkMenuListener()
-                                    : new CardAddToListListener())
-                            .onShareListener(new CardShareListener());
-
-                    footerView.actionIconColor(ResourceUtil.getThemedAttributeId(getContext(),
-                            pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
-                    footerView.actionTextColor(ResourceUtil.getThemedAttributeId(getContext(),
-                            pageInList ? R.attr.colorAccent : R.attr.secondary_text_color));
-                }, L::w);
+    private void footer() {
+        if (getCard() == null) {
+            return;
+        }
+        footerView.setCallback(getFooterCallback());
+        footerView.setFooterActionText(getCard().footerActionText());
     }
 
     private void image(@Nullable Uri uri) {
         if (uri == null) {
-            imageContainerView.setVisibility(GONE);
+            wikiArticleCardView.getImageContainer().setVisibility(GONE);
         } else {
-            imageContainerView.setVisibility(VISIBLE);
-            imageView.loadImage(uri);
+            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    (int) (DimenUtil.leadImageHeightForDevice(getContext()) - DimenUtil.getToolbarHeightPx(getContext()) - SUM_OF_CARD_HORIZONTAL_MARGINS)));
+            wikiArticleCardView.getImageContainer().setVisibility(VISIBLE);
+            wikiArticleCardView.getImageView().loadImage(uri);
+            ImageZoomHelper.setViewZoomable(wikiArticleCardView.getImageView());
         }
     }
 
-    @NonNull private HistoryEntry getEntry() {
-        return getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED);
-    }
-
-    private class CardAddToListListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
+    public CardFooterView.Callback getFooterCallback() {
+        return () -> {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onAddPageToList(getEntry(), true);
+                getCallback().onSelectPage(getCard(), new HistoryEntry(
+                        new PageTitle(SiteInfoClient.getMainPageForLang(getCard().wikiSite().languageCode()),
+                                getCard().wikiSite()), getCard().historyEntry().getSource()));
             }
-        }
-    }
-
-    private class CardBookmarkMenuListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if (getCallback() != null && getCard() != null) {
-                new ReadingListBookmarkMenu(footerView, new ReadingListBookmarkMenu.Callback() {
-                    @Override
-                    public void onAddRequest(boolean addToDefault) {
-                        if (getCallback() != null && getCard() != null) {
-                            getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED), addToDefault);
-                        }
-                    }
-
-                    @Override
-                    public void onMoveRequest(@Nullable ReadingListPage page) {
-                        if (getCallback() != null && getCard() != null) {
-                            getCallback().onMovePageToList(page.listId(), getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
-                        }
-                    }
-
-                    @Override
-                    public void onDeleted(@Nullable ReadingListPage page) {
-                        if (getCallback() != null && getCard() != null) {
-                            getCallback().onRemovePageFromList(getEntry());
-                        }
-                    }
-
-                    @Override
-                    public void onShare() {
-                        // ignore
-                    }
-                }).show(getEntry().getTitle());
-            }
-        }
-    }
-
-    private class CardShareListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if (getCallback() != null && getCard() != null) {
-                getCallback().onSharePage(getEntry());
-            }
-        }
-    }
-
-    private class EventBusConsumer implements Consumer<Object> {
-        @Override
-        public void accept(Object event) {
-            if (event instanceof ArticleSavedOrDeletedEvent) {
-                if (getCard() == null) {
-                    return;
-                }
-                for (ReadingListPage page : ((ArticleSavedOrDeletedEvent) event).getPages()) {
-                    if (page.title().equals(getCard().articleTitle())) {
-                        footer(getCard());
-                    }
-                }
-            }
-        }
+        };
     }
 }

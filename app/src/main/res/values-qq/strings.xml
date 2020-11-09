@@ -598,14 +598,13 @@
   <string name="preference_summary_notification_user_talk">Short summary explaining what User talk notifications are.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
-  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
-  <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
+  <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
+  <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
-  <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
-  <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
+  <string name="view_featured_image_card_share">Label for a button the user can click to share the image link of the Picture of the Day.\n{{Identical|Share}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
   <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
   <string name="menu_feed_card_edit_card_languages">Menu item used for opening the page of editing card languages</string>
@@ -613,7 +612,7 @@
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
   <string name="home">Menu item label for going to the home screen in the app.</string>
-  <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
+  <string name="view_top_read_card_title">Feed card title for recently popular articles.\n{{Identical|Top read}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -639,7 +638,6 @@
   <string name="feed_item_type_featured_article">Short description for Explore feed card that contains the daily featured article</string>
   <string name="feed_item_type_trending">Short description for Explore feed card that contains daily trending articles</string>
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
-  <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
@@ -904,13 +902,14 @@
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
-  <string name="more_trending_text">Button label to navigate to a full-screen view containing more trending articles.</string>
-  <string name="top_on_this_day">Title for the screen with all trending links. \"%1$s\" represents the date string</string>
+  <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
+  <string name="view_top_read_card_pageviews_k_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
+  <string name="view_top_read_card_pageviews_m_suffix">Text for showing the amount of pageviews in millions. \"%d\" represents the number of pageviews in millions.</string>
+  <string name="top_read_activity_title">Title for the screen with all top read links. \"%s\" represents the date string</string>
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
-  <string name="back_to_top">Button label for scrolling the content to the top.</string>
   <string name="on_this_day_dialog_next_month">Image content description that shows it will trigger the calendar to the next month.</string>
   <string name="on_this_day_dialog_previous_month">Image content description that shows it will trigger the calendar to the previous month.</string>
   <string name="on_this_day_open_date_picker">View content description that shows it will trigger to open the date picker dialog.</string>
@@ -977,4 +976,7 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="on_this_day_back_to_future">Button label for scrolling the content to the top.</string>
+  <string name="on_this_day_end_of_scroll_message">Label text shown to user when they have scrolled through the events till teh end.</string>
+  <string name="suggested_card_more_edits">Label text for SE feed card footer action.</string>
 </resources>

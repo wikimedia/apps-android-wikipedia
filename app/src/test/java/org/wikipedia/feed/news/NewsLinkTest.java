@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 
 @RunWith(RobolectricTestRunner.class)
-public class NewsLinkCardTest {
+public class NewsLinkTest {
     private static WikiSite TEST = WikiSite.forLanguageCode("test");
     private List<NewsItem> content;
 
@@ -28,10 +28,10 @@ public class NewsLinkCardTest {
         content = GsonUtil.getDefaultGson().fromJson(json, typeToken.getType());
     }
 
-    @Test public void testTitleNormalization() {
-        List<NewsItemCard> newsItemCards = NewsListCard.toItemCards(content, TEST);
-        for (NewsItemCard newsItemCard : newsItemCards) {
-            for (PageSummary link : newsItemCard.links()) {
+    @Test
+    public void testTitleNormalization() {
+        for (NewsItem newsItem : content) {
+            for (PageSummary link : newsItem.links()) {
                 assertThat(new NewsLinkCard(link, TEST).title(), not(containsString("_")));
             }
         }

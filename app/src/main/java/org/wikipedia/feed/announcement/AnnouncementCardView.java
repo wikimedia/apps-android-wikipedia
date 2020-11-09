@@ -7,6 +7,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,9 +16,11 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.DefaultFeedCardView;
+import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.WikiCardView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +32,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         void onAnnouncementNegativeAction(@NonNull Card card);
     }
 
+    @BindView(R.id.view_announcement_container) WikiCardView container;
     @BindView(R.id.view_announcement_header_image) FaceAndColorDetectImageView headerImageView;
     @BindView(R.id.view_announcement_text) TextView textView;
     @BindView(R.id.view_announcement_action_positive) Button actionViewPositive;
@@ -83,14 +87,25 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
 
         if (card.hasFooterCaption()) {
             footerTextView.setText(StringUtil.fromHtml(card.footerCaption()));
+            RichTextUtil.removeUnderlinesFromLinks(footerTextView);
         } else {
             footerTextView.setVisibility(GONE);
             footerBorderView.setVisibility(GONE);
         }
 
         if (card.hasBorder()) {
-            setStrokeColor(getResources().getColor(R.color.red30));
-            setStrokeWidth(10);
+            container.setStrokeColor(getResources().getColor(R.color.red30));
+            container.setStrokeWidth(10);
+        } else {
+            container.setDefaultBorder();
+        }
+
+        if (card.isArticlePlacement()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) container.getLayoutParams();
+            layoutParams.setMarginStart(0);
+            layoutParams.setMarginEnd(0);
+            container.setLayoutParams(layoutParams);
+            container.setRadius(0);
         }
     }
 
