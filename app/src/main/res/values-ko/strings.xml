@@ -69,7 +69,7 @@
   <string name="search_redirect_from">%s에서 넘어옴</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
-  <string name="menu_page_find_in_page">문서에서 찾기</string>
+  <string name="menu_page_find_in_page" fuzzy="true">문서에서 찾기</string>
   <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
@@ -342,7 +342,7 @@
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
   <string name="preference_title_collapse_tables">표 접기</string>
   <string name="preference_summary_collapse_tables">정보상자, 각주, 내용주 등 문서 안의 표를 자동으로 접습니다.</string>
-  <string name="nav_item_donate">위키백과 지원</string>
+  <string name="nav_item_donate" fuzzy="true">위키백과 지원</string>
   <string name="error_voice_search_not_available">죄송합니다. 음성 인식을 이용할 수 없습니다.</string>
   <string name="location_service_disabled">위치 서비스를 사용할 수 없습니다.</string>
   <string name="enable_location_service">활성화</string>

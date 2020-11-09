@@ -72,7 +72,7 @@
   <string name="search_redirect_from">بالتحويل من %s</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
-  <string name="menu_page_find_in_page">البحث في الصفحة</string>
+  <string name="menu_page_find_in_page" fuzzy="true">البحث في الصفحة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
@@ -341,7 +341,7 @@
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
   <string name="preference_title_collapse_tables">طَيّ الجداول</string>
   <string name="preference_summary_collapse_tables">تلقائيا اطو الجداول في المقالات، مثل صناديق المعلومات، المراجع، والملاحظات.</string>
-  <string name="nav_item_donate">ادعم ويكيبيديا</string>
+  <string name="nav_item_donate" fuzzy="true">ادعم ويكيبيديا</string>
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
   <string name="location_service_disabled">خدمات الموقع معطلة.</string>
   <string name="enable_location_service">تمكين</string>

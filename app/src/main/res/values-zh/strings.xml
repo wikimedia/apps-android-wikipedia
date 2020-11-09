@@ -86,7 +86,7 @@
   <string name="search_redirect_from">重定向自%s</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
-  <string name="menu_page_find_in_page">在页面中查找</string>
+  <string name="menu_page_find_in_page" fuzzy="true">在页面中查找</string>
   <string name="edit_section_find_in_page">在页面中查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
@@ -355,7 +355,7 @@
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、引用和注释。</string>
-  <string name="nav_item_donate">支持维基百科</string>
+  <string name="nav_item_donate" fuzzy="true">支持维基百科</string>
   <string name="error_voice_search_not_available">对不起，语言识别不可用。</string>
   <string name="location_service_disabled">位置服务被禁用。</string>
   <string name="enable_location_service">启用</string>

@@ -46,7 +46,7 @@
   <string name="search_redirect_from">%s-dən yönləndirildi</string>
   <string name="menu_page_show_tabs">Pəncərələri göstər</string>
   <string name="menu_page_other_languages">Dili dəyiş</string>
-  <string name="menu_page_find_in_page">Səhifədə axtar</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Səhifədə axtar</string>
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
   <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>

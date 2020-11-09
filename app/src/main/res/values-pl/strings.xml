@@ -77,7 +77,7 @@
   <string name="search_redirect_from">Przekierowano z %s</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
-  <string name="menu_page_find_in_page">Znajdź na stronie</string>
+  <string name="menu_page_find_in_page">Znajdź w artykule</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
@@ -347,7 +347,7 @@
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="preference_title_collapse_tables">Zwiń tabele</string>
   <string name="preference_summary_collapse_tables">Automatyczne zwinięcie w artykułach tabel, takich jak infoboksy, odnośniki i uwagi.</string>
-  <string name="nav_item_donate">Wspomóż Wikipedię</string>
+  <string name="nav_item_donate">Wspieraj</string>
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
   <string name="location_service_disabled">Usługi lokalizacji są wyłączone.</string>
   <string name="enable_location_service">Włącz</string>

@@ -33,7 +33,7 @@
   <string name="search_redirect_from">Aangestuur vanaf %s</string>
   <string name="menu_page_show_tabs">Vertoon oortjies</string>
   <string name="menu_page_other_languages">Verander taal</string>
-  <string name="menu_page_find_in_page">Soek in blad</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Soek in blad</string>
   <string name="menu_page_font_and_theme">Lettertipe en tema</string>
   <string name="menu_page_add_to_list">Voeg toe tot leeslys</string>
   <string name="menu_page_share">Deel skakel</string>
@@ -229,7 +229,7 @@
   <string name="button_add_to_reading_list">Voeg toe tot leeslys</string>
   <string name="button_get_directions">Kry aanwysings</string>
   <string name="preference_title_show_link_previews">Toon skakelvoorskoue</string>
-  <string name="nav_item_donate">Ondersteun Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Ondersteun Wikipedia</string>
   <string name="error_voice_search_not_available">Jammer, stemherkenning is onbeskikbaar.</string>
   <string name="location_service_disabled">Liggingdienste is gedeaktiveer.</string>
   <string name="enable_location_service">Aktiveer</string>

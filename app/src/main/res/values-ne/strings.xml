@@ -48,7 +48,7 @@
   <string name="search_redirect_from">%s बाट पुनः निर्देशित भएको</string>
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
-  <string name="menu_page_find_in_page">पृष्ठमा खोज्नुहोस्</string>
+  <string name="menu_page_find_in_page" fuzzy="true">पृष्ठमा खोज्नुहोस्</string>
   <string name="edit_section_find_in_page">पृष्ठमा खोज्नुहोस्</string>
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
@@ -290,7 +290,7 @@
   <string name="preference_title_show_link_previews">लिङ्कका पूर्वावलोकनहरू देखाउनुहोस्</string>
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
   <string name="preference_title_collapse_tables">तालिका लुकाउनुहोस्</string>
-  <string name="nav_item_donate">विकिपिडियालाई समर्थन गर्नुहोस्</string>
+  <string name="nav_item_donate" fuzzy="true">विकिपिडियालाई समर्थन गर्नुहोस्</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>
