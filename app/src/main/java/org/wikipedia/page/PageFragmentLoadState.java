@@ -78,7 +78,7 @@ public class PageFragmentLoadState {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
-            currentTab.pushBackStackItem(new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry()));
+            currentTab.pushBackStackItem(new PageBackStackItem(model.getTitle(), model.getCurEntry()));
         }
         pageLoadCheckReadingLists();
     }
@@ -140,7 +140,6 @@ public class PageFragmentLoadState {
     public void onConfigurationChanged() {
         leadImagesHandler.loadLeadImage();
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
-        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
@@ -242,7 +241,6 @@ public class PageFragmentLoadState {
 
         leadImagesHandler.loadLeadImage();
 
-        fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
         fragment.requireActivity().invalidateOptionsMenu();
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
@@ -260,6 +258,5 @@ public class PageFragmentLoadState {
         Completable.fromAction(() -> app.getDatabaseClient(PageImage.class).upsert(pageImage, PageImageHistoryContract.Image.SELECTION)).subscribeOn(Schedulers.io()).subscribe();
 
         model.getTitle().setThumbUrl(pageImage.getImageName());
-        model.getTitleOriginal().setThumbUrl(pageImage.getImageName());
     }
 }

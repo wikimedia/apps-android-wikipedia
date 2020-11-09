@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
@@ -15,8 +16,47 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
     : MaterialCardView(context, attrs, defStyleAttr) {
 
     init {
-        radius = DimenUtil.dpToPx(12f)
+        var hasBorder = true
+        if (attrs != null) {
+            val array = context.obtainStyledAttributes(attrs, R.styleable.WikiCardView)
+            hasBorder = array.getBoolean(R.styleable.WikiCardView_hasBorder, true)
+            array.recycle()
+        }
 
+        setup(hasBorder)
+    }
+
+    private fun setup(hasBorder: Boolean) {
+        radius = context.resources.getDimension(R.dimen.wiki_card_radius)
+        if (hasBorder) {
+            setDefaultBorder()
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            when (WikipediaApp.getInstance().currentTheme) {
+                Theme.DARK -> {
+                    cardElevation = DimenUtil.dpToPx(8f)
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base0)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base0)
+                }
+                Theme.BLACK -> {
+                    cardElevation = 0f
+                }
+                else -> {
+                    cardElevation = DimenUtil.dpToPx(8f)
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base70)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base70)
+                }
+            }
+        } else {
+            cardElevation = DimenUtil.dpToPx(2f)
+        }
+
+        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
+        rippleColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color))
+    }
+
+    fun setDefaultBorder() {
         strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
             Theme.DARK -> {
                 DimenUtil.roundedDpToPx(0f)
@@ -30,27 +70,5 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
                 DimenUtil.roundedDpToPx(0.5f)
             }
         }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            when (WikipediaApp.getInstance().currentTheme) {
-                Theme.DARK -> {
-                    cardElevation = DimenUtil.dpToPx(8f)
-                    outlineAmbientShadowColor = ContextCompat.getColor(getContext(), R.color.base0)
-                    outlineSpotShadowColor = ContextCompat.getColor(getContext(), R.color.base0)
-                }
-                Theme.BLACK -> {
-                    cardElevation = 0f
-                }
-                else -> {
-                    cardElevation = DimenUtil.dpToPx(8f)
-                    outlineAmbientShadowColor = ContextCompat.getColor(getContext(), R.color.base70)
-                    outlineSpotShadowColor = ContextCompat.getColor(getContext(), R.color.base70)
-                }
-            }
-        } else {
-            cardElevation = DimenUtil.dpToPx(2f)
-        }
-
-        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 }

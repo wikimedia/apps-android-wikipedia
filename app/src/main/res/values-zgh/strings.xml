@@ -35,7 +35,7 @@
   <string name="search_redirect_from">ⵓⵖⵓⵍ ⵙⴳ %s</string>
   <string name="menu_page_show_tabs">ⵙⴽⵏ ⵉⵙⴽⵙⴰⵍ</string>
   <string name="menu_page_other_languages">ⵙⵏⴼⵍ ⵜⵓⵜⵍⴰⵢⵜ</string>
-  <string name="menu_page_find_in_page">ⴰⴼ ⴳ ⵜⴰⵙⵏⴰ ⴰ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ⴰⴼ ⴳ ⵜⴰⵙⵏⴰ ⴰ</string>
   <string name="edit_section_find_in_page">ⴰⴼ ⴳ ⵜⵙⵏⴰ</string>
   <string name="menu_page_add_to_list">ⵔⵏⵓ ⵖⵕ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
   <string name="menu_page_add_to_default_list">ⵃⴹⵓ</string>

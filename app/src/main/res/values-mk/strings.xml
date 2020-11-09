@@ -47,7 +47,7 @@
   <string name="search_redirect_from">Пренасочено од %s</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
-  <string name="menu_page_find_in_page">Најди на страницата</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Најди на страницата</string>
   <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
@@ -322,7 +322,7 @@
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
   <string name="preference_title_collapse_tables">Склопи табели</string>
   <string name="preference_summary_collapse_tables">Автоматски склопувај ги табелите во статии како со инфокутиите, наводите и белешките.</string>
-  <string name="nav_item_donate">Поддржете ја Википедија</string>
+  <string name="nav_item_donate" fuzzy="true">Поддржете ја Википедија</string>
   <string name="error_voice_search_not_available">За жал, гласовното препознавање не е достапно.</string>
   <string name="location_service_disabled">Местоположбените услуги се оневозможени.</string>
   <string name="enable_location_service">Овозможи</string>
@@ -654,6 +654,7 @@
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
   <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
+  <string name="description_is_in_different_language">Се чини дека текстот е напишан на неочекуван јазик. Јазикот треба да биде %s.</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>

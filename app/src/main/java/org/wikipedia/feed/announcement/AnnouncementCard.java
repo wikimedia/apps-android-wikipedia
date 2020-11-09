@@ -55,6 +55,10 @@ public class AnnouncementCard extends Card {
         return announcement.hasBorder();
     }
 
+    @NonNull public boolean isArticlePlacement() {
+        return Announcement.PLACEMENT_ARTICLE.equals(announcement.placement());
+    }
+
     @NonNull @Override public Uri image() {
         return Uri.parse(announcement.imageUrl());
     }

@@ -4,6 +4,7 @@
 * Babamamadidianee
 * Dbrant
 * Lancine.kounfantoh.fofana
+* MuratTheTurkish
 * Youssoufkadialy
 -->
 <resources>
@@ -46,7 +47,7 @@
   <string name="search_redirect_from">ߟߊߞߎ߲߬ߛߌ߲߬ߣߍ߲߬ ߞߊ߬ ߓߐ߫ %s</string>
   <string name="menu_page_show_tabs">ߘߎ߲ߛߓߍ ߟߎ߬ ߦߌ߬ߘߊ߬</string>
   <string name="menu_page_other_languages">ߞߊ߲ ߡߊߝߊ߬ߟߋ߲߬</string>
-  <string name="menu_page_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
   <string name="edit_section_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
   <string name="menu_page_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="menu_page_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
@@ -177,7 +178,7 @@
   <string name="about_description">ߞߊ߬ ߓߍ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬</string>
   <string name="privacy_policy_description">ߘߎ߲߬ߘߎ߬ߡߊ߬ ߤߊߞߍ</string>
   <string name="terms_of_use_description">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://nqo.wikipedia.org/wiki/ߥߞߌ-ߔߘߋߞߎ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/ߥߞߌߡߋߘߌߦߊ߫_ߟߥߊ߬ߟߌ߬ߟߊ߲/ߊ߲ߘߙߏߦߌߘ_ߢߡߢ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -297,7 +298,7 @@
   <string name="preference_summary_show_link_previews">ߦߌߟߡߊ ߦߋߟߌ߫ ߖߏߣߊ ߦߌ߬ߘߊ߬ ߌ ߓߊ߯ ߞߍ߫ ߛߘߌ߬ߜߋ߲ ߠߎ߬ ߛߐ߲߬ߞߌ߲߬ ߓߊ߫.</string>
   <string name="preference_title_collapse_tables">ߥߟߊ߬ߟߋ߲ ߢߊ߲ߞߊ߲ ߡߊߓߍ߲߬</string>
   <string name="preference_summary_collapse_tables">ߥߟߊ߬ߟߋ߲ ߢߊ߲ߞߊ߲ ߡߊߓߍ߲߬ ߦߌߟߡߊ ߟߎ߬ ߘߐ߫ ߞߍߒߖߘߍߦߋߓߟߏߡߊ߬߸ ߦߏ߫ ߞߟߊ߬ߟߐ߲ߞߏ߲߬ߘߏ߸ ߦߟߌߡߊߛߙߋ߸ ߊ߬ ߣߌ߫ ߦߟߌߣߐ ߟߎ߬.</string>
-  <string name="nav_item_donate">ߥߞߌߔߋߘߌߦߊ߫ ߞߐߡߊߓߌ߲ߓߌ߲߫</string>
+  <string name="nav_item_donate" fuzzy="true">ߥߞߌߔߋߘߌߦߊ߫ ߞߐߡߊߓߌ߲ߓߌ߲߫</string>
   <string name="error_voice_search_not_available">ߤߊߞߍ߬ߕߏ߫߸ ߡߍ߲ߞߊ߲ ߡߊߟߐ߲ߠߌ߲ ߕߴߦߋ߲߬.</string>
   <string name="enable_location_service">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="location_permissions_enable_prompt">ߘߌ߲߬ߞߌߙߊ ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߓߌ߬ߟߵߊ߬ ߟߊ߫ ߞߵߌ ߕߙߐߝߍ߫ ߦߙߐ ߟߎ߬ ߦߋ߫.</string>

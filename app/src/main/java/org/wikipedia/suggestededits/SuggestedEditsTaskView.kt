@@ -37,7 +37,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         taskIcon.setImageResource(task.imageDrawable)
         taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
 
-        clickContainer.setOnClickListener {
+        setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }

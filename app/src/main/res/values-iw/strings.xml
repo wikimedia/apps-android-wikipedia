@@ -11,6 +11,7 @@
 * IKhitron
 * Inkbug
 * Matanya
+* MuratTheTurkish
 * Or
 * Shoham
 * Steeve815
@@ -60,7 +61,7 @@
   <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
-  <string name="menu_page_find_in_page">חיפוש בדף</string>
+  <string name="menu_page_find_in_page" fuzzy="true">חיפוש בדף</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -201,7 +202,7 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
-  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/ויקיפדיה:אודות</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -337,7 +338,7 @@
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
   <string name="preference_summary_collapse_tables">מזעור אוטומטי של טבלאות בערכים, כגון תיבות מידע, מקורות, והערות שוליים.</string>
-  <string name="nav_item_donate">לתמוך בוויקיפדיה</string>
+  <string name="nav_item_donate" fuzzy="true">לתמוך בוויקיפדיה</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
@@ -853,6 +854,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
+  <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
   <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
   <string name="suggested_edits_rewards_continue_button">המשך</string>

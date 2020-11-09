@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Dovud
 * Ibrahim
+* MuratTheTurkish
 * TajikMaterialist
 * ToJack
 * Vashgird
@@ -39,7 +40,7 @@
   <string name="search_redirect_from">Тағйири масир аз %s</string>
   <string name="menu_page_show_tabs">Намоиши баргаҳо</string>
   <string name="menu_page_other_languages">Тағйири забон</string>
-  <string name="menu_page_find_in_page">Ёфтан дар саҳифа</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Ёфтан дар саҳифа</string>
   <string name="edit_section_find_in_page">Ёфтан дар саҳифа</string>
   <string name="menu_page_font_and_theme">Ҳарф ва мавзӯъ</string>
   <string name="menu_page_add_to_list">Ба феҳрист барои хондан</string>
@@ -116,6 +117,7 @@
   <string name="settings_activity_title">Танзимот</string>
   <string name="about_description">Дар бораи афзунаи Википедия</string>
   <string name="terms_of_use_description">Шартҳои истифода</string>
+  <string name="about_wikipedia_url">https://tg.wikipedia.org/wiki/Википедиа:Ошноӣ_бо_донишнома</string>
   <string name="about_libraries_heading" fuzzy="true">китобхонаҳои истифодашуда</string>
   <string name="about_translators_heading">Тарҷумонҳо</string>
   <string name="about_translators_translatewiki">Ин афзуна тавассути тарҷумонҳо ихтиёриҳо дар &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; тарҷума шудааст.</string>
@@ -146,7 +148,7 @@
   <string name="close_all_tabs_confirm_yes">Бале</string>
   <string name="close_all_tabs_confirm_no">На</string>
   <string name="button_continue_to_article">Мутолиаи мақола</string>
-  <string name="nav_item_donate">Дастгирии Википедия</string>
+  <string name="nav_item_donate" fuzzy="true">Дастгирии Википедия</string>
   <string name="reference_list_title">Танзимот</string>
   <string name="page_footer_license_text">Муҳтаво таҳти $1 дар дастрас аст, магар ин ки ғайри он баён гардад.</string>
   <string name="article_header_edit_hint">Вироиш...</string>

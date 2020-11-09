@@ -65,7 +65,7 @@
   <string name="search_redirect_from">Přesměrováno z %s</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Změnit jazyk</string>
-  <string name="menu_page_find_in_page">Najít na stránce</string>
+  <string name="menu_page_find_in_page">Najít v článku</string>
   <string name="edit_section_find_in_page">Najít na stránce</string>
   <string name="menu_page_font_and_theme">Písmo a vzhled</string>
   <string name="menu_page_add_to_list">Přidat do seznamu k přečtení</string>
@@ -207,10 +207,10 @@
   <string name="privacy_policy_description">Ochrana osobních údajů</string>
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="about_wikipedia_url">https://cs.m.wikipedia.org/wiki/Nápověda:Úvod</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Offline_čtení_a_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/cs</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/cs</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
@@ -258,6 +258,12 @@
   <string name="search_did_you_mean">Měli jste na mysli „%s“?</string>
   <string name="search_recent_header">Nedávná vyhledávání:</string>
   <string name="search_results_count_zero">Žádné výsledky</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 výsledek</item>
+    <item quantity="few">%d výsledky</item>
+    <item quantity="many">%d výsledků</item>
+    <item quantity="other">%d výsledků</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Vymazat nedávná vyhledávání</string>
   <string name="clear_recent_searches_confirm">Jste si jisti, že chcete vymazat historii vyhledávání?</string>
   <string name="clear_recent_searches_confirm_yes">Ano</string>
@@ -335,7 +341,7 @@
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="preference_title_collapse_tables">Sbalit tabulky</string>
   <string name="preference_summary_collapse_tables">Automaticky sbalí tabulky v článcích, jako jsou infoboxy, reference a poznámky.</string>
-  <string name="nav_item_donate">Podpořte Wikipedii</string>
+  <string name="nav_item_donate" fuzzy="true">Podpořte Wikipedii</string>
   <string name="error_voice_search_not_available">Omlouváme se, ale rozpoznávání hlasu není k dispozici.</string>
   <string name="location_service_disabled">Služby zjišťování polohy jsou zakázány.</string>
   <string name="enable_location_service">Povolit</string>

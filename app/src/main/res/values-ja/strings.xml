@@ -13,6 +13,7 @@
 * Kanon und wikipedia
 * Kkairri
 * Los688
+* Mirinano
 * Omotecho
 * Otokoume
 * Penn Station
@@ -77,7 +78,7 @@
   <string name="search_redirect_from">%s からリダイレクト</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
-  <string name="menu_page_find_in_page">ページ内検索</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ページ内検索</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
@@ -209,7 +210,7 @@
   <string name="error_can_not_process_link">このリンクを表示できませんでした</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
-  <string name="page_protected_other">このページは %s レベルに保護されています。</string>
+  <string name="page_protected_other">このページは、次のレベルに保護されています:%s</string>
   <string name="page_protected_can_not_edit">残念ながら、あなたのアカウントにはこのページを編集する権限がありません。</string>
   <string name="page_protected_can_not_edit_anon">申し訳ありませんがこのページは現在匿名編集できません。</string>
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
@@ -352,7 +353,7 @@
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
   <string name="preference_title_collapse_tables">表を閉じる</string>
   <string name="preference_summary_collapse_tables">記事内の基本データ、参考文献、脚注などの表を自動的に閉じる</string>
-  <string name="nav_item_donate">ウィキペディアを支援する</string>
+  <string name="nav_item_donate" fuzzy="true">ウィキペディアを支援する</string>
   <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
   <string name="location_service_disabled">位置情報サービスが無効です。</string>
   <string name="enable_location_service">有効にする</string>

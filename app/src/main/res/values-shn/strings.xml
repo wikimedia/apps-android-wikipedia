@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Dbrant
+* MuratTheTurkish
 * Saimawnkham
 * Saosukham
 -->
@@ -38,7 +39,7 @@
   <string name="search_redirect_from">လုၵ်ႉတီး %s ၼႆႈသေ ၶိုၼ်းပိၼ်ႇဝၢႆႇမႃး</string>
   <string name="menu_page_show_tabs">ၼႄထႅပ်ႉ</string>
   <string name="menu_page_other_languages">လႅၵ်ႈလၢႆႈ ၽႃႇသႃႇၵႂၢမ်း</string>
-  <string name="menu_page_find_in_page">သွၵ်ႈႁႃ တီႈၼႂ်း ၼႃႈလိၵ်ႈ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">သွၵ်ႈႁႃ တီႈၼႂ်း ၼႃႈလိၵ်ႈ</string>
   <string name="edit_section_find_in_page">သွၵ်ႈႁႃ တီႈၼႂ်း ၼႃႈလိၵ်ႈ</string>
   <string name="menu_page_font_and_theme">ၾွၼ်ႉ လႄႈ ယူင်ႉႁၢင်ႈ</string>
   <string name="menu_page_add_to_list">ထႅမ်သႂ်ႇၸူး တီႈၼႂ်း သဵၼ်ႈမၢႆလူ</string>
@@ -175,7 +176,7 @@
   <string name="about_description">လွင်ႈဢႅပ်ႉ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="privacy_policy_description">လၵ်း​ၼမ်း လွင်ႈ​ႁူမ်ႇ​လူမ်ႈ သုၼ်ႇ​လဵဝ်</string>
   <string name="terms_of_use_description">ၶေႃႈၽၢင်ႉလွင်ႈၸႂ်ႉတိုဝ်း</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://shn.m.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:လွင်ႈဝႅပ်ႉသၢႆႉ</string>
+  <string name="about_wikipedia_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:လွင်ႈဝႅပ်ႉသၢႆႉ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:Request_an_account</string>
@@ -293,7 +294,7 @@
   <string name="preference_summary_show_link_previews">ပေႃးဝႃႈၼဵၵ်းႁဵင်းၵွင်ႉ ၼႄပၼ် ပွင်ႈလိၵ်ႈတူၺ်းလူင်ႈၼႃႈ။</string>
   <string name="preference_title_collapse_tables">တူပ်ႉလွၵ်းသဵၼ်ႈ</string>
   <string name="preference_summary_collapse_tables">တူပ်ႉလွၵ်းသဵၼ်ႈဝႆႉႁင်းတူဝ် တီႈၼႂ်းပွင်ႈၵႂၢမ်း၊ မိူၼ်ၼင်ႇ တိူၵ်ႈလွၼ်ႉၶၢဝ်ႇ၊ ငဝ်ႈၵုမ်းပိူင် လႄႈ ၽိုၼ်မၢႆတွင်း။</string>
-  <string name="nav_item_donate">ၵမ်ႉထႅမ် ဝီႇၶီႇၽီးတီးယႃး</string>
+  <string name="nav_item_donate" fuzzy="true">ၵမ်ႉထႅမ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="error_voice_search_not_available">ၵဵင်ၸႂ်ယူႇ၊ ၵၢၼ်တွင်းသဵင် ၼႆႉ ဢမ်ႇပႆၸႂ်ႉလႆႈ။</string>
   <string name="location_service_disabled">ၵၢၼ်မၢႆတွင်း ဢွင်ႈတီႈ ထုၵ်ႇဢိုတ်းၸႂ်ႉဝႆႉ။</string>
   <string name="enable_location_service">ပိုတ်ႇၸႂ်ႉ</string>

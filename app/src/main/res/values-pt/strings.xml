@@ -14,6 +14,7 @@
 * Macofe
 * Mansil
 * Mansil alfalb
+* MuratTheTurkish
 * Ngl2016
 * Ruila
 * SandroHc
@@ -61,7 +62,7 @@
   <string name="search_redirect_from">Redirecionado de %s</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
-  <string name="menu_page_find_in_page">Localizar na página</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Localizar na página</string>
   <string name="edit_section_find_in_page">Localizar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -202,7 +203,7 @@
   <string name="about_description">Sobre a aplicação Wikipédia</string>
   <string name="privacy_policy_description">Normas de privacidade</string>
   <string name="terms_of_use_description">Condições de utilização</string>
-  <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre a Wikipédia</string>
+  <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt</string>
@@ -336,7 +337,7 @@
   <string name="preference_summary_show_link_previews">Mostra uma antevisão rápida de artigos ao tocar em hiperligações.</string>
   <string name="preference_title_collapse_tables">Recolher tabelas</string>
   <string name="preference_summary_collapse_tables">Recolher automaticamente as tabelas nos artigos, como as caixas informativas, referências e notas.</string>
-  <string name="nav_item_donate">Apoie a Wikipédia</string>
+  <string name="nav_item_donate" fuzzy="true">Apoie a Wikipédia</string>
   <string name="error_voice_search_not_available">Desculpe, o reconhecimento de voz não está disponível.</string>
   <string name="location_service_disabled">Os serviços de localização estão desativados.</string>
   <string name="enable_location_service">Ativar</string>
@@ -386,6 +387,7 @@
   <string name="text_size_increase">Aumentar o tamanho do texto</string>
   <string name="text_size_decrease">Reduzir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
+  <string name="text_style_title">Fonte</string>
   <string name="nav_item_reading_lists">As minhas listas</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_move_to">Mover para lista de leitura</string>
@@ -667,6 +669,7 @@
   <string name="description_ends_with_punctuation">O texto não pode terminar com um sinal de pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos, como \"um\" e \"o\".</string>
   <string name="description_starts_with_uppercase">Comece por letra minúscula, a menos que a primeira palavra seja um substantivo próprio.</string>
+  <string name="description_is_in_different_language">O texto parece estar numa língua inesperada. A língua devia ser %s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>

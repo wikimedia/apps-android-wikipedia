@@ -9,6 +9,7 @@
 * Glavkos
 * KATRINE1992
 * KATRINE1993
+* MuratTheTurkish
 * Nikosgranturismogt
 * Norhorn
 * Panos78
@@ -52,7 +53,7 @@
   <string name="search_redirect_from">Ανακατεύθυνση από %s</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
-  <string name="menu_page_find_in_page">Βρείτε στην σελίδα</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Βρείτε στην σελίδα</string>
   <string name="edit_section_find_in_page">Βρείτε στην σελίδα</string>
   <string name="menu_page_font_and_theme">Γραμματοσειρά και θέμα</string>
   <string name="menu_page_add_to_list">Προσθήκη στη λίστα ανάγνωσης</string>
@@ -198,7 +199,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/el</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Βιβλιοθήκες που χρησιμοποιούνται</string>
   <string name="about_contributors_heading">Συνεισφέροντες</string>
@@ -315,7 +316,7 @@
   <string name="preference_title_show_link_previews">Εμφάνιση προεπισκοπήσεων συνδέσμων</string>
   <string name="preference_summary_customize_explore_feed">Εξατομικεύστε την ροή εξερεύνησης</string>
   <string name="preference_summary_show_link_previews">Εμφάνιση μιας γρήγορης προεπισκόπησης λημμάτων όταν πατάτε σε συνδέσμους.</string>
-  <string name="nav_item_donate">Υποστηρίξτε τη Βικιπαίδεια</string>
+  <string name="nav_item_donate" fuzzy="true">Υποστηρίξτε τη Βικιπαίδεια</string>
   <string name="error_voice_search_not_available">Λυπούμστε, η αναγνώριση ομιλίας δεν είναι διαθέσιμη.</string>
   <string name="location_service_disabled">Οι υπηρεσίες τοποθεσίας είναι απενεργοποιημένες.</string>
   <string name="enable_location_service">Ενεργοποίηση</string>

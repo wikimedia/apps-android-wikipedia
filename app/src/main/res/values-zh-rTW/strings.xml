@@ -11,6 +11,7 @@
 * LNDDYL
 * Liuxinyu970226
 * Mikepanhu
+* MuratTheTurkish
 * Reke
 * Sanmosa
 * Simon Shek
@@ -63,7 +64,7 @@
   <string name="search_redirect_from">重新導向自 %s</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
-  <string name="menu_page_find_in_page">於頁面尋找</string>
+  <string name="menu_page_find_in_page" fuzzy="true">於頁面尋找</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
@@ -170,7 +171,7 @@
   <string name="create_account_button">建立帳號</string>
   <string name="create_account_name_unavailable">使用者名稱「%s」不可用。請選擇其它名稱。</string>
   <string name="create_account_ip_block_message">很抱歉，您的 IP 位址目前已被封鎖而無法建立新帳號。</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
@@ -204,12 +205,12 @@
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私政策</string>
   <string name="terms_of_use_description">使用條款</string>
-  <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:關於</string>
+  <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://zh.m.wikipedia.org/wiki/Wikipedia:账号请求</string>
+  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
@@ -338,7 +339,7 @@
   <string name="preference_summary_show_link_previews">在輕觸連結時，顯示條目的快速預覽。</string>
   <string name="preference_title_collapse_tables">折疊表格</string>
   <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
-  <string name="nav_item_donate">支持維基百科</string>
+  <string name="nav_item_donate" fuzzy="true">支持維基百科</string>
   <string name="error_voice_search_not_available">很抱歉，不提供語音辨識。</string>
   <string name="location_service_disabled">已停用位置服務。</string>
   <string name="enable_location_service">啟用</string>
@@ -670,6 +671,7 @@
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
   <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
+  <string name="description_is_in_different_language">文字似乎使用了非預期的語言。語言應為%s。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>

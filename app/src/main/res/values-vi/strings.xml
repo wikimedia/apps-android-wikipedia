@@ -10,6 +10,7 @@
 * Leducthn
 * Levietduong
 * Minh Nguyen
+* MuratTheTurkish
 * Nguyên Lê
 * Nguyễn Mạnh An
 * Nhatminh01
@@ -57,7 +58,7 @@
   <string name="search_redirect_from">Đổi hướng từ %s</string>
   <string name="menu_page_show_tabs">Hiển thị tab</string>
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
-  <string name="menu_page_find_in_page">Tìm trong trang</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Tìm trong trang</string>
   <string name="edit_section_find_in_page">Tìm trong trang</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
   <string name="menu_page_add_to_list">Thêm vào danh sách đọc</string>
@@ -199,7 +200,7 @@
   <string name="about_wikipedia_url">https://vi.wikipedia.org/wiki/Wikipedia:Giới_thiệu</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/vi?uselang=vi</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/vi</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -323,7 +324,7 @@
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
   <string name="preference_title_collapse_tables">Thu gọn các bảng</string>
   <string name="preference_summary_collapse_tables">Tự động thu gọn các bảng trong bài viết, chẳng hạn như hộp thông tin, danh sách chú thích, và danh sách chú thích tham khảo.</string>
-  <string name="nav_item_donate">Hỗ trợ Wikimedia</string>
+  <string name="nav_item_donate" fuzzy="true">Hỗ trợ Wikimedia</string>
   <string name="error_voice_search_not_available">Rất tiếc, chức năng nhận dạng tiếng nói không có sẵn.</string>
   <string name="location_service_disabled">Dịch vụ định vị đang tắt.</string>
   <string name="enable_location_service">Kích hoạt</string>

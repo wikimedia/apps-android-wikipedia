@@ -8,6 +8,7 @@
 * Giorgi Balakhadze
 * MIKHEIL
 * Mehman97
+* MuratTheTurkish
 * Გიო ოქრო
 -->
 <resources>
@@ -50,7 +51,7 @@
   <string name="search_redirect_from">გადამისამართებულია %s-დან</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
   <string name="menu_page_other_languages">ენის შეცვლა</string>
-  <string name="menu_page_find_in_page">გვერდში ძიება</string>
+  <string name="menu_page_find_in_page" fuzzy="true">გვერდში ძიება</string>
   <string name="edit_section_find_in_page">გვერდზე ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
   <string name="menu_page_add_to_list">საკითხავ სიაში დამატება</string>
@@ -182,6 +183,7 @@
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
   <string name="privacy_policy_description">კონფიდენციალურობის პოლიტიკა</string>
   <string name="terms_of_use_description">გამოყენების პირობები</string>
+  <string name="android_app_request_an_account_url">https://kk.wikipedia.org/wiki/Уикипедия:Тіркелгі_сұрау</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ka</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ka</string>
   <string name="about_libraries_heading">გამოყენებული ბიბლიოთეკები</string>
@@ -266,7 +268,7 @@
   <string name="error_no_maps_app">შეუძლებელია აპლიკაციის ოპვნა, რომელიც მიმართულებებს იძლევა.</string>
   <string name="preference_title_show_link_previews">წინასწარ გადახედეთ ბმულს</string>
   <string name="preference_summary_show_link_previews">მაჩვენე სტატიების სწრაფი წინასწარი გადახედვის რეჟიმი ბმულებზე დაწოლისას.</string>
-  <string name="nav_item_donate">ვიკიპედიის მხარდაჭერა</string>
+  <string name="nav_item_donate" fuzzy="true">ვიკიპედიის მხარდაჭერა</string>
   <string name="error_voice_search_not_available">სამწუხაროდ, ხმით შეცნობა ხელმისაწვდომი არაა.</string>
   <string name="location_service_disabled">ლოკაციის სერვისი გამორთულია.</string>
   <string name="enable_location_service">ჩართვა</string>

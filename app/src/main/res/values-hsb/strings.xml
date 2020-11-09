@@ -39,7 +39,7 @@
   <string name="search_redirect_from">sposrědkowane wot %s</string>
   <string name="menu_page_show_tabs">Rajtarki pokazać</string>
   <string name="menu_page_other_languages">Rěč změnić</string>
-  <string name="menu_page_find_in_page">Na stronje pytać</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Na stronje pytać</string>
   <string name="edit_section_find_in_page">Na stronje pytać</string>
   <string name="menu_page_font_and_theme">Družinu pisma a barby</string>
   <string name="menu_page_add_to_list">K čitanskej lisćinje přidać</string>
@@ -291,7 +291,7 @@
   <string name="preference_summary_show_link_previews">Pokazuje krótki přehlad zapiskow při tłóčenju na wotkazy.</string>
   <string name="preference_title_collapse_tables">Tabulki začinić</string>
   <string name="preference_summary_collapse_tables">Tabulki w zapiskach kaž infokašćiki, nóžki a přispomnjenja awtomatisce začinić.</string>
-  <string name="nav_item_donate">Wikipediju podpěrać</string>
+  <string name="nav_item_donate" fuzzy="true">Wikipediju podpěrać</string>
   <string name="error_voice_search_not_available">Bohužel njeje spóznawanje hłosa přistupne.</string>
   <string name="location_service_disabled">Stejišćowe słužby su njezmóžnjene.</string>
   <string name="enable_location_service">Zmóžnić</string>

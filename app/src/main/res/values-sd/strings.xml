@@ -5,6 +5,7 @@
 * Indus Asia
 * KaleemBhatti
 * Mehtab ahmed
+* MuratTheTurkish
 * Tweety
 -->
 <resources>
@@ -43,7 +44,7 @@
   <string name="search_redirect_from">%s کان چوريل</string>
   <string name="menu_page_show_tabs">ٽيبس ڏيکاريو</string>
   <string name="menu_page_other_languages">ٻولي مَٽايو</string>
-  <string name="menu_page_find_in_page">صفحي ۾ ڳوليو</string>
+  <string name="menu_page_find_in_page" fuzzy="true">صفحي ۾ ڳوليو</string>
   <string name="edit_section_find_in_page">صفحي ۾ لھو</string>
   <string name="menu_page_font_and_theme">اکر ۽ نظارو</string>
   <string name="menu_page_add_to_list">پڙھڻ جي فھرست ۾ وجھو</string>
@@ -173,8 +174,8 @@
   <string name="terms_of_use_description">استعمال جا شرط</string>
   <string name="about_wikipedia_url">https://sd.wikipedia.org/wiki/Wikipedia:بابت</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
+  <string name="android_app_request_an_account_url">https://sd.wikipedia.org/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
@@ -295,7 +296,7 @@
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي ڇھڻ وقت صفحن جي تڪڙي پيش-نگاھ ڏيکاريو.</string>
   <string name="preference_title_collapse_tables">جدولون کوليو</string>
   <string name="preference_summary_collapse_tables">جدولون، جھڙوڪ ڄاڻخانا، حوالا ۽ نوٽ پاڻمرادو کولي ڇڏيو.</string>
-  <string name="nav_item_donate">وڪيپيڊيا کي سوورٽ ڪريو</string>
+  <string name="nav_item_donate" fuzzy="true">وڪيپيڊيا کي سوورٽ ڪريو</string>
   <string name="error_voice_search_not_available">معاف ڪجو، آواز شناس موجود نہ آھي.</string>
   <string name="location_service_disabled">مڪانيت سرور معذور ڪيل آھن.</string>
   <string name="enable_location_service">فعاليو</string>

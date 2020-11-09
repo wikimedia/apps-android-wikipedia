@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
@@ -72,6 +73,7 @@ public class PageTitle implements Parcelable {
     @Nullable private final PageProperties properties;
     // TODO: remove after the restbase endpoint supports ZH variants.
     @Nullable private String displayText;
+    @Nullable private String extract;
 
     /**
      * Creates a new PageTitle object.
@@ -111,6 +113,11 @@ public class PageTitle implements Parcelable {
         this(text, wiki, thumbUrl);
         this.displayText = displayText;
         this.description = description;
+    }
+
+    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable String displayText, @Nullable String extract) {
+        this(text, wiki, thumbUrl, description, displayText);
+        this.extract = extract;
     }
 
     public PageTitle(@Nullable String namespace, @NonNull String text, @NonNull WikiSite wiki) {
@@ -211,6 +218,11 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
+    @NonNull
+    public String getExtract() {
+        return StringUtils.defaultString(extract);
+    }
+
     // This update the text to the API text.
     public void setText(@NonNull String convertedFromText) {
         this.text = convertedFromText;
@@ -305,6 +317,7 @@ public class PageTitle implements Parcelable {
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
         parcel.writeString(displayText);
+        parcel.writeString(extract);
     }
 
     @Override public boolean equals(Object o) {
@@ -355,5 +368,6 @@ public class PageTitle implements Parcelable {
         thumbUrl = in.readString();
         description = in.readString();
         displayText = in.readString();
+        extract = in.readString();
     }
 }

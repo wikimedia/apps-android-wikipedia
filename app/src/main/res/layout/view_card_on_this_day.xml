@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipChildren="false"
@@ -13,51 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="48dp" />
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_on_this_day_rtl_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false">
 
-        <TextView
-            android:id="@+id/day"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:ellipsize="end"
-            android:fontFamily="serif"
-            android:maxLines="1"
-            android:textColor="?attr/primary_text_color"
-            android:textSize="24sp"
-            android:transitionName="@string/transition_on_this_day"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="November 1" />
-
-        <View
-            android:id="@+id/gradient_layout"
-            android:layout_width="1dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="27dp"
-            android:layout_marginTop="32dp"
-            android:background="?attr/chart_shade5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <LinearLayout
             android:id="@+id/view_on_this_day_text_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
+            android:layout_marginStart="24dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="16dp"
-            android:background="?attr/chart_shade5"
+            android:background="?attr/chip_background_color"
             android:clipChildren="false"
             android:clipToPadding="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gradient_layout">
+            app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
                 android:id="@+id/view_on_this_day_click_container"
@@ -66,89 +37,24 @@
                 android:layout_marginStart="1dp"
                 android:background="?attr/paper_color"
                 android:clickable="true"
-                android:focusable="true"
                 android:clipChildren="false"
                 android:clipToPadding="false"
+                android:focusable="true"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
-                android:paddingBottom="16dp">
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
 
                 <include
                     android:id="@+id/year_layout"
                     layout="@layout/view_on_this_day_event" />
-
             </FrameLayout>
-
         </LinearLayout>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:contentDescription="@null"
-            app:tint="?attr/chart_shade5"
-            app:layout_constraintBottom_toBottomOf="@+id/next_event_years"
-            app:layout_constraintEnd_toEndOf="@+id/next_event_years"
-            app:layout_constraintStart_toStartOf="@+id/next_event_years"
-            app:layout_constraintTop_toTopOf="@+id/next_event_years"
-            app:srcCompat="@drawable/otd_year_button_background" />
-
-        <TextView
-            android:id="@+id/next_event_years"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:maxLines="1"
-            android:paddingStart="6dp"
-            android:paddingTop="1dp"
-            android:paddingEnd="6dp"
-            android:paddingBottom="3dp"
-            android:textColor="?attr/chart_shade7"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@id/day"
-            app:layout_constraintTop_toBottomOf="@id/view_on_this_day_text_container"
-            tools:text="123 years ago" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:layout_marginBottom="6dp"
-            android:background="?attr/material_theme_border_color"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/more_events_layout"
+    <org.wikipedia.feed.view.CardFooterView
+        android:id="@+id/card_footer_view"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="-6dp"
-        android:background="?attr/paper_color"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
-            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
-
-        <TextView
-            android:id="@+id/view_list_card_more_text"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:text="@string/more_events_text"
-            android:textAllCaps="true"
-            android:textColor="?attr/secondary_text_color" />
-
-    </LinearLayout>
-
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp" />
 </LinearLayout>

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Drjpoudel
+* MuratTheTurkish
 * Nirajan pant
 * Nirjal stha
 * Parbat subedi
@@ -47,7 +48,7 @@
   <string name="search_redirect_from">%s बाट पुनः निर्देशित भएको</string>
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
-  <string name="menu_page_find_in_page">पृष्ठमा खोज्नुहोस्</string>
+  <string name="menu_page_find_in_page" fuzzy="true">पृष्ठमा खोज्नुहोस्</string>
   <string name="edit_section_find_in_page">पृष्ठमा खोज्नुहोस्</string>
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
@@ -184,8 +185,10 @@
   <string name="about_description">विकिपिडिया अनुप्रयोगको बारेमा</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">प्रयोगका सर्तहरू</string>
+  <string name="about_wikipedia_url">https://ne.wikipedia.org/wiki/विकिपीडिया:विकिपीडियाको_बारेमा</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://ne.wikipedia.org/wiki/विकिपिडिया:खाता_बनाउनको_लागि_अनुरोध</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">प्रयोग भएका पुस्तकालयहरू</string>
@@ -287,7 +290,7 @@
   <string name="preference_title_show_link_previews">लिङ्कका पूर्वावलोकनहरू देखाउनुहोस्</string>
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
   <string name="preference_title_collapse_tables">तालिका लुकाउनुहोस्</string>
-  <string name="nav_item_donate">विकिपिडियालाई समर्थन गर्नुहोस्</string>
+  <string name="nav_item_donate" fuzzy="true">विकिपिडियालाई समर्थन गर्नुहोस्</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>

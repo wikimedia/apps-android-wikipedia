@@ -38,7 +38,7 @@
   <string name="search_redirect_from">Preusmjereno sa %s</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promijeni jezik</string>
-  <string name="menu_page_find_in_page">Pronađi na stranici</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Pronađi na stranici</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
@@ -262,7 +262,7 @@
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
   <string name="preference_title_show_link_previews">Prikaži preglede linkova</string>
   <string name="preference_summary_show_link_previews">Omogućite brz pregled članaka kad dodirnete linkove.</string>
-  <string name="nav_item_donate">Podržite Wikipediju</string>
+  <string name="nav_item_donate" fuzzy="true">Podržite Wikipediju</string>
   <string name="error_voice_search_not_available">Izvinjavamo se, prepoznavanje govora nije dostupno.</string>
   <string name="location_service_disabled">Lokacijske usluge su isključene.</string>
   <string name="enable_location_service">Uključi</string>

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Bsitzmann
+* MuratTheTurkish
 * Pichnat Thong
 * Sovichet
 * Y.snsqr
@@ -32,7 +33,7 @@
   <string name="search_redirect_from">បានបញ្ជូនបន្តពី %s</string>
   <string name="menu_page_show_tabs">បង្ហាញថេប</string>
   <string name="menu_page_other_languages">ប្ដូរភាសា</string>
-  <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ស្វែងរកក្នុងទំព័រ</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="menu_page_add_to_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
   <string name="menu_page_share">ចែក​ចាយតំណភ្ជាប់</string>
@@ -142,6 +143,7 @@
   <string name="about_description">អំពីកម្មវិធីវិគីភីឌា</string>
   <string name="privacy_policy_description">គោលការណ៍នៃ​ភាពឯកជន</string>
   <string name="terms_of_use_description">លក្ខខណ្ឌប្រើប្រាស់</string>
+  <string name="about_wikipedia_url">https://km.wikipedia.org/wiki/វិគីភីឌា:អំពីវិគីភីឌា</string>
   <string name="about_libraries_heading">បណ្ណាល័យដែលបានប្រើ</string>
   <string name="about_contributors_heading">អ្នករួមចំណែក</string>
   <string name="about_translators_heading">អ្នកបកប្រែ</string>
@@ -211,7 +213,7 @@
   <string name="button_continue_to_disambiguation">មើលទំព័រស្រដៀង</string>
   <string name="link_preview_disambiguation_description">ចំណងជើងអត្ថបទនេះទាក់ទងនឹងទំព័រច្រើន៖</string>
   <string name="button_add_to_reading_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
-  <string name="nav_item_donate">គាំទ្រវិគីភីឌា</string>
+  <string name="nav_item_donate" fuzzy="true">គាំទ្រវិគីភីឌា</string>
   <string name="enable_location_service">បើកប្រើ</string>
   <string name="location_permissions_enable_action">បើកប្រើ</string>
   <string name="multi_select_items_selected">បានជ្រើសយក %d</string>

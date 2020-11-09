@@ -8,6 +8,7 @@
 * Kumkumuk
 * Marmase
 * Mirzali
+* MuratTheTurkish
 * Orbot707
 * SHaran (WMF)
 -->
@@ -50,7 +51,7 @@
   <string name="search_redirect_from">%s ra kırışı yê</string>
   <string name="menu_page_show_tabs">Taban basne</string>
   <string name="menu_page_other_languages">Zıwani bıvurne</string>
-  <string name="menu_page_find_in_page">Pele de bıvêne</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Pele de bıvêne</string>
   <string name="edit_section_find_in_page">Pele de bıvêne</string>
   <string name="menu_page_font_and_theme">Nuşıs u thema</string>
   <string name="menu_page_add_to_list">Lista wendışi ra cı ke</string>
@@ -171,7 +172,7 @@
   <string name="about_description">Heqdê dezgehda Wikipedia</string>
   <string name="privacy_policy_description">Politikaya nımıteyiye</string>
   <string name="terms_of_use_description">Şertê gurenayışi</string>
-  <string name="about_wikipedia_url">https://diq.m.wikipedia.org/wiki/Wikipedia:Heqa</string>
+  <string name="about_wikipedia_url">https://diq.wikipedia.org/wiki/Wikipedia:Heqa_cı_de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -267,7 +268,7 @@
   <string name="preference_summary_show_link_previews">Gıreya veyayışi de verasayışo kılm mocneyeno</string>
   <string name="preference_title_collapse_tables">Tabloya teng kerê</string>
   <string name="preference_summary_collapse_tables">Tabloyanê meqaleya, zê doranê melumati, referansi u nota  otomatikman keno teng</string>
-  <string name="nav_item_donate">Wikimedya rê desteg be</string>
+  <string name="nav_item_donate" fuzzy="true">Wikimedya rê desteg be</string>
   <string name="enable_location_service">Aktif ke</string>
   <string name="location_permissions_enable_action">Akerê</string>
   <string name="multi_select_items_selected">%d weçineyê</string>

@@ -8,6 +8,7 @@
 * Macofe
 * Marcellus
 * Mirin
+* MuratTheTurkish
 * Ochilov
 * Orikrin1998
 * Remux
@@ -49,7 +50,7 @@
   <string name="search_redirect_from">Alidirektita el %s</string>
   <string name="menu_page_show_tabs">Montri langetojn</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
-  <string name="menu_page_find_in_page">Trovi en la paĝo</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Trovi en la paĝo</string>
   <string name="edit_section_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
   <string name="menu_page_add_to_list">Aldoni al legolisto</string>
@@ -188,7 +189,7 @@
   <string name="terms_of_use_description">Uzkondiĉoj</string>
   <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/eo</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.eo</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eo</string>
@@ -306,7 +307,7 @@
   <string name="preference_summary_show_link_previews">Rapide antaŭmontri artikolojn tuŝetante ligilojn.</string>
   <string name="preference_title_collapse_tables">Maletendi tabelojn</string>
   <string name="preference_summary_collapse_tables">Aŭtomate maletendi tabelojn en artikoloj, kiel informujoj, referencoj kaj notoj.</string>
-  <string name="nav_item_donate">Subtenu Vikipedion</string>
+  <string name="nav_item_donate" fuzzy="true">Subtenu Vikipedion</string>
   <string name="error_voice_search_not_available">Pardonon, voĉa rekono ne estas disponebla.</string>
   <string name="location_service_disabled">Pozicio-servoj estas malŝaltitaj.</string>
   <string name="enable_location_service">Ŝalti</string>
