@@ -50,7 +50,7 @@
   <string name="search_redirect_from">Dilencongkan dari %s</string>
   <string name="menu_page_show_tabs">Paparkan tab</string>
   <string name="menu_page_other_languages">Tukar bahasa</string>
-  <string name="menu_page_find_in_page">Cari dalam laman</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Cari dalam laman</string>
   <string name="edit_section_find_in_page">Cari dalam laman</string>
   <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke senarai bacaan</string>
@@ -313,7 +313,7 @@
   <string name="preference_summary_show_link_previews">Paparkan pratonton cepat bagi rencana apabila mengetik pautan.</string>
   <string name="preference_title_collapse_tables">Susut jadual</string>
   <string name="preference_summary_collapse_tables">Susut jadual secara automatik dalam rencana, seperti infobox, rujukan, dan nota.</string>
-  <string name="nav_item_donate">Sokonglah Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Sokonglah Wikipedia</string>
   <string name="error_voice_search_not_available">Maaf, pengenalan undi tidak tersedia.</string>
   <string name="location_service_disabled">Perkhidmatan lokasi dilumpuhkan.</string>
   <string name="enable_location_service">Hidupkan</string>

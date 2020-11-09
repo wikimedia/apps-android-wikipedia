@@ -52,7 +52,7 @@
   <string name="search_redirect_from">%s سے رجوع مکرر</string>
   <string name="menu_page_show_tabs">ٹیب دکھائیں</string>
   <string name="menu_page_other_languages">زبان تبدیل کریں</string>
-  <string name="menu_page_find_in_page">صفحہ میں تلاش کریں</string>
+  <string name="menu_page_find_in_page" fuzzy="true">صفحہ میں تلاش کریں</string>
   <string name="edit_section_find_in_page">صفحہ میں تلاش کریں</string>
   <string name="menu_page_font_and_theme">فانٹ اور پوشاک</string>
   <string name="menu_page_add_to_list">فہرست مطالعہ میں شامل کریں</string>
@@ -319,7 +319,7 @@
   <string name="preference_summary_show_link_previews">مضمون کی فوری جھلک دکھائیں جب روابط پر ٹیپ کررہے ہوں۔</string>
   <string name="preference_title_collapse_tables">جدول بند کریں</string>
   <string name="preference_summary_collapse_tables">مضامین میں قابل توسیع جدول، جیسا کہ خانہ معلومات، حوالہ جات، اور حواشی وغیرہ کو خودکار طور پر سمیٹ دیں۔</string>
-  <string name="nav_item_donate">ویکیپیڈیا کی مدد کریں</string>
+  <string name="nav_item_donate" fuzzy="true">ویکیپیڈیا کی مدد کریں</string>
   <string name="error_voice_search_not_available">معذرت، آواز کی شناخت دستیاب نہیں ہے۔</string>
   <string name="location_service_disabled">لوکیشن(مقامیانہ) سروس غیر فعال ہے۔</string>
   <string name="enable_location_service">فعال کریں</string>

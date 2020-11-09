@@ -46,7 +46,7 @@
   <string name="search_redirect_from">%s ਤੋਂ ਮੋੜਿਆ ਗਿਆ</string>
   <string name="menu_page_show_tabs">ਟੈਬ ਵਿਖਾਉ</string>
   <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
-  <string name="menu_page_find_in_page">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
   <string name="edit_section_find_in_page">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
@@ -250,7 +250,7 @@
   <string name="error_no_maps_app">ਦਿਸ਼ਾਵਾਂ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਈ ਕੋਈ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
   <string name="preference_title_show_link_previews">ਕੜੀ ਦੀ ਝਲਕ ਵਿਖਾਉ</string>
   <string name="preference_summary_show_link_previews">ਜਦੋਂ ਕੜੀ ਨੂੰ ਦਬਾਇਆ ਜਾਵੇ ਤਾਂ ਲੇਖ ਦੀ ਥੋੜ੍ਹੀ ਜਿਹੀ ਝਲਕ ਦਿਖਾਈ ਜਾਵੇ।</string>
-  <string name="nav_item_donate">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸਹਿਯੋਗ ਦੇਵੋ</string>
+  <string name="nav_item_donate" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸਹਿਯੋਗ ਦੇਵੋ</string>
   <string name="error_voice_search_not_available">ਮੁਆਫ ਕਰਨਾ, ਆਵਾਜ਼ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="enable_location_service">ਚਾਲੂ ਕਰੋ</string>
   <string name="view_link_preview_error_button_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>

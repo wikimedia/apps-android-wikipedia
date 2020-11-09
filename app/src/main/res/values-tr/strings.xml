@@ -80,7 +80,7 @@
   <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
-  <string name="menu_page_find_in_page">Sayfada bul</string>
+  <string name="menu_page_find_in_page">Maddede bul</string>
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
@@ -127,7 +127,7 @@
   <string name="search_reading_lists_no_results">Okuma listelerinde sonuç bulunamadı</string>
   <string name="search_history_no_results">Geçmişte sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için aşağıda görünen kelimeleri yazınız.</string>
-  <string name="edit_section_captcha_request_an_account_message">Resmi göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap talep edin&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Resim göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap talep edin&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
   <string name="title_captcha">CAPTCHA kodunu girin</string>
   <string name="edit_section_captcha_reload">CAPTCHA kodunu yenilemek için dokunun</string>
@@ -223,14 +223,14 @@
   <string name="terms_of_use_description">Kullanım şartları</string>
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Çevrimdışı_okuma_ve_veri</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_etiketleri</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
@@ -355,7 +355,7 @@
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
   <string name="preference_title_collapse_tables">Tabloları daralt</string>
   <string name="preference_summary_collapse_tables">Bilgi kutuları, referanslar ve notlar gibi makalelerdeki tabloları otomatik olarak daralt.</string>
-  <string name="nav_item_donate">Vikipedi\'ye Destek Ol</string>
+  <string name="nav_item_donate">Bağış yap</string>
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
   <string name="enable_location_service">Etkinleştir</string>
@@ -479,8 +479,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrimdışı erişilebilir olmayacak:</string>
   <string name="reading_lists_sync_reminder_title">Okuma listesi senkronizasyonunu etkinleştirilsin mi?</string>
-  <string name="reading_lists_sync_reminder_text">Okuma listelerine kaydedilen makaleler artık Vikipedi hesabınıza senkronize edilebilir.  &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Senkronize_okuma_listeleri\"&gt;Daha fazla bilgi edin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Okuma listelerine kaydedilen maddeler artık Vikipedi hesabınıza senkronize edilebilir. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza oturum açın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
   <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>

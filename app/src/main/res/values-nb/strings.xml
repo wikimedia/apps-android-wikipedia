@@ -53,7 +53,7 @@
   <string name="search_redirect_from">Omdirigert fra %s</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
-  <string name="menu_page_find_in_page">Søk i siden</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Søk i siden</string>
   <string name="edit_section_find_in_page">Finn på siden</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
   <string name="menu_page_add_to_list">Legg til i leseliste</string>
@@ -316,7 +316,7 @@
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
-  <string name="nav_item_donate">Støtt Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Støtt Wikipedia</string>
   <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
   <string name="location_service_disabled">Stedstjenester er slått av.</string>
   <string name="enable_location_service">Slå på</string>

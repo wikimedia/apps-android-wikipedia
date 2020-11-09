@@ -42,7 +42,7 @@
   <string name="search_redirect_from">Adkaset eus %s</string>
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
   <string name="menu_page_other_languages">Cheñch yezh</string>
-  <string name="menu_page_find_in_page">Klask er bajenn</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Klask er bajenn</string>
   <string name="edit_section_find_in_page">Klask er bajenn</string>
   <string name="menu_page_font_and_theme">Font ha tem</string>
   <string name="menu_page_add_to_list">Ouzhpennañ d\'ar roll lenn</string>
@@ -287,7 +287,7 @@
   <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>
   <string name="preference_summary_show_link_previews">Diskwel un alberz buan eus ar pennadoù en ur skrivañ war al liammoù.</string>
   <string name="preference_title_collapse_tables">Adplegañ an taolennoù</string>
-  <string name="nav_item_donate">Skoazellañ Wikimedia</string>
+  <string name="nav_item_donate" fuzzy="true">Skoazellañ Wikimedia</string>
   <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
   <string name="location_service_disabled">Diweredekaet eo ar servijoù lec\'hiañ.</string>
   <string name="enable_location_service">Gweredekaat</string>

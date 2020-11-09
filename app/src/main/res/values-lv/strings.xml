@@ -37,7 +37,7 @@
   <string name="search_redirect_from">Pāradresēts no %s</string>
   <string name="menu_page_show_tabs">Rādīt cilnes</string>
   <string name="menu_page_other_languages">Mainīt valodu</string>
-  <string name="menu_page_find_in_page">Atrast lapā</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Atrast lapā</string>
   <string name="edit_section_find_in_page">Atrast lapā</string>
   <string name="menu_page_font_and_theme">Fonts un apdare</string>
   <string name="menu_page_add_to_list">Pievienot lasīšanas sarakstam</string>
@@ -186,7 +186,7 @@
   <string name="button_get_directions">Saņemt norādes</string>
   <string name="preference_title_show_link_previews">Rādīt saišu priekšskatījumus</string>
   <string name="preference_title_collapse_tables">Sakļaut tabulas</string>
-  <string name="nav_item_donate">Atbalstīt Vikipēdiju</string>
+  <string name="nav_item_donate" fuzzy="true">Atbalstīt Vikipēdiju</string>
   <string name="enable_location_service">Iespējot</string>
   <string name="location_permissions_enable_action">Ieslēgt</string>
   <string name="error_message_generic">Notika kļūda</string>
