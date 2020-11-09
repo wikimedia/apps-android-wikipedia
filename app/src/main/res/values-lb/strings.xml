@@ -44,7 +44,7 @@
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
-  <string name="menu_page_find_in_page">Op der Säit sichen</string>
+  <string name="menu_page_find_in_page">Am Artikel sichen</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
@@ -278,7 +278,7 @@
   <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
   <string name="preference_summary_show_link_previews">Kuerz weise wéi den Artikel ausgesäit wann een op d\'Linken tippt.</string>
   <string name="preference_title_collapse_tables">Tabellen zesummeklappen</string>
-  <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
+  <string name="nav_item_donate">Maacht een Don</string>
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
   <string name="enable_location_service">Aschalten</string>

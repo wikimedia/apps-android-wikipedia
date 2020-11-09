@@ -50,7 +50,7 @@
   <string name="search_redirect_from">Redirixido desde %s</string>
   <string name="menu_page_show_tabs">Amosar as lapelas</string>
   <string name="menu_page_other_languages">Cambiar a lingua</string>
-  <string name="menu_page_find_in_page">Atopar na páxina</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Atopar na páxina</string>
   <string name="edit_section_find_in_page">Atopar na páxina</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_add_to_list">Engadir á lista de lectura</string>
@@ -311,7 +311,7 @@
   <string name="preference_summary_show_link_previews">Amosar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
   <string name="preference_title_collapse_tables">Colapsar táboas</string>
   <string name="preference_summary_collapse_tables">Automaticamente minimizar táboas en artigos, como por exemplo caixas de información, referencias e notas.</string>
-  <string name="nav_item_donate">Apoia a Wikimedia</string>
+  <string name="nav_item_donate" fuzzy="true">Apoia a Wikimedia</string>
   <string name="error_voice_search_not_available">O recoñecemento de voz non está dispoñible.</string>
   <string name="location_service_disabled">Os servizos de localización están desactivados.</string>
   <string name="enable_location_service">Activar</string>

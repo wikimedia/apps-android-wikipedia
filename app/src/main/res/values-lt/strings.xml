@@ -50,7 +50,7 @@
   <string name="search_redirect_from">Nukreipta iš %s</string>
   <string name="menu_page_show_tabs">Rodyti skirtukus</string>
   <string name="menu_page_other_languages">Keisti kalbą</string>
-  <string name="menu_page_find_in_page">Rasti puslapyje</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Rasti puslapyje</string>
   <string name="edit_section_find_in_page">Rasti puslapyje</string>
   <string name="menu_page_font_and_theme">Šriftas ir temos</string>
   <string name="menu_page_add_to_list">Įtraukti į skaitymo sąrašą</string>
@@ -255,7 +255,7 @@
   <string name="error_no_maps_app">Nepavyko rasti jokių programėlių, kurios suteikia kryptis.</string>
   <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>
   <string name="preference_summary_show_link_previews">Palietus ant nuorodos rodyti greitos peržiūros straipsnius.</string>
-  <string name="nav_item_donate">Paremti Vikipediją</string>
+  <string name="nav_item_donate" fuzzy="true">Paremti Vikipediją</string>
   <string name="error_voice_search_not_available">Atsiprašome, balso atpažinimas negalimas.</string>
   <string name="location_service_disabled">Vietos paslaugos yra išjungtos.</string>
   <string name="enable_location_service">Įjungti</string>
