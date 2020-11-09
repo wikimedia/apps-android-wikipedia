@@ -43,7 +43,7 @@
   <string name="search_redirect_from">Awelleh si %s</string>
   <string name="menu_page_show_tabs">Sken iccaren</string>
   <string name="menu_page_other_languages">Fren tutlayt</string>
-  <string name="menu_page_find_in_page">Nadi deg usebter</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Nadi deg usebter</string>
   <string name="edit_section_find_in_page">Nadi deg usebter</string>
   <string name="menu_page_font_and_theme">Tasefsit d usentel</string>
   <string name="menu_page_add_to_list">Rnu tabdart n tɣuri</string>
@@ -298,7 +298,7 @@
   <string name="preference_title_show_link_previews">Wali tiskanin n useɣwen</string>
   <string name="preference_summary_show_link_previews">Wali taskant taruraḍt n imagraden s unali n iseɣwan.</string>
   <string name="preference_title_collapse_tables">Fneẓ tifelwiyin.</string>
-  <string name="nav_item_donate">Mudd afus i Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Mudd afus i Wikipedia</string>
   <string name="error_voice_search_not_available">Suref-aɣ, aɛqal aɣectan ulac-it.</string>
   <string name="location_service_disabled">Imezla n usideg nsan.</string>
   <string name="enable_location_service">Rmed</string>

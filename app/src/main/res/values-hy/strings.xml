@@ -44,7 +44,7 @@
   <string name="search_redirect_from">Վերահղված է %s-ից</string>
   <string name="menu_page_show_tabs">Ցուցադրել ներդիրները</string>
   <string name="menu_page_other_languages">Փոխել լեզուն</string>
-  <string name="menu_page_find_in_page">Գտնել էջում</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Գտնել էջում</string>
   <string name="edit_section_find_in_page">Գտնել էջում</string>
   <string name="menu_page_font_and_theme">Տառատեսակ և արտաքին տեսք</string>
   <string name="menu_page_add_to_list">Ավելացնել ընթերցացանկում</string>
@@ -166,7 +166,7 @@
   <string name="close_all_tabs_confirm_no">Ոչ</string>
   <string name="button_continue_to_article">Կարդալ հոդված</string>
   <string name="button_continue_to_talk_page">Բացել քննարկման էջը</string>
-  <string name="nav_item_donate">Օգնե՜նք Վիքիպեդիային</string>
+  <string name="nav_item_donate" fuzzy="true">Օգնե՜նք Վիքիպեդիային</string>
   <string name="location_permissions_enable_action">Միացնել</string>
   <string name="view_link_preview_error_button_dismiss">Փակել</string>
   <string name="reference_list_title">Ծանոթագրություններ</string>

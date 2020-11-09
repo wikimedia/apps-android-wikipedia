@@ -62,7 +62,7 @@
   <string name="search_redirect_from">Redirigit des de %s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
-  <string name="menu_page_find_in_page">Cercar en la pàgina</string>
+  <string name="menu_page_find_in_page">Cerca a l\'article</string>
   <string name="edit_section_find_in_page">Cerca a la pàgina</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
@@ -337,7 +337,7 @@
   <string name="preference_summary_show_link_previews">Mostra una vista prèvia ràpida d\'articles en tocar enllaços.</string>
   <string name="preference_title_collapse_tables">Amaga les taules</string>
   <string name="preference_summary_collapse_tables">Amaga automàticament les taules en els articles. Per exemple, amb les infotaules, les referències i les anotacions.</string>
-  <string name="nav_item_donate">Doneu suport a la Viquipèdia</string>
+  <string name="nav_item_donate">Feu una donació</string>
   <string name="error_voice_search_not_available">Ho sentim, el reconeixement de veu no està disponible.</string>
   <string name="location_service_disabled">Els serveis d\'ubicació estan inhabilitats.</string>
   <string name="enable_location_service">Habilita</string>
