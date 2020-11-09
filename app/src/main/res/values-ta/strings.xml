@@ -56,7 +56,7 @@
   <string name="search_redirect_from">%s இலிருந்து வழிமாற்றப்பட்டது</string>
   <string name="menu_page_show_tabs">தத்தல்களை காண்பி</string>
   <string name="menu_page_other_languages">மொழியை மாற்று</string>
-  <string name="menu_page_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
+  <string name="menu_page_find_in_page" fuzzy="true">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="edit_section_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_add_to_list">படிக்கும் பட்டியலில் சேர்க</string>
@@ -296,7 +296,7 @@
   <string name="error_no_maps_app">வழிகாட்டி செயலிகள் ஏதும் இல்லை.</string>
   <string name="preference_title_show_link_previews">முன்னோட்ட இணைப்புகளை காண்பி</string>
   <string name="preference_summary_show_link_previews">இணைப்புகளை தட்டும் போது கட்டுரையின் விரைவான முன்னோட்டம் காட்டு.</string>
-  <string name="nav_item_donate">விக்கிமீடியாவை ஆதரிக்கவும்</string>
+  <string name="nav_item_donate" fuzzy="true">விக்கிமீடியாவை ஆதரிக்கவும்</string>
   <string name="error_voice_search_not_available">மன்னிக்கவும், குரல் அறிதல் கிடைக்கவில்லை</string>
   <string name="location_service_disabled">இடச் சேவைகள் முடக்கப்பட்டுள்ளது.</string>
   <string name="enable_location_service">செயற்படுத்து</string>

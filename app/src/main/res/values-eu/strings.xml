@@ -52,7 +52,7 @@
   <string name="search_redirect_from">%s horretatik birzuzenduta</string>
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
   <string name="menu_page_other_languages">Hizkuntza aldatu</string>
-  <string name="menu_page_find_in_page">Aurkitu orrialdean</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Aurkitu orrialdean</string>
   <string name="edit_section_find_in_page">Orrialdean bilatu</string>
   <string name="menu_page_font_and_theme">Letra eta gaia</string>
   <string name="menu_page_add_to_list">Gehitu irakurketa zerrendara</string>
@@ -307,7 +307,7 @@
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="preference_summary_show_link_previews">Erakutsi artikuluen aurrebista bizkorra esteketan sakatzen denean.</string>
   <string name="preference_title_collapse_tables">Taulak txikitu</string>
-  <string name="nav_item_donate">Wikipedia Lagundu</string>
+  <string name="nav_item_donate" fuzzy="true">Wikipedia Lagundu</string>
   <string name="error_voice_search_not_available">Barkatu, ahots ezagutza ez dago erabilgarri.</string>
   <string name="location_service_disabled">Kokapen zerbitzuak desgaituak daude.</string>
   <string name="enable_location_service">Gaitu</string>

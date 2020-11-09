@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Ahmad252
+* Ajam
 * Albe Albe460
 * AliNabipr
 * Alifakoor
@@ -33,6 +34,7 @@
 * Ommmmid
 * Pirehelokan
 * Reza1615
+* Saadat
 * Sahehco
 * Sunfyre
 * Yoosef Pooranvary
@@ -49,12 +51,12 @@
   <string name="search_hint">جستجو در ویکی‌پدیا</string>
   <string name="search_hint_voice_search">جستجوی صوتی</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
-  <string name="filter_hint_filter_my_lists_and_articles">فهرست من را فیلتر کنید</string>
+  <string name="filter_hint_filter_my_lists_and_articles">فیلتر فهرست‌های من</string>
   <string name="nav_item_suggested_edits">ویرایش‌ها</string>
   <string name="nav_item_more">بیشتر</string>
   <string name="nav_item_search">جستجو</string>
   <string name="error_network_error">نمی توان به اینترنت متصل شد.</string>
-  <string name="page_error_retry">تلاش مجدد</string>
+  <string name="page_error_retry">سعى دوباره</string>
   <string name="card_offline_error_retry">تلاش مجدد</string>
   <string name="storage_access_error_retry">تلاش مجدد</string>
   <string name="article_load_error_retry">تلاش مجدد</string>
@@ -67,6 +69,7 @@
   <string name="history_item_delete_undo">بازگردانی</string>
   <string name="notification_archive_undo">واگردانی</string>
   <string name="app_settings">تنظیمات برنامه</string>
+  <string name="search_tab_tooltip">برای تایپ عبارت جستجو، دوباره روی آیکون ضربه بزنید.</string>
   <string name="history_list_title">تاریخچه</string>
   <string name="dialog_title_clear_history">پاک‌کردن تاریخچه جستجو</string>
   <string name="dialog_message_clear_history">این کار تاریخچهٔ مرورگر شما را حذف می‌کند و همهٔ برگه‌های باز را می‌بندد. آیا مطمئن هستید؟</string>
@@ -77,7 +80,7 @@
   <string name="search_redirect_from">تغییر مسیر از %s</string>
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
-  <string name="menu_page_find_in_page">جستجو در صفحه</string>
+  <string name="menu_page_find_in_page">جستجو در مقاله</string>
   <string name="edit_section_find_in_page">جستجو در صفحه</string>
   <string name="menu_page_font_and_theme">قلم و پوسته</string>
   <string name="menu_page_add_to_list">افزودن به فهرست مطالعه</string>
@@ -203,7 +206,7 @@
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
   <string name="preference_title_auto_upload_crash_reports">ارسال گزارش خطا در نرم‌افزار</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">اجازه‌دادن به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم، برای رفع کردن سریع‌تر آنها.</string>
+  <string name="preference_summary_auto_upload_crash_reports">به برنامه اجازه بدهید گزارش‌های خطا را بصورت خودکار به یک سرویس شخص ثالث ارسال کند تا بتوانیم گزارش خطای شما را بررسی و آن را سریعتر رفع کنیم.</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
   <string name="history_filter_list_hint">تاریخچهٔ پرونده</string>
   <string name="error_can_not_process_link">نمی‌توان این پیوند را نمایش داد</string>
@@ -227,8 +230,10 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتابخانه‌های استفاده‌شده</string>
   <string name="about_contributors_heading">مشارکت‌کنندگان</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحه تیم&lt;/a&gt;</string>
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_app_license_heading">مجوز</string>
@@ -268,6 +273,7 @@
   <string name="search_did_you_mean">منظورتان «%s» بود؟</string>
   <string name="search_recent_header">جستجوهای اخیر:</string>
   <string name="search_results_count_zero">بدون نتیجه</string>
+  <string name="search_results_count">%d نتیجه</string>
   <string name="button_clear_all_recent_searches">پاک‌کردن جستجوهای اخیر</string>
   <string name="clear_recent_searches_confirm">آیا مطمئنید که می‌خواهید تاریخچهٔ جستجوهای اخیر را حذف کنید؟</string>
   <string name="clear_recent_searches_confirm_yes">بله</string>
@@ -308,6 +314,7 @@
   <string name="captcha_image">تصویر کپچا</string>
   <string name="gallery_fair_use_license">استفادهٔ منصفانه</string>
   <string name="gallery_uploader_unknown">بارگذار ناشناس</string>
+  <string name="gallery_not_available_offline_snackbar">نمای گالری بصورت آفلاین در دسترس نیست.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">نپذیرفتن</string>
   <string name="menu_new_tab">برگهٔ جدید</string>
   <string name="menu_close_all_tabs">بستن همهٔ زبانه‌ها</string>
@@ -330,6 +337,7 @@
   <string name="address_copied">نشانی در حافظه موقت ذخیره شد</string>
   <string name="text_copied">متن در حافظهٔ موقت ذخیره شد.</string>
   <string name="button_continue_to_article">مطالعهٔ مقاله</string>
+  <string name="button_continue_to_talk_page">گشودن صفحه گفتگو</string>
   <string name="button_continue_to_disambiguation">مشاهده صفحات مشابه</string>
   <string name="link_preview_disambiguation_description">این عنوان به بیش از یک صفحه مربوط است:</string>
   <string name="button_add_to_reading_list">افزودن به فهرست مطالعه</string>
@@ -340,16 +348,18 @@
   <string name="error_no_maps_app">نمی تواند اپلیکیشنی برای یافتن جهت پیدا کند.</string>
   <string name="preference_title_customize_explore_feed">مرور خوراک</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
+  <string name="preference_summary_customize_explore_feed">شخصی سازی خوراک</string>
   <string name="preference_summary_show_link_previews">نمایش سریع مقاله زمانی که بر روی لینک‌ها تپ می‌کنید.</string>
   <string name="preference_title_collapse_tables">بستن جدول ها</string>
   <string name="preference_summary_collapse_tables">تمام جدول‌های مقاله‌ها، مثل جعبه‌های اطلاعات، پانویس و یادداشت‌ها را به‌طور خودکار ببند.</string>
-  <string name="nav_item_donate">حمایت از ویکی‌پدیا</string>
+  <string name="nav_item_donate">کمک مالی</string>
   <string name="error_voice_search_not_available">با عرض پوزش، تشخیص صوتی میسر نیست</string>
   <string name="location_service_disabled">خدمات مکان‌یابی غیرفعال شده‌است.</string>
   <string name="enable_location_service">فعال</string>
   <string name="location_permissions_enable_prompt">فعال کردن اجازه مشاهده موقعیت برای یافتن مکان‌های اطرافتان.</string>
   <string name="location_permissions_enable_action">روشن کردن</string>
   <string name="error_webview_updating">سامانه مشاهدهٔ وب اندروید در حال بروزرسانی‌ست. لطفاً چند وقت دیگر از نو تلاش کنید.</string>
+  <string name="multi_items_selected">%d عدد انتخاب شد</string>
   <string name="multi_select_items_selected">%d انتخاب شد</string>
   <string name="error_message_generic">خطایی رخ داد</string>
   <string name="view_link_preview_error_button_dismiss">نپذیرفتن</string>
@@ -361,6 +371,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">گم نورکردن تصویر (در حالت تیره)</string>
   <string name="preference_title_prefer_offline_content">محتوای آفلاین را ترجیح بده</string>
   <string name="preference_summary_prefer_offline_content">با نشان دادن محتوای آفلاین به جای گرفتن آخرین نسخه می‌توانید در مصرف داده صرفه‌جویی کنید</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">تطبیق با زمینه سیستم</string>
   <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.</string>
   <string name="empty_tab_title">برگهٔ جدید</string>
   <string name="menu_save_all_tabs">ذخیرهٔ همهٔ برگه‌ها</string>
@@ -397,6 +408,7 @@
   <string name="reading_list_article_added_to_named">مقالهٔ %1$s افزوده شد به %2$s.</string>
   <string name="reading_list_article_added_to_default_list">%s ذخیره شد. آیا می خواهید آن را به یک فهرست اضافه کنید؟</string>
   <string name="reading_list_article_moved_to_named">%1$s به %2$s منتقل شد.</string>
+  <string name="reading_list_article_already_exists_message">%2$s در حال حاضر در %1$s وجود دارد.</string>
   <string name="reading_list_added_view_button">مشاهدهٔ فهرست</string>
   <string name="reading_list_add_to_list_button">افزودن به فهرست</string>
   <string name="format_reading_list_statistical_summary_singular">۱ مقاله، %1$.2f MB</string>
@@ -589,7 +601,7 @@
   <string name="feed_featured_image_share_subject">تصویر برگزیده ویکی‌انبار</string>
   <string name="feed">مرور</string>
   <string name="home">خانه</string>
-  <string name="most_read_list_card_title">گریش‌ها</string>
+  <string name="most_read_list_card_title">پرطرفدار</string>
   <string name="view_static_card_icon_content_description">آیکون کارت</string>
   <string name="view_card_news_title">در اخبار</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -685,7 +697,7 @@
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات مقاله</string>
   <string name="suggested_edits_task_add_description_description">مشارکت در مقالات بدون توضیحات</string>
   <string name="suggested_edits_task_image_caption_title">افزودن زیرنویس تصویر</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">افزودن توضیح به تصویر</string>
+  <string name="suggested_edits_task_image_caption_description">افزودن عنوان کوتاه ناموجود به تصاویر</string>
   <string name="suggested_edits_task_translate_caption_title">ترجمه توضیحات تصویر</string>
   <string name="suggested_edits_task_translate_caption_description">ترجمه توضیحات تصویر به زبان های دیگر</string>
   <string name="suggested_edits_task_multilingual_title">وظایف بیشتر برای ویرایشگران چندزبانه</string>
@@ -718,6 +730,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">اجازه‌نامه</string>
   <string name="suggested_edits_image_preview_dialog_more_info">اطلاعات بیشتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحهٔ این پرونده در ویکی‌انبار</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">صفحه فایل در ویکی‌پدیا</string>
   <string name="suggested_edits_article_cta_image_tags">افزودن برچسب‌های تصویر</string>
   <string name="suggested_edits_article_cta_image_caption">افزودن توضیح تصویر</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">افزودن زیرنویس تصویر (%s)</string>

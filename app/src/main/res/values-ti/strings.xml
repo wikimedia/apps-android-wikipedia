@@ -36,7 +36,7 @@
   <string name="search_redirect_from">ካብ %s ዝተሓላለፈ</string>
   <string name="menu_page_show_tabs">ጽላታት ኣርእይ</string>
   <string name="menu_page_other_languages">ቋንቋ ለውጥ</string>
-  <string name="menu_page_find_in_page">ገጽ ውሽጢ ድለይ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ገጽ ውሽጢ ድለይ</string>
   <string name="edit_section_find_in_page">ገጽ ውሽጢ ድለይ</string>
   <string name="menu_page_font_and_theme">ቅርጺ ፈደልን ገጽታን</string>
   <string name="menu_page_add_to_default_list">ኣቐምጥ</string>
@@ -162,7 +162,7 @@
   <string name="page_view_in_browser">ገጽ ኣብ መዳህሰሲ ርኣይ</string>
   <string name="format_error_server_message">መልእኽቲ፦ \"%s\"</string>
   <string name="button_continue_to_article">ጽሑፍ ኣንብብ</string>
-  <string name="nav_item_donate">ዊኪፐድያ ድጋፍ ሃብ</string>
+  <string name="nav_item_donate" fuzzy="true">ዊኪፐድያ ድጋፍ ሃብ</string>
   <plurals name="multi_items_selected">
     <item quantity="one">%d ዝተመረጸ</item>
     <item quantity="other">%d ዝተመርጹ</item>

@@ -55,7 +55,7 @@
   <string name="search_redirect_from">Redirecționat de la %s</string>
   <string name="menu_page_show_tabs">Arată filele</string>
   <string name="menu_page_other_languages">Schimbă limba</string>
-  <string name="menu_page_find_in_page">Găsește în pagină</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Găsește în pagină</string>
   <string name="edit_section_find_in_page">Găsiți în pagină</string>
   <string name="menu_page_font_and_theme">Schimbă fontul și tema</string>
   <string name="menu_page_add_to_list">Adaugă la lista de lecturi</string>
@@ -319,7 +319,7 @@
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="preference_title_collapse_tables">Ascunde tabele</string>
   <string name="preference_summary_collapse_tables">Ascunde automat tabel în articole, precum infocasete, referințe și note.</string>
-  <string name="nav_item_donate">Susțineți Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Susțineți Wikipedia</string>
   <string name="error_voice_search_not_available">Din păcate, recunoașterea vocală nu este disponibilă.</string>
   <string name="location_service_disabled">Serviciile de localizare sunt dezactivate.</string>
   <string name="enable_location_service">Activează</string>

@@ -38,7 +38,7 @@
   <string name="search_redirect_from">Atreoraithe ó %s</string>
   <string name="menu_page_show_tabs">Taispeáin táib</string>
   <string name="menu_page_other_languages">Athraigh teanga</string>
-  <string name="menu_page_find_in_page">Aimsigh sa leathanach</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Aimsigh sa leathanach</string>
   <string name="edit_section_find_in_page">Aimsigh sa leathanach</string>
   <string name="menu_page_font_and_theme">Cló agus téama</string>
   <string name="menu_page_add_to_list">Cuir ar liosta léitheoireachta</string>
@@ -282,7 +282,7 @@
   <string name="preference_summary_show_link_previews">Taispeáin réamhamharc gasta ar ailt nuair a thapáiltear ar naisc.</string>
   <string name="preference_title_collapse_tables">Fill táblaí</string>
   <string name="preference_summary_collapse_tables">Fill táblaí go huathoibríoch in ailt, de shaghas bhoscaí eolais, tagairtí, agus nótaí.</string>
-  <string name="nav_item_donate">Tacaigh le Vicipéid</string>
+  <string name="nav_item_donate" fuzzy="true">Tacaigh le Vicipéid</string>
   <string name="error_voice_search_not_available">Tá brón orainn, níl aithint gutha ar fáil.</string>
   <string name="location_service_disabled">Díchumasaítear seirbhísí suímh.</string>
   <string name="enable_location_service">Cumasaigh</string>

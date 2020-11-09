@@ -61,7 +61,7 @@
   <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
-  <string name="menu_page_find_in_page">חיפוש בדף</string>
+  <string name="menu_page_find_in_page" fuzzy="true">חיפוש בדף</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -338,7 +338,7 @@
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
   <string name="preference_summary_collapse_tables">מזעור אוטומטי של טבלאות בערכים, כגון תיבות מידע, מקורות, והערות שוליים.</string>
-  <string name="nav_item_donate">לתמוך בוויקיפדיה</string>
+  <string name="nav_item_donate" fuzzy="true">לתמוך בוויקיפדיה</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>

@@ -55,7 +55,7 @@
   <string name="search_redirect_from">Преусмерено са %s</string>
   <string name="menu_page_show_tabs">Прикажи картице</string>
   <string name="menu_page_other_languages">Промени језик</string>
-  <string name="menu_page_find_in_page">Пронађи на страници</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Пронађи на страници</string>
   <string name="edit_section_find_in_page">Пронађи на страници</string>
   <string name="menu_page_font_and_theme">Фонт и тема</string>
   <string name="menu_page_add_to_list">Додај на листу за читање</string>
@@ -323,7 +323,7 @@
   <string name="preference_summary_show_link_previews">Приказује кратки преглед чланака притиском на линкове.</string>
   <string name="preference_title_collapse_tables">Скупљање табела</string>
   <string name="preference_summary_collapse_tables">Аутоматски скупља табеле у чланцима, попут инфокутија, референци и напомена.</string>
-  <string name="nav_item_donate">Подржите Википедију</string>
+  <string name="nav_item_donate" fuzzy="true">Подржите Википедију</string>
   <string name="error_voice_search_not_available">Препознавање гласа није доступно.</string>
   <string name="location_service_disabled">Услуге локације су онемогућене.</string>
   <string name="enable_location_service">Омогући</string>

@@ -37,7 +37,7 @@
   <string name="search_redirect_from">Ji %s hate beralîkirin</string>
   <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
   <string name="menu_page_other_languages">Ziman biguherîne</string>
-  <string name="menu_page_find_in_page">Di nav rûpelê de bibîne</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Di nav rûpelê de bibîne</string>
   <string name="menu_page_font_and_theme">Font û tema</string>
   <string name="menu_page_add_to_list">Îlaweyî lîsta xwendinê bike</string>
   <string name="menu_page_share">Girêdanê parve bike</string>
@@ -180,7 +180,7 @@
   <string name="all_tab_items_closed">Hemû hilpekîn girtî ne.</string>
   <string name="format_error_server_message">Peyam:\"%s\"</string>
   <string name="button_continue_to_article">Gotarê bixwîne</string>
-  <string name="nav_item_donate">Piştgiriyê bide Wîkîpediyayê</string>
+  <string name="nav_item_donate" fuzzy="true">Piştgiriyê bide Wîkîpediyayê</string>
   <string name="enable_location_service">Çalak bike</string>
   <string name="location_permissions_enable_action">Veke</string>
   <string name="crash_report_activity_title">Çewtiya sepanê</string>

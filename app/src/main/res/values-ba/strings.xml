@@ -56,7 +56,7 @@
   <string name="search_redirect_from">%s битенән йүнәлтелде</string>
   <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
   <string name="menu_page_other_languages">Телде һайларға</string>
-  <string name="menu_page_find_in_page">Был биттә эҙләргә</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Был биттә эҙләргә</string>
   <string name="edit_section_find_in_page">Биттә эҙләргә</string>
   <string name="menu_page_font_and_theme">Шрифты һәм биҙәлеште үҙгәртергә</string>
   <string name="menu_page_add_to_list">Уҡыу исемлегенә өҫтәргә</string>
@@ -320,7 +320,7 @@
   <string name="error_no_maps_app">Маршрут һалырлыҡ бер ҡушымтаны ла табып булманы</string>
   <string name="preference_title_show_link_previews">Һылтанмаларға  байҡауҙы алдан күрһәтеп ҡуйыу</string>
   <string name="preference_summary_show_link_previews">Һылтанмаға баҫып, мәҡәләне алдан тиҙ ҡарауҙы күрһәтергә</string>
-  <string name="nav_item_donate">Википедияға ярҙам итергә</string>
+  <string name="nav_item_donate" fuzzy="true">Википедияға ярҙам итергә</string>
   <string name="error_voice_search_not_available">Ҡыҙғанысҡа ҡаршы, телмәрҙе таныу мөмкин түгел.</string>
   <string name="crash_report_activity_title">Ҡушымта хатаһы</string>
   <string name="crash_report_relaunch_or_quit">Һеҙ яңынан башларға йәки сығырға теләйһегеҙме?</string>
