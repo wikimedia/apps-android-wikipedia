@@ -1,6 +1,5 @@
 package org.wikipedia.page.leadimages;
 
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
@@ -91,10 +90,6 @@ public class LeadImagesHandler {
      */
     public void hide() {
         pageHeaderView.hide();
-    }
-
-    @Nullable public Bitmap getLeadImageBitmap() {
-        return isLeadImageEnabled() ? pageHeaderView.copyBitmap() : null;
     }
 
     public boolean isLeadImageEnabled() {

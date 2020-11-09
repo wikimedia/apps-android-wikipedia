@@ -21,7 +21,7 @@ public class WhiteBackgroundTransformation extends BitmapTransformation {
     protected Bitmap transform(@NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight) {
         if (toTransform.hasAlpha()) {
             Bitmap result = pool.get(toTransform.getWidth(), toTransform.getHeight(),
-                    toTransform.getConfig() != null ? toTransform.getConfig() : Bitmap.Config.ARGB_8888);
+                    toTransform.getConfig() != null ? toTransform.getConfig() : Bitmap.Config.RGB_565);
             FaceAndColorDetectImageView.applyMatrixWithBackground(toTransform, result, new Matrix());
             return result;
         } else {
