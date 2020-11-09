@@ -2,7 +2,6 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -94,14 +93,6 @@ public final class ViewUtil {
         actionMode.setCustomView(view);
         ImageView closeButton = view.findViewById(R.id.close_button);
         closeButton.setOnClickListener(v -> actionMode.finish());
-    }
-
-    @NonNull
-    public static Bitmap getBitmapFromView(@NonNull View view) {
-        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(returnedBitmap);
-        view.draw(canvas);
-        return returnedBitmap;
     }
 
     public static void formatLangButton(@NonNull TextView langButton, @NonNull String langCode,

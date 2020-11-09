@@ -1,7 +1,6 @@
 package org.wikipedia.page.leadimages;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -18,7 +17,6 @@ import org.wikipedia.R;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.LinearLayoutOverWebView;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -89,11 +87,6 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
             show();
             image.loadImage(Uri.parse(url));
         }
-    }
-
-    @NonNull
-    public Bitmap copyBitmap() {
-        return ViewUtil.getBitmapFromView(image);
     }
 
     @Override
