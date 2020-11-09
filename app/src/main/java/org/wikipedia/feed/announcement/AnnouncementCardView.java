@@ -7,6 +7,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -97,6 +98,14 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
             container.setStrokeWidth(10);
         } else {
             container.setDefaultBorder();
+        }
+
+        if (card.isArticlePlacement()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) container.getLayoutParams();
+            layoutParams.setMarginStart(0);
+            layoutParams.setMarginEnd(0);
+            container.setLayoutParams(layoutParams);
+            container.setRadius(0);
         }
     }
 
