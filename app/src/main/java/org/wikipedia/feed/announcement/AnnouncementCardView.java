@@ -104,6 +104,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) container.getLayoutParams();
             layoutParams.setMarginStart(0);
             layoutParams.setMarginEnd(0);
+            layoutParams.setMargins(0, 0, 0, 0);
             container.setLayoutParams(layoutParams);
             container.setRadius(0);
         }
