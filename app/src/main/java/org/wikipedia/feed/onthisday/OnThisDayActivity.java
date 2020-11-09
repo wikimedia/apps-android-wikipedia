@@ -13,19 +13,15 @@ import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public class OnThisDayActivity extends SingleFragmentActivity<OnThisDayFragment> {
     public static final String AGE = "age";
+    public static final String YEAR = "year";
     public static final String WIKISITE = "wikisite";
 
-    public static Intent newIntent(@NonNull Context context, int age, WikiSite wikiSite, InvokeSource invokeSource) {
+    public static Intent newIntent(@NonNull Context context, int age, int year, @NonNull WikiSite wikiSite, @NonNull InvokeSource invokeSource) {
         return new Intent(context, OnThisDayActivity.class)
                 .putExtra(AGE, age)
                 .putExtra(WIKISITE, wikiSite)
+                .putExtra(YEAR, year)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        getFragment().onBackPressed();
     }
 
     @Override

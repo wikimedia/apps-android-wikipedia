@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp"
-    android:layout_height="208dp"
-    android:background="?attr/selectableItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="288dp"
     android:orientation="vertical">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/horizontal_scroll_list_item_image"
         android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_height="164dp"
         android:transitionName="@string/transition_news_item" />
 
     <TextView
         android:id="@+id/horizontal_scroll_list_item_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="1"
         android:ellipsize="end"
-        android:lineSpacingMultiplier="1.2"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="8sp"
         android:linksClickable="false"
-        android:maxLines="5"
+        android:maxLines="4"
         android:textColor="?attr/primary_text_color"
         android:textColorLink="?attr/primary_text_color"
-        android:textSize="12sp" />
-
+        android:textSize="16sp" />
 </LinearLayout>

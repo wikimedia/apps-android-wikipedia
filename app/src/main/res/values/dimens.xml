@@ -63,12 +63,11 @@
     <dimen name="view_feed_padding_top">4dp</dimen>
     <dimen name="view_feed_search_padding_bottom">8dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
-    <dimen name="view_list_card_margin_vertical">4dp</dimen>
+    <dimen name="view_feed_day_header_margin_bottom">-24dp</dimen>
+    <dimen name="view_list_card_margin_vertical">12dp</dimen>
     <dimen name="view_list_card_margin_horizontal">8dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
-    <dimen name="view_card_header_height">48dp</dimen>
-    <dimen name="view_card_header_large_height">96dp</dimen>
     <dimen name="view_card_footer_height">48dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
@@ -113,4 +112,7 @@
     <!-- Bottom navigation values, they override the NavTab item width to make the entire NavTab be in full width -->
     <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>
+
+    <!-- WikiCard -->
+    <dimen name="wiki_card_radius">12dp</dimen>
 </resources>

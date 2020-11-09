@@ -45,6 +45,17 @@ public class PageSummary {
     @Nullable private String timestamp;
     @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
+    public PageSummary() { }
+
+    public PageSummary(@NonNull String displayTitle, @NonNull String prefixTitle, @Nullable String description,
+                       @Nullable String extract, @Nullable String thumbnail, @NonNull String lang) {
+        this.titles = new Titles(displayTitle, prefixTitle);
+        this.description = description;
+        this.extract = extract;
+        this.thumbnail = new Thumbnail(thumbnail);
+        this.lang = lang;
+    }
+
     public Page toPage(PageTitle title) {
         return new Page(adjustPageTitle(title), new PageProperties(this));
     }
@@ -114,7 +125,7 @@ public class PageSummary {
 
     @NonNull
     public PageTitle getPageTitle(@NonNull WikiSite wiki) {
-        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription(), getDisplayTitle());
+        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription(), getDisplayTitle(), getExtract());
     }
 
     public int getPageId() {
@@ -128,6 +139,10 @@ public class PageSummary {
 
     private static class Thumbnail {
         private String source;
+
+        Thumbnail(@Nullable String source) {
+            this.source = source;
+        }
 
         public String getUrl() {
             return source;
@@ -146,6 +161,11 @@ public class PageSummary {
     private static class Titles {
         @Nullable private String canonical;
         @Nullable private String display;
+
+        Titles(@Nullable String canonical, @Nullable String display) {
+            this.canonical = canonical;
+            this.display = display;
+        }
     }
 
     @Override @NonNull public String toString() {
