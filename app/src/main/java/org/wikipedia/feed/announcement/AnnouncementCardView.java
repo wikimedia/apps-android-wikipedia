@@ -26,6 +26,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+
 public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> {
     public interface Callback {
         void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri);
@@ -101,10 +103,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         }
 
         if (card.isArticlePlacement()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) container.getLayoutParams();
-            layoutParams.setMarginStart(0);
-            layoutParams.setMarginEnd(0);
-            container.setLayoutParams(layoutParams);
+            container.setLayoutParams(new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
             container.setRadius(0);
         }
     }
