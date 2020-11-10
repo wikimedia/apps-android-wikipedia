@@ -1,81 +1,27 @@
 package org.wikipedia.feed.random;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.feed.view.StaticCardView;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.feed.featured.FeaturedArticleCardView;
+import org.wikipedia.feed.view.CardFooterView;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
-
-public class RandomCardView extends StaticCardView<RandomCard> {
+public class RandomCardView extends FeaturedArticleCardView {
     public interface Callback {
         void onRandomClick(@NonNull RandomCardView view);
-        void onGetRandomError(@NonNull Throwable t, @NonNull RandomCardView view);
     }
 
-    public RandomCardView(@NonNull Context context) {
+    public RandomCardView(Context context) {
         super(context);
-        setTransitionName(getString(R.string.transition_random_activity));
     }
 
-    @Override public void setCard(@NonNull RandomCard card) {
-        super.setCard(card);
-        setTitle(getString(R.string.view_random_card_title));
-        setSubtitle(getString(R.string.view_random_card_subtitle));
-        setIcon(R.drawable.ic_casino_accent50_24dp);
-        setContainerBackground(R.color.accent50);
-        setAction(R.drawable.ic_casino_accent50_24dp, R.string.view_random_card_action);
-    }
-
-    protected void onContentClick(View v) {
-        if (getCallback() != null) {
-            getCallback().onRandomClick(RandomCardView.this);
-        }
-    }
-
-    protected void onActionClick(View v) {
-        if (getCallback() != null) {
-            getCallback().onRandomClick(RandomCardView.this);
-        }
-    }
-
-    @SuppressLint("CheckResult")
-    public void getRandomPage() {
-        setProgress(true);
-        ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(pageSummary -> new PageTitle(null, pageSummary.getApiTitle(), WikipediaApp.getInstance().getWikiSite()))
-                .onErrorResumeNext(throwable -> Observable.fromCallable(() -> {
-                            ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();
-                            if (page == null) {
-                                throw (Exception) throwable;
-                            }
-                            return ReadingListPage.toPageTitle(page);
-                        }
-                ))
-                .doAfterTerminate(() -> setProgress(false))
-                .subscribe(pageTitle -> {
-                    if (getCallback() != null && getCard() != null) {
-                        getCallback().onSelectPage(getCard(),
-                                new HistoryEntry(pageTitle, HistoryEntry.SOURCE_FEED_RANDOM));
-                    }
-                }, t -> {
-                    if (getCallback() != null && getCard() != null) {
-                        getCallback().onGetRandomError(t, RandomCardView.this);
-                    }
-                });
+    @Override
+    public CardFooterView.Callback getFooterCallback() {
+        return () -> {
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onRandomClick(RandomCardView.this);
+            }
+        };
     }
 }

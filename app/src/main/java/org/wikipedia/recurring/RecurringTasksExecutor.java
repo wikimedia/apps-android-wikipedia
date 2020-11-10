@@ -2,7 +2,6 @@ package org.wikipedia.recurring;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.alphaupdater.AlphaUpdateChecker;
-import org.wikipedia.page.shareafact.SharedImageCleanupTask;
 import org.wikipedia.settings.RemoteConfigRefreshTask;
 import org.wikipedia.util.ReleaseUtil;
 
@@ -21,7 +20,6 @@ public class RecurringTasksExecutor {
             RecurringTask[] allTasks = new RecurringTask[] {
                     // Has list of all rotating tasks that need to be run
                     new RemoteConfigRefreshTask(),
-                    new SharedImageCleanupTask(),
                     new DailyEventTask(app)
             };
             for (RecurringTask task: allTasks) {

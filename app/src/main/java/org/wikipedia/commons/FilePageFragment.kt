@@ -117,6 +117,7 @@ class FilePageFragment : Fragment() {
                             StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString(), null),
                             imageInfo.thumbUrl,
                             null,
+                            null,
                             imageInfo.timestamp,
                             imageInfo.user,
                             imageInfo.metadata

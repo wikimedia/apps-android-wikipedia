@@ -34,7 +34,7 @@
   <string name="share_via">Пайлашмакъ</string>
   <string name="image_share_via">Пайлашмакъ</string>
   <string name="menu_page_other_languages">Тиллени алышдырмакъ</string>
-  <string name="menu_page_find_in_page">Сагьифада тапмакъ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Сагьифада тапмакъ</string>
   <string name="edit_section_find_in_page">Сагьифада тапмакъ</string>
   <string name="menu_page_share">Байланывну пайлашмакъ</string>
   <string name="menu_long_press_open_page">Ачмакъ</string>

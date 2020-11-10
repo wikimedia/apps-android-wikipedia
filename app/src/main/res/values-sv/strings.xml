@@ -60,7 +60,7 @@
   <string name="search_redirect_from">Omdirigerad från %s</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
-  <string name="menu_page_find_in_page">Hitta på sidan</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Hitta på sidan</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
@@ -335,7 +335,7 @@
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
   <string name="preference_title_collapse_tables">Fäll ihop tabeller</string>
   <string name="preference_summary_collapse_tables">Fäller automatiskt ihop tabeller i artiklar, som inforutor, referenser och anmärkningar.</string>
-  <string name="nav_item_donate">Stöd Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Stöd Wikipedia</string>
   <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
   <string name="location_service_disabled">Platstjänster är inaktiverade.</string>
   <string name="enable_location_service">Aktivera</string>

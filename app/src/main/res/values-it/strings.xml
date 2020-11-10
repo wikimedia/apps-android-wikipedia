@@ -78,7 +78,7 @@
   <string name="search_redirect_from">Reindirizzamento da %s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
-  <string name="menu_page_find_in_page">Trova nella pagina</string>
+  <string name="menu_page_find_in_page">Trova nella voce</string>
   <string name="edit_section_find_in_page">Trova nella pagina</string>
   <string name="menu_page_font_and_theme">Carattere e tema</string>
   <string name="menu_page_add_to_list">Aggiungi all\'elenco di lettura</string>
@@ -353,7 +353,7 @@
   <string name="preference_summary_show_link_previews">Mostra una piccola anteprima delle voci quando si preme sui collegamenti.</string>
   <string name="preference_title_collapse_tables">Comprimi tabelle</string>
   <string name="preference_summary_collapse_tables">Comprimi automaticamente le tabelle nelle voci, ad esempio caselle di informazioni, riferimenti e note.</string>
-  <string name="nav_item_donate">Sostieni Wikipedia</string>
+  <string name="nav_item_donate">Fai una donazione</string>
   <string name="error_voice_search_not_available">Siacenti, il riconoscimento vocale non è disponibile.</string>
   <string name="location_service_disabled">I servizi di localizzazione sono disattivati.</string>
   <string name="enable_location_service">Attiva</string>
