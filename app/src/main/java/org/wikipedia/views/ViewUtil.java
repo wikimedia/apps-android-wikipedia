@@ -34,9 +34,10 @@ import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 @SuppressWarnings("checkstyle:magicnumber")
 public final class ViewUtil {
     private static final RoundedCorners ROUNDED_CORNERS = new RoundedCorners(DimenUtil.roundedDpToPx(15));
-    private static final MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), ROUNDED_CORNERS, new WhiteBackgroundTransformation());
+    private static final MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(),
+            new WhiteBackgroundTransformation(), ROUNDED_CORNERS);
     private static final MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(),
-            new RoundedCorners(DimenUtil.roundedDpToPx(2)), new WhiteBackgroundTransformation());
+            new WhiteBackgroundTransformation(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
 
     public static RoundedCorners getRoundedCorners() {
         return ROUNDED_CORNERS;
