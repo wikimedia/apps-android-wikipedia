@@ -151,7 +151,7 @@ dependencies {
     String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
-    String leakCanaryVersion = '2.4'
+    String leakCanaryVersion = '2.5'
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '20.3.0'
     String mlKitVersion = '16.1.1'
