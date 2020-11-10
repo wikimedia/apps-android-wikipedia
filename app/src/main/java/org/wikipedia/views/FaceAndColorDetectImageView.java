@@ -181,6 +181,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             } else {
                 scale = (float) width / (float) inBitmap.getWidth();
                 dx = 0;
+                dy = 0;
 
                 // apply face offset if we have one
                 if (facePos != null) {
@@ -190,8 +191,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                     } else if (dy < -(inBitmap.getHeight() * scale - height)) {
                         dy = -(inBitmap.getHeight() * scale - height);
                     }
-                } else {
-                    dy = (height - inBitmap.getHeight() * scale) * half;
                 }
             }
 
