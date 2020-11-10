@@ -13,8 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DimenUtil;
@@ -32,6 +32,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.PREFERRED_CARD_THUMBNAIL_SIZE;
+import static org.wikipedia.random.RandomActivity.INTENT_EXTRA_WIKISITE;
 
 public class RandomItemFragment extends Fragment {
     @BindView(R.id.random_item_progress) View progressBar;
@@ -40,13 +41,17 @@ public class RandomItemFragment extends Fragment {
 
     private CompositeDisposable disposables = new CompositeDisposable();
     @Nullable private PageSummary summary;
+    private WikiSite wikiSite;
 
-    public static final float SUM_OF_CARD_HORIZONTAL_MARGINS = DimenUtil.dpToPx(24f);
     public static final int EXTRACT_MAX_LINES = 4;
 
     @NonNull
-    public static RandomItemFragment newInstance() {
-        return new RandomItemFragment();
+    public static RandomItemFragment newInstance(@NonNull WikiSite wikiSite) {
+        RandomItemFragment fragment = new RandomItemFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(INTENT_EXTRA_WIKISITE, wikiSite);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     boolean isLoadComplete() {
@@ -56,6 +61,7 @@ public class RandomItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        wikiSite = getArguments().getParcelable(INTENT_EXTRA_WIKISITE);
         setRetainInstance(true);
     }
 
@@ -73,7 +79,7 @@ public class RandomItemFragment extends Fragment {
         if (summary == null) {
             getRandomPage();
         }
-        L10nUtil.setConditionalLayoutDirection(view, WikipediaApp.getInstance().language().getAppLanguageCode());
+        L10nUtil.setConditionalLayoutDirection(view, wikiSite.languageCode());
         return view;
     }
 
@@ -84,7 +90,7 @@ public class RandomItemFragment extends Fragment {
     }
 
     private void getRandomPage() {
-        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
+        disposables.add(ServiceFactory.getRest(wikiSite).getRandomSummary()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pageSummary -> {
@@ -130,8 +136,7 @@ public class RandomItemFragment extends Fragment {
     }
 
     @Nullable public PageTitle getTitle() {
-        return summary == null ? null
-                : summary.getPageTitle(WikipediaApp.getInstance().getWikiSite());
+        return summary == null ? null : summary.getPageTitle(wikiSite);
     }
 
     private RandomFragment parent() {
