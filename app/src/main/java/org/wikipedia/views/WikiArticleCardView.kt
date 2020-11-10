@@ -36,8 +36,9 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
         return articleImage
     }
 
-    fun setExtract(extract: String?) {
+    fun setExtract(extract: String?, maxLines: Int) {
         articleExtract.text = StringUtil.fromHtml(extract)
+        articleExtract.maxLines = maxLines
     }
 
     fun getSharedElements(): Array<Pair<View, String>> {

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
@@ -159,9 +161,10 @@ public class RandomFragment extends Fragment {
         }
     }
 
-    public void onSelectPage(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title));
+    public void onSelectPage(@NonNull PageTitle title, @NonNull Pair<View, String>[] sharedElements) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(requireActivity(), sharedElements);
+        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title), options.toBundle());
     }
 
     public void onAddPageToList(@NonNull PageTitle title, boolean addToDefault) {
