@@ -364,8 +364,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                     return;
                 }
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) searchCardView.getLayoutParams();
-                int horizontalMargin = DimenUtil.isLandscape(requireContext()) ?
-                        searchCardView.getWidth() / 6 + DimenUtil.roundedDpToPx(30f) : DimenUtil.roundedDpToPx(16f);
+                int horizontalMargin = DimenUtil.isLandscape(requireContext())
+                        ? searchCardView.getWidth() / 6 + DimenUtil.roundedDpToPx(30f) : DimenUtil.roundedDpToPx(16f);
                 layoutParams.setMarginStart(horizontalMargin);
                 layoutParams.setMarginEnd(horizontalMargin);
                 searchCardView.setLayoutParams(layoutParams);
