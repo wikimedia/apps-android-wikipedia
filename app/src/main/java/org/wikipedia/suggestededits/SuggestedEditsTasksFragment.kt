@@ -23,6 +23,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.UserContributionFunnel
+import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -316,7 +317,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
         disabledStatesView.setIPBlocked()
         disabledStatesView.visibility = VISIBLE
-        UserContributionFunnel.get().logIpBlock()
+        UserContributionEvent.get().logIpBlock()
     }
 
     private fun setRequiredLoginStatus() {
@@ -334,12 +335,14 @@ class SuggestedEditsTasksFragment : Fragment() {
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logDisabled()
+            UserContributionEvent.get().logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logPaused()
+            UserContributionEvent.get().logPaused()
             return true
         }
 
