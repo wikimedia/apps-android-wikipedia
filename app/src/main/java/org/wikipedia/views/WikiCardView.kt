@@ -17,17 +17,19 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
 
     init {
         var hasBorder = true
+        var cardRadius = context.resources.getDimension(R.dimen.wiki_card_radius)
         if (attrs != null) {
             val array = context.obtainStyledAttributes(attrs, R.styleable.WikiCardView)
             hasBorder = array.getBoolean(R.styleable.WikiCardView_hasBorder, true)
+            cardRadius = array.getDimension(R.styleable.WikiCardView_radius, cardRadius)
             array.recycle()
         }
 
-        setup(hasBorder)
+        setup(cardRadius, hasBorder)
     }
 
-    private fun setup(hasBorder: Boolean) {
-        radius = context.resources.getDimension(R.dimen.wiki_card_radius)
+    private fun setup(cardRadius: Float, hasBorder: Boolean) {
+        radius = cardRadius
         if (hasBorder) {
             setDefaultBorder()
         }

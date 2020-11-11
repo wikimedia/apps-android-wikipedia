@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
@@ -318,8 +320,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private class SearchCardViewHolder extends DefaultViewHolder<View> {
-        private ImageView historyFilterButton;
-        private ImageView clearHistoryButton;
+        private final ImageView historyFilterButton;
+        private final ImageView clearHistoryButton;
 
         SearchCardViewHolder(View itemView) {
             super(itemView);
@@ -327,7 +329,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             AppCompatImageView voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
             historyFilterButton = itemView.findViewById(R.id.history_filter);
             clearHistoryButton = itemView.findViewById(R.id.history_delete);
-            searchCardView.setOnClickListener(view -> ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, searchCardView));
+            searchCardView.setOnClickListener(view -> ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, view));
             voiceSearchButton.setOnClickListener(view -> ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested());
             historyFilterButton.setOnClickListener(view -> {
                 if (actionMode == null) {
@@ -347,12 +349,28 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 }
             });
             FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton);
-            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
+            adjustSearchCardView(searchCardView);
         }
 
         public void bindItem() {
             clearHistoryButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
             historyFilterButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+        }
+
+        @SuppressWarnings("checkstyle:magicnumber")
+        private void adjustSearchCardView(@NonNull WikiCardView searchCardView) {
+            searchCardView.post(() -> {
+                if (!isAdded()) {
+                    return;
+                }
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) searchCardView.getLayoutParams();
+                int horizontalMargin = DimenUtil.isLandscape(requireContext()) ?
+                        searchCardView.getWidth() / 6 + DimenUtil.roundedDpToPx(30f) : DimenUtil.roundedDpToPx(16f);
+                layoutParams.setMarginStart(horizontalMargin);
+                layoutParams.setMarginEnd(horizontalMargin);
+                searchCardView.setLayoutParams(layoutParams);
+            });
+            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
         }
     }
 
