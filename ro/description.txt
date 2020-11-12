@@ -10,3 +10,9 @@ Caracteristici:
    - Wikipedia Zero: Taxarea traficului de date este suspendată pentru operatorii de telefonie mobilă participanți.
 
 Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, creați-vă propria versiune! https://github.com/wikimedia/apps-android-wikipedia
+
+Din apropiere - Învață ce se află in jurul tău prin selectarea punctelor pe o hartă interactivă, pentru a vedea articole ce au legatură cu locația ta actuală.
+
+Despre Wikimedia Foundation
+
+Wikimedia Foundation este o Organizație Non-Profit care susține Wikipedia si alte proiecte Wikimedia. Wikimedia Foundation este o organizație de caritate finanțată in principal din donații. Pemtru mai multe informații, poți vizita website-ul nostru: https://wikimediafoundation.org/wiki/Home.
