@@ -124,7 +124,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         final int bottomMargin = 8;
         layoutParams.bottomMargin = DimenUtil.roundedDpToPx(bottomMargin);
 
-        if (feedView != null && feedView.getColumns() > 1) {
+        if (DimenUtil.isLandscape(view.getContext())) {
             layoutParams.leftMargin = ((View) view.getParent()).getWidth() / 6;
             layoutParams.rightMargin = layoutParams.leftMargin;
         }
