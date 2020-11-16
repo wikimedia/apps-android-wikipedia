@@ -290,10 +290,8 @@
   <string name="onboarding_maybe_later">మరెప్పుడైనా</string>
   <string name="onboarding_got_it">అర్థమైంది</string>
   <string name="app_shortcuts_search">వెతకండి</string>
-  <string name="more_trending_text">ఇలాంటివే మరిన్ని</string>
   <string name="on_this_day_card_title">ఈ రోజున</string>
   <string name="this_year">ఈ సంవత్సరం</string>
-  <string name="back_to_top">తిరిగి పైకి</string>
   <string name="on_this_day_dialog_next_month">వచ్చే నెల</string>
   <string name="on_this_day_dialog_previous_month">పోయిన నెల</string>
   <plurals name="diff_years">
