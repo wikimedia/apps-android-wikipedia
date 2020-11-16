@@ -720,7 +720,7 @@
     <item quantity="one">1 příspěvek</item>
     <item quantity="few">%d příspěvky</item>
     <item quantity="many">%d příspěvků</item>
-    <item quantity="other"/>
+    <item quantity="other">%d příspěvků</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Navrhování editací</string>
   <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
