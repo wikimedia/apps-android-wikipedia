@@ -587,12 +587,8 @@
   <string name="preference_summary_notification_user_talk">Mensagens das páginas de discussão</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
-  <string name="view_random_card_subtitle">Folhear aleatoriamente artigos da Wikipédia.</string>
-  <string name="view_random_card_action">Lançar os dados</string>
   <string name="view_next_random_article">Carregar outro artigo aleatório</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
-  <string name="view_main_page_card_subtitle">Página principal a %s</string>
-  <string name="view_main_page_card_action">Ver a página principal</string>
   <string name="view_featured_image_card_title">Imagem do dia</string>
   <string name="view_featured_image_card_download">Descarregar</string>
   <string name="menu_feed_card_dismiss">Ocultar este cartão</string>
@@ -602,7 +598,6 @@
   <string name="feed_featured_image_share_subject">Imagem destacada na wiki Wikimedia Commons</string>
   <string name="feed">Explorar</string>
   <string name="home">Início</string>
-  <string name="most_read_list_card_title">Tendências</string>
   <string name="view_static_card_icon_content_description">Ícone de cartão</string>
   <string name="view_card_news_title">Atualidades</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -628,7 +623,6 @@
   <string name="feed_item_type_featured_article">Artigo destacado do dia na Wikipédia</string>
   <string name="feed_item_type_trending">Artigos mais vistos do dia</string>
   <string name="feed_item_type_featured_image">Imagem destacada do dia na wiki Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Página principal da Wikipédia com o conteúdo destacado diário</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed Explorar</string>
@@ -899,13 +893,10 @@
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continuar a ler</string>
   <string name="app_shortcuts_search">Pesquisar</string>
-  <string name="more_trending_text">Mais disto</string>
-  <string name="top_on_this_day">Em tendência a %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>
   <string name="more_events_text">Mais neste dia</string>
   <string name="events_count_text">%1$s acontecimentos de %2$s–%3$d</string>
   <string name="this_year">Este ano</string>
-  <string name="back_to_top">Voltar ao topo</string>
   <string name="on_this_day_dialog_next_month">Mês seguinte</string>
   <string name="on_this_day_dialog_previous_month">Mês anterior</string>
   <string name="on_this_day_open_date_picker">Abrir seletor de datas</string>

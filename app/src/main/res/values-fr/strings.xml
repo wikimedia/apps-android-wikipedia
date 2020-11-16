@@ -85,7 +85,7 @@
   <string name="search_redirect_from">Redirigé depuis %s</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Rechercher dans la page</string>
+  <string name="menu_page_find_in_page">Trouver dans l’article</string>
   <string name="edit_section_find_in_page">Trouver dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
@@ -360,7 +360,7 @@
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
-  <string name="nav_item_donate" fuzzy="true">Soutenir Wikipédia</string>
+  <string name="nav_item_donate">Donner</string>
   <string name="error_voice_search_not_available">Désolé, la reconnaissance vocale n’est pas disponible.</string>
   <string name="location_service_disabled">Les services de géolocalisation sont désactivés.</string>
   <string name="enable_location_service">Activer</string>
@@ -610,14 +610,17 @@
   <string name="preference_summary_notification_user_talk">Messages des pages de discussion</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Au hasard</string>
-  <string name="view_random_card_subtitle">Voltiger à travers des articles aléatoires à lire sur Wikipédia.</string>
-  <string name="view_random_card_action">Lancer les dés</string>
+  <string name="view_random_article_card_title">Article au hasard</string>
+  <string name="view_random_article_card_action">Davantage d’articles au hasard</string>
+  <string name="view_top_read_card_title">Les plus lus</string>
+  <string name="view_top_read_card_action">Davantage de plus lus</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Charger un autre article au hasard</string>
   <string name="view_main_page_card_title">Aujourd’hui sur Wikipédia</string>
-  <string name="view_main_page_card_subtitle">Page principale du %s</string>
-  <string name="view_main_page_card_action">Afficher la page principale</string>
   <string name="view_featured_image_card_title">Image du jour</string>
   <string name="view_featured_image_card_download">Télécharger</string>
+  <string name="view_featured_image_card_share">Partager</string>
   <string name="menu_feed_card_dismiss">Masquer cette carte</string>
   <string name="menu_feed_card_dismissed">Carte cachée.</string>
   <string name="menu_feed_card_edit_card_languages">Modifier la langue des cartes</string>
@@ -625,7 +628,6 @@
   <string name="feed_featured_image_share_subject">Image sélectionnée de Wikimedia Commons</string>
   <string name="feed">Explorer</string>
   <string name="home">Accueil</string>
-  <string name="most_read_list_card_title">Tendance</string>
   <string name="view_static_card_icon_content_description">Icône de la carte</string>
   <string name="view_card_news_title">Dans l’actualité</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -651,7 +653,6 @@
   <string name="feed_item_type_featured_article">Article du jour en vedette sur Wikipédia</string>
   <string name="feed_item_type_trending">Articles les plus vus du jour</string>
   <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
   <string name="feed_empty_message">Il n’y a rien dans votre flux à Explorer</string>
@@ -663,6 +664,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
   <string name="feed_accessibility_card_load_more_button">Charger davantage</string>
+  <string name="top_read_activity_title">Les plus lus sur %s</string>
   <string name="description_edit_text_hint">Description de l’article</string>
   <string name="description_edit_article_description_label">Article</string>
   <string name="description_edit_translate_article_description_label_per_language">Description de l’article (%s)</string>
@@ -875,6 +877,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
   <string name="suggested_edits_contribution_current_revision_text">Votre modification est maintenant visible sur Wikipédia</string>
+  <string name="suggested_card_more_edits">Davantage de modifications suggérées</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>
@@ -922,13 +925,10 @@
   <string name="app_shortcuts_random">Aléatoire</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
-  <string name="more_trending_text">Autres comme ceci</string>
-  <string name="top_on_this_day">Populaire le %1$s</string>
   <string name="on_this_day_card_title">Ce jour-là</string>
   <string name="more_events_text">Davantage sur ce jour-là</string>
   <string name="events_count_text">%1$s événements en %2$s–%3$d</string>
   <string name="this_year">Cette année</string>
-  <string name="back_to_top">Retour au début</string>
   <string name="on_this_day_dialog_next_month">Mois suivant</string>
   <string name="on_this_day_dialog_previous_month">Mois précédent</string>
   <string name="on_this_day_open_date_picker">Ouvrir le sélecteur de dates</string>
@@ -936,6 +936,8 @@
     <item quantity="one">L’année dernière</item>
     <item quantity="other">Il y a %d ans</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Vous avez voyagé dans le temps 🚀</string>
+  <string name="on_this_day_back_to_future">Retour vers le futur</string>
   <string name="languages_list_activity_title">Ajouter une langue</string>
   <string name="languages_list_suggested_text">Suggéré</string>
   <string name="languages_list_all_text">Toutes les langues</string>

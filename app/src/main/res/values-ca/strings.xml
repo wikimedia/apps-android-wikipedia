@@ -587,14 +587,17 @@
   <string name="preference_summary_notification_user_talk">Missatges de pàgines de discussió</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
-  <string name="view_random_card_subtitle">Volteu per articles a l\'atzar per llegir de la Viquipèdia</string>
-  <string name="view_random_card_action">Tira el dau</string>
+  <string name="view_random_article_card_title">Article a l\'atzar</string>
+  <string name="view_random_article_card_action">Més articles a l\'atzar</string>
+  <string name="view_top_read_card_title">Els més llegits</string>
+  <string name="view_top_read_card_action">Altres més llegits</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Carrega un altre article a l\'atzar</string>
   <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
-  <string name="view_main_page_card_subtitle">Pàgina principal a %s</string>
-  <string name="view_main_page_card_action">Mostra la pàgina principal</string>
   <string name="view_featured_image_card_title">Foto del dia</string>
   <string name="view_featured_image_card_download">Descarrega</string>
+  <string name="view_featured_image_card_share">Comparteix</string>
   <string name="menu_feed_card_dismiss">Amaga la targeta</string>
   <string name="menu_feed_card_dismissed">S\'ha amagat la targeta.</string>
   <string name="menu_feed_card_edit_card_languages">Modifica les llengües de la targeta</string>
@@ -602,7 +605,6 @@
   <string name="feed_featured_image_share_subject">Imatge destacada de Wikimedia Commons</string>
   <string name="feed">Exploreu</string>
   <string name="home">Inici</string>
-  <string name="most_read_list_card_title">Tendències</string>
   <string name="view_static_card_icon_content_description">Icona de targeta</string>
   <string name="view_card_news_title">Actualitat</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -628,7 +630,6 @@
   <string name="feed_item_type_featured_article">Articles destacats a la Viquipèdia</string>
   <string name="feed_item_type_trending">Articles més vistos del dia</string>
   <string name="feed_item_type_featured_image">Imatge destacada del dia a Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Pàgina principal de la Viquipèdia amb contingut destacat del dia</string>
   <string name="feed_item_type_randomizer">Genera articles a l\'atzar per llegir</string>
   <string name="feed_item_type_suggested_edits">Suggeriments per afegir contingut a la Viquipèdia</string>
   <string name="feed_empty_message">No hi ha res al canal Explora</string>
@@ -640,6 +641,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Carrega’n més</string>
+  <string name="top_read_activity_title">Els més llegits el %s</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
   <string name="description_edit_article_description_label">Article</string>
   <string name="description_edit_translate_article_description_label_per_language">Descripció de l\'article (%s)</string>
@@ -852,6 +854,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etiqueta d\'imatge</string>
   <string name="suggested_edits_contribution_current_revision_text">La vostra edició ja és a la Viquipèdia</string>
+  <string name="suggested_card_more_edits">Més edicions suggerides</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiqueta</item>
     <item quantity="other">%1$s etiquetes</item>
@@ -899,13 +902,10 @@
   <string name="app_shortcuts_random">A l\'atzar</string>
   <string name="app_shortcuts_continue_reading">Continua llegint</string>
   <string name="app_shortcuts_search">Cerca</string>
-  <string name="more_trending_text">Més com aquest</string>
-  <string name="top_on_this_day">Tendència el %1$s</string>
   <string name="on_this_day_card_title">Tal dia com avui</string>
   <string name="more_events_text">Més sobre aquest dia</string>
   <string name="events_count_text">%1$s esdeveniments des de %2$s–%3$d</string>
   <string name="this_year">Enguany</string>
-  <string name="back_to_top">Torna a dalt</string>
   <string name="on_this_day_dialog_next_month">El mes següent</string>
   <string name="on_this_day_dialog_previous_month">El mes anterior</string>
   <string name="on_this_day_open_date_picker">Obre la selecció de dates</string>
@@ -913,6 +913,8 @@
     <item quantity="one">El darrer any</item>
     <item quantity="other">Fa %d anys</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Heu viatjat en el temps</string>
+  <string name="on_this_day_back_to_future">Retorn al futur</string>
   <string name="languages_list_activity_title">Afegeix una llengua</string>
   <string name="languages_list_suggested_text">Suggeriment</string>
   <string name="languages_list_all_text">Totes les llengües</string>
