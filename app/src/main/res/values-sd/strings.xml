@@ -481,12 +481,8 @@
   <string name="preference_summary_notification_user_talk">بحث صفحن کان پيغام</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
   <string name="view_random_card_title">بلاترتيبڪار</string>
-  <string name="view_random_card_subtitle">وڪيپيڊيا مان پڙھڻ لاءِ ڪو بلاترتيب مضمونن مان گھمو</string>
-  <string name="view_random_card_action">ڇڪي کي گھمايو</string>
   <string name="view_next_random_article">ھڪ ٻيو بلاترتيب مضمون لاھيو</string>
   <string name="view_main_page_card_title">اڄ وڪيپيڊيا تي</string>
-  <string name="view_main_page_card_subtitle">%s تي مک صفحو</string>
-  <string name="view_main_page_card_action">مک صفحو ڏسو</string>
   <string name="view_featured_image_card_title">اڄ جي تصوير</string>
   <string name="view_featured_image_card_download">لاهيو</string>
   <string name="menu_feed_card_dismiss">ھن ڪارڊ کي لڪايو</string>
@@ -495,7 +491,6 @@
   <string name="menu_feed_overflow_label">وڌيڪ چارا</string>
   <string name="feed_featured_image_share_subject">وڪيميڊيا العام مان نمايان ڪيل تصوير</string>
   <string name="feed">کوجيو</string>
-  <string name="most_read_list_card_title">مھور ٿيندڙ</string>
   <string name="view_static_card_icon_content_description">ڪارڊ جو نشان</string>
   <string name="view_card_news_title">خبرن ۾</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -521,7 +516,6 @@
   <string name="feed_item_type_featured_article">وڪيپيڊيا تي روزانو چونڊيل مضمون</string>
   <string name="feed_item_type_trending">روزانو سڀ کان وڌيڪ ڏٺل مضمون</string>
   <string name="feed_item_type_featured_image">وڪيميڊيا العام مان روزانو نمايان ڪيل عڪس</string>
-  <string name="feed_item_type_main_page">روزانو نمايان ڪيو ويندڙ مواد سان وڪيپيڊيا جو مک صفحو</string>
   <string name="feed_item_type_randomizer">پڙھن لاءِ بلاترتيب مضمون پيدا ڪريو</string>
   <string name="feed_item_type_suggested_edits">وڪيپيڊيا ۾ مواد وجھڻ لاءِ صلاحون</string>
   <string name="feed_empty_message">توھان جي کوجنا رسد ۾ ڪاشيءِ ناھي</string>
@@ -695,13 +689,10 @@
   <string name="app_shortcuts_random">بلاترتيب</string>
   <string name="app_shortcuts_continue_reading">پڙھڻ جاري رکو</string>
   <string name="app_shortcuts_search">ڳوليو</string>
-  <string name="more_trending_text">ھن وانگر وڌيڪ</string>
-  <string name="top_on_this_day">%1$s تي رجحان ۾</string>
   <string name="on_this_day_card_title">ھن ڏينھن تي</string>
   <string name="more_events_text">ھن ڏينھن تي وڌيڪ</string>
   <string name="events_count_text">%1$s کان واقعا %2$s–%3$d</string>
   <string name="this_year">ھن سال</string>
-  <string name="back_to_top">مٿي واپس</string>
   <string name="on_this_day_dialog_next_month">اڳيون مھينو</string>
   <string name="on_this_day_dialog_previous_month">پويون مھينو</string>
   <string name="on_this_day_open_date_picker">تاريخ کڻندڙ کوليو</string>

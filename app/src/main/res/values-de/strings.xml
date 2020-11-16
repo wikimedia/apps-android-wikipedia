@@ -587,12 +587,8 @@
   <string name="preference_summary_notification_user_talk">Meldungen von Diskussionsseiten</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
-  <string name="view_random_card_subtitle">Durch zufällige Artikel aus der Wikipedia blättern.</string>
-  <string name="view_random_card_action">Würfeln</string>
   <string name="view_next_random_article">Einen anderen zufälligen Artikel laden</string>
   <string name="view_main_page_card_title">Heute auf der Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hauptseite auf %s</string>
-  <string name="view_main_page_card_action">Hauptseite ansehen</string>
   <string name="view_featured_image_card_title">Bild des Tages</string>
   <string name="view_featured_image_card_download">Herunterladen</string>
   <string name="menu_feed_card_dismiss">Diese Karte ausblenden</string>
@@ -602,7 +598,6 @@
   <string name="feed_featured_image_share_subject">Vorgestelltes Bild von Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
   <string name="home">Startseite</string>
-  <string name="most_read_list_card_title">Beliebt</string>
   <string name="view_static_card_icon_content_description">Kartensymbol</string>
   <string name="view_card_news_title">In den Nachrichten</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -628,7 +623,6 @@
   <string name="feed_item_type_featured_article">Täglich auf Wikipedia vorgestellter Artikel</string>
   <string name="feed_item_type_trending">Täglich meistgelesene Artikel</string>
   <string name="feed_item_type_featured_image">Täglich auf Wikimedia Commons vorgestelltes Bild</string>
-  <string name="feed_item_type_main_page">Hauptseite der Wikipedia mit täglich vorgestelltem Inhalt</string>
   <string name="feed_item_type_randomizer">Zufällige Artikel zum Lesen erzeugen</string>
   <string name="feed_item_type_suggested_edits">Vorschläge zum Hinzufügen von Inhalten zu Wikipedia</string>
   <string name="feed_empty_message">Es gibt nichts in deinem Entdecken-Feed</string>
@@ -870,13 +864,10 @@
   <string name="app_shortcuts_random">Zufällig</string>
   <string name="app_shortcuts_continue_reading">Mit dem Lesen fortfahren</string>
   <string name="app_shortcuts_search">Suchen</string>
-  <string name="more_trending_text">Mehr wie dies</string>
-  <string name="top_on_this_day">Beliebt am %1$s</string>
   <string name="on_this_day_card_title">Heute</string>
   <string name="more_events_text">Mehr an diesem Tag</string>
   <string name="events_count_text">%1$s Ereignisse von %2$s bis %3$d</string>
   <string name="this_year">Dieses Jahr</string>
-  <string name="back_to_top">Zurück nach oben</string>
   <string name="on_this_day_dialog_next_month">Nächster Monat</string>
   <string name="on_this_day_dialog_previous_month">Vorheriger Monat</string>
   <string name="on_this_day_open_date_picker">Datum auswählen</string>

@@ -602,12 +602,8 @@
   <string name="preference_summary_notification_user_talk">トークページのメッセージ</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
-  <string name="view_random_card_subtitle">ウィキペディアから記事をランダムに表示して閲覧</string>
-  <string name="view_random_card_action">サイコロを転がす</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
-  <string name="view_main_page_card_subtitle">%sのメインページ</string>
-  <string name="view_main_page_card_action">メインページを表示</string>
   <string name="view_featured_image_card_title">今日の一枚</string>
   <string name="view_featured_image_card_download">ダウンロード</string>
   <string name="menu_feed_card_dismiss">カードを隠す</string>
@@ -617,7 +613,6 @@
   <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
   <string name="feed">探索</string>
   <string name="home">ホーム</string>
-  <string name="most_read_list_card_title">トレンド</string>
   <string name="view_static_card_icon_content_description">カードアイコン</string>
   <string name="view_card_news_title">新着情報</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -643,7 +638,6 @@
   <string name="feed_item_type_featured_article">ウィキペディアの今日の秀逸な記事</string>
   <string name="feed_item_type_trending">今日の最も閲覧された記事</string>
   <string name="feed_item_type_featured_image">ウィキメディア・コモンズより、今日の秀逸な画像</string>
-  <string name="feed_item_type_main_page">ウィキペディアのメインページ。今日の選り抜き記事や画像を表示</string>
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
   <string name="feed_item_type_suggested_edits">ウィキペディアへの内容追加のご提案</string>
   <string name="feed_empty_message">あなたの探索フィードには何もありません。</string>
@@ -906,13 +900,10 @@
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>
-  <string name="more_trending_text">もっと見る</string>
-  <string name="top_on_this_day">%1$sに話題になった記事</string>
   <string name="on_this_day_card_title">今日は何の日</string>
   <string name="more_events_text">この日に起こったその他の出来事</string>
   <string name="events_count_text">%2$sから%3$dまでに起こった%1$s件の出来事</string>
   <string name="this_year">今年</string>
-  <string name="back_to_top">トップへ</string>
   <string name="on_this_day_dialog_next_month">次の月</string>
   <string name="on_this_day_dialog_previous_month">前の月</string>
   <string name="on_this_day_open_date_picker">日付ピッカーを開く</string>

@@ -584,12 +584,8 @@
   <string name="preference_summary_notification_user_talk">Pesan dari halaman pembicaraan</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
-  <string name="view_random_card_subtitle">Membolak-balik sembarang artikel untuk dibaca dari Wikipedia.</string>
-  <string name="view_random_card_action">Melempar dadu</string>
   <string name="view_next_random_article">Muat artikel sembarang lainnya</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Halaman utama pada %s</string>
-  <string name="view_main_page_card_action">Lihat halaman utama</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>
   <string name="view_featured_image_card_download">Unduh</string>
   <string name="menu_feed_card_dismiss">Sembunyikan kartu ini</string>
@@ -599,7 +595,6 @@
   <string name="feed_featured_image_share_subject">Gambar pilihan dari Wikimedia Commons</string>
   <string name="feed">Jelajahi</string>
   <string name="home">Beranda</string>
-  <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Peristiwa terkini</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -625,7 +620,6 @@
   <string name="feed_item_type_featured_article">Artikel pilihan harian di Wikipedia</string>
   <string name="feed_item_type_trending">Artikel harian yang paling banyak dilihat</string>
   <string name="feed_item_type_featured_image">Gambar pilihan harian dari Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan isi pilihan harian</string>
   <string name="feed_item_type_randomizer">Menghasilkan sembarang artikel untuk dibaca</string>
   <string name="feed_item_type_suggested_edits">Tanggapan untuk menambahkan konten pada Wikipedia</string>
   <string name="feed_empty_message">Tidak ada apa-apa di umpan Jelajahi Anda</string>
@@ -873,13 +867,10 @@
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Lanjutkan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
-  <string name="more_trending_text">Lainnya seperti ini</string>
-  <string name="top_on_this_day">Sedang tren pada %1$s</string>
   <string name="on_this_day_card_title">Hari ini dalam sejarah</string>
   <string name="more_events_text">Lainnya pada hari ini</string>
   <string name="events_count_text">%1$s peristiwa dari %2$s–%3$d</string>
   <string name="this_year">Tahun ini</string>
-  <string name="back_to_top">Kembali ke atas</string>
   <string name="on_this_day_dialog_next_month">Bulan depan</string>
   <string name="on_this_day_dialog_previous_month">Bulan lalu</string>
   <string name="on_this_day_open_date_picker">Buka pemilih tanggal</string>
