@@ -522,12 +522,8 @@
   <string name="preference_summary_notification_user_talk">Mensaxes de páxines d\'alderique</string>
   <string name="view_because_you_read_card_title">Porque lleísti</string>
   <string name="view_random_card_title">Al debalu</string>
-  <string name="view_random_card_subtitle">Echar una güeyada per artículos al debalu de Wikipedia pa lleer.</string>
-  <string name="view_random_card_action">Tirar los daos</string>
   <string name="view_next_random_article">Cargar otru artículu al debalu</string>
   <string name="view_main_page_card_title">Güei en Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Páxina principal del %s</string>
-  <string name="view_main_page_card_action">Ver la portada</string>
   <string name="view_featured_image_card_title">Imaxen del día</string>
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Despintar esta tarxeta</string>
@@ -536,7 +532,6 @@
   <string name="menu_feed_overflow_label">Más opciones</string>
   <string name="feed_featured_image_share_subject">Imaxen destacada de Wikimedia Commons</string>
   <string name="feed">Esplorar</string>
-  <string name="most_read_list_card_title">Tendencies</string>
   <string name="view_static_card_icon_content_description">Iconu de tarxeta</string>
   <string name="view_card_news_title">Actualidá</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -562,7 +557,6 @@
   <string name="feed_item_type_featured_article">Artículu destacáu del día na Wikipedia</string>
   <string name="feed_item_type_trending">Artículos más vistos del día</string>
   <string name="feed_item_type_featured_image">Imaxe destacada del día en Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Páxina principal de Wikipedia col conteníu destacáu del día</string>
   <string name="feed_item_type_randomizer">Xenerar artículos al debalu pa lleer</string>
   <string name="feed_item_type_suggested_edits">Suxerencies p\'añadir conteníu a Wikipedia</string>
   <string name="feed_empty_message">Nun hai nada na canal Esplorar</string>
@@ -753,13 +747,10 @@
   <string name="app_shortcuts_random">Al debalu</string>
   <string name="app_shortcuts_continue_reading">Siguir lleyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
-  <string name="more_trending_text">Más como esto</string>
-  <string name="top_on_this_day">Tendencies del %1$s</string>
   <string name="on_this_day_card_title">Tal día como güei</string>
   <string name="more_events_text">Más nesti día</string>
   <string name="events_count_text">%1$s acontecimientos ente %2$s y %3$d</string>
   <string name="this_year">Anguaño</string>
-  <string name="back_to_top">Volver al entamu</string>
   <string name="on_this_day_dialog_next_month">Próximu mes</string>
   <string name="on_this_day_dialog_previous_month">Mes anterior</string>
   <string name="on_this_day_open_date_picker">Abrir selector de fecha</string>

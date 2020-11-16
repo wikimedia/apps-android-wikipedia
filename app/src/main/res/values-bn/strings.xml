@@ -475,12 +475,8 @@
   <string name="preference_title_notification_user_talk">আলাপ পাতা</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
-  <string name="view_random_card_subtitle">উইকিপিডিয়া থেকে পড়ার জন্য অজানাক্রমে অনির্দিষ্ট প্রবন্ধগুলো উল্টান।</string>
-  <string name="view_random_card_action">ঘুঁটি ঘুরান</string>
   <string name="view_next_random_article">আরেকটি অজানা নিবন্ধ লোড করুন</string>
   <string name="view_main_page_card_title">উইকিপিডিয়ায় আজ</string>
-  <string name="view_main_page_card_subtitle">%s-এর প্রধান পাতাটি</string>
-  <string name="view_main_page_card_action">প্রধান পাতা দেখুন</string>
   <string name="view_featured_image_card_title">আজকের নির্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনলোড করুন</string>
   <string name="menu_feed_card_dismiss">এই কার্ড লুকান</string>
@@ -489,7 +485,6 @@
   <string name="feed_featured_image_share_subject">উইকিমিডিয়া কমন্স থেকে নির্বাচিত চিত্র</string>
   <string name="feed">অন্বেষণ</string>
   <string name="home">নীড়</string>
-  <string name="most_read_list_card_title">প্রবণতা</string>
   <string name="view_static_card_icon_content_description">কার্ড আইকন</string>
   <string name="view_card_news_title">সংবাদে</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -514,7 +509,6 @@
   <string name="feed_item_type_featured_article">উইকিপিডিয়ায় দৈনিক নির্বাচিত নিবন্ধ</string>
   <string name="feed_item_type_trending">দৈনিক বেশী দেখা প্রবন্ধ সমূহ</string>
   <string name="feed_item_type_featured_image">উইকিমিডিয়া কমন্স থেকে প্রতিদিনের নির্বাচিত চিত্র</string>
-  <string name="feed_item_type_main_page">দৈনিক নির্বাচিত বিষয়বস্তুসহ উইকিপিডিয়ার প্রধান পাতা</string>
   <string name="feed_item_type_randomizer">পড়ার জন্য অনির্ধারিত প্রবন্ধ বের করুন</string>
   <string name="feed_configure_onboarding_action">পছন্দকরণ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
@@ -609,13 +603,10 @@
   <string name="app_shortcuts_random">অজানাভাবে</string>
   <string name="app_shortcuts_continue_reading">পড়া অব্যাহত রাখুন</string>
   <string name="app_shortcuts_search">অনুসন্ধান</string>
-  <string name="more_trending_text">এটির মত আরো</string>
-  <string name="top_on_this_day">%1$s-এর প্রবণতা</string>
   <string name="on_this_day_card_title">আজকের এই দিনে</string>
   <string name="more_events_text">এই দিনে আরো</string>
   <string name="events_count_text">%2$s হতে %3$d এর মধ্যে %1$sটি ঘটনা</string>
   <string name="this_year">এই বছর</string>
-  <string name="back_to_top">উপরে ফিরে যান</string>
   <string name="on_this_day_dialog_next_month">পরবর্তী মাস</string>
   <string name="on_this_day_dialog_previous_month">পূর্ববর্তী মাস</string>
   <plurals name="diff_years">

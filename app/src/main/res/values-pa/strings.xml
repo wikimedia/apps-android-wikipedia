@@ -303,16 +303,13 @@
   <string name="notification_syncing_cancel_button">ਰੱਦ ਕਰੋ</string>
   <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
   <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
-  <string name="view_random_card_subtitle" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਤੋੰ ਕੋਈ ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਪੜ੍ਹੋ</string>
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
-  <string name="view_main_page_card_subtitle">ਮੁੱਖ ਸਫ਼ਾ %s ਨੂੰ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
   <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>
   <string name="menu_feed_card_dismissed">ਕਾਰਡ ਲੁਕਾਇਆ</string>
   <string name="feed_featured_image_share_subject">ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ ਤੋਂ ਵਿਸ਼ੇਸ਼ ਤਸਵੀਰ</string>
   <string name="feed">ਵਿਚਰੋ</string>
-  <string name="most_read_list_card_title">ਪ੍ਰਚਲਤ</string>
   <string name="view_static_card_icon_content_description">ਕਾਰਡ ਆਈਕਾਨ</string>
   <string name="view_card_news_title">ਖ਼ਬਰਾਂ \'ਚ</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -339,5 +336,4 @@
   <string name="app_shortcuts_search">ਖੋਜ</string>
   <string name="on_this_day_card_title">ਅੱਜ ਦੇ ਦਿਨ</string>
   <string name="this_year">ਇਸ ਸਾਲ</string>
-  <string name="back_to_top">ਸਿਖਰ ਵੱਲ ਵਾਪਸ</string>
 </resources>

@@ -291,7 +291,6 @@
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
   <string name="view_random_card_title">रैंडमाइझर</string>
   <string name="view_main_page_card_title">विकिपीडियावर आज</string>
-  <string name="view_main_page_card_subtitle">%s वरील मुख्य पान</string>
   <string name="view_featured_image_card_title">आजचे चित्र</string>
   <string name="view_featured_image_card_download">अधिभारण करा</string>
   <string name="menu_feed_card_dismiss">हा पत्ता लपवा</string>
