@@ -58,7 +58,9 @@
   <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
   <string name="menu_page_font_and_theme">แบบอักษรและชุดตกแต่ง</string>
   <string name="menu_page_add_to_list">เพิ่มในรายการอ่าน</string>
+  <string name="menu_page_add_to_default_list">บันทึก</string>
   <string name="feed_card_add_to_list">เพิ่มในรายการอ่าน</string>
+  <string name="feed_card_add_to_default_list">บันทึก</string>
   <string name="menu_page_share">แบ่งปันลิงก์</string>
   <string name="menu_page_open_a_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_page_reading_lists">รายการอ่าน</string>
@@ -241,6 +243,7 @@
   <string name="page_similar_titles">หน้าที่คล้ายกัน</string>
   <string name="search_did_you_mean">หรือคุณหมายถึง \"%s\"</string>
   <string name="search_recent_header">การค้นหาล่าสุด:</string>
+  <string name="search_results_count_zero">ไม่มีผลลัพธ์</string>
   <string name="button_clear_all_recent_searches">ล้างการค้นหาล่าสุด</string>
   <string name="clear_recent_searches_confirm">คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติการค้นหาของคุณ?</string>
   <string name="clear_recent_searches_confirm_yes">ใช่</string>
@@ -281,6 +284,8 @@
   <string name="captcha_image">ภาพแคปต์ชา</string>
   <string name="gallery_fair_use_license">การใช้งานโดยชอบ</string>
   <string name="gallery_uploader_unknown">ไม่ทราบผู้อัปโหลด</string>
+  <string name="gallery_not_available_offline_snackbar">มุมมองแกลเลอรีไม่สามารถใช้ได้ขณะออฟไลน์</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">ปิด</string>
   <string name="menu_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_close_all_tabs">ปิดแท็บทั้งหมด</string>
   <string name="close_all_tabs_confirm">คุณแน่ใจหรือไม่ว่าต้องการปิดแท็บทั้งหมด?</string>
@@ -326,12 +331,14 @@
   <string name="view_link_preview_error_button_dismiss">รับทราบ</string>
   <string name="error_page_does_not_exist">ไม่มีหน้านี้อยู่</string>
   <string name="view_wiki_error_message_offline">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
+  <string name="view_wiki_error_message_timeout">ไม่สามารถเชื่อมต่อไปยังวิกิพีเดียได้ โปรดตรวจสอบการเชื่อมต่อเครือข่ายของคุณ หรือลองอีกครั้งในภายหลัง</string>
   <string name="reference_title">แหล่งอ้างอิง %s</string>
   <string name="reference_list_title">แหล่งอ้างอิง</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">การลดแสงภาพ (ในธีมมืด)</string>
   <string name="preference_title_prefer_offline_content">ต้องการเนื้อหาออฟไลน์</string>
   <string name="preference_summary_prefer_offline_content">ประหยัดการใช้ข้อมูลด้วยการโหลดบทความที่สามารถใช้ได้ขณะออฟไลน์แทนที่จะโหลดรุ่นล่าสุดของบทความเสมอ</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">ตามธีมระบบ</string>
+  <string name="page_footer_license_text">เนื้อหาอนุญาตให้เผยแพร่ภายใต้ $1 เว้นแต่ระบุไว้เป็นอื่น</string>
   <string name="empty_tab_title">แท็บใหม่</string>
   <string name="menu_save_all_tabs">บันทึกแท็บทั้งหมด</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
@@ -340,7 +347,9 @@
   <string name="crash_report_quit">ออก</string>
   <string name="article_menu_bar_save_button">บันทึก</string>
   <string name="article_menu_bar_language_button">ภาษา</string>
+  <string name="article_menu_bar_search_button">ค้นหา</string>
   <string name="article_menu_bar_theme_button">ธีม</string>
+  <string name="article_menu_bar_contents_button">เนื้อหา</string>
   <string name="article_header_edit_hint">แก้ไข…</string>
   <string name="article_header_edit_description">แก้ไขคำอธิบายบทความ</string>
   <string name="article_header_edit_lead_section">แก้ไขบทนำ</string>
@@ -358,11 +367,13 @@
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
   <string name="nav_item_reading_lists">รายการของฉัน</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
+  <string name="reading_list_move_to">ย้ายลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>
   <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
   <string name="reading_list_article_added_to_named">เพิ่ม %1$s ลงใน %2$s แล้ว</string>
   <string name="reading_list_article_moved_to_named">ย้าย %1$s ไปยัง %2$s แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
+  <string name="reading_list_add_to_list_button">เพิ่มลงในรายการ</string>
   <string name="format_reading_list_statistical_summary_singular">1 บทความ, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d บทความ, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d จาก 1 บทความที่ใช้ได้ขณะออฟไลน์, %2$.2f MB</string>
@@ -524,16 +535,17 @@
   <string name="preference_title_notification_thanks">ขอบคุณ</string>
   <string name="preference_summary_notification_thanks">มีใครบางคนขอบคุณคุณสำหรับการแก้ไข</string>
   <string name="preference_title_notification_revert">ย้อน</string>
+  <string name="preference_summary_notification_revert">การมีส่วนร่วมครั้งใดครั้งหนึ่งของคุณถูกย้อน</string>
+  <string name="preference_title_notification_login_fail">การเข้าสู่ระบบ</string>
+  <string name="preference_summary_notification_login_fail">กิจกรรมการเข้าสู่ระบบของคุณ</string>
+  <string name="preference_title_notification_mention">การกล่าวถึง</string>
+  <string name="preference_summary_notification_mention">มีคนกล่าวถึงคุณในหน้า</string>
   <string name="preference_title_notification_user_talk">หน้าคุย</string>
   <string name="preference_summary_notification_user_talk">ข้อความจากหน้าคุย</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
-  <string name="view_random_card_subtitle">พลิกไปมาระหว่างบทความเพื่ออ่านจากวิกิพีเดีย</string>
-  <string name="view_random_card_action">ทอยลูกเต๋า</string>
   <string name="view_next_random_article">โหลดบทความสุ่มอื่น</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
-  <string name="view_main_page_card_subtitle">หน้าหลักของวันที่ %s</string>
-  <string name="view_main_page_card_action">ดูหน้าหลัก</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>
   <string name="view_featured_image_card_download">ดาวน์โหลด</string>
   <string name="menu_feed_card_dismiss">ซ่อนการ์ดนี้</string>
@@ -543,7 +555,6 @@
   <string name="feed_featured_image_share_subject">ภาพคัดสรรจากวิกิมีเดียคอมมอนส์</string>
   <string name="feed">สำรวจ</string>
   <string name="home">หน้าแรก</string>
-  <string name="most_read_list_card_title">กำลังมาแรง</string>
   <string name="view_static_card_icon_content_description">ไอคอนการ์ด</string>
   <string name="view_card_news_title">เรื่องจากข่าว</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -569,7 +580,6 @@
   <string name="feed_item_type_featured_article">บทความคัดสรรประจำวันบนวิกิพีเดีย</string>
   <string name="feed_item_type_trending">บทความที่อ่านมากที่สุดประจำวัน</string>
   <string name="feed_item_type_featured_image">ภาพคัดสรรจากวิกิมีเดียคอมมอนส์ประจำวัน</string>
-  <string name="feed_item_type_main_page">หน้าหลักของวิกิพีเดียพร้อมเนื้อหาคัดสรรประจำวัน</string>
   <string name="feed_item_type_randomizer">สร้างบทความที่จะอ่านแบบสุ่ม</string>
   <string name="feed_item_type_suggested_edits">คำแนะนำเพื่อเพิ่มเนื้อหาลงในวิกิพีเดีย</string>
   <string name="feed_empty_message">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
@@ -601,6 +611,9 @@
   <string name="description_edit_help_title">ข้อมูล: คำอธิบายบทความ</string>
   <string name="description_edit_help_about_wikidata">เกี่ยวกับวิกิสนเทศ</string>
   <string name="description_edit_help_wikidata_guide">คู่มือวิกิสนเทศเกี่ยวกับการเขียนคำอธิบาย</string>
+  <string name="description_edit_anon_limit">ขอบคุณที่สนใจแก้ไขคำอธิบายบทความอย่างต่อเนื่อง! หากต้องการทำการแก้ไขเพิ่มเติม โปรดเข้าสู่ระบบบัญชีวิกิพีเดียของคุณ</string>
+  <string name="description_edit_license_notice">การเปลี่ยนคำอธิบายบทความถือว่าฉันยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดในการใช้งาน&lt;/a&gt;และต้องการเผยแพร่การมีส่วนร่วมของคุณภายใต้สัญญาอนุญาต&lt;a href=\"%2$s\"&gt;ครีเอทีฟคอมมอนส์ CC0&lt;/a&gt; โดยไม่สามารถยกเลิกได้</string>
+  <string name="description_edit_helper_text_lowercase_warning">มักจะขึ้นต้นด้วยตัวอักษรพิมพ์เล็ก</string>
   <string name="description_edit_success_saved">เผยแพร่คำอธิบายบทความแล้ว!</string>
   <string name="description_edit_success_saved_snackbar">เผยแพร่คำอธิบายบทความแล้ว!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">เผยแพร่คำอธิบายบทความแล้ว! (%s)</string>
@@ -742,13 +755,10 @@
   <string name="app_shortcuts_random">สุ่ม</string>
   <string name="app_shortcuts_continue_reading">อ่านต่อ</string>
   <string name="app_shortcuts_search">ค้นหา</string>
-  <string name="more_trending_text">บทความเพิ่มเติมที่คล้ายกัน</string>
-  <string name="top_on_this_day">กำลังมาแรงในวันที่ %1$s</string>
   <string name="on_this_day_card_title">วันนี้ในอดีต</string>
   <string name="more_events_text">บทความวันนี้ในอดีตเพิ่มเติม</string>
   <string name="events_count_text">%1$s เหตุการณ์ตั้งแต่ปี %2$s–%3$d</string>
   <string name="this_year">ปีนี้</string>
-  <string name="back_to_top">กลับไปด้านบน</string>
   <string name="on_this_day_dialog_next_month">เดือนถัดไป</string>
   <string name="on_this_day_dialog_previous_month">เดือนก่อนหน้า</string>
   <plurals name="diff_years">

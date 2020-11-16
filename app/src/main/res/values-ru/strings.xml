@@ -591,12 +591,8 @@
   <string name="preference_summary_notification_user_talk">Сообщения со страниц обсуждения</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
-  <string name="view_random_card_subtitle">Полистайте подборку случайных статей Википедии.</string>
-  <string name="view_random_card_action">Прочитать случайную статью</string>
   <string name="view_next_random_article">Скачать другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
-  <string name="view_main_page_card_subtitle">Главная страница на %s</string>
-  <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
   <string name="view_featured_image_card_title">Изображение дня</string>
   <string name="view_featured_image_card_download">Скачать</string>
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
@@ -605,7 +601,6 @@
   <string name="menu_feed_overflow_label">Больше настроек</string>
   <string name="feed_featured_image_share_subject">Лучшие изображения Викисклада</string>
   <string name="feed">Лента</string>
-  <string name="most_read_list_card_title">В трендах</string>
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -631,7 +626,6 @@
   <string name="feed_item_type_featured_article">Избранная статья дня в Википедии</string>
   <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
-  <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_empty_message">Ваша лента пуста</string>
@@ -834,13 +828,10 @@
   <string name="app_shortcuts_random">Случайная</string>
   <string name="app_shortcuts_continue_reading">Продолжить чтение</string>
   <string name="app_shortcuts_search">Поиск</string>
-  <string name="more_trending_text">Ещё в трендах</string>
-  <string name="top_on_this_day">Популярно на %1$s</string>
   <string name="on_this_day_card_title">В этот день</string>
   <string name="more_events_text">Ещё в этот день</string>
   <string name="events_count_text">%1$s событий за %2$s—%3$d</string>
   <string name="this_year">Этот год</string>
-  <string name="back_to_top">Вернуться наверх</string>
   <string name="on_this_day_dialog_next_month">Следующий месяц</string>
   <string name="on_this_day_dialog_previous_month">Предыдущий месяц</string>
   <string name="on_this_day_open_date_picker">Открыть календарь</string>

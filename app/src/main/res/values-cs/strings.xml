@@ -9,6 +9,7 @@
 * Evica
 * Frettie
 * Ilimanaq29
+* Jan Myšák
 * Juandev
 * KuboF
 * Kusavica
@@ -327,6 +328,7 @@
   <string name="address_copied">Adresa zkopírována do schránky.</string>
   <string name="text_copied">Text zkopírován do schránky.</string>
   <string name="button_continue_to_article">Číst článek</string>
+  <string name="button_continue_to_talk_page">Zobrazit diskusní stránku</string>
   <string name="button_continue_to_disambiguation">Zobrazit podobné stránky</string>
   <string name="link_preview_disambiguation_description">Tento název má více než jedna stránka:</string>
   <string name="button_add_to_reading_list">Přidat do seznamu k přečtení</string>
@@ -341,7 +343,7 @@
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="preference_title_collapse_tables">Sbalit tabulky</string>
   <string name="preference_summary_collapse_tables">Automaticky sbalí tabulky v článcích, jako jsou infoboxy, reference a poznámky.</string>
-  <string name="nav_item_donate" fuzzy="true">Podpořte Wikipedii</string>
+  <string name="nav_item_donate">Podpořte nás</string>
   <string name="error_voice_search_not_available">Omlouváme se, ale rozpoznávání hlasu není k dispozici.</string>
   <string name="location_service_disabled">Služby zjišťování polohy jsou zakázány.</string>
   <string name="enable_location_service">Povolit</string>
@@ -387,6 +389,7 @@
   <string name="text_size_increase">Zvětšit velikost textu</string>
   <string name="text_size_decrease">Zmenšit velikost textu</string>
   <string name="text_size_percent_default">%s (Výchozí)</string>
+  <string name="text_style_title">Písmo</string>
   <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_move_to">Přesunout do seznamu k přečtení</string>
@@ -579,14 +582,15 @@
   <string name="preference_summary_notification_user_talk">Zprávy na vaší diskusi</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
-  <string name="view_random_card_subtitle">Procházet náhodné články na Wikipedii ke čtení</string>
-  <string name="view_random_card_action">Hoďte si kostkou</string>
+  <string name="view_random_article_card_title">Náhodný článek</string>
+  <string name="view_random_article_card_action">Další náhodné články</string>
+  <string name="view_top_read_card_title">Nejčtenější</string>
+  <string name="view_top_read_card_action">Další nejčtenější</string>
   <string name="view_next_random_article">Načíst další náhodný článek</string>
   <string name="view_main_page_card_title">Dnes na Wikipedii</string>
-  <string name="view_main_page_card_subtitle">Hlavní strana %s</string>
-  <string name="view_main_page_card_action">Zobrazit hlavní stranu</string>
   <string name="view_featured_image_card_title">Obrázek dne</string>
   <string name="view_featured_image_card_download">Stáhnout</string>
+  <string name="view_featured_image_card_share">Sdílet</string>
   <string name="menu_feed_card_dismiss">Skrýt tuto kartu</string>
   <string name="menu_feed_card_dismissed">Karta skryta.</string>
   <string name="menu_feed_card_edit_card_languages">Upravit jazyky karet</string>
@@ -594,7 +598,6 @@
   <string name="feed_featured_image_share_subject">Doporučený obrázek z Wikimedia Commons</string>
   <string name="feed">Objevit</string>
   <string name="home">Domů</string>
-  <string name="most_read_list_card_title">Populární</string>
   <string name="view_static_card_icon_content_description">Ikona záložky</string>
   <string name="view_card_news_title">Aktuality</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -620,7 +623,6 @@
   <string name="feed_item_type_featured_article">Doporučený článek na Wikipedii</string>
   <string name="feed_item_type_trending">Nejčastěji prohlížené články za tento den</string>
   <string name="feed_item_type_featured_image">Denní doporučený obrázek z Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
   <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
   <string name="feed_empty_message">Nic není ve vašem kanále Objevit</string>
@@ -632,6 +634,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Zrušit</string>
   <string name="feed_accessibility_card_text">Dosáhli jste dna kanálu Objevit.</string>
   <string name="feed_accessibility_card_load_more_button">Načíst další</string>
+  <string name="top_read_activity_title">Nejčtenější na %s</string>
   <string name="description_edit_text_hint">Popis článku</string>
   <string name="description_edit_article_description_label">Článek</string>
   <string name="description_edit_translate_article_description_label_per_language">Popis článku (v jazyce %s)</string>
@@ -661,6 +664,7 @@
   <string name="description_ends_with_punctuation">Text nesmí končit interpunkcí</string>
   <string name="description_starts_with_article">Na začátku nepoužívejte členy (v angličtině \"a\" nebo \"the\").</string>
   <string name="description_starts_with_uppercase">Začněte s malým písmem, jestliže první slovo není vlastní jméno.</string>
+  <string name="description_is_in_different_language">Text se zdá být v neočekávaném jazyce. Jazyk by měl být %s.</string>
   <string name="description_edit_success_saved">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
@@ -712,10 +716,11 @@
   <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licence</string>
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 příspěvek</item>
     <item quantity="few">%d příspěvky</item>
-    <item quantity="other">%d příspěvků</item>
+    <item quantity="many">%d příspěvků</item>
+    <item quantity="other"/>
   </plurals>
   <string name="suggested_edits_feed_card_title">Navrhování editací</string>
   <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
@@ -862,13 +867,10 @@
   <string name="app_shortcuts_random">Náhodný článek</string>
   <string name="app_shortcuts_continue_reading">Pokračovat ve čtení</string>
   <string name="app_shortcuts_search">Hledat</string>
-  <string name="more_trending_text">Podobné články</string>
-  <string name="top_on_this_day">Populární %1$s</string>
   <string name="on_this_day_card_title">Dnešek v minulosti</string>
   <string name="more_events_text">Více událostí z tohoto dne</string>
   <string name="events_count_text">%1$s událostí z let %2$s–%3$d</string>
   <string name="this_year">Letos</string>
-  <string name="back_to_top">Zpět na začátek</string>
   <string name="on_this_day_dialog_next_month">Příští měsíc</string>
   <string name="on_this_day_dialog_previous_month">Minulý měsíc</string>
   <string name="on_this_day_open_date_picker">Otevřít výběr data</string>

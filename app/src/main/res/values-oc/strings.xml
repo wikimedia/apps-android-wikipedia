@@ -220,9 +220,7 @@
   <string name="notification_reverted_title">Modificacion anullada</string>
   <string name="view_because_you_read_card_title">Perque avètz legit</string>
   <string name="view_random_card_title">A l\'azard</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Legissètz un article de la Wikipèdia a l\'azard</string>
   <string name="view_main_page_card_title">Uèi sus Wikipèdia</string>
-  <string name="view_main_page_card_subtitle">Pagina principala lo %s</string>
   <string name="view_featured_image_card_title">Imatge del jorn</string>
   <string name="view_featured_image_card_download">Telecargar</string>
   <string name="menu_feed_card_dismiss">Amagar aquesta carta</string>
@@ -230,7 +228,6 @@
   <string name="menu_feed_overflow_label">Mai d\'opcions</string>
   <string name="feed_featured_image_share_subject">Imatge destacat de Wikimedia Commons</string>
   <string name="feed">Explorar</string>
-  <string name="most_read_list_card_title">Tendéncia</string>
   <string name="view_static_card_icon_content_description">Icòna de la carta</string>
   <string name="view_card_news_title">Dins l’actualitat</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
