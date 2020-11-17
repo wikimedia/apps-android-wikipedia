@@ -25,6 +25,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.github.chrisbanes.photoview.OnSingleFlingListener;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import org.wikipedia.Constants;
@@ -140,37 +141,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
         });
 
         // TODO: possible optimize option: use draggable helper for the dismiss animation
-        imageView.setOnSingleFlingListener((e1, e2, velocityX, velocityY) -> {
-            if (!isAdded() || imageView == null) {
-                return false;
-            }
-            if (e1.getAction() == MotionEvent.ACTION_DOWN&& e2.getAction() == MotionEvent.ACTION_UP) {
-                imageView.animate().translationY(velocityY)
-                        .alpha(0.5f)
-                        .setListener(new Animator.AnimatorListener() {
-                            @Override
-                            public void onAnimationStart(Animator animator) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animator animator) {
-                                requireActivity().finish();
-                            }
-
-                            @Override
-                            public void onAnimationCancel(Animator animator) {
-
-                            }
-
-                            @Override
-                            public void onAnimationRepeat(Animator animator) {
-
-                            }
-                        });
-            }
-            return true;
-        });
+        imageView.setOnSingleFlingListener(onSingleFlingListener);
 
         return rootView;
     }
@@ -254,6 +225,42 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
         requestWriteStorageRuntimePermissions(this,
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private final OnSingleFlingListener onSingleFlingListener = new OnSingleFlingListener() {
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            if (!isAdded() || imageView == null) {
+                return false;
+            }
+            if (e1.getAction() == MotionEvent.ACTION_DOWN&& e2.getAction() == MotionEvent.ACTION_UP) {
+                imageView.animate().translationY(velocityY)
+                        .alpha(0.5f)
+                        .setListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animator) {
+                                requireActivity().finish();
+                            }
+
+                            @Override
+                            public void onAnimationCancel(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animator) {
+
+                            }
+                        });
+            }
+            return true;
+        }
+    };
 
     /**
      * Load the actual media associated with our gallery item into the UI.
