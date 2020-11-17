@@ -141,7 +141,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
         });
 
         // TODO: possible optimize option: use draggable helper for the dismiss animation
-        imageView.setOnSingleFlingListener(onSingleFlingListener);
+        imageView.setOnSingleFlingListener(new SingleFlingListener());
 
         return rootView;
     }
@@ -227,7 +227,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private final OnSingleFlingListener onSingleFlingListener = new OnSingleFlingListener() {
+    private class SingleFlingListener implements OnSingleFlingListener {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             if (!isAdded() || imageView == null) {
@@ -260,7 +260,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
             }
             return true;
         }
-    };
+    }
 
     /**
      * Load the actual media associated with our gallery item into the UI.
