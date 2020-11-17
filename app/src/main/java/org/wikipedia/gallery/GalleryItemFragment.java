@@ -1,7 +1,6 @@
 package org.wikipedia.gallery;
 
 import android.animation.Animator;
-import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -122,7 +121,6 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
                 pageTitle.getWikiSite());
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
