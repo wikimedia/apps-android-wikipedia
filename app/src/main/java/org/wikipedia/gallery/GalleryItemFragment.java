@@ -233,7 +233,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
             if (!isAdded() || imageView == null) {
                 return false;
             }
-            if (e1.getAction() == MotionEvent.ACTION_DOWN&& e2.getAction() == MotionEvent.ACTION_UP) {
+            if (e1.getAction() == MotionEvent.ACTION_DOWN && e2.getAction() == MotionEvent.ACTION_UP) {
                 imageView.animate().translationY(velocityY)
                         .alpha(0.5f)
                         .setListener(new Animator.AnimatorListener() {
