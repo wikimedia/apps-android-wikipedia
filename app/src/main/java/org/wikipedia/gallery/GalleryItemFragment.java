@@ -1,5 +1,7 @@
 package org.wikipedia.gallery;
 
+import android.animation.Animator;
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -8,6 +10,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -119,6 +122,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
                 pageTitle.getWikiSite());
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
@@ -135,6 +139,39 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
                 return;
             }
             ((GalleryActivity) requireActivity()).setViewPagerEnabled(imageView.getScale() <= 1f);
+        });
+
+        // TODO: possible optimize option: use draggable helper for the dismiss animation
+        imageView.setOnSingleFlingListener((e1, e2, velocityX, velocityY) -> {
+            if (!isAdded() || imageView == null) {
+                return false;
+            }
+            if (e1.getAction() == MotionEvent.ACTION_DOWN&& e2.getAction() == MotionEvent.ACTION_UP) {
+                imageView.animate().translationY(velocityY)
+                        .alpha(0.5f)
+                        .setListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animator) {
+                                requireActivity().finish();
+                            }
+
+                            @Override
+                            public void onAnimationCancel(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animator) {
+
+                            }
+                        });
+            }
+            return true;
         });
 
         return rootView;
