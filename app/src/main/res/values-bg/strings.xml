@@ -47,7 +47,7 @@
   <string name="search_redirect_from">Пренасочено от %s</string>
   <string name="menu_page_show_tabs">Показване на раздели</string>
   <string name="menu_page_other_languages">Промяна на езика</string>
-  <string name="menu_page_find_in_page">Търсене в страницата</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Търсене в страницата</string>
   <string name="edit_section_find_in_page">Търсене в страницата</string>
   <string name="menu_page_font_and_theme">Шрифт и облик</string>
   <string name="menu_page_add_to_list">Добавяне към списъка за четене</string>
@@ -234,7 +234,6 @@
   <string name="abusefilter_title_disallow">Не може да публикувате тази редакция. Моля, върнете се и я променете.</string>
   <string name="abusefilter_text_warn">Автоматичен филтър установи, че тази редакция потенциално не е конструктивна. Може да съдържа едно или повече от следните:&lt;br /&gt;&lt;br /&gt;· Писане само с главни букви&lt;br /&gt;· Изпразване на страница или спам&lt;br /&gt;· Неуместни външни препратки или изображения&lt;br /&gt;· Повтарящи се символи</string>
   <string name="abusefilter_text_disallow">Автоматичен филтър установи, че тази редакция потенциално не е конструктивна или е потенциален вандализъм.&lt;br /&gt;&lt;br /&gt;Уикипедия е енциклопедия и само неутрално и значимо съдържание има място тук.</string>
-  <string name="text_size_select">Размер на шрифта</string>
   <string name="page_similar_titles">Подобни страници</string>
   <string name="search_did_you_mean">Може би имахте предвид %s?</string>
   <string name="search_recent_header">Последни търсения:</string>
@@ -311,7 +310,7 @@
   <string name="preference_summary_show_link_previews">Показва бърз предварителен преглед на статии, когато се натисне връзка.</string>
   <string name="preference_title_collapse_tables">Свиване на таблици</string>
   <string name="preference_summary_collapse_tables">Автоматично свиване на таблиците в статиите, като например инфокутии, източници и бележки.</string>
-  <string name="nav_item_donate">Подкрепете Уикипедия</string>
+  <string name="nav_item_donate" fuzzy="true">Подкрепете Уикипедия</string>
   <string name="error_voice_search_not_available">За съжаление, гласовото разпознаване не е достъпно.</string>
   <string name="location_service_disabled">Услугите за местоположение са изключени.</string>
   <string name="enable_location_service">Включване</string>
@@ -539,12 +538,8 @@
   <string name="preference_summary_notification_user_talk">Съобщения от беседи на страници</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
-  <string name="view_random_card_subtitle">Прелиствайте случайни статии от Уикипедия</string>
-  <string name="view_random_card_action">Хвърляне на зара</string>
   <string name="view_next_random_article">Зареждане на друга случайна страница</string>
   <string name="view_main_page_card_title">Днес в Уикипедия</string>
-  <string name="view_main_page_card_subtitle">Главна страница на %s</string>
-  <string name="view_main_page_card_action">Преглед на главната страница</string>
   <string name="view_featured_image_card_title">Картинка на деня</string>
   <string name="view_featured_image_card_download">Изтегляне</string>
   <string name="menu_feed_card_dismiss">Скриване на картата</string>
@@ -554,7 +549,6 @@
   <string name="feed_featured_image_share_subject">Избрана картинка от Общомедия</string>
   <string name="feed">Откриване</string>
   <string name="home">Начало</string>
-  <string name="most_read_list_card_title">Най-четено</string>
   <string name="view_static_card_icon_content_description">Икона за карта</string>
   <string name="view_card_news_title">В новините</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -580,7 +574,6 @@
   <string name="feed_item_type_featured_article">Дневна избрана статия в Уикипедия</string>
   <string name="feed_item_type_trending">Дневно най-четени статии</string>
   <string name="feed_item_type_featured_image">Дневна избрана картинка от Общомедия</string>
-  <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
   <string name="feed_item_type_suggested_edits">Предложения за добавяне на съдържание към Уикипедия</string>
   <string name="feed_empty_message">Няма нищо във Вашата хранилка за Откриване</string>
@@ -759,13 +752,10 @@
   <string name="app_shortcuts_random">Случайна</string>
   <string name="app_shortcuts_continue_reading">Продължаване с четенето</string>
   <string name="app_shortcuts_search">Търсене</string>
-  <string name="more_trending_text">Повече такива</string>
-  <string name="top_on_this_day">Най-четено на %1$s</string>
   <string name="on_this_day_card_title">На този ден</string>
   <string name="more_events_text">Още на този ден</string>
   <string name="events_count_text">%1$s събития от %2$s-%3$d</string>
   <string name="this_year">Тази година</string>
-  <string name="back_to_top">Връщане в началото</string>
   <string name="on_this_day_dialog_next_month">Следващ месец</string>
   <string name="on_this_day_dialog_previous_month">Предходен месец</string>
   <plurals name="diff_years">

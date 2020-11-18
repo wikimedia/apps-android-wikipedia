@@ -40,7 +40,7 @@
   <string name="search_redirect_from">%s എന്നതിൽനിന്നും തിരിച്ചുവിടപ്പെട്ടപ്രകാരം</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
   <string name="menu_page_other_languages">ഭാഷ മാറ്റുക</string>
-  <string name="menu_page_find_in_page">താളിൽ കണ്ടെത്തുക</string>
+  <string name="menu_page_find_in_page" fuzzy="true">താളിൽ കണ്ടെത്തുക</string>
   <string name="edit_section_find_in_page">താളിൽ കണ്ടെത്തുക</string>
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
   <string name="menu_page_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
@@ -198,7 +198,6 @@
   <string name="find_last_occurence">ഇത് അവസാനത്തെ പ്രത്യക്ഷപ്പെടലാണ്</string>
   <string name="abusefilter_title_warn">ഇത് ഒരു നല്ലതല്ലാത്ത തിരുത്തായിരിക്കാം. ഇത് പ്രസിദ്ധീകരിക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
   <string name="abusefilter_title_disallow">താങ്കൾക്ക് ഈ തിരുത്ത് പ്രസിദ്ധീകരിക്കാൻ സാദ്ധ്യമല്ല. തിരിച്ചുപോയി മാറ്റം വരുത്തുക.</string>
-  <string name="text_size_select">ഫോണ്ടിന്റെ വലിപ്പം</string>
   <string name="page_similar_titles">ഇതുപോലുള്ള താളുകൾ</string>
   <string name="search_did_you_mean">ഉദ്ദേശിച്ചത്  \"%s\" എന്നാണോ?</string>
   <string name="search_recent_header">സമീപകാല തിരച്ചിലുകൾ:</string>
@@ -256,7 +255,7 @@
   <string name="button_get_directions">ദിശ ലഭിക്കുക</string>
   <string name="preference_title_show_link_previews">കണ്ണി എങ്ങനെയുണ്ടെന്ന് കാണിക്കുക</string>
   <string name="preference_title_collapse_tables">പട്ടികകൾ അടയ്ക്കുക</string>
-  <string name="nav_item_donate">വിക്കിപീഡിയയ്ക്ക് പിന്തുണയേകുക</string>
+  <string name="nav_item_donate" fuzzy="true">വിക്കിപീഡിയയ്ക്ക് പിന്തുണയേകുക</string>
   <string name="location_service_disabled">സ്ഥലവുമായി ബന്ധപ്പെട്ട സേവനങ്ങൾ പ്രവർത്തനരഹിതമാണ്.</string>
   <string name="enable_location_service">സജ്ജമാക്കുക</string>
   <string name="location_permissions_enable_prompt">താങ്കളുടെ അടുത്തുള്ള സ്ഥലങ്ങൾ കാണുവാൻ സ്ഥലവുമായി ബന്ധപ്പെട്ട അനുമതികൾ പ്രാവർത്തികമാക്കുക.</string>
@@ -360,8 +359,6 @@
   <string name="preference_summary_notification_user_talk">സംവാദ താളുകളിൽനിന്നുള്ള സന്ദേശങ്ങൾ</string>
   <string name="view_because_you_read_card_title">താങ്കൾ വായിച്ചതിനാൽ</string>
   <string name="view_main_page_card_title">വിക്കിപീഡിയയിൽ ഇന്ന്</string>
-  <string name="view_main_page_card_subtitle">%s ലെ പ്രധാന താൾ</string>
-  <string name="view_main_page_card_action">പ്രധാന താൾ കാണുക</string>
   <string name="view_featured_image_card_title">ഇന്നത്തെ ചിത്രം</string>
   <string name="view_featured_image_card_download">ഡൗൺലോഡ് ചെയ്യുക</string>
   <string name="menu_feed_card_dismissed">കാർഡ് മറച്ചിരിക്കുന്നു.</string>
@@ -458,10 +455,8 @@
   <string name="app_shortcuts_random">ക്രമരഹിതം</string>
   <string name="app_shortcuts_continue_reading">വായന തുടരുക</string>
   <string name="app_shortcuts_search">തിരയുക</string>
-  <string name="more_trending_text">ഇതുപോലെയുള്ളവ കൂടുതൽ കാണിക്കുക</string>
   <string name="on_this_day_card_title">ഇന്നേ ദിവസം</string>
   <string name="this_year">ഈ വർഷം</string>
-  <string name="back_to_top">തിരികെ മുകളിലേക്ക്</string>
   <string name="languages_list_activity_title">ഒരു ഭാഷ ചേർക്കുക</string>
   <string name="languages_list_suggested_text">നിർദ്ദേശിക്കുന്നവ</string>
   <string name="languages_list_all_text">എല്ലാ ഭാഷകളും</string>

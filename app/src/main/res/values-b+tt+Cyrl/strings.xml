@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* MuratTheTurkish
 * Ерней
 * Ильнар
 -->
@@ -36,7 +37,7 @@
   <string name="search_redirect_from">%s битеннән юнәлтелде</string>
   <string name="menu_page_show_tabs">Өстәмәләрне курсәтү</string>
   <string name="menu_page_other_languages">Телне сайлау</string>
-  <string name="menu_page_find_in_page">Биттә табу</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Биттә табу</string>
   <string name="edit_section_find_in_page">Биттә табу</string>
   <string name="menu_page_font_and_theme">Шрифтны һәм бизәлешне үзгәртү</string>
   <string name="menu_page_add_to_list">Уку исемлегенә өстәү</string>
@@ -114,6 +115,7 @@
   <string name="settings_activity_title">Көйләнмәләр</string>
   <string name="privacy_policy_description">Яшеренлек сәясәте</string>
   <string name="terms_of_use_description">Куллану шартлары</string>
+  <string name="about_wikipedia_url">https://tt.wikipedia.org/wiki/Википедия:Turında</string>
   <string name="about_translators_heading">Тәрҗемәчеләр</string>
   <string name="about_activity_title">Кушымта турында</string>
   <string name="edit_abandon_confirm_yes">Әйе</string>
@@ -127,7 +129,6 @@
   <string name="edit_zoom_in">Якынайту</string>
   <string name="edit_zoom_out">Ерагайту</string>
   <string name="edit_summary_tag_other">Башка</string>
-  <string name="text_size_select">Хәрефләр зурлыгы</string>
   <string name="page_similar_titles">Охшаш битләр</string>
   <string name="search_did_you_mean">Сез «%s» исегездә тоттыгыз?</string>
   <string name="clear_recent_searches_confirm_yes">Әйе</string>

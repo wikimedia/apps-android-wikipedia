@@ -1,24 +1,24 @@
 package org.wikipedia.feed.news;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.feed.model.UtcDate;
+import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.util.L10nUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class NewsListCard extends ListCard<NewsItemCard> {
+public class NewsCard extends WikiSiteCard {
     @NonNull private UtcDate date;
+    @NonNull private List<NewsItem> news;
 
-    public NewsListCard(@NonNull List<NewsItem> news, int age, @NonNull WikiSite wiki) {
-        super(toItemCards(news, wiki), wiki);
+    public NewsCard(@NonNull List<NewsItem> news, int age, @NonNull WikiSite wiki) {
+        super(wiki);
+        this.news = news;
         this.date = new UtcDate(age);
     }
 
@@ -33,13 +33,8 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     @NonNull public UtcDate date() {
         return date;
     }
-
-    @NonNull @VisibleForTesting static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull WikiSite wiki) {
-        List<NewsItemCard> itemCards = new ArrayList<>();
-        for (NewsItem item : items) {
-            itemCards.add(new NewsItemCard(item, wiki));
-        }
-        return itemCards;
+    @NonNull public List<NewsItem> news() {
+        return news;
     }
 
     @Override protected int dismissHashCode() {

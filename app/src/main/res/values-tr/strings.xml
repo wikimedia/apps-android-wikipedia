@@ -80,7 +80,7 @@
   <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
-  <string name="menu_page_find_in_page">Sayfada bul</string>
+  <string name="menu_page_find_in_page">Maddede bul</string>
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
@@ -127,7 +127,7 @@
   <string name="search_reading_lists_no_results">Okuma listelerinde sonuç bulunamadı</string>
   <string name="search_history_no_results">Geçmişte sonuç bulunamadı</string>
   <string name="edit_section_captcha_message">Otomatik spamlara karşı korunmaya yardımcı olmak için aşağıda görünen kelimeleri yazınız.</string>
-  <string name="edit_section_captcha_request_an_account_message">Resmi göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap talep edin&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Resim göremiyor musunuz? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Bir hesap talep edin&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Yukarıdaki kelimeleri tekrarlayın</string>
   <string name="title_captcha">CAPTCHA kodunu girin</string>
   <string name="edit_section_captcha_reload">CAPTCHA kodunu yenilemek için dokunun</string>
@@ -223,14 +223,14 @@
   <string name="terms_of_use_description">Kullanım şartları</string>
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
-  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Çevrimdışı_okuma_ve_veri</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_etiketleri</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Image_tags</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
@@ -269,7 +269,6 @@
   <string name="abusefilter_title_disallow">Bu düzenlemeyi yayımlayamazsınız. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
   <string name="abusefilter_text_disallow">Bir otomatik süzgeç, bu değişikliği potansiyel yapıcı olmayan veya muhtemel vandalizm olarak tanımlamıştır.&lt;br /&gt;&lt;br /&gt; Vikipedi bir ansiklopedidir ve sadece kayda değer, tarafsız içerikler burada yer alabilir.</string>
-  <string name="text_size_select">Yazı tipi boyutu</string>
   <string name="page_similar_titles">Benzer sayfalar</string>
   <string name="search_did_you_mean">Bunu mu demek istediniz: \"%s\"?</string>
   <string name="search_recent_header">Son aramalar:</string>
@@ -356,7 +355,7 @@
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
   <string name="preference_title_collapse_tables">Tabloları daralt</string>
   <string name="preference_summary_collapse_tables">Bilgi kutuları, referanslar ve notlar gibi makalelerdeki tabloları otomatik olarak daralt.</string>
-  <string name="nav_item_donate">Vikipedi\'ye Destek Ol</string>
+  <string name="nav_item_donate">Bağış yap</string>
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
   <string name="enable_location_service">Etkinleştir</string>
@@ -406,6 +405,7 @@
   <string name="text_size_increase">Metin boyutunu büyüt</string>
   <string name="text_size_decrease">Metin boyutunu küçült</string>
   <string name="text_size_percent_default">%s (Varsayılan)</string>
+  <string name="text_style_title">Yazı tipi</string>
   <string name="nav_item_reading_lists">Listelerim</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
@@ -479,8 +479,8 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Madde birden çok listede yer alıyor</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s artık şu listelerde çevrimdışı erişilebilir olmayacak:</string>
   <string name="reading_lists_sync_reminder_title">Okuma listesi senkronizasyonunu etkinleştirilsin mi?</string>
-  <string name="reading_lists_sync_reminder_text">Okuma listelerine kaydedilen makaleler artık Vikipedi hesabınıza senkronize edilebilir.  &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Senkronize_okuma_listeleri\"&gt;Daha fazla bilgi edin&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">Okuma listelerine kaydedilen maddeler artık Vikipedi hesabınıza senkronize edilebilir. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza oturum açın ve listelerinizin kaydedilmesine izin verin. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Daha fazla bilgi&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
   <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
@@ -605,22 +605,24 @@
   <string name="preference_summary_notification_user_talk">Tartışma sayfalarından gelen mesajlar</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
   <string name="view_random_card_title">Rastgele</string>
-  <string name="view_random_card_subtitle">Vikipedi\'den okumak için rastgele madde çevirin.</string>
-  <string name="view_random_card_action">Zar atın</string>
+  <string name="view_random_article_card_title">Rastgele madde</string>
+  <string name="view_random_article_card_action">Daha fazla rastgele maddeler</string>
+  <string name="view_top_read_card_title">En çok okunanlar</string>
+  <string name="view_top_read_card_action">Daha en çok okunanlar</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d b</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Başka bir rastgele madde yükle</string>
   <string name="view_main_page_card_title">Vikipedi\'de bugün</string>
-  <string name="view_main_page_card_subtitle">%s tarihli anasayfa</string>
-  <string name="view_main_page_card_action">Ana sayfayı görüntüle</string>
   <string name="view_featured_image_card_title">Günün resmi</string>
   <string name="view_featured_image_card_download">İndir</string>
+  <string name="view_featured_image_card_share">Paylaş</string>
   <string name="menu_feed_card_dismiss">Bu kartı gizle</string>
   <string name="menu_feed_card_dismissed">Kart gizlendi.</string>
   <string name="menu_feed_card_edit_card_languages">Kart dillerini değiştir</string>
-  <string name="menu_feed_overflow_label">Daha çok seçenek</string>
+  <string name="menu_feed_overflow_label">Daha fazla seçenek</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons\'tan seçkin resim</string>
   <string name="feed">Keşfet</string>
   <string name="home">Anasayfa</string>
-  <string name="most_read_list_card_title">Gündemdekiler</string>
   <string name="view_static_card_icon_content_description">Kart simgesi</string>
   <string name="view_card_news_title">Haberlerde</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -646,7 +648,6 @@
   <string name="feed_item_type_featured_article">Vikipedi\'de günün seçkin maddesi</string>
   <string name="feed_item_type_trending">Günün en çok görüntülenen maddeleri</string>
   <string name="feed_item_type_featured_image">Wikimedia Commons\'ta günün seçkin resmi</string>
-  <string name="feed_item_type_main_page">Günün seçkin maddesi içeren Vikipedi anasayfası</string>
   <string name="feed_item_type_randomizer">Okumak için rastgele madde oluştur</string>
   <string name="feed_item_type_suggested_edits">Vikipedi\'ye içerik eklemek için öneriler</string>
   <string name="feed_empty_message">İçeriği Keşfet\'inizde hiçbir şey yok</string>
@@ -658,6 +659,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">İptal</string>
   <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
   <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
+  <string name="top_read_activity_title">%s tarihinde en çok okunanlar</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
   <string name="description_edit_article_description_label">Madde</string>
   <string name="description_edit_translate_article_description_label_per_language">Madde açıklaması (%s)</string>
@@ -687,6 +689,7 @@
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
   <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
+  <string name="description_is_in_different_language">Metin beklenmedik bir dilde görünüyor. Dil %s olmalıdır.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
@@ -866,6 +869,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Vikipedi\'ye oturum açın / katılın</string>
   <string name="suggested_edits_contribution_type_image_tag">Resim etiketi</string>
   <string name="suggested_edits_contribution_current_revision_text">Düzenlemeniz şu anda Vikipedi\'de yayında</string>
+  <string name="suggested_card_more_edits">Daha fazla önerilen düzenleme</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>
     <item quantity="other">%1$s etiket</item>
@@ -913,13 +917,10 @@
   <string name="app_shortcuts_random">Rastgele</string>
   <string name="app_shortcuts_continue_reading">Okumaya devam et</string>
   <string name="app_shortcuts_search">Ara</string>
-  <string name="more_trending_text">Buna benzer daha fazla içerik</string>
-  <string name="top_on_this_day">%1$s tarihindeki en popüler bağlantılar</string>
   <string name="on_this_day_card_title">Tarihte bugün</string>
   <string name="more_events_text">Bugün hakkında daha fazlası içerik</string>
   <string name="events_count_text">%2$s–%3$d yıllarından %1$s olay</string>
   <string name="this_year">Bu yıl</string>
-  <string name="back_to_top">Başa dön</string>
   <string name="on_this_day_dialog_next_month">Sonraki ay</string>
   <string name="on_this_day_dialog_previous_month">Önceki ay</string>
   <string name="on_this_day_open_date_picker">Tarih seçiciyi aç</string>
@@ -927,6 +928,8 @@
     <item quantity="one">Geçen yıl</item>
     <item quantity="other">%d yıl önce</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Zamanda yolculuk ettiniz 🚀</string>
+  <string name="on_this_day_back_to_future">Geleceğe geri dönün</string>
   <string name="languages_list_activity_title">Dil ekle</string>
   <string name="languages_list_suggested_text">Önerilen</string>
   <string name="languages_list_all_text">Tüm diller</string>

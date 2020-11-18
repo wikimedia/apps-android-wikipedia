@@ -11,6 +11,7 @@
 * IKhitron
 * Inkbug
 * Matanya
+* MuratTheTurkish
 * Or
 * Shoham
 * Steeve815
@@ -60,7 +61,7 @@
   <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
-  <string name="menu_page_find_in_page">חיפוש בדף</string>
+  <string name="menu_page_find_in_page" fuzzy="true">חיפוש בדף</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -201,7 +202,7 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
-  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/ויקיפדיה:אודות</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -249,7 +250,6 @@
   <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך לכאן.</string>
-  <string name="text_size_select">גודל גופן</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
   <string name="search_recent_header">חיפוש אחרונים:</string>
@@ -338,13 +338,19 @@
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
   <string name="preference_summary_collapse_tables">מזעור אוטומטי של טבלאות בערכים, כגון תיבות מידע, מקורות, והערות שוליים.</string>
-  <string name="nav_item_donate">לתמוך בוויקיפדיה</string>
+  <string name="nav_item_donate" fuzzy="true">לתמוך בוויקיפדיה</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
   <string name="location_permissions_enable_prompt">נא להפעיל הרשאת מיקום כדי לראות מקומות לידך.</string>
   <string name="location_permissions_enable_action">להפעיל</string>
   <string name="error_webview_updating">מתבצע עדכון של Android System WebView. נא לנסות שוב בעוד רגע.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">נבחר אחד</item>
+    <item quantity="two">נבחרו %d</item>
+    <item quantity="many">נבחרו %d</item>
+    <item quantity="other">נבחרו %d</item>
+  </plurals>
   <string name="multi_select_items_selected">נבחרו %d</string>
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
@@ -384,6 +390,7 @@
   <string name="text_size_increase">הגדלת הטקסט</string>
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
+  <string name="text_style_title">גופן</string>
   <string name="nav_item_reading_lists">רשימות</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
@@ -401,6 +408,12 @@
     <item quantity="two">שני ערכים %2$.2f מ״ב</item>
     <item quantity="many">%1$d ערכים, %2$.2f מ״ב</item>
     <item quantity="other">%1$d ערכים, %2$.2f מ״ב</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d מתוך ערך אחד זמינים מקומית, %3$.2f מ״ב</item>
+    <item quantity="two">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
+    <item quantity="many">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
+    <item quantity="other">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
@@ -595,12 +608,8 @@
   <string name="preference_summary_notification_user_talk">הודעות מדפי שיחה</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
-  <string name="view_random_card_subtitle">עלעול בערכים אקראיים מוויקיפדיה.</string>
-  <string name="view_random_card_action">להגריל</string>
   <string name="view_next_random_article">לטעון ערך אקראי נוסף</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
-  <string name="view_main_page_card_subtitle">הדף הראשי ב־%s</string>
-  <string name="view_main_page_card_action">הצגת הדף הראשי</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
   <string name="view_featured_image_card_download">הורדה</string>
   <string name="menu_feed_card_dismiss">הסתרת הכרטיס הזה</string>
@@ -610,7 +619,6 @@
   <string name="feed_featured_image_share_subject">תמונה מומלצת מוויקישיתוף</string>
   <string name="feed">לחקור</string>
   <string name="home">דף הבית</string>
-  <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -638,7 +646,6 @@
   <string name="feed_item_type_featured_article">ערך מומלץ יומי בוויקיפדיה</string>
   <string name="feed_item_type_trending">הערכים המוצגים ביותר ביום</string>
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
-  <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
@@ -841,6 +848,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
   <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
+  <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
   <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
   <string name="suggested_edits_rewards_continue_button">המשך</string>
@@ -904,13 +912,10 @@
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
-  <string name="more_trending_text">עוד דברים דומים</string>
-  <string name="top_on_this_day">מובילים ב %1$s</string>
   <string name="on_this_day_card_title">היום בהיסטוריה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
   <string name="this_year">בשנה הזאת</string>
-  <string name="back_to_top">חזרה למעלה</string>
   <string name="on_this_day_dialog_next_month">החודש הבא</string>
   <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
   <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>

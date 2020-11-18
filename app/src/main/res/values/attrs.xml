@@ -119,4 +119,10 @@
         <attr name="title" format="string" />
         <attr name="detail" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="WikiCardView">
+        <attr name="hasBorder" format="boolean" />
+        <attr name="elevation" format="dimension" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
 </resources>

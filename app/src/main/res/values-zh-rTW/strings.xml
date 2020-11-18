@@ -11,6 +11,7 @@
 * LNDDYL
 * Liuxinyu970226
 * Mikepanhu
+* MuratTheTurkish
 * Reke
 * Sanmosa
 * Simon Shek
@@ -63,7 +64,7 @@
   <string name="search_redirect_from">重新導向自 %s</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
-  <string name="menu_page_find_in_page">於頁面尋找</string>
+  <string name="menu_page_find_in_page">於條目尋找</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
@@ -170,7 +171,7 @@
   <string name="create_account_button">建立帳號</string>
   <string name="create_account_name_unavailable">使用者名稱「%s」不可用。請選擇其它名稱。</string>
   <string name="create_account_ip_block_message">很抱歉，您的 IP 位址目前已被封鎖而無法建立新帳號。</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">詳細資料</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
@@ -204,12 +205,12 @@
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私政策</string>
   <string name="terms_of_use_description">使用條款</string>
-  <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:關於</string>
+  <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://zh.m.wikipedia.org/wiki/Wikipedia:账号请求</string>
+  <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
@@ -252,7 +253,6 @@
   <string name="abusefilter_title_disallow">不能發佈此編輯。請返回並修正。</string>
   <string name="abusefilter_text_warn">自動過濾器認為您的編輯缺乏建設性。 可能由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 空白的文章內容或含有垃圾訊息&lt;br /&gt;· 含有無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
   <string name="abusefilter_text_disallow">自動過濾器已識別此編輯為潛在非建設性或潛在性破壞。&lt;br/&gt;&lt;br/&gt;維基百科是一個專注在中立、有關注度內容的百科全書。</string>
-  <string name="text_size_select">字型大小</string>
   <string name="page_similar_titles">相似的頁面</string>
   <string name="search_did_you_mean">您指的是不是「%s」？</string>
   <string name="search_recent_header">近期搜尋：</string>
@@ -339,7 +339,7 @@
   <string name="preference_summary_show_link_previews">在輕觸連結時，顯示條目的快速預覽。</string>
   <string name="preference_title_collapse_tables">折疊表格</string>
   <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
-  <string name="nav_item_donate">支持維基百科</string>
+  <string name="nav_item_donate">捐款</string>
   <string name="error_voice_search_not_available">很抱歉，不提供語音辨識。</string>
   <string name="location_service_disabled">已停用位置服務。</string>
   <string name="enable_location_service">啟用</string>
@@ -389,6 +389,7 @@
   <string name="text_size_increase">增加文字大小</string>
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
+  <string name="text_style_title">字型</string>
   <string name="nav_item_reading_lists">我的清單</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_move_to">移動至閱讀清單</string>
@@ -588,14 +589,17 @@
   <string name="preference_summary_notification_user_talk">來自對話頁的訊息</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>
   <string name="view_random_card_title">隨機條目產生器</string>
-  <string name="view_random_card_subtitle">快速翻閱來自維基百科的隨機條目。</string>
-  <string name="view_random_card_action">擲骰產生</string>
+  <string name="view_random_article_card_title">隨機條目</string>
+  <string name="view_random_article_card_action">更多隨機條目</string>
+  <string name="view_top_read_card_title">被閱讀最多次</string>
+  <string name="view_top_read_card_action">更多被閱讀最多次的條目</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">載入另一個隨機條目</string>
   <string name="view_main_page_card_title">維基百科今日</string>
-  <string name="view_main_page_card_subtitle">%s 首頁</string>
-  <string name="view_main_page_card_action">檢視主頁面</string>
   <string name="view_featured_image_card_title">每日圖片</string>
   <string name="view_featured_image_card_download">下載</string>
+  <string name="view_featured_image_card_share">分享</string>
   <string name="menu_feed_card_dismiss">隱藏此卡片</string>
   <string name="menu_feed_card_dismissed">卡片已隱藏。</string>
   <string name="menu_feed_card_edit_card_languages">編輯卡片語言</string>
@@ -603,7 +607,6 @@
   <string name="feed_featured_image_share_subject">來自維基共享資源的特色圖片</string>
   <string name="feed">探索</string>
   <string name="home">首頁</string>
-  <string name="most_read_list_card_title">趨勢</string>
   <string name="view_static_card_icon_content_description">卡片圖示</string>
   <string name="view_card_news_title">新聞動態</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -629,7 +632,6 @@
   <string name="feed_item_type_featured_article">在維基百科上的每日典範條目</string>
   <string name="feed_item_type_trending">每日最多瀏覽的條目</string>
   <string name="feed_item_type_featured_image">來自維基共享資源的每日特色圖片</string>
-  <string name="feed_item_type_main_page">帶有每日特色內容的維基百科首頁</string>
   <string name="feed_item_type_randomizer">產生隨機條目來閱讀</string>
   <string name="feed_item_type_suggested_edits">添加內容到維基百科的建議</string>
   <string name="feed_empty_message">您的探索摘要內無任何內容</string>
@@ -641,6 +643,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已達到摘要下端。</string>
   <string name="feed_accessibility_card_load_more_button">載入更多</string>
+  <string name="top_read_activity_title">在 %s 的熱門條目</string>
   <string name="description_edit_text_hint">條目描述</string>
   <string name="description_edit_article_description_label">條目</string>
   <string name="description_edit_translate_article_description_label_per_language">條目描述（%s）</string>
@@ -670,6 +673,7 @@
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
   <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
+  <string name="description_is_in_different_language">文字似乎使用了非預期的語言。語言應為%s。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
@@ -852,6 +856,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">登入/加入維基百科</string>
   <string name="suggested_edits_contribution_type_image_tag">圖片標籤</string>
   <string name="suggested_edits_contribution_current_revision_text">您的編輯是目前維基百科上的最新內容</string>
+  <string name="suggested_card_more_edits">更多建議編輯</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s 個標籤</item>
     <item quantity="other">%1$s 個標籤</item>
@@ -896,13 +901,10 @@
   <string name="app_shortcuts_random">隨機</string>
   <string name="app_shortcuts_continue_reading">繼續閱讀</string>
   <string name="app_shortcuts_search">搜尋</string>
-  <string name="more_trending_text">更多相似內容</string>
-  <string name="top_on_this_day">在 %1$s 的熱門事物</string>
   <string name="on_this_day_card_title">歷史上的今天</string>
   <string name="more_events_text">更多歷史上的今天</string>
   <string name="events_count_text">%2$s - %3$d 年間的 %1$s 個事件</string>
   <string name="this_year">今年</string>
-  <string name="back_to_top">返回頂端</string>
   <string name="on_this_day_dialog_next_month">下一個月</string>
   <string name="on_this_day_dialog_previous_month">前一個月</string>
   <string name="on_this_day_open_date_picker">開啟日期選擇器</string>
@@ -910,6 +912,8 @@
     <item quantity="one">去年</item>
     <item quantity="other">%d 年前</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">您穿越了時空 🚀</string>
+  <string name="on_this_day_back_to_future">回到未來</string>
   <string name="languages_list_activity_title">新增語言</string>
   <string name="languages_list_suggested_text">建議</string>
   <string name="languages_list_all_text">所有語言</string>

@@ -39,6 +39,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @Nullable private List<WatchlistItem> watchlist;
     @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
+    @SerializedName("watchlist") @Nullable private List<MwQueryPage> watchlistPages;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -57,6 +58,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @Nullable public String csrfToken() {
         return tokens != null ? tokens.csrf() : null;
+    }
+
+    @Nullable public String getToken() {
+        return  tokens != null ? tokens.watch() : null;
     }
 
     @Nullable public String createAccountToken() {
@@ -221,9 +226,14 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         @Nullable private String createAccount;
         @SuppressWarnings("unused,NullableProblems") @SerializedName("logintoken")
         @Nullable private String login;
+        @SuppressWarnings("unused,NullableProblems") @SerializedName("watchtoken")
+        @Nullable private String watch;
 
         @Nullable private String csrf() {
             return csrf;
+        }
+        @Nullable private String watch() {
+            return watch;
         }
 
         @Nullable private String createAccount() {

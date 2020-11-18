@@ -45,7 +45,7 @@
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
-    <string name="menu_page_find_in_page">Find in page</string>
+    <string name="menu_page_find_in_page">Find in article</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -326,7 +326,7 @@
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
-    <string name="nav_item_donate">Support Wikipedia</string>
+    <string name="nav_item_donate">Donate</string>
     <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
     <string name="location_service_disabled">Location services are disabled.</string>
     <string name="enable_location_service">Enable</string>
@@ -597,14 +597,17 @@
     <!-- The Feed -->
     <string name="view_because_you_read_card_title">Because you read</string>
     <string name="view_random_card_title">Randomizer</string>
-    <string name="view_random_card_subtitle">Flip through random articles to read from Wikipedia.</string>
-    <string name="view_random_card_action">Roll the dice</string>
+    <string name="view_random_article_card_title">Random article</string>
+    <string name="view_random_article_card_action">More random articles</string>
+    <string name="view_top_read_card_title">Top read</string>
+    <string name="view_top_read_card_action">More top read</string>
+    <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+    <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
-    <string name="view_main_page_card_subtitle">Main page on %s</string>
-    <string name="view_main_page_card_action">View main page</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
     <string name="view_featured_image_card_download">Download</string>
+    <string name="view_featured_image_card_share">Share</string>
     <string name="menu_feed_card_dismiss">Hide this card</string>
     <string name="menu_feed_card_dismissed">Card hidden.</string>
     <string name="menu_feed_card_edit_card_languages">Edit card languages</string>
@@ -613,7 +616,6 @@
     <string name="feed_featured_image_share_subject">Featured image from Wikimedia Commons</string>
     <string name="feed">Explore</string>
     <string name="home">Home</string>
-    <string name="most_read_list_card_title">Trending</string>
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
     <plurals name="view_continue_reading_card_subtitle">
@@ -639,7 +641,6 @@
     <string name="feed_item_type_featured_article">Daily featured article on Wikipedia</string>
     <string name="feed_item_type_trending">Daily most-viewed articles</string>
     <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
-    <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>
@@ -652,6 +653,8 @@
     <string name="feed_accessibility_card_text">You have reached the bottom of the feed.</string>
     <string name="feed_accessibility_card_load_more_button">Load more</string>
     <!-- /The Feed -->
+
+    <string name="top_read_activity_title">Top read on %s</string>
 
     <!-- Description editing -->
     <string name="description_edit_text_hint">Article description</string>
@@ -684,6 +687,7 @@
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
     <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
+    <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -875,6 +879,7 @@
     <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
+    <string name="suggested_card_more_edits">More suggested edits</string>
     <plurals name="suggested_edits_tags_diff_count_text">
         <item quantity="one">%1$s tag</item>
         <item quantity="other">%1$s tags</item>
@@ -937,8 +942,6 @@
     <string name="app_shortcuts_random">Random</string>
     <string name="app_shortcuts_continue_reading">Continue reading</string>
     <string name="app_shortcuts_search">Search</string>
-    <string name="more_trending_text">More like this</string>
-    <string name="top_on_this_day">Trending on %1$s</string>
     <!-- /App Shortcuts -->
 
     <!-- On This Day -->
@@ -946,7 +949,6 @@
     <string name="more_events_text">More on this day</string>
     <string name="events_count_text">%1$s events from %2$s–%3$d</string>
     <string name="this_year">This year</string>
-    <string name="back_to_top">Back to top</string>
     <string name="on_this_day_dialog_next_month">Next month</string>
     <string name="on_this_day_dialog_previous_month">Previous month</string>
     <string name="on_this_day_open_date_picker">Open date picker</string>
@@ -954,6 +956,8 @@
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
     </plurals>
+    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀 </string>
+    <string name="on_this_day_back_to_future">Back to the future</string>
     <!-- /On This Day -->
 
     <!-- MultiLingual -->

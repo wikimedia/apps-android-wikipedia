@@ -34,7 +34,7 @@
   <string name="search_redirect_from">%s पासून पुनिर्देशित</string>
   <string name="menu_page_show_tabs">कळी दाखवा</string>
   <string name="menu_page_other_languages">भाषा बदला</string>
-  <string name="menu_page_find_in_page">पाना मध्ये शोधा</string>
+  <string name="menu_page_find_in_page" fuzzy="true">पाना मध्ये शोधा</string>
   <string name="menu_page_font_and_theme">टंक आणि देखावा</string>
   <string name="menu_page_add_to_list">वाचनयादीत जोडा</string>
   <string name="menu_page_share">दुवा वाटप करा</string>
@@ -169,7 +169,6 @@
   <string name="abusefilter_title_disallow">आपण हे संपादन जतन करु शकत नाही.कृपया परत जाउन ते बदला.</string>
   <string name="abusefilter_text_warn">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' असे नोंदविलेले आहे.यात खालीलपैकी एक वा एकाधिक असू शकते &lt;br /&gt;&lt;br /&gt;· सर्व अक्षरे ठळक&lt;br /&gt;लेख कोरा करणे किंवा उत्पात&lt;br /&gt;·असंबंधित दुवे किंवा चित्रे&lt;br /&gt;·त्याच वर्णांची वारंवारिता</string>
   <string name="abusefilter_text_disallow">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' किंवा \'उच्चपातळीचा उत्पात\' असे नोंदविलेले आहे.&lt;br /&gt;&lt;br /&gt;विकिपीडिया हा विश्वकोश आहे व त्यात फक्त तटस्थ व लिखाणायोग्य आशय असतो.</string>
-  <string name="text_size_select">टंकाचा आकार</string>
   <string name="page_similar_titles">सारखी पाने</string>
   <string name="search_did_you_mean">तुम्हाला \"%s\" म्हणायचे आहे काय?</string>
   <string name="search_recent_header">अलीकडील शोध:</string>
@@ -228,7 +227,7 @@
   <string name="error_no_maps_app">दिशानिर्देशाचे कोणतेही उपकरण सापडले नाही.</string>
   <string name="preference_title_show_link_previews">दुव्याची झलक दाखवा</string>
   <string name="preference_summary_show_link_previews">दुव्यांवर थपकवल्यास लेखांची जलद झलक दाखवा.</string>
-  <string name="nav_item_donate">विकिपीडियास साहाय्य करा</string>
+  <string name="nav_item_donate" fuzzy="true">विकिपीडियास साहाय्य करा</string>
   <string name="error_voice_search_not_available">माफ करा, आवाज ओळखणे उपलब्ध नाही</string>
   <string name="location_service_disabled">स्थाननिर्धारण सेवा अक्षम करण्यात आलेली आहे.</string>
   <string name="enable_location_service">चालू करा</string>
@@ -292,7 +291,6 @@
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
   <string name="view_random_card_title">रैंडमाइझर</string>
   <string name="view_main_page_card_title">विकिपीडियावर आज</string>
-  <string name="view_main_page_card_subtitle">%s वरील मुख्य पान</string>
   <string name="view_featured_image_card_title">आजचे चित्र</string>
   <string name="view_featured_image_card_download">अधिभारण करा</string>
   <string name="menu_feed_card_dismiss">हा पत्ता लपवा</string>

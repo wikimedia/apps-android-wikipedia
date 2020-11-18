@@ -41,8 +41,8 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         void notificationsClick();
         void talkClick();
         void settingsClick();
-        void aboutClick();
         void watchlistClick();
+        void historyClick();
     }
 
     @BindView(R.id.main_drawer_account_name) TextView accountNameView;
@@ -51,6 +51,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
     @BindView(R.id.main_drawer_talk_container) ViewGroup talkContainer;
     @BindView(R.id.main_drawer_watchlist_container) ViewGroup watchListContainer;
+    @BindView(R.id.main_drawer_history_container) ViewGroup historyContainer;
     @Nullable Callback callback;
 
     public static MenuNavTabDialog newInstance(Callback drawerViewCallback) {
@@ -132,22 +133,17 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
-    @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
-        UriUtil.visitInExternalBrowser(requireContext(),
-                Uri.parse(getString(R.string.donate_url,
-                        BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
-        dismiss();
-    }
-
-    @OnClick(R.id.main_drawer_about_container) void onAboutClick() {
+    @OnClick(R.id.main_drawer_history_container) void onHistoryClick() {
         if (callback != null) {
-            callback.aboutClick();
+            callback.historyClick();
             dismiss();
         }
     }
 
-    @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
-        UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.android_app_faq_url)));
+    @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
+        UriUtil.visitInExternalBrowser(requireContext(),
+                Uri.parse(getString(R.string.donate_url,
+                        BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
         dismiss();
     }
 

@@ -46,7 +46,7 @@
   <string name="search_redirect_from">%s-dən yönləndirildi</string>
   <string name="menu_page_show_tabs">Pəncərələri göstər</string>
   <string name="menu_page_other_languages">Dili dəyiş</string>
-  <string name="menu_page_find_in_page">Səhifədə axtar</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Səhifədə axtar</string>
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
   <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>
@@ -229,7 +229,6 @@
   <string name="abusefilter_title_disallow">Bu redaktəni dərc edə bilməzsiniz. Geri qayıdın və dəyişdirin.</string>
   <string name="abusefilter_text_warn">Avtomatik filtr bu redaktoru potensial olaraq qeyri-konstruktiv olaraq müəyyən etmişdir. Aşağıdakılardan bir və ya daha çoxunu ehtiva edə bilər: &lt;br /&gt; &lt;br /&gt; Bütün hərfləri böyük hərflə yazma &lt;br /&gt; Məqalələrin məzmununu silmə və ya spam &lt;br /&gt;  Əlaqəsiz xarici keçidlər və ya şəkillər &lt;br /&gt; Təkrarlanan simvollar</string>
   <string name="abusefilter_text_disallow">Avtomatlaşdırılmış filtr bu redaktəni potensial olaraq qeyri-konstruktiv və ya vandalizm kimi müəyyən etmişdir.&lt;br /&gt;&lt;br /&gt;Vikipediya bir ensiklopediyadır və bura yalnız neytral, əhəmiyyətli məzmun əlavə oluna bilər.</string>
-  <string name="text_size_select">Şrift ölçüsü</string>
   <string name="page_similar_titles">Oxşar səhifələr</string>
   <string name="search_did_you_mean">Bəlkə \"%s\" axtarırsınız?</string>
   <string name="search_recent_header">Son axtarışlar:</string>
@@ -373,7 +372,6 @@
   <string name="app_shortcuts_continue_reading">Oxumağa davam et</string>
   <string name="app_shortcuts_search">Axtar</string>
   <string name="this_year">Bu il</string>
-  <string name="back_to_top">Əvvələ qayıt</string>
   <string name="on_this_day_dialog_next_month">Növbəti ay</string>
   <string name="on_this_day_dialog_previous_month">Əvvəlki ay</string>
   <string name="languages_list_activity_title">Dil əlavə et</string>

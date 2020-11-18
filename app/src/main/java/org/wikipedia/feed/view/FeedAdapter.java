@@ -12,12 +12,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.accessibility.AccessibilityCard;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
-import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.news.NewsCardView;
 import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.random.RandomCardView;
@@ -29,9 +28,9 @@ import org.wikipedia.views.DefaultViewHolder;
 
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
     public interface Callback extends ListCardItemView.Callback, CardHeaderView.Callback,
-            FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
+            FeaturedImageCardView.Callback, SearchCardView.Callback, NewsCardView.Callback,
             AnnouncementCardView.Callback, RandomCardView.Callback, ListCardView.Callback,
-            BecauseYouReadCardView.Callback, SuggestedEditsCardView.Callback {
+            SuggestedEditsCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onRetryFromOffline();
@@ -125,7 +124,7 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         final int bottomMargin = 8;
         layoutParams.bottomMargin = DimenUtil.roundedDpToPx(bottomMargin);
 
-        if (feedView != null && feedView.getColumns() > 1) {
+        if (DimenUtil.isLandscape(view.getContext())) {
             layoutParams.leftMargin = ((View) view.getParent()).getWidth() / 6;
             layoutParams.rightMargin = layoutParams.leftMargin;
         }

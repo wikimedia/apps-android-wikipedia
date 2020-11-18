@@ -14,7 +14,6 @@ import okhttp3.CacheControl;
 public class PageViewModel {
     @Nullable private Page page;
     @Nullable private PageTitle title;
-    @Nullable private PageTitle titleOriginal;
     @Nullable private HistoryEntry curEntry;
     @Nullable private ReadingListPage readingListPage;
 
@@ -34,14 +33,6 @@ public class PageViewModel {
 
     public void setTitle(@Nullable PageTitle title) {
         this.title = title;
-    }
-
-    @Nullable public PageTitle getTitleOriginal() {
-        return titleOriginal;
-    }
-
-    public void setTitleOriginal(@Nullable PageTitle titleOriginal) {
-        this.titleOriginal = titleOriginal;
     }
 
     @Nullable public HistoryEntry getCurEntry() {

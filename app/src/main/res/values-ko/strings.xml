@@ -69,7 +69,7 @@
   <string name="search_redirect_from">%s에서 넘어옴</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
-  <string name="menu_page_find_in_page">문서에서 찾기</string>
+  <string name="menu_page_find_in_page" fuzzy="true">문서에서 찾기</string>
   <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
@@ -256,7 +256,6 @@
   <string name="abusefilter_title_disallow">이 편집을 게시할 수 없습니다. 뒤로 돌아가서 바꿔주세요.</string>
   <string name="abusefilter_text_warn">자동화된 필터가 이 편집을 잠재적으로 비생산적인 것으로 식별합니다. 다음 중 하나 이상을 포함할 수 있습니다:&lt;br /&gt;&lt;br /&gt;· 모두 대문자로 입력&lt;br /&gt;· 문서가 비어 있거나 스팸을 넣음&lt;br /&gt;· 관련 없는 외부 링크나 그림&lt;br /&gt;· 글자 반복</string>
   <string name="abusefilter_text_disallow">자동화된 필터가 이 편집을 잠재적으로 비생산적이나, 잠재적으로 훼손한 것으로 식별합니다.&lt;br /&gt;&lt;br /&gt;위키백과는 백과사전이자 중립적이며, 주목할만한 내용만이 여기에 들어갑니다.</string>
-  <string name="text_size_select">글자 크기</string>
   <string name="page_similar_titles">비슷한 문서</string>
   <string name="search_did_you_mean">\"%s\"을(를) 찾으셨나요?</string>
   <string name="search_recent_header">최근 검색:</string>
@@ -343,7 +342,7 @@
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
   <string name="preference_title_collapse_tables">표 접기</string>
   <string name="preference_summary_collapse_tables">정보상자, 각주, 내용주 등 문서 안의 표를 자동으로 접습니다.</string>
-  <string name="nav_item_donate">위키백과 지원</string>
+  <string name="nav_item_donate" fuzzy="true">위키백과 지원</string>
   <string name="error_voice_search_not_available">죄송합니다. 음성 인식을 이용할 수 없습니다.</string>
   <string name="location_service_disabled">위치 서비스를 사용할 수 없습니다.</string>
   <string name="enable_location_service">활성화</string>
@@ -393,6 +392,7 @@
   <string name="text_size_increase">텍스트 크기 늘리기</string>
   <string name="text_size_decrease">텍스트 크기 줄이기</string>
   <string name="text_size_percent_default">%s (기본값)</string>
+  <string name="text_style_title">글꼴</string>
   <string name="nav_item_reading_lists">내 목록</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
   <string name="reading_list_move_to">읽기 목록으로 이동</string>
@@ -586,12 +586,8 @@
   <string name="preference_summary_notification_user_talk">토크 페이지의 메시지</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의의 문서 보기</string>
-  <string name="view_random_card_subtitle">카드를 넘겨 위키백과에서 임의의 문서를 읽어보세요.</string>
-  <string name="view_random_card_action">주사위 던지기</string>
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
-  <string name="view_main_page_card_subtitle">%s의 대문</string>
-  <string name="view_main_page_card_action">대문 문서 보기</string>
   <string name="view_featured_image_card_title">오늘의 이미지</string>
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
@@ -601,7 +597,6 @@
   <string name="feed_featured_image_share_subject">위키미디어 공용의 알찬 그림</string>
   <string name="feed">탐색</string>
   <string name="home">홈</string>
-  <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -627,7 +622,6 @@
   <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
   <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>
   <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
-  <string name="feed_item_type_main_page">오늘의 알찬글을 보여주는 위키백과의 대문</string>
   <string name="feed_item_type_randomizer">읽어볼 임의 문서를 만듭니다</string>
   <string name="feed_item_type_suggested_edits">위키백과의 내용 추가 제안</string>
   <string name="feed_empty_message">탐색 피드에서 할 일이 없습니다</string>
@@ -887,13 +881,10 @@
   <string name="app_shortcuts_random">임의 문서</string>
   <string name="app_shortcuts_continue_reading">계속 읽기</string>
   <string name="app_shortcuts_search">검색</string>
-  <string name="more_trending_text">유사한 다른 글</string>
-  <string name="top_on_this_day">%1$s의 유행</string>
   <string name="on_this_day_card_title">오늘의 역사</string>
   <string name="more_events_text">이 날에 있었던 더 많은 사건</string>
   <string name="events_count_text">%2$s~%3$d년 사이의 이벤트 %1$s개</string>
   <string name="this_year">올해</string>
-  <string name="back_to_top">맨 위로 돌아가기</string>
   <string name="on_this_day_dialog_next_month">다음 달</string>
   <string name="on_this_day_dialog_previous_month">이전 달</string>
   <string name="on_this_day_open_date_picker">날짜 선택기 열기</string>

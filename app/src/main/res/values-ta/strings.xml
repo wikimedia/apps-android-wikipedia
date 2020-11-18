@@ -56,7 +56,7 @@
   <string name="search_redirect_from">%s இலிருந்து வழிமாற்றப்பட்டது</string>
   <string name="menu_page_show_tabs">தத்தல்களை காண்பி</string>
   <string name="menu_page_other_languages">மொழியை மாற்று</string>
-  <string name="menu_page_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
+  <string name="menu_page_find_in_page" fuzzy="true">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="edit_section_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_add_to_list">படிக்கும் பட்டியலில் சேர்க</string>
@@ -237,7 +237,6 @@
   <string name="find_last_occurence">இது கடைசி நிகழ்வு</string>
   <string name="abusefilter_title_warn">இது ஆக்கபூர்வமற்ற தொகுப்பாக இருக்கலாம், நீங்கள் நிச்சயம் பதிப்பிட வேண்டுமா ?</string>
   <string name="abusefilter_title_disallow">\nநீங்கள் இந்த தொகுப்பை பதிப்பிட முடியாது. தயவுசெய்து பின் சென்று அதை மாற்றவும்.</string>
-  <string name="text_size_select">எழுத்துரு அளவு</string>
   <string name="page_similar_titles">ஒத்த பக்கங்கள்</string>
   <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
   <string name="search_recent_header">அண்மைய தேடல்கள்</string>
@@ -297,7 +296,7 @@
   <string name="error_no_maps_app">வழிகாட்டி செயலிகள் ஏதும் இல்லை.</string>
   <string name="preference_title_show_link_previews">முன்னோட்ட இணைப்புகளை காண்பி</string>
   <string name="preference_summary_show_link_previews">இணைப்புகளை தட்டும் போது கட்டுரையின் விரைவான முன்னோட்டம் காட்டு.</string>
-  <string name="nav_item_donate">விக்கிமீடியாவை ஆதரிக்கவும்</string>
+  <string name="nav_item_donate" fuzzy="true">விக்கிமீடியாவை ஆதரிக்கவும்</string>
   <string name="error_voice_search_not_available">மன்னிக்கவும், குரல் அறிதல் கிடைக்கவில்லை</string>
   <string name="location_service_disabled">இடச் சேவைகள் முடக்கப்பட்டுள்ளது.</string>
   <string name="enable_location_service">செயற்படுத்து</string>
@@ -421,12 +420,8 @@
   <string name="preference_title_notification_thanks">நன்றி</string>
   <string name="view_because_you_read_card_title">நீங்கள் படித்ததினால்</string>
   <string name="view_random_card_title">தற்போக்கான்</string>
-  <string name="view_random_card_subtitle">விக்கிப்பீடியாவிலிருந்து வாசிப்பதற்காக கட்டுறைகளை தற்போக்காக புரட்டவும்.</string>
-  <string name="view_random_card_action">பகடைகளை உருட்டவும்</string>
   <string name="view_next_random_article">தற்போக்காக மற்றொரு கட்டுறையை காட்டு</string>
   <string name="view_main_page_card_title">இன்று விக்கிப்பீடியாவில்</string>
-  <string name="view_main_page_card_subtitle">%sர்கான முதன்மை பக்கம்</string>
-  <string name="view_main_page_card_action">முதன்மைப் பக்கத்தை காண்க</string>
   <string name="view_featured_image_card_title">இன்றைய சிறப்புப்படம்</string>
   <string name="view_featured_image_card_download">தரவிறக்கவும்</string>
   <string name="menu_feed_card_dismiss">இந்த அட்டையை மறை</string>
@@ -435,7 +430,6 @@
   <string name="menu_feed_overflow_label">மேலும் செயல்கள்</string>
   <string name="feed_featured_image_share_subject">விக்கிமீடியா காமன்ஸிலிருந்து சிறப்பு படம்</string>
   <string name="feed">சுற்றிப்பார்</string>
-  <string name="most_read_list_card_title">பிரபலமாகிறது</string>
   <string name="view_static_card_icon_content_description">அட்டை படவுரு</string>
   <string name="view_card_news_title">செய்திகளில்</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -506,11 +500,9 @@
   <string name="app_shortcuts_random">ஏதோ ஒன்று</string>
   <string name="app_shortcuts_continue_reading">தொடர்ந்து படிக்கவும்</string>
   <string name="app_shortcuts_search">தேடுக</string>
-  <string name="more_trending_text">இதுபோல் மேலும்</string>
   <string name="on_this_day_card_title">இந்த நாளில்</string>
   <string name="more_events_text">இந்நாளில் மேலும்</string>
   <string name="this_year">இந்த வருடம்</string>
-  <string name="back_to_top">மீண்டும் மேலே</string>
   <string name="on_this_day_dialog_next_month">அடுத்த மாதம்</string>
   <plurals name="diff_years">
     <item quantity="one">கடந்த வருடம்</item>

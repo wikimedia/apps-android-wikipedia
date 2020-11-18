@@ -38,7 +38,7 @@
   <string name="search_redirect_from">Atreoraithe ó %s</string>
   <string name="menu_page_show_tabs">Taispeáin táib</string>
   <string name="menu_page_other_languages">Athraigh teanga</string>
-  <string name="menu_page_find_in_page">Aimsigh sa leathanach</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Aimsigh sa leathanach</string>
   <string name="edit_section_find_in_page">Aimsigh sa leathanach</string>
   <string name="menu_page_font_and_theme">Cló agus téama</string>
   <string name="menu_page_add_to_list">Cuir ar liosta léitheoireachta</string>
@@ -209,7 +209,6 @@
   <string name="find_last_occurence">Is é seo an tarlú deireanach</string>
   <string name="abusefilter_title_warn">Is dócha gur athrú neamhfhiúntach é seo. An bhfuil tú cinnte gur mhaith leat é a fhoilsiú?</string>
   <string name="abusefilter_title_disallow">Ní féidir leat an t-athrú seo a fhoilsiú. Gabh siar agus athraigh é.</string>
-  <string name="text_size_select">Clómhéid</string>
   <string name="page_similar_titles">Leathanaigh den chineál céanna</string>
   <string name="search_did_you_mean">An raibh \"%s\" á lorg agat?</string>
   <string name="search_recent_header">Cuardaigh dheireanacha:</string>
@@ -283,7 +282,7 @@
   <string name="preference_summary_show_link_previews">Taispeáin réamhamharc gasta ar ailt nuair a thapáiltear ar naisc.</string>
   <string name="preference_title_collapse_tables">Fill táblaí</string>
   <string name="preference_summary_collapse_tables">Fill táblaí go huathoibríoch in ailt, de shaghas bhoscaí eolais, tagairtí, agus nótaí.</string>
-  <string name="nav_item_donate">Tacaigh le Vicipéid</string>
+  <string name="nav_item_donate" fuzzy="true">Tacaigh le Vicipéid</string>
   <string name="error_voice_search_not_available">Tá brón orainn, níl aithint gutha ar fáil.</string>
   <string name="location_service_disabled">Díchumasaítear seirbhísí suímh.</string>
   <string name="enable_location_service">Cumasaigh</string>
@@ -474,12 +473,8 @@
   <string name="preference_title_notification_user_talk">Leathanach plé</string>
   <string name="view_because_you_read_card_title">De bharr gur léigh tú</string>
   <string name="view_random_card_title">Randamóir</string>
-  <string name="view_random_card_subtitle">Méaraigh trí ailt randamacha atá le léamh ar Vicipéid.</string>
-  <string name="view_random_card_action">Caith an dílse</string>
   <string name="view_next_random_article">Lódáil alt randamach eile</string>
   <string name="view_main_page_card_title">Inniu ar Vicipéid</string>
-  <string name="view_main_page_card_subtitle">Príomhleathanach ar %s</string>
-  <string name="view_main_page_card_action">Féach ar príomhleathanach</string>
   <string name="view_featured_image_card_title">Pictiúr an lae</string>
   <string name="view_featured_image_card_download">Íoslódáil</string>
   <string name="menu_feed_card_dismiss">Folaigh an cárta seo</string>
@@ -488,7 +483,6 @@
   <string name="menu_feed_overflow_label">Tuilleadh roghanna</string>
   <string name="feed_featured_image_share_subject">Íomhá roghnaithe ó Cómhaoin Wikimedia</string>
   <string name="feed">Taiscéal</string>
-  <string name="most_read_list_card_title">Ag treochtáil</string>
   <string name="view_static_card_icon_content_description">Deilbhín cárta</string>
   <string name="view_card_news_title">Sa nuacht</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -514,7 +508,6 @@
   <string name="feed_item_type_featured_article">Alt roghnaithe an lae ar Vicipéid</string>
   <string name="feed_item_type_trending">Na hailt is amharctha gach lá</string>
   <string name="feed_item_type_featured_image">Íomhá roghnaithe gach lá ó Cómhaoin Wikimedia</string>
-  <string name="feed_item_type_main_page">Príomhleathanach na Vicipéide le hábhar roghnaithe gach lá</string>
   <string name="feed_item_type_randomizer">Gin ailt randamacha le léamh</string>
   <string name="feed_empty_message">Níl aon rud ar d\'fhotha Taiscéal</string>
   <string name="feed_configure_onboarding_action">Cuir in oiriúint</string>
@@ -589,13 +582,10 @@
   <string name="app_shortcuts_random">Randamach</string>
   <string name="app_shortcuts_continue_reading">Lean ort ag léamh</string>
   <string name="app_shortcuts_search">Cuardaigh</string>
-  <string name="more_trending_text">Tuilleadh den chineál seo</string>
-  <string name="top_on_this_day">Ag treochtáil ar %1$s</string>
   <string name="on_this_day_card_title">Ar an lá seo</string>
   <string name="more_events_text">Tuilleadh ar an lá seo</string>
   <string name="events_count_text">%1$s ócáid ó %2$s–%3$d</string>
   <string name="this_year">I mbliana</string>
-  <string name="back_to_top">Siar go barr</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">An bhliain seo caite</item>
     <item quantity="other">%d bliana ó shin</item>

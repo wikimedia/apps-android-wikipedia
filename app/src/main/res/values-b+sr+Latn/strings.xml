@@ -39,7 +39,7 @@
   <string name="search_redirect_from">Preusmereno sa %s</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promeni jezik</string>
-  <string name="menu_page_find_in_page">Pronađi na stranici</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Pronađi na stranici</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na listu za čitanje</string>
@@ -222,7 +222,6 @@
   <string name="abusefilter_title_disallow">Ne možete da objavite ovu izmenu. Vratite se nazad i promenite je.</string>
   <string name="abusefilter_text_warn">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sledećeg:&lt;br /&gt;&lt;br /&gt;· Pisanje velikim slovima&lt;br /&gt;· Pražnjenje članka ili spamovanje&lt;br /&gt;· Irelevantne spoljašnje linkove ili slike&lt;br /&gt;· Ponavljanje znakova</string>
   <string name="abusefilter_text_disallow">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu ili mogući vandalizam.&lt;br /&gt;&lt;br /&gt;Vikipedija je enciklopedija — ovde pripada samo neutralan i značajan sadržaj.</string>
-  <string name="text_size_select">Veličina fonta</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Da li ste mislili na „%s”?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
@@ -300,7 +299,7 @@
   <string name="preference_summary_show_link_previews">Prikazuje kratki pregled članaka pritiskom na linkove.</string>
   <string name="preference_title_collapse_tables">Skupljanje tabela</string>
   <string name="preference_summary_collapse_tables">Automatski skuplja tabele u člancima, poput infokutija, referenci i napomena.</string>
-  <string name="nav_item_donate">Podržite Vikipediju</string>
+  <string name="nav_item_donate" fuzzy="true">Podržite Vikipediju</string>
   <string name="error_voice_search_not_available">Prepoznavanje glasa nije dostupno.</string>
   <string name="location_service_disabled">Usluge lokacije su onemogućene.</string>
   <string name="enable_location_service">Omogući</string>
@@ -509,12 +508,8 @@
   <string name="preference_summary_notification_user_talk">Poruke sa stranice za razgovor</string>
   <string name="view_because_you_read_card_title">Na osnovu pročitanog</string>
   <string name="view_random_card_title">Slučajni članak</string>
-  <string name="view_random_card_subtitle">Prelistajte slučajne članke sa Vikipedije.</string>
-  <string name="view_random_card_action">Baci kocku</string>
   <string name="view_next_random_article">Učitaj drugi slučajni članak</string>
   <string name="view_main_page_card_title">Danas na Vikipediji</string>
-  <string name="view_main_page_card_subtitle">Glavna strana %s</string>
-  <string name="view_main_page_card_action">Prikaži glavnu stranu</string>
   <string name="view_featured_image_card_title">Slika dana</string>
   <string name="view_featured_image_card_download">Preuzmi</string>
   <string name="menu_feed_card_dismiss">Sakrij ovu karticu</string>
@@ -523,7 +518,6 @@
   <string name="menu_feed_overflow_label">Više opcija</string>
   <string name="feed_featured_image_share_subject">Izabrana slika sa Vikimedijine ostave</string>
   <string name="feed">Istraži</string>
-  <string name="most_read_list_card_title">Aktuelno</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">Vesti</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -549,7 +543,6 @@
   <string name="feed_item_type_featured_article">Izabrani članak dana na Vikipediji</string>
   <string name="feed_item_type_trending">Najčitaniji članci za danas</string>
   <string name="feed_item_type_featured_image">Izabrana slika dana sa Vikiostave</string>
-  <string name="feed_item_type_main_page">Glavna strana Vikipedije sa sadržajem dana</string>
   <string name="feed_item_type_randomizer">Generišite slučajne članke za čitanje</string>
   <string name="feed_item_type_suggested_edits">Predlozi za dodavanje sadržaja na Vikipediji</string>
   <string name="feed_empty_message">Vaš fid „Istraži“ je prazan</string>
@@ -706,13 +699,10 @@
   <string name="app_shortcuts_random">Slučajni</string>
   <string name="app_shortcuts_continue_reading">Nastavi čitanje</string>
   <string name="app_shortcuts_search">Pretraži</string>
-  <string name="more_trending_text">Više poput ovog</string>
-  <string name="top_on_this_day">Aktuelno za %1$s</string>
   <string name="on_this_day_card_title">Na današnji dan</string>
   <string name="more_events_text">Više na ovaj dan</string>
   <string name="events_count_text">%1$s događaja %2$s–%3$d</string>
   <string name="this_year">Ove godine</string>
-  <string name="back_to_top">Nazad na vrh</string>
   <string name="on_this_day_dialog_next_month">Sledeći mesec</string>
   <string name="on_this_day_dialog_previous_month">Prethodni mesec</string>
   <string name="on_this_day_open_date_picker">Otvori birač datuma</string>

@@ -8,6 +8,7 @@
 * Giorgi Balakhadze
 * MIKHEIL
 * Mehman97
+* MuratTheTurkish
 * Გიო ოქრო
 -->
 <resources>
@@ -50,7 +51,7 @@
   <string name="search_redirect_from">გადამისამართებულია %s-დან</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
   <string name="menu_page_other_languages">ენის შეცვლა</string>
-  <string name="menu_page_find_in_page">გვერდში ძიება</string>
+  <string name="menu_page_find_in_page" fuzzy="true">გვერდში ძიება</string>
   <string name="edit_section_find_in_page">გვერდზე ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
   <string name="menu_page_add_to_list">საკითხავ სიაში დამატება</string>
@@ -182,6 +183,7 @@
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
   <string name="privacy_policy_description">კონფიდენციალურობის პოლიტიკა</string>
   <string name="terms_of_use_description">გამოყენების პირობები</string>
+  <string name="android_app_request_an_account_url">https://kk.wikipedia.org/wiki/Уикипедия:Тіркелгі_сұрау</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ka</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ka</string>
   <string name="about_libraries_heading">გამოყენებული ბიბლიოთეკები</string>
@@ -210,7 +212,6 @@
   <string name="find_previous">წინას მოძიება</string>
   <string name="abusefilter_title_warn">შესაძლოა ეს არაკონსტრუქციული რედაქტირებაა. გსურთ მისი გამოქვეყნება?</string>
   <string name="abusefilter_title_disallow">ამ ცვლილების გამოქვეყნება არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
-  <string name="text_size_select">შრიფტის ზომა</string>
   <string name="page_similar_titles">მსგავსი გვერდები</string>
   <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_recent_header">ბოლოს მოძიებულები</string>
@@ -267,7 +268,7 @@
   <string name="error_no_maps_app">შეუძლებელია აპლიკაციის ოპვნა, რომელიც მიმართულებებს იძლევა.</string>
   <string name="preference_title_show_link_previews">წინასწარ გადახედეთ ბმულს</string>
   <string name="preference_summary_show_link_previews">მაჩვენე სტატიების სწრაფი წინასწარი გადახედვის რეჟიმი ბმულებზე დაწოლისას.</string>
-  <string name="nav_item_donate">ვიკიპედიის მხარდაჭერა</string>
+  <string name="nav_item_donate" fuzzy="true">ვიკიპედიის მხარდაჭერა</string>
   <string name="error_voice_search_not_available">სამწუხაროდ, ხმით შეცნობა ხელმისაწვდომი არაა.</string>
   <string name="location_service_disabled">ლოკაციის სერვისი გამორთულია.</string>
   <string name="enable_location_service">ჩართვა</string>
@@ -353,11 +354,7 @@
   <string name="notification_syncing_description" fuzzy="true">დარჩა %1$d სტატია</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_title">შემთხვევითი</string>
-  <string name="view_random_card_subtitle">გადაფურცლეთ ვიკიპედიის შემთხვევითი სტატიების წასაკითხად.</string>
-  <string name="view_random_card_action">გააგორეთ კამათელი</string>
   <string name="view_main_page_card_title">დღეს ვიკიპედიაში</string>
-  <string name="view_main_page_card_subtitle">მთავარი გვერდი %s-ზე</string>
-  <string name="view_main_page_card_action">მთავარი გვერდის ნახვა</string>
   <string name="view_featured_image_card_title">დღის სურათი</string>
   <string name="view_featured_image_card_download">გადმოწერა</string>
   <string name="menu_feed_card_dismiss">ამ ბარათის დამალვა</string>
@@ -365,7 +362,6 @@
   <string name="menu_feed_overflow_label">მეტი პარამეტრები</string>
   <string name="feed_featured_image_share_subject">ვიკისაწყობის რჩეული სურათი</string>
   <string name="feed">კვლევა</string>
-  <string name="most_read_list_card_title">პოპულარული</string>
   <string name="view_static_card_icon_content_description">ბარათის ხატულა</string>
   <string name="view_card_news_title">სიახლეებში</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -399,12 +395,9 @@
   <string name="app_shortcuts_random">შემთხვევითი</string>
   <string name="app_shortcuts_continue_reading">კითხვის გაგრძელება</string>
   <string name="app_shortcuts_search">ძიება</string>
-  <string name="more_trending_text">მეტი მსგავსი</string>
-  <string name="top_on_this_day">პოპულარული %1$s</string>
   <string name="on_this_day_card_title">ამ დღეს</string>
   <string name="more_events_text">მეტი ამ დღეს</string>
   <string name="this_year">ამ წელს</string>
-  <string name="back_to_top">თავში დაბრუნება</string>
   <plurals name="diff_years">
     <item quantity="one">შარშან</item>
     <item quantity="other">%d წლის წინ</item>

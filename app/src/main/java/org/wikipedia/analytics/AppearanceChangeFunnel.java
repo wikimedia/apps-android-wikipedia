@@ -11,7 +11,7 @@ import org.wikipedia.theme.Theme;
 public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
     private static final int REV_ID = 20566858;
-    private InvokeSource source;
+    private final InvokeSource source;
 
     public AppearanceChangeFunnel(WikipediaApp app, WikiSite wiki, InvokeSource source) {
         super(app, SCHEMA_NAME, REV_ID, wiki);
@@ -41,6 +41,8 @@ public class AppearanceChangeFunnel extends Funnel {
                 "new_value", newFontFamily
         );
     }
+
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {

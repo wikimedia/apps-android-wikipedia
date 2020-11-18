@@ -49,7 +49,7 @@
   <string name="search_redirect_from">ڕەوانەکراوە لە %s</string>
   <string name="menu_page_show_tabs">نیشاندانی تابەکان</string>
   <string name="menu_page_other_languages">گۆڕینی زمان</string>
-  <string name="menu_page_find_in_page">دۆزینەوە لەنێو پەڕە</string>
+  <string name="menu_page_find_in_page" fuzzy="true">دۆزینەوە لەنێو پەڕە</string>
   <string name="edit_section_find_in_page">دۆزینەوە لەنێو پەڕە</string>
   <string name="menu_page_font_and_theme">فۆنت و ڕووکار</string>
   <string name="menu_page_add_to_list">زیادکردن بۆ پێڕستی خوێندنەوە</string>
@@ -237,7 +237,6 @@
   <string name="abusefilter_title_disallow">ناتوانی ئەم گۆڕانکارییە پاشەکەوت بکەی. تکایە بگەڕێوە و بیگۆڕە.</string>
   <string name="abusefilter_text_warn">فیلتەرێکی خۆگەڕ ئەم دەستکارییەی بە ڕوخێنەر دیاری کردووە و ناتوانیت پاشەکەوتی بکەیت. لەوانەیە بەھۆی یەکێک یان زیاتر لەم ھۆکارانە بێت:&lt;br /&gt;&lt;br /&gt;· نووسینی تەواوی بە کاپس&lt;br /&gt;· واڵا کردنەوەی وتارەکە یان خراپکاری&lt;br /&gt;· بەستەری نەناسراوی دەرەکی بۆ وێنە&lt;br /&gt;· بەردەوام نووسینی یەک پیت</string>
   <string name="abusefilter_text_disallow">فیلتەرێکی خۆگەڕ ئەم دەستکارییەی بە بێ بایەخ دیاری کردووە، وا دیارە ئەمە بۆ خراپکاری ئەنجام دراوە.&lt;br /&gt;&lt;br /&gt;ویکیپیدیا زانستنامەیە و بێلایەنە، تەنھا ناوەڕۆکی باوەڕپێکراو و دیار دەبێت لێرە ھەبن.</string>
-  <string name="text_size_select">قەبارەی فۆنت</string>
   <string name="page_similar_titles">پەڕە لێکچووەکان</string>
   <string name="search_did_you_mean">مەبەستت ئەمە بوو\"%s\"؟</string>
   <string name="search_recent_header">گەڕانە نوێکان:</string>
@@ -311,7 +310,7 @@
   <string name="error_no_maps_app">ھیچ نەرمەواڵەیەک نەدۆزرایەوە کە ئاڕاستەکان دابین بکات.</string>
   <string name="preference_title_show_link_previews">نیشاندانی پێشبینینی بەستەرەکان</string>
   <string name="preference_summary_show_link_previews">نیشاندانی بەشێکی خێرای وتارەکان لە کاتی داگرتنی بەستەرەکان.</string>
-  <string name="nav_item_donate">پشتگیریکردنی ویکیپیدیا</string>
+  <string name="nav_item_donate" fuzzy="true">پشتگیریکردنی ویکیپیدیا</string>
   <string name="error_voice_search_not_available">ببوورە، ناسینەوەی دەنگ بەردەست نییە.</string>
   <string name="location_service_disabled">ڕاژەکانی شوێن ناچالاککراون.</string>
   <string name="enable_location_service">ڕێگەدان</string>
@@ -504,10 +503,7 @@
   <string name="preference_summary_notification_user_talk">نامەی پەڕەکانی وتووێژ</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
   <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
-  <string name="view_random_card_subtitle" fuzzy="true">خوێندنەوەی وتارێکی بەھەڵکەوت لە ویکیپیدیا</string>
   <string name="view_main_page_card_title">ئەمڕۆ لە ویکیپیدیا</string>
-  <string name="view_main_page_card_subtitle">پەڕەی سەرەکی لە %s</string>
-  <string name="view_main_page_card_action">پیشاندانی پەڕەی سەرەکی</string>
   <string name="view_featured_image_card_title">وێنەی ڕۆژ</string>
   <string name="view_featured_image_card_download">داگرتن</string>
   <string name="menu_feed_card_dismiss">شاردنەوەی ئەم کارتە</string>
@@ -516,7 +512,6 @@
   <string name="menu_feed_overflow_label">بژاردەکانی تر</string>
   <string name="feed_featured_image_share_subject">وێنەی ھەڵبژێردراو لە ویکیمیدیا کۆمنز</string>
   <string name="feed">بگەڕێ</string>
-  <string name="most_read_list_card_title">گەرماوگەرم</string>
   <string name="view_static_card_icon_content_description">نیشانەی کارت</string>
   <string name="view_card_news_title">لە ھەواڵەکان</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -539,7 +534,6 @@
   <string name="feed_item_type_featured_article">وتاری ھەڵبژێردراوی ڕۆژانە لە ویکیپیدیا</string>
   <string name="feed_item_type_trending">ڕۆژانە زۆرترین بینینی وتارەکان</string>
   <string name="feed_item_type_featured_image">ڕۆژانە وێنەی ھەڵبژێردراو لە ویکیمیدیا کۆمنز</string>
-  <string name="feed_item_type_main_page">پەڕەی سەرەکی ویکیپیدیا لەگەڵ ناوەڕۆکی ھەڵبژێردراوی ڕۆژانە</string>
   <string name="feed_item_type_randomizer">دروستکردنی وتارێک بە ھەڵکەوت بۆ خوێندنەوە</string>
   <string name="feed_item_type_suggested_edits">پێشنیارەکان بۆ زیادکردنی ناوەڕۆک لە ویکیپیدیا</string>
   <string name="customize_lang_selection_dialog_ok_button_text">باشە</string>
@@ -707,11 +701,9 @@
   <string name="app_shortcuts_random">بە ھەڵکەوت</string>
   <string name="app_shortcuts_continue_reading">بەردەوامبوون لە خوێندنەوە</string>
   <string name="app_shortcuts_search">بگەڕێ</string>
-  <string name="more_trending_text">ھاوشێوەی ئەمە</string>
   <string name="on_this_day_card_title">لەمڕۆژەدا</string>
   <string name="more_events_text">زیاتر لەمڕۆژەدا</string>
   <string name="this_year">ئەمساڵ</string>
-  <string name="back_to_top">گەڕانەوە بۆ سەرەوە</string>
   <string name="on_this_day_dialog_next_month">مانگی داھاتوو</string>
   <string name="on_this_day_dialog_previous_month">مانگی پێشوو</string>
   <string name="languages_list_activity_title">زیادکردنی زمانێک</string>

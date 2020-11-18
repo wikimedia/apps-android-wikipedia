@@ -29,7 +29,7 @@
   <string name="search_redirect_from">Redirigit dempuèi %s</string>
   <string name="menu_page_show_tabs">Afichar los onglets</string>
   <string name="menu_page_other_languages">Cambiar de lenga</string>
-  <string name="menu_page_find_in_page">Recercar dins la pagina</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Recercar dins la pagina</string>
   <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
   <string name="menu_page_add_to_list">Apondre a la lista de lectura</string>
   <string name="menu_page_share">Partejar lo ligam</string>
@@ -133,7 +133,6 @@
   <string name="edit_conflict_message">Aquesta pagina foguèt ja modificada per un autre utilizaire, e es en conflicte amb la vòstra publicacion. Merce de copiar las vòstras publicacions, tornar a la pagina precedenta e refrescar la pagina, puèi ensajatz de publicar tornamai.</string>
   <string name="find_next">Recercar lo seguent</string>
   <string name="find_previous">Recercar lo precedent</string>
-  <string name="text_size_select">Talha de poliça</string>
   <string name="page_similar_titles">Paginas similaras</string>
   <string name="search_did_you_mean">Volètz dire « %s » ?</string>
   <string name="search_recent_header">Recèrcas recentas :</string>
@@ -180,7 +179,7 @@
   <string name="button_continue_to_article">Legir l’article</string>
   <string name="button_get_directions">Obténer las direccions</string>
   <string name="preference_title_show_link_previews">Afichar los apercebuts de ligam</string>
-  <string name="nav_item_donate">Sosténer Wikipèdia</string>
+  <string name="nav_item_donate" fuzzy="true">Sosténer Wikipèdia</string>
   <string name="error_voice_search_not_available">O planhèm, la reconeissença vocala es pas disponibla.</string>
   <string name="location_service_disabled">Los servicis de localizacion son desactivats.</string>
   <string name="enable_location_service">Activar</string>
@@ -221,9 +220,7 @@
   <string name="notification_reverted_title">Modificacion anullada</string>
   <string name="view_because_you_read_card_title">Perque avètz legit</string>
   <string name="view_random_card_title">A l\'azard</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Legissètz un article de la Wikipèdia a l\'azard</string>
   <string name="view_main_page_card_title">Uèi sus Wikipèdia</string>
-  <string name="view_main_page_card_subtitle">Pagina principala lo %s</string>
   <string name="view_featured_image_card_title">Imatge del jorn</string>
   <string name="view_featured_image_card_download">Telecargar</string>
   <string name="menu_feed_card_dismiss">Amagar aquesta carta</string>
@@ -231,7 +228,6 @@
   <string name="menu_feed_overflow_label">Mai d\'opcions</string>
   <string name="feed_featured_image_share_subject">Imatge destacat de Wikimedia Commons</string>
   <string name="feed">Explorar</string>
-  <string name="most_read_list_card_title">Tendéncia</string>
   <string name="view_static_card_icon_content_description">Icòna de la carta</string>
   <string name="view_card_news_title">Dins l’actualitat</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">

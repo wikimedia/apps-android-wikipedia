@@ -9,6 +9,7 @@
 * Glavkos
 * KATRINE1992
 * KATRINE1993
+* MuratTheTurkish
 * Nikosgranturismogt
 * Norhorn
 * Panos78
@@ -52,7 +53,7 @@
   <string name="search_redirect_from">Ανακατεύθυνση από %s</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
-  <string name="menu_page_find_in_page">Βρείτε στην σελίδα</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Βρείτε στην σελίδα</string>
   <string name="edit_section_find_in_page">Βρείτε στην σελίδα</string>
   <string name="menu_page_font_and_theme">Γραμματοσειρά και θέμα</string>
   <string name="menu_page_add_to_list">Προσθήκη στη λίστα ανάγνωσης</string>
@@ -198,7 +199,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/el</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Βιβλιοθήκες που χρησιμοποιούνται</string>
   <string name="about_contributors_heading">Συνεισφέροντες</string>
@@ -238,7 +239,6 @@
   <string name="abusefilter_title_disallow">Δεν μπορείτε να δημοσιεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
   <string name="abusefilter_text_warn">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική. Μπορεί να περιέχει ένα ή περισσότερα από τα ακόλουθα:&lt;br /&gt;&lt;br /&gt;· Πληκτρολόγηση με όλα κεφαλαία&lt;br /&gt;· Άδειασμα λημμάτων ή spamming&lt;br /&gt;· Άσχετες εξωτερικές συνδέσεις ή εικόνες&lt;br /&gt;· Επανάληψη χαρακτήρων</string>
   <string name="abusefilter_text_disallow">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική, ή πιθανό βανδαλισμό.&lt;br /&gt;&lt;br /&gt;Η Βικιπαίδεια είναι μια εγκυκλοπαίδεια και μόνο ουδέτερο, αξιοσημείωτο περιεχόμενο ανήκει εδώ.</string>
-  <string name="text_size_select">Μέγεθος γραμματοσειράς</string>
   <string name="page_similar_titles">Παρόμοιες σελίδες</string>
   <string name="search_did_you_mean">Μήπως εννοείτε \"%s\";</string>
   <string name="search_recent_header">Πρόσφατες αναζητήσεις:</string>
@@ -316,7 +316,7 @@
   <string name="preference_title_show_link_previews">Εμφάνιση προεπισκοπήσεων συνδέσμων</string>
   <string name="preference_summary_customize_explore_feed">Εξατομικεύστε την ροή εξερεύνησης</string>
   <string name="preference_summary_show_link_previews">Εμφάνιση μιας γρήγορης προεπισκόπησης λημμάτων όταν πατάτε σε συνδέσμους.</string>
-  <string name="nav_item_donate">Υποστηρίξτε τη Βικιπαίδεια</string>
+  <string name="nav_item_donate" fuzzy="true">Υποστηρίξτε τη Βικιπαίδεια</string>
   <string name="error_voice_search_not_available">Λυπούμστε, η αναγνώριση ομιλίας δεν είναι διαθέσιμη.</string>
   <string name="location_service_disabled">Οι υπηρεσίες τοποθεσίας είναι απενεργοποιημένες.</string>
   <string name="enable_location_service">Ενεργοποίηση</string>
@@ -534,12 +534,8 @@
   <string name="preference_summary_notification_user_talk">Μηνύματα από τις σελίδες συζήτησης</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
-  <string name="view_random_card_subtitle">Βρείτε τυχαία λήμματα για να διαβάσετε από την Βικιπαίδεια</string>
-  <string name="view_random_card_action">Ρίξτε το ζάρι</string>
   <string name="view_next_random_article">Φορτώσετε ένα άλλο τυχαίο λήμμα</string>
   <string name="view_main_page_card_title">Σήμερα στη Βικιπαίδεια</string>
-  <string name="view_main_page_card_subtitle">Κύρια σελίδα στο %s</string>
-  <string name="view_main_page_card_action">Δείτε την κεντρική σελίδα</string>
   <string name="view_featured_image_card_title">Εικόνα της ημέρας</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="menu_feed_card_dismiss">Απόκρυψη αυτής της κάρτας</string>
@@ -548,7 +544,6 @@
   <string name="menu_feed_overflow_label">Περισσότερες επιλογές</string>
   <string name="feed_featured_image_share_subject">Προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
   <string name="feed">Εξερεύνηση</string>
-  <string name="most_read_list_card_title">Τάσεις</string>
   <string name="view_static_card_icon_content_description">Εικόνα κάρτας</string>
   <string name="view_card_news_title">Στις ειδήσεις</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -574,7 +569,6 @@
   <string name="feed_item_type_featured_article">Καθημερινό προβεβλημμένο λήμμα στη Βικιπαίδεια</string>
   <string name="feed_item_type_trending">Καθημερινά λήμματα με τις περισσότερες προβολές</string>
   <string name="feed_item_type_featured_image">Καθημερινή προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Κύρια σελίδα της Βικιπαίδειας με καθημερινό προβεβλημμένο περιεχόμενο</string>
   <string name="feed_item_type_randomizer">Δημιουργία τυχαίων άρθρων για ανάγνωση</string>
   <string name="feed_item_type_suggested_edits">Προτάσεις για προσθήκη περιεχομένου στη Βικιπαίδεια</string>
   <string name="feed_empty_message">Δεν υπάρχει τίποτα στην ροή εξερεύνησής σας</string>
@@ -761,13 +755,10 @@
   <string name="app_shortcuts_random">Τυχαία</string>
   <string name="app_shortcuts_continue_reading">Συνέχεια ανάγνωσης</string>
   <string name="app_shortcuts_search">Αναζήτηση</string>
-  <string name="more_trending_text">Περισσότερα σαν αυτό</string>
-  <string name="top_on_this_day">Ανερχόμενα στις %1$s</string>
   <string name="on_this_day_card_title">Αυτήν την μέρα</string>
   <string name="more_events_text">Περισσότερα αυτή την ημέρα</string>
   <string name="events_count_text">%1$s συμβάντα από %2$s–%3$d</string>
   <string name="this_year">Φέτος</string>
-  <string name="back_to_top">Επιστροφή στην κορυφή</string>
   <string name="on_this_day_dialog_next_month">Επόμενος μήνας</string>
   <string name="on_this_day_dialog_previous_month">Προηγούμενος μήνας</string>
   <plurals name="diff_years">

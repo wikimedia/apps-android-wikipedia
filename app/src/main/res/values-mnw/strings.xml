@@ -43,7 +43,7 @@
   <string name="search_redirect_from">ကလေင်ထ္ၜး နူကဵု %s</string>
   <string name="menu_page_show_tabs">ထ္ၜး မုက်တေပ်</string>
   <string name="menu_page_other_languages">သၠာဲ အရေဝ်ဘာသာ</string>
-  <string name="menu_page_find_in_page">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
   <string name="edit_section_find_in_page">ဂၠာဲ ပ္ဍဲ မုက်လိက်</string>
   <string name="menu_page_font_and_theme">ဝှန် ကေုာံ ပရူပရာ</string>
   <string name="menu_page_add_to_list">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
@@ -230,7 +230,6 @@
   <string name="abusefilter_title_disallow">မၞး တြးပတိတ် အရာမပလေဝ်ဒါန်ဏအ် ဟွံဂွံ၊၊ ပဂုန်တုဲ ကလေင်တုဲ ပလေဝ်ထောအ်ညိ၊၊</string>
   <string name="abusefilter_text_warn">မဂွံဆဵုကေတ် အရာမဒါန်ပလေဝ် လပါ်ခိုဟ်ဟွံသေင်၊၊ ဟိုတ်နူ အရာတအ်ဏအ် ပါလုပ်ဒၟံင် &lt;br /&gt;&lt;br /&gt;· Typing in all caps&lt;br /&gt; ဒှ်မာန်၊၊ Blanking articles or spamming&lt;br /&gt;· Irrelevant external links or images&lt;br /&gt;· မအရေဝ်တအ်ဂှ် ပလေဝ်ထောအ်ညိ၊၊</string>
   <string name="abusefilter_text_disallow">မဂွံဆဵုကေတ် အရာမဒါန်ပလေဝ် လပါ်ခိုဟ်ဟွံသေင် ဟွံသေင်မ္ဂး ဒှ်အရာမပလီုပလာ်၊၊&lt;br /&gt;&lt;br /&gt; ဝဳကဳပဳဒဳယာဂှ် ဒှ်ပြကိုဟ်အညာ တုဲ ဒှ်အရာမမံင်လဒေါဝ်ဟေင်ရ၊၊</string>
-  <string name="text_size_select">ဇမၞော် ဝှန်မလိက်</string>
   <string name="page_similar_titles">မုက်လိက် မတုပ်သၟဟ်</string>
   <string name="search_did_you_mean">မၞး မိက်ဂွံ ဟီု %s ဟာ？</string>
   <string name="search_recent_header">မဂၠာဲ ပြဟ်ဟ်ဏအ်</string>
@@ -311,7 +310,7 @@
   <string name="preference_summary_show_link_previews">ထ္ၜး ဗဗဵုကၠာ လိက်ပရေင် ကာလ ကောန်လဴ မၞုံ လတူလေန်၊၊</string>
   <string name="preference_title_collapse_tables">ပဒေါမ်ဖျေံသ္ၚိအၚ်တအ်</string>
   <string name="preference_summary_collapse_tables">ပ္ဍဲလိက်ပရေၚ်ဂမၠိုၚ် ပဒေါမ်ဖျေံသ္ၚိအၚ်တအ်အလဵုလဵု, ညံၚ်ရဴ ကဠာတၚ်နၚ်ဂမၠိုၚ်, စၞောန်ဂမၠိုၚ်, ကေုာံ တၚ်စၟတ်ဂမၠိုၚ်.</string>
-  <string name="nav_item_donate">ထံက်ပင် ဝဳကဳပဳဒဳယာ</string>
+  <string name="nav_item_donate" fuzzy="true">ထံက်ပင် ဝဳကဳပဳဒဳယာ</string>
   <string name="error_voice_search_not_available">သၠးအခေါင်၊ ဝှာင်ရမ္သာင်ဂှ် ဟွံလုပ်အဝေါင်၊၊</string>
   <string name="location_service_disabled">Location services ဂှ် လုပ်ဟွံဂွံ၊၊</string>
   <string name="enable_location_service">ဒှ်မာန်</string>
@@ -560,12 +559,8 @@
   <string name="preference_summary_notification_user_talk">လိက်မေတ်သုက် နူကဵု မုက်လိက် ဓရီု</string>
   <string name="view_because_you_read_card_title">ဟိုတ်နူ မၞး ဗှ်</string>
   <string name="view_random_card_title">ဂဇျောမ်</string>
-  <string name="view_random_card_subtitle">ပံက် လိက်ပရေင် ဂဇျောမ် သွက်ဂွံဗှ် ပ္ဍဲ ဝဳကဳပဳဒဳယာ၊၊</string>
-  <string name="view_random_card_action">ဖျေဟ် မပး</string>
   <string name="view_next_random_article">လုပ်ပၠောပ် လိက်ပရေင် ဂဇျောမ် တၞဟ်</string>
   <string name="view_main_page_card_title">တ္ၚဲဏအ် ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
-  <string name="view_main_page_card_subtitle">မုက်လိက် တမ် ပ္ဍဲ %s</string>
-  <string name="view_main_page_card_action">ဗဵု မုက်လိက် တမ်</string>
   <string name="view_featured_image_card_title">ဗီုရုပ် တၟေင် တ္ၚဲဏအ်</string>
   <string name="view_featured_image_card_download">တံင်လုပ်</string>
   <string name="menu_feed_card_dismiss">ဗဒန် ကာတ် ဏအ်</string>
@@ -575,7 +570,6 @@
   <string name="feed_featured_image_share_subject">ဗီုရုပ် မုက်ဂတ နူ ဝဳကဳပဳဒဳယာ ကောမ္မန်</string>
   <string name="feed">စဳစောတ်</string>
   <string name="home">မုက်လိက်တမ်</string>
-  <string name="most_read_list_card_title">မၞိဟ်ဒးစိုတ်ဂၠိုင်</string>
   <string name="view_static_card_icon_content_description">ကာတ် icon</string>
   <string name="view_card_news_title">ပ္ဍဲ ကဵု ပရိုင်</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -601,7 +595,6 @@
   <string name="feed_item_type_featured_article">လိက်ပရေင်မုက်ဂတ လၟေင်တ္ၚဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="feed_item_type_trending">လိက်ပရေင် မၞိဟ်မဗှ်ဂၠိုင်အိုတ် လၟေင်တ္ၚဲ</string>
   <string name="feed_item_type_featured_image">ဗီုရုပ်မုက်ဂတ နူ ဝဳကဳပဳဒဳယာ ကောမ္မန် လၟေင်တ္ၚဲ</string>
-  <string name="feed_item_type_main_page">မုက်လိက် ဂတ ဝဳကဳပဳဒဳယာ နကဵု ပရူမုက်ဂတ လၟေင်တ္ၚဲ</string>
   <string name="feed_item_type_randomizer">ပချဳ လိက်ပရေင် ဂဇျောမ် သွက်ဂွံ ဗှ်</string>
   <string name="feed_item_type_suggested_edits">မကဵုကသပ် သွက်ဂွံ စုတ် ပရူပရာ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="feed_empty_message">ပ္ဍဲ Explore feed ဂှ် မုဟွံမွဲ</string>
@@ -869,13 +862,10 @@
   <string name="app_shortcuts_random">ပရိုင်မွဲမွဲ</string>
   <string name="app_shortcuts_continue_reading">ဆက် ဗှ်</string>
   <string name="app_shortcuts_search">ဂၠာဲ</string>
-  <string name="more_trending_text">ဗီုဗီုဏအ် မိက်ဂွံဂွံ ဂၠိုင်င်</string>
-  <string name="top_on_this_day">အရာတၟိကယျာ ပ္ဍဲ %1$s</string>
   <string name="on_this_day_card_title">ပ္ဍဲ တ္ၚဲဏအ်</string>
   <string name="more_events_text">ဆက်ကဵု ပ္ဍဲ တ္ၚဲဏအ်</string>
   <string name="events_count_text">%1$s သဘင် နူကဵု %2$s-%3$d</string>
   <string name="this_year">ပ္ဍဲ သၞာံဏအ်</string>
-  <string name="back_to_top">ကလေင် တိုန် နူစ</string>
   <string name="on_this_day_dialog_next_month">ဂိတု ဂတ</string>
   <string name="on_this_day_dialog_previous_month">ဂိတု မတုဲကၠုင်</string>
   <string name="on_this_day_open_date_picker">ပံက် စၟတ်တ္ၚဲ</string>

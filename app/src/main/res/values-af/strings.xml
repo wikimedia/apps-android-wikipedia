@@ -7,6 +7,7 @@
 * Fwolff
 * Joris Darlington Quarshie
 * Macofe
+* MuratTheTurkish
 * Puvircho
 -->
 <resources>
@@ -32,7 +33,7 @@
   <string name="search_redirect_from">Aangestuur vanaf %s</string>
   <string name="menu_page_show_tabs">Vertoon oortjies</string>
   <string name="menu_page_other_languages">Verander taal</string>
-  <string name="menu_page_find_in_page">Soek in blad</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Soek in blad</string>
   <string name="menu_page_font_and_theme">Lettertipe en tema</string>
   <string name="menu_page_add_to_list">Voeg toe tot leeslys</string>
   <string name="menu_page_share">Deel skakel</string>
@@ -138,6 +139,7 @@
   <string name="about_description">Aangaande Wikipedia toep</string>
   <string name="privacy_policy_description">Privaatheidsbeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaardes</string>
+  <string name="about_wikipedia_url">https://af.wikipedia.org/wiki/Wikipedia:Omtrent</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Biblioteke gebruik</string>
@@ -172,7 +174,6 @@
   <string name="abusefilter_title_disallow">U kan nie hierdie wysiging publiseer nie. Gaan asseblief terug en verander dit.</string>
   <string name="abusefilter_text_warn">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief geïdentifiseer. Dit mag een of meer van die volgende bevat:&lt;br /&gt;&lt;br /&gt;· Tik van alles in hoofletters&lt;br /&gt;· Leegmaak van artikels of pespos&lt;br /&gt;· Irrelevante eksterne skakels&lt;br /&gt;· Herhalende karakter</string>
   <string name="abusefilter_text_disallow">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief, of potensiële vandalisme geïdentifiseer.&lt;br /&gt;&lt;br /&gt;Wikipedia is \'n ensiklopedie en slegs neutrale, noemenswaardige inhoud behoort hier.</string>
-  <string name="text_size_select">Lettergrootte</string>
   <string name="page_similar_titles">Soortgelyke bladsye</string>
   <string name="search_did_you_mean">Bedoel u \"%s\"?</string>
   <string name="search_recent_header">Onlangse soektogte</string>
@@ -228,7 +229,7 @@
   <string name="button_add_to_reading_list">Voeg toe tot leeslys</string>
   <string name="button_get_directions">Kry aanwysings</string>
   <string name="preference_title_show_link_previews">Toon skakelvoorskoue</string>
-  <string name="nav_item_donate">Ondersteun Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Ondersteun Wikipedia</string>
   <string name="error_voice_search_not_available">Jammer, stemherkenning is onbeskikbaar.</string>
   <string name="location_service_disabled">Liggingdienste is gedeaktiveer.</string>
   <string name="enable_location_service">Aktiveer</string>
@@ -297,7 +298,6 @@
   <string name="user_option_sync_label">Voorkeure</string>
   <string name="notification_reverted_title">Wysiging teruggestel</string>
   <string name="view_main_page_card_title">Vandag op Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hoofblad op %s</string>
   <string name="view_featured_image_card_title">Prent van die dag</string>
   <string name="view_featured_image_card_download">Laai af</string>
   <string name="feed">Verken</string>

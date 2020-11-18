@@ -12,8 +12,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.NotificationFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -39,6 +41,10 @@ import static org.wikipedia.Constants.INTENT_EXTRA_GO_TO_SE_TAB;
 
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
+    public static final String ACTION_CANCEL = "action_notification_cancel";
+    public static final String TYPE_MULTIPLE = "multiple";
+    public static final String TYPE_LOCAL = "local";
+
     private static final int MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32;
     private static final int FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3;
     private static final int SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7;
@@ -73,7 +79,13 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             if (WikipediaFirebaseMessagingService.Companion.isUsingPush()) {
                 return;
             }
+            LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications();
             pollNotifications(context);
+
+        } else if (TextUtils.equals(intent.getAction(), ACTION_CANCEL)) {
+
+            NotificationFunnel.processIntent(intent);
+
         }
     }
 
@@ -102,6 +114,14 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         Intent intent = new Intent(context, NotificationPollBroadcastReceiver.class);
         intent.setAction(ACTION_POLL);
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    @NonNull public static PendingIntent getCancelNotificationPendingIntent(@NonNull Context context, long id, String type) {
+        Intent intent = new Intent(context, NotificationPollBroadcastReceiver.class)
+                .setAction(ACTION_CANCEL)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type);
+        return PendingIntent.getBroadcast(context, (int) id, intent, 0);
     }
 
     @SuppressLint("CheckResult")
@@ -271,8 +291,8 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     public static void showSuggestedEditsLocalNotification(@NonNull Context context, @StringRes int description) {
-        Intent intent = MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true);
-        NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
+        Intent intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true), 0, TYPE_LOCAL);
+        NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                 context.getString(R.string.suggested_edits_reactivation_notification_title),
                 context.getString(description), context.getString(description),
                 R.drawable.ic_mode_edit_white_24dp, R.color.accent50, false, intent);

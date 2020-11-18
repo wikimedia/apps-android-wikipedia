@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Aram1985
 * Kareyac
+* MuratTheTurkish
 * Xelgen
 * Աշոտ1997
 * Դավիթ Սարոյան
@@ -43,7 +44,7 @@
   <string name="search_redirect_from">Վերահղված է %s-ից</string>
   <string name="menu_page_show_tabs">Ցուցադրել ներդիրները</string>
   <string name="menu_page_other_languages">Փոխել լեզուն</string>
-  <string name="menu_page_find_in_page">Գտնել էջում</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Գտնել էջում</string>
   <string name="edit_section_find_in_page">Գտնել էջում</string>
   <string name="menu_page_font_and_theme">Տառատեսակ և արտաքին տեսք</string>
   <string name="menu_page_add_to_list">Ավելացնել ընթերցացանկում</string>
@@ -126,6 +127,7 @@
   <string name="settings_activity_title">Կարգավորումներ</string>
   <string name="privacy_policy_description">Գաղտնիության քաղաքականություն</string>
   <string name="terms_of_use_description">Օգտագործման պայմաններ</string>
+  <string name="about_wikipedia_url">https://hy.wikipedia.org/wiki/Վիքիպեդիա:Վիքիպեդիայի_մասին</string>
   <string name="about_contributors_heading">Հեղինակներ</string>
   <string name="about_translators_heading">Թարգմանիչներ</string>
   <string name="about_translators_translatewiki">Այս ծրագիրը թարգմանվել է կամավոր թարգմանիչների կողմից՝ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; կայքում։</string>
@@ -144,7 +146,6 @@
   <string name="edit_summary_tag_other">Այլ</string>
   <string name="find_next">Գտնել հաջորդը</string>
   <string name="find_previous">Գտնել նախորդը</string>
-  <string name="text_size_select">Տառաչափ</string>
   <string name="page_similar_titles">Նմանատիպ էջեր</string>
   <string name="clear_recent_searches_confirm_yes">Այո</string>
   <string name="clear_recent_searches_confirm_no">Ոչ</string>
@@ -165,7 +166,7 @@
   <string name="close_all_tabs_confirm_no">Ոչ</string>
   <string name="button_continue_to_article">Կարդալ հոդված</string>
   <string name="button_continue_to_talk_page">Բացել քննարկման էջը</string>
-  <string name="nav_item_donate">Օգնե՜նք Վիքիպեդիային</string>
+  <string name="nav_item_donate" fuzzy="true">Օգնե՜նք Վիքիպեդիային</string>
   <string name="location_permissions_enable_action">Միացնել</string>
   <string name="view_link_preview_error_button_dismiss">Փակել</string>
   <string name="reference_list_title">Ծանոթագրություններ</string>
@@ -286,7 +287,6 @@
   <string name="app_shortcuts_search">Որոնել</string>
   <string name="on_this_day_card_title">Այս օրը</string>
   <string name="this_year">Այս տարի</string>
-  <string name="back_to_top">Ետ էջի վերև</string>
   <string name="on_this_day_dialog_next_month">Հաջորդ ամիս</string>
   <string name="on_this_day_dialog_previous_month">Նախորդ ամիս</string>
   <string name="languages_list_activity_title">Ավելացնել լեզու</string>

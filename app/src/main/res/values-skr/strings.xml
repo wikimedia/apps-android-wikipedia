@@ -35,7 +35,7 @@
   <string name="search_redirect_from">%s کنوں ری ڈائرکٹ تھی ڳیا</string>
   <string name="menu_page_show_tabs">ٹیب ݙکھاؤ</string>
   <string name="menu_page_other_languages">زبان وٹاؤ</string>
-  <string name="menu_page_find_in_page">ورقے وچ ڳولو</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ورقے وچ ڳولو</string>
   <string name="menu_page_font_and_theme">فانٹ  تے تھیم</string>
   <string name="menu_page_add_to_list">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="menu_page_add_to_default_list">بچاؤ</string>
@@ -145,7 +145,6 @@
   <string name="edit_conflict_title">تبدیلی رپھڑ</string>
   <string name="find_next">اڳلا ڳولو</string>
   <string name="find_previous">پچھلا ڳولو</string>
-  <string name="text_size_select">فونٹ سائز</string>
   <string name="page_similar_titles">ہکوجہے ورقے</string>
   <string name="search_did_you_mean">بھلا تہاݙا مطلب ہائی %s؟</string>
   <string name="search_recent_header">حالیہ ڳول:</string>
@@ -309,7 +308,6 @@
   <string name="app_shortcuts_search">ڳولو</string>
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
   <string name="this_year">ایں سال</string>
-  <string name="back_to_top">واپس اُتے ون٘ڄو</string>
   <string name="languages_list_activity_title">زبان شامل کرو</string>
   <string name="languages_list_all_text">ساریاں زباناں</string>
   <string name="wikipedia_languages_title">وکی میڈیا دی زباناں</string>

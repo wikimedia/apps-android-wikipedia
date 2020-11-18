@@ -29,6 +29,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.NotificationFunnel;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
@@ -90,6 +91,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        if (savedInstanceState == null) {
+            NotificationFunnel.processIntent(getIntent());
+        }
+
         NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());
 
         // Conditionally execute all recurring tasks
@@ -110,6 +115,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
+
+        if (!(this instanceof CrashReportActivity)) {
+            Prefs.setLocalClassName(getLocalClassName());
+        }
     }
 
     @Override protected void onDestroy() {

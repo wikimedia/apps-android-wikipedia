@@ -52,7 +52,7 @@
   <string name="search_redirect_from">Presmerované z %s</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
-  <string name="menu_page_find_in_page">Nájsť na stránke</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Nájsť na stránke</string>
   <string name="edit_section_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
@@ -238,7 +238,6 @@
   <string name="abusefilter_title_disallow">Túto úpravu nie je možné uverejniť. Vráťte sa ,prosím, späť a zmeňte ju.</string>
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
   <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo ako vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
-  <string name="text_size_select">Veľkosť písma</string>
   <string name="page_similar_titles">Podobné stránky</string>
   <string name="search_did_you_mean">Mali ste na mysli \"%s\"?</string>
   <string name="search_recent_header">Nedávno hľadané výrazy:</string>
@@ -317,7 +316,7 @@
   <string name="preference_summary_show_link_previews">Po kliknutí na odkaz zobraziť rýchly náhľad článkov.</string>
   <string name="preference_title_collapse_tables">Zbaliť tabuľky</string>
   <string name="preference_summary_collapse_tables">Automaticky zbalí tabuľky v článkoch, ako sú infoboxy, referencie a poznámky.</string>
-  <string name="nav_item_donate">Podporte Wikipédiu</string>
+  <string name="nav_item_donate" fuzzy="true">Podporte Wikipédiu</string>
   <string name="error_voice_search_not_available">Ospravedlňujeme sa, rozpoznávanie hlasu nie je k dispozícii.</string>
   <string name="location_service_disabled">Služby určovania polohy sú zakázané.</string>
   <string name="enable_location_service">Povoliť</string>
@@ -539,12 +538,8 @@
   <string name="preference_summary_notification_user_talk">Správy na vašej diskusnej stránke</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_random_card_title">Náhodný článok</string>
-  <string name="view_random_card_subtitle">Prečítajte si náhodný článok z Wikipédie.</string>
-  <string name="view_random_card_action">Hoďte kockou</string>
   <string name="view_next_random_article">Vložte ďalší náhodný článok</string>
   <string name="view_main_page_card_title">Dnes na Wikipédii</string>
-  <string name="view_main_page_card_subtitle">Hlavná stránka %s</string>
-  <string name="view_main_page_card_action">Zobraziť hlavnú stránku</string>
   <string name="view_featured_image_card_title">Obrázok dňa</string>
   <string name="view_featured_image_card_download">Prevziať</string>
   <string name="menu_feed_card_dismiss">Skryť túto kartu</string>
@@ -553,7 +548,6 @@
   <string name="menu_feed_overflow_label">Ďalšie nastavenia</string>
   <string name="feed_featured_image_share_subject">Odporúčaný obrázok z Wikimedia Commons</string>
   <string name="feed">Objaviť</string>
-  <string name="most_read_list_card_title">Trendy</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">Správy</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -579,7 +573,6 @@
   <string name="feed_item_type_featured_article">Denný odporúčaný článok na Wikipédii</string>
   <string name="feed_item_type_trending">Najčastejšie prezerané články za tento deň</string>
   <string name="feed_item_type_featured_image">Denný odporúčaný obrázok z Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Hlavná stránka Wikipédie s odporúčaným obsahom</string>
   <string name="feed_item_type_randomizer">Generuje náhodné články na prečítanie</string>
   <string name="feed_item_type_suggested_edits">Návrhy na pridanie obsahu na Wikipédiu</string>
   <string name="feed_empty_message">Nič nie je vo vašom kanále Objaviť</string>
@@ -792,13 +785,10 @@
   <string name="app_shortcuts_random">Náhodný článok</string>
   <string name="app_shortcuts_continue_reading">Pokračovať v čítaní</string>
   <string name="app_shortcuts_search">Hľadať</string>
-  <string name="more_trending_text">Podobné články</string>
-  <string name="top_on_this_day">Najtrendovejšie články dňa %1$s</string>
   <string name="on_this_day_card_title">V tento deň</string>
   <string name="more_events_text">Viac udalostí z tohto dňa</string>
   <string name="events_count_text">%1$s udalostí od roku %2$s do roku %3$d</string>
   <string name="this_year">Tento rok</string>
-  <string name="back_to_top">Späť na začiatok</string>
   <string name="on_this_day_dialog_next_month">Ďalší mesiac</string>
   <string name="on_this_day_dialog_previous_month">Minulý mesiac</string>
   <string name="on_this_day_open_date_picker">Otvoriť výber dátumu</string>
