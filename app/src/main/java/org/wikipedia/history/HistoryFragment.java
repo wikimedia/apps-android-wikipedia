@@ -368,6 +368,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                         ? searchCardView.getWidth() / 6 + DimenUtil.roundedDpToPx(30f) : DimenUtil.roundedDpToPx(16f);
                 layoutParams.setMarginStart(horizontalMargin);
                 layoutParams.setMarginEnd(horizontalMargin);
+                layoutParams.setMargins(0, DimenUtil.roundedDpToPx(3f), 0, layoutParams.bottomMargin);
                 searchCardView.setLayoutParams(layoutParams);
             });
             searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));

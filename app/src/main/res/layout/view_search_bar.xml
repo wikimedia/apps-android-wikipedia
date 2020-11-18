@@ -5,9 +5,11 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
+    android:layout_marginVertical="3dp"
     android:clickable="true"
     android:focusable="true"
     android:transitionName="@string/transition_search_bar"
+    app:elevation="0dp"
     app:radius="22dp">
 
     <androidx.appcompat.widget.AppCompatImageView
