@@ -747,7 +747,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         }
         if (selectedTabPosition == -1) {
-            loadPage(title, entry, true, true);
+            loadPage(title, entry, true, false);
             return;
         }
         setCurrentTabAndReset(selectedTabPosition);
@@ -1253,6 +1253,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         if (pageFragmentLoadState.goBack()) {
             return true;
+        }
+        // if the current tab can no longer go back, then close the tab before exiting
+        if (!app.getTabList().isEmpty()) {
+            int tabIndex = app.getTabList().size() - 1;
+            app.getTabList().remove(tabIndex);
         }
         return false;
     }

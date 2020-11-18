@@ -31,6 +31,9 @@
         <item name="android:statusBarColor">@android:color/black</item>
         <item name="android:selectableItemBackground">@drawable/ripple_background</item>
         <item name="android:selectableItemBackgroundBorderless">@drawable/ripple_background_borderless</item>
+
+        <!-- TODO: remove when the components can get correct custom ?attr/colorPrimary -->
+        <item name="colorPrimary">?attr/colorPrimary</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
