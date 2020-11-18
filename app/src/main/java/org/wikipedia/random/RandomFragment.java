@@ -116,6 +116,12 @@ public class RandomFragment extends Fragment {
         super.onDestroyView();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateSaveShareButton(getTopTitle());
+    }
+
     @OnClick(R.id.random_next_button) void onNextClick() {
         if (nextButton.getDrawable() instanceof Animatable) {
             ((Animatable) nextButton.getDrawable()).start();
@@ -179,7 +185,8 @@ public class RandomFragment extends Fragment {
 
     public void onAddPageToList(@NonNull PageTitle title, boolean addToDefault) {
         if (addToDefault) {
-            ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), title, RANDOM_ACTIVITY, readingListId -> onMovePageToList(readingListId, title));
+            ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), title, RANDOM_ACTIVITY,
+                    readingListId -> onMovePageToList(readingListId, title), () -> updateSaveShareButton(title));
         } else {
             bottomSheetPresenter.show(getChildFragmentManager(),
                     AddToReadingListDialog.newInstance(title,
@@ -199,7 +206,10 @@ public class RandomFragment extends Fragment {
         backButton.setAlpha(pagerPosition == 0 ? 0.5f : 1f);
     }
 
-    private void updateSaveShareButton(@NonNull PageTitle title) {
+    private void updateSaveShareButton(@Nullable PageTitle title) {
+        if (title == null) {
+            return;
+        }
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(title) != null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
