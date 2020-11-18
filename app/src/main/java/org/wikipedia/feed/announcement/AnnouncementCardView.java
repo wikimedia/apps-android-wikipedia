@@ -39,10 +39,10 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
     @BindView(R.id.view_announcement_text) TextView textView;
     @BindView(R.id.view_announcement_action_positive) Button actionViewPositive;
     @BindView(R.id.view_announcement_action_negative) Button actionViewNegative;
-    @BindView(R.id.view_announcement_action_positive_dialog) Button actionViewPositiveDialog;
-    @BindView(R.id.view_announcement_action_negative_dialog) Button actionViewNegativeDialog;
+    @BindView(R.id.view_announcement_dialog_action_positive) Button dialogActionViewPositive;
+    @BindView(R.id.view_announcement_dialog_action_negative) Button dialogActionViewNegative;
     @BindView(R.id.view_announcement_card_buttons_container) View actionViewContainer;
-    @BindView(R.id.view_announcement_card_dialog_buttons_container) View actionViewDialogsContainer;
+    @BindView(R.id.view_announcement_card_dialog_buttons_container) View dialogActionViewContainer;
     @BindView(R.id.view_announcement_footer_text) TextView footerTextView;
     @BindView(R.id.view_announcement_footer_border) View footerBorderView;
     @Nullable private Callback callback;
@@ -68,14 +68,14 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         } else {
             actionViewContainer.setVisibility(VISIBLE);
             actionViewPositive.setText(card.actionTitle());
-            actionViewPositiveDialog.setText(card.actionTitle());
+            dialogActionViewPositive.setText(card.actionTitle());
         }
         if (!TextUtils.isEmpty(card.negativeText())) {
             actionViewNegative.setText(card.negativeText());
-            actionViewNegativeDialog.setText(card.negativeText());
+            dialogActionViewNegative.setText(card.negativeText());
         } else {
             actionViewNegative.setVisibility(GONE);
-            actionViewNegativeDialog.setVisibility(GONE);
+            dialogActionViewNegative.setVisibility(GONE);
         }
 
         if (card.hasImage()) {
@@ -108,13 +108,13 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
 
         if (card.isArticlePlacement()) {
             actionViewContainer.setVisibility(GONE);
-            actionViewDialogsContainer.setVisibility(VISIBLE);
+            dialogActionViewContainer.setVisibility(VISIBLE);
             container.setLayoutParams(new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
             container.setRadius(0);
         }
     }
 
-    @OnClick({R.id.view_announcement_action_positive, R.id.view_announcement_action_positive_dialog})
+    @OnClick({R.id.view_announcement_action_positive, R.id.view_announcement_dialog_action_positive})
     void onPositiveActionClick() {
         if (getCard() != null) {
             if (getCallback() != null) {
@@ -125,7 +125,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         }
     }
 
-    @OnClick({R.id.view_announcement_action_negative, R.id.view_announcement_action_negative_dialog})
+    @OnClick({R.id.view_announcement_action_negative, R.id.view_announcement_dialog_action_negative})
     void onNegativeActionClick() {
         if (getCard() != null) {
             if (getCallback() != null) {
