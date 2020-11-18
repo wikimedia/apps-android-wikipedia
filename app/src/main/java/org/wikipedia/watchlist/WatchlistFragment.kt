@@ -54,16 +54,16 @@ class WatchlistFragment : Fragment() {
         fetchWatchlist()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
     }
 
     private fun fetchWatchlist() {
+        watchlistEmptyContainer.visibility = View.GONE
+        watchlistRecyclerView.visibility = View.GONE
+        watchlistErrorView.visibility = View.GONE
+
         if (!AccountUtil.isLoggedIn()) {
             return
         }
@@ -74,6 +74,7 @@ class WatchlistFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     watchlistRefreshView.isRefreshing = false
+                    watchlistProgressBar.visibility = View.GONE
                 }
                 .subscribe({ response ->
                     onSuccess(response.query()!!.watchlist)
@@ -96,14 +97,17 @@ class WatchlistFragment : Fragment() {
             items.add(item)
         }
 
-        watchlistRecyclerView.adapter = RecyclerAdapter(items)
-
-        watchlistProgressBar.visibility = View.GONE
-        watchlistRecyclerView.visibility = View.VISIBLE
+        if (items.isEmpty()) {
+            watchlistEmptyContainer.visibility = View.VISIBLE
+        } else {
+            watchlistRecyclerView.adapter = RecyclerAdapter(items)
+            watchlistRecyclerView.visibility = View.VISIBLE
+        }
     }
 
     private fun onError(t: Throwable) {
-        watchlistProgressBar.visibility = View.GONE
+        watchlistErrorView.setError(t)
+        watchlistErrorView.visibility = View.VISIBLE
     }
 
     class WatchlistItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {

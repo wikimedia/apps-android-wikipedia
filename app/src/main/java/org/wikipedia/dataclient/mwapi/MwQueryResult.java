@@ -39,7 +39,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @Nullable private List<WatchlistItem> watchlist;
     @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
-    @SerializedName("watchlist") @Nullable private List<MwQueryPage> watchlistPages;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;

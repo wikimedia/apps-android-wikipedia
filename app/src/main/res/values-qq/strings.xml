@@ -980,4 +980,5 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="watchlist_empty">Message shown when the user\'s watchlist is empty.</string>
 </resources>
