@@ -9,6 +9,7 @@
     android:clickable="true"
     android:focusable="true"
     android:transitionName="@string/transition_search_bar"
+    app:elevation="0dp"
     app:radius="22dp">
 
     <androidx.appcompat.widget.AppCompatImageView
