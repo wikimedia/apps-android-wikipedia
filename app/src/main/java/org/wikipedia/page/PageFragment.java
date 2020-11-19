@@ -1257,8 +1257,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         // if the current tab can no longer go back, then close the tab before exiting
         if (!app.getTabList().isEmpty()) {
-            int tabIndex = app.getTabList().size() - 1;
-            app.getTabList().remove(tabIndex);
+            app.getTabList().remove(app.getTabList().size() - 1);
+            app.commitTabState();
         }
         return false;
     }
