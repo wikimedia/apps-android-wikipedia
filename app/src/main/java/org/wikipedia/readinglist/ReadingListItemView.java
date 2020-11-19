@@ -116,7 +116,7 @@ public class ReadingListItemView extends ConstraintLayout {
         if (readingList == null) {
             return;
         }
-        if (callback != null ) {
+        if (callback != null) {
             callback.onClick(readingList);
         }
     }
