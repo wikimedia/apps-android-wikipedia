@@ -495,12 +495,8 @@
   <string name="preference_summary_notification_user_talk">Poruke sa stranica za razgovor</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Slučajna stranica</string>
-  <string name="view_random_card_subtitle">Pregledavajte nasumične članke za čitanje s Wikipedije.</string>
-  <string name="view_random_card_action">Baci kocku</string>
   <string name="view_next_random_article">Učitaj drugi nasumični članak</string>
   <string name="view_main_page_card_title">Danas na Wikipediji</string>
-  <string name="view_main_page_card_subtitle">Početna stranica na %s</string>
-  <string name="view_main_page_card_action">Pogledaj glavnu stranicu</string>
   <string name="view_featured_image_card_title">Fotografija dana</string>
   <string name="view_featured_image_card_download">Preuzmi</string>
   <string name="menu_feed_card_dismiss">Sakrij ovu karticu</string>
@@ -509,7 +505,6 @@
   <string name="menu_feed_overflow_label">Više mogućnosti</string>
   <string name="feed_featured_image_share_subject">Izdvojena slika sa Zajedničkog poslužitelja Wikimedije</string>
   <string name="feed">Istražite</string>
-  <string name="most_read_list_card_title">U trendu</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">U novostima</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -534,7 +529,6 @@
   <string name="feed_item_type_featured_article">Dnevni izabrani članci na Wikipediji</string>
   <string name="feed_item_type_trending">Dnevni najčitaniji članci</string>
   <string name="feed_item_type_featured_image">Dnevne izabrane slike s Wikimedijinoga Zajedničkog poslužitelja</string>
-  <string name="feed_item_type_main_page">Glavna stranica Wikipedije s dnevnim izabranim sadržajem</string>
   <string name="feed_item_type_randomizer">Generiranje slučajnih članaka za čitanje</string>
   <string name="feed_item_type_suggested_edits">Prijedlozi za dodavanje sadržaja na Wikipediji</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
@@ -707,12 +701,9 @@
   <string name="app_shortcuts_random">Nasumično</string>
   <string name="app_shortcuts_continue_reading">Nastavi čitati</string>
   <string name="app_shortcuts_search">Pretraživanje</string>
-  <string name="more_trending_text">Više poput ovog</string>
-  <string name="top_on_this_day">Aktualno %1$s</string>
   <string name="on_this_day_card_title">Na današnji dan</string>
   <string name="more_events_text">Više na današnji dan</string>
   <string name="this_year">Ove godine</string>
-  <string name="back_to_top">Natrag na vrh</string>
   <string name="on_this_day_dialog_next_month">Sljedeći mjesec</string>
   <string name="on_this_day_dialog_previous_month">Prošli mjesec</string>
   <string name="on_this_day_open_date_picker">Otvori birač datuma</string>

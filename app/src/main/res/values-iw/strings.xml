@@ -608,12 +608,8 @@
   <string name="preference_summary_notification_user_talk">הודעות מדפי שיחה</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
-  <string name="view_random_card_subtitle">עלעול בערכים אקראיים מוויקיפדיה.</string>
-  <string name="view_random_card_action">להגריל</string>
   <string name="view_next_random_article">לטעון ערך אקראי נוסף</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
-  <string name="view_main_page_card_subtitle">הדף הראשי ב־%s</string>
-  <string name="view_main_page_card_action">הצגת הדף הראשי</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
   <string name="view_featured_image_card_download">הורדה</string>
   <string name="menu_feed_card_dismiss">הסתרת הכרטיס הזה</string>
@@ -623,7 +619,6 @@
   <string name="feed_featured_image_share_subject">תמונה מומלצת מוויקישיתוף</string>
   <string name="feed">לחקור</string>
   <string name="home">דף הבית</string>
-  <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -651,7 +646,6 @@
   <string name="feed_item_type_featured_article">ערך מומלץ יומי בוויקיפדיה</string>
   <string name="feed_item_type_trending">הערכים המוצגים ביותר ביום</string>
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
-  <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
@@ -918,13 +912,10 @@
   <string name="app_shortcuts_random">אקראי</string>
   <string name="app_shortcuts_continue_reading">המשך קריאה</string>
   <string name="app_shortcuts_search">חיפוש</string>
-  <string name="more_trending_text">עוד דברים דומים</string>
-  <string name="top_on_this_day">מובילים ב %1$s</string>
   <string name="on_this_day_card_title">היום בהיסטוריה</string>
   <string name="more_events_text">עוד ביום הזה</string>
   <string name="events_count_text">%1$s אירועים מ%2$s–%3$d</string>
   <string name="this_year">בשנה הזאת</string>
-  <string name="back_to_top">חזרה למעלה</string>
   <string name="on_this_day_dialog_next_month">החודש הבא</string>
   <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
   <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
