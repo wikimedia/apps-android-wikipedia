@@ -608,7 +608,7 @@
   <string name="view_top_read_card_title">Tendenze</string>
   <string name="view_top_read_card_action">Altre tendenze</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d mila</string>
-  <string name="view_top_read_card_pageviews_m_suffix">%d milione</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%dM</string>
   <string name="view_next_random_article">Carica un\'altra voce a caso</string>
   <string name="view_main_page_card_title">Oggi su Wikipedia</string>
   <string name="view_featured_image_card_title">Immagine del giorno</string>

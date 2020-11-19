@@ -40,6 +40,7 @@
 
 
         <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/view_announcement_card_buttons_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -59,10 +60,36 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_action_negative"
                 style="@style/FlatButton.Small.Transparent"
-                android:text="@string/view_announcement_card_negative_action"
-                android:visibility="gone"/>
+                android:text="@string/view_announcement_card_negative_action"/>
 
         </com.google.android.flexbox.FlexboxLayout>
+
+        <LinearLayout
+            android:id="@+id/view_announcement_card_dialog_buttons_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="12dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:clipToPadding="false"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/view_announcement_dialog_action_negative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TransparentButton"
+                android:layout_margin="4dp"
+                android:text="@string/view_announcement_card_negative_action"
+                android:textColor="?attr/secondary_text_color"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/view_announcement_dialog_action_positive"
+                style="@style/App.Button.Blue"
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
 
         <View
             android:id="@+id/view_announcement_footer_border"
