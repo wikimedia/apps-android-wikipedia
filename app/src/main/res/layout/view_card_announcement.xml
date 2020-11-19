@@ -72,6 +72,7 @@
             android:layout_marginBottom="12dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
+            android:clipToPadding="false"
             android:visibility="gone">
 
             <com.google.android.material.button.MaterialButton
