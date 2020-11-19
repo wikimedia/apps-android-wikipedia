@@ -1,5 +1,7 @@
 package org.wikipedia.analytics.eventplatform;
 
+import org.wikipedia.WikipediaApp;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
@@ -171,7 +173,7 @@ public final class EventPlatformClient {
         /*
          * When QUEUE.size() exceeds this value TIMER becomes non-interruptable.
          */
-        private static final int MAX_QUEUE_SIZE = 128;
+        private static final int MAX_QUEUE_SIZE = WikipediaApp.getInstance().isOnline() ? 10 : 128;
 
         /*
          * IMPLEMENTATION NOTE: Java Timer will provide the desired asynchronous
