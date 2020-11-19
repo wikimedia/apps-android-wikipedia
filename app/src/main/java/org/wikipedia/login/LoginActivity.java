@@ -153,7 +153,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void logLoginStart() {
-        if (shouldLogLogin) {
+        if (shouldLogLogin && !TextUtils.isEmpty(loginSource)) {
             if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
                 funnel.logStart(
                         LoginFunnel.SOURCE_EDIT,
