@@ -171,9 +171,14 @@ public final class EventPlatformClient {
         private static final int WAIT_MS = 30000;
 
         /*
-         * When QUEUE.size() exceeds this value TIMER becomes non-interruptable.
+         * While coming out of offline, When QUEUE.size() exceeds this value TIMER becomes non-interruptable.
          */
-        private static final int MAX_QUEUE_SIZE = WikipediaApp.getInstance().isOnline() ? 10 : 128;
+        private static final int MAX_OFFLINE_QUEUE_SIZE = 128;
+
+        /*
+         * While online, When QUEUE.size() exceeds this value TIMER becomes non-interruptable.
+         */
+        private static final int MAX_ONLINE_QUEUE_SIZE = 10;
 
         /*
          * IMPLEMENTATION NOTE: Java Timer will provide the desired asynchronous
@@ -222,7 +227,7 @@ public final class EventPlatformClient {
             QUEUE.add(event);
 
             if (ENABLED) {
-                if (QUEUE.size() >= MAX_QUEUE_SIZE) {
+                if (QUEUE.size() >= (WikipediaApp.getInstance().isOnline() ? MAX_ONLINE_QUEUE_SIZE : MAX_OFFLINE_QUEUE_SIZE)) {
                     /*
                      * >= because while sending is disabled, any number of items
                      * could be added to QUEUE without it emptying.
