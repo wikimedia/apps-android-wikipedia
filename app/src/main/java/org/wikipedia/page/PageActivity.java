@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
-import android.transition.Transition;
 import android.view.ActionMode;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -21,7 +20,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -65,7 +63,6 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
@@ -137,6 +134,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private PageFragment pageFragment;
     private boolean hasTransitionAnimation;
+    private boolean wasTransitionShown;
 
     private WikipediaApp app;
     private Set<ActionMode> currentActionModes = new HashSet<>();
@@ -158,9 +156,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-
-        hasTransitionAnimation = getIntent().getBooleanExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, false);
-        getWindow().getSharedElementEnterTransition().addListener(transitionListener);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -209,6 +204,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             pageFragment.updateInsets(insets);
             return insets;
         });
+
+        hasTransitionAnimation = getIntent().getBooleanExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, false);
+        wikiArticleCardView.setVisibility(hasTransitionAnimation ? View.VISIBLE : View.GONE);
 
         boolean languageChanged = false;
         if (savedInstanceState != null) {
@@ -438,7 +436,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        setTransitionViews(title);
+        if (hasTransitionAnimation && !wasTransitionShown) {
+            pageFragmentView.setVisibility(View.GONE);
+            wikiArticleCardView.prepareForTransition(title);
+            wasTransitionShown = true;
+        }
 
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
@@ -519,8 +521,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, showDefaultList, listDialogDismissListener);
     }
 
-    public void showPageFragmentView() {
-        pageFragmentView.setVisibility(View.VISIBLE);
+    @Override
+    public void onPageLoadComplete() {
+        if (pageFragmentView.getVisibility() != View.VISIBLE) {
+            pageFragmentView.setVisibility(View.VISIBLE);
+        }
+        if (wikiArticleCardView.getVisibility() != View.GONE) {
+            wikiArticleCardView.setVisibility(View.GONE);
+        }
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
@@ -541,6 +549,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
             wikiArticleCardView.setVisibility(View.GONE);
         } else {
+            wikiArticleCardView.setVisibility(View.VISIBLE);
             pageFragmentView.setVisibility(View.GONE);
         }
         super.onBackPressed();
@@ -664,48 +673,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
         overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
     }
-
-    private void setTransitionViews(@NonNull PageTitle title) {
-        if (hasTransitionAnimation) {
-            pageFragmentView.setVisibility(View.GONE);
-
-            Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
-            if (uri == null || DimenUtil.isLandscape(this) || !Prefs.isImageDownloadEnabled()) {
-                wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
-            } else {
-                wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                        DimenUtil.leadImageHeightForDevice(this) - DimenUtil.getToolbarHeightPx(this)));
-                wikiArticleCardView.getImageContainer().setVisibility(View.VISIBLE);
-                wikiArticleCardView.getImageView().loadImage(uri);
-            }
-
-            wikiArticleCardView.setTitle(title.getDisplayText());
-            wikiArticleCardView.setDescription(title.getDescription());
-            L10nUtil.setConditionalLayoutDirection(wikiArticleCardView, title.getWikiSite().languageCode());
-        }
-    }
-
-    private final Transition.TransitionListener transitionListener = new Transition.TransitionListener() {
-        @Override
-        public void onTransitionStart(Transition transition) {
-        }
-
-        @Override
-        public void onTransitionEnd(Transition transition) {
-        }
-
-        @Override
-        public void onTransitionCancel(Transition transition) {
-        }
-
-        @Override
-        public void onTransitionPause(Transition transition) {
-        }
-
-        @Override
-        public void onTransitionResume(Transition transition) {
-        }
-    };
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
         @Override
