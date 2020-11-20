@@ -523,11 +523,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onPageLoadComplete() {
+        removeTransitionAnimState();
+    }
+
+    private void removeTransitionAnimState() {
         if (pageFragmentView.getVisibility() != View.VISIBLE) {
             pageFragmentView.setVisibility(View.VISIBLE);
         }
         if (wikiArticleCardView.getVisibility() != View.GONE) {
-            wikiArticleCardView.setVisibility(View.GONE);
+            final int delayMillis = 250;
+            wikiArticleCardView.postDelayed(() -> {
+                if (wikiArticleCardView != null) {
+                    wikiArticleCardView.setVisibility(View.GONE);
+                }
+            }, delayMillis);
         }
     }
 
@@ -619,6 +628,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageLoadError(@NonNull PageTitle title) {
         getSupportActionBar().setTitle(title.getDisplayText());
+        removeTransitionAnimState();
     }
 
     @Override
