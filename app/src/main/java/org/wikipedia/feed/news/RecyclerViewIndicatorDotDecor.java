@@ -17,15 +17,17 @@ public class RecyclerViewIndicatorDotDecor extends RecyclerView.ItemDecoration {
     private final int indicatorHeight;
     private final int indicatorItemPadding;
     private final int radius;
+    private final boolean rtl;
 
     private final Paint inactivePaint = new Paint();
     private final Paint activePaint = new Paint();
 
     public RecyclerViewIndicatorDotDecor(int radius, int padding, int indicatorHeight, @ColorInt int colorInactive,
-                                         @ColorInt int colorActive) {
+                                         @ColorInt int colorActive, boolean rtl) {
         this.radius = radius;
         this.indicatorItemPadding = padding;
         this.indicatorHeight = indicatorHeight;
+        this.rtl = rtl;
 
         float strokeWidth = Resources.getSystem().getDisplayMetrics().density * 1;
 
@@ -66,7 +68,7 @@ public class RecyclerViewIndicatorDotDecor extends RecyclerView.ItemDecoration {
         drawInactiveDots(canvas, indicatorStartX, indicatorPositionY, itemCount);
 
 
-        final int activePosition;
+        int activePosition;
 
         if (parent.getLayoutManager() instanceof GridLayoutManager) {
             activePosition = ((GridLayoutManager) parent.getLayoutManager()).findFirstVisibleItemPosition();
@@ -80,10 +82,8 @@ public class RecyclerViewIndicatorDotDecor extends RecyclerView.ItemDecoration {
         if (activePosition == RecyclerView.NO_POSITION) {
             return;
         }
-
-        final View activeChild = parent.getLayoutManager().findViewByPosition(activePosition);
-        if (activeChild == null) {
-            return;
+        if (rtl) {
+            activePosition = itemCount - activePosition - 1;
         }
 
         drawActiveDot(canvas, indicatorStartX, indicatorPositionY, activePosition);
