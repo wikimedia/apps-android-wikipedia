@@ -45,13 +45,12 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.page_list_item_title) TextView pageItemTitleTextView;
     @BindView(R.id.page_list_item_description) TextView pageItemDescTextView;
     @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView pageItemImageView;
-    @BindView(R.id.page_list_item_container) View pageItemContainer;
 
-    private WikiSite wiki;
-    private Activity activity;
-    private FragmentManager fragmentManager;
+    private final WikiSite wiki;
+    private final Activity activity;
+    private final FragmentManager fragmentManager;
     private PageSummary selectedPage;
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private final ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull FragmentManager fragmentManager, @NonNull View v, @NonNull WikiSite wiki) {
         super(v);
@@ -59,7 +58,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         this.wiki = wiki;
         this.activity = activity;
         this.fragmentManager = fragmentManager;
-        DeviceUtil.setContextClickAsLongClick(pageItemContainer);
+        DeviceUtil.setContextClickAsLongClick(v);
     }
 
     public void setFields(@NonNull PageSummary page) {
@@ -80,7 +79,8 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    @OnClick(R.id.page_list_item_container) void onBaseViewClicked() {
+    @OnClick
+    void onBaseViewClicked() {
         HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
         Pair<View, String>[] sharedElements = TransitionUtil.getSharedElements(activity, pageItemImageView);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, sharedElements);
@@ -91,7 +91,8 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         activity.startActivity(intent, DimenUtil.isLandscape(activity) || sharedElements.length == 0 ? null : options.toBundle());
     }
 
-    @OnLongClick(R.id.page_list_item_container) boolean showOverflowMenu(View anchorView) {
+    @OnLongClick
+    boolean showOverflowMenu(View anchorView) {
         HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
         new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {

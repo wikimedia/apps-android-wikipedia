@@ -10,7 +10,6 @@
         android:id="@+id/page_list_item_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:focusable="true"
         android:orientation="vertical">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
