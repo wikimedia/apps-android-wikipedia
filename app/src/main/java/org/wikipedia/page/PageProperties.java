@@ -19,6 +19,7 @@ import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
 import java.util.Date;
+import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DateUtil.iso8601DateParse;
@@ -35,8 +36,10 @@ public class PageProperties implements Parcelable {
     private String editProtectionStatus;
     private final boolean isMainPage;
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
-    @Nullable private String leadImageUrl;
-    @Nullable private String leadImageName;
+    @Nullable private final String leadImageUrl;
+    @Nullable private final String leadImageName;
+    private final int leadImageWidth;
+    private final int leadImageHeight;
     @Nullable private final Location geo;
     @Nullable private final String wikiBaseItem;
     @Nullable private final String descriptionSource;
@@ -62,6 +65,8 @@ public class PageProperties implements Parcelable {
         leadImageName = UriUtil.decodeURL(StringUtils.defaultString(pageSummary.getLeadImageName()));
         leadImageUrl = pageSummary.getThumbnailUrl() != null
                 ? UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageSummary.getThumbnailUrl(), DimenUtil.calculateLeadImageWidth())) : null;
+        leadImageWidth = pageSummary.getThumbnailWidth();
+        leadImageHeight = pageSummary.getThumbnailHeight();
         String lastModifiedText = pageSummary.getTimestamp();
         if (lastModifiedText != null) {
             try {
@@ -91,6 +96,8 @@ public class PageProperties implements Parcelable {
         editProtectionStatus = "";
         leadImageUrl = null;
         leadImageName = "";
+        leadImageWidth = 0;
+        leadImageHeight = 0;
         lastModified = new Date();
         canEdit = false;
         this.isMainPage = isMainPage;
@@ -149,6 +156,14 @@ public class PageProperties implements Parcelable {
         return leadImageName;
     }
 
+    public int getLeadImageWidth() {
+        return leadImageWidth;
+    }
+
+    public int getLeadImageHeight() {
+        return leadImageHeight;
+    }
+
     @Nullable
     public String getWikiBaseItem() {
         return wikiBaseItem;
@@ -187,6 +202,8 @@ public class PageProperties implements Parcelable {
         parcel.writeInt(isMainPage ? 1 : 0);
         parcel.writeString(leadImageUrl);
         parcel.writeString(leadImageName);
+        parcel.writeInt(leadImageWidth);
+        parcel.writeInt(leadImageHeight);
         parcel.writeString(wikiBaseItem);
         parcel.writeString(descriptionSource);
     }
@@ -203,6 +220,8 @@ public class PageProperties implements Parcelable {
         isMainPage = in.readInt() == 1;
         leadImageUrl = in.readString();
         leadImageName = in.readString();
+        leadImageWidth = in.readInt();
+        leadImageHeight = in.readInt();
         wikiBaseItem = in.readString();
         descriptionSource = in.readString();
     }
@@ -236,12 +255,14 @@ public class PageProperties implements Parcelable {
                 && revisionId == that.revisionId
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
-                && (geo == that.geo || geo != null && geo.equals(that.geo))
+                && Objects.equals(geo, that.geo)
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
                 && TextUtils.equals(leadImageUrl, that.leadImageUrl)
                 && TextUtils.equals(leadImageName, that.leadImageName)
+                && leadImageWidth == that.leadImageWidth
+                && leadImageHeight == that.leadImageHeight
                 && TextUtils.equals(wikiBaseItem, that.wikiBaseItem);
     }
 
@@ -254,6 +275,8 @@ public class PageProperties implements Parcelable {
         result = 31 * result + (isMainPage ? 1 : 0);
         result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
         result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
+        result = 31 * result + leadImageWidth;
+        result = 31 * result + leadImageHeight;
         result = 31 * result + (wikiBaseItem != null ? wikiBaseItem.hashCode() : 0);
         result = 31 * result + (canEdit ? 1 : 0);
         result = 31 * result + pageId;
