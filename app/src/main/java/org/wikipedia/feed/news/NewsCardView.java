@@ -24,6 +24,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static org.wikipedia.util.L10nUtil.isLangRTL;
+
 public class NewsCardView extends DefaultFeedCardView<NewsCard> {
     @BindView(R.id.news_recycler_view) RecyclerView newsRecyclerView;
     @BindView(R.id.header_view) CardHeaderView headerView;
@@ -38,7 +40,6 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         super(context);
         inflate(getContext(), R.layout.view_card_news, this);
         ButterKnife.bind(this);
-        setUpIndicatorDots();
     }
 
     private void setUpIndicatorDots() {
@@ -48,7 +49,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         newsRecyclerView.addItemDecoration(new RecyclerViewIndicatorDotDecor(DimenUtil.roundedDpToPx(indicatorRadius),
                 DimenUtil.roundedDpToPx(indicatorPadding), DimenUtil.roundedDpToPx(indicatorHeight),
                 ResourceUtil.getThemedColor(getContext(), R.attr.chart_shade5),
-                ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent)));
+                ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent), isLangRTL(getCard().wikiSite().languageCode())));
     }
 
     @Override
@@ -74,6 +75,7 @@ public class NewsCardView extends DefaultFeedCardView<NewsCard> {
         newsRecyclerView.setNestedScrollingEnabled(false);
         newsRecyclerView.setClipToPadding(false);
         newsRecyclerView.setAdapter(new NewsAdapter(card));
+        setUpIndicatorDots();
         setUpSnapHelper();
     }
 
