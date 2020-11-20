@@ -159,6 +159,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
 
+        hasTransitionAnimation = getIntent().getBooleanExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, false);
+        getWindow().getSharedElementEnterTransition().addListener(transitionListener);
+
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
         try {
@@ -662,12 +665,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
     private void setTransitionViews(@NonNull PageTitle title) {
-        // Should only set the view after running the transition animation from Explore feed.
-        if (!wikiArticleCardView.isLoaded()) {
-            getWindow().getSharedElementEnterTransition().addListener(transitionListener);
-
+        if (hasTransitionAnimation) {
             pageFragmentView.setVisibility(View.GONE);
 
             Uri uri = TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
@@ -682,7 +681,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
             wikiArticleCardView.setTitle(title.getDisplayText());
             wikiArticleCardView.setDescription(title.getDescription());
-            wikiArticleCardView.setLoaded(true);
             L10nUtil.setConditionalLayoutDirection(wikiArticleCardView, title.getWikiSite().languageCode());
         }
     }
@@ -690,28 +688,22 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private final Transition.TransitionListener transitionListener = new Transition.TransitionListener() {
         @Override
         public void onTransitionStart(Transition transition) {
-            toolbarContainerView.setAlpha(0);
         }
 
         @Override
         public void onTransitionEnd(Transition transition) {
-            toolbarContainerView.setAlpha(1);
-            hasTransitionAnimation = true;
         }
 
         @Override
         public void onTransitionCancel(Transition transition) {
-
         }
 
         @Override
         public void onTransitionPause(Transition transition) {
-
         }
 
         @Override
         public void onTransitionResume(Transition transition) {
-
         }
     };
 
