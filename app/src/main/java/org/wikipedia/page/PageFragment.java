@@ -143,6 +143,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         ThemeChooserDialog.Callback, ReferenceDialog.Callback, WiktionaryDialog.Callback {
     public interface Callback {
         void onPageDismissBottomSheet();
+        void onPageLoadComplete();
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageInitWebView(@NonNull ObservableWebView v);
         void onPageShowLinkPreview(@NonNull HistoryEntry entry);
@@ -491,8 +492,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim());
                     }
                 });
-
-                ((PageActivity) requireActivity()).showPageFragmentView();
             }
 
             @Override
@@ -1078,6 +1077,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 return;
             }
             bridge.onPcsReady();
+            callback().onPageLoadComplete();
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
@@ -1257,8 +1257,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         // if the current tab can no longer go back, then close the tab before exiting
         if (!app.getTabList().isEmpty()) {
-            int tabIndex = app.getTabList().size() - 1;
-            app.getTabList().remove(tabIndex);
+            app.getTabList().remove(app.getTabList().size() - 1);
+            app.commitTabState();
         }
         return false;
     }
