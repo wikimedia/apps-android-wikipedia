@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.PopupMenu;
@@ -114,12 +113,18 @@ public class ReadingListItemView extends ConstraintLayout {
     }
 
     @OnClick void onClick(View view) {
-        if (callback != null && readingList != null) {
+        if (readingList == null) {
+            return;
+        }
+        if (callback != null) {
             callback.onClick(readingList);
         }
     }
 
     @OnClick(R.id.item_overflow_menu) void showOverflowMenu(View anchorView) {
+        if (readingList == null) {
+            return;
+        }
         PopupMenu menu = new PopupMenu(getContext(), anchorView, Gravity.END);
         menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
 
@@ -132,6 +137,9 @@ public class ReadingListItemView extends ConstraintLayout {
     }
 
     @OnLongClick boolean onLongClick(View view) {
+        if (readingList == null) {
+            return false;
+        }
         PopupMenu menu = new PopupMenu(getContext(), view, Gravity.END);
         menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
 
@@ -226,10 +234,6 @@ public class ReadingListItemView extends ConstraintLayout {
     private float statsTextListSize(@NonNull ReadingList readingList) {
         int unitSize = Math.max(1, getResources().getInteger(R.integer.reading_list_item_size_bytes_per_unit));
         return readingList.sizeBytes() / (float) unitSize;
-    }
-
-    @NonNull private String getString(@StringRes int id, @Nullable Object... formatArgs) {
-        return getResources().getString(id, formatArgs);
     }
 
     private class OverflowMenuClickListener implements PopupMenu.OnMenuItemClickListener {
