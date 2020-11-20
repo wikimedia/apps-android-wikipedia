@@ -12,6 +12,7 @@ import org.wikipedia.util.log.L;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -58,14 +59,14 @@ final class EventPlatformClientIntegration {
      */
     @NonNull
     static EventService getEventService(@NonNull StreamConfig streamConfig) {
-        DestinationEventService dest = streamConfig.getDestinationEventService();
-        if (dest == null) {
-            dest = DestinationEventService.ANALYTICS;
+        DestinationEventService destinationEventService = streamConfig.getDestinationEventService();
+        if (destinationEventService == null) {
+            destinationEventService = DestinationEventService.ANALYTICS;
         }
 
         EventService service;
-        if (RETROFIT_SERVICE_CACHE.containsKey(dest.getId())) {
-            service = RETROFIT_SERVICE_CACHE.get(dest.getId());
+        if (RETROFIT_SERVICE_CACHE.containsKey(destinationEventService.getId())) {
+            service = RETROFIT_SERVICE_CACHE.get(destinationEventService.getId());
             if (service != null) {
                 return service;
             }
@@ -75,27 +76,27 @@ final class EventPlatformClientIntegration {
 
         service = new Retrofit.Builder()
                 .client(OkHttpConnectionFactory.getClient().newBuilder().build())
-                .baseUrl(intakeBaseUriOverride != null ? intakeBaseUriOverride : dest.getBaseUri())
+                .baseUrl(intakeBaseUriOverride != null ? intakeBaseUriOverride : destinationEventService.getBaseUri())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(getDefaultGson()))
                 .build()
                 .create(EventService.class);
 
-        RETROFIT_SERVICE_CACHE.put(dest.getId(), service);
+        RETROFIT_SERVICE_CACHE.put(destinationEventService.getId(), service);
         return service;
     }
 
     /**
-     * Post event to EventGate.
+     * Post events to EventGate.
      *
      * Failures are logged remotely (as well as in Logcat). The only exception is for unexpected
      * responses, for which we crash on pre-production builds.
      *
      * @param streamConfig stream config
-     * @param event Event to be posted. Gson will take care of serializing to JSON.
+     * @param events Events to be posted. Gson will take care of serializing to JSON.
      */
-    static void postEvent(@NonNull StreamConfig streamConfig, @NonNull Event event) {
-        DISPOSABLES.add(getEventService(streamConfig).postEvent(event)
+    static void postEvent(@NonNull StreamConfig streamConfig, @NonNull List<Event> events) {
+        DISPOSABLES.add(getEventService(streamConfig).postEvent(events)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {

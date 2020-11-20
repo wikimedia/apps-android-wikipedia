@@ -208,10 +208,8 @@ public final class EventPlatformClient {
                 /*
                  * All items on QUEUE are permanently removed.
                  */
-                for (Event event : QUEUE) {
-                    send(event);
-                }
-                QUEUE = new ArrayList<>();
+                send(QUEUE);
+                QUEUE.clear();
             }
         }
 
@@ -246,14 +244,24 @@ public final class EventPlatformClient {
         }
 
         /**
-         * If sending is enabled, attempt to send the provided event.
-         *
-         * @param event event
+         * If sending is enabled, attempt to send the provided events.
+         * Also batch the events ordered by their streams, as the QUEUE
+         * can contain events of different streams
+         * @param events list of events
          */
-        static void send(Event event) {
-            postEvent(getStreamConfig(event.getStream()), event);
+        static void send(List<Event> events) {
+            while (!events.isEmpty()) {
+                List<Event> eventsList = new ArrayList<>();
+                String stream = events.get(0).getStream();
+                for (Event event : events) {
+                    if (event.getStream().equals(stream)) {
+                        eventsList.add(event);
+                    }
+                }
+                events.removeAll(eventsList);
+                postEvent(getStreamConfig(stream), eventsList);
+            }
         }
-
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
