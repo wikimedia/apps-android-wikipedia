@@ -1,6 +1,7 @@
 package org.wikipedia.feed.onthisday;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
@@ -8,25 +9,29 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -40,7 +45,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.page_list_item_title) TextView pageItemTitleTextView;
     @BindView(R.id.page_list_item_description) TextView pageItemDescTextView;
     @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView pageItemImageView;
-    @BindView(R.id.parent) View parent;
+    @BindView(R.id.page_list_item_container) View pageItemContainer;
 
     private WikiSite wiki;
     private Activity activity;
@@ -54,7 +59,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         this.wiki = wiki;
         this.activity = activity;
         this.fragmentManager = fragmentManager;
-        DeviceUtil.setContextClickAsLongClick(parent);
+        DeviceUtil.setContextClickAsLongClick(pageItemContainer);
     }
 
     public void setFields(@NonNull PageSummary page) {
@@ -75,18 +80,19 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    @OnClick(R.id.parent) void onBaseViewClicked() {
-        PageTitle pageTitle = selectedPage.getPageTitle(wiki);
-        HistoryEntry entry = new HistoryEntry(pageTitle,
-                HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
-
-        activity.startActivity(PageActivity.newIntentForCurrentTab(activity, entry, pageTitle));
+    @OnClick(R.id.page_list_item_container) void onBaseViewClicked() {
+        HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+        Pair<View, String>[] sharedElements = TransitionUtil.getSharedElements(activity, pageItemImageView);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, sharedElements);
+        Intent intent = PageActivity.newIntentForCurrentTab(activity, entry, entry.getTitle());
+        if (sharedElements.length > 0) {
+            intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
+        }
+        activity.startActivity(intent, DimenUtil.isLandscape(activity) || sharedElements.length == 0 ? null : options.toBundle());
     }
 
-    @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
-        PageTitle pageTitle = selectedPage.getPageTitle(wiki);
-        HistoryEntry entry = new HistoryEntry(pageTitle,
-                HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+    @OnLongClick(R.id.page_list_item_container) boolean showOverflowMenu(View anchorView) {
+        HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
         new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
             @Override
