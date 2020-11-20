@@ -875,6 +875,14 @@
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
   </plurals>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
+  </plurals>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
   <string name="file_page_add_image_tags_button">Button label to add image tags for the file.</string>
