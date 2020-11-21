@@ -259,7 +259,9 @@ public final class EventPlatformClient {
                     }
                 }
                 events.removeAll(eventsList);
-                postEvent(getStreamConfig(stream), eventsList);
+                if (eventsList != null && stream != null) {
+                    postEvent(getStreamConfig(stream), eventsList);
+                }
             }
         }
     }
