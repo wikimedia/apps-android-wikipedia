@@ -9,6 +9,8 @@ import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.mockwebserver.MockResponse;
@@ -52,18 +54,22 @@ public class EventPlatformClientIntegrationTest extends MockRetrofitTest {
 
     @Test
     public void testPostEventsSuccess() {
+        List<Event> events = new ArrayList<>();
         StreamConfig streamConfig = new StreamConfig("test");
         setStreamConfig(streamConfig);
         server().enqueue(new MockResponse().setResponseCode(202));
-        postEvent(streamConfig, new Event("test", "test"));
+        events.add(new Event("test", "test"));
+        postEvent(streamConfig, events);
     }
 
     @Test
     public void testDoesNotThrowOnPostEventsFailureResponse() {
+        List<Event> events = new ArrayList<>();
         StreamConfig streamConfig = new StreamConfig("test");
         setStreamConfig(streamConfig);
         server().enqueue(new MockResponse().setResponseCode(400));
-        postEvent(streamConfig, new Event("test", "test"));
+        events.add(new Event("test", "test"));
+        postEvent(streamConfig, events);
     }
 
     @Test
