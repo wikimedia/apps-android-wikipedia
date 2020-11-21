@@ -7,6 +7,9 @@ import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.eventplatform.DestinationEventService;
+import org.wikipedia.analytics.eventplatform.EventService;
+import org.wikipedia.analytics.eventplatform.StreamConfig;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.settings.Prefs;
@@ -20,11 +23,14 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static org.wikipedia.settings.Prefs.getEventPlatformIntakeUriOverride;
+
 public final class ServiceFactory {
     private static final int SERVICE_CACHE_SIZE = 8;
     private static LruCache<Long, Service> SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
     private static LruCache<Long, RestService> REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
     private static LruCache<Long, CoreRestService> CORE_REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
+    private static LruCache<String, EventService> ANALYTICS_REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
 
     public static Service get(@NonNull WikiSite wiki) {
         long hashCode = wiki.hashCode();
@@ -56,6 +62,29 @@ public final class ServiceFactory {
         Retrofit r = createRetrofit(wiki, wiki.url() + "/" + CoreRestService.CORE_REST_API_PREFIX);
         CoreRestService s = r.create(CoreRestService.class);
         CORE_REST_SERVICE_CACHE.put(hashCode, s);
+        return s;
+    }
+
+    public static EventService getAnalyticsRest(@NonNull StreamConfig streamConfig) {
+        DestinationEventService destinationEventService = streamConfig.getDestinationEventService();
+        if (destinationEventService == null) {
+            destinationEventService = DestinationEventService.ANALYTICS;
+        }
+
+        EventService s;
+        if (ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId()) != null) {
+            s = ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId());
+            if (s != null) {
+                return s;
+            }
+        }
+
+        String intakeBaseUriOverride = getEventPlatformIntakeUriOverride();
+
+        Retrofit r = createRetrofit(WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
+                intakeBaseUriOverride != null ? intakeBaseUriOverride : destinationEventService.getBaseUri());
+        s = r.create(EventService.class);
+        ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.getId(), s);
         return s;
     }
 

@@ -19,7 +19,7 @@ import retrofit2.http.POST;
  * TODO: In the future, consider updating to wait for processing and handle partial-success and
  * failure responses.
  */
-interface EventService {
+public interface EventService {
     @POST("/v1/events?hasty=true")
     Observable<Response<EventServiceResponse>> postEvent(@NonNull @Body List<Event> events);
 }
