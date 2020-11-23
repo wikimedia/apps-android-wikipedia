@@ -78,6 +78,7 @@
   <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
+  <string name="menu_page_new_tab">새 탭</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
   <string name="menu_page_recently_viewed">최근에 읽음</string>
   <string name="menu_long_press_open_page">열기</string>

@@ -372,7 +372,7 @@
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
-  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.</string>
+  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.\n{{Identical|Content is available under}}</string>
   <string name="empty_tab_title">Label shown on a blank tab with no content.</string>
   <string name="menu_save_all_tabs">Label suggesting user to add all open tabs to a list.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
@@ -867,21 +867,15 @@
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
   <string name="suggested_card_more_edits">Label text for SE feed card footer action.</string>
+  <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
+  <string name="suggested_edits_removed_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</string>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
-  </plurals>
-  <plurals name="suggested_edits_tags_diff_count_text">
-    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-  </plurals>
-  <plurals name="suggested_edits_removed_contribution_label">
-    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
-    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
   </plurals>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
