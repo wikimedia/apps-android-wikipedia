@@ -25,7 +25,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: app
-        path: app/build/outputs/apk/release/app-alpha-release.apk
+        path: app/build/outputs/apk/alpha/release/app-alpha-release.apk
 
   apk:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
       name: Sign APK
       id: build_signed
       with:
-        releaseDirectory: app/build/outputs/apk/release
+        releaseDirectory: app/build/outputs/apk/alpha/release
         signingKeyBase64: ${{ secrets.SIGNING_KEY }}
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
