@@ -20,7 +20,7 @@ jobs:
     - name: Run unit tests and lint
       run: ./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease
     - name: List
-      run: ls -al ./app/build/outputs/apk/release/*
+      run: ls -alR ./app/build/outputs/apk/
     - name: Upload APK artifact
       uses: actions/upload-artifact@v1
       with:
