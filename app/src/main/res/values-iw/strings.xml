@@ -670,7 +670,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">ביטול</string>
   <string name="feed_accessibility_card_text">הגעת לסוף ההזנה.</string>
   <string name="feed_accessibility_card_load_more_button">לטעון עוד</string>
-  <string name="top_read_activity_title">ערכים מובילים ב{{GRAMMAR:תחילית|%s}}</string>
+  <string name="top_read_activity_title">ערכים מובילים ב%s</string>
   <string name="description_edit_text_hint">תיאור הערך</string>
   <string name="description_edit_article_description_label">ערך</string>
   <string name="description_edit_translate_article_description_label_per_language">תיאור הערך (%s)</string>
