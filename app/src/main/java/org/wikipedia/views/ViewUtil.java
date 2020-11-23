@@ -34,8 +34,10 @@ import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 @SuppressWarnings("checkstyle:magicnumber")
 public final class ViewUtil {
     private static final RoundedCorners ROUNDED_CORNERS = new RoundedCorners(DimenUtil.roundedDpToPx(15));
-    private static final MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), ROUNDED_CORNERS);
-    private static final MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
+    private static final MultiTransformation<Bitmap> CENTER_CROP_LARGE_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(),
+            new WhiteBackgroundTransformation(), ROUNDED_CORNERS);
+    private static final MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(),
+            new WhiteBackgroundTransformation(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
 
     public static RoundedCorners getRoundedCorners() {
         return ROUNDED_CORNERS;
@@ -46,18 +48,24 @@ public final class ViewUtil {
     }
 
     public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url) {
-        loadImage(view, url, true, false, false);
+        loadImage(view, url, true, false, false, null);
     }
 
     public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url, boolean largeRoundedSize) {
-        loadImage(view, url, true, largeRoundedSize, false);
+        loadImage(view, url, true, largeRoundedSize, false, null);
     }
 
     public static void loadImage(@NonNull ImageView view, @Nullable String url) {
-        loadImage(view, url, false, false, false);
+        loadImage(view, url, false, false, false, null);
     }
 
-    public static void loadImage(@NonNull ImageView view, @Nullable String url, boolean roundedCorners, boolean largeRoundedSize, boolean force) {
+    public static void loadImage(@NonNull ImageView view, @Nullable String url, @Nullable RequestListener<Drawable> listener) {
+        loadImage(view, url, false, false, false, listener);
+    }
+
+    public static void loadImage(@NonNull ImageView view, @Nullable String url,
+                                 boolean roundedCorners, boolean largeRoundedSize, boolean force,
+                                 @Nullable RequestListener<Drawable> listener) {
         Drawable placeholder = getPlaceholderDrawable(view.getContext());
         RequestBuilder<Drawable> builder = Glide.with(view)
                 .load((isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
@@ -66,22 +74,9 @@ public final class ViewUtil {
                 .error(placeholder);
         if (roundedCorners) {
             builder = builder.transform(largeRoundedSize ? CENTER_CROP_LARGE_ROUNDED_CORNERS : CENTER_CROP_ROUNDED_CORNERS);
+        } else {
+            builder = builder.transform(new WhiteBackgroundTransformation());
         }
-        builder.into(view);
-    }
-
-    public static void loadImageWithWhiteBackground(@NonNull ImageView view, @Nullable String url) {
-        loadImageWithWhiteBackground(view, url, null);
-    }
-
-    public static void loadImageWithWhiteBackground(@NonNull ImageView view, @Nullable String url, @Nullable RequestListener<Drawable> listener) {
-        Drawable placeholder = getPlaceholderDrawable(view.getContext());
-        RequestBuilder<Drawable> builder = Glide.with(view)
-                .load(!TextUtils.isEmpty(url) ? Uri.parse(url) : null)
-                .placeholder(placeholder)
-                .error(placeholder)
-                .downsample(DownsampleStrategy.CENTER_INSIDE)
-                .transform(new WhiteBackgroundTransformation());
 
         if (listener != null) {
             builder = builder.listener(listener);

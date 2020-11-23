@@ -69,7 +69,7 @@
   <string name="search_redirect_from">%s에서 넘어옴</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
-  <string name="menu_page_find_in_page" fuzzy="true">문서에서 찾기</string>
+  <string name="menu_page_find_in_page">문서에서 찾기</string>
   <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
@@ -78,6 +78,7 @@
   <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
+  <string name="menu_page_new_tab">새 탭</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
   <string name="menu_page_recently_viewed">최근에 읽음</string>
   <string name="menu_long_press_open_page">열기</string>
@@ -342,7 +343,7 @@
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
   <string name="preference_title_collapse_tables">표 접기</string>
   <string name="preference_summary_collapse_tables">정보상자, 각주, 내용주 등 문서 안의 표를 자동으로 접습니다.</string>
-  <string name="nav_item_donate" fuzzy="true">위키백과 지원</string>
+  <string name="nav_item_donate">기부</string>
   <string name="error_voice_search_not_available">죄송합니다. 음성 인식을 이용할 수 없습니다.</string>
   <string name="location_service_disabled">위치 서비스를 사용할 수 없습니다.</string>
   <string name="enable_location_service">활성화</string>
@@ -586,10 +587,17 @@
   <string name="preference_summary_notification_user_talk">토크 페이지의 메시지</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
   <string name="view_random_card_title">임의의 문서 보기</string>
+  <string name="view_random_article_card_title">임의 문서</string>
+  <string name="view_random_article_card_action">임의의 문서 더 보기</string>
+  <string name="view_top_read_card_title">가장 많이 읽은 글</string>
+  <string name="view_top_read_card_action">가장 많이 읽은 글 더 보기</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_featured_image_card_title">오늘의 이미지</string>
   <string name="view_featured_image_card_download">다운로드</string>
+  <string name="view_featured_image_card_share">공유</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
   <string name="menu_feed_card_dismissed">카드 숨겨짐.</string>
   <string name="menu_feed_card_edit_card_languages">카드 언어 편집</string>

@@ -34,7 +34,7 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
             tabTextSize = TAB_COUNT_TEXT_SIZE_LARGE
         }
 
-        tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_SP, tabTextSize)
+        tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_PX, DimenUtil.dpToPx(tabTextSize))
     }
 
     fun setColor(@ColorInt color: Int) {

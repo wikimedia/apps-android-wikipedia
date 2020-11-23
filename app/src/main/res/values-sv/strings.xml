@@ -69,6 +69,7 @@
   <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
+  <string name="menu_page_new_tab">Ny flik</string>
   <string name="menu_page_reading_lists">Läslistor</string>
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
   <string name="menu_long_press_open_page">Öppna</string>
