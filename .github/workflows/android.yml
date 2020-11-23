@@ -17,8 +17,8 @@ jobs:
         java-version: 1.8
     - name: Check for missing qq strings
       run: ./scripts/missing-qq.py
+    - uses: r0adkll/sign-android-release@v1
     - name: Run unit tests and lint
-      uses: r0adkll/sign-android-release@v1
       run: ./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease
     - name: List
       run: ls ./app/build/outputs/apk/*
