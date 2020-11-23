@@ -1,4 +1,4 @@
-name: Android CI
+name: Android test and alpha update
 
 on:
   push:
@@ -30,6 +30,8 @@ jobs:
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
+    - name: List
+      run: git rev-parse HEAD > app/build/outputs/apk/alpha/release/rev-hash.txt
     - uses: actions/upload-artifact@v2
       name: Upload APK artifact
       with:
@@ -53,8 +55,7 @@ jobs:
         body: This is the latest Alpha version of the app.
         draft: false
         prerelease: false
-    - name: Upload release asset
-      id: upload-release-asset
+    - name: Upload apk to latest alpha release
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -63,3 +64,12 @@ jobs:
         asset_path: app/build/outputs/apk/alpha/release/app-alpha-release-signed.apk
         asset_name: app-alpha-universal-release.apk
         asset_content_type: application/octet-stream
+    - name: Upload revHash to latest alpha release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: app/build/outputs/apk/alpha/release/rev-hash.txt
+        asset_name: rev-hash.txt
+        asset_content_type: text/plain
