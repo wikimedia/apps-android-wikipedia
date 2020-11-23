@@ -56,6 +56,7 @@
   <string name="feed_card_add_to_default_list">Зачувај</string>
   <string name="menu_page_share">Сподели врска</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
+  <string name="menu_page_new_tab">Ново јазиче</string>
   <string name="menu_page_reading_lists">Списоци за читање</string>
   <string name="menu_page_recently_viewed">Неодамна посетени</string>
   <string name="menu_long_press_open_page">Отвори</string>

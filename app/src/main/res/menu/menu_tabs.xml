@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_open_a_new_tab"
-          android:title="@string/menu_page_open_a_new_tab_v2"
+          android:title="@string/menu_page_new_tab"
           app:showAsAction="never" />
     <item android:id="@+id/menu_save_all_tabs"
         android:title="@string/menu_save_all_tabs"
