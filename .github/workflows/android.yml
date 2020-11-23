@@ -17,5 +17,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Check for missing qq strings
+      run: ./scripts/missing-qq.py
+    - name: Run unit tests and lint
+      run: ./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease
