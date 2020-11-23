@@ -139,7 +139,7 @@ public class CaptchaHandler {
         // In case there was a captcha attempt before
         captchaText.setText("");
 
-        ViewUtil.loadImage(captchaImage, captchaResult.getCaptchaUrl(wiki), false, false, true);
+        ViewUtil.loadImage(captchaImage, captchaResult.getCaptchaUrl(wiki), false, false, true, null);
     }
 
     public void hideCaptcha() {
