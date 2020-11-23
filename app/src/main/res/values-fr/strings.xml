@@ -94,6 +94,7 @@
   <string name="feed_card_add_to_default_list">Enregistrer</string>
   <string name="menu_page_share">Partager le lien</string>
   <string name="menu_page_open_a_new_tab">Ouvrir un nouvel onglet</string>
+  <string name="menu_page_new_tab">Nouvel onglet</string>
   <string name="menu_page_reading_lists">Listes de lecture</string>
   <string name="menu_page_recently_viewed">Consulté récemment</string>
   <string name="menu_long_press_open_page">Ouvrir</string>

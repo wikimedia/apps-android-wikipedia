@@ -2,6 +2,7 @@
 <!-- Authors:
 * Balyozxane
 * Bikarhêner
+* Biyolojiyabikurdi
 * Cûndûllah el-Kurdî
 * George Animal
 * Ghybu
@@ -50,8 +51,8 @@
   <string name="menu_page_find_in_page">Di nav gotarê de bibîne</string>
   <string name="menu_page_font_and_theme">Font û tema</string>
   <string name="menu_page_add_to_list">Îlaweyî lîsta xwendinê bike</string>
-  <string name="menu_page_add_to_default_list">Qeyd bike</string>
-  <string name="feed_card_add_to_list">Îlaweyî lîsta xwendinê bike</string>
+  <string name="menu_page_add_to_default_list">Tomar bike</string>
+  <string name="feed_card_add_to_list">Li lîsteya xwendinê zêde bike</string>
   <string name="feed_card_add_to_default_list">Qeyd bike</string>
   <string name="menu_page_share">Girêdanê parve bike</string>
   <string name="menu_page_open_a_new_tab">Hilpêkîneke nû veke</string>
