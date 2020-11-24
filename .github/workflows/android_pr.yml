@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  build:
+  test_pr:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
