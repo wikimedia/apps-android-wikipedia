@@ -73,6 +73,7 @@
   <string name="feed_card_add_to_default_list">儲存</string>
   <string name="menu_page_share">分享連結</string>
   <string name="menu_page_open_a_new_tab">開啟新分頁</string>
+  <string name="menu_page_new_tab">新分頁</string>
   <string name="menu_page_reading_lists">閱讀清單</string>
   <string name="menu_page_recently_viewed">近期檢視</string>
   <string name="menu_long_press_open_page">開啟</string>

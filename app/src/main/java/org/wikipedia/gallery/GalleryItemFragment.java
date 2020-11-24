@@ -360,7 +360,7 @@ public class GalleryItemFragment extends Fragment implements RequestListener<Dra
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-        ViewUtil.loadImageWithWhiteBackground(imageView, url, this);
+        ViewUtil.loadImage(imageView, url, this);
         // TODO: show error if loading failed.
     }
 

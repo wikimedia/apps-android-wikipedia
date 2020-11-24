@@ -43,6 +43,7 @@
 * Ping08
 * Pplex.vhs
 * Redredsonia
+* Rubin16
 * SimondR
 * Smigles
 * Staspotanin2
@@ -95,7 +96,7 @@
   <string name="search_redirect_from">Перенаправлено с %s</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Найти на странице</string>
+  <string name="menu_page_find_in_page">Найти в статье</string>
   <string name="edit_section_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
   <string name="menu_page_add_to_list">Добавить в список для чтения</string>
@@ -104,6 +105,7 @@
   <string name="feed_card_add_to_default_list">Сохранить</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
   <string name="menu_page_open_a_new_tab">Открыть новую вкладку</string>
+  <string name="menu_page_new_tab">Новая вкладка</string>
   <string name="menu_page_reading_lists">Списки для чтения</string>
   <string name="menu_page_recently_viewed">Недавно просмотрено</string>
   <string name="menu_long_press_open_page">Открыть</string>
@@ -362,7 +364,7 @@
   <string name="preference_summary_show_link_previews">Показывать быстрый предпросмотр статей при нажатии на ссылки.</string>
   <string name="preference_title_collapse_tables">Свернуть таблицы</string>
   <string name="preference_summary_collapse_tables">Автоматически сворачивать табличные блоки, такие как инфобоксы, примечания и комментарии.</string>
-  <string name="nav_item_donate" fuzzy="true">Поддержать Википедию</string>
+  <string name="nav_item_donate">Пожертвовать</string>
   <string name="error_voice_search_not_available">К сожалению, распознавание речи недоступно.</string>
   <string name="location_service_disabled">Службы Геолокации отключены.</string>
   <string name="enable_location_service">Включить</string>
