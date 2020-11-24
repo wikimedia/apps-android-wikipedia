@@ -232,7 +232,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 }).show(getTitle());
             } else {
                 ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), getTitle(), BOOKMARK_BUTTON,
-                        readingListId -> moveToReadingList(readingListId, getTitle(), BOOKMARK_BUTTON, false));
+                        readingListId -> moveToReadingList(readingListId, getTitle(), BOOKMARK_BUTTON, true));
             }
         }
 
