@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
@@ -20,6 +22,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.RandomizerFunnel;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -48,6 +51,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.RANDOM_ACTIVITY;
+import static org.wikipedia.random.RandomActivity.INTENT_EXTRA_WIKISITE;
 
 public class RandomFragment extends Fragment {
     @BindView(R.id.random_item_pager) ViewPager2 randomPager;
@@ -60,10 +64,17 @@ public class RandomFragment extends Fragment {
     private ViewPagerListener viewPagerListener = new ViewPagerListener();
     @Nullable private RandomizerFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private WikiSite wikiSite;
 
     @NonNull
-    public static RandomFragment newInstance() {
-        return new RandomFragment();
+    public static RandomFragment newInstance(@NonNull WikiSite wikiSite,
+                                             @NonNull Constants.InvokeSource invokeSource) {
+        RandomFragment fragment = new RandomFragment();
+        Bundle args = new Bundle();
+        args.putParcelable(INTENT_EXTRA_WIKISITE, wikiSite);
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
@@ -73,6 +84,8 @@ public class RandomFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_random, container, false);
         unbinder = ButterKnife.bind(this, view);
         FeedbackUtil.setButtonLongPressToast(nextButton, saveButton);
+
+        wikiSite = getArguments().getParcelable(INTENT_EXTRA_WIKISITE);
 
         randomPager.setOffscreenPageLimit(2);
         randomPager.setAdapter(new RandomItemAdapter(this));
@@ -86,8 +99,7 @@ public class RandomFragment extends Fragment {
             updateSaveShareButton(getTopTitle());
         }
 
-        funnel = new RandomizerFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
-                (Constants.InvokeSource) requireActivity().getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
+        funnel = new RandomizerFunnel(WikipediaApp.getInstance(), wikiSite, (Constants.InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE));
         return view;
     }
 
@@ -165,9 +177,10 @@ public class RandomFragment extends Fragment {
         }
     }
 
-    public void onSelectPage(@NonNull PageTitle title) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(),
-                new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title));
+    public void onSelectPage(@NonNull PageTitle title, @NonNull Pair<View, String>[] sharedElements) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(requireActivity(), sharedElements);
+        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title), options.toBundle());
     }
 
     public void onAddPageToList(@NonNull PageTitle title, boolean addToDefault) {
@@ -244,7 +257,7 @@ public class RandomFragment extends Fragment {
         @Override
         @NonNull
         public Fragment createFragment(int position) {
-            return RandomItemFragment.newInstance();
+            return RandomItemFragment.newInstance(wikiSite);
         }
     }
 
