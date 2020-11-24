@@ -25,14 +25,11 @@
 
         <TextView
             android:id="@+id/main_drawer_account_name"
+            style="@android:style/TextAppearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="24dp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:textSize="14sp"
-            tools:text="Sample account name" />
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/main_drawer_login_button"

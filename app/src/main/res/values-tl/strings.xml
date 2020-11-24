@@ -711,7 +711,7 @@
     <item quantity="one">1 ambag</item>
     <item quantity="other">%d (na) ambag</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Mga pwede mong i-edit</string>
+  <string name="suggested_edits_feed_card_title">Alok na edit</string>
   <string name="suggested_edits_feed_card_add_description_button">Maglarawan</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maglarawan (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Magsimula</string>
@@ -760,11 +760,11 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Ilang araw ka na\'ng sunod-sunod na nag-aambag. Kung wala kang naiambag nito lang, ipinapakita nito ang petsa ng huling nag-ambag ka.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Kabuuang bilang ng mga tumingin sa pahinang nakapag-ambag ka sa nakaraang 30 araw.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Ibinabase sa kung ilang beses binalik ng iba (binalik sa dati, bago mo binago) ang mga ambag mo. Binalik na edit: %d.</string>
-  <string name="suggested_edits_paused_message">Pansamantalang nakahinto muna ang pagbibigay sa\'yo ng mai-eedit mo hanggang %1$s. Paumanhin %2$s, ngunit may ilan kang binago na binalik din agad sa dati ng iba.</string>
+  <string name="suggested_edits_paused_message">Pansamantalang nakahinto muna ang pagbibigay sa\'yo ng mga alok na edit hanggang %1$s. Paumanhin %2$s, ngunit may ilan kang binago na binalik din agad sa dati ng iba.</string>
   <string name="suggested_edits_disabled_message">Nakasara muna ang pagbibigay sa\'yo ng mai-eedit mo. Paumanhin %s, ngunit masyado na\'ng marami ang mga ambag mong binalik agad sa dati ng iba.</string>
   <string name="suggested_edits_ip_blocked_message">Mukha yatang kasama ka sa mga naharang na adres ng IP (o di kaya\'y serye ng mga adres ng IP), kaya di ka muna makakapag-edit sa Wikipedia.</string>
   <string name="suggested_edits_editing_tips_link_text">Mga tips at tricks sa pag-eedit</string>
-  <string name="suggested_edits_help_page_link_text">Pahina ng tulong</string>
+  <string name="suggested_edits_help_page_link_text">Pahina ng Alok na Edit</string>
   <string name="suggested_edits_edit_streak_label_text">Dalas ng edit</string>
   <string name="suggested_edits_views_label_text">Nakakita</string>
   <string name="suggested_edits_quality_label_text">Kalidad ng edit</string>
@@ -776,7 +776,7 @@
   <string name="suggested_edits_quality_sufficient_text">Sakto lang</string>
   <string name="suggested_edits_quality_poor_text">Mahina</string>
   <string name="suggested_edits_quality_bad_text">Malalâ</string>
-  <string name="suggested_edits_label">Mga pwedeng mai-edit</string>
+  <string name="suggested_edits_label">Alok na edit</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Ambag</item>
     <item quantity="other">Mga ambag</item>
@@ -785,7 +785,7 @@
     <item quantity="one">%d araw</item>
     <item quantity="other">%d (na) araw</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">Ano ang Mga Pwedeng Mai-edit?</string>
+  <string name="suggested_edits_what_is_title">Ano ang mga Alok na edit?</string>
   <string name="suggested_edits_what_is_text">Nagbibigay ng tyansang makaambag ng kahit maliit ngunit mahalagang mga bagay sa Wikipedia ang Mga Pwedeng Mai-edit.</string>
   <string name="suggested_edits_learn_more">Matuto pa</string>
   <string name="suggested_edits_paused_title">Nakahinto</string>
@@ -795,7 +795,7 @@
   <string name="suggested_edits_last_edited_never">Di kailanman</string>
   <string name="suggested_edits_task_new">bago</string>
   <string name="suggested_edits_cc0_notice">Sa paglalathala, sumasang-ayon ako sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt; at ilabas ang mga ambag ko sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_reactivation_notification_title">Mga pwedeng mai-edit</string>
+  <string name="suggested_edits_reactivation_notification_title">Mga alok na edit</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Salamat sa pag-edit sa Wikipedia! Paano kaya kung ituloy mo ito?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Makakapag-edit ka ba ngayon sa Wikipedia? Tingnan mo itong mga pwedeng mai-edit.</string>
   <string name="suggested_edits_contributions_screen_title">Mga ambag ni %s</string>
@@ -817,8 +817,8 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kahapon</string>
   <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Nakapag-ambag ka sa Wikipedia gamit ng Mga Pwedeng Mai-edit. Salamat po!</item>
-    <item quantity="other">Nakapag-ambag ka sa Wikipedia nang %d (na) beses gamit ng Mga Pwedeng Mai-edit. Maraming salamat po!</item>
+    <item quantity="one">Nakapag-ambag ka sa Wikipedia gamit ng Alok na Edit. Salamat po!</item>
+    <item quantity="other">Nakapag-ambag ka sa Wikipedia nang %d (na) beses gamit ng Alok na Edit. Maraming salamat po!</item>
   </plurals>
   <plurals name="suggested_edits_rewards_edit_streaks">
     <item quantity="one">Nag-eedit ka na nang isang buong araw. Kaya mo yan, %2$s!</item>
@@ -828,7 +828,50 @@
     <item quantity="one">Nakita ang edit mo ng isang tao sa nakaraang 30 araw. Salamat po, at ambag pa!</item>
     <item quantity="other">Nakita ang edit mo ng %d (na) tao sa nakaraang 30 araw. Maraming salamat po, at ambag pa!</item>
   </plurals>
-  <string name="suggested_edits_rewards_contribution">Nag-ambag ka na nang %d (na) beses sa Wikipedia gamit ang Mga Pwedeng Mai-edit. Maraming salamat po!</string>
+  <string name="suggested_edits_rewards_contribution">Nag-ambag ka na nang %d (na) beses sa Wikipedia gamit ang Alok na Edit. Maraming salamat po!</string>
   <string name="suggested_edits_rewards_edit_streak">Araw-araw ka na\'ng nag-eedit sa loob ng %1$d (na) araw. Kaya mo yan, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Nakita ng %d (na) katao ang mga edit mo sa nakalipas na 30 araw. Salamat, at tuloy lang ang pag-edit!</string>
+  <string name="suggested_edits_rewards_edit_quality">Ang mga edit mo ay %s. Tuloy lang ang pag-edit! Umaasa kami ng mga magagandang ambag mo.</string>
+  <string name="suggested_edits_rewards_continue_button">Magpatuloy</string>
+  <string name="suggested_edits_encourage_account_creation_title">Alam mo ba, kahit sino pwedeng mag-edit sa Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Bagong paraan para makapag-edit sa Wikipedia gamit ng Android ang mga Alok na Edit. Matutulungan ka nitong makapag-ambag ng kahit maliit ngunit mahalagang mga ambag sa Wikipedia.\nGinagawa naming mas madali at mas kaya ang pag-eedit sa lahat ng tao! Mag-login lamang o sumali sa Wikipedia para makapagsimula ka na.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Mag-login / Sumali sa Wikipedia</string>
+  <string name="suggested_edits_contribution_type_image_tag">Tag ng larawan</string>
+  <string name="suggested_edits_contribution_current_revision_text">Kasalukuyang walang bumabago sa edit mo sa Wikipedia</string>
+  <string name="suggested_card_more_edits">Dagdag pang mga alok</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s tag</item>
+    <item quantity="other">%1$s (na) tag</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s karakter</item>
+    <item quantity="other">%1$s (na) karakter</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Nagtanggal ka ng %d karakter</item>
+    <item quantity="other">Nagtanggal ka ng %d (na) karakter</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Nagdagdag ka ng %d karakter</item>
+    <item quantity="other">Nagdagdag ka ng %d (na) karakter</item>
+  </plurals>
+  <string name="file_page_activity_title">Pahina ng file</string>
+  <string name="file_page_add_image_caption_button">Magdagdag ng kapsyón</string>
+  <string name="file_page_add_image_tags_button">Magdagdag ng tag</string>
+  <string name="description_edit_revert_subtitle">Maraming salamat po sa pag-edit sa Wikipedia!</string>
+  <string name="description_edit_revert_intro">Alam naming ginalingan mo sa pag-edit, pero mukha yatang may komento ang isa sa mga nagrerebyu. Siguro, baka binalik sa dati ang edit mo dahil sa:</string>
+  <string name="description_edit_revert_reason1">di sinunod ng ambag mo ang isa sa mga &lt;a href=\"%1$s\"&gt;patakaran&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason2">mukhang eksperimento yata o bandalismo ang ambag mo.</string>
+  <string name="description_edit_revert_history">Kung interesado ka, pakitingnan ang &lt;a href=\"%1$s\"&gt;kasaysayan ng pag-edit&lt;/a&gt;.</string>
+  <string name="description_edit_login_cancel_button_text">Ikansela</string>
+  <string name="offline_read_permission_rationale">Kailangan ng permiso sa pag-access sa imbakan ng iyong device para magamit ang pagbabása offline.</string>
+  <string name="offline_read_final_rationale">Kailangan ng permiso sa pag-access sa imbakan ng iyong device para magamit ang offline na taguan.</string>
+  <string name="size_gb">%.2f (na) GB</string>
+  <string name="size_mb">%.2f (na) MB</string>
+  <string name="onboarding_skip">Laktawan</string>
+  <string name="onboarding_continue">Magpatuloy</string>
+  <string name="onboarding_get_started">Magsimula</string>
+  <string name="onboarding_maybe_later">Siguro mamaya</string>
+  <string name="onboarding_explore_title">Mga bagong paraan para maglibot</string>
   <string name="more_language_options">Mga karagdagan</string>
 </resources>

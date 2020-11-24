@@ -1,5 +1,6 @@
 package org.wikipedia.feed.mostread;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
@@ -123,10 +125,12 @@ public class MostReadFragment extends Fragment {
 
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements) {
-            ActivityOptionsCompat options = ActivityOptionsCompat.
-                    makeSceneTransitionAnimation(requireActivity(), sharedElements);
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()),
-                    DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
+            Intent intent = PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle());
+            if (sharedElements.length > 0) {
+                intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
+            }
+            startActivity(intent, DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
         }
 
         @Override

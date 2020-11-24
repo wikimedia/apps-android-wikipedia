@@ -54,6 +54,7 @@
     <string name="feed_card_add_to_default_list">Save</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
+    <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
     <string name="menu_page_recently_viewed">Recently viewed</string>
 
