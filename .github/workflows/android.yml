@@ -3,8 +3,6 @@ name: Android test and alpha update
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -30,13 +28,8 @@ jobs:
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
-    - name: List
+    - name: Create hash
       run: git rev-parse HEAD > app/build/outputs/apk/alpha/release/rev-hash.txt
-    - uses: actions/upload-artifact@v2
-      name: Upload APK artifact
-      with:
-        name: app_alpha_release
-        path: ${{steps.build_signed.outputs.signedReleaseFile}}
     - uses: dev-drprasad/delete-tag-and-release@v0.1.2
       name: Delete latest alpha tag
       with:
