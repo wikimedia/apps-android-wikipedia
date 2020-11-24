@@ -250,7 +250,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void handleIntent(Intent intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), APP_SHORTCUTS));
+            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getWikiSite(), APP_SHORTCUTS));
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
             openSearchActivity(APP_SHORTCUTS, null, null);
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
