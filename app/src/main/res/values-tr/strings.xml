@@ -89,6 +89,7 @@
   <string name="feed_card_add_to_default_list">Kaydet</string>
   <string name="menu_page_share">Bağlantıyı paylaş</string>
   <string name="menu_page_open_a_new_tab">Yeni sekme aç</string>
+  <string name="menu_page_new_tab">Yeni sekme</string>
   <string name="menu_page_reading_lists">Okuma listeleri</string>
   <string name="menu_page_recently_viewed">Son görüntülenen</string>
   <string name="menu_long_press_open_page">Aç</string>

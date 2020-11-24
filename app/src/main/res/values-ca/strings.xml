@@ -71,6 +71,7 @@
   <string name="feed_card_add_to_default_list">Desar</string>
   <string name="menu_page_share">Comparteix l\'enllaç</string>
   <string name="menu_page_open_a_new_tab">Obre una pestanya nova</string>
+  <string name="menu_page_new_tab">Pestanya nova</string>
   <string name="menu_page_reading_lists">Llistes de lectura</string>
   <string name="menu_page_recently_viewed">Vist recentment</string>
   <string name="menu_long_press_open_page">Obre</string>

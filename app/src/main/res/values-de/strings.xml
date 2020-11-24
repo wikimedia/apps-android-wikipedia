@@ -71,7 +71,7 @@
   <string name="search_redirect_from">Weiterleitung von %s</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
-  <string name="menu_page_find_in_page" fuzzy="true">In Seite finden</string>
+  <string name="menu_page_find_in_page">In Seite finden</string>
   <string name="edit_section_find_in_page">In Seite suchen</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
   <string name="menu_page_add_to_list">Zur Leseliste hinzufügen</string>
@@ -80,6 +80,7 @@
   <string name="feed_card_add_to_default_list">Speichern</string>
   <string name="menu_page_share">Link teilen</string>
   <string name="menu_page_open_a_new_tab">Eine neue Registerkarte öffnen</string>
+  <string name="menu_page_new_tab">Neue Registerkarte</string>
   <string name="menu_page_reading_lists">Leselisten</string>
   <string name="menu_page_recently_viewed">Zuletzt angesehen</string>
   <string name="menu_long_press_open_page">Öffnen</string>
@@ -340,11 +341,13 @@
   <string name="page_offline_notice_last_date">Du liest eine Offline-Version dieses Artikels, die am %s gespeichert wurde.</string>
   <string name="button_get_directions">Richtungen abrufen</string>
   <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
+  <string name="preference_title_customize_explore_feed">Entdecken-Feed</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
+  <string name="preference_summary_customize_explore_feed">Den Entdecken-Feed anpassen</string>
   <string name="preference_summary_show_link_previews">Zeigt eine schnelle Vorschau von Artikeln beim Antippen von Links.</string>
   <string name="preference_title_collapse_tables">Tabellen einklappen</string>
   <string name="preference_summary_collapse_tables">Tabellen in Artikeln wie Infoboxen, Einzelnachweise und Anmerkungen automatisch einklappen.</string>
-  <string name="nav_item_donate" fuzzy="true">Wikipedia unterstützen</string>
+  <string name="nav_item_donate">Spenden</string>
   <string name="error_voice_search_not_available">Leider ist die Stimmenerkennung nicht verfügbar.</string>
   <string name="location_service_disabled">Standortdienste sind deaktiviert.</string>
   <string name="enable_location_service">Aktivieren</string>
@@ -403,6 +406,8 @@
   <string name="reading_list_article_added_to_named">%1$s zu %2$s hinzugefügt.</string>
   <string name="reading_list_article_added_to_default_list">%s gespeichert. Möchtest du ihn zu einer Liste hinzufügen?</string>
   <string name="reading_list_article_moved_to_named">%1$s nach %2$s verschoben.</string>
+  <string name="reading_list_article_already_exists_message">Alles gut! %1$s enthält bereits %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Alles gut! %s enthält bereits alle Artikel.</string>
   <string name="reading_list_added_view_button">Liste ansehen</string>
   <string name="reading_list_add_to_list_button">Zu Liste hinzufügen</string>
   <plurals name="format_reading_list_statistical_summary">
@@ -587,10 +592,15 @@
   <string name="preference_summary_notification_user_talk">Meldungen von Diskussionsseiten</string>
   <string name="view_because_you_read_card_title">Weil du das gelesen hast</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
+  <string name="view_random_article_card_title">Zufälliger Artikel</string>
+  <string name="view_random_article_card_action">Mehr zufällige Artikel</string>
+  <string name="view_top_read_card_title">Meistgelesen</string>
+  <string name="view_top_read_card_action">Mehr meistgelesen</string>
   <string name="view_next_random_article">Einen anderen zufälligen Artikel laden</string>
   <string name="view_main_page_card_title">Heute auf der Wikipedia</string>
   <string name="view_featured_image_card_title">Bild des Tages</string>
   <string name="view_featured_image_card_download">Herunterladen</string>
+  <string name="view_featured_image_card_share">Teilen</string>
   <string name="menu_feed_card_dismiss">Diese Karte ausblenden</string>
   <string name="menu_feed_card_dismissed">Karte ausgeblendet.</string>
   <string name="menu_feed_card_edit_card_languages">Kartensprachen bearbeiten</string>
@@ -634,6 +644,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Abbrechen</string>
   <string name="feed_accessibility_card_text">Sie haben das Ende des Feeds erreicht.</string>
   <string name="feed_accessibility_card_load_more_button">Mehr laden</string>
+  <string name="top_read_activity_title">Meistgelesen am %s</string>
   <string name="description_edit_text_hint">Artikelbeschreibung</string>
   <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikelbeschreibung (%s)</string>
@@ -662,11 +673,14 @@
   <string name="description_too_short">Der Text ist zu kurz.</string>
   <string name="description_ends_with_punctuation">Der Text darf nicht mit einem Satzzeichen enden.</string>
   <string name="description_starts_with_article">Vermeide Beschreibungen, die mit einem Artikel („Der…“/„Eine…“) beginnen.</string>
+  <string name="description_starts_with_uppercase">Beginne mit einem Kleinbuchstaben, es sei denn, das erste Wort ist ein Eigenname.</string>
+  <string name="description_is_in_different_language">Der Text scheint in einer unerwarteten Sprache zu sein. Die Sprache sollte %s sein.</string>
   <string name="description_edit_success_saved">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeschreibung veröffentlicht! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildunterschrift veröffentlicht!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildunterschrift veröffentlicht! (%s)</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Hat dir das gefallen? Hilf uns, mehr hinzuzufügen.</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für alle besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>
   <string name="description_edit_success_did_you_know">Schon gewusst?</string>
@@ -702,7 +716,7 @@
   <string name="suggested_edits_task_multilingual_title">Weitere Aufgaben für mehrsprachige Autoren</string>
   <string name="suggested_edits_task_multilingual_description">Übersetzungsaufgaben sind verfügbar, wenn du in mehr als einer Wikipedia-Sprache liest und schreibst.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Gesperrt, bis du %d verifizierte Bildunterschriften bearbeitet hast</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Gesperrt, bis du %d verifizierte Beiträge durchgeführt hast</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Gesperrt, bis du %d Artikelbeschreibungen bearbeitet hast (überprüft)</string>
   <string name="suggested_edits_task_multilingual_negative">Nicht für mich</string>
   <string name="suggested_edits_task_multilingual_positive">Sprachen hinzufügen</string>
   <string name="suggested_edits_image_caption_summary_title_image">Datei</string>
@@ -737,6 +751,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">Bildunterschrift hinzufügen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bildunterschrift hinzufügen (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Bilder-Tags hinzufügen</string>
+  <string name="suggested_edits_snackbar_survey_text">Wie war dein Editier-Erlebnis? Bitte nimm dir einen Moment Zeit, um die Umfrage zum In-App-Editieren auszufüllen.</string>
   <string name="suggested_edits_snackbar_survey_action_text">An der Umfrage teilnehmen</string>
   <string name="suggested_edits_task_action_text_add">Hinzufügen</string>
   <string name="suggested_edits_task_action_text_translate">Übersetzen</string>
@@ -818,6 +833,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gestern</string>
   <string name="suggested_edits_rewards_continue_button">Weiter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wussten Sie, dass jeder Wikipedia bearbeiten kann?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Vorgeschlagene Bearbeitungen ist eine neue Art, Wikipedia auf Android zu bearbeiten. Es hilft dir, kleine aber wichtige Beiträge zu Wikipedia zu leisten.\nUnser Ziel ist es, das Editieren einfacher und zugänglicher für alle zu machen! Logge dich ein oder schließe dich Wikipedia an, um anzufangen.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Anmelden / Wikipedia beitreten</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s Tag</item>

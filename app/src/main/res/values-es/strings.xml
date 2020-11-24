@@ -101,6 +101,7 @@
   <string name="feed_card_add_to_default_list">Guardar</string>
   <string name="menu_page_share">Compartir enlace</string>
   <string name="menu_page_open_a_new_tab">Abrir una pestaña nueva</string>
+  <string name="menu_page_new_tab">Pestaña nueva</string>
   <string name="menu_page_reading_lists">Listas de lectura</string>
   <string name="menu_page_recently_viewed">Visto recientemente</string>
   <string name="menu_long_press_open_page">Abrir</string>
