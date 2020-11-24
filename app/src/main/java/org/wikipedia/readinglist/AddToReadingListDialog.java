@@ -176,6 +176,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(lists -> {
                     readingLists = lists;
+                    displayedLists.clear();
                     displayedLists.addAll(readingLists);
                     if (!showDefaultList && !displayedLists.isEmpty()) {
                         displayedLists.remove(0);
