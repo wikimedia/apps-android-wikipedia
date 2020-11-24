@@ -86,6 +86,7 @@
   <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
+  <string name="menu_page_new_tab">Nowa karta</string>
   <string name="menu_page_reading_lists">Listy do przeczytania</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
