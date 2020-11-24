@@ -34,7 +34,7 @@
   <string name="share_via">Пайлашмакъ</string>
   <string name="image_share_via">Пайлашмакъ</string>
   <string name="menu_page_other_languages">Тиллени алышдырмакъ</string>
-  <string name="menu_page_find_in_page">Сагьифада тапмакъ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Сагьифада тапмакъ</string>
   <string name="edit_section_find_in_page">Сагьифада тапмакъ</string>
   <string name="menu_page_share">Байланывну пайлашмакъ</string>
   <string name="menu_long_press_open_page">Ачмакъ</string>
@@ -216,10 +216,8 @@
   <string name="onboarding_got_it">Англадым</string>
   <string name="app_shortcuts_continue_reading">Охувну давамламакъ</string>
   <string name="app_shortcuts_search">Излев</string>
-  <string name="more_trending_text">Дагъы да булайлар</string>
   <string name="on_this_day_card_title">Бу гюн</string>
   <string name="this_year">Бу йыл</string>
-  <string name="back_to_top">Оьрге къайтмакъ</string>
   <string name="languages_list_all_text">Тюм тиллер</string>
   <string name="wikipedia_languages_title">Википедия тиллер</string>
   <string name="wikipedia_languages_your_languages_text">Сени тиллеринг</string>

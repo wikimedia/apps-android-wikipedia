@@ -20,9 +20,11 @@
 * Mido
 * Mojackjutaily
 * Mr. Ibrahem
+* MuratTheTurkish
 * NEHAOUA
 * PhiberOptik
 * Shbib Al-Subaie
+* Sonic N800
 * Tala Ali
 * Youssef
 * بدارين
@@ -70,7 +72,7 @@
   <string name="search_redirect_from">بالتحويل من %s</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
-  <string name="menu_page_find_in_page">البحث في الصفحة</string>
+  <string name="menu_page_find_in_page" fuzzy="true">البحث في الصفحة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
@@ -210,10 +212,10 @@
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ar</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -226,7 +228,7 @@
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -337,9 +339,9 @@
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_customize_explore_feed">تخصيص خلاصة الاستكشاف</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
-  <string name="preference_title_collapse_tables">طوي الجداول</string>
+  <string name="preference_title_collapse_tables">طَيّ الجداول</string>
   <string name="preference_summary_collapse_tables">تلقائيا اطو الجداول في المقالات، مثل صناديق المعلومات، المراجع، والملاحظات.</string>
-  <string name="nav_item_donate">ادعم ويكيبيديا</string>
+  <string name="nav_item_donate" fuzzy="true">ادعم ويكيبيديا</string>
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
   <string name="location_service_disabled">خدمات الموقع معطلة.</string>
   <string name="enable_location_service">تمكين</string>
@@ -564,12 +566,8 @@
   <string name="preference_summary_notification_user_talk">رسائل من صفحات النقاش</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
-  <string name="view_random_card_subtitle">تصفح مقالات عشوائية للقراءة من ويكيبيديا.</string>
-  <string name="view_random_card_action">ارمِ النرد</string>
   <string name="view_next_random_article">مقال عشوائي اخر</string>
   <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
-  <string name="view_main_page_card_subtitle">الصفحة الرئيسية في %s</string>
-  <string name="view_main_page_card_action">اعرض الصفحة الرئيسية</string>
   <string name="view_featured_image_card_title">صورة اليوم</string>
   <string name="view_featured_image_card_download">تنزيل</string>
   <string name="menu_feed_card_dismiss">أخف هذه البطاقة</string>
@@ -579,7 +577,6 @@
   <string name="feed_featured_image_share_subject">صورة مختارة من ويكيميديا كومنز</string>
   <string name="feed">استكشف</string>
   <string name="home">الرئيسية</string>
-  <string name="most_read_list_card_title">الأكثر زيارة</string>
   <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
   <string name="view_card_news_title">في الأخبار</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -605,7 +602,6 @@
   <string name="feed_item_type_featured_article">المقالة المختارة يوميًّا على ويكيبيديا</string>
   <string name="feed_item_type_trending">المقالات الأكثر قراءة يوميا</string>
   <string name="feed_item_type_featured_image">صورة يومية مختارة من ويكيميديا ​​كومنز</string>
-  <string name="feed_item_type_main_page">الصفحة الرئيسية لويكيبيديا مع المحتوى اليومي المختار</string>
   <string name="feed_item_type_randomizer">توليد مقالات عشوائية للقراءة</string>
   <string name="feed_item_type_suggested_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
   <string name="feed_empty_message">لا يوجد شيء في خلاصة استكشافك</string>
@@ -819,13 +815,10 @@
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
-  <string name="more_trending_text">أكثر مثل هذا</string>
-  <string name="top_on_this_day">الأكثر زيارةً في %1$s</string>
   <string name="on_this_day_card_title">في هذا اليوم</string>
   <string name="more_events_text">المزيد في هذا اليوم</string>
   <string name="events_count_text">%1$s أحداث من %2$s–%3$d</string>
   <string name="this_year">هذا العام</string>
-  <string name="back_to_top">العودة إلى أعلى</string>
   <string name="on_this_day_dialog_next_month">الشهر التالي</string>
   <string name="on_this_day_dialog_previous_month">الشهر السابق</string>
   <string name="on_this_day_open_date_picker">فتح منتقي التاريخ</string>

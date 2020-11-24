@@ -43,7 +43,7 @@
   <string name="search_redirect_from">Awelleh si %s</string>
   <string name="menu_page_show_tabs">Sken iccaren</string>
   <string name="menu_page_other_languages">Fren tutlayt</string>
-  <string name="menu_page_find_in_page">Nadi deg usebter</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Nadi deg usebter</string>
   <string name="edit_section_find_in_page">Nadi deg usebter</string>
   <string name="menu_page_font_and_theme">Tasefsit d usentel</string>
   <string name="menu_page_add_to_list">Rnu tabdart n tɣuri</string>
@@ -298,7 +298,7 @@
   <string name="preference_title_show_link_previews">Wali tiskanin n useɣwen</string>
   <string name="preference_summary_show_link_previews">Wali taskant taruraḍt n imagraden s unali n iseɣwan.</string>
   <string name="preference_title_collapse_tables">Fneẓ tifelwiyin.</string>
-  <string name="nav_item_donate">Mudd afus i Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Mudd afus i Wikipedia</string>
   <string name="error_voice_search_not_available">Suref-aɣ, aɛqal aɣectan ulac-it.</string>
   <string name="location_service_disabled">Imezla n usideg nsan.</string>
   <string name="enable_location_service">Rmed</string>
@@ -479,11 +479,8 @@
   <string name="preference_summary_notification_user_talk">Iznan n yisebtar n umeslay</string>
   <string name="view_because_you_read_card_title">Acku teɣriḍ</string>
   <string name="view_random_card_title">Agacuran</string>
-  <string name="view_random_card_subtitle">Ɣeṛ amagrad agacuran si Wikipedia</string>
   <string name="view_next_random_article">Sali-d amagrad nniden agacuran</string>
   <string name="view_main_page_card_title">Ass-a di Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Asebter agejdan di %s</string>
-  <string name="view_main_page_card_action">Sken asebter agejdan</string>
   <string name="view_featured_image_card_title">Tugna n wass</string>
   <string name="view_featured_image_card_download">Sider</string>
   <string name="menu_feed_card_dismiss">Ffer takarḍa-agi</string>
@@ -492,7 +489,6 @@
   <string name="menu_feed_overflow_label">Ugar n iɣewwaṛen</string>
   <string name="feed_featured_image_share_subject">Tugna yettwafernen n Wikimedia Commons</string>
   <string name="feed">Snirem</string>
-  <string name="most_read_list_card_title">Tiddin</string>
   <string name="view_static_card_icon_content_description">Tignit n tkarḍa</string>
   <string name="view_card_news_title">Deg isallen</string>
   <plurals name="view_continue_reading_card_subtitle">

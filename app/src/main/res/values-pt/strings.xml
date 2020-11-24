@@ -14,6 +14,7 @@
 * Macofe
 * Mansil
 * Mansil alfalb
+* MuratTheTurkish
 * Ngl2016
 * Ruila
 * SandroHc
@@ -61,7 +62,7 @@
   <string name="search_redirect_from">Redirecionado de %s</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
-  <string name="menu_page_find_in_page">Localizar na página</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Localizar na página</string>
   <string name="edit_section_find_in_page">Localizar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -202,7 +203,7 @@
   <string name="about_description">Sobre a aplicação Wikipédia</string>
   <string name="privacy_policy_description">Normas de privacidade</string>
   <string name="terms_of_use_description">Condições de utilização</string>
-  <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre a Wikipédia</string>
+  <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt</string>
@@ -336,7 +337,7 @@
   <string name="preference_summary_show_link_previews">Mostra uma antevisão rápida de artigos ao tocar em hiperligações.</string>
   <string name="preference_title_collapse_tables">Recolher tabelas</string>
   <string name="preference_summary_collapse_tables">Recolher automaticamente as tabelas nos artigos, como as caixas informativas, referências e notas.</string>
-  <string name="nav_item_donate">Apoie a Wikipédia</string>
+  <string name="nav_item_donate" fuzzy="true">Apoie a Wikipédia</string>
   <string name="error_voice_search_not_available">Desculpe, o reconhecimento de voz não está disponível.</string>
   <string name="location_service_disabled">Os serviços de localização estão desativados.</string>
   <string name="enable_location_service">Ativar</string>
@@ -586,12 +587,8 @@
   <string name="preference_summary_notification_user_talk">Mensagens das páginas de discussão</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
-  <string name="view_random_card_subtitle">Folhear aleatoriamente artigos da Wikipédia.</string>
-  <string name="view_random_card_action">Lançar os dados</string>
   <string name="view_next_random_article">Carregar outro artigo aleatório</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
-  <string name="view_main_page_card_subtitle">Página principal a %s</string>
-  <string name="view_main_page_card_action">Ver a página principal</string>
   <string name="view_featured_image_card_title">Imagem do dia</string>
   <string name="view_featured_image_card_download">Descarregar</string>
   <string name="menu_feed_card_dismiss">Ocultar este cartão</string>
@@ -601,7 +598,6 @@
   <string name="feed_featured_image_share_subject">Imagem destacada na wiki Wikimedia Commons</string>
   <string name="feed">Explorar</string>
   <string name="home">Início</string>
-  <string name="most_read_list_card_title">Tendências</string>
   <string name="view_static_card_icon_content_description">Ícone de cartão</string>
   <string name="view_card_news_title">Atualidades</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -627,7 +623,6 @@
   <string name="feed_item_type_featured_article">Artigo destacado do dia na Wikipédia</string>
   <string name="feed_item_type_trending">Artigos mais vistos do dia</string>
   <string name="feed_item_type_featured_image">Imagem destacada do dia na wiki Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Página principal da Wikipédia com o conteúdo destacado diário</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed Explorar</string>
@@ -898,13 +893,10 @@
   <string name="app_shortcuts_random">Aleatório</string>
   <string name="app_shortcuts_continue_reading">Continuar a ler</string>
   <string name="app_shortcuts_search">Pesquisar</string>
-  <string name="more_trending_text">Mais disto</string>
-  <string name="top_on_this_day">Em tendência a %1$s</string>
   <string name="on_this_day_card_title">Neste dia</string>
   <string name="more_events_text">Mais neste dia</string>
   <string name="events_count_text">%1$s acontecimentos de %2$s–%3$d</string>
   <string name="this_year">Este ano</string>
-  <string name="back_to_top">Voltar ao topo</string>
   <string name="on_this_day_dialog_next_month">Mês seguinte</string>
   <string name="on_this_day_dialog_previous_month">Mês anterior</string>
   <string name="on_this_day_open_date_picker">Abrir seletor de datas</string>

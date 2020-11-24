@@ -1,5 +1,8 @@
 package org.wikipedia.page;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -141,6 +144,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         ThemeChooserDialog.Callback, ReferenceDialog.Callback, WiktionaryDialog.Callback {
     public interface Callback {
         void onPageDismissBottomSheet();
+        void onPageLoadComplete();
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageInitWebView(@NonNull ObservableWebView v);
         void onPageShowLinkPreview(@NonNull HistoryEntry entry);
@@ -153,16 +157,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
-        void onPageHideAllContent();
-        void onPageSetToolbarFadeEnabled(boolean enabled);
         void onPageSetToolbarElevationEnabled(boolean enabled);
         void onPageCloseActionMode();
     }
 
+    private static final String ARG_THEME_CHANGE_SCROLLED = "themeChangeScrolled";
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
+
     private boolean pageRefreshed;
     private boolean errorState = false;
-
-    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -182,6 +185,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private ViewHideHandler bottomBarHideHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private boolean scrolledUpForThemeChange;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -236,7 +240,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onSearchTabSelected() {
-            openSearchActivity(PAGE_ACTION_TAB);
+            showFindInPage();
         }
 
         @Override
@@ -246,7 +250,25 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onFontAndThemeTabSelected() {
-            showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
+            // If we're looking at the top of the article, then scroll down a bit so that at least
+            // some of the text is shown.
+            if (webView.getScrollY() < DimenUtil.leadImageHeightForDevice(requireActivity())) {
+                scrolledUpForThemeChange = true;
+                final int animDuration = 250;
+                ObjectAnimator anim = ObjectAnimator.ofInt(webView, "scrollY", webView.getScrollY(), DimenUtil.leadImageHeightForDevice(requireActivity()));
+                anim.setDuration(animDuration)
+                        .addListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                super.onAnimationEnd(animation);
+                                showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
+                            }
+                        });
+                anim.start();
+            } else {
+                scrolledUpForThemeChange = false;
+                showBottomSheet(ThemeChooserDialog.newInstance(PAGE_ACTION_TAB));
+            }
         }
 
         @Override
@@ -276,10 +298,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public PageTitle getTitle() {
         return model.getTitle();
-    }
-
-    @Nullable public PageTitle getTitleOriginal() {
-        return model.getTitleOriginal();
     }
 
     @NonNull public ShareHandler getShareHandler() {
@@ -328,6 +346,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         refreshView.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
+        int swipeOffset = getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
+        refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
 
         tabLayout = rootView.findViewById(R.id.page_actions_tab_layout);
         tabLayout.setPageActionTabsCallback(pageActionTabsCallback);
@@ -338,7 +358,17 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bottomBarHideHandler = new ViewHideHandler(tabLayout, null, Gravity.BOTTOM);
         bottomBarHideHandler.setScrollView(webView);
 
+        if (savedInstanceState != null) {
+            scrolledUpForThemeChange = savedInstanceState.getBoolean(ARG_THEME_CHANGE_SCROLLED, false);
+        }
+
         return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(ARG_THEME_CHANGE_SCROLLED, scrolledUpForThemeChange);
     }
 
     @Override
@@ -417,12 +447,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             pageFragmentLoadState.loadFromBackStack();
         } else {
             loadMainPageInForegroundTab();
-        }
-    }
-
-    void setToolbarFadeEnabled(boolean enabled) {
-        if (callback() != null) {
-            callback().onPageSetToolbarFadeEnabled(enabled);
         }
     }
 
@@ -728,7 +752,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         }
         if (selectedTabPosition == -1) {
-            loadPage(title, entry, true, true);
+            loadPage(title, entry, true, false);
             return;
         }
         setCurrentTabAndReset(selectedTabPosition);
@@ -781,7 +805,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         errorView.setVisibility(View.GONE);
 
         model.setTitle(title);
-        model.setTitleOriginal(title);
         model.setCurEntry(entry);
         model.setReadingListPage(null);
         model.setForceNetwork(isRefresh);
@@ -844,7 +867,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully);
             // and reload the page...
-            loadPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
+            loadPage(model.getTitle(), model.getCurEntry(), false, false);
         }
     }
 
@@ -1060,6 +1083,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 return;
             }
             bridge.onPcsReady();
+            callback().onPageLoadComplete();
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
@@ -1226,9 +1250,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         leadImagesHandler.hide();
         bridge.loadBlankPage();
         webView.setVisibility(View.INVISIBLE);
-        if (callback() != null) {
-            callback().onPageHideAllContent();
-        }
     }
 
     @Override
@@ -1239,6 +1260,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         if (pageFragmentLoadState.goBack()) {
             return true;
+        }
+        // if the current tab can no longer go back, then close the tab before exiting
+        if (!app.getTabList().isEmpty()) {
+            app.getTabList().remove(app.getTabList().size() - 1);
+            app.commitTabState();
         }
         return false;
     }
@@ -1304,7 +1330,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public void onCancel() {
+    public void onCancelThemeChooser() {
+        if (scrolledUpForThemeChange) {
+            final int animDuration = 250;
+            ObjectAnimator.ofInt(webView, "scrollY", webView.getScrollY(), 0)
+                    .setDuration(animDuration)
+                    .start();
+        }
     }
 
     @Override

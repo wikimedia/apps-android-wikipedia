@@ -42,7 +42,7 @@
   <string name="search_redirect_from">Adkaset eus %s</string>
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
   <string name="menu_page_other_languages">Cheñch yezh</string>
-  <string name="menu_page_find_in_page">Klask er bajenn</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Klask er bajenn</string>
   <string name="edit_section_find_in_page">Klask er bajenn</string>
   <string name="menu_page_font_and_theme">Font ha tem</string>
   <string name="menu_page_add_to_list">Ouzhpennañ d\'ar roll lenn</string>
@@ -287,7 +287,7 @@
   <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>
   <string name="preference_summary_show_link_previews">Diskwel un alberz buan eus ar pennadoù en ur skrivañ war al liammoù.</string>
   <string name="preference_title_collapse_tables">Adplegañ an taolennoù</string>
-  <string name="nav_item_donate">Skoazellañ Wikimedia</string>
+  <string name="nav_item_donate" fuzzy="true">Skoazellañ Wikimedia</string>
   <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
   <string name="location_service_disabled">Diweredekaet eo ar servijoù lec\'hiañ.</string>
   <string name="enable_location_service">Gweredekaat</string>
@@ -460,12 +460,8 @@
   <string name="preference_summary_notification_thanks">Unan bennak en deus trugarekaet ac\'hanoc\'h evit ur c\'hemenn</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
   <string name="view_random_card_title">Dre zegouezh</string>
-  <string name="view_random_card_subtitle">Lenn ur pennad dargouezhek eus Wikipedia</string>
-  <string name="view_random_card_action">Stlepel an diñsoù</string>
   <string name="view_next_random_article">Kargañ ur pennad all dre zegouezh</string>
   <string name="view_main_page_card_title">Hiziv e Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Pajenn bennañ d\'an %s</string>
-  <string name="view_main_page_card_action">Gwelet ar bajenn bennañ</string>
   <string name="view_featured_image_card_title">Skeudenn an deiz</string>
   <string name="view_featured_image_card_download">Pellgargañ</string>
   <string name="menu_feed_card_dismiss">Kuzhat ar gartenn-mañ</string>
@@ -474,7 +470,6 @@
   <string name="menu_feed_overflow_label">Muioc\'h a zibarzhioù</string>
   <string name="feed_featured_image_share_subject">Skeudenn dibabet e Wikimedia Commons</string>
   <string name="feed">Ergerzhet</string>
-  <string name="most_read_list_card_title">Gizioù ar mare</string>
   <string name="view_static_card_icon_content_description">Arlun ar gartenn</string>
   <string name="view_card_news_title">Er C\'heleier</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -557,7 +552,6 @@
   <string name="app_shortcuts_continue_reading">Kenderc\'hel da lenn</string>
   <string name="app_shortcuts_search">Klask</string>
   <string name="this_year">Er bloaz-mañ</string>
-  <string name="back_to_top">Distreiñ d\'an deroù</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">dec\'h</item>
     <item quantity="other">%d devezh zo</item>

@@ -6,19 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.json.annotations.Required;
+import org.wikipedia.util.ImageUrlUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
-import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
-
 public final class NewsItem {
-    @SuppressWarnings("unused") @Required @Nullable private String story;
+    @SuppressWarnings("unused") @Nullable private String story;
     @SuppressWarnings("unused") @Nullable private List<PageSummary> links
             = Collections.emptyList();
 
@@ -43,11 +41,7 @@ public final class NewsItem {
 
     @Nullable public Uri thumb() {
         Uri uri = getFirstImageUri(links());
-        return uri != null ? getUrlForSize(uri, PREFERRED_THUMB_SIZE) : null;
-    }
-
-    @Nullable Uri featureImage() {
-        return getFirstImageUri(links());
+        return uri != null ? Uri.parse(ImageUrlUtil.getUrlForPreferredSize(uri.toString(), Constants.PREFERRED_CARD_THUMBNAIL_SIZE)) : null;
     }
 
     /**

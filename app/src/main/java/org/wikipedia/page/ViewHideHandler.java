@@ -21,7 +21,6 @@ public class ViewHideHandler implements ObservableWebView.OnScrollChangeListener
         this.hideableView = hideableView;
         this.anchoredView = anchoredView;
         this.gravity = gravity;
-
     }
 
     /**
@@ -55,8 +54,6 @@ public class ViewHideHandler implements ObservableWebView.OnScrollChangeListener
         if (webView == null) {
             return;
         }
-
-        onScrolled(oldScrollY, scrollY);
 
         int animMargin = 0;
         int scrollDelta = scrollY - oldScrollY;

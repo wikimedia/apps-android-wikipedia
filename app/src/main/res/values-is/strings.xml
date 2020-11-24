@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Dbrant
 * Maxí
+* MuratTheTurkish
 * Sveinki
 * Sveinn í Felli
 * Vignir
@@ -42,7 +43,7 @@
   <string name="search_redirect_from">Endurbeint frá %s</string>
   <string name="menu_page_show_tabs">Birta flipa</string>
   <string name="menu_page_other_languages">Breyta tungumáli</string>
-  <string name="menu_page_find_in_page">Finna á síðu</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Finna á síðu</string>
   <string name="edit_section_find_in_page">Finna á síðu</string>
   <string name="menu_page_font_and_theme">Letur og þema</string>
   <string name="menu_page_add_to_list">Bæta á leslista</string>
@@ -180,7 +181,7 @@
   <string name="about_description">Um Wikipedia-appið</string>
   <string name="privacy_policy_description">Meðferð persónuupplýsinga</string>
   <string name="terms_of_use_description">Notkunarskilmálar</string>
-  <string name="about_wikipedia_url">https://is.m.wikipedia.org/wiki/Wikipedia:Um_verkefnið</string>
+  <string name="about_wikipedia_url">https://is.wikipedia.org/wiki/Wikipedia:Um_verkefnið</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -306,7 +307,7 @@
   <string name="preference_summary_show_link_previews">Birta flýtiforskoðun greina þegar bankað er á tengla.</string>
   <string name="preference_title_collapse_tables">Fella töflur saman</string>
   <string name="preference_summary_collapse_tables">Sjálfvirkt fella saman töflur í greinum, svo sem upplýsingareiti, tilvísanir og minnispunkta.</string>
-  <string name="nav_item_donate">Styðja Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Styðja Wikipedia</string>
   <string name="error_voice_search_not_available">Því miður, talgreining er ekki tiltæk.</string>
   <string name="location_service_disabled">Staðsetningarþjónustur eru óvirkar.</string>
   <string name="enable_location_service">Virkja</string>
@@ -523,12 +524,8 @@
   <string name="preference_summary_notification_user_talk">Skilaboð frá spjallsíðum</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>
-  <string name="view_random_card_subtitle">Flettu í gegnum handahófsvaldar greinar af Wikipedia.</string>
-  <string name="view_random_card_action">Kasta teningnum</string>
   <string name="view_next_random_article">Hlaða inn annari handahófsvalinni grein</string>
   <string name="view_main_page_card_title">Í dag á Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Forsíða þann %s</string>
-  <string name="view_main_page_card_action">Skoða forsíðu</string>
   <string name="view_featured_image_card_title">Mynd dagsins</string>
   <string name="view_featured_image_card_download">Sækja</string>
   <string name="menu_feed_card_dismiss">Fela þetta spjald</string>
@@ -537,7 +534,6 @@
   <string name="menu_feed_overflow_label">Fleiri valkostir</string>
   <string name="feed_featured_image_share_subject">Forsíðumynd frá Wikimedia Commons</string>
   <string name="feed">Uppgötva</string>
-  <string name="most_read_list_card_title">Í umræðunni</string>
   <string name="view_static_card_icon_content_description">Táknmynd spjalds</string>
   <string name="view_card_news_title">Í fréttum</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -563,7 +559,6 @@
   <string name="feed_item_type_featured_article">Forsíðugrein dagsins á Wikipedia</string>
   <string name="feed_item_type_trending">Mest lesnu greinar dagsins</string>
   <string name="feed_item_type_featured_image">Forsíðumynd dagsins frá Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Aðalsíða Wikipedia með úrvalsefni dagsins</string>
   <string name="feed_item_type_randomizer">Útbúðu handahófsvaldar greinar til að lesa</string>
   <string name="feed_item_type_suggested_edits">Tillögur að efni til að bæta við Wikipedia</string>
   <string name="feed_empty_message">Það er ekkert á \'Uppgötva\'-streyminu þínu</string>
@@ -752,13 +747,10 @@
   <string name="app_shortcuts_random">Handahófsvalið</string>
   <string name="app_shortcuts_continue_reading">Halda lestri áfram</string>
   <string name="app_shortcuts_search">Leita</string>
-  <string name="more_trending_text">Fleira í líkingu við þetta</string>
-  <string name="top_on_this_day">Í umræðunni þann %1$s</string>
   <string name="on_this_day_card_title">Á þessum degi</string>
   <string name="more_events_text">Fleira á þessum degi</string>
   <string name="events_count_text">%1$s atburðir frá %2$s–%3$d</string>
   <string name="this_year">Á þessu ári</string>
-  <string name="back_to_top">Aftur efst</string>
   <string name="on_this_day_dialog_next_month">Næsti mánuður</string>
   <string name="on_this_day_dialog_previous_month">Fyrri mánuður</string>
   <string name="on_this_day_open_date_picker">Opna dagsetningaval</string>

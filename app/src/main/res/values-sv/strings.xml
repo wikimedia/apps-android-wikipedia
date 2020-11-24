@@ -60,7 +60,7 @@
   <string name="search_redirect_from">Omdirigerad från %s</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
-  <string name="menu_page_find_in_page">Hitta på sidan</string>
+  <string name="menu_page_find_in_page">Hitta i artikeln</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
@@ -69,6 +69,7 @@
   <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
+  <string name="menu_page_new_tab">Ny flik</string>
   <string name="menu_page_reading_lists">Läslistor</string>
   <string name="menu_page_recently_viewed">Nyligen lästa</string>
   <string name="menu_long_press_open_page">Öppna</string>
@@ -335,7 +336,7 @@
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
   <string name="preference_title_collapse_tables">Fäll ihop tabeller</string>
   <string name="preference_summary_collapse_tables">Fäller automatiskt ihop tabeller i artiklar, som inforutor, referenser och anmärkningar.</string>
-  <string name="nav_item_donate">Stöd Wikipedia</string>
+  <string name="nav_item_donate">Donera</string>
   <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
   <string name="location_service_disabled">Platstjänster är inaktiverade.</string>
   <string name="enable_location_service">Aktivera</string>
@@ -585,14 +586,17 @@
   <string name="preference_summary_notification_user_talk">Meddelanden från diskussionssidor</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Slumpartikel</string>
-  <string name="view_random_card_subtitle">Bläddra bland slumpartiklar att läsa från Wikipedia</string>
-  <string name="view_random_card_action">Kasta tärningen</string>
+  <string name="view_random_article_card_title">Slumpartikel</string>
+  <string name="view_random_article_card_action">Fler slumpartiklar</string>
+  <string name="view_top_read_card_title">Mest lästa</string>
+  <string name="view_top_read_card_action">Fler utav mest lästa</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Läs in en annan slumpartikel</string>
   <string name="view_main_page_card_title">Idag på Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Huvudsidan på %s</string>
-  <string name="view_main_page_card_action">Visa huvudsidan</string>
   <string name="view_featured_image_card_title">Dagens bild</string>
   <string name="view_featured_image_card_download">Ladda ned</string>
+  <string name="view_featured_image_card_share">Dela</string>
   <string name="menu_feed_card_dismiss">Dölj detta kort</string>
   <string name="menu_feed_card_dismissed">Kortet doldes.</string>
   <string name="menu_feed_card_edit_card_languages">Redigera språk för kortet</string>
@@ -600,7 +604,6 @@
   <string name="feed_featured_image_share_subject">Utmärkt bild från Wikimedia Commons</string>
   <string name="feed">Utforska</string>
   <string name="home">Hem</string>
-  <string name="most_read_list_card_title">Populärt</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">Aktuella händelser</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -626,7 +629,6 @@
   <string name="feed_item_type_featured_article">Dagens utmärkta artikel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest lästa artiklar</string>
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
   <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
   <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
@@ -638,6 +640,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
   <string name="feed_accessibility_card_text">Du är nu längst ned i flödet.</string>
   <string name="feed_accessibility_card_load_more_button">Läs in fler</string>
+  <string name="top_read_activity_title">Mest lästa den %s</string>
   <string name="description_edit_text_hint">Titelbeskrivning</string>
   <string name="description_edit_article_description_label">Artikel</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikelbeskrivning (%s)</string>
@@ -850,6 +853,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Logga in / skapa konto på Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Bildtagg</string>
   <string name="suggested_edits_contribution_current_revision_text">Din redigering finns nu på Wikipedia</string>
+  <string name="suggested_card_more_edits">Fler förslag på redigeringar</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s tagg</item>
     <item quantity="other">%1$s taggar</item>
@@ -897,13 +901,10 @@
   <string name="app_shortcuts_random">Slumpartikel</string>
   <string name="app_shortcuts_continue_reading">Fortsätt läsa</string>
   <string name="app_shortcuts_search">Sök</string>
-  <string name="more_trending_text">Fler som detta</string>
-  <string name="top_on_this_day">Populärt den %1$s</string>
   <string name="on_this_day_card_title">Dagens datum</string>
   <string name="more_events_text">Mer på denna dag</string>
   <string name="events_count_text">%1$s händelser från %2$s–%3$d</string>
   <string name="this_year">Detta år</string>
-  <string name="back_to_top">Tillbaka till början</string>
   <string name="on_this_day_dialog_next_month">Nästa månad</string>
   <string name="on_this_day_dialog_previous_month">Föregående månad</string>
   <string name="on_this_day_open_date_picker">Öppna datumväljare</string>
@@ -911,6 +912,8 @@
     <item quantity="one">Senaste året</item>
     <item quantity="other">%d år sedan</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Du reste genom tiden 🚀</string>
+  <string name="on_this_day_back_to_future">Tillbaka till framtiden</string>
   <string name="languages_list_activity_title">Lägg till språk</string>
   <string name="languages_list_suggested_text">Föreslagna</string>
   <string name="languages_list_all_text">Alla språk</string>

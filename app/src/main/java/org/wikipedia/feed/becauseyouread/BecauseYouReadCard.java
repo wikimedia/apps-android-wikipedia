@@ -6,23 +6,22 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
-import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.L10nUtil;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
-    @NonNull private HistoryEntry entry;
+    @NonNull private PageTitle pageTitle;
 
-    public BecauseYouReadCard(@NonNull final HistoryEntry entry,
+    public BecauseYouReadCard(@NonNull final PageTitle pageTitle,
                               @NonNull final List<BecauseYouReadItemCard> itemCards) {
-        super(itemCards, entry.getTitle().getWikiSite());
-        this.entry = entry;
+        super(itemCards, pageTitle.getWikiSite());
+        this.pageTitle = pageTitle;
     }
 
     @Override
@@ -34,7 +33,13 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     @Override
     @Nullable
     public Uri image() {
-        return TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl());
+        return TextUtils.isEmpty(pageTitle.getThumbUrl()) ? null : Uri.parse(pageTitle.getThumbUrl());
+    }
+
+    @Override
+    @NonNull
+    public String extract() {
+        return StringUtils.defaultString(pageTitle.getDescription());
     }
 
     @NonNull @Override public CardType type() {
@@ -42,22 +47,15 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     }
 
     public String pageTitle() {
-        return entry.getTitle().getDisplayText();
+        return pageTitle.getDisplayText();
     }
 
     @NonNull public PageTitle getPageTitle() {
-        return entry.getTitle();
-    }
-
-    /** @return The last visit age in days. */
-    public long daysOld() {
-        long now = System.currentTimeMillis();
-        long lastVisited = entry.getTimestamp().getTime();
-        return TimeUnit.MILLISECONDS.toDays(now - lastVisited);
+        return pageTitle;
     }
 
     @Override
     protected int dismissHashCode() {
-        return entry.getTitle().hashCode();
+        return pageTitle.hashCode();
     }
 }

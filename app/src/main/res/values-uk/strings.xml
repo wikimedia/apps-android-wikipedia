@@ -18,6 +18,7 @@
 * SimondR
 * Viiictorrr
 * Vlad5250
+* Vlnt
 * Ата
 -->
 <resources>
@@ -57,7 +58,7 @@
   <string name="search_redirect_from">Перенаправлено з %s</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
-  <string name="menu_page_find_in_page">Знайти на сторінці</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Знайти на сторінці</string>
   <string name="edit_section_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
   <string name="menu_page_add_to_list">Додати до читального списку</string>
@@ -326,7 +327,7 @@
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
   <string name="preference_title_collapse_tables">Згорнути таблиці</string>
   <string name="preference_summary_collapse_tables">Автоматично згортати табличні блоки (інфобокси, примітки, коментарі тощо).</string>
-  <string name="nav_item_donate">Підтримати Вікіпедію</string>
+  <string name="nav_item_donate" fuzzy="true">Підтримати Вікіпедію</string>
   <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
   <string name="location_service_disabled">Служби локалізації вимкнені.</string>
   <string name="enable_location_service">Увімкнути</string>
@@ -352,6 +353,8 @@
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
+  <string name="article_menu_bar_save_button">Збернгти</string>
+  <string name="article_menu_bar_language_button">Мова</string>
   <string name="article_header_edit_hint">Редагувати...</string>
   <string name="article_header_edit_description">Редагувати опис статті</string>
   <string name="article_header_edit_lead_section">Редагувати вступ</string>
@@ -572,12 +575,8 @@
   <string name="preference_summary_notification_user_talk">Повідомлення зі сторінок обговорень</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
-  <string name="view_random_card_subtitle">Гортати випадкові статті з Вікіпедії.</string>
-  <string name="view_random_card_action">Кинути жереб</string>
   <string name="view_next_random_article">Завантажити іншу випадкову статтю</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
-  <string name="view_main_page_card_subtitle">Головна сторінка на %s</string>
-  <string name="view_main_page_card_action">Переглянути головну сторінку</string>
   <string name="view_featured_image_card_title">Зображення дня</string>
   <string name="view_featured_image_card_download">Завантажити</string>
   <string name="menu_feed_card_dismiss">Сховати цю картку</string>
@@ -586,7 +585,6 @@
   <string name="menu_feed_overflow_label">Більше опцій</string>
   <string name="feed_featured_image_share_subject">Вибране зображення з Вікісховища</string>
   <string name="feed">Дослідити</string>
-  <string name="most_read_list_card_title">Популярне</string>
   <string name="view_static_card_icon_content_description">Іконка картки</string>
   <string name="view_card_news_title">У новинах</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -614,7 +612,6 @@
   <string name="feed_item_type_featured_article">Вибрана стаття дня у Вікіпедії</string>
   <string name="feed_item_type_trending">Найбільш читані статті за день</string>
   <string name="feed_item_type_featured_image">Щоденне вибране зображення Вікісховища</string>
-  <string name="feed_item_type_main_page">Головна сторінка Вікіпедії з денним вибраним контентом</string>
   <string name="feed_item_type_randomizer">Згенерувати випадкові статті до читання</string>
   <string name="feed_item_type_suggested_edits">Пропозиції додати контент у Вікіпедію</string>
   <string name="feed_empty_message">У вашій стрічці нічого немає</string>
@@ -878,13 +875,10 @@
   <string name="app_shortcuts_random">Випадкова</string>
   <string name="app_shortcuts_continue_reading">Продовжити читання</string>
   <string name="app_shortcuts_search">Пошук</string>
-  <string name="more_trending_text">Більше подібних</string>
-  <string name="top_on_this_day">Популярно на %1$s</string>
   <string name="on_this_day_card_title">Цього дня</string>
   <string name="more_events_text">Більше за цей день</string>
   <string name="events_count_text">%1$s подій за %2$s–%3$d</string>
   <string name="this_year">Цього року</string>
-  <string name="back_to_top">Повернутись угору</string>
   <string name="on_this_day_dialog_next_month">Наступний місяць</string>
   <string name="on_this_day_dialog_previous_month">Попередній місяць</string>
   <string name="on_this_day_open_date_picker">Вибір дати</string>

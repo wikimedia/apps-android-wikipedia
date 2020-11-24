@@ -8,57 +8,51 @@
     <org.wikipedia.feed.view.CardHeaderView
         android:id="@+id/view_list_card_header"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_header_height"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_list_card_large_header_container"/>
 
-    <org.wikipedia.feed.view.CardLargeHeaderView
-        android:id="@+id/view_list_card_large_header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_header_large_height"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_header" />
-
-    <org.wikipedia.views.NavMenuAwareRecyclerView
-        android:id="@+id/view_list_card_list"
+    <org.wikipedia.views.WikiCardView
+        android:id="@+id/view_list_card_large_header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipChildren="false"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_large_header" />
-
-    <LinearLayout
-        android:id="@+id/view_list_card_more_container"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@+id/view_list_card_list"
-        android:background="?attr/selectableItemBackground"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_list"
-        tools:visibility="visible">
+        app:hasBorder="false"
+        app:layout_constraintBottom_toTopOf="@id/view_list_card_list_container">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:tint="?attr/secondary_text_color"
-            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+        <org.wikipedia.feed.view.CardLargeHeaderView
+            android:id="@+id/view_list_card_large_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/view_list_card_more_text"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:textAllCaps="true"
-            android:textColor="?attr/secondary_text_color" />
+    </org.wikipedia.views.WikiCardView>
 
-    </LinearLayout>
+    <org.wikipedia.views.WikiCardView
+        android:id="@+id/view_list_card_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toTopOf="@id/view_list_card_footer">
+
+        <org.wikipedia.views.NavMenuAwareRecyclerView
+            android:id="@+id/view_list_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </org.wikipedia.views.WikiCardView>
+
+    <org.wikipedia.feed.view.CardFooterView
+        android:id="@+id/view_list_card_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

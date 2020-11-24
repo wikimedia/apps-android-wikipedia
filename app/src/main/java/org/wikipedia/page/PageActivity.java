@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -28,7 +27,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
@@ -48,7 +46,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
@@ -57,7 +54,9 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
@@ -65,6 +64,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
@@ -72,6 +72,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
+import org.wikipedia.views.WikiArticleCardView;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 import java.util.ArrayList;
@@ -126,15 +127,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
+    @BindView(R.id.page_fragment) View pageFragmentView;
+    @BindView(R.id.page_toolbar_button_search) View searchButton;
+    @BindView(R.id.wiki_article_card_view) WikiArticleCardView wikiArticleCardView;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
+    private boolean hasTransitionAnimation;
+    private boolean wasTransitionShown;
 
     private WikipediaApp app;
     private Set<ActionMode> currentActionModes = new HashSet<>();
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    private PageToolbarHideHandler toolbarHideHandler;
+    private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -182,25 +188,30 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
+        searchButton.setOnClickListener(view -> startActivity(SearchActivity.newIntent(PageActivity.this, TOOLBAR, null)));
 
-        toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
+        tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
+        FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
+        tabsButton.updateTabCount();
+
+        toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
 
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         containerWithNavTrigger.setCallback(this);
 
-        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().setStatusBarColor(ContextCompat.getColor(pageFragment.requireContext(), R.color.black12));
         ViewCompat.setOnApplyWindowInsetsListener(drawerLayout, (v, insets) -> {
             toolbarContainerView.setPadding(0, insets.getSystemWindowInsetTop(), 0, 0);
             pageFragment.updateInsets(insets);
             return insets;
         });
 
+        hasTransitionAnimation = getIntent().getBooleanExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, false);
+        wikiArticleCardView.setVisibility(hasTransitionAnimation ? View.VISIBLE : View.GONE);
+
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                pageFragment.openSearchActivity(TOOLBAR);
+                startActivity(SearchActivity.newIntent(this, TOOLBAR, null));
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -216,18 +227,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
         }
-    }
-
-    public void requestLightStatusBar(boolean light) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return;
-        }
-        if (app.getCurrentTheme().isDark()) {
-            return;
-        }
-        getWindow().getDecorView().setSystemUiVisibility(light
-                ? getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                : getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -357,7 +356,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             WikiSite wiki = new WikiSite(uri);
             PageTitle title = wiki.titleForUri(uri);
             HistoryEntry historyEntry = new HistoryEntry(title,
-                    intent.hasExtra(Constants.INTENT_EXTRA_VIEW_FROM_NOTIFICATION)
+                    intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID)
                             ? HistoryEntry.SOURCE_NOTIFICATION_SYSTEM : HistoryEntry.SOURCE_EXTERNAL_LINK);
             if (intent.hasExtra(Intent.EXTRA_REFERRER)) {
                 // Populate the referrer with the externally-referring URL, e.g. an external Browser URL.
@@ -437,6 +436,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
+        if (hasTransitionAnimation && !wasTransitionShown) {
+            pageFragmentView.setVisibility(View.GONE);
+            wikiArticleCardView.prepareForTransition(title);
+            wasTransitionShown = true;
+        }
+
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
@@ -452,6 +457,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             if (!pageFragment.isAdded()) {
                 return;
             }
+
             // Close the link preview, if one is open.
             hideLinkPreview();
 
@@ -472,7 +478,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     public void loadMainPage(TabPosition position) {
-        PageTitle title = MainPageClient.getMainPageTitle();
+        PageTitle title = new PageTitle(SiteInfoClient.getMainPageForLang(app.getAppOrSystemLanguageCode()), app.getWikiSite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
     }
@@ -515,6 +521,25 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, showDefaultList, listDialogDismissListener);
     }
 
+    @Override
+    public void onPageLoadComplete() {
+        removeTransitionAnimState();
+    }
+
+    private void removeTransitionAnimState() {
+        if (pageFragmentView.getVisibility() != View.VISIBLE) {
+            pageFragmentView.setVisibility(View.VISIBLE);
+        }
+        if (wikiArticleCardView.getVisibility() != View.GONE) {
+            final int delayMillis = 250;
+            wikiArticleCardView.postDelayed(() -> {
+                if (wikiArticleCardView != null) {
+                    wikiArticleCardView.setVisibility(View.GONE);
+                }
+            }, delayMillis);
+        }
+    }
+
     // Note: back button first handled in {@link #onOptionsItemSelected()};
     @Override
     public void onBackPressed() {
@@ -526,6 +551,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app.getSessionFunnel().backPressed();
         if (pageFragment.onBackPressed()) {
             return;
+        }
+
+        // If user enter PageActivity in portrait and leave in landscape,
+        // we should hide the transition animation view to prevent bad animation.
+        if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
+            wikiArticleCardView.setVisibility(View.GONE);
+        } else {
+            wikiArticleCardView.setVisibility(View.VISIBLE);
+            pageFragmentView.setVisibility(View.GONE);
         }
         super.onBackPressed();
     }
@@ -594,21 +628,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageLoadError(@NonNull PageTitle title) {
         getSupportActionBar().setTitle(title.getDisplayText());
+        removeTransitionAnimState();
     }
 
     @Override
     public void onPageLoadErrorBackPressed() {
         finish();
-    }
-
-    @Override
-    public void onPageHideAllContent() {
-        toolbarHideHandler.setFadeEnabled(false);
-    }
-
-    @Override
-    public void onPageSetToolbarFadeEnabled(boolean enabled) {
-        toolbarHideHandler.setFadeEnabled(enabled);
     }
 
     @Override
@@ -798,8 +823,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeFinished(ActionMode mode) {
         super.onActionModeFinished(mode);
         currentActionModes.remove(mode);
-        toolbarHideHandler.onScrolled(pageFragment.getWebView().getScrollY(),
-                pageFragment.getWebView().getScrollY());
     }
 
     protected void clearActionBarTitle() {
@@ -853,12 +876,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
                     Prefs.shouldShowBookmarkToolTip(false);
                 }
-                if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitleOriginal() == null) {
+                if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitle() == null) {
                     return;
                 }
                 for (ReadingListPage page : ((ArticleSavedOrDeletedEvent) event).getPages()) {
-                    if (page.apiTitle().equals(pageFragment.getTitleOriginal().getPrefixedText())
-                            && page.wiki().languageCode().equals(pageFragment.getTitleOriginal().getWikiSite().languageCode())) {
+                    if (page.apiTitle().equals(pageFragment.getTitle().getPrefixedText())
+                            && page.wiki().languageCode().equals(pageFragment.getTitle().getWikiSite().languageCode())) {
                         pageFragment.updateBookmarkAndMenuOptionsFromDao();
                     }
                 }

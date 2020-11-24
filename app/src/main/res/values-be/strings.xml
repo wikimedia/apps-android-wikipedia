@@ -8,6 +8,7 @@
 * Liashko
 * Maksim L.
 * Mechanizatar
+* MuratTheTurkish
 * SimondR
 * Unomano
 -->
@@ -33,7 +34,7 @@
   <string name="search_redirect_from">Перанакіравана з %s</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>
   <string name="menu_page_other_languages">Змяніць мову</string>
-  <string name="menu_page_find_in_page">Знайсці на старонцы</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Знайсці на старонцы</string>
   <string name="menu_page_font_and_theme">Змяненне шрыфту і афармлення</string>
   <string name="menu_page_add_to_list">Дадаць у спіс для чытання</string>
   <string name="menu_page_share">Падзяліцца спасылкай</string>
@@ -123,6 +124,7 @@
   <string name="about_description">Пра дадатак «Вікіпедыя»</string>
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
+  <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
   <string name="about_libraries_heading">Выкарыстаныя бібліятэкі</string>
@@ -212,7 +214,7 @@
   <string name="error_no_maps_app">Не атрымалася знайсці ні аднаго дадатка, якое б пракладвала маршрут.</string>
   <string name="preference_title_show_link_previews">Паказваць прадпрагляд спасылак</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі прадпрагляд артыкулаў пры націску на спасылкі.</string>
-  <string name="nav_item_donate">Падтрымаць Вікіпедыю</string>
+  <string name="nav_item_donate" fuzzy="true">Падтрымаць Вікіпедыю</string>
   <string name="error_voice_search_not_available">На жаль, распазнаванне прамовы недаступна.</string>
   <string name="location_service_disabled">Службы Геолакацыі адключаны.</string>
   <string name="enable_location_service">Уключыць</string>
@@ -240,7 +242,6 @@
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, дзякуй</string>
   <string name="view_main_page_card_title">Сёння ў Вікіпедыі</string>
-  <string name="view_main_page_card_subtitle">Галоўная старонка на %s</string>
   <string name="view_featured_image_card_title">Выява дня</string>
   <string name="view_featured_image_card_download">Загрузіць</string>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сёння</string>

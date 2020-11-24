@@ -46,10 +46,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
-import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
@@ -75,7 +72,6 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -112,8 +108,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_WIKI = "wiki";
     public static final String EXTRA_REVISION = "revision";
     public static final String EXTRA_SOURCE = "source";
-    public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
-    public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
     private static JavaScriptActionHandler.ImageHitInfo TRANSITION_INFO;
 
@@ -167,14 +161,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     @Nullable private String targetLanguageCode;
-
-    @NonNull
-    public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
-                                   @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, null, filename, wiki, 0, source)
-                .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
-                .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
-    }
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
@@ -275,7 +261,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             transitionReceiver.setLayoutParams(params);
 
             transitionReceiver.setVisibility(View.VISIBLE);
-            ViewUtil.loadImage(transitionReceiver, TRANSITION_INFO.getSrc(), TRANSITION_INFO.getCenterCrop(), false);
+            ViewUtil.loadImage(transitionReceiver, TRANSITION_INFO.getSrc(), TRANSITION_INFO.getCenterCrop(), false, false, null);
 
             final int transitionMillis = 500;
             transitionReceiver.postDelayed(() -> {
@@ -670,14 +656,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      */
     private void loadGalleryContent() {
         updateProgressBar(false);
-        if (getIntent().hasExtra(EXTRA_FEATURED_IMAGE)) {
-            FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
-                    getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
-            featuredImage.setAge(getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0));
-            applyGalleryList(Collections.singletonList(new MediaListItem(featuredImage.title())));
-        } else {
-            fetchGalleryItems();
-        }
+        fetchGalleryItems();
     }
 
     private void applyGalleryList(@NonNull List<MediaListItem> list) {

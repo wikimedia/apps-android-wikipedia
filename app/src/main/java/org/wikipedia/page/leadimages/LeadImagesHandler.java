@@ -1,6 +1,5 @@
 package org.wikipedia.page.leadimages;
 
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
@@ -91,10 +90,6 @@ public class LeadImagesHandler {
      */
     public void hide() {
         pageHeaderView.hide();
-    }
-
-    @Nullable public Bitmap getLeadImageBitmap() {
-        return isLeadImageEnabled() ? pageHeaderView.copyBitmap() : null;
     }
 
     public boolean isLeadImageEnabled() {
@@ -197,6 +192,14 @@ public class LeadImagesHandler {
         }
     }
 
+    private int getLeadImageWidth() {
+        return getPage() == null ? pageHeaderView.image.getWidth() : getPage().getPageProperties().getLeadImageWidth();
+    }
+
+    private int getLeadImageHeight() {
+        return getPage() == null ? pageHeaderView.image.getHeight() : getPage().getPageProperties().getLeadImageHeight();
+    }
+
     @Nullable private String getLeadImageUrl() {
         String url = getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
         if (url == null) {
@@ -253,7 +256,7 @@ public class LeadImagesHandler {
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
 
                 JavaScriptActionHandler.ImageHitInfo hitInfo = new JavaScriptActionHandler.ImageHitInfo(pageHeaderView.image.getLeft(),
-                        pageHeaderView.image.getTop(), pageHeaderView.image.getWidth(), pageHeaderView.image.getHeight(),
+                        pageHeaderView.image.getTop(), getLeadImageWidth(), getLeadImageHeight(),
                         getLeadImageUrl(), true);
 
                 GalleryActivity.setTransitionInfo(hitInfo);

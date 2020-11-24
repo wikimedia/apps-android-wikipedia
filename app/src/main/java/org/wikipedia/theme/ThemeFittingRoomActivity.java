@@ -45,7 +45,7 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
     }
 
     @Override
-    public void onCancel() {
+    public void onCancelThemeChooser() {
         finish();
     }
 }

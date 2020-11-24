@@ -10,6 +10,7 @@
 * Leducthn
 * Levietduong
 * Minh Nguyen
+* MuratTheTurkish
 * Nguyên Lê
 * Nguyễn Mạnh An
 * Nhatminh01
@@ -57,7 +58,7 @@
   <string name="search_redirect_from">Đổi hướng từ %s</string>
   <string name="menu_page_show_tabs">Hiển thị tab</string>
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
-  <string name="menu_page_find_in_page">Tìm trong trang</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Tìm trong trang</string>
   <string name="edit_section_find_in_page">Tìm trong trang</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
   <string name="menu_page_add_to_list">Thêm vào danh sách đọc</string>
@@ -199,7 +200,7 @@
   <string name="about_wikipedia_url">https://vi.wikipedia.org/wiki/Wikipedia:Giới_thiệu</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/vi?uselang=vi</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/vi</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -323,7 +324,7 @@
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
   <string name="preference_title_collapse_tables">Thu gọn các bảng</string>
   <string name="preference_summary_collapse_tables">Tự động thu gọn các bảng trong bài viết, chẳng hạn như hộp thông tin, danh sách chú thích, và danh sách chú thích tham khảo.</string>
-  <string name="nav_item_donate">Hỗ trợ Wikimedia</string>
+  <string name="nav_item_donate" fuzzy="true">Hỗ trợ Wikimedia</string>
   <string name="error_voice_search_not_available">Rất tiếc, chức năng nhận dạng tiếng nói không có sẵn.</string>
   <string name="location_service_disabled">Dịch vụ định vị đang tắt.</string>
   <string name="enable_location_service">Kích hoạt</string>
@@ -554,12 +555,8 @@
   <string name="preference_summary_notification_user_talk">Tin nhắn từ trang thảo luận</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
-  <string name="view_random_card_subtitle">Tung xúc xắc để đọc bài ngẫu nhiên từ Wikipedia</string>
-  <string name="view_random_card_action">Tung xúc xắc</string>
   <string name="view_next_random_article">Một bài ngẫu nhiên nữa</string>
   <string name="view_main_page_card_title">Hôm nay tại Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Trang chính vào %s</string>
-  <string name="view_main_page_card_action">Xem trang chính</string>
   <string name="view_featured_image_card_title">Hình ảnh trong ngày</string>
   <string name="view_featured_image_card_download">Tải về</string>
   <string name="menu_feed_card_dismiss">Ẩn thẻ này</string>
@@ -569,7 +566,6 @@
   <string name="feed_featured_image_share_subject">Hình ảnh chọn lọc từ Wikimedia Commons</string>
   <string name="feed">Thám hiểm</string>
   <string name="home">Trang nhà</string>
-  <string name="most_read_list_card_title">Xu hướng</string>
   <string name="view_static_card_icon_content_description">Hình tượng thẻ</string>
   <string name="view_card_news_title">Tin tức</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -595,7 +591,6 @@
   <string name="feed_item_type_featured_article">Bài viết chọn lọc trong ngày tại Wikipedia</string>
   <string name="feed_item_type_trending">Các bài viết được xem nhiều nhất trong ngày</string>
   <string name="feed_item_type_featured_image">Hình ảnh chọn lọc trong ngày từ Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Trang chính của Wikipedia với các nội dung chọn lọc hằng ngày</string>
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
   <string name="feed_item_type_suggested_edits">Đề xuất thêm nội dung vào Wikipedia</string>
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
@@ -754,13 +749,10 @@
   <string name="app_shortcuts_random">Ngẫu nhiên</string>
   <string name="app_shortcuts_continue_reading">Đọc tiếp</string>
   <string name="app_shortcuts_search">Tìm kiếm</string>
-  <string name="more_trending_text">Bài tương tự</string>
-  <string name="top_on_this_day">Xu hướng tại %1$s</string>
   <string name="on_this_day_card_title">Ngày này năm xưa</string>
   <string name="more_events_text">Xem thêm sự kiện</string>
   <string name="events_count_text">Đã có %1$s sự kiện từ %2$s–%3$d</string>
   <string name="this_year">Năm nay</string>
-  <string name="back_to_top">Quay lại đầu trang</string>
   <string name="on_this_day_dialog_next_month">Tháng sau</string>
   <string name="on_this_day_dialog_previous_month">Tháng trước</string>
   <plurals name="diff_years">

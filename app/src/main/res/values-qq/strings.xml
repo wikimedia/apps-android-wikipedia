@@ -82,6 +82,7 @@
   <string name="feed_card_add_to_default_list">Menu item for adding the a card from the feed to a default reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
   <string name="menu_page_open_a_new_tab">Menu item text for opening a new tab.</string>
+  <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
@@ -366,12 +367,12 @@
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
   <string name="view_wiki_error_message_timeout">Error message shown when a network operation takes too long and times out.</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
-  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.\n{{Identical|References}}</string>
+  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.\n{{Identical|Reference}}</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
-  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.</string>
+  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.\n{{Identical|Content is available under}}</string>
   <string name="empty_tab_title">Label shown on a blank tab with no content.</string>
   <string name="menu_save_all_tabs">Label suggesting user to add all open tabs to a list.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
@@ -598,14 +599,17 @@
   <string name="preference_summary_notification_user_talk">Short summary explaining what User talk notifications are.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
-  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
-  <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
+  <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
+  <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
+  <string name="view_top_read_card_title">Feed card title for recently popular articles.\n{{Identical|Top read}}</string>
+  <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
+  <string name="view_top_read_card_pageviews_k_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
+  <string name="view_top_read_card_pageviews_m_suffix">Text for showing the amount of pageviews in millions. \"%d\" represents the number of pageviews in millions.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
-  <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
-  <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
+  <string name="view_featured_image_card_share">Label for a button the user can click to share the image link of the Picture of the Day.\n{{Identical|Share}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
   <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
   <string name="menu_feed_card_edit_card_languages">Menu item used for opening the page of editing card languages</string>
@@ -613,7 +617,6 @@
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
   <string name="home">Menu item label for going to the home screen in the app.</string>
-  <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -639,7 +642,6 @@
   <string name="feed_item_type_featured_article">Short description for Explore feed card that contains the daily featured article</string>
   <string name="feed_item_type_trending">Short description for Explore feed card that contains daily trending articles</string>
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
-  <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
@@ -651,6 +653,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="feed_accessibility_card_text">Short description for the accessibility card that tells user it is the bottom of the explore feed.</string>
   <string name="feed_accessibility_card_load_more_button">Button lable for manually loading more cards to the explore feed.</string>
+  <string name="top_read_activity_title">Title for the screen with all top read links. \"%s\" represents the date string</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
   <string name="description_edit_article_description_label">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_translate_article_description_label_per_language">Label that prompts the user that the summary of the article shows under the label. %s represents the language of the description.</string>
@@ -863,6 +866,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
+  <string name="suggested_card_more_edits">Label text for SE feed card footer action.</string>
   <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
@@ -904,13 +908,10 @@
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
-  <string name="more_trending_text">Button label to navigate to a full-screen view containing more trending articles.</string>
-  <string name="top_on_this_day">Title for the screen with all trending links. \"%1$s\" represents the date string</string>
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
-  <string name="back_to_top">Button label for scrolling the content to the top.</string>
   <string name="on_this_day_dialog_next_month">Image content description that shows it will trigger the calendar to the next month.</string>
   <string name="on_this_day_dialog_previous_month">Image content description that shows it will trigger the calendar to the previous month.</string>
   <string name="on_this_day_open_date_picker">View content description that shows it will trigger to open the date picker dialog.</string>
@@ -918,6 +919,8 @@
     <item quantity="one">Text indicating that the event occurred one year ago.</item>
     <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Label text shown to user when they have scrolled through the events till teh end.</string>
+  <string name="on_this_day_back_to_future">Button label for scrolling the content to the top.</string>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>
   <string name="languages_list_all_text">Section header of all languages in the languages list.</string>

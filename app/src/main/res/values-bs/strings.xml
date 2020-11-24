@@ -38,7 +38,7 @@
   <string name="search_redirect_from">Preusmjereno sa %s</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promijeni jezik</string>
-  <string name="menu_page_find_in_page">Pronađi na stranici</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Pronađi na stranici</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
@@ -262,7 +262,7 @@
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
   <string name="preference_title_show_link_previews">Prikaži preglede linkova</string>
   <string name="preference_summary_show_link_previews">Omogućite brz pregled članaka kad dodirnete linkove.</string>
-  <string name="nav_item_donate">Podržite Wikipediju</string>
+  <string name="nav_item_donate" fuzzy="true">Podržite Wikipediju</string>
   <string name="error_voice_search_not_available">Izvinjavamo se, prepoznavanje govora nije dostupno.</string>
   <string name="location_service_disabled">Lokacijske usluge su isključene.</string>
   <string name="enable_location_service">Uključi</string>
@@ -410,12 +410,8 @@
   <string name="notifications_empty_message">Nemate novih obavještenja!</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
-  <string name="view_random_card_subtitle">Prelistajte nasumično izabrane članke s Wikipedije.</string>
-  <string name="view_random_card_action">Baci kocku</string>
   <string name="view_next_random_article">Učitaj drugi nasumični članak</string>
   <string name="view_main_page_card_title">Danas na Wikipediji</string>
-  <string name="view_main_page_card_subtitle">Početna strana %s</string>
-  <string name="view_main_page_card_action">Prikaži početnu stranicu</string>
   <string name="view_featured_image_card_title">Slika dana</string>
   <string name="view_featured_image_card_download">Preuzmi</string>
   <string name="menu_feed_card_dismiss">Sakrij ovu karticu</string>
@@ -423,7 +419,6 @@
   <string name="menu_feed_overflow_label">Više opcija</string>
   <string name="feed_featured_image_share_subject">Odabrana slika s Wikimedia Commonsa</string>
   <string name="feed">Istraži</string>
-  <string name="most_read_list_card_title">Aktualno</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">Vijesti</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -449,7 +444,6 @@
   <string name="feed_item_type_featured_article">Odabrani članak na Wikipediji</string>
   <string name="feed_item_type_trending">Najposjećeniji članci dana</string>
   <string name="feed_item_type_featured_image">Odabrana slika dana s Wikimedia Commonsa</string>
-  <string name="feed_item_type_main_page">Početna stranica Wikipedije s dnevnim istaknutim sadržajem</string>
   <string name="feed_item_type_randomizer">Daje nasumične stranice za čitanje</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="customize_lang_selection_dialog_ok_button_text">U redu</string>
@@ -553,12 +547,9 @@
   <string name="app_shortcuts_random">Nasumična</string>
   <string name="app_shortcuts_continue_reading">Nastavite čitati</string>
   <string name="app_shortcuts_search">Pretraži</string>
-  <string name="more_trending_text">Više ovakvih</string>
-  <string name="top_on_this_day">Aktualno %1$s</string>
   <string name="on_this_day_card_title">Na današnji dan</string>
   <string name="more_events_text">Više na ovaj dan</string>
   <string name="events_count_text">%1$s događaja od %2$s do %3$d</string>
-  <string name="back_to_top">Skoči na vrh</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Prošle godine</item>
     <item quantity="other">Prije %d god.</item>

@@ -11,6 +11,7 @@
 * Kingu
 * Laaknor
 * Macofe
+* MuratTheTurkish
 * Nghtwlkr
 * Orf3us
 * Pmt
@@ -52,7 +53,7 @@
   <string name="search_redirect_from">Omdirigert fra %s</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
-  <string name="menu_page_find_in_page">Søk i siden</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Søk i siden</string>
   <string name="edit_section_find_in_page">Finn på siden</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
   <string name="menu_page_add_to_list">Legg til i leseliste</string>
@@ -190,7 +191,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Personvernpolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
-  <string name="about_wikipedia_url">https://no.m.wikipedia.org/wiki/Wikipedia:Om</string>
+  <string name="about_wikipedia_url">https://no.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -315,7 +316,7 @@
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
-  <string name="nav_item_donate">Støtt Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Støtt Wikipedia</string>
   <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
   <string name="location_service_disabled">Stedstjenester er slått av.</string>
   <string name="enable_location_service">Slå på</string>
@@ -531,12 +532,8 @@
   <string name="preference_summary_notification_user_talk">Meldinger fra diskusjonssider</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
-  <string name="view_random_card_subtitle">Gå gjennom tilfeldige artikler å lese fra Wikipedia.</string>
-  <string name="view_random_card_action">Kast terning</string>
   <string name="view_next_random_article">Last en annen tilfeldig artikkel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Forsiden %s</string>
-  <string name="view_main_page_card_action">Vis forsiden</string>
   <string name="view_featured_image_card_title">Dagens bilde</string>
   <string name="view_featured_image_card_download">Last ned</string>
   <string name="menu_feed_card_dismiss">Skjul dette kortet</string>
@@ -545,7 +542,6 @@
   <string name="menu_feed_overflow_label">Flere innstillinger</string>
   <string name="feed_featured_image_share_subject">Utvalgt bilde på Wikimedia Commons</string>
   <string name="feed">Utforsk</string>
-  <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortsymbol</string>
   <string name="view_card_news_title">Aktuelt</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -571,7 +567,6 @@
   <string name="feed_item_type_featured_article">Dagens anbefalte artikkel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest leste artikler</string>
   <string name="feed_item_type_featured_image">Dagens utvalgte bilde fra Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Hovedsiden til Wikipedia med dagens fremhevede innhold</string>
   <string name="feed_item_type_randomizer">Tilfeldig utvalgte artikler</string>
   <string name="feed_item_type_suggested_edits">Forslag om å legge til innhold på Wikipedia</string>
   <string name="feed_empty_message">Det er ingenting her</string>
@@ -788,13 +783,10 @@
   <string name="app_shortcuts_random">Tilfeldig</string>
   <string name="app_shortcuts_continue_reading">Fortsett å lese</string>
   <string name="app_shortcuts_search">Søk</string>
-  <string name="more_trending_text">Mer som dette</string>
-  <string name="top_on_this_day">Populært %1$s</string>
   <string name="on_this_day_card_title">På denne dag</string>
   <string name="more_events_text">Mer på denne dag</string>
   <string name="events_count_text">%1$s hendelser fra %2$s–%3$d</string>
   <string name="this_year">Dette året</string>
-  <string name="back_to_top">Tilbake til toppen</string>
   <string name="on_this_day_dialog_next_month">Neste måned</string>
   <string name="on_this_day_dialog_previous_month">Forrige måned</string>
   <string name="on_this_day_open_date_picker">Åpne datovelger</string>

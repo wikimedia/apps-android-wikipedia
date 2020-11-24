@@ -86,7 +86,7 @@
   <string name="search_redirect_from">重定向自%s</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
-  <string name="menu_page_find_in_page">在页面中查找</string>
+  <string name="menu_page_find_in_page" fuzzy="true">在页面中查找</string>
   <string name="edit_section_find_in_page">在页面中查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
@@ -355,7 +355,7 @@
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、引用和注释。</string>
-  <string name="nav_item_donate">支持维基百科</string>
+  <string name="nav_item_donate" fuzzy="true">支持维基百科</string>
   <string name="error_voice_search_not_available">对不起，语言识别不可用。</string>
   <string name="location_service_disabled">位置服务被禁用。</string>
   <string name="enable_location_service">启用</string>
@@ -600,12 +600,8 @@
   <string name="preference_summary_notification_user_talk">来自讨论页的消息</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
-  <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
-  <string name="view_random_card_action">掷骰子</string>
   <string name="view_next_random_article">加载另一个随机条目</string>
   <string name="view_main_page_card_title">维基百科今日</string>
-  <string name="view_main_page_card_subtitle">%s首页</string>
-  <string name="view_main_page_card_action">查看主页</string>
   <string name="view_featured_image_card_title">每日图片</string>
   <string name="view_featured_image_card_download">下载</string>
   <string name="menu_feed_card_dismiss">隐藏此卡片</string>
@@ -615,7 +611,6 @@
   <string name="feed_featured_image_share_subject">来自维基共享资源的特色图片</string>
   <string name="feed">探索</string>
   <string name="home">首页</string>
-  <string name="most_read_list_card_title">趋势</string>
   <string name="view_static_card_icon_content_description">卡片图标</string>
   <string name="view_card_news_title">新闻动态</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -641,7 +636,6 @@
   <string name="feed_item_type_featured_article">维基百科上的每日典范条目</string>
   <string name="feed_item_type_trending">每日最多访问的条目</string>
   <string name="feed_item_type_featured_image">来自维基共享资源的每日特色图片</string>
-  <string name="feed_item_type_main_page">包含每日特色内容的维基百科首页</string>
   <string name="feed_item_type_randomizer">生成随机条目以阅读</string>
   <string name="feed_item_type_suggested_edits">向维基百科添加内容的建议</string>
   <string name="feed_empty_message">在您的探索订阅源中没有任何东西</string>
@@ -899,13 +893,10 @@
   <string name="app_shortcuts_random">随机</string>
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>
-  <string name="more_trending_text">更多类似条目</string>
-  <string name="top_on_this_day">%1$s上的趋势</string>
   <string name="on_this_day_card_title">历史上的今天</string>
   <string name="more_events_text">这一天的更多事情</string>
   <string name="events_count_text">%2$s~%3$d年间的%1$s次事件</string>
   <string name="this_year">今年</string>
-  <string name="back_to_top">返回顶部</string>
   <string name="on_this_day_dialog_next_month">下月</string>
   <string name="on_this_day_dialog_previous_month">上月</string>
   <string name="on_this_day_open_date_picker">打开日期选择器</string>

@@ -92,7 +92,7 @@
   <string name="search_redirect_from">Redirigido desde %s</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
-  <string name="menu_page_find_in_page">Buscar en la página</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Buscar en la página</string>
   <string name="edit_section_find_in_page">Buscar en la página</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
   <string name="menu_page_add_to_list">Añadir a lista de lectura</string>
@@ -101,6 +101,7 @@
   <string name="feed_card_add_to_default_list">Guardar</string>
   <string name="menu_page_share">Compartir enlace</string>
   <string name="menu_page_open_a_new_tab">Abrir una pestaña nueva</string>
+  <string name="menu_page_new_tab">Pestaña nueva</string>
   <string name="menu_page_reading_lists">Listas de lectura</string>
   <string name="menu_page_recently_viewed">Visto recientemente</string>
   <string name="menu_long_press_open_page">Abrir</string>
@@ -367,7 +368,7 @@
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>
   <string name="preference_title_collapse_tables">Minimizar tablas</string>
   <string name="preference_summary_collapse_tables">Minimizar automáticamente tablas en los artículos, como por ejemplo cajas de información, referencias y notas.</string>
-  <string name="nav_item_donate">Apoya a Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Apoya a Wikipedia</string>
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
   <string name="enable_location_service">Activar</string>
@@ -599,12 +600,8 @@
   <string name="preference_summary_notification_user_talk">Mensajes en páginas de discusión</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia.</string>
-  <string name="view_random_card_action">Lanzar el dado</string>
   <string name="view_next_random_article">Cargar otro artículo al azar</string>
   <string name="view_main_page_card_title">Hoy en Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Página principal al %s</string>
-  <string name="view_main_page_card_action">Ver la página principal</string>
   <string name="view_featured_image_card_title">Imagen del día</string>
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Ocultar esta tarjeta</string>
@@ -614,7 +611,6 @@
   <string name="feed_featured_image_share_subject">Imagen destacada de Wikimedia Commons</string>
   <string name="feed">Explorar</string>
   <string name="home">Inicio</string>
-  <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icono de tarjeta</string>
   <string name="view_card_news_title">En las noticias</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -640,7 +636,6 @@
   <string name="feed_item_type_featured_article">Artículo destacado del día en Wikipedia</string>
   <string name="feed_item_type_trending">Artículos más vistos del día</string>
   <string name="feed_item_type_featured_image">Imagen destacada del día en Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Página principal de Wikipedia con contenido destacado diario</string>
   <string name="feed_item_type_randomizer">Generar artículos al azar para leer</string>
   <string name="feed_item_type_suggested_edits">Sugerencias para añadir contenido a Wikipedia</string>
   <string name="feed_empty_message">No hay nada en el suministro Explorar</string>
@@ -888,13 +883,10 @@
   <string name="app_shortcuts_random">Aleatorio</string>
   <string name="app_shortcuts_continue_reading">Continuar leyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
-  <string name="more_trending_text">Más de esto</string>
-  <string name="top_on_this_day">Tendencias del %1$s</string>
   <string name="on_this_day_card_title">Un día como hoy</string>
   <string name="more_events_text">Más acontecimientos históricos en este día</string>
   <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
-  <string name="back_to_top">Volver al principio</string>
   <string name="on_this_day_dialog_next_month">Mes siguiente</string>
   <string name="on_this_day_dialog_previous_month">Mes anterior</string>
   <string name="on_this_day_open_date_picker">Abrir selector de fecha</string>

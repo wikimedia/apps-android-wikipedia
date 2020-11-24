@@ -52,7 +52,7 @@
   <string name="search_redirect_from">%s سے رجوع مکرر</string>
   <string name="menu_page_show_tabs">ٹیب دکھائیں</string>
   <string name="menu_page_other_languages">زبان تبدیل کریں</string>
-  <string name="menu_page_find_in_page">صفحہ میں تلاش کریں</string>
+  <string name="menu_page_find_in_page" fuzzy="true">صفحہ میں تلاش کریں</string>
   <string name="edit_section_find_in_page">صفحہ میں تلاش کریں</string>
   <string name="menu_page_font_and_theme">فانٹ اور پوشاک</string>
   <string name="menu_page_add_to_list">فہرست مطالعہ میں شامل کریں</string>
@@ -319,7 +319,7 @@
   <string name="preference_summary_show_link_previews">مضمون کی فوری جھلک دکھائیں جب روابط پر ٹیپ کررہے ہوں۔</string>
   <string name="preference_title_collapse_tables">جدول بند کریں</string>
   <string name="preference_summary_collapse_tables">مضامین میں قابل توسیع جدول، جیسا کہ خانہ معلومات، حوالہ جات، اور حواشی وغیرہ کو خودکار طور پر سمیٹ دیں۔</string>
-  <string name="nav_item_donate">ویکیپیڈیا کی مدد کریں</string>
+  <string name="nav_item_donate" fuzzy="true">ویکیپیڈیا کی مدد کریں</string>
   <string name="error_voice_search_not_available">معذرت، آواز کی شناخت دستیاب نہیں ہے۔</string>
   <string name="location_service_disabled">لوکیشن(مقامیانہ) سروس غیر فعال ہے۔</string>
   <string name="enable_location_service">فعال کریں</string>
@@ -489,12 +489,8 @@
   <string name="preference_title_notification_user_talk">تبادلۂ خیال صفحہ</string>
   <string name="view_because_you_read_card_title">کیونکہ آپ نے پڑھا</string>
   <string name="view_random_card_title">جستہ جستہ صفحات</string>
-  <string name="view_random_card_subtitle">ویکیپیڈیا سے پڑھنے کے لیے بےترتیب مضامین کی تحریر پلٹ کر دیکھیں۔</string>
-  <string name="view_random_card_action">پانسہ کو پلٹیں</string>
   <string name="view_next_random_article">ایک اور بے ترتیب مضمون لوڈ کریں</string>
   <string name="view_main_page_card_title">آج ویکیپیڈیا پر</string>
-  <string name="view_main_page_card_subtitle">%s کا صفحۂ اول</string>
-  <string name="view_main_page_card_action">مرکزی صفحہ دیکھیں</string>
   <string name="view_featured_image_card_title">آج کی تصویر</string>
   <string name="view_featured_image_card_download">اتاریں</string>
   <string name="menu_feed_card_dismiss">اس کارڈ کو چھپائیں</string>
@@ -503,7 +499,6 @@
   <string name="menu_feed_overflow_label">مزید اختیارات</string>
   <string name="feed_featured_image_share_subject">ویکیمیڈیا کامنز کی منتخب تصویر</string>
   <string name="feed">اکتشاف</string>
-  <string name="most_read_list_card_title">مقبول صفحات</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
   <string name="view_card_news_title">خبروں میں</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -529,7 +524,6 @@
   <string name="feed_item_type_featured_article">ویکیپیڈیا کا روز کا منتخب مضمون</string>
   <string name="feed_item_type_trending">روز کے کثیر مشاہدہ مضامین</string>
   <string name="feed_item_type_featured_image">روزانہ کی ویکی کومنز کی منتخب تصویر</string>
-  <string name="feed_item_type_main_page">ویکیپیڈیا کا صفحۂ اول مع منتخب مواد</string>
   <string name="feed_item_type_randomizer">بے ترتیب مضامین پڑھیے</string>
   <string name="feed_configure_onboarding_action">تخصیص کریں</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ٹھیک</string>
@@ -640,12 +634,9 @@
   <string name="app_shortcuts_random">جستہ جستہ</string>
   <string name="app_shortcuts_continue_reading">مطالعہ جاری رکھیں</string>
   <string name="app_shortcuts_search">تلاش</string>
-  <string name="more_trending_text">اس طرح مزید</string>
-  <string name="top_on_this_day">%1$s کو رجحان</string>
   <string name="on_this_day_card_title">آج کے دن</string>
   <string name="more_events_text">مزید اس دن</string>
   <string name="this_year">اس سال</string>
-  <string name="back_to_top">واپس اوپر</string>
   <plurals name="diff_years">
     <item quantity="one">پچھلے سال</item>
     <item quantity="other">%d سال قبل</item>

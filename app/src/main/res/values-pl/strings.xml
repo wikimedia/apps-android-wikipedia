@@ -16,6 +16,7 @@
 * Masti
 * Matik7
 * Matma Rex
+* MuratTheTurkish
 * Nharateh
 * Py64
 * Rail
@@ -76,7 +77,7 @@
   <string name="search_redirect_from">Przekierowano z %s</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
-  <string name="menu_page_find_in_page">Znajdź na stronie</string>
+  <string name="menu_page_find_in_page">Znajdź w artykule</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
@@ -85,6 +86,7 @@
   <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
+  <string name="menu_page_new_tab">Nowa karta</string>
   <string name="menu_page_reading_lists">Listy do przeczytania</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
@@ -225,7 +227,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
-  <string name="android_app_edit_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
@@ -346,7 +348,7 @@
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="preference_title_collapse_tables">Zwiń tabele</string>
   <string name="preference_summary_collapse_tables">Automatyczne zwinięcie w artykułach tabel, takich jak infoboksy, odnośniki i uwagi.</string>
-  <string name="nav_item_donate">Wspomóż Wikipedię</string>
+  <string name="nav_item_donate">Wspieraj</string>
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
   <string name="location_service_disabled">Usługi lokalizacji są wyłączone.</string>
   <string name="enable_location_service">Włącz</string>
@@ -578,14 +580,13 @@
   <string name="preference_summary_notification_user_talk">Wiadomości ze stron dyskusji</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
-  <string name="view_random_card_subtitle">Przeglądaj losowe artykuły na Wikipedii</string>
-  <string name="view_random_card_action">Rzuć kostką</string>
+  <string name="view_random_article_card_title">Losowy artykuł</string>
+  <string name="view_random_article_card_action">Więcej losowych artykułów</string>
   <string name="view_next_random_article">Załaduj inny losowy artykuł</string>
   <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
-  <string name="view_main_page_card_subtitle">Strona główna na %s</string>
-  <string name="view_main_page_card_action">Zobacz stronę główną</string>
   <string name="view_featured_image_card_title">Grafika dnia</string>
   <string name="view_featured_image_card_download">Pobierz</string>
+  <string name="view_featured_image_card_share">Udostępnij</string>
   <string name="menu_feed_card_dismiss">Ukryj tę kartę</string>
   <string name="menu_feed_card_dismissed">Karta ukryta.</string>
   <string name="menu_feed_card_edit_card_languages">Edytuj języki karty</string>
@@ -593,7 +594,6 @@
   <string name="feed_featured_image_share_subject">Najlepsze zdjęcia z Wikimedia Commons</string>
   <string name="feed">Odkrywaj</string>
   <string name="home">Strona główna</string>
-  <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -619,7 +619,6 @@
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
   <string name="feed_item_type_trending">Najczęściej dzisiaj odwiedzane artykuły</string>
   <string name="feed_item_type_featured_image">Wyróżniony dzisiaj obraz z Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_item_type_suggested_edits">Sugestie dotyczące dodania treści do Wikipedii</string>
   <string name="feed_empty_message">W Twoim kanale Eksploruj nie ma nic</string>
@@ -825,13 +824,10 @@
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
-  <string name="more_trending_text">Więcej podobnych</string>
-  <string name="top_on_this_day">Popularne w dniu %1$s</string>
   <string name="on_this_day_card_title">Dzisiejszego dnia</string>
   <string name="more_events_text">Więcej dzisiejszego dnia</string>
   <string name="events_count_text">%1$s zdarzeń z %2$s–%3$d</string>
   <string name="this_year">W tym roku</string>
-  <string name="back_to_top">Powrót do góry</string>
   <string name="on_this_day_dialog_next_month">Następny miesiąc</string>
   <string name="on_this_day_dialog_previous_month">Poprzedni miesiąc</string>
   <string name="on_this_day_open_date_picker">Wybierz datę</string>
@@ -839,6 +835,8 @@
     <item quantity="one">w zeszłym roku</item>
     <item quantity="other">%d lat temu</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Udało ci się dostać do innej epoki 🚀</string>
+  <string name="on_this_day_back_to_future">Powróć do przyszłości</string>
   <string name="languages_list_activity_title">Dodaj język</string>
   <string name="languages_list_suggested_text">Sugerowany</string>
   <string name="languages_list_all_text">Wszystkie języki</string>

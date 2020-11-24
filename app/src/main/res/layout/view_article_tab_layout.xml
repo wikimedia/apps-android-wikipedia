@@ -21,20 +21,20 @@
         android:id="@+id/article_menu_search"
         style="@style/PageActionTabLayoutButtonStyle"
         android:tag="2"
-        android:text="@string/article_menu_bar_search_button"
-        app:drawableTopCompat="@drawable/ic_search_white_24dp" />
+        android:text="@string/menu_page_find_in_page"
+        app:drawableTopCompat="@drawable/ic_find_in_page_24px" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/article_menu_font_and_theme"
         style="@style/PageActionTabLayoutButtonStyle"
         android:tag="3"
         android:text="@string/article_menu_bar_theme_button"
-        app:drawableTopCompat="@drawable/ic_format_size_white_24dp" />
+        app:drawableTopCompat="@drawable/ic_icon_format_size" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/article_menu_show_toc"
         style="@style/PageActionTabLayoutButtonStyle"
         android:tag="4"
         android:text="@string/article_menu_bar_contents_button"
-        app:drawableTopCompat="@drawable/ic_list_white_24dp" />
+        app:drawableTopCompat="@drawable/ic_icon_list" />
 </merge>

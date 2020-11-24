@@ -6,6 +6,7 @@
 * Gediminas
 * Mantak111
 * Manvydasz
+* MuratTheTurkish
 * Nersip
 * Nuodas
 * Pofka
@@ -49,7 +50,7 @@
   <string name="search_redirect_from">Nukreipta iš %s</string>
   <string name="menu_page_show_tabs">Rodyti skirtukus</string>
   <string name="menu_page_other_languages">Keisti kalbą</string>
-  <string name="menu_page_find_in_page">Rasti puslapyje</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Rasti puslapyje</string>
   <string name="edit_section_find_in_page">Rasti puslapyje</string>
   <string name="menu_page_font_and_theme">Šriftas ir temos</string>
   <string name="menu_page_add_to_list">Įtraukti į skaitymo sąrašą</string>
@@ -167,7 +168,7 @@
   <string name="about_description">Apie Vikipedijos programėlę</string>
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://lt.m.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
+  <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
@@ -254,7 +255,7 @@
   <string name="error_no_maps_app">Nepavyko rasti jokių programėlių, kurios suteikia kryptis.</string>
   <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>
   <string name="preference_summary_show_link_previews">Palietus ant nuorodos rodyti greitos peržiūros straipsnius.</string>
-  <string name="nav_item_donate">Paremti Vikipediją</string>
+  <string name="nav_item_donate" fuzzy="true">Paremti Vikipediją</string>
   <string name="error_voice_search_not_available">Atsiprašome, balso atpažinimas negalimas.</string>
   <string name="location_service_disabled">Vietos paslaugos yra išjungtos.</string>
   <string name="enable_location_service">Įjungti</string>
@@ -329,9 +330,7 @@
   <string name="notification_syncing_cancel_button">Atšaukti</string>
   <string name="view_because_you_read_card_title">Nes jūs skaitėte</string>
   <string name="view_random_card_title">Atsitiktinis</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Skaityti atsitiktinį straipsnį iš Vikipedijos</string>
   <string name="view_main_page_card_title">Šiandien Vikipedijoje</string>
-  <string name="view_main_page_card_subtitle">Pagrindinis puslapis %s</string>
   <string name="view_featured_image_card_title">Dienos nuotrauka</string>
   <string name="view_featured_image_card_download">Atsisiųsti</string>
   <string name="menu_feed_card_dismiss">Paslėpti šią kortelę</string>
@@ -339,7 +338,6 @@
   <string name="menu_feed_overflow_label">Daugiau nustatymų</string>
   <string name="feed_featured_image_share_subject">Rinktiniai vaizdai iš Vikitekos</string>
   <string name="feed">Naršyti</string>
-  <string name="most_read_list_card_title">Populiaru</string>
   <string name="view_static_card_icon_content_description">Kortelės piktograma</string>
   <string name="view_card_news_title">Naujienose</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -380,7 +378,6 @@
   <string name="more_events_text">Daugiau šiandien</string>
   <string name="events_count_text">%1$s įvykiai nuo %2$s–%3$d</string>
   <string name="this_year">Šie metai</string>
-  <string name="back_to_top">Į viršų</string>
   <string name="on_this_day_dialog_next_month">Kitas mėnuo</string>
   <string name="on_this_day_dialog_previous_month">Ankstesnis mėnuo</string>
   <string name="talk_title">Aptarimas</string>

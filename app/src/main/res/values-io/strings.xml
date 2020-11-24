@@ -40,7 +40,7 @@
   <string name="search_redirect_from">(Ridirektita de %s)</string>
   <string name="menu_page_show_tabs">Montrar etiketi</string>
   <string name="menu_page_other_languages">Chanjar linguo</string>
-  <string name="menu_page_find_in_page">Serchar en la pagino</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Serchar en la pagino</string>
   <string name="edit_section_find_in_page">Serchar en la pagino</string>
   <string name="menu_page_font_and_theme">Fonto e temo</string>
   <string name="menu_page_add_to_list">Adjuntez a la lektebla listo</string>
@@ -355,5 +355,6 @@
   <string name="app_shortcuts_search">Serchez</string>
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
+  <string name="more_language_options">pluse</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>
 </resources>

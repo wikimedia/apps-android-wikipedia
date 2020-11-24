@@ -39,7 +39,7 @@
   <string name="search_redirect_from">%s ರ್ದ್ ಪಿರ ನಿರ್ದೇಸನೊ</string>
   <string name="menu_page_show_tabs">ಟ್ಯಾಬ್ ನು ತೊಜಾಲೆ</string>
   <string name="menu_page_other_languages">ಬಾಸೆನ್ ಬದಲ್ ಮಾನ್ಪಿ</string>
-  <string name="menu_page_find_in_page">ಪುಟೊಟು ನಾಡ್ಲೆ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ಪುಟೊಟು ನಾಡ್ಲೆ</string>
   <string name="edit_section_find_in_page">ಪುಟೊಟು ಪತ್ತೆ ಮಲ್ಪುಲೆ</string>
   <string name="menu_page_font_and_theme">ಅಕ್ಷರದ ನಮೂನೆ ಬುಕ್ಕಾ ಬಣ್ಣೊ</string>
   <string name="menu_page_add_to_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
@@ -215,7 +215,7 @@
   <string name="format_error_server_message">ಸಂದೇಸೊ: \"%s\"</string>
   <string name="button_continue_to_article">ಲೇಕನೋ ಓದುಲೆ</string>
   <string name="button_add_to_reading_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
-  <string name="nav_item_donate">ವಿಕಿಪೀಡಿಯತಾ ಬೆಂಬಲಾ</string>
+  <string name="nav_item_donate" fuzzy="true">ವಿಕಿಪೀಡಿಯತಾ ಬೆಂಬಲಾ</string>
   <string name="enable_location_service">ಸಕ್ರಿಯ ಮಲ್ಪು</string>
   <string name="location_permissions_enable_action">ಅನ್ ಮಾಲ್ಪುಲೆ.</string>
   <string name="multi_select_items_selected">%d ದೆತೊನ್ತುಂಡು</string>
@@ -274,7 +274,6 @@
   <string name="preference_title_notification_milestone">ಮೈಲ್ ಕಂಬ</string>
   <string name="preference_title_notification_thanks">ಸೊಲ್ಮೆಲೋ</string>
   <string name="view_main_page_card_title">ವಿಕಿಪೀಡಿಯಾಡ್ ಇನಿ</string>
-  <string name="view_main_page_card_subtitle">ಮುಕ್ಯೊ ಪುಟೊ %s ನಾನಿ ಸುರುವಾಯಿನ</string>
   <string name="view_featured_image_card_download">ಡೌನ್‍ಲೋಡ್</string>
   <string name="menu_feed_card_dismiss">ಈ ಅಭಿಪ್ರಾಯೊನು ದೆಂಗಾಲೆ</string>
   <string name="menu_feed_card_dismissed">ಅಭಿಪ್ರಾಯೊ ದೆಂಗಾಲೆ</string>

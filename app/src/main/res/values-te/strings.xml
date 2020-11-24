@@ -6,6 +6,7 @@
 * Chsasank
 * JVRKPRASAD
 * Kiranmayee
+* MuratTheTurkish
 * Praveen Illa
 * Veeven
 * రహ్మానుద్దీన్
@@ -33,7 +34,7 @@
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
-  <string name="menu_page_find_in_page">పుటలో వెతకండి</string>
+  <string name="menu_page_find_in_page" fuzzy="true">పుటలో వెతకండి</string>
   <string name="menu_page_font_and_theme">ఖతి, అలంకారం</string>
   <string name="menu_page_add_to_default_list">భద్రపరుచు</string>
   <string name="feed_card_add_to_default_list">భద్రపరుచు</string>
@@ -122,6 +123,7 @@
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
+  <string name="about_wikipedia_url">https://te.wikipedia.org/wiki/వికీపీడియా:గురించి</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
@@ -204,7 +206,7 @@
   <string name="button_continue_to_disambiguation">ఇటువంటి పేజీలను చూడండి</string>
   <string name="link_preview_disambiguation_description">ఈ శీర్షిక ఒకటికంటే ఎక్కువ పేజీలకు చెందుతుంది:</string>
   <string name="button_get_directions">నిర్దేశాలను పొందండి</string>
-  <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
+  <string name="nav_item_donate" fuzzy="true">వికీపీడియాకి తోడ్పడండి</string>
   <string name="empty_tab_title">కొత్త ట్యాబు</string>
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
@@ -288,10 +290,8 @@
   <string name="onboarding_maybe_later">మరెప్పుడైనా</string>
   <string name="onboarding_got_it">అర్థమైంది</string>
   <string name="app_shortcuts_search">వెతకండి</string>
-  <string name="more_trending_text">ఇలాంటివే మరిన్ని</string>
   <string name="on_this_day_card_title">ఈ రోజున</string>
   <string name="this_year">ఈ సంవత్సరం</string>
-  <string name="back_to_top">తిరిగి పైకి</string>
   <string name="on_this_day_dialog_next_month">వచ్చే నెల</string>
   <string name="on_this_day_dialog_previous_month">పోయిన నెల</string>
   <plurals name="diff_years">

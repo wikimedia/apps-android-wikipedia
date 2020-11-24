@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,11 +48,7 @@ public class OnThisDay {
 
         @NonNull
         public CharSequence text() {
-            List<String> pageTitles = new ArrayList<>();
-            for (PageSummary page : pages) {
-                pageTitles.add((StringUtil.fromHtml(page.getDisplayTitle())).toString());
-            }
-            return StringUtil.boldenSubstrings(text, pageTitles);
+            return text;
         }
 
         public int year() {

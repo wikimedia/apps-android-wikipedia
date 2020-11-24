@@ -46,7 +46,7 @@
   <string name="search_redirect_from">%s-dən yönləndirildi</string>
   <string name="menu_page_show_tabs">Pəncərələri göstər</string>
   <string name="menu_page_other_languages">Dili dəyiş</string>
-  <string name="menu_page_find_in_page">Səhifədə axtar</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Səhifədə axtar</string>
   <string name="edit_section_find_in_page">Səhifədə axtar</string>
   <string name="menu_page_font_and_theme">Şrift və tərtibatı dəyiş</string>
   <string name="menu_page_add_to_list">Oxuma siyahısına əlavə et</string>
@@ -372,7 +372,6 @@
   <string name="app_shortcuts_continue_reading">Oxumağa davam et</string>
   <string name="app_shortcuts_search">Axtar</string>
   <string name="this_year">Bu il</string>
-  <string name="back_to_top">Əvvələ qayıt</string>
   <string name="on_this_day_dialog_next_month">Növbəti ay</string>
   <string name="on_this_day_dialog_previous_month">Əvvəlki ay</string>
   <string name="languages_list_activity_title">Dil əlavə et</string>
