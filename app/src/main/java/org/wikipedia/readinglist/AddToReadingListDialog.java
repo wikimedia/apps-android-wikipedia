@@ -48,6 +48,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private final CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private boolean showDefaultList;
     List<ReadingList> readingLists = new ArrayList<>();
+    private final List<ReadingList> displayedLists = new ArrayList<>();
     InvokeSource invokeSource;
     CompositeDisposable disposables = new CompositeDisposable();
 
@@ -161,7 +162,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             onboardingContainer.setVisibility(View.GONE);
             listsContainer.setVisibility(View.VISIBLE);
             Prefs.setReadingListTutorialEnabled(false);
-            if (readingLists.isEmpty()) {
+            if (displayedLists.isEmpty()) {
                 showCreateListDialog();
             }
         });
@@ -175,10 +176,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(lists -> {
                     readingLists = lists;
-                    if (!showDefaultList && !readingLists.isEmpty()) {
-                        readingLists.remove(0);
+                    displayedLists.addAll(readingLists);
+                    if (!showDefaultList && !displayedLists.isEmpty()) {
+                        displayedLists.remove(0);
                     }
-                    ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
+                    ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
                     adapter.notifyDataSetChanged();
                     checkAndShowOnboarding();
                 }, L::w));
@@ -294,7 +296,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private final class ReadingListAdapter extends RecyclerView.Adapter<ReadingListItemHolder> {
         @Override
         public int getItemCount() {
-            return readingLists.size();
+            return displayedLists.size();
         }
 
         @Override
@@ -305,7 +307,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
         @Override
         public void onBindViewHolder(@NonNull ReadingListItemHolder holder, int pos) {
-            holder.bindItem(readingLists.get(pos));
+            holder.bindItem(displayedLists.get(pos));
         }
 
         @Override public void onViewAttachedToWindow(@NonNull ReadingListItemHolder holder) {
