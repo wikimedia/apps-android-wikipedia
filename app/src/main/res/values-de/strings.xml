@@ -770,15 +770,15 @@
   <string name="suggested_edits_image_tags_select_text">Nur die von Ihnen ausgewählten Tags werden zu Bildern hinzugefügt. Nicht ausgewählte Tags werden als abgelehnt markiert. Möchten Sie wirklich alle Tags als abgelehnt markieren?</string>
   <string name="suggested_edits_image_tags_add_tag">Tag hinzufügen</string>
   <string name="suggested_edits_encouragement_message">%s, danke für deine Bearbeitungen. Unten findest du weitere Möglichkeiten, um zu Wikipedia beizutragen.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hallo %s&lt;/b&gt;, haben Sie gewusst das jeder Wikipedia editieren kann? Unten finden Sie spannende Möglichkeiten um Wikipedia zu verbessern. Viel Spass beim Editieren!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildunterschriften beschreiben ein Bild, sodass Leser die Bedeutung und Kontext des Bildes besser verstehen können.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Artikelbeschreibungen fassen einen Artikel zusammen, damit Leser das Thema auf den ersten Blick besser verstehen.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, unten finden Sie einige schnelle und einfache Möglichkeiten, wie Sie zur Verbesserung von Wikipedia beitragen können. Sie werden den Unterschied sehen, den Sie machen, sobald Sie anfangen. Viel Spaß beim Editieren!</string>
+  <string name="suggested_edits_image_captions_task_detail">Beschreiben Sie ein Bild, um den Lesern zu helfen, seine Bedeutung und seinen Kontext zu verstehen.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Fasst einen Artikel zusammen, um Lesern beim Verstehen des Themas im Überblick zu helfen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Gesamtzahl deiner bisherigen Beiträge.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Anzahl der Tage ohne Pause die Sie mit Vorgeschlagene Bearbeitungen beigetragen haben. Wenn Sie eine Weile nicht beigetragen haben, wird Ihr letztes Beitragsdatum angezeigt.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage in Folge, an denen Sie Beiträge geleistet haben. Wenn Sie eine Weile nicht beigetragen haben, wird Ihr letztes Beitragsdatum angezeigt.</string>
   <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Totale Seitenaufrufe aller Bearbeitungen, zu denen Sie in den letzten 30 Tagen mit Vorgeschlagenen Bearbeitungen beigetragen haben.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basiert darauf, wie oft einer Ihrer Beiträge zurückgesetzt wurde (von einem anderen Editor rückgängig gemacht). Zurückgesetzte Änderungen: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
+  <string name="suggested_edits_paused_message">Vorgeschlagene Bearbeitungen ist pausiert bis %1$s. Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.</string>
+  <string name="suggested_edits_disabled_message">Vorgeschlagene Bearbeitungen ist deaktiviert. Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.</string>
   <string name="suggested_edits_ip_blocked_message">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist.</string>
   <string name="suggested_edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="suggested_edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>

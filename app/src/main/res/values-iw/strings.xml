@@ -70,6 +70,7 @@
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
+  <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
   <string name="menu_page_recently_viewed">הוצגו לאחרונה</string>
   <string name="menu_long_press_open_page">פתיחה</string>
@@ -856,8 +857,10 @@
   <string name="suggested_edits_contribution_article_label">ערך</string>
   <string name="suggested_edits_contribution_views">%s צפיות</string>
   <string name="suggested_edits_contribution_seen_text">נצפה %s פעמים ב־30 הימים האחרונים.</string>
-  <plurals name="suggested_edits_image_tag_contribution_label" fuzzy="true">
+  <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">הוספת תג אחד</item>
+    <item quantity="two">הוספת %d תגים</item>
+    <item quantity="many">הוספת %d תגים</item>
     <item quantity="other">הוספת %d תגים</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
