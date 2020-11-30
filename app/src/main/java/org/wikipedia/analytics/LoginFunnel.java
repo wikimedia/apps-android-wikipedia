@@ -7,7 +7,7 @@ import org.wikipedia.WikipediaApp;
  */
 public class LoginFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppLogin";
-    private static final int REVISION = 20318421;
+    private static final int REVISION = 20710032;
 
     public static final String SOURCE_NAV = "navigation";
     public static final String SOURCE_EDIT = "edit";

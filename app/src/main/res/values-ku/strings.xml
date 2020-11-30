@@ -23,7 +23,7 @@
   <string name="search_hint_voice_search">Lêgerîna ketana dengê</string>
   <string name="search_hint_search_languages">Li zimanekî bigere</string>
   <string name="filter_hint_filter_my_lists_and_articles">Lîsteyên min parzûn bike</string>
-  <string name="nav_item_suggested_edits">Guhertin</string>
+  <string name="nav_item_suggested_edits">Guhartin</string>
   <string name="nav_item_more">Zêdetir</string>
   <string name="nav_item_search">Lê bigere</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
@@ -85,7 +85,7 @@
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>
   <string name="dialog_message_edit_failed_cancel">Betal bike</string>
-  <string name="dialog_message_leaving_edit">Guhertinên te hê nihatine weşandin. Tu dixwazî ji vê rûpelê derkevî?</string>
+  <string name="dialog_message_leaving_edit">Guhartinên te hîn nehatine weşandin. Tu bi rastî dixwazî ji rûpelê derkevî?</string>
   <string name="dialog_message_leaving_edit_leave">Jê derkeve</string>
   <string name="dialog_message_leaving_edit_stay">Bimîne</string>
   <string name="menu_show_toc">Tabloya naverokê</string>
@@ -257,7 +257,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Doh</string>
   <string name="suggested_edits_rewards_continue_button">Bidomîne</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Têkeve Wîkîpediyayê / beşdar bibe</string>
-  <string name="suggested_edits_contribution_current_revision_text">Guhertina te vê gavê li ser Wîkîpediyayê weşandî ye</string>
+  <string name="suggested_edits_contribution_current_revision_text">Guhartina te vê gavê li ser Wîkîpediyayê weşandî ye</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>

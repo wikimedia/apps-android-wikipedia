@@ -444,7 +444,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onRandomClick(@NonNull RandomCardView view) {
-            startActivity(RandomActivity.newIntent(requireActivity(), FEED));
+            startActivity(RandomActivity.newIntent(requireActivity(), view.getCard().wikiSite(), FEED));
         }
 
         @Override

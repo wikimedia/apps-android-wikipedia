@@ -8,13 +8,15 @@ import androidx.annotation.NonNull;
 
 import org.wikipedia.Constants;
 import org.wikipedia.activity.SingleFragmentActivity;
+import org.wikipedia.dataclient.WikiSite;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public class RandomActivity extends SingleFragmentActivity<RandomFragment> {
-
-    public static Intent newIntent(@NonNull Context context, Constants.InvokeSource invokeSource) {
+    static final String INTENT_EXTRA_WIKISITE = "wikiSite";
+    public static Intent newIntent(@NonNull Context context, @NonNull WikiSite wikiSite, Constants.InvokeSource invokeSource) {
         return new Intent(context, RandomActivity.class)
+                .putExtra(INTENT_EXTRA_WIKISITE, wikiSite)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
     }
 
@@ -26,6 +28,7 @@ public class RandomActivity extends SingleFragmentActivity<RandomFragment> {
 
     @Override
     public RandomFragment createFragment() {
-        return RandomFragment.newInstance();
+        return RandomFragment.newInstance(getIntent().getParcelableExtra(INTENT_EXTRA_WIKISITE),
+                (Constants.InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
     }
 }
