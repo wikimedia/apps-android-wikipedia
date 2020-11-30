@@ -11,11 +11,12 @@
         android:layout_gravity="center"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:background="?attr/page_tab_counts_shape_border"
-        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/tab_counts_shape_border"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/toolbar_icon_color"
+        android:textColor="?attr/material_theme_de_emphasised_color"
         android:textSize="12sp"
         tools:text="3" />
 </merge>
