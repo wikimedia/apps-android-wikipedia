@@ -180,7 +180,7 @@ public class RandomFragment extends Fragment {
     public void onSelectPage(@NonNull PageTitle title, @NonNull Pair<View, String>[] sharedElements) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), sharedElements);
-        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title), options.toBundle());
+        startActivity(PageActivity.newIntentForNewTab(requireActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title), options.toBundle());
     }
 
     public void onAddPageToList(@NonNull PageTitle title, boolean addToDefault) {

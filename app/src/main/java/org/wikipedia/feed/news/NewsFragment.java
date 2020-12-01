@@ -164,13 +164,13 @@ public class NewsFragment extends Fragment {
     private class Callback implements ListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         }
 
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements) {
             ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
-            Intent intent = PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle());
+            Intent intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle());
             if (sharedElements.length > 0) {
                 intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
             }
