@@ -9,6 +9,7 @@
 * Codynguyen1116
 * Cooltey
 * Csbotero
+* DannyS712
 * David.novella
 * Dgstranz
 * Eduardo Addad de Oliveira
@@ -92,7 +93,7 @@
   <string name="search_redirect_from">Redirigido desde %s</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Buscar en la página</string>
+  <string name="menu_page_find_in_page">Buscar en artículo</string>
   <string name="edit_section_find_in_page">Buscar en la página</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
   <string name="menu_page_add_to_list">Añadir a lista de lectura</string>
@@ -368,7 +369,7 @@
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>
   <string name="preference_title_collapse_tables">Minimizar tablas</string>
   <string name="preference_summary_collapse_tables">Minimizar automáticamente tablas en los artículos, como por ejemplo cajas de información, referencias y notas.</string>
-  <string name="nav_item_donate" fuzzy="true">Apoya a Wikipedia</string>
+  <string name="nav_item_donate">Apoyar</string>
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
   <string name="enable_location_service">Activar</string>

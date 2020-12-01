@@ -90,6 +90,7 @@
   <string name="feed_card_add_to_default_list">ذخیره</string>
   <string name="menu_page_share">به‌اشتراک‌گذاشتن پیوند</string>
   <string name="menu_page_open_a_new_tab">بازکردن سربرگ تازه</string>
+  <string name="menu_page_new_tab">زبانه جدید</string>
   <string name="menu_page_reading_lists">فهرست‌های خواندن</string>
   <string name="menu_page_recently_viewed">بازدیدهای اخیر</string>
   <string name="menu_long_press_open_page">باز کردن</string>
@@ -595,10 +596,14 @@
   <string name="preference_summary_notification_user_talk">پیام‌های صفحه‌های بحث</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
+  <string name="view_random_article_card_title">مقاله تصادفی</string>
+  <string name="view_random_article_card_action">مقاله‌های تصادفی بیشتر</string>
+  <string name="view_top_read_card_title">بیشترین خوانده شده</string>
   <string name="view_next_random_article">بارگیری مقالهٔ تصادفی دیگر</string>
   <string name="view_main_page_card_title">امروز در ویکی‌پدیا</string>
   <string name="view_featured_image_card_title">تصویر روز</string>
   <string name="view_featured_image_card_download">بارگیری</string>
+  <string name="view_featured_image_card_share">اشتراک‌گذاری</string>
   <string name="menu_feed_card_dismiss">مخفی کردن این کارت</string>
   <string name="menu_feed_card_dismissed">کارت مخفی شده‌اند</string>
   <string name="menu_feed_card_edit_card_languages">ویرایش زبان کارت</string>
