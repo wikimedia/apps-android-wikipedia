@@ -42,7 +42,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:maxLines="4"
                 android:textSize="16sp"
                 android:paddingStart="16dp"
                 android:paddingTop="12dp"

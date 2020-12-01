@@ -37,11 +37,6 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
         tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_PX, DimenUtil.dpToPx(tabTextSize))
     }
 
-    fun setColor(@ColorInt color: Int) {
-        tabsCountText.setTextColor(color)
-        tabsCountText.backgroundTintList = ColorStateList.valueOf(color)
-    }
-
     companion object {
         private const val TAB_COUNT_LARGE_NUMBER = 99f
         private const val TAB_COUNT_SMALL_NUMBER = 9f
