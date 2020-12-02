@@ -5,6 +5,8 @@ package org.wikipedia.staticdata;
 
 import androidx.annotation.NonNull;
 
+import org.wikipedia.util.L10nUtil;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
