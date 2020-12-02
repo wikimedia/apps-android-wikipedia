@@ -5,6 +5,8 @@ package org.wikipedia.staticdata;
 
 import androidx.annotation.NonNull;
 
+import org.wikipedia.util.L10nUtil;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +15,7 @@ public final class MainPageNameData {
     @NonNull private static final Map<String, String> DATA_MAP = Collections.unmodifiableMap(newMap());
 
     @NonNull public static String valueFor(String key) {
+        key = L10nUtil.getDesiredLanguageCode(key);
         if (DATA_MAP.containsKey(key)) {
             return DATA_MAP.get(key);
         }
