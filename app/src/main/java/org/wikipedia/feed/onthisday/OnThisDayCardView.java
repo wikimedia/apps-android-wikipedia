@@ -30,7 +30,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -154,7 +154,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                     PageTitle pageTitle = finalChosenPage.getPageTitle(card.wikiSite());
                     HistoryEntry entry = new HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD);
 
-                    new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+                    new LongPressMenu(view, true, new LongPressMenu.Callback() {
                         @Override
                         public void onAddRequest(boolean addToDefault) {
                             if (addToDefault) {

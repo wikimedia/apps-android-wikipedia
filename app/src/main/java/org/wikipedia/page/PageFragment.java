@@ -87,7 +87,7 @@ import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
@@ -207,7 +207,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         public void onAddToReadingListTabSelected() {
             Prefs.shouldShowBookmarkToolTip(false);
             if (model.isInReadingList()) {
-                new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
+                new LongPressMenu(tabLayout, new LongPressMenu.Callback() {
                     @Override
                     public void onAddRequest(boolean addToDefault) {
                         addToReadingList(getTitle(), BOOKMARK_BUTTON);

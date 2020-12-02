@@ -30,7 +30,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.AnimationUtil;
@@ -149,7 +149,7 @@ public class RandomFragment extends Fragment {
             return;
         }
         if (saveButtonState) {
-            new ReadingListBookmarkMenu(saveButton, new ReadingListBookmarkMenu.Callback() {
+            new LongPressMenu(saveButton, new LongPressMenu.Callback() {
                 @Override
                 public void onAddRequest(boolean addToDefault) {
                     onAddPageToList(title, addToDefault);

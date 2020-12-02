@@ -24,7 +24,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -95,7 +95,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     boolean showOverflowMenu(View anchorView) {
         HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
-        new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
+        new LongPressMenu(anchorView, true, new LongPressMenu.Callback() {
             @Override
             public void onAddRequest(boolean addToDefault) {
                 if (addToDefault) {
