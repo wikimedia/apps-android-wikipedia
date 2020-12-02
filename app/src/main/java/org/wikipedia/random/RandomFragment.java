@@ -151,27 +151,42 @@ public class RandomFragment extends Fragment {
         if (saveButtonState) {
             new LongPressMenu(saveButton, new LongPressMenu.Callback() {
                 @Override
-                public void onAddRequest(boolean addToDefault) {
+                public void onOpenLink(@NonNull HistoryEntry entry) {
+                    // ignore
+                }
+
+                @Override
+                public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                    // ignore
+                }
+
+                @Override
+                public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
                     onAddPageToList(title, addToDefault);
                 }
 
                 @Override
-                public void onMoveRequest(@Nullable ReadingListPage page) {
+                public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                     onMovePageToList(page.listId(), title);
                 }
 
                 @Override
-                public void onDeleted(@Nullable ReadingListPage page) {
+                public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                     FeedbackUtil.showMessage(getActivity(),
                             getString(R.string.reading_list_item_deleted, title.getDisplayText()));
                     updateSaveShareButton(title);
                 }
 
                 @Override
-                public void onShare() {
+                public void onCopyLink(@NonNull HistoryEntry entry) {
                     // ignore
                 }
-            }).show(title);
+
+                @Override
+                public void onShareLink(@NonNull HistoryEntry entry) {
+                    // ignore
+                }
+            }).show(new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM));
         } else {
             onAddPageToList(title, true);
         }

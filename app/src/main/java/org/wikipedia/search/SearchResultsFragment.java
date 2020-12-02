@@ -30,7 +30,9 @@ import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
@@ -454,8 +456,7 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.OverflowMenuListener {
+    private class SearchResultsFragmentLongPressHandler implements LongPressMenu.Callback {
         private int lastPositionRequested;
 
         SearchResultsFragmentLongPressHandler(int position) {
@@ -463,42 +464,49 @@ public class SearchResultsFragment extends Fragment {
         }
 
         @Override
-        public void onOpenLink(PageTitle title, HistoryEntry entry) {
+        public void onOpenLink(@NonNull HistoryEntry entry) {
             Callback callback = callback();
             if (callback != null) {
-                callback.navigateToTitle(title, false, lastPositionRequested);
+                callback.navigateToTitle(entry.getTitle(), false, lastPositionRequested);
             }
         }
 
         @Override
-        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+        public void onOpenInNewTab(@NonNull HistoryEntry entry) {
             Callback callback = callback();
             if (callback != null) {
-                callback.navigateToTitle(title, true, lastPositionRequested);
+                callback.navigateToTitle(entry.getTitle(), true, lastPositionRequested);
             }
         }
 
         @Override
-        public void onCopyLink(PageTitle title) {
+        public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
+
+        }
+
+        @Override
+        public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
+
+        }
+
+        @Override
+        public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
+
+        }
+
+        @Override
+        public void onCopyLink(@NonNull HistoryEntry entry) {
             Callback callback = callback();
             if (callback != null) {
-                callback.onSearchResultCopyLink(title);
+                callback.onSearchResultCopyLink(entry.getTitle());
             }
         }
 
         @Override
-        public void onShareLink(PageTitle title) {
+        public void onShareLink(@NonNull HistoryEntry entry) {
             Callback callback = callback();
             if (callback != null) {
-                callback.onSearchResultShareLink(title);
-            }
-        }
-
-        @Override
-        public void onAddToList(@NonNull PageTitle title, @NonNull InvokeSource source) {
-            Callback callback = callback();
-            if (callback != null) {
-                callback.onSearchResultAddToList(title, source);
+                callback.onSearchResultShareLink(entry.getTitle());
             }
         }
     }

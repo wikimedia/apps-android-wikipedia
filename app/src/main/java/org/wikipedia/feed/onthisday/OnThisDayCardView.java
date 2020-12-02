@@ -32,6 +32,7 @@ import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -156,7 +157,21 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
                     new LongPressMenu(view, true, new LongPressMenu.Callback() {
                         @Override
-                        public void onAddRequest(boolean addToDefault) {
+                        public void onOpenLink(@NonNull HistoryEntry entry) {
+                            if (getCallback() != null) {
+                                getCallback().onSelectPage(card, entry, TransitionUtil.getSharedElements(getContext(), otdEventImage));
+                            }
+                        }
+
+                        @Override
+                        public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                            if (getCallback() != null) {
+                                getCallback().onSelectPage(card, entry, true);
+                            }
+                        }
+
+                        @Override
+                        public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
                             if (addToDefault) {
                                 ReadingListBehaviorsUtil.INSTANCE.addToDefaultList((AppCompatActivity) getContext(), entry.getTitle(), ON_THIS_DAY_CARD_BODY,
                                         readingListId ->
@@ -169,22 +184,28 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                         }
 
                         @Override
-                        public void onMoveRequest(@Nullable ReadingListPage page) {
+                        public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                             bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
                                     MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_CARD_BODY));
                         }
 
                         @Override
-                        public void onDeleted(@Nullable ReadingListPage page) {
+                        public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                             FeedbackUtil.showMessage((AppCompatActivity) getContext(),
                                     getContext().getResources().getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
                         }
 
                         @Override
-                        public void onShare() {
+                        public void onShareLink(@NonNull HistoryEntry entry) {
                             ShareUtil.shareText(getContext(), entry.getTitle());
                         }
-                    }).show(entry.getTitle());
+
+                        @Override
+                        public void onCopyLink(@NonNull HistoryEntry entry) {
+                            ClipboardUtil.setPlainText(getContext(), null, entry.getTitle().getUri());
+                            FeedbackUtil.showMessage((AppCompatActivity) getContext(), R.string.address_copied);
+                        }
+                    }).show(entry);
 
                     return true;
                 });

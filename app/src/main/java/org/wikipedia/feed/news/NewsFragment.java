@@ -36,6 +36,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
+import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -163,8 +164,12 @@ public class NewsFragment extends Fragment {
 
     private class Callback implements ListCardItemView.Callback {
         @Override
-        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewTab) {
+            if (openInNewTab) {
+                // TODO: open a new tab in background
+            } else {
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+            }
         }
 
         @Override
@@ -203,6 +208,12 @@ public class NewsFragment extends Fragment {
         @Override
         public void onSharePage(@NonNull HistoryEntry entry) {
             ShareUtil.shareText(requireActivity(), entry.getTitle());
+        }
+
+        @Override
+        public void onCopyPage(@NonNull HistoryEntry entry) {
+            ClipboardUtil.setPlainText(requireContext(), null, entry.getTitle().getUri());
+            FeedbackUtil.showMessage(requireActivity(), R.string.address_copied);
         }
     }
 

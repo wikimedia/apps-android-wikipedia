@@ -209,27 +209,42 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (model.isInReadingList()) {
                 new LongPressMenu(tabLayout, new LongPressMenu.Callback() {
                     @Override
-                    public void onAddRequest(boolean addToDefault) {
+                    public void onOpenLink(@NonNull HistoryEntry entry) {
+                        // ignore
+                    }
+
+                    @Override
+                    public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                        // ignore
+                    }
+
+                    @Override
+                    public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
                         addToReadingList(getTitle(), BOOKMARK_BUTTON);
                     }
 
                     @Override
-                    public void onMoveRequest(@Nullable ReadingListPage page) {
+                    public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                         moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON, true);
                     }
 
                     @Override
-                    public void onDeleted(@Nullable ReadingListPage page) {
+                    public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                         if (callback() != null) {
                             callback().onPageRemoveFromReadingLists(getTitle());
                         }
                     }
 
                     @Override
-                    public void onShare() {
+                    public void onCopyLink(@NonNull HistoryEntry entry) {
                         // ignore
                     }
-                }).show(getTitle());
+
+                    @Override
+                    public void onShareLink(@NonNull HistoryEntry entry) {
+                        // ignore
+                    }
+                }).show(getHistoryEntry());
             } else {
                 ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), getTitle(), BOOKMARK_BUTTON,
                         readingListId -> moveToReadingList(readingListId, getTitle(), BOOKMARK_BUTTON, false));

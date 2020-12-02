@@ -282,8 +282,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+    @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewTab) {
+        if (openInNewTab) {
+            // TODO: open tab in background
+        } else {
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+        }
     }
 
     @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
@@ -317,6 +321,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override public void onFeedSharePage(HistoryEntry entry) {
         ShareUtil.shareText(requireContext(), entry.getTitle());
+    }
+
+    @Override
+    public void onFeedCopyPage(HistoryEntry entry) {
+        ClipboardUtil.setPlainText(requireContext(), null, entry.getTitle().getUri());
+        FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
     @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
