@@ -581,6 +581,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d (na) milyon</string>
   <string name="view_next_random_article">Magkarga ng kahit anong artikulo</string>
   <string name="view_main_page_card_title">Ngayon sa Wikipedia</string>
+  <string name="view_main_page_card_action">Tingnan ang unang pahina</string>
   <string name="view_featured_image_card_title">Larawan ngayong araw</string>
   <string name="view_featured_image_card_download">I-download</string>
   <string name="view_featured_image_card_share">Ibahagi</string>

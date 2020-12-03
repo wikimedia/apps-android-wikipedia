@@ -355,6 +355,7 @@
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_title">შემთხვევითი</string>
   <string name="view_main_page_card_title">დღეს ვიკიპედიაში</string>
+  <string name="view_main_page_card_action">მთავარი გვერდის ნახვა</string>
   <string name="view_featured_image_card_title">დღის სურათი</string>
   <string name="view_featured_image_card_download">გადმოწერა</string>
   <string name="menu_feed_card_dismiss">ამ ბარათის დამალვა</string>

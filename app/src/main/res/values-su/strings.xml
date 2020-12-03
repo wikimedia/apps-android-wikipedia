@@ -424,6 +424,7 @@
   <string name="view_random_card_title">Kaca acak</string>
   <string name="view_next_random_article">Puat artikel acak lianna</string>
   <string name="view_main_page_card_title">Poé ieu na Wikipédia</string>
+  <string name="view_main_page_card_action">Tempo tepas</string>
   <string name="view_featured_image_card_title">Gambar poé ieu</string>
   <string name="view_featured_image_card_download">Undeur</string>
   <string name="menu_feed_card_dismiss">Sumputkeun ieu kartu</string>

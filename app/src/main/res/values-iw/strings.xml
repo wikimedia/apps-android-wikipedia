@@ -623,6 +623,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d מיליון</string>
   <string name="view_next_random_article">לטעון ערך אקראי נוסף</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
+  <string name="view_main_page_card_action">הצגת הדף הראשי</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
   <string name="view_featured_image_card_download">הורדה</string>
   <string name="view_featured_image_card_share">שיתוף</string>
@@ -660,6 +661,7 @@
   <string name="feed_item_type_featured_article">ערך מומלץ יומי בוויקיפדיה</string>
   <string name="feed_item_type_trending">הערכים המוצגים ביותר ביום</string>
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
+  <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
