@@ -94,8 +94,8 @@ class UserContributionEvent private constructor() : Event(SCHEMA_NAME, STREAM_NA
 
     companion object {
         private var INSTANCE: UserContributionEvent? = null
-        private const val SCHEMA_NAME = "/analytics/mobile_apps/android_user_contribution_screen"
-        private const val STREAM_NAME = "android.user_contributions_screen"
+        private const val SCHEMA_NAME = "/analytics/mobile_apps/android_user_contribution_screen/1.0.0"
+        private const val STREAM_NAME = "android.user_contribution_screen"
         fun get(): UserContributionEvent {
             if (INSTANCE == null) {
                 INSTANCE = UserContributionEvent()
