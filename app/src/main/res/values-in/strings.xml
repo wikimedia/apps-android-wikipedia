@@ -70,7 +70,7 @@
   <string name="search_redirect_from">Dialihkan dari %s</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ubah bahasa</string>
-  <string name="menu_page_find_in_page">Temukan di artikel</string>
+  <string name="menu_page_find_in_page">Cari di artikel</string>
   <string name="edit_section_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke daftar bacaan</string>
@@ -595,6 +595,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d jt</string>
   <string name="view_next_random_article">Muat artikel sembarang lainnya</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
+  <string name="view_main_page_card_action">Lihat halaman utama</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>
   <string name="view_featured_image_card_download">Unduh</string>
   <string name="view_featured_image_card_share">Bagikan</string>
@@ -630,6 +631,7 @@
   <string name="feed_item_type_featured_article">Artikel pilihan harian di Wikipedia</string>
   <string name="feed_item_type_trending">Artikel harian yang paling banyak dilihat</string>
   <string name="feed_item_type_featured_image">Gambar pilihan harian dari Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan isi pilihan harian</string>
   <string name="feed_item_type_randomizer">Menghasilkan sembarang artikel untuk dibaca</string>
   <string name="feed_item_type_suggested_edits">Tanggapan untuk menambahkan konten pada Wikipedia</string>
   <string name="feed_empty_message">Tidak ada apa-apa di umpan Jelajahi Anda</string>

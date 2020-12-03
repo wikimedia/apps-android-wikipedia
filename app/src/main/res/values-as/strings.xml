@@ -493,6 +493,7 @@
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_next_random_article">আন এটা যাদৃচ্ছিক প্ৰবন্ধ ল\'ড কৰক</string>
   <string name="view_main_page_card_title">ৱিকিপিডিয়াত আজি</string>
+  <string name="view_main_page_card_action">মুখ্য পৃষ্ঠা চাওক</string>
   <string name="view_featured_image_card_title">অজিৰ নিৰ্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনল’ড কৰক</string>
   <string name="menu_feed_card_dismiss">এই কাৰ্ড লুকুৱাওক</string>

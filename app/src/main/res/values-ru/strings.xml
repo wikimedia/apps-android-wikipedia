@@ -595,6 +595,7 @@
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_next_random_article">Скачать другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
+  <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
   <string name="view_featured_image_card_title">Изображение дня</string>
   <string name="view_featured_image_card_download">Скачать</string>
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
@@ -628,6 +629,7 @@
   <string name="feed_item_type_featured_article">Избранная статья дня в Википедии</string>
   <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
+  <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_empty_message">Ваша лента пуста</string>

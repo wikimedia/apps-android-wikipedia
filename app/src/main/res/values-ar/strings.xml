@@ -568,6 +568,7 @@
   <string name="view_random_card_title">صفحات عشوائية</string>
   <string name="view_next_random_article">مقال عشوائي اخر</string>
   <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
+  <string name="view_main_page_card_action">اعرض الصفحة الرئيسية</string>
   <string name="view_featured_image_card_title">صورة اليوم</string>
   <string name="view_featured_image_card_download">تنزيل</string>
   <string name="menu_feed_card_dismiss">أخف هذه البطاقة</string>
@@ -602,6 +603,7 @@
   <string name="feed_item_type_featured_article">المقالة المختارة يوميًّا على ويكيبيديا</string>
   <string name="feed_item_type_trending">المقالات الأكثر قراءة يوميا</string>
   <string name="feed_item_type_featured_image">صورة يومية مختارة من ويكيميديا ​​كومنز</string>
+  <string name="feed_item_type_main_page">الصفحة الرئيسية لويكيبيديا مع المحتوى اليومي المختار</string>
   <string name="feed_item_type_randomizer">توليد مقالات عشوائية للقراءة</string>
   <string name="feed_item_type_suggested_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
   <string name="feed_empty_message">لا يوجد شيء في خلاصة استكشافك</string>

@@ -608,6 +608,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Carregar outro artigo aleatório</string>
   <string name="view_main_page_card_title">Hoje na Wikipédia</string>
+  <string name="view_main_page_card_action">Ver página principal</string>
   <string name="view_featured_image_card_title">Imagem do dia</string>
   <string name="view_featured_image_card_download">Baixar</string>
   <string name="view_featured_image_card_share">Compartilhar</string>
@@ -643,6 +644,7 @@
   <string name="feed_item_type_featured_article">Artigo divulgado diariamente na Wikipedia</string>
   <string name="feed_item_type_trending">Artigos mais vistos diariamente</string>
   <string name="feed_item_type_featured_image">Imagem em destaque na Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Página principal da Wikipedia com conteúdo destacado diariamente</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
   <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed de Explorar</string>
