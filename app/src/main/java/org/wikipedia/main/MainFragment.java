@@ -49,8 +49,10 @@ import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -284,7 +286,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewTab) {
         if (openInNewTab) {
-            // TODO: open tab in background
+            WikipediaApp app = WikipediaApp.getInstance();
+            app.commitTabState();
+            Tab tab = app.getTabCount() == 0 ? app.getTabList().get(0) : new Tab();
+            if (app.getTabCount() > 0) {
+                app.getTabList().add(0, tab);
+                while (app.getTabList().size() > Constants.MAX_TABS) {
+                    app.getTabList().remove(0);
+                }
+            }
+            tab.getBackStack().add(new PageBackStackItem(entry.getTitle(), entry));
+            requireActivity().invalidateOptionsMenu();
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         }
