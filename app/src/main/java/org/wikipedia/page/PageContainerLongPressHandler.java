@@ -33,7 +33,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.WebViewMe
 
     @Override
     public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
-        fragment.addToReadingList(entry.getTitle(), Constants.InvokeSource.CONTEXT_MENU);
+        fragment.addToReadingList(entry.getTitle(), Constants.InvokeSource.CONTEXT_MENU, addToDefault);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.WebViewMe
 
     @Override
     public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-        // TODO: add remove page method
+        // can be ignored
     }
 
     @Override

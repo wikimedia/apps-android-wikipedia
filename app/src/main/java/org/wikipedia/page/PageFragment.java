@@ -86,8 +86,8 @@ import org.wikipedia.page.references.PageReferences;
 import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.LongPressMenu;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
@@ -220,7 +220,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
                     @Override
                     public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
-                        addToReadingList(getTitle(), BOOKMARK_BUTTON);
+                        addToReadingList(getTitle(), BOOKMARK_BUTTON, addToDefault);
                     }
 
                     @Override
@@ -246,8 +246,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     }
                 }).show(getHistoryEntry());
             } else {
-                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), getTitle(), BOOKMARK_BUTTON,
-                        readingListId -> moveToReadingList(readingListId, getTitle(), BOOKMARK_BUTTON, false));
+                addToReadingList(getTitle(), BOOKMARK_BUTTON, true);
             }
         }
 
@@ -1398,10 +1397,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    public void addToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageAddToReadingList(title, source);
+    public void addToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source, boolean addToDefault) {
+        if (addToDefault) {
+            ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), title, source,
+                    readingListId -> moveToReadingList(readingListId, title, source, false));
+        } else {
+            Callback callback = callback();
+            if (callback != null) {
+                callback.onPageAddToReadingList(title, source);
+            }
         }
     }
 
