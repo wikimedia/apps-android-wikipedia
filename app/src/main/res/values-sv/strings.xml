@@ -594,6 +594,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Läs in en annan slumpartikel</string>
   <string name="view_main_page_card_title">Idag på Wikipedia</string>
+  <string name="view_main_page_card_action">Visa huvudsidan</string>
   <string name="view_featured_image_card_title">Dagens bild</string>
   <string name="view_featured_image_card_download">Ladda ned</string>
   <string name="view_featured_image_card_share">Dela</string>
@@ -629,6 +630,7 @@
   <string name="feed_item_type_featured_article">Dagens utmärkta artikel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest lästa artiklar</string>
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
   <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
   <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>

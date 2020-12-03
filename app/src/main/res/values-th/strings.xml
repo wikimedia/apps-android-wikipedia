@@ -375,6 +375,7 @@
   <string name="text_size_increase">เพิ่มขนาดข้อความ</string>
   <string name="text_size_decrease">ลดขนาดข้อความ</string>
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
+  <string name="text_style_title">แบบอักษร</string>
   <string name="nav_item_reading_lists">รายการของฉัน</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_move_to">ย้ายลงในรายการอ่าน</string>
@@ -439,10 +440,13 @@
   <string name="reading_lists_sync_reminder_action">เปิดใช้งานการซิงค์</string>
   <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
   <string name="reading_lists_login_reminder_text">คุณสามารถซิงค์รายการอ่านระหว่างอุปกรณ์ต่าง ๆ ได้แล้วตอนนี้ เข้าสู่ระบบบัญชีวิกิพีเดียของคุณและอนุญาตให้รายการของคุณสามารถบันทึกได้</string>
+  <string name="reading_lists_login_button">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
+  <string name="reading_lists_ignore_button">ยังไม่ทำตอนนี้</string>
   <string name="reading_lists_confirm_remote_delete_yes">ใช่</string>
   <string name="reading_lists_confirm_remote_delete_no">ไม่</string>
   <string name="reading_list_article_save_in_progress">กำลังดาวน์โหลดบทความ และจะใช้ได้ขณะออฟไลน์เมื่อเสร็จสมบูรณ์</string>
   <string name="reading_list_articles_added_to_named">เพิ่ม %1$d บทความลงใน %2$s แล้ว</string>
+  <string name="reading_list_articles_moved_to_named">เพิ่ม %1$d บทความลงใน %2$s แล้ว</string>
   <string name="reading_list_delete_confirm">คุณแน่ใจว่าต้องการลบ %s หรือไม่</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">เข้าสู่ระบบเพื่อเปิดใช้งานการซิงค์</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">เข้าสู่ระบบเพื่ออนุญาตให้รายการอ่านของคุณสามารถบันทึกลงในบัญชีของคุณได้</string>
@@ -463,6 +467,7 @@
   <string name="no_user_lists_msg">สร้างรายการสำหรับสถานที่ที่อยากไป หัวข้อโปรด และอื่น ๆ</string>
   <string name="reading_list_saved_list_rename">%1$s (สร้างโดยผู้ใช้)</string>
   <string name="split_reading_list_message">มีขีดจำกัด %d บทความต่อรายการอ่าน รายการที่มีอยู่ซึ่งมีบทความมากกว่าขีดจำกัดนี้ได้ถูกแยกเป็นหลายรายการแล้ว</string>
+  <string name="reading_list_move_article_limit_message">ไม่สามารถเพิ่มลงในรายการนี้ได้ คุณได้ถึงขีดจำกัด %2$d บทความต่อรายการสำหรับ \"%1$s\" แล้ว</string>
   <string name="reading_list_article_limit_message">ไม่สามารถเพิ่มลงในรายการนี้ได้ คุณได้ถึงขีดจำกัด %2$d บทความต่อรายการสำหรับ \"%1$s\" แล้ว</string>
   <string name="reading_lists_limit_message">ไม่สามารถสร้างรายการอื่นได้ คุณได้ถึงขีดจำกัด 100 รายการต่อบัญชีแล้ว</string>
   <string name="reading_lists_menu_create_list">สร้างรายการใหม่</string>
@@ -556,10 +561,18 @@
   <string name="preference_summary_notification_user_talk">ข้อความจากหน้าคุย</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
+  <string name="view_random_article_card_title">สุ่มบทความ</string>
+  <string name="view_random_article_card_action">สุ่มบทความเพิ่มเติม</string>
+  <string name="view_top_read_card_title">อ่านมากที่สุด</string>
+  <string name="view_top_read_card_action">รายการอ่านมากที่สุดเพิ่มเติม</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d พัน</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d ล้าน</string>
   <string name="view_next_random_article">โหลดบทความสุ่มอื่น</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
+  <string name="view_main_page_card_action">ดูหน้าหลัก</string>
   <string name="view_featured_image_card_title">รูปภาพประจำวัน</string>
   <string name="view_featured_image_card_download">ดาวน์โหลด</string>
+  <string name="view_featured_image_card_share">แบ่งปัน</string>
   <string name="menu_feed_card_dismiss">ซ่อนการ์ดนี้</string>
   <string name="menu_feed_card_dismissed">ซ่อนการ์ดแล้ว</string>
   <string name="menu_feed_card_edit_card_languages">แก้ไขภาษาการ์ด</string>
@@ -592,6 +605,7 @@
   <string name="feed_item_type_featured_article">บทความคัดสรรประจำวันบนวิกิพีเดีย</string>
   <string name="feed_item_type_trending">บทความที่อ่านมากที่สุดประจำวัน</string>
   <string name="feed_item_type_featured_image">ภาพคัดสรรจากวิกิมีเดียคอมมอนส์ประจำวัน</string>
+  <string name="feed_item_type_main_page">หน้าหลักของวิกิพีเดียพร้อมเนื้อหาคัดสรรประจำวัน</string>
   <string name="feed_item_type_randomizer">สร้างบทความที่จะอ่านแบบสุ่ม</string>
   <string name="feed_item_type_suggested_edits">คำแนะนำเพื่อเพิ่มเนื้อหาลงในวิกิพีเดีย</string>
   <string name="feed_empty_message">ไม่มีอะไรเลยบนฟีดสำรวจของคุณ</string>
@@ -626,6 +640,8 @@
   <string name="description_edit_anon_limit">ขอบคุณที่สนใจแก้ไขคำอธิบายบทความอย่างต่อเนื่อง! หากต้องการทำการแก้ไขเพิ่มเติม โปรดเข้าสู่ระบบบัญชีวิกิพีเดียของคุณ</string>
   <string name="description_edit_license_notice">การเปลี่ยนคำอธิบายบทความถือว่าฉันยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดในการใช้งาน&lt;/a&gt;และต้องการเผยแพร่การมีส่วนร่วมของคุณภายใต้สัญญาอนุญาต&lt;a href=\"%2$s\"&gt;ครีเอทีฟคอมมอนส์ CC0&lt;/a&gt; โดยไม่สามารถยกเลิกได้</string>
   <string name="description_edit_helper_text_lowercase_warning">มักจะขึ้นต้นด้วยตัวอักษรพิมพ์เล็ก</string>
+  <string name="description_too_short">ข้อความสั้นเกินไป</string>
+  <string name="description_ends_with_punctuation">ข้อความต้องไม่ลงท้ายด้วยเครื่องหมายวรรคตอน</string>
   <string name="description_edit_success_saved">เผยแพร่คำอธิบายบทความแล้ว!</string>
   <string name="description_edit_success_saved_snackbar">เผยแพร่คำอธิบายบทความแล้ว!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">เผยแพร่คำอธิบายบทความแล้ว! (%s)</string>
@@ -697,12 +713,18 @@
   <string name="suggested_edits_feed_card_add_image_caption">เพิ่มคำบรรยายภาพ</string>
   <string name="suggested_edits_feed_card_translate_image_caption">เพิ่มคำบรรยายภาพ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">เพิ่มป้ายกำกับภาพ</string>
+  <string name="suggested_edits_snackbar_survey_action_text">ทำแบบสำรวจ</string>
   <string name="suggested_edits_task_action_text_add">เพิ่ม</string>
   <string name="suggested_edits_task_action_text_translate">แปล</string>
   <string name="suggested_edits_image_captions">คำบรรยายภาพ</string>
   <string name="suggested_edits_image_tags">ป้ายกำกับภาพ</string>
   <string name="suggested_edits_image_tags_publishing">กำลังเผยแพร่</string>
   <string name="suggested_edits_image_tags_published">เผยแพร่แล้ว</string>
+  <string name="suggested_edits_image_tags_onboarding_note">เฉพาะแท็กที่คุณยืนยันที่จะถูกเพิ่มไปยังภาพ</string>
+  <string name="suggested_edits_image_tags_published_list">แท็กที่เผยแพร่แล้ว</string>
+  <string name="suggested_edits_image_tags_search">ค้นหาแท็ก</string>
+  <string name="suggested_edits_image_tags_select_title">คุณยังไม่ได้เลือกแท็กสำหรับรูปภาพนี้</string>
+  <string name="suggested_edits_image_tags_add_tag">เพิ่มป้ายกำกับ</string>
   <string name="suggested_edits_ip_blocked_message">ดูเหมือนว่าเลขที่อยู่ไอพี (หรือช่วงเลขที่อยู่ไอพี) ของคุณถูกระงับการแก้ไขวิกิพีเดีย</string>
   <string name="suggested_edits_edit_streak_label_text">ความต่อเนื่องในการแก้ไข</string>
   <string name="suggested_edits_views_label_text">จำนวนครั้งที่ดู</string>
@@ -725,6 +747,7 @@
     <item quantity="other">%d วัน</item>
   </plurals>
   <string name="suggested_edits_learn_more">เรียนรู้เพิ่มเติม</string>
+  <string name="suggested_edits_paused_title">หยุดชั่วคราว</string>
   <string name="suggested_edits_disabled_title">ปิดใช้งาน</string>
   <string name="suggested_edits_ip_blocked_title">เลขที่อยู่ไอพีถูกระงับ</string>
   <string name="suggested_edits_last_edited">แก้ไขล่าสุดเมื่อ</string>
@@ -738,6 +761,7 @@
   <string name="suggested_edits_contribution_image_label">ภาพ</string>
   <string name="suggested_edits_contribution_article_label">บทความ</string>
   <string name="suggested_edits_contribution_date_yesterday_text">เมื่อวานนี้</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
   <string name="file_page_activity_title">หน้าไฟล์</string>
   <string name="description_edit_revert_subtitle">ขอบคุณที่แก้ไขวิกิพีเดีย!</string>
   <string name="description_edit_revert_intro">เรารู้ว่าคุณพยายามอย่างดีที่สุด แต่ผู้ตรวจทานคนใดคนหนึ่งมีข้อสงสัย เหตุผลที่เป็นไปได้ที่การแก้ไขของคุณถูกย้อนมี:</string>
@@ -823,4 +847,5 @@
   <string name="text_input_dialog_ok_button_text">ตกลง</string>
   <string name="text_input_dialog_cancel_button_text">ยกเลิก</string>
   <string name="custom_date_picker_dialog_cancel_button_text">ยกเลิก</string>
+  <string name="talk_title">คุย</string>
 </resources>

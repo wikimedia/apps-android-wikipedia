@@ -264,6 +264,7 @@
   <string name="view_random_card_title">Nejauša lapa</string>
   <string name="view_next_random_article">Ielādēt vēl vienu nejaušu rakstu</string>
   <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
+  <string name="view_main_page_card_action">Skatīt sākumlapu</string>
   <string name="view_featured_image_card_title">Dienas attēls</string>
   <string name="view_featured_image_card_download">Lejupielādēt</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">Paslēpt šo ierosinājumu</string>

@@ -504,6 +504,7 @@
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
   <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
   <string name="view_main_page_card_title">ئەمڕۆ لە ویکیپیدیا</string>
+  <string name="view_main_page_card_action">پیشاندانی پەڕەی سەرەکی</string>
   <string name="view_featured_image_card_title">وێنەی ڕۆژ</string>
   <string name="view_featured_image_card_download">داگرتن</string>
   <string name="menu_feed_card_dismiss">شاردنەوەی ئەم کارتە</string>
@@ -534,6 +535,7 @@
   <string name="feed_item_type_featured_article">وتاری ھەڵبژێردراوی ڕۆژانە لە ویکیپیدیا</string>
   <string name="feed_item_type_trending">ڕۆژانە زۆرترین بینینی وتارەکان</string>
   <string name="feed_item_type_featured_image">ڕۆژانە وێنەی ھەڵبژێردراو لە ویکیمیدیا کۆمنز</string>
+  <string name="feed_item_type_main_page">پەڕەی سەرەکی ویکیپیدیا لەگەڵ ناوەڕۆکی ھەڵبژێردراوی ڕۆژانە</string>
   <string name="feed_item_type_randomizer">دروستکردنی وتارێک بە ھەڵکەوت بۆ خوێندنەوە</string>
   <string name="feed_item_type_suggested_edits">پێشنیارەکان بۆ زیادکردنی ناوەڕۆک لە ویکیپیدیا</string>
   <string name="customize_lang_selection_dialog_ok_button_text">باشە</string>
