@@ -53,12 +53,12 @@ public class ListCardItemView extends ConstraintLayout {
     @BindView(R.id.view_list_card_item_title) TextView titleView;
     @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
     @BindView(R.id.view_list_card_item_pageviews) TextView pageViewsView;
-    @BindView(R.id.view_list_card_item_graph)
-    GraphView graphView;
+    @BindView(R.id.view_list_card_item_graph) GraphView graphView;
 
     @Nullable private Card card;
     @Nullable private Callback callback;
     @Nullable private HistoryEntry entry;
+    private final int DEFAULT_VIEW_HISTORY_ITEMS = 5;
 
     public ListCardItemView(Context context) {
         super(context);
@@ -168,6 +168,12 @@ public class ListCardItemView extends ConstraintLayout {
 
     public void setGraphView(@NonNull List<MostReadArticles.ViewHistory> viewHistories) {
         List<Float> dataSet = new ArrayList<>();
+
+        int i = viewHistories.size();
+        while(DEFAULT_VIEW_HISTORY_ITEMS > i++) {
+            dataSet.add(0f);
+        }
+
         for (MostReadArticles.ViewHistory viewHistory : viewHistories) {
             dataSet.add(viewHistory.getViews());
         }
