@@ -588,6 +588,7 @@
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_next_random_article">Indlæs en anden vilkårlig artikel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
+  <string name="view_main_page_card_action">Vis hovedsiden</string>
   <string name="view_featured_image_card_title">Dagens billede</string>
   <string name="view_featured_image_card_download">Hent</string>
   <string name="menu_feed_card_dismiss">Skjul dette kort</string>
@@ -622,6 +623,7 @@
   <string name="feed_item_type_featured_article">Dagens anbefalet artikel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest sete artikler</string>
   <string name="feed_item_type_featured_image">Dagens anbefalet billede fra Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Hovedside på Wikipedia med dagens anbefalet indhold</string>
   <string name="feed_item_type_randomizer">Vis vilkårlig artikel</string>
   <string name="feed_item_type_suggested_edits">Forslag om at tilføje indhold til Wikipedia</string>
   <string name="feed_empty_message">Der er intet i dit Udforsk-feed</string>

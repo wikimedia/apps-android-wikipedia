@@ -581,6 +581,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d мил.</string>
   <string name="view_next_random_article">Вчитај друга случајна статија</string>
   <string name="view_main_page_card_title">Денес на Википедија</string>
+  <string name="view_main_page_card_action">Погл. главната страница</string>
   <string name="view_featured_image_card_title">Слика на денот</string>
   <string name="view_featured_image_card_download">Преземи</string>
   <string name="view_featured_image_card_share">Сподели</string>
@@ -616,6 +617,7 @@
   <string name="feed_item_type_featured_article">Статија на денот на Википедија</string>
   <string name="feed_item_type_trending">Најпосетени статии за денес</string>
   <string name="feed_item_type_featured_image">Слика на денот од Ризницата</string>
+  <string name="feed_item_type_main_page">Главна страница на Википедија со содржини на денот</string>
   <string name="feed_item_type_randomizer">Дава случајни статии за читање</string>
   <string name="feed_item_type_suggested_edits">Предлози за додавање содржина на Википедија</string>
   <string name="feed_empty_message">Нема ништо во тековникот „Истражи“</string>

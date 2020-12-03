@@ -78,7 +78,7 @@
   <string name="map_view_link_text">Pogledaj na karti</string>
   <string name="other_languages_indication_text">Čitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa">Imenovanje-Dijeli pod istim uvjetima 3.0</string>
   <string name="edit_save_action_license_logged_in">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Uređivanja bit će pripisana IP adresi Vašeg uređaja. Ako ćete se &lt;a href=\"https://#login\"&gt;prijaviti&lt;/a&gt;, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
@@ -359,7 +359,7 @@
   <string name="color_theme_black">Crno</string>
   <string name="color_theme_sepia">Sepija</string>
   <string name="color_theme_test_title">Primjer teksta</string>
-  <string name="color_theme_test_text">Promijenite veličinu teksta članka povlačenjem klizača. Za odabir veličine teksta u ostatku aplikacije, promijenite veličinu teksta sustava.</string>
+  <string name="color_theme_test_text">Promijenite veličinu teksta članka povlačenjem klizača. Za odabir veličine teksta u ostatku aplikacije, promijenite sustavsku veličinu teksta.</string>
   <string name="preference_title_app_theme">Tema aplikacije</string>
   <string name="preference_summary_color_theme">Promijenite izgled aplikacije na tamnu temu</string>
   <string name="text_size_increase">Povećaj veličinu teksta</string>
@@ -401,8 +401,8 @@
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">%s uklonjeno</string>
   <string name="saved_list_empty_title">Zasad nema spremljenih stranica</string>
-  <string name="reading_lists_empty_message">Dodajte članke na listu za čitanje u budućnosti, čak i kada niste povezani na internet.</string>
-  <string name="reading_lists_onboarding_intro">Dodajte članke na listu za čitanje u budućnosti, čak i kada niste povezani na internet!</string>
+  <string name="reading_lists_empty_message">Dodajte članke na popis za čitanje, čak i kada niste povezani na internet.</string>
+  <string name="reading_lists_onboarding_intro">Dodajte članke na popis za čitanje, čak i kada niste povezani na internet!</string>
   <string name="reading_lists_onboarding_for_example">Na primjer</string>
   <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
   <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
@@ -413,13 +413,13 @@
   <string name="reading_list_article_make_offline">Neka ovaj članak bude dostupan izvan mreže</string>
   <string name="reading_list_add_to_other_list">Dodaj na drugi popis za čitanje</string>
   <string name="reading_list_move_to_other_list">Dodaj na drugi popis za čitanje</string>
-  <string name="reading_list_move_from_to_other_list">Premjesti iz %s na drugu listu za čitanje</string>
+  <string name="reading_list_move_from_to_other_list">Premjesti iz %s na drugi popis za čitanje</string>
   <string name="reading_list_remove_from_list">Ukloni s popisa %s</string>
   <string name="reading_list_remove_from_lists">Ukloni s popisa za čitanje</string>
   <string name="reading_list_select_item">Odaberi</string>
   <string name="reading_list_confirm_remove_article_from_offline">Ukloni iz izvanmrežne pohrane</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Članak se pojavljuje na više popisa</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s više neće biti dostupan/-na na svim listama za čitanje kada niste povezani na internet:</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s više neće biti dostupan/-na na svim popisima za čitanje kada niste povezani na internet:</string>
   <string name="reading_lists_sync_reminder_title">Uključiti sinkronizaciju popisa za čitanje?</string>
   <string name="reading_lists_sync_reminder_action">Omogući sinkronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinkroniziranje popisa za čitanje</string>
@@ -517,6 +517,7 @@
   <string name="view_random_card_title">Slučajna stranica</string>
   <string name="view_next_random_article">Učitaj drugi nasumični članak</string>
   <string name="view_main_page_card_title">Danas na Wikipediji</string>
+  <string name="view_main_page_card_action">Pogledaj glavnu stranicu</string>
   <string name="view_featured_image_card_title">Fotografija dana</string>
   <string name="view_featured_image_card_download">Preuzmi</string>
   <string name="menu_feed_card_dismiss">Sakrij ovu karticu</string>
@@ -549,6 +550,7 @@
   <string name="feed_item_type_featured_article">Dnevni izabrani članci na Wikipediji</string>
   <string name="feed_item_type_trending">Dnevni najčitaniji članci</string>
   <string name="feed_item_type_featured_image">Dnevne izabrane slike s Wikimedijinoga Zajedničkog poslužitelja</string>
+  <string name="feed_item_type_main_page">Glavna stranica Wikipedije s dnevnim izabranim sadržajem</string>
   <string name="feed_item_type_randomizer">Generiranje slučajnih članaka za čitanje</string>
   <string name="feed_item_type_suggested_edits">Prijedlozi za dodavanje sadržaja na Wikipediji</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>

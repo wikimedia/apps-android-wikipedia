@@ -619,6 +619,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Charger un autre article au hasard</string>
   <string name="view_main_page_card_title">Aujourd’hui sur Wikipédia</string>
+  <string name="view_main_page_card_action">Afficher la page principale</string>
   <string name="view_featured_image_card_title">Image du jour</string>
   <string name="view_featured_image_card_download">Télécharger</string>
   <string name="view_featured_image_card_share">Partager</string>
@@ -654,6 +655,7 @@
   <string name="feed_item_type_featured_article">Article du jour en vedette sur Wikipédia</string>
   <string name="feed_item_type_trending">Articles les plus vus du jour</string>
   <string name="feed_item_type_featured_image">Image du jour en vedette de Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
   <string name="feed_empty_message">Il n’y a rien dans votre flux à Explorer</string>
