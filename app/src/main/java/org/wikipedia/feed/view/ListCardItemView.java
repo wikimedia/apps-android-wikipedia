@@ -58,7 +58,7 @@ public class ListCardItemView extends ConstraintLayout {
     @Nullable private Card card;
     @Nullable private Callback callback;
     @Nullable private HistoryEntry entry;
-    private final int DEFAULT_VIEW_HISTORY_ITEMS = 5;
+    private static final int DEFAULT_VIEW_HISTORY_ITEMS = 5;
 
     public ListCardItemView(Context context) {
         super(context);
@@ -170,7 +170,7 @@ public class ListCardItemView extends ConstraintLayout {
         List<Float> dataSet = new ArrayList<>();
 
         int i = viewHistories.size();
-        while(DEFAULT_VIEW_HISTORY_ITEMS > i++) {
+        while (DEFAULT_VIEW_HISTORY_ITEMS > i++) {
             dataSet.add(0f);
         }
 
