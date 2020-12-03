@@ -43,7 +43,8 @@ public class PageContainerLongPressHandler implements LongPressHandler.WebViewMe
 
     @Override
     public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-        // can be ignored
+        FeedbackUtil.showMessage(fragment,
+                fragment.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
     }
 
     @Override
