@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -65,9 +64,11 @@ import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
-        void onSearchResultCopyLink(@NonNull PageTitle title);
-        void onSearchResultAddToList(@NonNull PageTitle title, @NonNull InvokeSource source);
-        void onSearchResultShareLink(@NonNull PageTitle title);
+        void onSearchAddPageToList(HistoryEntry entry, boolean addToDefault);
+        void onSearchMovePageToList(long sourceReadingListId, HistoryEntry entry);
+        void onSearchRemovePageFromList(HistoryEntry entry);
+        void onSearchSharePage(HistoryEntry entry);
+        void onSearchCopyPage(HistoryEntry entry);
         void onSearchProgressBar(boolean enabled);
         void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
         void setSearchText(@NonNull CharSequence text);
@@ -457,7 +458,8 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private class SearchResultsFragmentLongPressHandler implements LongPressMenu.Callback {
-        private int lastPositionRequested;
+        private final int lastPositionRequested;
+        private final Callback callback = callback();
 
         SearchResultsFragmentLongPressHandler(int position) {
             lastPositionRequested = position;
@@ -465,7 +467,6 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public void onOpenLink(@NonNull HistoryEntry entry) {
-            Callback callback = callback();
             if (callback != null) {
                 callback.navigateToTitle(entry.getTitle(), false, lastPositionRequested);
             }
@@ -473,7 +474,6 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public void onOpenInNewTab(@NonNull HistoryEntry entry) {
-            Callback callback = callback();
             if (callback != null) {
                 callback.navigateToTitle(entry.getTitle(), true, lastPositionRequested);
             }
@@ -481,32 +481,36 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
-
+            if (callback != null) {
+                callback.onSearchAddPageToList(entry, addToDefault);
+            }
         }
 
         @Override
         public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-
+            if (callback != null) {
+                callback.onSearchMovePageToList(page.listId(), entry);
+            }
         }
 
         @Override
         public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-
+            if (callback != null) {
+                callback.onSearchRemovePageFromList(entry);
+            }
         }
 
         @Override
         public void onCopyLink(@NonNull HistoryEntry entry) {
-            Callback callback = callback();
             if (callback != null) {
-                callback.onSearchResultCopyLink(entry.getTitle());
+                callback.onSearchCopyPage(entry);
             }
         }
 
         @Override
         public void onShareLink(@NonNull HistoryEntry entry) {
-            Callback callback = callback();
             if (callback != null) {
-                callback.onSearchResultShareLink(entry.getTitle());
+                callback.onSearchSharePage(entry);
             }
         }
     }
