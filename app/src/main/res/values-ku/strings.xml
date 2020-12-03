@@ -40,11 +40,13 @@
   <string name="history_item_delete_undo">Betal bike</string>
   <string name="notification_archive_undo">Vegerîne</string>
   <string name="app_settings">Eyarên sepanê</string>
+  <string name="history_list_title">Dîrok</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
   <string name="dialog_message_clear_history">Ev wê hemû dîroka çavlêgerandinên te jê bibe, û hemû paceyên ku niha vekirî bin bigire. Jidil dixwazî?</string>
   <string name="dialog_message_clear_history_yes">Erê</string>
   <string name="dialog_message_clear_history_no">Na</string>
   <string name="share_via">Bi awayê $ parve bike</string>
+  <string name="image_share_via">Pê parve bike</string>
   <string name="search_redirect_from">Ji %s hate beralîkirin</string>
   <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
   <string name="menu_page_other_languages">Ziman biguherîne</string>

@@ -602,6 +602,7 @@
   <string name="view_random_card_title">随机产生条目器</string>
   <string name="view_next_random_article">加载另一个随机条目</string>
   <string name="view_main_page_card_title">维基百科今日</string>
+  <string name="view_main_page_card_action">查看主页</string>
   <string name="view_featured_image_card_title">每日图片</string>
   <string name="view_featured_image_card_download">下载</string>
   <string name="menu_feed_card_dismiss">隐藏此卡片</string>
@@ -636,6 +637,7 @@
   <string name="feed_item_type_featured_article">维基百科上的每日典范条目</string>
   <string name="feed_item_type_trending">每日最多访问的条目</string>
   <string name="feed_item_type_featured_image">来自维基共享资源的每日特色图片</string>
+  <string name="feed_item_type_main_page">包含每日特色内容的维基百科首页</string>
   <string name="feed_item_type_randomizer">生成随机条目以阅读</string>
   <string name="feed_item_type_suggested_edits">向维基百科添加内容的建议</string>
   <string name="feed_empty_message">在您的探索订阅源中没有任何东西</string>

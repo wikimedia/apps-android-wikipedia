@@ -588,6 +588,7 @@
   <string name="view_top_read_card_action">Další nejčtenější</string>
   <string name="view_next_random_article">Načíst další náhodný článek</string>
   <string name="view_main_page_card_title">Dnes na Wikipedii</string>
+  <string name="view_main_page_card_action">Zobrazit hlavní stranu</string>
   <string name="view_featured_image_card_title">Obrázek dne</string>
   <string name="view_featured_image_card_download">Stáhnout</string>
   <string name="view_featured_image_card_share">Sdílet</string>
@@ -623,6 +624,7 @@
   <string name="feed_item_type_featured_article">Doporučený článek na Wikipedii</string>
   <string name="feed_item_type_trending">Nejčastěji prohlížené články za tento den</string>
   <string name="feed_item_type_featured_image">Denní doporučený obrázek z Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
   <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
   <string name="feed_empty_message">Nic není ve vašem kanále Objevit</string>
