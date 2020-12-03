@@ -115,4 +115,12 @@
         <item name="android:disabledAlpha">1.0</item>
     </style>
 
+    <style name="ThemeDark.Translucent">
+        <item name="android:windowBackground">@color/black87</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorAccent">@color/accent50</item>
+    </style>
+
 </resources>
