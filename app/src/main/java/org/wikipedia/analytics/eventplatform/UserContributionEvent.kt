@@ -4,9 +4,7 @@ import com.google.gson.annotations.SerializedName
 import org.wikipedia.WikipediaApp
 
 class UserContributionEvent private constructor() : Event(SCHEMA_NAME, STREAM_NAME) {
-    @SerializedName("action")
-    private var action: String = ""
-    private var eventPlatformClient: EventPlatformClient = WikipediaApp.getInstance().eventPlatformClient
+    @SerializedName("action") private var action: String = ""
 
     fun logOpen() {
         action = "open_hist"
@@ -89,7 +87,7 @@ class UserContributionEvent private constructor() : Event(SCHEMA_NAME, STREAM_NA
     }
 
     private fun submitEvent() {
-        eventPlatformClient.submit(this)
+        WikipediaApp.getInstance().eventPlatformClient.submit(this)
     }
 
     companion object {
