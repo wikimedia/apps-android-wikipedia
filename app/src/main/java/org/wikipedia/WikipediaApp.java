@@ -150,8 +150,6 @@ public class WikipediaApp extends Application {
 
         WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
 
-        eventPlatformClient = EventPlatformClient.getInstance();
-
         // Register here rather than in AndroidManifest.xml so that we can target Android N.
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
@@ -194,6 +192,7 @@ public class WikipediaApp extends Application {
         // For good measure, explicitly call our token subscription function, in case the
         // API failed in previous attempts.
         WikipediaFirebaseMessagingService.Companion.updateSubscription();
+        EventPlatformClient.setUpStreamConfigs();
     }
 
     public int getVersionCode() {

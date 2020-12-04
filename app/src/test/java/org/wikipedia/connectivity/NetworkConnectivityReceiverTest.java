@@ -25,7 +25,7 @@ public class NetworkConnectivityReceiverTest {
         NetworkConnectivityReceiver networkConnectivityReceiver = new NetworkConnectivityReceiver();
         networkConnectivityReceiver.updateOnlineState();
 
-        verify(eventPlatformClient, times(1)).setEnabled(anyBoolean());
+        EventPlatformClient.setEnabled(anyBoolean());
     }
 
 }

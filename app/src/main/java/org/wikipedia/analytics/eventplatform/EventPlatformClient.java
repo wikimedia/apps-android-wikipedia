@@ -28,8 +28,6 @@ import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SE
 
 public final class EventPlatformClient {
 
-    private static final EventPlatformClient INSTANCE = new EventPlatformClient();
-
     /**
      * Stream configs to be fetched on startup and stored for the duration of the application
      * lifecycle.
@@ -52,10 +50,6 @@ public final class EventPlatformClient {
     // than once, but it doesn't really matter because we don't expect flags and ignore them if
     // present.
     static String JS_REGEXP_PATTERN = "^/.*/[gimsuy]{0,6}$";
-
-    public static EventPlatformClient getInstance() {
-        return INSTANCE;
-    }
 
     /**
      * Get the stream config for a given stream name.
@@ -105,7 +99,7 @@ public final class EventPlatformClient {
      * Set whether the client is enabled. This can react to device online/offline state as well
      * as other considerations.
      */
-    public void setEnabled(boolean enabled) {
+    public static void setEnabled(boolean enabled) {
         ENABLED = enabled;
 
         if (ENABLED) {
@@ -122,7 +116,7 @@ public final class EventPlatformClient {
      *
      * @param event event
      */
-    public void submit(Event event) {
+    public static void submit(Event event) {
         if (!SamplingController.isInSample(event)) {
             return;
         }
@@ -438,7 +432,7 @@ public final class EventPlatformClient {
     /*
      * The constructor is private, so instantiation from other classes is impossible.
      */
-    private EventPlatformClient() {
+    public static void setUpStreamConfigs() {
         STREAM_CONFIGS = getStoredStreamConfigs();
         refreshStreamConfigs();
     }
