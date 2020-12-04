@@ -503,9 +503,7 @@
   <string name="preference_summary_notification_user_talk">نامەی پەڕەکانی وتووێژ</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>
   <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
-  <string name="view_random_card_subtitle" fuzzy="true">خوێندنەوەی وتارێکی بەھەڵکەوت لە ویکیپیدیا</string>
   <string name="view_main_page_card_title">ئەمڕۆ لە ویکیپیدیا</string>
-  <string name="view_main_page_card_subtitle">پەڕەی سەرەکی لە %s</string>
   <string name="view_main_page_card_action">پیشاندانی پەڕەی سەرەکی</string>
   <string name="view_featured_image_card_title">وێنەی ڕۆژ</string>
   <string name="view_featured_image_card_download">داگرتن</string>
@@ -515,7 +513,6 @@
   <string name="menu_feed_overflow_label">بژاردەکانی تر</string>
   <string name="feed_featured_image_share_subject">وێنەی ھەڵبژێردراو لە ویکیمیدیا کۆمنز</string>
   <string name="feed">بگەڕێ</string>
-  <string name="most_read_list_card_title">گەرماوگەرم</string>
   <string name="view_static_card_icon_content_description">نیشانەی کارت</string>
   <string name="view_card_news_title">لە ھەواڵەکان</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -706,11 +703,9 @@
   <string name="app_shortcuts_random">بە ھەڵکەوت</string>
   <string name="app_shortcuts_continue_reading">بەردەوامبوون لە خوێندنەوە</string>
   <string name="app_shortcuts_search">بگەڕێ</string>
-  <string name="more_trending_text">ھاوشێوەی ئەمە</string>
   <string name="on_this_day_card_title">لەمڕۆژەدا</string>
   <string name="more_events_text">زیاتر لەمڕۆژەدا</string>
   <string name="this_year">ئەمساڵ</string>
-  <string name="back_to_top">گەڕانەوە بۆ سەرەوە</string>
   <string name="on_this_day_dialog_next_month">مانگی داھاتوو</string>
   <string name="on_this_day_dialog_previous_month">مانگی پێشوو</string>
   <string name="languages_list_activity_title">زیادکردنی زمانێک</string>

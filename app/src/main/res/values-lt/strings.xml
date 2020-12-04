@@ -330,9 +330,7 @@
   <string name="notification_syncing_cancel_button">Atšaukti</string>
   <string name="view_because_you_read_card_title">Nes jūs skaitėte</string>
   <string name="view_random_card_title">Atsitiktinis</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Skaityti atsitiktinį straipsnį iš Vikipedijos</string>
   <string name="view_main_page_card_title">Šiandien Vikipedijoje</string>
-  <string name="view_main_page_card_subtitle">Pagrindinis puslapis %s</string>
   <string name="view_featured_image_card_title">Dienos nuotrauka</string>
   <string name="view_featured_image_card_download">Atsisiųsti</string>
   <string name="menu_feed_card_dismiss">Paslėpti šią kortelę</string>
@@ -340,7 +338,6 @@
   <string name="menu_feed_overflow_label">Daugiau nustatymų</string>
   <string name="feed_featured_image_share_subject">Rinktiniai vaizdai iš Vikitekos</string>
   <string name="feed">Naršyti</string>
-  <string name="most_read_list_card_title">Populiaru</string>
   <string name="view_static_card_icon_content_description">Kortelės piktograma</string>
   <string name="view_card_news_title">Naujienose</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -381,7 +378,6 @@
   <string name="more_events_text">Daugiau šiandien</string>
   <string name="events_count_text">%1$s įvykiai nuo %2$s–%3$d</string>
   <string name="this_year">Šie metai</string>
-  <string name="back_to_top">Į viršų</string>
   <string name="on_this_day_dialog_next_month">Kitas mėnuo</string>
   <string name="on_this_day_dialog_previous_month">Ankstesnis mėnuo</string>
   <string name="talk_title">Aptarimas</string>

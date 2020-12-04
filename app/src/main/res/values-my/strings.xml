@@ -554,11 +554,8 @@
   <string name="preference_summary_notification_user_talk">ဆွေးနွေးချက်စာမျက်နှာများမှ မက်ဆေ့များ</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
-  <string name="view_random_card_subtitle">ဝီကီပီးဒီးယားမှ ကျပန်းဆောင်းပါးတစ်ပုဒ်အား ဖတ်ရန် လှည့်ယမ်းပါ</string>
-  <string name="view_random_card_action">ကျပန်းစာမျက်နှာ</string>
   <string name="view_next_random_article">အခြားသော ကျပန်းဆောင်းပါး</string>
   <string name="view_main_page_card_title">ယနေ့အတွက် ဝီကီပီးဒီးယား</string>
-  <string name="view_main_page_card_subtitle">%s အတွက် ဗဟိုစာမျက်နှာ</string>
   <string name="view_main_page_card_action">ပင်မစာမျက်နှာကို ကြည့်ရန်</string>
   <string name="view_featured_image_card_title">ယနေ့အတွက် ဓာတ်ပုံ</string>
   <string name="view_featured_image_card_download">ဒေါင်းလုဒ်</string>
@@ -569,7 +566,6 @@
   <string name="feed_featured_image_share_subject">Wikimedia Commons မှ အထူးဓာတ်ပုံ</string>
   <string name="feed">ရှာဖွေစူးစမ်းပါ</string>
   <string name="home">ပင်မ</string>
-  <string name="most_read_list_card_title">ရေပန်းစားမှု</string>
   <string name="view_static_card_icon_content_description">ကဒ်ပုံ</string>
   <string name="view_card_news_title">သတင်းထဲတွင်</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -784,13 +780,10 @@
   <string name="app_shortcuts_random">ကျပန်း</string>
   <string name="app_shortcuts_continue_reading">ဆက်လက် ဖတ်ရှုရန်</string>
   <string name="app_shortcuts_search">ရှာဖွေရန်</string>
-  <string name="more_trending_text">ဤကဲ့သို့သော အရာများ</string>
-  <string name="top_on_this_day">%1$s တွင် ရေပန်းစားနေမှု</string>
   <string name="on_this_day_card_title">ယနေ့ဖြစ်ရပ်များ</string>
   <string name="more_events_text">ယနေ့အတွက် ထပ်မံ၍ ကြည့်ရှုရန်။</string>
   <string name="events_count_text">%2$s–%3$d မှ %1$s ဖြစ်ရပ်များ</string>
   <string name="this_year">ဤနှစ်</string>
-  <string name="back_to_top">ထိပ်ဆုံးသို့ ပြန်သွားရန်</string>
   <string name="on_this_day_dialog_next_month">နောက်လ</string>
   <string name="on_this_day_dialog_previous_month">ယခင်လ</string>
   <plurals name="diff_years">

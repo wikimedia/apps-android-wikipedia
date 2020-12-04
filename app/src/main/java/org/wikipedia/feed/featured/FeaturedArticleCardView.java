@@ -2,6 +2,7 @@ package org.wikipedia.feed.featured;
 
 import android.content.Context;
 import android.net.Uri;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -34,7 +35,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_wiki_article_card) WikiArticleCardView wikiArticleCardView;
     @BindView(R.id.view_featured_article_card_content_container) View contentContainerView;
 
-    public static final float SUM_OF_CARD_HORIZONTAL_MARGINS = DimenUtil.dpToPx(24f);
+    public static final int EXTRACT_MAX_LINES = 8;
 
     public FeaturedArticleCardView(Context context) {
         super(context);
@@ -68,7 +69,10 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     @OnLongClick(R.id.view_featured_article_card_content_container)
     boolean onLongClick(View view) {
-        if (getCallback() != null && getCard() != null) {
+        if (ImageZoomHelper.isZooming()) {
+            // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
+            contentContainerView.dispatchTouchEvent(MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0));
+        } else if (getCallback() != null && getCard() != null) {
             new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
                 @Override
                 public void onAddRequest(boolean addToDefault) {
@@ -116,7 +120,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void extract(@Nullable String extract) {
-        wikiArticleCardView.setExtract(extract);
+        wikiArticleCardView.setExtract(extract, EXTRACT_MAX_LINES);
     }
 
     private void header() {
@@ -142,7 +146,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             wikiArticleCardView.getImageContainer().setVisibility(GONE);
         } else {
             wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    (int) (DimenUtil.leadImageHeightForDevice(getContext()) - DimenUtil.getToolbarHeightPx(getContext()) - SUM_OF_CARD_HORIZONTAL_MARGINS)));
+                    DimenUtil.leadImageHeightForDevice(getContext()) - DimenUtil.getToolbarHeightPx(getContext())));
             wikiArticleCardView.getImageContainer().setVisibility(VISIBLE);
             wikiArticleCardView.getImageView().loadImage(uri);
             ImageZoomHelper.setViewZoomable(wikiArticleCardView.getImageView());

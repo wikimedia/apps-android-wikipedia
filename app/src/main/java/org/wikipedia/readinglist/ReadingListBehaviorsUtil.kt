@@ -233,14 +233,19 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, callback: AddToDefaultListCallback) {
+    fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback) {
+        addToDefaultList(activity, title, invokeSource, addToDefaultListCallback, null)
+    }
+
+    fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback, callback: Callback?) {
         val defaultList = ReadingListDbHelper.instance().defaultList
         scope.launch(exceptionHandler) {
             val addedTitles = withContext(dispatcher) { ReadingListDbHelper.instance().addPagesToListIfNotExist(defaultList, listOf(title)) }
             if (addedTitles.isNotEmpty()) {
                 ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
                 FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText), FeedbackUtil.LENGTH_DEFAULT)
-                        .setAction(R.string.reading_list_add_to_list_button) { callback.onMoveClicked(defaultList.id()) }.show()
+                        .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id()) }.show()
+                callback?.onCompleted()
             }
 
         }

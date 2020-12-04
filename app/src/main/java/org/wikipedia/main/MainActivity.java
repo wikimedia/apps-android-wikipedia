@@ -91,6 +91,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        supportInvalidateOptionsMenu();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_main, menu);

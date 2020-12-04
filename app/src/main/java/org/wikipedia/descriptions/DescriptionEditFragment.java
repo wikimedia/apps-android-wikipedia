@@ -357,18 +357,21 @@ public class DescriptionEditFragment extends Fragment {
         }
 
         private Observable<EntityPostResponse> getPostObservable(@NonNull String editToken, @NonNull String languageCode) {
+            String comment = null;
             if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
+                if (invokeSource == SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
+                    comment = action == ADD_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                            : action == TRANSLATE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null;
+                }
                 return ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
-                        pageTitle.getPrefixedText(), editView.getDescription(),
-                        action == ADD_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                                : action == TRANSLATE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
-                        editToken, AccountUtil.isLoggedIn() ? "user" : null);
+                        pageTitle.getPrefixedText(), editView.getDescription(), comment, editToken, AccountUtil.isLoggedIn() ? "user" : null);
             } else {
+                if (invokeSource == SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
+                    comment = action == ADD_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                            : action == TRANSLATE_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null;
+                }
                 return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle.getWikiSite().dbName(),
-                        pageTitle.getPrefixedText(), editView.getDescription(),
-                        action == ADD_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                                : action == TRANSLATE_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
-                        editToken, AccountUtil.isLoggedIn() ? "user" : null);
+                        pageTitle.getPrefixedText(), editView.getDescription(), comment, editToken, AccountUtil.isLoggedIn() ? "user" : null);
             }
         }
 

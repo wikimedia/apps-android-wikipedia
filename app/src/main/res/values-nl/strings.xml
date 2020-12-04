@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Aranka
+* Ciell
 * Dbrant
 * Dutchy45
 * Elroy
@@ -144,7 +145,7 @@
   <string name="reset_password_button">Opslaan en aanmelden</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="logout_prompt">Je logt nu uit op alle apparaten waar je nu op ingelogd bent. Wilt u doorgaan?</string>
+  <string name="logout_prompt">Je logt nu uit op alle apparaten waar je nu op ingelogd bent. Wil je doorgaan?</string>
   <string name="logout_dialog_cancel_button_text">Annuleren</string>
   <string name="logged_out_in_background_title">Afgemeld</string>
   <string name="logged_out_in_background_dialog">U bent afgemeld bij Wikipedia. Wilt u zich opnieuw aanmelden?</string>
@@ -583,11 +584,8 @@
   <string name="preference_summary_notification_user_talk">Berichten van overlegpagina\'s</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
-  <string name="view_random_card_subtitle">Een willekeurige pagina uit Wikipedia lezen.</string>
-  <string name="view_random_card_action">De dobbelsteen gooien</string>
   <string name="view_next_random_article">Ander willekeurige pagina laden</string>
   <string name="view_main_page_card_title">Vandaag op Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hoofdpagina op %s</string>
   <string name="view_main_page_card_action">Hoofdpagina bekijken</string>
   <string name="view_featured_image_card_title">Afbeelding van de dag</string>
   <string name="view_featured_image_card_download">Downloaden</string>
@@ -598,7 +596,6 @@
   <string name="feed_featured_image_share_subject">Uitgelichte afbeelding uit Wikimedia Commons</string>
   <string name="feed">Verkennen</string>
   <string name="home">Startpagina</string>
-  <string name="most_read_list_card_title">Populair</string>
   <string name="view_static_card_icon_content_description">Kaartpictogram</string>
   <string name="view_card_news_title">Actueel</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -828,13 +825,10 @@
   <string name="app_shortcuts_random">Willekeurig</string>
   <string name="app_shortcuts_continue_reading">Verder lezen</string>
   <string name="app_shortcuts_search">Zoeken</string>
-  <string name="more_trending_text">Meer soortgelijks</string>
-  <string name="top_on_this_day">Populair op %1$s</string>
   <string name="on_this_day_card_title">Op deze dag</string>
   <string name="more_events_text">Meer van deze dag</string>
   <string name="events_count_text">%1$s gebeurtenissen van %2$s–%3$d</string>
   <string name="this_year">Dit jaar</string>
-  <string name="back_to_top">Terug naar boven</string>
   <string name="on_this_day_dialog_next_month">Volgende maand</string>
   <string name="on_this_day_dialog_previous_month">Vorige maand</string>
   <plurals name="diff_years">

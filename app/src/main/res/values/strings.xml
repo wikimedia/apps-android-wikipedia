@@ -54,6 +54,7 @@
     <string name="feed_card_add_to_default_list">Save</string>
     <string name="menu_page_share">Share link</string>
     <string name="menu_page_open_a_new_tab">Open a new tab</string>
+    <string name="menu_page_new_tab">New tab</string>
     <string name="menu_page_reading_lists">Reading lists</string>
     <string name="menu_page_recently_viewed">Recently viewed</string>
 
@@ -604,6 +605,7 @@
     <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
     <string name="view_next_random_article">Load another random article</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
+    <string name="view_main_page_card_action">View main page</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
     <string name="view_featured_image_card_download">Download</string>
     <string name="view_featured_image_card_share">Share</string>
@@ -640,6 +642,7 @@
     <string name="feed_item_type_featured_article">Daily featured article on Wikipedia</string>
     <string name="feed_item_type_trending">Daily most-viewed articles</string>
     <string name="feed_item_type_featured_image">Daily featured image from Wikimedia Commons</string>
+    <string name="feed_item_type_main_page">Main page of Wikipedia with daily featured content</string>
     <string name="feed_item_type_randomizer">Generate random articles to read</string>
     <string name="feed_item_type_suggested_edits">Suggestions to add content to Wikipedia</string>
     <string name="feed_empty_message">There\'s nothing on your Explore feed</string>

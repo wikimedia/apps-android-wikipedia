@@ -18,6 +18,7 @@
 * SimondR
 * Viiictorrr
 * Vlad5250
+* Vlnt
 * Ата
 -->
 <resources>
@@ -34,6 +35,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Фільтрувати мої списки</string>
   <string name="nav_item_suggested_edits">Редагування</string>
   <string name="nav_item_more">Більше</string>
+  <string name="nav_item_search">Пошук</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="card_offline_error_retry">Повторити</string>
@@ -48,6 +50,7 @@
   <string name="history_item_delete_undo">Скасувати</string>
   <string name="notification_archive_undo">Скасувати</string>
   <string name="app_settings">Налаштування</string>
+  <string name="history_list_title">Історія</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
   <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
@@ -57,7 +60,7 @@
   <string name="search_redirect_from">Перенаправлено з %s</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Знайти на сторінці</string>
+  <string name="menu_page_find_in_page">Знайти у статті</string>
   <string name="edit_section_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
   <string name="menu_page_add_to_list">Додати до читального списку</string>
@@ -66,6 +69,7 @@
   <string name="feed_card_add_to_default_list">Зберегти</string>
   <string name="menu_page_share">Поділитися посиланням</string>
   <string name="menu_page_open_a_new_tab">Відкрити нову вкладинку</string>
+  <string name="menu_page_new_tab">Нова вкладка</string>
   <string name="menu_page_reading_lists">Читальні списки</string>
   <string name="menu_page_recently_viewed">Нещодавно відвідані</string>
   <string name="menu_long_press_open_page">Відкрити</string>
@@ -249,6 +253,7 @@
   <string name="page_similar_titles">Подібні сторінки</string>
   <string name="search_did_you_mean">Ви мали на увазі \"%s\"?</string>
   <string name="search_recent_header">Недавні пошукові запити:</string>
+  <string name="search_results_count_zero">Немає результатів</string>
   <string name="button_clear_all_recent_searches">Очистити історію пошуку</string>
   <string name="clear_recent_searches_confirm">Ви впевнені, що хочете стерти історію пошукових запитів?</string>
   <string name="clear_recent_searches_confirm_yes">Так</string>
@@ -352,6 +357,8 @@
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
+  <string name="article_menu_bar_save_button">Збернгти</string>
+  <string name="article_menu_bar_language_button">Мова</string>
   <string name="article_header_edit_hint">Редагувати...</string>
   <string name="article_header_edit_description">Редагувати опис статті</string>
   <string name="article_header_edit_lead_section">Редагувати вступ</string>
@@ -572,11 +579,8 @@
   <string name="preference_summary_notification_user_talk">Повідомлення зі сторінок обговорень</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
-  <string name="view_random_card_subtitle">Гортати випадкові статті з Вікіпедії.</string>
-  <string name="view_random_card_action">Кинути жереб</string>
   <string name="view_next_random_article">Завантажити іншу випадкову статтю</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
-  <string name="view_main_page_card_subtitle">Головна сторінка на %s</string>
   <string name="view_main_page_card_action">Переглянути головну сторінку</string>
   <string name="view_featured_image_card_title">Зображення дня</string>
   <string name="view_featured_image_card_download">Завантажити</string>
@@ -586,7 +590,6 @@
   <string name="menu_feed_overflow_label">Більше опцій</string>
   <string name="feed_featured_image_share_subject">Вибране зображення з Вікісховища</string>
   <string name="feed">Дослідити</string>
-  <string name="most_read_list_card_title">Популярне</string>
   <string name="view_static_card_icon_content_description">Іконка картки</string>
   <string name="view_card_news_title">У новинах</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -878,13 +881,10 @@
   <string name="app_shortcuts_random">Випадкова</string>
   <string name="app_shortcuts_continue_reading">Продовжити читання</string>
   <string name="app_shortcuts_search">Пошук</string>
-  <string name="more_trending_text">Більше подібних</string>
-  <string name="top_on_this_day">Популярно на %1$s</string>
   <string name="on_this_day_card_title">Цього дня</string>
   <string name="more_events_text">Більше за цей день</string>
   <string name="events_count_text">%1$s подій за %2$s–%3$d</string>
   <string name="this_year">Цього року</string>
-  <string name="back_to_top">Повернутись угору</string>
   <string name="on_this_day_dialog_next_month">Наступний місяць</string>
   <string name="on_this_day_dialog_previous_month">Попередній місяць</string>
   <string name="on_this_day_open_date_picker">Вибір дати</string>

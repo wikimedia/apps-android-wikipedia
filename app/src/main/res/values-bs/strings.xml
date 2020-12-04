@@ -410,11 +410,8 @@
   <string name="notifications_empty_message">Nemate novih obavještenja!</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
-  <string name="view_random_card_subtitle">Prelistajte nasumično izabrane članke s Wikipedije.</string>
-  <string name="view_random_card_action">Baci kocku</string>
   <string name="view_next_random_article">Učitaj drugi nasumični članak</string>
   <string name="view_main_page_card_title">Danas na Wikipediji</string>
-  <string name="view_main_page_card_subtitle">Početna strana %s</string>
   <string name="view_main_page_card_action">Prikaži početnu stranicu</string>
   <string name="view_featured_image_card_title">Slika dana</string>
   <string name="view_featured_image_card_download">Preuzmi</string>
@@ -423,7 +420,6 @@
   <string name="menu_feed_overflow_label">Više opcija</string>
   <string name="feed_featured_image_share_subject">Odabrana slika s Wikimedia Commonsa</string>
   <string name="feed">Istraži</string>
-  <string name="most_read_list_card_title">Aktualno</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">Vijesti</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -553,12 +549,9 @@
   <string name="app_shortcuts_random">Nasumična</string>
   <string name="app_shortcuts_continue_reading">Nastavite čitati</string>
   <string name="app_shortcuts_search">Pretraži</string>
-  <string name="more_trending_text">Više ovakvih</string>
-  <string name="top_on_this_day">Aktualno %1$s</string>
   <string name="on_this_day_card_title">Na današnji dan</string>
   <string name="more_events_text">Više na ovaj dan</string>
   <string name="events_count_text">%1$s događaja od %2$s do %3$d</string>
-  <string name="back_to_top">Skoči na vrh</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Prošle godine</item>
     <item quantity="other">Prije %d god.</item>

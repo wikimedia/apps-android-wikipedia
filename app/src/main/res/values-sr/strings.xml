@@ -548,11 +548,8 @@
   <string name="preference_summary_notification_user_talk">Поруке са странице за разговор</string>
   <string name="view_because_you_read_card_title">На основу прочитаног</string>
   <string name="view_random_card_title">Случајни чланак</string>
-  <string name="view_random_card_subtitle">Прелистајте случајне чланке са Википедије.</string>
-  <string name="view_random_card_action">Баци коцку</string>
   <string name="view_next_random_article">Учитај други случајни чланак</string>
   <string name="view_main_page_card_title">Данас на Википедији</string>
-  <string name="view_main_page_card_subtitle">Главна страна %s</string>
   <string name="view_main_page_card_action">Прикажи главну страну</string>
   <string name="view_featured_image_card_title">Слика дана</string>
   <string name="view_featured_image_card_download">Преузми</string>
@@ -562,7 +559,6 @@
   <string name="menu_feed_overflow_label">Више опција</string>
   <string name="feed_featured_image_share_subject">Изабрана слика са Викимедијине оставе</string>
   <string name="feed">Истражи</string>
-  <string name="most_read_list_card_title">Актуелно</string>
   <string name="view_static_card_icon_content_description">Икона картице</string>
   <string name="view_card_news_title">Вести</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -787,13 +783,10 @@
   <string name="app_shortcuts_random">Случајни</string>
   <string name="app_shortcuts_continue_reading">Настави читање</string>
   <string name="app_shortcuts_search">Претражи</string>
-  <string name="more_trending_text">Више попут овог</string>
-  <string name="top_on_this_day">Актуелно за %1$s</string>
   <string name="on_this_day_card_title">На данашњи дан</string>
   <string name="more_events_text">Више на овај дан</string>
   <string name="events_count_text">%1$s догађаја %2$s–%3$d</string>
   <string name="this_year">Ове године</string>
-  <string name="back_to_top">Назад на врх</string>
   <string name="on_this_day_dialog_next_month">Следећи месец</string>
   <string name="on_this_day_dialog_previous_month">Претходни месец</string>
   <string name="on_this_day_open_date_picker">Отвори бирач датума</string>

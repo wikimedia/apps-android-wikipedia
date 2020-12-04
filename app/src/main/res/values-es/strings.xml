@@ -9,6 +9,7 @@
 * Codynguyen1116
 * Cooltey
 * Csbotero
+* DannyS712
 * David.novella
 * Dgstranz
 * Eduardo Addad de Oliveira
@@ -92,7 +93,7 @@
   <string name="search_redirect_from">Redirigido desde %s</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Buscar en la página</string>
+  <string name="menu_page_find_in_page">Buscar en artículo</string>
   <string name="edit_section_find_in_page">Buscar en la página</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
   <string name="menu_page_add_to_list">Añadir a lista de lectura</string>
@@ -101,6 +102,7 @@
   <string name="feed_card_add_to_default_list">Guardar</string>
   <string name="menu_page_share">Compartir enlace</string>
   <string name="menu_page_open_a_new_tab">Abrir una pestaña nueva</string>
+  <string name="menu_page_new_tab">Pestaña nueva</string>
   <string name="menu_page_reading_lists">Listas de lectura</string>
   <string name="menu_page_recently_viewed">Visto recientemente</string>
   <string name="menu_long_press_open_page">Abrir</string>
@@ -367,7 +369,7 @@
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>
   <string name="preference_title_collapse_tables">Minimizar tablas</string>
   <string name="preference_summary_collapse_tables">Minimizar automáticamente tablas en los artículos, como por ejemplo cajas de información, referencias y notas.</string>
-  <string name="nav_item_donate" fuzzy="true">Apoya a Wikipedia</string>
+  <string name="nav_item_donate">Apoyar</string>
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
   <string name="enable_location_service">Activar</string>
@@ -413,6 +415,7 @@
   <string name="text_size_increase">Aumentar tamaño del texto</string>
   <string name="text_size_decrease">Disminuir tamaño del texto</string>
   <string name="text_size_percent_default">%s (predeterminado)</string>
+  <string name="text_style_title">Tipo de letra</string>
   <string name="nav_item_reading_lists">Mis listas</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
   <string name="reading_list_move_to">Trasladar a una lista de lectura</string>
@@ -599,14 +602,16 @@
   <string name="preference_summary_notification_user_talk">Mensajes en páginas de discusión</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia.</string>
-  <string name="view_random_card_action">Lanzar el dado</string>
+  <string name="view_random_article_card_title">Artículo aleatorio</string>
+  <string name="view_random_article_card_action">Más artículos aleatorios</string>
+  <string name="view_top_read_card_title">Los mejores leídos</string>
+  <string name="view_top_read_card_action">Más mejores artículos leídos</string>
   <string name="view_next_random_article">Cargar otro artículo al azar</string>
   <string name="view_main_page_card_title">Hoy en Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Página principal al %s</string>
   <string name="view_main_page_card_action">Ver la página principal</string>
   <string name="view_featured_image_card_title">Imagen del día</string>
   <string name="view_featured_image_card_download">Descargar</string>
+  <string name="view_featured_image_card_share">Compartir</string>
   <string name="menu_feed_card_dismiss">Ocultar esta tarjeta</string>
   <string name="menu_feed_card_dismissed">Tarjeta ocultada.</string>
   <string name="menu_feed_card_edit_card_languages">Edita los idiomas de la tarjeta</string>
@@ -614,7 +619,6 @@
   <string name="feed_featured_image_share_subject">Imagen destacada de Wikimedia Commons</string>
   <string name="feed">Explorar</string>
   <string name="home">Inicio</string>
-  <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icono de tarjeta</string>
   <string name="view_card_news_title">En las noticias</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -652,6 +656,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancelar</string>
   <string name="feed_accessibility_card_text">Has llegado al final del suministro.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
+  <string name="top_read_activity_title">Los mejores leídos el %s</string>
   <string name="description_edit_text_hint">Descripción de artículo</string>
   <string name="description_edit_article_description_label">Artículo</string>
   <string name="description_edit_translate_article_description_label_per_language">Descripción del artículo (%s)</string>
@@ -687,6 +692,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Se publicó el pie de foto (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">¡Etiquetas de imagen(es) publicadas!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">¿Lo disfrutaste? Ayúdanos a añadir más.</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
@@ -697,6 +703,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
+  <string name="suggested_edits_describe_articles">Describir artículos</string>
+  <string name="suggested_edits_caption_images">Leyenda de imágenes</string>
   <string name="suggested_edits_tag_images">Etiqueta de imágenes</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>
@@ -843,6 +851,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Acceder / unirse a Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etiqueta de imagen</string>
   <string name="suggested_edits_contribution_current_revision_text">Tu edición es la más reciente en Wikipedia</string>
+  <string name="suggested_card_more_edits">Más ediciones sugeridas</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiqueta</item>
     <item quantity="other">%1$s etiquetas</item>
@@ -860,6 +869,7 @@
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
   <string name="file_page_activity_title">Página de archivo</string>
+  <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -888,13 +898,10 @@
   <string name="app_shortcuts_random">Aleatorio</string>
   <string name="app_shortcuts_continue_reading">Continuar leyendo</string>
   <string name="app_shortcuts_search">Buscar</string>
-  <string name="more_trending_text">Más de esto</string>
-  <string name="top_on_this_day">Tendencias del %1$s</string>
   <string name="on_this_day_card_title">Un día como hoy</string>
   <string name="more_events_text">Más acontecimientos históricos en este día</string>
   <string name="events_count_text">%1$s acontecimientos entre %2$s y %3$d</string>
   <string name="this_year">Este año</string>
-  <string name="back_to_top">Volver al principio</string>
   <string name="on_this_day_dialog_next_month">Mes siguiente</string>
   <string name="on_this_day_dialog_previous_month">Mes anterior</string>
   <string name="on_this_day_open_date_picker">Abrir selector de fecha</string>
@@ -902,6 +909,7 @@
     <item quantity="one">El año pasado</item>
     <item quantity="other">Hace %d años</item>
   </plurals>
+  <string name="on_this_day_back_to_future">De vuelta al futuro</string>
   <string name="languages_list_activity_title">Añadir un idioma</string>
   <string name="languages_list_suggested_text">Sugeridos</string>
   <string name="languages_list_all_text">Todos los idiomas</string>
@@ -957,4 +965,8 @@
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sin asunto)</string>
   <string name="talk_reply_subject">Asunto</string>
+  <string name="talk_reply_hint">Redactar respuesta</string>
+  <string name="talk_message_hint">Redactar mensaje</string>
+  <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
+  <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
 </resources>

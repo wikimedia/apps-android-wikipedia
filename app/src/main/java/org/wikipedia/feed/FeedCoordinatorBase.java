@@ -9,7 +9,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.accessibility.AccessibilityCard;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
-import org.wikipedia.feed.announcement.FundraisingCard;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.dayheader.DayHeaderCard;
@@ -123,6 +122,9 @@ public abstract class FeedCoordinatorBase {
         if (card.type() == CardType.RANDOM) {
             FeedContentType.RANDOM.setEnabled(false);
             FeedContentType.saveState();
+        } else if (card.type() == CardType.MAIN_PAGE) {
+            FeedContentType.MAIN_PAGE.setEnabled(false);
+            FeedContentType.saveState();
         } else {
             addHiddenCard(card);
         }
@@ -134,6 +136,9 @@ public abstract class FeedCoordinatorBase {
     public void undoDismissCard(@NonNull Card card, int position) {
         if (card.type() == CardType.RANDOM) {
             FeedContentType.RANDOM.setEnabled(true);
+            FeedContentType.saveState();
+        } else if (card.type() == CardType.MAIN_PAGE) {
+            FeedContentType.MAIN_PAGE.setEnabled(true);
             FeedContentType.saveState();
         } else {
             unHideCard(card);
@@ -291,8 +296,7 @@ public abstract class FeedCoordinatorBase {
     private boolean isDailyCardType(@NonNull Card card) {
         return card instanceof NewsCard || card instanceof OnThisDayCard
                 || card instanceof MostReadListCard || card instanceof FeaturedArticleCard
-                || card instanceof FeaturedImageCard
-                || card instanceof FundraisingCard;
+                || card instanceof FeaturedImageCard;
     }
 
     private boolean shouldShowProgressCard(@NonNull FeedClient pendingClient) {
