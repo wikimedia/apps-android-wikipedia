@@ -536,6 +536,7 @@
   <string name="view_random_card_title">Τυχαιοποιητής</string>
   <string name="view_next_random_article">Φορτώσετε ένα άλλο τυχαίο λήμμα</string>
   <string name="view_main_page_card_title">Σήμερα στη Βικιπαίδεια</string>
+  <string name="view_main_page_card_action">Δείτε την κεντρική σελίδα</string>
   <string name="view_featured_image_card_title">Εικόνα της ημέρας</string>
   <string name="view_featured_image_card_download">Λήψη</string>
   <string name="menu_feed_card_dismiss">Απόκρυψη αυτής της κάρτας</string>
@@ -569,6 +570,7 @@
   <string name="feed_item_type_featured_article">Καθημερινό προβεβλημμένο λήμμα στη Βικιπαίδεια</string>
   <string name="feed_item_type_trending">Καθημερινά λήμματα με τις περισσότερες προβολές</string>
   <string name="feed_item_type_featured_image">Καθημερινή προβεβλημμένη εικόνα από τα Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Κύρια σελίδα της Βικιπαίδειας με καθημερινό προβεβλημμένο περιεχόμενο</string>
   <string name="feed_item_type_randomizer">Δημιουργία τυχαίων άρθρων για ανάγνωση</string>
   <string name="feed_item_type_suggested_edits">Προτάσεις για προσθήκη περιεχομένου στη Βικιπαίδεια</string>
   <string name="feed_empty_message">Δεν υπάρχει τίποτα στην ροή εξερεύνησής σας</string>

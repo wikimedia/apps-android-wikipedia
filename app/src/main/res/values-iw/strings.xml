@@ -70,6 +70,7 @@
   <string name="feed_card_add_to_default_list">שמירה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_page_open_a_new_tab">פתיחת לשונית חדשה</string>
+  <string name="menu_page_new_tab">לשונית חדשה</string>
   <string name="menu_page_reading_lists">רשימות קריאה</string>
   <string name="menu_page_recently_viewed">הוצגו לאחרונה</string>
   <string name="menu_long_press_open_page">פתיחה</string>
@@ -622,6 +623,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d מיליון</string>
   <string name="view_next_random_article">לטעון ערך אקראי נוסף</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
+  <string name="view_main_page_card_action">הצגת הדף הראשי</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
   <string name="view_featured_image_card_download">הורדה</string>
   <string name="view_featured_image_card_share">שיתוף</string>
@@ -659,6 +661,7 @@
   <string name="feed_item_type_featured_article">ערך מומלץ יומי בוויקיפדיה</string>
   <string name="feed_item_type_trending">הערכים המוצגים ביותר ביום</string>
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
+  <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
@@ -856,8 +859,10 @@
   <string name="suggested_edits_contribution_article_label">ערך</string>
   <string name="suggested_edits_contribution_views">%s צפיות</string>
   <string name="suggested_edits_contribution_seen_text">נצפה %s פעמים ב־30 הימים האחרונים.</string>
-  <plurals name="suggested_edits_image_tag_contribution_label" fuzzy="true">
+  <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">הוספת תג אחד</item>
+    <item quantity="two">הוספת %d תגים</item>
+    <item quantity="many">הוספת %d תגים</item>
     <item quantity="other">הוספת %d תגים</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>

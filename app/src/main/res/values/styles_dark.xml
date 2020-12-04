@@ -59,7 +59,6 @@
         <item name="chart_shade7">@color/base10</item>
         <item name="green_highlight_color">@color/green50</item>
         <item name="randomizer_dice_icon_color">@color/accent50</item>
-        <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_dark</item>
         <item name="thumb_off_color">@color/base70</item>
         <item name="track_off_color">@color/base100</item>
         <item name="toc_h1_h2_color">@color/base100</item>
@@ -114,6 +113,14 @@
         <item name="colorSwitchThumbNormal">@color/base90</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>
+    </style>
+
+    <style name="ThemeDark.Translucent">
+        <item name="android:windowBackground">@color/black87</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorAccent">@color/accent50</item>
     </style>
 
 </resources>

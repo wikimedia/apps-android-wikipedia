@@ -250,7 +250,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void handleIntent(Intent intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), APP_SHORTCUTS));
+            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getWikiSite(), APP_SHORTCUTS));
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
             openSearchActivity(APP_SHORTCUTS, null, null);
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
@@ -283,12 +283,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
-        Intent intent = PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle());
+        Intent intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle());
         if (sharedElements.length > 0) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
         }

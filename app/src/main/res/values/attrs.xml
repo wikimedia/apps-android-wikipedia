@@ -11,7 +11,6 @@
     <attr name="nav_tab_item_color_state" format="reference" />
     <attr name="button_highlight_border_shape" format="reference" />
     <attr name="randomizer_dice_icon_color" format="reference" />
-    <attr name="page_tab_counts_shape_border" format="reference" />
     <attr name="image_tags_onboarding_image" format="reference"/>
     <attr name="reward_interstitial_calendar_drawable" format="reference"/>
     <attr name="reward_interstitial_heart_drawable" format="reference"/>

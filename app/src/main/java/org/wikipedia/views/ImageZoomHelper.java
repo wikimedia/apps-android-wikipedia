@@ -20,8 +20,9 @@ import java.util.List;
  * https://github.com/okaybroda/ImageZoom/blob/master/library/src/main/java/com/viven/imagezoom/ImageZoomHelper.java
  */
 public class ImageZoomHelper {
-    private static int FLAG_ZOOMABLE = 1;
-    private static int FLAG_UNZOOMABLE = 2;
+    private static final int FLAG_ZOOMABLE = 1;
+    private static final int FLAG_UNZOOMABLE = 2;
+    private static boolean ZOOMING;
 
     private View zoomableView = null;
     private ViewGroup parentOfZoomableView;
@@ -38,7 +39,7 @@ public class ImageZoomHelper {
 
     private boolean isAnimatingDismiss = false;
 
-    private List<OnZoomListener> zoomListeners = new ArrayList<>();
+    private final List<OnZoomListener> zoomListeners = new ArrayList<>();
 
     public ImageZoomHelper(Activity activity) {
         this.activityWeakReference = new WeakReference<>(activity);
@@ -113,6 +114,7 @@ public class ImageZoomHelper {
                     pivotX = (int) ev.getRawX() - originalXY[0];
                     pivotY = (int) ev.getRawY() - originalXY[1];
 
+                    ZOOMING = true;
                     sendZoomEventToListeners(zoomableView, true);
                     return true;
                 }
@@ -195,7 +197,6 @@ public class ImageZoomHelper {
                                     scaleXEnd, scaleYEnd, leftMarginEnd, topMarginEnd);
                         }
                         dismissDialogAndViews();
-
                         valueAnimator.removeAllListeners();
                         valueAnimator.removeAllUpdateListeners();
                     }
@@ -203,8 +204,13 @@ public class ImageZoomHelper {
                 valueAnimator.start();
                 return true;
             }
+            ZOOMING = false;
         }
         return false;
+    }
+
+    public static boolean isZooming() {
+        return ZOOMING;
     }
 
     @SuppressWarnings("checkstyle:parameternumber")

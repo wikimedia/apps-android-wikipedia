@@ -59,7 +59,6 @@
         <item name="chart_shade7">@color/base100</item>
         <item name="green_highlight_color">@color/green30</item>
         <item name="randomizer_dice_icon_color">@android:color/white</item>
-        <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_light</item>
         <item name="thumb_off_color">@color/base90</item>
         <item name="track_off_color">@color/base0</item>
         <item name="toc_h1_h2_color">@color/base0</item>
