@@ -21,5 +21,5 @@ import retrofit2.http.POST;
  */
 interface EventService {
     @POST("/v1/events?hasty=true")
-    Observable<Response<EventServiceResponse>> postEvent(@NonNull @Body List<Event> events);
+    Observable<Response<EventServiceResponse>> postEvents(@NonNull @Body List<Event> events);
 }
