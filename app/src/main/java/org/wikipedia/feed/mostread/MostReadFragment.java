@@ -154,11 +154,5 @@ public class MostReadFragment extends Fragment {
             bottomSheetPresenter.show(getChildFragmentManager(),
                     MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), MOST_READ_ACTIVITY));
         }
-
-        @Override
-        public void onRemovePageFromList(@NonNull HistoryEntry entry) {
-            FeedbackUtil.showMessage(requireActivity(),
-                    getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-        }
     }
 }

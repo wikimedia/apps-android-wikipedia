@@ -315,12 +315,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), FEED));
     }
 
-    @Override
-    public void onFeedRemovePageFromList(@NonNull HistoryEntry entry) {
-        FeedbackUtil.showMessage(requireActivity(),
-                getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-    }
-
     @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));

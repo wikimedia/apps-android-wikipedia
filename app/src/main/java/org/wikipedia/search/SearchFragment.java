@@ -334,12 +334,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     }
 
     @Override
-    public void onSearchRemovePageFromList(HistoryEntry entry) {
-        FeedbackUtil.showMessage(requireActivity(),
-                getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-    }
-
-    @Override
     public void onSearchProgressBar(boolean enabled) {
         progressBar.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }

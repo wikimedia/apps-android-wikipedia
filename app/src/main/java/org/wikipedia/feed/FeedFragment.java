@@ -83,7 +83,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] shareElements);
         void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
-        void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsCard card, NewsItemView view);
         void onFeedSeCardFooterClicked();
         void onFeedShareImage(FeaturedImageCard card);
@@ -335,13 +334,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onMovePageToList(long sourceReadingList, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedMovePageToList(sourceReadingList, entry);
-            }
-        }
-
-        @Override
-        public void onRemovePageFromList(@NonNull HistoryEntry entry) {
-            if (getCallback() != null) {
-                getCallback().onFeedRemovePageFromList(entry);
             }
         }
 

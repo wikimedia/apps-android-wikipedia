@@ -101,13 +101,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                         getCallback().onMovePageToList(page.listId(), entry);
                     }
                 }
-
-                @Override
-                public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-                    if (getCallback() != null) {
-                        getCallback().onRemovePageFromList(entry);
-                    }
-                }
             }).show(getContext(), getCard().historyEntry());
         }
         return false;

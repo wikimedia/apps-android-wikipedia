@@ -44,7 +44,6 @@ public class ListCardItemView extends ConstraintLayout {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements);
         void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
-        void onRemovePageFromList(@NonNull HistoryEntry entry);
     }
 
     @BindView(R.id.view_list_card_number) GradientCircleNumberView numberView;
@@ -124,13 +123,6 @@ public class ListCardItemView extends ConstraintLayout {
             public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                 if (getCallback() != null) {
                     getCallback().onMovePageToList(page.listId(), entry);
-                }
-            }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-                if (getCallback() != null) {
-                    getCallback().onRemovePageFromList(entry);
                 }
             }
         }).show(getContext(), entry);

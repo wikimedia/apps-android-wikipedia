@@ -34,7 +34,6 @@ public class LongPressMenu {
         void onOpenInNewTab(@NonNull HistoryEntry entry);
         void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry);
-        void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry);
     }
 
     @NonNull private final View anchorView;
@@ -121,10 +120,10 @@ public class LongPressMenu {
             return;
         }
         new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(context, (lists, page) -> {
-                    if (callback != null && entry != null) {
-                        callback.onDeleted(page, entry);
-                    }
-                });
+            if (entry != null) {
+                FeedbackUtil.showMessage((AppCompatActivity) context, context.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
+            }
+        });
     }
 
     private boolean isListsContainingPageEmpty() {

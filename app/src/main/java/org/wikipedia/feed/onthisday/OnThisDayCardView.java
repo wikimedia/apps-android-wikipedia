@@ -33,7 +33,6 @@ import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -185,12 +184,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                         public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                             bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
                                     MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_CARD_BODY));
-                        }
-
-                        @Override
-                        public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-                            FeedbackUtil.showMessage((AppCompatActivity) getContext(),
-                                    getContext().getResources().getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
                         }
                     }).show(getContext(), entry);
 

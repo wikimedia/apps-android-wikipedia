@@ -5,11 +5,9 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.Constants;
 import org.wikipedia.LongPressHandler;
-import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.util.FeedbackUtil;
 
 public class PageContainerLongPressHandler implements LongPressHandler.WebViewMenuCallback {
     @NonNull
@@ -37,12 +35,6 @@ public class PageContainerLongPressHandler implements LongPressHandler.WebViewMe
     @Override
     public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
         fragment.moveToReadingList(page.listId(), entry.getTitle(), Constants.InvokeSource.CONTEXT_MENU, true);
-    }
-
-    @Override
-    public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-        FeedbackUtil.showMessage(fragment,
-                fragment.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
     }
 
     @NonNull

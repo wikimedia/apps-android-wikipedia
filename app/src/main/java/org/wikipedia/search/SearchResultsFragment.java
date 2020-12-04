@@ -66,7 +66,6 @@ public class SearchResultsFragment extends Fragment {
     public interface Callback {
         void onSearchAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onSearchMovePageToList(long sourceReadingListId, HistoryEntry entry);
-        void onSearchRemovePageFromList(HistoryEntry entry);
         void onSearchProgressBar(boolean enabled);
         void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
         void setSearchText(@NonNull CharSequence text);
@@ -488,13 +487,6 @@ public class SearchResultsFragment extends Fragment {
         public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
             if (callback != null) {
                 callback.onSearchMovePageToList(page.listId(), entry);
-            }
-        }
-
-        @Override
-        public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-            if (callback != null) {
-                callback.onSearchRemovePageFromList(entry);
             }
         }
     }

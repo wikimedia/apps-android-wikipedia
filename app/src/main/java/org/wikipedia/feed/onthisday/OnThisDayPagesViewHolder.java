@@ -126,12 +126,6 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
                 bottomSheetPresenter.show(fragmentManager,
                         MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_ACTIVITY));
             }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-                FeedbackUtil.showMessage(activity,
-                        activity.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-            }
         }).show(activity, entry);
 
         return true;
