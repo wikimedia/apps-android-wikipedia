@@ -376,11 +376,8 @@
   <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
-  <string name="view_random_card_subtitle">विकिपीडिया से पढ़ने के लिए बेतरतीब लेख पलट के देखें</string>
-  <string name="view_random_card_action">पासे को पलटें</string>
   <string name="view_next_random_article">कोई दूसरा रैंडम लेख लोड करें</string>
   <string name="view_main_page_card_title">विकिपीडिया पर आज</string>
-  <string name="view_main_page_card_subtitle">%s पर मुख्य पृष्ठ</string>
   <string name="view_main_page_card_action">मुख्य पेज देखें</string>
   <string name="view_featured_image_card_title">आज का चित्र</string>
   <string name="view_featured_image_card_download">डाउनलोड</string>
@@ -389,7 +386,6 @@
   <string name="menu_feed_overflow_label">अधिक विकल्प</string>
   <string name="feed_featured_image_share_subject">विकिपीडिया कॉमन्स से निर्वाचित चित्र</string>
   <string name="feed">खोज करें</string>
-  <string name="most_read_list_card_title">रुझानों में</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकॉन</string>
   <string name="view_card_news_title">समाचारों में</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -448,7 +444,6 @@
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
-  <string name="top_on_this_day">%1$s पर ट्रेंडिंग</string>
   <string name="on_this_day_card_title">इस दिन</string>
   <string name="more_events_text" fuzzy="true">इस दिन पर अन्य ऐतिहासिक घटनाएं</string>
   <string name="events_count_text" fuzzy="true">%1$s घटनाक्रम %2$s से  - %3$d तक</string>

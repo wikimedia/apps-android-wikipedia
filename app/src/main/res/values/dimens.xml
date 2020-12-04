@@ -60,7 +60,7 @@
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
 
     <!-- The Feed -->
-    <dimen name="view_feed_padding_top">4dp</dimen>
+    <dimen name="view_feed_padding_top">-12dp</dimen>
     <dimen name="view_feed_search_padding_bottom">8dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
     <dimen name="view_feed_day_header_margin_bottom">-24dp</dimen>

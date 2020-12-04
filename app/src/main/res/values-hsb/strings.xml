@@ -438,11 +438,8 @@
   <string name="preference_summary_notification_thanks">Něchtó je so tebi dźakował za změnu</string>
   <string name="view_because_you_read_card_title">Přetož sy tole čitał(a)</string>
   <string name="view_random_card_title">Připad</string>
-  <string name="view_random_card_subtitle">Listować přez připadne zapiski z Wikipedije.</string>
-  <string name="view_random_card_action">Kóstkować</string>
   <string name="view_next_random_article">Druhi připadny zapisk pokazać</string>
   <string name="view_main_page_card_title">Dźensa we Wikipediji</string>
-  <string name="view_main_page_card_subtitle">Hłowna strona na %s</string>
   <string name="view_main_page_card_action">Hłownu stronu wobhladać</string>
   <string name="view_featured_image_card_title">Wobraz dnja</string>
   <string name="view_featured_image_card_download">Sćahnyć</string>
@@ -451,7 +448,6 @@
   <string name="menu_feed_card_edit_card_languages">Kartowe rěče wobdźěłać</string>
   <string name="menu_feed_overflow_label">Wjace opcijow</string>
   <string name="feed">Wotkrywać</string>
-  <string name="most_read_list_card_title">Woblubowane</string>
   <string name="view_static_card_icon_content_description">Kartowy symbol</string>
   <string name="view_card_news_title">W powěsćach</string>
   <string name="view_continue_reading_card_subtitle_today">dźensa</string>

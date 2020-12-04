@@ -359,7 +359,6 @@
   <string name="preference_summary_notification_user_talk">സംവാദ താളുകളിൽനിന്നുള്ള സന്ദേശങ്ങൾ</string>
   <string name="view_because_you_read_card_title">താങ്കൾ വായിച്ചതിനാൽ</string>
   <string name="view_main_page_card_title">വിക്കിപീഡിയയിൽ ഇന്ന്</string>
-  <string name="view_main_page_card_subtitle">%s ലെ പ്രധാന താൾ</string>
   <string name="view_main_page_card_action">പ്രധാന താൾ കാണുക</string>
   <string name="view_featured_image_card_title">ഇന്നത്തെ ചിത്രം</string>
   <string name="view_featured_image_card_download">ഡൗൺലോഡ് ചെയ്യുക</string>
@@ -457,10 +456,8 @@
   <string name="app_shortcuts_random">ക്രമരഹിതം</string>
   <string name="app_shortcuts_continue_reading">വായന തുടരുക</string>
   <string name="app_shortcuts_search">തിരയുക</string>
-  <string name="more_trending_text">ഇതുപോലെയുള്ളവ കൂടുതൽ കാണിക്കുക</string>
   <string name="on_this_day_card_title">ഇന്നേ ദിവസം</string>
   <string name="this_year">ഈ വർഷം</string>
-  <string name="back_to_top">തിരികെ മുകളിലേക്ക്</string>
   <string name="languages_list_activity_title">ഒരു ഭാഷ ചേർക്കുക</string>
   <string name="languages_list_suggested_text">നിർദ്ദേശിക്കുന്നവ</string>
   <string name="languages_list_all_text">എല്ലാ ഭാഷകളും</string>

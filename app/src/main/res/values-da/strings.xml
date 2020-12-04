@@ -69,6 +69,7 @@
   <string name="feed_card_add_to_default_list">Gem</string>
   <string name="menu_page_share">Del link</string>
   <string name="menu_page_open_a_new_tab">Åbn en ny fane</string>
+  <string name="menu_page_new_tab">Ny fane</string>
   <string name="menu_page_reading_lists">Læselister</string>
   <string name="menu_page_recently_viewed">Senest vist</string>
   <string name="menu_long_press_open_page">Åbn</string>
@@ -585,11 +586,8 @@
   <string name="preference_summary_notification_user_talk">Beskeder fra diskussionssider</string>
   <string name="view_because_you_read_card_title">Fordi du læste</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
-  <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia.</string>
-  <string name="view_random_card_action">Kast terningen</string>
   <string name="view_next_random_article">Indlæs en anden vilkårlig artikel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
   <string name="view_main_page_card_action">Vis hovedsiden</string>
   <string name="view_featured_image_card_title">Dagens billede</string>
   <string name="view_featured_image_card_download">Hent</string>
@@ -600,7 +598,6 @@
   <string name="feed_featured_image_share_subject">Fremhævet billede fra Wikimedia Commons</string>
   <string name="feed">Udforsk</string>
   <string name="home">Hjem</string>
-  <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">I nyhederne</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -789,13 +786,10 @@
   <string name="app_shortcuts_random">Vilkårlig</string>
   <string name="app_shortcuts_continue_reading">Fortsæt læsning</string>
   <string name="app_shortcuts_search">Søg</string>
-  <string name="more_trending_text">Flere som denne</string>
-  <string name="top_on_this_day">Populær på %1$s</string>
   <string name="on_this_day_card_title">På denne dag</string>
   <string name="more_events_text">Mere om denne dag</string>
   <string name="events_count_text">%1$s hændelser fra %2$s – %3$d</string>
   <string name="this_year">Dette år</string>
-  <string name="back_to_top">Tilbage til toppen</string>
   <string name="on_this_day_dialog_next_month">Næste måned</string>
   <string name="on_this_day_dialog_previous_month">Forrige måned</string>
   <plurals name="diff_years">

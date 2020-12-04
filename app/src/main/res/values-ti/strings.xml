@@ -244,9 +244,7 @@
   <string name="preference_title_notification_login_fail">ብመንነት እተው</string>
   <string name="preference_title_notification_user_talk">ምይይጥ ገጽ</string>
   <string name="view_random_card_title">ሃውራዊ</string>
-  <string name="view_random_card_action">ዳዶ ወርወረ</string>
   <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፐድያ</string>
-  <string name="view_main_page_card_subtitle">ኣብ %s መበገሲ ገጽ</string>
   <string name="view_main_page_card_action">መበገሲ ገጽ ርኣይ</string>
   <string name="view_featured_image_card_title">ናይ ዕለት ምስሊ</string>
   <string name="view_featured_image_card_download">ኣውርድ</string>
@@ -380,11 +378,9 @@
   <string name="app_shortcuts_random">ሃውራዊ</string>
   <string name="app_shortcuts_continue_reading">ምንባብ ቀጽል</string>
   <string name="app_shortcuts_search">ምድላይ</string>
-  <string name="more_trending_text">ናይዚ ተወሳኺ</string>
   <string name="on_this_day_card_title">ሓደ መዓልቲ ከም ሎሚ</string>
   <string name="more_events_text">ኣብዚ መዓልቲ ተወሳኺ</string>
   <string name="this_year">እዚ ዓመት</string>
-  <string name="back_to_top">ናብ መጀመርታ ተመለስ</string>
   <plurals name="diff_years">
     <item quantity="one">ዝሓለፈ ዓመት</item>
     <item quantity="other">ካብ %d ዓመታት ቅድሚ</item>

@@ -262,11 +262,8 @@
   <string name="preference_title_notification_thanks">Paldies</string>
   <string name="view_because_you_read_card_title">Jo tu lasīji</string>
   <string name="view_random_card_title">Nejauša lapa</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Lasi nejaušu Vikipēdijas lapu</string>
-  <string name="view_random_card_action">Mest metamo kauliņu</string>
   <string name="view_next_random_article">Ielādēt vēl vienu nejaušu rakstu</string>
   <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
-  <string name="view_main_page_card_subtitle">%s sākumlapa</string>
   <string name="view_main_page_card_action">Skatīt sākumlapu</string>
   <string name="view_featured_image_card_title">Dienas attēls</string>
   <string name="view_featured_image_card_download">Lejupielādēt</string>

@@ -476,9 +476,7 @@
   <string name="preference_summary_notification_user_talk">Message vun Diskussiounssäiten</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
-  <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Haaptsäit op %s</string>
   <string name="view_main_page_card_action">Haaptsäit weisen</string>
   <string name="view_featured_image_card_title">Bild vum Dag</string>
   <string name="view_featured_image_card_download">Eroflueden</string>
@@ -489,7 +487,6 @@
   <string name="feed_featured_image_share_subject">Qualitéitsbild vu Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
   <string name="home">Haaptsäit</string>
-  <string name="most_read_list_card_title">Beléift</string>
   <string name="view_static_card_icon_content_description">Kaartesymbol</string>
   <string name="view_card_news_title">An den Neiegkeeten</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -626,12 +623,10 @@
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
-  <string name="more_trending_text">Méi esou wéi dëst</string>
   <string name="on_this_day_card_title">Op dësem Dag</string>
   <string name="more_events_text">Méi op dësem Dag</string>
   <string name="events_count_text">%1$s Evenementer vum %2$s bis %3$d</string>
   <string name="this_year">Dëst Joer</string>
-  <string name="back_to_top">Zréck no uewen</string>
   <string name="on_this_day_dialog_next_month">Nächste Mount</string>
   <string name="on_this_day_dialog_previous_month">Virege Mount</string>
   <plurals name="diff_years">

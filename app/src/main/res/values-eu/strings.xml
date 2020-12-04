@@ -494,11 +494,8 @@
   <string name="preference_title_notification_revert">Lehengoratu</string>
   <string name="view_because_you_read_card_title">Irakurtzen duzulako</string>
   <string name="view_random_card_title">Ausazkoa</string>
-  <string name="view_random_card_subtitle">Irakurri Wikipediako ausazko artikulu bat</string>
-  <string name="view_random_card_action">Bota dadoa</string>
   <string name="view_next_random_article">Ausazko beste artikulu bat kargatu</string>
   <string name="view_main_page_card_title">Gaur Wikipedian</string>
-  <string name="view_main_page_card_subtitle">Azala %s(e)an</string>
   <string name="view_main_page_card_action">Orrialde nagusia ikusi</string>
   <string name="view_featured_image_card_title">Eguneko irudia</string>
   <string name="view_featured_image_card_download">Deskargatu</string>
@@ -508,7 +505,6 @@
   <string name="menu_feed_overflow_label">Aukera gehiago</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commonsetik lortutako irudi aipagarria</string>
   <string name="feed">Esploratu</string>
-  <string name="most_read_list_card_title">Azken aldian gorantz</string>
   <string name="view_static_card_icon_content_description">Txartel ikonoa</string>
   <string name="view_card_news_title">Albistetan</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -639,13 +635,10 @@
   <string name="app_shortcuts_random">Ausazkoa</string>
   <string name="app_shortcuts_continue_reading">Jarraitu irakurtzen</string>
   <string name="app_shortcuts_search">Bilatu</string>
-  <string name="more_trending_text">Honen antzeko gehiago</string>
-  <string name="top_on_this_day">%1$s(e)ra bideratu</string>
   <string name="on_this_day_card_title">Gaurkoan</string>
   <string name="more_events_text">Gaurko gehiago</string>
   <string name="events_count_text">%2$s–%3$dko %1$s gertakariak</string>
   <string name="this_year">Aurten</string>
-  <string name="back_to_top">Gora itzuli</string>
   <plurals name="diff_years">
     <item quantity="one">Iaz</item>
     <item quantity="other">Orain dela %d urte</item>

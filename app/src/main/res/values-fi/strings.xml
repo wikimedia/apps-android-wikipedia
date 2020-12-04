@@ -64,7 +64,7 @@
   <string name="search_redirect_from">Ohjattu sivulta %s</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieli</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Etsi sivulta</string>
+  <string name="menu_page_find_in_page">Etsi artikkelista</string>
   <string name="edit_section_find_in_page">Etsi sivulta</string>
   <string name="menu_page_font_and_theme">Kirjasin ja teema</string>
   <string name="menu_page_add_to_list">Lisää lukulistaan</string>
@@ -73,6 +73,7 @@
   <string name="feed_card_add_to_default_list">Tallenna</string>
   <string name="menu_page_share">Jaa linkki</string>
   <string name="menu_page_open_a_new_tab">Avaa uudessa välilehdessä</string>
+  <string name="menu_page_new_tab">Uusi välilehti</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
   <string name="menu_page_recently_viewed">Äskettäin katsotut</string>
   <string name="menu_long_press_open_page">Avaa</string>
@@ -339,7 +340,7 @@
   <string name="preference_summary_show_link_previews">Näytä pikainen artikkelien esikatselu linkkejä napautettaessa.</string>
   <string name="preference_title_collapse_tables">Supista taulukot</string>
   <string name="preference_summary_collapse_tables">Supista taulukot automaattisesti artikkeleissa, kuten tietolaatikot, viitteet ja huomautukset.</string>
-  <string name="nav_item_donate" fuzzy="true">Tue Wikipediaa</string>
+  <string name="nav_item_donate">Lahjoita</string>
   <string name="error_voice_search_not_available">Pahoittelut, puheentunnistus ei ole käytettävissä.</string>
   <string name="location_service_disabled">Sijaintipalvelut eivät ole käytössä.</string>
   <string name="enable_location_service">Ota käyttöön</string>
@@ -589,14 +590,18 @@
   <string name="preference_summary_notification_user_talk">Viestit keskustelusivuilta</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
   <string name="view_random_card_title">Satunnaistaminen</string>
-  <string name="view_random_card_subtitle">Selaa satunnaisia ​​artikkeleita luettavaksi Wikipediasta.</string>
-  <string name="view_random_card_action">Heitä noppaa</string>
+  <string name="view_random_article_card_title">Satunnainen artikkeli</string>
+  <string name="view_random_article_card_action">Lisää satunnaisia artikkeleita</string>
+  <string name="view_top_read_card_title">Luetuimmat</string>
+  <string name="view_top_read_card_action">Lisää luetuimpia</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d tuhatta</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d milj.</string>
   <string name="view_next_random_article">Lataa toinen satunnainen artikkeli</string>
   <string name="view_main_page_card_title">Tänään Wikipediassa</string>
-  <string name="view_main_page_card_subtitle">Etusivu %s</string>
   <string name="view_main_page_card_action">Näytä etusivu</string>
   <string name="view_featured_image_card_title">Päivän kuva</string>
   <string name="view_featured_image_card_download">Lataa</string>
+  <string name="view_featured_image_card_share">Jaa</string>
   <string name="menu_feed_card_dismiss">Piilota tämä kortti</string>
   <string name="menu_feed_card_dismissed">Kortti piilotettu.</string>
   <string name="menu_feed_card_edit_card_languages">Muokkaa kortin kieliä</string>
@@ -604,7 +609,6 @@
   <string name="feed_featured_image_share_subject">Suositeltu kuva Wikimedia Commonsista</string>
   <string name="feed">Tutki</string>
   <string name="home">Koti</string>
-  <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -642,6 +646,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_accessibility_card_text">Olet päässyt syötteen loppuun.</string>
   <string name="feed_accessibility_card_load_more_button">Lataa enemmän</string>
+  <string name="top_read_activity_title">Luetuimmat %s</string>
   <string name="description_edit_text_hint">Artikkelin kuvaus</string>
   <string name="description_edit_article_description_label">Artikkeli</string>
   <string name="description_edit_translate_article_description_label_per_language">Artikkelin kuvaus (%s)</string>
@@ -670,6 +675,7 @@
   <string name="description_too_short">Teksti on liian lyhyt.</string>
   <string name="description_ends_with_punctuation">Teksti ei saa päättyä välimerkkeihin.</string>
   <string name="description_starts_with_uppercase">Aloita pienellä kirjaimella, ellei ensimmäinen sana ole erisnimi.</string>
+  <string name="description_is_in_different_language">Teksti näyttää olevan odottamattomalla kielellä.  Kielen tulee olla %s.</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
@@ -763,11 +769,18 @@
   <string name="suggested_edits_image_tags_published_list">Julkaistut merkinnät</string>
   <string name="suggested_edits_image_tags_search">Etsi merkintöjä</string>
   <string name="suggested_edits_image_tags_select_title">Et ole valinnut tälle kuvalle merkintöjä</string>
+  <string name="suggested_edits_image_tags_select_text">Vain valitsemasi tunnisteet lisätään kuviin.  Tunnisteet, joita ei ole valittu, merkitään hylätyksi.  Haluatko varmasti merkitä kaikki tunnisteet hylätyiksi?</string>
   <string name="suggested_edits_image_tags_add_tag">Lisää merkintä</string>
+  <string name="suggested_edits_image_zoom_tooltip">Lähennä tätä kuvaa nipistämällä.</string>
   <string name="suggested_edits_encouragement_message">%s, kiitos muokkauksistasi. Alempaa löydät lisää tapoja parantaa Wikipediaa.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, alempaa löydät nopeita ja helppoja tapoja parantaa Wikipediaa? Näet tekemäsi eron heti, kun aloitat. Hyviä muokkaushetkiä!</string>
   <string name="suggested_edits_image_captions_task_detail">Kuvaile kuvan sisältöä auttaaksesi lukijoita ymmärtämään sen merkitys ja asiayhteys.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Tiivistä artikkeli auttaaksesi lukijoita ymmärtämään aihe nopeasti.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Muokkaustesi määrä tähän mennessä.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Kuinka monta päivää peräkkäin olet tehnyt muokkauksia. Jos et ole muokannut vähään aikaan, se näyttää viimeisimmän muokkauspäivän.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Niiden sivujen katselumäärät, joita olet muokannut viimeisten 30 päivän aikana.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Kuinka monta kertaa muokkauksiasi palautettiin (toinen muokkaaja kumosi). Palautetut muokkaukset: %d.</string>
+  <string name="suggested_edits_paused_message">Ehdotetut muokkaukset on keskeytetty %1$s asti. Anteeksi %2$s, osa viimeaikaisista muokkauksistasi on palautettu.</string>
   <string name="suggested_edits_ip_blocked_message">Näyttää siltä, että IP-osoitteesi (tai IP-osoitealueesi) on tällä hetkellä estetty muokkaamasta Wikipediaa.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_help_page_link_text">Ehdotettujen muokkausten ohjesivu</string>
@@ -791,6 +804,7 @@
     <item quantity="other">%d päivää</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Mitä ovat ehdotetut muokkaukset?</string>
+  <string name="suggested_edits_what_is_text">Ehdotetut muokkaukset tarjoavat mahdollisuuksia pienille mutta tärkeille Wikipedian muokkauksille.</string>
   <string name="suggested_edits_learn_more">Lue lisää</string>
   <string name="suggested_edits_paused_title">Pysäytetty</string>
   <string name="suggested_edits_disabled_title">Poistettu käytöstä</string>
@@ -801,23 +815,39 @@
   <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;-lisenssin ehtojen mukaisesti.</string>
   <string name="suggested_edits_reactivation_notification_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Kiitos Wikipedian muokkaamisesta! Miksi et jatkaisi siitä mihin jäit?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Onko sinulla hetki aikaa jatkaa Wikipedian parantamista? Tarkista nämä muokkausehdotukset.</string>
   <string name="suggested_edits_contributions_screen_title">Käyttäjän %s muokkaukset</string>
   <string name="suggested_edits_contribution_language_label">Kieli</string>
   <string name="suggested_edits_contribution_date_time_label">Päiväys / Aika</string>
   <string name="suggested_edits_contribution_type_label">Muokkaustyyppi</string>
   <string name="suggested_edits_contribution_image_label">Kuva</string>
   <string name="suggested_edits_contribution_article_label">Artikkeli</string>
+  <string name="suggested_edits_contribution_views">%s näyttökertaa</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Nähty kerran viimeisten 30 päivän aikana.</item>
+    <item quantity="other">Nähty %s kertaa viimeisen 30 päivän aikana.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Nähty %s kertaa viimeisen 30 päivän aikana.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Olet tehnyt yhden muokkauksen Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</item>
+    <item quantity="other">Olet tehnyt %d muokkausta Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</item>
+  </plurals>
+  <string name="suggested_edits_rewards_contribution">Olet tehnyt %d muokkausta Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</string>
   <string name="suggested_edits_rewards_continue_button">Jatka</string>
   <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Ehdotetut muokkaukset on uusi tapa muokata Wikipediaa Androidilla. Se auttaa tekemään pieniä, tärkeitä muutoksia Wikipediaan.\nTavoitteenamme on tehdä muokkaamisesta kaikille helpompaa ja helppopääsyisempää! Aloita kirjautumalla sisään tai liittymällä Wikipediaan.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="suggested_edits_contribution_type_image_tag">Kuvamerkintä</string>
   <string name="suggested_edits_contribution_current_revision_text">Muokkauksesi on nyt saatavana Wikipediassa</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s merkintä</item>
     <item quantity="other">%1$s merkintää</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s merkki</item>
+    <item quantity="other">%1$s merkkiä</item>
   </plurals>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
@@ -849,13 +879,10 @@
   <string name="app_shortcuts_random">Satunnainen</string>
   <string name="app_shortcuts_continue_reading">Jatka lukemista</string>
   <string name="app_shortcuts_search">Etsi</string>
-  <string name="more_trending_text">Enemmän tämänlaista</string>
-  <string name="top_on_this_day">Nousussa %1$s</string>
   <string name="on_this_day_card_title">Tänä päivänä</string>
   <string name="more_events_text">Lisää tänä päivänä</string>
   <string name="events_count_text">%1$s tapahtumat %2$s–%3$d</string>
   <string name="this_year">Tänä vuonna</string>
-  <string name="back_to_top">Takaisin alkuun</string>
   <string name="on_this_day_dialog_next_month">Seuraava kuukausi</string>
   <string name="on_this_day_dialog_previous_month">Edellinen kuukausi</string>
   <string name="on_this_day_open_date_picker">Avaa päiväysvalitsin</string>

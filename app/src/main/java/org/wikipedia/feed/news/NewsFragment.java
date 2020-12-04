@@ -1,5 +1,6 @@
 package org.wikipedia.feed.news;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
@@ -162,15 +164,17 @@ public class NewsFragment extends Fragment {
     private class Callback implements ListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         }
 
         @Override
         public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements) {
-            ActivityOptionsCompat options = ActivityOptionsCompat.
-                    makeSceneTransitionAnimation(requireActivity(), sharedElements);
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()),
-                    DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
+            Intent intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle());
+            if (sharedElements.length > 0) {
+                intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
+            }
+            startActivity(intent, DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
         }
 
         @Override

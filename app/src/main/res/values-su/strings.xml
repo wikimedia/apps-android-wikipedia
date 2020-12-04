@@ -422,10 +422,8 @@
   <string name="preference_title_notification_thanks">Nuhun</string>
   <string name="view_because_you_read_card_title">Sabab anjeun maca</string>
   <string name="view_random_card_title">Kaca acak</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Baca kaca acak tina Wikipédia</string>
   <string name="view_next_random_article">Puat artikel acak lianna</string>
   <string name="view_main_page_card_title">Poé ieu na Wikipédia</string>
-  <string name="view_main_page_card_subtitle">Tepas na %s</string>
   <string name="view_main_page_card_action">Tempo tepas</string>
   <string name="view_featured_image_card_title">Gambar poé ieu</string>
   <string name="view_featured_image_card_download">Undeur</string>
@@ -434,7 +432,6 @@
   <string name="menu_feed_overflow_label">Pilihan lianna</string>
   <string name="feed_featured_image_share_subject">Gambar petingan tina Wikimedia Commons</string>
   <string name="feed">Langlang</string>
-  <string name="most_read_list_card_title">Keur ngetrén</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Dina warta</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -503,7 +500,6 @@
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
   <string name="app_shortcuts_search">Paluruh</string>
-  <string name="top_on_this_day">Keur trén dina %1$s</string>
   <string name="on_this_day_card_title">Dina poé ieu</string>
   <string name="more_events_text" fuzzy="true">Kajadian sajarah lianna dina poé ieu</string>
   <string name="events_count_text" fuzzy="true">%1$s kajadian ti %2$s - %3$d</string>
