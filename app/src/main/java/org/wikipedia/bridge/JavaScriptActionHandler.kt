@@ -132,7 +132,7 @@ object JavaScriptActionHandler {
                 "   }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: \"${baseURL}\"," +
+                "       baseURL: \"$baseURL\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
@@ -142,7 +142,7 @@ object JavaScriptActionHandler {
     fun mobileWebChromeShim(): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 80px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 48px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }
@@ -150,7 +150,7 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun getElementAtPosition(x: Int, y: Int): String {
         return "(function() {" +
-                "  let element = document.elementFromPoint(${x}, ${y});" +
+                "  let element = document.elementFromPoint($x, $y);" +
                 "  let result = {};" +
                 "  result.left = element.getBoundingClientRect().left;" +
                 "  result.top = element.getBoundingClientRect().top;" +
