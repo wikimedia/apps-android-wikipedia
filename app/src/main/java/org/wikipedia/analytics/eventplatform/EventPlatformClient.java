@@ -19,7 +19,7 @@ import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegrati
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.isOnline;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvent;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
@@ -243,18 +243,19 @@ public final class EventPlatformClient {
          * @param events list of events
          */
         static void send(List<Event> events) {
-            while (!events.isEmpty()) {
-                List<Event> eventsList = new ArrayList<>();
-                String stream = events.get(0).getStream();
-                for (Event event : events) {
-                    if (event.getStream().equals(stream)) {
-                        eventsList.add(event);
-                    }
+            if (!ENABLED) {
+                return;
+            }
+            Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
+            for (Event event : events) {
+                String stream = event.getStream();
+                if (!eventsByStream.containsKey(stream) || eventsByStream.get(stream) == null) {
+                    eventsByStream.put(stream, new ArrayList<>());
                 }
-                events.removeAll(eventsList);
-                if (eventsList != null && stream != null) {
-                    postEvent(getStreamConfig(stream), eventsList);
-                }
+                eventsByStream.get(stream).add(event);
+            }
+            for (String stream : eventsByStream.keySet()) {
+                postEvents(getStreamConfig(stream), eventsByStream.get(stream));
             }
         }
     }

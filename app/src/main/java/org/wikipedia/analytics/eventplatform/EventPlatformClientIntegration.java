@@ -95,7 +95,7 @@ final class EventPlatformClientIntegration {
      * @param streamConfig stream config
      * @param events Events to be posted. Gson will take care of serializing to JSON.
      */
-    static void postEvent(@NonNull StreamConfig streamConfig, @NonNull List<Event> events) {
+    static void postEvents(@NonNull StreamConfig streamConfig, @NonNull List<Event> events) {
         DISPOSABLES.add(getEventService(streamConfig).postEvents(events)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
