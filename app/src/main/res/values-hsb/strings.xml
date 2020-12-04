@@ -440,6 +440,7 @@
   <string name="view_random_card_title">Připad</string>
   <string name="view_next_random_article">Druhi připadny zapisk pokazać</string>
   <string name="view_main_page_card_title">Dźensa we Wikipediji</string>
+  <string name="view_main_page_card_action">Hłownu stronu wobhladać</string>
   <string name="view_featured_image_card_title">Wobraz dnja</string>
   <string name="view_featured_image_card_download">Sćahnyć</string>
   <string name="menu_feed_card_dismiss">Tutu kartu schować</string>
@@ -462,6 +463,7 @@
   <string name="feed_item_type_on_this_day">Podawki na tutym dnju w zašłosći</string>
   <string name="feed_item_type_trending">Najbóle čitane zapiski</string>
   <string name="feed_item_type_featured_image">Na Wikimedia Commons předstajeny wobraz</string>
+  <string name="feed_item_type_main_page">Hłowna strona Wikipedije z aktualnym wobsahom</string>
   <string name="description_edit_text_hint" fuzzy="true">Wopis titula</string>
   <string name="description_edit_save">Wozjewić</string>
   <string name="description_edit_add_description" fuzzy="true">Wopis titula přidać</string>

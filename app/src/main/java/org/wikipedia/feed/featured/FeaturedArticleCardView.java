@@ -2,6 +2,7 @@ package org.wikipedia.feed.featured;
 
 import android.content.Context;
 import android.net.Uri;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -68,7 +69,10 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     @OnLongClick(R.id.view_featured_article_card_content_container)
     boolean onLongClick(View view) {
-        if (getCallback() != null && getCard() != null) {
+        if (ImageZoomHelper.isZooming()) {
+            // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
+            contentContainerView.dispatchTouchEvent(MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0));
+        } else if (getCallback() != null && getCard() != null) {
             new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
                 @Override
                 public void onAddRequest(boolean addToDefault) {

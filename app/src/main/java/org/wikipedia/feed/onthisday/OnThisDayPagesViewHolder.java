@@ -84,7 +84,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
         Pair<View, String>[] sharedElements = TransitionUtil.getSharedElements(activity, pageItemImageView);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, sharedElements);
-        Intent intent = PageActivity.newIntentForCurrentTab(activity, entry, entry.getTitle());
+        Intent intent = PageActivity.newIntentForNewTab(activity, entry, entry.getTitle());
         if (sharedElements.length > 0) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
         }

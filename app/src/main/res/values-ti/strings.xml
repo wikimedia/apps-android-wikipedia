@@ -245,6 +245,7 @@
   <string name="preference_title_notification_user_talk">ምይይጥ ገጽ</string>
   <string name="view_random_card_title">ሃውራዊ</string>
   <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፐድያ</string>
+  <string name="view_main_page_card_action">መበገሲ ገጽ ርኣይ</string>
   <string name="view_featured_image_card_title">ናይ ዕለት ምስሊ</string>
   <string name="view_featured_image_card_download">ኣውርድ</string>
   <string name="menu_feed_overflow_label">ተወሳኺ ኣማራጺታት</string>

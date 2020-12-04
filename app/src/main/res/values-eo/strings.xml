@@ -506,6 +506,7 @@
   <string name="view_random_card_title">Hazardumilo</string>
   <string name="view_next_random_article">Ŝargi alian hazardan artikolon</string>
   <string name="view_main_page_card_title">Hodiaŭ sur Vikipedio</string>
+  <string name="view_main_page_card_action">Vidi la ĉefan paĝon</string>
   <string name="view_featured_image_card_title">Bildo de la tago</string>
   <string name="view_featured_image_card_download">Elŝuti</string>
   <string name="menu_feed_card_dismiss">Kaŝi ĉi tiun karton</string>
@@ -539,6 +540,7 @@
   <string name="feed_item_type_featured_article">Hodiaŭa elstara artikolo ĉe Vikipedio</string>
   <string name="feed_item_type_trending">Plej vidata artikolo de la tago</string>
   <string name="feed_item_type_featured_image">Hodiaŭa elstara bildo ĉe Vikimedia Komunejo</string>
+  <string name="feed_item_type_main_page">Ĉefpaĝo de Vikipedio kun ĉiutaga elstara enhavo</string>
   <string name="feed_item_type_randomizer">Elekti hazardajn artikolojn por legado</string>
   <string name="feed_item_type_suggested_edits">Sugestoj pri aldoninda enhavo por Vikipedio</string>
   <string name="feed_empty_message">Estas nenio en via Esploro-fluo.</string>

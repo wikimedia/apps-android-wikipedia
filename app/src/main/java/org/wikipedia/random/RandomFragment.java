@@ -1,6 +1,7 @@
 package org.wikipedia.random;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,6 +35,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.AnimationUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
@@ -178,9 +180,12 @@ public class RandomFragment extends Fragment {
     }
 
     public void onSelectPage(@NonNull PageTitle title, @NonNull Pair<View, String>[] sharedElements) {
-        ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation(requireActivity(), sharedElements);
-        startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title), options.toBundle());
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
+        Intent intent = PageActivity.newIntentForNewTab(requireContext(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title);
+        if (sharedElements.length > 0) {
+            intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
+        }
+        startActivity(intent, DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
     }
 
     public void onAddPageToList(@NonNull PageTitle title, boolean addToDefault) {

@@ -285,12 +285,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
-        Intent intent = PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle());
+        Intent intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle());
         if (sharedElements.length > 0) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
         }

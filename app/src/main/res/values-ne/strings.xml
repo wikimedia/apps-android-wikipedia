@@ -413,6 +413,7 @@
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
   <string name="view_next_random_article">अर्को अनियमित लेख खाेल्नुहाेस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
+  <string name="view_main_page_card_action">मुख्य पृष्ठ हेर्नुहोस्</string>
   <string name="view_featured_image_card_title">आजको तस्बिर</string>
   <string name="view_featured_image_card_download">डाउनलोड गर्नुहोस्</string>
   <string name="menu_feed_card_dismiss">यो कार्ड लुकाउनुहोस्</string>

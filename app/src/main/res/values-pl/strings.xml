@@ -584,6 +584,7 @@
   <string name="view_random_article_card_action">Więcej losowych artykułów</string>
   <string name="view_next_random_article">Załaduj inny losowy artykuł</string>
   <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
+  <string name="view_main_page_card_action">Zobacz stronę główną</string>
   <string name="view_featured_image_card_title">Grafika dnia</string>
   <string name="view_featured_image_card_download">Pobierz</string>
   <string name="view_featured_image_card_share">Udostępnij</string>
@@ -619,6 +620,7 @@
   <string name="feed_item_type_featured_article">Dzisiejszy wyróżniony artykuł na Wikipedii</string>
   <string name="feed_item_type_trending">Najczęściej dzisiaj odwiedzane artykuły</string>
   <string name="feed_item_type_featured_image">Wyróżniony dzisiaj obraz z Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Strona główna Wikipedii zawierająca dzienną wyróżnioną treść</string>
   <string name="feed_item_type_randomizer">Wylosuj artykuł do przeczytania</string>
   <string name="feed_item_type_suggested_edits">Sugestie dotyczące dodania treści do Wikipedii</string>
   <string name="feed_empty_message">W Twoim kanale Eksploruj nie ma nic</string>
