@@ -9,9 +9,7 @@ import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 
 public class PageContainerLongPressHandler implements LongPressHandler.WebViewMenuCallback {
     @NonNull
@@ -47,17 +45,6 @@ public class PageContainerLongPressHandler implements LongPressHandler.WebViewMe
                 fragment.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
     }
 
-    @Override
-    public void onCopyLink(@NonNull HistoryEntry entry) {
-        copyLink(entry.getTitle().getUri());
-        showCopySuccessMessage();
-    }
-
-    @Override
-    public void onShareLink(@NonNull HistoryEntry entry) {
-        ShareUtil.shareText(fragment.getActivity(), entry.getTitle());
-    }
-
     @NonNull
     @Override
     public WikiSite getWikiSite() {
@@ -68,13 +55,5 @@ public class PageContainerLongPressHandler implements LongPressHandler.WebViewMe
     @Override
     public String getReferrer() {
         return fragment.getTitle() != null ? fragment.getTitle().getUri() : null;
-    }
-
-    private void copyLink(String url) {
-        ClipboardUtil.setPlainText(fragment.getActivity(), null, url);
-    }
-
-    private void showCopySuccessMessage() {
-        FeedbackUtil.showMessage(fragment.getActivity(), R.string.address_copied);
     }
 }

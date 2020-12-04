@@ -35,10 +35,8 @@ import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.CabSearchView;
@@ -339,17 +337,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     public void onSearchRemovePageFromList(HistoryEntry entry) {
         FeedbackUtil.showMessage(requireActivity(),
                 getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-    }
-
-    @Override
-    public void onSearchSharePage(HistoryEntry entry) {
-        ShareUtil.shareText(requireContext(), entry.getTitle());
-    }
-
-    @Override
-    public void onSearchCopyPage(HistoryEntry entry) {
-        ClipboardUtil.setPlainText(requireContext(), null, entry.getTitle().getUri());
-        FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
     @Override

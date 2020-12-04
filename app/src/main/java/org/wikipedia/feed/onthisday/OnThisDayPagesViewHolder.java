@@ -26,11 +26,9 @@ import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.TransitionUtil;
@@ -134,18 +132,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
                 FeedbackUtil.showMessage(activity,
                         activity.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
             }
-
-            @Override
-            public void onCopyLink(@NonNull HistoryEntry entry) {
-                ShareUtil.shareText(activity, entry.getTitle());
-            }
-
-            @Override
-            public void onShareLink(@NonNull HistoryEntry entry) {
-                ClipboardUtil.setPlainText(activity, null, entry.getTitle().getUri());
-                FeedbackUtil.showMessage(activity, R.string.address_copied);
-            }
-        }).show(entry);
+        }).show(activity, entry);
 
         return true;
     }

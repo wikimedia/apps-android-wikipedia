@@ -32,10 +32,8 @@ import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -194,18 +192,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                             FeedbackUtil.showMessage((AppCompatActivity) getContext(),
                                     getContext().getResources().getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
                         }
-
-                        @Override
-                        public void onShareLink(@NonNull HistoryEntry entry) {
-                            ShareUtil.shareText(getContext(), entry.getTitle());
-                        }
-
-                        @Override
-                        public void onCopyLink(@NonNull HistoryEntry entry) {
-                            ClipboardUtil.setPlainText(getContext(), null, entry.getTitle().getUri());
-                            FeedbackUtil.showMessage((AppCompatActivity) getContext(), R.string.address_copied);
-                        }
-                    }).show(entry);
+                    }).show(getContext(), entry);
 
                     return true;
                 });

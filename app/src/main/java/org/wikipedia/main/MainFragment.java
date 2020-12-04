@@ -321,16 +321,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
     }
 
-    @Override public void onFeedSharePage(HistoryEntry entry) {
-        ShareUtil.shareText(requireContext(), entry.getTitle());
-    }
-
-    @Override
-    public void onFeedCopyPage(HistoryEntry entry) {
-        ClipboardUtil.setPlainText(requireContext(), null, entry.getTitle().getUri());
-        FeedbackUtil.showMessage(this, R.string.address_copied);
-    }
-
     @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));

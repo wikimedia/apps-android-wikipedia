@@ -108,21 +108,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                         getCallback().onRemovePageFromList(entry);
                     }
                 }
-
-                @Override
-                public void onCopyLink(@NonNull HistoryEntry entry) {
-                    if (getCallback() != null) {
-                        getCallback().onCopyPage(entry);
-                    }
-                }
-
-                @Override
-                public void onShareLink(@NonNull HistoryEntry entry) {
-                    if (getCallback() != null) {
-                        getCallback().onSharePage(entry);
-                    }
-                }
-            }).show(getCard().historyEntry());
+            }).show(getContext(), getCard().historyEntry());
         }
         return false;
     }

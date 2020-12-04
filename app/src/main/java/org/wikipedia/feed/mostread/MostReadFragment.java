@@ -27,10 +27,8 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.TabUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -161,17 +159,6 @@ public class MostReadFragment extends Fragment {
         public void onRemovePageFromList(@NonNull HistoryEntry entry) {
             FeedbackUtil.showMessage(requireActivity(),
                     getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-        }
-
-        @Override
-        public void onSharePage(@NonNull HistoryEntry entry) {
-            ShareUtil.shareText(getActivity(), entry.getTitle());
-        }
-
-        @Override
-        public void onCopyPage(@NonNull HistoryEntry entry) {
-            ClipboardUtil.setPlainText(requireContext(), null, entry.getTitle().getUri());
-            FeedbackUtil.showMessage(requireActivity(), R.string.address_copied);
         }
     }
 }

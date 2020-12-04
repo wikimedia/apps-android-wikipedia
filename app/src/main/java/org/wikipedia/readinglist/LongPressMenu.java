@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.annotation.MenuRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.view.ViewCompat;
 
@@ -17,6 +18,9 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.util.ClipboardUtil;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ShareUtil;
 
 import java.util.List;
 
@@ -31,8 +35,6 @@ public class LongPressMenu {
         void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry);
         void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry);
-        void onCopyLink(@NonNull HistoryEntry entry);
-        void onShareLink(@NonNull HistoryEntry entry);
     }
 
     @NonNull private final View anchorView;
@@ -41,6 +43,7 @@ public class LongPressMenu {
     private final boolean existsInAnyList;
     @Nullable private List<ReadingList> listsContainingPage;
     @Nullable private HistoryEntry entry;
+    @Nullable private Context context;
 
 
     public LongPressMenu(@NonNull View anchorView, @Nullable Callback callback) {
@@ -55,7 +58,7 @@ public class LongPressMenu {
     }
 
     @SuppressLint("CheckResult")
-    public void show(@Nullable HistoryEntry entry) {
+    public void show(@NonNull Context context, @Nullable HistoryEntry entry) {
         if (entry == null) {
             return;
         }
@@ -69,6 +72,7 @@ public class LongPressMenu {
                         return;
                     }
                     this.entry = entry;
+                    this.context = context;
                     showMenu();
                 });
     }
@@ -166,14 +170,15 @@ public class LongPressMenu {
                     return true;
 
                 case R.id.menu_long_press_share_page:
-                    if (callback != null && entry != null) {
-                        callback.onShareLink(entry);
+                    if (context != null && entry != null) {
+                        ShareUtil.shareText(context, entry.getTitle());
                     }
                     return true;
 
                 case R.id.menu_long_press_copy_page:
-                    if (callback != null && entry != null) {
-                        callback.onCopyLink(entry);
+                    if (context != null && entry != null) {
+                        ClipboardUtil.setPlainText(context, null, entry.getTitle().getUri());
+                        FeedbackUtil.showMessage((AppCompatActivity) context, R.string.address_copied);
                     }
                     return true;
 

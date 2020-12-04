@@ -67,8 +67,6 @@ public class SearchResultsFragment extends Fragment {
         void onSearchAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onSearchMovePageToList(long sourceReadingListId, HistoryEntry entry);
         void onSearchRemovePageFromList(HistoryEntry entry);
-        void onSearchSharePage(HistoryEntry entry);
-        void onSearchCopyPage(HistoryEntry entry);
         void onSearchProgressBar(boolean enabled);
         void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
         void setSearchText(@NonNull CharSequence text);
@@ -497,20 +495,6 @@ public class SearchResultsFragment extends Fragment {
         public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
             if (callback != null) {
                 callback.onSearchRemovePageFromList(entry);
-            }
-        }
-
-        @Override
-        public void onCopyLink(@NonNull HistoryEntry entry) {
-            if (callback != null) {
-                callback.onSearchCopyPage(entry);
-            }
-        }
-
-        @Override
-        public void onShareLink(@NonNull HistoryEntry entry) {
-            if (callback != null) {
-                callback.onSearchSharePage(entry);
             }
         }
     }

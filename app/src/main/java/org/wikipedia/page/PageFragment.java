@@ -234,17 +234,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             callback().onPageRemoveFromReadingLists(getTitle());
                         }
                     }
-
-                    @Override
-                    public void onCopyLink(@NonNull HistoryEntry entry) {
-                        // ignore
-                    }
-
-                    @Override
-                    public void onShareLink(@NonNull HistoryEntry entry) {
-                        // ignore
-                    }
-                }).show(getHistoryEntry());
+                }).show(requireContext(), getHistoryEntry());
             } else {
                 addToReadingList(getTitle(), BOOKMARK_BUTTON, true);
             }

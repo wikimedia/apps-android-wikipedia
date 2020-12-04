@@ -178,17 +178,7 @@ public class RandomFragment extends Fragment {
                             getString(R.string.reading_list_item_deleted, title.getDisplayText()));
                     updateSaveShareButton(title);
                 }
-
-                @Override
-                public void onCopyLink(@NonNull HistoryEntry entry) {
-                    // ignore
-                }
-
-                @Override
-                public void onShareLink(@NonNull HistoryEntry entry) {
-                    // ignore
-                }
-            }).show(new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM));
+            }).show(requireContext(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM));
         } else {
             onAddPageToList(title, true);
         }
