@@ -226,6 +226,7 @@ public final class EventPlatformClient {
                      * the countdown.
                      */
                     TIMER.cancel();
+                    TIMER.purge();
                     TIMER = new Timer();
                     TIMER.schedule(new Task(), WAIT_MS);
                 }
