@@ -236,6 +236,7 @@
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
     <string name="find_last_occurence">This is the last occurrence</string>
+    <string name="article_opened_in_background_tab">Your article has been opened in background.</string>
     <!-- need this and next? -->
     <string name="abusefilter_title_warn">This may be an unconstructive edit. Are you sure you want to publish it?</string>
     <string name="abusefilter_title_disallow">You cannot publish this edit. Please go back and change it.</string>

@@ -32,6 +32,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
@@ -105,8 +106,8 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
 
             @Override
             public void onOpenInNewTab(@NonNull HistoryEntry entry) {
-                // TODO: open tab in background
-                PageActivity.newIntentForNewTab(activity, entry, entry.getTitle());
+                TabUtil.openInNewBackgroundTab(entry);
+                FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab);
             }
 
             @Override

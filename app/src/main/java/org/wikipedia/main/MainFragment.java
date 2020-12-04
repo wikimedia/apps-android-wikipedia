@@ -49,10 +49,8 @@ import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -71,6 +69,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
@@ -284,18 +283,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewTab) {
-        if (openInNewTab) {
-            WikipediaApp app = WikipediaApp.getInstance();
-            app.commitTabState();
-            Tab tab = app.getTabCount() == 0 ? app.getTabList().get(0) : new Tab();
-            if (app.getTabCount() > 0) {
-                app.getTabList().add(0, tab);
-                while (app.getTabList().size() > Constants.MAX_TABS) {
-                    app.getTabList().remove(0);
-                }
-            }
-            tab.getBackStack().add(new PageBackStackItem(entry.getTitle(), entry));
+    @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewBackgroundTab) {
+        if (openInNewBackgroundTab) {
+            TabUtil.openInNewBackgroundTab(entry);
             requireActivity().invalidateOptionsMenu();
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));

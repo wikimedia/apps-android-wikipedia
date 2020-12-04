@@ -40,7 +40,7 @@ import butterknife.OnLongClick;
 public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
-        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewTab);
+        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewBackgroundTab);
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements);
         void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);

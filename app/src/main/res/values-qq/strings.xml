@@ -259,6 +259,7 @@
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_first_occurence">Text that shows up in hint when user tries to get to first occurence when he is already on it.</string>
   <string name="find_last_occurence">Text that shows up in hint when user tries to get to last occurence when he is already on it.</string>
+  <string name="article_opened_in_background_tab">Message that notifies the user that the article has been opened in a background.</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>

@@ -31,6 +31,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.TabUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -120,9 +121,10 @@ public class MostReadFragment extends Fragment {
 
     private class Callback implements ListCardItemView.Callback {
         @Override
-        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewTab) {
-            if (openInNewTab) {
-                // TODO: open a new tab in background
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewBackgroundTab) {
+            if (openInNewBackgroundTab) {
+                TabUtil.openInNewBackgroundTab(entry);
+                FeedbackUtil.showMessage(requireActivity(), R.string.article_opened_in_background_tab);
             } else {
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
             }

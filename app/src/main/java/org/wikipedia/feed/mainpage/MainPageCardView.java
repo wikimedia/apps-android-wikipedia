@@ -52,7 +52,7 @@ public class MainPageCardView extends DefaultFeedCardView<MainPageCard> {
         if (getCallback() != null && getCard() != null) {
             getCallback().onSelectPage(getCard(),
                     new HistoryEntry(new PageTitle(SiteInfoClient.getMainPageForLang(getCard().wikiSite().languageCode()), getCard().wikiSite()),
-                            HistoryEntry.SOURCE_FEED_MAIN_PAGE), true);
+                            HistoryEntry.SOURCE_FEED_MAIN_PAGE), false);
         }
     }
 }
