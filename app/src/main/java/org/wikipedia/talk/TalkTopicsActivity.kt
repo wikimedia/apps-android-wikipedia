@@ -43,7 +43,7 @@ class TalkTopicsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topics)
 
-        pageTitle = GsonUnmarshaller.unmarshal(PageTitle::class.java, intent.getStringExtra(EXTRA_PAGE_TITLE))
+        pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         title = getString(R.string.talk_user_title, pageTitle.displayText)
 
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -209,7 +209,7 @@ class TalkTopicsActivity : BaseActivity() {
         @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, GsonMarshaller.marshal(pageTitle))
+                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
         }
     }
 }

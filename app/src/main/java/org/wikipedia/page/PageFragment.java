@@ -1190,7 +1190,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     private void startTalkTopicActivity(@NonNull PageTitle pageTitle) {
-        // If we're currently looking at a User page, then go directly to the corresponding User Talk page.
         startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage()));
     }
 

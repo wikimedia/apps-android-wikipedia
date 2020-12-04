@@ -61,7 +61,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         title = ""
         linkHandler = TalkLinkHandler(this)
 
-        pageTitle = GsonUnmarshaller.unmarshal(PageTitle::class.java, intent.getStringExtra(EXTRA_PAGE_TITLE))
+        pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
@@ -349,19 +349,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         FeedbackUtil.showError(this, t)
     }
 
-    companion object {
-        private const val EXTRA_PAGE_TITLE = "pageTitle"
-        private const val EXTRA_TOPIC = "topicId"
-        const val RESULT_EDIT_SUCCESS = 1
-
-        @JvmStatic
-        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int): Intent {
-            return Intent(context, TalkTopicActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, GsonMarshaller.marshal(pageTitle))
-                    .putExtra(EXTRA_TOPIC, topicId)
-        }
-    }
-
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
             PageActivity.newIntentForCurrentTab(this, entry, title, false))
@@ -379,5 +366,18 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
         ShareUtil.shareText(this, title)
+    }
+
+    companion object {
+        private const val EXTRA_PAGE_TITLE = "pageTitle"
+        private const val EXTRA_TOPIC = "topicId"
+        const val RESULT_EDIT_SUCCESS = 1
+
+        @JvmStatic
+        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int): Intent {
+            return Intent(context, TalkTopicActivity::class.java)
+                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(EXTRA_TOPIC, topicId)
+        }
     }
 }
