@@ -437,4 +437,6 @@ public final class EventPlatformClient {
         refreshStreamConfigs();
     }
 
+    private EventPlatformClient() {
+    }
 }
