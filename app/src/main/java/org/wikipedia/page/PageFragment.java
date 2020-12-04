@@ -226,7 +226,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                         moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON, true);
                     }
-                }).show(requireContext(), getHistoryEntry());
+                }).show(getHistoryEntry());
             } else {
                 addToReadingList(getTitle(), BOOKMARK_BUTTON, true);
             }

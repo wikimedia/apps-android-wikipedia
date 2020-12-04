@@ -125,7 +125,7 @@ public class ListCardItemView extends ConstraintLayout {
                     getCallback().onMovePageToList(page.listId(), entry);
                 }
             }
-        }).show(getContext(), entry);
+        }).show(entry);
         return false;
     }
 

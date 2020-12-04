@@ -101,7 +101,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                         getCallback().onMovePageToList(page.listId(), entry);
                     }
                 }
-            }).show(getContext(), getCard().historyEntry());
+            }).show(getCard().historyEntry());
         }
         return false;
     }

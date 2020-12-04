@@ -42,7 +42,7 @@ public class LongPressMenu {
     private final boolean existsInAnyList;
     @Nullable private List<ReadingList> listsContainingPage;
     @Nullable private HistoryEntry entry;
-    @Nullable private Context context;
+    @NonNull private final Context context;
 
 
     public LongPressMenu(@NonNull View anchorView, @Nullable Callback callback) {
@@ -54,10 +54,11 @@ public class LongPressMenu {
         this.callback = callback;
         this.existsInAnyList = existsInAnyList;
         this.menuRes = existsInAnyList ? R.menu.menu_long_press : R.menu.menu_reading_list_page_toggle;
+        this.context = anchorView.getContext();
     }
 
     @SuppressLint("CheckResult")
-    public void show(@NonNull Context context, @Nullable HistoryEntry entry) {
+    public void show(@Nullable HistoryEntry entry) {
         if (entry == null) {
             return;
         }
@@ -71,7 +72,6 @@ public class LongPressMenu {
                         return;
                     }
                     this.entry = entry;
-                    this.context = context;
                     showMenu();
                 });
     }
@@ -81,7 +81,6 @@ public class LongPressMenu {
             return;
         }
 
-        Context context = anchorView.getContext();
         PopupMenu menu = new PopupMenu(context, anchorView);
         menu.getMenuInflater().inflate(menuRes, menu.getMenu());
         menu.setOnMenuItemClickListener(new PageSaveMenuClickListener());
@@ -115,12 +114,12 @@ public class LongPressMenu {
         menu.show();
     }
 
-    private void deleteOrShowDialog(@NonNull Context context) {
+    private void deleteOrShowDialog() {
         if (isListsContainingPageEmpty()) {
             return;
         }
         new RemoveFromReadingListsDialog(listsContainingPage).deleteOrShowDialog(context, (lists, page) -> {
-            if (entry != null) {
+            if (entry != null && anchorView.isAttachedToWindow()) {
                 FeedbackUtil.showMessage((AppCompatActivity) context, context.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
             }
         });
@@ -165,7 +164,7 @@ public class LongPressMenu {
                     return true;
 
                 case R.id.menu_long_press_remove_from_lists:
-                    deleteOrShowDialog(anchorView.getContext());
+                    deleteOrShowDialog();
                     return true;
 
                 case R.id.menu_long_press_share_page:

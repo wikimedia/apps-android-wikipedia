@@ -88,7 +88,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener, View.
                 anchorView = tempView;
             }
 
-            new LongPressMenu(anchorView, true, callback).show(view.getContext(), entry);
+            new LongPressMenu(anchorView, true, callback).show(entry);
         }
     }
 

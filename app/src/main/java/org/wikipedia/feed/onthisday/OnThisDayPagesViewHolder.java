@@ -126,7 +126,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
                 bottomSheetPresenter.show(fragmentManager,
                         MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_ACTIVITY));
             }
-        }).show(activity, entry);
+        }).show(entry);
 
         return true;
     }

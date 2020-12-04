@@ -175,14 +175,7 @@ public class RandomFragment extends Fragment {
                 public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                     onMovePageToList(page.listId(), title);
                 }
-
-//                @Override
-//                public void onDeleted(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-//                    FeedbackUtil.showMessage(getActivity(),
-//                            getString(R.string.reading_list_item_deleted, title.getDisplayText()));
-//                    updateSaveShareButton(title);
-//                }
-            }).show(requireContext(), new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM));
+            }).show(new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM));
         } else {
             onAddPageToList(title, true);
         }

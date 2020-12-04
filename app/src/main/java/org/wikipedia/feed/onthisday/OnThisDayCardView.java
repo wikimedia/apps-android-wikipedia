@@ -185,7 +185,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                             bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
                                     MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_CARD_BODY));
                         }
-                    }).show(getContext(), entry);
+                    }).show(entry);
 
                     return true;
                 });
