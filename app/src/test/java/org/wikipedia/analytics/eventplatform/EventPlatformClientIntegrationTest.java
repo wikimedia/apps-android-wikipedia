@@ -24,7 +24,7 @@ import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGG
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getIso8601Timestamp;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvent;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
 import static org.wikipedia.json.GsonUtil.getDefaultGson;
 
@@ -59,7 +59,7 @@ public class EventPlatformClientIntegrationTest extends MockRetrofitTest {
         setStreamConfig(streamConfig);
         server().enqueue(new MockResponse().setResponseCode(202));
         events.add(new Event("test", "test"));
-        postEvent(streamConfig, events);
+        postEvents(streamConfig, events);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class EventPlatformClientIntegrationTest extends MockRetrofitTest {
         setStreamConfig(streamConfig);
         server().enqueue(new MockResponse().setResponseCode(400));
         events.add(new Event("test", "test"));
-        postEvent(streamConfig, events);
+        postEvents(streamConfig, events);
     }
 
     @Test
