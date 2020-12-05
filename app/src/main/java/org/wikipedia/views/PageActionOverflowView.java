@@ -27,7 +27,7 @@ public class PageActionOverflowView extends FrameLayout {
 
     public interface Callback {
         void forwardClick();
-        void findInPageClick();
+        void addToWatchlistClick();
         void shareClick();
         void newTabClick();
         void feedClick();
@@ -61,7 +61,7 @@ public class PageActionOverflowView extends FrameLayout {
         forwardButton.setVisibility(currentTab.canGoForward() ? VISIBLE : GONE);
     }
 
-    @OnClick({R.id.overflow_forward, R.id.overflow_find_in_page, R.id.overflow_new_tab, R.id.overflow_share, R.id.overflow_feed})
+    @OnClick({R.id.overflow_forward, R.id.overflow_add_to_watchlist, R.id.overflow_new_tab, R.id.overflow_share, R.id.overflow_feed})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
@@ -74,8 +74,8 @@ public class PageActionOverflowView extends FrameLayout {
             case R.id.overflow_forward:
                 callback.forwardClick();
                 break;
-            case R.id.overflow_find_in_page:
-                callback.findInPageClick();
+            case R.id.overflow_add_to_watchlist:
+                callback.addToWatchlistClick();
                 break;
             case R.id.overflow_new_tab:
                 callback.newTabClick();

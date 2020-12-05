@@ -25,20 +25,20 @@
             />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_find_in_page"
-            style="@style/OverflowMenuItem"
-            android:text="@string/menu_page_find_in_page"
-            android:drawablePadding="16dp"
-            app:drawableStartCompat="@drawable/ic_find_in_page"
-            app:drawableTint="?attr/material_theme_secondary_color"
-            />
-
-        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/overflow_share"
             style="@style/OverflowMenuItem"
             android:text="@string/menu_page_share"
             android:drawablePadding="16dp"
             app:drawableStartCompat="@drawable/ic_share_white_24dp"
+            app:drawableTint="?attr/material_theme_secondary_color"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/overflow_add_to_watchlist"
+            style="@style/OverflowMenuItem"
+            android:text="@string/menu_page_find_in_page"
+            android:drawablePadding="16dp"
+            app:drawableStartCompat="@drawable/ic_baseline_star_outline_24"
             app:drawableTint="?attr/material_theme_secondary_color"
             />
 

@@ -691,8 +691,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void findInPageClick() {
-            pageFragment.showFindInPage();
+        public void addToWatchlistClick() {
+
         }
 
         @Override
