@@ -17,6 +17,7 @@ import org.wikipedia.settings.Prefs;
 import java.io.IOException;
 
 import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
@@ -81,8 +82,8 @@ public final class ServiceFactory {
 
         String intakeBaseUriOverride = getEventPlatformIntakeUriOverride();
 
-        Retrofit r = createRetrofit(WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
-                intakeBaseUriOverride != null ? intakeBaseUriOverride : destinationEventService.getBaseUri());
+        Retrofit r = createRetrofit(null, intakeBaseUriOverride != null ? intakeBaseUriOverride
+                : destinationEventService.getBaseUri());
         s = r.create(EventService.class);
         ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.getId(), s);
         return s;
@@ -107,10 +108,13 @@ public final class ServiceFactory {
         return path;
     }
 
-    private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {
+    private static Retrofit createRetrofit(@Nullable WikiSite wiki, @NonNull String baseUrl) {
+        OkHttpClient.Builder okHttpClientBuilder = OkHttpConnectionFactory.getClient().newBuilder();
+        if (wiki != null) {
+            okHttpClientBuilder.addInterceptor(new LanguageVariantHeaderInterceptor(wiki));
+        }
         return new Retrofit.Builder()
-                .client(OkHttpConnectionFactory.getClient().newBuilder()
-                        .addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build())
+                .client(okHttpClientBuilder.build())
                 .baseUrl(baseUrl)
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
