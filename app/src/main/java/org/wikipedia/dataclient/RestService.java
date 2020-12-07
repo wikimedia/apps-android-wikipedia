@@ -204,8 +204,8 @@ public interface RestService {
     //  ------- Talk pages -------
 
     @Headers("Cache-Control: no-cache")
-    @GET("page/talk/User_talk:{user}")
+    @GET("page/talk/{title}")
     @NonNull
-    Observable<TalkPage> getTalkPage(@Nullable @Path("user") String user);
+    Observable<TalkPage> getTalkPage(@Nullable @Path("title") String title);
 
 }

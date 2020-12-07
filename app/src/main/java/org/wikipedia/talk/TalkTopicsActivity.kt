@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -22,17 +23,19 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
 
 class TalkTopicsActivity : BaseActivity() {
-    private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
-    private var userName: String = ""
+    private lateinit var pageTitle: PageTitle
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
 
@@ -40,11 +43,8 @@ class TalkTopicsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topics)
 
-        if (intent.hasExtra(EXTRA_LANGUAGE)) {
-            wikiSite = WikiSite.forLanguageCode(intent.getStringExtra(EXTRA_LANGUAGE).orEmpty())
-        }
-        userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
-        title = getString(R.string.talk_user_title, StringUtil.removeUnderscores(userName))
+        pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
+        title = pageTitle.displayText
 
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
@@ -59,7 +59,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         talkNewTopicButton.setOnClickListener {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, -1))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, -1))
         }
 
         talkRefreshView.setOnRefreshListener {
@@ -86,7 +86,8 @@ class TalkTopicsActivity : BaseActivity() {
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                 if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
-                    wikiSite = WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                    pageTitle = PageTitle(pageTitle.namespace, StringUtil.removeNamespace(pageTitle.prefixedText),
+                            WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
                     loadTopics()
                 }
             }
@@ -95,6 +96,8 @@ class TalkTopicsActivity : BaseActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_talk, menu)
+        val item = menu!!.findItem(R.id.menu_change_language)
+        item.isVisible = pageTitle.namespace == Namespace.USER_TALK.name
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -103,19 +106,23 @@ class TalkTopicsActivity : BaseActivity() {
             startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY.getName()),
                     Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
             return true
+        } else if (item.itemId == R.id.menu_view_in_browser) {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(pageTitle.uri))
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun loadTopics() {
-        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
+        invalidateOptionsMenu()
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
 
         disposables.clear()
         talkProgressBar.visibility = View.VISIBLE
         talkErrorView.visibility = View.GONE
         talkEmptyContainer.visibility = View.GONE
 
-        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -124,7 +131,12 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .subscribe({ response ->
                     topics.clear()
-                    topics.addAll(response.topics!!)
+                    for (topic in response.topics!!) {
+                        if (topic.id == 0 && topic.html!!.trim().isEmpty()) {
+                            continue
+                        }
+                        topics.add(topic)
+                    }
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
@@ -133,10 +145,14 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnSuccess() {
-        talkErrorView.visibility = View.GONE
-        talkNewTopicButton.show()
-        talkRecyclerView.visibility - View.VISIBLE
-        talkRecyclerView.adapter?.notifyDataSetChanged()
+        if (topics.isEmpty()) {
+            updateOnEmpty()
+        } else {
+            talkErrorView.visibility = View.GONE
+            talkNewTopicButton.show()
+            talkRecyclerView.visibility - View.VISIBLE
+            talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
     }
 
     private fun updateOnError(t: Throwable) {
@@ -146,14 +162,19 @@ class TalkTopicsActivity : BaseActivity() {
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code() == 404) {
-            talkEmptyContainer.visibility = View.VISIBLE
-            // Allow them to create a new topic anyway
-            talkNewTopicButton.show()
+            updateOnEmpty()
         } else {
             talkNewTopicButton.hide()
             talkErrorView.visibility = View.VISIBLE
             talkErrorView.setError(t)
         }
+    }
+
+    private fun updateOnEmpty() {
+        talkRecyclerView.visibility - View.GONE
+        talkEmptyContainer.visibility = View.VISIBLE
+        // Allow them to create a new topic anyway
+        talkNewTopicButton.show()
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
@@ -166,22 +187,15 @@ class TalkTopicsActivity : BaseActivity() {
             id = topic.id
             val seen = TalkPageSeenDatabaseTable.isTalkTopicSeen(topic)
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
-            if (id == 0 && titleStr.isEmpty() && topic.replies!!.isNotEmpty()) {
-                subtitle.text = StringUtil.fromHtml(topic.replies!![0].html)
-                title.visibility = View.GONE
-                subtitle.visibility = View.VISIBLE
-                readDot.visibility = View.GONE
-            } else {
-                title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
-                title.visibility = View.VISIBLE
-                subtitle.visibility = View.GONE
-                readDot.visibility = if (seen) View.GONE else View.VISIBLE
-            }
+            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+            title.visibility = View.VISIBLE
+            subtitle.visibility = View.GONE
+            readDot.visibility = if (seen) View.GONE else View.VISIBLE
             itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, id))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id))
         }
     }
 
@@ -200,14 +214,12 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     companion object {
-        private const val EXTRA_LANGUAGE = "language"
-        private const val EXTRA_USER_NAME = "userName"
+        private const val EXTRA_PAGE_TITLE = "pageTitle"
 
         @JvmStatic
-        fun newIntent(context: Context, language: String?, userName: String?): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
-                    .putExtra(EXTRA_LANGUAGE, language.orEmpty())
-                    .putExtra(EXTRA_USER_NAME, userName.orEmpty())
+                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
         }
     }
 }
