@@ -145,10 +145,14 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnSuccess() {
-        talkErrorView.visibility = View.GONE
-        talkNewTopicButton.show()
-        talkRecyclerView.visibility - View.VISIBLE
-        talkRecyclerView.adapter?.notifyDataSetChanged()
+        if (topics.isEmpty()) {
+            updateOnEmpty()
+        } else {
+            talkErrorView.visibility = View.GONE
+            talkNewTopicButton.show()
+            talkRecyclerView.visibility - View.VISIBLE
+            talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
     }
 
     private fun updateOnError(t: Throwable) {
@@ -158,14 +162,19 @@ class TalkTopicsActivity : BaseActivity() {
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code() == 404) {
-            talkEmptyContainer.visibility = View.VISIBLE
-            // Allow them to create a new topic anyway
-            talkNewTopicButton.show()
+            updateOnEmpty()
         } else {
             talkNewTopicButton.hide()
             talkErrorView.visibility = View.VISIBLE
             talkErrorView.setError(t)
         }
+    }
+
+    private fun updateOnEmpty() {
+        talkRecyclerView.visibility - View.GONE
+        talkEmptyContainer.visibility = View.VISIBLE
+        // Allow them to create a new topic anyway
+        talkNewTopicButton.show()
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
