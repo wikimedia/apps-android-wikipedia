@@ -1035,4 +1035,6 @@
     <string name="talk_subject_empty">The subject cannot be empty.</string>
 
     <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
+    <string name="diff_count_positive">+%d</string>
+    <string name="diff_count_negative">−%d</string>
 </resources>

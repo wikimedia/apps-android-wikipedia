@@ -18,7 +18,7 @@
         android:textAlignment="center"
         android:text="All"
         android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_accent90_fill"/>
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
 
     <TextView
         android:id="@+id/filterButtonTalk"
@@ -32,7 +32,7 @@
         android:textAlignment="center"
         android:text="Talk"
         android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_accent90_fill"/>
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
 
     <TextView
         android:id="@+id/filterButtonPages"
@@ -46,7 +46,7 @@
         android:textAlignment="center"
         android:text="Pages"
         android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_accent90_fill"/>
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
 
     <TextView
         android:id="@+id/filterButtonOther"
@@ -60,6 +60,6 @@
         android:textAlignment="center"
         android:text="Other"
         android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_accent90_fill"/>
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

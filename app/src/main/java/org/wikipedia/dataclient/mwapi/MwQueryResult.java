@@ -297,6 +297,11 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         private boolean minor;
         private int oldlen;
         private int newlen;
+        private WikiSite wiki;
+
+        public int getNs() {
+            return ns;
+        }
 
         @NonNull public String getTitle() {
             return StringUtils.defaultString(title);
@@ -312,6 +317,26 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
         @NonNull public String getParsedComment() {
             return StringUtils.defaultString(parsedcomment);
+        }
+
+        public void setWiki(WikiSite wiki) {
+            this.wiki = wiki;
+        }
+
+        public WikiSite getWiki() {
+            return wiki;
+        }
+
+        @NonNull public String getUser() {
+            return StringUtils.defaultString(user);
+        }
+
+        public int getOldlen() {
+            return oldlen;
+        }
+
+        public int getNewlen() {
+            return newlen;
         }
     }
 }

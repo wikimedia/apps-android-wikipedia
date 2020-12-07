@@ -83,6 +83,10 @@ public final class DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d");
     }
 
+    public static String getTimeString(@NonNull Date date) {
+        return getDateStringWithSkeletonPattern(date, "HH:mm");
+    }
+
     private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
         return getCachedDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date);
     }
