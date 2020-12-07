@@ -60,6 +60,7 @@
   <string name="feed_card_add_to_default_list">Qeyd ke</string>
   <string name="menu_page_share">Gıre pay ke</string>
   <string name="menu_page_open_a_new_tab">Taba newiye de akerê</string>
+  <string name="menu_page_new_tab">Taba neweyên</string>
   <string name="menu_page_reading_lists">Listanê waniyayışan</string>
   <string name="menu_page_recently_viewed">Peyên mocniyen</string>
   <string name="menu_long_press_open_page">Ake</string>
@@ -238,6 +239,7 @@
   <string name="gallery_error_draw_failed">Resim nêmocneya</string>
   <string name="license_title">Seba %s lisans</string>
   <string name="gallery_menu_share">Vıla ke</string>
+  <string name="gallery_share_error">Resim vıla nêbiyo : %s</string>
   <string name="gallery_save_progress">Dosya roneyêna...</string>
   <string name="gallery_save_success">Dosya şevekneyê</string>
   <string name="gallery_error_video_failed">Video nêcıneyêno</string>

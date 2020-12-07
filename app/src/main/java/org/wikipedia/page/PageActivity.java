@@ -500,8 +500,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 startActivity(FilePageActivity.newIntent(this, title));
                 finish();
                 return true;
-            } else if (title.namespace() == Namespace.USER_TALK) {
-                startActivity(TalkTopicsActivity.newIntent(this, title.getWikiSite().languageCode(), title.getText()));
+            } else if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
+                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage()));
                 finish();
                 return true;
             }

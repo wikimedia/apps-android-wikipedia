@@ -294,6 +294,11 @@ public class PageTitle implements Parcelable {
         return namespace().special();
     }
 
+    public PageTitle pageTitleForTalkPage() {
+        return new PageTitle(namespace().user() || namespace().userTalk() ? Namespace.USER_TALK.name() : Namespace.TALK.name(),
+                StringUtil.removeNamespace(getPrefixedText()), getWikiSite());
+    }
+
     /**
      * Check if the Title represents a talk page
      *

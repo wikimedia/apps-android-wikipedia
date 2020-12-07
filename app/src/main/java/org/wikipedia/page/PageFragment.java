@@ -594,8 +594,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
 
-        if (title.namespace() == Namespace.USER_TALK) {
-            startActivity(TalkTopicsActivity.newIntent(requireActivity(), title.getWikiSite().languageCode(), title.getText()));
+        if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
+            startTalkTopicActivity(title);
             return;
         }
 
@@ -604,7 +604,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         // TODO: remove when Special pages are properly returned by the server
         // If this is a Talk page also show in external browser since we don't handle those pages
         // in the app very well at this time.
-        if (title.isSpecial() || title.isTalkPage()) {
+        if (title.isSpecial()) {
             visitInExternalBrowser(requireActivity(), Uri.parse(title.getUri()));
             return;
         }
@@ -1131,13 +1131,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("footer_item", (String messageType, JsonObject messagePayload) -> {
             String itemType = messagePayload.get("itemType").getAsString();
             if ("talkPage".equals(itemType) && model.getTitle() != null) {
-                // If we're currently looking at a User page, then go directly to the corresponding User Talk page.
-                if (model.getTitle().namespace() == Namespace.USER) {
-                    startActivity(TalkTopicsActivity.newIntent(requireActivity(), model.getTitle().getWikiSite().languageCode(), model.getTitle().getText()));
-                } else {
-                    PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
-                    visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getUri()));
-                }
+                startTalkTopicActivity(model.getTitle());
             } else if ("languages".equals(itemType)) {
                 startLangLinksActivity();
             } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
@@ -1189,6 +1183,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             requireActivity().startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
+    }
+
+    private void startTalkTopicActivity(@NonNull PageTitle pageTitle) {
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage()));
     }
 
     private void startGalleryActivity(@NonNull String fileName) {

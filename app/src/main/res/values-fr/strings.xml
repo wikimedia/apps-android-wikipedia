@@ -425,17 +425,17 @@
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_add_to_list_button">Ajouter à la liste</string>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="one">1 article, %2$.2f Mio</item>
-    <item quantity="other">%1$d articles, %2$.2f Mio</item>
+    <item quantity="one">1 article, %2$.2f Mo</item>
+    <item quantity="other">%1$d articles, %2$.2f Mo</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d sur 1 article disponible hors ligne, %3$.2f Mio</item>
-    <item quantity="other">%1$d sur %2$d articles disponibles hors ligne, %3$.2f Mio</item>
+    <item quantity="one">%1$d sur 1 article disponible hors ligne, %3$.2f Mo</item>
+    <item quantity="other">%1$d sur %2$d articles disponibles hors ligne, %3$.2f Mo</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f Mo</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f Mio</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 article disponible hors ligne, %2$.2f Mio</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d article(s) sur %2$d disponible(s) hors ligne, %3$.2f Mio</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f Mo</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d de 1 article disponible hors ligne, %2$.2f Mo</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d article(s) sur %2$d disponible(s) hors ligne, %3$.2f Mo</string>
   <string name="reading_list_sort">Trier</string>
   <string name="reading_list_sort_ellipsis">Trier par...</string>
   <string name="reading_list_sort_by_name">Trier par nom</string>
@@ -908,8 +908,8 @@
   <string name="description_edit_login_cancel_button_text">Annuler</string>
   <string name="offline_read_permission_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour la navigation hors connexion.</string>
   <string name="offline_read_final_rationale">Le droit d’accéder au stockage sur votre appareil est nécessaire pour utiliser la Bibliothèque hors connexion.</string>
-  <string name="size_gb">%.2f Gio</string>
-  <string name="size_mb">%.2f Mio</string>
+  <string name="size_gb">%.2f Go</string>
+  <string name="size_mb">%.2f Mo</string>
   <string name="onboarding_skip">Sauter</string>
   <string name="onboarding_continue">Continuer</string>
   <string name="onboarding_get_started">C’est parti</string>
