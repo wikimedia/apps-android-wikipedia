@@ -598,6 +598,7 @@
   <string name="view_top_read_card_action">Mehr meistgelesen</string>
   <string name="view_next_random_article">Einen anderen zufälligen Artikel laden</string>
   <string name="view_main_page_card_title">Heute auf der Wikipedia</string>
+  <string name="view_main_page_card_action">Hauptseite ansehen</string>
   <string name="view_featured_image_card_title">Bild des Tages</string>
   <string name="view_featured_image_card_download">Herunterladen</string>
   <string name="view_featured_image_card_share">Teilen</string>
@@ -633,6 +634,7 @@
   <string name="feed_item_type_featured_article">Täglich auf Wikipedia vorgestellter Artikel</string>
   <string name="feed_item_type_trending">Täglich meistgelesene Artikel</string>
   <string name="feed_item_type_featured_image">Täglich auf Wikimedia Commons vorgestelltes Bild</string>
+  <string name="feed_item_type_main_page">Hauptseite der Wikipedia mit täglich vorgestelltem Inhalt</string>
   <string name="feed_item_type_randomizer">Zufällige Artikel zum Lesen erzeugen</string>
   <string name="feed_item_type_suggested_edits">Vorschläge zum Hinzufügen von Inhalten zu Wikipedia</string>
   <string name="feed_empty_message">Es gibt nichts in deinem Entdecken-Feed</string>

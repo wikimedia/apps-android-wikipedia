@@ -496,6 +496,7 @@
   <string name="view_random_card_title">Ausazkoa</string>
   <string name="view_next_random_article">Ausazko beste artikulu bat kargatu</string>
   <string name="view_main_page_card_title">Gaur Wikipedian</string>
+  <string name="view_main_page_card_action">Orrialde nagusia ikusi</string>
   <string name="view_featured_image_card_title">Eguneko irudia</string>
   <string name="view_featured_image_card_download">Deskargatu</string>
   <string name="menu_feed_card_dismiss">Txartel hau ezkutatu</string>
@@ -529,6 +530,7 @@
   <string name="feed_item_type_featured_article">Eguneko Wikipediako artikulu aipagarria</string>
   <string name="feed_item_type_trending">Egunean gehien ikusten diren artikuluak</string>
   <string name="feed_item_type_featured_image">Wikimedia Commonsetik hartutako eguneko irudi aipagarria</string>
+  <string name="feed_item_type_main_page">Wikipediako orrialde nagusia eguneko eduki aipagarriarekin</string>
   <string name="feed_item_type_randomizer">Irakurtzeko ausazko artikuluak sortu</string>
   <string name="feed_empty_message">Ez dago ezer zure Arakatze-jarioan</string>
   <string name="feed_configure_onboarding_action">Pertsonalizatu</string>

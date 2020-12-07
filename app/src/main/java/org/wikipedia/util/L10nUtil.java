@@ -208,6 +208,23 @@ public final class L10nUtil {
         }
     }
 
+    public static String getDesiredLanguageCode(@NonNull String langCode) {
+        switch(langCode) {
+            case TRADITIONAL_CHINESE_LANGUAGE_CODE:
+            case CHINESE_TW_LANGUAGE_CODE:
+            case CHINESE_HK_LANGUAGE_CODE:
+            case CHINESE_MO_LANGUAGE_CODE:
+                return TRADITIONAL_CHINESE_LANGUAGE_CODE;
+            case SIMPLIFIED_CHINESE_LANGUAGE_CODE:
+            case CHINESE_CN_LANGUAGE_CODE:
+            case CHINESE_SG_LANGUAGE_CODE:
+            case CHINESE_MY_LANGUAGE_CODE:
+                return SIMPLIFIED_CHINESE_LANGUAGE_CODE;
+            default:
+                return langCode;
+        }
+    }
+
     public static void setDesiredLocale(@NonNull Configuration config, @NonNull Locale desiredLocale) {
         // when loads API in chinese variant, we can get zh-hant, zh-hans and zh
         // but if we want to display chinese correctly based on the article itself, we have to

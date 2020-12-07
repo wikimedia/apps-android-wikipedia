@@ -56,6 +56,7 @@
   <string name="feed_card_add_to_default_list">Saqlamoq</string>
   <string name="menu_page_share">Havolani ulashmoq</string>
   <string name="menu_page_open_a_new_tab">Yangi xatcho‘p ochmoq</string>
+  <string name="menu_page_new_tab">Yangi varaqa</string>
   <string name="menu_page_reading_lists">O‘qilganlar ro‘yxati</string>
   <string name="menu_page_recently_viewed">So‘nggi ko‘rilgan</string>
   <string name="menu_long_press_open_page">Ochmoq</string>
@@ -164,7 +165,7 @@
   <string name="preferences_heading_data_usage">Xotira</string>
   <string name="preferences_heading_experimental">Tajribaviy</string>
   <string name="preference_title_sync_reading_lists_from_account">Roʻyxatni sinxronlamoq...</string>
-  <string name="preference_title_download_reading_list_articles">Maqolalar yuklab olinmoqda...</string>
+  <string name="preference_title_download_reading_list_articles">Maqolalarni yuklab olmoq</string>
   <string name="preference_summary_sync_reading_lists">Ro‘yxatlarni turli qurilmalarda sinxronlashtiring, ularni Vikipediyadagi akkauntingizga saqlang.</string>
   <string name="preference_summary_sync_reading_lists_from_account">Ro‘yxatlarni turli qurilmalardagi \"%s\" Vikipediya hisobingizga saqlash orqali sinxronlashtiring.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxronlangan o‘qish ro‘yxatlari \"%s\"dan olib tashlansinmi?</string>
@@ -185,7 +186,7 @@
   <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
   <string name="settings_item_preferences">Tanlovlar</string>
   <string name="settings_activity_title">Tanlovlar</string>
-  <string name="about_description">«Vikipediya» dasturi haqida</string>
+  <string name="about_description">«Vikipediya» ilovasi haqida</string>
   <string name="privacy_policy_description">Maxfiylik siyosati</string>
   <string name="terms_of_use_description">Foydalanish shartlari</string>
   <string name="about_wikipedia_url">https://uz.wikipedia.org/wiki/Vikipediya</string>
@@ -202,9 +203,9 @@
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
-  <string name="about_app_license">Ochiq manba kodi&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida mavjud &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasida mavjdudir.</string>
+  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;  mahsuloti</string>
-  <string name="about_activity_title">Dastur haqida</string>
+  <string name="about_activity_title">Ilova haqida</string>
   <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
   <string name="edit_abandon_confirm_yes">Ha</string>
   <string name="edit_abandon_confirm_no">Yoʻq</string>
@@ -258,7 +259,7 @@
   <string name="alpha_update_notification_text">Yuklab olish uchun bosing</string>
   <string name="dialog_close_description">Yopmoq</string>
   <string name="preference_title_show_images">Rasmlarni ko‘rsatmoq</string>
-  <string name="preference_summary_show_images">Rasmlarni sahifalarga yuklashni yoqish yoki oʻchirish. Agar Internet aloqangiz sust boʻlsa yoki tarif rejangiz cheklangan boʻlsa, ushbu parametrni belgilamang.</string>
+  <string name="preference_summary_show_images">Rasmlarni sahifalarga yuklashni yoqish yoki o‘chirish. Agar Internet aloqangiz sust bo‘lsa yoki tarif rejangiz cheklangan bo‘lsa, ushbu tanlovni yoqmang.</string>
   <string name="preference_title_download_only_over_wifi">Faqat Wi-Fi orqali yuklab olmoq</string>
   <string name="dialog_title_download_only_over_wifi">Trafikdan yuklab olishni tasdiqlaysizmi?</string>
   <string name="dialog_text_download_only_over_wifi">Sizda \"Faqat Wi-Fi orqali yuklab olmoq\" tanlovi yoqilgan. Faqatgina ushbu yuklab olish uchun mobil trafigingizdan foydalanishga ruxsat berishni xohlaysizmi?</string>
@@ -314,7 +315,7 @@
   <string name="page_offline_notice_last_date">Siz ushbu maqolaning %s’da saqlangan oflayn versiyasini o‘qiyapsiz.</string>
   <string name="button_get_directions">Joylashuvni olmoq</string>
   <string name="error_no_maps_app">Tegishli joylashuvga oid hech qanday ilova topilmadi.</string>
-  <string name="preference_title_customize_explore_feed">Tasmani ko‘rib chiqing</string>
+  <string name="preference_title_customize_explore_feed">Tasmani ko‘rib chiqmoq</string>
   <string name="preference_title_show_link_previews">Havolani ko‘rsatmoq</string>
   <string name="preference_summary_customize_explore_feed">Tasmani moslamoq</string>
   <string name="preference_summary_show_link_previews">Havolalarni bosish paytida maqolalarni tezda ko‘rib chiqishni ko‘rsating.</string>

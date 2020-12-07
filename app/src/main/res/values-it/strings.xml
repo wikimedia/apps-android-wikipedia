@@ -612,6 +612,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Carica un\'altra voce a caso</string>
   <string name="view_main_page_card_title">Oggi su Wikipedia</string>
+  <string name="view_main_page_card_action">Visualizza la pagina principale</string>
   <string name="view_featured_image_card_title">Immagine del giorno</string>
   <string name="view_featured_image_card_download">Scarica</string>
   <string name="view_featured_image_card_share">Condividi</string>
@@ -647,6 +648,7 @@
   <string name="feed_item_type_featured_article">Voce del giorno su Wikipedia</string>
   <string name="feed_item_type_trending">Voci più viste al giorno</string>
   <string name="feed_item_type_featured_image">Immagine in primo piano quotidiana di Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Pagina principale di Wikipedia con contenuti giornalieri in primo piano</string>
   <string name="feed_item_type_randomizer">Genera voci casuali da leggere</string>
   <string name="feed_item_type_suggested_edits">Suggerimenti per aggiungere contenuti a Wikipedia</string>
   <string name="feed_empty_message">Non c\'è nulla nel tuo feed Esplora</string>

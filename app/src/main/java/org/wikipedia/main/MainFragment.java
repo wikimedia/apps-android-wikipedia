@@ -29,6 +29,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -48,6 +49,7 @@ import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
@@ -284,12 +286,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
-        Intent intent = PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle());
+        Intent intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle());
         if (sharedElements.length > 0) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
         }
@@ -579,7 +581,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void talkClick() {
             if (AccountUtil.isLoggedIn()) {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getAppOrSystemLanguageCode(), AccountUtil.getUserName()));
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
+                        new PageTitle(Namespace.USER_TALK.name(), AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
             }
         }
 

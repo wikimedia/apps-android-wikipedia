@@ -481,6 +481,7 @@
   <string name="view_random_card_title">Agacuran</string>
   <string name="view_next_random_article">Sali-d amagrad nniden agacuran</string>
   <string name="view_main_page_card_title">Ass-a di Wikipedia</string>
+  <string name="view_main_page_card_action">Sken asebter agejdan</string>
   <string name="view_featured_image_card_title">Tugna n wass</string>
   <string name="view_featured_image_card_download">Sider</string>
   <string name="menu_feed_card_dismiss">Ffer takarḍa-agi</string>

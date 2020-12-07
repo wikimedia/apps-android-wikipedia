@@ -554,6 +554,7 @@
   <string name="view_random_card_title">Aleatoriu</string>
   <string name="view_next_random_article">Încarcă un alt articol aleatoriu</string>
   <string name="view_main_page_card_title">Astăzi la Wikipedia</string>
+  <string name="view_main_page_card_action">Vezi pagina principală</string>
   <string name="view_featured_image_card_title">Imaginea zilei</string>
   <string name="view_featured_image_card_download">Descarcă</string>
   <string name="menu_feed_card_dismiss">Ascunde acest card</string>
@@ -588,6 +589,7 @@
   <string name="feed_item_type_featured_article">Articol recomandat zilnic pe Wikipedia</string>
   <string name="feed_item_type_trending">Articole zilnic cele mai vizionate</string>
   <string name="feed_item_type_featured_image">Imagine recomandată zilnic de la Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Pagina principală a Wikipedia cu conținut recomandat zilnic</string>
   <string name="feed_item_type_randomizer">Generați articole aleatorii pentru a fi citite</string>
   <string name="feed_item_type_suggested_edits">Sugestii pentru adăugarea de conținut la Wikipedia</string>
   <string name="feed_empty_message">Nu există nimic în feedul dvs. Explorează</string>

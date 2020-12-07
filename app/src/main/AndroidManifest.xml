@@ -198,7 +198,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditSuccessActivity"
-            android:theme="@style/AppTheme.FullScreen.TranslucentDark"
+            android:theme="@style/AppTheme.FullScreen.Translucent"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
