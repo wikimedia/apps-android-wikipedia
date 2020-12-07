@@ -9,10 +9,15 @@
 
     <TextView
         android:id="@+id/watchlistTimePeriodTitle"
-        style="@android:style/TextAppearance"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:paddingHorizontal="16dp"
         android:text="@string/watchlist_page_time_period_bottom_sheet_title"
+        android:textSize="14sp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:lineSpacingExtra="7sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
         android:background="?attr/color_group_60"/>
 
     <LinearLayout
@@ -40,6 +45,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
+            android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/colorAccent" />
     </LinearLayout>
@@ -69,6 +75,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
+            android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/colorAccent" />
     </LinearLayout>
@@ -79,10 +86,11 @@
 
         <TextView
             style="@android:style/TextAppearance"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="24dp"
+            android:layout_weight="1"
             android:tag="text"
             android:text="@string/watchlist_page_time_period_bottom_sheet_one_month" />
 
@@ -91,6 +99,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
+            android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/colorAccent" />
     </LinearLayout>
@@ -101,10 +110,11 @@
 
         <TextView
             style="@android:style/TextAppearance"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="24dp"
+            android:layout_weight="1"
             android:tag="text"
             android:text="@string/watchlist_page_time_period_bottom_sheet_three_months" />
 
@@ -113,6 +123,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
+            android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/colorAccent" />
 
@@ -124,10 +135,11 @@
 
         <TextView
             style="@android:style/TextAppearance"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="24dp"
+            android:layout_weight="1"
             android:tag="text"
             android:text="@string/watchlist_page_time_period_bottom_sheet_six_months" />
 
@@ -136,6 +148,7 @@
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
+            android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
             app:tint="?attr/colorAccent" />
 

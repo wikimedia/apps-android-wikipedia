@@ -36,7 +36,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/overflow_add_to_watchlist"
             style="@style/OverflowMenuItem"
-            android:text="@string/menu_page_find_in_page"
+            android:text="@string/menu_page_add_to_watchlist"
             android:drawablePadding="16dp"
             app:drawableStartCompat="@drawable/ic_baseline_star_outline_24"
             app:drawableTint="?attr/material_theme_secondary_color"

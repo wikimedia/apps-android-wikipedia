@@ -13,9 +13,7 @@ import org.wikipedia.util.DimenUtil
 class WatchlistTimePeriodDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.view_watchlist_time_period, container)
-        ButterKnife.bind(this, rootView)
-        return rootView
+        return inflater.inflate(R.layout.view_watchlist_time_period, container)
     }
 
     override fun onResume() {
