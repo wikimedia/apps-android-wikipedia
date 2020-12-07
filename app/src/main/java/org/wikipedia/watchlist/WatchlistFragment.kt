@@ -49,7 +49,6 @@ class WatchlistFragment : Fragment() {
         watchlistRefreshView.setOnRefreshListener { fetchWatchlist() }
 
         watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        watchlistRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
 
         fetchWatchlist()
     }
@@ -87,6 +86,8 @@ class WatchlistFragment : Fragment() {
 
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
         val items = ArrayList<Any>()
+        items.add("") // placeholder for header
+
         val curDate = Date(Date().time + TimeUnit.DAYS.toMillis(1))
 
         for (item in watchlistItems) {
@@ -118,10 +119,16 @@ class WatchlistFragment : Fragment() {
         }
     }
 
-    class WatchlistHeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
-            val textView = itemView.findViewById<TextView>(R.id.section_header_text)
-            textView.text = DateUtil.getDaysAgoString(date)
+            val textView = itemView.findViewById<TextView>(R.id.dateText)
+            textView.text = DateUtil.getDaysAgoString(date).capitalize(Locale.getDefault())
+        }
+    }
+
+    class WatchlistHeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bindItem() {
+            //
         }
     }
 
@@ -132,34 +139,45 @@ class WatchlistFragment : Fragment() {
 
         private var items: List<Any> = ArrayList()
         private val VIEW_TYPE_HEADER = 0
-        private val VIEW_TYPE_ITEM = 1
+        private val VIEW_TYPE_DATE = 1
+        private val VIEW_TYPE_ITEM = 2
 
         override fun getItemCount(): Int {
             return items.size
         }
 
         override fun getItemViewType(position: Int): Int {
+            if (position == 0) {
+                return VIEW_TYPE_HEADER
+            }
             return if (items[position] is Date) {
-                VIEW_TYPE_HEADER
+                VIEW_TYPE_DATE
             } else {
                 VIEW_TYPE_ITEM
             }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            return if (viewType == VIEW_TYPE_HEADER) {
-                val view = LayoutInflater.from(requireContext()).inflate(R.layout.view_section_header, parent, false)
-                WatchlistHeaderViewHolder(view)
-            } else {
-                WatchlistItemViewHolder(PageItemView<MwQueryResult.WatchlistItem>(requireContext()))
+            return when (viewType) {
+                VIEW_TYPE_HEADER -> {
+                    WatchlistHeaderViewHolder(LayoutInflater.from(requireContext()).inflate(R.layout.item_watchlist_header, parent, false))
+                }
+                VIEW_TYPE_DATE -> {
+                    WatchlistDateViewHolder(LayoutInflater.from(requireContext()).inflate(R.layout.item_watchlist_date, parent, false))
+                }
+                else -> {
+                    WatchlistItemViewHolder(PageItemView<MwQueryResult.WatchlistItem>(requireContext()))
+                }
             }
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            if (holder is WatchlistItemViewHolder) {
-                holder.bindItem((items[position] as MwQueryResult.WatchlistItem))
+            if (holder is WatchlistHeaderViewHolder) {
+                holder.bindItem()
+            } else if (holder is WatchlistDateViewHolder) {
+                holder.bindItem((items[position] as Date))
             } else {
-                (holder as WatchlistHeaderViewHolder).bindItem((items[position] as Date))
+                (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
             }
         }
     }
