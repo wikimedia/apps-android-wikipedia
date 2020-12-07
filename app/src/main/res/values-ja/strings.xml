@@ -603,7 +603,10 @@
   <string name="preference_summary_notification_user_talk">トークページのメッセージ</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
+  <string name="view_random_article_card_title">ランダム記事</string>
   <string name="view_top_read_card_title">よく読まれている記事</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d百</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_action">メインページを表示</string>
