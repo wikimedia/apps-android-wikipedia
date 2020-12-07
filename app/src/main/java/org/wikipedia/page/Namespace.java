@@ -212,6 +212,14 @@ public enum Namespace implements EnumCode {
         return this == SPECIAL;
     }
 
+    public boolean user() {
+        return this == USER;
+    }
+
+    public boolean userTalk() {
+        return this == USER_TALK;
+    }
+
     public boolean main() {
         return this == MAIN;
     }
