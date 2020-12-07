@@ -63,6 +63,7 @@ class Watchlist : Parcelable {
     }
 
     companion object {
+        @JvmField
         val DATABASE_TABLE = WatchlistDatabaseTable()
         val CREATOR: Parcelable.Creator<Watchlist?> = object : Parcelable.Creator<Watchlist?> {
             override fun createFromParcel(`in`: Parcel): Watchlist {

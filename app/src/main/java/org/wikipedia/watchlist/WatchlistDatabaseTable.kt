@@ -4,13 +4,13 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.provider.BaseColumns
-import org.wikipedia.WikipediaApp
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.DbUtil
-import org.wikipedia.database.column.*
+import org.wikipedia.database.column.Column
+import org.wikipedia.database.column.DateColumn
+import org.wikipedia.database.column.LongColumn
+import org.wikipedia.database.column.StrColumn
 import org.wikipedia.database.contract.AppContentProviderContract
-import org.wikipedia.database.contract.PageHistoryContract
-import org.wikipedia.dataclient.page.TalkPage.Topic
 
 private const val TABLE = "localwatchlist"
 private const val PATH = "localwatchlist"
@@ -32,12 +32,12 @@ class WatchlistDatabaseTable : DatabaseTable<Watchlist?>(TABLE, URI) {
     }
 
     override fun getDBVersionIntroducedAt(): Int {
-        return Companion.DB_VER_INTRODUCED
+        return DB_VER_INTRODUCED
     }
 
     override fun getColumnsAdded(version: Int): Array<Column<*>> {
         return when (version) {
-            Companion.DB_VER_INTRODUCED -> arrayOf(ID, API_TITLE, DISPLAY_TITLE, TIMESTAMP, TIME_PERIOD)
+            DB_VER_INTRODUCED -> arrayOf(ID, API_TITLE, DISPLAY_TITLE, TIMESTAMP, TIME_PERIOD)
             else -> super.getColumnsAdded(version)
         }
     }
@@ -46,7 +46,7 @@ class WatchlistDatabaseTable : DatabaseTable<Watchlist?>(TABLE, URI) {
         return super.getPrimaryKeySelection(obj, SELECTION)
     }
 
-    override fun getUnfilteredPrimaryKeySelectionArgs(obj: Watchlist): Array<String> {
+    override fun getUnfilteredPrimaryKeySelectionArgs(obj: Watchlist): Array<String?> {
         return arrayOf(obj.apiTitle, obj.displayTitle)
     }
 
