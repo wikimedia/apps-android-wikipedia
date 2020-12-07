@@ -8,7 +8,7 @@
     tools:background="?attr/paper_color">
 
     <TextView
-        android:id="@+id/watchlist_time_period_title"
+        android:id="@+id/watchlistTimePeriodTitle"
         style="@android:style/TextAppearance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:background="?attr/color_group_60"/>
 
     <LinearLayout
-        android:id="@+id/watchlist_time_period_permanent"
+        android:id="@+id/watchlistTimePeriodPermanent"
         style="@style/SideDrawerMenuItem">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -45,7 +45,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlist_time_period_one_week"
+        android:id="@+id/watchlistTimePeriodOneWeek"
         style="@style/SideDrawerMenuItem">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -74,7 +74,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlist_time_period_one_month"
+        android:id="@+id/watchlistTimePeriodOneMonth"
         style="@style/SideDrawerMenuItem">
 
         <TextView
@@ -96,7 +96,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlist_time_period_three_months"
+        android:id="@+id/watchlistTimePeriodThreeMonths"
         style="@style/SideDrawerMenuItem">
 
         <TextView
@@ -119,7 +119,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlist_time_period_six_months"
+        android:id="@+id/watchlistTimePeriodSixMonths"
         style="@style/SideDrawerMenuItem">
 
         <TextView
