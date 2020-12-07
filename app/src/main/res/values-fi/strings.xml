@@ -2,6 +2,7 @@
 <!-- Authors:
 * 4shadoww
 * Abijeet Patro
+* AinScept
 * Alluk.
 * Areee
 * BriskyBlizzard
@@ -890,6 +891,7 @@
     <item quantity="one">Viime vuonna</item>
     <item quantity="other">%d vuotta sitten</item>
   </plurals>
+  <string name="on_this_day_back_to_future">Paluu tulevaisuuteen</string>
   <string name="languages_list_activity_title">Lisää kieli</string>
   <string name="languages_list_suggested_text">Ehdotettu</string>
   <string name="languages_list_all_text">Kaikki kielet</string>
