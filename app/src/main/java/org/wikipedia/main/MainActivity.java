@@ -35,6 +35,7 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.LinearLayoutTouchIntercept;
 import org.wikipedia.views.TabCountsView;
+import org.wikipedia.watchlist.ArticleEditDetailsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,7 +95,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     protected void onResume() {
         super.onResume();
         supportInvalidateOptionsMenu();
-       // startActivity(WatchlistDetailsActivity.Companion.newIntent(this));
+        startActivity(ArticleEditDetailsActivity.Companion.newIntent(this));
     }
 
     @Override

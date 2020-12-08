@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="8sp"
+            android:text="Talk: Joe Biden"
+            android:textColor="?attr/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/FlatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:clickable="false"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0"
+            android:text="@string/watchlist_details_watching_label"
+            android:textColor="#ff9500"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_icon_star"
+            app:iconGravity="textStart"
+            app:iconSize="20dp"
+            app:iconTint="#ff9500" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="?attr/color_group_60" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="8sp"
+            android:text="Nov 17, 2020 | 11:51"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/prevButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="12dp"
+            android:scaleX="-1"
+            app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+            app:tint="?attr/primary_text_color" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/nextButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+            app:tint="?attr/primary_text_color" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/FlatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:clickable="false"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0"
+            android:text="Wtmitchell"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorAccent"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_baseline_person_24"
+            app:iconGravity="textStart"
+            app:iconSize="20dp"
+            app:iconTint="?attr/colorAccent" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/FlatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="16dp"
+            android:clickable="false"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0"
+            android:text="Thank"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorAccent"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_user_talk"
+            app:iconGravity="textStart"
+            app:iconSize="20dp"
+            app:iconTint="?attr/colorAccent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:letterSpacing="0.04"
+            android:lineSpacingExtra="2sp"
+            android:text="+ 494"
+            android:textColor="?attr/action_mode_green_background"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="?attr/color_group_60" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="8sp"
+        android:text="On inappropriate contact: Comment and some embellishment of the suggestion"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/diffText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="12sp"
+        android:text=":::::I&apos;m not a regular editor here, but I also like this wording (with an embedded piped wikilink) and the idea of getting rid of the &quot;see also&quot; here. The article section goes on to summarize nonsexual allegations and it should similarly summarize that sexual one, basing that summary on content present in the detail article and citing sources cited there. [[User:Wtmitchell|Wtmitchell]]  [[User talk:Wtmitchell|(talk)]] &lt;small&gt;(earlier &apos;&apos;Boracay Bill&apos;&apos;)&lt;/small&gt; 11:51, 17 November 2020 (UTC)"
+        android:textColor="?attr/primary_text_color"
+        android:textSize="16sp" />
+</LinearLayout>
