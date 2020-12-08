@@ -126,6 +126,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
 
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
+    @NonNull Observable<MwQueryResponse> getWatchlist();
+
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
     @NonNull Observable<MwPostResponse> postSetOptions(@NonNull @Field("change") String change,

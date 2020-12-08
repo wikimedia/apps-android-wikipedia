@@ -576,6 +576,7 @@
     <string name="notifications_view_archived_button_text">View archived notifications</string>
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
+    <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
     <string name="preference_category_notification_types">In-app notification types</string>
@@ -1048,4 +1049,9 @@
     <string name="watchlist_page_time_period_bottom_sheet_one_month">1 month</string>
     <string name="watchlist_page_time_period_bottom_sheet_three_months">3 months</string>
     <string name="watchlist_page_time_period_bottom_sheet_six_months">6 months</string>
+    <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
+    <string name="watchlist_filter_all">All</string>
+    <string name="watchlist_filter_talk">Talk</string>
+    <string name="watchlist_filter_pages">Pages</string>
+    <string name="watchlist_filter_other">Other</string>
 </resources>
