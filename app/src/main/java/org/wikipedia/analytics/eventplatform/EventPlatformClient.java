@@ -99,7 +99,7 @@ public final class EventPlatformClient {
      * Set whether the client is enabled. This can react to device online/offline state as well
      * as other considerations.
      */
-    public static void setEnabled(boolean enabled) {
+    public static synchronized void setEnabled(boolean enabled) {
         ENABLED = enabled;
 
         if (ENABLED) {
@@ -116,7 +116,7 @@ public final class EventPlatformClient {
      *
      * @param event event
      */
-    public static void submit(Event event) {
+    public static synchronized void submit(Event event) {
         if (!SamplingController.isInSample(event)) {
             return;
         }
@@ -188,7 +188,7 @@ public final class EventPlatformClient {
         /**
          * If sending is enabled, dequeue and call send() on all scheduled items.
          */
-        static void sendAllScheduled() {
+        static synchronized void sendAllScheduled() {
             TIMER.cancel();
 
             if (ENABLED) {
@@ -207,7 +207,7 @@ public final class EventPlatformClient {
          *
          * @param event event data
          */
-        static void schedule(Event event) {
+        static synchronized void schedule(Event event) {
             /*
              * Item is enqueued whether or not sending is enabled.
              */
@@ -423,7 +423,7 @@ public final class EventPlatformClient {
         void onSuccess(Map<String, StreamConfig> streamConfigs);
     }
 
-    private static void refreshStreamConfigs() {
+    private static synchronized void refreshStreamConfigs() {
         fetchStreamConfigs(streamConfigs -> {
             STREAM_CONFIGS = streamConfigs;
             setStoredStreamConfigs(streamConfigs);
