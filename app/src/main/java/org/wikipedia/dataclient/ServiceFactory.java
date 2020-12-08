@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.eventplatform.DestinationEventService;
 import org.wikipedia.analytics.eventplatform.EventService;
@@ -82,8 +83,7 @@ public final class ServiceFactory {
 
         String intakeBaseUriOverride = getEventPlatformIntakeUriOverride();
 
-        Retrofit r = createRetrofit(null, intakeBaseUriOverride != null ? intakeBaseUriOverride
-                : destinationEventService.getBaseUri());
+        Retrofit r = createRetrofit(null, StringUtils.defaultString(intakeBaseUriOverride, destinationEventService.getBaseUri()));
         s = r.create(EventService.class);
         ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.getId(), s);
         return s;
