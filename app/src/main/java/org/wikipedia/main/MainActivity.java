@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -35,6 +36,7 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.LinearLayoutTouchIntercept;
 import org.wikipedia.views.TabCountsView;
+import org.wikipedia.watchlist.WatchlistDetailsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,6 +96,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     protected void onResume() {
         super.onResume();
         supportInvalidateOptionsMenu();
+       // startActivity(WatchlistDetailsActivity.Companion.newIntent(this));
+        Log.e("####","HERE");
     }
 
     @Override

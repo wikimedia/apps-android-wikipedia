@@ -1032,4 +1032,8 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+
+    <!-- Watchlist -->
+    <string name="watchlist_details_watching_label">Watching</string>
+    <!-- /Watchlist -->
 </resources>
