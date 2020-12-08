@@ -338,5 +338,9 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         public int getNewlen() {
             return newlen;
         }
+
+        public boolean isAnon() {
+            return anon;
+        }
     }
 }

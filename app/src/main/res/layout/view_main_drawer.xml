@@ -111,7 +111,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_oojs_watchlist"
+            app:srcCompat="@drawable/ic_star_24"
             app:tint="?attr/material_theme_secondary_color" />
 
         <TextView

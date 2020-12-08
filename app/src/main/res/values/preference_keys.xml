@@ -131,4 +131,5 @@
     <string name="preference_key_push_notification_token_subscribed">pushNotificationTokenSubscribed</string>
     <string name="preference_key_push_notification_token_old">pushNotificationTokenOld</string>
     <string name="preference_key_crash_report_local_class_name">crashReportLocalClassName</string>
+    <string name="preference_key_watchlist_disabled_langs">watchlistDisabledLangs</string>
 </resources>

@@ -781,6 +781,23 @@ public final class Prefs {
         remove(R.string.preference_key_announcement_shown_dialogs);
     }
 
+    @NonNull public static Set<String> getWatchlistDisabledLanguages() {
+        Set<String> emptySet = new LinkedHashSet<>();
+        if (!contains(R.string.preference_key_watchlist_disabled_langs)) {
+            return emptySet;
+        }
+        //noinspection unchecked
+        Set<String> codes = GsonUnmarshaller.unmarshal(emptySet.getClass(),
+                getString(R.string.preference_key_watchlist_disabled_langs, null));
+        return codes != null ? codes : emptySet;
+    }
+
+    public static void setWatchlistDisabledLanguages(@NonNull Set<String> langCodes) {
+        Set<String> codes = getAnnouncementShownDialogs();
+        codes.addAll(langCodes);
+        setString(R.string.preference_key_watchlist_disabled_langs, GsonMarshaller.marshal(langCodes));
+    }
+
     public static boolean shouldMatchSystemTheme() {
         return getBoolean(R.string.preference_key_match_system_theme, true);
     }

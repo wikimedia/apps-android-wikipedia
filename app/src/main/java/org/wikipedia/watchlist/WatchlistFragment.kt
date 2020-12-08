@@ -1,9 +1,7 @@
 package org.wikipedia.watchlist
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -21,16 +19,23 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import java.util.*
-import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback {
+class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback, WatchlistLanguagePopupView.Callback {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val disposables = CompositeDisposable()
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
@@ -57,9 +62,34 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback {
         fetchWatchlist()
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_watchlist, menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.findItem(R.id.menu_change_language).isVisible = WikipediaApp.getInstance().language().appLanguageCodes.size > 1
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_change_language -> {
+                val overflowView = WatchlistLanguagePopupView(requireContext())
+                overflowView.show(requireActivity().window.decorView.findViewById(R.id.menu_change_language), this)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun fetchWatchlist() {
@@ -74,9 +104,12 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback {
 
         watchlistProgressBar.visibility = View.VISIBLE
 
-
+        val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
         val calls = ArrayList<Observable<MwQueryResponse>>()
         for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
+            if (disabledLangCodes.contains(lang)) {
+                continue
+            }
             calls.add(ServiceFactory.get(WikiSite.forLanguageCode(lang)).watchlist
                     .subscribeOn(Schedulers.io()))
         }
@@ -122,7 +155,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback {
         val items = ArrayList<Any>()
         items.add("") // placeholder for header
 
-        val curDate = Date(Date().time + TimeUnit.DAYS.toMillis(1))
+        val calendar = Calendar.getInstance()
+        var curDay = -1
 
         for (item in watchlistItems) {
             if ((filterMode == FILTER_MODE_ALL)
@@ -130,9 +164,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback {
                     || (filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk())
                     || (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
 
-                if (curDate.time - item.date.time > TimeUnit.DAYS.toMillis(1)) {
+                calendar.time = item.date
+                if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
+                    curDay = calendar.get(Calendar.DAY_OF_YEAR)
                     items.add(item.date)
-                    curDate.time = item.date.time
                 }
 
                 items.add(item)
@@ -153,13 +188,14 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback {
         fun bindItem(item: MwQueryResult.WatchlistItem) {
             val view = itemView as WatchlistItemView
             view.setItem(item)
+            view.callback = this@WatchlistFragment
         }
     }
 
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(date: Date) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
-            textView.text = DateUtil.getDaysAgoString(date).capitalize(Locale.getDefault())
+            textView.text = DateUtil.getMonthOnlyDateString(date)
         }
     }
 
@@ -238,6 +274,26 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback {
     override fun onSelectFilterOther() {
         filterMode = FILTER_MODE_OTHER
         onUpdateList(totalItems)
+    }
+
+    override fun onLanguageChanged() {
+        fetchWatchlist()
+    }
+
+    override fun onItemClick(item: MwQueryResult.WatchlistItem) {
+        // TODO: plug in Diff activity here.
+    }
+
+    override fun onUserClick(item: MwQueryResult.WatchlistItem) {
+        if (item.isAnon) {
+            // if it's an anonymous user, then go directly to the talk page, since there is no
+            // page for this user, by definition.
+            startActivity(TalkTopicsActivity.newIntent(requireContext(),
+                    PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki)))
+        } else {
+            val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki), HistoryEntry.SOURCE_WATCHLIST)
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
+        }
     }
 
     companion object {

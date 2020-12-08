@@ -984,4 +984,8 @@
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
   <string name="watchlist_empty">Message shown when the user\'s watchlist is empty.</string>
+  <string name="watchlist_filter_all">Filter selection to show all items in the watchlist</string>
+  <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist</string>
+  <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
+  <string name="watchlist_filter_other">Filter selection to show only non-main and non-talk pages in the watchlist</string>
 </resources>

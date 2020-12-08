@@ -16,13 +16,20 @@ import org.wikipedia.util.StringUtil
 class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     var callback: Callback? = null
     private var item: MwQueryResult.WatchlistItem? = null
+    private var clickListener = OnClickListener {
+        if (item != null) {
+            callback?.onItemClick(item!!)
+        }
+    }
 
     init {
         View.inflate(context, R.layout.item_watchlist, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        containerView.setOnClickListener {
+        containerView.setOnClickListener(clickListener)
+        diffText.setOnClickListener(clickListener)
+        userNameText.setOnClickListener {
             if (item != null) {
-                callback?.onItemClick(item!!)
+                callback?.onUserClick(item!!)
             }
         }
     }
@@ -35,17 +42,20 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         timeText.text = DateUtil.getTimeString(item.date)
         userNameText.text = item.user
 
+        userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_baseline_person_24)
+
         val diffByteCount = item.newlen - item.oldlen
         if (diffByteCount >= 0) {
             diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50) else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
-            diffText.text = String.format("%+d", diffByteCount) //String.format(context.getString(R.string.diff_count_positive), diffByteCount)
+            diffText.text = String.format("%+d", diffByteCount)
         } else {
             diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
-            diffText.text = String.format("%+d", diffByteCount) //String.format(context.getString(R.string.diff_count_negative), diffByteCount)
+            diffText.text = String.format("%+d", diffByteCount)
         }
     }
 
     interface Callback {
         fun onItemClick(item: MwQueryResult.WatchlistItem)
+        fun onUserClick(item: MwQueryResult.WatchlistItem)
     }
 }

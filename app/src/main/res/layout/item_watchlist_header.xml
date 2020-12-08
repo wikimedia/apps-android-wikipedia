@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toStartOf="@id/filterButtonTalk"
         android:gravity="center"
         android:textAlignment="center"
-        android:text="All"
+        android:text="@string/watchlist_filter_all"
         android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_20dp_accent90_fill"/>
 
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toStartOf="@id/filterButtonPages"
         android:gravity="center"
         android:textAlignment="center"
-        android:text="Talk"
+        android:text="@string/watchlist_filter_talk"
         android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_20dp_accent90_fill"/>
 
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toStartOf="@id/filterButtonOther"
         android:gravity="center"
         android:textAlignment="center"
-        android:text="Pages"
+        android:text="@string/watchlist_filter_pages"
         android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_20dp_accent90_fill"/>
 
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
         android:textAlignment="center"
-        android:text="Other"
+        android:text="@string/watchlist_filter_other"
         android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_20dp_accent90_fill"/>
 
