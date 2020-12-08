@@ -838,14 +838,21 @@
     <item quantity="one">Eddig egyszer működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</item>
     <item quantity="other">Eddig %d alkalommal működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</item>
   </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Eddig egy napot szerkesztettél. Ne add fel, csak így tovább, %2$s!</item>
+    <item quantity="other">Eddig minden nap szerkesztettél, összesen %1$d napot. Ne add fel, csak így tovább, %2$s!</item>
+  </plurals>
   <plurals name="suggested_edits_rewards_page_views">
     <item quantity="one">1 ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</item>
     <item quantity="other">%d ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</item>
   </plurals>
   <string name="suggested_edits_rewards_contribution">Eddig %d alkalommal működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</string>
+  <string name="suggested_edits_rewards_edit_streak">Eddig minden nap szerkesztettél, összesen %1$d napot. Ne add fel, csak így tovább, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">%d ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</string>
+  <string name="suggested_edits_rewards_edit_quality">Szerkesztéseid minősége eddig: %s. Várjuk a további szerkesztéseket.</string>
   <string name="suggested_edits_rewards_continue_button">Folytatás</string>
   <string name="suggested_edits_encourage_account_creation_title">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="suggested_edits_encourage_account_creation_message">A javasolt szerkesztések egy új módja a Wikipédia tartalmának fejlesztéséhez való hozzájárulásnak. Ez egy aprónak tűnő, de fontos rész. Célunk az, hogy a szerkesztés könnyebb legyen, és elérhetőbb mindenki számára! Jelentkezz be vagy regisztrálj a Wikipédián a kezdéshez.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Bejelentkezés/regisztrálás a Wikipédiába</string>
   <string name="suggested_edits_contribution_type_image_tag">Képcímke</string>
   <string name="suggested_edits_contribution_current_revision_text">A szerkesztésed jelenleg látható a Wikipédián</string>
@@ -866,6 +873,8 @@
     <item quantity="one">Hozzáadtál egy karaktert</item>
     <item quantity="other">Hozzáadtál %d karaktert</item>
   </plurals>
+  <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
+  <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>

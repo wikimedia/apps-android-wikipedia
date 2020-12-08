@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -22,14 +23,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
@@ -44,7 +44,7 @@ class TalkTopicsActivity : BaseActivity() {
         setContentView(R.layout.activity_talk_topics)
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
-        title = getString(R.string.talk_user_title, pageTitle.displayText)
+        title = pageTitle.displayText
 
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
@@ -106,6 +106,9 @@ class TalkTopicsActivity : BaseActivity() {
             startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY.getName()),
                     Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
             return true
+        } else if (item.itemId == R.id.menu_view_in_browser) {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(pageTitle.uri))
+            return true
         }
         return super.onOptionsItemSelected(item)
     }
@@ -128,7 +131,12 @@ class TalkTopicsActivity : BaseActivity() {
                 }
                 .subscribe({ response ->
                     topics.clear()
-                    topics.addAll(response.topics!!)
+                    for (topic in response.topics!!) {
+                        if (topic.id == 0 && topic.html!!.trim().isEmpty()) {
+                            continue
+                        }
+                        topics.add(topic)
+                    }
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
@@ -137,10 +145,14 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnSuccess() {
-        talkErrorView.visibility = View.GONE
-        talkNewTopicButton.show()
-        talkRecyclerView.visibility - View.VISIBLE
-        talkRecyclerView.adapter?.notifyDataSetChanged()
+        if (topics.isEmpty()) {
+            updateOnEmpty()
+        } else {
+            talkErrorView.visibility = View.GONE
+            talkNewTopicButton.show()
+            talkRecyclerView.visibility - View.VISIBLE
+            talkRecyclerView.adapter?.notifyDataSetChanged()
+        }
     }
 
     private fun updateOnError(t: Throwable) {
@@ -150,14 +162,19 @@ class TalkTopicsActivity : BaseActivity() {
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code() == 404) {
-            talkEmptyContainer.visibility = View.VISIBLE
-            // Allow them to create a new topic anyway
-            talkNewTopicButton.show()
+            updateOnEmpty()
         } else {
             talkNewTopicButton.hide()
             talkErrorView.visibility = View.VISIBLE
             talkErrorView.setError(t)
         }
+    }
+
+    private fun updateOnEmpty() {
+        talkRecyclerView.visibility - View.GONE
+        talkEmptyContainer.visibility = View.VISIBLE
+        // Allow them to create a new topic anyway
+        talkNewTopicButton.show()
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
@@ -170,17 +187,10 @@ class TalkTopicsActivity : BaseActivity() {
             id = topic.id
             val seen = TalkPageSeenDatabaseTable.isTalkTopicSeen(topic)
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
-            if (id == 0 && titleStr.isEmpty() && topic.replies!!.isNotEmpty()) {
-                subtitle.text = StringUtil.fromHtml(topic.replies!![0].html)
-                title.visibility = View.GONE
-                subtitle.visibility = View.VISIBLE
-                readDot.visibility = View.GONE
-            } else {
-                title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
-                title.visibility = View.VISIBLE
-                subtitle.visibility = View.GONE
-                readDot.visibility = if (seen) View.GONE else View.VISIBLE
-            }
+            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+            title.visibility = View.VISIBLE
+            subtitle.visibility = View.GONE
+            readDot.visibility = if (seen) View.GONE else View.VISIBLE
             itemView.setOnClickListener(this)
         }
 
