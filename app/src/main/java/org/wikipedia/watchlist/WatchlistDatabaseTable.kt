@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.provider.BaseColumns
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.DbUtil
 import org.wikipedia.database.column.Column
@@ -11,6 +12,9 @@ import org.wikipedia.database.column.DateColumn
 import org.wikipedia.database.column.LongColumn
 import org.wikipedia.database.column.StrColumn
 import org.wikipedia.database.contract.AppContentProviderContract
+import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.page.PageTitle
+import org.wikipedia.talk.TalkPageSeenDatabaseTable
 
 private const val TABLE = "localwatchlist"
 private const val PATH = "localwatchlist"
@@ -50,7 +54,27 @@ class WatchlistDatabaseTable : DatabaseTable<Watchlist?>(TABLE, URI) {
         return arrayOf(obj.apiTitle, obj.displayTitle)
     }
 
-    // TODO: add method of getting time period for specific article.
+    fun getTimePeriod(watchlist: Watchlist): Long {
+        val db = WikipediaApp.getInstance().database.readableDatabase
+        db.query(TABLE, null, API_TITLE.name + " = ?", arrayOf(watchlist.apiTitle),
+                null, null, null).use { cursor ->
+            if (cursor.moveToNext()) {
+                return fromCursor(cursor).timePeriod
+            }
+        }
+        return 0
+    }
+
+    fun setTimePeriod(watchlist: Watchlist) {
+        val db = WikipediaApp.getInstance().database.writableDatabase
+        db.beginTransaction()
+        try {
+            db.insertOrThrow(TABLE, null, toContentValues(watchlist))
+            db.setTransactionSuccessful()
+        } finally {
+            db.endTransaction()
+        }
+    }
 
     companion object {
         private const val DB_VER_INTRODUCED = 22
