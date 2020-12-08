@@ -78,7 +78,6 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         }
         Prefs.setWatchlistDisabledLanguages(disabledLangCodes)
         callback?.onLanguageChanged()
-        popupWindowHost?.dismiss()
     }
 
     interface Callback {
