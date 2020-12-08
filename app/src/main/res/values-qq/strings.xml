@@ -387,6 +387,7 @@
   <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.\n{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
+  <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="color_theme_select">Label that describes color theme selection\n{{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme\n{{Identical|Light}}</string>
   <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>
@@ -983,4 +984,9 @@
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
   <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
+  <string name="watchlist_empty">Message shown when the user\'s watchlist is empty.</string>
+  <string name="watchlist_filter_all">Filter selection to show all items in the watchlist</string>
+  <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist</string>
+  <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
+  <string name="watchlist_filter_other">Filter selection to show only non-main and non-talk pages in the watchlist</string>
 </resources>

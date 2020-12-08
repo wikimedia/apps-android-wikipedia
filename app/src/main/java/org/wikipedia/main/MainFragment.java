@@ -72,6 +72,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.watchlist.WatchlistActivity;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -595,6 +596,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void settingsClick() {
             startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
+        }
+
+        @Override
+        public void watchlistClick() {
+            if (AccountUtil.isLoggedIn()) {
+                startActivity(WatchlistActivity.Companion.newIntent(requireActivity()));
+            }
         }
     }
 }
