@@ -1,8 +1,5 @@
 package org.wikipedia.analytics.eventplatform;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -329,8 +326,12 @@ public final class EventPlatformClient {
         @SuppressWarnings("checkstyle:magicnumber")
         static String generateRandomId() {
             SecureRandom rand = new SecureRandom();
-            BigInteger intVal = new BigInteger(80, rand);
-            return leftPad(intVal.toString(16), 20, "0");
+            StringBuilder builder = new StringBuilder();
+            for (int i = 0; i < 5; i++) {
+                String chunk = leftPad(Integer.toString(rand.nextInt(65535), 16), 4, '0');
+                builder.append(chunk);
+            }
+            return builder.toString();
         }
     }
 
@@ -399,9 +400,8 @@ public final class EventPlatformClient {
          */
         @SuppressWarnings("checkstyle:magicnumber")
         static double getSamplingValue(SamplingConfig.Identifier identifier) {
-            return new BigDecimal(Long.valueOf(getSamplingId(identifier).substring(0, 8), 16))
-                    .divide(new BigDecimal(0xFFFFFFFFL), 4, RoundingMode.FLOOR)
-                    .doubleValue();
+            String token = getSamplingId(identifier).substring(0, 8);
+            return (double) Long.parseLong(token, 16) / (double) Long.parseLong("ffffffff", 16);
         }
 
         static String getSamplingId(SamplingConfig.Identifier identifier) {
