@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform;
 import com.google.gson.Gson;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.test.MockRetrofitTest;
@@ -21,7 +22,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.text.MatchesPattern.matchesPattern;
 import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getEventService;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getIso8601Timestamp;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
@@ -37,13 +37,13 @@ public class EventPlatformClientIntegrationTest extends MockRetrofitTest {
     @Test
     public void testGetEventService() {
         StreamConfig streamConfig = new StreamConfig("test", null, LOGGING);
-        assertThat(getEventService(streamConfig), is(notNullValue()));
+        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 
     @Test
     public void testGetEventServiceDefaultDestination() {
         StreamConfig streamConfig = new StreamConfig("test");
-        assertThat(getEventService(streamConfig), is(notNullValue()));
+        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 
     @Test
