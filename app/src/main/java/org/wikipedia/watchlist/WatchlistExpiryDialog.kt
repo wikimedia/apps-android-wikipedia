@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.view_watchlist_time_period.*
+import kotlinx.android.synthetic.main.dialog_watchlist_expiry.*
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
