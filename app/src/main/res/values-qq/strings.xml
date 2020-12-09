@@ -74,7 +74,8 @@
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
-  <string name="menu_page_add_to_watchlist">Menu item for adding the current page to a Watchlist.</string>
+  <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
+  <string name="menu_page_remove_from_watchlist">Menu item for removing the current page from the Watchlist.</string>
   <string name="edit_section_find_in_page">Menu item for invoking Find in page on a page in edit mode.</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>

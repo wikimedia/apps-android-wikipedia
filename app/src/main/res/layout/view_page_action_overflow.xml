@@ -34,7 +34,7 @@
             />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/overflow_add_to_watchlist"
+            android:id="@+id/overflow_watchlist"
             style="@style/OverflowMenuItem"
             android:text="@string/menu_page_add_to_watchlist"
             android:drawablePadding="16dp"

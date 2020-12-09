@@ -627,6 +627,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
+    public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+        pageFragment.updateWatchlist(expiry, false);
+    }
+
+    @Override
     public void onPageLoadError(@NonNull PageTitle title) {
         getSupportActionBar().setTitle(title.getDisplayText());
         removeTransitionAnimState();
@@ -682,7 +687,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getWatchlistExpirySession());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
@@ -692,8 +697,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void addToWatchlistClick() {
-            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, false);
+        public void watchlistClick(boolean hasWatchlistExpirySession) {
+            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
         }
 
         @Override

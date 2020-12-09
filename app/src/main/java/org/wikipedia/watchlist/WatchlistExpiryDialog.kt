@@ -23,6 +23,11 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
     private lateinit var expiry: WatchlistExpiry
 
+    private lateinit var expiryOptions: Array<View>
+
+    private val expiryList = arrayOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
+            WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         expiry = requireArguments().getSerializable(ARG_EXPIRY) as WatchlistExpiry
@@ -31,9 +36,11 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        expiryOptions = arrayOf(watchlistExpiryPermanent, watchlistExpiryOneWeek, watchlistExpiryOneMonth,
+                watchlistExpiryThreeMonths, watchlistExpirySixMonths)
         setupListeners()
         resetAllOptions()
-
+        selectOption(expiry)
     }
 
     override fun onStart() {
@@ -42,19 +49,19 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun setupListeners() {
-        val expiryList = arrayOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
-                WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
-        arrayOf(watchlistExpiryPermanent, watchlistExpiryOneWeek, watchlistExpiryOneMonth,
-                watchlistExpiryThreeMonths, watchlistExpirySixMonths).forEachIndexed { index, view ->
+        expiryOptions.forEachIndexed { index, view ->
             view.tag = expiryList[index]
             view.setOnClickListener(ExpiryOptionClickListener())
         }
     }
 
+    private fun selectOption(expiry: WatchlistExpiry) {
+        expiryOptions.find { it.tag == expiry }?.let { update(it, true) }
+    }
+
     private fun resetAllOptions() {
-        arrayOf(watchlistExpiryPermanent, watchlistExpiryOneWeek, watchlistExpiryOneMonth,
-                watchlistExpiryThreeMonths, watchlistExpirySixMonths).forEach {
-                    update(it, false)
+        expiryOptions.forEach {
+            update(it, false)
         }
     }
 

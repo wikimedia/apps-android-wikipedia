@@ -159,6 +159,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
         void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
+        void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
         void onPageSetToolbarElevationEnabled(boolean enabled);
@@ -170,6 +171,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     private boolean pageRefreshed;
     private boolean errorState = false;
+    private WatchlistExpiry watchlistExpirySession;
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -325,6 +327,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public ViewGroup getContainerView() {
         return containerView;
+    }
+
+    @Nullable public WatchlistExpiry getWatchlistExpirySession() {
+        return watchlistExpirySession;
     }
 
     @Override
@@ -1348,8 +1354,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     @Override
     public void onExpirySelect(@NotNull WatchlistExpiry expiry) {
-        // TODO: Update expiry and save to current session
-        L.d("onExpirySelect expiry " + expiry);
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onPageWatchlistExpirySelect(expiry);
+        }
     }
 
     public int getToolbarMargin() {
@@ -1512,37 +1520,41 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
-            disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
-                    .subscribeOn(Schedulers.io())
-                    .flatMap(response -> {
-                        String watchToken = response.query().watchToken();
-                        if (TextUtils.isEmpty(watchToken)) {
-                            throw new RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response));
-                        }
-                        return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(),
-                                expiry != null ? expiry.getExpiry() : null, watchToken);
-                    })
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(watchPostResponse -> {
-                        Watch firstWatch = watchPostResponse.getFirst();
-                        if (firstWatch != null) {
-                            if (firstWatch.isWatched() && expiry != null) {
-                                // TODO: show watched snackbar
-                                Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
-                                        getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                                                getTitle().getDisplayText(),
-                                                getString(expiry.getStringId())),
-                                        FeedbackUtil.LENGTH_DEFAULT);
-                                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action, view ->
-                                        bottomSheetPresenter.show(getChildFragmentManager(), WatchlistExpiryDialog.newInstance(WatchlistExpiry.NEVER)));
-                                snackbar.show();
-                            } else if (firstWatch.isUnWatched()) {
-                                // TODO: show unwatched snackbar
-                            } else {
-                                // TODO: something else?
-                            }
-                        }
-                    }, L::d));
+        L.d("updateWatchlist " + expiry);
+        disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
+                .subscribeOn(Schedulers.io())
+                .flatMap(response -> {
+                    String watchToken = response.query().watchToken();
+                    if (TextUtils.isEmpty(watchToken)) {
+                        throw new RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response));
+                    }
+                    return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(),
+                            expiry != null ? expiry.getExpiry() : null, watchToken);
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(watchPostResponse -> {
+                    Watch firstWatch = watchPostResponse.getFirst();
+                    if (firstWatch != null) {
+                        showWatchlistSnackbar(expiry, firstWatch);
+                    }
+                }, L::d));
+    }
+
+    private void showWatchlistSnackbar(@Nullable WatchlistExpiry expiry, Watch watch) {
+        if (watch.isUnWatched()) {
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, getTitle().getDisplayText()));
+            watchlistExpirySession = null;
+        } else if (watch.isWatched() && expiry != null){
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(R.string.watchlist_page_add_to_watchlist_snackbar,
+                            getTitle().getDisplayText(),
+                            getString(expiry.getStringId())),
+                    FeedbackUtil.LENGTH_DEFAULT);
+            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action, view ->
+                    bottomSheetPresenter.show(getChildFragmentManager(), WatchlistExpiryDialog.newInstance(expiry)));
+            snackbar.show();
+            watchlistExpirySession = expiry;
+        }
     }
 
     private void maybeShowAnnouncement() {
