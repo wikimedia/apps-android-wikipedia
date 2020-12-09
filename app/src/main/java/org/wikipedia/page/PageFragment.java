@@ -109,6 +109,7 @@ import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 import org.wikipedia.watchlist.WatchlistExpiry;
+import org.wikipedia.watchlist.WatchlistTimePeriodDialog;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
@@ -1501,7 +1502,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         leadImagesHandler.openImageInGallery(language);
     }
 
-    private void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
+    void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
             disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
                     .subscribeOn(Schedulers.io())
                     .flatMap(response -> {
@@ -1509,14 +1510,25 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         if (TextUtils.isEmpty(watchToken)) {
                             throw new RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response));
                         }
-                        return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(), expiry.getExpiry(), watchToken);
+                        return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(),
+                                expiry != null ? expiry.getExpiry() : null, watchToken);
                     })
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(watchPostResponse -> {
                         Watch firstWatch = watchPostResponse.getFirst();
                         if (firstWatch != null) {
-                            if (firstWatch.isWatched()) {
+                            if (firstWatch.isWatched() && expiry != null) {
                                 // TODO: show watched snackbar
+                                Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                                        getString(R.string.watchlist_page_add_to_watchlist_snackbar,
+                                                getTitle().getDisplayText(),
+                                                getString(expiry.getStringId())),
+                                        FeedbackUtil.LENGTH_DEFAULT);
+                                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action, view -> {
+                                    // TODO: show bottomsheet
+                                    bottomSheetPresenter.show(getChildFragmentManager(), new WatchlistTimePeriodDialog());
+                                });
+                                snackbar.show();
                             } else if (firstWatch.isUnWatched()) {
                                 // TODO: show unwatched snackbar
                             } else {
