@@ -243,9 +243,6 @@ public final class EventPlatformClient {
          * @param events list of events
          */
         static void send(List<Event> events) {
-            if (!ENABLED) {
-                return;
-            }
             Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
             for (Event event : events) {
                 String stream = event.getStream();
