@@ -66,6 +66,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.dataclient.page.Protection;
+import org.wikipedia.dataclient.watch.Watch;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
@@ -107,6 +108,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
+import org.wikipedia.watchlist.WatchlistExpiry;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
@@ -1497,6 +1499,31 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     void openImageInGallery(@NonNull String language) {
         leadImagesHandler.openImageInGallery(language);
+    }
+
+    private void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
+            disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
+                    .subscribeOn(Schedulers.io())
+                    .flatMap(response -> {
+                        String watchToken = response.query().watchToken();
+                        if (TextUtils.isEmpty(watchToken)) {
+                            throw new RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response));
+                        }
+                        return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(), expiry.getExpiry(), watchToken);
+                    })
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(watchPostResponse -> {
+                        Watch firstWatch = watchPostResponse.getFirst();
+                        if (firstWatch != null) {
+                            if (firstWatch.isWatched()) {
+                                // TODO: show watched snackbar
+                            } else if (firstWatch.isUnWatched()) {
+                                // TODO: show unwatched snackbar
+                            } else {
+                                // TODO: something else?
+                            }
+                        }
+                    }, L::d));
     }
 
     private void maybeShowAnnouncement() {

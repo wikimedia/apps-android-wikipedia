@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
+import org.wikipedia.dataclient.watch.WatchPostResponse;
 import org.wikipedia.dataclient.wikidata.Claims;
 import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
@@ -348,11 +349,13 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getWatchlist(@Nullable @Query("continue") String cont);
 
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=watch")
+    @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded
-    Observable<EntityPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,
-                                             @Field("pageids") String pageIds,
-                                             @NonNull @Field("token") String token);
+    Observable<WatchPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,
+                                            @Nullable @Field("pageids") String pageIds,
+                                            @Nullable @Field("titles") String titles,
+                                            @Nullable @Field("expiry") String expiry,
+                                            @NonNull @Field("token") String token);
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")

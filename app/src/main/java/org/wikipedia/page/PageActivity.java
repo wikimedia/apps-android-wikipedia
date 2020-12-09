@@ -73,7 +73,6 @@ import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiArticleCardView;
-import org.wikipedia.watchlist.WatchlistTimePeriodDialog;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 import java.util.ArrayList;
@@ -693,7 +692,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         @Override
         public void addToWatchlistClick() {
-            bottomSheetPresenter.show(getSupportFragmentManager(), new WatchlistTimePeriodDialog());
+//            bottomSheetPresenter.show(getSupportFragmentManager(), new WatchlistTimePeriodDialog());
         }
 
         @Override
