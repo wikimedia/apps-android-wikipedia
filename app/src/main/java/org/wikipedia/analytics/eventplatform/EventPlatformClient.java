@@ -171,7 +171,7 @@ public final class EventPlatformClient {
         /*
          * When QUEUE.size() exceeds this value TIMER becomes non-interruptable.
          */
-        private static final int MAX_OFFLINE_QUEUE_SIZE = 128;
+        private static final int MAX_QUEUE_SIZE = 128;
 
         /*
          * IMPLEMENTATION NOTE: Java Timer will provide the desired asynchronous
@@ -218,7 +218,7 @@ public final class EventPlatformClient {
             QUEUE.add(event);
 
             if (ENABLED) {
-                if (QUEUE.size() >= MAX_OFFLINE_QUEUE_SIZE) {
+                if (QUEUE.size() >= MAX_QUEUE_SIZE) {
                     /*
                      * >= because while sending is disabled, any number of items
                      * could be added to QUEUE without it emptying.
