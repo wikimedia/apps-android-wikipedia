@@ -1276,10 +1276,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         pageFragmentLoadState.goForward();
     }
 
-    public void addToWatchlist() {
-        // TODO: implement add to watchlist bottomsheet.
-    }
-
     private void checkAndShowBookmarkOnboarding() {
         if (Prefs.shouldShowBookmarkToolTip() && Prefs.getOverflowReadingListsOptionClickCount() == 2) {
             View targetView = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
@@ -1520,7 +1516,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
-        L.d("updateWatchlist " + expiry);
         disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {

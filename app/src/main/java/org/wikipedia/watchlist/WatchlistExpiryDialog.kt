@@ -31,7 +31,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         expiry = requireArguments().getSerializable(ARG_EXPIRY) as WatchlistExpiry
-        return inflater.inflate(R.layout.view_watchlist_time_period, container)
+        return inflater.inflate(R.layout.dialog_watchlist_expiry, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
