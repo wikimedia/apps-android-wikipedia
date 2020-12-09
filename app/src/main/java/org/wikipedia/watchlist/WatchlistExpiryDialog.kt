@@ -22,9 +22,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private lateinit var expiry: WatchlistExpiry
-
     private lateinit var expiryOptions: Array<View>
-
     private val expiryList = arrayOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
             WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
 
@@ -56,30 +54,30 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun selectOption(expiry: WatchlistExpiry) {
-        expiryOptions.find { it.tag == expiry }?.let { update(it, true) }
+        expiryOptions.find { it.tag == expiry }?.let { updateOptionView(it, true) }
     }
 
     private fun resetAllOptions() {
         expiryOptions.forEach {
-            update(it, false)
+            updateOptionView(it, false)
         }
     }
 
-    private fun update(view: View, enabled: Boolean) {
+    private fun updateOptionView(view: View, enabled: Boolean) {
         view.findViewWithTag<TextView>("text").typeface = if (enabled) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
         view.findViewWithTag<ImageView>("check").visibility = if (enabled) View.VISIBLE else View.GONE
+    }
+
+    private fun callback(): Callback? {
+        return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
     inner class ExpiryOptionClickListener : View.OnClickListener {
         override fun onClick(view: View) {
             resetAllOptions()
-            update(view, true)
+            updateOptionView(view, true)
             callback()?.onExpirySelect(view.tag as WatchlistExpiry)
         }
-    }
-
-    private fun callback(): Callback? {
-        return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
     companion object {

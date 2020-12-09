@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:paddingHorizontal="16dp"
-        android:text="@string/watchlist_page_expiry_dialog_title"
+        android:text="@string/watchlist_expiry_dialog_title"
         android:textSize="14sp"
         android:textColor="?android:attr/textColorPrimary"
         android:lineSpacingExtra="7sp"
@@ -38,7 +38,7 @@
             android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_expiry_dialog_permanent" />
+            android:text="@string/watchlist_expiry_dialog_permanent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -68,7 +68,7 @@
             android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_expiry_dialog_one_week" />
+            android:text="@string/watchlist_expiry_dialog_one_week" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -92,7 +92,7 @@
             android:layout_marginEnd="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_expiry_dialog_one_month" />
+            android:text="@string/watchlist_expiry_dialog_one_month" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -116,7 +116,7 @@
             android:layout_marginEnd="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_expiry_dialog_three_months" />
+            android:text="@string/watchlist_expiry_dialog_three_months" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -141,7 +141,7 @@
             android:layout_marginEnd="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_expiry_dialog_six_months" />
+            android:text="@string/watchlist_expiry_dialog_six_months" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
