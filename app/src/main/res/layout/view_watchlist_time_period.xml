@@ -8,11 +8,11 @@
     tools:background="?attr/paper_color">
 
     <TextView
-        android:id="@+id/watchlistTimePeriodTitle"
+        android:id="@+id/watchlistExpiryTitle"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:paddingHorizontal="16dp"
-        android:text="@string/watchlist_page_time_period_bottom_sheet_title"
+        android:text="@string/watchlist_page_expiry_dialog_title"
         android:textSize="14sp"
         android:textColor="?android:attr/textColorPrimary"
         android:lineSpacingExtra="7sp"
@@ -21,7 +21,7 @@
         android:background="?attr/color_group_60"/>
 
     <LinearLayout
-        android:id="@+id/watchlistTimePeriodPermanent"
+        android:id="@+id/watchlistExpiryPermanent"
         style="@style/SideDrawerMenuItem">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -38,7 +38,7 @@
             android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_time_period_bottom_sheet_permanent" />
+            android:text="@string/watchlist_page_expiry_dialog_permanent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -51,7 +51,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlistTimePeriodOneWeek"
+        android:id="@+id/watchlistExpiryOneWeek"
         style="@style/SideDrawerMenuItem">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -68,7 +68,7 @@
             android:layout_marginHorizontal="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_time_period_bottom_sheet_one_week" />
+            android:text="@string/watchlist_page_expiry_dialog_one_week" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -81,7 +81,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlistTimePeriodOneMonth"
+        android:id="@+id/watchlistExpiryOneMonth"
         style="@style/SideDrawerMenuItem">
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_marginEnd="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_time_period_bottom_sheet_one_month" />
+            android:text="@string/watchlist_page_expiry_dialog_one_month" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -105,7 +105,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlistTimePeriodThreeMonths"
+        android:id="@+id/watchlistExpiryThreeMonths"
         style="@style/SideDrawerMenuItem">
 
         <TextView
@@ -116,7 +116,7 @@
             android:layout_marginEnd="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_time_period_bottom_sheet_three_months" />
+            android:text="@string/watchlist_page_expiry_dialog_three_months" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
@@ -130,7 +130,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/watchlistTimePeriodSixMonths"
+        android:id="@+id/watchlistExpirySixMonths"
         style="@style/SideDrawerMenuItem">
 
         <TextView
@@ -141,7 +141,7 @@
             android:layout_marginEnd="24dp"
             android:layout_weight="1"
             android:tag="text"
-            android:text="@string/watchlist_page_time_period_bottom_sheet_six_months" />
+            android:text="@string/watchlist_page_expiry_dialog_six_months" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
