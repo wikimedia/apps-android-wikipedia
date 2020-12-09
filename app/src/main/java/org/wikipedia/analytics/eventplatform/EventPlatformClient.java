@@ -16,7 +16,7 @@ import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegrati
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.isOnline;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvent;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
@@ -192,10 +192,8 @@ public final class EventPlatformClient {
                 /*
                  * All items on QUEUE are permanently removed.
                  */
-                for (Event event : QUEUE) {
-                    send(event);
-                }
-                QUEUE = new ArrayList<>();
+                send(QUEUE);
+                QUEUE.clear();
             }
         }
 
@@ -231,14 +229,24 @@ public final class EventPlatformClient {
         }
 
         /**
-         * If sending is enabled, attempt to send the provided event.
-         *
-         * @param event event
+         * If sending is enabled, attempt to send the provided events.
+         * Also batch the events ordered by their streams, as the QUEUE
+         * can contain events of different streams
+         * @param events list of events
          */
-        static void send(Event event) {
-            postEvent(getStreamConfig(event.getStream()), event);
+        static void send(List<Event> events) {
+            Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
+            for (Event event : events) {
+                String stream = event.getStream();
+                if (!eventsByStream.containsKey(stream) || eventsByStream.get(stream) == null) {
+                    eventsByStream.put(stream, new ArrayList<>());
+                }
+                eventsByStream.get(stream).add(event);
+            }
+            for (String stream : eventsByStream.keySet()) {
+                postEvents(getStreamConfig(stream), eventsByStream.get(stream));
+            }
         }
-
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

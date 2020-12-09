@@ -15,7 +15,7 @@ import static org.wikipedia.BuildConfig.EVENTGATE_LOGGING_EXTERNAL_BASE_URI;
  * event service configured as eventgate-analytics-external. However, that will likely change in
  * the future, so flexible destination event service support is added optimistically now.
  */
-enum DestinationEventService {
+public enum DestinationEventService {
 
     @SerializedName("eventgate-analytics-external") ANALYTICS (
             "eventgate-analytics-external",
