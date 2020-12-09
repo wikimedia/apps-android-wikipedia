@@ -19,7 +19,7 @@ import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegrati
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.isOnline;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvent;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
@@ -252,7 +252,7 @@ public final class EventPlatformClient {
                 eventsByStream.get(stream).add(event);
             }
             for (String stream : eventsByStream.keySet()) {
-                postEvent(getStreamConfig(stream), eventsByStream.get(stream));
+                postEvents(getStreamConfig(stream), eventsByStream.get(stream));
             }
         }
     }
