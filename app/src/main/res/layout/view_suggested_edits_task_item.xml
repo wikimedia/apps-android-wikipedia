@@ -62,13 +62,20 @@
             android:textColor="?attr/material_theme_secondary_color"
             tools:text="Lorem ipsum"/>
 
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/taskDescription"
+            app:layout_constraintStart_toStartOf="@id/taskDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:flow_horizontalGap="16dp"
+            app:flow_wrapMode="chain"
+            app:constraint_referenced_ids="addButton,translateButton"/>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addButton"
             style="@style/FlatButton.Small"
             android:text="@string/suggested_edits_task_action_text_add"
-            app:layout_constraintTop_toBottomOf="@id/taskDescription"
-            app:layout_constraintStart_toStartOf="@id/taskDescription"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:icon="@drawable/ic_add_gray_white_24dp"
             app:iconSize="20dp"
             app:iconTint="?attr/colorAccent"/>
@@ -76,10 +83,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/translateButton"
             style="@style/FlatButton.Small"
-            android:layout_marginStart="16dp"
             android:text="@string/suggested_edits_task_action_text_translate"
-            app:layout_constraintTop_toTopOf="@id/addButton"
-            app:layout_constraintStart_toEndOf="@id/addButton"
             app:icon="@drawable/ic_translate_white_24dp"
             app:iconSize="20dp"
             app:iconTint="?attr/colorAccent"/>
