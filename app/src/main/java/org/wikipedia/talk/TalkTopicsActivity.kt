@@ -97,7 +97,7 @@ class TalkTopicsActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_talk, menu)
         val item = menu!!.findItem(R.id.menu_change_language)
-        item.isVisible = pageTitle.namespace == Namespace.USER_TALK.name
+        item.isVisible = pageTitle.namespace() == Namespace.USER_TALK
         return super.onCreateOptionsMenu(menu)
     }
 
