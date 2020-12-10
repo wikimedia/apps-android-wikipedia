@@ -94,7 +94,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     protected void onResume() {
         super.onResume();
         supportInvalidateOptionsMenu();
-        //startActivity(ArticleEditDetailsActivity.Companion.newIntent(this,"Earthworm",987884817,"en"));
+        //startActivity(ArticleEditDetailsActivity.Companion.newIntent(this,"Earthworm",249962,"en"));
     }
 
     @Override

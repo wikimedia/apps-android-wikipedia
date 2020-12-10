@@ -1,11 +1,15 @@
 package org.wikipedia.watchlist
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.BackgroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -26,7 +30,6 @@ import org.wikipedia.watchlist.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE
 class ArticleEditDetailsFragment : Fragment() {
     private lateinit var articleTitle: String
     private var revisionId: Long = 0
-    private var currentRevision: Revision? = null
     private var newerRevisionId: Long = 0
     private var olderRevisionId: Long = 0
     private lateinit var languageCode: String
@@ -47,12 +50,10 @@ class ArticleEditDetailsFragment : Fragment() {
         languageCode = StringUtils.defaultString(requireActivity().intent
                 .getStringExtra(EXTRA_SOURCE_EDIT_LANGUAGE_CODE), "en")
         newerButton.setOnClickListener {
-            currentRevision = null
             revisionId = newerRevisionId
             fetchNeighborEdits()
         }
         olderButton.setOnClickListener {
-            currentRevision = null
             revisionId = olderRevisionId
             fetchNeighborEdits()
         }
@@ -61,29 +62,36 @@ class ArticleEditDetailsFragment : Fragment() {
     }
 
     private fun fetchNeighborEdits() {
-        fetchEditDetails(DIRECTION_NEWER)
-        fetchEditDetails(DIRECTION_OLDER)
+        fetchEditDetails()
+        fetchEditDetails()
     }
 
-    private fun updateUI() {
-        userIdButton.text = currentRevision?.user
-        editTimestamp.text = currentRevision?.timeStamp()
+    private fun updateUI(@NonNull currentRevision: Revision) {
+        userIdButton.text = currentRevision.user
+        editTimestamp.text = currentRevision.timeStamp()
+        newerButton.isClickable = newerRevisionId.compareTo(-1) != 0
+        olderButton.isClickable = olderRevisionId.compareTo(0) != 0
+        ImageViewCompat.setImageTintList(newerButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
+                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId.compareTo(-1) == 0) R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+        ImageViewCompat.setImageTintList(olderButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
+                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0) R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
     }
 
-    private fun fetchEditDetails(direction: String) {
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articleTitle, revisionId, direction)
+    private fun fetchEditDetails() {
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articleTitle, revisionId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    if (currentRevision == null) {
-                        currentRevision = response.query()!!.firstPage()!!.revisions()[0]
-                        updateUI()
-                    }
-                    if (direction === DIRECTION_NEWER) {
-                        newerRevisionId = response.query()!!.firstPage()!!.revisions()[0].parentRevId
+                    val currentRevision = response.query()!!.firstPage()!!.revisions()[0]
+
+                    newerRevisionId = if (response.query()!!.firstPage()!!.revisions().size < 2) {
+                        -1
                     } else {
-                        olderRevisionId = response.query()!!.firstPage()!!.revisions()[0].parentRevId
+                        response.query()!!.firstPage()!!.revisions()[1].revId
                     }
+                    olderRevisionId = currentRevision.parentRevId
+
+                    updateUI(currentRevision)
                 }) { t: Throwable? -> L.e(t) })
 
     }
@@ -95,9 +103,6 @@ class ArticleEditDetailsFragment : Fragment() {
     }
 
     companion object {
-        const val DIRECTION_NEWER = "newer"
-        const val DIRECTION_OLDER = "older"
-
         fun newInstance(): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment()
         }
