@@ -352,6 +352,7 @@
   <string name="address_copied">Адрес скопирован в буфер обмена.</string>
   <string name="text_copied">Текст скопирован в буфер обмена.</string>
   <string name="button_continue_to_article">Читать статью</string>
+  <string name="button_continue_to_talk_page">Открыть страницу обсуждения</string>
   <string name="button_continue_to_disambiguation">Просмотр схожих страниц</string>
   <string name="link_preview_disambiguation_description">Такой заголовок относится к нескольким страницам:</string>
   <string name="button_add_to_reading_list">Добавить в список для чтения</string>
@@ -392,7 +393,9 @@
   <string name="crash_report_quit">Выйти</string>
   <string name="article_menu_bar_save_button">Сохранить</string>
   <string name="article_menu_bar_language_button">Язык</string>
+  <string name="article_menu_bar_search_button">Найти</string>
   <string name="article_menu_bar_theme_button">Тема оформления</string>
+  <string name="article_menu_bar_contents_button">Содержание</string>
   <string name="article_header_edit_hint">Править…</string>
   <string name="article_header_edit_description">Изменить описание статьи</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
@@ -598,6 +601,7 @@
   <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
   <string name="view_featured_image_card_title">Изображение дня</string>
   <string name="view_featured_image_card_download">Скачать</string>
+  <string name="view_featured_image_card_share">Поделиться</string>
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
   <string name="menu_feed_card_dismissed">Карточка скрыта.</string>
   <string name="menu_feed_card_edit_card_languages">Редактировать языки карточек</string>
@@ -761,7 +765,7 @@
   <string name="suggested_edits_disabled_message">Предлагаемые правки выключены. Уважаемый %s, к сожалению, слишком многие из ваших последних изменений были отменены.</string>
   <string name="suggested_edits_ip_blocked_message">Судя по всему ваш IP-адрес (или диапазон IP-адресов) в данный момент заблокирован для внесения правок в Википедию.</string>
   <string name="suggested_edits_editing_tips_link_text">Советы и рекомендации по редактированию</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Просмотры страниц</string>
+  <string name="suggested_edits_views_label_text">Просмотры</string>
   <string name="suggested_edits_quality_label_text">Качество правки</string>
   <string name="suggested_edits_quality_perfect_text">Превосходная</string>
   <string name="suggested_edits_quality_excellent_text">Отличная</string>
@@ -892,4 +896,7 @@
   <string name="text_input_dialog_cancel_button_text">Отмена</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отмена</string>
   <string name="talk_title">Обсуждение</string>
+  <string name="talk_new_topic">Новая тема</string>
+  <string name="talk_add_reply">Ответить</string>
+  <string name="talk_reply_subject">Тема</string>
 </resources>
