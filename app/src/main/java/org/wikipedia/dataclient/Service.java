@@ -347,6 +347,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&list=watchlist")
     @NonNull Observable<MwQueryResponse> getWatchlist(@Nullable @Query("continue") String cont);
 
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2")
+    @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,
+                                                            @Query("rvstartid") @NonNull Long revisionStartId,
+                                                            @Query("rvdir") @NonNull String direction);
+
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=watch")
     @FormUrlEncoded

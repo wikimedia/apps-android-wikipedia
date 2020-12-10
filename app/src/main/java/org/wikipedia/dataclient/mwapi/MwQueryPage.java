@@ -176,7 +176,17 @@ public class MwQueryPage extends BaseModel {
             return revid;
         }
 
-        @NonNull public String content() {
+        public long getParentRevId() {
+            return parentid;
+        }
+
+        @Nullable
+        public String getUser() {
+            return user;
+        }
+
+        @NonNull
+        public String content() {
             return StringUtils.defaultString(content);
         }
 

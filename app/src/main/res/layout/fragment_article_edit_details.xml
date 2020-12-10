@@ -13,6 +13,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/articleTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -24,6 +25,7 @@
             android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/watchButton"
             style="@style/FlatButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,6 +56,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/editTimestamp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -66,7 +69,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/prevButton"
+            android:id="@+id/newerButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -79,7 +82,7 @@
             app:tint="?attr/primary_text_color" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/nextButton"
+            android:id="@+id/olderButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -99,6 +102,7 @@
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/userIdButton"
             style="@style/FlatButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,6 +120,7 @@
             app:iconTint="?attr/colorAccent" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/thankButton"
             style="@style/FlatButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
