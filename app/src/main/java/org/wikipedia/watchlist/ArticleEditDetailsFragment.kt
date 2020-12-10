@@ -4,9 +4,7 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.BackgroundColorSpan
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
@@ -34,6 +32,7 @@ class ArticleEditDetailsFragment : Fragment() {
     private var olderRevisionId: Long = 0
     private lateinit var languageCode: String
     private val disposables = CompositeDisposable()
+    private var menu: Menu? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -44,11 +43,12 @@ class ArticleEditDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         articleTitle = StringUtils.defaultString(requireActivity().intent
-                .getStringExtra(EXTRA_SOURCE_ARTICLE_TITLE), "Earthworm")
+                .getStringExtra(EXTRA_SOURCE_ARTICLE_TITLE), "")
         revisionId = requireActivity().intent
                 .getLongExtra(EXTRA_SOURCE_EDIT_REVISION_ID, 0)
         languageCode = StringUtils.defaultString(requireActivity().intent
                 .getStringExtra(EXTRA_SOURCE_EDIT_LANGUAGE_CODE), "en")
+        articleTitleView.text = articleTitle
         newerButton.setOnClickListener {
             revisionId = newerRevisionId
             fetchNeighborEdits()
@@ -75,6 +75,9 @@ class ArticleEditDetailsFragment : Fragment() {
                 ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId.compareTo(-1) == 0) R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
         ImageViewCompat.setImageTintList(olderButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
                 ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0) R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+        menu?.findItem(R.id.menu_user_talk_page)?.title = getString(R.string.menu_option_user_talk, currentRevision.user)
+        menu?.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision.user)
+
     }
 
     private fun fetchEditDetails() {
@@ -100,6 +103,32 @@ class ArticleEditDetailsFragment : Fragment() {
         val spannableString = SpannableString(diffText.text.toString())
         spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)), 0, diffText.text.length - 1, 0)
         diffText.text = spannableString
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_edit_details, menu)
+        this.menu = menu
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.menu_share_edit -> {
+                true
+            }
+            R.id.menu_user_talk_page -> {
+                true
+            }
+            R.id.menu_user_contributions_page -> {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     companion object {

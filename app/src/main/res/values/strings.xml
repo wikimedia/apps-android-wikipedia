@@ -1033,13 +1033,13 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
-
-    <!-- Watchlist -->
+    <string name="menu_option_share_edit">Share edit</string>
+    <string name="menu_option_user_talk">%s\'s talk</string>
+    <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
     <string name="watchlist_filter_all">All</string>
     <string name="watchlist_filter_talk">Talk</string>
     <string name="watchlist_filter_pages">Pages</string>
     <string name="watchlist_filter_other">Other</string>
-     <!-- /Watchlist -->
 </resources>
