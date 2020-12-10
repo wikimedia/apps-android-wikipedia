@@ -849,4 +849,7 @@
   <string name="text_input_dialog_cancel_button_text">ยกเลิก</string>
   <string name="custom_date_picker_dialog_cancel_button_text">ยกเลิก</string>
   <string name="talk_title">คุย</string>
+  <string name="talk_add_reply">ตอบกลับ</string>
+  <string name="talk_no_subject">(ไม่มีหัวเรื่อง)</string>
+  <string name="talk_reply_subject">หัวเรื่อง</string>
 </resources>
