@@ -152,6 +152,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         });
 
         maybeShowEditsTooltip();
+        maybeShowWatchlistTooltip();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
@@ -513,6 +514,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                     ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
                     : getString(R.string.main_tooltip_text_v2), true, false);
         }
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowWatchlistTooltip() {
+        FeedbackUtil.showTooltip(moreContainer, R.layout.view_watchlist_main_tooltip, 180, true, false);
     }
 
     @Nullable
