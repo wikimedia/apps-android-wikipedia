@@ -230,7 +230,6 @@ object EditingSuggestionsProvider {
         }.doFinally { mutex.release() }
     }
 
-<<<<<<< HEAD:app/src/main/java/org/wikipedia/suggestededits/provider/MissingDescriptionProvider.kt
     fun getNextRevertCandidate(lang: String): Observable<MwQueryResult.RecentChange> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: MwQueryResult.RecentChange? = null
@@ -262,9 +261,6 @@ object EditingSuggestionsProvider {
             }
         }.doFinally { mutex.release() }
     }
-
-    private class ListEmptyException : RuntimeException()
-=======
+    
     class ListEmptyException : RuntimeException()
->>>>>>> master:app/src/main/java/org/wikipedia/suggestededits/provider/EditingSuggestionsProvider.kt
 }
