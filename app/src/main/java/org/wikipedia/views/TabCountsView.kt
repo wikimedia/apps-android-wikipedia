@@ -1,7 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.graphics.PorterDuff
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -34,12 +34,12 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
             tabTextSize = TAB_COUNT_TEXT_SIZE_LARGE
         }
 
-        tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_SP, tabTextSize)
+        tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_PX, DimenUtil.dpToPx(tabTextSize))
     }
 
     fun setColor(@ColorInt color: Int) {
         tabsCountText.setTextColor(color)
-        tabsCountText.background.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+        tabsCountText.backgroundTintList = ColorStateList.valueOf(color)
     }
 
     companion object {

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/wikiLanguageDropdownContainer"
@@ -101,47 +100,32 @@
             app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
             app:tint="?attr/colorAccent" />
 
-        <FrameLayout
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/addContributionButton"
             android:layout_width="wrap_content"
             android:layout_height="44dp"
-            android:background="@drawable/button_shape_add_reading_list"
             android:backgroundTint="?attr/colorAccent"
+            android:text="@string/suggested_edits_add_description_button"
+            android:textColor="@color/base100"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="true"
+            android:letterSpacing="0.04"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:tag="portrait"
+            android:minWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingStart="12dp"
-                android:paddingEnd="20dp">
-
-                <ImageView
-                    android:id="@+id/addContributionImage"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="@null"
-                    android:tint="@color/base100"
-                    app:srcCompat="@drawable/ic_add_gray_white_24dp" />
-
-                <TextView
-                    android:id="@+id/addContributionText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="@string/suggested_edits_add_description_button"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textAllCaps="true"
-                    android:letterSpacing="0.04"
-                    android:textColor="@color/base100"/>
-            </LinearLayout>
-        </FrameLayout>
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="?attr/color_group_56"
+            app:cornerRadius="2dp"
+            app:iconTint="@color/base100"
+            app:iconPadding="8dp"
+            app:icon="@drawable/ic_add_gray_white_24dp"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/nextButton"

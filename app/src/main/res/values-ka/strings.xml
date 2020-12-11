@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arabuli
 * BRUTE
 * David1010
@@ -7,6 +8,8 @@
 * Giorgi Balakhadze
 * MIKHEIL
 * Mehman97
+* MuratTheTurkish
+* Გიო ოქრო
 -->
 <resources>
   <string name="app_name_prod">ვიკიპედია</string>
@@ -18,11 +21,11 @@
   <string name="nav_item_forward">წინ</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
-  <string name="search_hint_search_history">ისტორიის ძებნა</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
-  <string name="search_hint_search_my_lists_and_articles">ჩემი სიისა და სტატიების ძიება</string>
-  <string name="nav_item_history">ისტორია</string>
-  <string name="nav_item_suggested_edits">შემოთავაზებული რედაქტირებები</string>
+  <string name="filter_hint_filter_my_lists_and_articles">ჩემი სიის გაფილტვრა</string>
+  <string name="nav_item_suggested_edits">რედაქტირებები</string>
+  <string name="nav_item_more">მეტი</string>
+  <string name="nav_item_search">ძებნა</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
   <string name="card_offline_error_retry">გამეორება</string>
@@ -37,6 +40,8 @@
   <string name="history_item_delete_undo">დაბრუნება</string>
   <string name="notification_archive_undo">გაუქმება</string>
   <string name="app_settings">აპლიკაციის პარამეტრები</string>
+  <string name="search_tab_tooltip">ხელახლა შეეხეთ ხატულას საძიებო ტერმინის აკრეფის პირდაპირ დაწყებისათვის</string>
+  <string name="history_list_title">ისტორია</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="dialog_message_clear_history_yes">დიახ</string>
@@ -46,11 +51,13 @@
   <string name="search_redirect_from">გადამისამართებულია %s-დან</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
   <string name="menu_page_other_languages">ენის შეცვლა</string>
-  <string name="menu_page_find_in_page">გვერდში ძიება</string>
+  <string name="menu_page_find_in_page" fuzzy="true">გვერდში ძიება</string>
   <string name="edit_section_find_in_page">გვერდზე ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
   <string name="menu_page_add_to_list">საკითხავ სიაში დამატება</string>
+  <string name="menu_page_add_to_default_list">შენახვა</string>
   <string name="feed_card_add_to_list">საკითხავ სიაში დამატება</string>
+  <string name="feed_card_add_to_default_list">შენახვა</string>
   <string name="menu_page_share">ბმულის გაზიარება</string>
   <string name="menu_page_open_a_new_tab">ახალ ჩანართში გახსნა</string>
   <string name="menu_page_reading_lists">საკითხავი სია</string>
@@ -106,7 +113,7 @@
   <string name="reading_lists_sync_login">შესვლა</string>
   <string name="create_account_login">შესვლა</string>
   <string name="menu_login">შესვლა</string>
-  <string name="login_activity_title" fuzzy="true">ვიკიპედიაში შესვლა</string>
+  <string name="login_activity_title">შესვლა</string>
   <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>
   <string name="login_success_toast">შესული!</string>
   <string name="reset_password_title">დააყენეთ პაროლი</string>
@@ -123,7 +130,9 @@
   <string name="logged_out_in_background_cancel">გაუქმება</string>
   <string name="history_empty_title">ბოლოს ნანახი გვერდები არაა</string>
   <string name="history_empty_message">აკონტროლეთ რაც უკვე წაიკითხეთ.</string>
+  <string name="history_offline_articles_toast">კავშირგარეთ ყოფნის დროს ისტორიაში ზოგიერთი სტატია შესაძლოა არ გამოჩნდეს</string>
   <string name="search_empty_message">მოძებნეთ და წაიკითხეთ თავისუფალ ენციკლოპედიაში თქვენს მშობლიურ ენაზე</string>
+  <string name="search_empty_message_multilingual_upgrade">ვიკიპედიის ძებნა მეტ ენაზე</string>
   <string name="delete_selected_items">არჩეული ელემენტების წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>
@@ -163,7 +172,6 @@
   <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
   <string name="preference_title_auto_upload_crash_reports">პრობლემის ანგარიშის გაგზავნა</string>
   <string name="editing_error_spamblacklist">შემჩნეულია ბმულები დაბლოკილ დომეიზე (%s). გთხოვთ წაშალოთ და სცადოთ თავიდან.</string>
-  <string name="history_search_list_hint">ძიების ისტორია</string>
   <string name="error_can_not_process_link">ბმულის ჩვენება ვერ მოხერხდა</string>
   <string name="page_protected_autoconfirmed">ეს გვერდი ნახევრად დაცულია.</string>
   <string name="page_protected_sysop">ეს გვერდი სრულად დაცულია.</string>
@@ -175,6 +183,7 @@
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
   <string name="privacy_policy_description">კონფიდენციალურობის პოლიტიკა</string>
   <string name="terms_of_use_description">გამოყენების პირობები</string>
+  <string name="android_app_request_an_account_url">https://kk.wikipedia.org/wiki/Уикипедия:Тіркелгі_сұрау</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ka</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ka</string>
   <string name="about_libraries_heading">გამოყენებული ბიბლიოთეკები</string>
@@ -203,7 +212,6 @@
   <string name="find_previous">წინას მოძიება</string>
   <string name="abusefilter_title_warn">შესაძლოა ეს არაკონსტრუქციული რედაქტირებაა. გსურთ მისი გამოქვეყნება?</string>
   <string name="abusefilter_title_disallow">ამ ცვლილების გამოქვეყნება არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
-  <string name="text_size_select">შრიფტის ზომა</string>
   <string name="page_similar_titles">მსგავსი გვერდები</string>
   <string name="search_did_you_mean">ხომ არ იგულისხმეთ „%s“?</string>
   <string name="search_recent_header">ბოლოს მოძიებულები</string>
@@ -225,7 +233,7 @@
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="preference_summary_show_images">შეგიძლიათ ჩართოთ ან გამორთოთ სურათების ატვირთვა გვერდებში. ჩახსენით ეს პარამეტრი, თუ თქვენი ინტერნეტ-სიჩქარე ნელია, ან დრო შეზღუდული გაქვთ.</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
-  <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
+  <string name="menu_gallery_visit_image_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
   <string name="license_title">ლიცენზია %s-თვის</string>
   <string name="gallery_menu_share">გაზიარება</string>
@@ -253,13 +261,14 @@
   <string name="address_copied">მისამათი დაკოპირებულია.</string>
   <string name="text_copied">ტექსტი დაკოპირებულია.</string>
   <string name="button_continue_to_article">სტატიის წაკითხვა</string>
+  <string name="link_preview_disambiguation_description">ეს სათაური დაკავშირებულია ერთზე მეტ გვერდთან</string>
   <string name="button_add_to_reading_list">საკითხავ სიაში დამატება</string>
   <string name="page_offline_notice_cannot_load_while_offline">სტატიის გახსნა შეუძლებელია, როცა ინტერნეტი არაა.</string>
   <string name="button_get_directions">მიმართულების მოძიება</string>
   <string name="error_no_maps_app">შეუძლებელია აპლიკაციის ოპვნა, რომელიც მიმართულებებს იძლევა.</string>
   <string name="preference_title_show_link_previews">წინასწარ გადახედეთ ბმულს</string>
   <string name="preference_summary_show_link_previews">მაჩვენე სტატიების სწრაფი წინასწარი გადახედვის რეჟიმი ბმულებზე დაწოლისას.</string>
-  <string name="nav_item_donate">ვიკიპედიის მხარდაჭერა</string>
+  <string name="nav_item_donate" fuzzy="true">ვიკიპედიის მხარდაჭერა</string>
   <string name="error_voice_search_not_available">სამწუხაროდ, ხმით შეცნობა ხელმისაწვდომი არაა.</string>
   <string name="location_service_disabled">ლოკაციის სერვისი გამორთულია.</string>
   <string name="enable_location_service">ჩართვა</string>
@@ -273,8 +282,6 @@
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>
   <string name="crash_report_quit">გამოსვლა</string>
-  <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
-  <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_header_edit_hint">რედაქტირება</string>
   <string name="article_header_edit_description">სტატიის აღწერის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>
@@ -347,10 +354,7 @@
   <string name="notification_syncing_description" fuzzy="true">დარჩა %1$d სტატია</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_title">შემთხვევითი</string>
-  <string name="view_random_card_subtitle">გადაფურცლეთ ვიკიპედიის შემთხვევითი სტატიების წასაკითხად.</string>
-  <string name="view_random_card_action">გააგორეთ კამათელი</string>
   <string name="view_main_page_card_title">დღეს ვიკიპედიაში</string>
-  <string name="view_main_page_card_subtitle">მთავარი გვერდი %s-ზე</string>
   <string name="view_main_page_card_action">მთავარი გვერდის ნახვა</string>
   <string name="view_featured_image_card_title">დღის სურათი</string>
   <string name="view_featured_image_card_download">გადმოწერა</string>
@@ -359,7 +363,6 @@
   <string name="menu_feed_overflow_label">მეტი პარამეტრები</string>
   <string name="feed_featured_image_share_subject">ვიკისაწყობის რჩეული სურათი</string>
   <string name="feed">კვლევა</string>
-  <string name="most_read_list_card_title">პოპულარული</string>
   <string name="view_static_card_icon_content_description">ბარათის ხატულა</string>
   <string name="view_card_news_title">სიახლეებში</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -393,14 +396,12 @@
   <string name="app_shortcuts_random">შემთხვევითი</string>
   <string name="app_shortcuts_continue_reading">კითხვის გაგრძელება</string>
   <string name="app_shortcuts_search">ძიება</string>
-  <string name="more_trending_text">მეტი მსგავსი</string>
-  <string name="top_on_this_day">პოპულარული %1$s</string>
   <string name="on_this_day_card_title">ამ დღეს</string>
   <string name="more_events_text">მეტი ამ დღეს</string>
   <string name="this_year">ამ წელს</string>
-  <string name="back_to_top">თავში დაბრუნება</string>
   <plurals name="diff_years">
     <item quantity="one">შარშან</item>
     <item quantity="other">%d წლის წინ</item>
   </plurals>
+  <string name="more_language_options">მეტი</string>
 </resources>

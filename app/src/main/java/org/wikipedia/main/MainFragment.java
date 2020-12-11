@@ -17,27 +17,26 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.commons.FilePageActivity;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
-import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.news.NewsActivity;
-import org.wikipedia.feed.news.NewsItemCard;
-import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
+import org.wikipedia.feed.news.NewsCard;
+import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.gallery.MediaDownloadReceiver;
@@ -48,7 +47,6 @@ import org.wikipedia.navtab.MenuNavTabDialog;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
-import org.wikipedia.navtab.NavTabOverlayLayout;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -58,14 +56,18 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
-import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.staticdata.UserTalkAliasData;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
+import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
@@ -88,6 +90,7 @@ import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
@@ -95,15 +98,16 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
     @BindView(R.id.fragment_main_nav_tab_container) LinearLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
-    @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     @BindView(R.id.nav_more_container) View moreContainer;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
-    private Snackbar suggestedEditsNavTabSnackbar;
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
+
+    // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
+    private static final int SHOW_EDITS_SNACKBAR_COUNT = 2;
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -132,15 +136,21 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         viewPager.setUserInputEnabled(false);
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(this));
         viewPager.registerOnPageChangeCallback(pageChangeCallback);
-        FeedbackUtil.setToolbarButtonLongPressToast(moreContainer);
+        FeedbackUtil.setButtonLongPressToast(moreContainer);
 
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             if (getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
+            if (getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
+                openSearchActivity(NAV_MENU, null, null);
+                return true;
+            }
             viewPager.setCurrentItem(item.getOrder(), false);
             return true;
         });
+
+        maybeShowEditsTooltip();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
@@ -166,10 +176,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        resetNavTabLayouts();
     }
 
     @Override public void onDestroyView() {
+        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
         viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
@@ -184,7 +194,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchActivity(VOICE, searchQuery);
+            openSearchActivity(VOICE, searchQuery, null);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
@@ -200,14 +210,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                HistoryEntry entry = new HistoryEntry(MainPageClient.getMainPageTitle(), HistoryEntry.SOURCE_MAIN_PAGE);
+                HistoryEntry entry = new HistoryEntry(new PageTitle(SiteInfoClient.getMainPageForLang(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
+                        WikipediaApp.getInstance().getWikiSite()), HistoryEntry.SOURCE_MAIN_PAGE);
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
             }
         } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
-                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
+                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS
+                && (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED || resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED))) {
             refreshContents();
+            if (resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
+                updateFeedHiddenCards();
+            }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -237,9 +252,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void handleIntent(Intent intent) {
         if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER)) {
-            startActivity(RandomActivity.newIntent(requireActivity(), APP_SHORTCUTS));
+            startActivity(RandomActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getWikiSite(), APP_SHORTCUTS));
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_SEARCH)) {
-            openSearchActivity(APP_SHORTCUTS, null);
+            openSearchActivity(APP_SHORTCUTS, null, null);
         } else if (intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             startActivity(PageActivity.newIntent(requireActivity()));
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST)) {
@@ -249,14 +264,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()) == NavTab.EXPLORE.code())) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())));
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
-            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.SUGGESTED_EDITS.code())));
+            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())));
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().getTabCount() > 0) {
             startActivity(PageActivity.newIntent(requireContext()));
         }
     }
 
-    @Override public void onFeedSearchRequested() {
-        openSearchActivity(FEED_BAR, null);
+    @Override public void onFeedSearchRequested(View view) {
+        openSearchActivity(FEED_BAR, null, view);
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -270,16 +285,25 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
     }
 
-    @Override public void onFeedSelectPageFromExistingTab(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForExistingTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+    @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), sharedElements);
+        Intent intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle());
+        if (sharedElements.length > 0) {
+            intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
+        }
+        startActivity(intent, DimenUtil.isLandscape(requireContext()) || sharedElements.length == 0 ? null : options.toBundle());
     }
 
-    @Override public void onFeedAddPageToList(HistoryEntry entry) {
-        bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(), FEED));
+    @Override public void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault) {
+        if (addToDefault) {
+            ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), entry.getTitle(), FEED, readingListId -> onFeedMovePageToList(readingListId, entry));
+        } else {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    AddToReadingListDialog.newInstance(entry.getTitle(), FEED));
+        }
     }
 
     @Override public void onFeedMovePageToList(long sourceReadingListId, HistoryEntry entry) {
@@ -297,10 +321,16 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         ShareUtil.shareText(requireContext(), entry.getTitle());
     }
 
-    @Override public void onFeedNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
+    @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
         ActivityOptionsCompat options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(requireActivity(), view.getImageView(), getString(R.string.transition_news_item));
-        startActivity(NewsActivity.newIntent(requireActivity(), card.item(), card.wikiSite()), card.image() != null ? options.toBundle() : null);
+        startActivity(NewsActivity.newIntent(requireActivity(), view.getNewsItem(), newsCard.wikiSite()),
+                view.getNewsItem().thumb() != null ? options.toBundle() : null);
+    }
+
+    @Override
+    public void onFeedSeCardFooterClicked() {
+        goToTab(NavTab.EDITS);
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
@@ -332,21 +362,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
-        startActivityForResult(GalleryActivity.newIntent(requireActivity(), card.age(),
-                card.filename(), card.baseImage(), card.wikiSite(),
-                GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE), Constants.ACTIVITY_REQUEST_GALLERY);
+        startActivity(FilePageActivity.newIntent(requireActivity(), new PageTitle(card.filename(), card.wikiSite())));
     }
 
     @Override
     public void onLoginRequested() {
         startActivityForResult(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_NAV),
                 Constants.ACTIVITY_REQUEST_LOGIN);
-    }
-
-    @Nullable
-    public Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
-        // TODO: add future transition animations.
-        return null;
     }
 
     @Override
@@ -358,12 +380,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void requestUpdateToolbarElevation() {
         Fragment fragment = getCurrentFragment();
-        updateToolbarElevation(!(fragment instanceof FeedFragment || fragment instanceof SuggestedEditsTasksFragment) || (fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
+        updateToolbarElevation((fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
     }
 
     @Override
     public void onLoadPage(@NonNull HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+        startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
     }
 
     @Override
@@ -374,9 +396,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
         if (inNewTab) {
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         } else {
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()), getTransitionAnimationBundle(entry.getTitle()));
+            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
         }
     }
 
@@ -448,9 +470,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    private void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query, @Nullable View transitionView) {
         Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
-        startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
+        ActivityOptionsCompat options = null;
+        if (transitionView != null) {
+            options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), transitionView, getString(R.string.transition_search_bar));
+        }
+        startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options != null ? options.toBundle() : null);
     }
 
     private void goToTab(@NonNull NavTab tab) {
@@ -465,35 +491,26 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             ((ReadingListsFragment) fragment).updateLists();
         } else if (fragment instanceof HistoryFragment) {
             ((HistoryFragment) fragment).refresh();
-        } else if (fragment instanceof  SuggestedEditsTasksFragment) {
+        } else if (fragment instanceof SuggestedEditsTasksFragment) {
             ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
-        resetNavTabLayouts();
     }
 
-    private void resetNavTabLayouts() {
-        if (Prefs.shouldShowSuggestedEditsTooltip()) {
-            Prefs.setShouldShowSuggestedEditsTooltip(false);
-            Prefs.setShouldShowImageTagsTooltip(false);
-            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), AccountUtil.isLoggedIn()
-                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                    : getString(R.string.main_tooltip_text_v2), FeedbackUtil.LENGTH_LONG);
-            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-            suggestedEditsNavTabSnackbar.show();
-        } else if (Prefs.shouldShowImageTagsTooltip()) {
-            Prefs.setShouldShowImageTagsTooltip(false);
-            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
-            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-            suggestedEditsNavTabSnackbar.show();
+    private void updateFeedHiddenCards() {
+        Fragment fragment = getCurrentFragment();
+        if (fragment instanceof FeedFragment) {
+            ((FeedFragment) fragment).updateHiddenCards();
         }
     }
 
-    void hideNavTabOverlayLayout() {
-        tabOverlayLayout.hide();
-        if (suggestedEditsNavTabSnackbar != null) {
-            suggestedEditsNavTabSnackbar.dismiss();
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowEditsTooltip() {
+        if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment) && Prefs.shouldShowSuggestedEditsTooltip()
+                && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
+            Prefs.setShouldShowSuggestedEditsTooltip(false);
+            FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
+                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                    : getString(R.string.main_tooltip_text_v2), true, false);
         }
     }
 
@@ -545,6 +562,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                             FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            Prefs.setSuggestedEditsHighestPriorityEnabled(false);
                             refreshContents();
                         }).show();
             } else {
@@ -560,14 +578,24 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
 
         @Override
-        public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
+        public void talkClick() {
+            if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
+                        new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
+                                AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
+            }
         }
 
         @Override
-        public void aboutClick() {
-            startActivity(new Intent(requireActivity(), AboutActivity.class));
+        public void historyClick() {
+            if (!(getCurrentFragment() instanceof HistoryFragment)) {
+                goToTab(NavTab.SEARCH);
+            }
+        }
+
+        @Override
+        public void settingsClick() {
+            startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
         }
     }
-
 }

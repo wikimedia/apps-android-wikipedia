@@ -29,6 +29,11 @@
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
         <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:selectableItemBackground">@drawable/ripple_background</item>
+        <item name="android:selectableItemBackgroundBorderless">@drawable/ripple_background_borderless</item>
+
+        <!-- TODO: remove when the components can get correct custom ?attr/colorPrimary -->
+        <item name="colorPrimary">?attr/colorPrimary</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -42,8 +47,7 @@
 
     <style name="AppTheme.Page">
         <item name="actionModeStyle">@style/PageActionModeStyle</item>
-        <item name="searchViewStyle">@style/PageSearchViewStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
+        <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
         <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
     </style>
@@ -53,30 +57,6 @@
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
         <item name="windowActionModeOverlay">false</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.LargeTextToolbar">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/LargeTextToolbarStyle</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.NoElevation">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/NoElevationToolbarStyle</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.Page">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/PageToolbarStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
-        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.LanguagesList">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/PageToolbarStyle</item>
-        <item name="actionModeStyle">@style/PageActionModeStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/LanguagesListSearchViewEditTextStyle</item>
     </style>
 
     <style name="ActionModeCloseButtonStyle">
@@ -89,12 +69,10 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="AppTheme.FullScreen.TranslucentDark">
-        <item name="android:windowBackground">@color/black87</item>
+    <style name="AppTheme.FullScreen.Translucent">
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="colorAccent">@color/accent50</item>
     </style>
 
 
@@ -110,9 +88,7 @@
     </style>
 
     <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
-        <item name="colorControlActivated">?android:attr/textColorTertiary</item>
-        <item name="colorControlHighlight">?android:attr/textColorTertiary</item>
+        <item name="colorControlNormal">?attr/material_theme_de_emphasised_color</item>
     </style>
 
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
@@ -125,23 +101,9 @@
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
         <item name="background">?attr/paper_color</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
-        <item name="elevation">4dp</item>
+        <item name="elevation">0dp</item>
         <item name="titleTextStyle">@style/ToolBarTitleText</item>
-    </style>
-
-    <style name="PageToolbarStyle" parent="ToolbarStyle">
-        <item name="titleTextStyle">@style/PageToolbarTitleText</item>
-    </style>
-
-    <style name="LargeTextToolbarStyle" parent="ToolbarStyle">
-        <item name="titleTextStyle">@style/LargeTextToolbarTitleText</item>
-        <item name="background">?attr/paper_color</item>
-        <item name="elevation">0dp</item>
-    </style>
-
-    <style name="NoElevationToolbarStyle" parent="PageToolbarStyle">
-        <item name="background">?attr/paper_color</item>
-        <item name="elevation">0dp</item>
+        <item name="titleTextAppearance">@style/ToolBarTitleText</item>
     </style>
 
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
@@ -157,14 +119,6 @@
     </style>
 
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/toolbar_title_color</item>
-    </style>
-
-    <style name="PageToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/primary_text_color</item>
-    </style>
-
-    <style name="LargeTextToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">?attr/material_theme_primary_color</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">24sp</item>
@@ -191,11 +145,11 @@
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/toolbar_title_color</item>
+        <item name="android:textColor">?attr/material_theme_primary_color</item>
     </style>
 
     <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">?attr/toolbar_title_color</item>
+        <item name="android:textColor">?attr/material_theme_primary_color</item>
     </style>
 
     <style name="PageActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
@@ -214,21 +168,6 @@
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
-        <item name="android:textColor">?attr/toolbar_icon_color</item>
-    </style>
-
-    <style name="PageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/ic_close_themed_24dp</item>
-        <item name="searchIcon">@drawable/ic_search_themed_24dp</item>
-        <item name="searchHintIcon">@drawable/ic_search_themed_24dp</item>
-    </style>
-
-    <style name="PageSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
-        <item name="android:textColor">?attr/toolbar_icon_color</item>
-        <item name="android:textColorHint">?attr/toolbar_icon_color</item>
-    </style>
-
-    <style name="LanguagesListSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
         <item name="android:textColor">?attr/primary_text_color</item>
         <item name="android:textColorHint">?attr/toolbar_icon_color</item>
     </style>
@@ -290,6 +229,10 @@
         <item name="backgroundTint">@color/color_state_blue</item>
     </style>
 
+    <style name="App.Button.Blue.NonDisabled">
+        <item name="backgroundTint">@color/color_state_blue_non_disable</item>
+    </style>
+
     <style name="App.Button.Gray">
         <item name="backgroundTint">@color/color_state_gray</item>
     </style>
@@ -301,6 +244,23 @@
     <style name="App.Button.White">
         <item name="backgroundTint">@color/color_state_white</item>
         <item name="android:textColor">@color/base30</item>
+    </style>
+
+    <style name="ThemeColorCircularButton" parent="@style/Widget.MaterialComponents.Button.Icon">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:text">Aa</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="strokeColor">@color/accent50</item>
     </style>
 
     <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
@@ -317,11 +277,18 @@
 
     <style name="FlatButton.Small" parent="FlatButton">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">32dp</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:insetTop">0dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:insetBottom">8dp</item>
+        <item name="android:insetTop">8dp</item>
         <item name="android:letterSpacing">0.05</item>
         <item name="iconPadding">4dp</item>
+    </style>
+
+    <style name="FlatButton.Small.Transparent">
+        <item name="android:textColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
@@ -392,11 +359,15 @@
         <item name="android:textColor">@color/red50</item>
     </style>
 
+    <style name="TextInputLayoutErrorTextAppearance">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="MaterialLargePrimaryTitle">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/material_theme_primary_color</item>
     </style>
 
@@ -452,6 +423,7 @@
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="helperTextTextColor">?attr/material_theme_de_emphasised_color</item>
         <item name="counterTextColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
@@ -480,6 +452,8 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">?attr/chip_text_color</item>
         <item name="android:lineSpacingExtra">2sp</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipMinTouchTargetSize">48dp</item>
     </style>
 
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
@@ -503,10 +477,16 @@
     </style>
 
     <style name="PageActionTabLayoutButtonStyle">
-        <item name="android:layout_width">@dimen/bottom_toolbar_icon_size</item>
-        <item name="android:layout_height">@dimen/bottom_toolbar_icon_size</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:padding">@dimen/bottom_toolbar_item_padding</item>
-        <item name="tint">?attr/material_theme_secondary_color</item>
+        <item name="android:textColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="drawableSize">24dp</item>
+        <item name="drawableTint">?attr/material_theme_de_emphasised_color</item>
     </style>
 </resources>

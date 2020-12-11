@@ -2,12 +2,9 @@ package org.wikipedia.util;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
 import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.view.KeyCharacterMap;
@@ -25,25 +22,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
-import java.util.List;
-
 import static android.content.Context.ACCESSIBILITY_SERVICE;
 
 public final class DeviceUtil {
-
-    /**
-     * Utility method to detect whether an Email app is installed,
-     * for conditionally enabling/disabling email links.
-     * @param context Context of the calling app.
-     * @return True if an Email app exists, false otherwise.
-     */
-    public static boolean mailAppExists(Context context) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:test@wikimedia.org"));
-        List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
-        return resInfo.size() > 0;
-    }
 
     /**
      * Attempt to display the Android keyboard.
@@ -108,6 +89,12 @@ public final class DeviceUtil {
         if (toolbar != null) {
             toolbar.getNavigationIcon().setColorFilter(reset ? activity.getResources().getColor(android.R.color.white)
                     : ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+        }
+    }
+
+    public static void setContextClickAsLongClick(@NonNull View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.setOnContextClickListener(View::performLongClick);
         }
     }
 

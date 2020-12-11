@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
+import org.wikipedia.Constants;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 
@@ -24,7 +25,7 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState == null) {
-            themeChooserDialog = new ThemeChooserDialog();
+            themeChooserDialog = ThemeChooserDialog.newInstance(Constants.InvokeSource.SETTINGS);
             bottomSheetPresenter.show(getSupportFragmentManager(), themeChooserDialog);
         }
 
@@ -44,7 +45,7 @@ public class ThemeFittingRoomActivity extends SingleFragmentActivity<ThemeFittin
     }
 
     @Override
-    public void onCancel() {
+    public void onCancelThemeChooser() {
         finish();
     }
 }

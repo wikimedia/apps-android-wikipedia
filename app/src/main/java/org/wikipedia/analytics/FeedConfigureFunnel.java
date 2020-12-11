@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.Map;
 
 public class FeedConfigureFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFeedConfigure";
-    private static final int REV_ID = 18126175;
+    private static final int REV_ID = 20298570;
 
     private final int source;
 
@@ -43,6 +44,7 @@ public class FeedConfigureFunnel extends TimedFunnel {
         }
         log(
                 "source", source,
+                "feed_views", Prefs.getExploreFeedVisitCount(),
                 "enabled_list", StringUtil.stringToListMapToJSONString(enabledMap),
                 "order_list", StringUtil.listToJSONString(orderedList),
                 "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes())

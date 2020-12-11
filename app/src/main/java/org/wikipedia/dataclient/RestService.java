@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.page.TalkPage;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
 import org.wikipedia.feed.aggregated.AggregatedFeedContent;
@@ -34,9 +35,10 @@ import retrofit2.http.Query;
 public interface RestService {
     String REST_API_PREFIX = "/api/rest_v1";
 
-    String ACCEPT_HEADER_PREFIX = "accept: application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/";
+    String ACCEPT_HEADER_PREFIX = "application/json; charset=utf-8; profile=\"https://www.mediawiki.org/wiki/Specs/";
     String ACCEPT_HEADER_SUMMARY = ACCEPT_HEADER_PREFIX + "Summary/1.2.0\"";
     String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.2\"";
+    String ACCEPT_HEADER_MOBILE_HTML = ACCEPT_HEADER_PREFIX + "Mobile-HTML/1.2.1\"";
 
     String PAGE_HTML_ENDPOINT = "page/mobile-html/";
     String PAGE_HTML_PREVIEW_ENDPOINT = "transform/wikitext/to/mobile-html/";
@@ -48,7 +50,7 @@ public interface RestService {
      */
     @Headers({
             "x-analytics: preview=1",
-            ACCEPT_HEADER_SUMMARY
+            "Accept: " + ACCEPT_HEADER_SUMMARY
     })
     @GET("page/summary/{title}")
     @NonNull
@@ -61,7 +63,7 @@ public interface RestService {
 
     @Headers({
             "x-analytics: preview=1",
-            ACCEPT_HEADER_SUMMARY
+            "Accept: " + ACCEPT_HEADER_SUMMARY
     })
     @GET("page/summary/{title}")
     @NonNull
@@ -75,15 +77,15 @@ public interface RestService {
      *
      * @param title the Wiktionary page title derived from user-selected Wikipedia article text
      */
-    @Headers(ACCEPT_HEADER_DEFINITION)
+    @Headers("Accept: " + ACCEPT_HEADER_DEFINITION)
     @GET("page/definition/{title}")
     @NonNull Observable<Map<String, RbDefinition.Usage[]>> getDefinition(@NonNull @Path("title") String title);
 
-    @Headers(ACCEPT_HEADER_SUMMARY)
+    @Headers("Accept: " + ACCEPT_HEADER_SUMMARY)
     @GET("page/random/summary")
     @NonNull Observable<PageSummary> getRandomSummary();
 
-    @Headers(ACCEPT_HEADER_SUMMARY)
+    @Headers("Accept: " + ACCEPT_HEADER_SUMMARY)
     @GET("page/related/{title}")
     @NonNull Observable<RbRelatedPages> getRelatedPages(@Path("title") String title);
 
@@ -102,11 +104,11 @@ public interface RestService {
     @GET("feed/onthisday/events/{mm}/{dd}")
     @NonNull Observable<OnThisDay> getOnThisDay(@Path("mm") int month, @Path("dd") int day);
 
-    @Headers(ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
+    @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
     @GET("feed/announcements")
     @NonNull Observable<AnnouncementList> getAnnouncements();
 
-    @Headers(ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
+    @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
     @GET("feed/featured/{year}/{month}/{day}")
     @NonNull Observable<AggregatedFeedContent> getAggregatedFeed(@Path("year") String year,
                                                                  @Path("month") String month,
@@ -198,5 +200,12 @@ public interface RestService {
     @NonNull
     Observable<List<SuggestedEditItem>> getArticlesWithTranslatableDescriptions(@NonNull @Path("fromLang") String fromLang,
                                                                                 @NonNull @Path("toLang") String toLang);
+
+    //  ------- Talk pages -------
+
+    @Headers("Cache-Control: no-cache")
+    @GET("page/talk/{title}")
+    @NonNull
+    Observable<TalkPage> getTalkPage(@Nullable @Path("title") String title);
 
 }

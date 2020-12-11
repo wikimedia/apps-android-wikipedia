@@ -1,7 +1,6 @@
 package org.wikipedia.feed.news;
 
 import android.net.Uri;
-import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,9 +10,9 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ImageUrlUtil;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
-import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 class NewsLinkCard extends Card {
     @NonNull private PageSummary page;
@@ -34,7 +33,7 @@ class NewsLinkCard extends Card {
 
     @Nullable @Override public Uri image() {
         String thumbUrl = page.getThumbnailUrl();
-        return thumbUrl != null ? getUrlForSize(Uri.parse(thumbUrl), PREFERRED_THUMB_SIZE) : null;
+        return thumbUrl != null ? Uri.parse(ImageUrlUtil.getUrlForPreferredSize(thumbUrl, PREFERRED_THUMB_SIZE)) : null;
     }
 
     @NonNull @Override public CardType type() {
@@ -42,13 +41,6 @@ class NewsLinkCard extends Card {
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(page.getApiTitle(), wiki);
-        if (page.getThumbnailUrl() != null) {
-            title.setThumbUrl(page.getThumbnailUrl());
-        }
-        if (!TextUtils.isEmpty(page.getDescription())) {
-            title.setDescription(page.getDescription());
-        }
-        return title;
+        return page.getPageTitle(wiki);
     }
 }

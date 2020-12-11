@@ -12,14 +12,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
 
@@ -36,14 +39,17 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
         void loginLogoutClick();
         void notificationsClick();
+        void talkClick();
         void settingsClick();
-        void aboutClick();
+        void historyClick();
     }
 
     @BindView(R.id.main_drawer_account_name) TextView accountNameView;
     @BindView(R.id.main_drawer_login_button) Button loginLogoutButton;
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
+    @BindView(R.id.main_drawer_talk_container) ViewGroup talkContainer;
+    @BindView(R.id.main_drawer_history_container) ViewGroup historyContainer;
     @Nullable Callback callback;
 
     public static MenuNavTabDialog newInstance(Callback drawerViewCallback) {
@@ -69,9 +75,16 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         callback = null;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        BottomSheetBehavior.from((View) getView().getParent()).setPeekHeight(DimenUtil
+                .roundedDpToPx(DimenUtil.getDimension(R.dimen.navTabDialogPeekHeight)));
+    }
+
     public void updateState() {
         if (AccountUtil.isLoggedIn()) {
-            accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24));
+            accountAvatar.setImageDrawable(requireContext().getDrawable(R.drawable.ic_baseline_person_24));
             ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color)));
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
@@ -79,14 +92,19 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_VIEW_END);
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
             notificationsContainer.setVisibility(VISIBLE);
+
+            // TODO: remove when ready
+            talkContainer.setVisibility(ReleaseUtil.isPreBetaRelease() ? VISIBLE : GONE);
+
         } else {
-            accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px));
-        ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)));
+            accountAvatar.setImageDrawable(requireContext().getDrawable(R.drawable.ic_login_24px));
+            ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)));
             accountNameView.setVisibility(GONE);
             loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
             loginLogoutButton.setText(getString(R.string.main_drawer_login));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
             notificationsContainer.setVisibility(GONE);
+            talkContainer.setVisibility(GONE);
         }
     }
 
@@ -104,22 +122,24 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
-    @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
-        UriUtil.visitInExternalBrowser(requireContext(),
-                Uri.parse(getString(R.string.donate_url,
-                        BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
-        dismiss();
-    }
-
-    @OnClick(R.id.main_drawer_about_container) void onAboutClick() {
+    @OnClick(R.id.main_drawer_talk_container) void onTalkClick() {
         if (callback != null) {
-            callback.aboutClick();
+            callback.talkClick();
             dismiss();
         }
     }
 
-    @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
-        UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.android_app_faq_url)));
+    @OnClick(R.id.main_drawer_history_container) void onHistoryClick() {
+        if (callback != null) {
+            callback.historyClick();
+            dismiss();
+        }
+    }
+
+    @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
+        UriUtil.visitInExternalBrowser(requireContext(),
+                Uri.parse(getString(R.string.donate_url,
+                        BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
         dismiss();
     }
 

@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_suggested_edits_rewards_item.*
 import org.wikipedia.R
 
-
 class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
 
     private var shouldPlaySound = true

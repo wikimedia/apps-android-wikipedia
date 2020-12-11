@@ -36,6 +36,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
+    @SerializedName("watchlist") @Nullable private List<MwQueryPage> watchlistPages;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -58,6 +59,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @Nullable public String csrfToken() {
         return tokens != null ? tokens.csrf() : null;
+    }
+
+    @Nullable public String getToken() {
+        return  tokens != null ? tokens.watch() : null;
     }
 
     @Nullable public String createAccountToken() {
@@ -127,6 +132,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @NonNull public List<UserContribution> userContributions() {
         return userContributions != null ? userContributions : Collections.emptyList();
+    }
+
+    @NonNull public List<MwQueryPage> watchlist() {
+        return watchlistPages != null ? watchlistPages : Collections.emptyList();
     }
 
     public boolean isEditProtected() {
@@ -218,9 +227,14 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         @Nullable private String createAccount;
         @SuppressWarnings("unused,NullableProblems") @SerializedName("logintoken")
         @Nullable private String login;
+        @SuppressWarnings("unused,NullableProblems") @SerializedName("watchtoken")
+        @Nullable private String watch;
 
         @Nullable private String csrf() {
             return csrf;
+        }
+        @Nullable private String watch() {
+            return watch;
         }
 
         @Nullable private String createAccount() {

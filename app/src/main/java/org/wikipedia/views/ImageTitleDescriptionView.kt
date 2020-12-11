@@ -13,12 +13,20 @@ import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 
 internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+    var tooltipText: String = ""
 
     init {
         View.inflate(context, R.layout.view_image_title_description, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        setOnLongClickListener {
+            if (tooltipText.isNotEmpty()) {
+                FeedbackUtil.showTooltip(description, tooltipText, false, true)
+            }
+            true
+        }
     }
 
     fun setTitle(titleText: String) {

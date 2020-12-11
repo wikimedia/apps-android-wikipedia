@@ -13,10 +13,7 @@
   <string name="page_tabs_back">Артгъа</string>
   <string name="nav_item_forward">Алгъа</string>
   <string name="search_hint">Википедияда излемек</string>
-  <string name="search_hint_search_history">Излев тарихи</string>
   <string name="search_hint_search_languages">Тилни излемек</string>
-  <string name="search_hint_search_my_lists_and_articles">Охув тизмелерде излемек</string>
-  <string name="nav_item_history">Тарих</string>
   <string name="error_network_error">Интернетге ялгъанмай.</string>
   <string name="page_error_retry">Такрар</string>
   <string name="card_offline_error_retry">Такрарламакъ</string>
@@ -37,7 +34,7 @@
   <string name="share_via">Пайлашмакъ</string>
   <string name="image_share_via">Пайлашмакъ</string>
   <string name="menu_page_other_languages">Тиллени алышдырмакъ</string>
-  <string name="menu_page_find_in_page">Сагьифада тапмакъ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Сагьифада тапмакъ</string>
   <string name="edit_section_find_in_page">Сагьифада тапмакъ</string>
   <string name="menu_page_share">Байланывну пайлашмакъ</string>
   <string name="menu_long_press_open_page">Ачмакъ</string>
@@ -97,7 +94,6 @@
   <string name="preferences_general_heading">Ортакъ</string>
   <string name="create_account_account_created_toast">Гьисап яратылгъан!</string>
   <string name="preferences_privacy_settings_heading">Энчилик</string>
-  <string name="history_search_list_hint">Излев тарихи</string>
   <string name="settings_item_preferences">Кюйлевлер</string>
   <string name="settings_activity_title">Кюйлевлер</string>
   <string name="privacy_policy_description">Энчилилик ёругъу</string>
@@ -131,7 +127,7 @@
   <string name="preference_title_show_images">Суратланы гёрсетмек</string>
   <string name="dialog_title_download_only_over_wifi_allow">Изну бермек</string>
   <string name="about_article_section">Макъаланы гьакъында</string>
-  <string name="menu_gallery_visit_page">Сапламны сагьифасына гечмек</string>
+  <string name="menu_gallery_visit_image_page">Сапламны сагьифасына гечмек</string>
   <string name="gallery_error_draw_failed">Суратны чыгъарма бажарылмады.</string>
   <string name="gallery_menu_share">Пайлашмакъ</string>
   <string name="gallery_save_progress">Саплам эндирив…</string>
@@ -192,7 +188,6 @@
   <string name="view_card_news_title">Янгылыкъларда</string>
   <string name="view_continue_reading_card_subtitle_today">бугюн</string>
   <string name="view_announcement_card_negative_action">Ёкъ савбол</string>
-  <string name="onboarding_negative_action">Ёкъ савбол</string>
   <string name="view_featured_article_footer_save_button_label">Сакъламакъ</string>
   <string name="view_static_card_save_button_label">Сакъламакъ</string>
   <string name="view_featured_article_footer_saved_button_label">Сакълангъан</string>
@@ -221,10 +216,8 @@
   <string name="onboarding_got_it">Англадым</string>
   <string name="app_shortcuts_continue_reading">Охувну давамламакъ</string>
   <string name="app_shortcuts_search">Излев</string>
-  <string name="more_trending_text">Дагъы да булайлар</string>
   <string name="on_this_day_card_title">Бу гюн</string>
   <string name="this_year">Бу йыл</string>
-  <string name="back_to_top">Оьрге къайтмакъ</string>
   <string name="languages_list_all_text">Тюм тиллер</string>
   <string name="wikipedia_languages_title">Википедия тиллер</string>
   <string name="wikipedia_languages_your_languages_text">Сени тиллеринг</string>

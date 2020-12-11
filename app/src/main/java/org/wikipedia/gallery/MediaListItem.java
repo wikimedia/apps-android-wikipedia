@@ -7,13 +7,14 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
 
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.wikipedia.dataclient.Service.URL_FRAGMENT_FROM_COMMONS;
 
 @SuppressWarnings("unused")
 public class MediaListItem implements Serializable {
@@ -85,9 +86,11 @@ public class MediaListItem implements Serializable {
             }
         }
 
-        L.d("getImageUrl scale " + lastScale);
-        L.d("getImageUrl url " + imageUrl);
         return UriUtil.resolveProtocolRelativeUrl(imageUrl);
+    }
+
+    public boolean isInCommons() {
+        return !getSrcSets().isEmpty() && getSrcSets().get(0).src.contains(URL_FRAGMENT_FROM_COMMONS);
     }
 
     public class ImageSrcSet implements Serializable {

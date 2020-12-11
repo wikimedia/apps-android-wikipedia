@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Dbrant
+* MuratTheTurkish
 * Saimawnkham
 * Saosukham
 -->
@@ -14,10 +15,7 @@
   <string name="page_tabs_back">ႁူၼ်လင်</string>
   <string name="nav_item_forward">သိုပ်ႇၼႃႈ</string>
   <string name="search_hint">ၶူၼ်ႉႁႃ ဝီႇၶီႇၽီးတီးယႃး</string>
-  <string name="search_hint_search_history">ၶူၼ်ႉႁႃ ပိုၼ်းလင်</string>
   <string name="search_hint_search_languages">ၶူၼ်ႉႁႃ တႃႇၽႃႇသႃႇၵႂၢမ်း</string>
-  <string name="search_hint_search_my_lists_and_articles">သွၵ်ႈႁႃ ပွင်ႈၵႂၢမ်း လႄႈ သဵၼ်ႈမၢႆၵဝ်ၶႃႈ</string>
-  <string name="nav_item_history">ပိုၼ်း</string>
   <string name="error_network_error">ဢမ်ႇၸၢင်ႈ ၵွင်ႉသိုပ်ႇၸူး ဢိၼ်ႇထႃႇၼႅတ်ႉ</string>
   <string name="page_error_retry">ၶိုၼ်းၶတ်းၸႂ်တူၺ်း</string>
   <string name="card_offline_error_retry">ၶိုၼ်းၶတ်းၸႂ်တူၺ်း</string>
@@ -41,7 +39,7 @@
   <string name="search_redirect_from">လုၵ်ႉတီး %s ၼႆႈသေ ၶိုၼ်းပိၼ်ႇဝၢႆႇမႃး</string>
   <string name="menu_page_show_tabs">ၼႄထႅပ်ႉ</string>
   <string name="menu_page_other_languages">လႅၵ်ႈလၢႆႈ ၽႃႇသႃႇၵႂၢမ်း</string>
-  <string name="menu_page_find_in_page">သွၵ်ႈႁႃ တီႈၼႂ်း ၼႃႈလိၵ်ႈ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">သွၵ်ႈႁႃ တီႈၼႂ်း ၼႃႈလိၵ်ႈ</string>
   <string name="edit_section_find_in_page">သွၵ်ႈႁႃ တီႈၼႂ်း ၼႃႈလိၵ်ႈ</string>
   <string name="menu_page_font_and_theme">ၾွၼ်ႉ လႄႈ ယူင်ႉႁၢင်ႈ</string>
   <string name="menu_page_add_to_list">ထႅမ်သႂ်ႇၸူး တီႈၼႂ်း သဵၼ်ႈမၢႆလူ</string>
@@ -166,7 +164,6 @@
   <string name="preference_title_auto_upload_crash_reports">သူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ်</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ပၼ်ႇသုၼ်ႇဢႅမ်ႉ တႃႇသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ် ၸူး ဢႅပ်ႉႁွၵ်ႉၶီး ဢမ်ႇၼၼ် ၽူႈၵမ်ႉထႅမ်ၵေႃႉသၢမ် ၵႂႃႇ ႁင်းမၼ်းလႄႈ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၶိုၼ်း​တူၺ်း လွင်ႈၶွင်ႉၶမ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးၶိုၼ်း လွင်ႈယူပ်ႈယွမ်းလႆႈ ငၢႆႈငၢႆႈဝႆးဝႆးယူႇ။</string>
   <string name="editing_error_spamblacklist">တုမ်ႉႁၼ်ၺႃး %s ႁဵင်းၵွင်ႉ ဢၼ်ထုၵ်ႇႁႄႉတတ်းဝႆႉ။ ၶႅၼ်းတေႃႈ ထွၼ်ပႅတ်ႈ ၶဝ်ၸိူဝ်းၼၼ်ႉသေ ၶိုၼ်းႁဵတ်းတူၺ်းထႅင်ႈၶႃႈလႄႈ။</string>
-  <string name="history_search_list_hint">ၶူၼ်ႉႁႃ ပိုၼ်းလင်</string>
   <string name="error_can_not_process_link">ဢမ်ႇၸၢင်ႈဢွၵ်ႇၼႄ ႁဵင်းၵွင်ႉဢၼ်ၼႆႉ</string>
   <string name="page_protected_autoconfirmed">ၼႃႈလိၵ်ႈဢၼ်ၼႆႉ ထုၵ်ႇ ႁႄႉၵင်ႈဝႆႉ ၵမ်ႈၽွင်ႈ</string>
   <string name="page_protected_sysop">ၼႃႈလိၵ်ႈၼႆႉ ထုၵ်ႇႁႄႉၵင်ႈဝႆႉ တင်းမူတ်း။</string>
@@ -179,7 +176,7 @@
   <string name="about_description">လွင်ႈဢႅပ်ႉ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="privacy_policy_description">လၵ်း​ၼမ်း လွင်ႈ​ႁူမ်ႇ​လူမ်ႈ သုၼ်ႇ​လဵဝ်</string>
   <string name="terms_of_use_description">ၶေႃႈၽၢင်ႉလွင်ႈၸႂ်ႉတိုဝ်း</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://shn.m.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:လွင်ႈဝႅပ်ႉသၢႆႉ</string>
+  <string name="about_wikipedia_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:လွင်ႈဝႅပ်ႉသၢႆႉ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:Request_an_account</string>
@@ -223,7 +220,6 @@
   <string name="abusefilter_title_disallow">ၸဝ်ႈၵဝ်ႇ တေဢမ်ႇၸၢင်ႈ ပိုၼ်ဢွၵ်ႇ ​လွင်ႈမႄးထတ်း ဢၼ်ၼႆႉ။ ၶႅၼ်းတေႃႈ ၵႂႃႇၽၢႆႇလင်ၶိုၼ်းသေ မႄးလႅၵ်ႈလၢႆႈ ဢၼ်ၼႆႉၵွၼ်ႇ။</string>
   <string name="abusefilter_text_warn">တူဝ်ထွင်ႁင်းၶေႃ လႆႈမၵ်းမၼ်ႈဝႃႈ လွင်ႈမႄးထတ်းဢၼ်ၼႆႉ မၼ်းလႅပ်ႈတေပဵၼ် လွင်ႈဢမ်ႇမီး တၢင်းၵမ်ႉထႅမ်လီ။ မၼ်းတေၸၢင်ႈၶဝ်ႈပႃးဝႆႉ ၸွမ်းၼင်ႇ ၽၢႆႇတႂ်ႈၼႆႉသေဢၼ်ဢၼ် &lt;br /&gt;&lt;br /&gt;· ပေႃႉဝႆႉ တူဝ်လိၵ်ႈတူဝ်ယႂ်ႇ တင်းသဵင်ႈ&lt;br /&gt;·ပွင်ႈလိၵ်ႈပဝ်ႇ ဢမ်ႇၼၼ် ပွင်ႈလိၵ်ႈယႃႉၵဝ်း။ &lt;br /&gt;· ႁဵင်းၵွင်ႉၽၢႆႇၼွၵ်ႈ ဢၼ်ဢမ်ႇမီး လွင်ႈၵပ်းၵၢႆႇ ဢမ်ႇၼၼ် ၶႅပ်းႁၢင်ႈ&lt;br /&gt;။ တူဝ်လိၵ်ႈထပ်းၵၼ်</string>
   <string name="abusefilter_text_disallow">တူဝ်ထွင်ႁင်းၶေႃ လႆႈမၵ်းမၼ်ႈဝႃႈ လွင်ႈမႄးထတ်းဢၼ်ၼႆႉ မၼ်းလႅပ်ႈတေပဵၼ် လွင်ႈဢမ်ႇမီး တၢင်းၵမ်ႉထႅမ်လီ ဢမ်ႇၼၼ် လွင်ႈၶဝ်ႈယႃႉၵဝ်း။ .&lt;br /&gt;&lt;br /&gt;ဝီႇၶီႇပီးတီးယႃးၼႆႉ ပဵၼ်ပပ်ႉသႅၼ်သမ် ဢၼ်ပဵၼ်လွင်ႈဢမ်ႇၸွမ်းၽၢႆႇလႂ်၊ လွင်ႈဢၼ်လၢၵ်ႇလၢႆးၵူၺ်း။</string>
-  <string name="text_size_select">သႅၼ်းၾွၼ်ႉ</string>
   <string name="page_similar_titles">ၼႃႈလိၵ်ႈ မိူၼ်ၵၼ်</string>
   <string name="search_did_you_mean">ၸဝ်ႈၵဝ်ႇ မၢႆထိုင်ဝႃႈ  \"%s\"?</string>
   <string name="search_recent_header">လွင်ႈၶူၼ်ႉႁႃ ၸိူဝ်းပႆႇႁိုင်:</string>
@@ -250,7 +246,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ၶႂၢင်းပၼ်</string>
   <string name="read_more_section">သိုပ်ႇလူ</string>
   <string name="about_article_section">လွင်ႈပွင်ႈၵႂၢမ်းဢၼ်ၼႆႉ</string>
-  <string name="menu_gallery_visit_page">ၵႂႃႇၸူး ၼႃႈလိၵ်ႈၾၢႆႇ</string>
+  <string name="menu_gallery_visit_image_page">ၵႂႃႇၸူး ၼႃႈလိၵ်ႈၾၢႆႇ</string>
   <string name="gallery_error_draw_failed">ဢမ်ႇၸၢင်ႈၸၼ် ၶႅပ်းႁၢင်ႈ</string>
   <string name="license_title">ဝႂ်တိုတ်း တႃႇ %s</string>
   <string name="gallery_menu_share">ၽႄႈတိုၼ်း</string>
@@ -298,7 +294,7 @@
   <string name="preference_summary_show_link_previews">ပေႃးဝႃႈၼဵၵ်းႁဵင်းၵွင်ႉ ၼႄပၼ် ပွင်ႈလိၵ်ႈတူၺ်းလူင်ႈၼႃႈ။</string>
   <string name="preference_title_collapse_tables">တူပ်ႉလွၵ်းသဵၼ်ႈ</string>
   <string name="preference_summary_collapse_tables">တူပ်ႉလွၵ်းသဵၼ်ႈဝႆႉႁင်းတူဝ် တီႈၼႂ်းပွင်ႈၵႂၢမ်း၊ မိူၼ်ၼင်ႇ တိူၵ်ႈလွၼ်ႉၶၢဝ်ႇ၊ ငဝ်ႈၵုမ်းပိူင် လႄႈ ၽိုၼ်မၢႆတွင်း။</string>
-  <string name="nav_item_donate">ၵမ်ႉထႅမ် ဝီႇၶီႇၽီးတီးယႃး</string>
+  <string name="nav_item_donate" fuzzy="true">ၵမ်ႉထႅမ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="error_voice_search_not_available">ၵဵင်ၸႂ်ယူႇ၊ ၵၢၼ်တွင်းသဵင် ၼႆႉ ဢမ်ႇပႆၸႂ်ႉလႆႈ။</string>
   <string name="location_service_disabled">ၵၢၼ်မၢႆတွင်း ဢွင်ႈတီႈ ထုၵ်ႇဢိုတ်းၸႂ်ႉဝႆႉ။</string>
   <string name="enable_location_service">ပိုတ်ႇၸႂ်ႉ</string>
@@ -318,8 +314,6 @@
   <string name="crash_report_relaunch_or_quit">ႁဝ်းၶႃႈ ၵဵင်ၸႂ်ယူႇ၊ ဢႅပ်ႉဝီႇၶီႇမီႇတီႇယႃႇ လႆႈမီး လွင်ႈၽိတ်းပိူင်ႈလႄႈ ထုၵ်ႇၵိုတ်းၵႂႃႇ ၸိူင်ႉၼႆႉ။\nၸဝ်ႈၵဝ်ႇတေၶႂ်ႈတႄႇၶိုၼ်းၼႄႇ ဢမ်ႇၼၼ် တေဢိုတ်းပႅတ်ႈ?</string>
   <string name="crash_report_relaunch">တႄႇၶိုၼ်း</string>
   <string name="crash_report_quit">ဢိုတ်း</string>
-  <string name="article_menu_bar_bookmark">ဢဝ်ပွင်ႈလိၵ်ႈၼႆႉ ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ</string>
-  <string name="article_menu_bar_share">ၽႄႈတိုၼ်း ႁဵင်းၵွင်ႉပွင်ႈလိၵ်ႈ</string>
   <string name="article_header_edit_hint">မႄးထတ်း...</string>
   <string name="article_header_edit_description">မႄးထတ်း ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="article_header_edit_lead_section">မႄးထတ်း ၶေႃႈတႄႇငဝ်ႈ</string>
@@ -417,7 +411,6 @@
   <string name="split_reading_list_message">တီႈသဵၼ်ႈမၢႆလူၼိုင်ႈဢၼ်ၼႆ့ မီးဝႆႉ လွင်ႈမၵ်းၶၢၼ်း ပွင်ႈၵႂၢမ်း %d။ လွင်ႈမၵ်းၶၢၼ်း တီႈ သဵၼ်ႈမၢႆယၢမ်းလဵဝ်ၼႆႉ ထုၵ်ႇၸႅၵ်ႇပဵၼ် သဵၼ်ႈမၢႆလၢႆဢၼ်ဝႆႉယဝ်ႉ။</string>
   <string name="reading_list_article_limit_message">ဢမ်ႇၸၢင်ႈဢဝ် ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆဢၼ်ၼႆႉ။ ၸဝ်ႈၵဝ်ႇႁွတ်ႈထိုင် လွင်ႈမၵ်းၶၢၼ်ႈ သဵၼ်ႈမၢႆပွင်ႈၵႂၢမ်း %2$d တွၼ်ႈတႃႇ \"%1$s\"။</string>
   <string name="reading_lists_limit_message">ဢမ်ႇၸၢင်ႈၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆတၢင်ႇဢၼ်။ ၸဝ်ႈၵဝ်ႇႁွတ်ႈၽႅဝ်ဝႆႉ လွင်ႈမၵ်းၶၢၼ်း သဵၼ်ႈမၢႆလူ ၼႂ်းၵႃႈ 100 တွၼ်ႈတႃႇ ဢၶွင်ႉၼိုင်ႈဢၼ်ၼၼ်ႉယဝ်ႉ။</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;ၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;သဵၼ်ႈမၢႆလူ ၸၢင်ႈၶူၼ်းၽဵင်ႇ ၼႂ်းၵႄႈၶိူင်ႈၸႂ်ႉလၢႆႇဢၼ်ယဝ်ႉ။ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉ ဝီႇၶီႇၽီးတီးယႃးၸဝ်ႈၵဝ်ႇသေ ၶႂၢင်းပၼ်တွၼ်ႈတႃႇ သိမ်းပၼ်သဵၼ်ႈမၢႆၸဝ်ႈၵဝ်ႇလႄႈ။</string>
   <string name="reading_lists_menu_create_list">ၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆမႂ်ႇ</string>
   <string name="reading_lists_menu_sort_by">ၶပ်ႉၼင်ႇ</string>
   <string name="reading_lists_refresh_sync_option">ၽႅတ်းၶိုၼ်း ၶူၼ်းၽင်ႇ</string>
@@ -500,11 +493,8 @@
   <string name="preference_summary_notification_revert">ၼႂ်းၵႃႈ လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇၼၼ်ႉ တႃႇဢၼ်ၼိုင်ႈ ထုၵ်ႇပိၼ်ႈၶိုၼ်းဝႆႉ</string>
   <string name="view_because_you_read_card_title">ယွၼ်ႉပိူဝ်ႈၸဝ်ႈၵဝ်ႇ လူ</string>
   <string name="view_random_card_title">တူဝ်တႅဝ်ႇ</string>
-  <string name="view_random_card_subtitle">ၽိုၼ်ႉတူၺ်းၼႃႈလိၵ်ၵမ်ႉသၢင်ႇတေႃႇ တွၼ်ႈတႃႇလူ ၵႃႈတီႈဝီႇၶီႇၽီးတီးယႃး။</string>
-  <string name="view_random_card_action">ၶွၼ်းမၢၵ်ႇထႅဝ်ႇ</string>
   <string name="view_next_random_article">ပိုတ်ႇပွင်ႈလိၵ်ႈၵမ်ႉမၢၼ် တၢင်ႇဢၼ်</string>
   <string name="view_main_page_card_title">မိူဝ်ႈၼႆႉ တီႈၼိူဝ် ဝီႇၶီႇၽီးတီးယႃး</string>
-  <string name="view_main_page_card_subtitle">ၼႃႈလိၵ်ႈႁူဝ်ႁႅၵ်ႇ တီႈ %s</string>
   <string name="view_main_page_card_action">တူၺ်းၼႃးလိၵ်ႈႁူဝ်ႁႅၵ်ႈ</string>
   <string name="view_featured_image_card_title">ၶႅပ်းႁၢင်ႈ တႃႇ မိူဝ်ႈၼႆႉ</string>
   <string name="view_featured_image_card_download">လူတ်ႇလူင်း</string>
@@ -514,7 +504,6 @@
   <string name="menu_feed_overflow_label">ၵၢၼ်လိူၵ်ႈတၢင်ႇၸိူဝ်း</string>
   <string name="feed_featured_image_share_subject">ၶႅပ်းႁၢင်ႈၶိုၵ်ႉတွၼ်ႈ ၵႃႈတီႈ ဝီႇၶီႇမီႇတီႇယႃႇ ၽုင်ႇ</string>
   <string name="feed">ပိုတ်ႇႁႃ</string>
-  <string name="most_read_list_card_title">သၢႆတၢင်း</string>
   <string name="view_static_card_icon_content_description">ႁၢင်ႈႁိင်ႈ ၶႅပ်း</string>
   <string name="view_card_news_title">တီႈၼႂ်းၶၢဝ်ႇ</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -523,7 +512,6 @@
   <string name="view_continue_reading_card_subtitle_today">မိူဝ်ႈၼႆႉ</string>
   <string name="view_continue_reading_card_subtitle_read_date">လူမႃး %s</string>
   <string name="view_announcement_card_negative_action">ပႆႇၵွၼ်ႇၶႃႈ။</string>
-  <string name="onboarding_negative_action">ပႆႇၵွၼ်ႇ</string>
   <string name="view_offline_card_text">ၽွင်းဢမ်ႇမီးၼႅင်ႈ ဢမ်ႇၸၢင်ႈပိုတ်ႇလမ်းၼႂ်း</string>
   <string name="view_featured_article_card_title">ပွင်ႈလိၵ်ႈ ၶိုၵ်ႉတွၼ်း</string>
   <string name="view_featured_article_footer_save_button_label">သိမ်း</string>
@@ -581,10 +569,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ၼိုင်ႈထႅဝ်ၼႆႉ ၶႅမ်ႉလိူဝ်၊ ၶေႃႈၵႂၢမ်းသွင်ၶေႃႈတေႃႇ သိပ်းသွင်ၶေႃႈ</string>
   <string name="description_edit_tutorial_button_label_start_editing">တႄႇလွင်ႈမႄးထတ်း</string>
   <string name="description_edit_tutorial_promise">ပေႃးတႄႇ၊ ၵဝ်ၶႃႈပၼ်ၶေႃႈမၼ်ႈဝႃႈ တေဢမ်ႇၸႂ်ႉၽိတ်း ႁၢင်ႈၽၢင်ဢၼ်ၼႆႉ။</string>
-  <string name="suggested_edits_add_descriptions">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
-  <string name="suggested_edits_translate_descriptions">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
-  <string name="suggested_edits_add_image_captions">ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
-  <string name="suggested_edits_translate_image_captions">ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_review_description">ထတ်းသၢင် ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
   <string name="suggested_edits_add_description_button">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_edit_description_button">မႄးထတ်း ၶေႃႈသပ်းလႅင်း</string>
@@ -598,7 +582,6 @@
   <string name="suggested_edits_license_notice">ၸွမ်းၼင်ႇထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်းၼၼ်ႉလႄႈ ၵဝ်ႇၶႃႈၽွမ်ႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၵႂၢမ်း လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt; လႄႈ ၶႃႈႁဝ်းဢဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ ပိုၼ်ဢွၵ်ႇၶၢတ်ႇၶၢတ်ႇ ၸွမ်းၼင်ႇ  ဝႂ်ၶႂၢင်း&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ၼၼ်ႉၶႃႈ။</string>
   <string name="suggested_edits_image_caption_license_notice">ၸွမ်းၼင်ႇ ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈၼၼ်ႉလႄႈ ၵဝ်ႇၶႃႈၽွမ်ႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၵႂၢမ်း လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt; လႄႈ ၶႃႈႁဝ်းဢဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ ပိုၼ်ဢွၵ်ႇၶၢတ်ႇၶၢတ်ႇ ၸွမ်းၼင်ႇ  ဝႂ်ၶႂၢင်း&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ၼၼ်ႉၶႃႈ။</string>
   <string name="suggested_edits_menu_info">လွၼ်ႉၶၢဝ်ႇ</string>
-  <string name="suggested_edits_tasks_activity_title">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="suggested_edits_task_add_description_title">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_task_add_description_description">ဢမ်ႇပႃးၶေႃႈသပ်းလႅင်းသေ ၶဝ်ႈႁူမ်ႈတင်း ပွင်ႈၵႂၢမ်း</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">သႂ်ႇႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ</string>
@@ -657,13 +640,10 @@
   <string name="app_shortcuts_random">ၵမ်ႉမၢၼ်</string>
   <string name="app_shortcuts_continue_reading">သိုပ်ႇလွင်ႈလူလိၵ်ႈ</string>
   <string name="app_shortcuts_search">ၶူၼ်ႉႁႃ</string>
-  <string name="more_trending_text">လႆႈၸႂ်ၼႆႉၼမ်လိူဝ်</string>
-  <string name="top_on_this_day">ဝၢႆႁူဝ်ၸူး တီႈၼိူဝ် %1$s</string>
   <string name="on_this_day_card_title">တႃႇဝၼ်းမိူဝ်ႈၼႆႉ</string>
   <string name="more_events_text">ၼမ်လိူဝ်တႃႇဝၼ်းမိူဝ်ႈၼႆႉ</string>
   <string name="events_count_text">ပိူင်ပဵၼ် %1$s ၵႃႈတီႈ %2$s–%3$d</string>
   <string name="this_year">ပီၼႆႉ</string>
-  <string name="back_to_top">ႁူၼ်ၸူးၽၢႆႇၼိူဝ်သုတ်း</string>
   <plurals name="diff_years">
     <item quantity="one">ပီႈၵၢႆ</item>
     <item quantity="other">ပူၼ်ႉမႃး %d ပီ</item>

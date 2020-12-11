@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/reading_list_swipe_refresh"
     android:layout_width="match_parent"
@@ -18,10 +18,15 @@
             android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
-                android:id="@+id/reading_list_onboarding_container"
+            <org.wikipedia.views.MessageCardView
+                android:id="@+id/onboarding_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/reading_list_list"
@@ -56,15 +61,14 @@
                     style="@style/MaterialLargePrimaryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/saved_list_empty_title" />
+                    android:layout_marginBottom="12dp"
+                    android:text="@string/saved_list_empty_title"/>
 
                 <TextView
                     android:id="@+id/empty_message"
                     style="@style/MaterialMediumSecondaryCaption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="@string/reading_lists_empty_message" />
             </LinearLayout>
         </ScrollView>

@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/paper_color"
     android:clipToPadding="false"
-    android:foreground="?attr/selectableItemBackground"
+    android:background="?attr/selectableItemBackground"
     android:paddingStart="@dimen/list_item_horizontal_padding"
     android:paddingTop="@dimen/list_item_vertical_padding"
     android:paddingEnd="@dimen/list_item_horizontal_padding"
@@ -37,14 +36,14 @@
 
     </FrameLayout>
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/notification_item_selected_image"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
         android:background="@drawable/shape_circle"
         android:contentDescription="@null"
         android:padding="8dp"
-        android:tint="@android:color/white"
+        app:tint="@android:color/white"
         android:visibility="gone"
         app:backgroundTint="@color/accent50"
         app:layout_constraintStart_toStartOf="@id/notification_item_image_container"

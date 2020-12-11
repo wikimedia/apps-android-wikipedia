@@ -17,6 +17,8 @@ import static org.wikipedia.page.Namespace.MAIN;
 import static org.wikipedia.page.Namespace.MEDIA;
 import static org.wikipedia.page.Namespace.SPECIAL;
 import static org.wikipedia.page.Namespace.TALK;
+import static org.wikipedia.page.Namespace.USER;
+import static org.wikipedia.page.Namespace.USER_TALK;
 
 @RunWith(RobolectricTestRunner.class) public class NamespaceTest {
     private static Locale PREV_DEFAULT_LOCALE;
@@ -51,7 +53,20 @@ import static org.wikipedia.page.Namespace.TALK;
 
     @Test public void testFromLegacyStringTalk() {
         //noinspection deprecation
-        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "stringTalk"), is(TALK));
+        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "Talk"), is(TALK));
+        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("ru"), "Обсуждение"), is(TALK));
+    }
+
+    @Test public void testFromLegacyStringUser() {
+        //noinspection deprecation
+        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User"), is(USER));
+        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("af"), "Gebruiker"), is(USER));
+    }
+
+    @Test public void testFromLegacyStringUserTalk() {
+        //noinspection deprecation
+        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "User talk"), is(USER_TALK));
+        assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("vi"), "Thảo luận Thành viên"), is(USER_TALK));
     }
 
     @Test public void testCode() {

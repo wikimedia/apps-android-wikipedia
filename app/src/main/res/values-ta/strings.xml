@@ -17,6 +17,7 @@
 * Rakshika
 * Sharanrajindia
 * Shriheeran
+* Timbaaa
 * தமிழ்த்தம்பி
 * மதனாஹரன்
 -->
@@ -29,9 +30,9 @@
   <string name="page_tabs_back">பின் செல்</string>
   <string name="nav_item_forward">முன்செல்</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
-  <string name="search_hint_search_history">வரலாற்றைத் தேடு</string>
   <string name="search_hint_search_languages">ஓர் மொழியை தேடுக</string>
-  <string name="nav_item_history">வரலாறு</string>
+  <string name="nav_item_suggested_edits">தொகுப்புகள்</string>
+  <string name="nav_item_more">மேலும்</string>
   <string name="error_network_error">இணைய இணைப்பு இல்லை.</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="card_offline_error_retry">மறு முயற்சி செய்</string>
@@ -55,7 +56,7 @@
   <string name="search_redirect_from">%s இலிருந்து வழிமாற்றப்பட்டது</string>
   <string name="menu_page_show_tabs">தத்தல்களை காண்பி</string>
   <string name="menu_page_other_languages">மொழியை மாற்று</string>
-  <string name="menu_page_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
+  <string name="menu_page_find_in_page" fuzzy="true">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="edit_section_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_add_to_list">படிக்கும் பட்டியலில் சேர்க</string>
@@ -77,6 +78,7 @@
   <string name="map_view_link_text">நிலப்படத்தில் காட்டுக</string>
   <string name="other_languages_indication_text">வேறொரு மொழியில் படிக்கவும்</string>
   <string name="language_count_link_text">%d மற்ற மொழிகளில் கிடைக்கத்தக்கது</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள்.</string>
   <string name="edit_save_action_license_anon">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள். தொகுப்புகள் தங்களது கருவியின் IP முகவரிக்கு உடைமையாக்கபடும். நீங்கள் &lt;a href=\"https://#login\"&gt;புகுபதிகை செய்தால்&lt;/a&gt;, உங்களுக்கு மேலும் தனியுரிமை இருக்கும்.</string>
   <string name="preference_title_language">விக்கிபீடியா மொழிகள்</string>
@@ -114,15 +116,19 @@
   <string name="reading_lists_sync_login">புகுபதிகை</string>
   <string name="create_account_login">புகுபதிகை</string>
   <string name="menu_login">புகுபதிகை</string>
-  <string name="login_activity_title" fuzzy="true">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
+  <string name="login_activity_title">புகுபதிகை</string>
   <string name="login_in_progress_dialog_message">புகுபதிகையாகின்றது…</string>
-  <string name="login_success_toast" fuzzy="true">புகுபதிகை வெற்றி</string>
+  <string name="login_success_toast">புகுபதிகையில் உள்ளீர்கள்.</string>
   <string name="reset_password_title">உங்கள் கடவுச்சொல்லை அமைக்கவும்</string>
   <string name="reset_password_description">நீங்கள் தற்காலிகமாக மின்னஞ்சல் செய்யப்பட்ட குறியீடுடன் புகுபதிந்துள்ளீர்.\nபுகுபதிவை நிறைவு செய்ய, புதிய கடவுச்சொல்லை இங்கு உருவாக்குங்கள்.</string>
   <string name="reset_password_hint">புதிய கடவுச்சொல்</string>
   <string name="reset_password_button">சேமித்து உள்நுழை</string>
   <string name="preference_title_logout">விடுபதிகை</string>
   <string name="toast_logout_complete">விடுபதிகை செய்துவிட்டீர்கள்.</string>
+  <string name="logout_dialog_cancel_button_text">இரத்து செய்</string>
+  <string name="logged_out_in_background_title">விடுபதிகை செய்தாயிற்று</string>
+  <string name="logged_out_in_background_login">புகுபதிகை</string>
+  <string name="logged_out_in_background_cancel">இரத்து செய்</string>
   <string name="history_empty_title">அண்மையில் கண்ட பக்கங்கள் ஏதுமில்லை</string>
   <string name="history_empty_message">நீங்கள் வாசிப்பனவற்றை இங்கே பின்தொடர்க.</string>
   <string name="history_offline_articles_toast">இணைய இணைப்பு இல்லையெனில் சில கட்டுரைகளை காணமுடியாது.</string>
@@ -174,7 +180,6 @@
   <string name="preference_title_auto_upload_crash_reports">முறிவு அறிக்கை அனுப்பு</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">செயலிழப்பு அறிக்கைகளை HockeyApp என்ற மூன்றாம் தரப்பு சேவை வழங்குநருக்கு தானாக அனுப்ப இசசெயலிக்கு அனுமதி அளிக்கிறேன் ஏனெனில், செயலிழந்ததன் காரணத்தை கண்டறியவும் பழுதுபார்க்கவும் எங்களுக்கு எளிதாக இருக்கும்.</string>
   <string name="editing_error_spamblacklist">தடைசெய்யப்பட்ட இணையதளங்களின் இணைப்புகள் (%s) கண்டறியப்பட்டுள்ளது. தயவுசெய்து அவற்றை நீக்கியபின் மறுமுயற்சி செய்யவும்.</string>
-  <string name="history_search_list_hint">வரலாற்றைத் தேடுக</string>
   <string name="error_can_not_process_link">இந்த இணைப்பைக் காட்ட முடியவில்லை</string>
   <string name="page_protected_autoconfirmed">இந்த பக்கம் அரைப் பாதுகாக்கபட்டுள்ளது.</string>
   <string name="page_protected_sysop">இந்த பக்கம் முழுமையாகப் பாதுகாக்கப்பட்டுள்ளது.</string>
@@ -187,7 +192,7 @@
   <string name="about_description">விக்கிப்பீடியா நிரலைப் பற்றி</string>
   <string name="privacy_policy_description">தனியுரிமைக் கொள்கை</string>
   <string name="terms_of_use_description">பயன்பாட்டு விதிமுறைகள்</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://ta.wikipedia.org/wiki/விக்கிப்பீடியா:விபரம்</string>
+  <string name="about_wikipedia_url">https://ta.wikipedia.org/wiki/விக்கிப்பீடியா:விபரம்</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/ta</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -195,6 +200,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">பயன்படுத்தும் நிரலகங்கள்</string>
   <string name="about_contributors_heading">பங்களிப்பாளர்கள்</string>
   <string name="about_translators_heading">மொழிபெயர்ப்பாளர்கள்</string>
@@ -230,7 +237,6 @@
   <string name="find_last_occurence">இது கடைசி நிகழ்வு</string>
   <string name="abusefilter_title_warn">இது ஆக்கபூர்வமற்ற தொகுப்பாக இருக்கலாம், நீங்கள் நிச்சயம் பதிப்பிட வேண்டுமா ?</string>
   <string name="abusefilter_title_disallow">\nநீங்கள் இந்த தொகுப்பை பதிப்பிட முடியாது. தயவுசெய்து பின் சென்று அதை மாற்றவும்.</string>
-  <string name="text_size_select">எழுத்துரு அளவு</string>
   <string name="page_similar_titles">ஒத்த பக்கங்கள்</string>
   <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
   <string name="search_recent_header">அண்மைய தேடல்கள்</string>
@@ -255,13 +261,13 @@
   <string name="dialog_title_download_only_over_wifi_allow">அனுமதிக்கவும்</string>
   <string name="read_more_section">மேலும் அறிக</string>
   <string name="about_article_section">இந்தக் கட்டுரையைப் பற்றி</string>
-  <string name="menu_gallery_visit_page">கோப்பின் பக்கத்திற்கு செல்க</string>
+  <string name="menu_gallery_visit_image_page">கோப்பின் பக்கத்திற்கு செல்க</string>
   <string name="gallery_error_draw_failed">படிமத்தை வரைய முடியவில்லை</string>
   <string name="license_title">%s காப்புரிமை</string>
   <string name="gallery_menu_share">பகிர்</string>
   <string name="gallery_share_error">%s படிமத்தை பகிர இயலவில்லை</string>
   <string name="gallery_save_progress">கோப்பு பதிவிறக்கம் செய்யப்படுகிறது...</string>
-  <string name="gallery_save_success" fuzzy="true">கோப்பு வெற்றிகரமாக சேமிக்கப்பட்டது.</string>
+  <string name="gallery_save_success">கோப்பு சேமிக்கப்பட்டது.</string>
   <string name="gallery_error_video_failed">காணொளியை இயக்க இயலவில்லை.</string>
   <string name="gallery_save_image_write_permission_rationale">படங்களை இந்த சேமிபகத்தில் சேமிப்பதற்கு எழுவதற்கான அனுமதி தேவை.</string>
   <string name="err_cannot_save_file">ஆவணத்தை சேமிக்க முடியாது.</string>
@@ -290,7 +296,7 @@
   <string name="error_no_maps_app">வழிகாட்டி செயலிகள் ஏதும் இல்லை.</string>
   <string name="preference_title_show_link_previews">முன்னோட்ட இணைப்புகளை காண்பி</string>
   <string name="preference_summary_show_link_previews">இணைப்புகளை தட்டும் போது கட்டுரையின் விரைவான முன்னோட்டம் காட்டு.</string>
-  <string name="nav_item_donate">விக்கிமீடியாவை ஆதரிக்கவும்</string>
+  <string name="nav_item_donate" fuzzy="true">விக்கிமீடியாவை ஆதரிக்கவும்</string>
   <string name="error_voice_search_not_available">மன்னிக்கவும், குரல் அறிதல் கிடைக்கவில்லை</string>
   <string name="location_service_disabled">இடச் சேவைகள் முடக்கப்பட்டுள்ளது.</string>
   <string name="enable_location_service">செயற்படுத்து</string>
@@ -307,8 +313,6 @@
   <string name="crash_report_activity_title">செயலி பிழை</string>
   <string name="crash_report_relaunch">மீண்டும் தொடங்கவும்</string>
   <string name="crash_report_quit">முடித்துக்கொள்</string>
-  <string name="article_menu_bar_bookmark">இக்கட்டுரையை படிப்பு பட்டியலில் சேர்க்கவும்</string>
-  <string name="article_menu_bar_share">கட்டுரை இணைப்பை பகிர்</string>
   <string name="article_header_edit_hint">தொகுக்கவும்...</string>
   <string name="article_header_edit_description" fuzzy="true">தலைப்பு விவரத்தை தொகுக்கவும்</string>
   <string name="article_header_edit_lead_section">அறிமுகத்தைத் தொகுக்கவும்</string>
@@ -379,7 +383,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ஒருங்குநிகழ்வை இயலச்செய்</string>
   <string name="default_reading_list_name">சேமிக்கப்பட்டவை</string>
   <string name="default_reading_list_description">உங்கள் சேமிப்பு கட்டுரைகளுக்கான இயல்பு பட்டியல்</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்க&lt;strong&gt;&lt;br /&gt;&lt;br /&gt;இப்பொழுது படிப்பு பட்டியல்களை சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்யலாம். உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்ததும் உங்கள் பட்டியல்களை சேமிக்க அனுமதியுங்கள்.</string>
   <string name="reading_lists_menu_create_list">புதிய பட்டியலை உருவாக்குக</string>
   <string name="reading_lists_menu_sort_by">வரிசைப்படுத்து</string>
   <plurals name="reading_list_article_not_offline_message">
@@ -417,11 +420,8 @@
   <string name="preference_title_notification_thanks">நன்றி</string>
   <string name="view_because_you_read_card_title">நீங்கள் படித்ததினால்</string>
   <string name="view_random_card_title">தற்போக்கான்</string>
-  <string name="view_random_card_subtitle">விக்கிப்பீடியாவிலிருந்து வாசிப்பதற்காக கட்டுறைகளை தற்போக்காக புரட்டவும்.</string>
-  <string name="view_random_card_action">பகடைகளை உருட்டவும்</string>
   <string name="view_next_random_article">தற்போக்காக மற்றொரு கட்டுறையை காட்டு</string>
   <string name="view_main_page_card_title">இன்று விக்கிப்பீடியாவில்</string>
-  <string name="view_main_page_card_subtitle">%sர்கான முதன்மை பக்கம்</string>
   <string name="view_main_page_card_action">முதன்மைப் பக்கத்தை காண்க</string>
   <string name="view_featured_image_card_title">இன்றைய சிறப்புப்படம்</string>
   <string name="view_featured_image_card_download">தரவிறக்கவும்</string>
@@ -431,7 +431,6 @@
   <string name="menu_feed_overflow_label">மேலும் செயல்கள்</string>
   <string name="feed_featured_image_share_subject">விக்கிமீடியா காமன்ஸிலிருந்து சிறப்பு படம்</string>
   <string name="feed">சுற்றிப்பார்</string>
-  <string name="most_read_list_card_title">பிரபலமாகிறது</string>
   <string name="view_static_card_icon_content_description">அட்டை படவுரு</string>
   <string name="view_card_news_title">செய்திகளில்</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -481,7 +480,7 @@
   <string name="suggested_edits_last_edited_never">எப்போதுமில்லை</string>
   <string name="suggested_edits_contribution_language_label">மொழி</string>
   <string name="suggested_edits_contribution_date_time_label">நாள்/நேரம்</string>
-  <string name="suggested_edits_contribution_image_label">கோப்பு</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">கோப்பு</string>
   <string name="suggested_edits_contribution_views">%s பார்வைகள்</string>
   <string name="suggested_edits_contribution_date_yesterday_text">நேற்று</string>
   <string name="suggested_edits_rewards_continue_button">தொடரவும்</string>
@@ -502,11 +501,9 @@
   <string name="app_shortcuts_random">ஏதோ ஒன்று</string>
   <string name="app_shortcuts_continue_reading">தொடர்ந்து படிக்கவும்</string>
   <string name="app_shortcuts_search">தேடுக</string>
-  <string name="more_trending_text">இதுபோல் மேலும்</string>
   <string name="on_this_day_card_title">இந்த நாளில்</string>
   <string name="more_events_text">இந்நாளில் மேலும்</string>
   <string name="this_year">இந்த வருடம்</string>
-  <string name="back_to_top">மீண்டும் மேலே</string>
   <string name="on_this_day_dialog_next_month">அடுத்த மாதம்</string>
   <plurals name="diff_years">
     <item quantity="one">கடந்த வருடம்</item>

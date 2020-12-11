@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Drjpoudel
+* MuratTheTurkish
 * Nirajan pant
 * Nirjal stha
 * Parbat subedi
@@ -21,11 +22,9 @@
   <string name="nav_item_forward">अगाडि</string>
   <string name="search_hint">विकिपिडियामा खोज्नुहोस्</string>
   <string name="search_hint_voice_search">आवाज आगत खोज</string>
-  <string name="search_hint_search_history">इतिहास खोज्नुहोस्</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
-  <string name="search_hint_search_my_lists_and_articles">मेरा सूचीहरू र लेखहरू खोज्नुहोस्</string>
-  <string name="nav_item_history">इतिहास</string>
-  <string name="nav_item_suggested_edits">सुझाइएका सम्पादनहरू</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">सुझाइएका सम्पादनहरू</string>
+  <string name="nav_item_more">थप</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
   <string name="page_error_retry">पुनः प्रयास गर्नुहोस्</string>
   <string name="card_offline_error_retry">पुन:प्रयास गर्नुहोस्</string>
@@ -49,7 +48,7 @@
   <string name="search_redirect_from">%s बाट पुनः निर्देशित भएको</string>
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
-  <string name="menu_page_find_in_page">पृष्ठमा खोज्नुहोस्</string>
+  <string name="menu_page_find_in_page" fuzzy="true">पृष्ठमा खोज्नुहोस्</string>
   <string name="edit_section_find_in_page">पृष्ठमा खोज्नुहोस्</string>
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
@@ -71,6 +70,7 @@
   <string name="map_view_link_text">कुनै नक्सामा हेर्नुहोस्</string>
   <string name="other_languages_indication_text">अर्को भाषामा पढ्नुहोस्</string>
   <string name="language_count_link_text">अरू %d ओटा भाषाहरूमा उपलब्ध</string>
+  <string name="content_license_cc_by_sa">CC BY-SA ३.०</string>
   <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
   <string name="edit_save_action_license_anon">प्रकाशन गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनहरू तपाईँको उपकरणको आइपओ ठेगानामा एट्रिब्युट गरिनेछन् । यदि &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;,  गर्नु भयो भने राम्रो गोपनियता प्राप्त हुनसक्छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
@@ -110,7 +110,7 @@
   <string name="menu_login">प्रवेश</string>
   <string name="login_activity_title" fuzzy="true">विकिपिडियामा प्रवेश गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईलाई प्रवेश गराउँदै…</string>
-  <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रवेश भयो!</string>
+  <string name="login_success_toast">प्रवेश भयो!</string>
   <string name="reset_password_title">तपाईको पासवर्ड लेख्नुहोस्</string>
   <string name="reset_password_description">तपाई अस्थायी पासवर्ड प्रयोग गरेर प्रवेश गर्नु भएको छ। प्रवेश पूरा गर्न आफ्नो पासवर्ड राख्नुहाेस् ।</string>
   <string name="reset_password_hint">नयाँ पासवर्ड</string>
@@ -171,22 +171,24 @@
   <string name="preference_title_eventlogging_opt_in">उपयोगसम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगलाई अझ राम्रो बनाउन तपाईले अनुप्रयोगको उपयोग कसरी गर्नुहुन्छ भन्नेबारे विकिपिडियालाई जानकारी सङ्कलन गर्ने अनुमति दिनुहोस्</string>
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
+  <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
-  <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">यो सूत्र प्रदर्शन गर्न सकिएन</string>
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध-संरक्षित गरिएको छ।</string>
   <string name="page_protected_sysop">यो पृष्ठ पूर्ण संरक्षित गरिएको छ।</string>
   <string name="page_protected_other">यो पृष्ठ निम्नानुसारका तहहरूको लागि संरक्षित गरिएको छ: %s</string>
   <string name="page_protected_can_not_edit">माफ गर्नुहोस्, यतिबेला तपाईको खातालाई यो पृष्ठ सम्पादन गर्ने पर्याप्त अधिकारहरू छैनन्।</string>
+  <string name="page_protected_can_not_edit_anon">माफी, यस पृष्ठलाई अनाम रूपमा हाललाई सम्पादन गर्न सकिँदैन।</string>
   <string name="page_protected_can_not_edit_title">यो पृष्ठ संरक्षित छ</string>
   <string name="settings_item_preferences">सेटिङहरू</string>
   <string name="settings_activity_title">सेटिङहरू</string>
   <string name="about_description">विकिपिडिया अनुप्रयोगको बारेमा</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">प्रयोगका सर्तहरू</string>
+  <string name="about_wikipedia_url">https://ne.wikipedia.org/wiki/विकिपीडिया:विकिपीडियाको_बारेमा</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://ne.wikipedia.org/wiki/विकिपिडिया:खाता_बनाउनको_लागि_अनुरोध</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">प्रयोग भएका पुस्तकालयहरू</string>
@@ -209,6 +211,8 @@
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_undo">अन्डू गर्नुहोस्</string>
   <string name="edit_redo">पुन: कायम गर्नुहाेस्</string>
+  <string name="edit_zoom_in">ठुलो पार्नुहोस्</string>
+  <string name="edit_zoom_out">सानो पार्नुहोस्</string>
   <string name="edit_summary_tag_typo">टाइपो सुधार गरियो</string>
   <string name="edit_summary_tag_grammar">व्याकरण सुधार गरियो</string>
   <string name="edit_summary_tag_links">लिङ्क थप गरियो</string>
@@ -221,7 +225,6 @@
   <string name="find_last_occurence">यो अन्तिम घटना हो</string>
   <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
-  <string name="text_size_select">लिपि आकार</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
@@ -246,15 +249,16 @@
   <string name="dialog_title_download_only_over_wifi_allow">अनुमति दिनुहोस्</string>
   <string name="read_more_section">थप पढ्नुहोस्</string>
   <string name="about_article_section">यस लेखको बारेमा।</string>
-  <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
+  <string name="menu_gallery_visit_image_page">फाइल पृष्ठमा जानुहोस्</string>
   <string name="gallery_error_draw_failed">चित्र प्रदर्शन गर्न सकिएन।</string>
   <string name="license_title">%s को इजाजतपत्र</string>
   <string name="gallery_menu_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="gallery_share_error">निम्न छवि आदान-प्रदान गर्न सकिएन: %s</string>
   <string name="gallery_save_progress">फाइल डाउनलोड गर्दै…</string>
-  <string name="gallery_save_success" fuzzy="true">फाइल सफलतापूर्वक सङ्ग्रह गरियो।</string>
+  <string name="gallery_save_success">फाइल साँचियो।</string>
   <string name="gallery_error_video_failed">भिडियो चलाउन सकिएन।</string>
   <string name="gallery_add_image_caption_button">तस्विर शीर्षक थप्नुहोस्</string>
+  <string name="gallery_add_image_caption_in_language_button">तस्वीर वर्णन (%s) थप्नुहोस्</string>
   <string name="err_cannot_save_file">फाइल सुरक्षित गर्न सकिएन</string>
   <string name="expand_refs">विस्तृत गर्न ट्याप गर्नुहोस्</string>
   <string name="cc_logo">Creative Commons इजाजतपत्र</string>
@@ -268,6 +272,8 @@
   <string name="close_all_tabs_confirm_yes">हो</string>
   <string name="close_all_tabs_confirm_no">होइन</string>
   <string name="button_close_tab">ट्याब बन्द गर्नुहोस्</string>
+  <string name="unnamed_tab_closed">ट्याब बन्द गरियो।</string>
+  <string name="tab_item_closed">%s बन्द गरियो।</string>
   <string name="all_tab_items_closed">सबै ट्याबहरू बन्द गरिए</string>
   <string name="tool_tip_bookmark_icon_title">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="page_view_in_browser">पृष्ठलार्इ ब्राउजरमा हेर्नुहोस्</string>
@@ -284,7 +290,7 @@
   <string name="preference_title_show_link_previews">लिङ्कका पूर्वावलोकनहरू देखाउनुहोस्</string>
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
   <string name="preference_title_collapse_tables">तालिका लुकाउनुहोस्</string>
-  <string name="nav_item_donate">विकिपिडियालाई समर्थन गर्नुहोस्</string>
+  <string name="nav_item_donate" fuzzy="true">विकिपिडियालाई समर्थन गर्नुहोस्</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>
@@ -300,8 +306,6 @@
   <string name="crash_report_relaunch_or_quit">के तपाई पुन: सुरु गर्न वा बन्द गर्न चाहानुहुन्छ?</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
-  <string name="article_menu_bar_bookmark">यो लेखलार्इ कुनै अध्ययन सूचीमा थप्नुहोस्</string>
-  <string name="article_menu_bar_share">लेखको लिङ्क आदान-प्रदान गर्नुहोस्</string>
   <string name="article_header_edit_hint">सम्पादन गर्नुहोस्…</string>
   <string name="article_header_edit_description">लेख वर्णन सम्पादन गर्नुहोस्</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादन गर्नुहोस्</string>
@@ -365,6 +369,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">पर्दैन धन्यवाद</string>
   <string name="default_reading_list_name">सङ्ग्रह गरिएको</string>
   <string name="reading_lists_menu_create_list">नयाँ सुची बनाउनुहोस्</string>
+  <string name="reading_lists_menu_sort_by">द्वारा क्रमबद्ध</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">प्रवेश गर्नुहाेस् / खाता खाेल्नुहाेस्</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यो लेख हाल अफलाइनमा उपलब्ध हुनेछ</item>
@@ -379,6 +384,7 @@
   <string name="reading_list_split_dialog_ok_button_text">हुन्छ</string>
   <string name="user_option_sync_label">प्राथमिकताहरू</string>
   <string name="notification_reverted_title">उल्ट्याइएको सम्पादन</string>
+  <string name="notification_channel_description">डाउनलोड प्रगति</string>
   <string name="notification_syncing_pause_button">रोक्नुहोस्</string>
   <string name="notification_syncing_resume_button">पुनः निरन्तरता दिनुहोस्</string>
   <string name="notification_syncing_cancel_button">रद्द गर्नुहोस्</string>
@@ -405,10 +411,8 @@
   <string name="preference_summary_notification_user_talk">वार्तालाप पृष्ठका सन्देशहरू</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
-  <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएका कुनै लेखहरू पढ्नुहोस्</string>
   <string name="view_next_random_article">अर्को अनियमित लेख खाेल्नुहाेस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
-  <string name="view_main_page_card_subtitle">%s को मुख्य पृष्ठ</string>
   <string name="view_main_page_card_action">मुख्य पृष्ठ हेर्नुहोस्</string>
   <string name="view_featured_image_card_title">आजको तस्बिर</string>
   <string name="view_featured_image_card_download">डाउनलोड गर्नुहोस्</string>
@@ -417,7 +421,6 @@
   <string name="menu_feed_overflow_label">थप विकल्पहरू</string>
   <string name="feed_featured_image_share_subject">विकिमिडिया कमन्सको प्रमुख छवि</string>
   <string name="feed">अन्वेषण</string>
-  <string name="most_read_list_card_title">प्रचलनमा रहेका</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकन</string>
   <string name="view_card_news_title">समाचारमा</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -427,7 +430,6 @@
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s पढ्नुहोस्</string>
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
-  <string name="onboarding_negative_action">पर्दैन धन्यवाद</string>
   <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
   <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
@@ -468,18 +470,15 @@
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
-  <string name="suggested_edits_add_descriptions">लेखमा विवरण थप्नुहोस्</string>
-  <string name="suggested_edits_translate_descriptions">लेखकाे विवरण अनुवाद गर्नुहोस्</string>
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
   <string name="suggested_edits_edit_description_button">विवरण सम्पादन गर्नुहोस्</string>
   <string name="suggested_edits_add_translation_button">अनुवाद थप्नुहोस्</string>
   <string name="suggested_edits_edit_translation_button">अनुवाद सम्पादन गर्नुहाेस्</string>
   <string name="suggested_edits_my_contributions">मेरा योगदानहरू</string>
   <string name="suggested_edits_menu_info">जानकारी</string>
-  <string name="suggested_edits_tasks_activity_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
-  <string name="suggested_edits_image_caption_summary_title_file">फाइल</string>
+  <string name="suggested_edits_image_caption_summary_title_image">फाइल</string>
   <string name="suggested_edits_image_caption_summary_title_artist">कलाकार</string>
   <string name="suggested_edits_image_caption_summary_title_author">लेखक</string>
   <string name="suggested_edits_image_caption_summary_title_source">स्रोत</string>
@@ -516,16 +515,41 @@
     <item quantity="one">%d दिन</item>
     <item quantity="other">%d दिनहरू</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">सुझावित सम्पादन के हो?</string>
+  <string name="suggested_edits_learn_more">थप सिक्नुहोस्</string>
+  <string name="suggested_edits_paused_title">विराम लागेको</string>
   <string name="suggested_edits_last_edited">अन्तिम पटक सम्पादन</string>
   <string name="suggested_edits_last_edited_never">कहिल्यै</string>
   <string name="suggested_edits_task_new">नयाँ</string>
+  <string name="suggested_edits_contribution_language_label">भाषा</string>
+  <string name="suggested_edits_contribution_date_time_label">मिति/समय</string>
+  <string name="suggested_edits_contribution_type_label">योगदानको प्रकार</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">फाइल</string>
+  <string name="suggested_edits_contribution_article_label">लेख</string>
+  <string name="suggested_edits_contribution_views">%s अवलोकनहरू</string>
+  <string name="suggested_edits_contribution_seen_text">अन्तिम ३० दिनमा %s पटक हेरियो।</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">हिजो</string>
+  <string name="suggested_edits_rewards_continue_button">जारी राख्नुहोस्</string>
+  <string name="suggested_edits_encourage_account_creation_title">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">हालैको संशोधन</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s अक्षर</item>
+    <item quantity="other">%1$s अक्षरहरू</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">तपाईँले %d वटा अक्षर थप्नुभयो</item>
+    <item quantity="other">तपाईँले %d वटा अक्षरहरू थप्नुभयो</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="description_edit_login_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="onboarding_skip">छोड्नुहोस्</string>
   <string name="onboarding_continue">निरन्तरता दिनुहोस्</string>
   <string name="onboarding_get_started">सुरु गर्नुहोस्</string>
+  <string name="onboarding_maybe_later">पछि हुनसक्छ</string>
   <string name="onboarding_explore_title">अन्वेषण गर्ने नयाँ तरिका</string>
   <string name="onboarding_explore_text">अन्वेषण नामक फिडमा विशेष लेख, प्रचलनमा रहेका शीर्षक र अध्ययनसम्बन्धी सुझावहरू फेला पार्नुहोस्।</string>
+  <string name="onboarding_analytics_switch_title">प्रयोग सम्बन्धी डाटाहरू पठाउने</string>
   <string name="onboarding_got_it">मैले बुझेँ</string>
   <string name="onboarding_multilingual_add_language_text">भाषा थप वा सम्पादन गर्नुहोस्</string>
   <string name="onboarding_welcome_title_v2">एक स्वतन्त्र विश्वकोश\n…३०० भन्दा बढी भाषामा उपलब्ध</string>
@@ -536,7 +560,9 @@
   <string name="more_events_text">आजको दिनमा थप</string>
   <string name="events_count_text">%1$s कार्यक्रम देखि %2$s–%3$d</string>
   <string name="this_year">यस वर्ष</string>
-  <string name="back_to_top">सुरुमा फर्कनुहोस्</string>
+  <string name="on_this_day_dialog_next_month">अर्को महिना</string>
+  <string name="on_this_day_dialog_previous_month">गत महिना</string>
+  <string name="on_this_day_open_date_picker">मिति टिपुवा खोल्नुहोस्</string>
   <plurals name="diff_years">
     <item quantity="one">गत वर्ष</item>
     <item quantity="other">%d वर्ष पहिले</item>
@@ -566,11 +592,15 @@
   <string name="edit_conflict_dialog_ok_button_text">हुन्छ</string>
   <string name="reverted_edit_dialog_ok_button_text">हुन्छ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
+  <string name="edit_type_all">सबै योगदानहरू</string>
   <string name="wikitext_link">सूत्र</string>
+  <string name="wikitext_template">ढाँचा</string>
   <string name="wikitext_reference">सन्दर्भ</string>
+  <string name="wikitext_preview_link">लिङ्क पूर्वावलोकन</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
   <string name="main_tooltip_text" fuzzy="true">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
+  <string name="main_tooltip_text_v2">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="main_tooltip_action_button">सुरु गर्नुहोस्</string>
   <string name="custom_date_picker_dialog_ok_button_text">हुन्छ</string>
   <string name="text_input_dialog_ok_button_text">हुन्छ</string>

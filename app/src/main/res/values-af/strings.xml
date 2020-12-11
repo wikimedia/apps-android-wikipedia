@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arnobarnard
 * Biggs ZA
 * Envlh
 * Fwolff
 * Joris Darlington Quarshie
 * Macofe
+* MuratTheTurkish
 * Puvircho
 -->
 <resources>
@@ -14,9 +16,7 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Soek in Wikipedia</string>
-  <string name="search_hint_search_history">Soekgeskiedenis</string>
   <string name="search_hint_search_languages">Soek na ’n taal</string>
-  <string name="nav_item_history">Geskiedenis</string>
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
   <string name="page_error_retry">Probeer weer</string>
   <string name="page_error_back_to_main">Gaan terug</string>
@@ -33,7 +33,7 @@
   <string name="search_redirect_from">Aangestuur vanaf %s</string>
   <string name="menu_page_show_tabs">Vertoon oortjies</string>
   <string name="menu_page_other_languages">Verander taal</string>
-  <string name="menu_page_find_in_page">Soek in blad</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Soek in blad</string>
   <string name="menu_page_font_and_theme">Lettertipe en tema</string>
   <string name="menu_page_add_to_list">Voeg toe tot leeslys</string>
   <string name="menu_page_share">Deel skakel</string>
@@ -128,7 +128,6 @@
   <string name="preference_summary_eventlogging_opt_in">Laat Wikimedia toe om inligting in te samel oor hoe u die toep gebruik om sodoende die toep te verbeter</string>
   <string name="preference_title_auto_upload_crash_reports">Stuur bomverslae</string>
   <string name="editing_error_spamblacklist">Skakels na geblokkeerder domeins (%s) gevind. Verwyder dit en probeer weer.</string>
-  <string name="history_search_list_hint">Soek geskiedenis</string>
   <string name="error_can_not_process_link">Kon nie hierdie skakel vertoon nie</string>
   <string name="page_protected_autoconfirmed">Hierdie blad is semi-beskerm.</string>
   <string name="page_protected_sysop">Hierdie blad is volledig beskerm.</string>
@@ -140,6 +139,7 @@
   <string name="about_description">Aangaande Wikipedia toep</string>
   <string name="privacy_policy_description">Privaatheidsbeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaardes</string>
+  <string name="about_wikipedia_url">https://af.wikipedia.org/wiki/Wikipedia:Omtrent</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Biblioteke gebruik</string>
@@ -174,7 +174,6 @@
   <string name="abusefilter_title_disallow">U kan nie hierdie wysiging publiseer nie. Gaan asseblief terug en verander dit.</string>
   <string name="abusefilter_text_warn">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief geïdentifiseer. Dit mag een of meer van die volgende bevat:&lt;br /&gt;&lt;br /&gt;· Tik van alles in hoofletters&lt;br /&gt;· Leegmaak van artikels of pespos&lt;br /&gt;· Irrelevante eksterne skakels&lt;br /&gt;· Herhalende karakter</string>
   <string name="abusefilter_text_disallow">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief, of potensiële vandalisme geïdentifiseer.&lt;br /&gt;&lt;br /&gt;Wikipedia is \'n ensiklopedie en slegs neutrale, noemenswaardige inhoud behoort hier.</string>
-  <string name="text_size_select">Lettergrootte</string>
   <string name="page_similar_titles">Soortgelyke bladsye</string>
   <string name="search_did_you_mean">Bedoel u \"%s\"?</string>
   <string name="search_recent_header">Onlangse soektogte</string>
@@ -200,7 +199,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Laat toe</string>
   <string name="read_more_section">Lees meer</string>
   <string name="about_article_section">Oor dié artikel</string>
-  <string name="menu_gallery_visit_page">Gaan na lêer blad</string>
+  <string name="menu_gallery_visit_image_page">Gaan na lêer blad</string>
   <string name="gallery_error_draw_failed">Kon nie die beeld teken nie.</string>
   <string name="license_title">Lisensie vir %s</string>
   <string name="gallery_menu_share">Deel</string>
@@ -230,7 +229,7 @@
   <string name="button_add_to_reading_list">Voeg toe tot leeslys</string>
   <string name="button_get_directions">Kry aanwysings</string>
   <string name="preference_title_show_link_previews">Toon skakelvoorskoue</string>
-  <string name="nav_item_donate">Ondersteun Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Ondersteun Wikipedia</string>
   <string name="error_voice_search_not_available">Jammer, stemherkenning is onbeskikbaar.</string>
   <string name="location_service_disabled">Liggingdienste is gedeaktiveer.</string>
   <string name="enable_location_service">Aktiveer</string>
@@ -246,8 +245,6 @@
   <string name="crash_report_activity_title">Toepassingfout</string>
   <string name="crash_report_relaunch">Begin voor</string>
   <string name="crash_report_quit">Sluit Af</string>
-  <string name="article_menu_bar_bookmark">Voeg hierdie artikel toe tot leeslys</string>
-  <string name="article_menu_bar_share">Deel die artikelskakel</string>
   <string name="article_header_edit_hint">Wysig…</string>
   <string name="article_header_edit_description" fuzzy="true">Wysig titelbeskrywing</string>
   <string name="article_header_edit_lead_section">Wysig inleiding</string>
@@ -301,7 +298,6 @@
   <string name="user_option_sync_label">Voorkeure</string>
   <string name="notification_reverted_title">Wysiging teruggestel</string>
   <string name="view_main_page_card_title">Vandag op Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hoofblad op %s</string>
   <string name="view_featured_image_card_title">Prent van die dag</string>
   <string name="view_featured_image_card_download">Laai af</string>
   <string name="feed">Verken</string>
@@ -330,7 +326,6 @@
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Merk prente om dit makliker te maak vir ander om dit te vind</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Deur voorgestelde merkers te bevestig, kan u help om prente makliker te soek.\n\nMerkers word op rekenaar voorgestel, maar moet deur mense bekragtig word om akkuraatheid te verseker.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slegs merkers wat u kies, sal by prente gevoeg word.</string>
-  <string name="suggested_edits_image_tags_snackbar">Voeg prentetikette by om dit makliker te maak vir ander om dit te vind.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Merk prente om dit makliker te maak vir ander om dit te vind. Merkers word outomaties voorgestel, maar dit moet deur u bevestig word.</string>
   <string name="suggested_edits_image_tags_choose" fuzzy="true">Kies bypassende etikette</string>
   <string name="suggested_edits_image_tags_select_title">U het geen merkers vir hierdie prent gekies nie</string>

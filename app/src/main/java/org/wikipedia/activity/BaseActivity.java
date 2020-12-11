@@ -29,6 +29,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.NotificationFunnel;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReportActivity;
@@ -37,11 +38,12 @@ import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
-import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
@@ -89,6 +91,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        if (savedInstanceState == null) {
+            NotificationFunnel.processIntent(getIntent());
+        }
+
         NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());
 
         // Conditionally execute all recurring tasks
@@ -109,6 +115,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
+
+        if (!(this instanceof CrashReportActivity)) {
+            Prefs.setLocalClassName(getLocalClassName());
+        }
     }
 
     @Override protected void onDestroy() {
@@ -195,7 +205,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             boolean isDarkThemeOrDarkBackground = WikipediaApp.getInstance().getCurrentTheme().isDark()
                     || color == ContextCompat.getColor(this, android.R.color.black);
             getWindow().setNavigationBarColor(color);
-            getWindow().getDecorView().setSystemUiVisibility(isDarkThemeOrDarkBackground ? 0 : View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | getWindow().getDecorView().getSystemUiVisibility());
+            getWindow().getDecorView().setSystemUiVisibility(isDarkThemeOrDarkBackground
+                    ? getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                    : View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | getWindow().getDecorView().getSystemUiVisibility());
         }
     }
 
@@ -286,7 +298,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private class NonExclusiveBusConsumer implements Consumer<Object> {
         @Override
         public void accept(Object event) {
-            if (event instanceof ThemeChangeEvent) {
+            if (event instanceof ThemeFontChangeEvent) {
                 BaseActivity.this.recreate();
             }
         }
@@ -311,6 +323,11 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
             } else if (event instanceof LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog();
+            } else if (event instanceof ReadingListSyncEvent) {
+                if (((ReadingListSyncEvent)event).showMessage() && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                    FeedbackUtil.makeSnackbar(BaseActivity.this,
+                            getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show();
+                }
             }
         }
     }

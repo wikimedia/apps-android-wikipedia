@@ -6,7 +6,7 @@
         <!-- Overrides of base Android color definitions -->
 
         <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/base10</item>
+        <item name="android:windowBackground">?attr/paper_color</item>
 
         <!-- Background for popup menus, text areas -->
         <item name="android:colorBackground">@color/base12</item>
@@ -27,6 +27,7 @@
         <item name="colorError">@color/red75</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
+        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
         <item name="dialogTheme">@style/DialogDark</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
@@ -37,10 +38,8 @@
         <item name="lead_image_drawable">@drawable/lead_default_dark</item>
         <item name="list_separator_drawable">@drawable/divider_dark</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_dark</item>
-        <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
-        <item name="toolbar_title_color">@android:color/white</item>
         <item name="toolbar_icon_color">@android:color/white</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base18</item>
@@ -60,7 +59,6 @@
         <item name="chart_shade7">@color/base10</item>
         <item name="green_highlight_color">@color/green50</item>
         <item name="randomizer_dice_icon_color">@color/accent50</item>
-        <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_dark</item>
         <item name="thumb_off_color">@color/base70</item>
         <item name="track_off_color">@color/base100</item>
         <item name="toc_h1_h2_color">@color/base100</item>
@@ -78,6 +76,7 @@
         <item name="reward_interstitial_quality_excellent_drawable">@drawable/ic_illustration_quality_excellent_dark</item>
         <item name="reward_interstitial_quality_very_good_drawable">@drawable/ic_illustration_quality_very_good_dark</item>
         <item name="reward_interstitial_quality_good_drawable">@drawable/ic_illustration_quality_good_dark</item>
+        <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
@@ -114,6 +113,14 @@
         <item name="colorSwitchThumbNormal">@color/base90</item>
         <item name="android:colorBackground">?attr/paper_color</item>
         <item name="android:disabledAlpha">1.0</item>
+    </style>
+
+    <style name="ThemeDark.Translucent">
+        <item name="android:windowBackground">@color/black87</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorAccent">@color/accent50</item>
     </style>
 
 </resources>

@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
-import com.android.build.gradle.internal.dsl.ProductFlavor
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
@@ -23,7 +22,7 @@ def computeVersionName(label) {
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
@@ -38,8 +37,8 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 50324
+        targetSdkVersion 30
+        versionCode 50337
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -51,6 +50,13 @@ android {
     }
 
     sourceSets {
+
+        prod { java.srcDirs += 'src/extra/java' }
+        beta { java.srcDirs += 'src/extra/java' }
+        alpha { java.srcDirs += 'src/extra/java' }
+        dev { java.srcDirs += 'src/extra/java' }
+        custom { java.srcDirs += 'src/extra/java' }
+
         test {
             java.srcDirs += 'src/testlib/java'
         }
@@ -88,16 +94,6 @@ android {
             versionName computeVersionName('dev')
             applicationIdSuffix '.dev'
         }
-        labsPCS {
-            versionName computeVersionName('dev')
-            applicationIdSuffix '.dev'
-            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"https://mobileapps.wmflabs.org/%2$s/v1/"'
-        }
-        localPCS {
-            versionName computeVersionName('dev')
-            applicationIdSuffix '.dev'
-            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"http://10.0.2.2:8888/%2$s/v1/"'
-        }
         prod {
             versionName computeVersionName('r')
             signingConfig signingConfigs.prod
@@ -109,10 +105,6 @@ android {
         beta {
             versionName computeVersionName('beta')
             applicationIdSuffix '.beta'
-            signingConfig signingConfigs.prod
-        }
-        amazon {
-            versionName computeVersionName('amazon')
             signingConfig signingConfigs.prod
         }
         fdroid {
@@ -154,29 +146,31 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '4.7.2'
+    String okHttpVersion = '4.8.1'
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
-    String leakCanaryVersion = '2.2'
-    String kotlinCoroutinesVersion = '1.3.0'
+    String leakCanaryVersion = '2.5'
+    String kotlinCoroutinesVersion = '1.3.9'
+    String firebaseMessagingVersion = '21.0.0'
+    String mlKitVersion = '16.1.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 
-    implementation "com.google.android.material:material:1.1.0"
-    implementation "androidx.core:core:1.3.0"
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation "androidx.fragment:fragment:1.2.5"
-    implementation "androidx.palette:palette:1.0.0"
-    implementation "androidx.preference:preference:1.1.1"
+    implementation "com.google.android.material:material:1.2.1"
+    implementation "androidx.core:core-ktx:1.3.2"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
+    implementation "androidx.palette:palette-ktx:1.0.0"
+    implementation "androidx.preference:preference-ktx:1.1.1"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android:flexbox:2.0.1'
-    implementation 'com.android.installreferrer:installreferrer:1.1.2'
-    implementation 'androidx.drawerlayout:drawerlayout:1.1.0-rc01'
+    implementation 'com.android.installreferrer:installreferrer:2.1'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
         exclude group: 'org.jetbrains'
@@ -199,12 +193,26 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation "com.github.skydoves:balloon:1.2.1"
+
+    // For language detection during editing
+    prodImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    betaImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    alphaImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    devImplementation "com.google.mlkit:language-id:$mlKitVersion"
+    customImplementation "com.google.mlkit:language-id:$mlKitVersion"
+
+    // For receiving push notifications for logged-in users.
+    prodImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
+    betaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
+    alphaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
+    devImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
+    customImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-    // For release builds, this provides a nearly no-op AppWatcher.
-    implementation "com.squareup.leakcanary:leakcanary-object-watcher-android:$leakCanaryVersion"
+    implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
 
     testImplementation 'junit:junit:4.13'
     testImplementation mockitoCore
@@ -218,19 +226,12 @@ dependencies {
     androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
 
-    androidTestImplementation "androidx.test:rules:1.2.0" // JUnit Rules
-    androidTestImplementation "androidx.test:runner:1.2.0" // Android JUnit Runner
+    androidTestImplementation "androidx.test:rules:1.3.0" // JUnit Rules
+    androidTestImplementation "androidx.test:runner:1.3.0" // Android JUnit Runner
 }
 
 private setSigningConfigKey(config, Properties props) {
-    if (System.getenv("TRAVIS_PULL_REQUEST") == "false") {
-        System.out.println(">>> signing using secure key.")
-        config.storeFile = file("../wikipedia.keystore")
-        config.storePassword = System.getenv("keystore_password")
-        config.keyAlias = System.getenv("keystore_alias")
-        config.keyPassword = System.getenv("keystore_alias_password")
-    } else if(props != null) {
-        System.out.println(">>> signing using default key.")
+    if(props != null) {
         config.storeFile = props['keystore'] == null ? null : file(props['keystore'])
         config.storePassword = props['store.pass']
         config.keyAlias = props['key.alias']
@@ -253,7 +254,7 @@ private static Properties loadProperties(File file) {
 addSyncContentProviderAuthority 'readinglists', 'reading_lists'
 
 private void addSyncContentProviderAuthority(String path, String name) {
-    android.productFlavors.all { ProductFlavor flavor ->
+    android.productFlavors.all { flavor ->
         String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
         resValue 'string', "${name.toLowerCase()}_authority", authority
         buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""

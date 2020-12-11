@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.UriUtil;
@@ -20,7 +21,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,9 +41,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
-    private static final String PCS_CSS = "/data/css/mobile/pcs";
-    private static final String BASE_CSS = "/data/css/mobile/base";
-    private static final String PCS_JS = "/data/javascript/mobile/pcs";
 
     @NonNull public abstract PageViewModel getModel();
     @NonNull public abstract LinkHandler getLinkHandler();
@@ -86,36 +83,6 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                             getInputStream(rsp));
             }
         } catch (Exception e) {
-
-            //------------------
-            // TODO: remove after two releases.
-            if (request.getUrl().toString().contains(PCS_CSS)) {
-                final int statusCode = 200;
-                try {
-                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/pcs.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            } else if (request.getUrl().toString().contains(BASE_CSS)) {
-                final int statusCode = 200;
-                try {
-                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/base.css"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            } else if (request.getUrl().toString().contains(PCS_JS)) {
-                final int statusCode = 200;
-                try {
-                    return new WebResourceResponse("text/javascript", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/pcs.js"));
-                } catch (IOException ex) {
-                    // ignore silently
-                }
-            }
-            //------------------
-
             String reasonCode = TextUtils.isEmpty(e.getMessage()) ? "Unknown error" : UriUtil.encodeURL(e.getMessage());
             if (e instanceof HttpStatusException) {
                 response = new WebResourceResponse(null, null, ((HttpStatusException) e).code(), reasonCode, null, null);
@@ -145,10 +112,10 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             }
             builder.header(header, request.getRequestHeaders().get(header));
         }
-        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
+        return OkHttpConnectionFactory.getClient().newCall(addHeaders(request, builder).build()).execute();
     }
 
-    private Request.Builder addHeaders(@NonNull Request.Builder builder) {
+    private Request.Builder addHeaders(@NonNull WebResourceRequest request, @NonNull Request.Builder builder) {
         // TODO: Find a common way to set this header between here and RetrofitFactory.
         builder.header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getModel().getTitle().getWikiSite()));
         if (getModel().shouldSaveOffline()) {
@@ -158,6 +125,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         builder.header(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(getModel().getTitle().getPrefixedText()));
         if (getModel().getCurEntry() != null && !TextUtils.isEmpty(getModel().getCurEntry().getReferrer())) {
             builder.header("Referer", getModel().getCurEntry().getReferrer());
+        }
+        if (request.getUrl().getPath() != null && request.getUrl().getPath().contains(RestService.PAGE_HTML_ENDPOINT)) {
+            builder.header("X-Analytics", "pageview=1");
         }
         return builder;
     }

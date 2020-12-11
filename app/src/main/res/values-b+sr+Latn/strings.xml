@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Patriccck
+* Srđan
 -->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
@@ -10,14 +11,11 @@
   <string name="wikimedia">Vikimedija</string>
   <string name="nav_item_back">Nazad</string>
   <string name="page_tabs_back">Nazad</string>
-  <string name="nav_item_forward">Prosledi</string>
+  <string name="nav_item_forward">Napred</string>
   <string name="search_hint">Pretražite Vikipediju</string>
   <string name="search_hint_voice_search">Pretraživanje pomoću glasovnog unosa</string>
-  <string name="search_hint_search_history">Istorija pretrage</string>
   <string name="search_hint_search_languages">Pretražite jezike</string>
-  <string name="search_hint_search_my_lists_and_articles">Pretraži moje spiskove i člankove</string>
-  <string name="nav_item_history">Istorija</string>
-  <string name="nav_item_suggested_edits">Predložene izmene</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Predložene izmene</string>
   <string name="error_network_error">Nije moguće povezati se sa internetom.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -41,7 +39,7 @@
   <string name="search_redirect_from">Preusmereno sa %s</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promeni jezik</string>
-  <string name="menu_page_find_in_page">Pronađi na stranici</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Pronađi na stranici</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na listu za čitanje</string>
@@ -166,7 +164,6 @@
   <string name="preference_title_auto_upload_crash_reports">Šalji izveštaje o otkazivanjima</string>
   <string name="preference_summary_auto_upload_crash_reports">Dozvolite aplikaciji da automatski šalje izveštaje o otkazivanjima nezavisnoj usluzi kako bismo ispitali vaš slučaj i ispravili grešku brže i lakše.</string>
   <string name="editing_error_spamblacklist">Otkriveni su linkovi do blokiranih domena (%s). Uklonite ih pa pokušajte ponovo.</string>
-  <string name="history_search_list_hint">Istorija pretrage</string>
   <string name="error_can_not_process_link">Nije moguće prikazati ovaj link</string>
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>
@@ -225,7 +222,6 @@
   <string name="abusefilter_title_disallow">Ne možete da objavite ovu izmenu. Vratite se nazad i promenite je.</string>
   <string name="abusefilter_text_warn">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu. Možda sadrži nešto od sledećeg:&lt;br /&gt;&lt;br /&gt;· Pisanje velikim slovima&lt;br /&gt;· Pražnjenje članka ili spamovanje&lt;br /&gt;· Irelevantne spoljašnje linkove ili slike&lt;br /&gt;· Ponavljanje znakova</string>
   <string name="abusefilter_text_disallow">Automatizovani filter je prepoznao ovu izmenu kao potencijalno nekonstruktivnu ili mogući vandalizam.&lt;br /&gt;&lt;br /&gt;Vikipedija je enciklopedija — ovde pripada samo neutralan i značajan sadržaj.</string>
-  <string name="text_size_select">Veličina fonta</string>
   <string name="page_similar_titles">Slične stranice</string>
   <string name="search_did_you_mean">Da li ste mislili na „%s”?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
@@ -252,7 +248,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Dozvoli</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
-  <string name="menu_gallery_visit_page">Idi na stranicu datoteke</string>
+  <string name="menu_gallery_visit_image_page">Idi na stranicu datoteke</string>
   <string name="gallery_error_draw_failed">Nije moguće prikazati sliku.</string>
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Deli</string>
@@ -303,7 +299,7 @@
   <string name="preference_summary_show_link_previews">Prikazuje kratki pregled članaka pritiskom na linkove.</string>
   <string name="preference_title_collapse_tables">Skupljanje tabela</string>
   <string name="preference_summary_collapse_tables">Automatski skuplja tabele u člancima, poput infokutija, referenci i napomena.</string>
-  <string name="nav_item_donate">Podržite Vikipediju</string>
+  <string name="nav_item_donate" fuzzy="true">Podržite Vikipediju</string>
   <string name="error_voice_search_not_available">Prepoznavanje glasa nije dostupno.</string>
   <string name="location_service_disabled">Usluge lokacije su onemogućene.</string>
   <string name="enable_location_service">Omogući</string>
@@ -325,8 +321,6 @@
   <string name="crash_report_relaunch_or_quit">Aplikacija Vikipedija je naišla na grešku i obustavljena je.\n\nŽelite li ponovo da je pokrenete ili da izađete?</string>
   <string name="crash_report_relaunch">Pokreni ponovo</string>
   <string name="crash_report_quit">Izađi</string>
-  <string name="article_menu_bar_bookmark">Dodaj ovaj članak na listu za čitanje</string>
-  <string name="article_menu_bar_share">Deli link članka</string>
   <string name="article_header_edit_hint">Uredi…</string>
   <string name="article_header_edit_description">Uredi opis članka</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
@@ -424,7 +418,6 @@
   <string name="split_reading_list_message">Svaka lista za čitanje prima najviše %d članaka. Postojeće liste sa više članaka su razdvojene na nekoliko njih.</string>
   <string name="reading_list_article_limit_message">Dodavanje na ovu listu nije moguće. Dostigli ste ograničenje od %2$d članaka po listi za „%1$s”.</string>
   <string name="reading_lists_limit_message">Nije moguće napraviti drugu listu. Dostigli ste ograničenje od 100 liste za čitanje po nalogu.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinhronizacija lista za čitanje&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Liste za čitanje se sada mogu sinhronizovati među uređajima. Prijavite se sa nalogom na Vikipediji i dozvolite čuvanje lista.</string>
   <string name="reading_lists_menu_create_list">Napravi novu listu</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <string name="reading_lists_refresh_sync_option">Osveži sinhronizaciju</string>
@@ -515,11 +508,8 @@
   <string name="preference_summary_notification_user_talk">Poruke sa stranice za razgovor</string>
   <string name="view_because_you_read_card_title">Na osnovu pročitanog</string>
   <string name="view_random_card_title">Slučajni članak</string>
-  <string name="view_random_card_subtitle">Prelistajte slučajne članke sa Vikipedije.</string>
-  <string name="view_random_card_action">Baci kocku</string>
   <string name="view_next_random_article">Učitaj drugi slučajni članak</string>
   <string name="view_main_page_card_title">Danas na Vikipediji</string>
-  <string name="view_main_page_card_subtitle">Glavna strana %s</string>
   <string name="view_main_page_card_action">Prikaži glavnu stranu</string>
   <string name="view_featured_image_card_title">Slika dana</string>
   <string name="view_featured_image_card_download">Preuzmi</string>
@@ -529,7 +519,6 @@
   <string name="menu_feed_overflow_label">Više opcija</string>
   <string name="feed_featured_image_share_subject">Izabrana slika sa Vikimedijine ostave</string>
   <string name="feed">Istraži</string>
-  <string name="most_read_list_card_title">Aktuelno</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">Vesti</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -539,7 +528,6 @@
   <string name="view_continue_reading_card_subtitle_today">danas</string>
   <string name="view_continue_reading_card_subtitle_read_date">Pročitano %s</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
-  <string name="onboarding_negative_action">Ne, hvala</string>
   <string name="view_offline_card_text">Sadržaj se ne može učitati kada ste oflajn.</string>
   <string name="view_featured_article_card_title">Sjajan članak</string>
   <string name="view_featured_article_footer_save_button_label">Sačuvaj</string>
@@ -607,10 +595,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Po mogućstvu jedan red, od dve do dvanaest reči</string>
   <string name="description_edit_tutorial_button_label_start_editing">Započni uređivanje</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrebiti ovu funkciju.</string>
-  <string name="suggested_edits_add_descriptions">Dodavanje opisa članka</string>
-  <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
-  <string name="suggested_edits_add_image_captions">Dodaj natpise slika</string>
-  <string name="suggested_edits_translate_image_captions">Prevedi natpise slika</string>
   <string name="suggested_edits_review_description">Pregled opisa članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Uredi opis</string>
@@ -624,7 +608,6 @@
   <string name="suggested_edits_license_notice">Dodavanjem opisa članka, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodavanjem natpisa slike, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacije</string>
-  <string name="suggested_edits_tasks_activity_title">Predložene izmene</string>
   <string name="suggested_edits_task_add_description_title">Dodavanje opisa članaka</string>
   <string name="suggested_edits_task_add_description_description">Doprinosi člancima bez opisa</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj natpise slika</string>
@@ -670,7 +653,7 @@
   <string name="suggested_edits_image_captions" fuzzy="true">Natpisi slika</string>
   <string name="suggested_edits_editing_tips_link_text">Saveti i trikovi za uređivanje</string>
   <string name="suggested_edits_help_page_link_text">Stranica za pomoć za predložene izmene</string>
-  <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvalitet izmena</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
   <string name="suggested_edits_quality_excellent_text">Odlično</string>
@@ -718,13 +701,10 @@
   <string name="app_shortcuts_random">Slučajni</string>
   <string name="app_shortcuts_continue_reading">Nastavi čitanje</string>
   <string name="app_shortcuts_search">Pretraži</string>
-  <string name="more_trending_text">Više poput ovog</string>
-  <string name="top_on_this_day">Aktuelno za %1$s</string>
   <string name="on_this_day_card_title">Na današnji dan</string>
   <string name="more_events_text">Više na ovaj dan</string>
   <string name="events_count_text">%1$s događaja %2$s–%3$d</string>
   <string name="this_year">Ove godine</string>
-  <string name="back_to_top">Nazad na vrh</string>
   <string name="on_this_day_dialog_next_month">Sledeći mesec</string>
   <string name="on_this_day_dialog_previous_month">Prethodni mesec</string>
   <string name="on_this_day_open_date_picker">Otvori birač datuma</string>

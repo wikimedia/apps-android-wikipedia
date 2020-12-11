@@ -17,9 +17,7 @@
   <string name="page_tabs_back">Retroirar</string>
   <string name="nav_item_forward">Adavane</string>
   <string name="search_hint">Serchar en Wikipedio</string>
-  <string name="search_hint_search_history">Serchar en historio</string>
   <string name="search_hint_search_languages">Serchar ula linguo</string>
-  <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne povas konektar kun la Internet</string>
   <string name="page_error_retry">Riprobar</string>
   <string name="card_offline_error_retry">Riprobar</string>
@@ -42,7 +40,7 @@
   <string name="search_redirect_from">(Ridirektita de %s)</string>
   <string name="menu_page_show_tabs">Montrar etiketi</string>
   <string name="menu_page_other_languages">Chanjar linguo</string>
-  <string name="menu_page_find_in_page">Serchar en la pagino</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Serchar en la pagino</string>
   <string name="edit_section_find_in_page">Serchar en la pagino</string>
   <string name="menu_page_font_and_theme">Fonto e temo</string>
   <string name="menu_page_add_to_list">Adjuntez a la lektebla listo</string>
@@ -154,7 +152,6 @@
   <string name="preference_title_eventlogging_opt_in">Sendez informi pri l\'uzado</string>
   <string name="preference_summary_eventlogging_opt_in">Permisar Wikipedio kolektar informi pri vua uzo dil \'app\' por perfektigar ol</string>
   <string name="preference_title_auto_upload_crash_reports">Sendez informi pri problemi</string>
-  <string name="history_search_list_hint">Serchar en historio</string>
   <string name="error_can_not_process_link">Ne povis montrar ta ligilo</string>
   <string name="page_protected_autoconfirmed">Ta pagino esas miprotektata.</string>
   <string name="page_protected_sysop">Ta pagino esas tote protektata.</string>
@@ -202,7 +199,6 @@
   <string name="abusefilter_title_disallow">Tu ne povas publikigar ica modifiko. Voluntez korektar ol.</string>
   <string name="abusefilter_text_warn">Automatala verifiko konsideris ica modifiko potenciale mala. Ol kontenas un o plura de la sequanta:&lt;br /&gt;&lt;br /&gt;· Tota literi en MAYUSKULA&lt;br /&gt;· Efaco di artikli o \'spamming\'&lt;br /&gt;· Ne-aplikebla ligili ad altra artikli od imaji&lt;br /&gt;· Iterado di literi o signi</string>
   <string name="abusefilter_text_disallow">Automatala verifiko identifikis ica artiklo quale posibla vandalismo o mala agado.&lt;br /&gt;&lt;br /&gt;Wikipedio esas enciklopedio, e koncernas nur remarkinda kontenajo kun neutrala vidopunto.</string>
-  <string name="text_size_select">Grandeso di la fonto</string>
   <string name="page_similar_titles">Simila pagini</string>
   <string name="search_did_you_mean">Ka tu deziris dicar \"%s\"?</string>
   <string name="search_recent_header">Lasta serchadi:</string>
@@ -227,7 +223,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permisar</string>
   <string name="read_more_section">Lektez pluse</string>
   <string name="about_article_section">Pri ta artiklo</string>
-  <string name="menu_gallery_visit_page">Irar a la pagino dil arkivo</string>
+  <string name="menu_gallery_visit_image_page">Irar a la pagino dil arkivo</string>
   <string name="gallery_error_draw_failed">Ne povis montrar l\'imajo.</string>
   <string name="license_title">Licenco por %s</string>
   <string name="gallery_menu_share">Partigez l\'arkivo</string>
@@ -269,8 +265,6 @@
   <string name="reference_title">Refero %s</string>
   <string name="crash_report_relaunch">Rikomencar</string>
   <string name="crash_report_quit">Ekirar</string>
-  <string name="article_menu_bar_bookmark">Adjuntez ica artiklo a lektebla listo</string>
-  <string name="article_menu_bar_share">Sendar la ligilo dil artiklo</string>
   <string name="article_header_edit_hint">Redaktar</string>
   <string name="article_header_edit_description" fuzzy="true">Redaktar la deskripto dil titulo</string>
   <string name="article_header_edit_lead_section">Redaktar la prefaco dil artiklo</string>
@@ -316,11 +310,12 @@
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_lists_menu_sort_by">Ordinar segun</string>
   <string name="notification_syncing_cancel_button">Nuligar</string>
+  <string name="notifications_poll_enable_title">Permisar avizi</string>
+  <string name="preference_summary_notification_poll">Permisar l\'informatikoprogramo (\'\'app\'\') serchar nova avizi, an la dopa areo.</string>
   <string name="view_featured_image_card_download">Deskargar</string>
   <string name="menu_feed_overflow_label">Plusa selekti</string>
   <string name="view_continue_reading_card_subtitle_today">cadie</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lektar %s</string>
-  <string name="onboarding_negative_action">Ne, danko!</string>
   <string name="view_featured_article_footer_save_button_label">Salvar</string>
   <string name="view_static_card_save_button_label">Registragar</string>
   <string name="view_featured_article_footer_saved_button_label">Salvita</string>
@@ -333,14 +328,14 @@
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
-  <string name="suggested_edits_add_image_captions">Adjuntez informi pri l\'imaji</string>
+  <string name="suggested_edits_edit_translation_button">Modifikar tradukuro</string>
   <string name="suggested_edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
   <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
-  <string name="suggested_edits_image_preview_dialog_file">Arkivo</string>
+  <string name="suggested_edits_image_preview_dialog_image">Arkivo</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>
@@ -360,5 +355,6 @@
   <string name="app_shortcuts_search">Serchez</string>
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
+  <string name="more_language_options">pluse</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>
 </resources>

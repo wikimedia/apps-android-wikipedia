@@ -25,7 +25,9 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
@@ -39,6 +41,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -86,7 +89,7 @@ public class LoginActivity extends BaseActivity {
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
         // Don't allow user to attempt login until they've put in a username and password
-        new NonEmptyValidator((isValid) -> loginButton.setEnabled(isValid), usernameInput, passwordInput);
+        new NonEmptyValidator(loginButton, usernameInput, passwordInput);
 
         passwordInput.getEditText().setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -100,8 +103,14 @@ public class LoginActivity extends BaseActivity {
 
         loginSource = getIntent().getStringExtra(LOGIN_REQUEST_SOURCE);
 
+        if (!TextUtils.isEmpty(loginSource) && loginSource.equals(SOURCE_SUGGESTED_EDITS)) {
+            Prefs.setSuggestedEditsHighestPriorityEnabled(true);
+        }
+
         // always go to account creation before logging in
-        startCreateAccountActivity();
+        if (savedInstanceState == null) {
+            startCreateAccountActivity();
+        }
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL);
@@ -144,7 +153,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void logLoginStart() {
-        if (shouldLogLogin) {
+        if (shouldLogLogin && !TextUtils.isEmpty(loginSource)) {
             if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
                 funnel.logStart(
                         LoginFunnel.SOURCE_EDIT,
@@ -178,6 +187,9 @@ public class LoginActivity extends BaseActivity {
         Prefs.setReadingListPagesDeletedIds(Collections.emptySet());
         Prefs.setReadingListsDeletedIds(Collections.emptySet());
         ReadingListSyncAdapter.manualSyncWithForce();
+
+        NotificationPollBroadcastReceiver.pollNotifications(WikipediaApp.getInstance());
+        WikipediaFirebaseMessagingService.Companion.updateSubscription();
         finish();
     }
 
@@ -281,13 +293,13 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onStop() {
-        showProgressBar(false);
+        progressBar.setVisibility(View.GONE);
         loginClient.cancel();
         super.onStop();
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("loginShowing", true);
     }

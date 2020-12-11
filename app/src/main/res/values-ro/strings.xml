@@ -12,6 +12,7 @@
 * Macofe
 * Matrafox
 * Minisarm
+* NGC 54
 * SHaran (WMF)
 * Strainu
 * WebSourceContentRO
@@ -27,11 +28,9 @@
   <string name="nav_item_forward">Înainte</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
-  <string name="search_hint_search_history">Istoricul căutării</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
-  <string name="search_hint_search_my_lists_and_articles">Căutați listele și articolele mele</string>
-  <string name="nav_item_history">Istoric</string>
-  <string name="nav_item_suggested_edits">Modificări sugerate</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
+  <string name="nav_item_search">Caută</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="card_offline_error_retry">Reîncercare</string>
@@ -46,6 +45,7 @@
   <string name="history_item_delete_undo">Anulează</string>
   <string name="notification_archive_undo">Anulare</string>
   <string name="app_settings">Setările din aplicație</string>
+  <string name="history_list_title">Istoric</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="dialog_message_clear_history_yes">Da</string>
@@ -55,7 +55,7 @@
   <string name="search_redirect_from">Redirecționat de la %s</string>
   <string name="menu_page_show_tabs">Arată filele</string>
   <string name="menu_page_other_languages">Schimbă limba</string>
-  <string name="menu_page_find_in_page">Găsește în pagină</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Găsește în pagină</string>
   <string name="edit_section_find_in_page">Găsiți în pagină</string>
   <string name="menu_page_font_and_theme">Schimbă fontul și tema</string>
   <string name="menu_page_add_to_list">Adaugă la lista de lecturi</string>
@@ -181,7 +181,6 @@
   <string name="preference_title_auto_upload_crash_reports">Trimite rapoarte de erori</string>
   <string name="preference_summary_auto_upload_crash_reports">Permiteți aplicației să trimită automat rapoarte de avarie unui furnizor de servicii terțe, astfel încât să putem revizui crash-ul și să remediem erorile mai rapid și mai ușor.</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
-  <string name="history_search_list_hint">Căutare în istoric</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>
   <string name="page_protected_autoconfirmed">Această pagină a fost semiprotejată.</string>
   <string name="page_protected_sysop">Această pagină a fost protejată.</string>
@@ -242,7 +241,6 @@
   <string name="abusefilter_title_disallow">Nu puteți salva această modificare. Mergeți înapoi și schimbați-o.</string>
   <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>
   <string name="abusefilter_text_disallow">Un filtru automat a identificat această modificare ca potențial neconstructivă sau o potențială acțiune de vandalism.&lt;br /&gt;&lt;br /&gt;Wikipedia este o enciclopedie și acceptă doar conținut neutru și notabil.</string>
-  <string name="text_size_select">Dimensiunea fontului</string>
   <string name="page_similar_titles">Pagini similare</string>
   <string name="search_did_you_mean">Vă refereați la „%s”?</string>
   <string name="search_recent_header">Căutări recente:</string>
@@ -269,7 +267,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permite</string>
   <string name="read_more_section">Citiți mai multe</string>
   <string name="about_article_section">Despre acest articol</string>
-  <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
+  <string name="menu_gallery_visit_image_page">Du-te la pagina fișierului</string>
   <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
   <string name="license_title">Licența pentru %s</string>
   <string name="gallery_menu_share">Distribuie</string>
@@ -321,7 +319,7 @@
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="preference_title_collapse_tables">Ascunde tabele</string>
   <string name="preference_summary_collapse_tables">Ascunde automat tabel în articole, precum infocasete, referințe și note.</string>
-  <string name="nav_item_donate">Susțineți Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Susțineți Wikipedia</string>
   <string name="error_voice_search_not_available">Din păcate, recunoașterea vocală nu este disponibilă.</string>
   <string name="location_service_disabled">Serviciile de localizare sunt dezactivate.</string>
   <string name="enable_location_service">Activează</string>
@@ -347,8 +345,6 @@
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
   <string name="crash_report_quit">Închide</string>
-  <string name="article_menu_bar_bookmark">Adaugă acest articol într-o listă de lecturi</string>
-  <string name="article_menu_bar_share">Distribuie legătura către articol</string>
   <string name="article_header_edit_hint">Modifică...</string>
   <string name="article_header_edit_description">Modifică descrierea articolului</string>
   <string name="article_header_edit_lead_section">Modifică introducerea</string>
@@ -456,7 +452,6 @@
   <string name="reading_list_move_article_limit_message">Nu pot trece la această listă. Ați atins limita de articole %2$d pe listă pentru „\"%1$s\"”.</string>
   <string name="reading_list_article_limit_message">Nu se poate adăuga la această listă. Ați atins limita de articole %2$d pe listă pentru „%1$s”.</string>
   <string name="reading_lists_limit_message">Nu pot crea o altă listă. Ați atins limita de 100 de liste de citire pe cont.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizați listele de citire&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Listele de citire pot fi sincronizate pe dispozitive. Conectați-vă la contul dvs. Wikipedia și permiteți salvarea listelor dvs.</string>
   <string name="reading_lists_menu_create_list">Creați o listă nouă</string>
   <string name="reading_lists_menu_sort_by">Sortare după</string>
   <string name="reading_lists_refresh_sync_option">Reîncarcă sincronizarea</string>
@@ -557,11 +552,8 @@
   <string name="preference_summary_notification_user_talk">Mesaje din paginile de discuții</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>
   <string name="view_random_card_title">Aleatoriu</string>
-  <string name="view_random_card_subtitle">Răsfoiți articole aleatorii pentru a citi de pe Wikipedia.</string>
-  <string name="view_random_card_action">Dă cu zarul</string>
   <string name="view_next_random_article">Încarcă un alt articol aleatoriu</string>
   <string name="view_main_page_card_title">Astăzi la Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Pagina principală la %s</string>
   <string name="view_main_page_card_action">Vezi pagina principală</string>
   <string name="view_featured_image_card_title">Imaginea zilei</string>
   <string name="view_featured_image_card_download">Descarcă</string>
@@ -571,7 +563,6 @@
   <string name="menu_feed_overflow_label">Mai multe opțiuni</string>
   <string name="feed_featured_image_share_subject">Imagini de calitate de la Wikimedia Commons</string>
   <string name="feed">Explorare</string>
-  <string name="most_read_list_card_title">În tendințe</string>
   <string name="view_static_card_icon_content_description">Pictograma cardului</string>
   <string name="view_card_news_title">De actualitate</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -582,7 +573,6 @@
   <string name="view_continue_reading_card_subtitle_today">astăzi</string>
   <string name="view_continue_reading_card_subtitle_read_date">Citește %s</string>
   <string name="view_announcement_card_negative_action">Nu mulţumesc</string>
-  <string name="onboarding_negative_action">Nu mulţumesc</string>
   <string name="view_offline_card_text">Conținutul nu poate fi incărcat in modul offline.</string>
   <string name="view_featured_article_card_title">Articol de calitate</string>
   <string name="view_featured_article_footer_save_button_label">Salvează</string>
@@ -639,7 +629,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Subtitrare imagine publicată!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Subtitrare imagine publicată! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Etichete de imagine publicate!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Etichete de imagine publicate!</string>
   <string name="description_edit_success_encouragement">Tocmai ai făcut Wikipedia mai bună pentru toată lumea</string>
   <string name="description_edit_success_done">Realizat</string>
   <string name="description_edit_success_did_you_know">Știați că?</string>
@@ -650,10 +640,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">În mod ideal, o linie, între două până la douăsprezece cuvinte</string>
   <string name="description_edit_tutorial_button_label_start_editing">Începeți modificarea</string>
   <string name="description_edit_tutorial_promise">Începând, promit să nu folosesc greșit această caracteristică.</string>
-  <string name="suggested_edits_add_descriptions">Adăugați descrieri de articole</string>
-  <string name="suggested_edits_translate_descriptions">Traduceți descrieri de articole</string>
-  <string name="suggested_edits_add_image_captions">Adaugă descrieri de imagine</string>
-  <string name="suggested_edits_translate_image_captions">Traduceți legenda imaginilor</string>
   <string name="suggested_edits_tag_images">Etichetați imaginile</string>
   <string name="suggested_edits_review_description">Examinați descrierea articolului</string>
   <string name="suggested_edits_add_description_button">Adauga descriere</string>
@@ -668,7 +654,6 @@
   <string name="suggested_edits_license_notice">Prin adăugarea descrierii, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în cadrul licenței &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Prin adăugarea legendei de imagine, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în conformitate cu licența &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Modificări sugerate</string>
   <string name="suggested_edits_task_add_description_title">Adăugați descrieri de articole</string>
   <string name="suggested_edits_task_add_description_description">Contribuie la articole fără descrieri</string>
   <string name="suggested_edits_task_image_caption_title">Adaugă descriere la imagini</string>
@@ -681,7 +666,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Blocat până când ați modificat %d descrieri ale articolului (verificat)</string>
   <string name="suggested_edits_task_multilingual_negative">Nu pentru mine</string>
   <string name="suggested_edits_task_multilingual_positive">Adaugă limbă</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fișier</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fișier</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sursă</string>
@@ -698,7 +683,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Începe</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Descrierea imaginii (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrierea imaginii (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fișier</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fișier</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etichete</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -724,7 +709,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etichetarea imaginilor le face mai ușor de găsit.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Prin adăugarea de etichete de imagine, veți ajuta să faceți mai ușor căutarea imaginilor pe Commons, depozitul gratuit de imagini pe licență pe care Wikipedia îl folosește pentru imaginile din articolele sale.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Doar etichetele pe care le alegeți vor fi adăugate la imagini.</string>
-  <string name="suggested_edits_image_tags_snackbar">Adăugați etichete imagine pentru a le găsi mai ușor pentru alții.</string>
   <string name="suggested_edits_image_tags_task_detail">Adăugați etichete personalizate la o imagine pentru a fi mai ușor de găsit.</string>
   <string name="suggested_edits_image_tags_choose">Adăugați sau alegeți etichete potrivite</string>
   <string name="suggested_edits_image_tags_published_list">Etichete publicate</string>
@@ -734,12 +718,12 @@
   <string name="suggested_edits_image_tags_add_tag">Adaugă etichetă:</string>
   <string name="suggested_edits_image_zoom_tooltip">Prindeți pentru a mări această imagine.</string>
   <string name="suggested_edits_encouragement_message">%s, mulțumim pentru modificări. Mai jos puteți găsi mai multe modalități de a contribui la Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bună%s&lt;/b&gt;, știați că toată lumea poate edita Wikipedia? Mai jos puteți găsi modalități distractive de a ajuta la îmbunătățirea Wikipedia. Editare fericită!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Bună%s&lt;/b&gt;, știați că toată lumea poate edita Wikipedia? Mai jos puteți găsi modalități distractive de a ajuta la îmbunătățirea Wikipedia. Editare fericită!</string>
   <string name="suggested_edits_image_captions_task_detail">Descrieți o imagine pentru a ajuta cititorii să înțeleagă sensul și contextul acesteia.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rezumați un articol pentru a ajuta cititorii să înțeleagă subiectul dintr-o privire.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Numărul total de contribuții cu Modificări sugerate.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Câte zile fără pauză ați contribuit prin Modificări sugerate. Dacă nu ați contribuit într-o perioadă, aceasta arată data ultimei contribuții.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Vizualizări totale de pagini ale articolelor la care ați contribuit în ultimele 30 de zile cu modificări sugerate.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Numărul total de contribuții cu Modificări sugerate.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Câte zile fără pauză ați contribuit prin Modificări sugerate. Dacă nu ați contribuit într-o perioadă, aceasta arată data ultimei contribuții.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Vizualizări totale de pagini ale articolelor la care ați contribuit în ultimele 30 de zile cu modificări sugerate.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Pe baza de câte ori a fost revenită una dintre contribuțiile dvs. (anulată de un alt editor). Modificări anulate: %d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Modificările sugerate sunt întrerupte până %1$s.&lt;/b&gt; Scuze %2$s, o parte din contribuțiile dvs. recente au fost anulate.\n\nAflați cum să vă îmbunătățiți abilitățile de editare pe Wikipedia cu linkul de mai jos.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Editările sugerate sunt dezactivate.&lt;/b&gt; Ne pare rău %s, prea multe contribuții recente au fost anulate.\n\nAflați ce înseamnă asta cu linkul de mai jos.</string>
@@ -747,7 +731,7 @@
   <string name="suggested_edits_editing_tips_link_text">Modificare sfaturi și trucuri</string>
   <string name="suggested_edits_help_page_link_text">Pagina de ajutor pentru modificări sugerate</string>
   <string name="suggested_edits_edit_streak_label_text">Editări neîntrerupte</string>
-  <string name="suggested_edits_pageviews_label_text">Vizualizări de pagină</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Vizualizări de pagină</string>
   <string name="suggested_edits_quality_label_text">Calitatea modificărilor</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
   <string name="suggested_edits_quality_excellent_text">Excelent</string>
@@ -757,7 +741,6 @@
   <string name="suggested_edits_quality_sufficient_text">Suficient</string>
   <string name="suggested_edits_quality_poor_text">Slab</string>
   <string name="suggested_edits_quality_bad_text">Rău</string>
-  <string name="suggested_edits_contribute">Contribuie</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribuţie</item>
     <item quantity="few">Contribuţii</item>
@@ -782,7 +765,7 @@
   <string name="suggested_edits_contribution_language_label">Limba</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Ora</string>
   <string name="suggested_edits_contribution_type_label">Tip contribuție</string>
-  <string name="suggested_edits_contribution_image_label">Fișier</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Fișier</string>
   <string name="suggested_edits_contribution_article_label">Articol</string>
   <string name="suggested_edits_contribution_views">%s vizualizări</string>
   <string name="suggested_edits_contribution_seen_text">Văzut %s ori în ultimele 30 de zile.</string>
@@ -825,13 +808,10 @@
   <string name="app_shortcuts_random">Aleatoriu</string>
   <string name="app_shortcuts_continue_reading">Continuați să citiți</string>
   <string name="app_shortcuts_search">Caută</string>
-  <string name="more_trending_text">Mai mult ca asta</string>
-  <string name="top_on_this_day">Popular pe %1$s</string>
   <string name="on_this_day_card_title">Astăzi în istorie</string>
   <string name="more_events_text">Mai mult în această zi</string>
   <string name="events_count_text">%1$s evenimente din %2$s–%3$d</string>
   <string name="this_year">Anul acesta</string>
-  <string name="back_to_top">Înapoi sus</string>
   <string name="on_this_day_dialog_next_month">Luna următoare</string>
   <string name="on_this_day_dialog_previous_month">Luna trecută</string>
   <string name="on_this_day_open_date_picker">Deschideți selectorul de date</string>
@@ -888,4 +868,8 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anulează</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Anulează</string>
+  <string name="talk_new_topic">Subiect nou</string>
+  <string name="talk_page_empty">Această pagină de discuție este goală.</string>
+  <string name="talk_add_reply">Răspunde</string>
+  <string name="talk_reply_subject">Subiect</string>
 </resources>

@@ -117,7 +117,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     private inner class SearchTextWatcher : TextWatcher {
-        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) { }
+        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {}
 
         override fun onTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {
             currentSearchTerm = text.toString()
@@ -125,7 +125,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             imageTagsSearchText.postDelayed(searchRunnable, 500)
         }
 
-        override fun afterTextChanged(editable: Editable) { }
+        override fun afterTextChanged(editable: Editable) {}
     }
 
     private fun requestResults(searchTerm: String) {
@@ -172,8 +172,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         callback()?.onSearchDismiss(currentSearchTerm)
     }
 
-    private inner class ResultItemHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        fun bindItem(item: MwQueryPage.ImageLabel, position: Int) {
+    private inner class ResultItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        fun bindItem(item: MwQueryPage.ImageLabel) {
             itemView.findViewById<TextView>(R.id.labelName).text = item.label
             itemView.findViewById<TextView>(R.id.labelDescription).text = item.description
             itemView.tag = item
@@ -197,14 +197,14 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ResultItemHolder {
-            val view = layoutInflater.inflate(R.layout.item_wikidata_label, null)
+            val view = layoutInflater.inflate(R.layout.item_wikidata_label, parent, false)
             val params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             view.layoutParams = params
             return ResultItemHolder(view)
         }
 
         override fun onBindViewHolder(holder: ResultItemHolder, pos: Int) {
-            holder.bindItem(results[pos], pos)
+            holder.bindItem(results[pos])
         }
     }
 
