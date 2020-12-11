@@ -187,6 +187,7 @@ public final class FeedbackUtil {
         return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private static Balloon showTooltip(@NonNull Balloon balloon, @NonNull View anchor, boolean aboveOrBelow, boolean autoDismiss) {
         if (aboveOrBelow) {
             balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f));

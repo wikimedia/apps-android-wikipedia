@@ -14,17 +14,18 @@
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:letterSpacing="0.04"
-        android:lineSpacingExtra="7sp"
         android:layout_marginBottom="4dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="8dp"
         app:drawableStartCompat="@drawable/ic_star_24"
         app:drawableTint="@android:color/white"/>
 
-    <com.google.android.material.textview.MaterialTextView
+    <org.wikipedia.views.AppTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:lineSpacingExtra="7sp"
-        android:text="@string/main_tooltip_watchlist_text"/>
+        app:html="@string/main_tooltip_watchlist_text"/>
 
 </LinearLayout>
