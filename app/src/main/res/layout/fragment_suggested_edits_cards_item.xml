@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Container layout is necessary to make the ImageView zoomable in-place. -->
             <LinearLayout
                 android:id="@+id/viewArticleImagePlaceholder"
                 android:layout_width="match_parent"
@@ -135,7 +136,7 @@
                             android:id="@+id/viewImageFileName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:title="@string/suggested_edits_image_caption_summary_title_file" />
+                            app:title="@string/suggested_edits_image_caption_summary_title_image" />
 
                         <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageArtist"

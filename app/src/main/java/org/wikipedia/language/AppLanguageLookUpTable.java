@@ -11,9 +11,12 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 
 import java.lang.ref.SoftReference;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 /** Immutable look up table for all app supported languages. All article languages may not be
   * present in this table as it is statically bundled with the app. */
@@ -23,6 +26,7 @@ public class AppLanguageLookUpTable {
     public static final String CHINESE_CN_LANGUAGE_CODE = "zh-cn";
     public static final String CHINESE_HK_LANGUAGE_CODE = "zh-hk";
     public static final String CHINESE_MO_LANGUAGE_CODE = "zh-mo";
+    public static final String CHINESE_MY_LANGUAGE_CODE = "zh-my";
     public static final String CHINESE_SG_LANGUAGE_CODE = "zh-sg";
     public static final String CHINESE_TW_LANGUAGE_CODE = "zh-tw";
     public static final String CHINESE_YUE_LANGUAGE_CODE = "zh-yue";
@@ -45,6 +49,9 @@ public class AppLanguageLookUpTable {
 
     // Native names for all app supported languages in fixed order.
     @NonNull private SoftReference<List<String>> localizedNamesRef = new SoftReference<>(null);
+
+    // Fallback language codes for language variants
+    @NonNull private SoftReference<Map<String, List<String>>> languagesVariantsRef = new SoftReference<>(null);
 
     public AppLanguageLookUpTable(@NonNull Context context) {
         resources = context.getResources();
@@ -90,6 +97,21 @@ public class AppLanguageLookUpTable {
         return name;
     }
 
+    @Nullable
+    public List<String> getLanguageVariants(@Nullable String code) {
+        return getLanguagesVariants().get(code);
+    }
+
+    @Nullable
+    public String getDefaultLanguageCodeFromVariant(@Nullable String code) {
+        for (Map.Entry<String, List<String>> entry : getLanguagesVariants().entrySet()) {
+            if (entry.getValue().contains(code)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
     private List<String> getCanonicalNames() {
         List<String> names = canonicalNamesRef.get();
         if (names == null) {
@@ -106,6 +128,20 @@ public class AppLanguageLookUpTable {
             localizedNamesRef = new SoftReference<>(names);
         }
         return names;
+    }
+
+    private Map<String, List<String>> getLanguagesVariants() {
+        Map<String, List<String>> map = languagesVariantsRef.get();
+        if (map == null) {
+            map = new HashMap<>();
+            for (String fallbacks : getStringList(R.array.preference_language_variants)) {
+                String[] array = fallbacks.split(",");
+                if (array.length > 1) {
+                    map.put(array[0], new ArrayList<>(Arrays.asList(array).subList(1, array.length)));
+                }
+            }
+        }
+        return map;
     }
 
     public boolean isSupportedCode(@Nullable String code) {

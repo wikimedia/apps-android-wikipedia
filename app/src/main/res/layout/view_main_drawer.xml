@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/main_drawer_account_container"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="?attr/color_group_60"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -25,35 +25,33 @@
 
         <TextView
             android:id="@+id/main_drawer_account_name"
-            android:layout_width="wrap_content"
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="?attr/material_theme_secondary_color"
-            android:textSize="14sp"
-            tools:text="Sample account name" />
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/main_drawer_login_button"
             style="@style/TransparentButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
             android:text="@string/main_drawer_login" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/main_drawer_settings_container"
+        android:id="@+id/main_drawer_history_container"
         style="@style/SideDrawerMenuItem">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_settings_black_24dp"
+            app:srcCompat="@drawable/ic_history_24"
             app:tint="?attr/material_theme_secondary_color" />
 
         <TextView
@@ -62,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_weight="1"
-            android:text="@string/settings_item_preferences" />
+            android:text="@string/history_list_title" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,6 +84,46 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/main_drawer_talk_container"
+        style="@style/SideDrawerMenuItem">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_user_talk"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/talk_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_drawer_settings_container"
+        style="@style/SideDrawerMenuItem">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_settings_black_24dp"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="@string/settings_item_preferences" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/main_drawer_donate_container"
         style="@style/SideDrawerMenuItem">
 
@@ -93,7 +131,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_wikipedia"
+            app:srcCompat="@drawable/ic_heart_24"
             app:tint="?attr/material_theme_secondary_color" />
 
         <TextView
@@ -103,57 +141,6 @@
             android:layout_marginStart="24dp"
             android:layout_weight="1"
             android:text="@string/nav_item_donate" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="16dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_open_in_new_black_24px"
-            app:tint="?attr/material_theme_secondary_color" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/main_drawer_about_container"
-        style="@style/SideDrawerMenuItem">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_info_outline_black_24dp"
-            app:tint="?attr/material_theme_secondary_color" />
-
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/about_activity_title" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/main_drawer_help_container"
-        style="@style/SideDrawerMenuItem">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_help_black_24dp"
-            app:tint="?attr/material_theme_secondary_color" />
-
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/main_drawer_help" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="24dp"

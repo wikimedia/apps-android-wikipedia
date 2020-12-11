@@ -31,13 +31,14 @@ import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.events.ThemeChangeEvent;
+import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
@@ -45,7 +46,6 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.SavedPagesConversionUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
 
@@ -61,7 +61,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.internal.functions.Functions;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import leakcanary.AppWatcher;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
@@ -150,15 +149,7 @@ public class WikipediaApp extends Application {
 
         initExceptionHandling();
 
-        if (Prefs.isMemoryLeakTestEnabled()) {
-            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig())
-                    .enabled(true)
-                    .watchActivities(true)
-                    .watchFragments(true)
-                    .build());
-        } else {
-            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig()).enabled(false).build());
-        }
+        LeakCanaryStubKt.setupLeakCanary();
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -189,9 +180,11 @@ public class WikipediaApp extends Application {
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
 
-        SavedPagesConversionUtil.maybeRunOneTimeSavedPagesConversion();
-
         InstallReferrerListener.newInstance(this);
+
+        // For good measure, explicitly call our token subscription function, in case the
+        // API failed in previous attempts.
+        WikipediaFirebaseMessagingService.Companion.updateSubscription();
     }
 
     public int getVersionCode() {
@@ -288,7 +281,7 @@ public class WikipediaApp extends Application {
         if (theme != currentTheme) {
             currentTheme = theme;
             Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
-            bus.post(new ThemeChangeEvent());
+            bus.post(new ThemeFontChangeEvent());
         }
     }
 
@@ -306,6 +299,13 @@ public class WikipediaApp extends Application {
             return true;
         }
         return false;
+    }
+
+    public void setFontFamily(@NonNull String fontFamily) {
+        if (!fontFamily.equals(Prefs.getFontFamily())) {
+            Prefs.setFontFamily(fontFamily);
+            bus.post(new ThemeFontChangeEvent());
+        }
     }
 
     public void putCrashReportProperty(String key, String value) {
@@ -370,9 +370,15 @@ public class WikipediaApp extends Application {
     public void logOut() {
         L.d("Logging out");
         AccountUtil.removeAccount();
+        Prefs.setPushNotificationTokenSubscribed(false);
+        Prefs.setPushNotificationTokenOld("");
         ServiceFactory.get(getWikiSite()).getCsrfToken()
                 .subscribeOn(Schedulers.io())
-                .flatMap(response -> ServiceFactory.get(getWikiSite()).postLogout(response.query().csrfToken()).subscribeOn(Schedulers.io()))
+                .flatMap(response -> {
+                    String csrfToken = response.query().csrfToken();
+                    return WikipediaFirebaseMessagingService.Companion.unsubscribePushToken(csrfToken, Prefs.getPushNotificationToken())
+                            .flatMap(res -> ServiceFactory.get(getWikiSite()).postLogout(csrfToken).subscribeOn(Schedulers.io()));
+                })
                 .doFinally(() -> SharedPreferenceCookieManager.getInstance().clearAllCookies())
                 .subscribe(response -> L.d("Logout complete."), L::e);
     }
@@ -383,6 +389,7 @@ public class WikipediaApp extends Application {
             crashListener = new AppCenterCrashesListener();
             Crashes.setListener(crashListener);
             AppCenter.start(this, getString(R.string.appcenter_id), Crashes.class);
+            AppCenter.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
             Crashes.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
         }
     }
@@ -394,6 +401,8 @@ public class WikipediaApp extends Application {
             if (appLanguageState != null) {
                 putCrashReportProperty("app_primary_language", appLanguageState.getAppLanguageCode());
                 putCrashReportProperty("app_languages", appLanguageState.getAppLanguageCodes().toString());
+                putCrashReportProperty("app_install_id", getAppInstallID());
+                putCrashReportProperty("app_local_class_name", Prefs.getLocalClassName());
             }
         }
     }

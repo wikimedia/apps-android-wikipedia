@@ -49,7 +49,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            android:tint="?attr/chart_shade4"
+            app:tint="?attr/chart_shade4"
             android:visibility="gone"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"

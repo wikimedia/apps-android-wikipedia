@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Aram1985
 * Kareyac
+* MuratTheTurkish
 * Xelgen
 * Աշոտ1997
 * Դավիթ Սարոյան
@@ -17,11 +18,9 @@
   <string name="nav_item_forward">Առաջ</string>
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
   <string name="search_hint_voice_search">Ձայնային որոնում</string>
-  <string name="search_hint_search_history">Որոնումների պատմություն</string>
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
-  <string name="search_hint_search_my_lists_and_articles">Որոնել իմ ցանկերում և հոդվածներում</string>
-  <string name="nav_item_history">Պատմություն</string>
-  <string name="nav_item_suggested_edits">Առաջարկվող խմբագրումներ</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
+  <string name="nav_item_more">Ավելին</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>
   <string name="card_offline_error_retry">Կրկին փորձել</string>
@@ -36,6 +35,7 @@
   <string name="history_item_delete_undo">Հետ շրջել</string>
   <string name="notification_archive_undo">Հետ շրջել</string>
   <string name="app_settings">Հավելվածի կարգավորումներ</string>
+  <string name="history_list_title">Պատմություն</string>
   <string name="dialog_title_clear_history">Մաքրել դիտումների պատմությունը</string>
   <string name="dialog_message_clear_history_yes">Այո</string>
   <string name="dialog_message_clear_history_no">Ոչ</string>
@@ -44,7 +44,7 @@
   <string name="search_redirect_from">Վերահղված է %s-ից</string>
   <string name="menu_page_show_tabs">Ցուցադրել ներդիրները</string>
   <string name="menu_page_other_languages">Փոխել լեզուն</string>
-  <string name="menu_page_find_in_page">Գտնել էջում</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Գտնել էջում</string>
   <string name="edit_section_find_in_page">Գտնել էջում</string>
   <string name="menu_page_font_and_theme">Տառատեսակ և արտաքին տեսք</string>
   <string name="menu_page_add_to_list">Ավելացնել ընթերցացանկում</string>
@@ -127,6 +127,7 @@
   <string name="settings_activity_title">Կարգավորումներ</string>
   <string name="privacy_policy_description">Գաղտնիության քաղաքականություն</string>
   <string name="terms_of_use_description">Օգտագործման պայմաններ</string>
+  <string name="about_wikipedia_url">https://hy.wikipedia.org/wiki/Վիքիպեդիա:Վիքիպեդիայի_մասին</string>
   <string name="about_contributors_heading">Հեղինակներ</string>
   <string name="about_translators_heading">Թարգմանիչներ</string>
   <string name="about_translators_translatewiki">Այս ծրագիրը թարգմանվել է կամավոր թարգմանիչների կողմից՝ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; կայքում։</string>
@@ -145,7 +146,6 @@
   <string name="edit_summary_tag_other">Այլ</string>
   <string name="find_next">Գտնել հաջորդը</string>
   <string name="find_previous">Գտնել նախորդը</string>
-  <string name="text_size_select">Տառաչափ</string>
   <string name="page_similar_titles">Նմանատիպ էջեր</string>
   <string name="clear_recent_searches_confirm_yes">Այո</string>
   <string name="clear_recent_searches_confirm_no">Ոչ</string>
@@ -165,11 +165,13 @@
   <string name="close_all_tabs_confirm_yes">Այո</string>
   <string name="close_all_tabs_confirm_no">Ոչ</string>
   <string name="button_continue_to_article">Կարդալ հոդված</string>
-  <string name="nav_item_donate">Օգնե՜նք Վիքիպեդիային</string>
+  <string name="button_continue_to_talk_page">Բացել քննարկման էջը</string>
+  <string name="nav_item_donate" fuzzy="true">Օգնե՜նք Վիքիպեդիային</string>
   <string name="location_permissions_enable_action">Միացնել</string>
   <string name="view_link_preview_error_button_dismiss">Փակել</string>
   <string name="reference_list_title">Ծանոթագրություններ</string>
   <string name="crash_report_quit">Ելք</string>
+  <string name="article_menu_bar_language_button">Լեզու</string>
   <string name="article_header_edit_hint">Խմբագրել...</string>
   <string name="color_theme_dark">Մուք</string>
   <string name="color_theme_black">Սև</string>
@@ -212,6 +214,7 @@
   <string name="preference_title_notification_thanks">Շնորհակալություն</string>
   <string name="preference_title_notification_revert">Հետ շրջել</string>
   <string name="preference_summary_notification_revert">Ձեր խմբագրումներից մեկը շրջվել է</string>
+  <string name="preference_title_notification_login_fail">Մուտք</string>
   <string name="preference_title_notification_user_talk">Քննարկման էջ</string>
   <string name="view_featured_image_card_title">Օրվա պատկեր</string>
   <string name="view_featured_image_card_download">Ներբեռնել</string>
@@ -221,11 +224,10 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">այսօր</string>
   <string name="view_announcement_card_negative_action">Ոչ, շնորհակալություն</string>
-  <string name="onboarding_negative_action">Ոչ, շնորհակալություն</string>
   <string name="view_featured_article_card_title">Ընտրյալ հոդված</string>
   <string name="view_featured_article_footer_save_button_label">Հիշել</string>
   <string name="view_static_card_save_button_label">Հիշել</string>
-  <string name="feed_configure_menu_select_all">Ույց տալ բոլորը</string>
+  <string name="feed_configure_menu_select_all">Ցույց տալ բոլորը</string>
   <string name="feed_configure_menu_deselect_all">Թաքցնել բոլորը</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Լավ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Չեղարկել</string>
@@ -241,18 +243,17 @@
   <string name="description_edit_help_about_wikidata">Վիքիտվյալների մասին</string>
   <string name="description_edit_success_done">Արված է</string>
   <string name="description_edit_tutorial_button_label_start_editing">Սկսել խմբագրել</string>
-  <string name="suggested_edits_add_descriptions">Ավելացնել հոդվածի նկարագրություններ</string>
   <string name="suggested_edits_add_translation_button">Նոր թարգմանություն</string>
   <string name="suggested_edits_edit_translation_button">Խմբագրել թարգմանություն</string>
   <string name="suggested_edits_my_contributions">Իմ ներդրումներ</string>
   <string name="suggested_edits_task_multilingual_positive">Ավելացնել լեզուներ</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Նիշք</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Նիշք</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Նկարիչ</string>
   <string name="suggested_edits_image_caption_summary_title_author">Հեղինակ</string>
   <string name="suggested_edits_image_caption_summary_title_source">Աղբյուր</string>
   <string name="suggested_edits_image_caption_summary_title_license">Արտոնագիր</string>
   <string name="suggested_edits_image_caption_summary_title_date">Ամսաթիվ</string>
-  <string name="suggested_edits_image_preview_dialog_file">Նիշք</string>
+  <string name="suggested_edits_image_preview_dialog_image">Նիշք</string>
   <string name="suggested_edits_image_preview_dialog_artist">Նկարիչ</string>
   <string name="suggested_edits_image_preview_dialog_date">Ամսաթիվ</string>
   <string name="suggested_edits_article_cta_snackbar_action">Դիտել</string>
@@ -273,8 +274,10 @@
   <string name="suggested_edits_last_edited_never">Երբեք</string>
   <string name="suggested_edits_task_new">նոր</string>
   <string name="suggested_edits_contribution_language_label">Լեզու</string>
-  <string name="suggested_edits_contribution_image_label">Նիշք</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Նիշք</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Երեկ</string>
+  <string name="suggested_edits_rewards_continue_button">Շարունակել</string>
   <string name="description_edit_login_cancel_button_text">Չեղարկել</string>
   <string name="onboarding_skip">Բաց թողնել</string>
   <string name="onboarding_continue">Շարունակել</string>
@@ -284,7 +287,6 @@
   <string name="app_shortcuts_search">Որոնել</string>
   <string name="on_this_day_card_title">Այս օրը</string>
   <string name="this_year">Այս տարի</string>
-  <string name="back_to_top">Ետ էջի վերև</string>
   <string name="on_this_day_dialog_next_month">Հաջորդ ամիս</string>
   <string name="on_this_day_dialog_previous_month">Նախորդ ամիս</string>
   <string name="languages_list_activity_title">Ավելացնել լեզու</string>

@@ -18,10 +18,7 @@
   <string name="page_tabs_back">Distreiñ</string>
   <string name="nav_item_forward">Da-heul</string>
   <string name="search_hint">Klask e Wikipedia</string>
-  <string name="search_hint_search_history">Klask er roll istor</string>
   <string name="search_hint_search_languages">Klask ur yezh</string>
-  <string name="search_hint_search_my_lists_and_articles">Klask em rolloù ha pennadoù</string>
-  <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="card_offline_error_retry">Klask en-dro</string>
@@ -45,7 +42,7 @@
   <string name="search_redirect_from">Adkaset eus %s</string>
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
   <string name="menu_page_other_languages">Cheñch yezh</string>
-  <string name="menu_page_find_in_page">Klask er bajenn</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Klask er bajenn</string>
   <string name="edit_section_find_in_page">Klask er bajenn</string>
   <string name="menu_page_font_and_theme">Font ha tem</string>
   <string name="menu_page_add_to_list">Ouzhpennañ d\'ar roll lenn</string>
@@ -164,7 +161,6 @@
   <string name="preference_title_auto_upload_crash_reports">Kas danevelloù implij</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Reiñ tro d\'an arload da gas danevelloù implij da HockeyApp - ur pourchaser servijoù tredeour - en un doare emgefreek, abalamour ma c\'hallimp kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
-  <string name="history_search_list_hint">Klask er roll-istor</string>
   <string name="error_can_not_process_link">N\'eus ket bet gallet diskwel al liamm-mañ</string>
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
   <string name="page_protected_sysop">Gwarezet penn-da-benn eo bet ar bajenn-mañ.</string>
@@ -220,7 +216,6 @@
   <string name="abusefilter_title_disallow">N\'hallit ket embann ar c\'hemm-mañ. Kit war ho kiz ha kemmit anezhañ.</string>
   <string name="abusefilter_text_warn">Ur sil emgefre en deus anavezet ar c\'hemm-mañ. Hervezañ ne zegaso ket kalz a dra. Ennañ e c\'hallfe bezañ un elfenn pe meur a hini &lt;br/br/&gt;Bizskrivañ pep tra gant pennlizherennoù&lt;br/&gt;. Pennadoù goullo pe posteloù strobus &lt;br/&gt;. Liammoù pe skeudennoù diavaez  diazaz&lt;br/&gt;. Arouezennoù bizskrivet en-dro.</string>
   <string name="abusefilter_text_disallow">Ur sil emgefreek en deus anavezet ar c\'hemm-mañ evel unan na zegas ket kalz a dra pe evel un dra a zegas drast &lt;br/&gt;&lt;br/&gt;. Un holloueziadur eo Wikipedia. Ne c\'haller lakaat nemet traoù neptu ha pouezus e-barzh.</string>
-  <string name="text_size_select">Ment ar font</string>
   <string name="page_similar_titles">Pajennoù kar</string>
   <string name="search_did_you_mean">\"%s\" emezit-c\'hwi ?</string>
   <string name="search_recent_header">Enklaskoù nevez :</string>
@@ -246,7 +241,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Aotren</string>
   <string name="read_more_section">Lenn muioc\'h</string>
   <string name="about_article_section">Diwar-benn ar pennad-mañ</string>
-  <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
+  <string name="menu_gallery_visit_image_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
   <string name="license_title">Aotre-imoplijout evit %s</string>
   <string name="gallery_menu_share">Rannañ</string>
@@ -292,7 +287,7 @@
   <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>
   <string name="preference_summary_show_link_previews">Diskwel un alberz buan eus ar pennadoù en ur skrivañ war al liammoù.</string>
   <string name="preference_title_collapse_tables">Adplegañ an taolennoù</string>
-  <string name="nav_item_donate">Skoazellañ Wikimedia</string>
+  <string name="nav_item_donate" fuzzy="true">Skoazellañ Wikimedia</string>
   <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
   <string name="location_service_disabled">Diweredekaet eo ar servijoù lec\'hiañ.</string>
   <string name="enable_location_service">Gweredekaat</string>
@@ -313,8 +308,6 @@
   <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.\n\nHa c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
   <string name="crash_report_quit">Kuitaat</string>
-  <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
-  <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
   <string name="article_header_edit_hint">Kemmañ...</string>
   <string name="article_header_edit_description" fuzzy="true">Kemmañ titl an deskrivadur</string>
   <string name="article_header_edit_lead_section">Kemmañ ar raklavar</string>
@@ -467,11 +460,8 @@
   <string name="preference_summary_notification_thanks">Unan bennak en deus trugarekaet ac\'hanoc\'h evit ur c\'hemenn</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
   <string name="view_random_card_title">Dre zegouezh</string>
-  <string name="view_random_card_subtitle">Lenn ur pennad dargouezhek eus Wikipedia</string>
-  <string name="view_random_card_action">Stlepel an diñsoù</string>
   <string name="view_next_random_article">Kargañ ur pennad all dre zegouezh</string>
   <string name="view_main_page_card_title">Hiziv e Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Pajenn bennañ d\'an %s</string>
   <string name="view_main_page_card_action">Gwelet ar bajenn bennañ</string>
   <string name="view_featured_image_card_title">Skeudenn an deiz</string>
   <string name="view_featured_image_card_download">Pellgargañ</string>
@@ -481,7 +471,6 @@
   <string name="menu_feed_overflow_label">Muioc\'h a zibarzhioù</string>
   <string name="feed_featured_image_share_subject">Skeudenn dibabet e Wikimedia Commons</string>
   <string name="feed">Ergerzhet</string>
-  <string name="most_read_list_card_title">Gizioù ar mare</string>
   <string name="view_static_card_icon_content_description">Arlun ar gartenn</string>
   <string name="view_card_news_title">Er C\'heleier</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -491,7 +480,6 @@
   <string name="view_continue_reading_card_subtitle_today">Hiziv</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lenn %s</string>
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
-  <string name="onboarding_negative_action">Nann, trugarez</string>
   <string name="view_offline_card_text">N\'haller ket kargañ danvez pa vezer ezlinenn.</string>
   <string name="view_featured_article_card_title">Pennpennad</string>
   <string name="view_featured_article_footer_save_button_label">Enrollañ</string>
@@ -537,7 +525,6 @@
   <string name="suggested_edits_task_multilingual_positive">Ouzhpennañ yezhoù</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kregiñ</string>
   <string name="suggested_edits_image_tags_add_tag">Ouzhpennañ un dikedenn</string>
-  <string name="suggested_edits_contribute">Kemer perzh</string>
   <string name="suggested_edits_reactivation_notification_title">Kemmoù kinniget</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Trugare vras deoc\'h da gemer perzh e Wikipedia ! Perak ne gendalc\'hfec\'h ket el lec\'h m\'emaoc\'h chomet a-sav ?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Pemp munud zo ganeoc\'h evit reiñ dorn da wellaat Wikipedia ? Taolit ur sell ouzh ar c\'hinnig kemmoù-mañ.</string>
@@ -566,7 +553,6 @@
   <string name="app_shortcuts_continue_reading">Kenderc\'hel da lenn</string>
   <string name="app_shortcuts_search">Klask</string>
   <string name="this_year">Er bloaz-mañ</string>
-  <string name="back_to_top">Distreiñ d\'an deroù</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">dec\'h</item>
     <item quantity="other">%d devezh zo</item>

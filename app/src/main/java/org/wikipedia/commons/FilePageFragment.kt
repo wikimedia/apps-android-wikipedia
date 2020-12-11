@@ -1,5 +1,7 @@
 package org.wikipedia.commons
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +10,6 @@ import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
@@ -16,17 +17,20 @@ import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
+import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.page.PageTitle
-import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class FilePageFragment : Fragment() {
     private lateinit var pageTitle: PageTitle
-    private lateinit var suggestedEditsSummary: SuggestedEditsSummary
+    private lateinit var pageSummaryForEdit: PageSummaryForEdit
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +59,15 @@ class FilePageFragment : Fragment() {
         super.onDestroyView()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
+            SuggestedEditsSnackbars.show(requireActivity(), if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
+                Action.ADD_CAPTION else Action.ADD_IMAGE_TAGS, requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
+            loadImageInfo()
+        }
+    }
+
     private fun showError(caught: Throwable?) {
         progressBar.visibility = View.GONE
         filePageView.visibility = View.GONE
@@ -64,6 +77,7 @@ class FilePageFragment : Fragment() {
 
     private fun loadImageInfo() {
         lateinit var imageTags: Map<String, List<String>>
+        lateinit var page: MwQueryPage
         var isFromCommons = false
         var isEditProtected = false
         var thumbnailWidth = 0
@@ -74,8 +88,7 @@ class FilePageFragment : Fragment() {
         progressBar.visibility = View.VISIBLE
 
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
-                BiFunction {
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()), {
                     caption: Map<String, String>, response: MwQueryResponse ->
                     // set image caption to pageTitle description
                     pageTitle.description = caption[pageTitle.wikiSite.languageCode()]
@@ -94,9 +107,9 @@ class FilePageFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    val page = it.query()!!.pages()!![0]
+                    page = it.query()!!.pages()!![0]
                     val imageInfo = page.imageInfo()!!
-                    suggestedEditsSummary =  SuggestedEditsSummary(
+                    pageSummaryForEdit =  PageSummaryForEdit(
                             pageTitle.prefixedText,
                             pageTitle.wikiSite.languageCode(),
                             pageTitle,
@@ -104,13 +117,14 @@ class FilePageFragment : Fragment() {
                             StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.metadata!!.imageDescription()).toString(), null),
                             imageInfo.thumbUrl,
                             null,
+                            null,
                             imageInfo.timestamp,
                             imageInfo.user,
                             imageInfo.metadata
                     )
                     thumbnailHeight = imageInfo.thumbHeight
                     thumbnailWidth = imageInfo.thumbWidth
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), suggestedEditsSummary.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
                 }
                 .flatMap {
                     imageTags = it
@@ -122,8 +136,10 @@ class FilePageFragment : Fragment() {
                     filePageView.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                     filePageView.setup(
-                            suggestedEditsSummary,
+                            this,
+                            pageSummaryForEdit,
                             imageTags,
+                            page,
                             container.width,
                             thumbnailWidth,
                             thumbnailHeight,
@@ -142,6 +158,9 @@ class FilePageFragment : Fragment() {
 
     companion object {
         private const val ARG_PAGE_TITLE = "pageTitle"
+        const val ACTIVITY_REQUEST_ADD_IMAGE_CAPTION = 1
+        const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 2
+
         fun newInstance(pageTitle: PageTitle): FilePageFragment {
             val fragment = FilePageFragment()
             val args = Bundle()

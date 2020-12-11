@@ -2,7 +2,6 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:background="?attr/paper_color"
     tools:layout_height="wrap_content"
     tools:layout_width="match_parent"
     tools:orientation="vertical"
@@ -40,7 +39,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_offline_pin_black_24dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -70,7 +69,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_share_black_24dp" />
 
         <TextView
@@ -98,7 +97,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_icon_add_to_another_reading_list" />
 
         <TextView
@@ -126,7 +125,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_icon_move_to_another_reading_list" />
 
         <TextView
@@ -153,7 +152,7 @@
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_check_box_black_24dp"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             android:contentDescription="@null"/>
         <TextView
             android:layout_width="0dp"
@@ -186,7 +185,7 @@
             android:layout_marginStart="@dimen/list_item_horizontal_padding"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_delete_white_24dp" />
 
         <TextView

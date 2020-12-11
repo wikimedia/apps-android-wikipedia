@@ -2,8 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:contentDescription="@null"
             android:padding="16dp"
-            android:tint="?attr/toolbar_title_color"
+            app:tint="?attr/material_theme_primary_color"
             app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
         <LinearLayout
@@ -95,7 +94,7 @@
                     android:lineSpacingExtra="6sp"
                     android:textColor="?attr/material_theme_primary_color"
                     android:textSize="14sp"
-                    android:text="@string/suggested_edits_contribution_current_revision"
+                    android:text="@string/suggested_edits_contribution_current_revision_text"
                     android:textStyle="italic" />
             </LinearLayout>
 
@@ -150,22 +149,22 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
+            <org.wikipedia.userprofile.ContributionDiffDetailView
                 android:id="@+id/pageViewsDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
+            <org.wikipedia.userprofile.ContributionDiffDetailView
                 android:id="@+id/typeDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
+            <org.wikipedia.userprofile.ContributionDiffDetailView
                 android:id="@+id/dateTimeDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
+            <org.wikipedia.userprofile.ContributionDiffDetailView
                 android:id="@+id/languageDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

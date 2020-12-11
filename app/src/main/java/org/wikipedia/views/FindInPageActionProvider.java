@@ -72,6 +72,8 @@ public class FindInPageActionProvider extends ActionProvider {
         ImageView searchCloseButton = searchView.findViewById(androidx.appcompat.R.id.search_close_btn);
         searchCloseButton.setEnabled(false);
         searchCloseButton.setImageDrawable(null);
+        DeviceUtil.setContextClickAsLongClick(findInPageNext);
+        DeviceUtil.setContextClickAsLongClick(findInPagePrev);
         return view;
     }
 

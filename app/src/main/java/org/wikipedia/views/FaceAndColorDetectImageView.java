@@ -8,29 +8,36 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.FaceDetector;
 import android.net.Uri;
 import android.util.AttributeSet;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.core.content.ContextCompat;
 import androidx.palette.graphics.Palette;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.MultiTransformation;
+import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
-import org.wikipedia.R;
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.MathUtil;
+import org.wikipedia.util.WhiteBackgroundTransformation;
 import org.wikipedia.util.log.L;
 
 import java.security.MessageDigest;
@@ -42,6 +49,8 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private static final Paint DEFAULT_PAINT = new Paint(PAINT_FLAGS);
     private static final int BITMAP_COPY_WIDTH = 200;
     private static final CenterCropWithFace FACE_DETECT_TRANSFORM = new CenterCropWithFace();
+    private static final MultiTransformation<Bitmap> FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS = new MultiTransformation<>(FACE_DETECT_TRANSFORM, ViewUtil.getRoundedCorners());
+    private static final MultiTransformation<Bitmap> CENTER_CROP_WHITE_BACKGROUND = new MultiTransformation<>(new CenterCrop(), new WhiteBackgroundTransformation());
     private static final Paint PAINT_WHITE = new Paint();
     private static final Paint PAINT_DARK_OVERLAY = new Paint();
 
@@ -49,6 +58,11 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         final int blackAlpha = 100;
         PAINT_WHITE.setColor(Color.WHITE);
         PAINT_DARK_OVERLAY.setColor(Color.argb(blackAlpha, 0, 0, 0));
+    }
+
+    public interface OnImageLoadListener {
+        void onImageLoaded(@NonNull Palette palette);
+        void onImageFailed();
     }
 
     public FaceAndColorDetectImageView(Context context) {
@@ -64,22 +78,58 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     }
 
     public void loadImage(@Nullable Uri uri) {
+        loadImage(uri, false, null);
+    }
+
+    public void loadImage(@Nullable Uri uri, boolean roundedCorners, @Nullable OnImageLoadListener listener) {
         Drawable placeholder = ViewUtil.getPlaceholderDrawable(getContext());
         if (!isImageDownloadEnabled() || uri == null) {
             setImageDrawable(placeholder);
             return;
         }
-        Glide.with(this)
+        RequestBuilder<Drawable> builder = Glide.with(this)
                 .load(uri)
                 .placeholder(placeholder)
                 .error(placeholder)
-                .downsample(DownsampleStrategy.CENTER_INSIDE)
-                .transform(FACE_DETECT_TRANSFORM)
-                .into(this);
+                .downsample(DownsampleStrategy.CENTER_INSIDE);
+
+        if (listener != null) {
+            builder = builder.listener(new RequestListener<Drawable>() {
+                @Override
+                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                    listener.onImageFailed();
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                    if (resource instanceof BitmapDrawable && ((BitmapDrawable) resource).getBitmap() != null) {
+                        listener.onImageLoaded(Palette.from(((BitmapDrawable) resource).getBitmap()).generate());
+                    } else {
+                        listener.onImageFailed();
+                    }
+                    return false;
+                }
+            });
+        }
+
+        if (shouldDetectFace(uri)) {
+            builder = builder.transform(roundedCorners ? FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS : FACE_DETECT_TRANSFORM);
+        } else {
+            builder = builder.transform(roundedCorners ? ViewUtil.getCenterCropLargeRoundedCorners() : CENTER_CROP_WHITE_BACKGROUND);
+        }
+
+        builder.into(this);
     }
 
     public void loadImage(@DrawableRes int id) {
         this.setImageResource(id);
+    }
+
+    private static boolean shouldDetectFace(@NonNull Uri uri) {
+        // TODO: not perfect; should ideally detect based on MIME type.
+        String path = StringUtils.defaultString(uri.getPath()).toLowerCase();
+        return path.endsWith(".jpg") || path.endsWith(".jpeg");
     }
 
     private static class CenterCropWithFace extends BitmapTransformation {
@@ -108,18 +158,15 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             }
 
             PointF facePos = null;
-            @ColorInt int mainColor = ContextCompat.getColor(WikipediaApp.getInstance(), R.color.base30);
 
             if (isBitmapEligibleForImageProcessing(inBitmap)) {
                 Bitmap testBmp = new565ScaledBitmap(pool, inBitmap);
-                Palette colorPalette = Palette.from(testBmp).generate();
                 try {
                     facePos = detectFace(testBmp);
                 } catch (OutOfMemoryError e) {
                     L.logRemoteErrorIfProd(e);
                 }
                 pool.put(testBmp);
-                mainColor = extractMainColor(colorPalette, mainColor);
             }
 
             float scale;
@@ -134,6 +181,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             } else {
                 scale = (float) width / (float) inBitmap.getWidth();
                 dx = 0;
+                dy = 0;
 
                 // apply face offset if we have one
                 if (facePos != null) {
@@ -143,8 +191,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                     } else if (dy < -(inBitmap.getHeight() * scale - height)) {
                         dy = -(inBitmap.getHeight() * scale - height);
                     }
-                } else {
-                    dy = (height - inBitmap.getHeight() * scale) * half;
                 }
             }
 
@@ -161,7 +207,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     }
 
     private static Bitmap.Config getNonNullConfig(@NonNull Bitmap bitmap) {
-        return bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888;
+        return bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.RGB_565;
     }
 
     public static void applyMatrixWithBackground(@NonNull Bitmap inBitmap, @NonNull Bitmap targetBitmap, @NonNull Matrix matrix) {
@@ -211,16 +257,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         paint.setColor(Color.BLACK);
         canvas.drawBitmap(src, srcRect, destRect, paint);
         return copy;
-    }
-
-    @ColorInt private static int extractMainColor(@NonNull Palette colorPalette, @ColorInt int defaultColor) {
-        int mainColor = defaultColor;
-        if (colorPalette.getDarkMutedSwatch() != null) {
-            mainColor = colorPalette.getDarkMutedSwatch().getRgb();
-        } else if (colorPalette.getDarkVibrantSwatch() != null) {
-            mainColor = colorPalette.getDarkVibrantSwatch().getRgb();
-        }
-        return mainColor;
     }
 
     private static boolean isBitmapEligibleForImageProcessing(@NonNull Bitmap bitmap) {

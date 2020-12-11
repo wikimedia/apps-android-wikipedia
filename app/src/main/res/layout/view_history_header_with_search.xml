@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/search_card"
+        layout="@layout/view_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/history_title"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="10sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/history_list_title"
+            android:textColor="?attr/primary_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/history_filter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:contentDescription="@string/history_filter_list_hint"
+            android:focusable="true"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_baseline_filter_list_24"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <ImageView
+            android:id="@+id/history_delete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:clickable="true"
+            android:contentDescription="@string/menu_clear_all_history"
+            android:focusable="true"
+            android:background="?attr/actionBarItemBackground"
+            android:scaleType="fitEnd"
+            app:srcCompat="@drawable/ic_delete_white_24dp"
+            app:tint="?attr/material_theme_secondary_color" />
+    </LinearLayout>
+</LinearLayout>

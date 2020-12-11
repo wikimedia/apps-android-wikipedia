@@ -1,53 +1,40 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    tools:parentTag="android.widget.LinearLayout">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/article_menu_bookmark"
         style="@style/PageActionTabLayoutButtonStyle"
-        android:contentDescription="@string/article_menu_bar_bookmark"
         android:tag="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
+        android:text="@string/article_menu_bar_save_button"
+        app:drawableTopCompat="@drawable/ic_bookmark_border_white_24dp" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/article_menu_share"
-        style="@style/PageActionTabLayoutButtonStyle"
-        android:contentDescription="@string/article_menu_bar_share"
-        android:tag="1"
-        app:layout_constraintStart_toEndOf="@+id/article_menu_bookmark"
-        app:srcCompat="@drawable/ic_share_white_24dp" />
-
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/article_menu_change_language"
         style="@style/PageActionTabLayoutButtonStyle"
-        android:contentDescription="@string/menu_page_other_languages"
-        android:tag="2"
-        app:layout_constraintStart_toEndOf="@+id/article_menu_share"
-        app:srcCompat="@drawable/ic_translate_white_24dp" />
+        android:tag="1"
+        android:text="@string/article_menu_bar_language_button"
+        app:drawableTopCompat="@drawable/ic_translate_white_24dp" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/article_menu_find_in_page"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/article_menu_search"
         style="@style/PageActionTabLayoutButtonStyle"
-        android:contentDescription="@string/menu_page_find_in_page"
-        android:tag="3"
-        app:layout_constraintStart_toEndOf="@+id/article_menu_change_language"
-        app:srcCompat="@drawable/ic_find_in_page" />
+        android:tag="2"
+        android:text="@string/menu_page_find_in_page"
+        app:drawableTopCompat="@drawable/ic_find_in_page_24px" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/article_menu_font_and_theme"
         style="@style/PageActionTabLayoutButtonStyle"
-        android:contentDescription="@string/menu_page_font_and_theme"
-        android:tag="4"
-        app:layout_constraintStart_toEndOf="@+id/article_menu_find_in_page"
-        app:srcCompat="@drawable/ic_format_size_white_24dp" />
+        android:tag="3"
+        android:text="@string/article_menu_bar_theme_button"
+        app:drawableTopCompat="@drawable/ic_icon_format_size" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/article_menu_show_toc"
         style="@style/PageActionTabLayoutButtonStyle"
-        android:contentDescription="@string/menu_show_toc"
-        android:tag="5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_list_white_24dp" />
+        android:tag="4"
+        android:text="@string/article_menu_bar_contents_button"
+        app:drawableTopCompat="@drawable/ic_icon_list" />
 </merge>

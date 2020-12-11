@@ -135,7 +135,7 @@ public class TabActivity extends BaseActivity {
         tabCountsView.updateTabCount();
         launchedFromPageActivity = getIntent().hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
+        FeedbackUtil.setButtonLongPressToast(tabCountsView);
 
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
@@ -271,12 +271,6 @@ public class TabActivity extends BaseActivity {
                 return true;
             case R.id.menu_explore:
                 goToMainTab(NavTab.EXPLORE);
-                return true;
-            case R.id.menu_reading_lists:
-                goToMainTab(NavTab.READING_LISTS);
-                return true;
-            case R.id.menu_history:
-                goToMainTab(NavTab.HISTORY);
                 return true;
             default:
                 break;

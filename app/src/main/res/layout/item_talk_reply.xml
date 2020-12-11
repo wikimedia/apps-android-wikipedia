@@ -1,0 +1,42 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <ImageView
+        android:id="@+id/replyIndentArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/replyText"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/ic_reply_24"
+        app:tint="?attr/material_theme_de_emphasised_color"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/replyText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/replyIndentArrow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="?attr/material_theme_primary_color"
+        android:textSize="16sp"
+        android:lineSpacingExtra="6sp"
+        android:textColorLink="?attr/colorAccent"
+        android:textIsSelectable="true"
+        tools:text="Lorem ipsum" />
+
+    <Space
+        android:id="@+id/replyBottomSpace"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/replyText"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

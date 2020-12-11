@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
@@ -39,7 +38,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         taskIcon.setImageResource(task.imageDrawable)
         taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
 
-        clickContainer.setOnClickListener {
+        setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }

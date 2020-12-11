@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Arifin.wijaya
 * Diki Ananta
+* MuratTheTurkish
 * N219
 * Naufal06
 * NoiX180
@@ -18,11 +19,8 @@
   <string name="nav_item_forward">Maju</string>
   <string name="search_hint">Golèk ing Wikipédia</string>
   <string name="search_hint_voice_search">Golèk sarana swara</string>
-  <string name="search_hint_search_history">Golèk ing sajarah</string>
   <string name="search_hint_search_languages">Golèk basa</string>
-  <string name="search_hint_search_my_lists_and_articles">Golèk pratélan lan artikelku</string>
-  <string name="nav_item_history">Sajarah</string>
-  <string name="nav_item_suggested_edits">Besutan kang kaprayogakaké</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Besutan kang kaprayogakaké</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>
   <string name="page_error_retry">Jajal manèh</string>
   <string name="card_offline_error_retry">Jajal manèh</string>
@@ -46,7 +44,7 @@
   <string name="search_redirect_from">Ingalihan saka %s</string>
   <string name="menu_page_show_tabs">Tuduhaké tab</string>
   <string name="menu_page_other_languages">Owah basa</string>
-  <string name="menu_page_find_in_page">Golèk ing kaca</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Golèk ing kaca</string>
   <string name="edit_section_find_in_page">Golèk ing kaca</string>
   <string name="menu_page_font_and_theme">Fon lan irah-irahan</string>
   <string name="menu_page_add_to_list">Wuwuhaké ing pratélan wacan</string>
@@ -170,7 +168,6 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim lapuran rusak</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
   <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
-  <string name="history_search_list_hint">Sajarah golèkan</string>
   <string name="error_can_not_process_link">Ora bisa nuduhaké pranala iki</string>
   <string name="page_protected_autoconfirmed">Kaca iki wis semu-kareksa.</string>
   <string name="page_protected_sysop">Kaca iki wis kareksa wutuh.</string>
@@ -183,7 +180,7 @@
   <string name="about_description">Babagan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Pranatan bab priangga</string>
   <string name="terms_of_use_description">Bebakuning Pangguna</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://jv.m.wikipedia.org/wiki/Wikipedia:Bab</string>
+  <string name="about_wikipedia_url">https://jv.wikipedia.org/wiki/Wikipedia:Bab</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -228,7 +225,6 @@
   <string name="abusefilter_title_disallow">Kowé ora bisa mbabar besutan iki. Mangga balik lan owahi.</string>
   <string name="abusefilter_text_warn">Saringan otomatis ngonangi yèn besutan iki ngemu surasa sing ora mbangun. Bokmanawa sebabé salah siji saka iki:&lt;br /&gt;&lt;br /&gt;· Tulisané mawa huruf gedhé kabèh&lt;br /&gt;· Ngosongaké artikel utawa nyampah&lt;br /&gt;· Pranala njaba utawa gambar sing ora salaras&lt;br /&gt;· Karakter sing mbolan-mbalèni</string>
   <string name="abusefilter_text_disallow">Saringan otomatis ngonangi yèn besutan iki duwé potènsi sing ora mbangun, utawa vandhalisme.&lt;br /&gt;&lt;br /&gt;Wikipédia iku bauwarna lan mligi kontèn sing ora bot-sih tur wigati sing kena dipacak ing kéné.</string>
-  <string name="text_size_select">Ukuran fon</string>
   <string name="page_similar_titles">Kaca sairib</string>
   <string name="search_did_you_mean">Bokmanawa sing koarepaké \"%s\"?</string>
   <string name="search_recent_header">Golèkan mentas waé:</string>
@@ -255,7 +251,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Idinaké</string>
   <string name="read_more_section">Waca candhaké</string>
   <string name="about_article_section">Bab artikel iki</string>
-  <string name="menu_gallery_visit_page">Menyang kaca barkas</string>
+  <string name="menu_gallery_visit_image_page">Menyang kaca barkas</string>
   <string name="gallery_error_draw_failed">Ora bisa majang gambar.</string>
   <string name="license_title">Lisènsi kanggo %s</string>
   <string name="gallery_menu_share">Dum</string>
@@ -295,7 +291,7 @@
   <string name="error_no_maps_app">Ora bisa nemu aplikasi kang nyawisaké pituduh.</string>
   <string name="preference_title_show_link_previews">Tuduhaké pratuduhing pranala</string>
   <string name="preference_summary_show_link_previews">Tuduhaké pratuduh rikat saka artikel nalika nunyuk ing pranala.</string>
-  <string name="nav_item_donate">Sengkuyung Wikipédia</string>
+  <string name="nav_item_donate" fuzzy="true">Sengkuyung Wikipédia</string>
   <string name="error_voice_search_not_available">Nyuwun pangapura, paniti swara ora cumawis.</string>
   <string name="location_service_disabled">Layanan pernah mati.</string>
   <string name="enable_location_service">Urubaké</string>
@@ -315,8 +311,6 @@
   <string name="crash_report_relaunch_or_quit">Awak dhéwé nyuwun pangapura, aplikasi Wikipédia ngalami masalah mula dipatèni.\n\nApa kowé gelem mbalèni utawa metu waé?</string>
   <string name="crash_report_relaunch">Balèni kawit pisanan</string>
   <string name="crash_report_quit">Metu</string>
-  <string name="article_menu_bar_bookmark">Tambah artikel iki nyang pratélan wacan</string>
-  <string name="article_menu_bar_share">Dum pranalané artikel</string>
   <string name="article_header_edit_hint">Mbesut...</string>
   <string name="article_header_edit_description">Besut wedharaning artikel</string>
   <string name="article_header_edit_lead_section">Besut bebuka</string>
@@ -496,11 +490,8 @@
   <string name="preference_summary_notification_user_talk">Layang saka parembugan</string>
   <string name="view_because_you_read_card_title">Amarga panjenengan maca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
-  <string name="view_random_card_subtitle">Waca sembarang artikelé Wikipédia.</string>
-  <string name="view_random_card_action">Uncalaké dhadhu</string>
   <string name="view_next_random_article">Mot sembarang artikel siji liyané</string>
   <string name="view_main_page_card_title">Dina iki ing Wikipédia</string>
-  <string name="view_main_page_card_subtitle">Kaca tepas ing %s</string>
   <string name="view_main_page_card_action">Deleng tepas</string>
   <string name="view_featured_image_card_title">Gambar dina iki</string>
   <string name="view_featured_image_card_download">Undhuh</string>
@@ -510,7 +501,6 @@
   <string name="menu_feed_overflow_label">Opsi liyané</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan saka Wikimedia Commons</string>
   <string name="feed">Dlajah</string>
-  <string name="most_read_list_card_title">Lagi mumbul</string>
   <string name="view_static_card_icon_content_description">Ikon kertu</string>
   <string name="view_card_news_title">Lagi dadi warta</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -520,7 +510,6 @@
   <string name="view_continue_reading_card_subtitle_today">dina iki</string>
   <string name="view_continue_reading_card_subtitle_read_date">Kawaca %s</string>
   <string name="view_announcement_card_negative_action">Ora, matur nuwun</string>
-  <string name="onboarding_negative_action">Ora, suwun</string>
   <string name="view_offline_card_text">Isèn-isèné ora bisa dimot nalika ing njaban jaringan.</string>
   <string name="view_featured_article_card_title">Artikel pethingan</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
@@ -578,10 +567,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Prayogané salarik, tembungé cacahé antarané loro tekan rolas</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Kanthi miwiti, kula jangji ora nyalahi panganggoné fitur iki.</string>
-  <string name="suggested_edits_add_descriptions">Wuwuh wedharaning artikel</string>
-  <string name="suggested_edits_translate_descriptions">Pertal wedharaning artikel</string>
-  <string name="suggested_edits_add_image_captions">Wuwuh kateranganing gambar</string>
-  <string name="suggested_edits_translate_image_captions">Pertal kateranganing gambar</string>
   <string name="suggested_edits_review_description">Priksa wedharaning artikel</string>
   <string name="suggested_edits_add_description_button">Wuwuh wedharan</string>
   <string name="suggested_edits_edit_description_button">Besut wedharan</string>
@@ -649,13 +634,10 @@
   <string name="app_shortcuts_random">Sembarang</string>
   <string name="app_shortcuts_continue_reading">Bacutaké maca</string>
   <string name="app_shortcuts_search">Golèk</string>
-  <string name="more_trending_text">Liyané kang kaya iki</string>
-  <string name="top_on_this_day">Mumbul ing %1$s</string>
   <string name="on_this_day_card_title">Ing dina iki</string>
   <string name="more_events_text">Liyané ing dina iki</string>
   <string name="events_count_text">%1$s kadadéan saka %2$s–%3$d</string>
   <string name="this_year">Taun iki</string>
-  <string name="back_to_top">Bali munggah</string>
   <plurals name="diff_years">
     <item quantity="one">Taun kapungkur</item>
     <item quantity="other">%d taun kapungkur</item>

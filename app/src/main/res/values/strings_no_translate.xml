@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">@string/app_name_prod</string>
     <string name="channel" />
     <string name="appcenter_id">eb167874-c1d6-5694-30a9-bcfd71d4c24d</string>
@@ -23,11 +23,13 @@
     <!-- Long press menu -->
     <string name="menu_long_press_share_page">@string/menu_page_share</string>
     <string name="menu_long_press_add_to_list">@string/menu_page_add_to_list</string>
+    <string name="menu_long_press_add_to_default_list">@string/menu_page_add_to_default_list</string>
 
     <!-- Link preview menu -->
     <string name="menu_link_preview_copy_link">@string/menu_long_press_copy_page</string>
     <string name="menu_link_preview_share_page">@string/menu_page_share</string>
     <string name="menu_link_preview_add_to_list">@string/menu_page_add_to_list</string>
+    <string name="menu_link_preview_add_to_default_list">@string/menu_page_add_to_default_list</string>
 
     <!-- The Feed -->
     <string name="nav_item_feed">@string/feed</string>
@@ -56,9 +58,14 @@
 
     <!-- Transition names -->
     <string name="transition_news_item">newsItemTransition</string>
+    <string name="transition_search_bar">searchBarTransition</string>
     <string name="transition_random_activity">randomActivityTransition</string>
     <string name="transition_on_this_day">onThisDayTransition</string>
-    <string name="transition_floating_queue">floatingQueue</string>
+    <string name="transition_article_image">articleImageTransition</string>
+    <string name="transition_article_title">articleTitleTransition</string>
+    <string name="transition_article_description">articleDescriptionTransition</string>
+    <string name="transition_article_divider">articleDivider</string>
+    <string name="transition_page_gallery">pageGalleryTransition</string>
 
     <!-- Miscellaneous -->
     <string name="text_size_percent">%d%%</string>
@@ -68,4 +75,7 @@
     <string name="empty" />
     <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
 
+    <!-- Font family -->
+    <string name="font_family_sans_serif">sans-serif</string>
+    <string name="font_family_serif">serif</string>
 </resources>

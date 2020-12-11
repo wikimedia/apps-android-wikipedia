@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,7 +35,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
-import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageAvailableOfflineHandler;
@@ -50,11 +48,13 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.MessageCardView;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
@@ -87,7 +87,7 @@ public class ReadingListsFragment extends Fragment implements
     @BindView(R.id.empty_title) TextView emptyTitle;
     @BindView(R.id.empty_message) TextView emptyMessage;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
-    @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
+    @BindView(R.id.onboarding_view) MessageCardView onboardingView;
     @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
 
     private List<Object> displayedLists = new ArrayList<>();
@@ -104,6 +104,7 @@ public class ReadingListsFragment extends Fragment implements
     private OverflowCallback overflowCallback = new OverflowCallback();
     private String currentSearchQuery;
     private static final int SAVE_COUNT_LIMIT = 3;
+    private static final int SHOW_ONBOARDING_VISIT_COUNT = 2;
     public static final int ARTICLE_ITEM_IMAGE_DIMENSION = 57;
 
     @NonNull public static ReadingListsFragment newInstance() {
@@ -124,18 +125,28 @@ public class ReadingListsFragment extends Fragment implements
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
-        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, true, false));
-
+        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable));
+        setUpScrollListener();
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> refreshSync(ReadingListsFragment.this, swipeRefreshLayout));
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
+        searchEmptyView.setVisibility(View.GONE);
 
         enableLayoutTransition(true);
-
         return view;
+    }
+
+    private void setUpScrollListener() {
+        readingListView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                ((MainActivity) requireActivity()).updateToolbarElevation(readingListView.computeVerticalScrollOffset() != 0);
+            }
+        });
     }
 
     @Override
@@ -148,6 +159,7 @@ public class ReadingListsFragment extends Fragment implements
     public void onDestroyView() {
         disposables.clear();
         readingListView.setAdapter(null);
+        readingListView.clearOnScrollListeners();
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -315,11 +327,9 @@ public class ReadingListsFragment extends Fragment implements
         if (enable) {
             contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
             emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-            ((ViewGroup) emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         } else {
             contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
             emptyContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
-            ((ViewGroup) emptyContainer.getChildAt(0)).getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
         }
     }
 
@@ -328,7 +338,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void updateLists(@Nullable final String searchQuery, boolean forcedRefresh) {
-        maybeShowOnboarding();
+        maybeShowOnboarding(searchQuery);
         ReadingListBehaviorsUtil.INSTANCE.searchListsAndPages(searchQuery, lists -> {
             DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
                 @Override
@@ -367,6 +377,14 @@ public class ReadingListsFragment extends Fragment implements
                     || (!TextUtils.isEmpty(currentSearchQuery)
                     && !TextUtils.isEmpty(searchQuery)
                     && !currentSearchQuery.equals(searchQuery));
+
+            // if the default list is empty, then removes it.
+            if (lists.size() == 1 && (lists.get(0) instanceof ReadingList)
+                    && ((ReadingList) lists.get(0)).isDefault()
+                    && ((ReadingList) lists.get(0)).pages().isEmpty()) {
+                lists.remove(0);
+            }
+
             displayedLists = lists;
             if (invalidateAll) {
                 adapter.notifyDataSetChanged();
@@ -383,7 +401,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void maybeShowListLimitMessage() {
-        if (displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+        if (actionMode == null && displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
             String message = getString(R.string.reading_lists_limit_message);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
         }
@@ -392,16 +410,12 @@ public class ReadingListsFragment extends Fragment implements
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            if (displayedLists.size() == 1) {
-                setEmptyContainerVisibility(true);
-                setUpEmptyContainer();
-            }
-            setEmptyContainerVisibility(displayedLists.size() == 1);
+            setUpEmptyContainer();
+            setEmptyContainerVisibility(displayedLists.isEmpty() && onboardingView.getVisibility() == View.GONE);
         } else {
             searchEmptyView.setVisibility(displayedLists.isEmpty() ? View.VISIBLE : View.GONE);
             setEmptyContainerVisibility(false);
         }
-        contentContainer.setVisibility(displayedLists.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
     private void setEmptyContainerVisibility(boolean visible) {
@@ -415,7 +429,10 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void setUpEmptyContainer() {
-        if (displayedLists.get(0) instanceof ReadingList && !((ReadingList) displayedLists.get(0)).pages().isEmpty()) {
+        if (displayedLists.size() == 1
+                && displayedLists.get(0) instanceof ReadingList
+                && ((ReadingList) displayedLists.get(0)).isDefault()
+                && !((ReadingList) displayedLists.get(0)).pages().isEmpty()) {
             emptyTitle.setText(getString(R.string.no_user_lists_title));
             emptyMessage.setText(getString(R.string.no_user_lists_msg));
         } else {
@@ -665,14 +682,14 @@ public class ReadingListsFragment extends Fragment implements
             actionMode = mode;
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false);
+            onboardingView.setVisibility(View.GONE);
+            ((MainFragment) getParentFragment()).setBottomNavVisible(false);
             return super.onCreateActionMode(mode, menu);
         }
 
         @Override
         protected void onQueryChange(String s) {
             String searchString = s.trim();
-            ((MainFragment) getParentFragment())
-                    .setBottomNavVisible(searchString.length() == 0);
             updateLists(searchString, false);
         }
 
@@ -682,12 +699,13 @@ public class ReadingListsFragment extends Fragment implements
             enableLayoutTransition(true);
             actionMode = null;
             currentSearchQuery = null;
+            ((MainFragment) getParentFragment()).setBottomNavVisible(true);
             updateLists();
         }
 
         @Override
         protected String getSearchHintString() {
-            return requireContext().getResources().getString(R.string.search_hint_search_my_lists_and_articles);
+            return requireContext().getResources().getString(R.string.filter_hint_filter_my_lists_and_articles);
         }
 
         @Override
@@ -726,59 +744,42 @@ public class ReadingListsFragment extends Fragment implements
         }
     }
 
-    private void maybeShowOnboarding() {
-        onboardingContainer.removeAllViews();
-
+    private void maybeShowOnboarding(@Nullable String searchQuery) {
+        onboardingView.setVisibility(View.GONE);
+        if (!TextUtils.isEmpty(searchQuery)) {
+            return;
+        }
         if (AccountUtil.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
                 && Prefs.isReadingListSyncReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            OnboardingView onboardingView = new OnboardingView(requireContext());
-            onboardingView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.base20));
-            onboardingView.setTitle(R.string.reading_lists_sync_reminder_title);
-            onboardingView.setText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)));
-            onboardingView.setPositiveAction(R.string.reading_lists_sync_reminder_action);
-            onboardingContainer.addView(onboardingView);
-            onboardingView.setCallback(new SyncReminderOnboardingCallback());
-
+            onboardingView.setMessageTitle(getString((R.string.reading_lists_sync_reminder_title)));
+            onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString());
+            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true);
+            onboardingView.setPositiveButton(R.string.reading_lists_sync_reminder_action,
+                    view -> ReadingListSyncAdapter.setSyncEnabledWithSetup(), true);
+            onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, view -> {
+                onboardingView.setVisibility(View.GONE);
+                Prefs.setReadingListSyncReminderEnabled(false);
+            }, false);
+            onboardingView.setVisibility(View.VISIBLE);
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            OnboardingView onboardingView = new OnboardingView(requireContext());
-            onboardingView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.base20));
-            onboardingView.setTitle(R.string.reading_list_login_reminder_title);
-            onboardingView.setText(R.string.reading_lists_login_reminder_text);
-            onboardingView.setNegativeAction(R.string.reading_lists_onboarding_got_it);
-            onboardingView.setPositiveAction(R.string.reading_lists_sync_login);
-            onboardingContainer.addView(onboardingView);
-            onboardingView.setCallback(new LoginReminderOnboardingCallback());
-        }
-    }
+            onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));
+            onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text));
+            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true);
+            onboardingView.setPositiveButton(R.string.reading_lists_login_button,
+                    view -> {
+                        if (getParentFragment() instanceof FeedFragment.Callback) {
+                            ((FeedFragment.Callback) getParentFragment()).onLoginRequested();
+                        }
+                    }, true);
 
-    private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
-        @Override
-        public void onPositiveAction() {
-            ReadingListSyncAdapter.setSyncEnabledWithSetup();
-            maybeShowOnboarding();
-        }
-
-        @Override
-        public void onNegativeAction() {
-            Prefs.setReadingListSyncReminderEnabled(false);
-            maybeShowOnboarding();
-        }
-    }
-
-    private class LoginReminderOnboardingCallback implements OnboardingView.Callback {
-        @Override
-        public void onPositiveAction() {
-            if (getParentFragment() instanceof FeedFragment.Callback) {
-                ((FeedFragment.Callback) getParentFragment()).onLoginRequested();
-            }
-        }
-
-        @Override
-        public void onNegativeAction() {
-            Prefs.setReadingListLoginReminderEnabled(false);
-            maybeShowOnboarding();
+            onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, view -> {
+                onboardingView.setVisibility(View.GONE);
+                Prefs.setReadingListLoginReminderEnabled(false);
+                updateEmptyState(null);
+            }, false);
+            onboardingView.setVisibility(View.VISIBLE);
         }
     }
 }

@@ -41,7 +41,7 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
 
         pref = findPreference(R.string.preference_key_notification_revert_enable);
         drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_revert);
-        DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.base20));
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.material_theme_secondary_color));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_mention_enable);
@@ -51,7 +51,7 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
 
         pref = findPreference(R.string.preference_key_notification_login_fail_enable);
         drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_user_avatar);
-        DrawableCompat.setTint(drawable, ContextCompat.getColor(getActivity(), R.color.base0));
+        DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.material_theme_secondary_color));
         pref.setIcon(drawable);
 
         pref = findPreference(R.string.preference_key_notification_user_talk_enable);

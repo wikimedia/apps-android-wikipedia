@@ -5,4 +5,5 @@
     android:layout_width="@dimen/linkPreviewImageSize"
     android:layout_height="@dimen/linkPreviewImageSize"
     android:layout_margin="5dp"
+    android:scaleType="fitCenter"
     android:contentDescription="@null" />

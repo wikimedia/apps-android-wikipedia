@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedConfigureFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
@@ -41,6 +42,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED;
 
 public class ConfigureFragment extends Fragment implements ConfigureItemView.Callback {
     @BindView(R.id.content_types_recycler) RecyclerView recyclerView;
@@ -176,6 +178,10 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                 i.remove();
                 continue;
             }
+            if (!AccountUtil.isLoggedIn() && feedContentType == FeedContentType.SUGGESTED_EDITS) {
+                i.remove();
+                continue;
+            }
             List<String> supportedLanguages = feedContentType.getLangCodesSupported();
             if (supportedLanguages.isEmpty()) {
                 continue;
@@ -224,7 +230,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     }
 
     private void touch() {
-        requireActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
+        requireActivity().setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED);
     }
 
     private class ConfigureItemHolder extends DefaultViewHolder<ConfigureItemView> {

@@ -11,6 +11,8 @@
 * Jeluang Terluang
 * Kurniasan
 * Macofe
+* MuratTheTurkish
+* SHaran (WMF)
 * Tofeiku
 -->
 <resources>
@@ -23,11 +25,8 @@
   <string name="nav_item_forward">Maju</string>
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="search_hint_voice_search">Carian input suara</string>
-  <string name="search_hint_search_history">Cari dalam sejarah</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
-  <string name="search_hint_search_my_lists_and_articles">Cari senarai dan rencana saya</string>
-  <string name="nav_item_history">Sejarah</string>
-  <string name="nav_item_suggested_edits">Penyuntingan yang disarankan</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="card_offline_error_retry">Cuba lagi</string>
@@ -51,7 +50,7 @@
   <string name="search_redirect_from">Dilencongkan dari %s</string>
   <string name="menu_page_show_tabs">Paparkan tab</string>
   <string name="menu_page_other_languages">Tukar bahasa</string>
-  <string name="menu_page_find_in_page">Cari dalam laman</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Cari dalam laman</string>
   <string name="edit_section_find_in_page">Cari dalam laman</string>
   <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke senarai bacaan</string>
@@ -111,7 +110,7 @@
   <string name="reading_lists_sync_login">Log masuk</string>
   <string name="create_account_login">Log masuk</string>
   <string name="menu_login">Log masuk</string>
-  <string name="login_activity_title" fuzzy="true">Log masuk ke dalam Wikipedia</string>
+  <string name="login_activity_title">Log masuk</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
   <string name="login_success_toast">Sudah log masuk</string>
   <string name="reset_password_title">Tetapkan kata laluan anda</string>
@@ -177,7 +176,6 @@
   <string name="preference_title_auto_upload_crash_reports">Hantar laporan keruntuhan</string>
   <string name="preference_summary_auto_upload_crash_reports">Benarkan aplikasi untuk menghantar laporan kerosakan kepada pembekal perkhidmatan pihak ketiga secara automatik supaya kami dapat meninjau kerosakan anda dan membaiki kerosakan dengan lebih cepat dan lebih mudah.</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
-  <string name="history_search_list_hint">Cari dalam sejarah</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
   <string name="page_protected_autoconfirmed">Laman ini telah diberi perlindungan separa.</string>
   <string name="page_protected_sysop">Laman ini telah diberi perlindungan sepenuhnya.</string>
@@ -190,7 +188,7 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Dasar privasi</string>
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
-  <string name="about_wikipedia_url">https://ms.m.wikipedia.org/wiki/Wikipedia:Perihal</string>
+  <string name="about_wikipedia_url">https://ms.wikipedia.org/wiki/Wikipedia:Perihal</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -235,7 +233,6 @@
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh diterbitkan. Sila kembali dan suntingnya semula.</string>
   <string name="abusefilter_text_warn">Penapis automatik mendapati suntingan ini berkemungkinan adalah tidak membina. Mungkin ia ada antara yang berikut:&lt;br /&gt;&lt;br /&gt;. Menaip dalam huruf besar&lt;br /&gt;. Mengosongkan rencana atau menspam&lt;br /&gt;. Pautan luar atau imej-imej tidak berkaitan&lt;br /&gt;. Aksara berulang</string>
   <string name="abusefilter_text_disallow">Penapis automatik mendapati suntingan ini berkemungkinan tidak membina, atau laku musnah.&lt;br /&gt;&lt;br /&gt;Wikipedia ialah ensiklopedia dan hanya kandungan neutral, penting yang perlu di sini.</string>
-  <string name="text_size_select">Saiz fon</string>
   <string name="page_similar_titles">Laman-laman serupa</string>
   <string name="search_did_you_mean">Adakah maksud anda, \"%s\"?</string>
   <string name="search_recent_header">Carian terkini:</string>
@@ -262,7 +259,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Benarkan</string>
   <string name="read_more_section">Selanjutnya</string>
   <string name="about_article_section">Mengenai rencana ini</string>
-  <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
+  <string name="menu_gallery_visit_image_page">Pergi ke laman fail</string>
   <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
   <string name="license_title">Lesen untuk %s</string>
   <string name="gallery_menu_share">Kongsi</string>
@@ -310,11 +307,13 @@
   <string name="page_offline_notice_last_date">Anda membaca versi luar talian artikel ini disimpan pada %s.</string>
   <string name="button_get_directions">Tunjuk jalan</string>
   <string name="error_no_maps_app">Tidak dapat menemui sebarang aplikasi yang boleh menunjukkan jalan.</string>
+  <string name="preference_title_customize_explore_feed">Teroka Suapan</string>
   <string name="preference_title_show_link_previews">Paparkan pratonton pautan</string>
+  <string name="preference_summary_customize_explore_feed">Sesuaikan Teroka suapan</string>
   <string name="preference_summary_show_link_previews">Paparkan pratonton cepat bagi rencana apabila mengetik pautan.</string>
   <string name="preference_title_collapse_tables">Susut jadual</string>
   <string name="preference_summary_collapse_tables">Susut jadual secara automatik dalam rencana, seperti infobox, rujukan, dan nota.</string>
-  <string name="nav_item_donate">Sokonglah Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Sokonglah Wikipedia</string>
   <string name="error_voice_search_not_available">Maaf, pengenalan undi tidak tersedia.</string>
   <string name="location_service_disabled">Perkhidmatan lokasi dilumpuhkan.</string>
   <string name="enable_location_service">Hidupkan</string>
@@ -332,6 +331,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pemalapan imej (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Lebih suka kandungan luar talian</string>
   <string name="preference_summary_prefer_offline_content">Menjimatkan penggunaan data dengan memuatkan rencana yang tersedia di luar talian dan bukannya memuatkan versi terkini rencana</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Padankan tema sistem</string>
   <string name="page_footer_license_text">Kandungan tersedia di bawah $ 1 melainkan dinyatakan sebaliknya</string>
   <string name="empty_tab_title">Tab baru</string>
   <string name="menu_save_all_tabs">Simpan semua tab</string>
@@ -339,8 +339,10 @@
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
   <string name="crash_report_quit">Keluar</string>
-  <string name="article_menu_bar_bookmark">Tambahkan rencana ini ke dalam senarai bacaan</string>
-  <string name="article_menu_bar_share">Kongsi pautan rencana</string>
+  <string name="article_menu_bar_save_button">Simpan</string>
+  <string name="article_menu_bar_language_button">Bahasa</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Kandungan</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting huraian tajuk</string>
   <string name="article_header_edit_lead_section">Sunting pengenalan</string>
@@ -358,9 +360,13 @@
   <string name="text_size_percent_default">%s (Asal)</string>
   <string name="nav_item_reading_lists">Senarai saya</string>
   <string name="reading_list_save_to">Simpan ke senarai bacaan</string>
+  <string name="reading_list_move_to">Pindah ke senarai pembacaan</string>
   <string name="reading_list_create_new">Cipta yang baru</string>
   <string name="reading_list_title_exists">Senarai bacaan \"%s\" telah wujud.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">Semua baik! %s sudah mengandungi semua rencana dalam tab terbuka.</string>
+  <string name="reading_list_article_added_to_named">Menambah %1$s ke %2$s</string>
+  <string name="reading_list_article_moved_to_named">Memindahkan %1$s ke %2$s</string>
+  <string name="reading_list_article_already_exists_message">Semua baik! %1$s sudah mengandungi %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Semua baik! %s sudah mengandungi semua rencana.</string>
   <string name="reading_list_added_view_button">Lihat senarai</string>
   <string name="format_reading_list_statistical_summary_singular">1 rencana, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d rencana, %2$.2f MB</string>
@@ -381,6 +387,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Padam semua dari luar talian</string>
   <string name="reading_list_action_menu_save_all_for_offline">Simpan semua untuk luar talian</string>
   <string name="reading_list_action_menu_add_to_another_list">Tambah ke senarai lain</string>
+  <string name="reading_list_action_menu_move_to_another_list">Pindah ke senarai lain</string>
   <string name="reading_list_name_sample">Senarai bacaan saya</string>
   <string name="reading_list_name_hint">Nama senarai ini</string>
   <string name="reading_list_description_hint">Keterangan (tidak wajib)</string>
@@ -401,6 +408,8 @@
   <string name="reading_list_article_offline">Tersedia di luar talian</string>
   <string name="reading_list_article_make_offline">Membuat rencana ini tersedia di luar talian</string>
   <string name="reading_list_add_to_other_list">Tambah ke senarai bacaan lain</string>
+  <string name="reading_list_move_to_other_list">Pindah ke senarai pembacaan lain</string>
+  <string name="reading_list_move_from_to_other_list">Pindah dari %s ke senarai pembacaan lain</string>
   <string name="reading_list_remove_from_list">Padamkan dari %s</string>
   <string name="reading_list_remove_from_lists">Padamkan dari senarai bacaan</string>
   <string name="reading_list_select_item">Pilih</string>
@@ -417,6 +426,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Tidak</string>
   <string name="reading_list_article_save_in_progress">Rencana sedang dimuat turun, dan ia akan tersedia di luar talian apabila selesai.</string>
   <string name="reading_list_articles_added_to_named">%1$d ditambahkan ke %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Memindah rencana %1$d ke %2$s</string>
   <string name="reading_list_delete_confirm">Adakah anda benar-benar ingin memadamkan %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log masuk untuk mendayakan penyegerakan</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log masuk untuk membolehkan senarai bacaan anda disimpan ke akaun anda.</string>
@@ -437,9 +447,9 @@
   <string name="no_user_lists_msg">Buat senarai tempat untuk pergi ke, topik kegemaran, dan banyak lagi</string>
   <string name="reading_list_saved_list_rename">%1$s (dicipta pengguna)</string>
   <string name="split_reading_list_message">Terdapat had %d rencana setiap senarai bacaan. Senarai sedia ada dengan lebih daripada had ini telah dibahagikan kepada beberapa senarai.</string>
+  <string name="reading_list_move_article_limit_message">Tidak dapat memindah ke senarai ini. Anda telah mencapai had %2$d rencana per senarai bagi %1$s.</string>
   <string name="reading_list_article_limit_message">Tidak dapat menambah ke senarai ini. Anda telah mencapai had %2$d rencanabagi setiap senarai untuk senarai \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak dapat membuat senarai lain. Anda telah mencapai had 100 senarai bacaan setiap akaun.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Segerakkan senarai bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
   <string name="reading_lists_menu_create_list">Cipta senarai baru</string>
   <string name="reading_lists_menu_sort_by">Isih mengikut</string>
   <string name="reading_lists_refresh_sync_option">Segarkan semula penyegerakan</string>
@@ -531,11 +541,8 @@
   <string name="preference_summary_notification_user_talk">Pesanan dari halaman perbincangan</string>
   <string name="view_because_you_read_card_title">Kerana anda membaca</string>
   <string name="view_random_card_title">Rencana sembarang</string>
-  <string name="view_random_card_subtitle">Flip melalui rencana rawak untuk dibaca dari Wikipedia</string>
-  <string name="view_random_card_action">Membaling dadu</string>
   <string name="view_next_random_article">Muatkan satu lagi artikel rawak</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Laman utama pada %s</string>
   <string name="view_main_page_card_action">Lihat laman utama</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>
   <string name="view_featured_image_card_download">Muat turun</string>
@@ -545,7 +552,6 @@
   <string name="menu_feed_overflow_label">Opsyen lain</string>
   <string name="feed_featured_image_share_subject">Gambar pilihan dari Wikimedia Commons</string>
   <string name="feed">Jelajah</string>
-  <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kad</string>
   <string name="view_card_news_title">Berita terkini</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -555,7 +561,6 @@
   <string name="view_continue_reading_card_subtitle_today">hari ini</string>
   <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Tak apalah</string>
-  <string name="onboarding_negative_action">Tak apalah</string>
   <string name="view_offline_card_text">Kandungan tidak boleh dimuatkan semasa di luar talian.</string>
   <string name="view_featured_article_card_title">Rencana pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
@@ -617,12 +622,10 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>
   <string name="suggested_edits_menu_info">Maklumat</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
@@ -635,7 +638,8 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fail</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fail</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Penulis</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
   <string name="suggested_edits_image_caption_summary_title_license">Lesen</string>
   <string name="suggested_edits_image_caption_summary_title_date">Tarikh</string>
@@ -644,11 +648,12 @@
     <item quantity="other">%d sumbangan dalam apl</item>
   </plurals>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fail</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fail</string>
   <string name="suggested_edits_image_preview_dialog_date">Tarikh</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Perlesenan</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Laman fail di Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Laman fail di Wikipedia</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Papar</string>
   <string name="suggested_edits_task_action_text_add">Tambah</string>
   <string name="suggested_edits_task_action_text_translate">Terjemah</string>
   <string name="suggested_edits_image_tags_publishing">Menerbit</string>
@@ -682,13 +687,10 @@
   <string name="app_shortcuts_random">Rawak</string>
   <string name="app_shortcuts_continue_reading">Teruskan membaca</string>
   <string name="app_shortcuts_search">Cari</string>
-  <string name="more_trending_text">Lebih banyak seperti ini</string>
-  <string name="top_on_this_day">Sedang tren pada %1$s</string>
   <string name="on_this_day_card_title">Pada hari ini</string>
   <string name="more_events_text">Lebih banyak pada hari ini</string>
   <string name="events_count_text">%1$s peristiwa dari %2$s–%3$d</string>
   <string name="this_year">Tahun ini</string>
-  <string name="back_to_top">Kembali ke atas</string>
   <string name="on_this_day_dialog_next_month">Bulan seterusnya</string>
   <string name="on_this_day_dialog_previous_month">Bulan sebelumnya</string>
   <plurals name="diff_years">

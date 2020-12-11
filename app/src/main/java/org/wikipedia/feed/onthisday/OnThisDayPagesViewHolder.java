@@ -1,6 +1,7 @@
 package org.wikipedia.feed.onthisday;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
@@ -8,17 +9,29 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.card.MaterialCardView;
-
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MoveToReadingListDialog;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
+import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
@@ -26,29 +39,26 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
-public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
-    public interface ItemCallBack {
-        void onActionLongClick(@NonNull HistoryEntry entry);
-    }
+import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
 
+public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.page_list_item_title) TextView pageItemTitleTextView;
     @BindView(R.id.page_list_item_description) TextView pageItemDescTextView;
     @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView pageItemImageView;
-    @BindView(R.id.parent) View parent;
 
-    @Nullable private ItemCallBack itemCallback;
-
-    private WikiSite wiki;
-    private Activity activity;
+    private final WikiSite wiki;
+    private final Activity activity;
+    private final FragmentManager fragmentManager;
     private PageSummary selectedPage;
-    private final boolean isSingleCard;
+    private final ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
-    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull MaterialCardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
+    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull FragmentManager fragmentManager, @NonNull View v, @NonNull WikiSite wiki) {
         super(v);
         ButterKnife.bind(this, v);
         this.wiki = wiki;
-        this.isSingleCard = isSingleCard;
         this.activity = activity;
+        this.fragmentManager = fragmentManager;
+        DeviceUtil.setContextClickAsLongClick(v);
     }
 
     public void setFields(@NonNull PageSummary page) {
@@ -69,25 +79,53 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    @NonNull public OnThisDayPagesViewHolder setCallback(@Nullable ItemCallBack itemCallback) {
-        this.itemCallback = itemCallback;
-        return this;
+    @OnClick
+    void onBaseViewClicked() {
+        HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+        Pair<View, String>[] sharedElements = TransitionUtil.getSharedElements(activity, pageItemImageView);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, sharedElements);
+        Intent intent = PageActivity.newIntentForNewTab(activity, entry, entry.getTitle());
+        if (sharedElements.length > 0) {
+            intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true);
+        }
+        activity.startActivity(intent, DimenUtil.isLandscape(activity) || sharedElements.length == 0 ? null : options.toBundle());
     }
 
-    @OnClick(R.id.parent) void onBaseViewClicked() {
-        PageTitle pageTitle = new PageTitle(selectedPage.getApiTitle(), wiki);
-        HistoryEntry entry = new HistoryEntry(pageTitle,
-                isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+    @OnLongClick
+    boolean showOverflowMenu(View anchorView) {
+        HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
-        activity.startActivity(PageActivity.newIntentForCurrentTab(activity, entry, pageTitle));
-    }
+        new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
+            @Override
+            public void onAddRequest(boolean addToDefault) {
+                if (addToDefault) {
+                    ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(activity, entry.getTitle(), NEWS_ACTIVITY,
+                            readingListId ->
+                                    bottomSheetPresenter.show(fragmentManager,
+                                            MoveToReadingListDialog.newInstance(readingListId, entry.getTitle(), NEWS_ACTIVITY)));
+                } else {
+                    bottomSheetPresenter.show(fragmentManager,
+                            AddToReadingListDialog.newInstance(entry.getTitle(), NEWS_ACTIVITY));
+                }
+            }
 
-    @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
-        PageTitle pageTitle = new PageTitle(selectedPage.getApiTitle(), wiki);
-        HistoryEntry entry = new HistoryEntry(pageTitle,
-                isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
+            @Override
+            public void onMoveRequest(@Nullable ReadingListPage page) {
+                bottomSheetPresenter.show(fragmentManager,
+                        MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), NEWS_ACTIVITY));
+            }
 
-        itemCallback.onActionLongClick(entry);
+            @Override
+            public void onDeleted(@Nullable ReadingListPage page) {
+                FeedbackUtil.showMessage(activity,
+                        activity.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
+            }
+
+            @Override
+            public void onShare() {
+                ShareUtil.shareText(activity, entry.getTitle());
+            }
+        }).show(entry.getTitle());
 
         return true;
     }

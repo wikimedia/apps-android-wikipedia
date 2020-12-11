@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
-public abstract class ViewHideHandler
+public class ViewHideHandler
         implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnUpOrCancelMotionEventListener,
         ObservableWebView.OnDownMotionEventListener, ObservableWebView.OnClickListener {
@@ -22,7 +22,6 @@ public abstract class ViewHideHandler
         this.hideableView = hideableView;
         this.anchoredView = anchoredView;
         this.gravity = gravity;
-
     }
 
     /**
@@ -56,8 +55,6 @@ public abstract class ViewHideHandler
         if (webView == null) {
             return;
         }
-
-        onScrolled(oldScrollY, scrollY);
 
         int animMargin = 0;
         int scrollDelta = scrollY - oldScrollY;
@@ -115,8 +112,6 @@ public abstract class ViewHideHandler
         ensureDisplayed();
         return false;
     }
-
-    protected abstract void onScrolled(int oldScrollY, int scrollY);
 
     private void ensureDisplayed() {
         ViewAnimations.ensureTranslationY(hideableView, 0);

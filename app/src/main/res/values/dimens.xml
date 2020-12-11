@@ -43,6 +43,7 @@
     <dimen name="themeChooserSheetPeekHeight">420dp</dimen>
     <dimen name="readingListSheetPeekHeight">360dp</dimen>
     <dimen name="imagePreviewSheetPeekHeight">280dp</dimen>
+    <dimen name="navTabDialogPeekHeight">400dp</dimen>
     <!-- Default size of images in Link Preview thumbnail gallery -->
     <dimen name="linkPreviewImageSize">112dp</dimen>
 
@@ -59,15 +60,14 @@
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
 
     <!-- The Feed -->
-    <dimen name="view_feed_padding_top">4dp</dimen>
+    <dimen name="view_feed_padding_top">-12dp</dimen>
     <dimen name="view_feed_search_padding_bottom">8dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
-    <dimen name="view_list_card_margin_vertical">4dp</dimen>
+    <dimen name="view_feed_day_header_margin_bottom">-24dp</dimen>
+    <dimen name="view_list_card_margin_vertical">12dp</dimen>
     <dimen name="view_list_card_margin_horizontal">8dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
-    <dimen name="view_card_header_height">48dp</dimen>
-    <dimen name="view_card_header_large_height">96dp</dimen>
     <dimen name="view_card_footer_height">48dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
     <integer name="article_engagement_threshold_sec">30</integer>
@@ -90,11 +90,6 @@
     <!-- Dialog -->
     <dimen name="dialog_line_spacing_extra">5sp</dimen>
 
-    <!-- Article bottom toolbar -->
-    <dimen name="bottom_toolbar_height">48dp</dimen>
-    <dimen name="bottom_toolbar_icon_size">48dp</dimen>
-    <dimen name="bottom_toolbar_item_padding">12dp</dimen>
-
     <!-- Randomizer -->
     <dimen name="randomizer_card_view_bottom_padding">0dp</dimen>
     <dimen name="randomizer_text_view_height">164dp</dimen>
@@ -104,6 +99,7 @@
 
     <!-- Snackbar -->
     <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
+    <dimen name="design_snackbar_padding_vertical_2lines" tools:override="true">14dp</dimen>
 
     <!-- Suggested Edits -->
     <dimen name="suggested_edits_icon_size">28dp</dimen>
@@ -116,4 +112,7 @@
     <!-- Bottom navigation values, they override the NavTab item width to make the entire NavTab be in full width -->
     <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>
+
+    <!-- WikiCard -->
+    <dimen name="wiki_card_radius">12dp</dimen>
 </resources>

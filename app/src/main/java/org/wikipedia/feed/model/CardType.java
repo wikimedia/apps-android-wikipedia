@@ -13,7 +13,7 @@ import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.mainpage.MainPageCardView;
 import org.wikipedia.feed.mostread.MostReadCardView;
-import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.news.NewsCardView;
 import org.wikipedia.feed.offline.OfflineCardView;
 import org.wikipedia.feed.onthisday.OnThisDayCardView;
 import org.wikipedia.feed.progress.ProgressCardView;
@@ -57,7 +57,7 @@ public enum CardType implements EnumCode {
     },
     NEWS_LIST(7, FeedContentType.NEWS) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new NewsListCardView(ctx);
+            return new NewsCardView(ctx);
         }
     },
     FEATURED_IMAGE(8, FeedContentType.FEATURED_IMAGE) {
@@ -96,11 +96,6 @@ public enum CardType implements EnumCode {
         }
     },
     ONBOARDING_CUSTOMIZE_FEED(19) {
-        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new AnnouncementCardView(ctx);
-        }
-    },
-    ONBOARDING_READING_LIST_SYNC(20) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new AnnouncementCardView(ctx);
         }

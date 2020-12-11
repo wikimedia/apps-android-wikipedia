@@ -54,7 +54,7 @@ public class CustomDatePicker extends DialogFragment {
         setUpMonthGrid();
         setMonthString();
         setDayString();
-        return new AlertDialog.Builder(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.dialogTheme))
+        return new AlertDialog.Builder(requireActivity())
                 .setView(view)
                 .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text,
                         (dialog, id) -> callback.onDatePicked(callbackDay.get(Calendar.MONTH), callbackDay.get(Calendar.DATE)))

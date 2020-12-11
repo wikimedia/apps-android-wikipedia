@@ -1,0 +1,140 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.wikipedia.feed.suggestededits.SuggestedEditsCardItemFragment">
+
+    <org.wikipedia.views.WikiCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/seCardErrorView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/seFeedCardProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp" />
+
+        <LinearLayout
+            android:id="@+id/cardItemContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addStatesFromChildren="true"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <org.wikipedia.views.FaceAndColorDetectImageView
+                android:id="@+id/viewArticleImage"
+                android:layout_width="match_parent"
+                android:layout_height="201dp" />
+
+            <LinearLayout
+                android:id="@+id/viewArticleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <TextView
+                    android:id="@+id/viewArticleTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:fontFamily="serif"
+                    android:lineSpacingExtra="4sp"
+                    android:maxLines="2"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    tools:text="Lorem ipsum" />
+
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/viewArticleSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="6sp"
+                    android:maxLines="3"
+                    android:textColor="?attr/secondary_text_color"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    tools:text="Lorem ipsum" />
+
+                <View
+                    android:id="@+id/articleDescriptionPlaceHolder1"
+                    android:layout_width="222dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="10dp"
+                    android:background="?attr/color_group_22"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/articleDescriptionPlaceHolder2"
+                    android:layout_width="148dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/color_group_22"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="@dimen/divider_width_for_article"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?attr/material_theme_border_color"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/viewArticleExtract"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="10sp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="16sp"
+                    tools:text="Lorem ipsum" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/callToActionButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="11dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04"
+                    android:lineSpacingExtra="2sp"
+                    android:text="@string/suggested_edits_task_add_description_title"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_add_gray_white_24dp"
+                    app:iconSize="24dp"
+                    app:iconTint="?attr/colorAccent" />
+            </LinearLayout>
+        </LinearLayout>
+    </org.wikipedia.views.WikiCardView>
+</FrameLayout>

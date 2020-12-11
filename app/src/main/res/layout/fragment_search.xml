@@ -18,8 +18,8 @@
             android:id="@+id/search_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:paddingStart="-2dp"
-            android:theme="@style/PageToolbarTheme"
+            android:theme="@style/ToolbarTheme"
+            android:transitionName="@string/transition_search_bar"
             app:navigationIcon="@drawable/ic_arrow_back_themed_24dp">
 
             <LinearLayout
@@ -110,8 +110,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="?attr/paper_color">
+        android:layout_weight="1">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_search_results"

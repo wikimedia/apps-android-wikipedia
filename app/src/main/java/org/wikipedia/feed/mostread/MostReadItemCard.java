@@ -1,22 +1,22 @@
 package org.wikipedia.feed.mostread;
 
 import android.net.Uri;
-import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
+import java.util.List;
+
 public class MostReadItemCard extends Card {
-    @NonNull private final PageSummary page;
+    @NonNull private final MostReadArticles page;
     @NonNull private final WikiSite wiki;
 
-    MostReadItemCard(@NonNull PageSummary page, @NonNull WikiSite wiki) {
+    MostReadItemCard(@NonNull MostReadArticles page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }
@@ -34,18 +34,20 @@ public class MostReadItemCard extends Card {
         return thumbUrl != null ? Uri.parse(thumbUrl) : null;
     }
 
+    public int getPageViews() {
+        return page.getViews();
+    }
+
+    @NonNull
+    public List<MostReadArticles.ViewHistory> getViewHistory() {
+        return page.getViewHistory();
+    }
+
     @NonNull @Override public CardType type() {
         return CardType.MOST_READ_ITEM;
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(page.getApiTitle(), wiki);
-        if (page.getThumbnailUrl() != null) {
-            title.setThumbUrl(page.getThumbnailUrl());
-        }
-        if (!TextUtils.isEmpty(page.getDescription())) {
-            title.setDescription(page.getDescription());
-        }
-        return title;
+        return page.getPageTitle(wiki);
     }
 }

@@ -91,6 +91,7 @@
                      so http and https apply to all prefixes-->
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
@@ -122,39 +123,39 @@
         <activity
             android:name=".language.LangLinksActivity"
             android:label="@string/langlinks_activity_title"
-            android:theme="@style/AppTheme.ActionBar.LanguagesList"
+            android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".language.LanguagesListActivity"
             android:label="@string/languages_list_activity_title"
-            android:theme="@style/AppTheme.ActionBar.LanguagesList"
+            android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".suggestededits.SuggestedEditsCardsActivity"
+            android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.ActionBar.NoElevation" />
+            android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".edit.EditSectionActivity"
-            android:theme="@style/AppTheme.ActionBar.Page"
+            android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_activity_title"
-            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
+            android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
-            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
+            android:theme="@style/AppTheme.ActionBar"
             android:label="@string/create_account_activity_title"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
             android:label="@string/reset_password_title"
-            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
+            android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -177,6 +178,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditActivity"
+            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
@@ -196,7 +198,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditSuccessActivity"
-            android:theme="@style/AppTheme.FullScreen.TranslucentDark"
+            android:theme="@style/AppTheme.FullScreen.Translucent"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
@@ -240,23 +242,30 @@
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
-            android:theme="@style/AppTheme.ActionBar.NoElevation" />
+            android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsContributionsActivity"
+            android:name=".userprofile.ContributionsActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:label=""
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
+            android:name=".userprofile.ContributionDetailsActivity"
             android:theme="@style/AppTheme.Page" />
 
-         <activity
+        <activity
             android:name=".commons.FilePageActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar.NoElevation"/>
+            android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
+            android:name=".talk.TalkTopicsActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".talk.TalkTopicActivity" />
 
         <provider
             android:authorities="${applicationId}"
@@ -346,6 +355,15 @@
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
+
+        <service
+            android:name=".push.WikipediaFirebaseMessagingService"
+            android:exported="false"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
     </application>
 </manifest>

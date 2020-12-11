@@ -32,7 +32,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * Responsible for making login related requests to the server.
  */
 public class LoginClient {
-    private CompositeDisposable disposables = new CompositeDisposable();
+    private final CompositeDisposable disposables = new CompositeDisposable();
     public interface LoginCallback {
         void success(@NonNull LoginResult result);
         void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token);
@@ -89,46 +89,33 @@ public class LoginClient {
                 }));
     }
 
-    public void loginBlocking(@NonNull final WikiSite wiki, @NonNull final String userName,
+    public Observable<LoginResponse> loginBlocking(@NonNull final WikiSite wiki, @NonNull final String userName,
                               @NonNull final String password, @Nullable final String twoFactorCode) {
-
-        disposables.add(getLoginToken(wiki)
+        return getLoginToken(wiki)
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(loginToken -> getLoginResponse(wiki, userName, password, null, twoFactorCode, loginToken))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(loginResponse -> {
-                    Throwable throwable = new Throwable();
                     if (loginResponse == null) {
-                        throwable = new IOException("Unexpected response when logging in.");
+                        throw new IOException("Unexpected response when logging in.");
                     }
                     LoginResult loginResult = loginResponse.toLoginResult(wiki, password);
                     if (loginResult == null) {
-                        throwable = new IOException("Unexpected response when logging in.");
+                        throw new IOException("Unexpected response when logging in.");
                     }
                     if ("UI".equals(loginResult.getStatus())) {
                         if (loginResult instanceof LoginOAuthResult) {
                             // TODO: Find a better way to boil up the warning about 2FA
                             Toast.makeText(WikipediaApp.getInstance(),
                                     R.string.login_2fa_other_workflow_error_msg, Toast.LENGTH_LONG).show();
-                            throwable = new LoginFailedException(loginResult.getMessage());
-                        } else {
-                            throwable = new LoginFailedException(loginResult.getMessage());
                         }
+                        throw new LoginFailedException(loginResult.getMessage());
                     } else if (!loginResult.pass() || TextUtils.isEmpty(loginResult.getUserName())) {
-                        throwable = new LoginFailedException(loginResult.getMessage());
+                        throw new LoginFailedException(loginResult.getMessage());
                     }
-
-                    return throwable;
-                })
-                .subscribe(throwable -> {
-                    try {
-                        throw throwable;
-                    } catch (Throwable e) {
-                        // ignore
-                        L.d("Unexpected throwable: " + e);
-                    }
-                }));
+                    return loginResponse;
+                });
     }
 
     private Observable<String> getLoginToken(@NonNull final WikiSite wiki) {

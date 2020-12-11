@@ -1,7 +1,5 @@
 package org.wikipedia.util;
 
-import android.os.Build;
-import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -14,19 +12,20 @@ import android.widget.TextView;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.text.HtmlCompat;
 
 import com.google.gson.Gson;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
+import okio.ByteString;
 
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
@@ -55,26 +54,7 @@ public final class StringUtil {
      * @return ASCII MD5 representation of the string passed in
      */
     @NonNull public static String md5string(@NonNull String s) {
-        StringBuilder hexStr = new StringBuilder();
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes(StandardCharsets.UTF_8));
-            byte[] messageDigest = digest.digest();
-
-            final int maxByteVal = 0xFF;
-            String bstr;
-            for (byte b : messageDigest) {
-                bstr = Integer.toHexString(maxByteVal & b);
-                if (bstr.length() == 1) {
-                    hexStr.append("0");
-                }
-                hexStr.append(bstr);
-            }
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-        return hexStr.toString();
+        return ByteString.encodeUtf8(s).md5().hex();
     }
 
     /**
@@ -107,12 +87,12 @@ public final class StringUtil {
         return String.format("x%08x", i);
     }
 
-    public static String addUnderscores(@NonNull String text) {
-        return text.replace(" ", "_");
+    public static String addUnderscores(@Nullable String text) {
+        return StringUtils.defaultString(text).replace(" ", "_");
     }
 
-    public static String removeUnderscores(@NonNull String text) {
-        return text.replace("_", " ");
+    public static String removeUnderscores(@Nullable String text) {
+        return StringUtils.defaultString(text).replace("_", " ");
     }
 
     public static boolean hasSectionAnchor(@NonNull String text) {
@@ -171,12 +151,7 @@ public final class StringUtil {
         source = source.replaceAll("&#8206;", "\u200E")
                 .replaceAll("&#8207;", "\u200F")
                 .replaceAll("&amp;", "&");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            //noinspection deprecation
-            return Html.fromHtml(source);
-        }
+        return HtmlCompat.fromHtml(source, HtmlCompat.FROM_HTML_MODE_LEGACY);
     }
 
     @NonNull

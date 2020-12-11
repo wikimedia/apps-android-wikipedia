@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Alefbeis
 * Har-wradim
 * פוילישער
@@ -107,7 +108,6 @@
   <string name="preferences_privacy_settings_heading">פריוואטקייט</string>
   <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
   <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
-  <string name="history_search_list_hint">זוכן היסטאריע</string>
   <string name="error_can_not_process_link">נישט מעגלעך צו ווײַזן דעם לינק</string>
   <string name="page_protected_autoconfirmed">דער בלאט איז געווארן האלב געשיצט.</string>
   <string name="page_protected_sysop">דער בלאט איז געווארן גאנג געשיצט</string>
@@ -161,7 +161,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">דערלויבן</string>
   <string name="read_more_section">לייענט ווײטער</string>
   <string name="about_article_section">וועגן דעם ארטיקל</string>
-  <string name="menu_gallery_visit_page">גיין צו טעקע־בלאט</string>
+  <string name="menu_gallery_visit_image_page">גיין צו טעקע־בלאט</string>
   <string name="gallery_error_draw_failed">מען קען נישט צייכענען דאס בילד</string>
   <string name="license_title">ליצענץ פאר %s</string>
   <string name="gallery_menu_share">טיילן</string>

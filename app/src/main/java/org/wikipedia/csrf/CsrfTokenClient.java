@@ -35,7 +35,7 @@ public class CsrfTokenClient {
     private int retries = 0;
 
     @Nullable private Call<MwQueryResponse> csrfTokenCall;
-    @NonNull private LoginClient loginClient = new LoginClient();
+    @NonNull private final LoginClient loginClient = new LoginClient();
 
     public CsrfTokenClient(@NonNull WikiSite site) {
         this(site, site);
@@ -151,7 +151,10 @@ public class CsrfTokenClient {
                 if (retry > 0) {
                     // Log in explicitly
                     new LoginClient().loginBlocking(loginWikiSite, AccountUtil.getUserName(),
-                            AccountUtil.getPassword(), "");
+                            AccountUtil.getPassword(), "")
+                            .blockingSubscribe(response -> {
+                                // consume silently
+                            }, L::e);
                 }
 
                 Response<MwQueryResponse> response = service.getCsrfTokenCall().execute();

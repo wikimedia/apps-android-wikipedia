@@ -21,7 +21,7 @@ public final class SuggestedEditsSurvey {
 
     public static void maybeRunSurvey(@NonNull Activity activity) {
         if (Prefs.shouldShowSuggestedEditsSurvey()) {
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_LONG);
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_MEDIUM);
             TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
             actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0);
             actionView.setCompoundDrawablePadding(activity.getResources().getDimensionPixelOffset(R.dimen.margin));

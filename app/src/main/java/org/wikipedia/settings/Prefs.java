@@ -87,6 +87,14 @@ public final class Prefs {
         setInt(R.string.preference_key_previous_color_theme, theme);
     }
 
+    public static String getFontFamily() {
+        return getString(R.string.preference_key_font_family, "sans-serif");
+    }
+
+    public static void setFontFamily(String fontFamily) {
+        setString(R.string.preference_key_font_family, fontFamily);
+    }
+
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
         setString(R.string.preference_key_cookie_map, GsonMarshaller.marshal(cookies));
     }
@@ -287,14 +295,6 @@ public final class Prefs {
 
     public static void setReadingListTutorialEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_reading_list_tutorial_enabled, enabled);
-    }
-
-    public static boolean isTocTutorialEnabled() {
-        return getBoolean(R.string.preference_key_toc_tutorial_enabled, true);
-    }
-
-    public static void setTocTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_toc_tutorial_enabled, enabled);
     }
 
     public static boolean isImageDownloadEnabled() {
@@ -740,14 +740,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
     }
 
-    public static boolean shouldShowImageTagsTooltip() {
-        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
-    }
-
-    public static void setShouldShowImageTagsTooltip(boolean enabled) {
-        setBoolean(R.string.preference_key_show_image_tags_tooltip, enabled);
-    }
-
     public static boolean shouldShowSuggestedEditsTooltip() {
         return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true);
     }
@@ -833,22 +825,6 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
-    public static boolean isOfflinePcsToMobileHtmlConversionComplete() {
-        return getBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, false);
-    }
-
-    public static void setOfflinePcsToMobileHtmlConversionComplete(boolean conversionComplete) {
-        setBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, conversionComplete);
-    }
-
-    public static int getOfflinePcsToMobileHtmlConversionAttempts() {
-        return getInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, 0);
-    }
-
-    public static void setOfflinePcsToMobileHtmlConversionAttempts(int attempts) {
-        setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
-    }
-
     public static int getInstallReferrerAttempts() {
         return getInt(R.string.preference_key_install_referrer_attempts, 0);
     }
@@ -873,14 +849,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_image_zoom_tooltip_shown, show);
     }
 
-    public static boolean isSuggestedEditsImageTagsNew() {
-        return getBoolean(R.string.preference_key_suggested_edits_image_tags_new, true);
-    }
-
-    public static void setSuggestedEditsImageTagsNew(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
-    }
-
     public static boolean isSuggestedEditsReactivationPassStageOne() {
         return getBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, true);
     }
@@ -897,12 +865,32 @@ public final class Prefs {
         return getString(R.string.preference_key_temporary_wikitext_storage, "");
     }
 
-    public static boolean isSuggestedEditsReactivationTestEnabled() {
-        return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
+    public static void setPushNotificationToken(@Nullable String token) {
+        setString(R.string.preference_key_push_notification_token, token);
     }
 
-    public static void setSuggestedEditsReactivationTestEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_reactivation_test, enabled);
+    public static String getPushNotificationToken() {
+        return getString(R.string.preference_key_push_notification_token, "");
+    }
+
+    public static void setPushNotificationTokenOld(@Nullable String token) {
+        setString(R.string.preference_key_push_notification_token_old, token);
+    }
+
+    public static String getPushNotificationTokenOld() {
+        return getString(R.string.preference_key_push_notification_token_old, "");
+    }
+
+    public static boolean isPushNotificationTokenSubscribed() {
+        return getBoolean(R.string.preference_key_push_notification_token_subscribed, false);
+    }
+
+    public static void setPushNotificationTokenSubscribed(boolean subscribed) {
+        setBoolean(R.string.preference_key_push_notification_token_subscribed, subscribed);
+    }
+
+    public static boolean isSuggestedEditsReactivationTestEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
     }
 
     public static boolean isSuggestedEditsRewardInterstitialEnabled() {
@@ -951,6 +939,54 @@ public final class Prefs {
 
     public static boolean isSuggestedEditsRewardInterstitialQAOverride() {
         return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
+    }
+
+    public static boolean isSuggestedEditsHighestPriorityEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, false);
+    }
+
+    public static void setSuggestedEditsHighestPriorityEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, enabled);
+    }
+
+    public static void incrementExploreFeedVisitCount() {
+        setInt(R.string.preference_key_explore_feed_visit_count, getExploreFeedVisitCount() + 1);
+    }
+
+    public static int getExploreFeedVisitCount() {
+        return getInt(R.string.preference_key_explore_feed_visit_count, 0);
+    }
+
+    public static int getSelectedLanguagePositionInSearch() {
+        return getInt(R.string.preference_key_selected_language_position_in_search, 0);
+    }
+
+    public static void setSelectedLanguagePositionInSearch(int position) {
+        setInt(R.string.preference_key_selected_language_position_in_search, position);
+    }
+
+    public static boolean shouldShowOneTimeSequentialUserStatsTooltip() {
+        return getBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, true);
+    }
+
+    public static void shouldShowOneTimeSequentialUserStatsTooltip(boolean show) {
+        setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, show);
+    }
+
+    public static boolean shouldShowSearchTabTooltip() {
+        return getBoolean(R.string.preference_key_show_search_tab_tooltip, true);
+    }
+
+    public static void setShowSearchTabTooltip(boolean show) {
+        setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
+    }
+
+    public static void setLocalClassName(@Nullable String className) {
+        setString(R.string.preference_key_crash_report_local_class_name, className);
+    }
+
+    public static String getLocalClassName() {
+        return getString(R.string.preference_key_crash_report_local_class_name, "");
     }
 
     private Prefs() { }
