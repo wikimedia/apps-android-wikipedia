@@ -7,13 +7,13 @@ class Watch : MwResponse() {
     private val ns = 0
     private val pageid = 0
     private val expiry: String? = null
-    private val watched: String? = null
-    private val unwatched: String? = null
-    private val missing: String? = null
+    private val watched: Boolean = false
+    private val unwatched: Boolean = false
+    private val missing: Boolean = false
 
     val isWatched: Boolean
-        get() = watched != null
+        get() = watched
 
     val isUnWatched: Boolean
-        get() = unwatched != null
+        get() = unwatched
 }

@@ -171,6 +171,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     private boolean pageRefreshed;
     private boolean errorState = false;
+    private boolean watchlistExpiryChanged;
     private WatchlistExpiry watchlistExpirySession;
 
     private PageFragmentLoadState pageFragmentLoadState;
@@ -1353,6 +1354,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         Callback callback = callback();
         if (callback != null) {
             callback.onPageWatchlistExpirySelect(expiry);
+            dismissBottomSheet();
         }
     }
 
@@ -1530,6 +1532,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 .subscribe(watchPostResponse -> {
                     Watch firstWatch = watchPostResponse.getFirst();
                     if (firstWatch != null) {
+                        // Reset to make the "Change" button visible.
+                        if (watchlistExpiryChanged && unwatch) {
+                            watchlistExpiryChanged = false;
+                        }
+
                         showWatchlistSnackbar(expiry, firstWatch);
                     }
                 }, L::d));
@@ -1545,8 +1552,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             getTitle().getDisplayText(),
                             getString(expiry.getStringId())),
                     FeedbackUtil.LENGTH_DEFAULT);
-            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action, view ->
-                    bottomSheetPresenter.show(getChildFragmentManager(), WatchlistExpiryDialog.newInstance(expiry)));
+
+            if (!watchlistExpiryChanged) {
+                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action, view -> {
+                    watchlistExpiryChanged = true;
+                    bottomSheetPresenter.show(getChildFragmentManager(), WatchlistExpiryDialog.newInstance(expiry));
+                });
+            }
+
             snackbar.show();
             watchlistExpirySession = expiry;
         }
