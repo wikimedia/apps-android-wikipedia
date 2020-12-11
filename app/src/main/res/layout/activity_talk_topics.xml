@@ -68,7 +68,7 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             app:backgroundTint="?attr/colorAccent"
-            app:icon="@drawable/ic_reply_24"
+            app:icon="@drawable/ic_add_gray_white_24dp"
             app:iconTint="@android:color/white"
             android:textColor="@android:color/white"
             android:text="@string/talk_new_topic" />
