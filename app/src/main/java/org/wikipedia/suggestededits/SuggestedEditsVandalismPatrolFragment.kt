@@ -22,8 +22,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.restbase.DiffResponse
-import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -101,7 +100,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         if (candidate != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextRevertCandidate(parent().langFromCode)
+        disposables.add(EditingSuggestionsProvider.getNextRevertCandidate(parent().langFromCode)
                 .flatMap {
                     candidate = it
                     ServiceFactory.getCoreRest(WikiSite.forLanguageCode(parent().langFromCode))
@@ -209,8 +208,6 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
     }
 
     private fun onSuccess() {
-        Prefs.setSuggestedEditsImageTagsNew(false)
-
         val duration = 500L
         publishProgressBar.alpha = 1f
         publishProgressBar.animate()

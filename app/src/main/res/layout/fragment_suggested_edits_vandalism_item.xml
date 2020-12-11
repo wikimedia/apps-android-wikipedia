@@ -114,35 +114,30 @@
             android:clipChildren="false"
             android:clipToPadding="false">
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/voteGoodButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/App.Button"
-                android:clickable="true"
-                android:textAlignment="center"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/green50"
+                android:textColor="@android:color/white"
                 android:text="Looks good" />
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/voteNotSureButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/App.Button"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
                 app:backgroundTint="?attr/material_theme_secondary_color"
-                app:backgroundTintMode="src_over"
-                android:clickable="true"
-                android:textAlignment="center"
                 android:text="Not sure"
                 android:visibility="gone"/>
 
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/voteRevertButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/App.Button"
-                app:backgroundTint="?attr/colorError"
-                android:clickable="true"
-                android:textAlignment="center"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:backgroundTint="?attr/colorError"
+                android:textColor="@android:color/white"
                 android:text="Should undo" />
 
         </LinearLayout>

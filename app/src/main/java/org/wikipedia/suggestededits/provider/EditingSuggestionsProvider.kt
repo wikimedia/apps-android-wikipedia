@@ -261,6 +261,6 @@ object EditingSuggestionsProvider {
             }
         }.doFinally { mutex.release() }
     }
-    
+
     class ListEmptyException : RuntimeException()
 }

@@ -34,7 +34,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         updateTranslateActionUI()
         taskTitle.text = task.title
         taskDescription.text = task.description
-        //primaryActionText.text = task.primaryActionText
+        addButton.text = task.primaryActionText
         taskIcon.setImageResource(task.imageDrawable)
         taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
 

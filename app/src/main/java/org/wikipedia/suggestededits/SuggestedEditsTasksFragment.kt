@@ -402,13 +402,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
-        addImageTagsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
+        addImageCaptionsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
 
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addImageTagsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
+        addDescriptionsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
         displayedTasks.add(vandalismPatrolTask)
