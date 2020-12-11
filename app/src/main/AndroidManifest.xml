@@ -271,7 +271,7 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".watchlist.ArticleEditDetailsActivity"
+            android:name=".diff.ArticleEditDetailsActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"  />
 

@@ -1,16 +1,19 @@
-package org.wikipedia.watchlist
+package org.wikipedia.diff
 
+import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.BackgroundColorSpan
 import android.view.*
+import android.widget.FrameLayout
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
 import org.apache.commons.lang3.StringUtils
@@ -18,16 +21,19 @@ import org.wikipedia.R
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTICLE_TITLE
+import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_LANGUAGE_CODE
+import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_REVISION_ID
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.watchlist.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTICLE_TITLE
-import org.wikipedia.watchlist.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_LANGUAGE_CODE
-import org.wikipedia.watchlist.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_REVISION_ID
 
 
 class ArticleEditDetailsFragment : Fragment() {
     private lateinit var articleTitle: String
     private var revisionId: Long = 0
+    private var username: String? = null
     private var newerRevisionId: Long = 0
     private var olderRevisionId: Long = 0
     private lateinit var languageCode: String
@@ -57,8 +63,40 @@ class ArticleEditDetailsFragment : Fragment() {
             revisionId = olderRevisionId
             fetchNeighborEdits()
         }
+        thankButton.setOnClickListener { showThankDialog() }
         fetchNeighborEdits()
         highlightDiffText()
+    }
+
+    private fun showThankDialog() {
+        val parent = FrameLayout(requireContext())
+        val dialog: AlertDialog = AlertDialog.Builder(activity)
+                .setView(parent)
+                .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
+                    sendThanks()
+                }
+                .setNegativeButton(R.string.thank_dialog_negative_button_text, null)
+                .create()
+        dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+                    .setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_text_color))
+        }
+        dialog.show()
+    }
+
+    private fun sendThanks() {
+        ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).csrfToken
+                .subscribeOn(Schedulers.io())
+                .flatMap { response: MwQueryResponse ->
+                    val csrfToken = response.query()!!.csrfToken()
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, csrfToken!!)
+                }
+                .subscribe({ FeedbackUtil.showMessage(activity, getString(R.string.thank_success_message, username)) })
+                { Consumer { t: Throwable? -> L.e(t) } }
+    }
+
+    private fun showError() {
     }
 
     private fun fetchNeighborEdits() {
@@ -86,7 +124,7 @@ class ArticleEditDetailsFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     val currentRevision = response.query()!!.firstPage()!!.revisions()[0]
-
+                    username = currentRevision.user
                     newerRevisionId = if (response.query()!!.firstPage()!!.revisions().size < 2) {
                         -1
                     } else {

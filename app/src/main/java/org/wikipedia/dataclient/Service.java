@@ -354,7 +354,7 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
-    Observable<MwQueryResponse> postThanksToRevision(
+    Observable<EntityPostResponse> postThanksToRevision(
             @Field("rev") @NonNull Long revisionId,
             @NonNull @Field("token") String token);
 

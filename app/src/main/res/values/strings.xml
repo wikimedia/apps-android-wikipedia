@@ -1042,4 +1042,7 @@
     <string name="watchlist_filter_talk">Talk</string>
     <string name="watchlist_filter_pages">Pages</string>
     <string name="watchlist_filter_other">Other</string>
+    <string name="thank_dialog_positive_button_text">SEND THANKS</string>
+    <string name="thank_dialog_negative_button_text">CANCEL</string>
+    <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
 </resources>

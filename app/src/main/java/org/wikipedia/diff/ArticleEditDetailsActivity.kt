@@ -1,4 +1,4 @@
-package org.wikipedia.watchlist
+package org.wikipedia.diff
 
 import android.content.Context
 import android.content.Intent
