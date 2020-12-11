@@ -39,6 +39,7 @@
                             android:layout_height="wrap_content"
                             android:imeOptions="flagNoExtractUi"
                             android:inputType="textNoSuggestions"
+                            android:autofillHints="username"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,6 +57,7 @@
                             android:layout_height="wrap_content"
                             android:imeOptions="flagNoExtractUi"
                             android:inputType="textPassword"
+                            android:autofillHints="password"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,6 +75,7 @@
                             android:layout_height="wrap_content"
                             android:imeOptions="flagNoExtractUi"
                             android:inputType="textPassword"
+                            android:autofillHints="password"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,6 +91,7 @@
                             android:layout_height="wrap_content"
                             android:imeOptions="actionDone|flagNoExtractUi"
                             android:inputType="textEmailAddress"
+                            android:autofillHints="emailAddress"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
