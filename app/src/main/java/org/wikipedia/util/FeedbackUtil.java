@@ -212,11 +212,12 @@ public final class FeedbackUtil {
                 .build();
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     public static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
         return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
                 .setLayout(layoutRes)
                 .setHeight(layoutHeight)
-                .setWidthRatio(0.8f)
+                .setWidthRatio(DimenUtil.isLandscape(context) ? 0.4f : 0.8f)
                 .setArrowAlignAnchorPadding(arrowAnchorPadding)
                 .build();
     }
