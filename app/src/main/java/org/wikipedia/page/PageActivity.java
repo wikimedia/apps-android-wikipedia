@@ -868,7 +868,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 220, false, false);
+        overflowButton.postDelayed(() -> {
+            if (isDestroyed()) {
+                return;
+            }
+            FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 200, -32, false, true);
+        }, 500);
     }
 
 

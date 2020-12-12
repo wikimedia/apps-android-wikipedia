@@ -518,7 +518,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        FeedbackUtil.showTooltip(moreContainer, R.layout.view_watchlist_main_tooltip, 180, true, false);
+        moreContainer.postDelayed(() -> {
+            if (!isAdded()) {
+                return;
+            }
+            FeedbackUtil.showTooltip(moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, true, false);
+        }, 500);
     }
 
     @Nullable

@@ -183,8 +183,8 @@ public final class FeedbackUtil {
         return showTooltip(getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
-    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight, boolean aboveOrBelow, boolean autoDismiss) {
-        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
+        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -208,13 +208,16 @@ public final class FeedbackUtil {
                 .setTextSize(14f)
                 .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
                 .setTextColor(Color.WHITE)
+                .setPadding(16)
                 .build();
     }
 
-    public static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight, boolean aboveOrBelow, boolean autoDismiss) {
+    public static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
         return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
                 .setLayout(layoutRes)
                 .setHeight(layoutHeight)
+                .setWidthRatio(0.8f)
+                .setArrowAlignAnchorPadding(arrowAnchorPadding)
                 .build();
     }
 
@@ -225,6 +228,8 @@ public final class FeedbackUtil {
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
                 .setArrowOrientation(aboveOrBelow ? ArrowOrientation.BOTTOM : ArrowOrientation.TOP)
                 .setArrowSize(24)
+                .setMarginLeft(8)
+                .setMarginRight(8)
                 .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
                 .setDismissWhenTouchOutside(autoDismiss);
     }
