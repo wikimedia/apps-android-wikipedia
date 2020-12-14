@@ -1543,10 +1543,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     private void showWatchlistSnackbar(@Nullable WatchlistExpiry expiry, Watch watch) {
-        if (watch.isUnWatched()) {
+        if (watch.getUnwatched()) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, getTitle().getDisplayText()));
             watchlistExpirySession = null;
-        } else if (watch.isWatched() && expiry != null) {
+        } else if (watch.getWatched() && expiry != null) {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             getTitle().getDisplayText(),
