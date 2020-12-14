@@ -703,7 +703,7 @@
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
   <string name="description_edit_success_article_edit_hint">Puoi anche modificare le voci all\'interno di questa applicazione. Prova a correggere errori di battitura e frasi di piccole dimensioni facendo clic sull\'icona ^1 la prossima volta</string>
   <string name="description_edit_tutorial_title_descriptions">Descrizioni delle voci</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Riassume una voce per aiutare i lettori a capire l\'argomento a colpo d\'occhio</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Riassumi una voce per aiutare i lettori a capire l\'argomento a colpo d\'occhio</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
