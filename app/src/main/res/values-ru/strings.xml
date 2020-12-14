@@ -72,6 +72,7 @@
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
+  <string name="nav_item_search">Найти</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="card_offline_error_retry">Повторить</string>
@@ -437,6 +438,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Удалить все из офлайн-режима</string>
   <string name="reading_list_action_menu_save_all_for_offline">Сохранить все для офлайн-режима</string>
   <string name="reading_list_action_menu_add_to_another_list">Добавить в другой список</string>
+  <string name="reading_list_action_menu_move_to_another_list">Перенести в другой список</string>
   <string name="reading_list_name_sample">Мой список для чтения</string>
   <string name="reading_list_name_hint">Название этого списка</string>
   <string name="reading_list_description_hint">Описание (необязательно)</string>
@@ -457,6 +459,8 @@
   <string name="reading_list_article_offline">Доступно без подключения к Интернету</string>
   <string name="reading_list_article_make_offline">Сделать эта статью доступной в офлайн-режиме</string>
   <string name="reading_list_add_to_other_list">Добавить в другой список для чтения</string>
+  <string name="reading_list_move_to_other_list">Перенести в другой список для чтения</string>
+  <string name="reading_list_move_from_to_other_list">Перенести из %s в другой список для чтения</string>
   <string name="reading_list_remove_from_list">Удалить из %s</string>
   <string name="reading_list_remove_from_lists">Удалить из списков для чтения</string>
   <string name="reading_list_select_item">Выбрать</string>
@@ -596,6 +600,7 @@
   <string name="preference_summary_notification_user_talk">Сообщения со страниц обсуждения</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
+  <string name="view_random_article_card_title">Случайная статья</string>
   <string name="view_next_random_article">Скачать другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
   <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
@@ -608,6 +613,7 @@
   <string name="menu_feed_overflow_label">Больше настроек</string>
   <string name="feed_featured_image_share_subject">Лучшие изображения Викисклада</string>
   <string name="feed">Лента</string>
+  <string name="home">Главная</string>
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -686,6 +692,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
+  <string name="suggested_edits_describe_articles">Описать статьи</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
   <string name="suggested_edits_review_description">Предпросмотр описания</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
