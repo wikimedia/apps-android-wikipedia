@@ -80,10 +80,10 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     private boolean isTranslationEdit;
     private boolean isLanguageWrong;
     private boolean isTextValid;
-    private MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
+    private final MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
 
-    private Runnable textValidateRunnable = this::validateText;
-    private ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
+    private final Runnable textValidateRunnable = this::validateText;
+    private final ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
 
     public interface Callback {
         void onSaveClick();
@@ -454,7 +454,8 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
 
     @Override
     public void onLanguageDetectionSuccess(@NonNull String languageCode) {
-        if (!languageCode.equals(pageSummaryForEdit.getLang())) {
+        if (!languageCode.equals(pageSummaryForEdit.getLang())
+                && !languageCode.equals(WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.getLang()))) {
             isLanguageWrong = true;
             enqueueValidateText();
         }
