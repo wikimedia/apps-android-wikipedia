@@ -4,6 +4,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -11,6 +12,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
@@ -28,6 +30,7 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+import retrofit2.Response;
 
 /**
  * Our  page load strategy, which uses responses from the following to construct the page:
@@ -181,27 +184,38 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
-        disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite())
+        disposables.add(Observable.zip(ServiceFactory.getRest(model.getTitle().getWikiSite())
                 .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.getCacheControl().toString(),
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText()))
+                        model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText())), ServiceFactory.get(model.getTitle().getWikiSite())
+                .getWatchedInfo(model.getTitle().getPrefixedText()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(pageSummaryResponse -> {
-                            if (pageSummaryResponse.body() != null) {
-                                createPageModel(pageSummaryResponse.body());
-                            } else {
-                                throw new RuntimeException("Summary response was invalid.");
-                            }
-                            if (OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                                showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
-                            }
-                            fragment.onPageMetadataLoaded();
-                        },
-                        throwable -> {
-                            L.e("Page details network response error: ", throwable);
-                            commonSectionFetchOnCatch(throwable);
-                        }));
+                .subscribe(pair -> {
+                    Response<PageSummary> pageSummaryResponse = pair.first;
+                    MwQueryResponse watchedResponse = pair.second;
+
+                    boolean isWatched = false;
+                    if (watchedResponse != null && watchedResponse.query() != null && watchedResponse.query().firstPage() != null) {
+                        isWatched = watchedResponse.query().firstPage().isWatched();
+                    }
+
+                    if (pageSummaryResponse.body() != null) {
+                        createPageModel(pageSummaryResponse.body(), isWatched);
+                    } else {
+                        throw new RuntimeException("Summary response was invalid.");
+                    }
+
+                    if (OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                        showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
+                    }
+
+                    fragment.onPageMetadataLoaded();
+                }, throwable -> {
+                    L.e("Page details network response error: ", throwable);
+                    commonSectionFetchOnCatch(throwable);
+                })
+        );
 
         // And finally, start blasting the HTML into the WebView.
         bridge.resetHtml(model.getTitle());
@@ -222,13 +236,14 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPageModel(@NonNull PageSummary pageSummary) {
+    private void createPageModel(@NonNull PageSummary pageSummary, boolean isWatched) {
         if (!fragment.isAdded()) {
             return;
         }
 
         Page page = pageSummary.toPage(model.getTitle());
         model.setPage(page);
+        model.setWatched(isWatched);
         model.setTitle(page.getTitle());
 
         if (page.getTitle().getDescription() == null) {
