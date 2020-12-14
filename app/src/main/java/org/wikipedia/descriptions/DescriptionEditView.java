@@ -72,7 +72,6 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     @BindView(R.id.view_description_edit_scrollview) ScrollView scrollView;
 
     @Nullable private String originalDescription;
-    @Nullable private String defaultLanguageCode;
     @Nullable private Callback callback;
     private Activity activity;
     private PageTitle pageTitle;
@@ -81,10 +80,10 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     private boolean isTranslationEdit;
     private boolean isLanguageWrong;
     private boolean isTextValid;
-    private MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
+    private final MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
 
-    private Runnable textValidateRunnable = this::validateText;
-    private ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
+    private final Runnable textValidateRunnable = this::validateText;
+    private final ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
 
     public interface Callback {
         void onSaveClick();
@@ -212,8 +211,6 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
         this.activity = activity;
         // the summary data that will bring to the review screen
         pageSummaryForEdit = isTranslationEdit ? targetSummary : sourceSummary;
-
-        defaultLanguageCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.getLang());
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageSummaryLabel.setText(getLabelText(sourceSummary.getLang()));
@@ -457,7 +454,8 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
 
     @Override
     public void onLanguageDetectionSuccess(@NonNull String languageCode) {
-        if (!languageCode.equals(pageSummaryForEdit.getLang()) && !languageCode.equals(defaultLanguageCode)) {
+        if (!languageCode.equals(pageSummaryForEdit.getLang())
+                && !languageCode.equals(WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.getLang()))) {
             isLanguageWrong = true;
             enqueueValidateText();
         }
