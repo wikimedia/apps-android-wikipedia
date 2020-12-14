@@ -59,7 +59,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return tokens != null ? tokens.csrf() : null;
     }
 
-    @Nullable public String getToken() {
+    @Nullable public String watchToken() {
         return  tokens != null ? tokens.watch() : null;
     }
 

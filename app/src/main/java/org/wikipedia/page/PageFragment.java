@@ -44,6 +44,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -66,6 +67,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.dataclient.page.Protection;
+import org.wikipedia.dataclient.watch.Watch;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
@@ -107,6 +109,8 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
+import org.wikipedia.watchlist.WatchlistExpiry;
+import org.wikipedia.watchlist.WatchlistExpiryDialog;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
@@ -140,7 +144,8 @@ import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener,
-        ThemeChooserDialog.Callback, ReferenceDialog.Callback, WiktionaryDialog.Callback {
+        ThemeChooserDialog.Callback, ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
+
     public interface Callback {
         void onPageDismissBottomSheet();
         void onPageLoadComplete();
@@ -154,6 +159,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
         void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
+        void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
         void onPageSetToolbarElevationEnabled(boolean enabled);
@@ -165,6 +171,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     private boolean pageRefreshed;
     private boolean errorState = false;
+    private boolean watchlistExpiryChanged;
+    private WatchlistExpiry watchlistExpirySession;
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -320,6 +328,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public ViewGroup getContainerView() {
         return containerView;
+    }
+
+    @Nullable public WatchlistExpiry getWatchlistExpirySession() {
+        return watchlistExpirySession;
     }
 
     @Override
@@ -1336,6 +1348,16 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         shareHandler.showWiktionaryDefinition(term);
     }
 
+
+    @Override
+    public void onExpirySelect(@NotNull WatchlistExpiry expiry) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onPageWatchlistExpirySelect(expiry);
+            dismissBottomSheet();
+        }
+    }
+
     public int getToolbarMargin() {
         return ((PageActivity) requireActivity()).toolbarContainerView.getHeight();
     }
@@ -1493,6 +1515,54 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     void openImageInGallery(@NonNull String language) {
         leadImagesHandler.openImageInGallery(language);
+    }
+
+    void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
+        disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
+                .subscribeOn(Schedulers.io())
+                .flatMap(response -> {
+                    String watchToken = response.query().watchToken();
+                    if (TextUtils.isEmpty(watchToken)) {
+                        throw new RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response));
+                    }
+                    return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(),
+                            expiry != null ? expiry.getExpiry() : null, watchToken);
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(watchPostResponse -> {
+                    Watch firstWatch = watchPostResponse.getFirst();
+                    if (firstWatch != null) {
+                        // Reset to make the "Change" button visible.
+                        if (watchlistExpiryChanged && unwatch) {
+                            watchlistExpiryChanged = false;
+                        }
+
+                        showWatchlistSnackbar(expiry, firstWatch);
+                    }
+                }, L::d));
+    }
+
+    private void showWatchlistSnackbar(@Nullable WatchlistExpiry expiry, Watch watch) {
+        if (watch.isUnWatched()) {
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, getTitle().getDisplayText()));
+            watchlistExpirySession = null;
+        } else if (watch.isWatched() && expiry != null) {
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(R.string.watchlist_page_add_to_watchlist_snackbar,
+                            getTitle().getDisplayText(),
+                            getString(expiry.getStringId())),
+                    FeedbackUtil.LENGTH_DEFAULT);
+
+            if (!watchlistExpiryChanged) {
+                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action, view -> {
+                    watchlistExpiryChanged = true;
+                    bottomSheetPresenter.show(getChildFragmentManager(), WatchlistExpiryDialog.newInstance(expiry));
+                });
+            }
+
+            snackbar.show();
+            watchlistExpirySession = expiry;
+        }
     }
 
     private void maybeShowAnnouncement() {
