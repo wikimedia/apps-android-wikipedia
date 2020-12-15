@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
+import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
@@ -33,7 +34,6 @@ import org.wikipedia.json.GsonUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
-import org.wikipedia.userprofile.ContributionsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -77,6 +77,16 @@ class ArticleEditDetailsFragment : Fragment() {
         }
         watchButton.setOnClickListener {
             watchOrUnwatchTitle(WatchlistExpiry.NEVER, true)
+        }
+        usernameButton.setOnClickListener {
+            if (AccountUtil.isLoggedIn() && username != null) {
+                startActivity(newIntent(requireActivity(),
+                        PageTitle(UserTalkAliasData.valueFor(languageCode),
+                                username!!, WikiSite.forLanguageCode(languageCode))))
+            }
+        }
+        articleTitleView.setOnClickListener {
+
         }
         thankButton.setOnClickListener { showThankDialog() }
         fetchNeighborEdits()
@@ -165,7 +175,7 @@ class ArticleEditDetailsFragment : Fragment() {
     }
 
     private fun updateUI(@NonNull currentRevision: Revision) {
-        userIdButton.text = currentRevision.user
+        usernameButton.text = currentRevision.user
         editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision.timeStamp())
 
         newerButton.isClickable = newerRevisionId.compareTo(-1) != 0
@@ -235,8 +245,7 @@ class ArticleEditDetailsFragment : Fragment() {
                 true
             }
             R.id.menu_user_contributions_page -> {
-                startActivity(ContributionsActivity.newIntent(requireActivity(), username!!))
-
+                FeedbackUtil.showUserContributionsPage(requireContext(), username)
                 true
             }
             else -> super.onOptionsItemSelected(item)

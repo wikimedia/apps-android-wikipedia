@@ -34,7 +34,6 @@ import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRI
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_USERNAME
 import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
@@ -63,13 +62,10 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
     private val qNumberRegex = """Q(\d+)""".toRegex()
     private val commentRegex = """/\*.*?\*/""".toRegex()
-    private var username: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        username = StringUtils.defaultString(requireActivity().intent
-                .getStringExtra(EXTRA_USERNAME), AccountUtil.getUserName())
         return inflater.inflate(R.layout.fragment_contributions_suggested_edits, container, false)
     }
 
@@ -152,7 +148,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
 
         disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
-        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(username!!, 50, articleContributionsContinuation)
+        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     totalContributionCount += response.query()!!.userInfo()!!.editCount
@@ -208,7 +204,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             }
                 },
                 if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(username!!, 200, imageContributionsContinuation)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
                                 totalContributionCount += response.query()!!.userInfo()!!.editCount

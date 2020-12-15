@@ -1039,6 +1039,7 @@
     <string name="menu_option_user_talk">%s\'s talk</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
+    <string name="user_contributions_url">https://en.wikipedia.org/wiki/Special:Contributions/%s</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
