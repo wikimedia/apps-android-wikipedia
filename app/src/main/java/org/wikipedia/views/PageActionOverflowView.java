@@ -18,6 +18,7 @@ import com.google.android.material.textview.MaterialTextView;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.ABTestExploreVsHomeFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.watchlist.WatchlistExpiry;
 
@@ -65,6 +66,7 @@ public class PageActionOverflowView extends FrameLayout {
         forwardButton.setVisibility(currentTab.canGoForward() ? VISIBLE : GONE);
         watchlistButton.setText(hasWatchlistExpirySession ? R.string.menu_page_remove_from_watchlist : R.string.menu_page_add_to_watchlist);
         watchlistButton.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(watchlistExpiry), 0, 0, 0);
+        watchlistButton.setVisibility(AccountUtil.isLoggedIn() ? VISIBLE : GONE);
     }
 
     @DrawableRes
