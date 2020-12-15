@@ -36,6 +36,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.PlainPasteEditText;
 
 import butterknife.BindView;
@@ -333,7 +334,6 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
         enqueueValidateText();
-        isLanguageWrong = false;
         mlKitLanguageDetector.detectLanguageFromText(pageDescriptionText.getText().toString());
     }
 
@@ -443,6 +443,7 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
 
     @Override
     public void onLanguageDetectionSuccess(@NonNull String languageCode) {
+        isLanguageWrong = false;
         if (!languageCode.equals(pageSummaryForEdit.getLang())
                 && !languageCode.equals(WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.getLang()))) {
             isLanguageWrong = true;
