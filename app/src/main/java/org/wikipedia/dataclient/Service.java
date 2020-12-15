@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
+import org.wikipedia.dataclient.watch.WatchPostResponse;
 import org.wikipedia.dataclient.wikidata.Claims;
 import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
@@ -125,9 +126,6 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
-
-    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
-    @NonNull Observable<MwQueryResponse> getWatchlist();
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
@@ -344,8 +342,11 @@ public interface Service {
                                                      @NonNull @Field("batch") String batchLabels);
     // ------- Watchlist -------
 
-    @GET(MW_API_PREFIX + "action=query&list=watchlist")
-    @NonNull Observable<MwQueryResponse> getWatchlist(@Nullable @Query("continue") String cont);
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
+    @NonNull Observable<MwQueryResponse> getWatchedInfo(@NonNull @Query("titles") String titles);
+
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
+    @NonNull Observable<MwQueryResponse> getWatchlist();
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
     @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,
@@ -359,11 +360,13 @@ public interface Service {
             @NonNull @Field("token") String token);
 
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=watch")
+    @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded
-    Observable<EntityPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,
-                                             @Field("pageids") String pageIds,
-                                             @NonNull @Field("token") String token);
+    Observable<WatchPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,
+                                            @Nullable @Field("pageids") String pageIds,
+                                            @Nullable @Field("titles") String titles,
+                                            @Nullable @Field("expiry") String expiry,
+                                            @NonNull @Field("token") String token);
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")

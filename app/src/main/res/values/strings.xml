@@ -46,6 +46,8 @@
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in article</string>
+    <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
+    <string name="menu_page_remove_from_watchlist">Remove from Watchlist</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -1037,6 +1039,22 @@
     <string name="menu_option_user_talk">%s\'s talk</string>
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
+
+    <!-- Watchlist -->
+    <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_action">Change</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanently</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">for 1 week</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">for 1 month</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">for 3 months</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">for 6 months</string>
+    <string name="watchlist_page_removed_from_watchlist_snackbar">%s and its talk page have been removed from your watchlist.</string>
+    <string name="watchlist_expiry_dialog_title">Select Watchlist time period</string>
+    <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+    <string name="watchlist_expiry_dialog_one_week">1 week</string>
+    <string name="watchlist_expiry_dialog_one_month">1 month</string>
+    <string name="watchlist_expiry_dialog_three_months">3 months</string>
+    <string name="watchlist_expiry_dialog_six_months">6 months</string>
     <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
     <string name="watchlist_filter_all">All</string>
     <string name="watchlist_filter_talk">Talk</string>

@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="220dp"
-    android:layout_height="48dp">
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:minWidth="200dp">
 
     <ImageView
         android:id="@+id/langCodeBackground"
@@ -36,16 +37,18 @@
 
     <TextView
         android:id="@+id/languageText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/langCodeText"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/languageCheckBox"
+        app:layout_constraintHorizontal_bias="0"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="16sp"
-        android:textColor="?attr/material_theme_primary_color"/>
+        android:textColor="?attr/material_theme_primary_color"
+        tools:text="English"/>
 
     <CheckBox
         android:id="@+id/languageCheckBox"

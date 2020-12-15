@@ -44,6 +44,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private Map<String, String> varianttitles;
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
     @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
+    private boolean watched;
 
 
     @NonNull public String title() {
@@ -154,6 +155,10 @@ public class MwQueryPage extends BaseModel {
 
     public boolean isImageShared() {
         return StringUtils.defaultString(imagerepository).equals("shared");
+    }
+
+    public boolean isWatched() {
+        return watched;
     }
 
     public long getLastRevId() {
