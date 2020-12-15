@@ -1,14 +1,13 @@
 package org.wikipedia.analytics.eventplatform;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static org.apache.commons.lang3.StringUtils.leftPad;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.deleteStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.fetchStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getAppInstallId;
@@ -332,14 +331,9 @@ public final class EventPlatformClient {
          * 80-bit integer
          */
         @SuppressWarnings("checkstyle:magicnumber")
-        static String generateRandomId() {
-            SecureRandom rand = new SecureRandom();
-            StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < 5; i++) {
-                String chunk = leftPad(Integer.toString(rand.nextInt(65535), 16), 4, '0');
-                builder.append(chunk);
-            }
-            return builder.toString();
+        public static String generateRandomId() {
+            Random random = new Random();
+            return String.format("%08X", random.nextInt()) + String.format("%08X", random.nextInt()) + String.format("%04X", random.nextInt() & 0xFFFF);
         }
     }
 
@@ -409,7 +403,7 @@ public final class EventPlatformClient {
         @SuppressWarnings("checkstyle:magicnumber")
         static double getSamplingValue(SamplingConfig.Identifier identifier) {
             String token = getSamplingId(identifier).substring(0, 8);
-            return (double) Long.parseLong(token, 16) / (double) Long.parseLong("ffffffff", 16);
+            return (double) Long.parseLong(token, 16) / (double) 0xFFFFFFFFL;
         }
 
         static String getSamplingId(SamplingConfig.Identifier identifier) {
