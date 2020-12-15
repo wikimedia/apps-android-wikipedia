@@ -82,7 +82,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         userStatsViewsGroup.addOnClickListener {
-            startActivity(ContributionsActivity.newIntent(requireActivity()))
+            startActivity(ContributionsActivity.newIntent(requireActivity(), AccountUtil.getUserName()!!))
         }
 
         learnMoreCard.setOnClickListener {

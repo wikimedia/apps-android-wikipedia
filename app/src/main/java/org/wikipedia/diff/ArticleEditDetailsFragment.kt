@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.SpannableString
+import android.text.TextUtils
 import android.text.style.BackgroundColorSpan
 import android.view.*
 import android.widget.FrameLayout
@@ -18,16 +19,27 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.watch.Watch
+import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTICLE_TITLE
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_LANGUAGE_CODE
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_REVISION_ID
+import org.wikipedia.json.GsonUtil
+import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
+import org.wikipedia.userprofile.ContributionsActivity
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.watchlist.WatchlistExpiry
 
 
 class ArticleEditDetailsFragment : Fragment() {
@@ -63,9 +75,57 @@ class ArticleEditDetailsFragment : Fragment() {
             revisionId = olderRevisionId
             fetchNeighborEdits()
         }
+        watchButton.setOnClickListener {
+            watchOrUnwatchTitle(WatchlistExpiry.NEVER, true)
+        }
         thankButton.setOnClickListener { showThankDialog() }
         fetchNeighborEdits()
         highlightDiffText()
+    }
+
+    private fun watchOrUnwatchTitle(expiry: WatchlistExpiry, unwatch: Boolean) {
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
+                .subscribeOn(Schedulers.io())
+                .flatMap { response: MwQueryResponse ->
+                    val watchToken = response.query()!!.watchToken()
+                    if (TextUtils.isEmpty(watchToken)) {
+                        throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
+                    }
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postWatch(if (unwatch) 1 else null, null, articleTitle,
+                            if (expiry != null) expiry.expiry else null, watchToken!!)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ watchPostResponse: WatchPostResponse ->
+                    val firstWatch = watchPostResponse.getFirst()
+                    if (firstWatch != null) {
+                        /*  // Reset to make the "Change" button visible.
+                          if (watchlistExpiryChanged && unwatch) {
+                              watchlistExpiryChanged = false
+                          }*/
+                        showWatchlistSnackbar(expiry, firstWatch)
+                    }
+                }) { t: Throwable? -> L.d(t) })
+    }
+
+    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
+        if (watch.unwatched) {
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articleTitle))
+            //watchlistExpirySession = null
+        } else if (watch.watched && expiry != null) {
+            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(R.string.watchlist_page_add_to_watchlist_snackbar,
+                            articleTitle,
+                            getString(expiry.stringId)),
+                    FeedbackUtil.LENGTH_DEFAULT)
+            /*   if (!watchlistExpiryChanged) {
+                   snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { view ->
+                       watchlistExpiryChanged = true
+                       bottomSheetPresenter.show(childFragmentManager, newInstance(expiry))
+                   }
+               }*/
+            snackbar.show()
+            //watchlistExpirySession = expiry
+        }
     }
 
     private fun showThankDialog() {
@@ -106,7 +166,8 @@ class ArticleEditDetailsFragment : Fragment() {
 
     private fun updateUI(@NonNull currentRevision: Revision) {
         userIdButton.text = currentRevision.user
-        editTimestamp.text = currentRevision.timeStamp()
+        editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision.timeStamp())
+
         newerButton.isClickable = newerRevisionId.compareTo(-1) != 0
         olderButton.isClickable = olderRevisionId.compareTo(0) != 0
         ImageViewCompat.setImageTintList(newerButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
@@ -115,6 +176,10 @@ class ArticleEditDetailsFragment : Fragment() {
                 ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0) R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
         menu?.findItem(R.id.menu_user_talk_page)?.title = getString(R.string.menu_option_user_talk, currentRevision.user)
         menu?.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision.user)
+        updateWatchlistButtonUI()
+    }
+
+    private fun updateWatchlistButtonUI() {
 
     }
 
@@ -157,12 +222,21 @@ class ArticleEditDetailsFragment : Fragment() {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_share_edit -> {
+                ShareUtil.shareText(requireContext(), PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode)))
+
                 true
             }
             R.id.menu_user_talk_page -> {
+                if (AccountUtil.isLoggedIn() && username != null) {
+                    startActivity(newIntent(requireActivity(),
+                            PageTitle(UserTalkAliasData.valueFor(languageCode),
+                                    username!!, WikiSite.forLanguageCode(languageCode))))
+                }
                 true
             }
             R.id.menu_user_contributions_page -> {
+                startActivity(ContributionsActivity.newIntent(requireActivity(), username!!))
+
                 true
             }
             else -> super.onOptionsItemSelected(item)
