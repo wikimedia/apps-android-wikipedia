@@ -8,6 +8,7 @@ import androidx.core.util.Pair;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.database.contract.PageImageHistoryContract;
@@ -187,8 +188,8 @@ public class PageFragmentLoadState {
         disposables.add(Observable.zip(ServiceFactory.getRest(model.getTitle().getWikiSite())
                 .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.getCacheControl().toString(),
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText())), ServiceFactory.get(model.getTitle().getWikiSite())
-                .getWatchedInfo(model.getTitle().getPrefixedText()), Pair::new)
+                        model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText())),
+                AccountUtil.isLoggedIn() ? ServiceFactory.get(model.getTitle().getWikiSite()).getWatchedInfo(model.getTitle().getPrefixedText()) : Observable.just(new MwQueryResponse()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
