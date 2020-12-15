@@ -384,11 +384,6 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="ab_test_suggestedEditsInterstitial"
-            android:title="Whether the user sees interstitial screens (keep going!) when making suggested edits." />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
             android:key="ab_test_suggestedEditsSnackbar"
             android:title="Whether the user sees a Snackbar action to 'Get Started' with suggested edits, after an unrelated edit." />
 

@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ABTestSuggestedEditsInterstitialFunnel
 import org.wikipedia.analytics.SuggestedEditsFeedFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
@@ -457,16 +456,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
         override fun createFragment(position: Int): Fragment {
             if (shouldShowRewardInterstitial()) {
-                val funnel = ABTestSuggestedEditsInterstitialFunnel()
-                funnel.logInterstitialShown()
                 Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
                 if (Prefs.isSuggestedEditsRewardInterstitialQAOverride()) {
                     setUpRewardInterstitialsForQA()
                 }
-                if (funnel.shouldSeeInterstitial()) {
-                    return SuggestedEditsRewardsItemFragment
-                            .newInstance(ResourceUtil.getThemedAttributeId(requireContext(), rewardInterstitialImage), rewardInterstitialText)
-                }
+                return SuggestedEditsRewardsItemFragment
+                        .newInstance(ResourceUtil.getThemedAttributeId(requireContext(), rewardInterstitialImage), rewardInterstitialText)
             }
             return when (action) {
                 ADD_IMAGE_TAGS -> {
