@@ -107,7 +107,11 @@ public final class FeedbackUtil {
     }
 
     public static void showUserContributionsPage(Context context, String username) {
-        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.user_contributions_url,username)));
+        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.user_contributions_url, username)));
+    }
+
+    public static void showUserProfilePage(Context context, String username) {
+        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.user_profile_url, username)));
     }
 
     public static void showAndroidAppEditingFAQ(Context context, @StringRes int urlStr) {

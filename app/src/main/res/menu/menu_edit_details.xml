@@ -7,8 +7,8 @@
         android:title="@string/menu_option_share_edit"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_user_talk_page"
-        android:title="@string/menu_option_user_talk"
+        android:id="@+id/menu_user_profile_page"
+        android:title="@string/menu_option_user_profile"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_user_contributions_page"

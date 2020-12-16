@@ -59,6 +59,10 @@ public final class ShareUtil {
         shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(), UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link));
     }
 
+    public static void shareText(final Context context, final PageTitle title, long newId, long oldId) {
+        shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(), UriUtil.getUrlForDiff(title, newId, oldId));
+    }
+
     /**
      * Share a bitmap image using an activity chooser, so that the user can choose the
      * app with which to share the content.

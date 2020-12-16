@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.BackgroundColorSpan
-import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
@@ -32,6 +31,7 @@ import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTI
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_LANGUAGE_CODE
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_REVISION_ID
 import org.wikipedia.json.GsonUtil
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
@@ -41,9 +41,10 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistExpiryDialog
 
 
-class ArticleEditDetailsFragment : Fragment() {
+class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private lateinit var articleTitle: String
     private var revisionId: Long = 0
     private var username: String? = null
@@ -52,6 +53,9 @@ class ArticleEditDetailsFragment : Fragment() {
     private lateinit var languageCode: String
     private val disposables = CompositeDisposable()
     private var menu: Menu? = null
+    private var watchlistExpiryChanged = false
+    private var isWatched = false
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -77,7 +81,7 @@ class ArticleEditDetailsFragment : Fragment() {
             fetchNeighborEdits()
         }
         watchButton.setOnClickListener {
-            watchOrUnwatchTitle(WatchlistExpiry.NEVER, true)
+            watchOrUnwatchTitle(WatchlistExpiry.NEVER, isWatched)
         }
         usernameButton.setOnClickListener {
             if (AccountUtil.isLoggedIn() && username != null) {
@@ -113,11 +117,12 @@ class ArticleEditDetailsFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ watchPostResponse: WatchPostResponse ->
                     val firstWatch = watchPostResponse.getFirst()
+                    isWatched = firstWatch!!.watched
                     if (firstWatch != null) {
-                        /*  // Reset to make the "Change" button visible.
-                          if (watchlistExpiryChanged && unwatch) {
-                              watchlistExpiryChanged = false
-                          }*/
+                        // Reset to make the "Change" button visible.
+                        if (watchlistExpiryChanged && unwatch) {
+                            watchlistExpiryChanged = false
+                        }
                         showWatchlistSnackbar(expiry, firstWatch)
                     }
                 }) { t: Throwable? -> L.d(t) })
@@ -126,7 +131,6 @@ class ArticleEditDetailsFragment : Fragment() {
     private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articleTitle))
-            //watchlistExpirySession = null
             setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
             watchButton.text = getString(R.string.watchlist_details_watch_label)
         } else if (watch.watched && expiry != null) {
@@ -135,14 +139,13 @@ class ArticleEditDetailsFragment : Fragment() {
                             articleTitle,
                             getString(expiry.stringId)),
                     FeedbackUtil.LENGTH_DEFAULT)
-            /*   if (!watchlistExpiryChanged) {
-                   snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { view ->
-                       watchlistExpiryChanged = true
-                       bottomSheetPresenter.show(childFragmentManager, newInstance(expiry))
-                   }
-               }*/
+            if (!watchlistExpiryChanged) {
+                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { view ->
+                    watchlistExpiryChanged = true
+                    bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
+                }
+            }
             snackbar.show()
-            //watchlistExpirySession = expiry
             setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_62))
             watchButton.text = getString(R.string.watchlist_details_watching_label)
         }
@@ -172,8 +175,8 @@ class ArticleEditDetailsFragment : Fragment() {
                     val csrfToken = response.query()!!.csrfToken()
                     ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, csrfToken!!)
                 }
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    Log.e("####", "here")
                     FeedbackUtil.showMessage(activity, getString(R.string.thank_success_message, username))
                     setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(),
                             R.attr.material_theme_de_emphasised_color))
@@ -198,20 +201,24 @@ class ArticleEditDetailsFragment : Fragment() {
         ImageViewCompat.setImageTintList(olderButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
                 ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0)
                     R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
-        menu?.findItem(R.id.menu_user_talk_page)?.title = getString(R.string.menu_option_user_talk, currentRevision.user)
+        menu?.findItem(R.id.menu_user_profile_page)?.title = getString(R.string.menu_option_user_profile, currentRevision.user)
         menu?.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision.user)
         setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+        thankButton.isClickable = true
         updateWatchlistButtonUI()
     }
 
     private fun updateWatchlistButtonUI() {
         ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle)
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    isWatched = it.query()!!.firstPage()!!.isWatched
+
                     setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
-                            if (it.query()!!.firstPage()!!.isWatched) R.attr.color_group_62 else R.attr.colorAccent))
-                    watchButton.text = getString(if (it.query()!!.firstPage()!!.isWatched)
-                        R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
+                            if (isWatched) R.attr.color_group_62 else R.attr.colorAccent))
+                    watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label
+                    else R.string.watchlist_details_watch_label)
                 })
                 { Consumer { t: Throwable? -> L.e(t) } }
     }
@@ -256,16 +263,11 @@ class ArticleEditDetailsFragment : Fragment() {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_share_edit -> {
-                ShareUtil.shareText(requireContext(), PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode)))
-
+                ShareUtil.shareText(requireContext(), PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode)), revisionId, olderRevisionId)
                 true
             }
-            R.id.menu_user_talk_page -> {
-                if (AccountUtil.isLoggedIn() && username != null) {
-                    startActivity(newIntent(requireActivity(),
-                            PageTitle(UserTalkAliasData.valueFor(languageCode),
-                                    username!!, WikiSite.forLanguageCode(languageCode))))
-                }
+            R.id.menu_user_profile_page -> {
+                FeedbackUtil.showUserProfilePage(requireContext(), username)
                 true
             }
             R.id.menu_user_contributions_page -> {
@@ -280,5 +282,10 @@ class ArticleEditDetailsFragment : Fragment() {
         fun newInstance(): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment()
         }
+    }
+
+    override fun onExpirySelect(expiry: WatchlistExpiry) {
+        watchOrUnwatchTitle(expiry, false)
+        bottomSheetPresenter.dismiss(childFragmentManager)
     }
 }
