@@ -94,11 +94,19 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal">
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="usernameButton,thankButton,diffCharacterCountView"
+            app:flow_horizontalGap="16dp"
+            app:flow_wrapMode="chain"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/usernameButton"
@@ -123,7 +131,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginStart="16dp"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0"
             android:text="Thank"
@@ -136,9 +143,9 @@
             app:iconTint="?attr/colorAccent" />
 
         <TextView
+            android:id="@+id/diffCharacterCountView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="12dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_vertical"
             android:letterSpacing="0.04"
@@ -146,7 +153,7 @@
             android:text="+ 494"
             android:textColor="?attr/action_mode_green_background"
             android:textSize="14sp" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
         android:layout_width="match_parent"
