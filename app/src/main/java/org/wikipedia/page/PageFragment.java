@@ -331,7 +331,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Nullable public WatchlistExpiry getWatchlistExpirySession() {
-        return watchlistExpirySession;
+        // TODO: use real Watchlist expiry data from API when it's ready.
+        return watchlistExpirySession == null ? model.isWatched() ? WatchlistExpiry.NEVER : null : watchlistExpirySession;
     }
 
     @Override
@@ -809,6 +810,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         tocHandler.setEnabled(false);
         errorState = false;
         errorView.setVisibility(View.GONE);
+
+        watchlistExpirySession = null;
 
         model.setTitle(title);
         model.setCurEntry(entry);
