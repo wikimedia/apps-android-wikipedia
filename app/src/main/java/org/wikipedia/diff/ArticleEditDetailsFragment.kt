@@ -6,18 +6,19 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.BackgroundColorSpan
+import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
-import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
@@ -93,6 +94,11 @@ class ArticleEditDetailsFragment : Fragment() {
         highlightDiffText()
     }
 
+    private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
+        view.setTextColor(themedColor)
+        view.iconTint = (ColorStateList.valueOf(themedColor))
+    }
+
     private fun watchOrUnwatchTitle(expiry: WatchlistExpiry, unwatch: Boolean) {
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
@@ -121,6 +127,8 @@ class ArticleEditDetailsFragment : Fragment() {
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articleTitle))
             //watchlistExpirySession = null
+            setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+            watchButton.text = getString(R.string.watchlist_details_watch_label)
         } else if (watch.watched && expiry != null) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
@@ -135,6 +143,8 @@ class ArticleEditDetailsFragment : Fragment() {
                }*/
             snackbar.show()
             //watchlistExpirySession = expiry
+            setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_62))
+            watchButton.text = getString(R.string.watchlist_details_watching_label)
         }
     }
 
@@ -162,15 +172,17 @@ class ArticleEditDetailsFragment : Fragment() {
                     val csrfToken = response.query()!!.csrfToken()
                     ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, csrfToken!!)
                 }
-                .subscribe({ FeedbackUtil.showMessage(activity, getString(R.string.thank_success_message, username)) })
+                .subscribe({
+                    Log.e("####", "here")
+                    FeedbackUtil.showMessage(activity, getString(R.string.thank_success_message, username))
+                    setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(),
+                            R.attr.material_theme_de_emphasised_color))
+                    thankButton.isClickable = false
+                })
                 { Consumer { t: Throwable? -> L.e(t) } }
     }
 
-    private fun showError() {
-    }
-
     private fun fetchNeighborEdits() {
-        fetchEditDetails()
         fetchEditDetails()
     }
 
@@ -181,16 +193,27 @@ class ArticleEditDetailsFragment : Fragment() {
         newerButton.isClickable = newerRevisionId.compareTo(-1) != 0
         olderButton.isClickable = olderRevisionId.compareTo(0) != 0
         ImageViewCompat.setImageTintList(newerButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId.compareTo(-1) == 0) R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId.compareTo(-1) == 0)
+                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
         ImageViewCompat.setImageTintList(olderButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0) R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0)
+                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
         menu?.findItem(R.id.menu_user_talk_page)?.title = getString(R.string.menu_option_user_talk, currentRevision.user)
         menu?.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision.user)
+        setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         updateWatchlistButtonUI()
     }
 
     private fun updateWatchlistButtonUI() {
-
+        ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle)
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
+                            if (it.query()!!.firstPage()!!.isWatched) R.attr.color_group_62 else R.attr.colorAccent))
+                    watchButton.text = getString(if (it.query()!!.firstPage()!!.isWatched)
+                        R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
+                })
+                { Consumer { t: Throwable? -> L.e(t) } }
     }
 
     private fun fetchEditDetails() {
@@ -214,7 +237,8 @@ class ArticleEditDetailsFragment : Fragment() {
 
     private fun highlightDiffText() {
         val spannableString = SpannableString(diffText.text.toString())
-        spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)), 0, diffText.text.length - 1, 0)
+        spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                R.attr.color_group_57)), 0, diffText.text.length - 1, 0)
         diffText.text = spannableString
     }
 

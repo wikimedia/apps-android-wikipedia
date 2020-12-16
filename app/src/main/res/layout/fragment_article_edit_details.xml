@@ -19,7 +19,6 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:lineSpacingExtra="8sp"
-            android:text="Talk: Joe Biden"
             android:textColor="?attr/colorAccent"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -32,13 +31,10 @@
             android:layout_gravity="end"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0"
-            android:text="@string/watchlist_details_watching_label"
-            android:textColor="#ff9500"
             android:textSize="14sp"
             app:icon="@drawable/ic_icon_star"
             app:iconGravity="textStart"
-            app:iconSize="20dp"
-            app:iconTint="#ff9500" />
+            app:iconSize="20dp" />
 
     </LinearLayout>
 
@@ -62,7 +58,6 @@
             android:fontFamily="sans-serif"
             android:gravity="center_vertical"
             android:lineSpacingExtra="8sp"
-            android:text="Nov 17, 2020 | 11:51"
             android:textColor="?attr/primary_text_color"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -116,7 +111,6 @@
             android:layout_gravity="end"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0"
-            android:text="Wtmitchell"
             android:textAllCaps="false"
             android:textColor="?attr/colorAccent"
             android:textSize="14sp"
@@ -133,14 +127,12 @@
             android:layout_gravity="end"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0"
-            android:text="Thank"
+            android:text="@string/thank_label"
             android:textAllCaps="false"
-            android:textColor="?attr/colorAccent"
             android:textSize="14sp"
             app:icon="@drawable/ic_user_talk"
             app:iconGravity="textStart"
-            app:iconSize="20dp"
-            app:iconTint="?attr/colorAccent" />
+            app:iconSize="20dp"/>
 
         <TextView
             android:id="@+id/diffCharacterCountView"

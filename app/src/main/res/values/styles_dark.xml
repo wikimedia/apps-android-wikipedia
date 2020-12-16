@@ -92,6 +92,7 @@
         <item name="color_group_59">@color/base50</item>
         <item name="color_group_60">@color/base20</item>
         <item name="color_group_61">@color/base30</item>
+        <item name="color_group_62">@color/osage</item>
 
     </style>
 
