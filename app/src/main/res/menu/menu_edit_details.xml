@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_share_edit"
-        android:title="@string/menu_option_share_edit"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_share_themed_24dp"
+        android:title="@string/menu_option_share_edit" />
     <item
         android:id="@+id/menu_user_profile_page"
-        android:title="@string/menu_option_user_profile"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_user_avatar_themed"
+        android:iconTint="?attr/toolbar_icon_color"
+        android:title="@string/menu_option_user_profile" />
     <item
         android:id="@+id/menu_user_contributions_page"
-        android:title="@string/menu_option_user_contributions"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_edit_user_talk"
+        android:title="@string/menu_option_user_contributions" />
 </menu>

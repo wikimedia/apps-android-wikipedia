@@ -9,6 +9,7 @@ import android.text.style.BackgroundColorSpan
 import android.view.*
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
+import androidx.appcompat.view.menu.MenuBuilder
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
@@ -30,8 +31,11 @@ import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTICLE_TITLE
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_LANGUAGE_CODE
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_REVISION_ID
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
@@ -72,6 +76,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         languageCode = StringUtils.defaultString(requireActivity().intent
                 .getStringExtra(EXTRA_SOURCE_EDIT_LANGUAGE_CODE), "en")
         articleTitleView.text = articleTitle
+        articleTitleView.setOnClickListener {
+            val title = PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode))
+            if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
+                startActivity(newIntent(requireContext(), title.pageTitleForTalkPage()))
+            } else {
+                startActivity(PageActivity.newIntentForNewTab(requireContext(),
+                        HistoryEntry(title, HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY), title))
+            }
+        }
         newerButton.setOnClickListener {
             revisionId = newerRevisionId
             fetchNeighborEdits()
@@ -89,9 +102,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         PageTitle(UserTalkAliasData.valueFor(languageCode),
                                 username!!, WikiSite.forLanguageCode(languageCode))))
             }
-        }
-        articleTitleView.setOnClickListener {
-
         }
         thankButton.setOnClickListener { showThankDialog() }
         fetchNeighborEdits()
@@ -257,6 +267,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_edit_details, menu)
         this.menu = menu
+        if (menu is MenuBuilder) {
+            menu.setOptionalIconsVisible(true)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
