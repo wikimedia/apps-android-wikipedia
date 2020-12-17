@@ -72,7 +72,7 @@ public class PageActionOverflowView extends FrameLayout {
     @DrawableRes
     private int getWatchlistIcon(@Nullable WatchlistExpiry expiry) {
         if (expiry == WatchlistExpiry.NEVER) {
-            return R.drawable.ic_star_black_24dp;
+            return R.drawable.ic_star_24;
         } else if (expiry == null) {
             return R.drawable.ic_baseline_star_outline_24;
         } else {
