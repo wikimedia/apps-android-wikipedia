@@ -34,7 +34,6 @@
     <string name="preference_key_collapse_tables">collapseTables</string>
     <string name="preference_key_session_data">session_data</string>
     <string name="preference_key_session_timeout">session_timeout</string>
-    <string name="preference_key_remote_log">remoteLog</string>
     <string name="preference_key_crashed_before_activity_created">crashedBeforeActivityCreated</string>
     <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
     <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
