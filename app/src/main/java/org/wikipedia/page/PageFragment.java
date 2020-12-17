@@ -794,6 +794,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
 
+        setToolbarElevationEnabled(false);
         tocHandler.setEnabled(false);
         errorState = false;
         errorView.setVisibility(View.GONE);

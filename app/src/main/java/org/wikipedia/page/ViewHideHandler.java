@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
@@ -81,6 +83,7 @@ public class ViewHideHandler
         if (anchoredView != null) {
             anchoredView.setTranslationY(animMargin);
         }
+        hideableView.setElevation(scrollY > 0 ? DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)) : 0);
     }
 
     @Override
