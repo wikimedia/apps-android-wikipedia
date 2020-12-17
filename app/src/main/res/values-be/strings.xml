@@ -246,7 +246,6 @@
   <string name="view_featured_image_card_download">Загрузіць</string>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сёння</string>
   <string name="view_announcement_card_negative_action">Не, дзякуй</string>
-  <string name="view_featured_article_footer_save_button_label">Захаваць</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
   <string name="description_edit_success_done">Гатова</string>

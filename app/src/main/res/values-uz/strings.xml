@@ -259,7 +259,7 @@
   <string name="alpha_update_notification_text">Yuklab olish uchun bosing</string>
   <string name="dialog_close_description">Yopmoq</string>
   <string name="preference_title_show_images">Rasmlarni ko‘rsatmoq</string>
-  <string name="preference_summary_show_images">Rasmlarni sahifalarga yuklashni yoqish yoki o‘chirish. Agar Internet aloqangiz sust bo‘lsa yoki tarif rejangiz cheklangan bo‘lsa, ushbu tanlovni yoqmang.</string>
+  <string name="preference_summary_show_images">Sahifalarda rasmlarni ochishni yoqish yoki o‘chirish amali. Agar internet aloqangiz sust bo‘lsa yoki tarif rejangiz cheklangan bo‘lsa, ushbu tanlovni yoqmang.</string>
   <string name="preference_title_download_only_over_wifi">Faqat Wi-Fi orqali yuklab olmoq</string>
   <string name="dialog_title_download_only_over_wifi">Trafikdan yuklab olishni tasdiqlaysizmi?</string>
   <string name="dialog_text_download_only_over_wifi">Sizda \"Faqat Wi-Fi orqali yuklab olmoq\" tanlovi yoqilgan. Faqatgina ushbu yuklab olish uchun mobil trafigingizdan foydalanishga ruxsat berishni xohlaysizmi?</string>
@@ -274,7 +274,7 @@
   <string name="gallery_save_progress">Fayl yuklanmoqda...</string>
   <string name="gallery_save_success">Fayl saqlandi.</string>
   <string name="gallery_error_video_failed">Videoni ijro etib bo‘lmadi.</string>
-  <string name="gallery_save_image_write_permission_rationale">Rasmlarni saqlash uchun qurilmangizdagi xotiraga yozish uchun ruxsat zarur.</string>
+  <string name="gallery_save_image_write_permission_rationale">Rasmlarni saqlash uchun qurilmangiz xotirasiga kirish uchun ruxsat zarur.</string>
   <string name="gallery_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="gallery_add_image_caption_in_language_button">Rasmga sarlavha qo‘shmoq (%s)</string>
   <string name="err_cannot_save_file">Faylni saqlab bo‘lmadi</string>
@@ -579,6 +579,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d mln marta</string>
   <string name="view_next_random_article">Boshqa tasodifiy maqolani yuklamoq</string>
   <string name="view_main_page_card_title">Vikipediada bugun</string>
+  <string name="view_main_page_card_action">Bosh sahifani koʻrmoq</string>
   <string name="view_featured_image_card_title">Kun surati</string>
   <string name="view_featured_image_card_download">Yuklab olmoq</string>
   <string name="view_featured_image_card_share">Ulashmoq</string>
@@ -600,9 +601,7 @@
   <string name="view_announcement_card_negative_action">Yo‘q, rahmat</string>
   <string name="view_offline_card_text">Oflayn boʻlganda maqolani yuklab boʻlmaydi.</string>
   <string name="view_featured_article_card_title">Afzal koʻrilgan maqola</string>
-  <string name="view_featured_article_footer_save_button_label">Saqlamoq</string>
   <string name="view_static_card_save_button_label">Saqlamoq</string>
-  <string name="view_featured_article_footer_saved_button_label">Saqlandi</string>
   <string name="feed_configure_activity_title">Tasmani moslash</string>
   <string name="feed_configure_menu_reset">Asl holiga qaytarmoq</string>
   <string name="feed_configure_menu_select_all">Barini koʻrsatmoq</string>
@@ -614,6 +613,7 @@
   <string name="feed_item_type_featured_article">Vikipedia tomonidan tavsiya etilgan bugungi maqola</string>
   <string name="feed_item_type_trending">Bugun eng koʻp oʻqilgan maqolalar</string>
   <string name="feed_item_type_featured_image">Wikimedia Commons tomonidan tavsiya etilgan surat</string>
+  <string name="feed_item_type_main_page">Vikipedianing bosh sahifasi bilan kunlik kontentlar bilan tanishib boring</string>
   <string name="feed_item_type_randomizer">Tasodifiy tavsiya etilgan maqolalar</string>
   <string name="feed_item_type_suggested_edits">Vikipediyaga tarkib qoʻshish boʻyicha takliflar</string>
   <string name="feed_empty_message">Kezish tasmangizda hech narsa yoʻq</string>

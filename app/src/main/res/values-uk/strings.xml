@@ -50,6 +50,7 @@
   <string name="history_item_delete_undo">Скасувати</string>
   <string name="notification_archive_undo">Скасувати</string>
   <string name="app_settings">Налаштування</string>
+  <string name="search_tab_tooltip">Торкніться іконки знову щоб почати вводити пошуковий запит напряму.</string>
   <string name="history_list_title">Історія</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
   <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
@@ -357,8 +358,11 @@
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
-  <string name="article_menu_bar_save_button">Збернгти</string>
+  <string name="article_menu_bar_save_button">Зберегти</string>
   <string name="article_menu_bar_language_button">Мова</string>
+  <string name="article_menu_bar_search_button">Пошук</string>
+  <string name="article_menu_bar_theme_button">Тема</string>
+  <string name="article_menu_bar_contents_button">Вміст</string>
   <string name="article_header_edit_hint">Редагувати...</string>
   <string name="article_header_edit_description">Редагувати опис статті</string>
   <string name="article_header_edit_lead_section">Редагувати вступ</string>
@@ -374,6 +378,7 @@
   <string name="text_size_increase">Збільшити розмір тексту</string>
   <string name="text_size_decrease">Зменшити розмір тексту</string>
   <string name="text_size_percent_default">%s (стандартно)</string>
+  <string name="text_style_title">Шрифт</string>
   <string name="nav_item_reading_lists">Мої списки</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>
@@ -579,17 +584,25 @@
   <string name="preference_summary_notification_user_talk">Повідомлення зі сторінок обговорень</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
   <string name="view_random_card_title">Рандомайзер</string>
+  <string name="view_random_article_card_title">Випадкова стаття</string>
+  <string name="view_random_article_card_action">Більше випадкових статей</string>
+  <string name="view_top_read_card_title">Найчитаніше</string>
+  <string name="view_top_read_card_action">Більше найчитанішого</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d тис.</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d млн</string>
   <string name="view_next_random_article">Завантажити іншу випадкову статтю</string>
   <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
   <string name="view_main_page_card_action">Переглянути головну сторінку</string>
   <string name="view_featured_image_card_title">Зображення дня</string>
   <string name="view_featured_image_card_download">Завантажити</string>
+  <string name="view_featured_image_card_share">Поділитися</string>
   <string name="menu_feed_card_dismiss">Сховати цю картку</string>
   <string name="menu_feed_card_dismissed">Картку приховано.</string>
   <string name="menu_feed_card_edit_card_languages">Редагувати мови карток</string>
   <string name="menu_feed_overflow_label">Більше опцій</string>
   <string name="feed_featured_image_share_subject">Вибране зображення з Вікісховища</string>
   <string name="feed">Дослідити</string>
+  <string name="home">Головна</string>
   <string name="view_static_card_icon_content_description">Іконка картки</string>
   <string name="view_card_news_title">У новинах</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -603,9 +616,7 @@
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
   <string name="view_offline_card_text">Вміст не може бути завантажено в автономному режимі.</string>
   <string name="view_featured_article_card_title">Вибрана стаття</string>
-  <string name="view_featured_article_footer_save_button_label">Зберегти</string>
   <string name="view_static_card_save_button_label">Зберегти</string>
-  <string name="view_featured_article_footer_saved_button_label">Збережено</string>
   <string name="feed_configure_activity_title">Налаштувати стрічку</string>
   <string name="feed_configure_menu_reset">Відновити стандартний вигляд</string>
   <string name="feed_configure_menu_select_all">Показати усе</string>
@@ -629,6 +640,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасувати</string>
   <string name="feed_accessibility_card_text">Ви досягли кінця стрічки.</string>
   <string name="feed_accessibility_card_load_more_button">Завантажити ще</string>
+  <string name="top_read_activity_title">Найчитаніше за %s</string>
   <string name="description_edit_text_hint">Опис статті</string>
   <string name="description_edit_article_description_label">Стаття</string>
   <string name="description_edit_translate_article_description_label_per_language">Опис статті (%s)</string>
@@ -658,12 +670,14 @@
   <string name="description_ends_with_punctuation">Текст не має закінчуватися розділовим знаком.</string>
   <string name="description_starts_with_article" fuzzy="true">Не починайте текст артиклями на зразок «a» чи «the».</string>
   <string name="description_starts_with_uppercase">Починайте з малої літери, якщо тільки перше слово не є власною назвою.</string>
+  <string name="description_is_in_different_language">Схоже, текст неочікуваною мовою. Повинна бути така мова: %s.</string>
   <string name="description_edit_success_saved">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_snackbar">Опис статті опубліковано!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Підпис зображення збережено!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Підпис зображення збережено! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Теги до зображення опубліковано!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Теґи до зображення збережено!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Сподобалось? Допоможіть нам додати ще.</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>
@@ -674,6 +688,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
+  <string name="suggested_edits_describe_articles">Опишіть статті</string>
+  <string name="suggested_edits_caption_images">Назвіть зображення</string>
   <string name="suggested_edits_tag_images">Теги до зображень</string>
   <string name="suggested_edits_review_description">Перевірити опис статті</string>
   <string name="suggested_edits_add_description_button">Додати опис</string>
@@ -727,6 +743,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Більше інформації</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Сторінка файлу на Вікісховищі</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Сторінка файлу у Вікіпедії</string>
+  <string name="suggested_edits_article_cta_image_tags">Додайте теґи зображень</string>
   <string name="suggested_edits_article_cta_image_caption">Додати підпис зображення</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
@@ -756,9 +773,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо, %s&lt;/b&gt;, нижче ви можете знайти деякі швидкі і прості способи покращити Вікіпедію. Ви одразу побачите свій вплив, щойно почнете. Приємного редагування!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишіть зображення, щоб допомогти читачам зрозуміти його значення та контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Підсумуйте вміст статті, щоб допомогти читачам зрозуміти предмет статті з першого погляду.</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Кількість ваших редагувань з Пропонованих.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Скільки днів поспіль ви робили внесок через список пропонованих редагувань. Якщо ви довго не робили внесок, то показується дата останнього внеску.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Ваше загальне число редагувань поки що.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль Ви робили внесок. Якщо Ви довго не робили внесок, то показується дата останнього внеску.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які Ви редагували за останні 30 днів.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші редагування було скасовано (іншим редактором). Кількість таких редагувань: %d.</string>
   <string name="suggested_edits_paused_message">Пропоновані редагування було тимчасово відключено до %1$s. Перепрошуємо, %2$s, але деякі з ваших останніх редагувань було скасовано.</string>
   <string name="suggested_edits_disabled_message">Пропоновані редагування було відключено. Перепрошуємо, %s, але забагато з ваших останніх редагувань було скасовано.</string>

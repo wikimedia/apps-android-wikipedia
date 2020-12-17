@@ -582,9 +582,7 @@
   <string name="view_announcement_card_negative_action">ဟအှ်ေ တင်ဂုန်ရ</string>
   <string name="view_offline_card_text">လိက်ဂှ် လုပ်ပၠောပ် ဟွံဂွံ ပ္ဍဲအခိင် မ္ၚးလာင်</string>
   <string name="view_featured_article_card_title">လိက်ပရေင် မုက်ဂတ</string>
-  <string name="view_featured_article_footer_save_button_label">ဂိုင်သိပ်</string>
   <string name="view_static_card_save_button_label">ဂိုင်သိပ်</string>
-  <string name="view_featured_article_footer_saved_button_label">ဂိုင်သိပ်တုဲ</string>
   <string name="feed_configure_activity_title">ပဖံက်သေဝ်</string>
   <string name="feed_configure_menu_reset">ကလေင်ပ္တန် ဗဗဵု မလီုလာ်</string>
   <string name="feed_configure_menu_select_all">ထ္ၜး သီုဖအိုတ်</string>
