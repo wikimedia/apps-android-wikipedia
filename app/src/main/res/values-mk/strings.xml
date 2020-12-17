@@ -603,9 +603,7 @@
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
   <string name="view_offline_card_text">Содржината не може да се вчита додека не сте на линија.</string>
   <string name="view_featured_article_card_title">Избрана статија</string>
-  <string name="view_featured_article_footer_save_button_label">Зачувај</string>
   <string name="view_static_card_save_button_label">Зачувај</string>
-  <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
   <string name="feed_configure_activity_title">Прилагоди го доводот</string>
   <string name="feed_configure_menu_reset">Поврати основен изглед</string>
   <string name="feed_configure_menu_select_all">Прикажи сè</string>
