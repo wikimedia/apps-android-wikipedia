@@ -34,7 +34,7 @@ public final class EventPlatformClient {
     /*
      * When ENABLED is false, items can be enqueued but not dequeued.
      * Timers will not be set for enqueued items.
-     * QUEUE may grow beyond WAIT_ITEMS.
+     * QUEUE will not grow beyond MAX_QUEUE_SIZE.
      *
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
