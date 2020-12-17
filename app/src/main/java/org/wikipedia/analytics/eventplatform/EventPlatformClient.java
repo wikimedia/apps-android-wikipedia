@@ -21,6 +21,7 @@ import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegrati
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
+import static org.wikipedia.settings.Prefs.isEventLoggingEnabled;
 
 public final class EventPlatformClient {
 
@@ -38,7 +39,7 @@ public final class EventPlatformClient {
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
-    private static boolean ENABLED = isOnline();
+    private static boolean ENABLED = isOnline() && isEventLoggingEnabled();
 
 
     // A regular expression to match JavaScript regular expression literals. (How meta!)
@@ -203,9 +204,12 @@ public final class EventPlatformClient {
          */
         static synchronized void schedule(Event event) {
             /*
-             * Item is enqueued whether or not sending is enabled.
+             * Item is enqueued only when enabled(online and user has enabled usage reports),
+              or when queue size is within limits while offline.
              */
-            QUEUE.add(event);
+            if (ENABLED || QUEUE.size() <= MAX_QUEUE_SIZE) {
+                QUEUE.add(event);
+            }
 
             if (ENABLED) {
                 if (QUEUE.size() >= MAX_QUEUE_SIZE) {
