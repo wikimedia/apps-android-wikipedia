@@ -630,9 +630,7 @@
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado quando offline.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
-  <string name="view_featured_article_footer_save_button_label">Salvar</string>
   <string name="view_static_card_save_button_label">Salvar</string>
-  <string name="view_featured_article_footer_saved_button_label">Salvo</string>
   <string name="feed_configure_activity_title">Personalize o feed</string>
   <string name="feed_configure_menu_reset">Restaurar visualização padrão</string>
   <string name="feed_configure_menu_select_all">Mostrar todos</string>
