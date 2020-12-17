@@ -21,6 +21,7 @@
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
   <string name="nav_item_more">Ավելին</string>
+  <string name="nav_item_search">Որոնել</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>
   <string name="card_offline_error_retry">Կրկին փորձել</string>
@@ -48,7 +49,9 @@
   <string name="edit_section_find_in_page">Գտնել էջում</string>
   <string name="menu_page_font_and_theme">Տառատեսակ և արտաքին տեսք</string>
   <string name="menu_page_add_to_list">Ավելացնել ընթերցացանկում</string>
+  <string name="menu_page_add_to_default_list">Հիշել</string>
   <string name="feed_card_add_to_list">Ավելացնել ընթերցացանկում</string>
+  <string name="feed_card_add_to_default_list">Հիշել</string>
   <string name="menu_page_share">Կիսվել հղումով</string>
   <string name="menu_page_open_a_new_tab">Բացել նոր ներդիրում</string>
   <string name="menu_page_reading_lists">Ընթերցացանկեր</string>
@@ -225,7 +228,6 @@
   <string name="view_continue_reading_card_subtitle_today">այսօր</string>
   <string name="view_announcement_card_negative_action">Ոչ, շնորհակալություն</string>
   <string name="view_featured_article_card_title">Ընտրյալ հոդված</string>
-  <string name="view_featured_article_footer_save_button_label">Հիշել</string>
   <string name="view_static_card_save_button_label">Հիշել</string>
   <string name="feed_configure_menu_select_all">Ցույց տալ բոլորը</string>
   <string name="feed_configure_menu_deselect_all">Թաքցնել բոլորը</string>

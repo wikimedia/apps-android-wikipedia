@@ -7,7 +7,7 @@
   <string name="app_name_prod">ዊኪፐድያ</string>
   <string name="app_name_beta">ዊኪፐድያ በታ</string>
   <string name="app_name_alpha">ዊኪፐድያ ኣልፋ</string>
-  <string name="wikimedia">ዊኪሜዲያ</string>
+  <string name="wikimedia">ዊኪሜድያ</string>
   <string name="nav_item_back">ተመለስ</string>
   <string name="page_tabs_back">ተመለስ</string>
   <string name="nav_item_forward">ዝቕጽል</string>
@@ -99,7 +99,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">ብዘይ ኢሜይል ቀጸለ</string>
   <string name="email_recommendation_dialog_create_with_email_action">ናይ ኢሜይል ኣድራሻ ወስኽ</string>
   <string name="create_account_button">መንነት መፍለዪ ፍጠር</string>
-  <string name="create_account_ip_block_details">ዝርዝሪት</string>
+  <string name="create_account_ip_block_details">ዝርዝራት</string>
   <string name="preferences_general_heading">ሓፈሻዊ</string>
   <string name="wikipedia_app_faq">ብዝተደጋገመ ሕቶታት</string>
   <string name="send_feedback">ናይ መተግበሪ ግብረ-መልሲ ለኣኽ</string>
@@ -258,9 +258,7 @@
   <string name="view_continue_reading_card_subtitle_today">ሎሚ</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s ኣንብብ</string>
   <string name="view_announcement_card_negative_action">ኣይፋል፣ የቐንየለይ</string>
-  <string name="view_featured_article_footer_save_button_label">ኣቐምጥ</string>
   <string name="view_static_card_save_button_label">ኣቐምጥ</string>
-  <string name="view_featured_article_footer_saved_button_label">ዝተቐመጠ</string>
   <string name="feed_configure_onboarding_action">ይገብሮም</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ሕራይ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ኣትርፍ</string>

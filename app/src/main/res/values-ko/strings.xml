@@ -617,9 +617,7 @@
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
-  <string name="view_featured_article_footer_save_button_label">저장</string>
   <string name="view_static_card_save_button_label">저장</string>
-  <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="feed_configure_activity_title">피드 사용자 지정</string>
   <string name="feed_configure_menu_reset">기본 보기로 복구</string>
   <string name="feed_configure_menu_select_all">모두 보기</string>

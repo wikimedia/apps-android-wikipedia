@@ -259,8 +259,6 @@
   <string name="feed">پھرولو</string>
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
-  <string name="view_featured_article_footer_save_button_label">بچاؤ</string>
-  <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
   <string name="feed_configure_menu_select_all">سب ݙکھاؤ</string>
   <string name="feed_configure_menu_deselect_all">سارے لُکاؤ</string>
   <string name="feed_configure_onboarding_action">مرضی مطابق بݨاؤ</string>

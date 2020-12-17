@@ -501,9 +501,7 @@
   <string name="view_announcement_card_negative_action">Ala tanemmirt</string>
   <string name="view_offline_card_text">Agbur ur yezmir ara ad d-yali s war tuqqna.</string>
   <string name="view_featured_article_card_title">Amagrad ifazen</string>
-  <string name="view_featured_article_footer_save_button_label">Sekles</string>
   <string name="view_static_card_save_button_label">Sekles</string>
-  <string name="view_featured_article_footer_saved_button_label">Yettwasekles</string>
   <string name="feed_configure_activity_title">Swel tikarḍiwin n usnirem</string>
   <string name="feed_configure_menu_reset">Ales awennez ar umezwer</string>
   <string name="feed_configure_menu_select_all">Sken-d akk</string>
