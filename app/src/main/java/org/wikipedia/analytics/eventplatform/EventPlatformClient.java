@@ -97,7 +97,7 @@ public final class EventPlatformClient {
      * as other considerations.
      */
     public static synchronized void setEnabled(boolean enabled) {
-        ENABLED = enabled;
+        ENABLED = enabled && isEventLoggingEnabled();
 
         if (ENABLED) {
             /*
