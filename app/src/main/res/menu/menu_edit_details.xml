@@ -12,6 +12,6 @@
         android:title="@string/menu_option_user_profile" />
     <item
         android:id="@+id/menu_user_contributions_page"
-        android:icon="@drawable/ic_edit_user_talk"
+        android:icon="@drawable/ic_icon_user_contributions_ooui"
         android:title="@string/menu_option_user_contributions" />
 </menu>
