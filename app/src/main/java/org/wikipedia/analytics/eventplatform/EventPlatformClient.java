@@ -42,10 +42,12 @@ public final class EventPlatformClient {
     private static boolean ENABLED = isOnline() && isEventLoggingEnabled();
 
 
-    // A regular expression to match JavaScript regular expression literals. (How meta!)
-    // This is not as strict as it could be in that it allows individual flags to be specified more
-    // than once, but it doesn't really matter because we don't expect flags and ignore them if
-    // present.
+    /**
+     * A regular expression to match JavaScript regular expression literals. (How meta!)
+     *This is not as strict as it could be in that it allows individual flags to be specified more
+     *than once, but it doesn't really matter because we don't expect flags and ignore them if
+     *present.
+     */
     static String JS_REGEXP_PATTERN = "^/.*/[gimsuy]{0,6}$";
 
     /**
