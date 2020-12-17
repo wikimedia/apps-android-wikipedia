@@ -13,7 +13,7 @@ import org.wikipedia.suggestededits.SuggestedEditsTypeItemView
 
 class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), SuggestedEditsTypeItemView.Callback {
 
-    private var filterViews = ArrayList<SuggestedEditsTypeItemView>()
+    private var filterViews: Array<SuggestedEditsTypeItemView>
     var callback: Callback? = null
 
     init {
@@ -21,10 +21,7 @@ class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet?
         orientation = VERTICAL
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        filterViews.add(allTypesView)
-        filterViews.add(articleDescriptionView)
-        filterViews.add(imageCaptionsView)
-        filterViews.add(imageTagsView)
+        filterViews = arrayOf(allTypesView, articleDescriptionView, imageCaptionsView, imageTagsView)
 
         allTypesView.setAttributes(getContext().getString(R.string.edit_type_all), R.drawable.ic_mode_edit_themed_24dp, Contribution.EDIT_TYPE_GENERIC, this)
         articleDescriptionView.setAttributes(getContext().getString(R.string.description_edit_tutorial_title_descriptions), R.drawable.ic_article_description, Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION, this)

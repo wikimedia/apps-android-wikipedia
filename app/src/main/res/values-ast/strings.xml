@@ -544,9 +544,7 @@
   <string name="view_announcement_card_negative_action">Non, gracies</string>
   <string name="view_offline_card_text">Nun puede cargase conteníu cuando nun hai conexón</string>
   <string name="view_featured_article_card_title">Artículu destacáu</string>
-  <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_static_card_save_button_label">Guardar</string>
-  <string name="view_featured_article_footer_saved_button_label">Guardáu</string>
   <string name="feed_configure_activity_title">Personalizar la canal</string>
   <string name="feed_configure_menu_reset">Restaurar la vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Amosar toes</string>

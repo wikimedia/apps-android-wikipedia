@@ -607,9 +607,7 @@
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
   <string name="view_offline_card_text">De inhoud kan niet offline geladen worden.</string>
   <string name="view_featured_article_card_title">Uitgelichte pagina</string>
-  <string name="view_featured_article_footer_save_button_label">Opslaan</string>
   <string name="view_static_card_save_button_label">Opslaan</string>
-  <string name="view_featured_article_footer_saved_button_label">Opgeslagen</string>
   <string name="feed_configure_activity_title">Overzicht bewerken</string>
   <string name="feed_configure_menu_reset">Standaardoverzicht terugzetten</string>
   <string name="feed_configure_menu_select_all">Alles weergeven</string>

@@ -623,9 +623,7 @@
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
   <string name="view_offline_card_text">内容不能在离线时加载。</string>
   <string name="view_featured_article_card_title">典范条目</string>
-  <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_static_card_save_button_label">保存</string>
-  <string name="view_featured_article_footer_saved_button_label">已保存</string>
   <string name="feed_configure_activity_title">自定义订阅源</string>
   <string name="feed_configure_menu_reset">恢复默认视图</string>
   <string name="feed_configure_menu_select_all">显示全部</string>
