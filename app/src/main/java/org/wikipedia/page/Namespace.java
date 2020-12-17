@@ -167,31 +167,30 @@ public enum Namespace implements EnumCode {
         return string;
     }
 
-    /** Warning: this method is localized only for File and Special pages. */
     @Deprecated @NonNull public static Namespace fromLegacyString(@NonNull WikiSite wiki,
                                                                   @Nullable String name) {
-        if (FileAliasData.valueFor(wiki.languageCode()).equals(name)
-                || FileAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+        if (StringUtils.compareIgnoreCase(FileAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(FileAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
             return Namespace.FILE;
         }
 
-        if (SpecialAliasData.valueFor(wiki.languageCode()).equals(name)
-                || SpecialAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+        if (StringUtils.compareIgnoreCase(SpecialAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(SpecialAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
             return Namespace.SPECIAL;
         }
 
-        if (TalkAliasData.valueFor(wiki.languageCode()).equals(name)
-                || TalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+        if (StringUtils.compareIgnoreCase(TalkAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(TalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
             return Namespace.TALK;
         }
 
-        if (UserAliasData.valueFor(wiki.languageCode()).equals(name)
-                || UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+        if (StringUtils.compareIgnoreCase(UserAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
             return Namespace.USER;
         }
 
-        if (UserTalkAliasData.valueFor(wiki.languageCode()).equals(name)
-                || UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+        if (StringUtils.compareIgnoreCase(UserTalkAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
             return Namespace.USER_TALK;
         }
 

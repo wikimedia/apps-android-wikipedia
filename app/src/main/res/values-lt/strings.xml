@@ -347,8 +347,6 @@
   <string name="view_continue_reading_card_subtitle_today">šiandien</string>
   <string name="view_announcement_card_negative_action">Ne, ačiū</string>
   <string name="view_featured_article_card_title">Rinktinis straipsnis</string>
-  <string name="view_featured_article_footer_save_button_label">Išsaugoti</string>
-  <string name="view_featured_article_footer_saved_button_label">Išsaugota</string>
   <string name="feed_configure_menu_select_all">Rodyti viską</string>
   <string name="feed_configure_menu_deselect_all">Paslėpti viską</string>
   <string name="description_edit_text_hint">Straipsnio aprašymas</string>

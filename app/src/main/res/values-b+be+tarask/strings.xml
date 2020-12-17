@@ -16,8 +16,10 @@
   <string name="nav_item_forward">Наперад</string>
   <string name="search_hint">Пошук па Вікіпэдыі</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Фільтраваць мае сьпісы</string>
   <string name="nav_item_suggested_edits">Рэдагаваньні</string>
   <string name="nav_item_more">Болей</string>
+  <string name="nav_item_search">Шукаць</string>
   <string name="error_network_error">Не атрымліваецца далучыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паспрабаваць ізноў</string>
   <string name="card_offline_error_retry">Паўтарыць</string>
@@ -41,7 +43,7 @@
   <string name="search_redirect_from">Перанакіравана з %s</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>
   <string name="menu_page_other_languages">Зьмяніць мову</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Знайсьці на старонцы</string>
+  <string name="menu_page_find_in_page">Знайсьці ў артыкуле</string>
   <string name="edit_section_find_in_page">Знайсьці на старонцы</string>
   <string name="menu_page_font_and_theme">Шрыфт і афармленьне</string>
   <string name="menu_page_add_to_list">Дадаць у сьпіс чытаньня</string>
@@ -124,7 +126,10 @@
   <string name="delete_selected_items">Выдаліць выбраныя элемэнты</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЭДЫ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Імя ўдзельніка</string>
+  <string name="login_dont_have_account">Ня маеце ўліковага запісу?</string>
   <string name="login_join_wikipedia">Далучайцеся да Вікіпэдыі</string>
+  <string name="login_forgot_password">Забылі пароль?</string>
+  <string name="create_account_already_have">Ужо маеце ўліковы запіс?</string>
   <string name="create_account_activity_title">Стварыць рахунак</string>
   <string name="dialog_create_account_checking_progress">Праверка</string>
   <string name="create_account_email_hint">Адрас электроннай пошты (не абавязкова)</string>
@@ -133,11 +138,13 @@
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
   <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_next">Далей</string>
+  <string name="email_recommendation_dialog_title">Стварыць уліковы запіс без э-пошты?</string>
   <string name="create_account_button">Стварыць рахунак</string>
   <string name="preferences_general_heading">Агульныя</string>
   <string name="wikipedia_app_faq">Частыя пытаньні па дастасаваньню Вікіпэдыя</string>
   <string name="send_feedback">Дастаць водгук пра дастасаваньне</string>
   <string name="create_account_account_created_toast">Рахунак створаны!</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сынхранізаваныя сьпісы чытаньня з „%s“?</string>
   <string name="preferences_privacy_settings_heading">Прыватнасьць</string>
   <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы пра карыстаньне</string>
   <string name="preference_summary_eventlogging_opt_in">Дазволіць Вікімэдыя зьбіраць інфармацыю пра тое як Вы выкарыстоўваеце дастасаваньне каб яго палепшыць</string>
@@ -160,10 +167,13 @@
   <string name="about_contributors_heading">Аўтары</string>
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Ліцэнзія</string>
   <string name="about_app_license">Крынічны код даступны на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; і &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Прадукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;фундацыі «Вікімэдыя»&lt;/a&gt;</string>
   <string name="about_activity_title">Пра</string>
   <string name="edit_abandon_confirm">Старонка была зьмененая. Вы ўпэўнены, што жадаеце выйсьці без захаваньня Вашых зьменаў?</string>
+  <string name="edit_abandon_confirm_yes">Так</string>
+  <string name="edit_abandon_confirm_no">Не</string>
   <string name="user_blocked_from_editing_title">Заблякаваны</string>
   <string name="user_logged_in_blocked_from_editing">Ваш рахунак удзельніка быў заблякаваны ад рэдагаваньня ў гэтай вікі.</string>
   <string name="user_anon_blocked_from_editing">Рэдагаваньне з Вашага IP-адраса было заблякаванае.</string>
@@ -171,14 +181,21 @@
   <string name="edit_next">Далей</string>
   <string name="edit_done">Апублікаваць</string>
   <string name="edit_preview">Папярэдні прагляд</string>
+  <string name="edit_undo">Скасаваць</string>
+  <string name="edit_redo">Паўтарыць</string>
+  <string name="edit_zoom_in">Павялічыць</string>
+  <string name="edit_zoom_out">Паменшыць</string>
   <string name="edit_summary_tag_typo">Выпраўленая абдрукоўка</string>
   <string name="edit_summary_tag_grammar">Выпраўленая артаграфія</string>
   <string name="edit_summary_tag_links">Даданая спасылка</string>
   <string name="edit_summary_tag_other">Іншае</string>
   <string name="edit_summary_tag_other_hint">Іншыя шляхі якімі Вы палепшылі старонку</string>
+  <string name="edit_conflict_title">Канфлікт рэдагаваньняў</string>
   <string name="edit_conflict_message">Гэтая старонка ўжо была зьмененая іншым удзельнікам і канфліктуе з вашым рэдагаваньнем. Калі ласка, скапіюйце свае рэдагаваньні, вярніцеся ды абнавеце старонку, а тады паспрабуйце адрэдагаваць ізноў.</string>
   <string name="find_next">Працягваць пошук</string>
   <string name="find_previous">Знайсьці папярэдняе</string>
+  <string name="find_first_occurence">Гэта першае супадзеньне</string>
+  <string name="find_last_occurence">Гэта апошняе супадзеньне</string>
   <string name="abusefilter_title_warn">Гэтае рэдагаваньне можа быць неканструктыўным. Вы ўпэўненыя, што жадаеце яго апублікаваць?</string>
   <string name="abusefilter_title_disallow">Вы ня можаце апублікаваць гэтае рэдагаваньне. Калі ласка, вярніцеся і зьмяніце яго.</string>
   <string name="abusefilter_text_warn">Аўтаматызаваны фільтар вызначыў гэтае рэдагаваньне як патэнцыйна неканструктыўнае. Яно можа ўтрымліваць адно з:&lt;br /&gt;&lt;br /&gt;· Набранае вялікімі літарамі&lt;br /&gt;· Выдаленьне артыкула ці спам&lt;br /&gt;· Неадпаверныя вонкавыя спасылкі ці выявы&lt;br /&gt;· Паўтараючыяся сымбалі</string>
@@ -186,8 +203,14 @@
   <string name="page_similar_titles">Падобныя старонкі</string>
   <string name="search_did_you_mean">Вы мелі на ўвазе \"%s\"?</string>
   <string name="search_recent_header">Апошнія пошукавыя запыты:</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 вынік</item>
+    <item quantity="other">%d вынікі</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Ачысьціць гісторыю пошуку</string>
   <string name="clear_recent_searches_confirm">Вы ўпэўнены, што жадаеце ачысьціць Вашую гісторыю пошуку?</string>
+  <string name="clear_recent_searches_confirm_yes">Так</string>
+  <string name="clear_recent_searches_confirm_no">Не</string>
   <string name="error_browser_not_found">Не атрымалася адчыніць ўэб-старонку (ня знойдзены ўэб-браўзэр).</string>
   <string name="table_infobox">Хуткія факты</string>
   <string name="table_other">Болей зьвестак</string>
@@ -201,6 +224,8 @@
   <string name="dialog_close_description">Закрыць</string>
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
+  <string name="preference_title_download_only_over_wifi">Загружаць толькі па Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Пацьвердзіць загрузку па мабільнай сетцы?</string>
   <string name="read_more_section">Даведацца болей</string>
   <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
   <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
@@ -218,6 +243,8 @@
   <string name="gallery_fair_use_license">Добрасумленнае выкарыстаньне</string>
   <string name="gallery_uploader_unknown">Загрузіў невядомы</string>
   <string name="menu_new_tab">Новая ўкладка</string>
+  <string name="close_all_tabs_confirm_yes">Так</string>
+  <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Закрыць укладку</string>
   <string name="page_view_in_browser">Праглядзець старонку ў браўзэры</string>
   <string name="error_response_malformed">Адказ з сэрвэра ня быў карэктна адфарматаваны.</string>
@@ -230,7 +257,7 @@
   <string name="error_no_maps_app">Немагчыма знайсьці дастасаваньняў якія падаюць накіраваньні.</string>
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі выгляд артыкулаў пры доўгім націсканьні на спасылку.</string>
-  <string name="nav_item_donate" fuzzy="true">Падтрымаць Вікіпэдыю</string>
+  <string name="nav_item_donate">Ахвяраваць</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Auslaender
+* Dbrant
 * Evropi
 * GR
 * Geraki
@@ -584,9 +585,7 @@
   <string name="view_announcement_card_negative_action">Όχι, ευχαριστώ</string>
   <string name="view_offline_card_text">Το περιεχόμενο δεν μπορεί να φορτωθεί όταν είστε εκτός σύνδεσης.</string>
   <string name="view_featured_article_card_title">Προβεβλημένο λήμμα</string>
-  <string name="view_featured_article_footer_save_button_label">Αποθήκευση</string>
   <string name="view_static_card_save_button_label">Αποθηκεύστε</string>
-  <string name="view_featured_article_footer_saved_button_label">Αποθηκεύθηκε</string>
   <string name="feed_configure_activity_title">Διαμορφώστε τη ροή</string>
   <string name="feed_configure_menu_reset">Επαναφορά της προεπιλεγμένης προβολής</string>
   <string name="feed_configure_menu_select_all">Εμφάνιση όλων</string>

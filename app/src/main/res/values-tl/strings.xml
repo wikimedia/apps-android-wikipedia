@@ -603,9 +603,7 @@
   <string name="view_announcement_card_negative_action">Salamat na lang</string>
   <string name="view_offline_card_text">Di maikakarga ang nilalaman kapag offline.</string>
   <string name="view_featured_article_card_title">Tampok na artikulo</string>
-  <string name="view_featured_article_footer_save_button_label">I-save</string>
   <string name="view_static_card_save_button_label">I-save</string>
-  <string name="view_featured_article_footer_saved_button_label">Naka-save</string>
   <string name="feed_configure_activity_title">Isaayos ang feed</string>
   <string name="feed_configure_menu_reset">Ibalik sa dati</string>
   <string name="feed_configure_menu_select_all">Tingnan lahat</string>
