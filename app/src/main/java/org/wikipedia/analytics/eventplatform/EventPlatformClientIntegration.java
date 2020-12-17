@@ -10,7 +10,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +32,6 @@ import static org.wikipedia.util.DateUtil.iso8601DateFormat;
 
 final class EventPlatformClientIntegration {
 
-    private static final Map<String, EventService> RETROFIT_SERVICE_CACHE = new HashMap<>();
     private static final CompositeDisposable DISPOSABLES = new CompositeDisposable();
 
     static void fetchStreamConfigs(EventPlatformClient.StreamConfigsCallback cb) {
