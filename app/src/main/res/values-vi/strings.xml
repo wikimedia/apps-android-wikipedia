@@ -578,9 +578,7 @@
   <string name="view_announcement_card_negative_action">Thôi</string>
   <string name="view_offline_card_text">Không thể tải nội dung khi ngoại tuyến.</string>
   <string name="view_featured_article_card_title">Bài viết chọn lọc</string>
-  <string name="view_featured_article_footer_save_button_label">Lưu</string>
   <string name="view_static_card_save_button_label">Lưu</string>
-  <string name="view_featured_article_footer_saved_button_label">Đã lưu</string>
   <string name="feed_configure_activity_title">Tùy biến nguồn cấp</string>
   <string name="feed_configure_menu_reset">Mặc định lại tùy chọn</string>
   <string name="feed_configure_menu_select_all">Hiển thị tất cả</string>

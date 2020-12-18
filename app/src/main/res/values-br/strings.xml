@@ -482,9 +482,7 @@
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
   <string name="view_offline_card_text">N\'haller ket kargañ danvez pa vezer ezlinenn.</string>
   <string name="view_featured_article_card_title">Pennpennad</string>
-  <string name="view_featured_article_footer_save_button_label">Enrollañ</string>
   <string name="view_static_card_save_button_label">Enrollañ</string>
-  <string name="view_featured_article_footer_saved_button_label">Enrollet</string>
   <string name="feed_configure_menu_reset">Assevel ar gwel dre ziouer</string>
   <string name="feed_configure_menu_select_all">Diskouez pep tra</string>
   <string name="feed_configure_menu_deselect_all">Kuzhat pep tra</string>

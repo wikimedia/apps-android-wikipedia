@@ -625,9 +625,7 @@
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в автономном режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
-  <string name="view_featured_article_footer_save_button_label">Сохранить</string>
   <string name="view_static_card_save_button_label">Сохранить</string>
-  <string name="view_featured_article_footer_saved_button_label">Сохранено</string>
   <string name="feed_configure_activity_title">Настроить ленту</string>
   <string name="feed_configure_menu_reset">Восстановить фильтры по умолчанию</string>
   <string name="feed_configure_menu_select_all">Показать все</string>

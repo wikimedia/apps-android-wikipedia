@@ -248,8 +248,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">îro</string>
   <string name="view_announcement_card_negative_action">Na spas</string>
-  <string name="view_featured_article_footer_save_button_label">Tomar bike</string>
-  <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
   <string name="suggested_edits_paused_title">Sekinandî ye</string>
