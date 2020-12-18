@@ -544,9 +544,7 @@
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="view_offline_card_text">Non se pode cargar contido cando non hai conexión.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
-  <string name="view_featured_article_footer_save_button_label">Gardar</string>
   <string name="view_static_card_save_button_label">Gardar</string>
-  <string name="view_featured_article_footer_saved_button_label">Gardado</string>
   <string name="feed_configure_activity_title">Configurar a canle</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Amosar todo</string>

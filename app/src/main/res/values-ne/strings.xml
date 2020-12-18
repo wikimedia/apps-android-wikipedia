@@ -432,9 +432,7 @@
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
-  <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
-  <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
   <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
   <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>

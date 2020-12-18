@@ -495,9 +495,7 @@
   <string name="view_announcement_card_negative_action">Ní dhéanfaidh mé é</string>
   <string name="view_offline_card_text">Ní féidir inneachar a lódáil agus a bheith as líne.</string>
   <string name="view_featured_article_card_title">Alt roghnaithe</string>
-  <string name="view_featured_article_footer_save_button_label">Sábháil</string>
   <string name="view_static_card_save_button_label">Sábháil</string>
-  <string name="view_featured_article_footer_saved_button_label">Sábháilte</string>
   <string name="feed_configure_activity_title">Cuir an fotha in oiriúint</string>
   <string name="feed_configure_menu_reset">Cuir amharc réamhshocraithe ar ais</string>
   <string name="feed_configure_menu_select_all">Taispeáin uile</string>

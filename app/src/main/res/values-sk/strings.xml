@@ -560,9 +560,7 @@
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
   <string name="view_offline_card_text">Obsah nemôže byť načítaný bez pripojenia na internet.</string>
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
-  <string name="view_featured_article_footer_save_button_label">Uložiť</string>
   <string name="view_static_card_save_button_label">Uložiť</string>
-  <string name="view_featured_article_footer_saved_button_label">Uložené</string>
   <string name="feed_configure_activity_title">Prispôsobiť kanál Objaviť</string>
   <string name="feed_configure_menu_reset">Obnoviť predvolené zobrazenie</string>
   <string name="feed_configure_menu_select_all">Zobraziť všetko</string>

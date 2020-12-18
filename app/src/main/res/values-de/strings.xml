@@ -628,9 +628,7 @@
   <string name="view_announcement_card_negative_action">Nein, danke</string>
   <string name="view_offline_card_text">Der Inhalt kann nicht geladen werden, während du offline bist.</string>
   <string name="view_featured_article_card_title">Vorgestellter Artikel</string>
-  <string name="view_featured_article_footer_save_button_label">Speichern</string>
   <string name="view_static_card_save_button_label">Speichern</string>
-  <string name="view_featured_article_footer_saved_button_label">Gespeichert</string>
   <string name="feed_configure_activity_title">Den Feed anpassen</string>
   <string name="feed_configure_menu_reset">Standardansicht wiederherstellen</string>
   <string name="feed_configure_menu_select_all">Alle anzeigen</string>
