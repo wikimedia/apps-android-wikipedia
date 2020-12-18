@@ -32,11 +32,11 @@ import static org.wikipedia.util.DateUtil.iso8601DateFormat;
 
 final class EventPlatformClientIntegration {
 
-    private static final CompositeDisposable DISPOSABLES = new CompositeDisposable();
-
     static void fetchStreamConfigs(EventPlatformClient.StreamConfigsCallback cb) {
+        CompositeDisposable DISPOSABLES = new CompositeDisposable();
         DISPOSABLES.add(ServiceFactory.get(new WikiSite(META_WIKI_BASE_URI))
                 .getStreamConfigs()
+                .doAfterTerminate(DISPOSABLES::clear)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> cb.onSuccess(response.getStreamConfigs()), L::e));
@@ -52,9 +52,11 @@ final class EventPlatformClientIntegration {
      * @param events Events to be posted. Gson will take care of serializing to JSON.
      */
     static void postEvents(@NonNull StreamConfig streamConfig, @NonNull List<Event> events) {
+        CompositeDisposable DISPOSABLES = new CompositeDisposable();
         DISPOSABLES.add(ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate(DISPOSABLES::clear)
                 .subscribe(response -> {
                     switch (response.code()) {
                         case HTTP_CREATED: // 201 - Success
