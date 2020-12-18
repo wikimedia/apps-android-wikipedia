@@ -3,12 +3,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_share_edit"
-        android:icon="@drawable/ic_share_themed_24dp"
+        android:icon="@drawable/ic_share_material_secondary_themed"
         android:title="@string/menu_option_share_edit" />
     <item
         android:id="@+id/menu_user_profile_page"
         android:icon="@drawable/ic_user_avatar_themed"
-        android:iconTint="?attr/toolbar_icon_color"
         android:title="@string/menu_option_user_profile" />
     <item
         android:id="@+id/menu_user_contributions_page"
