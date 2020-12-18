@@ -35,6 +35,8 @@ import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_CONTRIBUTIONS
+import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_PAGEVIEWS
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -66,6 +68,10 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
+
+        totalContributionCount = arguments?.getInt(EXTRA_SOURCE_CONTRIBUTIONS, 0)!!
+        totalPageViews = arguments?.getLong(EXTRA_SOURCE_PAGEVIEWS, 0)!!
+
         return inflater.inflate(R.layout.fragment_contributions_suggested_edits, container, false)
     }
 
@@ -137,7 +143,6 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
 
         progressBar.visibility = VISIBLE
-        totalContributionCount = 0
         disposables.clear()
 
         if (allContributions.isEmpty()) {
@@ -147,6 +152,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             })
         }
 
+        var totalContributionCount = 0
         disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
@@ -269,6 +275,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 }
                 .subscribe({
                     allContributions.addAll(it)
+                    this.totalContributionCount = totalContributionCount
                     createConsolidatedList()
                 }, { caught ->
                     L.e(caught)
@@ -560,8 +567,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         private const val DEPICTS_META_STR = "add-depicts:"
 
-        fun newInstance(): ContributionsFragment {
-            return ContributionsFragment()
+        fun newInstance(contributions: Int, pageViews: Long): ContributionsFragment {
+            val fragment = ContributionsFragment()
+            val args = Bundle()
+            args.putInt(EXTRA_SOURCE_CONTRIBUTIONS, contributions)
+            args.putLong(EXTRA_SOURCE_PAGEVIEWS, pageViews)
+            fragment.arguments = args
+            return fragment
         }
     }
 }
