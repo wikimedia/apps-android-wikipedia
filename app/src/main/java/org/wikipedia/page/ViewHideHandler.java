@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
