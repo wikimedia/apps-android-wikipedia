@@ -83,7 +83,7 @@ public class ViewHideHandler
         if (anchoredView != null) {
             anchoredView.setTranslationY(animMargin);
         }
-        hideableView.setElevation(scrollY > 0 ? DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)) : 0);
+        hideableView.setElevation(scrollY == 0 ? 0 : DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
     }
 
     @Override
