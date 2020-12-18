@@ -30,7 +30,6 @@ public class MainPageCardView extends DefaultFeedCardView<MainPageCard> {
 
     @Override public void setCard(@NonNull final MainPageCard card) {
         super.setCard(card);
-        setLayoutDirectionByWikiSite(card.wikiSite(), headerView);
 
         headerView.setTitle(L10nUtil.getStringForArticleLanguage(getCard().wikiSite().languageCode(), R.string.view_main_page_card_title))
                 .setLangCode(getCard().wikiSite().languageCode())
