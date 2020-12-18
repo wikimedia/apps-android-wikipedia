@@ -19,6 +19,7 @@
         android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
         android:letterSpacing="0"
+        android:textDirection="locale"
         android:paddingHorizontal="8dp"/>
 
 </merge>
