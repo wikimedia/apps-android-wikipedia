@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0"
+            android:letterSpacing="0.04"
             android:textSize="14sp"
             app:icon="@drawable/ic_icon_star"
             app:iconGravity="textStart"
@@ -55,7 +55,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="sans-serif"
             android:gravity="center_vertical"
             android:lineSpacingExtra="8sp"
             android:textColor="?attr/primary_text_color"
@@ -63,12 +62,11 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/newerButton"
+            android:id="@+id/newerIdButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:contentDescription="@null"
             android:focusable="true"
             android:padding="12dp"
             android:scaleX="-1"
@@ -76,17 +74,15 @@
             app:tint="?attr/primary_text_color" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/olderButton"
+            android:id="@+id/olderIdButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:contentDescription="@null"
             android:focusable="true"
             android:padding="12dp"
             app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
             app:tint="?attr/primary_text_color" />
-
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -110,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0"
+            android:letterSpacing="0.04"
             android:textAllCaps="false"
             android:textColor="?attr/colorAccent"
             android:textSize="14sp"
@@ -126,13 +122,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0"
+            android:letterSpacing="0.04"
             android:text="@string/thank_label"
             android:textAllCaps="false"
             android:textSize="14sp"
             app:icon="@drawable/ic_heart_24"
             app:iconGravity="textStart"
-            app:iconSize="20dp"/>
+            app:iconSize="20dp" />
 
         <TextView
             android:id="@+id/diffCharacterCountView"

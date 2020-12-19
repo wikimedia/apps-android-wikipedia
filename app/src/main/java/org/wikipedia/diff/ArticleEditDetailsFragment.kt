@@ -9,12 +9,14 @@ import android.text.style.BackgroundColorSpan
 import android.view.*
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -60,6 +62,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private var watchlistExpiryChanged = false
     private var isWatched = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var watchlistExpirySession: WatchlistExpiry? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -85,16 +89,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         HistoryEntry(title, HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY), title))
             }
         }
-        newerButton.setOnClickListener {
+        newerIdButton.setOnClickListener {
             revisionId = newerRevisionId
-            fetchNeighborEdits()
+            fetchEditDetails()
         }
-        olderButton.setOnClickListener {
+        olderIdButton.setOnClickListener {
             revisionId = olderRevisionId
-            fetchNeighborEdits()
+            fetchEditDetails()
         }
         watchButton.setOnClickListener {
-            watchOrUnwatchTitle(WatchlistExpiry.NEVER, isWatched)
+            watchOrUnwatchTitle(watchlistExpirySession, isWatched)
         }
         usernameButton.setOnClickListener {
             if (AccountUtil.isLoggedIn() && username != null) {
@@ -104,16 +108,57 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             }
         }
         thankButton.setOnClickListener { showThankDialog() }
-        fetchNeighborEdits()
+        fetchEditDetails()
         highlightDiffText()
     }
 
-    private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
+    private fun fetchEditDetails() {
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articleTitle, revisionId),
+                ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle),
+                { r, w ->
+                    isWatched = w.query()!!.firstPage()!!.isWatched
+                    val currentRevision = r.query()!!.firstPage()!!.revisions()[0]
+                    username = currentRevision.user
+                    newerRevisionId = if (r.query()!!.firstPage()!!.revisions().size < 2) {
+                        -1
+                    } else {
+                        r.query()!!.firstPage()!!.revisions()[1].revId
+                    }
+                    olderRevisionId = currentRevision.parentRevId
+                    currentRevision
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    updateUI(it)
+                }) { t: Throwable? -> L.e(t) })
+    }
+
+    private fun updateUI(@NonNull currentRevision: Revision) {
+        usernameButton.text = currentRevision.user
+        editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision.timeStamp())
+
+        newerIdButton.isClickable = newerRevisionId.compareTo(-1) != 0
+        olderIdButton.isClickable = olderRevisionId.compareTo(0) != 0
+        ImageViewCompat.setImageTintList(newerIdButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
+                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId.compareTo(-1) == 0)
+                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+        ImageViewCompat.setImageTintList(olderIdButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
+                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0)
+                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+        menu?.findItem(R.id.menu_user_profile_page)?.title = getString(R.string.menu_option_user_profile, currentRevision.user)
+        menu?.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision.user)
+        setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+        thankButton.isClickable = true
+        updateWatchlistButtonUI()
+    }
+
+    private fun setButtonTextAndIconColor(@NonNull view: MaterialButton, @NonNull themedColor: Int) {
         view.setTextColor(themedColor)
         view.iconTint = (ColorStateList.valueOf(themedColor))
     }
 
-    private fun watchOrUnwatchTitle(expiry: WatchlistExpiry, unwatch: Boolean) {
+    private fun watchOrUnwatchTitle(@Nullable expiry: WatchlistExpiry?, @NonNull unwatch: Boolean) {
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response: MwQueryResponse ->
@@ -128,6 +173,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 .subscribe({ watchPostResponse: WatchPostResponse ->
                     val firstWatch = watchPostResponse.getFirst()
                     isWatched = firstWatch!!.watched
+                    updateWatchlistButtonUI()
                     if (firstWatch != null) {
                         // Reset to make the "Change" button visible.
                         if (watchlistExpiryChanged && unwatch) {
@@ -138,11 +184,19 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 }) { t: Throwable? -> L.d(t) })
     }
 
-    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
+    private fun updateWatchlistButtonUI() {
+        setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
+                if (isWatched) R.attr.color_group_62 else R.attr.colorAccent))
+        watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label
+        else R.string.watchlist_details_watch_label)
+    }
+
+    private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, @NonNull watch: Watch) {
+        isWatched = watch.watched
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articleTitle))
-            setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
-            watchButton.text = getString(R.string.watchlist_details_watch_label)
+            watchlistExpirySession = null
+
         } else if (watch.watched && expiry != null) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
@@ -155,9 +209,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                     bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
             }
+            watchlistExpirySession = null
             snackbar.show()
-            setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_62))
-            watchButton.text = getString(R.string.watchlist_details_watching_label)
         }
     }
 
@@ -195,61 +248,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 { Consumer { t: Throwable? -> L.e(t) } }
     }
 
-    private fun fetchNeighborEdits() {
-        fetchEditDetails()
-    }
-
-    private fun updateUI(@NonNull currentRevision: Revision) {
-        usernameButton.text = currentRevision.user
-        editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision.timeStamp())
-
-        newerButton.isClickable = newerRevisionId.compareTo(-1) != 0
-        olderButton.isClickable = olderRevisionId.compareTo(0) != 0
-        ImageViewCompat.setImageTintList(newerButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId.compareTo(-1) == 0)
-                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
-        ImageViewCompat.setImageTintList(olderButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0)
-                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
-        menu?.findItem(R.id.menu_user_profile_page)?.title = getString(R.string.menu_option_user_profile, currentRevision.user)
-        menu?.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision.user)
-        setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
-        thankButton.isClickable = true
-        updateWatchlistButtonUI()
-    }
-
-    private fun updateWatchlistButtonUI() {
-        ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    isWatched = it.query()!!.firstPage()!!.isWatched
-
-                    setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
-                            if (isWatched) R.attr.color_group_62 else R.attr.colorAccent))
-                    watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label
-                    else R.string.watchlist_details_watch_label)
-                })
-                { Consumer { t: Throwable? -> L.e(t) } }
-    }
-
-    private fun fetchEditDetails() {
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articleTitle, revisionId)
+    private fun fetchDiffText() {
+        disposables.add(ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getDiff(olderRevisionId, revisionId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    val currentRevision = response.query()!!.firstPage()!!.revisions()[0]
-                    username = currentRevision.user
-                    newerRevisionId = if (response.query()!!.firstPage()!!.revisions().size < 2) {
-                        -1
-                    } else {
-                        response.query()!!.firstPage()!!.revisions()[1].revId
-                    }
-                    olderRevisionId = currentRevision.parentRevId
 
-                    updateUI(currentRevision)
                 }) { t: Throwable? -> L.e(t) })
-
     }
 
     private fun highlightDiffText() {
@@ -264,7 +269,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(@NonNull menu: Menu, @NonNull inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_edit_details, menu)
         this.menu = menu
         if (menu is MenuBuilder) {
@@ -272,7 +277,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(@NonNull item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_share_edit -> {
@@ -297,7 +302,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         }
     }
 
-    override fun onExpirySelect(expiry: WatchlistExpiry) {
+    override fun onExpirySelect(@NonNull expiry: WatchlistExpiry) {
         watchOrUnwatchTitle(expiry, false)
         bottomSheetPresenter.dismiss(childFragmentManager)
     }
