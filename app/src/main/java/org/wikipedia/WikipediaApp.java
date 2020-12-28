@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Window;
 import android.webkit.WebView;
 
@@ -66,6 +67,8 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
+
+import com.example.kmmsharedmodule.Greeting;
 
 public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
@@ -185,6 +188,8 @@ public class WikipediaApp extends Application {
         // For good measure, explicitly call our token subscription function, in case the
         // API failed in previous attempts.
         WikipediaFirebaseMessagingService.Companion.updateSubscription();
+
+        Log.d("SharedCode", new Greeting().greeting());
     }
 
     public int getVersionCode() {

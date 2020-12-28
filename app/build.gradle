@@ -36,7 +36,7 @@ android {
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 50337
         testApplicationId 'org.wikipedia.test'
@@ -228,6 +228,8 @@ dependencies {
 
     androidTestImplementation "androidx.test:rules:1.3.0" // JUnit Rules
     androidTestImplementation "androidx.test:runner:1.3.0" // Android JUnit Runner
+
+    implementation project(':kmmsharedmodule')
 }
 
 private setSigningConfigKey(config, Properties props) {
