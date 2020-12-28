@@ -39,3 +39,5 @@ scripts/backup.ab
 # miscellaneous
 all-apks.sh
 device*.png
+
+kmmsharedmodule/build/
