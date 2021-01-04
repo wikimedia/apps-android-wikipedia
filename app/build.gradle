@@ -228,7 +228,6 @@ dependencies {
     testImplementation "commons-io:commons-io:2.6"
     testImplementation 'org.hamcrest:hamcrest:2.2'
 
-    androidTestImplementation "org.mockito:mockito-inline:$mockitoVersion"
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
     androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
