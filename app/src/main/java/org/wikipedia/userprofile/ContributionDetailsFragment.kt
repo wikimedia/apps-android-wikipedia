@@ -78,19 +78,19 @@ class ContributionDetailsFragment : Fragment() {
         when (contribution.editType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                 UserContributionFunnel.get().logNavigateDescription()
-                UserContributionEvent.get().logNavigateDescription()
+                UserContributionEvent().logNavigateDescription()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 UserContributionFunnel.get().logNavigateCaption()
-                UserContributionEvent.get().logNavigateCaption()
+                UserContributionEvent().logNavigateCaption()
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 UserContributionFunnel.get().logNavigateTag()
-                UserContributionEvent.get().logNavigateTag()
+                UserContributionEvent().logNavigateTag()
             }
             else -> {
                 UserContributionFunnel.get().logNavigateMisc()
-                UserContributionEvent.get().logNavigateMisc()
+                UserContributionEvent().logNavigateMisc()
             }
         }
         val pageTitle = PageTitle(contribution.apiTitle, contribution.wikiSite, contribution.imageUrl, contribution.description, contribution.displayTitle)

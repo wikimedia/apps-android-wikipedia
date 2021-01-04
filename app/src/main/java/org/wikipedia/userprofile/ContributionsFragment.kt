@@ -99,7 +99,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         resetAndFetch()
 
         UserContributionFunnel.get().logOpen()
-        UserContributionEvent.get().logOpen()
+        UserContributionEvent().logOpen()
     }
 
     override fun onDestroyView() {
@@ -115,19 +115,19 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         when (editFilterType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                 UserContributionFunnel.get().logFilterDescriptions()
-                UserContributionEvent.get().logFilterDescriptions()
+                UserContributionEvent().logFilterDescriptions()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 UserContributionFunnel.get().logFilterCaptions()
-                UserContributionEvent.get().logFilterCaptions()
+                UserContributionEvent().logFilterCaptions()
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 UserContributionFunnel.get().logFilterTags()
-                UserContributionEvent.get().logFilterTags()
+                UserContributionEvent().logFilterTags()
             }
             else -> {
                 UserContributionFunnel.get().logFilterAll()
-                UserContributionEvent.get().logFilterAll()
+                UserContributionEvent().logFilterAll()
             }
         }
 
@@ -560,19 +560,19 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             when (contribution.editType) {
                 EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                     UserContributionFunnel.get().logViewDescription()
-                    UserContributionEvent.get().logViewDescription()
+                    UserContributionEvent().logViewDescription()
                 }
                 EDIT_TYPE_IMAGE_CAPTION -> {
                     UserContributionFunnel.get().logViewCaption()
-                    UserContributionEvent.get().logViewCaption()
+                    UserContributionEvent().logViewCaption()
                 }
                 EDIT_TYPE_IMAGE_TAG -> {
                     UserContributionFunnel.get().logViewTag()
-                    UserContributionEvent.get().logViewTag()
+                    UserContributionEvent().logViewTag()
                 }
                 else -> {
                     UserContributionFunnel.get().logViewMisc()
-                    UserContributionEvent.get().logViewMisc()
+                    UserContributionEvent().logViewMisc()
                 }
             }
             context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
