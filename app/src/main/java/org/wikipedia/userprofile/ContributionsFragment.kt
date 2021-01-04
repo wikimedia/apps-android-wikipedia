@@ -35,10 +35,9 @@ import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRI
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.userprofile.ContributionsItemView.Callback
-import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_CONTRIBUTIONS
 import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_PAGEVIEWS
+import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
