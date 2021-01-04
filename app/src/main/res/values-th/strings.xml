@@ -591,9 +591,7 @@
   <string name="view_announcement_card_negative_action">ไม่ ขอบคุณ</string>
   <string name="view_offline_card_text">ไม่สามารถโหลดเนื้อหาขณะออฟไลน์ได้</string>
   <string name="view_featured_article_card_title">บทความคัดสรร</string>
-  <string name="view_featured_article_footer_save_button_label">บันทึก</string>
   <string name="view_static_card_save_button_label">บันทึก</string>
-  <string name="view_featured_article_footer_saved_button_label">บันทึกแล้ว</string>
   <string name="feed_configure_activity_title">ปรับแต่งฟีด</string>
   <string name="feed_configure_menu_reset">คืนค่ามุมมองเริ่มต้น</string>
   <string name="feed_configure_menu_select_all">แสดงทั้งหมด</string>
@@ -658,6 +656,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ควรเขียนให้พอดีหนึ่งบรรทัด และเขียนตั้งแต่ 2-12 คำ</string>
   <string name="description_edit_tutorial_button_label_start_editing">เริ่มแก้ไข</string>
   <string name="description_edit_tutorial_promise">ฉันสัญญาว่าจะไม่ใช้คุณลักษณะนี้ในทางที่ผิด</string>
+  <string name="suggested_edits_describe_articles">อธิบายบทความ</string>
+  <string name="suggested_edits_caption_images">เขียนคำอธิบายภาพ</string>
+  <string name="suggested_edits_tag_images">เพิ่มป้ายระบุให้กับภาพ</string>
   <string name="suggested_edits_review_description">ตรวจทานคำอธิบายบทความ</string>
   <string name="suggested_edits_add_description_button">เพิ่มคำอธิบาย</string>
   <string name="suggested_edits_edit_description_button">แก้ไขคำอธิบาย</string>
@@ -668,6 +669,8 @@
   <string name="suggested_edits_review_image_caption">ตรวจทานคำบรรยายภาพ</string>
   <string name="suggested_edits_my_contributions">การมีส่วนร่วมของฉัน</string>
   <string name="suggested_edits_no_description">ไฟล์นี้ไม่มีคำอธิบาย</string>
+  <string name="suggested_edits_license_notice">การเพิ่มคำอธิบายถือว่าฉันยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดในการใช้งาน&lt;/a&gt;และต้องการเผยแพร่การมีส่วนร่วมของคุณภายใต้สัญญาอนุญาต&lt;a href=\"%2$s\"&gt;ครีเอทีฟคอมมอนส์ CC0&lt;/a&gt; โดยไม่สามารถยกเลิกได้</string>
+  <string name="suggested_edits_image_caption_license_notice">การเพิ่มคำอธิบายภาพถือว่าฉันยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดในการใช้งาน&lt;/a&gt;และต้องการเผยแพร่การมีส่วนร่วมของคุณภายใต้สัญญาอนุญาต&lt;a href=\"%2$s\"&gt;ครีเอทีฟคอมมอนส์ CC0&lt;/a&gt; โดยไม่สามารถยกเลิกได้</string>
   <string name="suggested_edits_menu_info">ข้อมูล</string>
   <string name="suggested_edits_task_add_description_title">เพิ่มคำอธิบายบทความ</string>
   <string name="suggested_edits_task_add_description_description">มีส่วนร่วมกับบทความโดยไม่มีคำอธิบาย</string>
@@ -761,6 +764,7 @@
   <string name="suggested_edits_contribution_image_label">ภาพ</string>
   <string name="suggested_edits_contribution_article_label">บทความ</string>
   <string name="suggested_edits_contribution_date_yesterday_text">เมื่อวานนี้</string>
+  <string name="suggested_edits_rewards_continue_button">ดำเนินการต่อ</string>
   <string name="suggested_edits_encourage_account_creation_login_button">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
   <string name="file_page_activity_title">หน้าไฟล์</string>
   <string name="description_edit_revert_subtitle">ขอบคุณที่แก้ไขวิกิพีเดีย!</string>
@@ -848,4 +852,7 @@
   <string name="text_input_dialog_cancel_button_text">ยกเลิก</string>
   <string name="custom_date_picker_dialog_cancel_button_text">ยกเลิก</string>
   <string name="talk_title">คุย</string>
+  <string name="talk_add_reply">ตอบกลับ</string>
+  <string name="talk_no_subject">(ไม่มีหัวเรื่อง)</string>
+  <string name="talk_reply_subject">หัวเรื่อง</string>
 </resources>

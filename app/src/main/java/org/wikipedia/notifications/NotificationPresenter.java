@@ -150,7 +150,7 @@ public final class NotificationPresenter {
         WikiSite wiki = new WikiSite(link.getUrl());
         PageTitle title = wiki.titleForUri(Uri.parse(link.getUrl()));
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(TalkTopicsActivity.newIntent(context, wiki.languageCode(), title.getText()), n.id(), n.type()), 0);
+                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage()), n.id(), n.type()), 0);
         builder.addAction(0, StringUtil.fromHtml(link.getLabel()).toString(), pendingIntent);
     }
 

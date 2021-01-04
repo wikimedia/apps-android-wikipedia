@@ -72,6 +72,7 @@
   <string name="feed_card_add_to_default_list">Guardar</string>
   <string name="menu_page_share">Partilhar hiperligação</string>
   <string name="menu_page_open_a_new_tab">Abrir um novo separador</string>
+  <string name="menu_page_new_tab">Separador novo</string>
   <string name="menu_page_reading_lists">Listas de leitura</string>
   <string name="menu_page_recently_viewed">Vistos recentemente</string>
   <string name="menu_long_press_open_page">Abrir</string>
@@ -591,6 +592,7 @@
   <string name="view_random_article_card_title">Artigo aleatório</string>
   <string name="view_random_article_card_action">Mais artigos aleatórios</string>
   <string name="view_top_read_card_title">Mais lidos</string>
+  <string name="view_top_read_card_action">Outros mais lidos</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Carregar outro artigo aleatório</string>
@@ -617,9 +619,7 @@
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado sem acesso à Internet.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
-  <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_static_card_save_button_label">Guardar</string>
-  <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="feed_configure_activity_title">Personalizar o feed</string>
   <string name="feed_configure_menu_reset">Repor vista predefinida</string>
   <string name="feed_configure_menu_select_all">Mostrar todos</string>
@@ -915,7 +915,8 @@
     <item quantity="one">No ano passado</item>
     <item quantity="other">Há %d anos</item>
   </plurals>
-  <string name="on_this_day_end_of_scroll_message">Viajaste no tempo 🚀</string>
+  <string name="on_this_day_end_of_scroll_message">Você viajou no tempo 🚀</string>
+  <string name="on_this_day_back_to_future">Regresso ao futuro</string>
   <string name="languages_list_activity_title">Adicionar língua</string>
   <string name="languages_list_suggested_text">Recomendado</string>
   <string name="languages_list_all_text">Todas as línguas</string>

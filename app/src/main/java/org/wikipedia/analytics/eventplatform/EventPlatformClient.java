@@ -1,17 +1,13 @@
 package org.wikipedia.analytics.eventplatform;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static org.apache.commons.lang3.StringUtils.leftPad;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.deleteStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.fetchStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getAppInstallId;
@@ -19,16 +15,15 @@ import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegrati
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.isOnline;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvent;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredSessionId;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
+import static org.wikipedia.settings.Prefs.isEventLoggingEnabled;
 
 public final class EventPlatformClient {
-
-    private static final EventPlatformClient INSTANCE = new EventPlatformClient();
 
     /**
      * Stream configs to be fetched on startup and stored for the duration of the application
@@ -39,23 +34,21 @@ public final class EventPlatformClient {
     /*
      * When ENABLED is false, items can be enqueued but not dequeued.
      * Timers will not be set for enqueued items.
-     * QUEUE may grow beyond WAIT_ITEMS.
+     * QUEUE will not grow beyond MAX_QUEUE_SIZE.
      *
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
-    private static boolean ENABLED = isOnline();
+    private static boolean ENABLED = isOnline() && isEventLoggingEnabled();
 
 
-    // A regular expression to match JavaScript regular expression literals. (How meta!)
-    // This is not as strict as it could be in that it allows individual flags to be specified more
-    // than once, but it doesn't really matter because we don't expect flags and ignore them if
-    // present.
+    /**
+     * A regular expression to match JavaScript regular expression literals. (How meta!)
+     *This is not as strict as it could be in that it allows individual flags to be specified more
+     *than once, but it doesn't really matter because we don't expect flags and ignore them if
+     *present.
+     */
     static String JS_REGEXP_PATTERN = "^/.*/[gimsuy]{0,6}$";
-
-    public static EventPlatformClient getInstance() {
-        return INSTANCE;
-    }
 
     /**
      * Get the stream config for a given stream name.
@@ -105,8 +98,8 @@ public final class EventPlatformClient {
      * Set whether the client is enabled. This can react to device online/offline state as well
      * as other considerations.
      */
-    public void setEnabled(boolean enabled) {
-        ENABLED = enabled;
+    public static synchronized void setEnabled(boolean enabled) {
+        ENABLED = enabled && isEventLoggingEnabled();
 
         if (ENABLED) {
             /*
@@ -122,7 +115,7 @@ public final class EventPlatformClient {
      *
      * @param event event
      */
-    public void submit(Event event) {
+    public static synchronized void submit(Event event) {
         if (!SamplingController.isInSample(event)) {
             return;
         }
@@ -194,17 +187,15 @@ public final class EventPlatformClient {
         /**
          * If sending is enabled, dequeue and call send() on all scheduled items.
          */
-        static void sendAllScheduled() {
+        static synchronized void sendAllScheduled() {
             TIMER.cancel();
 
             if (ENABLED) {
                 /*
                  * All items on QUEUE are permanently removed.
                  */
-                for (Event event : QUEUE) {
-                    send(event);
-                }
-                QUEUE = new ArrayList<>();
+                send(QUEUE);
+                QUEUE.clear();
             }
         }
 
@@ -213,11 +204,14 @@ public final class EventPlatformClient {
          *
          * @param event event data
          */
-        static void schedule(Event event) {
+        static synchronized void schedule(Event event) {
             /*
-             * Item is enqueued whether or not sending is enabled.
+             * Item is enqueued only when enabled(online and user has enabled usage reports),
+              or when queue size is within limits while offline.
              */
-            QUEUE.add(event);
+            if (ENABLED || QUEUE.size() <= MAX_QUEUE_SIZE) {
+                QUEUE.add(event);
+            }
 
             if (ENABLED) {
                 if (QUEUE.size() >= MAX_QUEUE_SIZE) {
@@ -232,6 +226,7 @@ public final class EventPlatformClient {
                      * the countdown.
                      */
                     TIMER.cancel();
+                    TIMER.purge();
                     TIMER = new Timer();
                     TIMER.schedule(new Task(), WAIT_MS);
                 }
@@ -239,14 +234,24 @@ public final class EventPlatformClient {
         }
 
         /**
-         * If sending is enabled, attempt to send the provided event.
-         *
-         * @param event event
+         * If sending is enabled, attempt to send the provided events.
+         * Also batch the events ordered by their streams, as the QUEUE
+         * can contain events of different streams
+         * @param events list of events
          */
-        static void send(Event event) {
-            postEvent(getStreamConfig(event.getStream()), event);
+        static void send(List<Event> events) {
+            Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
+            for (Event event : events) {
+                String stream = event.getStream();
+                if (!eventsByStream.containsKey(stream) || eventsByStream.get(stream) == null) {
+                    eventsByStream.put(stream, new ArrayList<>());
+                }
+                eventsByStream.get(stream).add(event);
+            }
+            for (String stream : eventsByStream.keySet()) {
+                postEvents(getStreamConfig(stream), eventsByStream.get(stream));
+            }
         }
-
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -332,10 +337,9 @@ public final class EventPlatformClient {
          * 80-bit integer
          */
         @SuppressWarnings("checkstyle:magicnumber")
-        static String generateRandomId() {
-            SecureRandom rand = new SecureRandom();
-            BigInteger intVal = new BigInteger(80, rand);
-            return leftPad(intVal.toString(16), 20, "0");
+        public static String generateRandomId() {
+            Random random = new Random();
+            return String.format("%08X", random.nextInt()) + String.format("%08X", random.nextInt()) + String.format("%04X", random.nextInt() & 0xFFFF);
         }
     }
 
@@ -404,9 +408,8 @@ public final class EventPlatformClient {
          */
         @SuppressWarnings("checkstyle:magicnumber")
         static double getSamplingValue(SamplingConfig.Identifier identifier) {
-            return new BigDecimal(Long.valueOf(getSamplingId(identifier).substring(0, 8), 16))
-                    .divide(new BigDecimal(0xFFFFFFFFL), 4, RoundingMode.FLOOR)
-                    .doubleValue();
+            String token = getSamplingId(identifier).substring(0, 8);
+            return (double) Long.parseLong(token, 16) / (double) 0xFFFFFFFFL;
         }
 
         static String getSamplingId(SamplingConfig.Identifier identifier) {
@@ -428,7 +431,7 @@ public final class EventPlatformClient {
         void onSuccess(Map<String, StreamConfig> streamConfigs);
     }
 
-    private static void refreshStreamConfigs() {
+    private static synchronized void refreshStreamConfigs() {
         fetchStreamConfigs(streamConfigs -> {
             STREAM_CONFIGS = streamConfigs;
             setStoredStreamConfigs(streamConfigs);
@@ -438,9 +441,11 @@ public final class EventPlatformClient {
     /*
      * The constructor is private, so instantiation from other classes is impossible.
      */
-    private EventPlatformClient() {
+    public static void setUpStreamConfigs() {
         STREAM_CONFIGS = getStoredStreamConfigs();
         refreshStreamConfigs();
     }
 
+    private EventPlatformClient() {
+    }
 }

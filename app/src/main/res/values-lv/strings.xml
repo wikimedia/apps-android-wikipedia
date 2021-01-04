@@ -277,9 +277,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
-  <string name="view_featured_article_footer_save_button_label">Saglabāt</string>
   <string name="view_static_card_save_button_label">Saglabāt</string>
-  <string name="view_featured_article_footer_saved_button_label">Saglabāts</string>
   <string name="feed_configure_menu_select_all">Rādīt visus</string>
   <string name="feed_configure_menu_deselect_all">Paslēpt visus</string>
   <string name="feed_configure_onboarding_action">Pielāgot</string>

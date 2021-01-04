@@ -29,6 +29,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -62,6 +63,7 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.staticdata.UserTalkAliasData;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
@@ -577,8 +579,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
         @Override
         public void talkClick() {
-            if (AccountUtil.isLoggedIn()) {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getAppOrSystemLanguageCode(), AccountUtil.getUserName()));
+            if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
+                        new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
+                                AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
             }
         }
 

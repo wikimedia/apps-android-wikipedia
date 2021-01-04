@@ -77,7 +77,7 @@ public class EventPlatformClientTest {
                 MockedStatic<EventPlatformClient.SamplingController> samplingController = mockStatic(EventPlatformClient.SamplingController.class)
         ) {
             samplingController.when(() -> EventPlatformClient.SamplingController.isInSample(event)).thenReturn(true);
-            EventPlatformClient.getInstance().submit(event);
+            EventPlatformClient.submit(event);
             outputBuffer.verify(times(1), () -> EventPlatformClient.OutputBuffer.schedule(event));
         }
     }
@@ -85,7 +85,7 @@ public class EventPlatformClientTest {
     @Test
     public void testOutputBufferSendsEnqueuedEventsOnEnabled() {
         try (MockedStatic<EventPlatformClient.OutputBuffer> outputBuffer = mockStatic(EventPlatformClient.OutputBuffer.class)) {
-            EventPlatformClient.getInstance().setEnabled(true);
+            EventPlatformClient.setEnabled(true);
             outputBuffer.verify(times(1), EventPlatformClient.OutputBuffer::sendAllScheduled);
         }
     }

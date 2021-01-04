@@ -3,12 +3,15 @@ package org.wikipedia.analytics.eventplatform;
 import com.google.gson.Gson;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.mockwebserver.MockResponse;
@@ -19,10 +22,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.text.MatchesPattern.matchesPattern;
 import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getEventService;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getIso8601Timestamp;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvent;
+import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
 import static org.wikipedia.json.GsonUtil.getDefaultGson;
 
@@ -35,13 +37,13 @@ public class EventPlatformClientIntegrationTest extends MockRetrofitTest {
     @Test
     public void testGetEventService() {
         StreamConfig streamConfig = new StreamConfig("test", null, LOGGING);
-        assertThat(getEventService(streamConfig), is(notNullValue()));
+        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 
     @Test
     public void testGetEventServiceDefaultDestination() {
         StreamConfig streamConfig = new StreamConfig("test");
-        assertThat(getEventService(streamConfig), is(notNullValue()));
+        assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 
     @Test
@@ -52,18 +54,22 @@ public class EventPlatformClientIntegrationTest extends MockRetrofitTest {
 
     @Test
     public void testPostEventsSuccess() {
+        List<Event> events = new ArrayList<>();
         StreamConfig streamConfig = new StreamConfig("test");
         setStreamConfig(streamConfig);
         server().enqueue(new MockResponse().setResponseCode(202));
-        postEvent(streamConfig, new Event("test", "test"));
+        events.add(new Event("test", "test"));
+        postEvents(streamConfig, events);
     }
 
     @Test
     public void testDoesNotThrowOnPostEventsFailureResponse() {
+        List<Event> events = new ArrayList<>();
         StreamConfig streamConfig = new StreamConfig("test");
         setStreamConfig(streamConfig);
         server().enqueue(new MockResponse().setResponseCode(400));
-        postEvent(streamConfig, new Event("test", "test"));
+        events.add(new Event("test", "test"));
+        postEvents(streamConfig, events);
     }
 
     @Test

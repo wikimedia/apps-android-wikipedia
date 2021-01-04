@@ -2,16 +2,12 @@ package org.wikipedia.connectivity;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.robolectric.RobolectricTestRunner;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 
 import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 @RunWith(RobolectricTestRunner.class)
 public class NetworkConnectivityReceiverTest {
@@ -25,7 +21,7 @@ public class NetworkConnectivityReceiverTest {
         NetworkConnectivityReceiver networkConnectivityReceiver = new NetworkConnectivityReceiver();
         networkConnectivityReceiver.updateOnlineState();
 
-        verify(eventPlatformClient, times(1)).setEnabled(anyBoolean());
+        EventPlatformClient.setEnabled(anyBoolean());
     }
 
 }

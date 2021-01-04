@@ -55,6 +55,7 @@
   <string name="feed_card_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
   <string name="menu_page_share">ߛߘߌ߬ߜߋ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_page_open_a_new_tab">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫ ߟߊߞߊ߬</string>
+  <string name="menu_page_new_tab">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫</string>
   <string name="menu_page_reading_lists">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="menu_page_recently_viewed">ߦߋߣߍ߲߫ ߞߎߘߊ</string>
   <string name="menu_long_press_open_page">ߊ߬ ߟߊߞߊ߬</string>
@@ -522,9 +523,7 @@
   <string name="view_announcement_card_negative_action">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="view_offline_card_text">ߞߣߐߘߐ ߕߍ߫ ߛߐ߲߬ ߟߊߦߟߍ߬ ߟߊ߫ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌ ߕߏ߫.</string>
   <string name="view_featured_article_card_title">ߦߌߟߡߊ߫ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬</string>
-  <string name="view_featured_article_footer_save_button_label">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="view_static_card_save_button_label">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
-  <string name="view_featured_article_footer_saved_button_label">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="feed_configure_activity_title">ߓߊߟߏ ߟߎ߬ ߘߊ߲߬ߠߊߕߍ߰</string>
   <string name="feed_configure_menu_reset">ߊ߬ ߦߋߢߊ ߟߊߛߊ߬ߦߌ߲߬ ߊ߬ ߘߊ߲ߢߊ ߡߊ߬</string>
   <string name="feed_configure_menu_select_all">ߊ߬ ߓߍ߯ ߦߌ߬ߘߊ߬</string>
@@ -580,6 +579,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="suggested_edits_describe_articles">ߞߎߡߘߊ ߟߎ߬ ߛߓߍ߫</string>
   <string name="suggested_edits_caption_images">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍ߬ߟߌ߬ߡߊ ߟߎ߬</string>
+  <string name="suggested_edits_tag_images">ߖߌ߬ߦߊ߬ߓߍ߫ ߘߎ߲ߛߓߍ ߟߎ߬</string>
   <string name="suggested_edits_review_description">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߦߋ߫ ߕߎ߲߯</string>
   <string name="suggested_edits_add_description_button">ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_edit_description_button">ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
@@ -600,6 +600,7 @@
   <string name="suggested_edits_task_translate_caption_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬</string>
   <string name="suggested_edits_task_translate_caption_description">ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬ ߞߊ߲߫ ߜߘߍ ߟߎ߬ ߘߐ߫</string>
   <string name="suggested_edits_task_multilingual_title">ߡߊ߬ߛߙߋ߬ ߛߌߦߊߡߊ߲߫ ߠߎ߫ ߞߊ߲ߥߙߍ߫ ߡߊߦߟߍߡߊ߲ߠߊ ߟߎ߬ ߦߋ߫</string>
+  <string name="suggested_edits_task_multilingual_description">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߞߎ߲ ߠߎ߬ ߘߌ߫ ߞߍ߫ ߦߋ߲߬ ߣߴߌ ߞߊ߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߣߌ߫ ߛߓߍߟߌ ߞߍ߫ ߞߊ߲߫ ߞߋߟߋ߲ ߛߊ߲ߘߐ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">ߊ߬ ߛߐ߰ߣߍ߲߫ ߠߋ߬ ߝߏ߫ ߣߴߌ ߞߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ %d ߡߊߦߟߍ߬ߡߊ߲߫.</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">ߊ߬ ߣߍ߰ߣߍ߲ ߠߋ߬ ߝߏ߫ ߌ ߣߊ߬ ߞߎߡߘߊ %d ߟߎ߫ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫ (ߝߛߍ߬ߝߛߍ߬)</string>
   <string name="suggested_edits_task_multilingual_negative">ߒߠߋ ߕߊ߫ ߕߍ߫</string>
@@ -636,13 +637,15 @@
   <string name="suggested_edits_feed_card_add_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߙߊ߬</string>
   <string name="suggested_edits_feed_card_translate_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߝߙߊ߬</string>
+  <string name="suggested_edits_snackbar_survey_text">ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߍߞߌߦߊ ߕߘߍ߬ ߦߋ߫ ߘߌ߬؟ ߥߊ߯ߕߌ ߘߏ߫ ߕߊ߬ ߖߊ߰ߣߌ߲߫ ߞߊ߬ ߘߐ߬ߛߏ߰ߙߋ߬ߟߌ (ߛߐ߲ߘߊߗ߭\\ߛߐߙߑߝ߭ߋ߬) ߘߏ߫ ߟߝߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߊ߲߬.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">ߘߐ߬ߛߏ߰ߙߋߟߌ ߞߍ߫</string>
   <string name="suggested_edits_task_action_text_add">ߟߊ߬ߘߏ߲߬ߠߌ߲</string>
   <string name="suggested_edits_task_action_text_translate">ߘߟߊߡߌ߬ߘߊ߬</string>
   <string name="suggested_edits_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
   <string name="suggested_edits_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ</string>
   <string name="suggested_edits_image_tags_publishing">ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ ߦߴߌ ߘߐ߫...</string>
   <string name="suggested_edits_image_tags_published">ߊ߬ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">ߞߐߜߍ ߦߋߟߌ</string>
+  <string name="suggested_edits_views_label_text">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="suggested_edits_quality_label_text">ߛߎ߯ߦߊ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="suggested_edits_quality_perfect_text">ߝߍ߬ߒ߬ߕߊ߲</string>
   <string name="suggested_edits_quality_excellent_text">ߡߝߊߣߍ߲</string>
@@ -652,14 +655,18 @@
   <string name="suggested_edits_quality_sufficient_text">ߊ߬ ߞߊߝߌ߬ߛߊ߬</string>
   <string name="suggested_edits_quality_poor_text">ߊ߬ ߡߊ߫ ߘߝߊ߫</string>
   <string name="suggested_edits_quality_bad_text">ߊ߬ ߡߊߢߌ߲߬</string>
+  <string name="suggested_edits_label">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
   <string name="suggested_edits_learn_more">ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="suggested_edits_paused_title">ߊ߬ ߓߘߊ߫ ߟߊߟߐ߬</string>
   <string name="suggested_edits_disabled_title">ߊ߬ ߓߘߊ߫ ߓߐ߫ ߊ߬ ߟߊ߫.</string>
+  <string name="suggested_edits_last_edited">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߓߊ߲</string>
+  <string name="suggested_edits_last_edited_never">ߡߎ߰ߡߍ߫</string>
+  <string name="suggested_edits_task_new">ߞߎߘߊ</string>
   <string name="suggested_edits_contributions_screen_title">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="suggested_edits_contribution_language_label">ߞߊ߲</string>
   <string name="suggested_edits_contribution_date_time_label">ߕߎ߬ߡߊ߬ߘߊ/ߕߎ߬ߡߊ߬ߟߊ߲</string>
   <string name="suggested_edits_contribution_type_label">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߛߎ߯ߦߊ</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">ߞߐߕߐ߮</string>
+  <string name="suggested_edits_contribution_image_label">ߖߌ߬ߦߊ߬ߓߍ</string>
   <string name="suggested_edits_contribution_article_label">ߞߎߡߘߊ</string>
   <string name="suggested_edits_contribution_views">%s ߦߋߟߌ</string>
   <string name="suggested_edits_contribution_seen_text">%s ߦߋߟߌ ߦߙߌߞߊ ߕߟߋ߬ ߃߀ ߕߊ߬ߡߌ߲߬ߣߍ߲ ߠߎ߬ ߞߘߐ߫.</string>

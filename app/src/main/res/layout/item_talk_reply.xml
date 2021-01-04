@@ -14,8 +14,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/replyText"
         android:layout_marginEnd="16dp"
-        app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp"
-        app:tint="?attr/material_theme_secondary_color"
+        app:srcCompat="@drawable/ic_reply_24"
+        app:tint="?attr/material_theme_de_emphasised_color"
         android:contentDescription="@null"/>
 
     <TextView

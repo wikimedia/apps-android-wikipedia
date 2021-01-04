@@ -2,6 +2,7 @@
 <!-- Authors:
 * 4shadoww
 * Abijeet Patro
+* AinScept
 * Alluk.
 * Areee
 * BriskyBlizzard
@@ -620,9 +621,7 @@
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
-  <string name="view_featured_article_footer_save_button_label">Tallenna</string>
   <string name="view_static_card_save_button_label">Tallenna</string>
-  <string name="view_featured_article_footer_saved_button_label">Tallennettu</string>
   <string name="feed_configure_activity_title">Mukauta syötettä</string>
   <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
   <string name="feed_configure_menu_select_all">Näytä kaikki</string>
@@ -890,6 +889,7 @@
     <item quantity="one">Viime vuonna</item>
     <item quantity="other">%d vuotta sitten</item>
   </plurals>
+  <string name="on_this_day_back_to_future">Paluu tulevaisuuteen</string>
   <string name="languages_list_activity_title">Lisää kieli</string>
   <string name="languages_list_suggested_text">Ehdotettu</string>
   <string name="languages_list_all_text">Kaikki kielet</string>

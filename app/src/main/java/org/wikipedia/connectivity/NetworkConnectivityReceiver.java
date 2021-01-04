@@ -47,7 +47,7 @@ public class NetworkConnectivityReceiver extends BroadcastReceiver {
 
         EventPlatformClient epc = app.getEventPlatformClient();
         if (epc != null) {
-            app.getEventPlatformClient().setEnabled(online);
+            EventPlatformClient.setEnabled(online);
         }
     }
 
