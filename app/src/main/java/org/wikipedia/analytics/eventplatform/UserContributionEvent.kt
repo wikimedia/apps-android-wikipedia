@@ -1,7 +1,6 @@
 package org.wikipedia.analytics.eventplatform
 
 import com.google.gson.annotations.SerializedName
-import org.wikipedia.WikipediaApp
 
 class UserContributionEvent private constructor() : Event(SCHEMA_NAME, STREAM_NAME) {
     @SerializedName("action") private var action: String = ""
@@ -87,7 +86,7 @@ class UserContributionEvent private constructor() : Event(SCHEMA_NAME, STREAM_NA
     }
 
     private fun submitEvent() {
-        WikipediaApp.getInstance().eventPlatformClient.submit(this)
+        EventPlatformClient.submit(this)
     }
 
     companion object {
