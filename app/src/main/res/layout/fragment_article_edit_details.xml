@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="16dp"
@@ -35,7 +36,6 @@
             app:icon="@drawable/ic_icon_star"
             app:iconGravity="textStart"
             app:iconSize="20dp" />
-
     </LinearLayout>
 
     <View
@@ -89,7 +89,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="0dp"
