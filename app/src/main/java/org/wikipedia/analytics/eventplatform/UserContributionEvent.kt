@@ -2,7 +2,7 @@ package org.wikipedia.analytics.eventplatform
 
 import com.google.gson.annotations.SerializedName
 
-class UserContributionEvent private constructor() : Event(SCHEMA_NAME, STREAM_NAME) {
+class UserContributionEvent : Event(SCHEMA_NAME, STREAM_NAME) {
     @SerializedName("action") private var action: String = ""
 
     fun logOpen() {
