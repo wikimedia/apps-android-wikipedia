@@ -5,6 +5,7 @@
         android:id="@+id/empty"
         android:icon="@drawable/ic_more_vert_themed_24dp"
         android:orderInCategory="101"
+        android:title=""
         app:showAsAction="always">
         <menu>
             <item
