@@ -34,7 +34,7 @@ public final class TextInputDialog extends AlertDialog {
     private EditText secondaryText;
     private TextInputLayout editTextContainer;
     private TextInputLayout secondaryTextContainer;
-    private TextInputWatcher watcher = new TextInputWatcher();
+    private final TextInputWatcher watcher = new TextInputWatcher();
 
     public static TextInputDialog newInstance(@NonNull Activity activity,
                                               boolean showSecondaryText,
@@ -69,10 +69,6 @@ public final class TextInputDialog extends AlertDialog {
         }
     }
 
-    public void setText(@Nullable CharSequence text) {
-        setText(text, false);
-    }
-
     public void setSecondaryText(@Nullable CharSequence text) {
         secondaryText.setText(text);
     }
@@ -88,10 +84,6 @@ public final class TextInputDialog extends AlertDialog {
 
     public void setSecondaryHint(@StringRes int id) {
         secondaryTextContainer.setHint(getContext().getResources().getString(id));
-    }
-
-    public void selectAll() {
-        editText.selectAll();
     }
 
     public void setError(@Nullable CharSequence text) {
@@ -110,24 +102,6 @@ public final class TextInputDialog extends AlertDialog {
     @Override public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         editText.removeTextChangedListener(watcher);
-    }
-
-    public static class DefaultCallback implements Callback {
-        @Override
-        public void onShow(@NonNull TextInputDialog dialog) {
-        }
-
-        @Override
-        public void onTextChanged(@NonNull CharSequence text, @NonNull TextInputDialog dialog) {
-        }
-
-        @Override
-        public void onSuccess(@NonNull CharSequence text, @NonNull CharSequence secondaryText) {
-        }
-
-        @Override
-        public void onCancel() {
-        }
     }
 
     private TextInputDialog(@NonNull Context context) {
