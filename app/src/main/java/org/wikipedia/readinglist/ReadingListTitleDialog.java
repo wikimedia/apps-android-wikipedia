@@ -28,7 +28,7 @@ public final class ReadingListTitleDialog {
                     public void onShow(@NonNull TextInputDialog dialog) {
                         dialog.setHint(R.string.reading_list_name_hint);
                         dialog.setSecondaryHint(R.string.reading_list_description_hint);
-                        dialog.setText(title);
+                        dialog.setText(title, true);
                         dialog.setSecondaryText(StringUtils.defaultString(description));
                     }
 
