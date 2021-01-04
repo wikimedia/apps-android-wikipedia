@@ -62,10 +62,10 @@ public final class TextInputDialog extends AlertDialog {
         return this;
     }
 
-    public void setText(@Nullable CharSequence text, boolean moveCursorToEnd) {
+    public void setText(@Nullable CharSequence text, boolean select) {
         editText.setText(text);
-        if (moveCursorToEnd && text != null) {
-           editText.setSelection(text.length());
+        if (select) {
+            editText.selectAll();
         }
     }
 
