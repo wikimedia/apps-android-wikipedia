@@ -78,6 +78,7 @@
         <item name="color_group_59">@color/base30</item>
         <item name="color_group_60">@color/base80</item>
         <item name="color_group_61">@color/black26</item>
+        <item name="color_group_63">@color/black54</item>
         <item name="action_mode_green_background">@color/green50</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="reward_interstitial_calendar_drawable">@drawable/ic_illustration_calendar_light</item>
