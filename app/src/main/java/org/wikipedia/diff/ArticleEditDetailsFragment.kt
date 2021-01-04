@@ -10,7 +10,6 @@ import android.view.*
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
-import androidx.appcompat.view.menu.MenuBuilder
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
@@ -272,9 +271,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     override fun onCreateOptionsMenu(@NonNull menu: Menu, @NonNull inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_edit_details, menu)
         this.menu = menu
-        if (menu is MenuBuilder) {
-            menu.setOptionalIconsVisible(true)
-        }
     }
 
     override fun onOptionsItemSelected(@NonNull item: MenuItem): Boolean {
