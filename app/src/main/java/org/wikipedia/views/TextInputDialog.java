@@ -64,7 +64,7 @@ public final class TextInputDialog extends AlertDialog {
 
     public void setText(@Nullable CharSequence text, boolean moveCursorToEnd) {
         editText.setText(text);
-        if (moveCursorToEnd) {
+        if (moveCursorToEnd && text != null) {
            editText.setSelection(text.length());
         }
     }
