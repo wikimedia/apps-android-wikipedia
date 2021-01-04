@@ -56,9 +56,12 @@
   <string name="edit_section_find_in_page">Orrialdean bilatu</string>
   <string name="menu_page_font_and_theme">Letra eta gaia</string>
   <string name="menu_page_add_to_list">Gehitu irakurketa zerrendara</string>
+  <string name="menu_page_add_to_default_list">Gorde</string>
   <string name="feed_card_add_to_list">Gehitu irakurketa zerrendara</string>
+  <string name="feed_card_add_to_default_list">Gorde</string>
   <string name="menu_page_share">Partekatu lotura</string>
   <string name="menu_page_open_a_new_tab">Ireki leiho berria</string>
+  <string name="menu_page_new_tab">Fitxa berria</string>
   <string name="menu_page_reading_lists">Irakurketa zerrendak</string>
   <string name="menu_page_recently_viewed">Duela gutxi bisitatuak</string>
   <string name="menu_long_press_open_page">Ireki</string>
@@ -112,7 +115,7 @@
   <string name="reading_lists_sync_login">Saioa hasi</string>
   <string name="create_account_login">Saioa hasi</string>
   <string name="menu_login">Hasi saioa</string>
-  <string name="login_activity_title" fuzzy="true">Saioa hasi Wikipedian</string>
+  <string name="login_activity_title">Hasi saioa</string>
   <string name="login_in_progress_dialog_message">Saioa hasten…</string>
   <string name="login_success_toast" fuzzy="true">Saio hasiera egina!</string>
   <string name="reset_password_title">Zure pasahitza ezarri</string>
@@ -328,6 +331,10 @@
   <string name="crash_report_relaunch_or_quit">Sentitzen dugu, Wikipedia aplikazioak errorea jasan du eta eten egin da.\n\nBerriro hasi ala irten nahiko zenuke?</string>
   <string name="crash_report_relaunch">Berriro ere hasi</string>
   <string name="crash_report_quit">Irten</string>
+  <string name="article_menu_bar_save_button">Gorde</string>
+  <string name="article_menu_bar_language_button">Hizkuntza</string>
+  <string name="article_menu_bar_theme_button">Gaia</string>
+  <string name="article_menu_bar_contents_button">Edukiak</string>
   <string name="article_header_edit_hint">Aldatu...</string>
   <string name="article_header_edit_description">Artikuluaren deskribapena aldatu</string>
   <string name="article_header_edit_lead_section">Sarrera aldatu</string>
@@ -349,6 +356,7 @@
   <string name="reading_list_title_exists">\"%s\" dagoeneko irakurketa zerrendan dago.</string>
   <string name="reading_list_articles_already_exist_message" fuzzy="true">Dena ondo! %s(e)k fitxa irekietako artikulu guztiak biltzen ditu dagoeneko.</string>
   <string name="reading_list_added_view_button">Ikusi zerrenda</string>
+  <string name="reading_list_add_to_list_button">Zerrendara gehitu</string>
   <string name="format_reading_list_statistical_summary_singular">Artikulu 1, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikulu, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d artikulu 1 artikuluetatik eskuragarri daude konexiorik gabe, %2$.2f MB</string>

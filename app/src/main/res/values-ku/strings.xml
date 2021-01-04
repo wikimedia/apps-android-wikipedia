@@ -82,7 +82,7 @@
   <string name="langlinks_no_match">Ziman nehate dîtin</string>
   <string name="langlinks_activity_title">Zimanên din</string>
   <string name="langlinks_your_wikipedia_languages">Zimanên te yên Wîkîpediyayê</string>
-  <string name="menu_save_changes">Guhertinan biweşîne</string>
+  <string name="menu_save_changes">Guhartinan biweşîne</string>
   <string name="edit_saved_successfully">Guherandin hate weşandin!</string>
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>

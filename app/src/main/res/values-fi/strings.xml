@@ -11,6 +11,7 @@
 * Envlh
 * Jack Phoenix
 * Laurianttila
+* Maantietäjä
 * McSalama
 * Nike
 * Olimar
@@ -783,6 +784,7 @@
   <string name="suggested_edits_ip_blocked_message">Näyttää siltä, että IP-osoitteesi (tai IP-osoitealueesi) on tällä hetkellä estetty muokkaamasta Wikipediaa.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_help_page_link_text">Ehdotettujen muokkausten ohjesivu</string>
+  <string name="suggested_edits_edit_streak_label_text">Muokkaa juovaa</string>
   <string name="suggested_edits_views_label_text">Näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
   <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
