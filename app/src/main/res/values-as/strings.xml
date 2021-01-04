@@ -537,6 +537,7 @@
   <string name="feed_configure_menu_reset">ডিফ\'ল্ট ভিউ পুনঃস্থাপন কৰক</string>
   <string name="feed_configure_menu_select_all">সকলোবোৰ দেখুৱাওক</string>
   <string name="feed_configure_menu_deselect_all">সকলোবোৰ লুকুৱাওক</string>
+  <string name="feed_item_type_on_this_day">ইতিহাসত আজিৰ দিনটোত</string>
   <string name="feed_item_type_featured_article">ৱিকিপিডিয়াৰ দৈনিক নিৰ্বাচিত প্ৰবন্ধ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">বাৰু</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">বাতিল</string>

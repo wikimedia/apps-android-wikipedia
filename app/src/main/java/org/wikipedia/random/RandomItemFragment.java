@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +16,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.log.L;
@@ -124,15 +122,8 @@ public class RandomItemFragment extends Fragment {
         wikiArticleCardView.setTitle(summary.getDisplayTitle());
         wikiArticleCardView.setDescription(summary.getDescription());
         wikiArticleCardView.setExtract(summary.getExtract(), EXTRACT_MAX_LINES);
-
-        if (TextUtils.isEmpty(summary.getThumbnailUrl())) {
-            wikiArticleCardView.getImageContainer().setVisibility(View.GONE);
-        } else {
-            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    DimenUtil.leadImageHeightForDevice(getContext()) - DimenUtil.getToolbarHeightPx(getContext())));
-            wikiArticleCardView.getImageContainer().setVisibility(View.VISIBLE);
-            wikiArticleCardView.getImageView().loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_CARD_THUMBNAIL_SIZE)));
-        }
+        wikiArticleCardView.setImageUri(TextUtils.isEmpty(summary.getThumbnailUrl()) ? null
+                : Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_CARD_THUMBNAIL_SIZE)));
     }
 
     @Nullable public PageTitle getTitle() {

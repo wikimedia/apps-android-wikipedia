@@ -19,6 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.util.DimenUtil;
@@ -50,11 +51,9 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
     @BindView(R.id.main_drawer_talk_container) ViewGroup talkContainer;
     @BindView(R.id.main_drawer_history_container) ViewGroup historyContainer;
-    @Nullable Callback callback;
 
-    public static MenuNavTabDialog newInstance(Callback drawerViewCallback) {
+    public static MenuNavTabDialog newInstance() {
         MenuNavTabDialog dialog = new MenuNavTabDialog();
-        dialog.callback = drawerViewCallback;
         return dialog;
     }
 
@@ -68,11 +67,6 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @Override public void onResume() {
         super.onResume();
         updateState();
-    }
-
-    @Override public void onDestroyView() {
-        super.onDestroyView();
-        callback = null;
     }
 
     @Override
@@ -108,30 +102,35 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
+    @Nullable
+    private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
+    }
+
     @OnClick(R.id.main_drawer_settings_container) void onSettingsClick() {
-        if (callback != null) {
-            callback.settingsClick();
+        if (callback() != null) {
+            callback().settingsClick();
             dismiss();
         }
     }
 
     @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
-        if (callback != null) {
-            callback.notificationsClick();
+        if (callback() != null) {
+            callback().notificationsClick();
             dismiss();
         }
     }
 
     @OnClick(R.id.main_drawer_talk_container) void onTalkClick() {
-        if (callback != null) {
-            callback.talkClick();
+        if (callback() != null) {
+            callback().talkClick();
             dismiss();
         }
     }
 
     @OnClick(R.id.main_drawer_history_container) void onHistoryClick() {
-        if (callback != null) {
-            callback.historyClick();
+        if (callback() != null) {
+            callback().historyClick();
             dismiss();
         }
     }
@@ -144,8 +143,8 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @OnClick(R.id.main_drawer_login_button) void onLoginClick() {
-        if (callback != null) {
-            callback.loginLogoutClick();
+        if (callback() != null) {
+            callback().loginLogoutClick();
             dismiss();
         }
     }
