@@ -74,7 +74,7 @@
   <string name="search_redirect_from">Doorverwezen vanaf %s</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Op pagina zoeken</string>
+  <string name="menu_page_find_in_page">Op artikel zoeken</string>
   <string name="edit_section_find_in_page">Op pagina zoeken</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
@@ -345,7 +345,7 @@
   <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van pagina\'s bij het aanraken van koppelingen.</string>
   <string name="preference_title_collapse_tables">Tabellen inklappen</string>
   <string name="preference_summary_collapse_tables">Klap automatisch tabellen in artikelen in, zoals infoboxen, referenties en noten.</string>
-  <string name="nav_item_donate" fuzzy="true">Steun Wikipedia</string>
+  <string name="nav_item_donate">Doneren</string>
   <string name="error_voice_search_not_available">Spraakherkenning is helaas niet beschikbaar.</string>
   <string name="location_service_disabled">Locatievoorzieningen zijn uitgeschakeld.</string>
   <string name="enable_location_service">Inschakelen</string>
@@ -607,9 +607,7 @@
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
   <string name="view_offline_card_text">De inhoud kan niet offline geladen worden.</string>
   <string name="view_featured_article_card_title">Uitgelichte pagina</string>
-  <string name="view_featured_article_footer_save_button_label">Opslaan</string>
   <string name="view_static_card_save_button_label">Opslaan</string>
-  <string name="view_featured_article_footer_saved_button_label">Opgeslagen</string>
   <string name="feed_configure_activity_title">Overzicht bewerken</string>
   <string name="feed_configure_menu_reset">Standaardoverzicht terugzetten</string>
   <string name="feed_configure_menu_select_all">Alles weergeven</string>
@@ -734,7 +732,7 @@
   <string name="suggested_edits_image_tags">Afbeeldingslabels</string>
   <string name="suggested_edits_image_tags_publishing">Publiceren</string>
   <string name="suggested_edits_image_tags_published">Gepubliceerd</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
   <string name="suggested_edits_image_tags_search">Labels zoeken</string>
   <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>

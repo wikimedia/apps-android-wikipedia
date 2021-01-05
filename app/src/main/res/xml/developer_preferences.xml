@@ -377,10 +377,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="A/B tests">
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_descriptionEditChecks"
-            android:title="Whether the user sees warnings when submitting descriptions and captions." />
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"

@@ -443,9 +443,7 @@
   <string name="view_announcement_card_negative_action">Teu kudu, nuhun</string>
   <string name="view_offline_card_text">Kontén teu bisa dipuat nalika oflén.</string>
   <string name="view_featured_article_card_title">Artikel petingan</string>
-  <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_static_card_save_button_label">Simpen</string>
-  <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
   <string name="feed_configure_activity_title">Luyukeun eupan</string>
   <string name="feed_configure_menu_reset">Balikkeun pidangan baku</string>
   <string name="feed_configure_menu_select_all">Témbongkeun kabéh</string>

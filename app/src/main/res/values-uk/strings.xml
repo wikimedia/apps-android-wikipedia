@@ -250,11 +250,17 @@
   <string name="abusefilter_title_warn">Схоже, це редагування не зовсім доречне. Ви справді бажаєте його зберегти?</string>
   <string name="abusefilter_title_disallow">Ви не можете опублікувати це редагування. Будь ласка, поверніться назад і змініть його.</string>
   <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>
-  <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значимий вміст.</string>
+  <string name="abusefilter_text_disallow">Автоматизований фільтр визначив це редагування як потенційно неконструктивне або потенційний вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедія — це енциклопедія, і розміщений у ній може бути тільки нейтральний і значущий вміст.</string>
   <string name="page_similar_titles">Подібні сторінки</string>
   <string name="search_did_you_mean">Ви мали на увазі \"%s\"?</string>
   <string name="search_recent_header">Недавні пошукові запити:</string>
   <string name="search_results_count_zero">Немає результатів</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 результат</item>
+    <item quantity="few">%d результати</item>
+    <item quantity="many">%d результатів</item>
+    <item quantity="other">%d результатів</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Очистити історію пошуку</string>
   <string name="clear_recent_searches_confirm">Ви впевнені, що хочете стерти історію пошукових запитів?</string>
   <string name="clear_recent_searches_confirm_yes">Так</string>
@@ -318,6 +324,7 @@
   <string name="address_copied">Адресу скопійовано до буферу обміну.</string>
   <string name="text_copied">Текст скопійовано в буфер обміну.</string>
   <string name="button_continue_to_article">Читати статтю</string>
+  <string name="button_continue_to_talk_page">Відкрити сторінку обговорення</string>
   <string name="button_continue_to_disambiguation">Переглянути подібні сторінки</string>
   <string name="link_preview_disambiguation_description">Ця назва стосується більше ніж однієї сторінки</string>
   <string name="button_add_to_reading_list">Додати до читального списку</string>
@@ -332,13 +339,19 @@
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
   <string name="preference_title_collapse_tables">Згорнути таблиці</string>
   <string name="preference_summary_collapse_tables">Автоматично згортати табличні блоки (інфобокси, примітки, коментарі тощо).</string>
-  <string name="nav_item_donate" fuzzy="true">Підтримати Вікіпедію</string>
+  <string name="nav_item_donate">Пожертвувати</string>
   <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
   <string name="location_service_disabled">Служби локалізації вимкнені.</string>
   <string name="enable_location_service">Увімкнути</string>
   <string name="location_permissions_enable_prompt">Надайте дозвіл на визначення розташування, щоб мати змогу побачити місця поблизу.</string>
   <string name="location_permissions_enable_action">Увімкнути</string>
   <string name="error_webview_updating">Веб-перегляд для Android-систем наразі оновлюється. Будь ласка, спробуйте ще раз за деякий час.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">Вибрано %d</item>
+    <item quantity="few">Вибрано %d</item>
+    <item quantity="many">Вибрано %d</item>
+    <item quantity="other">Вибрано %d</item>
+  </plurals>
   <string name="multi_select_items_selected">%d вибрано</string>
   <string name="error_message_generic">Сталася помилка</string>
   <string name="view_link_preview_error_button_dismiss">Відхилити</string>
@@ -391,6 +404,18 @@
   <string name="reading_list_articles_already_exist_message">Усе добре! %s уже містить всі статті.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
   <string name="reading_list_add_to_list_button">Додати до списку</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 стаття, %2$.2f MB</item>
+    <item quantity="few">%1$d статті, %2$.2f MB</item>
+    <item quantity="many">%1$d статей, %2$.2f MB</item>
+    <item quantity="other">%1$d статей, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d 1 статті доступно офлайн, %3$.2f MB</item>
+    <item quantity="few">%1$d %2$d статей доступно офлайн, %3$.2f MB</item>
+    <item quantity="many">%1$d %2$d статей доступно офлайн, %3$.2f MB</item>
+    <item quantity="other">%1$d %2$d статей доступно офлайн, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 стаття, %1$.2f Mб</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статті, %2$.2f Mб</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d з 1 статтей доступні автономно, %2$.2f Mб</string>
@@ -415,6 +440,12 @@
   <string name="reading_list_name_hint">Назва цього списку</string>
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
   <string name="reading_list_item_deleted">%s вилучено зі списку</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d статтю вилучено зі списку</item>
+    <item quantity="few">%d статті вилучено зі списку</item>
+    <item quantity="many">%d статей вилучено зі списку</item>
+    <item quantity="other">%d статей вилучено зі списку</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d статей вилучено зі списку</string>
   <string name="reading_lists_item_deleted">%s видалено зі списків</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
@@ -616,9 +647,7 @@
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
   <string name="view_offline_card_text">Вміст не може бути завантажено в автономному режимі.</string>
   <string name="view_featured_article_card_title">Вибрана стаття</string>
-  <string name="view_featured_article_footer_save_button_label">Зберегти</string>
   <string name="view_static_card_save_button_label">Зберегти</string>
-  <string name="view_featured_article_footer_saved_button_label">Збережено</string>
   <string name="feed_configure_activity_title">Налаштувати стрічку</string>
   <string name="feed_configure_menu_reset">Відновити стандартний вигляд</string>
   <string name="feed_configure_menu_select_all">Показати усе</string>
@@ -820,7 +849,7 @@
   <string name="suggested_edits_cc0_notice">Публікуючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, а також даєте невідкличну згоду на публікацію цього внеску на умовах &lt;a href=\"%2$s\"&gt;ліцензії CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Пропоновані редагування</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Дякуємо за редагування Вікіпедії! Продовжимо з того моменту, як вийшли?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">Маєте хвилинку, щоб поліпшити вікіпедію? Тут є декілька правок до перегляду...</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Маєте хвилинку, щоб поліпшити Вікіпедію? Тут є декілька пропозицій редагування.</string>
   <string name="suggested_edits_contributions_screen_title">Внесок %s</string>
   <string name="suggested_edits_contribution_language_label">Мова</string>
   <string name="suggested_edits_contribution_date_time_label">Дата / час</string>
@@ -828,6 +857,12 @@
   <string name="suggested_edits_contribution_image_label">Зображення</string>
   <string name="suggested_edits_contribution_article_label">Стаття</string>
   <string name="suggested_edits_contribution_views">%s: перегляди</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Побачено один раз за минулі 30 днів.</item>
+    <item quantity="few">Побачено %s рази за минулі 30 днів.</item>
+    <item quantity="many">Побачено %s разів за минулі 30 днів.</item>
+    <item quantity="other">Побачено %s разів за минулі 30 днів.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Бачено %s разів за минулі 30 днів.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Ви додали %d тег</item>
@@ -837,6 +872,24 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчора</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Ви зробили одне редагування у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
+    <item quantity="few">Ви зробили %d редагування у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
+    <item quantity="many">Ви зробили %d редагувань у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
+    <item quantity="other">Ви зробили %d редагувань у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Ви редагували уже один день. Продовжуйте серію, %2$s!</item>
+    <item quantity="few">Ви редагували щодня уже %1$d дні. Продовжуйте серію, %2$s!</item>
+    <item quantity="many">Ви редагували щодня уже %1$d днів. Продовжуйте серію, %2$s!</item>
+    <item quantity="other">Ви редагували щодня уже %1$d днів. Продовжуйте серію, %2$s!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Ваші редагування побачила одна людина за минулі 30 днів. Дякуємо, продовжуйте!</item>
+    <item quantity="few">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</item>
+    <item quantity="many">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</item>
+    <item quantity="other">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Ви зробили внесок у Вікіпедію %d разів з допомогою Пропонованих редагувань. Дякуємо!</string>
   <string name="suggested_edits_rewards_edit_streak">Ви редагували щодня упродовж %1$d днів. Тримайтеся цієї лінії, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</string>
@@ -847,6 +900,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Увійти / приєднатися до Вікіпедії</string>
   <string name="suggested_edits_contribution_type_image_tag">Тег зображення</string>
   <string name="suggested_edits_contribution_current_revision_text">Ваше редагування зараз доступне у Вікіпедії</string>
+  <string name="suggested_card_more_edits">Більше пропонованих редагувань</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s тег</item>
     <item quantity="few">%1$s теги</item>
@@ -872,6 +926,8 @@
     <item quantity="other">Ви додали %d символів</item>
   </plurals>
   <string name="file_page_activity_title">Сторінка файлу</string>
+  <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
+  <string name="file_page_add_image_tags_button">Додати теґи зображень</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
@@ -913,6 +969,8 @@
     <item quantity="many">%d років тому</item>
     <item quantity="other">%d років тому</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Ви подорожували в часі 🚀</string>
+  <string name="on_this_day_back_to_future">Назад у майбутнє</string>
   <string name="languages_list_activity_title">Додати мову</string>
   <string name="languages_list_suggested_text">Запропоновані</string>
   <string name="languages_list_all_text">Всі мови</string>
@@ -963,4 +1021,15 @@
   <string name="text_input_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_cancel_button_text">Скасувати</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Скасувати</string>
+  <string name="talk_title">Обговорення</string>
+  <string name="talk_user_title">Обговорення: %s</string>
+  <string name="talk_new_topic">Нова тема</string>
+  <string name="talk_page_empty">Ця сторінка обговорення порожня.</string>
+  <string name="talk_add_reply">Відповісти</string>
+  <string name="talk_no_subject">(Немає теми)</string>
+  <string name="talk_reply_subject">Тема</string>
+  <string name="talk_reply_hint">Написати відповідь</string>
+  <string name="talk_message_hint">Написати повідомлення</string>
+  <string name="talk_message_empty">Повідомлення не може бути порожнім.</string>
+  <string name="talk_subject_empty">Тема не може бути порожньою.</string>
 </resources>

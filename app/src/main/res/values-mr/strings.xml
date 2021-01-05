@@ -301,7 +301,6 @@
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">आज</string>
   <string name="view_announcement_card_negative_action">नाही धन्यवाद</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
-  <string name="view_featured_article_footer_save_button_label">जतन करा</string>
   <string name="description_edit_text_hint" fuzzy="true">वर्णन टाका</string>
   <string name="description_edit_save" fuzzy="true">जतन करा</string>
   <string name="description_edit_add_description" fuzzy="true">थोडक्यात वर्णन जोडा</string>

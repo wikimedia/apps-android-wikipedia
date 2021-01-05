@@ -26,8 +26,6 @@
     <string name="preferences_developer_crash_title">Crash</string>
     <string name="preferences_developer_crash_summary">Tap here to crash the app</string>
     <string name="preferences_developer_session_timeout_title">Session timeout (minutes)</string>
-    <string name="preferences_developer_remote_log_title">Remote logging</string>
-    <string name="preferences_developer_remote_log_summary">Type a message to send.</string>
     <string name="preferences_developer_reading_list_category">Reading Lists</string>
     <string name="preferences_developer_add_articles">Add articles</string>
     <string name="preferences_developer_add_lists">Add reading lists</string>
