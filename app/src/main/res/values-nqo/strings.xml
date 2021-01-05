@@ -523,9 +523,7 @@
   <string name="view_announcement_card_negative_action">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="view_offline_card_text">ߞߣߐߘߐ ߕߍ߫ ߛߐ߲߬ ߟߊߦߟߍ߬ ߟߊ߫ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌ ߕߏ߫.</string>
   <string name="view_featured_article_card_title">ߦߌߟߡߊ߫ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬</string>
-  <string name="view_featured_article_footer_save_button_label">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="view_static_card_save_button_label">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
-  <string name="view_featured_article_footer_saved_button_label">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="feed_configure_activity_title">ߓߊߟߏ ߟߎ߬ ߘߊ߲߬ߠߊߕߍ߰</string>
   <string name="feed_configure_menu_reset">ߊ߬ ߦߋߢߊ ߟߊߛߊ߬ߦߌ߲߬ ߊ߬ ߘߊ߲ߢߊ ߡߊ߬</string>
   <string name="feed_configure_menu_select_all">ߊ߬ ߓߍ߯ ߦߌ߬ߘߊ߬</string>

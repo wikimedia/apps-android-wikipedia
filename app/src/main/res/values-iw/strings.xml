@@ -647,9 +647,7 @@
   <string name="view_announcement_card_negative_action">לא, תודה</string>
   <string name="view_offline_card_text">לא ניתן לטעון את התוכן ללא חיבור לרשת.</string>
   <string name="view_featured_article_card_title">ערך מומלץ</string>
-  <string name="view_featured_article_footer_save_button_label">שמירה</string>
   <string name="view_static_card_save_button_label">שמירה</string>
-  <string name="view_featured_article_footer_saved_button_label">נשמר</string>
   <string name="feed_configure_activity_title">התאמה אישית של ההזנה</string>
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
   <string name="feed_configure_menu_select_all">להציג הכול</string>
@@ -858,6 +856,12 @@
   <string name="suggested_edits_contribution_image_label">תמונה</string>
   <string name="suggested_edits_contribution_article_label">ערך</string>
   <string name="suggested_edits_contribution_views">%s צפיות</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">נראה פעם אחת ב־30 הימים האחרונים.</item>
+    <item quantity="two">נראה פעמיים ב־30 הימים האחרונים.</item>
+    <item quantity="many">נראה %s פעמים ב־30 הימים האחרונים.</item>
+    <item quantity="other">נראה %s פעמים ב־30 הימים האחרונים.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">נצפה %s פעמים ב־30 הימים האחרונים.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">הוספת תג אחד</item>
@@ -867,6 +871,24 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">עשית תרומה אחת לוויקיפדיה באמצעות עריכות מוצעות</item>
+    <item quantity="two">עשית %d תרומות לוויקיפדיה באמצעות עריכות מוצעות</item>
+    <item quantity="many">עשית %d תרומות לוויקיפדיה באמצעות עריכות מוצעות</item>
+    <item quantity="other">עשית %d תרומות לוויקיפדיה באמצעות עריכות מוצעות</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">ערכת במשך יום. יאללה, להמשיך את הרצף, %2$s!</item>
+    <item quantity="two">ערכת יומיים רצוף. יאללה, להמשיך את הרצף, %2$s!</item>
+    <item quantity="many">ערכת רצוף כבר %1$d יום. יאללה, להמשיך את הרצף, %2$s!</item>
+    <item quantity="other">ערכת רצוף כבר %1$d ימים. יאללה, להמשיך את הרצף, %2$s!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">העריכות שלך נראו על־ידי אדם אחד ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
+    <item quantity="two">העריכות שלך נראו על־ידי %d אנשים ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
+    <item quantity="many">העריכות שלך נראו על־ידי %d אנשים ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
+    <item quantity="other">העריכות שלך נראו על־ידי %d אנשים ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
   <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>

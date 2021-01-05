@@ -10,6 +10,7 @@
 * Deathkon
 * Ff98sha
 * GoForceX
+* Huanqiu
 * Hudafu
 * Hydra
 * Hzy980512
@@ -17,6 +18,7 @@
 * Irati
 * Josephine W.
 * LNDDYL
+* Lakejason0
 * Liuxinyu970226
 * Looong
 * NeverBehave
@@ -76,6 +78,7 @@
   <string name="history_item_delete_undo">撤销</string>
   <string name="notification_archive_undo">撤销</string>
   <string name="app_settings">应用设置</string>
+  <string name="search_tab_tooltip">再次点击图标以直接开始输入搜索条目。</string>
   <string name="history_list_title">历史</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
   <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
@@ -86,7 +89,7 @@
   <string name="search_redirect_from">重定向自%s</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
-  <string name="menu_page_find_in_page" fuzzy="true">在页面中查找</string>
+  <string name="menu_page_find_in_page">在文章中查找</string>
   <string name="edit_section_find_in_page">在页面中查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
@@ -95,6 +98,7 @@
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">分享链接</string>
   <string name="menu_page_open_a_new_tab">打开新标签</string>
+  <string name="menu_page_new_tab">新建标签页</string>
   <string name="menu_page_reading_lists">阅读列表</string>
   <string name="menu_page_recently_viewed">最近访问</string>
   <string name="menu_long_press_open_page">打开</string>
@@ -355,7 +359,7 @@
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、引用和注释。</string>
-  <string name="nav_item_donate" fuzzy="true">支持维基百科</string>
+  <string name="nav_item_donate">资助维基百科</string>
   <string name="error_voice_search_not_available">对不起，语言识别不可用。</string>
   <string name="location_service_disabled">位置服务被禁用。</string>
   <string name="enable_location_service">启用</string>
@@ -623,9 +627,7 @@
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
   <string name="view_offline_card_text">内容不能在离线时加载。</string>
   <string name="view_featured_article_card_title">典范条目</string>
-  <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_static_card_save_button_label">保存</string>
-  <string name="view_featured_article_footer_saved_button_label">已保存</string>
   <string name="feed_configure_activity_title">自定义订阅源</string>
   <string name="feed_configure_menu_reset">恢复默认视图</string>
   <string name="feed_configure_menu_select_all">显示全部</string>

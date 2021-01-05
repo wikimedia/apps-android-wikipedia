@@ -69,12 +69,12 @@ object UserContributionsStats {
 
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                 .subscribeOn(Schedulers.io())
-                .flatMap {
-                    if (it.entities().isEmpty()) {
+                .flatMap { entities ->
+                    if (entities.entities().isEmpty()) {
                         return@flatMap Observable.just(0L)
                     }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
-                    it.entities().forEach { (entityKey, entity) ->
+                    entities.entities().forEach { (entityKey, entity) ->
                         for (qKey in qLangMap.keys) {
                             if (qKey == entityKey) {
                                 for (lang in qLangMap[qKey]!!) {
