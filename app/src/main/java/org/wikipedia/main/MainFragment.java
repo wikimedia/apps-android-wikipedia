@@ -80,10 +80,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
@@ -386,12 +384,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void onLoadPage(@NonNull HistoryEntry entry) {
         startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
-    }
-
-    @Override
-    public void onClearHistory() {
-        disposables.add(Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class).deleteAll())
-                .subscribeOn(Schedulers.io()).subscribe());
     }
 
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
