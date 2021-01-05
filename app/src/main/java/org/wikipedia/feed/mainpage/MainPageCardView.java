@@ -37,7 +37,7 @@ public class MainPageCardView extends DefaultFeedCardView<MainPageCard> {
                 .setCallback(getCallback());
 
         footerView.setCallback(this::goToMainPage);
-        footerView.setFooterActionText(getContext().getString(R.string.view_main_page_card_action));
+        footerView.setFooterActionText(L10nUtil.getStringForArticleLanguage(getCard().wikiSite().languageCode(), R.string.view_main_page_card_action), getCard().wikiSite().languageCode());
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {

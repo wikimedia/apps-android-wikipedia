@@ -17,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.util.L10nUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,10 +80,12 @@ public class CardHeaderView extends ConstraintLayout {
         if (TextUtils.isEmpty(langCode) || WikipediaApp.getInstance().language().getAppLanguageCodes().size() < 2) {
             langCodeBackground.setVisibility(GONE);
             langCodeView.setVisibility(GONE);
+            L10nUtil.setConditionalLayoutDirection(this, WikipediaApp.getInstance().language().getSystemLanguageCode());
         } else {
             langCodeBackground.setVisibility(VISIBLE);
             langCodeView.setVisibility(VISIBLE);
             langCodeView.setText(langCode);
+            L10nUtil.setConditionalLayoutDirection(this, langCode);
         }
         return this;
     }

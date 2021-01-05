@@ -73,7 +73,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     private void setUpFooter() {
         indicatorView.setVisibility(GONE);
-        cardFooterView.setFooterActionText(getContext().getString(R.string.more_events_text));
+        cardFooterView.setFooterActionText(getContext().getString(R.string.more_events_text), null);
         cardFooterView.setCallback(this);
     }
 
