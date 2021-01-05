@@ -136,6 +136,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun updateUI(@NonNull currentRevision: Revision) {
         usernameButton.text = currentRevision.user
         editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision.timeStamp())
+        editComment.text = currentRevision.comment
+        diffText.text = currentRevision.content()
 
         newerIdButton.isClickable = newerRevisionId.compareTo(-1) != 0
         olderIdButton.isClickable = olderRevisionId.compareTo(0) != 0
