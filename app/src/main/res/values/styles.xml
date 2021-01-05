@@ -489,4 +489,8 @@
         <item name="drawableSize">24dp</item>
         <item name="drawableTint">?attr/color_group_63</item>
     </style>
+
+    <style name="HistoryEmptyContainerStyle">
+        <item name="android:layout_gravity">center</item>
+    </style>
 </resources>

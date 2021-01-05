@@ -6,4 +6,7 @@
     -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
 
+    <!-- History -->
+    <dimen name="history_empty_image_size">168dp</dimen>
+
 </resources>

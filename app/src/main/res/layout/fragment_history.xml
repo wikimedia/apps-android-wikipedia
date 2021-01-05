@@ -6,16 +6,17 @@
 
     <LinearLayout
         android:id="@+id/history_empty_container"
+        style="@style/HistoryEmptyContainerStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical"
+        android:layout_marginBottom="16dp"
         android:visibility="gone">
 
         <ImageView
             android:id="@+id/history_empty_image"
-            android:layout_width="168dp"
-            android:layout_height="168dp"
+            android:layout_width="@dimen/history_empty_image_size"
+            android:layout_height="@dimen/history_empty_image_size"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@null"
             app:srcCompat="@drawable/no_history" />

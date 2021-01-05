@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
@@ -74,6 +74,9 @@
     <!-- Reading lists -->
     <integer name="reading_list_item_size_bytes_per_unit">1000000</integer> <!-- 1 MB -->
     <integer name="reading_list_description_summary_view_max_lines">2</integer>
+
+    <!-- History -->
+    <dimen name="history_empty_image_size">168dp</dimen>
 
     <!-- App shortcuts -->
     <dimen name="app_shortcut_icon_size">24dp</dimen>

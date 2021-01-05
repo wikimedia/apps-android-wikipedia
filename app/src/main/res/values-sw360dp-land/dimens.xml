@@ -1,0 +1,4 @@
+<resources>
+    <!-- History -->
+    <dimen name="history_empty_image_size">56dp</dimen>
+</resources>
