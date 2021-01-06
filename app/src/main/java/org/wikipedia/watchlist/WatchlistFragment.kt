@@ -55,11 +55,11 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         super.onViewCreated(view, savedInstanceState)
 
         watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        watchlistRefreshView.setOnRefreshListener { fetchWatchlist() }
+        watchlistRefreshView.setOnRefreshListener { fetchWatchlist(true) }
 
         watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        fetchWatchlist()
+        fetchWatchlist(false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -92,7 +92,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
     }
 
-    private fun fetchWatchlist() {
+    private fun fetchWatchlist(refreshing: Boolean) {
         disposables.clear()
         watchlistEmptyContainer.visibility = View.GONE
         watchlistRecyclerView.visibility = View.GONE
@@ -102,7 +102,9 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             return
         }
 
-        watchlistProgressBar.visibility = View.VISIBLE
+        if (!refreshing) {
+            watchlistProgressBar.visibility = View.VISIBLE
+        }
 
         val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
         val calls = ArrayList<Observable<MwQueryResponse>>()
@@ -212,9 +214,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
 
         private var items: List<Any> = ArrayList()
-        private val VIEW_TYPE_HEADER = 0
-        private val VIEW_TYPE_DATE = 1
-        private val VIEW_TYPE_ITEM = 2
 
         override fun getItemCount(): Int {
             return items.size
@@ -246,12 +245,16 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            if (holder is WatchlistHeaderViewHolder) {
-                holder.bindItem()
-            } else if (holder is WatchlistDateViewHolder) {
-                holder.bindItem((items[position] as Date))
-            } else {
-                (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
+            when (holder) {
+                is WatchlistHeaderViewHolder -> {
+                    holder.bindItem()
+                }
+                is WatchlistDateViewHolder -> {
+                    holder.bindItem((items[position] as Date))
+                }
+                else -> {
+                    (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
+                }
             }
         }
     }
@@ -277,7 +280,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onLanguageChanged() {
-        fetchWatchlist()
+        fetchWatchlist(false)
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
@@ -301,6 +304,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         const val FILTER_MODE_TALK = 1
         const val FILTER_MODE_PAGES = 2
         const val FILTER_MODE_OTHER = 3
+
+        const val VIEW_TYPE_HEADER = 0
+        const val VIEW_TYPE_DATE = 1
+        const val VIEW_TYPE_ITEM = 2
 
         fun newInstance(): WatchlistFragment {
             return WatchlistFragment()
