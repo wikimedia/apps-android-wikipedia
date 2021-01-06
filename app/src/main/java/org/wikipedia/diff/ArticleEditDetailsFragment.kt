@@ -3,8 +3,9 @@ package org.wikipedia.diff
 import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.text.SpannableString
+import android.text.SpannableStringBuilder
 import android.text.TextUtils
+import android.text.method.ScrollingMovementMethod
 import android.text.style.BackgroundColorSpan
 import android.view.*
 import android.widget.FrameLayout
@@ -27,6 +28,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.restbase.DiffResponse.*
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTICLE_TITLE
@@ -78,6 +80,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 .getLongExtra(EXTRA_SOURCE_EDIT_REVISION_ID, 0)
         languageCode = StringUtils.defaultString(requireActivity().intent
                 .getStringExtra(EXTRA_SOURCE_EDIT_LANGUAGE_CODE), "en")
+        diffText.movementMethod = ScrollingMovementMethod()
+
         articleTitleView.text = articleTitle
         articleTitleView.setOnClickListener {
             val title = PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode))
@@ -108,7 +112,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         }
         thankButton.setOnClickListener { showThankDialog() }
         fetchEditDetails()
-        highlightDiffText()
     }
 
     private fun fetchEditDetails() {
@@ -152,6 +155,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         thankButton.isClickable = true
         updateWatchlistButtonUI()
+        fetchDiffText()
     }
 
     private fun setButtonTextAndIconColor(@NonNull view: MaterialButton, @NonNull themedColor: Int) {
@@ -254,14 +258,47 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-
+                    for (diff in response.diffs) {
+                        displayDiff(diff)
+                    }
                 }) { t: Throwable? -> L.e(t) })
     }
 
-    private fun highlightDiffText() {
-        val spannableString = SpannableString(diffText.text.toString())
-        spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                R.attr.color_group_57)), 0, diffText.text.length - 1, 0)
+    private fun displayDiff(diff: DiffItem) {
+        val prefixLength = diffText.text.length
+        val spannableString = SpannableStringBuilder(diffText.text).append(if (diff.text.isNotEmpty()) diff.text else "\n")
+        when (diff.type) {
+            DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
+            }
+            DIFF_TYPE_LINE_ADDED -> {
+                spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                        R.attr.color_group_57)), prefixLength, prefixLength + diff.text.length, 0)
+            }
+            DIFF_TYPE_LINE_REMOVED -> {
+                spannableString.setSpan(BackgroundColorSpan(ContextCompat.getColor(requireContext(),
+                        R.color.red90)), prefixLength, prefixLength + diff.text.length - 1, 0)
+            }
+            DIFF_TYPE_LINE_WITH_DIFF -> {
+                for (hightlightRange in diff.highlightRanges) {
+                    if (hightlightRange.type == HIGHLIGHT_TYPE_ADD) {
+                        spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                                R.attr.color_group_57)), prefixLength + hightlightRange.start,
+                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
+                    } else {
+                        spannableString.setSpan(BackgroundColorSpan(ContextCompat.getColor(requireContext(),
+                                R.color.red90)), prefixLength + hightlightRange.start,
+                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
+                    }
+                }
+            }
+            DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
+
+            }
+            DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
+
+            }
+
+        }
         diffText.text = spannableString
     }
 

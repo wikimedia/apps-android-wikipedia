@@ -156,7 +156,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="8sp"
-        android:text="On inappropriate contact: Comment and some embellishment of the suggestion"
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -168,7 +167,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:lineSpacingExtra="12sp"
-        android:text=":::::I&apos;m not a regular editor here, but I also like this wording (with an embedded piped wikilink) and the idea of getting rid of the &quot;see also&quot; here. The article section goes on to summarize nonsexual allegations and it should similarly summarize that sexual one, basing that summary on content present in the detail article and citing sources cited there. [[User:Wtmitchell|Wtmitchell]]  [[User talk:Wtmitchell|(talk)]] &lt;small&gt;(earlier &apos;&apos;Boracay Bill&apos;&apos;)&lt;/small&gt; 11:51, 17 November 2020 (UTC)"
+        android:scrollbars="vertical"
         android:textColor="?attr/primary_text_color"
         android:textSize="16sp" />
 </LinearLayout>
