@@ -2,11 +2,14 @@ package org.wikipedia.diff
 
 import android.app.AlertDialog
 import android.content.res.ColorStateList
+import android.graphics.Typeface
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.TextUtils
 import android.text.method.ScrollingMovementMethod
 import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.view.*
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
@@ -266,29 +269,46 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     private fun displayDiff(diff: DiffItem) {
         val prefixLength = diffText.text.length
+        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_64))
+        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_65))
+        val boldStyle = StyleSpan(Typeface.BOLD)
+
         val spannableString = SpannableStringBuilder(diffText.text).append(if (diff.text.isNotEmpty()) diff.text else "\n")
         when (diff.type) {
             DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
             }
             DIFF_TYPE_LINE_ADDED -> {
                 spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                        R.attr.color_group_57)), prefixLength, prefixLength + diff.text.length, 0)
+                        R.attr.edit_green_highlight)), prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(foregroundAddedColor, prefixLength, prefixLength + diff.text.length, 0)
+
             }
             DIFF_TYPE_LINE_REMOVED -> {
-                spannableString.setSpan(BackgroundColorSpan(ContextCompat.getColor(requireContext(),
-                        R.color.red90)), prefixLength, prefixLength + diff.text.length - 1, 0)
+                spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                        R.attr.edit_red_highlight)), prefixLength, prefixLength + diff.text.length - 1, 0)
+                spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length - 1, 0)
+                spannableString.setSpan(foregroundRemovedColor, prefixLength, prefixLength + diff.text.length - 1, 0)
+
             }
             DIFF_TYPE_LINE_WITH_DIFF -> {
                 for (hightlightRange in diff.highlightRanges) {
                     if (hightlightRange.type == HIGHLIGHT_TYPE_ADD) {
                         spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                                R.attr.color_group_57)), prefixLength + hightlightRange.start,
+                                R.attr.edit_green_highlight)), prefixLength + hightlightRange.start,
                                 prefixLength + hightlightRange.start + hightlightRange.length, 0)
+                        spannableString.setSpan(foregroundAddedColor, prefixLength + hightlightRange.start,
+                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
+
                     } else {
-                        spannableString.setSpan(BackgroundColorSpan(ContextCompat.getColor(requireContext(),
-                                R.color.red90)), prefixLength + hightlightRange.start,
+                        spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                                R.attr.edit_red_highlight)), prefixLength + hightlightRange.start,
+                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
+                        spannableString.setSpan(foregroundRemovedColor, prefixLength + hightlightRange.start,
                                 prefixLength + hightlightRange.start + hightlightRange.length, 0)
                     }
+                    spannableString.setSpan(boldStyle, prefixLength + hightlightRange.start,
+                            prefixLength + hightlightRange.start + hightlightRange.length, 0)
                 }
             }
             DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {

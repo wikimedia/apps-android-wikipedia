@@ -58,7 +58,11 @@
     <attr name="color_group_60" format="color"/>
     <attr name="color_group_61" format="color"/>
     <attr name="color_group_62" format="color"/>
+    <attr name="color_group_64" format="color"/>
+    <attr name="color_group_65" format="color"/>
     <attr name="action_mode_green_background" format="color"/>
+    <attr name="edit_green_highlight" format="color"/>
+    <attr name="edit_red_highlight" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />
