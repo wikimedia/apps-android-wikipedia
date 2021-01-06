@@ -338,16 +338,6 @@
 
     <PreferenceCategory android:title="A/B tests">
 
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_suggestedEditsSnackbar"
-            android:title="Whether the user sees a Snackbar action to 'Get Started' with suggested edits, after an unrelated edit." />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
-            android:key="ab_test_exploreVsHome"
-            android:title="Whether the user sees a Home icon/label, or Explore icon/label." />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
