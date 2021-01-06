@@ -1030,4 +1030,5 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="go_to_user_page">Go to user page</string>
 </resources>
