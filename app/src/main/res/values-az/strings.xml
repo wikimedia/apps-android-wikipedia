@@ -43,7 +43,7 @@
   <string name="dialog_message_clear_history_no">Xeyr</string>
   <string name="share_via">Paylaş...</string>
   <string name="image_share_via">Paylaş...</string>
-  <string name="search_redirect_from">%s-dən yönləndirildi</string>
+  <string name="search_redirect_from">%s səhifəsindən istiqamətləndirildi</string>
   <string name="menu_page_show_tabs">Pəncərələri göstər</string>
   <string name="menu_page_other_languages">Dili dəyiş</string>
   <string name="menu_page_find_in_page" fuzzy="true">Səhifədə axtar</string>

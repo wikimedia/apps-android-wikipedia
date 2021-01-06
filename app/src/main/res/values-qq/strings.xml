@@ -212,6 +212,8 @@
   <string name="page_protected_can_not_edit">Message in dialog box telling the user that their account does not currently have the sufficient rights to edit this page.</string>
   <string name="page_protected_can_not_edit_anon">Message in dialog box telling the user that this page is currently protected against anonymous editing.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Title of tooltip telling the user that the article can be added to the Watchlist.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Message of tooltip telling the user that the article can be added to the Watchlist.</string>
   <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.\n{{Identical|Settings}}</string>
   <string name="settings_activity_title">Title at the top of the Settings screen.\n{{Identical|Settings}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
@@ -847,35 +849,24 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Message shown about the number of contributions the user has made.</item>
-    <item quantity="other">Message shown about the number of contributions the user has made. The %d parameter represents the number of contrubutions.</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Message shown about the length of edit streak the user has made. The %2$s parameter represents the user name.</item>
-    <item quantity="other">Message shown about the length of edit streak the user has made. The %1$d parameter represents the length of edit streak and the %2$s parameter represents the user name.</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
-    <item quantity="other">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
-  <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
-  <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
-  <string name="suggested_edits_rewards_edit_quality">Message shown to the user about the quality of their edits so far. The %s represents the quality, such as Excellent, Good, Okay, Bad, etc.</string>
-  <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
   <string name="suggested_card_more_edits">Label text for SE feed card footer action.</string>
-  <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+  </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
-  <string name="suggested_edits_removed_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</string>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
+  </plurals>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
@@ -968,6 +959,8 @@
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
   <string name="main_tooltip_text_v2">Message for the tool tip that shown on the main screen.</string>
   <string name="main_tooltip_action_button">Button label for the action on tool tip that shown on the main screen.</string>
+  <string name="main_tooltip_watchlist_title">Title for the Watchlist tooltip that shown on the main screen.</string>
+  <string name="main_tooltip_watchlist_text">Message for the Watchlist tooltip that shown on the main screen.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
@@ -983,6 +976,7 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="go_to_user_page">Menu item label for going to the user page of the selected user.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>

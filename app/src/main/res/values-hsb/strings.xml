@@ -16,6 +16,7 @@
   <string name="search_hint">Wikipediju přepytać</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Namjetowane změny</string>
+  <string name="nav_item_more">Wjace</string>
   <string name="error_network_error">Njemóžu so z internetom zwjazać.</string>
   <string name="page_error_retry">Znowa spytać</string>
   <string name="card_offline_error_retry">Znowa spytać</string>
@@ -43,7 +44,9 @@
   <string name="edit_section_find_in_page">Na stronje pytać</string>
   <string name="menu_page_font_and_theme">Družinu pisma a barby</string>
   <string name="menu_page_add_to_list">K čitanskej lisćinje přidać</string>
+  <string name="menu_page_add_to_default_list">Składować</string>
   <string name="feed_card_add_to_list">K čitanskej lisćinje přidać</string>
+  <string name="feed_card_add_to_default_list">Składować</string>
   <string name="menu_page_share">Wotkaz dźělić</string>
   <string name="menu_page_open_a_new_tab">Nowy rajtark wočinić</string>
   <string name="menu_page_reading_lists">Čitanske lisćiny</string>
@@ -473,6 +476,7 @@
   <string name="description_edit_success_done">Hotowo</string>
   <string name="description_edit_success_did_you_know">Hižo wědźał(a)?</string>
   <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titulowe wopisy</string>
+  <string name="suggested_edits_quality_very_good_text">Jara derje</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>

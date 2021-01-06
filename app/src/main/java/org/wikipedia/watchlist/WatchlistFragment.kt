@@ -19,14 +19,11 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DateUtil
@@ -55,11 +52,11 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         super.onViewCreated(view, savedInstanceState)
 
         watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        watchlistRefreshView.setOnRefreshListener { fetchWatchlist() }
+        watchlistRefreshView.setOnRefreshListener { fetchWatchlist(true) }
 
         watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        fetchWatchlist()
+        fetchWatchlist(false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -92,7 +89,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
     }
 
-    private fun fetchWatchlist() {
+    private fun fetchWatchlist(refreshing: Boolean) {
         disposables.clear()
         watchlistEmptyContainer.visibility = View.GONE
         watchlistRecyclerView.visibility = View.GONE
@@ -102,7 +99,9 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             return
         }
 
-        watchlistProgressBar.visibility = View.VISIBLE
+        if (!refreshing) {
+            watchlistProgressBar.visibility = View.VISIBLE
+        }
 
         val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
         val calls = ArrayList<Observable<MwQueryResponse>>()
@@ -212,9 +211,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
 
         private var items: List<Any> = ArrayList()
-        private val VIEW_TYPE_HEADER = 0
-        private val VIEW_TYPE_DATE = 1
-        private val VIEW_TYPE_ITEM = 2
 
         override fun getItemCount(): Int {
             return items.size
@@ -246,12 +242,16 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            if (holder is WatchlistHeaderViewHolder) {
-                holder.bindItem()
-            } else if (holder is WatchlistDateViewHolder) {
-                holder.bindItem((items[position] as Date))
-            } else {
-                (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
+            when (holder) {
+                is WatchlistHeaderViewHolder -> {
+                    holder.bindItem()
+                }
+                is WatchlistDateViewHolder -> {
+                    holder.bindItem((items[position] as Date))
+                }
+                else -> {
+                    (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
+                }
             }
         }
     }
@@ -277,7 +277,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onLanguageChanged() {
-        fetchWatchlist()
+        fetchWatchlist(false)
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
@@ -285,15 +285,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem) {
-        if (item.isAnon) {
-            // if it's an anonymous user, then go directly to the talk page, since there is no
-            // page for this user, by definition.
-            startActivity(TalkTopicsActivity.newIntent(requireContext(),
-                    PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki)))
-        } else {
-            val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki), HistoryEntry.SOURCE_WATCHLIST)
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
-        }
+        startActivity(TalkTopicsActivity.newIntent(requireContext(),
+                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki)))
     }
 
     companion object {
@@ -301,6 +294,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         const val FILTER_MODE_TALK = 1
         const val FILTER_MODE_PAGES = 2
         const val FILTER_MODE_OTHER = 3
+
+        const val VIEW_TYPE_HEADER = 0
+        const val VIEW_TYPE_DATE = 1
+        const val VIEW_TYPE_ITEM = 2
 
         fun newInstance(): WatchlistFragment {
             return WatchlistFragment()

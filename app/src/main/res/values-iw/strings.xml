@@ -856,6 +856,12 @@
   <string name="suggested_edits_contribution_image_label">תמונה</string>
   <string name="suggested_edits_contribution_article_label">ערך</string>
   <string name="suggested_edits_contribution_views">%s צפיות</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">נראה פעם אחת ב־30 הימים האחרונים.</item>
+    <item quantity="two">נראה פעמיים ב־30 הימים האחרונים.</item>
+    <item quantity="many">נראה %s פעמים ב־30 הימים האחרונים.</item>
+    <item quantity="other">נראה %s פעמים ב־30 הימים האחרונים.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">נצפה %s פעמים ב־30 הימים האחרונים.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">הוספת תג אחד</item>
@@ -865,11 +871,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
-  <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
-  <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
-  <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
-  <string name="suggested_edits_rewards_continue_button">המשך</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="suggested_edits_encourage_account_creation_message">’עריכות מוצעות’ היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה על מנת להתחיל.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">כניסה / הצטרפות לוויקיפדיה</string>

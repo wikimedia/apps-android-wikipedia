@@ -69,13 +69,6 @@
         <item name="chip_text_color">@color/base80</item>
         <item name="action_mode_green_background">@color/green50</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
-        <item name="reward_interstitial_calendar_drawable">@drawable/ic_illustration_calendar_dark</item>
-        <item name="reward_interstitial_heart_drawable">@drawable/ic_illustration_heart_dark</item>
-        <item name="reward_interstitial_view_drawable">@drawable/ic_illustration_views_dark</item>
-        <item name="reward_interstitial_quality_perfect_drawable">@drawable/ic_illustration_quality_perfect_dark</item>
-        <item name="reward_interstitial_quality_excellent_drawable">@drawable/ic_illustration_quality_excellent_dark</item>
-        <item name="reward_interstitial_quality_very_good_drawable">@drawable/ic_illustration_quality_very_good_dark</item>
-        <item name="reward_interstitial_quality_good_drawable">@drawable/ic_illustration_quality_good_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
         <!-- Background for cards, lists, and controls -->
@@ -92,6 +85,7 @@
         <item name="color_group_59">@color/base50</item>
         <item name="color_group_60">@color/base20</item>
         <item name="color_group_61">@color/base30</item>
+        <item name="color_group_63">@color/white50</item>
 
     </style>
 
