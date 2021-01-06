@@ -154,8 +154,8 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @OnClick(R.id.main_drawer_watchlist_container) void onWatchlistClick() {
-        if (callback != null) {
-            callback.watchlistClick();
+        if (callback() != null) {
+            callback().watchlistClick();
             dismiss();
         }
     }
