@@ -14,6 +14,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_watchlist.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -57,6 +58,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         fetchWatchlist(false)
+
+        WatchlistFunnel().logOpenWatchlist()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

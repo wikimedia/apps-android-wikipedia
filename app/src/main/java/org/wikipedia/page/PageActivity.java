@@ -40,6 +40,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -143,6 +144,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
+    private final WatchlistFunnel watchlistFunnel = new WatchlistFunnel();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -629,6 +631,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+        watchlistFunnel.logAddExpiry();
         pageFragment.updateWatchlist(expiry, false);
     }
 
@@ -699,6 +702,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         @Override
         public void watchlistClick(boolean hasWatchlistExpirySession) {
+            if (hasWatchlistExpirySession) {
+                watchlistFunnel.logRemoveArticle();
+            } else {
+                watchlistFunnel.logAddArticle();
+            }
             pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
         }
 
@@ -879,6 +887,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (isDestroyed()) {
                     return;
                 }
+                watchlistFunnel.logShowTooltip();
                 Prefs.setWatchlistPageOnboardingTooltipShown(true);
                 FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 200, -32, false, true);
             }, 500);
