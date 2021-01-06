@@ -23,10 +23,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
+import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -96,8 +99,8 @@ class TalkTopicsActivity : BaseActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_talk, menu)
-        val item = menu!!.findItem(R.id.menu_change_language)
-        item.isVisible = pageTitle.namespace() == Namespace.USER_TALK
+        menu!!.findItem(R.id.menu_change_language).isVisible = pageTitle.namespace() == Namespace.USER_TALK
+        menu.findItem(R.id.menu_view_user_page).isVisible = pageTitle.namespace() == Namespace.USER_TALK
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -108,6 +111,10 @@ class TalkTopicsActivity : BaseActivity() {
             return true
         } else if (item.itemId == R.id.menu_view_in_browser) {
             UriUtil.visitInExternalBrowser(this, Uri.parse(pageTitle.uri))
+            return true
+        } else if (item.itemId == R.id.menu_view_user_page) {
+            val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(pageTitle.wikiSite.languageCode()) + ":" + pageTitle.text, pageTitle.wikiSite), HistoryEntry.SOURCE_TALK_TOPIC)
+            startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
             return true
         }
         return super.onOptionsItemSelected(item)
