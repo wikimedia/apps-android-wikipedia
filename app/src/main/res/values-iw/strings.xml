@@ -871,29 +871,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">עשית תרומה אחת לוויקיפדיה באמצעות עריכות מוצעות</item>
-    <item quantity="two">עשית %d תרומות לוויקיפדיה באמצעות עריכות מוצעות</item>
-    <item quantity="many">עשית %d תרומות לוויקיפדיה באמצעות עריכות מוצעות</item>
-    <item quantity="other">עשית %d תרומות לוויקיפדיה באמצעות עריכות מוצעות</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">ערכת במשך יום. יאללה, להמשיך את הרצף, %2$s!</item>
-    <item quantity="two">ערכת יומיים רצוף. יאללה, להמשיך את הרצף, %2$s!</item>
-    <item quantity="many">ערכת רצוף כבר %1$d יום. יאללה, להמשיך את הרצף, %2$s!</item>
-    <item quantity="other">ערכת רצוף כבר %1$d ימים. יאללה, להמשיך את הרצף, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">העריכות שלך נראו על־ידי אדם אחד ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
-    <item quantity="two">העריכות שלך נראו על־ידי %d אנשים ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
-    <item quantity="many">העריכות שלך נראו על־ידי %d אנשים ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
-    <item quantity="other">העריכות שלך נראו על־ידי %d אנשים ב־30 הימים האחרונים. תודה, להמשיך כך!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
-  <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
-  <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
-  <string name="suggested_edits_rewards_continue_button">המשך</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="suggested_edits_encourage_account_creation_message">’עריכות מוצעות’ היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה על מנת להתחיל.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">כניסה / הצטרפות לוויקיפדיה</string>

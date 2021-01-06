@@ -744,23 +744,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Juster</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Jo hawwe mei Bewurksuggestjes ien bydrage oan \'e Wikipedy levere. Tankjewol!</item>
-    <item quantity="other">Jo hawwe mei Bewurksuggestjes %d bydragen oan \'e Wikipedy levere. Tankjewol!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Jo binne ien hiele dei oan it bewurkjen west. Meitsje in moaie searje, %2$s!</item>
-    <item quantity="other">Jo hawwe oant no ta op %1$d dagen oanien bewurke. Meitsje in moaie searje, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Jo bewurkings binne yn \'e lêste 30 dagen troch immen sjoen. Tanke, en gean sa troch!</item>
-    <item quantity="other">Jo bewurkings binne yn \'e lêste 30 dagen troch %d lju sjoen. Tanke, en gean sa troch!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Jo hawwe mei Bewurksuggestjes %d bydragen oan \'e Wikipedy levere. Tankjewol!</string>
-  <string name="suggested_edits_rewards_edit_streak">Jo hawwe oant no ta op %1$d dagen oanien bewurke. Meitsje in moaie searje, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Jo bewurkings binne yn \'e lêste 30 dagen troch %d lju sjoen. Tanke, en gean sa troch!</string>
-  <string name="suggested_edits_rewards_edit_quality">Jo bewurkings binne oant no ta %s. Gean fral troch! Wy sjogge út nei jo bydragen.</string>
-  <string name="suggested_edits_rewards_continue_button">Fierder</string>
   <string name="suggested_edits_encourage_account_creation_title">Wisten jo dat elkenien de Wikipedy bewurkje kin?</string>
   <string name="suggested_edits_encourage_account_creation_message">Bewurksuggestjes binne in nije manier om \'e Wikipedy op Android te bewurkjen. Se helpe jo lytse mar wichtige bydragen oan \'e Wikipedy te leverjen.\nUs doel is it bewurkjen foar elkenien nofliker en tagonkliker te meitsjen! Meld jo oan, kom by de Wikipedy, en set útein.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Oanmelde / kom by de Wikipedy</string>

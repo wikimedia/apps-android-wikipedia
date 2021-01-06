@@ -814,23 +814,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kecha</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Siz Tavsiya etilgan tahrirlar yordamida Vikipediyaga bitta hissa qoʻshdingiz. Rahmat!</item>
-    <item quantity="other">Siz Tavsiya etilgan tahrirlar yordamida Vikipediyaga %d ta hissa qoʻshdingiz. Rahmat!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Siz bugun kun boʻyin tahrir qildingiz. Shunday davom eting, %2$s!</item>
-    <item quantity="other">Shu kunlar mobaynida %1$d ta tahrirni amalga oshirdingiz. Shunday davom eting, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Soʻnggi 30 kun ichida tahrirlarni bir kishi koʻrdi. Rahmat va davom eting!</item>
-    <item quantity="other">Soʻnggi 30 kun ichida tahrirlarni %d kishi koʻrdi. Rahmat va davom eting!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Siz tavsiya etilgan tahrirlar yordamida Vikipediyaga %d ta hissa qoʻshdingiz. Tashakkur!</string>
-  <string name="suggested_edits_rewards_edit_streak">Siz shu kunga qadar har kuni %1$d ta tahrir qildingiz. Shu zaylda davom eting, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Soʻnggi 30 kun ichida tahrirlaringizni %d kishi koʻrdi. Rahmat va shu zaylda davom eting!</string>
-  <string name="suggested_edits_rewards_edit_quality">Hozircha tahrirlaringiz %s. Yurishda davom eting! Sizning hissalaringizni kutib qolamiz.</string>
-  <string name="suggested_edits_rewards_continue_button">Davom etish</string>
   <string name="suggested_edits_encourage_account_creation_title">Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
   <string name="suggested_edits_encourage_account_creation_message">Tavsiya etilgan tahrirlar - bu Android tizimida Vikipediyani tahrirlashning yangi usuli hisoblanadi. Bu sizga Vikipediyaga kichik, ammo hayotiy hissa qo\'shishda yordam beradi.\nBizning maqsadimiz tahrir qilishni hamma uchun osonroq va qulayroq qilishdir! Ishni boshlash uchun Vikipediyaga kiring yoki unga qo\'shiling.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Vikipediaga kirmoq</string>
