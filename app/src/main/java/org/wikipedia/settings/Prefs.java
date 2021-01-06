@@ -910,54 +910,6 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
     }
 
-    public static boolean isSuggestedEditsRewardInterstitialEnabled() {
-        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, false);
-    }
-
-    public static void setSuggestedEditsRewardInterstitialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, enabled);
-    }
-
-    public static long getLastSuggestedEditsRewardInterstitialEditQualityShown() {
-        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, 0);
-    }
-
-    public static void setLastSuggestedEditsRewardInterstitialEditQualityShown(long time) {
-        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, time);
-    }
-
-    public static long getLastSuggestedEditsRewardInterstitialPageviewsShown() {
-        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, 0);
-    }
-
-    public static void setLastSuggestedEditsRewardInterstitialPageviewsShown(long time) {
-        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, time);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialContributionOnInitialCount() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_initial_count, 5);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialContributionOnCount() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_count, 50);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialEditStreakOnCount() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_streak_on_count, 5);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialEditQualityOnDay() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_quality_on_day, 14);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialPageviewsOnDay() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_pageviews_on_day, 30);
-    }
-
-    public static boolean isSuggestedEditsRewardInterstitialQAOverride() {
-        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
-    }
-
     public static boolean isSuggestedEditsHighestPriorityEnabled() {
         return getBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, false);
     }
