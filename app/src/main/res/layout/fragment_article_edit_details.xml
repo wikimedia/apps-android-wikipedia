@@ -151,7 +151,7 @@
         android:layout_marginBottom="16dp"
         android:background="?attr/color_group_60" />
 
-    <TextView
+    <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/editComment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
