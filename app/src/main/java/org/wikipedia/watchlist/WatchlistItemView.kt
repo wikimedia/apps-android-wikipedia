@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import kotlinx.android.synthetic.main.item_watchlist.view.*
+import org.wikipedia.WikipediaApp
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -31,6 +32,13 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             if (item != null) {
                 callback?.onUserClick(item!!)
             }
+        }
+        if (WikipediaApp.getInstance().language().appLanguageCodes.size == 1) {
+            langCodeBackground.visibility = GONE
+            langCodeText.visibility = GONE
+        } else {
+            langCodeBackground.visibility = VISIBLE
+            langCodeText.visibility = VISIBLE
         }
     }
 
