@@ -836,21 +836,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%2$s（%1$d 件）</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="other">您利用建议编辑为维基百科做了 %d 次贡献。谢谢您！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">%2$s，您今天做过了编辑，请继续保持！</item>
-    <item quantity="other">%2$s，您已经连续 %1$d 天做出过编辑！加油保持每日编辑！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="other">您的编辑在过去 30 天已被 %d 个人查看！感谢您，请继续加油！</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">您利用建议编辑为维基百科做了 %d 次贡献。感谢！</string>
-  <string name="suggested_edits_rewards_edit_streak">%2$s，您已经连续 %1$d 天做出过编辑！加油保持每日编辑！</string>
-  <string name="suggested_edits_rewards_pageviews">您的编辑在过去 30 天已被 %d 个人查看！感谢您，请继续加油！</string>
-  <string name="suggested_edits_rewards_edit_quality">您的编辑目前为止评价为%s。继续加油！我们期待您今后的贡献。</string>
-  <string name="suggested_edits_rewards_continue_button">继续</string>
   <string name="suggested_edits_encourage_account_creation_title">你知道所有人都可以编辑Wikipedia吗？</string>
   <string name="suggested_edits_encourage_account_creation_message">建议编辑是在 Android 设备上编辑维基百科的全新途径。利用它，您就可以为维基百科做出微小却不可或缺的贡献。\n我们的目标是让所有人都能更轻松、更无障碍地编辑维基百科。请登录或者注册维基百科来开始。</string>
   <string name="suggested_edits_encourage_account_creation_login_button">登录/加入维基百科</string>
@@ -859,7 +844,6 @@
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="other">%1$s 个标签</item>
   </plurals>
-  <string name="suggested_edits_contribution_diff_count_text">%1$s个字符</string>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="other">您移除了 %d 个字符</item>
   </plurals>

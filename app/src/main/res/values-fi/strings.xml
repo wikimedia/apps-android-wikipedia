@@ -831,12 +831,6 @@
   <string name="suggested_edits_contribution_seen_text">Nähty %s kertaa viimeisen 30 päivän aikana.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Olet tehnyt yhden muokkauksen Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</item>
-    <item quantity="other">Olet tehnyt %d muokkausta Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Olet tehnyt %d muokkausta Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</string>
-  <string name="suggested_edits_rewards_continue_button">Jatka</string>
   <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
   <string name="suggested_edits_encourage_account_creation_message">Ehdotetut muokkaukset on uusi tapa muokata Wikipediaa Androidilla. Se auttaa tekemään pieniä, tärkeitä muutoksia Wikipediaan.\nTavoitteenamme on tehdä muokkaamisesta kaikille helpompaa ja helppopääsyisempää! Aloita kirjautumalla sisään tai liittymällä Wikipediaan.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>
