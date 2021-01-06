@@ -818,23 +818,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Имате направено дадено еден придонес на Википедија користејќи „Предложени уредувања“. Ви благодариме!</item>
-    <item quantity="other">Имате дадено %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Уредувавте цел еден ден. Само напред, %2$s!</item>
-    <item quantity="other">Уредувавте секој ден последниве %1$d дена. Само напред, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Вашите уредувања се видени од едно лице во последниве 30 дена. Ви благодариме и само напред!</item>
-    <item quantity="other">Вашите уредувања се видени од %d лица во последниве 30 дена. Ви благодариме и само напред!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Имате %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</string>
-  <string name="suggested_edits_rewards_edit_streak">Досега уредувате %1$d последователни денови. Само така, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Вашите уредувања се видени од %d луѓе во последниве 30 дена. Ви благодариме, и само напред!</string>
-  <string name="suggested_edits_rewards_edit_quality">Засега вашите уредувања се со %s квалитет. Само така! Со нетрпение ги очекуваме вашите понатамошни придонеси.</string>
-  <string name="suggested_edits_rewards_continue_button">Продолжи</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Најава / придружување на Википедија</string>

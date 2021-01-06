@@ -872,29 +872,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчора</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Ви зробили одне редагування у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
-    <item quantity="few">Ви зробили %d редагування у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
-    <item quantity="many">Ви зробили %d редагувань у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
-    <item quantity="other">Ви зробили %d редагувань у Вікіпедії завдяки пропонованим редагуванням. Дякуємо!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Ви редагували уже один день. Продовжуйте серію, %2$s!</item>
-    <item quantity="few">Ви редагували щодня уже %1$d дні. Продовжуйте серію, %2$s!</item>
-    <item quantity="many">Ви редагували щодня уже %1$d днів. Продовжуйте серію, %2$s!</item>
-    <item quantity="other">Ви редагували щодня уже %1$d днів. Продовжуйте серію, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Ваші редагування побачила одна людина за минулі 30 днів. Дякуємо, продовжуйте!</item>
-    <item quantity="few">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</item>
-    <item quantity="many">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</item>
-    <item quantity="other">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Ви зробили внесок у Вікіпедію %d разів з допомогою Пропонованих редагувань. Дякуємо!</string>
-  <string name="suggested_edits_rewards_edit_streak">Ви редагували щодня упродовж %1$d днів. Тримайтеся цієї лінії, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</string>
-  <string name="suggested_edits_rewards_edit_quality">Наразі ваші редагування %s. Продовжуйте! Ми чекаємо на ваш внесок.</string>
-  <string name="suggested_edits_rewards_continue_button">Продовжити</string>
   <string name="suggested_edits_encourage_account_creation_title">Чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
   <string name="suggested_edits_encourage_account_creation_message">Пропоновані редагування — це новий спосіб редагувати Вікіпедію з Android. Він допомагає робити невеликі, але життєво важливі внески у Вікіпедію.\nНаша мета — зробити редагування простішим і доступнішим на всіх! Увійдіть або зареєструйтеся у Вікіпедії, щоб розпочати.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Увійти / приєднатися до Вікіпедії</string>

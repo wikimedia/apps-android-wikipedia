@@ -793,23 +793,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">နူကဏေအ်</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">မၞးလုပ်ကၠောန်လဝ် မွဲအလန် ပ္ဍဲဝဳကဳပဳဒဳယာ မစကာလဝ် အရာပလေဝ်ဒါန် မအာတ်မိက်။ တင်ဂုန်ရ။</item>
-    <item quantity="other">မၞးကၠောန်ဂွံ %d အလန် သွက်ဝဳကဳပဳဒဳယာ မစကာလဝ် အရာပလေဝ်ဒါန် မအာတ်မိက်။ တင်ဂုန်ရ။</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">မၞးပလေဝ်ဒါန်လဝ် မွဲ ပ္ဍဲမွဲကၠိုဟ်တ္ၚဲ။ ဆက်ကၠောန် လ္ပဒေါအ်ညိ %2$s!</item>
-    <item quantity="other">မၞးပလေဝ်ဒါန်ဂွံလဝ် ဇၟာပ်တ္ၚဲ သီုဖအိုတ်  %1$d တ္ၚဲ စဵုကဵုလၟုဟ်မ္ဂး။ ဆက်ကၠောန် လ္ပဒေါအ်ညိ %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">ပလေဝ်ဒါန်မၞးဂှ် ပ္ဍဲကဵု ၃၀ တ္ၚဲမတုဲကၠုင်ဂှ် မၞိဟ်လုပ်ဗဵုဂွံ မွဲ တၠ။ တင်ဂုန်ရ ဆက်ကၠောန်အာညိ။</item>
-    <item quantity="other">ပလေဝ်ဒါန်မၞးဂှ် မၞိဟ် %d တၠ လုပ်ဗဵုလဝ် ပ္ဍဲပွိုင် ၃၀ တ္ၚဲဂှ်။ တင်ဂုန်ရ ဆက်ကၠောန်အာညိ။</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">မၞးကၠောန်ဂွံ ပ္ဍဲဝဳကဳပဳဒဳယာ %d ကမၠောန် မစကာလဝ် အရာပလေဝ်ဒါန် မအာတ်မိက်။ တင်ဂုန်ရ။</string>
-  <string name="suggested_edits_rewards_edit_streak">မၞး ပလေဝ်ဒါန် ရိုဟ်ဒဒှ်တ္ၚဲ နူကဵု ပွိုင် %1$d တ္ၚဲဂှ်။ ဆက်ကၠောန် လ္ပဒေါအ်ညိ  %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">ပလေဝ်ဒါန်မၞးဂှ် ပ္ဍဲကဵုပွိုင် ၃၀ တ္ၚဲဂှ် မၞိဟ်လုပ်ဗဵုဂွံ  %d တၠ။ တင်ဂုန်၊ ဆက်ကၠောန်ညိ။</string>
-  <string name="suggested_edits_rewards_edit_quality">စဵုကဵုလၟုဟ်ဂှ် မၞိဟ်ပလေဝ်ဒါန်ဂွံ %s အလန်။ ဆက်ကၠောန်ညိ။ ပိုယ်စၟဳဒၟံင် ပရေင်ကမၠောန်မၞးရ။</string>
-  <string name="suggested_edits_rewards_continue_button">ဆက်</string>
   <string name="suggested_edits_encourage_account_creation_title">မၞးတီဟာ ဒဒှ်ရ ဇၟာပ်မၞိဟ် လုပ်ပလေဝ်ဒါန် ဝဳကဳပဳဒဳယာဂွံဒၟံင်ဂှ်။</string>
   <string name="suggested_edits_encourage_account_creation_message">တင်ပလေဝ်ဒါန် မအာတ်မိက်ဂှ် ဒှ်နဲကဲတၟိ သွက်ဂွံပလေဝ်ဒါန် ပ္ဍဲဝဳကဳပဳဒဳယာ နကဵု အေန်ဒရောန်။ အရာဏအ်ဂှ် မၞးမကၠောန်ကဵုညိည ဒှ်ဂုန်ဗွဲမဇၞော် သွက်ဝဳကဳပဳဒဳယာရ။ တင်ရန်တၟအ်ပိုယ်ဂှ် ဇၟာပ်မၞိဟ် ဗွဲမလောဲသွာ ညံင်ဂွံလုပ် ပလေဝ်ဒါန်ဂွံရ။ လုပ်လံက်အေန် ဟွံသေင်မ္ဂး လုပ်ပံင်တောဲ သွက်ဂွံ လုပ်စကၠောန်။</string>
   <string name="suggested_edits_encourage_account_creation_login_button">လုပ်လံက်အေန် / လုပ်ပံင်တောဲ ဝဳကဳပဳဒဳယာ</string>
