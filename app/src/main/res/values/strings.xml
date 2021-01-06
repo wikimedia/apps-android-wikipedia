@@ -631,9 +631,7 @@
     <string name="view_announcement_card_negative_action">No thanks</string>
     <string name="view_offline_card_text">Content cannot be loaded when offline.</string>
     <string name="view_featured_article_card_title">Featured article</string>
-    <string name="view_featured_article_footer_save_button_label">Save</string>
     <string name="view_static_card_save_button_label">Save</string>
-    <string name="view_featured_article_footer_saved_button_label">Saved</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
     <string name="feed_configure_menu_reset">Restore default view</string>
     <string name="feed_configure_menu_select_all">Show all</string>

@@ -310,8 +310,6 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s gelees</string>
   <string name="view_announcement_card_negative_action">Nee dankie</string>
   <string name="view_featured_article_card_title">Voorbladartikel</string>
-  <string name="view_featured_article_footer_save_button_label">Stoor</string>
-  <string name="view_featured_article_footer_saved_button_label">Gestoor</string>
   <string name="description_edit_save">Publiseer</string>
   <string name="description_edit_cancel_hint">Kanselleer</string>
   <string name="description_edit_success_did_you_know">Het u geweet?</string>
