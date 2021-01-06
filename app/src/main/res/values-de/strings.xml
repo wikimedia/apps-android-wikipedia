@@ -843,23 +843,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gestern</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Sie haben mit vorgeschlagenen Bearbeitungen einen Beitrag zu Wikipedia geleistet. Vielen Dank! </item>
-    <item quantity="other"> Sie haben mit empfohlenen Bearbeitungen %d Beiträge zu Wikipedia geleistet. Danke!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Sie haben einen ganzen Tag lang bearbeitet. Halten Sie die Serie am Laufen,%2$s! </item>
-    <item quantity="other"> Sie haben bisher jeden Tag für %1$d Tage bearbeitet. Machen Sie weiter so, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Ihre Änderungen wurden in den letzten 30 Tagen von einer Person gesehen. Vielen Dank und weiter so! </item>
-    <item quantity="other"> Ihre Änderungen wurden in den letzten 30 Tagen von %d Personen gesehen. Danke fürs Weitermachen!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Sie haben %d Beiträge zu Wikipedia mit vorgeschlagenen Bearbeitungen geleistet. Danke!</string>
-  <string name="suggested_edits_rewards_edit_streak">Sie haben bisher jeden Tag für %1$d Tage bearbeitet. Machen Sie weiter so, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Ihre Änderungen wurden in den letzten 30 Tagen von %d Personen gesehen. Danke und machen Sie weiter so!</string>
-  <string name="suggested_edits_rewards_edit_quality">Ihre bisherigen Änderungen sind %s. Machen Sie weiter so! Wir freuen uns auf Ihre Beiträge.</string>
-  <string name="suggested_edits_rewards_continue_button">Weiter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wussten Sie, dass jeder Wikipedia bearbeiten kann?</string>
   <string name="suggested_edits_encourage_account_creation_message">Vorgeschlagene Bearbeitungen ist eine neue Art, Wikipedia auf Android zu bearbeiten. Es hilft dir, kleine aber wichtige Beiträge zu Wikipedia zu leisten.\nUnser Ziel ist es, das Editieren einfacher und zugänglicher für alle zu machen! Logge dich ein oder schließe dich Wikipedia an, um anzufangen.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Anmelden / Wikipedia beitreten</string>

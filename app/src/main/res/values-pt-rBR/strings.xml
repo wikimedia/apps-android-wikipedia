@@ -845,23 +845,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ontem</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Você fez uma contribuição para a Wikipédia usando as edições sugeridas. Obrigado!</item>
-    <item quantity="other">Você fez %d contribuições à Wikipédia usando as edições sugeridas. Obrigado!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Você está editando há um dia inteiro. Mantenha a sequencia, %2$s!</item>
-    <item quantity="other">Você editou todos os dias por %1$d dias até agora. Mantenha a seqüência, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Suas edições foram vistas por uma pessoa nos últimos 30 dias. Obrigado e continue!</item>
-    <item quantity="other">Suas edições foram vistas por %d pessoas nos últimos 30 dias. Obrigado e continue!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Você fez %d contribuições para a Wikipedia usando as edições sugeridas. Obrigado!</string>
-  <string name="suggested_edits_rewards_edit_streak">Você editou todos os dias por %1$d dias até o momento. Mantenha a sequência, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Suas edições foram vistas por %d pessoas nos últimos 30 dias. Obrigado, e continue!</string>
-  <string name="suggested_edits_rewards_edit_quality">Suas edições até agora são %s. Continue! Esperamos suas contribuições.</string>
-  <string name="suggested_edits_rewards_continue_button">Continuar</string>
   <string name="suggested_edits_encourage_account_creation_title">Você sabia que todos podem editar a Wikipédia?</string>
   <string name="suggested_edits_encourage_account_creation_message">As edições sugeridas são uma nova maneira de editar a Wikipédia no Android. Ajuda você a fazer contribuições pequenas, mas vitais, para a Wikipédia.\nNosso objetivo é tornar a edição mais fácil e mais acessível para todos! Entre ou participe da Wikipédia para começar.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Entrar / Juntar na Wikipédia</string>
