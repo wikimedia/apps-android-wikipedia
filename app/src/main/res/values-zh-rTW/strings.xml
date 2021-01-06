@@ -835,23 +835,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">您已使用「建議編輯」為維基百科做出了 1 次貢獻。感謝您！</item>
-    <item quantity="other">您已使用「建議編輯」為維基百科做出了 %d 次貢獻。感謝您！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">您今天有做出編輯，請繼續加油，%2$s！</item>
-    <item quantity="other">您在 %1$d 天裡每天都有做出編輯，請挑戰讓紀錄繼續延續下去，%2$s！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">您的編輯在過去 30 天裡有被 1 個人看到。感謝您，請繼續加油！</item>
-    <item quantity="other">您的編輯在過去 30 天裡有被 %d 個人看到。感謝您，請繼續加油！</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">您在維基百科上使用建議編輯做出了 %d 次貢獻。感謝您！</string>
-  <string name="suggested_edits_rewards_edit_streak">到目前為止，您有連續 %1$d 天每日做出編輯的紀錄。請挑戰讓紀錄繼續延續下去，%2$s！</string>
-  <string name="suggested_edits_rewards_pageviews">您的編輯內容在過去 30 天裡已被 %d 個人觀看過。感謝您，並請繼續加油！</string>
-  <string name="suggested_edits_rewards_edit_quality">您的編輯到目前為止是%s。請繼續加油！我們期待您之後的貢獻。</string>
-  <string name="suggested_edits_rewards_continue_button">繼續</string>
   <string name="suggested_edits_encourage_account_creation_title">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="suggested_edits_encourage_account_creation_message">建議編輯是在 Android 上編輯維基百科的新方式。這能讓您做出微小；但對於維基百科是至關重要的貢獻。\n我們的目標是讓所有人能夠更輕鬆地編輯！請登入或加入維基百科來開始。</string>
   <string name="suggested_edits_encourage_account_creation_login_button">登入/加入維基百科</string>
@@ -862,7 +845,6 @@
     <item quantity="one">%1$s 個標籤</item>
     <item quantity="other">%1$s 個標籤</item>
   </plurals>
-  <string name="suggested_edits_contribution_diff_count_text">%1$s個字元</string>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="one">您已移除 %d 個字元</item>
     <item quantity="other">您已移除 %d 個字元</item>

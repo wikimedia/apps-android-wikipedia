@@ -832,23 +832,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Tegnap</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Eddig egyszer működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</item>
-    <item quantity="other">Eddig %d alkalommal működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Eddig egy napot szerkesztettél. Ne add fel, csak így tovább, %2$s!</item>
-    <item quantity="other">Eddig minden nap szerkesztettél, összesen %1$d napot. Ne add fel, csak így tovább, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">1 ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</item>
-    <item quantity="other">%d ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Eddig %d alkalommal működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</string>
-  <string name="suggested_edits_rewards_edit_streak">Eddig minden nap szerkesztettél, összesen %1$d napot. Ne add fel, csak így tovább, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">%d ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</string>
-  <string name="suggested_edits_rewards_edit_quality">Szerkesztéseid minősége eddig: %s. Várjuk a további szerkesztéseket.</string>
-  <string name="suggested_edits_rewards_continue_button">Folytatás</string>
   <string name="suggested_edits_encourage_account_creation_title">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
   <string name="suggested_edits_encourage_account_creation_message">A javasolt szerkesztések egy új módja a Wikipédia tartalmának fejlesztéséhez való hozzájárulásnak. Ez egy aprónak tűnő, de fontos rész. Célunk az, hogy a szerkesztés könnyebb legyen, és elérhetőbb mindenki számára! Jelentkezz be vagy regisztrálj a Wikipédián a kezdéshez.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Bejelentkezés/regisztrálás a Wikipédiába</string>
