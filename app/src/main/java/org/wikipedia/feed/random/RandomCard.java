@@ -3,12 +3,12 @@ package org.wikipedia.feed.random;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.util.L10nUtil;
 
 public class RandomCard extends FeaturedArticleCard {
 
@@ -19,13 +19,13 @@ public class RandomCard extends FeaturedArticleCard {
     @Override
     @NonNull
     public String title() {
-        return WikipediaApp.getInstance().getString(R.string.view_random_article_card_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_random_article_card_title);
     }
 
     @Override
     @NonNull
     public String footerActionText() {
-        return WikipediaApp.getInstance().getString(R.string.view_random_article_card_action);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_random_article_card_action);
     }
 
     @NonNull

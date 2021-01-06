@@ -42,7 +42,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         setUpPagerWithSECards()
-        cardFooter.setFooterActionText(L10nUtil.getStringForArticleLanguage(card!!.wikiSite().languageCode(), R.string.suggested_card_more_edits), card!!.wikiSite().languageCode())
+        cardFooter.setFooterActionText(card!!.footerActionText(), null)
         cardFooter.callback = this
     }
 
