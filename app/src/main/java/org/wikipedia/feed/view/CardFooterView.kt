@@ -34,6 +34,5 @@ internal class CardFooterView constructor(context: Context, attrs: AttributeSet?
         val arrowImageSpan = ImageSpan(context, if (isRTL) R.drawable.ic_baseline_arrow_left_alt_themed_24px else R.drawable.ic_baseline_arrow_right_alt_themed_24px)
         spannableStringBuilder.setSpan(arrowImageSpan, actionTextWithSpace.length - 1, actionTextWithSpace.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         footerActionButton.text = spannableStringBuilder
-        footerActionButton.textDirection = if (isRTL) TEXT_DIRECTION_RTL else TEXT_DIRECTION_LTR
     }
 }
