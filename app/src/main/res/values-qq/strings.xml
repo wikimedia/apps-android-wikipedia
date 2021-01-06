@@ -212,6 +212,8 @@
   <string name="page_protected_can_not_edit">Message in dialog box telling the user that their account does not currently have the sufficient rights to edit this page.</string>
   <string name="page_protected_can_not_edit_anon">Message in dialog box telling the user that this page is currently protected against anonymous editing.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Title of tooltip telling the user that the article can be added to the Watchlist.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Message of tooltip telling the user that the article can be added to the Watchlist.</string>
   <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.\n{{Identical|Settings}}</string>
   <string name="settings_activity_title">Title at the top of the Settings screen.\n{{Identical|Settings}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
@@ -968,6 +970,8 @@
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
   <string name="main_tooltip_text_v2">Message for the tool tip that shown on the main screen.</string>
   <string name="main_tooltip_action_button">Button label for the action on tool tip that shown on the main screen.</string>
+  <string name="main_tooltip_watchlist_title">Title for the Watchlist tooltip that shown on the main screen.</string>
+  <string name="main_tooltip_watchlist_text">Message for the Watchlist tooltip that shown on the main screen.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>

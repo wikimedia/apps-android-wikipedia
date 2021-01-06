@@ -142,7 +142,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
         totalItems.clear()
         totalItems.addAll(watchlistItems)
-
+        totalItems.sortByDescending { it.date }
         onUpdateList(totalItems)
     }
 

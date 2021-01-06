@@ -1006,5 +1006,22 @@ public final class Prefs {
         return getString(R.string.preference_key_crash_report_local_class_name, "");
     }
 
+    public static boolean isWatchlistPageOnboardingTooltipShown() {
+        return getBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, false);
+    }
+
+    public static void setWatchlistPageOnboardingTooltipShown(boolean enabled) {
+        setBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, enabled);
+    }
+
+    public static boolean isWatchlistMainOnboardingTooltipShown() {
+        return getBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, false);
+    }
+
+    public static void setWatchlistMainOnboardingTooltipShown(boolean enabled) {
+        setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled);
+    }
+
+
     private Prefs() { }
 }
