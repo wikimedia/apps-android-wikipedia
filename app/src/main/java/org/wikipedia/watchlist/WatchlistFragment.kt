@@ -19,14 +19,11 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DateUtil
@@ -288,15 +285,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem) {
-        if (item.isAnon) {
-            // if it's an anonymous user, then go directly to the talk page, since there is no
-            // page for this user, by definition.
-            startActivity(TalkTopicsActivity.newIntent(requireContext(),
-                    PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki)))
-        } else {
-            val entry = HistoryEntry(PageTitle(UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki), HistoryEntry.SOURCE_WATCHLIST)
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
-        }
+        startActivity(TalkTopicsActivity.newIntent(requireContext(),
+                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki)))
     }
 
     companion object {
