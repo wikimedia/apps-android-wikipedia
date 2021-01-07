@@ -481,7 +481,6 @@
   <string name="suggested_edits_contribution_image_label" fuzzy="true">கோப்பு</string>
   <string name="suggested_edits_contribution_views">%s பார்வைகள்</string>
   <string name="suggested_edits_contribution_date_yesterday_text">நேற்று</string>
-  <string name="suggested_edits_rewards_continue_button">தொடரவும்</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>
   <string name="onboarding_skip">தவிர்</string>
   <string name="onboarding_continue">தொடரவும்</string>

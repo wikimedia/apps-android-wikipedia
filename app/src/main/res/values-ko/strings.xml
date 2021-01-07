@@ -838,10 +838,12 @@
     <item quantity="one">태그 %1$s개</item>
     <item quantity="other">태그 %1$s개</item>
   </plurals>
+  <string name="suggested_edits_contribution_diff_count_text">%1$s자</string>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="one">%d자를 제거했습니다</item>
     <item quantity="other">%d자를 제거했습니다</item>
   </plurals>
+  <string name="suggested_edits_added_contribution_label">글자 %d자를 추가하셨습니다</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>

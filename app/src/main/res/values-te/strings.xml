@@ -280,7 +280,6 @@
   <string name="suggested_edits_contribution_article_label">వ్యాసం</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
-  <string name="suggested_edits_rewards_continue_button">కొనసాగించు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_login_cancel_button_text">రద్దుచేయి</string>
   <string name="onboarding_continue">కొనసాగించు</string>

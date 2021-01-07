@@ -154,7 +154,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Bysûnderheden</string>
   <string name="preferences_general_heading">Algemien</string>
-  <string name="wikipedia_app_faq">Wikipedy-app Faak stelde fragen</string>
+  <string name="wikipedia_app_faq">Faak stelde fragen Wikipedy-app</string>
   <string name="send_feedback">App-weromkeppeling jaan</string>
   <string name="create_account_account_created_toast">Akkount oanmakke!</string>
   <string name="preferences_heading_syncing">Syngronisaasje</string>
@@ -361,7 +361,7 @@
   <string name="nav_item_reading_lists">Myn listen</string>
   <string name="reading_list_save_to">Yn lêslist bewarje</string>
   <string name="reading_list_move_to">Nei lêslist ferplakke</string>
-  <string name="reading_list_create_new">Nij oanmeitsje</string>
+  <string name="reading_list_create_new">Nije oanmeitsje</string>
   <string name="reading_list_title_exists">De lêslist \"%s\" bestiet al.</string>
   <string name="reading_list_article_added_to_named">%1$s tafoege oan %2$s.</string>
   <string name="reading_list_article_added_to_default_list">%s bewarre. Wolle jo it oan in list tafoegje?</string>
@@ -431,8 +431,11 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel stiet yn ferskate listen</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s sil sûnder netwurk foar gjinien lêslist mear beskikber wêze:</string>
   <string name="reading_lists_sync_reminder_title">Lêslist-syngronisaasje oansette?</string>
-  <string name="reading_lists_sync_reminder_action">Syngronisaasje ynskeakelje</string>
+  <string name="reading_lists_sync_reminder_text">De lêslisten mei bewarre artikels kinne no mei jo Wikipedy-akkount syngronisearre wurde. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mear witte&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">De lêslisten kinne no mei oare apparaten syngronisearre wurde. Meld jo oan op jo Wikipedy-akkount, en lit jo listen bewarje. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Mear witte&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Syngronisaasje oansette</string>
   <string name="reading_list_login_reminder_title">Lêslisten syngronisearje</string>
+  <string name="reading_lists_login_reminder_text">Lêslisten kinne no mei oare apparaten syngronisearre wurde. Meld jo oan op jo Wikipedy-akkount, en lit jo listen bewarje.</string>
   <string name="reading_lists_login_button">Oanmelde / kom by de Wikipedy</string>
   <string name="reading_lists_ignore_button">No net</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
@@ -441,19 +444,23 @@
   <string name="reading_list_articles_added_to_named">%1$d artikels tafoege oan %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d artikels ferplakt nei %2$s</string>
   <string name="reading_list_delete_confirm">Wolle jo wier %s wiskje?</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Oanmelde om syngronisaasje yn te skeakeljen</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Oanmelde en skeakelje syngronisaasje yn</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Meld jo oan om jo lêslisten yn jo akkount bewarje te litten.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulearje</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Oanmelde</string>
   <string name="reading_list_turned_sync_off_dialog_title">Lêslist-syngronisaasje útset</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Lêslist-syngronisaasje stiet út foar jo akkount, en bewarre artikels op jo ynlogde apparaten wurde net mear kopiearre. Set lêslist-syngronisaasje oan yn \'e Ynstellings.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ynstellings</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Lêslist-syngronisaasje oansette?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">De lêslisten mei bewarre artikels kinne no mei jo Wikipedy-akkount syngronisearre wurde. &lt;a href=\"#faq\"&gt;Mear witte&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Dit net mear sjen litte</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Syngronisaasje ynskeakelje</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee tanke</string>
   <string name="default_reading_list_name">Bewarre</string>
   <string name="default_reading_list_description">Standertlist foar jo bewarre artikels</string>
   <string name="no_user_lists_title">Oarderje artikels yn listen</string>
+  <string name="no_user_lists_msg">Meitsje listen foar reisbestimmings, leaflingsûnderwerpen en folle mear</string>
   <string name="reading_list_saved_list_rename">%1$s (sels makke)</string>
   <string name="reading_lists_menu_create_list">Nije list oanmeitsje</string>
   <string name="reading_lists_menu_sort_by">Sortearje op</string>
@@ -502,6 +509,7 @@
   <string name="notification_preferences_title">Meldingsfoarkarren</string>
   <string name="notifications_mark_unread">As net-lêzen oanmerke</string>
   <string name="preference_title_notification_poll">Fuort melde</string>
+  <string name="preference_summary_notification_poll">De app data brûke litte om op \'e eftergrûn te sjen oft der nije meldingen binne.</string>
   <string name="preference_category_notification_types">Soarten meldingen yn \'e app</string>
   <string name="preference_title_notification_system">Systeem</string>
   <string name="preference_title_notification_milestone">Mylpeal</string>
@@ -695,8 +703,8 @@
   <string name="suggested_edits_editing_tips_link_text">Bewurkingstips en -trúks</string>
   <string name="suggested_edits_help_page_link_text">Helpside Bewurksuggestjes</string>
   <string name="suggested_edits_edit_streak_label_text">Wurksearje</string>
-  <string name="suggested_edits_views_label_text">werjeften</string>
-  <string name="suggested_edits_quality_label_text">wurkkwaliteit</string>
+  <string name="suggested_edits_views_label_text">Werjeften</string>
+  <string name="suggested_edits_quality_label_text">Wurkkwaliteit</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_quality_excellent_text">Treflik</string>
   <string name="suggested_edits_quality_very_good_text">Tige bêst</string>
@@ -707,8 +715,8 @@
   <string name="suggested_edits_quality_bad_text">Min</string>
   <string name="suggested_edits_label">Bewurksuggestjes</string>
   <plurals name="suggested_edits_contribution">
-    <item quantity="one">bydrage</item>
-    <item quantity="other">bydragen</item>
+    <item quantity="one">Bydrage</item>
+    <item quantity="other">Bydragen</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dei</item>
@@ -720,7 +728,7 @@
   <string name="suggested_edits_paused_title">Underbrutsen</string>
   <string name="suggested_edits_disabled_title">Utskeakele</string>
   <string name="suggested_edits_ip_blocked_title">YP útsletten</string>
-  <string name="suggested_edits_last_edited">lêst bewurke</string>
+  <string name="suggested_edits_last_edited">Lêst bewurke</string>
   <string name="suggested_edits_last_edited_never">Nea</string>
   <string name="suggested_edits_task_new">nij</string>
   <string name="suggested_edits_reactivation_notification_title">Bewurksuggestjes</string>

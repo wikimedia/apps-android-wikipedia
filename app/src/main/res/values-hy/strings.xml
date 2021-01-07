@@ -279,7 +279,6 @@
   <string name="suggested_edits_contribution_image_label" fuzzy="true">Նիշք</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Երեկ</string>
-  <string name="suggested_edits_rewards_continue_button">Շարունակել</string>
   <string name="description_edit_login_cancel_button_text">Չեղարկել</string>
   <string name="onboarding_skip">Բաց թողնել</string>
   <string name="onboarding_continue">Շարունակել</string>
