@@ -981,4 +981,5 @@
   <string name="talk_message_hint">Composer un message</string>
   <string name="talk_message_empty">Le message ne peut pas être vide.</string>
   <string name="talk_subject_empty">Le sujet ne peut pas être vide.</string>
+  <string name="go_to_user_page">Aller à la page utilisateur</string>
 </resources>
