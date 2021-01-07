@@ -49,6 +49,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
+    private lateinit var imageRecommendationsTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -403,6 +404,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
+        imageRecommendationsTask = SuggestedEditsTask()
+        imageRecommendationsTask.title = getString(R.string.image_recommendations_task_title)
+        imageRecommendationsTask.description = getString(R.string.image_recommendations_task_detail)
+        imageRecommendationsTask.imageDrawable = R.drawable.ic_image_caption
+
+        displayedTasks.add(imageRecommendationsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
         displayedTasks.add(addImageTagsTask)
@@ -424,6 +431,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
                 }
+            } else if (task == imageRecommendationsTask) {
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, InvokeSource.SUGGESTED_EDITS))
             }
         }
     }
