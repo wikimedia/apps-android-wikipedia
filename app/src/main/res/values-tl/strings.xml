@@ -603,9 +603,7 @@
   <string name="view_announcement_card_negative_action">Salamat na lang</string>
   <string name="view_offline_card_text">Di maikakarga ang nilalaman kapag offline.</string>
   <string name="view_featured_article_card_title">Tampok na artikulo</string>
-  <string name="view_featured_article_footer_save_button_label">I-save</string>
   <string name="view_static_card_save_button_label">I-save</string>
-  <string name="view_featured_article_footer_saved_button_label">Naka-save</string>
   <string name="feed_configure_activity_title">Isaayos ang feed</string>
   <string name="feed_configure_menu_reset">Ibalik sa dati</string>
   <string name="feed_configure_menu_select_all">Tingnan lahat</string>
@@ -817,23 +815,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kahapon</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Nakapag-ambag ka sa Wikipedia gamit ng Alok na Edit. Salamat po!</item>
-    <item quantity="other">Nakapag-ambag ka sa Wikipedia nang %d (na) beses gamit ng Alok na Edit. Maraming salamat po!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Nag-eedit ka na nang isang buong araw. Kaya mo yan, %2$s!</item>
-    <item quantity="other">Nag-eedit ka na nang %1$d (na) araw sunod-sunod. Kaya mo yan, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Nakita ang edit mo ng isang tao sa nakaraang 30 araw. Salamat po, at ambag pa!</item>
-    <item quantity="other">Nakita ang edit mo ng %d (na) tao sa nakaraang 30 araw. Maraming salamat po, at ambag pa!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Nag-ambag ka na nang %d (na) beses sa Wikipedia gamit ang Alok na Edit. Maraming salamat po!</string>
-  <string name="suggested_edits_rewards_edit_streak">Araw-araw ka na\'ng nag-eedit sa loob ng %1$d (na) araw. Kaya mo yan, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Nakita ng %d (na) katao ang mga edit mo sa nakalipas na 30 araw. Salamat, at tuloy lang ang pag-edit!</string>
-  <string name="suggested_edits_rewards_edit_quality">Ang mga edit mo ay %s. Tuloy lang ang pag-edit! Umaasa kami ng mga magagandang ambag mo.</string>
-  <string name="suggested_edits_rewards_continue_button">Magpatuloy</string>
   <string name="suggested_edits_encourage_account_creation_title">Alam mo ba, kahit sino pwedeng mag-edit sa Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Bagong paraan para makapag-edit sa Wikipedia gamit ng Android ang mga Alok na Edit. Matutulungan ka nitong makapag-ambag ng kahit maliit ngunit mahalagang mga ambag sa Wikipedia.\nGinagawa naming mas madali at mas kaya ang pag-eedit sa lahat ng tao! Mag-login lamang o sumali sa Wikipedia para makapagsimula ka na.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Mag-login / Sumali sa Wikipedia</string>

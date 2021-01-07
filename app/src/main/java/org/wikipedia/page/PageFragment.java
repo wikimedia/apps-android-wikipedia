@@ -794,6 +794,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
 
+        setToolbarElevationEnabled(false);
         tocHandler.setEnabled(false);
         errorState = false;
         errorView.setVisibility(View.GONE);
@@ -973,7 +974,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         hidePageContent();
         bridge.onMetadataReady();
 
-        errorView.setError(caught);
+        if (errorView.getVisibility() != View.VISIBLE) {
+            errorView.setError(caught);
+        }
         errorView.setVisibility(View.VISIBLE);
 
         View contentTopOffset = errorView.findViewById(R.id.view_wiki_error_article_content_top_offset);

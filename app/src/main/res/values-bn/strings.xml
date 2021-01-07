@@ -497,9 +497,7 @@
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="view_offline_card_text">অফলাইনে থাকা অবস্থায় সামগ্রী লোড করা যাবে না।</string>
   <string name="view_featured_article_card_title">নির্বাচিত নিবন্ধ</string>
-  <string name="view_featured_article_footer_save_button_label">সংরক্ষণ করুন</string>
   <string name="view_static_card_save_button_label">সংরক্ষণ করুন</string>
-  <string name="view_featured_article_footer_saved_button_label">সংরক্ষিত</string>
   <string name="feed_configure_activity_title">পছন্দমত ফিড তৈরি করুন</string>
   <string name="feed_configure_menu_reset">মূল দৃশ্যপট পুনঃস্থাপন</string>
   <string name="feed_configure_menu_select_all">সব দেখান</string>

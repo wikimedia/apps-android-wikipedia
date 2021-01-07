@@ -641,9 +641,7 @@
   <string name="view_announcement_card_negative_action">Non merci</string>
   <string name="view_offline_card_text">Le contenu ne peut être chargé hors connexion.</string>
   <string name="view_featured_article_card_title">Article vedette</string>
-  <string name="view_featured_article_footer_save_button_label">Enregistrer</string>
   <string name="view_static_card_save_button_label">Enregistrer</string>
-  <string name="view_featured_article_footer_saved_button_label">Enregistré</string>
   <string name="feed_configure_activity_title">Configurer le fil</string>
   <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
   <string name="feed_configure_menu_select_all">Afficher tout</string>
@@ -858,23 +856,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hier</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Vous avez fait une contribution à Wikipédia en utilisant Modifications suggérées. Merci !</item>
-    <item quantity="other">Vous avez fait %d contributions à Wikipédia en utilisant Modifications suggérées. Merci !</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Vous avez modifié durant un jour complet. Continuez, %2$s !</item>
-    <item quantity="other">Vous avez modifié durant chacun des %1$d derniers jours jusqu’à présent. Continuez, %2$s !</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Vos modifications ont été vues par une personne dans les 30 derniers jours. Merci, et continuez !</item>
-    <item quantity="other">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci, et continuez !</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Vous avez fait %d contributions à Wikipédia en utilisant les Modifications suggérées. Merci !</string>
-  <string name="suggested_edits_rewards_edit_streak">Vous avez modifié tous les jours depuis %1$d jusqu’à présent. Continuez la série en cours, %2$s !</string>
-  <string name="suggested_edits_rewards_pageviews">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci et continuez sur votre lancée !</string>
-  <string name="suggested_edits_rewards_edit_quality">Vos modifications jusqu’à présent sont %s. Continuez ! Nous attendons vos contributions.</string>
-  <string name="suggested_edits_rewards_continue_button">Poursuivre</string>
   <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikipédia</string>
@@ -1000,4 +981,5 @@
   <string name="talk_message_hint">Composer un message</string>
   <string name="talk_message_empty">Le message ne peut pas être vide.</string>
   <string name="talk_subject_empty">Le sujet ne peut pas être vide.</string>
+  <string name="go_to_user_page">Aller à la page utilisateur</string>
 </resources>

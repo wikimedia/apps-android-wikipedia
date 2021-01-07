@@ -554,9 +554,7 @@
   <string name="view_announcement_card_negative_action">Nei takk</string>
   <string name="view_offline_card_text">Innholdet kan ikke lastes når du er offline.</string>
   <string name="view_featured_article_card_title">Utvalgt artikkel</string>
-  <string name="view_featured_article_footer_save_button_label">Lagre</string>
   <string name="view_static_card_save_button_label">Lagre</string>
-  <string name="view_featured_article_footer_saved_button_label">Lagret</string>
   <string name="feed_configure_activity_title">Tilpass hva som vises</string>
   <string name="feed_configure_menu_reset">Tilbakestill standardvisningen</string>
   <string name="feed_configure_menu_select_all">Vis alt</string>
@@ -736,10 +734,6 @@
   <string name="suggested_edits_contribution_seen_text">Sett %s ganger de siste 30 dagene.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
-  <string name="suggested_edits_rewards_contribution">Du har gjort %d bidrag til Wikipedia fra Redigeringsforslag. Takk!</string>
-  <string name="suggested_edits_rewards_edit_streak">Du har redigert hver dag de siste  %1$d dagene. Bra jobba, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Redigeringene dine har blitt sett av %d personer de siste 30 dagene. Lykke til videre med redigeringen!</string>
-  <string name="suggested_edits_rewards_continue_button">Fortsett</string>
   <string name="suggested_edits_encourage_account_creation_title">Visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Redigeringsforslag er en ny måte å redigere Wikipedia på fra Android. Den hjelper deg å å gjøre små, men viktige bidrag til Wikipedia.\nMålet vårt er å gjøre redigering enklere og mer tilgjengelig for alle! Logg inn eller registrer deg på Wikipedia for å komme i gang.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logg inn / registrer deg på Wikipedia</string>

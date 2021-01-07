@@ -371,8 +371,11 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Cı kewe</string>
   <string name="reading_list_turned_sync_off_dialog_ok">TEMAM</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Eyari</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nê mesaci ancina mı memocne</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Senkronizasyoni aktive kerê</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nê, teşekur</string>
   <string name="default_reading_list_name">Qeyd bi</string>
+  <string name="reading_list_saved_list_rename">%1$s (karber vıraziya)</string>
   <string name="reading_lists_menu_create_list">Lista newiye vıraze</string>
   <string name="reading_lists_menu_sort_by">Sencışê rêzi</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Ronıştış ake/qeyd bıbê</string>
@@ -443,9 +446,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">Asayışê peyênê pela %s</string>
   <string name="view_announcement_card_negative_action">Nê, teşekur</string>
   <string name="view_featured_article_card_title">Meqaleyo weçinaye</string>
-  <string name="view_featured_article_footer_save_button_label">Qeyd ke</string>
   <string name="view_static_card_save_button_label">Qeyd ke</string>
-  <string name="view_featured_article_footer_saved_button_label">Qeyd bi</string>
   <string name="feed_configure_activity_title">Çapnayışi xısusi kerê</string>
   <string name="feed_configure_menu_reset">Hesabyaye asayışi peyd bar kerê</string>
   <string name="feed_configure_menu_select_all">Pêro bımocne</string>
@@ -508,6 +509,12 @@
   <string name="suggested_edits_image_caption_summary_title_source">Çıme</string>
   <string name="suggested_edits_image_caption_summary_title_license">Lisans</string>
   <string name="suggested_edits_image_caption_summary_title_date">Tarix</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 iştırak</item>
+    <item quantity="other">%d iştıraki</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_title">Wesıbnaye vurnayışi</string>
+  <string name="suggested_edits_feed_card_add_description_button">Şınasnayışê meqaley cı kerê</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Şınastiya resımi (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Resım</string>

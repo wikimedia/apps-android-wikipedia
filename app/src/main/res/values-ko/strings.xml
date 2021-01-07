@@ -617,9 +617,7 @@
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
-  <string name="view_featured_article_footer_save_button_label">저장</string>
   <string name="view_static_card_save_button_label">저장</string>
-  <string name="view_featured_article_footer_saved_button_label">저장됨</string>
   <string name="feed_configure_activity_title">피드 사용자 지정</string>
   <string name="feed_configure_menu_reset">기본 보기로 복구</string>
   <string name="feed_configure_menu_select_all">모두 보기</string>
@@ -643,6 +641,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">취소</string>
   <string name="feed_accessibility_card_text">피드의 끝에 도달했습니다.</string>
   <string name="feed_accessibility_card_load_more_button">더 불러오기</string>
+  <string name="top_read_activity_title">%s의 가장 많이 읽은 글</string>
   <string name="description_edit_text_hint">문서 설명</string>
   <string name="description_edit_article_description_label">문서</string>
   <string name="description_edit_translate_article_description_label_per_language">문서 설명 (%s)</string>
@@ -671,6 +670,7 @@
   <string name="description_too_short">텍스트가 너무 짧습니다.</string>
   <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>
   <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
+  <string name="description_is_in_different_language">문구가 예측할 수 없는 언어로 되어있는 것 같습니다. 언어는 %s여야 합니다.</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
@@ -828,28 +828,12 @@
   <string name="suggested_edits_image_tag_contribution_label">%d개의 태그를 추가했습니다</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">편집 제안을 사용하여 위키백과에 한 차례 기여하셨습니다. 감사합니다!</item>
-    <item quantity="other">편집 제한을 사용하여 위키백과에 %d차례 기여하셨습니다. 감사합니다!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">하루 종일 편집하셨습니다. 계속 기여해 주세요, %2$s님!</item>
-    <item quantity="other">지금까지 %1$d일 동안 매일 편집하셨습니다. 계속 기여해 주세요, %2$s님!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">지난 30일 동안 한 분께서 당신의 편집을 보고 계십니다. 고맙습니다. 편집을 계속해 주세요!</item>
-    <item quantity="other">지난 30일 동안 %d분께서 당신의 편집을 보고 계십니다. 고맙습니다. 편집을 계속해 주세요!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">편집 제안을 통하여 %d건의 기여를 해주셨습니다. 감사드립니다!</string>
-  <string name="suggested_edits_rewards_edit_streak">%1$d 동안 하루도 거르지 않고 편집을 해주셨습니다. %2$s님, 계속 기여해주세요!</string>
-  <string name="suggested_edits_rewards_pageviews">지난 30일 동안 당신의 편집을 %d명의 사람들이 보았습니다. 감사드립니다, 계속 기여해주세요!</string>
-  <string name="suggested_edits_rewards_edit_quality">지금까지의 편집은 %s입니다. 계속해 주세요! 앞으로도 좋은 기여를 기대하겠습니다.</string>
-  <string name="suggested_edits_rewards_continue_button">계속</string>
   <string name="suggested_edits_encourage_account_creation_title">당신은 누구나 위키백과를 편집할 수 있다는 것을 알고 계셨나요?</string>
   <string name="suggested_edits_encourage_account_creation_message">편집 제안은 안드로이드에서 위키백과를 편집하는 새로운 방법입니다. 이 기능은 위키백과에 작지만 매우 중요한 기여를 하는 데 도움이 됩니다.\n우리의 목표는 모두를 위하여 편집의 난이도를 낮추고 접근성을 높이는 것입니다! 시작하려면 로그인하거나 회원가입하세요.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">위키백과에 로그인 / 가입</string>
   <string name="suggested_edits_contribution_type_image_tag">이미지 태그</string>
   <string name="suggested_edits_contribution_current_revision_text">당신의 편집이 실시간으로 위키백과에서 이뤄지고 있습니다</string>
+  <string name="suggested_card_more_edits">편집 제안 더 보기</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">태그 %1$s개</item>
     <item quantity="other">태그 %1$s개</item>
@@ -902,6 +886,8 @@
     <item quantity="one">지난해</item>
     <item quantity="other">%d년 전</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">시공을 넘나들었습니다 🚀</string>
+  <string name="on_this_day_back_to_future">앞으로 돌아가기</string>
   <string name="languages_list_activity_title">언어 추가</string>
   <string name="languages_list_suggested_text">제안</string>
   <string name="languages_list_all_text">모든 언어</string>

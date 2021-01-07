@@ -11,6 +11,7 @@
 * Envlh
 * Jack Phoenix
 * Laurianttila
+* Maantietäjä
 * McSalama
 * Nike
 * Olimar
@@ -621,9 +622,7 @@
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
-  <string name="view_featured_article_footer_save_button_label">Tallenna</string>
   <string name="view_static_card_save_button_label">Tallenna</string>
-  <string name="view_featured_article_footer_saved_button_label">Tallennettu</string>
   <string name="feed_configure_activity_title">Mukauta syötettä</string>
   <string name="feed_configure_menu_reset">Palauta oletusnäkymä</string>
   <string name="feed_configure_menu_select_all">Näytä kaikki</string>
@@ -785,6 +784,7 @@
   <string name="suggested_edits_ip_blocked_message">Näyttää siltä, että IP-osoitteesi (tai IP-osoitealueesi) on tällä hetkellä estetty muokkaamasta Wikipediaa.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
   <string name="suggested_edits_help_page_link_text">Ehdotettujen muokkausten ohjesivu</string>
+  <string name="suggested_edits_edit_streak_label_text">Muokkaa juovaa</string>
   <string name="suggested_edits_views_label_text">Näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
   <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
@@ -831,12 +831,6 @@
   <string name="suggested_edits_contribution_seen_text">Nähty %s kertaa viimeisen 30 päivän aikana.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Olet tehnyt yhden muokkauksen Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</item>
-    <item quantity="other">Olet tehnyt %d muokkausta Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Olet tehnyt %d muokkausta Wikipediaan ehdotettujen muokkausten avulla. Kiitos!</string>
-  <string name="suggested_edits_rewards_continue_button">Jatka</string>
   <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
   <string name="suggested_edits_encourage_account_creation_message">Ehdotetut muokkaukset on uusi tapa muokata Wikipediaa Androidilla. Se auttaa tekemään pieniä, tärkeitä muutoksia Wikipediaan.\nTavoitteenamme on tehdä muokkaamisesta kaikille helpompaa ja helppopääsyisempää! Aloita kirjautumalla sisään tai liittymällä Wikipediaan.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>

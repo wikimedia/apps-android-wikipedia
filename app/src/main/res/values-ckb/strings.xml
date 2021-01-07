@@ -524,9 +524,7 @@
   <string name="view_announcement_card_negative_action">نا سپاس</string>
   <string name="view_offline_card_text">ناوەڕۆکەکە ناتواندرێت بھێندرێت بەبێ ئینتەرنێت</string>
   <string name="view_featured_article_card_title">وتاری ھەڵبژێردراو</string>
-  <string name="view_featured_article_footer_save_button_label">پاشەکەوت</string>
   <string name="view_static_card_save_button_label">پاشەکەوت</string>
-  <string name="view_featured_article_footer_saved_button_label">پاشەکەوت کرا</string>
   <string name="feed_configure_menu_select_all">ھەمووی پیشانبدە</string>
   <string name="feed_configure_menu_deselect_all">ھەمووی بشارەوە</string>
   <string name="feed_item_type_news">وتارەکان دەربارەی ڕووداوەکانی ئێستا</string>
@@ -658,7 +656,6 @@
   <string name="suggested_edits_contribution_article_label">وتار</string>
   <string name="suggested_edits_contribution_views">%s بینراوە</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دوێنێ</string>
-  <string name="suggested_edits_rewards_continue_button">بەردەوام بە</string>
   <string name="suggested_edits_encourage_account_creation_login_button">چوونە ژوورەوە/ ببە ئەندامی ویکیپیدیا</string>
   <string name="suggested_edits_contribution_type_image_tag">تاگی وێنە</string>
   <string name="suggested_edits_contribution_current_revision_text">گۆڕانکاریەکەت لە ئێستادا لەسەر ویکیپیدیا هەیە</string>

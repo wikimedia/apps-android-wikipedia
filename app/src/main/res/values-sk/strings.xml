@@ -560,9 +560,7 @@
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
   <string name="view_offline_card_text">Obsah nemôže byť načítaný bez pripojenia na internet.</string>
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
-  <string name="view_featured_article_footer_save_button_label">Uložiť</string>
   <string name="view_static_card_save_button_label">Uložiť</string>
-  <string name="view_featured_article_footer_saved_button_label">Uložené</string>
   <string name="feed_configure_activity_title">Prispôsobiť kanál Objaviť</string>
   <string name="feed_configure_menu_reset">Obnoviť predvolené zobrazenie</string>
   <string name="feed_configure_menu_select_all">Zobraziť všetko</string>
@@ -751,11 +749,6 @@
   <string name="suggested_edits_contribution_views">%s zobrazení</string>
   <string name="suggested_edits_contribution_seen_text">Videné %s-krát za posledných 30 dní.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
-  <string name="suggested_edits_rewards_contribution">Pridali ste %d príspevkov na Wikipédiu cez Navrhované úpravy. Vďaka!</string>
-  <string name="suggested_edits_rewards_edit_streak">Zatiaľ ste upravovali každý deň už %1$d dní. Len tak ďalej, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Vaše úpravy videlo %d ľudí za posledných 30 dní. Vďaka a len tak ďalej!</string>
-  <string name="suggested_edits_rewards_edit_quality">Vaše úpravy sú zatiaľ %s. Len tak ďalej! Tešíme sa na vaše príspevky.</string>
-  <string name="suggested_edits_rewards_continue_button">Pokračovať</string>
   <string name="suggested_edits_contribution_type_image_tag">Značka obrázku</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Pridali ste %d znakov</string>
   <string name="file_page_activity_title">Stránka súboru</string>

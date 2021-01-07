@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.Constants.*
@@ -56,6 +57,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private var isIpBlocked = false
     private var isPausedOrDisabled = false
+    private var totalPageviews = 0L
     private var totalContributions = 0
     private var latestEditDate = Date()
     private var latestEditStreak = 0
@@ -83,7 +85,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         userStatsViewsGroup.addOnClickListener {
-            startActivity(ContributionsActivity.newIntent(requireActivity()))
+            startActivity(ContributionsActivity.newIntent(requireActivity(), totalContributions, totalPageviews))
         }
 
         learnMoreCard.setOnClickListener {
@@ -204,6 +206,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     if (!isPausedOrDisabled && !isIpBlocked) {
                         pageViewStatsView.setTitle(it.toString())
+                        totalPageviews = it
                         setFinalUIState()
                     }
                 }, { t ->

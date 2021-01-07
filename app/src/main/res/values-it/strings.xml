@@ -634,9 +634,7 @@
   <string name="view_announcement_card_negative_action">No, grazie</string>
   <string name="view_offline_card_text">Il contenuto non può essere caricato offline.</string>
   <string name="view_featured_article_card_title">Voce in vetrina</string>
-  <string name="view_featured_article_footer_save_button_label">Salva</string>
   <string name="view_static_card_save_button_label">Salva</string>
-  <string name="view_featured_article_footer_saved_button_label">Salvato</string>
   <string name="feed_configure_activity_title">Personalizza il feed</string>
   <string name="feed_configure_menu_reset">Ripristina visualizzazione predefinita</string>
   <string name="feed_configure_menu_select_all">Mostra tutto</string>
@@ -703,7 +701,7 @@
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
   <string name="description_edit_success_article_edit_hint">Puoi anche modificare le voci all\'interno di questa applicazione. Prova a correggere errori di battitura e frasi di piccole dimensioni facendo clic sull\'icona ^1 la prossima volta</string>
   <string name="description_edit_tutorial_title_descriptions">Descrizioni delle voci</string>
-  <string name="description_edit_tutorial_title_descriptions_summary">Riassume una voce per aiutare i lettori a capire l\'argomento a colpo d\'occhio</string>
+  <string name="description_edit_tutorial_title_descriptions_summary">Riassumi una voce per aiutare i lettori a capire l\'argomento a colpo d\'occhio</string>
   <string name="description_edit_tutorial_keep_it_short">Sii breve</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
@@ -851,23 +849,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Hai effettuato una modifica su Wikipedia utilizzando Modifiche suggerite. Grazie!</item>
-    <item quantity="other">Hai effettuato %d modifiche su Wikipedia utilizzando Modifiche suggerite. Grazie!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Hai effettuato modifiche per un intero giorno. Continua così, %2$s!</item>
-    <item quantity="other">Hai effettuato modifiche ogni giorno per %1$d giorni ad ora. Continua così, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Le tue modifiche sono state viste da una persona negli ultimi 30 giorni. Grazie, e continua così!</item>
-    <item quantity="other">Le tue modifiche sono state viste da %d persone negli ultimi 30 giorni. Grazie, e continua così!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Hai fatto %d modifiche a Wikipedia usando le modifiche suggerite. Grazie!</string>
-  <string name="suggested_edits_rewards_edit_streak">Hai effettuato modifiche ogni giorno per %1$d giorni ad ora. Continua così, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Le tue modifiche sono state viste da %d utenti negli ultimi 30 giorni. Grazie, e continua così!</string>
-  <string name="suggested_edits_rewards_edit_quality">Le tue modifiche per ora sono %s. Continua così! Aspettiamo altri contributi.</string>
-  <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Le modifiche suggerite sono un nuovo modo per modificare Wikipedia su Android. Ti aiuta a dare piccoli ma vitali contributi a Wikipedia. Il nostro obiettivo è rendere la modifica più semplice ed accessibile a tutti! Accedi o unisciti a Wikipedia per iniziare.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Entra / unisciti a Wikipedia</string>
@@ -993,4 +974,5 @@
   <string name="talk_message_hint">Scrivi un messaggio</string>
   <string name="talk_message_empty">Il messaggio non può essere vuoto.</string>
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
+  <string name="go_to_user_page">Vai alla pagina utente</string>
 </resources>

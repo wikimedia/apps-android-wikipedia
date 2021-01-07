@@ -26,8 +26,6 @@
     <string name="preferences_developer_crash_title">Crash</string>
     <string name="preferences_developer_crash_summary">Tap here to crash the app</string>
     <string name="preferences_developer_session_timeout_title">Session timeout (minutes)</string>
-    <string name="preferences_developer_remote_log_title">Remote logging</string>
-    <string name="preferences_developer_remote_log_summary">Type a message to send.</string>
     <string name="preferences_developer_reading_list_category">Reading Lists</string>
     <string name="preferences_developer_add_articles">Add articles</string>
     <string name="preferences_developer_add_lists">Add reading lists</string>
@@ -38,14 +36,6 @@
     <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
     <string name="preferences_developer_suggested_edits_reactivation_notification_stage_one">Show the first stage local notification for editor re-activation</string>
     <string name="preferences_developer_suggested_edits_reactivation_notification_stage_two">Show the second stage local notification for editor re-activation</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_last_edit_quality_shown">Last time the edit quality card showed.\nEnter 0 to reset.</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_last_pageviews_shown">Last time the pageviews card showed.\nEnter 0 to reset.</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_contribution_on_initial_count">Show the contribution card if it reaches the [number] count.\nDefault is 5</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_contribution_on_count">Show the contribution card on every [number] count.\nDefault is 50</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_edit_streak_on_count">Show the edit streak card on every [number] count.\nDefault is 5</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_edit_quality_on_day">Show the edit quality card on every [number] day.\nDefault is 14</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_pageviews_on_day">Show the pageviews card on every [number] day.\nDefault is 30</string>
-    <string name="preference_developer_suggested_edits_reward_interstitial_QA_override">This will override the existing logic and show the reward interstitial sequentially by swiping to the next card</string>
     <string name="preference_developer_clear_all_talk_topics">clearAllTalkTopics</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>

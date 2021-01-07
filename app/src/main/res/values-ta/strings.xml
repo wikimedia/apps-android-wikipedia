@@ -441,9 +441,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s வாசித்தது</string>
   <string name="view_announcement_card_negative_action">வேண்டாம் நன்றிகள்</string>
   <string name="view_featured_article_card_title">சிறப்பு கட்டுரைகள்</string>
-  <string name="view_featured_article_footer_save_button_label">சேமி</string>
   <string name="view_static_card_save_button_label">சேமிக்கவும்</string>
-  <string name="view_featured_article_footer_saved_button_label">சேமிக்கப்பட்டது</string>
   <string name="feed_configure_activity_title">ஓடையை விருப்பமை</string>
   <string name="feed_configure_menu_reset">தானியல்பு தோற்றத்திற்கு மாற்றுக</string>
   <string name="feed_configure_menu_select_all">எல்லாவற்றையும் காட்டு</string>
@@ -483,7 +481,6 @@
   <string name="suggested_edits_contribution_image_label" fuzzy="true">கோப்பு</string>
   <string name="suggested_edits_contribution_views">%s பார்வைகள்</string>
   <string name="suggested_edits_contribution_date_yesterday_text">நேற்று</string>
-  <string name="suggested_edits_rewards_continue_button">தொடரவும்</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>
   <string name="onboarding_skip">தவிர்</string>
   <string name="onboarding_continue">தொடரவும்</string>

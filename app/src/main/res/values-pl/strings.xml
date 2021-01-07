@@ -606,9 +606,7 @@
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="view_offline_card_text">Treści nie można załadować w trybie offline.</string>
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
-  <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="view_static_card_save_button_label">Zapisz</string>
-  <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
   <string name="feed_configure_activity_title">Dostosuj kanały</string>
   <string name="feed_configure_menu_reset">Przywróć domyślny widok</string>
   <string name="feed_configure_menu_select_all">Pokaż wszystko</string>
@@ -788,10 +786,6 @@
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
-  <string name="suggested_edits_rewards_edit_streak">Jak dotąd edytowałeś codziennie przez %1$d dni. Kontynuuj serię, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Zmiany zostały obejrzane przez %d osób w ciągu ostatnich 30 dni. Dzięki i kontynuuj!</string>
-  <string name="suggested_edits_rewards_edit_quality">Dotychczasowe modyfikacje to %s. Tak trzymaj! Czekamy na Twój wkład.</string>
-  <string name="suggested_edits_rewards_continue_button">Kontynuuj</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Zaloguj się / Dołącz do Wikipedii</string>
   <string name="suggested_edits_contribution_type_image_tag">Znacznik obrazu</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
@@ -898,4 +892,5 @@
   <string name="talk_message_hint">Utwórz wiadomość</string>
   <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
+  <string name="go_to_user_page">Przejdź do strony użytkownika</string>
 </resources>

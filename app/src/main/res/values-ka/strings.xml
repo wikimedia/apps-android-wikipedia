@@ -372,8 +372,6 @@
   <string name="view_continue_reading_card_subtitle_today">დღეს</string>
   <string name="view_announcement_card_negative_action">არა, გმადლობთ</string>
   <string name="view_featured_article_card_title">რჩეული სტატია</string>
-  <string name="view_featured_article_footer_save_button_label">შენახვა</string>
-  <string name="view_featured_article_footer_saved_button_label">შენახულია</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">ყველას არჩევა</string>
   <string name="feed_configure_menu_deselect_all" fuzzy="true">არჩევის გაუქმება</string>
   <string name="description_edit_text_hint" fuzzy="true">სათაურის აღწერა</string>

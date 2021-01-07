@@ -245,9 +245,7 @@
     <item quantity="other">%d రోజుల క్రితం</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">నేడు</string>
-  <string name="view_featured_article_footer_save_button_label">భద్రపరచు</string>
   <string name="view_static_card_save_button_label">భద్రపరచు</string>
-  <string name="view_featured_article_footer_saved_button_label">భద్రపరచబడింది</string>
   <string name="feed_configure_menu_select_all">అన్నీ చూపించు</string>
   <string name="feed_configure_menu_deselect_all">అన్నీ దాచు</string>
   <string name="customize_lang_selection_dialog_ok_button_text">సరే</string>
@@ -282,7 +280,6 @@
   <string name="suggested_edits_contribution_article_label">వ్యాసం</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
-  <string name="suggested_edits_rewards_continue_button">కొనసాగించు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_login_cancel_button_text">రద్దుచేయి</string>
   <string name="onboarding_continue">కొనసాగించు</string>
