@@ -973,4 +973,5 @@
   <string name="talk_message_hint">Mesaj oluştur</string>
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
+  <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
 </resources>
