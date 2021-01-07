@@ -41,6 +41,7 @@ public final class ServiceFactory {
         return getRest(wiki, true);
     }
 
+    // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
     public static RestService getRest(@NonNull WikiSite wiki, boolean languageVariantHeader) {
         long hashCode = wiki.hashCode() + (languageVariantHeader ? 0 : 1);
         if (REST_SERVICE_CACHE.get(hashCode) != null) {
