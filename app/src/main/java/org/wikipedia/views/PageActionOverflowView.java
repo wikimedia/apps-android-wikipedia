@@ -17,7 +17,7 @@ import androidx.core.widget.PopupWindowCompat;
 import com.google.android.material.textview.MaterialTextView;
 
 import org.wikipedia.R;
-import org.wikipedia.analytics.ABTestExploreVsHomeFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.watchlist.WatchlistExpiry;
 
@@ -46,12 +46,6 @@ public class PageActionOverflowView extends FrameLayout {
         super(context);
         inflate(getContext(), R.layout.view_page_action_overflow, this);
         ButterKnife.bind(this);
-
-        ABTestExploreVsHomeFunnel funnel = new ABTestExploreVsHomeFunnel();
-        if (funnel.shouldSeeHome()) {
-            exploreButton.setText(R.string.home);
-            exploreButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_home_24, 0, 0, 0);
-        }
     }
 
     public void show(@NonNull View anchorView, @Nullable Callback callback, @NonNull Tab currentTab, @Nullable WatchlistExpiry watchlistExpiry) {
@@ -65,12 +59,13 @@ public class PageActionOverflowView extends FrameLayout {
         forwardButton.setVisibility(currentTab.canGoForward() ? VISIBLE : GONE);
         watchlistButton.setText(hasWatchlistExpirySession ? R.string.menu_page_remove_from_watchlist : R.string.menu_page_add_to_watchlist);
         watchlistButton.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(watchlistExpiry), 0, 0, 0);
+        watchlistButton.setVisibility(AccountUtil.isLoggedIn() ? VISIBLE : GONE);
     }
 
     @DrawableRes
     private int getWatchlistIcon(@Nullable WatchlistExpiry expiry) {
         if (expiry == WatchlistExpiry.NEVER) {
-            return R.drawable.ic_star_black_24dp;
+            return R.drawable.ic_star_24;
         } else if (expiry == null) {
             return R.drawable.ic_baseline_star_outline_24;
         } else {

@@ -318,8 +318,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ਅੱਜ</string>
   <string name="view_announcement_card_negative_action">ਨਹੀਂ, ਸ਼ੁਕਰੀਆ</string>
-  <string name="view_featured_article_footer_save_button_label">ਸਾਂਭੋ</string>
-  <string name="view_featured_article_footer_saved_button_label">ਸੰਭਾਲਿਆ</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">ਸਾਰੇ ਚੁਣੋ</string>
   <string name="description_edit_text_hint" fuzzy="true">ਵੇਰਵਾ ਭਰੋ</string>
   <string name="description_edit_save">ਸਾਂਭੋ</string>

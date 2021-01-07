@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +18,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.WikiArticleCardView;
 
@@ -142,13 +140,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void image(@Nullable Uri uri) {
-        if (uri == null) {
-            wikiArticleCardView.getImageContainer().setVisibility(GONE);
-        } else {
-            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    DimenUtil.leadImageHeightForDevice(getContext()) - DimenUtil.getToolbarHeightPx(getContext())));
-            wikiArticleCardView.getImageContainer().setVisibility(VISIBLE);
-            wikiArticleCardView.getImageView().loadImage(uri);
+        wikiArticleCardView.setImageUri(uri);
+        if (uri != null) {
             ImageZoomHelper.setViewZoomable(wikiArticleCardView.getImageView());
         }
     }

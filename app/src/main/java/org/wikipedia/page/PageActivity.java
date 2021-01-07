@@ -194,6 +194,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
         tabsButton.updateTabCount();
+        maybeShowWatchlistTooltip();
 
         toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
 
@@ -870,6 +871,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .create()
                 .show();
     }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowWatchlistTooltip() {
+        if (!Prefs.isWatchlistPageOnboardingTooltipShown()) {
+            overflowButton.postDelayed(() -> {
+                if (isDestroyed()) {
+                    return;
+                }
+                Prefs.setWatchlistPageOnboardingTooltipShown(true);
+                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 200, -32, false, true);
+            }, 500);
+        }
+    }
+
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override

@@ -623,9 +623,7 @@
   <string name="view_announcement_card_negative_action">نه ممنون</string>
   <string name="view_offline_card_text">محتوی در زمان آفلاین در دسترس نیست.</string>
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
-  <string name="view_featured_article_footer_save_button_label">ذخیره</string>
   <string name="view_static_card_save_button_label">ذخیره</string>
-  <string name="view_featured_article_footer_saved_button_label">ذخیره شد</string>
   <string name="feed_configure_activity_title">شخصی‌سازی خوراک</string>
   <string name="feed_configure_menu_reset">بازگردانی نمایش پیش‌فرض</string>
   <string name="feed_configure_menu_select_all">نمایش همه</string>
@@ -837,23 +835,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دیروز</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">شما با استفاده از ویرایش‌های پیشنهادی یک بار با ویکی‌پدیا همکاری کرده اید. متشکریم!</item>
-    <item quantity="other">شما با استفاده از ویرایش‌های پیشنهادی %d بار با ویکی‌پدیا همکاری کرده اید. متشکریم!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">%2$s، شما برای یک روز کامل در حال ویرایش بوده‌اید. این روند بی‌وقفه را ادامه دهید!</item>
-    <item quantity="other">%2$s! شما تاکنون به‌مدت %1$d روز هر روز ویرایش انجام داده‌اید. این روند بی‌وقفه را ادامه دهید!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">ویرایش‌های شما در ۳۰ روز گذشته توسط یک نفر دیده شده است. ممنون، همین روند را ادامه دهید!</item>
-    <item quantity="other">در ۳۰ روز گذشته ویرایش‌های شما توسط %d نفر دیده شده است. ممنون، همین روند را ادامه دهید!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">شما با استفاده از ویرایش‌های پیشنهادی %d بار با ویکی‌پدیا مشارکت کرده اید. متشکریم!</string>
-  <string name="suggested_edits_rewards_edit_streak">%2$s! شما تاکنون به‌مدت %1$d روز هر روز ویرایش انجام داده‌اید. این روند بی‌وقفه را ادامه دهید!</string>
-  <string name="suggested_edits_rewards_pageviews">در ۳۰ روز گذشته ویرایش های شما توسط %d نفر دیده شده است. متشکریم، ادامه دهید!</string>
-  <string name="suggested_edits_rewards_edit_quality">ویرایش های شما %s هستند. ادامه دهید! ما منتظر مشارکت‌های شما هستیم.</string>
-  <string name="suggested_edits_rewards_continue_button">ادامه</string>
   <string name="suggested_edits_encourage_account_creation_title">آیا می‌دانستید همه می‌توانند ویکی‌پدیا را ویرایش کنند؟</string>
   <string name="suggested_edits_encourage_account_creation_message">ویرایش‌های پیشنهادی راه جدیدی برای ویرایش ویکی‌پدیا در اندروید هستند. این راه به شما کمک می‌کند تا مشارکت‌های کوچک اما حیاتی در ویکی‌پدیا داشته باشید.\nهدف ما این است که ویرایش برای همه ساده‌تر در دسترس‌تر باشد! برای شروع، به حساب خود وارد شوید یا حساب جدید بسازید.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">ورود/پیوستن به ویکی پدیا</string>

@@ -331,7 +331,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Nullable public WatchlistExpiry getWatchlistExpirySession() {
-        return watchlistExpirySession;
+        // TODO: use real Watchlist expiry data from API when it's ready.
+        return watchlistExpirySession == null ? model.isWatched() ? WatchlistExpiry.NEVER : null : watchlistExpirySession;
     }
 
     @Override
@@ -806,9 +807,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
 
+        setToolbarElevationEnabled(false);
         tocHandler.setEnabled(false);
         errorState = false;
         errorView.setVisibility(View.GONE);
+
+        watchlistExpirySession = null;
 
         model.setTitle(title);
         model.setCurEntry(entry);
@@ -985,7 +989,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         hidePageContent();
         bridge.onMetadataReady();
 
-        errorView.setError(caught);
+        if (errorView.getVisibility() != View.VISIBLE) {
+            errorView.setError(caught);
+        }
         errorView.setVisibility(View.VISIBLE);
 
         View contentTopOffset = errorView.findViewById(R.id.view_wiki_error_article_content_top_offset);

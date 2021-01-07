@@ -616,9 +616,7 @@
   <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
-  <string name="view_featured_article_footer_save_button_label">Spara</string>
   <string name="view_static_card_save_button_label">Spara</string>
-  <string name="view_featured_article_footer_saved_button_label">Sparades</string>
   <string name="feed_configure_activity_title">Anpassa flödet</string>
   <string name="feed_configure_menu_reset">Återställ standardvyn</string>
   <string name="feed_configure_menu_select_all">Visa alla</string>
@@ -833,23 +831,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Igår</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Du har gjort ett bidrag på Wikipedia med redigeringsförslag. Tack!</item>
-    <item quantity="other">Du har gjort %d bidrag på Wikipedia med redigeringsförslag. Tack!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Du har redigerat en hel dag i rad. Fortsätt med det, %2$s!</item>
-    <item quantity="other">Du har redigerat %1$d dagar i rad. Fortsätt med det, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">En person har sett dina redigeringar under de senaste 30 dagarna. Tack och fortsätt med det!</item>
-    <item quantity="other">%d personer har sett dina redigeringar under de senaste 30 dagar. Tack och fortsätt med det!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Du har gjort %d bidrag på Wikipedia med redigeringsförslag. Tack!</string>
-  <string name="suggested_edits_rewards_edit_streak">Du har redigerat varje dag %1$d dagar i rad. Fortsätt med det, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Dina redigeringar har setts av %d personer under de senaste 30 dagarna. Tack och fortsätt med det!</string>
-  <string name="suggested_edits_rewards_edit_quality">Dina redigeringar är så länge %s. Fortsätt med det! Vi ser fram emot dina bidrag.</string>
-  <string name="suggested_edits_rewards_continue_button">Fortsätt</string>
   <string name="suggested_edits_encourage_account_creation_title">Visste du att alla kan redigera på Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Redigeringsförslag är ett nytt sätt att redigera på Wikipedia på Android. Det hjälper dig att göra små men väsentliga bidrag på Wikipedia.\nVårt mål är att göra det enklare och åtkomligare att redigera för alla! Logga in eller registrera dig på Wikipedia för att komma igång.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logga in / skapa konto på Wikipedia</string>
