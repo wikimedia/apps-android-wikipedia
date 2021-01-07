@@ -38,11 +38,15 @@ public final class ServiceFactory {
     }
 
     public static RestService getRest(@NonNull WikiSite wiki) {
-        long hashCode = wiki.hashCode();
+        return getRest(wiki, true);
+    }
+
+    public static RestService getRest(@NonNull WikiSite wiki, boolean languageVariantHeader) {
+        long hashCode = wiki.hashCode() + (languageVariantHeader ? 0 : 1);
         if (REST_SERVICE_CACHE.get(hashCode) != null) {
             return REST_SERVICE_CACHE.get(hashCode);
         }
-        Retrofit r = createRetrofit(wiki, getRestBasePath(wiki));
+        Retrofit r = createRetrofit(wiki, getRestBasePath(wiki), languageVariantHeader);
         RestService s = r.create(RestService.class);
         REST_SERVICE_CACHE.put(hashCode, s);
         return s;
@@ -79,13 +83,20 @@ public final class ServiceFactory {
     }
 
     private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {
-        return new Retrofit.Builder()
-                .client(OkHttpConnectionFactory.getClient().newBuilder()
-                        .addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build())
+        return createRetrofit(wiki, baseUrl, true);
+    }
+
+    private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl, boolean languageVariantHeader) {
+        Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
-                .build();
+                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()));
+
+        if (languageVariantHeader) {
+            builder.client(OkHttpConnectionFactory.getClient().newBuilder().addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build());
+        }
+
+        return builder.build();
     }
 
     private ServiceFactory() { }

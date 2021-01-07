@@ -42,7 +42,7 @@ public class BecauseYouReadClient implements FeedClient {
     private void getCardForHistoryEntry(@NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
         disposables.add(Observable.zip(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getSummary(entry.getReferrer(), entry.getTitle().getPrefixedText()),
-                ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText()), Pair::new)
+                ServiceFactory.getRest(entry.getTitle().getWikiSite(), false).getRelatedPages(entry.getTitle().getPrefixedText()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(pair -> new Pair<>(pair.first, pair.second.getPages(Constants.SUGGESTION_REQUEST_ITEMS)))
