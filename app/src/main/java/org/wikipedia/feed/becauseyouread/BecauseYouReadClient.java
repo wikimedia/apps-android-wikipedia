@@ -1,11 +1,11 @@
 package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
-import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
 import org.wikipedia.Constants;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -41,14 +41,29 @@ public class BecauseYouReadClient implements FeedClient {
 
     private void getCardForHistoryEntry(@NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
-        disposables.add(Observable.zip(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getSummary(entry.getReferrer(), entry.getTitle().getPrefixedText()),
-                ServiceFactory.getRest(entry.getTitle().getWikiSite(), false).getRelatedPages(entry.getTitle().getPrefixedText()), Pair::new)
+
+        // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
+        // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
+        boolean shouldSetLanguageHeader = WikipediaApp.getInstance().language().getDefaultLanguageCode(entry.getTitle().getWikiSite().languageCode()) == null;
+
+        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite(), shouldSetLanguageHeader).getRelatedPages(entry.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(pair -> new Pair<>(pair.first, pair.second.getPages(Constants.SUGGESTION_REQUEST_ITEMS)))
-                .subscribe(pair -> FeedCoordinator.postCardsToCallback(cb, (pair.second == null || pair.second.size() == 0)
-                            ? Collections.emptyList() : Collections.singletonList(toBecauseYouReadCard(pair.second, pair.first, entry.getTitle().getWikiSite()))),
-                        cb::error));
+                .flatMap(relatedPages -> {
+                    List<PageSummary> list = relatedPages.getPages(Constants.SUGGESTION_REQUEST_ITEMS);
+                    list.add(0, new PageSummary(entry.getTitle().getDisplayText(), entry.getTitle().getPrefixedText(), entry.getTitle().getDescription(),
+                            entry.getTitle().getExtract(), entry.getTitle().getThumbUrl(), entry.getTitle().getWikiSite().languageCode()));
+                    return Observable.fromIterable(list);
+                })
+                .concatMap(pageSummary -> shouldSetLanguageHeader
+                        ? Observable.just(pageSummary) : ServiceFactory.getRest(entry.getTitle().getWikiSite()).getSummary(entry.getReferrer(), pageSummary.getApiTitle()))
+                .observeOn(AndroidSchedulers.mainThread())
+                .toList()
+                .subscribe(list -> {
+                    PageSummary headerPage = list.remove(0);
+                    FeedCoordinator.postCardsToCallback(cb, (list == null || list.size() == 0)
+                                    ? Collections.emptyList() : Collections.singletonList(toBecauseYouReadCard(list, headerPage, entry.getTitle().getWikiSite())));
+                }, cb::error));
     }
 
     @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull List<PageSummary> results,
