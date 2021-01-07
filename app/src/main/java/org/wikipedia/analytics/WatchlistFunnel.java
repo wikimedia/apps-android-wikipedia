@@ -1,10 +1,15 @@
 package org.wikipedia.analytics;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.StringUtil;
+
+import java.util.List;
 
 public class WatchlistFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppWatchlist";
-    private static final int REV_ID = 20797104;
+    private static final int REV_ID = 20936401;
 
     public WatchlistFunnel() {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
@@ -50,5 +55,10 @@ public class WatchlistFunnel extends TimedFunnel {
         logAction("remove_success");
     }
 
-    // TODO: add "update_languages" action with "languages" parameter.
+    public void logChangeLanguage(@NonNull List<String> languagesList) {
+        log(
+                "action", "change_language",
+                "languages", StringUtil.listToJsonArrayString(languagesList)
+        );
+    }
 }
