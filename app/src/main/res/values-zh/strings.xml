@@ -844,6 +844,7 @@
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="other">%1$s 个标签</item>
   </plurals>
+  <string name="suggested_edits_contribution_diff_count_text">%1$s个字符</string>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="other">您移除了 %d 个字符</item>
   </plurals>

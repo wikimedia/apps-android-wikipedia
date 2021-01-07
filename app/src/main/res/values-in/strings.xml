@@ -828,6 +828,10 @@
   <string name="suggested_edits_contribution_type_image_tag">Tag gambar</string>
   <string name="suggested_edits_contribution_current_revision_text">Penyuntingan anda telah diterbitkan di Wikipedia</string>
   <string name="suggested_card_more_edits">Lihat lebih banyak saranan suntingan</string>
+  <string name="suggested_edits_tags_diff_count_text">%1$s tanda</string>
+  <string name="suggested_edits_contribution_diff_count_text">%1$s karakter</string>
+  <string name="suggested_edits_removed_contribution_label">Anda telah menghapus %d karakter</string>
+  <string name="suggested_edits_added_contribution_label">Anda telah menambah %d karakter</string>
   <string name="file_page_activity_title">Halaman berkas</string>
   <string name="file_page_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="file_page_add_image_tags_button">Tambahkan tanda gambar</string>
