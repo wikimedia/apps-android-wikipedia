@@ -408,6 +408,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.title = getString(R.string.image_recommendations_task_title)
         imageRecommendationsTask.description = getString(R.string.image_recommendations_task_detail)
         imageRecommendationsTask.imageDrawable = R.drawable.ic_image_caption
+        imageRecommendationsTask.translatable = false
 
         displayedTasks.add(imageRecommendationsTask)
         displayedTasks.add(addDescriptionsTask)

@@ -20,7 +20,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
+class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFragment.Callback {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
     private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null

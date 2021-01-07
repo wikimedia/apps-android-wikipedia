@@ -33,7 +33,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
+class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callback {
     private val viewPagerListener = ViewPagerListener()
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
@@ -186,6 +186,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 addContributionButton.text = getString(R.string.description_edit_save)
                 addContributionButton.icon = null
             }
+        } else if (action == IMAGE_RECOMMENDATION) {
+            addContributionButton.text = getString(R.string.description_edit_save)
+            addContributionButton.icon = null
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
             addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
         } else if (addContributionButton.tag == "portrait") {
@@ -254,6 +257,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     fun onSelectPage() {
         if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
+            topBaseChild()!!.publish()
+        } else if (action == IMAGE_RECOMMENDATION && topBaseChild() != null) {
             topBaseChild()!!.publish()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
@@ -371,6 +376,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             return when (action) {
                 ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()
+                }
+                IMAGE_RECOMMENDATION -> {
+                    SuggestedEditsImageRecommendationFragment.newInstance()
                 }
                 else -> {
                     SuggestedEditsCardsItemFragment.newInstance()

@@ -6,6 +6,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
@@ -26,6 +27,8 @@ object EditingSuggestionsProvider {
     private var imagesWithTranslatableCaptionCacheToLang: String = ""
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
+
+    private val articlesWithMissingImagesCache: Stack<ImageRecommendationResponse> = Stack()
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
@@ -224,6 +227,32 @@ object EditingSuggestionsProvider {
                             item
                         }
                         .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
+            }
+        }.doFinally { mutex.release() }
+    }
+
+    fun getNextArticleWithMissingImage(lang: String): Observable<ImageRecommendationResponse> {
+        return Observable.fromCallable { mutex.acquire() }.flatMap {
+            var cachedItem: ImageRecommendationResponse? = null
+            if (!articlesWithMissingImagesCache.empty()) {
+                cachedItem = articlesWithMissingImagesCache.pop()
+            }
+
+            if (cachedItem != null) {
+                Observable.just(cachedItem)
+            } else {
+
+                articlesWithMissingImagesCache.push(ImageRecommendationResponse("2006_in_Iran", "Kashan_granary_Barry_Kent.JPG"))
+                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Diospolis", "Ägypten_Tempel_von_Karnak01.jpg"))
+                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Code_Parish", "Derpeles_manor_-_ainars_brūvelis_-_Panoramio.jpg"))
+                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Church_order", "Sofia_kyrka.JPG"))
+                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Nicolò_Barattieri", "Venezia_colonne.jpg"))
+
+                var item: ImageRecommendationResponse? = null
+                if (!articlesWithMissingImagesCache.empty()) {
+                    item = articlesWithMissingImagesCache.pop()
+                }
+                Observable.just(item!!)
             }
         }.doFinally { mutex.release() }
     }

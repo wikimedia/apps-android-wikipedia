@@ -41,6 +41,8 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     private fun getActionBarTitleRes(action: Action): Int {
         return if (action == ADD_IMAGE_TAGS) {
             R.string.suggested_edits_tag_images
+        } else if (action == IMAGE_RECOMMENDATION) {
+            R.string.image_recommendations_task_title
         } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
             R.string.suggested_edits_caption_images
         } else {
