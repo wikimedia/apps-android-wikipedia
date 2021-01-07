@@ -17,6 +17,7 @@ import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.load.Key.CHARSET
 import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -287,29 +288,34 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             }
             DIFF_TYPE_LINE_REMOVED -> {
                 spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                        R.attr.edit_red_highlight)), prefixLength, prefixLength + diff.text.length - 1, 0)
-                spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length - 1, 0)
-                spannableString.setSpan(foregroundRemovedColor, prefixLength, prefixLength + diff.text.length - 1, 0)
+                        R.attr.edit_red_highlight)), prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(foregroundRemovedColor, prefixLength, prefixLength + diff.text.length, 0)
 
             }
             DIFF_TYPE_LINE_WITH_DIFF -> {
                 for (hightlightRange in diff.highlightRanges) {
+                    val highlightRangeStart = if (languageCode == "en") hightlightRange.start
+                    else getByteInCharacters(diff.text, hightlightRange.start, 0)
+                    val highlightRangeLength = if (languageCode == "en") hightlightRange.length
+                    else getByteInCharacters(diff.text, hightlightRange.length, highlightRangeStart)
+
                     if (hightlightRange.type == HIGHLIGHT_TYPE_ADD) {
                         spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                                R.attr.edit_green_highlight)), prefixLength + hightlightRange.start,
-                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
-                        spannableString.setSpan(foregroundAddedColor, prefixLength + hightlightRange.start,
-                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
+                                R.attr.edit_green_highlight)), prefixLength + highlightRangeStart,
+                                prefixLength + highlightRangeStart + highlightRangeLength, 0)
+                        spannableString.setSpan(foregroundAddedColor, prefixLength + highlightRangeStart,
+                                prefixLength + highlightRangeStart + highlightRangeLength, 0)
 
                     } else {
                         spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                                R.attr.edit_red_highlight)), prefixLength + hightlightRange.start,
-                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
-                        spannableString.setSpan(foregroundRemovedColor, prefixLength + hightlightRange.start,
-                                prefixLength + hightlightRange.start + hightlightRange.length, 0)
+                                R.attr.edit_red_highlight)), prefixLength + highlightRangeStart,
+                                prefixLength + highlightRangeStart + highlightRangeLength, 0)
+                        spannableString.setSpan(foregroundRemovedColor, prefixLength + highlightRangeStart,
+                                prefixLength + highlightRangeStart + highlightRangeLength, 0)
                     }
-                    spannableString.setSpan(boldStyle, prefixLength + hightlightRange.start,
-                            prefixLength + hightlightRange.start + hightlightRange.length, 0)
+                    spannableString.setSpan(boldStyle, prefixLength + highlightRangeStart,
+                            prefixLength + highlightRangeStart + highlightRangeLength, 0)
                 }
             }
             DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
@@ -320,7 +326,22 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             }
 
         }
-        diffText.text = spannableString
+        diffText.text = spannableString.append("\n")
+    }
+
+    private fun getByteInCharacters(diffText: String?, byteLength: Int, start: Int): Int {
+        var charCount = 0
+        var bytes = byteLength
+
+        for (pos in start until diffText!!.length - 1) {
+            val idBytes = diffText[pos].toString().toByteArray(CHARSET).size
+            charCount++
+            bytes -= idBytes
+            if (bytes <= 0) {
+                break
+            }
+        }
+        return charCount
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
