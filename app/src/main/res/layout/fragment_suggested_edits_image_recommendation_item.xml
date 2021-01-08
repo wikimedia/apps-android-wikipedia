@@ -179,6 +179,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             android:backgroundTint="@color/green30"
             android:textColor="@android:color/white"
+            android:elevation="4dp"
             android:text="Yes"/>
 
         <com.google.android.material.button.MaterialButton
@@ -191,6 +192,7 @@
             android:layout_marginStart="16dp"
             android:backgroundTint="@color/red30"
             android:textColor="@android:color/white"
+            android:elevation="4dp"
             android:text="No"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,6 +68,14 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         publishProgressCheck.imageTintList = colorStateList
         publishProgressText.setTextColor(colorStateList)
 
+        acceptButton.setOnClickListener {
+            doPublish(true)
+        }
+
+        rejectButton.setOnClickListener {
+            doPublish(false)
+        }
+
         getNextItem()
         updateContents()
     }
@@ -141,7 +149,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         callback().nextPage(this)
     }
 
-    fun doPublish() {
+    fun doPublish(accept: Boolean) {
         if (publishing || publishSuccess) {
             return
         }
@@ -159,6 +167,14 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         publishProgressBarComplete.visibility = GONE
         publishProgressBar.visibility = VISIBLE
 
+
+        //funnel?.logSaved(...)
+        publishSuccess = true
+        onSuccess()
+        // or onError(caught)
+
+
+        /*
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
@@ -177,6 +193,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
                 onError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
             }
         })
+        */
     }
 
     private fun onSuccess() {
