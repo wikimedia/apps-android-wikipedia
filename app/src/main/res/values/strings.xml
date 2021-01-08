@@ -986,6 +986,9 @@
     <string name="image_recommendations_task_title">Image recommendations</string>
     <string name="image_recommendations_task_detail">Add suggested images to unillustrated articles.</string>
     <string name="image_recommendations_task_skip">Skip</string>
+    <string name="image_recommendations_task_accept">Yes</string>
+    <string name="image_recommendations_task_reject">No</string>
+    <string name="image_recommendations_task_instruction">Is this a good image for the following article?</string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>

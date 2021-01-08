@@ -74,7 +74,7 @@
             app:layout_constraintEnd_toEndOf="@id/imageContainer"
             android:padding="4dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:lineSpacingMultiplier="1.1"
             android:background="@color/black54"
             android:textColor="@android:color/white"
@@ -111,7 +111,7 @@
             android:paddingBottom="10dp"
             android:textColor="?attr/material_theme_primary_color"
             android:textSize="16sp"
-            android:text="Is this a good image for the following article?"
+            android:text="@string/image_recommendations_task_instruction"
             tools:text="Lorem ipsum" />
 
         <TextView
@@ -180,7 +180,7 @@
             android:backgroundTint="@color/green30"
             android:textColor="@android:color/white"
             android:elevation="4dp"
-            android:text="Yes"/>
+            android:text="@string/image_recommendations_task_accept"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/rejectButton"
@@ -193,7 +193,7 @@
             android:backgroundTint="@color/red30"
             android:textColor="@android:color/white"
             android:elevation="4dp"
-            android:text="No"/>
+            android:text="@string/image_recommendations_task_reject"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
