@@ -150,7 +150,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         });
 
         maybeShowEditsTooltip();
-        maybeShowWatchlistTooltip();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
@@ -176,6 +175,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        maybeShowWatchlistTooltip();
     }
 
     @Override public void onDestroyView() {
@@ -564,7 +564,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (Prefs.isWatchlistPageOnboardingTooltipShown() && !Prefs.isWatchlistMainOnboardingTooltipShown()) {
+        if (Prefs.isWatchlistPageOnboardingTooltipShown()
+                && !Prefs.isWatchlistMainOnboardingTooltipShown()
+                && AccountUtil.isLoggedIn()) {
             moreContainer.postDelayed(() -> {
                 if (!isAdded()) {
                     return;
