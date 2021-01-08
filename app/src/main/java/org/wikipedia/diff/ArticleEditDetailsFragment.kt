@@ -284,14 +284,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         R.attr.edit_green_highlight)), prefixLength, prefixLength + diff.text.length, 0)
                 spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
                 spannableString.setSpan(foregroundAddedColor, prefixLength, prefixLength + diff.text.length, 0)
-
             }
             DIFF_TYPE_LINE_REMOVED -> {
                 spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
                         R.attr.edit_red_highlight)), prefixLength, prefixLength + diff.text.length, 0)
                 spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
                 spannableString.setSpan(foregroundRemovedColor, prefixLength, prefixLength + diff.text.length, 0)
-
             }
             DIFF_TYPE_LINE_WITH_DIFF -> {
                 for (hightlightRange in diff.highlightRanges) {
@@ -319,12 +317,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 }
             }
             DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
-
+                spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                        R.attr.edit_red_highlight)), prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(foregroundRemovedColor, prefixLength, prefixLength + diff.text.length, 0)
             }
             DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
-
+                spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                        R.attr.edit_green_highlight)), prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
+                spannableString.setSpan(foregroundAddedColor, prefixLength, prefixLength + diff.text.length, 0)
             }
-
         }
         diffText.text = spannableString.append("\n")
     }
