@@ -38,6 +38,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private val disposables = CompositeDisposable()
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
     private var filterMode = FILTER_MODE_ALL
+    private var displayLanguages = listOf<String>()
+    private val funnel = WatchlistFunnel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -57,9 +59,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        updateDisplayLanguages()
         fetchWatchlist(false)
 
-        WatchlistFunnel().logOpenWatchlist()
+        funnel.logOpenWatchlist()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -92,6 +95,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
     }
 
+    private fun updateDisplayLanguages() {
+        displayLanguages = WikipediaApp.getInstance().language().appLanguageCodes.filterNot {  Prefs.getWatchlistDisabledLanguages().contains(it) }
+    }
+
     private fun fetchWatchlist(refreshing: Boolean) {
         disposables.clear()
         watchlistEmptyContainer.visibility = View.GONE
@@ -106,13 +113,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             watchlistProgressBar.visibility = View.VISIBLE
         }
 
-        val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
         val calls = ArrayList<Observable<MwQueryResponse>>()
-        for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
-            if (disabledLangCodes.contains(lang)) {
-                continue
-            }
-            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(lang)).watchlist
+
+        displayLanguages.forEach {
+            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist
                     .subscribeOn(Schedulers.io()))
         }
 
@@ -280,6 +284,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onLanguageChanged() {
+        updateDisplayLanguages()
+        funnel.logChangeLanguage(displayLanguages)
         fetchWatchlist(false)
     }
 
