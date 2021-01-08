@@ -660,7 +660,6 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">যোৱা ৩০ দিনত %s বাৰ চোৱা হৈছে।</string>
   <string name="suggested_edits_contribution_date_yesterday_text">কালি</string>
-  <string name="suggested_edits_rewards_continue_button">অব্যাহত ৰাখক</string>
   <string name="suggested_edits_encourage_account_creation_title"> আপুনি জানেনে যে ৱিকিপিডিয়াত সকলোৱে সম্পাদনা কৰিব পাৰে?</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>
