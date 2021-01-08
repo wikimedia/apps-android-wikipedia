@@ -38,16 +38,11 @@ public final class ServiceFactory {
     }
 
     public static RestService getRest(@NonNull WikiSite wiki) {
-        return getRest(wiki, true);
-    }
-
-    // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
-    public static RestService getRest(@NonNull WikiSite wiki, boolean languageVariantHeader) {
-        long hashCode = wiki.hashCode() + (languageVariantHeader ? 0 : 1);
+        long hashCode = wiki.hashCode();
         if (REST_SERVICE_CACHE.get(hashCode) != null) {
             return REST_SERVICE_CACHE.get(hashCode);
         }
-        Retrofit r = createRetrofit(wiki, getRestBasePath(wiki), languageVariantHeader);
+        Retrofit r = createRetrofit(wiki, getRestBasePath(wiki));
         RestService s = r.create(RestService.class);
         REST_SERVICE_CACHE.put(hashCode, s);
         return s;
@@ -84,20 +79,12 @@ public final class ServiceFactory {
     }
 
     private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {
-        return createRetrofit(wiki, baseUrl, true);
-    }
-
-    private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl, boolean languageVariantHeader) {
-        Retrofit.Builder builder = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(baseUrl)
+                .client(OkHttpConnectionFactory.getClient().newBuilder().addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()));
-
-        if (languageVariantHeader) {
-            builder.client(OkHttpConnectionFactory.getClient().newBuilder().addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build());
-        }
-
-        return builder.build();
+                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
+                .build();
     }
 
     private ServiceFactory() { }
@@ -112,9 +99,14 @@ public final class ServiceFactory {
         @Override
         public Response intercept(@NonNull Interceptor.Chain chain) throws IOException {
             Request request = chain.request();
-            request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
-                    .build();
+
+            // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
+            if (!request.url().encodedPath().contains("page/related")) {
+                request = request.newBuilder()
+                        .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
+                        .build();
+            }
+
             return chain.proceed(request);
         }
     }

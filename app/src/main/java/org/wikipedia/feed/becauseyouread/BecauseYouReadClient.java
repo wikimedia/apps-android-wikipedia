@@ -46,7 +46,7 @@ public class BecauseYouReadClient implements FeedClient {
         // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
         boolean shouldSetLanguageHeader = WikipediaApp.getInstance().language().getDefaultLanguageCode(entry.getTitle().getWikiSite().languageCode()) == null;
 
-        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite(), shouldSetLanguageHeader).getRelatedPages(entry.getTitle().getPrefixedText())
+        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(relatedPages -> {
