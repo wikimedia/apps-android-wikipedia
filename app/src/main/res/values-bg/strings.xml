@@ -745,7 +745,6 @@
   <string name="suggested_edits_contribution_seen_text">Видяно %s пъти през последните 30 дни.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
-  <string name="suggested_edits_rewards_continue_button">Продължаване</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Влизане в / присъединяване към Уикипедия</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Добавили сте %d символа</string>
   <string name="file_page_activity_title">Страница на файла</string>

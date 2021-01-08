@@ -747,7 +747,6 @@
   <string name="suggested_edits_contribution_article_label">Чланак</string>
   <string name="suggested_edits_contribution_views">прикази: %s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Јуче</string>
-  <string name="suggested_edits_rewards_continue_button">Настави</string>
   <string name="suggested_edits_encourage_account_creation_title">Јесте ли знали да свако може да уређује Википедију?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Пријави ме / придружи ме Википедији</string>
   <string name="suggested_edits_contribution_type_image_tag">Ознака слике</string>
