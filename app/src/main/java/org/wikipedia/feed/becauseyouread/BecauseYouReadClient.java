@@ -44,7 +44,7 @@ public class BecauseYouReadClient implements FeedClient {
 
         // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
         // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
-        boolean shouldSetLanguageHeader = WikipediaApp.getInstance().language().getDefaultLanguageCode(entry.getTitle().getWikiSite().languageCode()) == null;
+        boolean hasParentLanguageCode = WikipediaApp.getInstance().language().getDefaultLanguageCode(entry.getTitle().getWikiSite().languageCode()) != null;
 
         disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
@@ -55,8 +55,8 @@ public class BecauseYouReadClient implements FeedClient {
                             entry.getTitle().getExtract(), entry.getTitle().getThumbUrl(), entry.getTitle().getWikiSite().languageCode()));
                     return Observable.fromIterable(list);
                 })
-                .concatMap(pageSummary -> shouldSetLanguageHeader
-                        ? Observable.just(pageSummary) : ServiceFactory.getRest(entry.getTitle().getWikiSite()).getSummary(entry.getReferrer(), pageSummary.getApiTitle()))
+                .concatMap(pageSummary -> hasParentLanguageCode
+                        ? ServiceFactory.getRest(entry.getTitle().getWikiSite()).getSummary(entry.getReferrer(), pageSummary.getApiTitle()) : Observable.just(pageSummary))
                 .observeOn(AndroidSchedulers.mainThread())
                 .toList()
                 .subscribe(list -> {

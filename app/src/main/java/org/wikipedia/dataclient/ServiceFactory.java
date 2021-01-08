@@ -101,7 +101,7 @@ public final class ServiceFactory {
             Request request = chain.request();
 
             // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
-            if (!request.url().encodedPath().contains("page/related")) {
+            if (!request.url().encodedPath().contains("/page/related")) {
                 request = request.newBuilder()
                         .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
                         .build();
