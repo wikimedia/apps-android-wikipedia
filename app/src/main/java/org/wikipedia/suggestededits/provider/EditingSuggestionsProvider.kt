@@ -238,7 +238,8 @@ object EditingSuggestionsProvider {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: ImageRecommendationResponse? = null
             if (!articlesWithMissingImagesCache.empty()) {
-                cachedItem = articlesWithMissingImagesCache.pop()
+                cachedItem = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
+                //cachedItem = articlesWithMissingImagesCache.pop()
             }
 
             if (cachedItem != null) {
@@ -260,7 +261,8 @@ object EditingSuggestionsProvider {
 
                 var item: ImageRecommendationResponse? = null
                 if (!articlesWithMissingImagesCache.empty()) {
-                    item = articlesWithMissingImagesCache.pop()
+                    item = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
+                    //item = articlesWithMissingImagesCache.pop()
                 }
                 Observable.just(item!!)
             }
