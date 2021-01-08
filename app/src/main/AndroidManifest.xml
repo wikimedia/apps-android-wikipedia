@@ -241,6 +241,9 @@
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
+        <activity android:name=".watchlist.WatchlistActivity"
+            android:theme="@style/AppTheme.ActionBar"/>
+
         <activity
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
             android:theme="@style/AppTheme.ActionBar" />
