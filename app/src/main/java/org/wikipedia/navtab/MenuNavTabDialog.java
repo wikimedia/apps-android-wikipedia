@@ -42,6 +42,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         void notificationsClick();
         void talkClick();
         void settingsClick();
+        void watchlistClick();
         void historyClick();
     }
 
@@ -50,6 +51,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
     @BindView(R.id.main_drawer_talk_container) ViewGroup talkContainer;
+    @BindView(R.id.main_drawer_watchlist_container) ViewGroup watchListContainer;
     @BindView(R.id.main_drawer_history_container) ViewGroup historyContainer;
 
     public static MenuNavTabDialog newInstance() {
@@ -89,6 +91,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
 
             // TODO: remove when ready
             talkContainer.setVisibility(ReleaseUtil.isPreBetaRelease() ? VISIBLE : GONE);
+            watchListContainer.setVisibility(VISIBLE);
 
         } else {
             accountAvatar.setImageDrawable(requireContext().getDrawable(R.drawable.ic_login_24px));
@@ -99,6 +102,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
             notificationsContainer.setVisibility(GONE);
             talkContainer.setVisibility(GONE);
+            watchListContainer.setVisibility(GONE);
         }
     }
 
@@ -145,6 +149,13 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @OnClick(R.id.main_drawer_login_button) void onLoginClick() {
         if (callback() != null) {
             callback().loginLogoutClick();
+            dismiss();
+        }
+    }
+
+    @OnClick(R.id.main_drawer_watchlist_container) void onWatchlistClick() {
+        if (callback() != null) {
+            callback().watchlistClick();
             dismiss();
         }
     }
