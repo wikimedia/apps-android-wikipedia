@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -8,6 +9,8 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.page.PageTitle
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
 import java.util.concurrent.Semaphore
 
@@ -242,11 +245,18 @@ object EditingSuggestionsProvider {
                 Observable.just(cachedItem)
             } else {
 
-                articlesWithMissingImagesCache.push(ImageRecommendationResponse("2006_in_Iran", "Kashan_granary_Barry_Kent.JPG"))
-                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Diospolis", "Ägypten_Tempel_von_Karnak01.jpg"))
-                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Code_Parish", "Derpeles_manor_-_ainars_brūvelis_-_Panoramio.jpg"))
-                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Church_order", "Sofia_kyrka.JPG"))
-                articlesWithMissingImagesCache.push(ImageRecommendationResponse("Nicolò_Barattieri", "Venezia_colonne.jpg"))
+                val stream = WikipediaApp.getInstance().assets.open("sample_suggestion_data_with_annotations_extended.tsv")
+                val reader = BufferedReader(InputStreamReader(stream))
+                // skip over column headers
+                reader.readLine()
+                while (true) {
+                    val line = reader.readLine()
+                    if (line.isNullOrEmpty()) {
+                        break
+                    }
+                    val arr = line.split('\t')
+                    articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[1], arr[2]))
+                }
 
                 var item: ImageRecommendationResponse? = null
                 if (!articlesWithMissingImagesCache.empty()) {
