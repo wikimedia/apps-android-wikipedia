@@ -255,7 +255,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="about_article_section">هن مضمون بابت</string>
-  <string name="menu_gallery_visit_image_page">فائيل جي صفحي ڏانھن وڃو</string>
+  <string name="menu_gallery_visit_image_page">عڪس جي صفحي ڏانھن وڃو</string>
   <string name="gallery_error_draw_failed">عڪس چِٽجي نہ سگھيو.</string>
   <string name="license_title">%s لاءِ اجازتنامو</string>
   <string name="gallery_menu_share">ونڊيو</string>
@@ -331,7 +331,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(گھري نظاري ۾) عڪسن کي ڊم ڪندي</string>
   <string name="preference_title_prefer_offline_content">آفلائين مواد کي ترجيح ڏيو</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">سرشتي جي نظاري سان ملايو</string>
-  <string name="page_footer_license_text">مواد $1 ھيٺ موجود آھي نہ تہ ٻي صورت واضع ڪيل آهي</string>
+  <string name="page_footer_license_text">مواد $1 ھيٺ موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي</string>
   <string name="empty_tab_title">نئين ٽيب</string>
   <string name="menu_save_all_tabs">سڀ ٽيبس سانڍيو</string>
   <string name="crash_report_activity_title">ايپليڪيشن جي چُڪَ</string>
@@ -557,9 +557,7 @@
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
   <string name="view_offline_card_text">آفلائين ھجڻ مھل مواد نٿو لاھي سگھجي.</string>
   <string name="view_featured_article_card_title">چونڊ مضمون</string>
-  <string name="view_featured_article_footer_save_button_label">سانڍيو</string>
   <string name="view_static_card_save_button_label">سانڍيو</string>
-  <string name="view_featured_article_footer_saved_button_label">سانڍيل</string>
   <string name="feed_configure_activity_title">پھاچل پنھنجايو</string>
   <string name="feed_configure_menu_reset">ڏنل نظارو ٻيھر لڳايو</string>
   <string name="feed_configure_menu_select_all">سڀ ڏيکاريو</string>
@@ -652,7 +650,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">تيسيتائين تالو لڳل آھي جيسيتائي %d مضمونن جو تشريحون نٿا سنواري وٺو (پڪ ڪيل)</string>
   <string name="suggested_edits_task_multilingual_negative">منھنجي لاءِ نہ</string>
   <string name="suggested_edits_task_multilingual_positive">ٻوليون وجھو</string>
-  <string name="suggested_edits_image_caption_summary_title_image">فائيل</string>
+  <string name="suggested_edits_image_caption_summary_title_image">عڪس</string>
   <string name="suggested_edits_image_caption_summary_title_artist">فنڪار</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
   <string name="suggested_edits_image_caption_summary_title_source">ذريعو</string>
@@ -668,7 +666,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">شروع ڪريو</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">عڪس جو عنوان (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">عڪس جي تشريح (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">فائيل</string>
+  <string name="suggested_edits_image_preview_dialog_image">عڪس</string>
   <string name="suggested_edits_image_preview_dialog_artist">فنڪار</string>
   <string name="suggested_edits_image_preview_dialog_tags">ٽيگَ</string>
   <string name="suggested_edits_image_preview_dialog_date">تاريخ</string>
@@ -693,11 +691,11 @@
   <string name="suggested_edits_image_tags_published">ڇاپيل</string>
   <string name="suggested_edits_encouragement_message">%s، توھان جي سنوارن لاءِ مھرباني. ھيٺ توھان وڪيپيڊيا ۾ ڀاڱيداري ڪرڻ جا وڌيڪ طريقا ڏسي سگھو ٿا.</string>
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;سلام %s&lt;/b&gt;، ڇا توھان کي ڄاڻ ھئي تہ ھرڪوئي وڪيپيڊيا کي سنواري سگھي ٿو؟ ھيٺ توھان وڪيپيڊيا کي بھتر بڻائڻ جا طريقا ڏسي سگھو ٿا. خوشگوار سنوارڪاري!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
+  <string name="suggested_edits_image_captions_task_detail">ڪنھن عڪس کي بيان ڪريو تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">ڪنھن مضمون کي تت ڏيو تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجهڻ ۾ مدد ٿي.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">توھان جي سمورين ڀاڱيدارين جو ھيل تائين جو ڪل انگ.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي. جيڪڏھن توھان ڪجھ وقت ڀاڱيداري ناھي ڪئي، تہ اھو توھان جي آخري ڀاڱيداريءَ جي تاريخ ڏيکاري ٿو.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ توھان جن شين ۾ ڀاڱيداري ڪئي انھن جون ڪل صفحي-ڏيٺون.</string>
   <string name="suggested_edits_editing_tips_link_text">سنوارڻ جا مشورا ۽ شرڪتون</string>
   <string name="suggested_edits_help_page_link_text">صلاح-ڏنل سنوارن جو مدد صفحو</string>
   <string name="suggested_edits_views_label_text">ڏيٺون</string>
@@ -719,10 +717,31 @@
     <item quantity="one">%d ڏينھن</item>
     <item quantity="other">%d ڏينھن</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">صلاح ڏنل سنوارون ڇا آھن؟</string>
+  <string name="suggested_edits_what_is_text">صلاح ڏنل سنوارون وڪيپيڊيا ۾ مختصر پر اھم ڀاڱيدارين جو موقعو پيش ڪن ٿيون.</string>
   <string name="suggested_edits_learn_more">وڌيڪ سکو</string>
+  <string name="suggested_edits_paused_title">بيٺل</string>
+  <string name="suggested_edits_disabled_title">غيرفعال</string>
+  <string name="suggested_edits_ip_blocked_title">آئپي تي بندش وڌل آھي</string>
   <string name="suggested_edits_last_edited">آخري دفعو سنواريل</string>
   <string name="suggested_edits_last_edited_never">ڪڏهن بہ نہ</string>
+  <string name="suggested_edits_task_new">نوان</string>
   <string name="suggested_edits_reactivation_notification_title">صلاح-ڏنل سنوارون</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني! ڇو نہ اتان شروع ڪجي جتان ڇڏيوسين؟</string>
+  <string name="suggested_edits_contributions_screen_title">%s جون ڀاڱيداريون</string>
+  <string name="suggested_edits_contribution_language_label">ٻولي</string>
+  <string name="suggested_edits_contribution_date_time_label">تاريخ / وقت</string>
+  <string name="suggested_edits_contribution_type_label">ڀاڱيداريءَ جو قسم</string>
+  <string name="suggested_edits_contribution_image_label">عڪس</string>
+  <string name="suggested_edits_contribution_article_label">مضمون</string>
+  <string name="suggested_edits_contribution_views">%s ڏيک</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">ڪلھ</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">وڪيپيڊيا ۾ داخل ٿيو / شامل ٿيو</string>
+  <string name="suggested_edits_contribution_type_image_tag">عڪس ٽيگ</string>
+  <string name="file_page_activity_title">فائيل صفحو</string>
+  <string name="file_page_add_image_caption_button">عڪس جو عنوان وجهو</string>
+  <string name="file_page_add_image_tags_button">عڪس جا ٽيگ وجهو</string>
   <string name="description_edit_revert_subtitle">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني!</string>
   <string name="description_edit_revert_intro">اسان ڄاڻون ٿا توھان ڀرپور ڪوشش ڪئي، پر ھڪ جائزيڪار کي ڪو شڪ آھي. توھان جي سنوار ورائي وڃڻ جي سببن ۾ شامل آھن:</string>
   <string name="description_edit_revert_reason1">توھان جي ڀاڱيداريءَ &lt;a href=\"%1$s\"&gt;ھدايتن&lt;/a&gt; مان ڪنھن ھڪ جي پيروي نہ ڪئي.</string>
@@ -758,6 +777,8 @@
     <item quantity="one">گذريل سال</item>
     <item quantity="other">%d سال اڳ</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">توھان وقت 🚀 ذريعي سفر ڪيو</string>
+  <string name="on_this_day_back_to_future">مستقبل ڏانھن واپسي</string>
   <string name="languages_list_activity_title">ڪا ٻولي وجھو</string>
   <string name="languages_list_suggested_text">صلاح ڏنل</string>
   <string name="languages_list_all_text">سڀ ٻوليون</string>
@@ -786,6 +807,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ٺيڪ</string>
   <string name="reverted_edit_dialog_ok_button_text">ٺيڪ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">رد</string>
+  <string name="edit_type_all">سڀئي ڀاڱيداريون</string>
   <string name="content_description_for_page_indicator">%2$d مان %1$d صفحو</string>
   <string name="wikitext_bold">گھري</string>
   <string name="wikitext_italic">ٽيڏي</string>
@@ -803,4 +825,15 @@
   <string name="text_input_dialog_ok_button_text">ٺيڪ</string>
   <string name="text_input_dialog_cancel_button_text">رد</string>
   <string name="custom_date_picker_dialog_cancel_button_text">رد</string>
+  <string name="talk_title">بحث</string>
+  <string name="talk_user_title">بحث: %s</string>
+  <string name="talk_new_topic">نئون موضوع</string>
+  <string name="talk_page_empty">ھي بحث صفحو خالي آھي.</string>
+  <string name="talk_add_reply">جواب ڏيو</string>
+  <string name="talk_no_subject">(ڪو مضمون ناھي)</string>
+  <string name="talk_reply_subject">مضمون</string>
+  <string name="talk_reply_hint">جواب جوڙيو</string>
+  <string name="talk_message_hint">پيغام جوڙيو</string>
+  <string name="talk_message_empty">پيغام خالي نٿو ٿي سگهي.</string>
+  <string name="talk_subject_empty">موضوع خالي نٿو ٿي سگهي.</string>
 </resources>

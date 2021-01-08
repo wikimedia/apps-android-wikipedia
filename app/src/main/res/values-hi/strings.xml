@@ -396,8 +396,6 @@
   <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
   <string name="view_offline_card_text">ऑफलाइन रहते हुए कंटेंट को भरा नहीं जा सकता है।</string>
   <string name="view_featured_article_card_title">प्रधान लेख</string>
-  <string name="view_featured_article_footer_save_button_label">सहेजें</string>
-  <string name="view_featured_article_footer_saved_button_label">सहेजा गया</string>
   <string name="feed_configure_activity_title" fuzzy="true">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
   <string name="feed_configure_menu_reset" fuzzy="true">डिफ़ॉल्ट पर रिसेट करें</string>
   <string name="description_edit_text_hint" fuzzy="true">शीर्षक विवरण</string>

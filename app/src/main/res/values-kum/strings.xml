@@ -188,9 +188,7 @@
   <string name="view_card_news_title">Янгылыкъларда</string>
   <string name="view_continue_reading_card_subtitle_today">бугюн</string>
   <string name="view_announcement_card_negative_action">Ёкъ савбол</string>
-  <string name="view_featured_article_footer_save_button_label">Сакъламакъ</string>
   <string name="view_static_card_save_button_label">Сакъламакъ</string>
-  <string name="view_featured_article_footer_saved_button_label">Сакълангъан</string>
   <string name="feed_configure_menu_select_all">Тюмюн гёрсетмек</string>
   <string name="feed_configure_menu_deselect_all">Тюмюн яшырмакъ</string>
   <string name="feed_configure_onboarding_action">Кюйлемек</string>

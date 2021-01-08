@@ -636,9 +636,7 @@
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
   <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="view_featured_article_card_title">Seçkin madde</string>
-  <string name="view_featured_article_footer_save_button_label">Kaydet</string>
   <string name="view_static_card_save_button_label">Kaydet</string>
-  <string name="view_featured_article_footer_saved_button_label">Kaydedildi</string>
   <string name="feed_configure_activity_title">Yayını özelleştir</string>
   <string name="feed_configure_menu_reset">Varsayılan görünümü geri yükle</string>
   <string name="feed_configure_menu_select_all">Hepsini göster</string>
@@ -850,23 +848,6 @@
   <string name="suggested_edits_image_tag_contribution_label">%d etiket eklediniz</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dün</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye bir katkı yaptınız. Teşekkür ederiz!</item>
-    <item quantity="other">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkür ederiz!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Bir gündür düzenleme yapıyorsunuz. Seriyi devam edin, %2$s!</item>
-    <item quantity="other">%1$d gündür düzenleme yapıyorsunuz. Seriyi devam etdin, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Yaptığınız düzenlemeler, son 30 gün içinde bir kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
-    <item quantity="other">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Önerilen düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkürler!</string>
-  <string name="suggested_edits_rewards_edit_streak">Her gün %1$d gün boyunca düzenlediniz. Art ardaya devam et, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam et!</string>
-  <string name="suggested_edits_rewards_edit_quality">Şu ana kadar yaptığınız düzenlemeler %s. Devam edin! Katkılarınızı bekliyoruz.</string>
-  <string name="suggested_edits_rewards_continue_button">Devam et</string>
   <string name="suggested_edits_encourage_account_creation_title">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="suggested_edits_encourage_account_creation_message">Önerilen düzenlemeler, Android\'de Vikipedi\'yi düzenlemenin yeni bir yoludur. Vikipedi\'ye küçük ancak hayati katkılar yapmanıza yardımcı olur.\nAmacımız, düzenlemeyi herkes için daha kolay ve daha erişilebilir hale getirmektir! Başlamak için oturum açın veya Vikipedi\'ye katılın.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Vikipedi\'ye oturum açın / katılın</string>
@@ -992,4 +973,5 @@
   <string name="talk_message_hint">Mesaj oluştur</string>
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
+  <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
 </resources>

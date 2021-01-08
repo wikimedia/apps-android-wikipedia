@@ -81,10 +81,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
@@ -95,7 +93,7 @@ import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        HistoryFragment.Callback, LinkPreviewDialog.Callback {
+        HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
     @BindView(R.id.fragment_main_nav_tab_container) LinearLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
@@ -167,7 +165,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @OnClick(R.id.nav_more_container) void onMoreClicked(View v) {
-        bottomSheetPresenter.show(getChildFragmentManager(), MenuNavTabDialog.newInstance(new DrawerViewCallback()));
+        bottomSheetPresenter.show(getChildFragmentManager(), MenuNavTabDialog.newInstance());
     }
 
     @Override public void onResume() {
@@ -384,12 +382,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.getTitle()));
     }
 
-    @Override
-    public void onClearHistory() {
-        disposables.add(Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class).deleteAll())
-                .subscribeOn(Schedulers.io()).subscribe());
-    }
-
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
         if (inNewTab) {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
@@ -418,6 +410,53 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public boolean onBackPressed() {
         Fragment fragment = getCurrentFragment();
         return fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed();
+    }
+
+    @Override
+    public void loginLogoutClick() {
+        if (AccountUtil.isLoggedIn()) {
+            new AlertDialog.Builder(requireContext())
+                    .setMessage(R.string.logout_prompt)
+                    .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
+                    .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
+                        WikipediaApp.getInstance().logOut();
+                        FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
+                        Prefs.setReadingListsLastSyncTime(null);
+                        Prefs.setReadingListSyncEnabled(false);
+                        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
+                        refreshContents();
+                    }).show();
+        } else {
+            onLoginRequested();
+        }
+    }
+
+    @Override
+    public void notificationsClick() {
+        if (AccountUtil.isLoggedIn()) {
+            startActivity(NotificationActivity.newIntent(requireActivity()));
+        }
+    }
+
+    @Override
+    public void talkClick() {
+        if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
+            startActivity(TalkTopicsActivity.newIntent(requireActivity(),
+                    new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
+                            AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
+        }
+    }
+
+    @Override
+    public void historyClick() {
+        if (!(getCurrentFragment() instanceof HistoryFragment)) {
+            goToTab(NavTab.SEARCH);
+        }
+    }
+
+    @Override
+    public void settingsClick() {
+        startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
     }
 
     public void setBottomNavVisible(boolean visible) {
@@ -544,54 +583,5 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
-    }
-
-    private class DrawerViewCallback implements MenuNavTabDialog.Callback {
-        @Override
-        public void loginLogoutClick() {
-            if (AccountUtil.isLoggedIn()) {
-                new AlertDialog.Builder(requireContext())
-                        .setMessage(R.string.logout_prompt)
-                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
-                        .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
-                            WikipediaApp.getInstance().logOut();
-                            FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
-                            Prefs.setReadingListsLastSyncTime(null);
-                            Prefs.setReadingListSyncEnabled(false);
-                            Prefs.setSuggestedEditsHighestPriorityEnabled(false);
-                            refreshContents();
-                        }).show();
-            } else {
-                onLoginRequested();
-            }
-        }
-
-        @Override
-        public void notificationsClick() {
-            if (AccountUtil.isLoggedIn()) {
-                startActivity(NotificationActivity.newIntent(requireActivity()));
-            }
-        }
-
-        @Override
-        public void talkClick() {
-            if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                        new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
-                                AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
-            }
-        }
-
-        @Override
-        public void historyClick() {
-            if (!(getCurrentFragment() instanceof HistoryFragment)) {
-                goToTab(NavTab.SEARCH);
-            }
-        }
-
-        @Override
-        public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
-        }
     }
 }

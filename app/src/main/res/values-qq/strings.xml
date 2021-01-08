@@ -7,6 +7,7 @@
 * Bencemac
 * Dbrant
 * Hamilton Abreu
+* Jeeputer
 * Joao Xavier
 * Kaganer
 * Kizule
@@ -630,9 +631,7 @@
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
   <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed</string>
-  <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
   <string name="view_static_card_save_button_label">Text on button that indicates user can save article to reading lists.\n{{Identical|Save}}</string>
-  <string name="view_featured_article_footer_saved_button_label">Button label for when the current featured article is already saved to a reading list, but may now be removed from the list, or saved to a different list.\n{{Identical|Saved}}</string>
   <string name="feed_configure_activity_title">Title shown at the top of the screen where the user customizes which cards are shown in the Explore feed.</string>
   <string name="feed_configure_menu_reset">Menu label for resetting the customization of the Explore feed cards to the original defaults.</string>
   <string name="feed_configure_menu_select_all">Menu label for showing all types of Explore feed cards.</string>
@@ -847,23 +846,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Message shown about the number of contributions the user has made.</item>
-    <item quantity="other">Message shown about the number of contributions the user has made. The %d parameter represents the number of contrubutions.</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Message shown about the length of edit streak the user has made. The %2$s parameter represents the user name.</item>
-    <item quantity="other">Message shown about the length of edit streak the user has made. The %1$d parameter represents the length of edit streak and the %2$s parameter represents the user name.</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
-    <item quantity="other">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
-  <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
-  <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
-  <string name="suggested_edits_rewards_edit_quality">Message shown to the user about the quality of their edits so far. The %s represents the quality, such as Excellent, Good, Okay, Bad, etc.</string>
-  <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
@@ -922,7 +904,7 @@
     <item quantity="one">Text indicating that the event occurred one year ago.</item>
     <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
   </plurals>
-  <string name="on_this_day_end_of_scroll_message">Label text shown to user when they have scrolled through the events till teh end.</string>
+  <string name="on_this_day_end_of_scroll_message">Label text shown to user when they have scrolled through the events till the end.</string>
   <string name="on_this_day_back_to_future">Button label for scrolling the content to the top.</string>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>
@@ -983,4 +965,5 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="go_to_user_page">Menu item label for going to the user page of the selected user.</string>
 </resources>

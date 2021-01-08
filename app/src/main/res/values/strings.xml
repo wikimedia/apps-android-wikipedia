@@ -629,9 +629,7 @@
     <string name="view_announcement_card_negative_action">No thanks</string>
     <string name="view_offline_card_text">Content cannot be loaded when offline.</string>
     <string name="view_featured_article_card_title">Featured article</string>
-    <string name="view_featured_article_footer_save_button_label">Save</string>
     <string name="view_static_card_save_button_label">Save</string>
-    <string name="view_featured_article_footer_saved_button_label">Saved</string>
     <string name="feed_configure_activity_title">Customize the feed</string>
     <string name="feed_configure_menu_reset">Restore default view</string>
     <string name="feed_configure_menu_select_all">Show all</string>
@@ -860,23 +858,6 @@
     </plurals>
     <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
     <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
-    <plurals name="suggested_edits_rewards_contributions">
-        <item quantity="one">You\'ve made one contribution to Wikipedia using Suggested Edits. Thank you!</item>
-        <item quantity="other">You\'ve made %d contributions to Wikipedia using Suggested Edits. Thank you!</item>
-    </plurals>
-    <plurals name="suggested_edits_rewards_edit_streaks">
-        <item quantity="one">You\'ve been editing for one whole day. Keep the streak going, %2$s!</item>
-        <item quantity="other">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</item>
-    </plurals>
-    <plurals name="suggested_edits_rewards_page_views">
-        <item quantity="one">Your edits have been seen by one person in the last 30 days. Thanks, and keep going!</item>
-        <item quantity="other">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</item>
-    </plurals>
-    <string name="suggested_edits_rewards_contribution">You\'ve made %d contributions to Wikipedia using Suggested edits. Thank you!</string>
-    <string name="suggested_edits_rewards_edit_streak">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</string>
-    <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
-    <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
-    <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_encourage_account_creation_title">Did you know that everyone can edit Wikipedia?</string>
     <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
     <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
@@ -1033,4 +1014,5 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="go_to_user_page">Go to user page</string>
 </resources>

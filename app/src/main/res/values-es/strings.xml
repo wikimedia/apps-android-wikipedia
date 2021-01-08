@@ -630,9 +630,7 @@
   <string name="view_announcement_card_negative_action">No, gracias</string>
   <string name="view_offline_card_text">No se puede cargar contenido cuando no hay conexión</string>
   <string name="view_featured_article_card_title">Artículo destacado</string>
-  <string name="view_featured_article_footer_save_button_label">Guardar</string>
   <string name="view_static_card_save_button_label">\nGuardar</string>
-  <string name="view_featured_article_footer_saved_button_label">Guardado</string>
   <string name="feed_configure_activity_title">Personalizar el canal</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Mostrar todo</string>
@@ -841,11 +839,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ayer</string>
-  <string name="suggested_edits_rewards_contribution">Has hecho %d contribuciones al Wikipedia usando ediciones sugeridas. ¡Gracias!</string>
-  <string name="suggested_edits_rewards_edit_streak">Has editado todos los días para %1$d días. Mantiene editando, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">¡Tus ediciones han sido vistas por %d personas en los últimos 30 días. Gracias, y sigue adelante!</string>
-  <string name="suggested_edits_rewards_edit_quality">Tus ediciones hasta ahora son %s. ¡Sigue adelante!  Esperamos tus contribuciones.</string>
-  <string name="suggested_edits_rewards_continue_button">Continuar</string>
   <string name="suggested_edits_encourage_account_creation_title">¿Sabías que todos pueden editar Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Las ediciones sugeridas son una nueva forma de editar Wikipedia en Android. Te ayudan a hacer pequeñas pero vitales contribuciones a Wikipedia. ¡Nuestro objetivo es hacer que la edición sea más fácil y accesible para todos! Accede o únete a Wikipedia para comenzar.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Acceder / unirse a Wikipedia</string>

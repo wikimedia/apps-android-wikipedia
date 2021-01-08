@@ -43,7 +43,7 @@
   <string name="dialog_message_clear_history_no">Xeyr</string>
   <string name="share_via">Paylaş...</string>
   <string name="image_share_via">Paylaş...</string>
-  <string name="search_redirect_from">%s-dən yönləndirildi</string>
+  <string name="search_redirect_from">%s səhifəsindən istiqamətləndirildi</string>
   <string name="menu_page_show_tabs">Pəncərələri göstər</string>
   <string name="menu_page_other_languages">Dili dəyiş</string>
   <string name="menu_page_find_in_page" fuzzy="true">Səhifədə axtar</string>
@@ -349,7 +349,6 @@
   <string name="suggested_edits_contribution_language_label">Dil</string>
   <string name="suggested_edits_contribution_image_label">Şəkil</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dünən</string>
-  <string name="suggested_edits_rewards_continue_button">Davam et</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Cari düzəliş</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>

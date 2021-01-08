@@ -511,9 +511,7 @@
   <string name="view_announcement_card_negative_action">نہیں، شکریہ!</string>
   <string name="view_offline_card_text">آف لائن ہونے کے دوران میں مواد لوڈ نہیں کیا جا سکتا۔</string>
   <string name="view_featured_article_card_title">منتخب مضمون</string>
-  <string name="view_featured_article_footer_save_button_label">محفوظ کریں</string>
   <string name="view_static_card_save_button_label">محفوظ</string>
-  <string name="view_featured_article_footer_saved_button_label">محفوظ ہوگیا</string>
   <string name="feed_configure_activity_title">فیڈ کو کسٹمائز کریں</string>
   <string name="feed_configure_menu_reset">طے شدہ نمائش بحال کریں</string>
   <string name="feed_configure_menu_select_all">سب دکھائيں</string>
@@ -620,7 +618,6 @@
   <string name="suggested_edits_contribution_image_label">تصویر</string>
   <string name="suggested_edits_contribution_article_label">مضمون</string>
   <string name="suggested_edits_contribution_date_yesterday_text">گزشتہ کل</string>
-  <string name="suggested_edits_rewards_continue_button">جاری رکھیں</string>
   <string name="description_edit_revert_subtitle">ویکیپیڈیا میں ترمیم کا شکریہ!</string>
   <string name="onboarding_skip">چھوڑیں</string>
   <string name="onboarding_continue">جاری رکھیں</string>

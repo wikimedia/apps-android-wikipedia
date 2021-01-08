@@ -24,6 +24,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">Филтриране на списъците</string>
   <string name="nav_item_suggested_edits">Редакции</string>
   <string name="nav_item_more">Още</string>
+  <string name="nav_item_search">Търсене</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
   <string name="card_offline_error_retry">Повторен опит</string>
@@ -38,6 +39,7 @@
   <string name="history_item_delete_undo">Отмяна</string>
   <string name="notification_archive_undo">Отмяна</string>
   <string name="app_settings">Настройки на приложението</string>
+  <string name="history_list_title">История</string>
   <string name="dialog_title_clear_history">Изчистване на историята</string>
   <string name="dialog_message_clear_history">Това ще изтрие цялата история на сърфиране и ще затвори всички отворени раздели. Сигурни ли сте?</string>
   <string name="dialog_message_clear_history_yes">Да</string>
@@ -47,7 +49,7 @@
   <string name="search_redirect_from">Пренасочено от %s</string>
   <string name="menu_page_show_tabs">Показване на раздели</string>
   <string name="menu_page_other_languages">Промяна на езика</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Търсене в страницата</string>
+  <string name="menu_page_find_in_page">Търсене в статията</string>
   <string name="edit_section_find_in_page">Търсене в страницата</string>
   <string name="menu_page_font_and_theme">Шрифт и облик</string>
   <string name="menu_page_add_to_list">Добавяне към списъка за четене</string>
@@ -56,6 +58,7 @@
   <string name="feed_card_add_to_default_list">Съхраняване</string>
   <string name="menu_page_share">Споделяне на връзка</string>
   <string name="menu_page_open_a_new_tab">Отваряне в нов раздел</string>
+  <string name="menu_page_new_tab">Нов раздел</string>
   <string name="menu_page_reading_lists">Списъци за четене</string>
   <string name="menu_page_recently_viewed">Посетени наскоро</string>
   <string name="menu_long_press_open_page">Отваряне</string>
@@ -237,6 +240,11 @@
   <string name="page_similar_titles">Подобни страници</string>
   <string name="search_did_you_mean">Може би имахте предвид %s?</string>
   <string name="search_recent_header">Последни търсения:</string>
+  <string name="search_results_count_zero">Няма резултати</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 резултат</item>
+    <item quantity="other">%d резултата</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Изчистване на последните търсения</string>
   <string name="clear_recent_searches_confirm">Сигурни ли сте, че искате да изтриете вашата история на търсене?</string>
   <string name="clear_recent_searches_confirm_yes">Да</string>
@@ -298,6 +306,7 @@
   <string name="address_copied">Адресът е копиран в клипборда</string>
   <string name="text_copied">Текстът е копиран в клипборда</string>
   <string name="button_continue_to_article">Прочитане на статията</string>
+  <string name="button_continue_to_talk_page">Преглед на беседата</string>
   <string name="button_continue_to_disambiguation">Преглед на подобните страници</string>
   <string name="link_preview_disambiguation_description">Това заглавие се отнася за повече от една страница:</string>
   <string name="button_add_to_reading_list">Добавяне към списъка за четене</string>
@@ -310,13 +319,17 @@
   <string name="preference_summary_show_link_previews">Показва бърз предварителен преглед на статии, когато се натисне връзка.</string>
   <string name="preference_title_collapse_tables">Свиване на таблици</string>
   <string name="preference_summary_collapse_tables">Автоматично свиване на таблиците в статиите, като например инфокутии, източници и бележки.</string>
-  <string name="nav_item_donate" fuzzy="true">Подкрепете Уикипедия</string>
+  <string name="nav_item_donate">Направете дарение</string>
   <string name="error_voice_search_not_available">За съжаление, гласовото разпознаване не е достъпно.</string>
   <string name="location_service_disabled">Услугите за местоположение са изключени.</string>
   <string name="enable_location_service">Включване</string>
   <string name="location_permissions_enable_prompt">Включете позволяване на местоположение, за да видите места около вас.</string>
   <string name="location_permissions_enable_action">Включване</string>
   <string name="error_webview_updating">WebView за Android в момента се обновява. Моля, опитайте отново след малко.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d избрана</item>
+    <item quantity="other">%d избрани</item>
+  </plurals>
   <string name="multi_select_items_selected">%d избрани</string>
   <string name="error_message_generic">Възникна грешка</string>
   <string name="view_link_preview_error_button_dismiss">Затваряне</string>
@@ -355,6 +368,7 @@
   <string name="text_size_increase">Увеличаване на размера на текста</string>
   <string name="text_size_decrease">Намаляване на размера на текста</string>
   <string name="text_size_percent_default">%s (по подразбиране)</string>
+  <string name="text_style_title">Шрифт</string>
   <string name="nav_item_reading_lists">Моите списъци</string>
   <string name="reading_list_save_to">Добавяне в списъка за четене</string>
   <string name="reading_list_move_to">Преместване в списък за четене</string>
@@ -364,6 +378,10 @@
   <string name="reading_list_article_moved_to_named">%1$s е преместена в %2$s.</string>
   <string name="reading_list_added_view_button">Преглед на списъка</string>
   <string name="reading_list_add_to_list_button">Добавяне към списък</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 статия, %2$.2f MB</item>
+    <item quantity="other">%1$d статии, %2$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 статия, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d от 1 статия е достъпна офлайн, %2$.2f MB</string>
@@ -538,11 +556,16 @@
   <string name="preference_summary_notification_user_talk">Съобщения от беседи на страници</string>
   <string name="view_because_you_read_card_title">Защото сте чели</string>
   <string name="view_random_card_title">Случайна статия</string>
+  <string name="view_random_article_card_title">Случайна статия</string>
+  <string name="view_random_article_card_action">Още случайни статии</string>
+  <string name="view_top_read_card_title">Най-четени</string>
+  <string name="view_top_read_card_action">Още най-четени</string>
   <string name="view_next_random_article">Зареждане на друга случайна страница</string>
   <string name="view_main_page_card_title">Днес в Уикипедия</string>
   <string name="view_main_page_card_action">Преглед на главната страница</string>
   <string name="view_featured_image_card_title">Картинка на деня</string>
   <string name="view_featured_image_card_download">Изтегляне</string>
+  <string name="view_featured_image_card_share">Споделяне</string>
   <string name="menu_feed_card_dismiss">Скриване на картата</string>
   <string name="menu_feed_card_dismissed">Картата е скрита.</string>
   <string name="menu_feed_card_edit_card_languages">Редактиране на езиците на картите</string>
@@ -561,9 +584,7 @@
   <string name="view_announcement_card_negative_action">Не, благодаря</string>
   <string name="view_offline_card_text">Съдържанието не може да бъде заредено без интернет.</string>
   <string name="view_featured_article_card_title">Избрана статия</string>
-  <string name="view_featured_article_footer_save_button_label">Съхраняване</string>
   <string name="view_static_card_save_button_label">Съхраняване</string>
-  <string name="view_featured_article_footer_saved_button_label">Съхранено</string>
   <string name="feed_configure_activity_title">Персонализиране на хранилката</string>
   <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
   <string name="feed_configure_menu_select_all">Показване на всички</string>
@@ -586,6 +607,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Отказ</string>
   <string name="feed_accessibility_card_load_more_button">Зареждане на още</string>
+  <string name="top_read_activity_title">Най-четени за %s</string>
   <string name="description_edit_text_hint">Описание на статията</string>
   <string name="description_edit_article_description_label">Статия</string>
   <string name="description_edit_translate_article_description_label_per_language">Описание на статията (%s)</string>
@@ -609,6 +631,7 @@
   <string name="description_edit_anon_limit">Благодарим Ви за постоянния интерес за редактиране на описанията на статии! За да редактирате още, моля, влезте във Вашата сметка в Уикипедия.</string>
   <string name="description_edit_license_notice">Променяйки описанието на статия, аз се съгласявам с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувам приносите си под лиценза &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обикновено започва с малка буква</string>
+  <string name="description_edit_voice_input_description">Гласово въвеждане</string>
   <string name="description_too_short">Текстът е твърде кратък.</string>
   <string name="description_ends_with_punctuation">Текстът не трябва да завършва с препинателен знак</string>
   <string name="description_edit_success_saved">Описанието на статията е публикувано!</string>
@@ -722,7 +745,6 @@
   <string name="suggested_edits_contribution_seen_text">Видяно %s пъти през последните 30 дни.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
-  <string name="suggested_edits_rewards_continue_button">Продължаване</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Влизане в / присъединяване към Уикипедия</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Добавили сте %d символа</string>
   <string name="file_page_activity_title">Страница на файла</string>

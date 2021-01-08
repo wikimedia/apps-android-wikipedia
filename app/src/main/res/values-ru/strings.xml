@@ -50,6 +50,7 @@
 * Stjn
 * Teretalexev
 * ToJack
+* VitalKanev
 * Vlad5250
 * Wikisaurus
 * WindEwriX
@@ -70,6 +71,7 @@
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_voice_search">Голосовой поиск</string>
   <string name="search_hint_search_languages">Поиск языка</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Отфильтровать мои списки</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
   <string name="nav_item_search">Найти</string>
@@ -87,6 +89,7 @@
   <string name="history_item_delete_undo">Вернуть</string>
   <string name="notification_archive_undo">Отменить</string>
   <string name="app_settings">Настройки приложения</string>
+  <string name="search_tab_tooltip">Нажмите на иконку снова, чтобы начать ввод поискового запроса.</string>
   <string name="history_list_title">История</string>
   <string name="dialog_title_clear_history">Очистить историю просмотров</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
@@ -226,6 +229,7 @@
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
   <string name="preference_summary_auto_upload_crash_reports">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису, чтобы мы могли проверить проблему, вызвавшую аварию, и исправить ошибку быстрее и проще.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
+  <string name="history_filter_list_hint">История фильтра</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
   <string name="page_protected_autoconfirmed">Эта страница была частично защищена.</string>
   <string name="page_protected_sysop">Эта страница была полностью защищена.</string>
@@ -362,7 +366,9 @@
   <string name="page_offline_notice_last_date">Вы читаете офлайн-версию статьи, сохранённой %s</string>
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
+  <string name="preference_title_customize_explore_feed">Исследователь ленту</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>
+  <string name="preference_summary_customize_explore_feed">Настроить ленту</string>
   <string name="preference_summary_show_link_previews">Показывать быстрый предпросмотр статей при нажатии на ссылки.</string>
   <string name="preference_title_collapse_tables">Свернуть таблицы</string>
   <string name="preference_summary_collapse_tables">Автоматически сворачивать табличные блоки, такие как инфобоксы, примечания и комментарии.</string>
@@ -473,6 +479,7 @@
   <string name="reading_lists_sync_reminder_action">Включить синхронизацию</string>
   <string name="reading_list_login_reminder_title">Синхронизировать список для чтения</string>
   <string name="reading_lists_login_reminder_text">Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
+  <string name="reading_lists_login_button">Войти в Википедию</string>
   <string name="reading_lists_ignore_button">Не сейчас</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Нет</string>
@@ -532,6 +539,7 @@
   <string name="notification_syncing_resume_button">Продолжить</string>
   <string name="notification_syncing_cancel_button">Отмена</string>
   <string name="notification_syncing_reading_list_channel_description">Статус синхронизации списков чтения</string>
+  <string name="notification_many_unread">У вас %d непрочитанных уведомлений</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Загрузка статьи</item>
     <item quantity="few">Загрузки статей</item>
@@ -544,22 +552,28 @@
     <item quantity="many">Загружается %1$d статей</item>
     <item quantity="other">Загружается %1$d статьи</item>
   </plurals>
-  <plurals name="notification_syncing_description" fuzzy="true">
+  <plurals name="notification_syncing_description">
     <item quantity="one">Осталась %1$d статья</item>
-    <item quantity="few">Осталось %1$d статьи</item>
-    <item quantity="other">Осталось %1$d статей</item>
+    <item quantity="few">Осталась %1$d статьи</item>
+    <item quantity="many">Осталась %1$d статей</item>
+    <item quantity="other">Осталась %1$d статей</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Синхронизация списка для чтения</item>
+    <item quantity="few">Синхронизация списков для чтения</item>
+    <item quantity="many">Синхронизация списков для чтения</item>
     <item quantity="other">Синхронизация списков для чтения</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Синхронизация %1$d списка…</item>
+    <item quantity="few">Синхронизация %1$d списков…</item>
+    <item quantity="many">Синхронизация %1$d списков…</item>
     <item quantity="other">Синхронизация %1$d списков…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">Остался %1$d список</item>
     <item quantity="few">Осталось %1$d списка</item>
+    <item quantity="many">Осталось %1$d списков</item>
     <item quantity="other">Осталось %1$d списков</item>
   </plurals>
   <string name="notification_echo_channel_description">Уведомления Википедии</string>
@@ -570,8 +584,10 @@
   <string name="notifications_view_archived">Просмотр архивированных</string>
   <string name="notifications_prefs">Настройки уведомлений</string>
   <string name="notifications_archive">Отметить как прочитанное и архивировать</string>
-  <plurals name="notification_archive_message" fuzzy="true">
+  <plurals name="notification_archive_message">
     <item quantity="one">Уведомление архивировано</item>
+    <item quantity="few">Архивировано %d уведомления</item>
+    <item quantity="many">Архивировано %d уведомлений</item>
     <item quantity="other">Архивировано %d уведомлений</item>
   </plurals>
   <string name="notifications_poll_enable_title">Включить уведомления</string>
@@ -616,18 +632,18 @@
   <string name="home">Главная</string>
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">вчера</item>
-    <item quantity="other">%d день назад</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">%d день назад</item>
+    <item quantity="few">%d дня назад</item>
+    <item quantity="many">%d дней назад</item>
+    <item quantity="other">%d дней назад</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в автономном режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
-  <string name="view_featured_article_footer_save_button_label">Сохранить</string>
   <string name="view_static_card_save_button_label">Сохранить</string>
-  <string name="view_featured_article_footer_saved_button_label">Сохранено</string>
   <string name="feed_configure_activity_title">Настроить ленту</string>
   <string name="feed_configure_menu_reset">Восстановить фильтры по умолчанию</string>
   <string name="feed_configure_menu_select_all">Показать все</string>
@@ -681,7 +697,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описание изображения опубликовано!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Опубликовано описание изображения (%s)!</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Тег(и) изображени(й) опубликовано!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Тег(и) изображений опубликован(ы)!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -746,6 +762,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Подробнее</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница файла на Викискладе</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Страница файла в Википедии</string>
+  <string name="suggested_edits_article_cta_image_tags">Добавить тэги к изображению</string>
   <string name="suggested_edits_article_cta_image_caption">Добавить описание изображения</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Добавить описание изображения (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Просмотр</string>
@@ -812,7 +829,6 @@
   <string name="suggested_edits_contribution_article_label">Статьи</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
-  <string name="suggested_edits_rewards_continue_button">Продолжить</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Текущая версия</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
@@ -850,9 +866,11 @@
   <string name="on_this_day_dialog_next_month">Следующий месяц</string>
   <string name="on_this_day_dialog_previous_month">Предыдущий месяц</string>
   <string name="on_this_day_open_date_picker">Открыть календарь</string>
-  <plurals name="diff_years" fuzzy="true">
-    <item quantity="one">В прошлом году</item>
-    <item quantity="other">%d года назад</item>
+  <plurals name="diff_years">
+    <item quantity="one">%d год назад</item>
+    <item quantity="few">%d года назад</item>
+    <item quantity="many">%d лет назад</item>
+    <item quantity="other">%d лет назад</item>
   </plurals>
   <string name="languages_list_activity_title">Добавить язык</string>
   <string name="languages_list_suggested_text">Предложенные</string>
@@ -862,8 +880,10 @@
   <string name="wikipedia_languages_add_language_text">Добавить язык</string>
   <string name="wikipedia_languages_remove_text">Удалить язык</string>
   <string name="wikipedia_languages_remove_action_mode_title">Удалить язык</string>
-  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
+  <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Удалить выбранный язык?</item>
+    <item quantity="few">Удалить выбранные языки?</item>
+    <item quantity="many">Удалить выбранные языки?</item>
     <item quantity="other">Удалить выбранные языки?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Вы сможете просмотреть содержимое на вкладке Лента и использовать быстрые поисковые фильтры только для других языковых разделов Википедии.</string>
