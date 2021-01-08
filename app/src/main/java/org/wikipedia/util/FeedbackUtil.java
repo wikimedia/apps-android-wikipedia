@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -178,9 +179,16 @@ public final class FeedbackUtil {
         return toast;
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
     public static Balloon showTooltip(@NonNull View anchor, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
-        Balloon balloon = getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss);
+        return showTooltip(getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    }
+
+    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
+        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private static Balloon showTooltip(@NonNull Balloon balloon, @NonNull View anchor, boolean aboveOrBelow, boolean autoDismiss) {
         if (aboveOrBelow) {
             balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f));
         } else {
@@ -192,21 +200,39 @@ public final class FeedbackUtil {
         return balloon;
     }
 
+
     @SuppressWarnings("checkstyle:magicnumber")
     public static Balloon getTooltip(@NonNull Context context, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
-        return new Balloon.Builder(context)
+        return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
                 .setText(text)
+                .setTextSize(14f)
+                .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
+                .setTextColor(Color.WHITE)
+                .setPadding(16)
+                .build();
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
+        return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
+                .setLayout(layoutRes)
+                .setHeight(layoutHeight)
+                .setWidthRatio(DimenUtil.isLandscape(context) ? 0.4f : 0.8f)
+                .setArrowAlignAnchorPadding(arrowAnchorPadding)
+                .build();
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private static Balloon.Builder getTooltipBuilder(@NonNull Context context, boolean aboveOrBelow, boolean autoDismiss) {
+        return new Balloon.Builder(context)
                 .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
                 .setArrowOrientation(aboveOrBelow ? ArrowOrientation.BOTTOM : ArrowOrientation.TOP)
                 .setArrowSize(24)
-                .setPadding(16)
-                .setTextSize(14f)
-                .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
-                .setTextColor(Color.WHITE)
+                .setMarginLeft(8)
+                .setMarginRight(8)
                 .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
-                .setDismissWhenTouchOutside(autoDismiss)
-                .build();
+                .setDismissWhenTouchOutside(autoDismiss);
     }
 
     private static View findBestView(Activity activity) {
