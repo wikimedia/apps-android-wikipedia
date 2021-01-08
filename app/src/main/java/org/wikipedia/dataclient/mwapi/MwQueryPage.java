@@ -174,13 +174,12 @@ public class MwQueryPage extends BaseModel {
         @SerializedName("contentmodel") @Nullable private String contentModel;
         @SerializedName("timestamp") @Nullable private String timeStamp;
         @Nullable private String content;
-
-        @Nullable public String getComment() {
-            return comment;
-        }
-
         @Nullable private String comment;
         @Nullable private Map<String, RevisionSlot> slots;
+
+        @NonNull public String getComment() {
+            return StringUtils.defaultString(comment);
+        }
 
         public long getRevId() {
             return revid;

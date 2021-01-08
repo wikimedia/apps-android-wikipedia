@@ -352,14 +352,12 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,
                                                             @Query("rvstartid") @NonNull Long revisionStartId);
 
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
     Observable<EntityPostResponse> postThanksToRevision(
-            @Field("rev") @NonNull Long revisionId,
+            @Field("rev") long revisionId,
             @NonNull @Field("token") String token);
 
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded
     Observable<WatchPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,

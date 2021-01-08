@@ -87,16 +87,8 @@ public final class DateUtil {
         return getDateStringWithSkeletonPattern(date, "HH:mm");
     }
 
-    public static String getDateAndTimeStringFromTimestampString(@NonNull String timestamp) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
-
-        Date date = null;
-        try {
-            date = dateFormat.parse(timestamp);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return (date == null ? "" : (String) android.text.format.DateFormat.format("MMM dd, yyyy | HH:mm", date));
+    public static String getDateAndTimeStringFromTimestampString(@NonNull String dateStr) throws ParseException {
+        return ((String) android.text.format.DateFormat.format("MMM dd, yyyy | HH:mm", iso8601DateParse(dateStr)));
     }
 
     private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {

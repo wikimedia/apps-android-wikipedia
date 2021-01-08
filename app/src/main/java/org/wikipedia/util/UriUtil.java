@@ -121,17 +121,13 @@ public final class UriUtil {
     }
 
     public static String getUrlForDiff(PageTitle title, long newId, long oldId) {
-        try {
-            return String.format(
-                    "%1$s://%2$s/w/index.php?title=%3$s&diff=%4$s&oldid=%5$s",
-                    title.getWikiSite().scheme(),
-                    title.getWikiSite().authority(),
-                    URLEncoder.encode(title.getPrefixedText(), "utf-8"),
-                    newId, oldId
-            );
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return String.format(
+                "%1$s://%2$s/w/index.php?title=%3$s&diff=%4$s&oldid=%5$s",
+                title.getWikiSite().scheme(),
+                title.getWikiSite().authority(),
+                encodeURL(title.getPrefixedText()),
+                newId, oldId
+        );
     }
 
     @NonNull
