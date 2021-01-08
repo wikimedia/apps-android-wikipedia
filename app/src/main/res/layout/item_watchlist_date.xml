@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dateText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="24dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginStart="16dp"
+    android:gravity="center_vertical"
+    android:textStyle="bold"
+    android:textColor="?attr/material_theme_primary_color"
+    android:textSize="20sp" />
