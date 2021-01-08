@@ -45,37 +45,66 @@
                 android:contentDescription="@null"/>
         </FrameLayout>
 
+        <View
+            android:id="@+id/accentSideBar"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/instructionText"
+            app:layout_constraintBottom_toBottomOf="@id/instructionText"
+            android:background="@color/accent50" />
+
+        <TextView
+            android:id="@+id/instructionText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/accentSideBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/articleTitle"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/multi_select_background_color"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="6sp"
+            android:maxLines="3"
+            android:paddingStart="13dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="10dp"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textSize="16sp"
+            android:text="Is this a good image for the following article?"
+            tools:text="Lorem ipsum" />
+
         <TextView
             android:id="@+id/articleTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/imageContainer"
+            app:layout_constraintBottom_toTopOf="@id/articleDescription"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
             android:ellipsize="end"
             android:fontFamily="serif"
             android:lineSpacingMultiplier="1.1"
             android:maxLines="3"
-            android:layout_marginTop="14dp"
             android:textColor="?attr/primary_text_color"
-            android:textSize="26sp"
-            android:transitionName="@string/transition_article_title" />
+            android:textSize="26sp" />
 
         <org.wikipedia.views.GoneIfEmptyTextView
             android:id="@+id/articleDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="3"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="5dp"
+            android:maxLines="2"
+            android:layout_marginBottom="12dp"
             android:lineSpacingMultiplier="1.1"
             android:textColor="?attr/secondary_text_color"
             android:textSize="13sp"
-            android:transitionName="@string/transition_article_description"
-            app:layout_constraintTop_toBottomOf="@id/articleTitle"
+            app:layout_constraintBottom_toTopOf="@id/articleDivider"
             app:layout_constraintStart_toStartOf="@id/articleTitle"
             app:layout_constraintEnd_toEndOf="@id/articleTitle"/>
 
@@ -83,12 +112,9 @@
             android:id="@+id/articleDivider"
             android:layout_width="@dimen/divider_width_for_article"
             android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="8dp"
             android:background="?attr/material_theme_border_color"
-            android:transitionName="@string/transition_article_divider"
             app:layout_constraintStart_toStartOf="@id/articleTitle"
-            app:layout_constraintTop_toBottomOf="@id/articleDescription"
             app:layout_constraintBottom_toTopOf="@id/articleExtract"/>
 
         <TextView
@@ -98,13 +124,33 @@
             android:ellipsize="end"
             android:lineSpacingMultiplier="1.3"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:textColor="?attr/primary_text_color"
             android:textSize="16sp"
-            android:maxLines="4"
-            app:layout_constraintTop_toBottomOf="@id/articleDivider"
+            android:maxLines="3"
+            app:layout_constraintBottom_toTopOf="@id/acceptButton"
             app:layout_constraintStart_toStartOf="@id/articleTitle"
             app:layout_constraintEnd_toEndOf="@id/articleTitle"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/acceptButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/rejectButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:text="Yes"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rejectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/acceptButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            android:text="No"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

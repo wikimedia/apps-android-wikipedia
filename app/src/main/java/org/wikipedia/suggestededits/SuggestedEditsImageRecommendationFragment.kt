@@ -8,6 +8,7 @@ import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_recommendation_item.*
 import org.wikipedia.Constants
@@ -109,20 +110,20 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
 
         ImageZoomHelper.setViewZoomable(imageView)
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { response ->
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode).subscribeOn(Schedulers.io()),
+                        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, page!!.title).subscribeOn(Schedulers.io()),
+                        { imageInfoResponse, summaryResponse -> Pair(imageInfoResponse, summaryResponse)
+                }).observeOn(AndroidSchedulers.mainThread())
+                .subscribe { pair ->
 
-                    val thumbUrl = response.query()!!.firstPage()!!.imageInfo()!!.thumbUrl
+                    val imageInfo = pair.first.query()!!.firstPage()!!.imageInfo()!!
+                    val summary = pair.second
 
-                    ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+                    ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-
-
-                    articleTitle.text = page!!.title
-
-
+                    articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
+                    articleDescription.text = summary.description
+                    articleExtract.text = StringUtil.fromHtml(summary.extractHtml)
                 })
 
         callback().updateActionButton()
