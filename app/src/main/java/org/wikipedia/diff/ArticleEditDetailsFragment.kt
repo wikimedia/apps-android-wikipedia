@@ -38,6 +38,7 @@ import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTICLE_TITLE
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_LANGUAGE_CODE
 import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_REVISION_ID
+import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_SIZE
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -58,6 +59,7 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private lateinit var articleTitle: String
     private var revisionId: Long = 0
+    private var diffSize: Int = 0
     private var username: String? = null
     private var newerRevisionId: Long = 0
     private var olderRevisionId: Long = 0
@@ -84,9 +86,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 .getLongExtra(EXTRA_SOURCE_EDIT_REVISION_ID, 0)
         languageCode = StringUtils.defaultString(requireActivity().intent
                 .getStringExtra(EXTRA_SOURCE_EDIT_LANGUAGE_CODE), "en")
-        diffText.movementMethod = ScrollingMovementMethod()
 
-        articleTitleView.text = articleTitle
+        setUpInitialUI()
+        setUpListeners()
+        fetchEditDetails()
+    }
+
+    private fun setUpListeners() {
         articleTitleView.setOnClickListener {
             val title = PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode))
             if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
@@ -115,7 +121,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             }
         }
         thankButton.setOnClickListener { showThankDialog() }
-        fetchEditDetails()
+    }
+
+    private fun setUpInitialUI() {
+        diffSize = requireActivity().intent.getIntExtra(EXTRA_SOURCE_EDIT_SIZE, 0)
+        diffText.movementMethod = ScrollingMovementMethod()
+        articleTitleView.text = articleTitle
+        if (diffSize >= 0) {
+            diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
+                    R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
+            diffCharacterCountView.text = String.format("%+d", diffSize)
+        } else {
+            diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
+            diffCharacterCountView.text = String.format("%+d", diffSize)
+        }
     }
 
     private fun fetchEditDetails() {

@@ -144,7 +144,6 @@
                 android:gravity="center_vertical"
                 android:letterSpacing="0.04"
                 android:lineSpacingExtra="2sp"
-                android:text="+ 494"
                 android:textColor="?attr/action_mode_green_background"
                 android:textSize="14sp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
