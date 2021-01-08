@@ -187,7 +187,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                 addContributionButton.icon = null
             }
         } else if (action == IMAGE_RECOMMENDATION) {
-            addContributionButton.text = getString(R.string.description_edit_save)
+            addContributionButton.text = getString(R.string.image_recommendations_task_skip)
             addContributionButton.icon = null
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
             addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)

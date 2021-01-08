@@ -120,10 +120,11 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
                     val summary = pair.second
 
                     ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+                    imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.fromHtml(imageInfo.metadata!!.imageDescription())
 
                     articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
                     articleDescription.text = summary.description
-                    articleExtract.text = StringUtil.fromHtml(summary.extractHtml)
+                    articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
                 })
 
         callback().updateActionButton()
@@ -136,6 +137,11 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
     }
 
     override fun publish() {
+        // the "Publish" button in our case is actually the "skip" button.
+        callback().nextPage(this)
+    }
+
+    fun doPublish() {
         if (publishing || publishSuccess) {
             return
         }
