@@ -286,6 +286,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewBackgroundTab) {
         if (openInNewBackgroundTab) {
             TabUtil.openInNewBackgroundTab(entry);
+            FeedbackUtil.showMessage(this, R.string.article_opened_in_background_tab);
             requireActivity().invalidateOptionsMenu();
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));

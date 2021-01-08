@@ -11,7 +11,6 @@ object TabUtil {
     @JvmStatic
     fun openInNewBackgroundTab(entry: HistoryEntry) {
         val app = WikipediaApp.getInstance()
-        app.commitTabState()
         val tab = if (app.tabCount == 0) app.tabList[0] else Tab()
         if (app.tabCount > 0) {
             app.tabList.add(0, tab)
@@ -20,5 +19,6 @@ object TabUtil {
             }
         }
         tab.backStack.add(PageBackStackItem(entry.title, entry))
+        app.commitTabState()
     }
 }
