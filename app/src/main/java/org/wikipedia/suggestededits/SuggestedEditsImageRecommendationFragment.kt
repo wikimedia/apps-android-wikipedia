@@ -161,7 +161,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
 
         funnel?.logSaveAttempt()
 
-        publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
+        //publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
         publishProgressBarComplete.visibility = GONE
@@ -210,7 +210,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         publishProgressBarComplete.animate()
                 .alpha(1f)
                 .withEndAction {
-                    publishProgressText.setText(R.string.suggested_edits_image_tags_published)
+                    //publishProgressText.setText(R.string.suggested_edits_image_tags_published)
                 }
                 .duration = duration / 2
 
