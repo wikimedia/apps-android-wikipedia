@@ -823,11 +823,6 @@
   <string name="suggested_edits_contribution_seen_text">Zobrazené %skrát za posledních 30 dní.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
-  <string name="suggested_edits_rewards_contribution">Provedli jste %d příspěvků na Wikipedii pomocí Navrhovaných editací. Děkujeme!</string>
-  <string name="suggested_edits_rewards_edit_streak">Zatím jste editovali každý den v řadě již %1$d dní. Jen tak dále, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Vaše editace vidělo %d lidí za posledních 30 dní. Děkujeme a jen tak dále!</string>
-  <string name="suggested_edits_rewards_edit_quality">Vaše úpravy jsou aktuálně %s. Jen tak dále! Těšíme se na vaše příspěvky.</string>
-  <string name="suggested_edits_rewards_continue_button">Pokračovat</string>
   <string name="suggested_edits_encourage_account_creation_title">Věděli jste, že Wikipedii může editovat každý?</string>
   <string name="suggested_edits_encourage_account_creation_message">Navrhování editací je nový způsob editace Wikipedie na Androidu. Pomáhá vám přispívat na Wikipedii malými, ale pro chod Wikipedie důležitými příspěvky.\nNaším cílem je zjednodušit a zpřístupnit editování všem! Přihlaste se nebo se zaregistrujte na Wikipedii, abyste mohli začít.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Přihlásit / zaregistrovat se</string>
