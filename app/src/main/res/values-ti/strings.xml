@@ -384,7 +384,6 @@
   <string name="suggested_edits_contribution_article_label">ጽሑፍ</string>
   <string name="suggested_edits_contribution_views">%s ትርኢታት</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ትማሊ</string>
-  <string name="suggested_edits_rewards_continue_button">ቀጽል</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s ፊደል</item>
     <item quantity="other">%1$s ፊደላት</item>

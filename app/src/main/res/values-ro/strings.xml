@@ -774,8 +774,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
-  <string name="suggested_edits_rewards_contribution">Ați făcut %d contribuții la Wikipedia folosind Modificări sugerate. Mulțumesc!</string>
-  <string name="suggested_edits_rewards_edit_streak">Ați editat în fiecare zi pentru %1$d zile până acum. Continuați șirul, %2$s!</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Ai adăugat %d caractere</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="description_edit_revert_subtitle">Mulțumim pentru editarea Wikipedia!</string>

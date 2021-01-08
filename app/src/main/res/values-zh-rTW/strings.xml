@@ -191,7 +191,7 @@
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="preference_title_auto_upload_crash_reports">傳送損毀報告</string>
-  <string name="preference_summary_auto_upload_crash_reports">請允許手機應用程式自動傳送崩潰報告，至第三方服務提供者，以讓我們可以更快速、更簡易地來檢查故障並修復。</string>
+  <string name="preference_summary_auto_upload_crash_reports">請允許手機應用程式自動傳送崩潰報告至第三方服務提供者，以讓我們可以更快速、更簡易地來檢查故障並修復。</string>
   <string name="editing_error_spamblacklist">檢測到來自被封鎖網域（%s）的連結。請刪除它們並再試一次。</string>
   <string name="history_filter_list_hint">篩選歷史</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
@@ -845,6 +845,7 @@
     <item quantity="one">%1$s 個標籤</item>
     <item quantity="other">%1$s 個標籤</item>
   </plurals>
+  <string name="suggested_edits_contribution_diff_count_text">%1$s個字元</string>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="one">您已移除 %d 個字元</item>
     <item quantity="other">您已移除 %d 個字元</item>
@@ -956,4 +957,5 @@
   <string name="talk_message_hint">撰寫訊息</string>
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
+  <string name="go_to_user_page">前往使用者頁面</string>
 </resources>
