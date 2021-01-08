@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/filterButtonAll"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/filterButtonTalk"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="@string/watchlist_filter_all"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
+
+    <TextView
+        android:id="@+id/filterButtonTalk"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filterButtonAll"
+        app:layout_constraintEnd_toStartOf="@id/filterButtonPages"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="@string/watchlist_filter_talk"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
+
+    <TextView
+        android:id="@+id/filterButtonPages"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filterButtonTalk"
+        app:layout_constraintEnd_toStartOf="@id/filterButtonOther"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="@string/watchlist_filter_pages"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
+
+    <TextView
+        android:id="@+id/filterButtonOther"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filterButtonPages"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="@string/watchlist_filter_other"
+        android:fontFamily="sans-serif-medium"
+        android:background="@drawable/rounded_20dp_accent90_fill"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

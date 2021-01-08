@@ -72,6 +72,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.watchlist.WatchlistActivity;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -149,6 +150,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         });
 
         maybeShowEditsTooltip();
+        maybeShowWatchlistTooltip();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
@@ -463,6 +465,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
     }
 
+    @Override
+    public void watchlistClick() {
+        if (AccountUtil.isLoggedIn()) {
+            startActivity(WatchlistActivity.Companion.newIntent(requireActivity()));
+        }
+    }
+
     public void setBottomNavVisible(boolean visible) {
         navTabContainer.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
@@ -550,6 +559,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
                     ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
                     : getString(R.string.main_tooltip_text_v2), true, false);
+        }
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowWatchlistTooltip() {
+        if (Prefs.isWatchlistPageOnboardingTooltipShown() && !Prefs.isWatchlistMainOnboardingTooltipShown()) {
+            moreContainer.postDelayed(() -> {
+                if (!isAdded()) {
+                    return;
+                }
+                Prefs.setWatchlistMainOnboardingTooltipShown(true);
+                FeedbackUtil.showTooltip(moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, true, false);
+            }, 500);
         }
     }
 

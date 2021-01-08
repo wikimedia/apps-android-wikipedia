@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="?attr/paper_color">
+
+    <TextView
+        android:id="@+id/watchlistExpiryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingHorizontal="16dp"
+        android:text="@string/watchlist_expiry_dialog_title"
+        android:textSize="14sp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:lineSpacingExtra="7sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:background="?attr/color_group_60"/>
+
+    <LinearLayout
+        android:id="@+id/watchlistExpiryPermanent"
+        style="@style/SideDrawerMenuItem">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_star_24"
+            app:tint="@color/yellow50" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/watchlist_expiry_dialog_permanent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/watchlistExpiryOneWeek"
+        style="@style/SideDrawerMenuItem">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_baseline_star_half_24"
+            app:tint="@color/yellow50" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/watchlist_expiry_dialog_one_week" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/watchlistExpiryOneMonth"
+        style="@style/SideDrawerMenuItem">
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/watchlist_expiry_dialog_one_month" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/watchlistExpiryThreeMonths"
+        style="@style/SideDrawerMenuItem">
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/watchlist_expiry_dialog_three_months" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/watchlistExpirySixMonths"
+        style="@style/SideDrawerMenuItem">
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:tag="text"
+            android:text="@string/watchlist_expiry_dialog_six_months" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            android:tag="check"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp"
+            app:tint="?attr/colorAccent" />
+
+    </LinearLayout>
+
+</LinearLayout>
