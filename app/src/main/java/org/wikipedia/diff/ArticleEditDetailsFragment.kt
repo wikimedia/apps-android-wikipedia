@@ -12,7 +12,6 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.*
 import android.widget.FrameLayout
-import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
@@ -159,7 +158,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 }) { t: Throwable? -> L.e(t) })
     }
 
-    private fun updateUI(@NonNull currentRevision: Revision) {
+    private fun updateUI(currentRevision: Revision) {
         diffText.scrollTo(0, 0)
         diffText.text = ""
         usernameButton.text = currentRevision.user
@@ -182,12 +181,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         fetchDiffText()
     }
 
-    private fun setButtonTextAndIconColor(@NonNull view: MaterialButton, @NonNull themedColor: Int) {
+    private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
         view.setTextColor(themedColor)
         view.iconTint = (ColorStateList.valueOf(themedColor))
     }
 
-    private fun watchOrUnwatchTitle(@Nullable expiry: WatchlistExpiry?, @NonNull unwatch: Boolean) {
+    private fun watchOrUnwatchTitle(@Nullable expiry: WatchlistExpiry?, unwatch: Boolean) {
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response: MwQueryResponse ->
@@ -218,7 +217,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         else R.string.watchlist_details_watch_label)
     }
 
-    private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, @NonNull watch: Watch) {
+    private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, watch: Watch) {
         isWatched = watch.watched
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articleTitle))
@@ -231,7 +230,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                             getString(expiry.stringId)),
                     FeedbackUtil.LENGTH_DEFAULT)
             if (!watchlistExpiryChanged) {
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { view ->
+                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                     watchlistExpiryChanged = true
                     bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
@@ -369,16 +368,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(@NonNull menu: Menu, @NonNull inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_edit_details, menu)
         this.menu = menu
     }
 
-    override fun onOptionsItemSelected(@NonNull item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_share_edit -> {
-                ShareUtil.shareText(requireContext(), PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode)), revisionId, olderRevisionId)
+                ShareUtil.shareText(requireContext(), PageTitle(articleTitle,
+                        WikiSite.forLanguageCode(languageCode)), revisionId, olderRevisionId)
                 true
             }
             R.id.menu_user_profile_page -> {
@@ -399,7 +399,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         }
     }
 
-    override fun onExpirySelect(@NonNull expiry: WatchlistExpiry) {
+    override fun onExpirySelect(expiry: WatchlistExpiry) {
         watchOrUnwatchTitle(expiry, false)
         bottomSheetPresenter.dismiss(childFragmentManager)
     }
