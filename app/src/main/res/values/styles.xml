@@ -18,6 +18,7 @@
         <item name="actionModeStyle">@style/ActionModeStyle</item>
         <item name="snackbarStyle">@style/SnackbarStyle</item>
         <item name="snackbarTextViewStyle">@style/SnackbarTextViewStyle</item>
+        <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
         <item name="searchViewStyle">@style/SearchViewStyle</item>
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
@@ -503,5 +504,10 @@
         <item name="android:padding">0dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
     </style>
 </resources>
