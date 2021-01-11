@@ -86,6 +86,8 @@
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Trouver dans l’article</string>
+  <string name="menu_page_add_to_watchlist">Ajouter à la liste de suivi</string>
+  <string name="menu_page_remove_from_watchlist">Supprimer de la liste de suivi</string>
   <string name="edit_section_find_in_page">Trouver dans la page</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
@@ -222,6 +224,8 @@
   <string name="page_protected_can_not_edit">Désolé, votre compte n’a pour le moment pas les droits suffisants pour modifier cette page.</string>
   <string name="page_protected_can_not_edit_anon">Désolé, cette page ne peut pas pour le moment être modifiée anonymement.</string>
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ajouter à la liste de suivi</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Garder trace de ce qui se passe sur les articles qui vous intéressent. Taper sur le menu surgissant et sélectionner &lt;b&gt;Ajouter à la liste de suivi&lt;/b&gt; pour voir les modifications sur cet article.</string>
   <string name="settings_item_preferences">Paramètres</string>
   <string name="settings_activity_title">Paramètres</string>
   <string name="about_description">À propos de l’application Wikipédia</string>
@@ -592,6 +596,7 @@
   <string name="notifications_view_archived_button_text">Afficher les notifications archivées</string>
   <string name="notification_preferences_title">Préférences de notification</string>
   <string name="notifications_mark_unread">Marquer comme non lu</string>
+  <string name="watchlist_title">Liste de suivi</string>
   <string name="preference_title_notification_poll">Activer les notifications</string>
   <string name="preference_summary_notification_poll">Permettre à l’application d’utiliser les données pour vérifier s’il y a de nouvelles notifications en tâche de fond.</string>
   <string name="preference_category_notification_types">Types de notification dans l’application</string>
@@ -966,6 +971,8 @@
   <string name="main_tooltip_text">Bonjour %s, saviez-vous que chacun peut mettre à jour Wikipédia ?</string>
   <string name="main_tooltip_text_v2">Saviez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="main_tooltip_action_button">Démarrer</string>
+  <string name="main_tooltip_watchlist_title">Liste de suivi</string>
+  <string name="main_tooltip_watchlist_text">Trouver les articles et les pages que vous avez précédemment ajoutés à votre liste de suivi dans le menu Plus sous &lt;b&gt;Liste de suivi&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuler</string>
@@ -982,4 +989,23 @@
   <string name="talk_message_empty">Le message ne peut pas être vide.</string>
   <string name="talk_subject_empty">Le sujet ne peut pas être vide.</string>
   <string name="go_to_user_page">Aller à la page utilisateur</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s et sa page de discussion ont été ajoutés à votre liste de suivi %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifier</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">de façon permanente</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pour 1 semaine</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pour 1 mois</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pour 3 mois</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pour 6 mois</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s et sa page de discussion ont été supprimés de votre liste de suivi.</string>
+  <string name="watchlist_expiry_dialog_title">Sélectionner la période de temps de la liste de suivi</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanente</string>
+  <string name="watchlist_expiry_dialog_one_week">1 semaine</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mois</string>
+  <string name="watchlist_expiry_dialog_three_months">3 mois</string>
+  <string name="watchlist_expiry_dialog_six_months">6 mois</string>
+  <string name="watchlist_empty">Vous n’avez aucun article dans votre liste de suivi.</string>
+  <string name="watchlist_filter_all">Tous</string>
+  <string name="watchlist_filter_talk">Discussion</string>
+  <string name="watchlist_filter_pages">Pages</string>
+  <string name="watchlist_filter_other">Autre</string>
 </resources>

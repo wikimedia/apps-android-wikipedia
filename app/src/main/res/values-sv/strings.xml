@@ -61,6 +61,8 @@
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Hitta i artikeln</string>
+  <string name="menu_page_add_to_watchlist">Lägg till i bevakningslistan</string>
+  <string name="menu_page_remove_from_watchlist">Ta bort från bevakningslistan</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
@@ -197,6 +199,8 @@
   <string name="page_protected_can_not_edit">Ledsen, ditt konto har inte tillräcklig behörighet för att redigera denna sida just nu.</string>
   <string name="page_protected_can_not_edit_anon">Tyvärr, denna sida kan inte redigeras anonymt just nu.</string>
   <string name="page_protected_can_not_edit_title">Denna sida är skrivskyddad</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lägg till i bevakningslistan</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Håll reda på vad som händer i artiklar du är intresserad av. Tryck på överflödesmenyn och välj &lt;b&gt;Lägg till i bevakningslistan&lt;/b&gt; för att se ändringar på en artikel.</string>
   <string name="settings_item_preferences">Inställningar</string>
   <string name="settings_activity_title">Inställningar</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -567,6 +571,7 @@
   <string name="notifications_view_archived_button_text">Visa arkiverade aviseringar</string>
   <string name="notification_preferences_title">Aviseringsinställningar</string>
   <string name="notifications_mark_unread">Markera som oläst</string>
+  <string name="watchlist_title">Bevakningslista</string>
   <string name="preference_title_notification_poll">Aktivera aviseringar</string>
   <string name="preference_summary_notification_poll">Tillåt appen att använda data för att leta efter nya aviseringar i bakgrunden.</string>
   <string name="preference_category_notification_types">Aviseringstyper i appen</string>
@@ -941,6 +946,8 @@
   <string name="main_tooltip_text">Hej, %s. Visste du att alla kan redigera på Wikipedia?</string>
   <string name="main_tooltip_text_v2">Visste du att alla kan redigera på Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom igång</string>
+  <string name="main_tooltip_watchlist_title">Bevakningslista</string>
+  <string name="main_tooltip_watchlist_text">Hitta artiklar och sidor du tidigare lade till i din bevakningslista i Fler-menyn under &lt;b&gt;Bevakningslista&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Avbryt</string>
@@ -956,4 +963,24 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
+  <string name="go_to_user_page">Gå till användarsidan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändra</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 vecka</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 månad</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 månader</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 månader</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s och dess diskussionssida har tagits bort från din bevakningslista.</string>
+  <string name="watchlist_expiry_dialog_title">Välj period för bevakningslistan</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 vecka</string>
+  <string name="watchlist_expiry_dialog_one_month">1 månad</string>
+  <string name="watchlist_expiry_dialog_three_months">3 månader</string>
+  <string name="watchlist_expiry_dialog_six_months">6 månader</string>
+  <string name="watchlist_empty">Du har inga artiklar i din bevakningslista.</string>
+  <string name="watchlist_filter_all">Alla</string>
+  <string name="watchlist_filter_talk">Diskussion</string>
+  <string name="watchlist_filter_pages">Sidor</string>
+  <string name="watchlist_filter_other">Övrigt</string>
 </resources>
