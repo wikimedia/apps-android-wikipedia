@@ -20,9 +20,11 @@
 * Mido
 * Mojackjutaily
 * Mr. Ibrahem
+* MuratTheTurkish
 * NEHAOUA
 * PhiberOptik
 * Shbib Al-Subaie
+* Sonic N800
 * Tala Ali
 * Youssef
 * بدارين
@@ -42,9 +44,9 @@
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
-  <string name="nav_item_history">التاريخ</string>
   <string name="nav_item_suggested_edits">التعديلات</string>
   <string name="nav_item_more">المزيد</string>
+  <string name="nav_item_search">بحث</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
@@ -59,6 +61,8 @@
   <string name="history_item_delete_undo">تراجع</string>
   <string name="notification_archive_undo">تراجع</string>
   <string name="app_settings">إعدادات التطبيق</string>
+  <string name="search_tab_tooltip">اضغط الأيقونة مجددًا للبدء مباشرةً في إدخال مصطلح البحث.</string>
+  <string name="history_list_title">التاريخ</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
   <string name="dialog_message_clear_history_yes">نعم</string>
@@ -68,13 +72,15 @@
   <string name="search_redirect_from">بالتحويل من %s</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
-  <string name="menu_page_find_in_page">البحث في الصفحة</string>
+  <string name="menu_page_find_in_page" fuzzy="true">البحث في الصفحة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
+  <string name="menu_page_add_to_default_list">احفظ</string>
   <string name="feed_card_add_to_list">أضف إلى قائمة القراءة</string>
+  <string name="feed_card_add_to_default_list">احفظ</string>
   <string name="menu_page_share">شارك الوصلة</string>
-  <string name="menu_page_open_a_new_tab">افتح تبويبًا جديدًا</string>
+  <string name="menu_page_open_a_new_tab">افتح تبويبا جديدا</string>
   <string name="menu_page_reading_lists">قوائم القراءة</string>
   <string name="menu_page_recently_viewed">طالعتها مؤخرًا</string>
   <string name="menu_long_press_open_page">افتح</string>
@@ -206,10 +212,10 @@
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://ar.wikipedia.org/wiki/ويكيبيديا:عن</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ar</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -222,7 +228,7 @@
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -254,10 +260,10 @@
   <string name="abusefilter_title_disallow">لا يمكنك نشر هذا التعديل. فضلًا عُد وغيّره.</string>
   <string name="abusefilter_text_warn">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ. قد يحتوي التعديل على حالة أو أكثر مما يلي:&lt;br /&gt;&lt;br /&gt;· كتابة الكل بأحرف كبيرة&lt;br /&gt;· إفراغ المقالات أو إضافة وصلات السبام&lt;br /&gt;· إضافة وصلات خارجية أو صور ليست لها صلة بالموضوع&lt;br /&gt;· تكرار أحرف</string>
   <string name="abusefilter_text_disallow">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ، أو تخريب محتمل.&lt;br /&gt;&lt;br /&gt;ويكيبيديا موسوعة ومحايدة فقط، ولا تقبل سوى بالمحتوى الذي يُحقق الملحوظية.</string>
-  <string name="text_size_select">حجم الخط</string>
   <string name="page_similar_titles">صفحات مشابهة</string>
   <string name="search_did_you_mean">هل تقصد \"%s\"؟</string>
   <string name="search_recent_header">أحدث عمليات البحث:</string>
+  <string name="search_results_count_zero">لا نتائج</string>
   <string name="button_clear_all_recent_searches">حذف أحدث عمليات البحث</string>
   <string name="clear_recent_searches_confirm">هل أنت متأكد من حذف سجل البحث؟</string>
   <string name="clear_recent_searches_confirm_yes">نعم</string>
@@ -329,11 +335,13 @@
   <string name="page_offline_notice_last_date">أنت تقرأ نسخةً من هذه المقالة بوضع عدم الاتصال تم حفظها في %s.</string>
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
+  <string name="preference_title_customize_explore_feed">خلاصة الاستكشاف</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
+  <string name="preference_summary_customize_explore_feed">تخصيص خلاصة الاستكشاف</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
-  <string name="preference_title_collapse_tables">طوي الجداول</string>
+  <string name="preference_title_collapse_tables">طَيّ الجداول</string>
   <string name="preference_summary_collapse_tables">تلقائيا اطو الجداول في المقالات، مثل صناديق المعلومات، المراجع، والملاحظات.</string>
-  <string name="nav_item_donate">ادعم ويكيبيديا</string>
+  <string name="nav_item_donate" fuzzy="true">ادعم ويكيبيديا</string>
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
   <string name="location_service_disabled">خدمات الموقع معطلة.</string>
   <string name="enable_location_service">تمكين</string>
@@ -359,7 +367,10 @@
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
   <string name="crash_report_quit">خروج</string>
+  <string name="article_menu_bar_save_button">احفظ</string>
   <string name="article_menu_bar_language_button">اللغة</string>
+  <string name="article_menu_bar_search_button">بحث</string>
+  <string name="article_menu_bar_theme_button">المظهر</string>
   <string name="article_menu_bar_contents_button">المحتويات</string>
   <string name="article_header_edit_hint">تحرير...</string>
   <string name="article_header_edit_description">تحرير وصف المقالة</string>
@@ -371,7 +382,7 @@
   <string name="color_theme_sepia">بني داكن</string>
   <string name="color_theme_test_title">مثال للنص</string>
   <string name="color_theme_test_text">اسحب المنزلق لتغيير حجم النص المستخدم عند قراءة المقالات، لتعيين حجم النص في بقية أجزاء التطبيق; قم بتغيير حجم نص نظامك.</string>
-  <string name="preference_title_app_theme"> شكل التطبيق</string>
+  <string name="preference_title_app_theme"> مظهر التطبيق</string>
   <string name="preference_summary_color_theme">بدّل لاستخدام المظهر التطبيق داكن اللون</string>
   <string name="text_size_increase">زيادة حجم الخط</string>
   <string name="text_size_decrease">تقليل حجم الخط</string>
@@ -439,6 +450,7 @@
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
   <string name="reading_lists_login_reminder_text">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
+  <string name="reading_lists_login_button">سجل الدخول / انضم لويكيبيديا</string>
   <string name="reading_lists_ignore_button">ليس الآن</string>
   <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
   <string name="reading_lists_confirm_remote_delete_no">لا</string>
@@ -554,11 +566,8 @@
   <string name="preference_summary_notification_user_talk">رسائل من صفحات النقاش</string>
   <string name="view_because_you_read_card_title">لأنك قرأت</string>
   <string name="view_random_card_title">صفحات عشوائية</string>
-  <string name="view_random_card_subtitle">تصفح مقالات عشوائية للقراءة من ويكيبيديا.</string>
-  <string name="view_random_card_action">ارمِ النرد</string>
   <string name="view_next_random_article">مقال عشوائي اخر</string>
   <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
-  <string name="view_main_page_card_subtitle">الصفحة الرئيسية في %s</string>
   <string name="view_main_page_card_action">اعرض الصفحة الرئيسية</string>
   <string name="view_featured_image_card_title">صورة اليوم</string>
   <string name="view_featured_image_card_download">تنزيل</string>
@@ -569,7 +578,6 @@
   <string name="feed_featured_image_share_subject">صورة مختارة من ويكيميديا كومنز</string>
   <string name="feed">استكشف</string>
   <string name="home">الرئيسية</string>
-  <string name="most_read_list_card_title">الأكثر زيارة</string>
   <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
   <string name="view_card_news_title">في الأخبار</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -581,9 +589,7 @@
   <string name="view_announcement_card_negative_action">لا شكرًا</string>
   <string name="view_offline_card_text">لا يمكن تحميل المحتوى في وضع عدم الاتصال.</string>
   <string name="view_featured_article_card_title">مقالة مختارة</string>
-  <string name="view_featured_article_footer_save_button_label">حفظ</string>
   <string name="view_static_card_save_button_label">حفظ</string>
-  <string name="view_featured_article_footer_saved_button_label">حُفظت</string>
   <string name="feed_configure_activity_title">تخصيص الخلاصة</string>
   <string name="feed_configure_menu_reset">استعادة العرض الافتراضي</string>
   <string name="feed_configure_menu_select_all">عرض الكل</string>
@@ -638,7 +644,8 @@
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">تم نشر تعليق الصورة!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">تم نشر تعليق الصورة! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">وسم(وسوم) الصورة تم نشرها!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">نُشر وسم الصورة!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">استمتعت بذلك؟ ساعدنا في إضافة المزيد.</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
@@ -649,6 +656,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
+  <string name="suggested_edits_describe_articles">صِف المقالات</string>
+  <string name="suggested_edits_caption_images">تعليقات الصور</string>
   <string name="suggested_edits_tag_images">ضع وسمًا على الصور</string>
   <string name="suggested_edits_review_description">مراجعة وصف المقالة</string>
   <string name="suggested_edits_add_description_button">أضف وصفا</string>
@@ -728,16 +737,16 @@
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">كم يومًا متتابعًا ساهمت فيها بتعديلاتٍ، إن لم تكن قد ساهمت لفترةٍ من الوقت، فسيُعرض تاريخ آخر مساهمة لك.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها:%d.</string>
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
-  <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
+  <string name="suggested_edits_edit_streak_label_text">تسلسل التحرير</string>
   <string name="suggested_edits_views_label_text" fuzzy="true">مشاهدات الصفحة</string>
   <string name="suggested_edits_quality_label_text">جودة التحرير</string>
   <string name="suggested_edits_quality_perfect_text">مثالي</string>
@@ -758,6 +767,7 @@
     <item quantity="other">%d أيام</item>
   </plurals>
   <string name="suggested_edits_what_is_title">ما هي التعديلات المقترحة؟</string>
+  <string name="suggested_edits_what_is_text">تقدم التعديلات المقترحة فرصًا للمساهمات الصغيرة والحيوية في ويكيبيديا.</string>
   <string name="suggested_edits_learn_more">معرفة المزيد</string>
   <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
@@ -771,6 +781,9 @@
   <string name="suggested_edits_contribution_image_label">صورة</string>
   <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
+  <string name="suggested_edits_encourage_account_creation_title">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
+  <string name="suggested_edits_encourage_account_creation_message">التعديلات المقترحة هي طريقة جديدة لتحرير ويكيبيديا على الأندرويد. تُساعدك على إجراء مساهمات صغيرة ولكنها حيوية في ويكيبيديا.\nهدفنا هو جعل التحرير أسهل وأكثر مرونة للجميع! سجّل الدخول أو انضم لويكيبيديا للبدء.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">سجل الدخول / انضم لويكيبيديا</string>
   <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
   <string name="suggested_edits_contribution_current_revision_text">أضيف تعديلك إلى ويكيبيديا</string>
   <string name="file_page_activity_title">صفحة ملف</string>
@@ -789,7 +802,7 @@
   <string name="onboarding_get_started">ابدأ</string>
   <string name="onboarding_maybe_later">ربما لاحقا</string>
   <string name="onboarding_explore_title">طريقة جديدة للاستكشاف</string>
-  <string name="onboarding_explore_text">تبحّر في محتويات ويكيبيديا باقتراحات الاستكشاف المُحدثة باستمرار. &lt;br/&gt; &lt;b&gt;خصِّص&lt;/b&gt;  الاقتراحات حسب اهتماماتك - سواء أكانت تعلم شيءٍ عن أحداثٍ تاريخيةٍ &lt;b&gt;في هذا اليوم&lt;/b&gt;، أو أو ارمِ النرد لاقتراحٍ &lt;b&gt;عشوائي&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">تبحّر في محتويات ويكيبيديا باقتراحات الاستكشاف المُحدثة باستمرار. &lt;br/&gt; &lt;b&gt;خصِّص&lt;/b&gt;  الاقتراحات حسب اهتماماتك - سواء أكانت تعلم شيءٍ عن أحداثٍ تاريخيةٍ &lt;b&gt;في هذا اليوم&lt;/b&gt;، أو ارمِ النرد لاقتراحٍ &lt;b&gt;عشوائي&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
   <string name="onboarding_reading_list_sync_text_v2">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">إرسال بيانات مجهولة المصدر</string>
@@ -802,13 +815,10 @@
   <string name="app_shortcuts_random">عشوائي</string>
   <string name="app_shortcuts_continue_reading">مواصلة القراءة</string>
   <string name="app_shortcuts_search">بحث</string>
-  <string name="more_trending_text">أكثر مثل هذا</string>
-  <string name="top_on_this_day">الأكثر زيارةً في %1$s</string>
   <string name="on_this_day_card_title">في هذا اليوم</string>
   <string name="more_events_text">المزيد في هذا اليوم</string>
   <string name="events_count_text">%1$s أحداث من %2$s–%3$d</string>
   <string name="this_year">هذا العام</string>
-  <string name="back_to_top">العودة إلى أعلى</string>
   <string name="on_this_day_dialog_next_month">الشهر التالي</string>
   <string name="on_this_day_dialog_previous_month">الشهر السابق</string>
   <string name="on_this_day_open_date_picker">فتح منتقي التاريخ</string>
@@ -856,8 +866,9 @@
   <string name="wikitext_reference">مرجع</string>
   <string name="wikitext_preview_link">معاينة الرابط</string>
   <string name="main_drawer_help">مساعدة</string>
-  <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
-  <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟</string>
+  <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
+  <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه بإمكان الجميع تحرير ويكيبيديا؟</string>
+  <string name="main_tooltip_text_v2">هل تعلم أنه بإمكان الجميع تعديل ويكيبيديا؟</string>
   <string name="main_tooltip_action_button">ابدأ</string>
   <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_ok_button_text">حسنا</string>

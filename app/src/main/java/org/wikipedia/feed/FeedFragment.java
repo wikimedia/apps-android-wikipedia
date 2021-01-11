@@ -4,17 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -27,10 +23,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.commons.FilePageActivity;
-import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
 import org.wikipedia.feed.configure.LanguageItemAdapter;
@@ -40,28 +32,20 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.mostread.MostReadArticlesActivity;
 import org.wikipedia.feed.mostread.MostReadListCard;
-import org.wikipedia.feed.news.NewsItemCard;
+import org.wikipedia.feed.news.NewsCard;
+import org.wikipedia.feed.news.NewsItemView;
 import org.wikipedia.feed.random.RandomCardView;
-import org.wikipedia.feed.suggestededits.SuggestedEditsCard;
-import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
-import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
-import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
-import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 
 import java.util.ArrayList;
@@ -72,16 +56,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
@@ -96,19 +74,19 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private FeedFunnel funnel;
     private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
-    private boolean searchIconVisible;
-    @Nullable private SuggestedEditsCardView suggestedEditsCardView;
+    private boolean shouldElevateToolbar;
 
     public interface Callback {
-        void onFeedSearchRequested();
+        void onFeedSearchRequested(View view);
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
-        void onFeedSelectPageFromExistingTab(HistoryEntry entry);
+        void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] shareElements);
         void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
         void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
-        void onFeedNewsItemSelected(NewsItemCard card, HorizontalScrollingListCardItemView view);
+        void onFeedNewsItemSelected(NewsCard card, NewsItemView view);
+        void onFeedSeCardFooterClicked();
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
@@ -204,7 +182,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     public boolean shouldElevateToolbar() {
-        return searchIconVisible;
+        return shouldElevateToolbar;
     }
 
     @Override
@@ -240,45 +218,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         } else if ((requestCode == ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
                 || (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
             refresh();
-        } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
-            SuggestedEditsFunnel.get().log();
-            SuggestedEditsFunnel.reset();
-            if (resultCode == RESULT_OK) {
-                if (suggestedEditsCardView != null && suggestedEditsCardView.getCard() != null) {
-                    suggestedEditsCardView.refreshCardContent();
-                    SuggestedEditsSnackbars.show(requireActivity(), suggestedEditsCardView.getCard().getAction(), true,
-                            app.language().getAppLanguageCodes().get(1), true, () -> {
-                        PageTitle pageTitle = suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
-                        if (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) {
-                            startActivity(FilePageActivity.newIntent(requireActivity(), pageTitle));
-                        } else if (suggestedEditsCardView.getCard().getAction() == ADD_CAPTION || suggestedEditsCardView.getCard().getAction() == TRANSLATE_CAPTION) {
-                            startActivity(GalleryActivity.newIntent(requireActivity(),
-                                    pageTitle, pageTitle.getPrefixedText(), pageTitle.getWikiSite(), 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE));
-                        } else {
-                            startActivity(PageActivity.newIntentForNewTab(requireContext(), new HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle));
-                        }
-                    });
-                }
-            }
         }
-    }
-
-    private void startDescriptionEditScreen() {
-        if (suggestedEditsCardView == null) {
-            return;
-        }
-        DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
-        if (action == ADD_IMAGE_TAGS) {
-            startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage(), FEED), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
-            return;
-        }
-        PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
-                ? suggestedEditsCardView.getCard().getTargetSummaryForEdit().getPageTitle()
-                : suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
-        startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
-                suggestedEditsCardView.getCard().getSourceSummaryForEdit(), suggestedEditsCardView.getCard().getTargetSummaryForEdit(),
-                action, FEED),
-                ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
     @Override
@@ -297,33 +237,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onDestroy() {
         super.onDestroy();
         coordinator.reset();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_feed, menu);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        MenuItem searchItem = menu.findItem(R.id.menu_feed_search);
-        if (searchItem != null) {
-            searchItem.setVisible(searchIconVisible);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_feed_search:
-                if (getCallback() != null) {
-                    getCallback().onFeedSearchRequested();
-                }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     @Override
@@ -372,10 +285,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onShowCard(@Nullable Card card) {
             if (card != null) {
                 funnel.cardShown(card.type(), getCardLanguageCode(card));
-
-                if (card instanceof SuggestedEditsCard) {
-                    ((SuggestedEditsCard) card).logImpression();
-                }
             }
         }
 
@@ -409,9 +318,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSelectPageFromExistingTab(@NonNull Card card, @NonNull HistoryEntry entry) {
+        public final void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements) {
             if (getCallback() != null) {
-                getCallback().onFeedSelectPageFromExistingTab(entry);
+                getCallback().onFeedSelectPageWithAnimation(entry, sharedElements);
                 funnel.cardClicked(card.type(), getCardLanguageCode(card));
             }
         }
@@ -445,9 +354,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSearchRequested() {
+        public void onSearchRequested(View view) {
             if (getCallback() != null) {
-                getCallback().onFeedSearchRequested();
+                getCallback().onFeedSearchRequested(view);
             }
         }
 
@@ -480,10 +389,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view) {
+        public void onNewsItemSelected(@NonNull NewsCard newsCard, NewsItemView view) {
             if (getCallback() != null) {
-                funnel.cardClicked(card.type(), card.wikiSite().languageCode());
-                getCallback().onFeedNewsItemSelected(card, view);
+                funnel.cardClicked(newsCard.type(), newsCard.wikiSite().languageCode());
+                getCallback().onFeedNewsItemSelected(newsCard, view);
             }
         }
 
@@ -535,34 +444,21 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onRandomClick(@NonNull RandomCardView view) {
-            if (!app.isOnline()) {
-                view.getRandomPage();
-            } else {
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(requireActivity(), view, ViewCompat.getTransitionName(view));
-                startActivity(RandomActivity.newIntent(requireActivity(), FEED), options.toBundle());
+            startActivity(RandomActivity.newIntent(requireActivity(), view.getCard().wikiSite(), FEED));
+        }
+
+        @Override
+        public void onFooterClick(@NonNull Card card) {
+            if (card instanceof MostReadListCard) {
+                startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
             }
         }
 
         @Override
-        public void onGetRandomError(@NonNull Throwable t, @NonNull final RandomCardView view) {
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), ThrowableUtil.isOffline(t)
-                    ? getString(R.string.view_wiki_error_message_offline) : t.getMessage(),
-                    FeedbackUtil.LENGTH_DEFAULT);
-            snackbar.setAction(R.string.page_error_retry, (v) -> view.getRandomPage());
-            snackbar.show();
-        }
-
-        @Override
-        public void onMoreContentSelected(@NonNull Card card) {
-            startActivity(MostReadArticlesActivity.newIntent(requireContext(), (MostReadListCard) card));
-        }
-
-        @Override
-        public void onSuggestedEditsCardClick(@NonNull SuggestedEditsCardView view) {
-            funnel.cardClicked(view.getCard().type(), getCardLanguageCode(view.getCard()));
-            suggestedEditsCardView = view;
-            startDescriptionEditScreen();
+        public void onSeCardFooterClicked() {
+            if (getCallback() != null) {
+                getCallback().onFeedSeCardFooterClicked();
+            }
         }
     }
 
@@ -570,9 +466,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
-            boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
-            if (shouldShowSearchIcon != searchIconVisible) {
-                searchIconVisible = shouldShowSearchIcon;
+            boolean shouldElevate = feedView.getFirstVisibleItemPosition() != 0;
+            if (shouldElevate != shouldElevateToolbar) {
+                shouldElevateToolbar = shouldElevate;
                 requireActivity().invalidateOptionsMenu();
                 if (getCallback() != null) {
                     getCallback().updateToolbarElevation(shouldElevateToolbar());

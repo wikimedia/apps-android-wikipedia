@@ -2,9 +2,9 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import com.google.android.material.snackbar.Snackbar
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.util.FeedbackUtil
 
@@ -21,7 +21,6 @@ object SuggestedEditsSnackbars {
     fun show(activity: Activity, action: Action?, sequentialSnackbar: Boolean = true, targetLanguageCode: String? = null,
              enableViewAction: Boolean = false, listener: OpenPageListener? = null) {
         val app = WikipediaApp.getInstance()
-        val abTestFunnel = ABTestSuggestedEditsSnackbarFunnel()
         if (sequentialSnackbar) {
             val snackbar = FeedbackUtil.makeSnackbar(activity,
                     if ((action == Action.TRANSLATE_DESCRIPTION || action == Action.TRANSLATE_CAPTION)
@@ -50,21 +49,22 @@ object SuggestedEditsSnackbars {
                             if (activity.isDestroyed) {
                                 return
                             }
-                            showFeedLinkSnackbar(activity, abTestFunnel, action)
+                            showFeedLinkSnackbar(activity, action)
                         }
                     })
 
             snackbar.show()
         } else {
-            showFeedLinkSnackbar(activity, abTestFunnel, action)
+            showFeedLinkSnackbar(activity, action)
         }
-        abTestFunnel.logSnackbarShown()
     }
 
-    private fun showFeedLinkSnackbar(activity: Activity, abTestFunnel: ABTestSuggestedEditsSnackbarFunnel, action: Action?) {
-        if (abTestFunnel.shouldSeeSnackbarAction() && action != null && getSessionCount(activity, action) < MAX_SHOW_PER_SESSION) {
+    private fun showFeedLinkSnackbar(activity: Activity, action: Action?) {
+        if (action != null && getSessionCount(activity, action) < MAX_SHOW_PER_SESSION) {
             FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_tasks_onboarding_get_started) { activity.startActivity(SuggestionsActivity.newIntent(activity, action)) }
+                    .setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
+                        activity.startActivity(SuggestionsActivity.newIntent(activity, action, Constants.InvokeSource.SNACKBAR_ACTION))
+                    }
                     .show()
             incrementSessionMap(activity, action)
         }

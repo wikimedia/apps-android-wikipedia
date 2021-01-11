@@ -4,16 +4,15 @@
 * Saraiki
 -->
 <resources>
-  <string name="app_name_prod">ویکیپیڈیا</string>
-  <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
-  <string name="app_name_alpha">ویکیپیڈیا الفا</string>
+  <string name="app_name_prod">وکیپیڈیا</string>
+  <string name="app_name_beta">وکیپیڈیا آزمائشی</string>
+  <string name="app_name_alpha">وکیپیڈیا الفا</string>
   <string name="wikimedia">ویکیمیڈیا</string>
   <string name="nav_item_back">واپس</string>
   <string name="page_tabs_back">پچھوں</string>
   <string name="nav_item_forward">اڳوں تے بھیڄو</string>
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_languages">زبان دی ڳول</string>
-  <string name="nav_item_history">تاریخچہ</string>
   <string name="nav_item_more">ٻئے</string>
   <string name="error_network_error">انٹرنیٹ نال جوڑ نی تھی سڳا</string>
   <string name="page_error_retry">ولدا کوشش کرو</string>
@@ -36,13 +35,14 @@
   <string name="search_redirect_from">%s کنوں ری ڈائرکٹ تھی ڳیا</string>
   <string name="menu_page_show_tabs">ٹیب ݙکھاؤ</string>
   <string name="menu_page_other_languages">زبان وٹاؤ</string>
-  <string name="menu_page_find_in_page">ورقے وچ ڳولو</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ورقے وچ ڳولو</string>
   <string name="menu_page_font_and_theme">فانٹ  تے تھیم</string>
   <string name="menu_page_add_to_list">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="menu_page_add_to_default_list">بچاؤ</string>
   <string name="feed_card_add_to_default_list">بچاؤ</string>
   <string name="menu_page_share">لنک سانجھا کرو</string>
   <string name="menu_page_open_a_new_tab">نویں ٹیب کھولو</string>
+  <string name="menu_page_new_tab">نویں ٹیب</string>
   <string name="menu_long_press_open_page">کھولو</string>
   <string name="menu_long_press_open_in_new_tab">نویں ٹیب وچ کھولو</string>
   <string name="menu_long_press_copy_page">لنک دا پتہ نقل کرو</string>
@@ -115,7 +115,7 @@
   <string name="create_account_button">کھاتہ کھولو</string>
   <string name="create_account_ip_block_details">تفصیلاں</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
+  <string name="wikipedia_app_faq">وکیپیڈیا ایپ عمومی سوالات</string>
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="page_protected_can_not_edit_title">ایہ ورقہ محفوظ ہے</string>
@@ -146,7 +146,6 @@
   <string name="edit_conflict_title">تبدیلی رپھڑ</string>
   <string name="find_next">اڳلا ڳولو</string>
   <string name="find_previous">پچھلا ڳولو</string>
-  <string name="text_size_select">فونٹ سائز</string>
   <string name="page_similar_titles">ہکوجہے ورقے</string>
   <string name="search_did_you_mean">بھلا تہاݙا مطلب ہائی %s؟</string>
   <string name="search_recent_header">حالیہ ڳول:</string>
@@ -260,8 +259,6 @@
   <string name="feed">پھرولو</string>
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
-  <string name="view_featured_article_footer_save_button_label">بچاؤ</string>
-  <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
   <string name="feed_configure_menu_select_all">سب ݙکھاؤ</string>
   <string name="feed_configure_menu_deselect_all">سارے لُکاؤ</string>
   <string name="feed_configure_onboarding_action">مرضی مطابق بݨاؤ</string>
@@ -305,12 +302,11 @@
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
-  <string name="app_shortcuts_random">پُٹھے سِدھے</string>
+  <string name="app_shortcuts_random">قݨے نال</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
   <string name="this_year">ایں سال</string>
-  <string name="back_to_top">واپس اُتے ون٘ڄو</string>
   <string name="languages_list_activity_title">زبان شامل کرو</string>
   <string name="languages_list_all_text">ساریاں زباناں</string>
   <string name="wikipedia_languages_title">وکی میڈیا دی زباناں</string>

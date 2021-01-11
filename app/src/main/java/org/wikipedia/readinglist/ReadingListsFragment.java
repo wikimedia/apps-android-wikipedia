@@ -133,6 +133,7 @@ public class ReadingListsFragment extends Fragment implements
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
+        searchEmptyView.setVisibility(View.GONE);
 
         enableLayoutTransition(true);
         return view;
@@ -378,7 +379,8 @@ public class ReadingListsFragment extends Fragment implements
                     && !currentSearchQuery.equals(searchQuery));
 
             // if the default list is empty, then removes it.
-            if (lists.size() == 1 && ((ReadingList) lists.get(0)).isDefault()
+            if (lists.size() == 1 && (lists.get(0) instanceof ReadingList)
+                    && ((ReadingList) lists.get(0)).isDefault()
                     && ((ReadingList) lists.get(0)).pages().isEmpty()) {
                 lists.remove(0);
             }

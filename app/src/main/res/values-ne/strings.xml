@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Drjpoudel
+* MuratTheTurkish
 * Nirajan pant
 * Nirjal stha
 * Parbat subedi
@@ -22,7 +23,6 @@
   <string name="search_hint">विकिपिडियामा खोज्नुहोस्</string>
   <string name="search_hint_voice_search">आवाज आगत खोज</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
-  <string name="nav_item_history">इतिहास</string>
   <string name="nav_item_suggested_edits" fuzzy="true">सुझाइएका सम्पादनहरू</string>
   <string name="nav_item_more">थप</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
@@ -48,7 +48,7 @@
   <string name="search_redirect_from">%s बाट पुनः निर्देशित भएको</string>
   <string name="menu_page_show_tabs">ट्याबहरू देखाउनुहोस्</string>
   <string name="menu_page_other_languages">भाषा परिवर्तन गर्नुहोस्</string>
-  <string name="menu_page_find_in_page">पृष्ठमा खोज्नुहोस्</string>
+  <string name="menu_page_find_in_page" fuzzy="true">पृष्ठमा खोज्नुहोस्</string>
   <string name="edit_section_find_in_page">पृष्ठमा खोज्नुहोस्</string>
   <string name="menu_page_font_and_theme">फन्ट र थिम</string>
   <string name="menu_page_add_to_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
@@ -185,8 +185,10 @@
   <string name="about_description">विकिपिडिया अनुप्रयोगको बारेमा</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">प्रयोगका सर्तहरू</string>
+  <string name="about_wikipedia_url">https://ne.wikipedia.org/wiki/विकिपीडिया:विकिपीडियाको_बारेमा</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://ne.wikipedia.org/wiki/विकिपिडिया:खाता_बनाउनको_लागि_अनुरोध</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">प्रयोग भएका पुस्तकालयहरू</string>
@@ -223,7 +225,6 @@
   <string name="find_last_occurence">यो अन्तिम घटना हो</string>
   <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
-  <string name="text_size_select">लिपि आकार</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
@@ -289,7 +290,7 @@
   <string name="preference_title_show_link_previews">लिङ्कका पूर्वावलोकनहरू देखाउनुहोस्</string>
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
   <string name="preference_title_collapse_tables">तालिका लुकाउनुहोस्</string>
-  <string name="nav_item_donate">विकिपिडियालाई समर्थन गर्नुहोस्</string>
+  <string name="nav_item_donate" fuzzy="true">विकिपिडियालाई समर्थन गर्नुहोस्</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
   <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>
@@ -410,10 +411,8 @@
   <string name="preference_summary_notification_user_talk">वार्तालाप पृष्ठका सन्देशहरू</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
-  <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएका कुनै लेखहरू पढ्नुहोस्</string>
   <string name="view_next_random_article">अर्को अनियमित लेख खाेल्नुहाेस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
-  <string name="view_main_page_card_subtitle">%s को मुख्य पृष्ठ</string>
   <string name="view_main_page_card_action">मुख्य पृष्ठ हेर्नुहोस्</string>
   <string name="view_featured_image_card_title">आजको तस्बिर</string>
   <string name="view_featured_image_card_download">डाउनलोड गर्नुहोस्</string>
@@ -422,7 +421,6 @@
   <string name="menu_feed_overflow_label">थप विकल्पहरू</string>
   <string name="feed_featured_image_share_subject">विकिमिडिया कमन्सको प्रमुख छवि</string>
   <string name="feed">अन्वेषण</string>
-  <string name="most_read_list_card_title">प्रचलनमा रहेका</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकन</string>
   <string name="view_card_news_title">समाचारमा</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -434,9 +432,7 @@
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
-  <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
-  <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
   <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
   <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
@@ -531,7 +527,6 @@
   <string name="suggested_edits_contribution_views">%s अवलोकनहरू</string>
   <string name="suggested_edits_contribution_seen_text">अन्तिम ३० दिनमा %s पटक हेरियो।</string>
   <string name="suggested_edits_contribution_date_yesterday_text">हिजो</string>
-  <string name="suggested_edits_rewards_continue_button">जारी राख्नुहोस्</string>
   <string name="suggested_edits_encourage_account_creation_title">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">हालैको संशोधन</string>
@@ -558,12 +553,10 @@
   <string name="app_shortcuts_random">कुनै पनि एक</string>
   <string name="app_shortcuts_continue_reading">पढ्ने कार्य जारी राख्नुहोस्</string>
   <string name="app_shortcuts_search">खोज्नुहोस्</string>
-  <string name="more_trending_text">यो जस्तै अरू</string>
   <string name="on_this_day_card_title">आजको दिनमा</string>
   <string name="more_events_text">आजको दिनमा थप</string>
   <string name="events_count_text">%1$s कार्यक्रम देखि %2$s–%3$d</string>
   <string name="this_year">यस वर्ष</string>
-  <string name="back_to_top">सुरुमा फर्कनुहोस्</string>
   <string name="on_this_day_dialog_next_month">अर्को महिना</string>
   <string name="on_this_day_dialog_previous_month">गत महिना</string>
   <string name="on_this_day_open_date_picker">मिति टिपुवा खोल्नुहोस्</string>

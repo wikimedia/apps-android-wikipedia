@@ -47,9 +47,7 @@ object EditingSuggestionsProvider {
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
-                            for (page in pages) {
-                                articlesWithMissingDescriptionCache.push(page.title())
-                            }
+                            pages.forEach { articlesWithMissingDescriptionCache.push(it.title()) }
                             if (!articlesWithMissingDescriptionCache.empty()) {
                                 title = articlesWithMissingDescriptionCache.pop()
                             }
@@ -82,7 +80,7 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode()), WikiSite.normalizeLanguageCode(targetLang))
                         .map { pages ->
-                            var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
+                            var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
@@ -94,28 +92,34 @@ object EditingSuggestionsProvider {
                                         || !entity.sitelinks().containsKey(targetWiki.dbName())) {
                                     continue
                                 }
-                                articlesWithTranslatableDescriptionCache.push(Pair(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki),
-                                        PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)))
+                                val sourceTitle = PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)
+                                sourceTitle.description = entity.descriptions()[sourceWiki.languageCode()]?.value()
+                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
                             }
                             if (!articlesWithTranslatableDescriptionCache.empty()) {
-                                sourceAndTargetPageTitles = articlesWithTranslatableDescriptionCache.pop()
+                                targetAndSourcePageTitles = articlesWithTranslatableDescriptionCache.pop()
                             }
-                            if (sourceAndTargetPageTitles == null) {
+                            if (targetAndSourcePageTitles == null) {
                                 throw ListEmptyException()
                             }
-                            sourceAndTargetPageTitles
+                            targetAndSourcePageTitles
                         }
                         .retry(retryLimit) { t: Throwable ->
                             t is ListEmptyException
                         }
             }
-        }.flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
+        }.flatMap { getSummary(it) }
                 .doFinally { mutex.release() }
     }
 
-    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
-        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
-                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText), { source, target -> Pair(source, target) })
+    private fun getSummary(targetAndSourcePageTitles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
+        return Observable.zip(ServiceFactory.getRest(targetAndSourcePageTitles.first.wikiSite).getSummary(null, targetAndSourcePageTitles.first.prefixedText),
+                ServiceFactory.getRest(targetAndSourcePageTitles.second.wikiSite).getSummary(null, targetAndSourcePageTitles.second.prefixedText), { target, source ->
+            if (target.description.isNullOrEmpty()) {
+                target.description = targetAndSourcePageTitles.first.description
+            }
+            Pair(source, target)
+        })
     }
 
     fun getNextImageWithMissingCaption(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<String> {
@@ -135,9 +139,7 @@ object EditingSuggestionsProvider {
                 ServiceFactory.getRest(WikiSite(Service.COMMONS_URL)).getImagesWithoutCaptions(WikiSite.normalizeLanguageCode(lang))
                         .map { pages ->
                             imagesWithMissingCaptionsCacheLang = lang
-                            for (page in pages) {
-                                imagesWithMissingCaptionsCache.push(page.title())
-                            }
+                            pages.forEach { imagesWithMissingCaptionsCache.push(it.title()) }
                             var item: String? = null
                             if (!imagesWithMissingCaptionsCache.empty()) {
                                 item = imagesWithMissingCaptionsCache.pop()
@@ -177,7 +179,7 @@ object EditingSuggestionsProvider {
                                 if (!page.captions.containsKey(sourceLang) || page.captions.containsKey(targetLang)) {
                                     continue
                                 }
-                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang] ?: error(""), page.title()))
+                                imagesWithTranslatableCaptionCache.push((page.captions[sourceLang] ?: error("")) to page.title())
                             }
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()
@@ -208,14 +210,7 @@ object EditingSuggestionsProvider {
                                 if (page.imageInfo()!!.mimeType != "image/jpeg") {
                                     continue
                                 }
-                                var hasTags = false
-                                for (revision in page.revisions()) {
-                                    if (revision.getContentFromSlot("mediainfo").contains("P180")) {
-                                        hasTags = true
-                                        break
-                                    }
-                                }
-                                if (!hasTags) {
+                                if (page.revisions().none { "P180" in it.getContentFromSlot("mediainfo") }) {
                                     imagesWithMissingTagsCache.push(page)
                                 }
                             }

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Bsitzmann
+* MuratTheTurkish
 * Pichnat Thong
 * Sovichet
 * Y.snsqr
@@ -16,7 +17,6 @@
   <string name="nav_item_forward">ទៅមុខ</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
   <string name="search_hint_search_languages">ស្វែងរកភាសា</string>
-  <string name="nav_item_history">ប្រវត្តិ</string>
   <string name="error_network_error">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ។</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="page_error_back_to_main">បកក្រោយ</string>
@@ -33,7 +33,7 @@
   <string name="search_redirect_from">បានបញ្ជូនបន្តពី %s</string>
   <string name="menu_page_show_tabs">បង្ហាញថេប</string>
   <string name="menu_page_other_languages">ប្ដូរភាសា</string>
-  <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ស្វែងរកក្នុងទំព័រ</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="menu_page_add_to_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
   <string name="menu_page_share">ចែក​ចាយតំណភ្ជាប់</string>
@@ -143,6 +143,7 @@
   <string name="about_description">អំពីកម្មវិធីវិគីភីឌា</string>
   <string name="privacy_policy_description">គោលការណ៍នៃ​ភាពឯកជន</string>
   <string name="terms_of_use_description">លក្ខខណ្ឌប្រើប្រាស់</string>
+  <string name="about_wikipedia_url">https://km.wikipedia.org/wiki/វិគីភីឌា:អំពីវិគីភីឌា</string>
   <string name="about_libraries_heading">បណ្ណាល័យដែលបានប្រើ</string>
   <string name="about_contributors_heading">អ្នករួមចំណែក</string>
   <string name="about_translators_heading">អ្នកបកប្រែ</string>
@@ -169,7 +170,6 @@
   <string name="find_previous">ស្វែងរក​មុន</string>
   <string name="abusefilter_title_warn">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់បោះផ្សាយវាមែនទេ?</string>
   <string name="abusefilter_title_disallow">អ្នកមិនអាចបោះផ្សាយកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
-  <string name="text_size_select">ទំហំអក្សរ</string>
   <string name="page_similar_titles">ទំព័រស្រដៀង</string>
   <string name="search_did_you_mean">អ្នកប្រហែលជាចង់រក \"%s\" មែនទេ?</string>
   <string name="search_recent_header">ការស្វែងរកថ្មីៗនេះ៖</string>
@@ -213,7 +213,7 @@
   <string name="button_continue_to_disambiguation">មើលទំព័រស្រដៀង</string>
   <string name="link_preview_disambiguation_description">ចំណងជើងអត្ថបទនេះទាក់ទងនឹងទំព័រច្រើន៖</string>
   <string name="button_add_to_reading_list">បន្ថែមទៅក្នុងបញ្ជីអំណាន</string>
-  <string name="nav_item_donate">គាំទ្រវិគីភីឌា</string>
+  <string name="nav_item_donate" fuzzy="true">គាំទ្រវិគីភីឌា</string>
   <string name="enable_location_service">បើកប្រើ</string>
   <string name="location_permissions_enable_action">បើកប្រើ</string>
   <string name="multi_select_items_selected">បានជ្រើសយក %d</string>
@@ -297,16 +297,13 @@
   <string name="preference_title_notification_thanks">ការថ្លែងអំណរគុណ</string>
   <string name="preference_summary_notification_thanks">មាននរណាម្នាក់បានថ្លែងអំណរគុណអ្នកដែលបានធ្វើការកែប្រែមួយ</string>
   <string name="view_because_you_read_card_title">ព្រោះអ្នកបានអាន</string>
-  <string name="view_random_card_action">បោះគ្រាប់ឡុកឡាក់</string>
   <string name="view_next_random_article">ផ្ទុកទំព័រចៃដន្យមួយទៀត</string>
   <string name="view_main_page_card_title">ថ្ងៃនេះនៅលើវិគីភីឌា</string>
-  <string name="view_main_page_card_subtitle">ទំព័រដើមនៅ %s</string>
   <string name="view_main_page_card_action">មើលទំព័រដើម</string>
   <string name="view_featured_image_card_title">រូបភាពថ្ងៃនេះ</string>
   <string name="view_featured_image_card_download">ទាញ​យក</string>
   <string name="menu_feed_overflow_label">ជម្រើសបន្ថែម</string>
   <string name="feed">រុករក</string>
-  <string name="most_read_list_card_title">កំពុងពេញនិយម</string>
   <string name="view_card_news_title">នៅក្នុងសារព័ត៌មាន</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">ម្សិលមិញ</item>
@@ -315,8 +312,6 @@
   <string name="view_continue_reading_card_subtitle_today">ថ្ងៃនេះ</string>
   <string name="view_continue_reading_card_subtitle_read_date">បានអាននៅ %s ថ្ងៃមុន</string>
   <string name="view_announcement_card_negative_action">ទេ, អរគុណហើយ</string>
-  <string name="view_featured_article_footer_save_button_label">រក្សាទុក</string>
-  <string name="view_featured_article_footer_saved_button_label">បាន​រក្សាទុក</string>
   <string name="feed_configure_menu_select_all">បង្ហាញទាំង​អស់​</string>
   <string name="feed_configure_menu_deselect_all">លាក់ទាំង​អស់​</string>
   <string name="description_edit_save">បោះផ្សាយ</string>
@@ -359,12 +354,10 @@
   <string name="app_shortcuts_random">ចៃដន្យ</string>
   <string name="app_shortcuts_continue_reading">អានបន្ត</string>
   <string name="app_shortcuts_search">ស្វែងរក</string>
-  <string name="top_on_this_day">កំពុងពេញនិយមនៅ %1$s</string>
   <string name="on_this_day_card_title">នៅថ្ងៃនេះ</string>
   <string name="more_events_text">បន្ថែមទៀតនៅថ្ងៃនេះ</string>
   <string name="events_count_text">ព្រឹត្តិការណ៍ចំនួន %1$s ពី %2$s–%3$d</string>
   <string name="this_year">ឆ្នាំនេះ</string>
-  <string name="back_to_top">ត្រឡប់ទៅលើ</string>
   <plurals name="diff_years">
     <item quantity="one">ឆ្នាំមុន</item>
     <item quantity="other">%d ឆ្នាំមុន</item>

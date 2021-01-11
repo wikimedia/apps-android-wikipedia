@@ -1,5 +1,6 @@
 package org.wikipedia.search;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -24,11 +25,13 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -36,6 +39,7 @@ import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -50,8 +54,11 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static android.view.View.GONE;
+import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
@@ -68,23 +75,20 @@ public class SearchResultsFragment extends Fragment {
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
-    /**
-     * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
-     */
-    private static final int NANO_TO_MILLI = 1_000_000;
 
     @BindView(R.id.search_results_display) View searchResultsDisplay;
     @BindView(R.id.search_results_container) View searchResultsContainer;
     @BindView(R.id.search_results_list) RecyclerView searchResultsList;
     @BindView(R.id.search_error_view) WikiErrorView searchErrorView;
-    @BindView(R.id.search_empty_view) View searchEmptyView;
     @BindView(R.id.search_suggestion) TextView searchSuggestion;
     private Unbinder unbinder;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
+    private final LruCache<String, List<Integer>> searchResultsCountCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
+    @NonNull private final List<Integer> resultsCountList = new ArrayList<>();
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
@@ -165,13 +169,22 @@ public class SearchResultsFragment extends Fragment {
         }
 
         List<SearchResult> cacheResult = searchResultsCache.get(getSearchLanguageCode() + "-" + term);
+        List<Integer> cacheResultsCount = searchResultsCountCache.get(getSearchLanguageCode() + "-" + term);
         if (cacheResult != null && !cacheResult.isEmpty()) {
             clearResults();
             displayResults(cacheResult);
             return;
+        } else if (cacheResultsCount != null && !cacheResultsCount.isEmpty()) {
+            clearResults();
+            displayResultsCount(cacheResultsCount);
+            return;
         }
 
         doTitlePrefixSearch(term, force);
+    }
+
+    public void clearSearchResultsCountCache() {
+        searchResultsCountCache.evictAll();
     }
 
     private void doTitlePrefixSearch(final String searchTerm, boolean force) {
@@ -181,8 +194,9 @@ public class SearchResultsFragment extends Fragment {
 
         disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
                 Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                        Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)),
-                        Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)), (searchResponse, readingListSearchResults, historySearchResults) -> {
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchTerm.length() >= 2) ? Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)) : Observable.just(new SearchResults()),
+                        (searchResponse, readingListSearchResults, historySearchResults) -> {
 
                             SearchResults searchResults;
                             if (searchResponse != null && searchResponse.query() != null && searchResponse.query().pages() != null) {
@@ -204,9 +218,10 @@ public class SearchResultsFragment extends Fragment {
                                 searchResults = new SearchResults();
                             }
                             handleSuggestion(searchResults.getSuggestion());
-                            List<SearchResult> resultList = new ArrayList<>(readingListSearchResults.getResults());
-                            resultList.addAll(historySearchResults.getResults());
+                            List<SearchResult> resultList = new ArrayList<>();
                             addSearchResultsFromTabs(resultList);
+                            resultList.addAll(readingListSearchResults.getResults());
+                            resultList.addAll(historySearchResults.getResults());
                             resultList.addAll(searchResults.getResults());
                             return resultList;
                         }))
@@ -217,7 +232,6 @@ public class SearchResultsFragment extends Fragment {
                     searchErrorView.setVisibility(GONE);
                     handleResults(results, searchTerm, startTime);
                 }, caught -> {
-                    searchEmptyView.setVisibility(GONE);
                     searchErrorView.setVisibility(VISIBLE);
                     searchErrorView.setError(caught);
                     searchResultsContainer.setVisibility(GONE);
@@ -226,6 +240,9 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void addSearchResultsFromTabs(List<SearchResult> resultList) {
+        if (currentSearchTerm.length() < 2) {
+            return;
+        }
         List<Tab> tabList = WikipediaApp.getInstance().getTabList();
         for (Tab tab : tabList) {
             if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
@@ -310,8 +327,7 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(results -> {
+                .flatMap(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
                     log(resultList, startTime);
@@ -322,11 +338,59 @@ public class SearchResultsFragment extends Fragment {
 
                     // full text special:
                     SearchResultsFragment.this.lastFullTextResults = results;
-                    displayResults(resultList);
+                    if (!resultList.isEmpty()) {
+                        displayResults(resultList);
+                    } else {
+                        updateProgressBar(true);
+                    }
+                    return resultList.isEmpty() ? doSearchResultsCountObservable(searchTerm) : Observable.empty();
+                })
+                .toList()
+                .doAfterTerminate(() -> updateProgressBar(false))
+                .subscribe(list -> {
+                    if (!list.isEmpty()) {
+
+                        // make a singleton list if all results are empty.
+                        int sum = 0;
+                        for (int count : list) {
+                            sum += count;
+                            if (sum > 0) {
+                                break;
+                            }
+                        }
+
+                        if (sum == 0) {
+                            list = Collections.singletonList(0);
+                        }
+
+                        searchResultsCountCache.put(getSearchLanguageCode() + "-" + searchTerm, list);
+                        displayResultsCount(list);
+                    }
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
                 }));
+    }
+
+    private Observable<Integer> doSearchResultsCountObservable(final String searchTerm) {
+        return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
+                .concatMap(langCode -> {
+                    if (langCode.equals(getSearchLanguageCode())) {
+                        return Observable.just(new MwQueryResponse());
+                    }
+                    return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .flatMap(response -> {
+                                        if (response.query() != null && response.query().pages() != null) {
+                                            return Observable.just(response);
+                                        }
+                                        return ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, BATCH_SIZE, null, null);
+                                    });
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> response.query() != null && response.query().pages() != null ? response.query().pages().size() : 0);
     }
 
     private void clearResults() {
@@ -341,8 +405,9 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void clearResults(boolean clearSuggestion) {
+        searchResultsContainer.setVisibility(View.GONE);
+        searchErrorView.setVisibility(View.GONE);
         searchResultsContainer.setVisibility(GONE);
-        searchEmptyView.setVisibility(GONE);
         searchErrorView.setVisibility(GONE);
         if (clearSuggestion) {
             searchSuggestion.setVisibility(GONE);
@@ -351,6 +416,7 @@ public class SearchResultsFragment extends Fragment {
         lastFullTextResults = null;
 
         totalResults.clear();
+        resultsCountList.clear();
 
         getAdapter().notifyDataSetChanged();
     }
@@ -377,15 +443,14 @@ public class SearchResultsFragment extends Fragment {
                 totalResults.add(newResult);
             }
         }
+        searchResultsContainer.setVisibility(View.VISIBLE);
+        getAdapter().notifyDataSetChanged();
+    }
 
-        if (totalResults.isEmpty()) {
-            searchEmptyView.setVisibility(VISIBLE);
-            searchResultsContainer.setVisibility(GONE);
-        } else {
-            searchEmptyView.setVisibility(GONE);
-            searchResultsContainer.setVisibility(VISIBLE);
-        }
-
+    private void displayResultsCount(@NonNull List<Integer> list) {
+        resultsCountList.clear();
+        resultsCountList.addAll(list);
+        searchResultsContainer.setVisibility(View.VISIBLE);
         getAdapter().notifyDataSetChanged();
     }
 
@@ -438,21 +503,70 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private final class SearchResultAdapter extends RecyclerView.Adapter<SearchResultItemViewHolder> {
+    private final class SearchResultAdapter extends RecyclerView.Adapter<DefaultViewHolder<View>> {
+
+        private static final int VIEW_TYPE_ITEM = 0;
+        private static final int VIEW_TYPE_NO_RESULTS = 1;
+
+        @Override
+        public int getItemViewType(int position) {
+            return totalResults.isEmpty() ? VIEW_TYPE_NO_RESULTS : VIEW_TYPE_ITEM;
+        }
+
         @Override
         public int getItemCount() {
-            return totalResults.size();
+            return totalResults.isEmpty() ? resultsCountList.size() : totalResults.size();
         }
 
         @Override
-        public SearchResultItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
-                    .inflate(R.layout.item_search_result, parent, false));
+        public DefaultViewHolder<View> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            if (viewType == VIEW_TYPE_ITEM) {
+                return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
+                        .inflate(R.layout.item_search_result, parent, false));
+            } else {
+                return new NoSearchResultItemViewHolder(LayoutInflater.from(getContext())
+                        .inflate(R.layout.item_search_no_results, parent, false));
+            }
         }
 
         @Override
-        public void onBindViewHolder(@NonNull SearchResultItemViewHolder holder, int pos) {
-            holder.bindItem(pos);
+        public void onBindViewHolder(@NonNull DefaultViewHolder<View> holder, int pos) {
+            if (holder instanceof SearchResultItemViewHolder) {
+                ((SearchResultItemViewHolder) holder).bindItem(pos);
+            } else if (holder instanceof NoSearchResultItemViewHolder) {
+                ((NoSearchResultItemViewHolder) holder).bindItem(pos);
+            }
+        }
+    }
+
+    private class NoSearchResultItemViewHolder extends DefaultViewHolder<View> {
+        NoSearchResultItemViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+
+        private ColorStateList accentColorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
+        private ColorStateList secondaryColorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color));
+
+        void bindItem(int position) {
+            String langCode = WikipediaApp.getInstance().language().getAppLanguageCodes().get(position);
+            int resultsCount = resultsCountList.get(position);
+            TextView resultsText = getView().findViewById(R.id.results_text);
+            TextView languageCodeText = getView().findViewById(R.id.language_code);
+            resultsText.setText(resultsCount == 0 ? getString(R.string.search_results_count_zero)
+                    : getResources().getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount));
+            resultsText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
+            languageCodeText.setVisibility(resultsCountList.size() == 1 ? View.GONE : View.VISIBLE);
+            languageCodeText.setText(langCode);
+            languageCodeText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
+            languageCodeText.setBackgroundTintList(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
+            ViewUtil.formatLangButton(languageCodeText, langCode,
+                    LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
+            getView().setEnabled(resultsCount > 0);
+            getView().setOnClickListener(view -> {
+                if (getParentFragment() != null) {
+                    ((SearchFragment) getParentFragment()).setUpLanguageScroll(position);
+                }
+            });
         }
     }
 
@@ -487,13 +601,14 @@ public class SearchResultsFragment extends Fragment {
                 searchResultIcon.setVisibility(VISIBLE);
                 searchResultIcon.setImageResource(result.getType() == SearchResult.SearchResultType.HISTORY
                         ? R.drawable.ic_restore_black_24dp : result.getType() == SearchResult.SearchResultType.TAB_LIST
-                        ? R.drawable.ic_tab_single_24px : R.drawable.ic_bookmark_border_white_24dp);
+                        ? R.drawable.ic_tab_one_24px : R.drawable.ic_bookmark_white_24dp);
             }
 
             // highlight search term within the text
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
-            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? GONE : VISIBLE);
+            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null)
+                    ? result.getType() == SearchResult.SearchResultType.SEARCH ? GONE : INVISIBLE : VISIBLE);
             ViewUtil.loadImageWithRoundedCorners(searchResultItemImage, result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
@@ -511,7 +626,7 @@ public class SearchResultsFragment extends Fragment {
             getView().setLongClickable(true);
             getView().setOnClickListener(view -> {
                 Callback callback = callback();
-                if (callback != null) {
+                if (callback != null && position < totalResults.size()) {
                     callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
                 }
             });
@@ -546,7 +661,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private int displayTime(long startTime) {
-        return (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
+        return (int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime);
     }
 
     @Nullable

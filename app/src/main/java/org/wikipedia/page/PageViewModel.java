@@ -14,9 +14,9 @@ import okhttp3.CacheControl;
 public class PageViewModel {
     @Nullable private Page page;
     @Nullable private PageTitle title;
-    @Nullable private PageTitle titleOriginal;
     @Nullable private HistoryEntry curEntry;
     @Nullable private ReadingListPage readingListPage;
+    private boolean watched;
 
     private boolean forceNetwork;
 
@@ -34,14 +34,6 @@ public class PageViewModel {
 
     public void setTitle(@Nullable PageTitle title) {
         this.title = title;
-    }
-
-    @Nullable public PageTitle getTitleOriginal() {
-        return titleOriginal;
-    }
-
-    public void setTitleOriginal(@Nullable PageTitle titleOriginal) {
-        this.titleOriginal = titleOriginal;
     }
 
     @Nullable public HistoryEntry getCurEntry() {
@@ -78,6 +70,14 @@ public class PageViewModel {
 
     public boolean shouldLoadAsMobileWeb() {
         return title != null && title.isMainPage();
+    }
+
+    public void setWatched(boolean isWatched) {
+        this.watched = isWatched;
+    }
+
+    public boolean isWatched() {
+        return watched;
     }
 
     public CacheControl getCacheControl() {

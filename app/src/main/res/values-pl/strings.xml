@@ -12,10 +12,12 @@
 * Devwebtel
 * Expert3222
 * InternerowyGołąb
+* Kareyac
 * Lantuszka
 * Masti
 * Matik7
 * Matma Rex
+* MuratTheTurkish
 * Nharateh
 * Py64
 * Rail
@@ -48,9 +50,9 @@
   <string name="search_hint_voice_search">Wyszukiwanie za pomocą głosu</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
-  <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
+  <string name="nav_item_search">Szukaj</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="card_offline_error_retry">Ponów próbę</string>
@@ -65,6 +67,8 @@
   <string name="history_item_delete_undo">Cofnij</string>
   <string name="notification_archive_undo">Cofnij</string>
   <string name="app_settings">Ustawienia aplikacji</string>
+  <string name="search_tab_tooltip">Stuknij ikonę ponownie, aby bezpośrednio rozpocząć wyszukiwanie frazy.</string>
+  <string name="history_list_title">Historia</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="dialog_message_clear_history_yes">Tak</string>
@@ -74,7 +78,8 @@
   <string name="search_redirect_from">Przekierowano z %s</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
-  <string name="menu_page_find_in_page">Znajdź na stronie</string>
+  <string name="menu_page_find_in_page">Znajdź w artykule</string>
+  <string name="menu_page_add_to_watchlist">Dodaj do listy obserwowanych</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
@@ -83,6 +88,7 @@
   <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
+  <string name="menu_page_new_tab">Nowa karta</string>
   <string name="menu_page_reading_lists">Listy do przeczytania</string>
   <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
   <string name="menu_long_press_open_page">Otwórz</string>
@@ -210,6 +216,7 @@
   <string name="page_protected_can_not_edit">Twoje konto nie ma w tej chwili wystarczających uprawnień do edycji tej strony.</string>
   <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
   <string name="about_description">O aplikacji Wikipedia</string>
@@ -223,7 +230,7 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
-  <string name="android_app_edit_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
@@ -263,7 +270,6 @@
   <string name="abusefilter_title_disallow">Nie możesz opublikować tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
   <string name="abusefilter_text_disallow">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną lub wandalizm.&lt;br /&gt;&lt;br /&gt;Wikipedia to encyklopedia i mogą w niej się znaleźć wyłącznie neutralne encyklopedyczne treści.</string>
-  <string name="text_size_select">Rozmiar czcionki</string>
   <string name="page_similar_titles">Podobne strony</string>
   <string name="search_did_you_mean">Czy chodziło Ci o \"%s\"?</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
@@ -330,6 +336,7 @@
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
   <string name="button_continue_to_article">Przeczytaj artykuł</string>
+  <string name="button_continue_to_talk_page">Otwórz stronę dyskusji</string>
   <string name="button_continue_to_disambiguation">Pokaż podobne strony</string>
   <string name="link_preview_disambiguation_description">Ten tytuł odnosi się do więcej niż jednej strony:</string>
   <string name="button_add_to_reading_list">Dodaj do listy czytanych</string>
@@ -344,7 +351,7 @@
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="preference_title_collapse_tables">Zwiń tabele</string>
   <string name="preference_summary_collapse_tables">Automatyczne zwinięcie w artykułach tabel, takich jak infoboksy, odnośniki i uwagi.</string>
-  <string name="nav_item_donate">Wspomóż Wikipedię</string>
+  <string name="nav_item_donate">Wspieraj</string>
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
   <string name="location_service_disabled">Usługi lokalizacji są wyłączone.</string>
   <string name="enable_location_service">Włącz</string>
@@ -390,6 +397,7 @@
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
   <string name="text_size_percent_default">%s (domyślnie)</string>
+  <string name="text_style_title">Czcionka</string>
   <string name="nav_item_reading_lists">Moje listy</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_move_to">Przejdź do listy lektur</string>
@@ -556,6 +564,7 @@
   <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
+  <string name="watchlist_title">Obserwowane</string>
   <string name="preference_title_notification_poll">Poll notifications</string>
   <string name="preference_summary_notification_poll">Pozwól aplikacji używać danych do sprawdzania nowych powiadomień w tle.</string>
   <string name="preference_category_notification_types">Typy powiadomień w aplikacji</string>
@@ -575,14 +584,14 @@
   <string name="preference_summary_notification_user_talk">Wiadomości ze stron dyskusji</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_title">Losowy artykuł</string>
-  <string name="view_random_card_subtitle">Przeglądaj losowe artykuły na Wikipedii</string>
-  <string name="view_random_card_action">Rzuć kostką</string>
+  <string name="view_random_article_card_title">Losowy artykuł</string>
+  <string name="view_random_article_card_action">Więcej losowych artykułów</string>
   <string name="view_next_random_article">Załaduj inny losowy artykuł</string>
   <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
-  <string name="view_main_page_card_subtitle">Strona główna na %s</string>
   <string name="view_main_page_card_action">Zobacz stronę główną</string>
   <string name="view_featured_image_card_title">Grafika dnia</string>
   <string name="view_featured_image_card_download">Pobierz</string>
+  <string name="view_featured_image_card_share">Udostępnij</string>
   <string name="menu_feed_card_dismiss">Ukryj tę kartę</string>
   <string name="menu_feed_card_dismissed">Karta ukryta.</string>
   <string name="menu_feed_card_edit_card_languages">Edytuj języki karty</string>
@@ -590,7 +599,6 @@
   <string name="feed_featured_image_share_subject">Najlepsze zdjęcia z Wikimedia Commons</string>
   <string name="feed">Odkrywaj</string>
   <string name="home">Strona główna</string>
-  <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -602,9 +610,7 @@
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="view_offline_card_text">Treści nie można załadować w trybie offline.</string>
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
-  <string name="view_featured_article_footer_save_button_label">Zapisz</string>
   <string name="view_static_card_save_button_label">Zapisz</string>
-  <string name="view_featured_article_footer_saved_button_label">Zapisane</string>
   <string name="feed_configure_activity_title">Dostosuj kanały</string>
   <string name="feed_configure_menu_reset">Przywróć domyślny widok</string>
   <string name="feed_configure_menu_select_all">Pokaż wszystko</string>
@@ -784,10 +790,6 @@
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
-  <string name="suggested_edits_rewards_edit_streak">Jak dotąd edytowałeś codziennie przez %1$d dni. Kontynuuj serię, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Zmiany zostały obejrzane przez %d osób w ciągu ostatnich 30 dni. Dzięki i kontynuuj!</string>
-  <string name="suggested_edits_rewards_edit_quality">Dotychczasowe modyfikacje to %s. Tak trzymaj! Czekamy na Twój wkład.</string>
-  <string name="suggested_edits_rewards_continue_button">Kontynuuj</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Zaloguj się / Dołącz do Wikipedii</string>
   <string name="suggested_edits_contribution_type_image_tag">Znacznik obrazu</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
@@ -822,13 +824,10 @@
   <string name="app_shortcuts_random">Losowa strona</string>
   <string name="app_shortcuts_continue_reading">Czytaj dalej</string>
   <string name="app_shortcuts_search">Szukaj</string>
-  <string name="more_trending_text">Więcej podobnych</string>
-  <string name="top_on_this_day">Popularne w dniu %1$s</string>
   <string name="on_this_day_card_title">Dzisiejszego dnia</string>
   <string name="more_events_text">Więcej dzisiejszego dnia</string>
   <string name="events_count_text">%1$s zdarzeń z %2$s–%3$d</string>
   <string name="this_year">W tym roku</string>
-  <string name="back_to_top">Powrót do góry</string>
   <string name="on_this_day_dialog_next_month">Następny miesiąc</string>
   <string name="on_this_day_dialog_previous_month">Poprzedni miesiąc</string>
   <string name="on_this_day_open_date_picker">Wybierz datę</string>
@@ -836,6 +835,8 @@
     <item quantity="one">w zeszłym roku</item>
     <item quantity="other">%d lat temu</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Udało ci się dostać do innej epoki 🚀</string>
+  <string name="on_this_day_back_to_future">Powróć do przyszłości</string>
   <string name="languages_list_activity_title">Dodaj język</string>
   <string name="languages_list_suggested_text">Sugerowany</string>
   <string name="languages_list_all_text">Wszystkie języki</string>
@@ -880,8 +881,27 @@
   <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_text_v2">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
+  <string name="main_tooltip_watchlist_title">Obserwowane</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anuluj</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Anuluj</string>
+  <string name="talk_title">Dyskusja</string>
+  <string name="talk_user_title">Dyskusja: %s</string>
+  <string name="talk_new_topic">Nowy wątek</string>
+  <string name="talk_page_empty">Ta strona dyskusji jest pusta</string>
+  <string name="talk_add_reply">Odpowiedz</string>
+  <string name="talk_no_subject">(Bez tematu)</string>
+  <string name="talk_reply_subject">Temat</string>
+  <string name="talk_reply_hint">Utwórz odpowiedź</string>
+  <string name="talk_message_hint">Utwórz wiadomość</string>
+  <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
+  <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
+  <string name="go_to_user_page">Przejdź do strony użytkownika</string>
+  <string name="watchlist_expiry_dialog_one_week">1 tydzień</string>
+  <string name="watchlist_expiry_dialog_one_month">1 miesiąc</string>
+  <string name="watchlist_expiry_dialog_three_months">3 miesiące</string>
+  <string name="watchlist_expiry_dialog_six_months">3 miesiące</string>
+  <string name="watchlist_filter_talk">Dyskusja</string>
+  <string name="watchlist_filter_pages">Strony</string>
 </resources>

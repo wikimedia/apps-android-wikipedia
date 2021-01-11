@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
@@ -44,10 +46,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
-import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
@@ -59,6 +58,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ImageUrlUtil;
@@ -67,11 +67,11 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -108,13 +108,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_WIKI = "wiki";
     public static final String EXTRA_REVISION = "revision";
     public static final String EXTRA_SOURCE = "source";
-    public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
-    public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
+
+    private static JavaScriptActionHandler.ImageHitInfo TRANSITION_INFO;
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageTitle pageTitle;
 
+    @BindView(R.id.gallery_transition_receiver) ImageView transitionReceiver;
     @BindView(R.id.gallery_toolbar_container) ViewGroup toolbarContainer;
     @BindView(R.id.gallery_toolbar) Toolbar toolbar;
     @BindView(R.id.gallery_toolbar_gradient) View toolbarGradient;
@@ -160,14 +161,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     @Nullable private String targetLanguageCode;
-
-    @NonNull
-    public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
-                                   @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, null, filename, wiki, 0, source)
-                .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
-                .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
-    }
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
@@ -255,7 +248,36 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             }
             setControlsShowing(controlsShowing);
         });
-        loadGalleryContent();
+
+        if (TRANSITION_INFO != null
+                && TRANSITION_INFO.getWidth() > 0 && TRANSITION_INFO.getHeight() > 0) {
+
+            float aspect = TRANSITION_INFO.getHeight() / TRANSITION_INFO.getWidth();
+
+            FrameLayout.LayoutParams params = DimenUtil.getDisplayWidthPx() < DimenUtil.getDisplayHeightPx()
+                    ? new FrameLayout.LayoutParams(DimenUtil.getDisplayWidthPx(), (int)(DimenUtil.getDisplayWidthPx() * aspect))
+                    : new FrameLayout.LayoutParams((int)(DimenUtil.getDisplayHeightPx() / aspect), DimenUtil.getDisplayHeightPx());
+            params.gravity = Gravity.CENTER;
+            transitionReceiver.setLayoutParams(params);
+
+            transitionReceiver.setVisibility(View.VISIBLE);
+            ViewUtil.loadImage(transitionReceiver, TRANSITION_INFO.getSrc(), TRANSITION_INFO.getCenterCrop(), false, false, null);
+
+            final int transitionMillis = 500;
+            transitionReceiver.postDelayed(() -> {
+                if (isDestroyed()) {
+                    return;
+                }
+                loadGalleryContent();
+            }, transitionMillis);
+
+        } else {
+
+            TRANSITION_INFO = null;
+            transitionReceiver.setVisibility(View.GONE);
+            loadGalleryContent();
+
+        }
     }
 
     @Override public void onDestroy() {
@@ -268,6 +290,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             unbinder.unbind();
         }
 
+        TRANSITION_INFO = null;
         super.onDestroy();
     }
 
@@ -358,6 +381,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         startCaptionEdit(item);
     }
 
+    public static void setTransitionInfo(@NonNull JavaScriptActionHandler.ImageHitInfo hitInfo) {
+        TRANSITION_INFO = hitInfo;
+    }
+
     private void startCaptionEdit(GalleryItemFragment item) {
         PageTitle title = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
         String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
@@ -395,7 +422,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private void startCaptionTranslation(GalleryItemFragment item) {
         PageTitle sourceTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
         PageTitle targetTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1))));
-        String currentCaption = item.getMediaInfo().getCaptions().get(app.getAppOrSystemLanguageCode());
+        String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
         if (TextUtils.isEmpty(currentCaption)) {
             currentCaption = StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString();
         }
@@ -448,6 +475,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             }
             currentPosition = position;
         }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+            hideTransitionReceiver(false);
+        }
     }
 
     @Override
@@ -470,7 +502,38 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (item != null && item.getImageTitle() != null && funnel != null) {
             funnel.logGalleryClose(pageTitle, item.getImageTitle().getDisplayText());
         }
+
+        if (TRANSITION_INFO != null) {
+            showTransitionReceiver();
+        }
+
         super.onBackPressed();
+    }
+
+
+    public void onMediaLoaded() {
+        hideTransitionReceiver(true);
+    }
+
+    private void showTransitionReceiver() {
+        transitionReceiver.setVisibility(View.VISIBLE);
+    }
+
+    private void hideTransitionReceiver(boolean delay) {
+        if (transitionReceiver.getVisibility() == View.GONE) {
+            return;
+        }
+        if (delay) {
+            final int hideDelayMillis = 250;
+            transitionReceiver.postDelayed(() -> {
+                if (isDestroyed() || transitionReceiver == null) {
+                    return;
+                }
+                transitionReceiver.setVisibility(View.GONE);
+            }, hideDelayMillis);
+        } else {
+            transitionReceiver.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -498,6 +561,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void showLinkPreview(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getSupportFragmentManager(),
                 LinkPreviewDialog.newInstance(new HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null));
+    }
+
+    public void setViewPagerEnabled(boolean enabled) {
+        galleryPager.setUserInputEnabled(enabled);
     }
 
     /**
@@ -577,7 +644,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(mediaList -> {
-                    updateProgressBar(false);
                     applyGalleryList(mediaList.getItems("image", "video"));
                 }, caught -> {
                     updateProgressBar(false);
@@ -590,15 +656,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
      */
     private void loadGalleryContent() {
         updateProgressBar(false);
-        if (getIntent().hasExtra(EXTRA_FEATURED_IMAGE)) {
-            FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
-                    getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
-            featuredImage.setAge(getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0));
-            updateProgressBar(false);
-            applyGalleryList(Collections.singletonList(new MediaListItem(featuredImage.title())));
-        } else {
-            fetchGalleryItems();
-        }
+        fetchGalleryItems();
     }
 
     private void applyGalleryList(@NonNull List<MediaListItem> list) {
@@ -652,7 +710,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
-                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), (captions, protectionInfoRsp, imageTags) -> {
+                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), sourceWiki.languageCode()), (captions, protectionInfoRsp, imageTags) -> {
                     item.getMediaInfo().setCaptions(captions);
                     return new Pair<>(protectionInfoRsp.query().isEditProtected(), imageTags.size());
                 })

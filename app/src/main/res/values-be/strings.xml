@@ -5,9 +5,11 @@
 * Da voli
 * Envlh
 * Gorgich
+* Kareyac
 * Liashko
 * Maksim L.
 * Mechanizatar
+* MuratTheTurkish
 * SimondR
 * Unomano
 -->
@@ -18,7 +20,6 @@
   <string name="wikimedia">Вікімедыя</string>
   <string name="search_hint">Пошук у Вікіпедыі</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
-  <string name="nav_item_history">Гісторыя</string>
   <string name="error_network_error">Не атрымліваецца падключыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паўтарыць</string>
   <string name="page_error_back_to_main">Вярнуцца</string>
@@ -34,7 +35,9 @@
   <string name="search_redirect_from">Перанакіравана з %s</string>
   <string name="menu_page_show_tabs">Паказаць укладкі</string>
   <string name="menu_page_other_languages">Змяніць мову</string>
-  <string name="menu_page_find_in_page">Знайсці на старонцы</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Знайсці на старонцы</string>
+  <string name="menu_page_add_to_watchlist">Дадаць у спіс назірання</string>
+  <string name="menu_page_remove_from_watchlist">Выдаліць са спіса назірання</string>
   <string name="menu_page_font_and_theme">Змяненне шрыфту і афармлення</string>
   <string name="menu_page_add_to_list">Дадаць у спіс для чытання</string>
   <string name="menu_page_share">Падзяліцца спасылкай</string>
@@ -119,11 +122,13 @@
   <string name="page_protected_can_not_edit">На жаль, на дадзены момант у вашага ўліковага запісу няма дастатковых правоў для рэдагавання гэтай старонкі.</string>
   <string name="page_protected_can_not_edit_anon">На жаль, у цяперашні час гэтая старонка не можа быць адрэдагавана ананімна.</string>
   <string name="page_protected_can_not_edit_title">Гэтая старонка пад аховай</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Дадаць у спіс назірання</string>
   <string name="settings_item_preferences">Налады</string>
   <string name="settings_activity_title">Налады</string>
   <string name="about_description">Пра дадатак «Вікіпедыя»</string>
   <string name="privacy_policy_description">Палітыка прыватнасці</string>
   <string name="terms_of_use_description">Умовы выкарыстання</string>
+  <string name="about_wikipedia_url">https://be.wikipedia.org/wiki/Вікіпедыя:Што_такое_свабодная_энцыклапедыя</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
   <string name="about_libraries_heading">Выкарыстаныя бібліятэкі</string>
@@ -155,7 +160,6 @@
   <string name="abusefilter_title_disallow">Вы не можаце захаваць гэтую праўку. Калі ласка, вярніцеся назад і зменіце яе.</string>
   <string name="abusefilter_text_warn">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную. Яна можа ўтрымоўваць адно або некалькі з наступных дзеянняў:&lt;br /&gt;&lt;br /&gt;· Друкаваць загалоўнымі літарамі&lt;br /&gt;· Штампоўка артыкулаў або спам&lt;br /&gt;· Непадыходныя знешнія спасылкі ці выявы&lt;br /&gt;· Паўтаральныя сімвалы</string>
   <string name="abusefilter_text_disallow">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедыя — гэта энцыклапедыя, і тут прымальна толькі нейтральнае і значнае змесціва.</string>
-  <string name="text_size_select">Памер шрыфта</string>
   <string name="page_similar_titles">Падобныя старонкі</string>
   <string name="search_did_you_mean">Магчыма, вы мелі на ўвазе \"%s\"?</string>
   <string name="search_recent_header">Апошнія пошукі:</string>
@@ -214,7 +218,7 @@
   <string name="error_no_maps_app">Не атрымалася знайсці ні аднаго дадатка, якое б пракладвала маршрут.</string>
   <string name="preference_title_show_link_previews">Паказваць прадпрагляд спасылак</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі прадпрагляд артыкулаў пры націску на спасылкі.</string>
-  <string name="nav_item_donate">Падтрымаць Вікіпедыю</string>
+  <string name="nav_item_donate" fuzzy="true">Падтрымаць Вікіпедыю</string>
   <string name="error_voice_search_not_available">На жаль, распазнаванне прамовы недаступна.</string>
   <string name="location_service_disabled">Службы Геолакацыі адключаны.</string>
   <string name="enable_location_service">Уключыць</string>
@@ -241,17 +245,22 @@
   <string name="reading_list_description_hint">Апісанне (неабавязкова)</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, дзякуй</string>
+  <string name="watchlist_title">Спіс назірання</string>
   <string name="view_main_page_card_title">Сёння ў Вікіпедыі</string>
-  <string name="view_main_page_card_subtitle">Галоўная старонка на %s</string>
   <string name="view_featured_image_card_title">Выява дня</string>
   <string name="view_featured_image_card_download">Загрузіць</string>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Сёння</string>
   <string name="view_announcement_card_negative_action">Не, дзякуй</string>
-  <string name="view_featured_article_footer_save_button_label">Захаваць</string>
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
   <string name="description_edit_success_done">Гатова</string>
   <string name="suggested_edits_image_preview_dialog_image">Назва файла</string>
   <string name="suggested_edits_image_preview_dialog_tags">Тэгі</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
+  <string name="main_tooltip_watchlist_title">Спіс назірання</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
+  <string name="watchlist_expiry_dialog_one_month">1 месяц</string>
+  <string name="watchlist_expiry_dialog_three_months">3 месяца</string>
+  <string name="watchlist_expiry_dialog_six_months">6 месяцаў</string>
 </resources>

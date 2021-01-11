@@ -18,7 +18,6 @@
   <string name="nav_item_forward">Adavane</string>
   <string name="search_hint">Serchar en Wikipedio</string>
   <string name="search_hint_search_languages">Serchar ula linguo</string>
-  <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne povas konektar kun la Internet</string>
   <string name="page_error_retry">Riprobar</string>
   <string name="card_offline_error_retry">Riprobar</string>
@@ -41,7 +40,7 @@
   <string name="search_redirect_from">(Ridirektita de %s)</string>
   <string name="menu_page_show_tabs">Montrar etiketi</string>
   <string name="menu_page_other_languages">Chanjar linguo</string>
-  <string name="menu_page_find_in_page">Serchar en la pagino</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Serchar en la pagino</string>
   <string name="edit_section_find_in_page">Serchar en la pagino</string>
   <string name="menu_page_font_and_theme">Fonto e temo</string>
   <string name="menu_page_add_to_list">Adjuntez a la lektebla listo</string>
@@ -200,7 +199,6 @@
   <string name="abusefilter_title_disallow">Tu ne povas publikigar ica modifiko. Voluntez korektar ol.</string>
   <string name="abusefilter_text_warn">Automatala verifiko konsideris ica modifiko potenciale mala. Ol kontenas un o plura de la sequanta:&lt;br /&gt;&lt;br /&gt;· Tota literi en MAYUSKULA&lt;br /&gt;· Efaco di artikli o \'spamming\'&lt;br /&gt;· Ne-aplikebla ligili ad altra artikli od imaji&lt;br /&gt;· Iterado di literi o signi</string>
   <string name="abusefilter_text_disallow">Automatala verifiko identifikis ica artiklo quale posibla vandalismo o mala agado.&lt;br /&gt;&lt;br /&gt;Wikipedio esas enciklopedio, e koncernas nur remarkinda kontenajo kun neutrala vidopunto.</string>
-  <string name="text_size_select">Grandeso di la fonto</string>
   <string name="page_similar_titles">Simila pagini</string>
   <string name="search_did_you_mean">Ka tu deziris dicar \"%s\"?</string>
   <string name="search_recent_header">Lasta serchadi:</string>
@@ -318,9 +316,7 @@
   <string name="menu_feed_overflow_label">Plusa selekti</string>
   <string name="view_continue_reading_card_subtitle_today">cadie</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lektar %s</string>
-  <string name="view_featured_article_footer_save_button_label">Salvar</string>
   <string name="view_static_card_save_button_label">Registragar</string>
-  <string name="view_featured_article_footer_saved_button_label">Salvita</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">Selektar omno</string>
   <string name="feed_configure_menu_deselect_all" fuzzy="true">Desselektar omno</string>
   <string name="description_edit_translate_caption_hint_per_language">Deskripto-texto por imaji (%s)</string>
@@ -357,5 +353,6 @@
   <string name="app_shortcuts_search">Serchez</string>
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
+  <string name="more_language_options">pluse</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>
 </resources>

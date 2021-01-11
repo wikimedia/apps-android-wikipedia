@@ -91,6 +91,7 @@
                      so http and https apply to all prefixes-->
                 <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
                 <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
@@ -197,7 +198,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditSuccessActivity"
-            android:theme="@style/AppTheme.FullScreen.TranslucentDark"
+            android:theme="@style/AppTheme.FullScreen.Translucent"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
@@ -239,6 +240,9 @@
             android:theme="@style/AppTheme" />
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
+
+        <activity android:name=".watchlist.WatchlistActivity"
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
@@ -354,6 +358,15 @@
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
+
+        <service
+            android:name=".push.WikipediaFirebaseMessagingService"
+            android:exported="false"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
     </application>
 </manifest>

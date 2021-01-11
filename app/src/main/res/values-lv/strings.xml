@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Edgars2007
+* MuratTheTurkish
 * Papuass
 * Peridot Nation
 * Silraks
@@ -16,7 +17,6 @@
   <string name="nav_item_forward">Uz priekšu</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
   <string name="search_hint_search_languages">Meklēt valodu</string>
-  <string name="nav_item_history">Vēsture</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ieteiktie labojumi</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
@@ -37,7 +37,7 @@
   <string name="search_redirect_from">Pāradresēts no %s</string>
   <string name="menu_page_show_tabs">Rādīt cilnes</string>
   <string name="menu_page_other_languages">Mainīt valodu</string>
-  <string name="menu_page_find_in_page">Atrast lapā</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Atrast lapā</string>
   <string name="edit_section_find_in_page">Atrast lapā</string>
   <string name="menu_page_font_and_theme">Fonts un apdare</string>
   <string name="menu_page_add_to_list">Pievienot lasīšanas sarakstam</string>
@@ -122,7 +122,7 @@
   <string name="about_description">Par Vikipēdijas lietotni</string>
   <string name="privacy_policy_description">Privātuma politika</string>
   <string name="terms_of_use_description">Lietošanas noteikumi</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://lv.m.wikipedia.org/wiki/Vikipēdija:Par</string>
+  <string name="about_wikipedia_url">https://lv.wikipedia.org/wiki/Vikipēdija:Par</string>
   <string name="about_libraries_heading">Izmantotās bibliotēkas</string>
   <string name="about_translators_heading">Tulkotāji</string>
   <string name="about_translators_translatewiki">Šo lietotni iztulkoja brīvprātīgie tulkotāji no &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -147,7 +147,6 @@
   <string name="edit_conflict_title">Labošanas konflikts</string>
   <string name="find_next">Atrast nākamo</string>
   <string name="find_previous">Atrast iepriekšējo</string>
-  <string name="text_size_select">Fonta lielums</string>
   <string name="page_similar_titles">Līdzīgas lapas</string>
   <string name="search_did_you_mean">Vai jūs domājāt \"%s\"?</string>
   <string name="clear_recent_searches_confirm_yes">Jā</string>
@@ -187,7 +186,7 @@
   <string name="button_get_directions">Saņemt norādes</string>
   <string name="preference_title_show_link_previews">Rādīt saišu priekšskatījumus</string>
   <string name="preference_title_collapse_tables">Sakļaut tabulas</string>
-  <string name="nav_item_donate">Atbalstīt Vikipēdiju</string>
+  <string name="nav_item_donate" fuzzy="true">Atbalstīt Vikipēdiju</string>
   <string name="enable_location_service">Iespējot</string>
   <string name="location_permissions_enable_action">Ieslēgt</string>
   <string name="error_message_generic">Notika kļūda</string>
@@ -263,11 +262,8 @@
   <string name="preference_title_notification_thanks">Paldies</string>
   <string name="view_because_you_read_card_title">Jo tu lasīji</string>
   <string name="view_random_card_title">Nejauša lapa</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Lasi nejaušu Vikipēdijas lapu</string>
-  <string name="view_random_card_action">Mest metamo kauliņu</string>
   <string name="view_next_random_article">Ielādēt vēl vienu nejaušu rakstu</string>
   <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
-  <string name="view_main_page_card_subtitle">%s sākumlapa</string>
   <string name="view_main_page_card_action">Skatīt sākumlapu</string>
   <string name="view_featured_image_card_title">Dienas attēls</string>
   <string name="view_featured_image_card_download">Lejupielādēt</string>
@@ -281,9 +277,7 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
-  <string name="view_featured_article_footer_save_button_label">Saglabāt</string>
   <string name="view_static_card_save_button_label">Saglabāt</string>
-  <string name="view_featured_article_footer_saved_button_label">Saglabāts</string>
   <string name="feed_configure_menu_select_all">Rādīt visus</string>
   <string name="feed_configure_menu_deselect_all">Paslēpt visus</string>
   <string name="feed_configure_onboarding_action">Pielāgot</string>
@@ -358,4 +352,6 @@
   <string name="text_input_dialog_ok_button_text">Labi</string>
   <string name="text_input_dialog_cancel_button_text">Atcelt</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Atcelt</string>
+  <string name="talk_new_topic">Jauna tēma</string>
+  <string name="talk_add_reply">Atbildēt</string>
 </resources>

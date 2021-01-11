@@ -3,18 +3,22 @@
 * 500000000006城
 * A Chinese Wikipedian
 * A Retired User
+* AYZ04
 * Abijeet Patro
 * Cwek
 * Davidzdh
 * Deathkon
 * Ff98sha
 * GoForceX
+* Huanqiu
 * Hudafu
 * Hydra
 * Hzy980512
 * ITsu
+* Irati
 * Josephine W.
 * LNDDYL
+* Lakejason0
 * Liuxinyu970226
 * Looong
 * NeverBehave
@@ -57,9 +61,9 @@
   <string name="search_hint_voice_search">语音输入搜索</string>
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
-  <string name="nav_item_history">历史记录</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
+  <string name="nav_item_search">搜索</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -74,16 +78,18 @@
   <string name="history_item_delete_undo">撤销</string>
   <string name="notification_archive_undo">撤销</string>
   <string name="app_settings">应用设置</string>
+  <string name="search_tab_tooltip">再次点击图标以直接开始输入搜索条目。</string>
+  <string name="history_list_title">历史</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
   <string name="dialog_message_clear_history">此操作将删除您所有的浏览历史，并关闭所有当前打开的标签。确认吗？</string>
   <string name="dialog_message_clear_history_yes">确认</string>
   <string name="dialog_message_clear_history_no">取消</string>
-  <string name="share_via">分享到…</string>
+  <string name="share_via">分享方式</string>
   <string name="image_share_via">分享到…</string>
   <string name="search_redirect_from">重定向自%s</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
-  <string name="menu_page_find_in_page">在页面中查找</string>
+  <string name="menu_page_find_in_page">在文章中查找</string>
   <string name="edit_section_find_in_page">在页面中查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
@@ -92,6 +98,7 @@
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">分享链接</string>
   <string name="menu_page_open_a_new_tab">打开新标签</string>
+  <string name="menu_page_new_tab">新建标签页</string>
   <string name="menu_page_reading_lists">阅读列表</string>
   <string name="menu_page_recently_viewed">最近访问</string>
   <string name="menu_long_press_open_page">打开</string>
@@ -121,15 +128,15 @@
   <string name="dialog_message_edit_failed">更改保存失败！</string>
   <string name="dialog_message_edit_failed_retry">重试</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
-  <string name="dialog_message_leaving_edit">当前更改未保存，确认要离开该页面吗？</string>
+  <string name="dialog_message_leaving_edit">您的更改还没有发布。您确认要离开该页面吗？</string>
   <string name="dialog_message_leaving_edit_leave">确认</string>
   <string name="dialog_message_leaving_edit_stay">取消</string>
   <string name="menu_show_toc">目录</string>
-  <string name="search_no_results_found">未找到结果</string>
+  <string name="search_no_results_found">没有搜索结果</string>
   <string name="search_reading_list_no_results">在“%s”中找不到结果</string>
   <string name="search_reading_lists_no_results">在阅读列表中找不到结果</string>
   <string name="search_history_no_results">在历史中找不到结果</string>
-  <string name="edit_section_captcha_message">为了防止非法的自动更改，请输入下面显示的文字</string>
+  <string name="edit_section_captcha_message">为了防止机器人垃圾信息，请输入下面显示的文字</string>
   <string name="edit_section_captcha_request_an_account_message">无法显示图片？&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:账号申请\"&gt;新账号申请&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">请输入验证码中的文字</string>
   <string name="title_captcha">输入验证码</string>
@@ -147,13 +154,13 @@
   <string name="menu_login">登录</string>
   <string name="login_activity_title">登录</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
-  <string name="login_success_toast">已登录！</string>
+  <string name="login_success_toast">登录成功！</string>
   <string name="reset_password_title">重设密码</string>
   <string name="reset_password_description">您使用了通过电子邮件发送的临时密码登录。要完成登录，您必须在此设置一个新密码。</string>
   <string name="reset_password_hint">新密码</string>
   <string name="reset_password_button">保存并登录</string>
   <string name="preference_title_logout">退出</string>
-  <string name="toast_logout_complete">已退出</string>
+  <string name="toast_logout_complete">已退出登录</string>
   <string name="logout_prompt">您的账号将在当前登录的所有设备下线。要继续吗？</string>
   <string name="logout_dialog_cancel_button_text">取消</string>
   <string name="logged_out_in_background_title">已退出登录</string>
@@ -172,10 +179,10 @@
   <string name="login_join_wikipedia">加入维基百科</string>
   <string name="login_forgot_password">忘记密码了？</string>
   <string name="create_account_already_have">已经有账户了？</string>
-  <string name="create_account_activity_title">注册</string>
+  <string name="create_account_activity_title">创建账户</string>
   <string name="dialog_create_account_checking_progress">正在验证</string>
   <string name="create_account_email_hint">电子邮件（可选）</string>
-  <string name="create_account_password_repeat_hint">重新输入密码</string>
+  <string name="create_account_password_repeat_hint">确认密码</string>
   <string name="create_account_passwords_mismatch_error">密码不匹配</string>
   <string name="create_account_email_error">电子邮件地址无效</string>
   <string name="create_account_username_error">用户名中包含非法字符</string>
@@ -216,7 +223,7 @@
   <string name="page_protected_autoconfirmed">该页面受到半保护。</string>
   <string name="page_protected_sysop">该页面受到全保护。</string>
   <string name="page_protected_other">该页面的保护等级：%s</string>
-  <string name="page_protected_can_not_edit">对不起，您的账户目前没有足够特权来编辑该页面。</string>
+  <string name="page_protected_can_not_edit">对不起，您的账户目前没有足够的权限来编辑该页面。</string>
   <string name="page_protected_can_not_edit_anon">对不起，该页面目前不能匿名编辑。</string>
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="settings_item_preferences">设置</string>
@@ -241,7 +248,7 @@
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
   <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;维基媒体基金会&lt;/a&gt;产品</string>
   <string name="about_activity_title">关于</string>
   <string name="edit_abandon_confirm">页面已经被修改。您确认不保存您的更改而离开？</string>
   <string name="edit_abandon_confirm_yes">确定</string>
@@ -272,7 +279,6 @@
   <string name="abusefilter_title_disallow">您不能发布该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全文大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>
   <string name="abusefilter_text_disallow">自动过滤器识别该编辑为没有潜在建设性的编辑或是潜在的破坏。&lt;br /&gt;&lt;br /&gt;维基百科是一部百科全书，只收录中立、有关注度的内容。</string>
-  <string name="text_size_select">字体大小</string>
   <string name="page_similar_titles">类似页面</string>
   <string name="search_did_you_mean">您的意思是“%s”吗？</string>
   <string name="search_recent_header">最近搜索：</string>
@@ -299,13 +305,13 @@
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
   <string name="about_article_section">关于此条目</string>
-  <string name="menu_gallery_visit_image_page">前往文件页面</string>
+  <string name="menu_gallery_visit_image_page">前往图像页面</string>
   <string name="gallery_error_draw_failed">无法显示图像。</string>
   <string name="license_title">%s的许可协议</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
   <string name="gallery_save_progress">下载文件…</string>
-  <string name="gallery_save_success">已保存文件。</string>
+  <string name="gallery_save_success">文件保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="gallery_save_image_write_permission_rationale">需要写入您设备存储的权限才能保存图片。</string>
   <string name="gallery_add_image_caption_button">添加图像说明</string>
@@ -353,7 +359,7 @@
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、引用和注释。</string>
-  <string name="nav_item_donate">支持维基百科</string>
+  <string name="nav_item_donate">资助维基百科</string>
   <string name="error_voice_search_not_available">对不起，语言识别不可用。</string>
   <string name="location_service_disabled">位置服务被禁用。</string>
   <string name="enable_location_service">启用</string>
@@ -598,11 +604,8 @@
   <string name="preference_summary_notification_user_talk">来自讨论页的消息</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
-  <string name="view_random_card_subtitle">轻划浏览以阅读来自维基百科的随机条目。</string>
-  <string name="view_random_card_action">掷骰子</string>
   <string name="view_next_random_article">加载另一个随机条目</string>
   <string name="view_main_page_card_title">维基百科今日</string>
-  <string name="view_main_page_card_subtitle">%s首页</string>
   <string name="view_main_page_card_action">查看主页</string>
   <string name="view_featured_image_card_title">每日图片</string>
   <string name="view_featured_image_card_download">下载</string>
@@ -613,7 +616,6 @@
   <string name="feed_featured_image_share_subject">来自维基共享资源的特色图片</string>
   <string name="feed">探索</string>
   <string name="home">首页</string>
-  <string name="most_read_list_card_title">趋势</string>
   <string name="view_static_card_icon_content_description">卡片图标</string>
   <string name="view_card_news_title">新闻动态</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -625,9 +627,7 @@
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
   <string name="view_offline_card_text">内容不能在离线时加载。</string>
   <string name="view_featured_article_card_title">典范条目</string>
-  <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_static_card_save_button_label">保存</string>
-  <string name="view_featured_article_footer_saved_button_label">已保存</string>
   <string name="feed_configure_activity_title">自定义订阅源</string>
   <string name="feed_configure_menu_reset">恢复默认视图</string>
   <string name="feed_configure_menu_select_all">显示全部</string>
@@ -778,9 +778,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s阁下&lt;/b&gt;，下面，您可以找到一些快速又简单的方法来帮助改进维基百科。你一开始就会看到你做出的更改。祝您编辑顺利!</string>
   <string name="suggested_edits_image_captions_task_detail">描述图片以帮助读者理解图像的含义和上下文。</string>
   <string name="suggested_edits_add_descriptions_task_detail">总结条目以帮助读者一目了然地了解主题。</string>
-  <string name="suggested_edits_contributions_stat_tooltip">您的贡献总数和建议编辑。</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
-  <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">您的贡献总数和建议编辑。</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">根据你的一个贡献被回退了多少次（被其他编辑者撤销）。被回退的编辑：%d。</string>
   <string name="suggested_edits_paused_message">建议编辑已暂停，直到%1$s。抱歉%2$s，您最近的一些贡献已经被回退了。</string>
   <string name="suggested_edits_disabled_message">建议编辑已被禁用。抱歉 %s，您近期的贡献有太多被回退了。</string>
@@ -836,21 +836,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%2$s（%1$d 件）</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="other">您利用建议编辑为维基百科做了 %d 次贡献。谢谢您！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">%2$s，您今天做过了编辑，请继续保持！</item>
-    <item quantity="other">%2$s，您已经连续 %1$d 天做出过编辑！加油保持每日编辑！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="other">您的编辑在过去 30 天已被 %d 个人查看！感谢您，请继续加油！</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">您利用建议编辑为维基百科做了 %d 次贡献。感谢！</string>
-  <string name="suggested_edits_rewards_edit_streak">%2$s，您已经连续 %1$d 天做出过编辑！加油保持每日编辑！</string>
-  <string name="suggested_edits_rewards_pageviews">您的编辑在过去 30 天已被 %d 个人查看！感谢您，请继续加油！</string>
-  <string name="suggested_edits_rewards_edit_quality">您的编辑目前为止评价为%s。继续加油！我们期待您今后的贡献。</string>
-  <string name="suggested_edits_rewards_continue_button">继续</string>
   <string name="suggested_edits_encourage_account_creation_title">你知道所有人都可以编辑Wikipedia吗？</string>
   <string name="suggested_edits_encourage_account_creation_message">建议编辑是在 Android 设备上编辑维基百科的全新途径。利用它，您就可以为维基百科做出微小却不可或缺的贡献。\n我们的目标是让所有人都能更轻松、更无障碍地编辑维基百科。请登录或者注册维基百科来开始。</string>
   <string name="suggested_edits_encourage_account_creation_login_button">登录/加入维基百科</string>
@@ -897,13 +882,10 @@
   <string name="app_shortcuts_random">随机</string>
   <string name="app_shortcuts_continue_reading">继续阅读</string>
   <string name="app_shortcuts_search">搜索</string>
-  <string name="more_trending_text">更多类似条目</string>
-  <string name="top_on_this_day">%1$s上的趋势</string>
   <string name="on_this_day_card_title">历史上的今天</string>
   <string name="more_events_text">这一天的更多事情</string>
   <string name="events_count_text">%2$s~%3$d年间的%1$s次事件</string>
   <string name="this_year">今年</string>
-  <string name="back_to_top">返回顶部</string>
   <string name="on_this_day_dialog_next_month">下月</string>
   <string name="on_this_day_dialog_previous_month">上月</string>
   <string name="on_this_day_open_date_picker">打开日期选择器</string>
@@ -959,4 +941,15 @@
   <string name="text_input_dialog_ok_button_text">确定</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>
   <string name="custom_date_picker_dialog_cancel_button_text">取消</string>
+  <string name="talk_title">讨论</string>
+  <string name="talk_user_title">讨论：%s</string>
+  <string name="talk_new_topic">新话题</string>
+  <string name="talk_page_empty">此讨论页为空。</string>
+  <string name="talk_add_reply">回复</string>
+  <string name="talk_no_subject">（无主题）</string>
+  <string name="talk_reply_subject">主题</string>
+  <string name="talk_reply_hint">撰写回复</string>
+  <string name="talk_message_hint">撰写信息</string>
+  <string name="talk_message_empty">消息不能为空。</string>
+  <string name="talk_subject_empty">主题不能为空。</string>
 </resources>

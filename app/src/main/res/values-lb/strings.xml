@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Envlh
 * Les Meloures
+* MuratTheTurkish
 * Robby
 * Soued031
 -->
@@ -17,9 +18,9 @@
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="filter_hint_filter_my_lists_and_articles">Meng Lëschte filteren</string>
-  <string name="nav_item_history">Versiounen</string>
   <string name="nav_item_suggested_edits">Ännerungen</string>
   <string name="nav_item_more">Méi</string>
+  <string name="nav_item_search">Sichen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
@@ -33,6 +34,7 @@
   <string name="history_item_delete_undo">Réckgängeg maachen</string>
   <string name="notification_archive_undo">Réckgängeg maachen</string>
   <string name="app_settings">Astellunge vun der App</string>
+  <string name="history_list_title">Versiounen</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="dialog_message_clear_history_yes">Jo</string>
@@ -42,7 +44,8 @@
   <string name="search_redirect_from">Virugeleet vu(n) %s</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
-  <string name="menu_page_find_in_page">Op der Säit sichen</string>
+  <string name="menu_page_find_in_page">Am Artikel sichen</string>
+  <string name="menu_page_remove_from_watchlist">Vun der Iwwerwaachungslëscht erofhuelen</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
@@ -169,6 +172,7 @@
   <string name="about_description">Iwwer d\'Wikipedia App</string>
   <string name="privacy_policy_description">Dateschutz</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
+  <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -194,6 +198,7 @@
   <string name="edit_preview">Kucken ouni ze späicheren</string>
   <string name="edit_undo">Réckgängeg maachen</string>
   <string name="edit_redo">Widderhuelen</string>
+  <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
@@ -209,10 +214,10 @@
   <string name="abusefilter_title_disallow">Dir däerft dës Ännerung net verëffentlechen. Gitt wgl. zréck an ännert se.</string>
   <string name="abusefilter_text_warn">En automatesche Filter huet dës Ännerung als méiglecherweis net konstruktiv identifizéiert. Et ka sinn dat eent oder méi vun dësen Elementer dra virkommen:&lt;br /&gt;&lt;br /&gt;· Alles ass a grousse Buschtawe geschriwwen&lt;br /&gt; Artikelen eidelmaachen oder Spam drasetzen &lt;br /&gt; Irrelevant extern Linken oder Biller&lt;br /&gt; Zeeche widderhuelen</string>
   <string name="abusefilter_text_disallow">En automatesche Filter huet dës Ännerung als potenziell net konstruktiv oder als potenzielle Vandalismus identifizéiert.&lt;br /&gt;&lt;br /&gt;Wikipedia ass eng Enzyklopedie a just neutralen, relevanten Inhalt gehéiert heihin.</string>
-  <string name="text_size_select">Schrëftgréisst</string>
   <string name="page_similar_titles">Änlech Säiten</string>
   <string name="search_did_you_mean">Mengt Dir \"%s\"?</string>
   <string name="search_recent_header">Rezent gesicht:</string>
+  <string name="search_results_count_zero">Keng Resultater</string>
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>
   <string name="clear_recent_searches_confirm">Sidd Dir sécher datt Dir Ären Historique vum Siche läsche wëllt?</string>
   <string name="clear_recent_searches_confirm_yes">Jo</string>
@@ -274,7 +279,7 @@
   <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
   <string name="preference_summary_show_link_previews">Kuerz weise wéi den Artikel ausgesäit wann een op d\'Linken tippt.</string>
   <string name="preference_title_collapse_tables">Tabellen zesummeklappen</string>
-  <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
+  <string name="nav_item_donate">Maacht een Don</string>
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
   <string name="enable_location_service">Aschalten</string>
@@ -318,6 +323,7 @@
   <string name="reading_list_title_exists">D\'Lieslëscht \"%s\" gëtt et schonn.</string>
   <string name="reading_list_article_moved_to_named">%1$s geréckelt op %2$s .</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
+  <string name="reading_list_add_to_list_button">Op d\'Lëscht derbäisetzen</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 Artikel, %2$.2f MB</item>
     <item quantity="other">%1$d Artikelen, %2$.2f MB</item>
@@ -332,8 +338,11 @@
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
   <string name="reading_list_sort_by_recent">Nom Datum vum derbäisetzen zortéieren (neisten)</string>
   <string name="reading_list_sort_by_recent_desc">Nom Datum vum derbäisetzen zortéieren (eelsten)</string>
+  <string name="reading_list_sort_by_created_desc">Nom Datum vum Uleeën zortéieren (eelsten)</string>
   <string name="reading_list_menu_delete">Lëscht läschen</string>
   <string name="reading_list_menu_rename">Numm/Beschreiwung änneren</string>
+  <string name="reading_list_action_menu_remove_from_offline">Aus der Offline-Lëscht eraushuelen</string>
+  <string name="reading_list_action_menu_save_for_offline">Fir offline späicheren</string>
   <string name="reading_list_action_menu_remove_all_from_offline">All aus dem offline eraushuelen</string>
   <string name="reading_list_action_menu_save_all_for_offline">All fir offline späicheren</string>
   <string name="reading_list_action_menu_add_to_another_list">Op eng aner Lëscht derbäisetzen</string>
@@ -367,11 +376,13 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatioun aktivéieren</string>
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
+  <string name="reading_lists_login_button">Aloggen / bei Wikipedia matmaachen</string>
   <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
   <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir %s läsche wëllt?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Alogge fir Synchronisatioun z\'aktivéieren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>
   <string name="reading_list_turned_sync_off_dialog_title">Synchronisatioun vu Lieslëschten ass ausgeschalt</string>
@@ -453,6 +464,7 @@
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
   <string name="notifications_mark_unread">Als net gelies markéieren</string>
+  <string name="watchlist_title">Iwwerwaachungslëscht</string>
   <string name="preference_title_notification_system">System</string>
   <string name="preference_summary_notification_system">Message vum System</string>
   <string name="preference_title_notification_milestone">Meilesteen</string>
@@ -466,9 +478,7 @@
   <string name="preference_summary_notification_user_talk">Message vun Diskussiounssäiten</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
   <string name="view_random_card_title">Zoufallsgenerator</string>
-  <string name="view_random_card_subtitle">Duerch zoufälleg Artikele aus der Wikipedia bliederen.</string>
   <string name="view_main_page_card_title">Haut op Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Haaptsäit op %s</string>
   <string name="view_main_page_card_action">Haaptsäit weisen</string>
   <string name="view_featured_image_card_title">Bild vum Dag</string>
   <string name="view_featured_image_card_download">Eroflueden</string>
@@ -478,7 +488,7 @@
   <string name="menu_feed_overflow_label">Méi Optiounen</string>
   <string name="feed_featured_image_share_subject">Qualitéitsbild vu Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
-  <string name="most_read_list_card_title">Beléift</string>
+  <string name="home">Haaptsäit</string>
   <string name="view_static_card_icon_content_description">Kaartesymbol</string>
   <string name="view_card_news_title">An den Neiegkeeten</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -490,9 +500,7 @@
   <string name="view_announcement_card_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_card_title">Exzellenten Artikel</string>
-  <string name="view_featured_article_footer_save_button_label">Späicheren</string>
   <string name="view_static_card_save_button_label">Späicheren</string>
-  <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>
   <string name="feed_configure_menu_reset">Standard- Ausgesinn restauréieren</string>
   <string name="feed_configure_menu_select_all">All weisen</string>
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
@@ -570,7 +578,15 @@
   <string name="suggested_edits_image_tags_published">Verëffentlecht</string>
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_quality_excellent_text">Exzellent</string>
+  <string name="suggested_edits_quality_very_good_text">Ganz gutt</string>
+  <string name="suggested_edits_quality_good_text">Gutt</string>
+  <string name="suggested_edits_quality_okay_text">OK</string>
+  <string name="suggested_edits_quality_sufficient_text">Genügend</string>
+  <string name="suggested_edits_quality_poor_text">Schwaach</string>
+  <string name="suggested_edits_quality_bad_text">Schlecht</string>
   <string name="suggested_edits_label">Proposéiert Ännerungen</string>
   <string name="suggested_edits_what_is_title">Wat si proposéiert Ännerungen?</string>
   <string name="suggested_edits_learn_more">Fir méi ze wëssen</string>
@@ -585,7 +601,6 @@
   <string name="suggested_edits_contribution_image_label">Bild</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
-  <string name="suggested_edits_rewards_continue_button">Virufueren</string>
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
@@ -607,12 +622,10 @@
   <string name="app_shortcuts_random">Zoufall</string>
   <string name="app_shortcuts_continue_reading">Virufuere mat Liesen</string>
   <string name="app_shortcuts_search">Sichen</string>
-  <string name="more_trending_text">Méi esou wéi dëst</string>
   <string name="on_this_day_card_title">Op dësem Dag</string>
   <string name="more_events_text">Méi op dësem Dag</string>
   <string name="events_count_text">%1$s Evenementer vum %2$s bis %3$d</string>
   <string name="this_year">Dëst Joer</string>
-  <string name="back_to_top">Zréck no uewen</string>
   <string name="on_this_day_dialog_next_month">Nächste Mount</string>
   <string name="on_this_day_dialog_previous_month">Virege Mount</string>
   <plurals name="diff_years">
@@ -657,8 +670,30 @@
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_tooltip_text_v2">Wousst dir datt jiddwereen Wikipedia ännere kann?</string>
   <string name="main_tooltip_action_button">Fir unzefänken</string>
+  <string name="main_tooltip_watchlist_title">Iwwerwaachungslëscht</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="talk_title">Diskussioun</string>
+  <string name="talk_user_title">Diskussioun: %s</string>
+  <string name="talk_new_topic">Neit Thema</string>
+  <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
+  <string name="talk_add_reply">Äntweren</string>
+  <string name="talk_no_subject">(Kee Sujet)</string>
+  <string name="talk_reply_subject">Sujet</string>
+  <string name="go_to_user_page">Op d\'Benotzersäit goen</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">fir 1 Mount</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">fir 3 Méint</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">fir 6 Méint</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 Woch</string>
+  <string name="watchlist_expiry_dialog_one_month">1 Mount</string>
+  <string name="watchlist_expiry_dialog_three_months">3 Méint</string>
+  <string name="watchlist_expiry_dialog_six_months">6 Méint</string>
+  <string name="watchlist_filter_all">All</string>
+  <string name="watchlist_filter_talk">Diskussioun</string>
+  <string name="watchlist_filter_pages">Säiten</string>
 </resources>

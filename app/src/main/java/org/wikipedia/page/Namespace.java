@@ -11,6 +11,9 @@ import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.SpecialAliasData;
+import org.wikipedia.staticdata.TalkAliasData;
+import org.wikipedia.staticdata.UserAliasData;
+import org.wikipedia.staticdata.UserTalkAliasData;
 
 import java.util.Locale;
 
@@ -164,30 +167,31 @@ public enum Namespace implements EnumCode {
         return string;
     }
 
-    /** Warning: this method is localized only for File and Special pages. */
     @Deprecated @NonNull public static Namespace fromLegacyString(@NonNull WikiSite wiki,
                                                                   @Nullable String name) {
-        if (FileAliasData.valueFor(wiki.languageCode()).equals(name)
-                || FileAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+        if (StringUtils.compareIgnoreCase(FileAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(FileAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
             return Namespace.FILE;
         }
 
-        if (SpecialAliasData.valueFor(wiki.languageCode()).equals(name)
-                || SpecialAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE).equals(name)) {
+        if (StringUtils.compareIgnoreCase(SpecialAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(SpecialAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
             return Namespace.SPECIAL;
         }
 
-        // TODO: include User_talk namespace mappings in static language data.
-        if (name != null && name.contains("User talk")) {
-            return Namespace.USER_TALK;
+        if (StringUtils.compareIgnoreCase(TalkAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(TalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
+            return Namespace.TALK;
         }
 
-        // This works for the links provided by the app itself since they always have the English
-        // version of the namespace.
-        // TODO: It would be nice to add a mapping table, as is done for File and Special,
-        // so we can also handle links passed to the app.
-        if (name != null && name.contains("Talk")) {
-            return Namespace.TALK;
+        if (StringUtils.compareIgnoreCase(UserAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(UserAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
+            return Namespace.USER;
+        }
+
+        if (StringUtils.compareIgnoreCase(UserTalkAliasData.valueFor(wiki.languageCode()), name) == 0
+                || StringUtils.compareIgnoreCase(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE), name) == 0) {
+            return Namespace.USER_TALK;
         }
 
         return Namespace.MAIN;
@@ -205,6 +209,14 @@ public enum Namespace implements EnumCode {
 
     public boolean special() {
         return this == SPECIAL;
+    }
+
+    public boolean user() {
+        return this == USER;
+    }
+
+    public boolean userTalk() {
+        return this == USER_TALK;
     }
 
     public boolean main() {

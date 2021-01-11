@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
@@ -64,6 +65,10 @@ public class ReadingListPage {
         long now = System.currentTimeMillis();
         mtime = now;
         atime = now;
+    }
+
+    public static PageSummary toPageSummary(@NonNull ReadingListPage page) {
+        return new PageSummary(page.displayTitle, page.apiTitle, page.description, page.description, page.thumbUrl, page.lang);
     }
 
     public static PageTitle toPageTitle(@NonNull ReadingListPage page) {

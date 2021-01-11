@@ -16,6 +16,7 @@
 * Lluis tgn
 * Macofe
 * Mguix
+* SMP
 * Ssola
 * Toniher
 * Unapersona
@@ -33,9 +34,9 @@
   <string name="search_hint_voice_search">Cerca d\'entrada de veu</string>
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar les meves llistes</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits">Edicions</string>
   <string name="nav_item_more">Més</string>
+  <string name="nav_item_search">Cerca</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
   <string name="card_offline_error_retry">Reintenta</string>
@@ -50,6 +51,8 @@
   <string name="history_item_delete_undo">Desfés</string>
   <string name="notification_archive_undo">Desfés</string>
   <string name="app_settings">Configuració de l\'aplicació</string>
+  <string name="search_tab_tooltip">Torneu a tocar la icona per a començar a teclejar un terme de cerca.</string>
+  <string name="history_list_title">Historial</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="dialog_message_clear_history_yes">Sí</string>
@@ -59,7 +62,7 @@
   <string name="search_redirect_from">Redirigit des de %s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
-  <string name="menu_page_find_in_page">Cercar en la pàgina</string>
+  <string name="menu_page_find_in_page">Cerca a l\'article</string>
   <string name="edit_section_find_in_page">Cerca a la pàgina</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
@@ -68,6 +71,7 @@
   <string name="feed_card_add_to_default_list">Desar</string>
   <string name="menu_page_share">Comparteix l\'enllaç</string>
   <string name="menu_page_open_a_new_tab">Obre una pestanya nova</string>
+  <string name="menu_page_new_tab">Pestanya nova</string>
   <string name="menu_page_reading_lists">Llistes de lectura</string>
   <string name="menu_page_recently_viewed">Vist recentment</string>
   <string name="menu_long_press_open_page">Obre</string>
@@ -248,10 +252,14 @@
   <string name="abusefilter_title_disallow">No podeu publicar la modificació. Aneu enrere i canvieu-la.</string>
   <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs o imatges irrellevants&lt;br /&gt;· Caràcters que es repeteixin</string>
   <string name="abusefilter_text_disallow">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial.&lt;br /&gt;&lt;br /&gt;La Viquipèdia és una enciclopèdia i només hi tenen cabuda els continguts neutrals i notoris.</string>
-  <string name="text_size_select">Mida de lletra</string>
   <string name="page_similar_titles">Pàgines similars</string>
   <string name="search_did_you_mean">Volíeu dir «%s»?</string>
   <string name="search_recent_header">Cerques recents:</string>
+  <string name="search_results_count_zero">No hi ha cap resultat</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 resultat</item>
+    <item quantity="other">%d resultats</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Esborra les cerques recents</string>
   <string name="clear_recent_searches_confirm">Segur que voleu esborrar l\'historial de cerca?</string>
   <string name="clear_recent_searches_confirm_yes">Sí</string>
@@ -315,6 +323,7 @@
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
+  <string name="button_continue_to_talk_page">Obre la pàgina de discussió</string>
   <string name="button_continue_to_disambiguation">Mosta pàgines semblants</string>
   <string name="link_preview_disambiguation_description">Aquest títol es relaciona a més d\'una pàgina:</string>
   <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>
@@ -329,7 +338,7 @@
   <string name="preference_summary_show_link_previews">Mostra una vista prèvia ràpida d\'articles en tocar enllaços.</string>
   <string name="preference_title_collapse_tables">Amaga les taules</string>
   <string name="preference_summary_collapse_tables">Amaga automàticament les taules en els articles. Per exemple, amb les infotaules, les referències i les anotacions.</string>
-  <string name="nav_item_donate">Doneu suport a la Viquipèdia</string>
+  <string name="nav_item_donate">Feu una donació</string>
   <string name="error_voice_search_not_available">Ho sentim, el reconeixement de veu no està disponible.</string>
   <string name="location_service_disabled">Els serveis d\'ubicació estan inhabilitats.</string>
   <string name="enable_location_service">Habilita</string>
@@ -379,6 +388,7 @@
   <string name="text_size_increase">Augmenta la mida del text</string>
   <string name="text_size_decrease">Redueix la mida del text</string>
   <string name="text_size_percent_default">%s (per defecte)</string>
+  <string name="text_style_title">Tipus de lletra</string>
   <string name="nav_item_reading_lists">Les meves llistes</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
@@ -578,14 +588,18 @@
   <string name="preference_summary_notification_user_talk">Missatges de pàgines de discussió</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
-  <string name="view_random_card_subtitle">Volteu per articles a l\'atzar per llegir de la Viquipèdia</string>
-  <string name="view_random_card_action">Tira el dau</string>
+  <string name="view_random_article_card_title">Article a l\'atzar</string>
+  <string name="view_random_article_card_action">Més articles a l\'atzar</string>
+  <string name="view_top_read_card_title">Els més llegits</string>
+  <string name="view_top_read_card_action">Altres més llegits</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Carrega un altre article a l\'atzar</string>
   <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
-  <string name="view_main_page_card_subtitle">Pàgina principal a %s</string>
   <string name="view_main_page_card_action">Mostra la pàgina principal</string>
   <string name="view_featured_image_card_title">Foto del dia</string>
   <string name="view_featured_image_card_download">Descarrega</string>
+  <string name="view_featured_image_card_share">Comparteix</string>
   <string name="menu_feed_card_dismiss">Amaga la targeta</string>
   <string name="menu_feed_card_dismissed">S\'ha amagat la targeta.</string>
   <string name="menu_feed_card_edit_card_languages">Modifica les llengües de la targeta</string>
@@ -593,7 +607,6 @@
   <string name="feed_featured_image_share_subject">Imatge destacada de Wikimedia Commons</string>
   <string name="feed">Exploreu</string>
   <string name="home">Inici</string>
-  <string name="most_read_list_card_title">Tendències</string>
   <string name="view_static_card_icon_content_description">Icona de targeta</string>
   <string name="view_card_news_title">Actualitat</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -605,9 +618,7 @@
   <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="view_offline_card_text">El contingut no es pot carregar quan s\'està fora de línia.</string>
   <string name="view_featured_article_card_title">Article destacat</string>
-  <string name="view_featured_article_footer_save_button_label">Desa</string>
   <string name="view_static_card_save_button_label">Desa</string>
-  <string name="view_featured_article_footer_saved_button_label">Desat</string>
   <string name="feed_configure_activity_title">Personalitza el canal</string>
   <string name="feed_configure_menu_reset">Restaura la vista per defecte</string>
   <string name="feed_configure_menu_select_all">Mostra-ho tot</string>
@@ -631,6 +642,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Cancel·la</string>
   <string name="feed_accessibility_card_text">Heu arribat al final del canal.</string>
   <string name="feed_accessibility_card_load_more_button">Carrega’n més</string>
+  <string name="top_read_activity_title">Els més llegits el %s</string>
   <string name="description_edit_text_hint">Descripció de l\'article</string>
   <string name="description_edit_article_description_label">Article</string>
   <string name="description_edit_translate_article_description_label_per_language">Descripció de l\'article (%s)</string>
@@ -660,6 +672,7 @@
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
+  <string name="description_is_in_different_language">El text sembla que estigui en una llengua no esperada. Caldria que fos en %s.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
@@ -760,9 +773,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, a continuació podeu trobar com millorar ràpidament i fàcil la Viquipèdia. Vegeu la diferència tan bon punt hi comenceu. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Descriure una imatge ajuda als lectors a entendre el seu significat i context.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resumir un article ajuda als lectors a entendre la temàtica d\'un primer cop d\'ull.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions des de les edicions suggerides.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits heu contribuït des de les edicions suggerides. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies des de les edicions suggerides.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions fins ara.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits hi heu fet contribucions. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basta en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
   <string name="suggested_edits_paused_message">Les edicions suggerides s\'han posat en pausa fins al %1$s. Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.</string>
   <string name="suggested_edits_disabled_message">S\'han inhabilitat les edicions suggerides. Ho sentim %s, s\'han revertit massa contribucions recents.</string>
@@ -820,28 +833,12 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ahir</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Heu fet una contribució a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
-    <item quantity="other">Heu fet %d contribucions a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Heu editat un dia sencer. Seguiu, %2$s!</item>
-    <item quantity="other">Fins ara heu canviat cada dia durant %1$d Continueu, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Una persona ha vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
-    <item quantity="other"> %d persones han vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Heu fet %d contribucions a la Viquipèdia a partir d\'edicions suggerides. Gràcies!</string>
-  <string name="suggested_edits_rewards_edit_streak">Heu editat cada dia durant %1$d dies fins ara. Bon ritme, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">%d persones han vist les vostres edicions els darrers 30 dies. Gràcies i endavant!</string>
-  <string name="suggested_edits_rewards_edit_quality">Heu fet fins ara %s edicions. Endavant! Esperem les vostres contribucions.</string>
-  <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_encourage_account_creation_title">Sabíeu que tothom pot editar la Viquipèdia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les edicions suggerides és una nova forma d\'editar a la Viquipèdia en Android. Us ajuda a fer contribucions menudes, tot i que vitals, a la Viquipèdia.\nEl nostre objectiu és facilitar-ne l\'edició i fer-la més accessible per a tothom! Inicieu una sessió a la Viquipèdia per a començar.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etiqueta d\'imatge</string>
   <string name="suggested_edits_contribution_current_revision_text">La vostra edició ja és a la Viquipèdia</string>
+  <string name="suggested_card_more_edits">Més edicions suggerides</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiqueta</item>
     <item quantity="other">%1$s etiquetes</item>
@@ -889,13 +886,10 @@
   <string name="app_shortcuts_random">A l\'atzar</string>
   <string name="app_shortcuts_continue_reading">Continua llegint</string>
   <string name="app_shortcuts_search">Cerca</string>
-  <string name="more_trending_text">Més com aquest</string>
-  <string name="top_on_this_day">Tendència el %1$s</string>
   <string name="on_this_day_card_title">Tal dia com avui</string>
   <string name="more_events_text">Més sobre aquest dia</string>
   <string name="events_count_text">%1$s esdeveniments des de %2$s–%3$d</string>
   <string name="this_year">Enguany</string>
-  <string name="back_to_top">Torna a dalt</string>
   <string name="on_this_day_dialog_next_month">El mes següent</string>
   <string name="on_this_day_dialog_previous_month">El mes anterior</string>
   <string name="on_this_day_open_date_picker">Obre la selecció de dates</string>
@@ -903,6 +897,8 @@
     <item quantity="one">El darrer any</item>
     <item quantity="other">Fa %d anys</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Heu viatjat en el temps</string>
+  <string name="on_this_day_back_to_future">Retorn al futur</string>
   <string name="languages_list_activity_title">Afegeix una llengua</string>
   <string name="languages_list_suggested_text">Suggeriment</string>
   <string name="languages_list_all_text">Totes les llengües</string>
@@ -951,4 +947,16 @@
   <string name="text_input_dialog_ok_button_text">D’acord</string>
   <string name="text_input_dialog_cancel_button_text">Cancel·la</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Cancel·la</string>
+  <string name="talk_title">Discussió</string>
+  <string name="talk_user_title">Discussió: %s</string>
+  <string name="talk_new_topic">Tema nou</string>
+  <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
+  <string name="talk_add_reply">Respon</string>
+  <string name="talk_no_subject">(sense tema)</string>
+  <string name="talk_reply_subject">Tema</string>
+  <string name="talk_reply_hint">Redacta una resposta</string>
+  <string name="talk_message_hint">Redacta un missatge</string>
+  <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
+  <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
+  <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
 </resources>

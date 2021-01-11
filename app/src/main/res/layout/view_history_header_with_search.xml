@@ -5,22 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <org.wikipedia.views.WikiCardView
-        android:id="@+id/wiki_card_for_search"
+    <include
+        android:id="@+id/search_card"
+        layout="@layout/view_search_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginTop="16dp">
-
-        <include
-            android:id="@+id/search_card"
-            layout="@layout/view_search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:visibility="visible" />
-    </org.wikipedia.views.WikiCardView>
+        android:visibility="visible" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,28 +39,25 @@
             android:id="@+id/history_filter"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginEnd="24dp"
             android:clickable="true"
             android:contentDescription="@string/history_filter_list_hint"
             android:focusable="true"
             android:background="?attr/actionBarItemBackground"
-            android:longClickable="true"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_baseline_filter_list_24"
-            app:tint="@color/base30" />
+            app:tint="?attr/material_theme_secondary_color" />
 
         <ImageView
             android:id="@+id/history_delete"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginEnd="16dp"
+            android:padding="12dp"
             android:clickable="true"
-            android:contentDescription="@string/button_clear_all_recent_searches"
+            android:contentDescription="@string/menu_clear_all_history"
             android:focusable="true"
             android:background="?attr/actionBarItemBackground"
-            android:longClickable="true"
-            android:scaleType="centerInside"
+            android:scaleType="fitEnd"
             app:srcCompat="@drawable/ic_delete_white_24dp"
-            app:tint="@color/base30" />
+            app:tint="?attr/material_theme_secondary_color" />
     </LinearLayout>
 </LinearLayout>

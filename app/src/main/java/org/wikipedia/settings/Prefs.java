@@ -87,6 +87,14 @@ public final class Prefs {
         setInt(R.string.preference_key_previous_color_theme, theme);
     }
 
+    public static String getFontFamily() {
+        return getString(R.string.preference_key_font_family, "sans-serif");
+    }
+
+    public static void setFontFamily(String fontFamily) {
+        setString(R.string.preference_key_font_family, fontFamily);
+    }
+
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
         setString(R.string.preference_key_cookie_map, GsonMarshaller.marshal(cookies));
     }
@@ -773,6 +781,23 @@ public final class Prefs {
         remove(R.string.preference_key_announcement_shown_dialogs);
     }
 
+    @NonNull public static Set<String> getWatchlistDisabledLanguages() {
+        Set<String> emptySet = new LinkedHashSet<>();
+        if (!contains(R.string.preference_key_watchlist_disabled_langs)) {
+            return emptySet;
+        }
+        //noinspection unchecked
+        Set<String> codes = GsonUnmarshaller.unmarshal(emptySet.getClass(),
+                getString(R.string.preference_key_watchlist_disabled_langs, null));
+        return codes != null ? codes : emptySet;
+    }
+
+    public static void setWatchlistDisabledLanguages(@NonNull Set<String> langCodes) {
+        Set<String> codes = getAnnouncementShownDialogs();
+        codes.addAll(langCodes);
+        setString(R.string.preference_key_watchlist_disabled_langs, GsonMarshaller.marshal(langCodes));
+    }
+
     public static boolean shouldMatchSystemTheme() {
         return getBoolean(R.string.preference_key_match_system_theme, true);
     }
@@ -857,56 +882,32 @@ public final class Prefs {
         return getString(R.string.preference_key_temporary_wikitext_storage, "");
     }
 
+    public static void setPushNotificationToken(@Nullable String token) {
+        setString(R.string.preference_key_push_notification_token, token);
+    }
+
+    public static String getPushNotificationToken() {
+        return getString(R.string.preference_key_push_notification_token, "");
+    }
+
+    public static void setPushNotificationTokenOld(@Nullable String token) {
+        setString(R.string.preference_key_push_notification_token_old, token);
+    }
+
+    public static String getPushNotificationTokenOld() {
+        return getString(R.string.preference_key_push_notification_token_old, "");
+    }
+
+    public static boolean isPushNotificationTokenSubscribed() {
+        return getBoolean(R.string.preference_key_push_notification_token_subscribed, false);
+    }
+
+    public static void setPushNotificationTokenSubscribed(boolean subscribed) {
+        setBoolean(R.string.preference_key_push_notification_token_subscribed, subscribed);
+    }
+
     public static boolean isSuggestedEditsReactivationTestEnabled() {
         return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
-    }
-
-    public static boolean isSuggestedEditsRewardInterstitialEnabled() {
-        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, false);
-    }
-
-    public static void setSuggestedEditsRewardInterstitialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, enabled);
-    }
-
-    public static long getLastSuggestedEditsRewardInterstitialEditQualityShown() {
-        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, 0);
-    }
-
-    public static void setLastSuggestedEditsRewardInterstitialEditQualityShown(long time) {
-        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, time);
-    }
-
-    public static long getLastSuggestedEditsRewardInterstitialPageviewsShown() {
-        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, 0);
-    }
-
-    public static void setLastSuggestedEditsRewardInterstitialPageviewsShown(long time) {
-        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, time);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialContributionOnInitialCount() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_initial_count, 5);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialContributionOnCount() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_count, 50);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialEditStreakOnCount() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_streak_on_count, 5);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialEditQualityOnDay() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_quality_on_day, 14);
-    }
-
-    public static int getSuggestedEditsRewardInterstitialPageviewsOnDay() {
-        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_pageviews_on_day, 30);
-    }
-
-    public static boolean isSuggestedEditsRewardInterstitialQAOverride() {
-        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
     }
 
     public static boolean isSuggestedEditsHighestPriorityEnabled() {
@@ -948,6 +949,31 @@ public final class Prefs {
     public static void setShowSearchTabTooltip(boolean show) {
         setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
     }
+
+    public static void setLocalClassName(@Nullable String className) {
+        setString(R.string.preference_key_crash_report_local_class_name, className);
+    }
+
+    public static String getLocalClassName() {
+        return getString(R.string.preference_key_crash_report_local_class_name, "");
+    }
+
+    public static boolean isWatchlistPageOnboardingTooltipShown() {
+        return getBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, false);
+    }
+
+    public static void setWatchlistPageOnboardingTooltipShown(boolean enabled) {
+        setBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, enabled);
+    }
+
+    public static boolean isWatchlistMainOnboardingTooltipShown() {
+        return getBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, false);
+    }
+
+    public static void setWatchlistMainOnboardingTooltipShown(boolean enabled) {
+        setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled);
+    }
+
 
     private Prefs() { }
 }

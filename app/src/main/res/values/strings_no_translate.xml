@@ -58,16 +58,23 @@
 
     <!-- Transition names -->
     <string name="transition_news_item">newsItemTransition</string>
+    <string name="transition_search_bar">searchBarTransition</string>
     <string name="transition_random_activity">randomActivityTransition</string>
     <string name="transition_on_this_day">onThisDayTransition</string>
-    <string name="transition_floating_queue">floatingQueue</string>
+    <string name="transition_article_image">articleImageTransition</string>
+    <string name="transition_article_title">articleTitleTransition</string>
+    <string name="transition_article_description">articleDescriptionTransition</string>
+    <string name="transition_article_divider">articleDivider</string>
+    <string name="transition_page_gallery">pageGalleryTransition</string>
 
     <!-- Miscellaneous -->
     <string name="text_size_percent">%d%%</string>
     <string name="onboarding_option_string">%1$s.\t\t%2$s</string>
     <string name="language_data">multilingual</string>
-    <string name="add_square_brackets_to_string">[%s]</string>
     <string name="empty" />
     <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
 
+    <!-- Font family -->
+    <string name="font_family_sans_serif">sans-serif</string>
+    <string name="font_family_serif">serif</string>
 </resources>

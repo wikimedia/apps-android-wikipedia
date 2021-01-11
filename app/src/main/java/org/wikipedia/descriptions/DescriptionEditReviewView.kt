@@ -67,13 +67,13 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
             galleryImage.visibility = GONE
         } else {
             galleryImage.visibility = VISIBLE
-            ViewUtil.loadImageWithWhiteBackground(galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
+            ViewUtil.loadImage(galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
         }
         licenseView.darkLicenseView()
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 9
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 15
     }
 

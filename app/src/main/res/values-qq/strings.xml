@@ -7,8 +7,10 @@
 * Bencemac
 * Dbrant
 * Hamilton Abreu
+* Jeeputer
 * Joao Xavier
 * Kaganer
+* Kizule
 * KuboF
 * Liuxinyu970226
 * MarcoAurelio
@@ -16,6 +18,7 @@
 * McDutchie
 * Metalhead64
 * Minh Nguyen
+* MuratTheTurkish
 * Nemo bis
 * Nike
 * Omotecho
@@ -43,9 +46,9 @@
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
   <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
-  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
+  <string name="nav_item_search">Navigation menu item label for search.</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -60,6 +63,8 @@
   <string name="history_item_delete_undo">Button label to undo the operation of deleting an item from the browsing history.\n{{Identical|Undo}}</string>
   <string name="notification_archive_undo">Button label to undo the operation of archiving a notification.\n{{Identical|Undo}}</string>
   <string name="app_settings">Button text to take user to app settings screen</string>
+  <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
+  <string name="history_list_title">Label text for history items list.</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="dialog_message_clear_history_yes">Affirmative answer to clear the browsing history, as well close any tabs that are open.\n{{Identical|Yes}}</string>
@@ -70,6 +75,8 @@
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.\n{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
+  <string name="menu_page_add_to_watchlist">Menu item for adding the current page to the Watchlist.</string>
+  <string name="menu_page_remove_from_watchlist">Menu item for removing the current page from the Watchlist.</string>
   <string name="edit_section_find_in_page">Menu item for invoking Find in page on a page in edit mode.</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
@@ -78,6 +85,7 @@
   <string name="feed_card_add_to_default_list">Menu item for adding the a card from the feed to a default reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.\n{{Identical|Share}}</string>
   <string name="menu_page_open_a_new_tab">Menu item text for opening a new tab.</string>
+  <string name="menu_page_new_tab">Menu item text for opening a new tab.</string>
   <string name="menu_page_reading_lists">&gt;Menu item text for opening the reading lists page.</string>
   <string name="menu_page_recently_viewed">&gt;Menu item text for opening the history page.</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.\n{{Identical|Open}}</string>
@@ -205,6 +213,8 @@
   <string name="page_protected_can_not_edit">Message in dialog box telling the user that their account does not currently have the sufficient rights to edit this page.</string>
   <string name="page_protected_can_not_edit_anon">Message in dialog box telling the user that this page is currently protected against anonymous editing.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Title of tooltip telling the user that the article can be added to the Watchlist.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Message of tooltip telling the user that the article can be added to the Watchlist.\n\n\"Add to Watchlist\" is {{msg-wm|Wikipedia-android-strings-menu page add to watchlist}}</string>
   <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.\n{{Identical|Settings}}</string>
   <string name="settings_activity_title">Title at the top of the Settings screen.\n{{Identical|Settings}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
@@ -258,10 +268,14 @@
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
   <string name="abusefilter_text_disallow">Explanation of why the edit was not allowed: potentially unconstructive, or potential vandalism.</string>
-  <string name="text_size_select">Label that describes text size selection\n{{Identical|Font size}}</string>
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
+  <string name="search_results_count_zero">Text shown on the list that displays zero counts of the result from the search.</string>
+  <plurals name="search_results_count">
+    <item quantity="one">Text shown on the list that displays one count of the result from the search.</item>
+    <item quantity="other">Text shown on the list that displays numbers of counts of the result from the search. The \"%d\" symbol is replaced with the amount of the counts.</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>
   <string name="clear_recent_searches_confirm">Dialog message that asks if the user really wants to clear the search history.</string>
   <string name="clear_recent_searches_confirm_yes">Affirmative answer to clear the search history.\n{{Identical|Yes}}</string>
@@ -325,6 +339,7 @@
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="button_continue_to_talk_page">Button to continue to the talk page that is currently being previewed.</string>
   <string name="button_continue_to_disambiguation">Button to continue to the disambiguation page for the selected title.</string>
   <string name="link_preview_disambiguation_description">Message shown when a selected title refers to more than one page, ending with a colon after which the disambiguations will be listed.</string>
   <string name="button_add_to_reading_list">Button text for adding the current page to a reading list.</string>
@@ -357,12 +372,12 @@
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
   <string name="view_wiki_error_message_timeout">Error message shown when a network operation takes too long and times out.</string>
   <string name="reference_title">Title shown on the popup dialog for a reference clicked by the user. The %s symbol is replaced with the link text of the clicked reference.</string>
-  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.\n{{Identical|References}}</string>
+  <string name="reference_list_title">Menu item label for showing the full list of references for the current article.\n{{Identical|Reference}}</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Label for a switch on the theme chooser dialog allowing the user to toggle whether images are dimmed in the Dark theme</string>
   <string name="preference_title_prefer_offline_content">Title for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="preference_summary_prefer_offline_content">Summary for a preference allowing the user to prefer using cached content over getting the freshest content from the network</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
-  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.</string>
+  <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.\n{{Identical|Content is available under}}</string>
   <string name="empty_tab_title">Label shown on a blank tab with no content.</string>
   <string name="menu_save_all_tabs">Label suggesting user to add all open tabs to a list.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
@@ -380,7 +395,7 @@
   <string name="color_theme_select">Label that describes color theme selection\n{{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme\n{{Identical|Light}}</string>
   <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>
-  <string name="color_theme_black">Button label for Black color theme\n{{Identical|Black}}</string>
+  <string name="color_theme_black">Button label for Black color theme</string>
   <string name="color_theme_sepia">Button label for Sepia color theme</string>
   <string name="color_theme_test_title">An example header title for previewing color theme changes.</string>
   <string name="color_theme_test_text">Sample descriptive text giving the user instructions on using the text size slider.</string>
@@ -389,6 +404,7 @@
   <string name="text_size_increase">Button hint for increasing the text size used in articles.</string>
   <string name="text_size_decrease">Button hint for decreasing the text size used in articles.</string>
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
+  <string name="text_style_title">Label that describes text style selection\n{{Identical|Font}}</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
@@ -569,6 +585,7 @@
   <string name="notifications_view_archived_button_text">Button label for navigating to the list of archived notifications.</string>
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
+  <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
   <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>
@@ -588,12 +605,18 @@
   <string name="preference_summary_notification_user_talk">Short summary explaining what User talk notifications are.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
-  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
-  <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
+  <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
+  <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
+  <string name="view_top_read_card_title">Feed card title for recently popular articles.\n{{Identical|Top read}}</string>
+  <string name="view_top_read_card_action">Button label to navigate to a full-screen view containing more trending articles.</string>
+  <string name="view_top_read_card_pageviews_k_suffix">Text for showing the amount of pageviews in thousands. \"%d\" represents the number of pageviews in thousands.</string>
+  <string name="view_top_read_card_pageviews_m_suffix">Text for showing the amount of pageviews in millions. \"%d\" represents the number of pageviews in millions.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
+  <string name="view_main_page_card_action">Button label for navigating to the Main Page of Wikipedia.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
   <string name="view_featured_image_card_download">Label for a button the user can click to download the full-size Picture of the Day.\n{{Identical|Download}}</string>
+  <string name="view_featured_image_card_share">Label for a button the user can click to share the image link of the Picture of the Day.\n{{Identical|Share}}</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
   <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
   <string name="menu_feed_card_edit_card_languages">Menu item used for opening the page of editing card languages</string>
@@ -601,7 +624,6 @@
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
   <string name="home">Menu item label for going to the home screen in the app.</string>
-  <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -612,10 +634,8 @@
   <string name="view_continue_reading_card_subtitle_read_date">Subtitle for number of days passed since the article was last seen and shown on cards in the feed. Use the %s parameter to insert the number of days passed since the content (an article) was last seen.\n\nThe word \"read\" is either past tense, as in \"(you have) read (this) 4 days ago\", or a participle as in \"(this was) read (by you) 4 days ago\".</string>
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
-  <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed\n{{Identical|Featured article}}</string>
-  <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
+  <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed</string>
   <string name="view_static_card_save_button_label">Text on button that indicates user can save article to reading lists.\n{{Identical|Save}}</string>
-  <string name="view_featured_article_footer_saved_button_label">Button label for when the current featured article is already saved to a reading list, but may now be removed from the list, or saved to a different list.\n{{Identical|Saved}}</string>
   <string name="feed_configure_activity_title">Title shown at the top of the screen where the user customizes which cards are shown in the Explore feed.</string>
   <string name="feed_configure_menu_reset">Menu label for resetting the customization of the Explore feed cards to the original defaults.</string>
   <string name="feed_configure_menu_select_all">Menu label for showing all types of Explore feed cards.</string>
@@ -627,6 +647,7 @@
   <string name="feed_item_type_featured_article">Short description for Explore feed card that contains the daily featured article</string>
   <string name="feed_item_type_trending">Short description for Explore feed card that contains daily trending articles</string>
   <string name="feed_item_type_featured_image">Short description for Explore feed card that contains the daily featured image from Commons</string>
+  <string name="feed_item_type_main_page">Short description for Explore feed card that contains a link to the Main Page</string>
   <string name="feed_item_type_randomizer">Short description for Explore feed card that generates random articles</string>
   <string name="feed_item_type_suggested_edits">Short description for Explore feed card that suggests articles for adding or translating descriptions</string>
   <string name="feed_empty_message">Message informing the user that their Explore feed is currently empty.</string>
@@ -638,6 +659,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Negative action button text in pop-up dialog for feed card language selection.</string>
   <string name="feed_accessibility_card_text">Short description for the accessibility card that tells user it is the bottom of the explore feed.</string>
   <string name="feed_accessibility_card_load_more_button">Button lable for manually loading more cards to the explore feed.</string>
+  <string name="top_read_activity_title">Title for the screen with all top read links. \"%s\" represents the date string</string>
   <string name="description_edit_text_hint">Hint text that is shown when the article description field is empty.</string>
   <string name="description_edit_article_description_label">Label that prompts the user that the summary of the article shows under the label.\n{{Identical|Article}}</string>
   <string name="description_edit_translate_article_description_label_per_language">Label that prompts the user that the summary of the article shows under the label. %s represents the language of the description.</string>
@@ -667,6 +689,7 @@
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
   <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
   <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
+  <string name="description_is_in_different_language">Warning message shown to users when their editing language is different form their keyboard language.%s represents the expected language.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
@@ -827,28 +850,12 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Message shown about the number of contributions the user has made.</item>
-    <item quantity="other">Message shown about the number of contributions the user has made. The %d parameter represents the number of contrubutions.</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Message shown about the length of edit streak the user has made. The %2$s parameter represents the user name.</item>
-    <item quantity="other">Message shown about the length of edit streak the user has made. The %1$d parameter represents the length of edit streak and the %2$s parameter represents the user name.</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
-    <item quantity="other">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
-  <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
-  <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
-  <string name="suggested_edits_rewards_edit_quality">Message shown to the user about the quality of their edits so far. The %s represents the quality, such as Excellent, Good, Okay, Bad, etc.</string>
-  <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
+  <string name="suggested_card_more_edits">Label text for SE feed card footer action.</string>
   <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
@@ -890,13 +897,10 @@
   <string name="app_shortcuts_random">A shortcut icon on the home screen for getting a random article.\n{{Identical|Random}}</string>
   <string name="app_shortcuts_continue_reading">A shortcut icon on the home screen for continuing reading an article.</string>
   <string name="app_shortcuts_search">A shortcut icon on the home screen for opening the search page.\n{{Identical|Search}}</string>
-  <string name="more_trending_text">Button label to navigate to a full-screen view containing more trending articles.</string>
-  <string name="top_on_this_day">Title for the screen with all trending links. \"%1$s\" represents the date string</string>
   <string name="on_this_day_card_title">Title for the card that shows historic events of a particular day.</string>
   <string name="more_events_text">Suggestion text for the user indicating that there are more events for the date.</string>
   <string name="events_count_text">Label indicating the number of events that occurred in a certain range of years. The \"%1$s\" symbol is replaced with the number of events, \"%2$s\" is the beginning year, and \"%3$d\" is the ending year</string>
   <string name="this_year">Text to say, \'This year\'</string>
-  <string name="back_to_top">Button label for scrolling the content to the top.</string>
   <string name="on_this_day_dialog_next_month">Image content description that shows it will trigger the calendar to the next month.</string>
   <string name="on_this_day_dialog_previous_month">Image content description that shows it will trigger the calendar to the previous month.</string>
   <string name="on_this_day_open_date_picker">View content description that shows it will trigger to open the date picker dialog.</string>
@@ -904,6 +908,8 @@
     <item quantity="one">Text indicating that the event occurred one year ago.</item>
     <item quantity="other">Text indicating that the event occurred two or more years ago.\"%d\" is the number of years.</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Label text shown to user when they have scrolled through the events till the end.</string>
+  <string name="on_this_day_back_to_future">Button label for scrolling the content to the top.</string>
   <string name="languages_list_activity_title">Title shown at the top of the activity for selecting a wikipedia language.</string>
   <string name="languages_list_suggested_text">Section header of the suggested languages in the languages list.</string>
   <string name="languages_list_all_text">Section header of all languages in the languages list.</string>
@@ -948,6 +954,8 @@
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
   <string name="main_tooltip_text_v2">Message for the tool tip that shown on the main screen.</string>
   <string name="main_tooltip_action_button">Button label for the action on tool tip that shown on the main screen.</string>
+  <string name="main_tooltip_watchlist_title">Title for the Watchlist tooltip that shown on the main screen.</string>
+  <string name="main_tooltip_watchlist_text">Message for the Watchlist tooltip that shown on the main screen.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
@@ -956,14 +964,31 @@
   <string name="talk_user_title">Title of screen that shows the talk page topics of the user. The %s symbol is replaced with the user name.</string>
   <string name="talk_new_topic">Button label for creating a new talk topic.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
-  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.</string>
+  <string name="talk_add_reply">Button label for adding a reply to a talk page topic.\n\nThe functionality is similar to {{msg-mw|Discussiontools-replylink}}, so the translation can be identical.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
   <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
   <string name="talk_reply_hint">Hint for text field for composing a reply to the current talk page topic.</string>
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
-  <string name="nav_item_search">Navigation menu item label for search.</string>
-  <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
-  <string name="history_list_title">Label text for history items list.</string>
+  <string name="go_to_user_page">Menu item label for going to the user page of the selected user.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">Text for the time period that exists for 1 week.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">Text for the time period that exists for 1 month.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">Text for the time period that exists for 3 months.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">Text for the time period that exists for 6 months.</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">Message shown when the article is removed from Watchlist. The %s symbol will be replaced by the article title.</string>
+  <string name="watchlist_expiry_dialog_title">Title of the bottom sheet that shows the available options of the time period.</string>
+  <string name="watchlist_expiry_dialog_permanent">Label for the time period that exists permanently.</string>
+  <string name="watchlist_expiry_dialog_one_week">Label for the time period that exists for 1 week.</string>
+  <string name="watchlist_expiry_dialog_one_month">Label for the time period that exists for 1 month.</string>
+  <string name="watchlist_expiry_dialog_three_months">Label for the time period that exists for 3 months.</string>
+  <string name="watchlist_expiry_dialog_six_months">Label for the time period that exists for 6 months.</string>
+  <string name="watchlist_empty">Message shown when the user\'s watchlist is empty.</string>
+  <string name="watchlist_filter_all">Filter selection to show all items in the watchlist</string>
+  <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist</string>
+  <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
+  <string name="watchlist_filter_other">Filter selection to show only non-main and non-talk pages in the watchlist</string>
 </resources>

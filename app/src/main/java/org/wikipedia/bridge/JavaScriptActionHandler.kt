@@ -21,7 +21,7 @@ import kotlin.math.roundToInt
 object JavaScriptActionHandler {
     @JvmStatic
     fun setTopMargin(top: Int): String {
-        return String.format("pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
+        return String.format(Locale.ROOT, "pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
     }
 
     @JvmStatic
@@ -79,7 +79,7 @@ object JavaScriptActionHandler {
             (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) 0 else (leadImageHeightForDevice(context) / getDensityScalar()).roundToInt() - topActionBarHeight)
         val topMargin = topActionBarHeight + 16
 
-        return String.format("{" +
+        return String.format(Locale.ROOT, "{" +
                 "   \"platform\": \"android\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
                 "   \"l10n\": {" +
@@ -89,6 +89,7 @@ object JavaScriptActionHandler {
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
                 "   \"theme\": \"${app.currentTheme.funnelName}\"," +
+                "   \"bodyFont\": \"${Prefs.getFontFamily()}\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.shouldDimDarkModeImages())}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +
@@ -131,7 +132,7 @@ object JavaScriptActionHandler {
                 "   }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: \"${baseURL}\"," +
+                "       baseURL: \"$baseURL\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
@@ -141,8 +142,25 @@ object JavaScriptActionHandler {
     fun mobileWebChromeShim(): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 80px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 48px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }
+
+    @JvmStatic
+    fun getElementAtPosition(x: Int, y: Int): String {
+        return "(function() {" +
+                "  let element = document.elementFromPoint($x, $y);" +
+                "  let result = {};" +
+                "  result.left = element.getBoundingClientRect().left;" +
+                "  result.top = element.getBoundingClientRect().top;" +
+                "  result.width = element.clientWidth;" +
+                "  result.height = element.clientHeight;" +
+                "  result.src = element.src;" +
+                "  return result;" +
+                "})();"
+    }
+
+    data class ImageHitInfo(val left: Float = 0f, val top: Float = 0f, val width: Float = 0f, val height: Float = 0f,
+                            val src: String = "", val centerCrop: Boolean = false)
 }

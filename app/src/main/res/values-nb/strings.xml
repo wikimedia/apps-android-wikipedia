@@ -11,6 +11,7 @@
 * Kingu
 * Laaknor
 * Macofe
+* MuratTheTurkish
 * Nghtwlkr
 * Orf3us
 * Pmt
@@ -28,7 +29,6 @@
   <string name="nav_item_forward">Fremover</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
-  <string name="nav_item_history">Logg</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
@@ -53,7 +53,7 @@
   <string name="search_redirect_from">Omdirigert fra %s</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
-  <string name="menu_page_find_in_page">Søk i siden</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Søk i siden</string>
   <string name="edit_section_find_in_page">Finn på siden</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
   <string name="menu_page_add_to_list">Legg til i leseliste</string>
@@ -191,7 +191,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Personvernpolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
-  <string name="about_wikipedia_url">https://no.m.wikipedia.org/wiki/Wikipedia:Om</string>
+  <string name="about_wikipedia_url">https://no.wikipedia.org/wiki/Wikipedia:Om</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -238,7 +238,6 @@
   <string name="abusefilter_title_disallow">Denne redigeringen kan ikke publiseres. Gå tilbake og prøv igjen.</string>
   <string name="abusefilter_text_warn">Redigeringen har blitt identifisert som potensielt destruktiv av et automatisk filter. Den kan inneholde en eller flere av følgende ting:&lt;br /&gt;&lt;br /&gt;· Hele ord skrevet med store bokstaver&lt;br /&gt;· Tømming av artikkelen eller spamming&lt;br /&gt;· Irrelevante eksterne lenker eller bilder&lt;br /&gt;· Gjentagende tegn</string>
   <string name="abusefilter_text_disallow">Redigeringen har blitt identifisert som potentiselt destruktiv, eller som potensiell vandalisme av et automatisk filter.&lt;br /&gt;&lt;br /&gt;Wikipedia er en encyklopedi og kun nøytralt og relevant innhold hører hjemme her.</string>
-  <string name="text_size_select">Skriftstørrelse</string>
   <string name="page_similar_titles">Lignende sider</string>
   <string name="search_did_you_mean">Mente du «%s»?</string>
   <string name="search_recent_header">Nylige søk:</string>
@@ -317,7 +316,7 @@
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
-  <string name="nav_item_donate">Støtt Wikipedia</string>
+  <string name="nav_item_donate" fuzzy="true">Støtt Wikipedia</string>
   <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
   <string name="location_service_disabled">Stedstjenester er slått av.</string>
   <string name="enable_location_service">Slå på</string>
@@ -533,11 +532,8 @@
   <string name="preference_summary_notification_user_talk">Meldinger fra diskusjonssider</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
   <string name="view_random_card_title">Tilfeldighetsgenerator</string>
-  <string name="view_random_card_subtitle">Gå gjennom tilfeldige artikler å lese fra Wikipedia.</string>
-  <string name="view_random_card_action">Kast terning</string>
   <string name="view_next_random_article">Last en annen tilfeldig artikkel</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Forsiden %s</string>
   <string name="view_main_page_card_action">Vis forsiden</string>
   <string name="view_featured_image_card_title">Dagens bilde</string>
   <string name="view_featured_image_card_download">Last ned</string>
@@ -547,7 +543,6 @@
   <string name="menu_feed_overflow_label">Flere innstillinger</string>
   <string name="feed_featured_image_share_subject">Utvalgt bilde på Wikimedia Commons</string>
   <string name="feed">Utforsk</string>
-  <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortsymbol</string>
   <string name="view_card_news_title">Aktuelt</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -559,9 +554,7 @@
   <string name="view_announcement_card_negative_action">Nei takk</string>
   <string name="view_offline_card_text">Innholdet kan ikke lastes når du er offline.</string>
   <string name="view_featured_article_card_title">Utvalgt artikkel</string>
-  <string name="view_featured_article_footer_save_button_label">Lagre</string>
   <string name="view_static_card_save_button_label">Lagre</string>
-  <string name="view_featured_article_footer_saved_button_label">Lagret</string>
   <string name="feed_configure_activity_title">Tilpass hva som vises</string>
   <string name="feed_configure_menu_reset">Tilbakestill standardvisningen</string>
   <string name="feed_configure_menu_select_all">Vis alt</string>
@@ -690,9 +683,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, under finner du noen raske og enkle måter du kan forbedre Wikipedia på. Prøv dem gjerne ut!</string>
   <string name="suggested_edits_image_captions_task_detail">Beskriv et bilde for å hjelpe lesere å forstå bildets motiv og kontekst.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Oppsummer en artikkel for å hjelpe lesere å raskt forstå hva den handler om.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Totalt antall bidrag du har gjort her.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Antall dager i strekk du har redigert her. Hvis du ikke har bidratt på en stund, vises i stedet datoen for ditt siste bidrag.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Antall sidevisninger de siste 30 dagene for artikler og bilder du har bidratt til.</string>
+  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Totalt antall bidrag du har gjort her.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Antall dager i strekk du har redigert her. Hvis du ikke har bidratt på en stund, vises i stedet datoen for ditt siste bidrag.</string>
+  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Antall sidevisninger de siste 30 dagene for artikler og bilder du har bidratt til.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basert på hvor mange ganger et av bidragene dine har blitt tilbakestilt (gjort om av en annen bdiragsyter). Tilbakestilte redigeringer: %d.</string>
   <string name="suggested_edits_paused_message">Redigeringsforslag er deaktivert frem til %1$s. Beklager %2$s, men noen av de siste bidragene dine har blitt tilbakestilt.</string>
   <string name="suggested_edits_disabled_message">Redigeringsforslag er deaktivert. Beklager %s, for mange av de siste bidragene dine har blitt tilbakestilt.</string>
@@ -741,10 +734,6 @@
   <string name="suggested_edits_contribution_seen_text">Sett %s ganger de siste 30 dagene.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
-  <string name="suggested_edits_rewards_contribution">Du har gjort %d bidrag til Wikipedia fra Redigeringsforslag. Takk!</string>
-  <string name="suggested_edits_rewards_edit_streak">Du har redigert hver dag de siste  %1$d dagene. Bra jobba, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Redigeringene dine har blitt sett av %d personer de siste 30 dagene. Lykke til videre med redigeringen!</string>
-  <string name="suggested_edits_rewards_continue_button">Fortsett</string>
   <string name="suggested_edits_encourage_account_creation_title">Visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Redigeringsforslag er en ny måte å redigere Wikipedia på fra Android. Den hjelper deg å å gjøre små, men viktige bidrag til Wikipedia.\nMålet vårt er å gjøre redigering enklere og mer tilgjengelig for alle! Logg inn eller registrer deg på Wikipedia for å komme i gang.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logg inn / registrer deg på Wikipedia</string>
@@ -790,13 +779,10 @@
   <string name="app_shortcuts_random">Tilfeldig</string>
   <string name="app_shortcuts_continue_reading">Fortsett å lese</string>
   <string name="app_shortcuts_search">Søk</string>
-  <string name="more_trending_text">Mer som dette</string>
-  <string name="top_on_this_day">Populært %1$s</string>
   <string name="on_this_day_card_title">På denne dag</string>
   <string name="more_events_text">Mer på denne dag</string>
   <string name="events_count_text">%1$s hendelser fra %2$s–%3$d</string>
   <string name="this_year">Dette året</string>
-  <string name="back_to_top">Tilbake til toppen</string>
   <string name="on_this_day_dialog_next_month">Neste måned</string>
   <string name="on_this_day_dialog_previous_month">Forrige måned</string>
   <string name="on_this_day_open_date_picker">Åpne datovelger</string>

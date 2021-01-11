@@ -3,7 +3,6 @@ package org.wikipedia;
 public final class Constants {
     // Keep loader IDs unique to each loader. If the loader specified by the ID already exists, the
     // last created loader is reused.
-    public static final int HISTORY_FRAGMENT_LOADER_ID = 100;
     public static final int RECENT_SEARCHES_FRAGMENT_LOADER_ID = 101;
 
     public static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
@@ -40,7 +39,8 @@ public final class Constants {
 
     public static final String INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber";
     public static final String INTENT_EXTRA_DELETE_READING_LIST = "deleteReadingList";
-    public static final String INTENT_EXTRA_VIEW_FROM_NOTIFICATION = "viewFromNotification";
+    public static final String INTENT_EXTRA_NOTIFICATION_ID = "notificationId";
+    public static final String INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType";
 
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume";
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel";
@@ -48,6 +48,7 @@ public final class Constants {
     public static final String INTENT_EXTRA_GO_TO_SE_TAB = "goToSETab";
     public static final String INTENT_EXTRA_INVOKE_SOURCE = "invokeSource";
     public static final String INTENT_EXTRA_ACTION = "intentAction";
+    public static final String INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim";
 
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
@@ -89,12 +90,14 @@ public final class Constants {
         VOICE("voice"),
         ON_THIS_DAY_CARD_BODY("onThisDayCard"),
         ON_THIS_DAY_CARD_FOOTER("onThisDayCardFooter"),
+        ON_THIS_DAY_CARD_YEAR("onThisDayCardYear"),
         LEAD_IMAGE("leadImage"),
         TABS_ACTIVITY("tabsActivity"),
         FILE_PAGE_ACTIVITY("filePage"),
         SNACKBAR_ACTION("snackbar"),
         PAGE_ACTION_TAB("pageActionTab"),
-        TALK_ACTIVITY("talkActivity");
+        TALK_ACTIVITY("talkActivity"),
+        SETTINGS("settings");
 
         private String name;
 

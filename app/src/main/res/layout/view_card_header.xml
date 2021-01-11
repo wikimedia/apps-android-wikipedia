@@ -1,7 +1,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_height="@dimen/view_card_header_height"
+    tools:layout_height="wrap_content"
     tools:layout_width="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
@@ -18,7 +18,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view_card_header_subtitle"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_lang_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
@@ -48,7 +48,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
-        app:layout_constraintStart_toEndOf="@+id/view_card_header_subtitle"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="zh-hant" />
 

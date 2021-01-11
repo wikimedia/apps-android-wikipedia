@@ -9,6 +9,7 @@
 * Fitoschido
 * Iváns
 * Macofe
+* MuratTheTurkish
 * Sabelaraga
 * Toliño
 * Vivaelcelta
@@ -25,7 +26,6 @@
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="search_hint_voice_search">Procura con entrada por voz</string>
   <string name="search_hint_search_languages">Procurar unha lingua</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Edicións suxeridas</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -50,7 +50,7 @@
   <string name="search_redirect_from">Redirixido desde %s</string>
   <string name="menu_page_show_tabs">Amosar as lapelas</string>
   <string name="menu_page_other_languages">Cambiar a lingua</string>
-  <string name="menu_page_find_in_page">Atopar na páxina</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Atopar na páxina</string>
   <string name="edit_section_find_in_page">Atopar na páxina</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_add_to_list">Engadir á lista de lectura</string>
@@ -188,7 +188,7 @@
   <string name="about_description">Acerca da aplicación da Wikipedia</string>
   <string name="privacy_policy_description">Política de protección de datos</string>
   <string name="terms_of_use_description">Termos de uso</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://gl.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/gl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/gl</string>
@@ -234,7 +234,6 @@
   <string name="abusefilter_title_disallow">Non pode publicar esta edición. Por favor, vaia á páxina anterior e modifíquea.</string>
   <string name="abusefilter_text_warn">Un filtro automático identificou esta edición como potencialmente non construtiva. Pode conter un ou varios dos seguintes problemas:&lt;br /&gt;&lt;br /&gt;· Está escrito todo en maiúsculas&lt;br /&gt;· É un artigo en branco ou que contén spam&lt;br /&gt;· Contén ligazóns externas ou imaxes irrelevantes&lt;br /&gt;· Contén caracteres repetidos</string>
   <string name="abusefilter_text_disallow">Un filtro automático identificou esta edición como potencialmente non construtiva ou posible vandalismo.&lt;br /&gt;&lt;br /&gt;A Wikipedia é unha enciclopedía e nela unicamente son pertinentes os contidos neutrais e relevantes.</string>
-  <string name="text_size_select">Tamaño da letra</string>
   <string name="page_similar_titles">Páxinas similares</string>
   <string name="search_did_you_mean">Quixo dicir \"%s\"?</string>
   <string name="search_recent_header">Procuras recentes:</string>
@@ -312,7 +311,7 @@
   <string name="preference_summary_show_link_previews">Amosar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
   <string name="preference_title_collapse_tables">Colapsar táboas</string>
   <string name="preference_summary_collapse_tables">Automaticamente minimizar táboas en artigos, como por exemplo caixas de información, referencias e notas.</string>
-  <string name="nav_item_donate">Apoia a Wikimedia</string>
+  <string name="nav_item_donate" fuzzy="true">Apoia a Wikimedia</string>
   <string name="error_voice_search_not_available">O recoñecemento de voz non está dispoñible.</string>
   <string name="location_service_disabled">Os servizos de localización están desactivados.</string>
   <string name="enable_location_service">Activar</string>
@@ -523,11 +522,8 @@
   <string name="preference_summary_notification_user_talk">Mensaxes das páxinas de conversa</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle">Ollar artigos aleatorios da Wikipedia para ler.</string>
-  <string name="view_random_card_action">Lanzar o dado</string>
   <string name="view_next_random_article">Cargar outro artigo ó chou</string>
   <string name="view_main_page_card_title">Hoxe na Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Páxina principal en %s</string>
   <string name="view_main_page_card_action">Ver a páxina principal</string>
   <string name="view_featured_image_card_title">Imaxe do día</string>
   <string name="view_featured_image_card_download">Descargar</string>
@@ -537,7 +533,6 @@
   <string name="menu_feed_overflow_label">Máis opcións</string>
   <string name="feed_featured_image_share_subject">Imaxe destacada en Wikimedia Commons</string>
   <string name="feed">Explorar</string>
-  <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icona de tarxeta</string>
   <string name="view_card_news_title">Actualidade</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -549,9 +544,7 @@
   <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="view_offline_card_text">Non se pode cargar contido cando non hai conexión.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
-  <string name="view_featured_article_footer_save_button_label">Gardar</string>
   <string name="view_static_card_save_button_label">Gardar</string>
-  <string name="view_featured_article_footer_saved_button_label">Gardado</string>
   <string name="feed_configure_activity_title">Configurar a canle</string>
   <string name="feed_configure_menu_reset">Restablecer vista predeterminada</string>
   <string name="feed_configure_menu_select_all">Amosar todo</string>
@@ -714,13 +707,10 @@
   <string name="app_shortcuts_random">Ao chou</string>
   <string name="app_shortcuts_continue_reading">Continuar lendo</string>
   <string name="app_shortcuts_search">Procurar</string>
-  <string name="more_trending_text">Outros semellantes</string>
-  <string name="top_on_this_day">Tendencias do %1$s</string>
   <string name="on_this_day_card_title">Un día coma hoxe</string>
   <string name="more_events_text">Máis neste día</string>
   <string name="events_count_text">%1$s acontecementos de %2$s - %3$d</string>
   <string name="this_year">Este ano</string>
-  <string name="back_to_top">Volver ao inicio</string>
   <string name="on_this_day_dialog_next_month">Mes seguinte</string>
   <string name="on_this_day_dialog_previous_month">Mes anterior</string>
   <plurals name="diff_years">

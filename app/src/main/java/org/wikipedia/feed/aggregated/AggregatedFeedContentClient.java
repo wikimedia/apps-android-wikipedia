@@ -17,7 +17,7 @@ import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.mostread.MostReadListCard;
-import org.wikipedia.feed.news.NewsListCard;
+import org.wikipedia.feed.news.NewsCard;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
@@ -70,7 +70,7 @@ public class AggregatedFeedContentClient {
                         && !FeedContentType.NEWS.getLangCodesDisabled().contains(appLangCode)) {
                     AggregatedFeedContent content = responses.get(appLangCode);
                     if (age == 0 && content.news() != null) {
-                        outCards.add(new NewsListCard(content.news(), age, WikiSite.forLanguageCode(appLangCode)));
+                        outCards.add(new NewsCard(content.news(), age, WikiSite.forLanguageCode(appLangCode)));
                     }
                 }
             }

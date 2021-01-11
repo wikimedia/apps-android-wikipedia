@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.Constants.*
@@ -55,6 +56,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val disposables = CompositeDisposable()
     private var isIpBlocked = false
     private var isPausedOrDisabled = false
+    private var totalPageviews = 0L
     private var totalContributions = 0
     private var latestEditDate = Date()
     private var latestEditStreak = 0
@@ -82,7 +84,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         userStatsViewsGroup.addOnClickListener {
-            startActivity(ContributionsActivity.newIntent(requireActivity()))
+            startActivity(ContributionsActivity.newIntent(requireActivity(), totalContributions, totalPageviews))
         }
 
         learnMoreCard.setOnClickListener {
@@ -136,7 +138,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             tasksRecyclerView.adapter!!.notifyDataSetChanged()
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
-            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
         } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
         }
@@ -203,6 +205,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     if (!isPausedOrDisabled && !isIpBlocked) {
                         pageViewStatsView.setTitle(it.toString())
+                        totalPageviews = it
                         setFinalUIState()
                     }
                 }, { t ->
@@ -412,14 +415,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                 return
             }
             if (task == addDescriptionsTask) {
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION, InvokeSource.SUGGESTED_EDITS))
             } else if (task == addImageCaptionsTask) {
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION, InvokeSource.SUGGESTED_EDITS))
             } else if (task == addImageTagsTask) {
                 if (Prefs.shouldShowImageTagsOnboarding()) {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
-                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
                 }
             }
         }

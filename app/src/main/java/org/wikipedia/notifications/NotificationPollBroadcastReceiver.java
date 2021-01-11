@@ -12,15 +12,17 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.NotificationFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
-import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.main.MainActivity;
+import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -39,13 +41,17 @@ import static org.wikipedia.Constants.INTENT_EXTRA_GO_TO_SE_TAB;
 
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
+    public static final String ACTION_CANCEL = "action_notification_cancel";
+    public static final String TYPE_MULTIPLE = "multiple";
+    public static final String TYPE_LOCAL = "local";
+
     private static final int MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32;
     private static final int FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3;
     private static final int SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7;
 
-    private Map<String, WikiSite> dbNameWikiSiteMap = new HashMap<>();
-    private Map<String, String> dbNameWikiNameMap = new HashMap<>();
-    private List<Long> locallyKnownNotifications;
+    private static Map<String, WikiSite> DBNAME_WIKI_SITE_MAP = new HashMap<>();
+    private static Map<String, String> DBNAME_WIKI_NAME_MAP = new HashMap<>();
+    private static List<Long> LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications();
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -69,8 +75,17 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
 
-            locallyKnownNotifications = Prefs.getLocallyKnownNotifications();
+            // If push notifications are active, then don't actually do any polling.
+            if (WikipediaFirebaseMessagingService.Companion.isUsingPush()) {
+                return;
+            }
+            LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications();
             pollNotifications(context);
+
+        } else if (TextUtils.equals(intent.getAction(), ACTION_CANCEL)) {
+
+            NotificationFunnel.processIntent(intent);
+
         }
     }
 
@@ -101,9 +116,17 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
+    @NonNull public static PendingIntent getCancelNotificationPendingIntent(@NonNull Context context, long id, String type) {
+        Intent intent = new Intent(context, NotificationPollBroadcastReceiver.class)
+                .setAction(ACTION_CANCEL)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
+                .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type);
+        return PendingIntent.getBroadcast(context, (int) id, intent, 0);
+    }
+
     @SuppressLint("CheckResult")
-    private void pollNotifications(@NonNull final Context context) {
-        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getLastUnreadNotification()
+    public static void pollNotifications(@NonNull final Context context) {
+        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getLastUnreadNotification()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -130,7 +153,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                 });
     }
 
-    public void assertLoggedIn() {
+    public static void assertLoggedIn() {
         // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
         // and should automatically log us out if the credentials are no longer valid.
         Completable.fromAction(() -> new CsrfTokenClient(WikipediaApp.getInstance().getWikiSite(), WikipediaApp.getInstance().getWikiSite())
@@ -139,10 +162,10 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     @SuppressLint("CheckResult")
-    private void retrieveNotifications(@NonNull final Context context) {
-        dbNameWikiSiteMap.clear();
-        dbNameWikiNameMap.clear();
-        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getUnreadNotificationWikis()
+    private static void retrieveNotifications(@NonNull final Context context) {
+        DBNAME_WIKI_SITE_MAP.clear();
+        DBNAME_WIKI_NAME_MAP.clear();
+        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getUnreadNotificationWikis()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -151,8 +174,8 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                     wikis.addAll(wikiMap.keySet());
                     for (String dbName : wikiMap.keySet()) {
                         if (wikiMap.get(dbName).getSource() != null) {
-                            dbNameWikiSiteMap.put(dbName, new WikiSite(wikiMap.get(dbName).getSource().getBase()));
-                            dbNameWikiNameMap.put(dbName, wikiMap.get(dbName).getSource().getTitle());
+                            DBNAME_WIKI_SITE_MAP.put(dbName, new WikiSite(wikiMap.get(dbName).getSource().getBase()));
+                            DBNAME_WIKI_NAME_MAP.put(dbName, wikiMap.get(dbName).getSource().getTitle());
                         }
                     }
                     getFullNotifications(context, wikis);
@@ -160,15 +183,15 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     @SuppressLint("CheckResult")
-    private void getFullNotifications(@NonNull final Context context, @NonNull List<String> foreignWikis) {
-        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getAllNotifications(foreignWikis.isEmpty() ? "*" : TextUtils.join("|", foreignWikis), "!read", null)
+    private static void getFullNotifications(@NonNull final Context context, @NonNull List<String> foreignWikis) {
+        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getAllNotifications(foreignWikis.isEmpty() ? "*" : TextUtils.join("|", foreignWikis), "!read", null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> onNotificationsComplete(context, response.query().notifications().list()),
                         L::e);
     }
 
-    private void onNotificationsComplete(@NonNull final Context context, @NonNull List<Notification> notifications) {
+    private static void onNotificationsComplete(@NonNull final Context context, @NonNull List<Notification> notifications) {
         if (notifications.isEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
             return;
         }
@@ -178,12 +201,12 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
         for (final Notification n : notifications) {
             knownNotifications.add(n);
-            if (locallyKnownNotifications.contains(n.key())) {
+            if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key())) {
                 continue;
             }
-            locallyKnownNotifications.add(n.key());
-            if (locallyKnownNotifications.size() > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
-                locallyKnownNotifications.remove(0);
+            LOCALLY_KNOWN_NOTIFICATIONS.add(n.key());
+            if (LOCALLY_KNOWN_NOTIFICATIONS.size() > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
+                LOCALLY_KNOWN_NOTIFICATIONS.remove(0);
             }
             notificationsToDisplay.add(n);
             locallyKnownModified = true;
@@ -203,13 +226,13 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                         || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
                         || Prefs.showAllNotifications()) {
 
-                    NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
+                    NotificationPresenter.showNotification(context, n, DBNAME_WIKI_NAME_MAP.containsKey(n.wiki()) ? DBNAME_WIKI_NAME_MAP.get(n.wiki()) : n.wiki());
                 }
             }
         }
 
         if (locallyKnownModified) {
-            Prefs.setLocallyKnownNotifications(locallyKnownNotifications);
+            Prefs.setLocallyKnownNotifications(LOCALLY_KNOWN_NOTIFICATIONS);
         }
 
         if (knownNotifications.size() > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
@@ -217,12 +240,12 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    private void markItemsAsRead(List<Notification> items) {
+    private static void markItemsAsRead(List<Notification> items) {
         Map<WikiSite, List<Notification>> notificationsPerWiki = new HashMap<>();
 
         for (Notification item : items) {
-            WikiSite wiki = dbNameWikiSiteMap.containsKey(item.wiki())
-                    ? dbNameWikiSiteMap.get(item.wiki()) : WikipediaApp.getInstance().getWikiSite();
+            WikiSite wiki = DBNAME_WIKI_SITE_MAP.containsKey(item.wiki())
+                    ? DBNAME_WIKI_SITE_MAP.get(item.wiki()) : WikipediaApp.getInstance().getWikiSite();
             if (!notificationsPerWiki.containsKey(wiki)) {
                 notificationsPerWiki.put(wiki, new ArrayList<>());
             }
@@ -248,7 +271,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         });
     }
 
-    private void maybeShowLocalNotificationForEditorReactivation(@NonNull Context context) {
+    private static void maybeShowLocalNotificationForEditorReactivation(@NonNull Context context) {
         if (Prefs.getLastDescriptionEditTime() == 0
                 || WikipediaApp.getInstance().isAnyActivityResumed()) {
             return;
@@ -268,8 +291,8 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     public static void showSuggestedEditsLocalNotification(@NonNull Context context, @StringRes int description) {
-        Intent intent = MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true);
-        NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
+        Intent intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true), 0, TYPE_LOCAL);
+        NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                 context.getString(R.string.suggested_edits_reactivation_notification_title),
                 context.getString(description), context.getString(description),
                 R.drawable.ic_mode_edit_white_24dp, R.color.accent50, false, intent);

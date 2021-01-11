@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.dayheader.DayHeaderMarginItemDecoration;
 import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.MarginItemDecoration;
@@ -50,6 +51,7 @@ public class FeedView extends AutoFitRecyclerView {
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical));
         addItemDecoration(new HeaderMarginItemDecoration(getContext(),
                 R.dimen.view_feed_padding_top, R.dimen.view_feed_search_padding_bottom));
+        addItemDecoration(new DayHeaderMarginItemDecoration(getContext(), R.dimen.view_feed_day_header_margin_bottom));
         setCallback(new RecyclerViewColumnCallback());
         setClipChildren(false);
     }

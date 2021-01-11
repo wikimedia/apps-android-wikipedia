@@ -22,9 +22,9 @@
   <string name="search_hint_voice_search">ভইচ ইনপুট সন্ধান</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
   <string name="filter_hint_filter_my_lists_and_articles">মোৰ তালিকা ফিল্টাৰ কৰক</string>
-  <string name="nav_item_history">ইতিহাস</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">অধিক</string>
+  <string name="nav_item_search">সন্ধান কৰক</string>
   <string name="error_network_error">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই।</string>
   <string name="page_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="card_offline_error_retry">পুনৰ চেষ্টা কৰক</string>
@@ -39,6 +39,8 @@
   <string name="history_item_delete_undo">পূৰ্ববত কৰক</string>
   <string name="notification_archive_undo">পূৰ্ববত কৰক</string>
   <string name="app_settings">এপ্‌ ছেটিং</string>
+  <string name="search_tab_tooltip">সন্ধান শব্দ চিধাই টাইপ কৰা আৰম্ভ কৰিবলৈ আইকনটোত পুনৰ টেপ কৰক।</string>
+  <string name="history_list_title">ইতিহাস</string>
   <string name="dialog_title_clear_history">ব্ৰাউজিং ইতিহাস মচি পেলাওক</string>
   <string name="dialog_message_clear_history">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
   <string name="dialog_message_clear_history_yes">হয়</string>
@@ -48,7 +50,7 @@
   <string name="search_redirect_from">%sৰ পৰা পুনঃনিৰ্দেশিত</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>
   <string name="menu_page_other_languages">ভাষা পৰিবৰ্তন কৰক</string>
-  <string name="menu_page_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
+  <string name="menu_page_find_in_page">এই প্ৰবন্ধত সন্ধান কৰক</string>
   <string name="edit_section_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
   <string name="menu_page_font_and_theme">ফ\'ণ্ট আৰু থীম</string>
   <string name="menu_page_add_to_list">পঢ়া তালিকাত যোগ দিয়ক</string>
@@ -57,6 +59,7 @@
   <string name="feed_card_add_to_default_list">সাঁচি থওক</string>
   <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
   <string name="menu_page_open_a_new_tab">নতুন টেব খোলক</string>
+  <string name="menu_page_new_tab">নতুন টেব</string>
   <string name="menu_page_reading_lists">পঢ়াৰ তালিকা</string>
   <string name="menu_page_recently_viewed">শেহতীয়াকৈ দৰ্শিত</string>
   <string name="menu_long_press_open_page">খোলক</string>
@@ -169,11 +172,12 @@
   <string name="preference_summary_sync_reading_lists">আপোনাৰ ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
   <string name="preference_summary_sync_reading_lists_from_account">আপোনাৰ \"%s\" ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"ৰ পৰা ছীঙ্ক কৰা পাঠ্য তালিকা আঁতৰাব?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ই ৰিম\'ট ষ্ট\'ৰেজৰ পৰা পূৰ্বতে ছিংক কৰা সকলো পঢ়া তালিকা সম্পূৰ্ণৰূপে মচি পেলাব। আপোনাৰ একাউণ্ট \"%s\"ৰ পৰা সকলো ছিংক কৰা তালিকা আঁতৰাবনে?</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
+  <string name="preference_summary_auto_upload_crash_reports">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰীলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
   <string name="history_filter_list_hint">ইতিহাস ফিল্টাৰ কৰক</string>
   <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>
@@ -231,10 +235,14 @@
   <string name="abusefilter_title_disallow">আপুনি এই সম্পাদনাটো প্ৰকাশ কৰিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
   <string name="abusefilter_text_warn">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বুলি চিহ্নিত কৰিছে। ইয়াত তলৰ এটা বা অধিক থাকিব পাৰে:&lt;br /&gt;&lt;br /&gt;· প্ৰবন্ধ খালি কৰা বা স্পামিং&lt;br /&gt;· অপ্ৰয়োজনীয় বাহ্যিক সংযোগ বা ছবি&lt;br /&gt;· চিহ্নৰ পুনৰাবৃত্তি</string>
   <string name="abusefilter_text_disallow">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বা ধ্বংসমূলক বুলি চিহ্নিত কৰিছে।&lt;br /&gt;&lt;br /&gt;ৱিকিপিডিয়া এখন বিশ্বকোষ আৰু ইয়াত কেৱল নিৰপেক্ষ, উল্লেখযোগ্য বিষয় থাকিব পাৰে।</string>
-  <string name="text_size_select">ফ\'ণ্টৰ আকাৰ</string>
   <string name="page_similar_titles">একে ধৰণৰ পৃষ্ঠা</string>
   <string name="search_did_you_mean">আপুনি \"%s\" বুজাইছেনে?</string>
   <string name="search_recent_header">শেহতীয়া সন্ধানসমূহ:</string>
+  <string name="search_results_count_zero">কোনো ফলাফল নাই</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1টা ফলাফল</item>
+    <item quantity="other">%dটা ফলাফল</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">শেহতীয়া সন্ধানসমূহ পৰিষ্কাৰ কৰক</string>
   <string name="clear_recent_searches_confirm">আপুনি আপোনাৰ সন্ধান ইতিহাস পৰিষ্কাৰ কৰিব বুলি নিশ্চিতনে?</string>
   <string name="clear_recent_searches_confirm_yes">হয়</string>
@@ -254,7 +262,7 @@
   <string name="preference_summary_show_images">পৃষ্ঠাত ছবিৰ ল\'ডিং সক্ৰিয় বা নিষ্ক্ৰিয় কৰক। আপোনাৰ ইণ্টাৰনেট সংযোগ লেহেমীয়া হ\'লে বা আপোনাৰ ডে\'টা প্লেন সীমিত হ\'লে এই ছেটিংটো অচিহ্নিত কৰক।</string>
   <string name="preference_title_download_only_over_wifi">মাত্ৰ ৱাই-ফাইৰ জৰিয়তে ডাউনল\'ড কৰক</string>
   <string name="dialog_title_download_only_over_wifi">ম\'বাইল ডে\'টা ব্যৱহাৰ কৰি ডাউনল\'ড কৰাটো নিশ্চিতনে?</string>
-  <string name="dialog_text_download_only_over_wifi" fuzzy="true">আপুনি ছেটিংছত “কেৱল Wi-Fiৰ ডাউনল\'ড কৰিব” বিকল্প সক্ৰিয় কৰি থৈছে। আপুনি কেৱল এই ডাউনল\'ডৰ বাবে ম\'বাইল ডে\'টা প্লেন ব্যৱহাৰ কৰিব খুজিছে?</string>
+  <string name="dialog_text_download_only_over_wifi">আপুনি ছেটিংছত \"কেৱল Wi-Fiৰ ডাউনল\'ড কৰিব\" বিকল্প সক্ৰিয় কৰি থৈছে। আপুনি কেৱল এই ডাউনল\'ডৰ বাবে ম\'বাইল ডে\'টা প্লেন ব্যৱহাৰ কৰিব খুজিছে?</string>
   <string name="dialog_title_download_only_over_wifi_allow">অনুমতি দিয়ক</string>
   <string name="read_more_section">আৰু পঢ়ক</string>
   <string name="about_article_section">এই প্ৰবন্ধ সম্পৰ্কে</string>
@@ -276,6 +284,7 @@
   <string name="gallery_fair_use_license">ভাল ব্যৱহাৰ</string>
   <string name="gallery_uploader_unknown">আপল\'ডাৰ অজ্ঞাত</string>
   <string name="gallery_not_available_offline_snackbar">গেলাৰী ভিউ অফলাইন উপলব্ধ নহয়।</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">বাতিল কৰক</string>
   <string name="menu_new_tab">নতুন টেব্‌</string>
   <string name="menu_close_all_tabs">সকলো টেব্‌ বন্ধ কৰক</string>
   <string name="close_all_tabs_confirm">আপুনি সকলো টেব্‌ বন্ধ কৰিব বুলি নিশ্চিতনে?</string>
@@ -293,6 +302,7 @@
   <string name="address_copied">ঠিকনাটো ক্লিপ্‌ব\'ৰ্ডলৈ প্ৰতিলিপি কৰা হৈছে।</string>
   <string name="text_copied">পাঠসমূহ ক্লিপবৰ্ডলৈ কপি কৰা হ\'ল।</string>
   <string name="button_continue_to_article">প্ৰবন্ধটো পঢ়ক</string>
+  <string name="button_continue_to_talk_page">আলোচনা পৃষ্ঠা খোলক</string>
   <string name="button_continue_to_disambiguation">সদৃশ পৃষ্ঠা চাওক</string>
   <string name="link_preview_disambiguation_description">এই শীৰ্ষক এটাৰো অধিক পৃষ্ঠাৰ সৈতে জড়িত:</string>
   <string name="button_add_to_reading_list">পঢ়া তালিকাত যোগ দিয়ক</string>
@@ -307,7 +317,7 @@
   <string name="preference_summary_show_link_previews">সংযোগত টেপ্‌ কৰিলে প্ৰবন্ধৰ ক্ষিপ্ৰ প্ৰাক্‌দৰ্শন দেখুৱাওক।</string>
   <string name="preference_title_collapse_tables">তালিকাসমূহ জপাওক</string>
   <string name="preference_summary_collapse_tables">প্ৰবন্ধৰ তালিকা, যেনে- তথ্যবাকচ, তথ্য সূত্ৰ আৰু টোকাসমূহ স্বয়ংক্ৰিয়ভাৱে জপাওক।</string>
-  <string name="nav_item_donate">ৱিকিপিডিয়াক সমৰ্থন কৰক</string>
+  <string name="nav_item_donate">দান কৰক</string>
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ চিনাক্তকৰণ উপলব্ধ নহয়।</string>
   <string name="location_service_disabled">অৱস্থান সেৱা নিষ্ক্ৰিয় হৈ আছে।</string>
   <string name="enable_location_service">সক্ৰিয় কৰক</string>
@@ -356,6 +366,7 @@
   <string name="text_size_increase">আখৰৰ আকাৰ বৃদ্ধি কৰক</string>
   <string name="text_size_decrease">আখৰৰ আকাৰ হ্ৰাস কৰক</string>
   <string name="text_size_percent_default">%s পূৰ্বনিৰ্ধাৰিত</string>
+  <string name="text_style_title">ফণ্ট</string>
   <string name="nav_item_reading_lists">মোৰ তালিকাসমূহ</string>
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
   <string name="reading_list_move_to">পঢ়া সূচীলৈ নিয়ক</string>
@@ -375,7 +386,7 @@
   <string name="format_reading_list_statistical_summary_singular">১টা প্ৰবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটা প্ৰবন্ধ, %2$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_detail_singular">1টাৰ %1$dটা প্ৰবন্ধ অফলাইন উপলব্ধ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$dটাৰ %2$dটা প্ৰবন্ধ অফলাইন উপলব্ধ, %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%2$dটাৰ ভিতৰৰ %1$dটা প্ৰবন্ধ অফলাইনত উপলব্ধ, %3$.2f MB</string>
   <string name="reading_list_sort">সজাওক</string>
   <string name="reading_list_sort_ellipsis">ক্ৰমে সজাওক…</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী সজাওক</string>
@@ -432,8 +443,11 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">প্ৰৱেশ</string>
   <string name="reading_list_turned_sync_off_dialog_ok">বাৰু</string>
   <string name="reading_list_turned_sync_off_dialog_settings">ছেটিংছ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">পঢ়া তালিকা ছিংক চালু কৰিবনে?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">মোক এইটো আকৌ নেদেখুৱাব</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ছিংক কৰাটো সক্ৰিয় কৰক</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">নালাগে দিয়ক</string>
+  <string name="default_reading_list_name">সাঁচি থোৱা হ\'ল</string>
   <string name="reading_lists_menu_create_list">নতুন সূচী সৃষ্টি কৰক</string>
   <string name="reading_lists_menu_sort_by">ক্ৰমে সজাওক</string>
   <string name="reading_lists_refresh_sync_option">ছিংক সতেজ কৰক</string>
@@ -442,7 +456,10 @@
     <item quantity="one">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ হ\'ব।</item>
     <item quantity="other">এই প্ৰবন্ধকেইটা এতিয়া অফলাইন উপলব্ধ হ\'ব।</item>
   </plurals>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ নহ\'ব।</string>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">এই প্ৰবন্ধটো এতিয়া অফলাইনত উপলব্ধ নহ\'ব।</item>
+    <item quantity="other">এই প্ৰবন্ধসমূহ এতিয়া অফলাইনত উপলব্ধ নহ\'ব।</item>
+  </plurals>
   <string name="reading_list_menu_last_sync">অন্তিম ছিংক: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">বাৰু</string>
   <string name="reading_list_delete_dialog_ok_button_text">ঠিক</string>
@@ -470,10 +487,11 @@
   <string name="notifications_poll_enable_negative">এতিয়া নহয়</string>
   <string name="notifications_empty_message">আপুনি সকলো জাননী চাই ল\'লে!</string>
   <string name="notification_preferences_title">জাননীৰ পছন্দসমূহ</string>
-  <string name="notifications_mark_unread">নপঢ়া বুলি চিন দিয়ক</string>
+  <string name="notifications_mark_unread">নপঢ়া বুলি চিহ্নিত কৰক</string>
   <string name="preference_title_notification_poll">মতদানৰ জাননীসমূহ</string>
   <string name="preference_title_notification_system">ছিষ্টেম</string>
   <string name="preference_summary_notification_system">ছিষ্টেমৰ তৰফৰ পৰা বাৰ্তা</string>
+  <string name="preference_title_notification_milestone">মাইলৰ খুঁটি</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
   <string name="preference_summary_notification_thanks">সম্পাদনাৰ বাবে কোনোবাই আপোনাক ধন্যবাদ জনাইছে</string>
   <string name="preference_title_notification_revert">ওলোটাওক</string>
@@ -486,13 +504,16 @@
   <string name="preference_summary_notification_user_talk">আলোচনা পৃষ্ঠাৰ বাৰ্তাসমূহ</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
-  <string name="view_random_card_subtitle" fuzzy="true">ৱিকিপিডিয়াৰ যিকোনো এটা প্ৰবন্ধ পঢ়ক</string>
+  <string name="view_random_article_card_title">যাদৃচ্ছিক প্ৰবন্ধ</string>
+  <string name="view_random_article_card_action">অধিক যাদৃচ্ছিক প্ৰবন্ধ</string>
+  <string name="view_top_read_card_title">শীৰ্ষৰ পঠন</string>
+  <string name="view_top_read_card_action">অধিক শীৰ্ষৰ পঠন</string>
   <string name="view_next_random_article">আন এটা যাদৃচ্ছিক প্ৰবন্ধ ল\'ড কৰক</string>
   <string name="view_main_page_card_title">ৱিকিপিডিয়াত আজি</string>
-  <string name="view_main_page_card_subtitle">%s তাৰিখত মূল পৃষ্ঠা</string>
   <string name="view_main_page_card_action">মুখ্য পৃষ্ঠা চাওক</string>
   <string name="view_featured_image_card_title">অজিৰ নিৰ্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনল’ড কৰক</string>
+  <string name="view_featured_image_card_share">ভাগবতৰা কৰক</string>
   <string name="menu_feed_card_dismiss">এই কাৰ্ড লুকুৱাওক</string>
   <string name="menu_feed_card_dismissed">কাৰ্ড লুকুওৱা হ\'ল।</string>
   <string name="menu_feed_card_edit_card_languages">কাৰ্ডৰ ভাষা সম্পাদনা কৰক</string>
@@ -500,7 +521,6 @@
   <string name="feed_featured_image_share_subject">ৱিকিমিডিয়া কমন্সৰ পৰা নিৰ্বাচিত ছবি</string>
   <string name="feed">অন্বেষণ</string>
   <string name="home">ঘৰ</string>
-  <string name="most_read_list_card_title">ট্ৰেণ্ডিং</string>
   <string name="view_static_card_icon_content_description">কাৰ্ডৰ আইকন</string>
   <string name="view_card_news_title">খবৰৰ শীৰ্ষত</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -512,16 +532,19 @@
   <string name="view_announcement_card_negative_action">নালাগে। ধন্যবাদ</string>
   <string name="view_offline_card_text">অফলাইন হ\'লে সমল ল\'ড কৰিব নোৱাৰি।</string>
   <string name="view_featured_article_card_title">বৈশিষ্ট্যপূৰ্ণ প্ৰবন্ধ</string>
-  <string name="view_featured_article_footer_save_button_label">সাঁচি থওক</string>
   <string name="view_static_card_save_button_label">সাঁচি থওক</string>
-  <string name="view_featured_article_footer_saved_button_label">সাঁচি থোৱা হ\'ল</string>
   <string name="feed_configure_activity_title">ফীড কাষ্টমাইজ কৰক</string>
   <string name="feed_configure_menu_reset">ডিফ\'ল্ট ভিউ পুনঃস্থাপন কৰক</string>
   <string name="feed_configure_menu_select_all">সকলোবোৰ দেখুৱাওক</string>
   <string name="feed_configure_menu_deselect_all">সকলোবোৰ লুকুৱাওক</string>
+  <string name="feed_item_type_on_this_day">ইতিহাসত আজিৰ দিনটোত</string>
+  <string name="feed_item_type_featured_article">ৱিকিপিডিয়াৰ দৈনিক নিৰ্বাচিত প্ৰবন্ধ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">বাৰু</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">বাতিল</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">বাৰু</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="feed_accessibility_card_load_more_button">আৰু ল\'ড কৰক</string>
+  <string name="top_read_activity_title">%sত শীৰ্ষৰ পঠন</string>
   <string name="description_edit_text_hint">প্ৰবন্ধৰ বৰ্ণনা</string>
   <string name="description_edit_article_description_label">প্ৰবন্ধ</string>
   <string name="description_edit_translate_article_description_label_per_language">প্ৰবন্ধৰ বর্ণনা (%s)</string>
@@ -546,6 +569,12 @@
   <string name="description_edit_voice_input_description">মাত ইনপুট</string>
   <string name="description_too_short">পাঠখিনি খুবেই সৰু।</string>
   <string name="description_edit_success_saved">প্ৰবন্ধৰ বৰ্ণনা প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_saved_snackbar">প্ৰবন্ধৰ বৰ্ণনা প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">প্ৰবন্ধৰ বৰ্ণনা প্ৰকাশিত হ\'ল! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">ছবিৰ কেপশ্যন প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ছবিৰ কেপশ্যন প্ৰকাশিত হ\'ল! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">ছবি টেগ(সমূহ) প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">সেয়া উপভোগ কৰিছেনে? আমাক আৰু যোগ দিয়াত সহায় কৰক।</string>
   <string name="description_edit_success_encouragement">আপুনি সকলোৰে বাবে ৱিকিপিডিয়া উন্নত কৰি তুলিছে</string>
   <string name="description_edit_success_done">কৰা হ’ল</string>
   <string name="description_edit_success_did_you_know">আপুনি জানেনে?</string>
@@ -558,9 +587,15 @@
   <string name="suggested_edits_caption_images">ছবিৰ কেপশ্যন লিখক</string>
   <string name="suggested_edits_tag_images">ছবি টেগ কৰক</string>
   <string name="suggested_edits_review_description">প্ৰবন্ধৰ বৰ্ণনা সমীক্ষা কৰক</string>
+  <string name="suggested_edits_add_description_button">বিৱৰণ যোগ কৰক</string>
+  <string name="suggested_edits_edit_description_button">বিৱৰণ সম্পাদনা কৰক</string>
+  <string name="suggested_edits_add_translation_button">অনুবাদ যোগ কৰক</string>
+  <string name="suggested_edits_edit_translation_button">অনুবাদ সম্পাদনা কৰক</string>
   <string name="suggested_edits_my_contributions">মোৰ বৰঙণিসমূহ</string>
+  <string name="suggested_edits_menu_info">তথ্য</string>
   <string name="suggested_edits_task_multilingual_negative">মোৰ বাবে নহয়</string>
   <string name="suggested_edits_task_multilingual_positive">ভাষা সংযোগ কৰক</string>
+  <string name="suggested_edits_image_caption_summary_title_image">চিত্ৰ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">শিল্পী</string>
   <string name="suggested_edits_image_caption_summary_title_author">স্ৰষ্টা</string>
   <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
@@ -572,27 +607,76 @@
   <string name="suggested_edits_tasks_onboarding_get_started">আৰম্ভ কৰক</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ছবিৰ শিৰোনাম (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ছবিৰ বিৱৰণ (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">চিত্ৰ</string>
   <string name="suggested_edits_image_preview_dialog_artist">শিল্পী</string>
+  <string name="suggested_edits_image_preview_dialog_tags">টেগসমূহ</string>
   <string name="suggested_edits_image_preview_dialog_date">তাৰিখ</string>
   <string name="suggested_edits_image_preview_dialog_source">উৎস/আলোকচিত্ৰশিল্পী</string>
   <string name="suggested_edits_image_preview_dialog_licensing">অনুজ্ঞাপত্ৰ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">অধিক তথ্য</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ৱিকিমিডিয়া কমন্সৰ নথি পৃষ্ঠা</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">ৱিকিপিডিয়াৰ ফাইল পৃষ্ঠা</string>
   <string name="suggested_edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">চাওক</string>
   <string name="suggested_edits_feed_card_add_image_caption">ছবিৰ কেপশ্যন যোগ কৰক</string>
   <string name="suggested_edits_feed_card_translate_image_caption">কেপশ্যন যোগ কৰক (%s)</string>
+  <string name="suggested_edits_task_action_text_add">যোগ কৰক</string>
+  <string name="suggested_edits_task_action_text_translate">অনুবাদ কৰক</string>
+  <string name="suggested_edits_quality_label_text">মানদণ্ড সম্পাদনা কৰক</string>
+  <string name="suggested_edits_quality_perfect_text">নিখুঁত</string>
+  <string name="suggested_edits_quality_excellent_text">উৎকৃষ্ট</string>
+  <string name="suggested_edits_quality_very_good_text">বৰ ভাল</string>
+  <string name="suggested_edits_quality_good_text">ভাল</string>
+  <string name="suggested_edits_quality_okay_text">ঠিক-ঠাক</string>
+  <string name="suggested_edits_quality_sufficient_text">পৰ্যাপ্ত</string>
+  <string name="suggested_edits_quality_poor_text">ত্ৰুটিপূৰ্ণ</string>
+  <string name="suggested_edits_quality_bad_text">বেয়া</string>
+  <string name="suggested_edits_label">পৰামৰ্শকৃত সম্পাদনা</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">বৰঙণি</item>
+    <item quantity="other">বৰঙণিসমূহ</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d দিন</item>
+    <item quantity="other">%d দিনবোৰ</item>
+  </plurals>
+  <string name="suggested_edits_what_is_title">পৰামৰ্শকৃত সম্পাদনা কি?</string>
+  <string name="suggested_edits_learn_more">আৰু পঢ়ক</string>
+  <string name="suggested_edits_disabled_title">নিষ্ক্ৰিয়</string>
+  <string name="suggested_edits_last_edited_never">কেতিয়াও নহয়</string>
+  <string name="suggested_edits_task_new">নতুন</string>
+  <string name="suggested_edits_reactivation_notification_title">পৰামৰ্শকৃত সম্পাদনা</string>
+  <string name="suggested_edits_contributions_screen_title">%sৰ বৰঙণি</string>
+  <string name="suggested_edits_contribution_language_label">ভাষা</string>
+  <string name="suggested_edits_contribution_date_time_label">তাৰিখ / সময়</string>
+  <string name="suggested_edits_contribution_type_label">বৰঙণিৰ প্ৰকাৰ</string>
+  <string name="suggested_edits_contribution_image_label">চিত্ৰ</string>
+  <string name="suggested_edits_contribution_article_label">প্ৰবন্ধ</string>
+  <string name="suggested_edits_contribution_views">%s দৰ্শন</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">যোৱা ৩০ দিনত এবাৰ চোৱা হৈছে।</item>
+    <item quantity="other">যোৱা ৩০ দিনত %s বাৰ চোৱা হৈছে।</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">যোৱা ৩০ দিনত %s বাৰ চোৱা হৈছে।</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">কালি</string>
+  <string name="suggested_edits_encourage_account_creation_title"> আপুনি জানেনে যে ৱিকিপিডিয়াত সকলোৱে সম্পাদনা কৰিব পাৰে?</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>
   <string name="description_edit_revert_reason1">আপোনাৰ অৱদানে &lt;a href=\"%1$s\"&gt;নীতিসমূহ&lt;/a&gt; অনুসৰণ কৰা নাই।</string>
   <string name="description_edit_revert_reason2">আপোনাৰ অৱদান পৰী‌ক্ষামূলক বা ধ্বংসপ্ৰৱণতামূলক যেন দেখা গৈছে।</string>
+  <string name="description_edit_login_cancel_button_text">বাতিল কৰক</string>
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>
   <string name="onboarding_get_started">আৰম্ভ কৰক</string>
+  <string name="onboarding_got_it">বুজিছোঁ</string>
+  <string name="app_shortcuts_random">যিকোনো</string>
+  <string name="app_shortcuts_continue_reading">পঢ়া অব্যাহত ৰাখক</string>
   <string name="app_shortcuts_search">সন্ধান কৰক</string>
   <string name="on_this_day_card_title">আজিৰ দিনটোত</string>
   <string name="this_year">এই বছৰ</string>
+  <string name="on_this_day_dialog_next_month">পৰবৰ্তী মাহ</string>
+  <string name="on_this_day_dialog_previous_month">পূৰ্ববৰ্তী মাহ</string>
   <string name="languages_list_activity_title">এটা ভাষা যোগ কৰক</string>
   <string name="languages_list_suggested_text">পৰামৰ্শকৃত</string>
   <string name="languages_list_all_text">সকলো ভাষা</string>
@@ -629,8 +713,17 @@
   <string name="wikitext_preview_link">সংযোগ প্ৰাক্‌দৰ্শন কৰক</string>
   <string name="main_drawer_help">সহায়</string>
   <string name="main_drawer_login">ৱিকিপিডিয়াত প্ৰৱেশ/যোগদান কৰক</string>
+  <string name="main_tooltip_text_v2"> আপুনি জানেনে যে ৱিকিপিডিয়াত সকলোৱে সম্পাদনা কৰিব পাৰে?</string>
+  <string name="main_tooltip_action_button">আৰম্ভ কৰক</string>
   <string name="custom_date_picker_dialog_ok_button_text">বাৰু</string>
   <string name="text_input_dialog_ok_button_text">বাৰু</string>
   <string name="text_input_dialog_cancel_button_text">বাতিল কৰক</string>
   <string name="custom_date_picker_dialog_cancel_button_text">বাতিল কৰক</string>
+  <string name="talk_title">আলোচনা</string>
+  <string name="talk_user_title">আলোচনা: %s</string>
+  <string name="talk_new_topic">নতুন বিষয়</string>
+  <string name="talk_page_empty">এই আলোচনা পৃষ্ঠাটো খালি।</string>
+  <string name="talk_add_reply">সঁহাৰি জনাওক</string>
+  <string name="talk_no_subject">(কোনো বিষয় নাই)</string>
+  <string name="talk_reply_subject">বিষয়</string>
 </resources>

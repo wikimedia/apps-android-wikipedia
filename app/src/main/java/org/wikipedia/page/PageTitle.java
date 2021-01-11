@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
@@ -72,6 +73,7 @@ public class PageTitle implements Parcelable {
     @Nullable private final PageProperties properties;
     // TODO: remove after the restbase endpoint supports ZH variants.
     @Nullable private String displayText;
+    @Nullable private String extract;
 
     /**
      * Creates a new PageTitle object.
@@ -113,6 +115,11 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
+    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable String displayText, @Nullable String extract) {
+        this(text, wiki, thumbUrl, description, displayText);
+        this.extract = extract;
+    }
+
     public PageTitle(@Nullable String namespace, @NonNull String text, @NonNull WikiSite wiki) {
         this(namespace, text, null, null, wiki);
     }
@@ -143,7 +150,7 @@ public class PageTitle implements Parcelable {
         parts = text.split("#", -1);
         text = parts[0];
         if (parts.length > 1) {
-            this.fragment = decodeURL(parts[1]).replace(" ", "_");
+            this.fragment = StringUtil.addUnderscores(decodeURL(parts[1]));
         } else {
             this.fragment = null;
         }
@@ -180,7 +187,7 @@ public class PageTitle implements Parcelable {
         }
 
         // Properties has the accurate namespace but it doesn't exist. Guess based on title.
-        return Namespace.fromLegacyString(wiki, namespace);
+        return Namespace.fromLegacyString(wiki, StringUtil.removeUnderscores(namespace));
     }
 
     @NonNull public WikiSite getWikiSite() {
@@ -188,7 +195,7 @@ public class PageTitle implements Parcelable {
     }
 
     @NonNull public String getText() {
-        return text.replace(" ", "_");
+        return StringUtil.addUnderscores(text);
     }
 
     @Nullable public String getFragment() {
@@ -211,13 +218,18 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
+    @NonNull
+    public String getExtract() {
+        return StringUtils.defaultString(extract);
+    }
+
     // This update the text to the API text.
     public void setText(@NonNull String convertedFromText) {
         this.text = convertedFromText;
     }
 
     @NonNull public String getDisplayText() {
-        return displayText == null ? getPrefixedText().replace("_", " ") : displayText;
+        return displayText == null ? StringUtil.removeUnderscores(getPrefixedText()) : displayText;
     }
 
     public void setDisplayText(@Nullable String displayText) {
@@ -282,6 +294,11 @@ public class PageTitle implements Parcelable {
         return namespace().special();
     }
 
+    public PageTitle pageTitleForTalkPage() {
+        return new PageTitle(StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase()),
+                StringUtil.removeNamespace(getPrefixedText()), getWikiSite());
+    }
+
     /**
      * Check if the Title represents a talk page
      *
@@ -300,6 +317,7 @@ public class PageTitle implements Parcelable {
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
         parcel.writeString(displayText);
+        parcel.writeString(extract);
     }
 
     @Override public boolean equals(Object o) {
@@ -350,5 +368,6 @@ public class PageTitle implements Parcelable {
         thumbUrl = in.readString();
         description = in.readString();
         displayText = in.readString();
+        extract = in.readString();
     }
 }

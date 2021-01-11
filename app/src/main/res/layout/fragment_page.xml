@@ -21,6 +21,13 @@
             android:layout_height="16dp"
             android:visibility="gone" />
 
+        <ImageView
+            android:id="@+id/page_image_transition_holder"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:transitionName="@string/transition_page_gallery"
+            android:contentDescription="@null"/>
+
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/page_error"
             android:layout_width="match_parent"
@@ -36,12 +43,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/bottom_toolbar_height" />
+            android:layout_marginBottom="?attr/actionBarSize" />
 
         <org.wikipedia.page.PageActionTabLayout
             android:id="@+id/page_actions_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/bottom_toolbar_height"
+            android:layout_height="?attr/actionBarSize"
             android:background="?attr/paper_color"
             android:layout_gravity="bottom"
             android:elevation="8dp"/>
