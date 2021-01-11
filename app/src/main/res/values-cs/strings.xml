@@ -940,4 +940,5 @@
   <string name="talk_message_hint">Napište zprávu</string>
   <string name="talk_message_empty">Zpráva nemůže být prázdná.</string>
   <string name="talk_subject_empty">Předmět nemůže být prázdný.</string>
+  <string name="go_to_user_page">Přejít na uživatelskou stránku</string>
 </resources>
