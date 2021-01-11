@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -9,6 +10,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
+import kotlin.collections.ArrayList
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -44,10 +46,19 @@ object EditingSuggestionsProvider {
                 Observable.just(cachedTitle)
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode()))
+                        .flatMap { pages ->
+                            val titleList = ArrayList<String>()
+                            pages.forEach { titleList.add(it.title()) }
+                            ServiceFactory.get(wiki).getDescription(titleList.joinToString("|")).subscribeOn(Schedulers.io())
+                        }
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
-                            pages.forEach { articlesWithMissingDescriptionCache.push(it.title()) }
+                            pages.query()!!.pages()!!.forEach {
+                                if (it.description().isNullOrEmpty()) {
+                                    articlesWithMissingDescriptionCache.push(it.title())
+                                }
+                            }
                             if (!articlesWithMissingDescriptionCache.empty()) {
                                 title = articlesWithMissingDescriptionCache.pop()
                             }

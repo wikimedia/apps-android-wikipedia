@@ -45,6 +45,7 @@ import org.wikipedia.util.log.L;
 import java.io.IOException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,7 +79,8 @@ public class DescriptionEditFragment extends Fragment {
         void onBottomBarContainerClicked(@NonNull DescriptionEditActivity.Action action);
     }
 
-    private static final String[] DESCRIPTION_TEMPLATES = {"short description", "SHORTDESC"};
+    public static final String TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})";
+    private static final String[] DESCRIPTION_TEMPLATES = {"Short description", "SHORTDESC"};
 
     private static final String ARG_TITLE = "title";
     private static final String ARG_REVIEWING = "inReviewing";
@@ -99,9 +101,10 @@ public class DescriptionEditFragment extends Fragment {
     @Nullable private DescriptionEditFunnel funnel;
     private Action action;
     private InvokeSource invokeSource;
-    private CompositeDisposable disposables = new CompositeDisposable();
+    private final CompositeDisposable disposables = new CompositeDisposable();
+    private final Pattern templateParsePattern = Pattern.compile(TEMPLATE_PARSE_REGEX);
 
-    private Runnable successRunnable = new Runnable() {
+    private final Runnable successRunnable = new Runnable() {
         @Override public void run() {
             if (!AccountUtil.isLoggedIn()) {
                 Prefs.incrementTotalAnonDescriptionsEdited();
@@ -482,35 +485,16 @@ public class DescriptionEditFragment extends Fragment {
         }
     }
 
-    private String updateDescriptionInArticle(String articleText, String newDescription) {
-        String newText = articleText;
-        int templatePos = -1;
-        for (String template : DESCRIPTION_TEMPLATES) {
-            templatePos = newText.indexOf("{{" + template);
-            if (templatePos >= 0) {
-                break;
-            }
-        }
-        boolean addAtTop = false;
-        if (templatePos < 0) {
-            // we're adding a new description template at the top of the article.
-            addAtTop = true;
-        }
-
-        int templateEndPos = newText.indexOf("}}", templatePos);
-        int pipePos = newText.indexOf("|", templatePos);
-
-        if (!addAtTop && (pipePos < 0 || pipePos > templateEndPos)) {
-            addAtTop = true;
-        }
-
-        if (addAtTop) {
-            newText = "{{" + DESCRIPTION_TEMPLATES[0] + "|" + newDescription + "}}\n" + newText;
-            return newText;
+    @NonNull
+    private String updateDescriptionInArticle(@NonNull String articleText, @NonNull String newDescription) {
+        String newText;
+        if (templateParsePattern.matcher(articleText).find()) {
+            // update existing description template
+            newText = articleText.replaceFirst(TEMPLATE_PARSE_REGEX, "$1" + newDescription + "$3");
         } else {
-            newText = newText.substring(0, pipePos + 1) + newDescription + newText.substring(templateEndPos);
+            // add new description template
+            newText = "{{" + DESCRIPTION_TEMPLATES[0] + "|" + newDescription + "}}\n" + articleText;
         }
-
         return newText;
     }
 }
