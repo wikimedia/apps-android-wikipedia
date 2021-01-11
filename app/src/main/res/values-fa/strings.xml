@@ -52,7 +52,7 @@
   <string name="search_hint">جستجو در ویکی‌پدیا</string>
   <string name="search_hint_voice_search">جستجوی صوتی</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
-  <string name="filter_hint_filter_my_lists_and_articles">فیلتر فهرست‌های من</string>
+  <string name="filter_hint_filter_my_lists_and_articles">پالایش فهرست‌های من</string>
   <string name="nav_item_suggested_edits">ویرایش‌ها</string>
   <string name="nav_item_more">بیشتر</string>
   <string name="nav_item_search">جستجو</string>

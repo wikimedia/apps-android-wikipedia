@@ -101,6 +101,8 @@
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
+  <string name="menu_page_add_to_watchlist">Добавить в список наблюдения</string>
+  <string name="menu_page_remove_from_watchlist">Удалить из списка наблюдения</string>
   <string name="edit_section_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
   <string name="menu_page_add_to_list">Добавить в список для чтения</string>
@@ -237,6 +239,7 @@
   <string name="page_protected_can_not_edit">К сожалению, на данный момент у вашей учётной записи нет достаточных прав для редактирования этой страницы.</string>
   <string name="page_protected_can_not_edit_anon">К сожалению, в настоящее время эта страница не может быть отредактирована анонимно.</string>
   <string name="page_protected_can_not_edit_title">Эта страница защищена</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Добавить в список наблюдения</string>
   <string name="settings_item_preferences">Настройки</string>
   <string name="settings_activity_title">Настройки</string>
   <string name="about_description">О приложении «Википедия»</string>
@@ -294,6 +297,12 @@
   <string name="search_did_you_mean">Возможно, вы имели в виду «%s»?</string>
   <string name="search_recent_header">Последние поиски:</string>
   <string name="search_results_count_zero">Ничего не найдено</string>
+  <plurals name="search_results_count">
+    <item quantity="one">%d результат</item>
+    <item quantity="few">%d результата</item>
+    <item quantity="many">%d результатов</item>
+    <item quantity="other">%d результатов</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
   <string name="clear_recent_searches_confirm_yes">Да</string>
@@ -597,6 +606,7 @@
   <string name="notifications_view_archived_button_text">Просмотр архива уведомления</string>
   <string name="notification_preferences_title">Настройки уведомлений</string>
   <string name="notifications_mark_unread">Отметить как непрочитанное</string>
+  <string name="watchlist_title">Список наблюдения</string>
   <string name="preference_title_notification_poll">Извещения об опросах</string>
   <string name="preference_summary_notification_poll">Позволяет приложению использовать данные для проверки новых уведомлений в фоне.</string>
   <string name="preference_category_notification_types">Виды уведомлений в приложении</string>
@@ -617,6 +627,7 @@
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Случайная статья</string>
+  <string name="view_random_article_card_action">Ещё случайные статьи</string>
   <string name="view_next_random_article">Скачать другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
   <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
@@ -918,12 +929,23 @@
   <string name="main_tooltip_text">%s, знаете ли вы, что каждый может редактировать Википедию?</string>
   <string name="main_tooltip_text_v2">Знаете ли вы, что каждый может редактировать Википедию?</string>
   <string name="main_tooltip_action_button">Начать</string>
+  <string name="main_tooltip_watchlist_title">Список наблюдения</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Отмена</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отмена</string>
   <string name="talk_title">Обсуждение</string>
   <string name="talk_new_topic">Новая тема</string>
+  <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_add_reply">Ответить</string>
   <string name="talk_reply_subject">Тема</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
+  <string name="watchlist_expiry_dialog_one_week">1 неделя</string>
+  <string name="watchlist_expiry_dialog_one_month">1 месяц</string>
+  <string name="watchlist_expiry_dialog_three_months">3 месяца</string>
+  <string name="watchlist_expiry_dialog_six_months">6 месяцев</string>
+  <string name="watchlist_filter_all">Все</string>
+  <string name="watchlist_filter_talk">Обсуждение</string>
+  <string name="watchlist_filter_pages">Страницы</string>
 </resources>
