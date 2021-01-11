@@ -80,9 +80,8 @@ public final class ServiceFactory {
 
     private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {
         return new Retrofit.Builder()
-                .client(OkHttpConnectionFactory.getClient().newBuilder()
-                        .addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build())
                 .baseUrl(baseUrl)
+                .client(OkHttpConnectionFactory.getClient().newBuilder().addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
                 .build();
@@ -100,9 +99,14 @@ public final class ServiceFactory {
         @Override
         public Response intercept(@NonNull Interceptor.Chain chain) throws IOException {
             Request request = chain.request();
-            request = request.newBuilder()
-                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
-                    .build();
+
+            // TODO: remove when the https://phabricator.wikimedia.org/T271145 is resolved.
+            if (!request.url().encodedPath().contains("/page/related")) {
+                request = request.newBuilder()
+                        .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(wiki))
+                        .build();
+            }
+
             return chain.proceed(request);
         }
     }
