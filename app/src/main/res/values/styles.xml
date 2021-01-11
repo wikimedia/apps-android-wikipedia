@@ -495,19 +495,20 @@
 
     <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">
         <item name="android:paddingStart">16dp</item>
-        <item name="android:paddingEnd">16dp</item>
-        <item name="android:paddingTop">0dp</item>
-        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingEnd">4dp</item>
     </style>
 
     <style name="SnackbarTextViewStyle" parent="Widget.MaterialComponents.Snackbar.TextView">
-        <item name="android:padding">0dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">12dp</item>
     </style>
 
     <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
-        <item name="android:insetTop">0dp</item>
-        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingEnd">8dp</item>
     </style>
 </resources>
