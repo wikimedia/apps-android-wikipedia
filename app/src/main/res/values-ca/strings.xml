@@ -958,4 +958,5 @@
   <string name="talk_message_hint">Redacta un missatge</string>
   <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
   <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
+  <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
 </resources>
