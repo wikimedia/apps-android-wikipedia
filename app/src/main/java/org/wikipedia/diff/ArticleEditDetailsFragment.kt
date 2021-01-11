@@ -69,7 +69,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private var isWatched = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var watchlistExpirySession: WatchlistExpiry? = null
-
+    private var currentRevision: Revision? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -141,29 +141,28 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle),
                 { r, w ->
                     isWatched = w.query()!!.firstPage()!!.isWatched
-                    val currentRevision = r.query()!!.firstPage()!!.revisions()[0]
-                    username = currentRevision.user
+                    currentRevision = r.query()!!.firstPage()!!.revisions()[0]
+                    username = currentRevision!!.user
                     newerRevisionId = if (r.query()!!.firstPage()!!.revisions().size < 2) {
                         -1
                     } else {
                         r.query()!!.firstPage()!!.revisions()[1].revId
                     }
-                    olderRevisionId = currentRevision.parentRevId
-                    currentRevision
+                    olderRevisionId = currentRevision!!.parentRevId
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    updateUI(it)
+                    updateUI()
                 }) { t: Throwable? -> L.e(t) })
     }
 
-    private fun updateUI(currentRevision: Revision) {
+    private fun updateUI() {
         diffText.scrollTo(0, 0)
         diffText.text = ""
-        usernameButton.text = currentRevision.user
-        editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision.timeStamp())
-        editComment.text = currentRevision.comment
+        usernameButton.text = currentRevision!!.user
+        editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision!!.timeStamp())
+        editComment.text = currentRevision!!.comment
 
         newerIdButton.isClickable = newerRevisionId.compareTo(-1) != 0
         olderIdButton.isClickable = olderRevisionId.compareTo(0) != 0
@@ -173,12 +172,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         ImageViewCompat.setImageTintList(olderIdButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
                 ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0)
                     R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
-        menu?.findItem(R.id.menu_user_profile_page)?.title = getString(R.string.menu_option_user_profile, currentRevision.user)
-        menu?.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision.user)
         setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         thankButton.isClickable = true
         updateWatchlistButtonUI()
         fetchDiffText()
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
@@ -366,6 +364,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setHasOptionsMenu(true)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.findItem(R.id.menu_user_profile_page)?.title = getString(R.string.menu_option_user_profile, currentRevision?.user)
+        menu.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision?.user)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
