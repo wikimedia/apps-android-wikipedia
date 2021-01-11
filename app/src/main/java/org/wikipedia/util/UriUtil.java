@@ -120,7 +120,7 @@ public final class UriUtil {
         return title.getUri() + "?wprov=" + context.getString(provId);
     }
 
-    public static String getUrlForDiff(PageTitle title, long newId, long oldId) {
+    public static String getUrlForDiff(@NonNull PageTitle title, long newId, long oldId) {
         return String.format(
                 "%1$s://%2$s/w/index.php?title=%3$s&diff=%4$s&oldid=%5$s",
                 title.getWikiSite().scheme(),

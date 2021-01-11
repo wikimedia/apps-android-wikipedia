@@ -342,9 +342,8 @@ public interface Service {
 
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
-    Observable<EntityPostResponse> postThanksToRevision(
-            @Field("rev") long revisionId,
-            @NonNull @Field("token") String token);
+    Observable<EntityPostResponse> postThanksToRevision(@Field("rev") long revisionId,
+                                                        @NonNull @Field("token") String token);
 
     @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded

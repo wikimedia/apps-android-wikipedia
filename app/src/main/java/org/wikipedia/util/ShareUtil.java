@@ -59,7 +59,7 @@ public final class ShareUtil {
         shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(), UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link));
     }
 
-    public static void shareText(final Context context, final PageTitle title, long newId, long oldId) {
+    public static void shareText(@NonNull final Context context, @NonNull final PageTitle title, long newId, long oldId) {
         shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(), UriUtil.getUrlForDiff(title, newId, oldId));
     }
 
