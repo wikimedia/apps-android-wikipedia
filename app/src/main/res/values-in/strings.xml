@@ -822,23 +822,6 @@
   <string name="suggested_edits_image_tag_contribution_label">Anda telah menambahkan %d tanda</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kemarin</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Anda telah memberikan sebuah kontribusi ke Wikipedia menggunakan penyuntingan yang disarankan. Terima kasih!</item>
-    <item quantity="other">Anda telah memberikan %d kontribusi ke Wikipedia menggunakan penyuntingan yang disarankan. Terima kasih!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Anda telah menyunting selama satu hari penuh. Pertahankan rekornya, %2$s!</item>
-    <item quantity="other">Saat ini, anda telah menyunting setiap hari untuk %1$d hari. Pertahankan rekornya, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Penyuntingan Anda telah dilihat oleh seorang dalam 30 hari terakhir. Terima kasih, dan tetaplah menyunting!</item>
-    <item quantity="other">Penyuntingan Anda telah dilihat oleh %d orang dalam 30 hari terakhir. Terima kasih, dan tetaplah menyunting!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Anda telah memberikan %d kontribusi ke Wikipedia menggunakan penyuntingan yang disarankan. Terima kasih!</string>
-  <string name="suggested_edits_rewards_edit_streak">Saat ini, anda telah menyunting setiap hari untuk %1$d hari. Pertahankan rekornya, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Penyuntingan Anda telah dilihat oleh %d orang dalam 30 hari terakhir. Terima kasih, dan tetaplah menyunting!</string>
-  <string name="suggested_edits_rewards_edit_quality">Kualitas penyuntingan Anda sejauh ini adalah %s. Tetaplah menyunting! Kami menantikan kontribusi Anda.</string>
-  <string name="suggested_edits_rewards_continue_button">Lanjut</string>
   <string name="suggested_edits_encourage_account_creation_title">Tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Penyuntingan yang disarankan adalah cara baru untuk mengedit Wikipedia di Android. Ini membantu Anda memberikan kontribusi kecil yang sangat berharga untuk Wikipedia.\nTujuan kami adalah membuat pengeditan lebih mudah dan lebih bisa diakses untuk semua orang! Masuk atau bergabung dengan Wikipedia untuk memulai.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Masuk log / gabung ke Wikipedia</string>

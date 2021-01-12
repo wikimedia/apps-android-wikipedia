@@ -40,6 +40,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -73,6 +74,7 @@ import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiArticleCardView;
+import org.wikipedia.watchlist.WatchlistExpiry;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 import java.util.ArrayList;
@@ -193,6 +195,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
         tabsButton.updateTabCount();
+        maybeShowWatchlistTooltip();
 
         toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
 
@@ -626,6 +629,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
+    public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+        pageFragment.updateWatchlist(expiry, false);
+    }
+
+    @Override
     public void onPageLoadError(@NonNull PageTitle title) {
         getSupportActionBar().setTitle(title.getDisplayText());
         removeTransitionAnimState();
@@ -681,7 +689,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getWatchlistExpirySession());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
@@ -691,8 +699,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void findInPageClick() {
-            pageFragment.showFindInPage();
+        public void watchlistClick(boolean hasWatchlistExpirySession) {
+            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
         }
 
         @Override
@@ -864,6 +872,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .create()
                 .show();
     }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowWatchlistTooltip() {
+        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
+            overflowButton.postDelayed(() -> {
+                if (isDestroyed()) {
+                    return;
+                }
+                Prefs.setWatchlistPageOnboardingTooltipShown(true);
+                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 200, -32, false, true);
+            }, 500);
+        }
+    }
+
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override

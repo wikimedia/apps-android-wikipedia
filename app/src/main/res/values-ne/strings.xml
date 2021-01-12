@@ -527,7 +527,6 @@
   <string name="suggested_edits_contribution_views">%s अवलोकनहरू</string>
   <string name="suggested_edits_contribution_seen_text">अन्तिम ३० दिनमा %s पटक हेरियो।</string>
   <string name="suggested_edits_contribution_date_yesterday_text">हिजो</string>
-  <string name="suggested_edits_rewards_continue_button">जारी राख्नुहोस्</string>
   <string name="suggested_edits_encourage_account_creation_title">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">हालैको संशोधन</string>

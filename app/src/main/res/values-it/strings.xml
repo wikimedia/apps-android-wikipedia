@@ -79,6 +79,8 @@
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
   <string name="menu_page_find_in_page">Trova nella voce</string>
+  <string name="menu_page_add_to_watchlist">Aggiungi agli osservati speciali</string>
+  <string name="menu_page_remove_from_watchlist">Rimuovi dagli osservati speciali</string>
   <string name="edit_section_find_in_page">Trova nella pagina</string>
   <string name="menu_page_font_and_theme">Carattere e tema</string>
   <string name="menu_page_add_to_list">Aggiungi all\'elenco di lettura</string>
@@ -215,6 +217,8 @@
   <string name="page_protected_can_not_edit">Spiacenti, la tua utenza non dispone di privilegi sufficienti per modificare questa pagina in questo momento.</string>
   <string name="page_protected_can_not_edit_anon">Spiacenti, questa pagina non può essere modificata anonimamente in questo momento.</string>
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Aggiungi agli osservati speciali</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Traccia gli eventi degli articoli a cui sei interessato. Premi nel menu e selezione &lt;b&gt;Aggiungi agli osservati speciali&lt;/b&gt; per vedere le modifiche di un articolo.</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
   <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
@@ -585,6 +589,7 @@
   <string name="notifications_view_archived_button_text">Vedi notifiche archiviate</string>
   <string name="notification_preferences_title">Preferenze sulle notifiche</string>
   <string name="notifications_mark_unread">Segna come non letto</string>
+  <string name="watchlist_title">Osservati speciali</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_summary_notification_poll">Consenti all\'applicazione di utilizzare i dati per verificare nuove notifiche in background.</string>
   <string name="preference_category_notification_types">Tipi di notifiche in-app</string>
@@ -849,23 +854,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Hai effettuato una modifica su Wikipedia utilizzando Modifiche suggerite. Grazie!</item>
-    <item quantity="other">Hai effettuato %d modifiche su Wikipedia utilizzando Modifiche suggerite. Grazie!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Hai effettuato modifiche per un intero giorno. Continua così, %2$s!</item>
-    <item quantity="other">Hai effettuato modifiche ogni giorno per %1$d giorni ad ora. Continua così, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Le tue modifiche sono state viste da una persona negli ultimi 30 giorni. Grazie, e continua così!</item>
-    <item quantity="other">Le tue modifiche sono state viste da %d persone negli ultimi 30 giorni. Grazie, e continua così!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Hai fatto %d modifiche a Wikipedia usando le modifiche suggerite. Grazie!</string>
-  <string name="suggested_edits_rewards_edit_streak">Hai effettuato modifiche ogni giorno per %1$d giorni ad ora. Continua così, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Le tue modifiche sono state viste da %d utenti negli ultimi 30 giorni. Grazie, e continua così!</string>
-  <string name="suggested_edits_rewards_edit_quality">Le tue modifiche per ora sono %s. Continua così! Aspettiamo altri contributi.</string>
-  <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Le modifiche suggerite sono un nuovo modo per modificare Wikipedia su Android. Ti aiuta a dare piccoli ma vitali contributi a Wikipedia. Il nostro obiettivo è rendere la modifica più semplice ed accessibile a tutti! Accedi o unisciti a Wikipedia per iniziare.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Entra / unisciti a Wikipedia</string>
@@ -976,6 +964,8 @@
   <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
   <string name="main_tooltip_text_v2">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="main_tooltip_action_button">Inizia</string>
+  <string name="main_tooltip_watchlist_title">Osservati speciali</string>
+  <string name="main_tooltip_watchlist_text">Trova articoli e pagine che hai aggiunto precedentemente alla tua lista di osservati speciali nel menu Altro sotto &lt;b&gt;Osservati speciali&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annulla</string>
@@ -991,4 +981,24 @@
   <string name="talk_message_hint">Scrivi un messaggio</string>
   <string name="talk_message_empty">Il messaggio non può essere vuoto.</string>
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
+  <string name="go_to_user_page">Vai alla pagina utente</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e la sua pagina di discussione sono state aggiunte alla tua lista degli osservati speciali %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifica</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">per 1 settimana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">per 1 mese</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">per 3 mesi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">per 6 mesi</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e la sua pagina di discussione sono state rimosse dalla tua lista degli osservati speciali.</string>
+  <string name="watchlist_expiry_dialog_title">Seleziona il periodo di tempo nella lista di osservati speciali</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanentemente</string>
+  <string name="watchlist_expiry_dialog_one_week">1 settimana</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mese</string>
+  <string name="watchlist_expiry_dialog_three_months">3 mesi</string>
+  <string name="watchlist_expiry_dialog_six_months">6 mesi</string>
+  <string name="watchlist_empty">Non hai nessuna voce nei tuoi osservati speciali.</string>
+  <string name="watchlist_filter_all">Tutto</string>
+  <string name="watchlist_filter_talk">Discussioni</string>
+  <string name="watchlist_filter_pages">Pagine</string>
+  <string name="watchlist_filter_other">Altro</string>
 </resources>

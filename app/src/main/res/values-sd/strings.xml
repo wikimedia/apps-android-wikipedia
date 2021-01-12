@@ -255,7 +255,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="about_article_section">هن مضمون بابت</string>
-  <string name="menu_gallery_visit_image_page">فائيل جي صفحي ڏانھن وڃو</string>
+  <string name="menu_gallery_visit_image_page">عڪس جي صفحي ڏانھن وڃو</string>
   <string name="gallery_error_draw_failed">عڪس چِٽجي نہ سگھيو.</string>
   <string name="license_title">%s لاءِ اجازتنامو</string>
   <string name="gallery_menu_share">ونڊيو</string>
@@ -331,7 +331,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">(گھري نظاري ۾) عڪسن کي ڊم ڪندي</string>
   <string name="preference_title_prefer_offline_content">آفلائين مواد کي ترجيح ڏيو</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">سرشتي جي نظاري سان ملايو</string>
-  <string name="page_footer_license_text">مواد $1 ھيٺ موجود آھي نہ تہ ٻي صورت واضع ڪيل آهي</string>
+  <string name="page_footer_license_text">مواد $1 ھيٺ موجود آھي جيسيتائين ٻي صورت واضع نہ ڪئي وڃي</string>
   <string name="empty_tab_title">نئين ٽيب</string>
   <string name="menu_save_all_tabs">سڀ ٽيبس سانڍيو</string>
   <string name="crash_report_activity_title">ايپليڪيشن جي چُڪَ</string>
@@ -650,7 +650,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">تيسيتائين تالو لڳل آھي جيسيتائي %d مضمونن جو تشريحون نٿا سنواري وٺو (پڪ ڪيل)</string>
   <string name="suggested_edits_task_multilingual_negative">منھنجي لاءِ نہ</string>
   <string name="suggested_edits_task_multilingual_positive">ٻوليون وجھو</string>
-  <string name="suggested_edits_image_caption_summary_title_image">فائيل</string>
+  <string name="suggested_edits_image_caption_summary_title_image">عڪس</string>
   <string name="suggested_edits_image_caption_summary_title_artist">فنڪار</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
   <string name="suggested_edits_image_caption_summary_title_source">ذريعو</string>
@@ -666,7 +666,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">شروع ڪريو</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">عڪس جو عنوان (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">عڪس جي تشريح (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">فائيل</string>
+  <string name="suggested_edits_image_preview_dialog_image">عڪس</string>
   <string name="suggested_edits_image_preview_dialog_artist">فنڪار</string>
   <string name="suggested_edits_image_preview_dialog_tags">ٽيگَ</string>
   <string name="suggested_edits_image_preview_dialog_date">تاريخ</string>
@@ -737,7 +737,6 @@
   <string name="suggested_edits_contribution_views">%s ڏيک</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ڪلھ</string>
-  <string name="suggested_edits_rewards_continue_button">جاري رکو</string>
   <string name="suggested_edits_encourage_account_creation_login_button">وڪيپيڊيا ۾ داخل ٿيو / شامل ٿيو</string>
   <string name="suggested_edits_contribution_type_image_tag">عڪس ٽيگ</string>
   <string name="file_page_activity_title">فائيل صفحو</string>
@@ -833,4 +832,8 @@
   <string name="talk_add_reply">جواب ڏيو</string>
   <string name="talk_no_subject">(ڪو مضمون ناھي)</string>
   <string name="talk_reply_subject">مضمون</string>
+  <string name="talk_reply_hint">جواب جوڙيو</string>
+  <string name="talk_message_hint">پيغام جوڙيو</string>
+  <string name="talk_message_empty">پيغام خالي نٿو ٿي سگهي.</string>
+  <string name="talk_subject_empty">موضوع خالي نٿو ٿي سگهي.</string>
 </resources>

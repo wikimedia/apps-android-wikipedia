@@ -51,6 +51,8 @@
   <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
   <string name="menu_page_other_languages">Ziman biguherîne</string>
   <string name="menu_page_find_in_page">Di nav gotarê de bibîne</string>
+  <string name="menu_page_add_to_watchlist">Li lîsteya şopandinê zêde bike</string>
+  <string name="menu_page_remove_from_watchlist">Ji lîsteya şopandinê jê bibe</string>
   <string name="menu_page_font_and_theme">Font û tema</string>
   <string name="menu_page_add_to_list">Îlaweyî lîsta xwendinê bike</string>
   <string name="menu_page_add_to_default_list">Tomar bike</string>
@@ -82,7 +84,7 @@
   <string name="langlinks_no_match">Ziman nehate dîtin</string>
   <string name="langlinks_activity_title">Zimanên din</string>
   <string name="langlinks_your_wikipedia_languages">Zimanên te yên Wîkîpediyayê</string>
-  <string name="menu_save_changes">Guhertinan biweşîne</string>
+  <string name="menu_save_changes">Guhartinan biweşîne</string>
   <string name="edit_saved_successfully">Guherandin hate weşandin!</string>
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>
@@ -163,6 +165,7 @@
   <string name="page_protected_sysop">Ev rûpel bi temamî parastî ye.</string>
   <string name="page_protected_can_not_edit">Bibore, hesabê te vêga ne xwediyê mafên bo guherandina vê rûpelê ye.</string>
   <string name="page_protected_can_not_edit_title">Ev rûpel parastî ye</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Li lîsteya şopandinê zêde bike</string>
   <string name="settings_item_preferences">Mîheng</string>
   <string name="settings_activity_title">Mîheng</string>
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
@@ -237,6 +240,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Mîheng</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Têkeve / xwe qeyd bike</string>
   <string name="notification_syncing_cancel_button">Betal bike</string>
+  <string name="watchlist_title">Lîsteya şopandinê</string>
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
@@ -255,7 +259,6 @@
   <string name="suggested_edits_contribution_image_label">Wêne</string>
   <string name="suggested_edits_contribution_seen_text">%s caran hatiye dîtin di 30 rojên dawîn de.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Doh</string>
-  <string name="suggested_edits_rewards_continue_button">Bidomîne</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Têkeve Wîkîpediyayê / beşdar bibe</string>
   <string name="suggested_edits_contribution_current_revision_text">Guhartina te vê gavê li ser Wîkîpediyayê weşandî ye</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
@@ -268,4 +271,21 @@
     <item quantity="other">Bila zimanên bijartî jê werin rakirin?</item>
   </plurals>
   <string name="main_tooltip_text_v2">Te zanibû ku her kes dikare li ser Wîkîpediyayê sererastkirinan bike?</string>
+  <string name="main_tooltip_watchlist_title">Lîsteya şopandinê</string>
+  <string name="main_tooltip_watchlist_text">Gotar û rûpelên ku te berê li lîsteya xwe ya şopandinê zêde kiribû li menûya Bêhtir di bin &lt;b&gt;Lîsteya şopandinê&lt;/b&gt; de bibîne.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Biguhêre</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">ji bonî heftîkê</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">ji bonî heyvekê</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ji bonî 3 heyvan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ji bonî 6 heyvan</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s û rûpela wê ya gotûbêjê ji lîsteya te ya şopandinê hatine jêbirin.</string>
+  <string name="watchlist_expiry_dialog_one_week">heftîkek</string>
+  <string name="watchlist_expiry_dialog_one_month">heyvek</string>
+  <string name="watchlist_expiry_dialog_three_months">3 heyv</string>
+  <string name="watchlist_expiry_dialog_six_months">6 heyv</string>
+  <string name="watchlist_empty">Ti gotar di lîsteya te ya şopandinê de nînin.</string>
+  <string name="watchlist_filter_all">Hemû</string>
+  <string name="watchlist_filter_talk">Gotûbêj</string>
+  <string name="watchlist_filter_pages">Rûpel</string>
+  <string name="watchlist_filter_other">Yên din</string>
 </resources>

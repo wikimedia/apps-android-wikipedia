@@ -12,6 +12,7 @@
 * Devwebtel
 * Expert3222
 * InternerowyGołąb
+* Kareyac
 * Lantuszka
 * Masti
 * Matik7
@@ -78,6 +79,7 @@
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź w artykule</string>
+  <string name="menu_page_add_to_watchlist">Dodaj do listy obserwowanych</string>
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
@@ -214,6 +216,7 @@
   <string name="page_protected_can_not_edit">Twoje konto nie ma w tej chwili wystarczających uprawnień do edycji tej strony.</string>
   <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
   <string name="settings_item_preferences">Ustawienia</string>
   <string name="settings_activity_title">Ustawienia</string>
   <string name="about_description">O aplikacji Wikipedia</string>
@@ -561,6 +564,7 @@
   <string name="notifications_view_archived_button_text">Zobacz powiadomienia zarchiwizowane</string>
   <string name="notification_preferences_title">Preferencje powiadomień</string>
   <string name="notifications_mark_unread">Oznacz jako nieprzeczytane</string>
+  <string name="watchlist_title">Obserwowane</string>
   <string name="preference_title_notification_poll">Poll notifications</string>
   <string name="preference_summary_notification_poll">Pozwól aplikacji używać danych do sprawdzania nowych powiadomień w tle.</string>
   <string name="preference_category_notification_types">Typy powiadomień w aplikacji</string>
@@ -786,10 +790,6 @@
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
-  <string name="suggested_edits_rewards_edit_streak">Jak dotąd edytowałeś codziennie przez %1$d dni. Kontynuuj serię, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Zmiany zostały obejrzane przez %d osób w ciągu ostatnich 30 dni. Dzięki i kontynuuj!</string>
-  <string name="suggested_edits_rewards_edit_quality">Dotychczasowe modyfikacje to %s. Tak trzymaj! Czekamy na Twój wkład.</string>
-  <string name="suggested_edits_rewards_continue_button">Kontynuuj</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Zaloguj się / Dołącz do Wikipedii</string>
   <string name="suggested_edits_contribution_type_image_tag">Znacznik obrazu</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
@@ -881,6 +881,7 @@
   <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_text_v2">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
+  <string name="main_tooltip_watchlist_title">Obserwowane</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anuluj</string>
@@ -896,4 +897,11 @@
   <string name="talk_message_hint">Utwórz wiadomość</string>
   <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
+  <string name="go_to_user_page">Przejdź do strony użytkownika</string>
+  <string name="watchlist_expiry_dialog_one_week">1 tydzień</string>
+  <string name="watchlist_expiry_dialog_one_month">1 miesiąc</string>
+  <string name="watchlist_expiry_dialog_three_months">3 miesiące</string>
+  <string name="watchlist_expiry_dialog_six_months">3 miesiące</string>
+  <string name="watchlist_filter_talk">Dyskusja</string>
+  <string name="watchlist_filter_pages">Strony</string>
 </resources>
