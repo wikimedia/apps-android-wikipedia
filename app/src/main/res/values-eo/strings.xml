@@ -633,11 +633,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
-  <string name="suggested_edits_rewards_contribution" fuzzy="true">Vi faris %d kontribuojn al Vikipedio uzante sugestitajn redaktojn. Dankon!</string>
-  <string name="suggested_edits_rewards_edit_streak">Vi redaktis ĉiun tagon dum %1$d tagoj ĝin nun. Tenu la daŭron, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Viaj redaktoj estis viditaj de %d homoj en la lasta 30 tagoj. Dankon Kaj daŭrigu!</string>
-  <string name="suggested_edits_rewards_edit_quality">Viaj redaktoj ĝis nun estas %s. Daŭrigu! Ni atendas viajn kontribuojn</string>
-  <string name="suggested_edits_rewards_continue_button">Daŭrigi</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>

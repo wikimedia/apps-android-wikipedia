@@ -656,6 +656,8 @@
   <string name="suggested_edits_task_action_text_translate">Terjemah</string>
   <string name="suggested_edits_image_tags_publishing">Menerbit</string>
   <string name="suggested_edits_image_tags_published">Diterbit</string>
+  <string name="suggested_edits_quality_excellent_text">Cemerlang</string>
+  <string name="suggested_edits_quality_very_good_text">Sangat baik</string>
   <string name="suggested_edits_last_edited_never">Tidak pernah</string>
   <string name="file_page_activity_title">Laman fail</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>

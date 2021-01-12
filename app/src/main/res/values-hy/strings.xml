@@ -126,6 +126,7 @@
   <string name="preferences_heading_experimental">Փորձնական</string>
   <string name="preferences_privacy_settings_heading">Գաղտնիություն</string>
   <string name="preference_title_eventlogging_opt_in">Ուղարկել օգտագործման մասին տեղեկություններ</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ավելացնել հսկացանկին</string>
   <string name="settings_item_preferences">Կարգավորումներ</string>
   <string name="settings_activity_title">Կարգավորումներ</string>
   <string name="privacy_policy_description">Գաղտնիության քաղաքականություն</string>
@@ -174,7 +175,9 @@
   <string name="view_link_preview_error_button_dismiss">Փակել</string>
   <string name="reference_list_title">Ծանոթագրություններ</string>
   <string name="crash_report_quit">Ելք</string>
+  <string name="article_menu_bar_save_button">Հիշել</string>
   <string name="article_menu_bar_language_button">Լեզու</string>
+  <string name="article_menu_bar_search_button">Որոնել</string>
   <string name="article_header_edit_hint">Խմբագրել...</string>
   <string name="color_theme_dark">Մուք</string>
   <string name="color_theme_black">Սև</string>
@@ -212,6 +215,7 @@
   <string name="notifications_activity_title">Ծանուցումներ</string>
   <string name="notifications_poll_enable_positive">Միացնել</string>
   <string name="notifications_poll_enable_negative">Հիմա չէ</string>
+  <string name="watchlist_title">Հսկացանկ</string>
   <string name="preference_title_notification_system">Հհամակարգչային</string>
   <string name="preference_title_notification_milestone">Փուլ</string>
   <string name="preference_title_notification_thanks">Շնորհակալություն</string>
@@ -279,7 +283,6 @@
   <string name="suggested_edits_contribution_image_label" fuzzy="true">Նիշք</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Երեկ</string>
-  <string name="suggested_edits_rewards_continue_button">Շարունակել</string>
   <string name="description_edit_login_cancel_button_text">Չեղարկել</string>
   <string name="onboarding_skip">Բաց թողնել</string>
   <string name="onboarding_continue">Շարունակել</string>
@@ -315,8 +318,15 @@
   <string name="wikitext_template">Կաղապար</string>
   <string name="wikitext_reference">Ծանոթագրություն</string>
   <string name="main_drawer_help">Օգնություն</string>
+  <string name="main_tooltip_watchlist_title">Հսկացանկ</string>
   <string name="custom_date_picker_dialog_ok_button_text">Լավ</string>
   <string name="text_input_dialog_ok_button_text">Լավ</string>
   <string name="text_input_dialog_cancel_button_text">Չեղարկել</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="watchlist_expiry_dialog_one_week">1 շաբաթ</string>
+  <string name="watchlist_expiry_dialog_one_month">1 ամիս</string>
+  <string name="watchlist_expiry_dialog_three_months">3 ամիս</string>
+  <string name="watchlist_expiry_dialog_six_months">6 ամիս</string>
+  <string name="watchlist_filter_talk">Քննարկում</string>
+  <string name="watchlist_filter_pages">Էջեր</string>
 </resources>

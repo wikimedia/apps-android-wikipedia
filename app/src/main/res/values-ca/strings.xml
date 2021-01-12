@@ -833,23 +833,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ahir</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Heu fet una contribució a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
-    <item quantity="other">Heu fet %d contribucions a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Heu editat un dia sencer. Seguiu, %2$s!</item>
-    <item quantity="other">Fins ara heu canviat cada dia durant %1$d Continueu, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Una persona ha vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
-    <item quantity="other"> %d persones han vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Heu fet %d contribucions a la Viquipèdia a partir d\'edicions suggerides. Gràcies!</string>
-  <string name="suggested_edits_rewards_edit_streak">Heu editat cada dia durant %1$d dies fins ara. Bon ritme, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">%d persones han vist les vostres edicions els darrers 30 dies. Gràcies i endavant!</string>
-  <string name="suggested_edits_rewards_edit_quality">Heu fet fins ara %s edicions. Endavant! Esperem les vostres contribucions.</string>
-  <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_encourage_account_creation_title">Sabíeu que tothom pot editar la Viquipèdia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les edicions suggerides és una nova forma d\'editar a la Viquipèdia en Android. Us ajuda a fer contribucions menudes, tot i que vitals, a la Viquipèdia.\nEl nostre objectiu és facilitar-ne l\'edició i fer-la més accessible per a tothom! Inicieu una sessió a la Viquipèdia per a començar.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Inicia una sessió / uniu-vos a la Viquipèdia</string>
@@ -975,4 +958,5 @@
   <string name="talk_message_hint">Redacta un missatge</string>
   <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
   <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
+  <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
 </resources>

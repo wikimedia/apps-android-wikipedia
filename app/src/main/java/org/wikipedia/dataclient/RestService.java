@@ -119,11 +119,9 @@ public interface RestService {
 
     // ------- Reading lists -------
 
-    @Headers("Cache-Control: no-cache")
     @POST("data/lists/setup")
     @NonNull Call<Void> setupReadingLists(@Query("csrf_token") String token);
 
-    @Headers("Cache-Control: no-cache")
     @POST("data/lists/teardown")
     @NonNull Call<Void> tearDownReadingLists(@Query("csrf_token") String token);
 
@@ -131,7 +129,6 @@ public interface RestService {
     @GET("data/lists/")
     @NonNull Call<SyncedReadingLists> getReadingLists(@Query("next") String next);
 
-    @Headers("Cache-Control: no-cache")
     @POST("data/lists/")
     @NonNull Call<SyncedReadingLists.RemoteIdResponse> createReadingList(@Query("csrf_token") String token,
                                                                          @Body SyncedReadingLists.RemoteReadingList list);
@@ -160,13 +157,11 @@ public interface RestService {
     @GET("data/lists/{id}/entries/")
     @NonNull Call<SyncedReadingLists> getReadingListEntries(@Path("id") long listId, @Query("next") String next);
 
-    @Headers("Cache-Control: no-cache")
     @POST("data/lists/{id}/entries/")
     @NonNull Call<SyncedReadingLists.RemoteIdResponse> addEntryToReadingList(@Path("id") long listId,
                                                                              @Query("csrf_token") String token,
                                                                              @Body SyncedReadingLists.RemoteReadingListEntry entry);
 
-    @Headers("Cache-Control: no-cache")
     @POST("data/lists/{id}/entries/batch")
     @NonNull Call<SyncedReadingLists.RemoteIdResponseBatch> addEntriesToReadingList(@Path("id") long listId,
                                                                                     @Query("csrf_token") String token,
