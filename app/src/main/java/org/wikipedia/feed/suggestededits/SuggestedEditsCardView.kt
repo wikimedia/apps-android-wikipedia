@@ -13,6 +13,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context),
@@ -41,7 +42,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         setUpPagerWithSECards()
-        cardFooter.setFooterActionText(context.getString(R.string.suggested_card_more_edits))
+        cardFooter.setFooterActionText(card!!.footerActionText(), null)
         cardFooter.callback = this
     }
 

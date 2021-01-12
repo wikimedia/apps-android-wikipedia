@@ -136,7 +136,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             return;
         }
         footerView.setCallback(getFooterCallback());
-        footerView.setFooterActionText(getCard().footerActionText());
+        footerView.setFooterActionText(getCard().footerActionText(), getCard().wikiSite().languageCode());
     }
 
     private void image(@Nullable Uri uri) {

@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
@@ -49,7 +48,7 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @NonNull
     public String footerActionText() {
-        return WikipediaApp.getInstance().getString(R.string.view_main_page_card_title);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_main_page_card_title);
     }
 
     @Override

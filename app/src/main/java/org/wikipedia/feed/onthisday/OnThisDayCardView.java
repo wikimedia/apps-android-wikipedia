@@ -66,13 +66,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         super(context);
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
-        setUpFooter();
-    }
-
-    private void setUpFooter() {
-        indicatorView.setVisibility(GONE);
-        cardFooterView.setFooterActionText(getContext().getString(R.string.more_events_text));
-        cardFooterView.setCallback(this);
     }
 
     @Override
@@ -99,6 +92,12 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         yearTextView.setText(DateUtil.yearToStringWithEra(card.year()));
     }
 
+    private void footer(@NonNull OnThisDayCard card) {
+        indicatorView.setVisibility(GONE);
+        cardFooterView.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode());
+        cardFooterView.setCallback(this);
+    }
+
     @Override
     public void setCard(@NonNull OnThisDayCard card) {
         super.setCard(card);
@@ -107,6 +106,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         yearsInfoTextView.setText(DateUtil.getYearDifferenceString(card.year()));
         updateOtdEventUI(card);
         header(card);
+        footer(card);
     }
 
     @OnClick({R.id.view_on_this_day_click_container, R.id.year}) void onCardClicked(View view) {

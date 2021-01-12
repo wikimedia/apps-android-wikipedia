@@ -9,19 +9,16 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/footerActionButton"
         style="@style/TransparentButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:textColor="?attr/colorAccent"
         android:textSize="20sp"
-        android:fontFamily="sans-serif"
+        android:textAlignment="textStart"
         android:textStyle="bold"
+        android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
         android:letterSpacing="0"
-        android:paddingStart="8dp"
-        app:icon="@drawable/ic_baseline_arrow_right_alt_24px"
-        app:iconGravity="textEnd"
-        app:iconSize="24dp"
-        app:iconTint="?attr/colorAccent" />
+        android:paddingHorizontal="8dp"/>
 
 </merge>

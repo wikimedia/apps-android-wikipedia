@@ -1,7 +1,6 @@
 package org.wikipedia.feed.mainpage;
 
 import android.content.Context;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +19,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainPageCardView extends DefaultFeedCardView<MainPageCard> {
-    @BindView(R.id.view_static_card_container) View containerView;
     @BindView(R.id.view_static_card_header) CardHeaderView headerView;
     @BindView(R.id.view_static_card_footer) CardFooterView footerView;
 
@@ -32,7 +30,6 @@ public class MainPageCardView extends DefaultFeedCardView<MainPageCard> {
 
     @Override public void setCard(@NonNull final MainPageCard card) {
         super.setCard(card);
-        setLayoutDirectionByWikiSite(card.wikiSite(), containerView);
 
         headerView.setTitle(L10nUtil.getStringForArticleLanguage(getCard().wikiSite().languageCode(), R.string.view_main_page_card_title))
                 .setLangCode(getCard().wikiSite().languageCode())
@@ -40,7 +37,7 @@ public class MainPageCardView extends DefaultFeedCardView<MainPageCard> {
                 .setCallback(getCallback());
 
         footerView.setCallback(this::goToMainPage);
-        footerView.setFooterActionText(getContext().getString(R.string.view_main_page_card_action));
+        footerView.setFooterActionText(L10nUtil.getStringForArticleLanguage(getCard().wikiSite().languageCode(), R.string.view_main_page_card_action), getCard().wikiSite().languageCode());
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
