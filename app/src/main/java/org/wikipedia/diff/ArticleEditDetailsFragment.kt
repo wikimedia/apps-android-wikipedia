@@ -103,6 +103,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             fetchEditDetails()
         }
         watchButton.setOnClickListener {
+            watchButton.isCheckable = false
             watchOrUnwatchTitle(watchlistExpirySession, isWatched)
         }
         usernameButton.setOnClickListener {
@@ -200,7 +201,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         watchlistExpiryChanged = false
                     }
                     showWatchlistSnackbar(expiry, firstWatch)
-                }) { t: Throwable? -> L.d(t) })
+                }) { t: Throwable? ->
+                    L.d(t)
+                    watchButton.isCheckable = true
+                })
     }
 
     private fun updateWatchlistButtonUI() {
@@ -229,6 +233,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             watchlistExpirySession = expiry
             snackbar.show()
         }
+        watchButton.isCheckable = true
     }
 
     private fun showThankDialog() {
