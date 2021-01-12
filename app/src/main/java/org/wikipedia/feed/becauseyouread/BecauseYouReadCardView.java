@@ -28,11 +28,12 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
 
     private void header(@NonNull final BecauseYouReadCard card) {
         headerView().setTitle(card.title())
-                .setLangCode(null)
+                .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
 
         largeHeaderView().setTitle(card.pageTitle())
+                .setLanguageCode(card.wikiSite().languageCode())
                 .setImage(card.image())
                 .setSubtitle(card.extract());
 
