@@ -88,7 +88,7 @@ public final class DateUtil {
     }
 
     public static String getDateAndTimeStringFromTimestampString(@NonNull String dateStr) throws ParseException {
-        return ((String) android.text.format.DateFormat.format("MMM dd, yyyy | HH:mm", iso8601DateParse(dateStr)));
+        return (String) android.text.format.DateFormat.format("MMM dd, yyyy | HH:mm", iso8601DateParse(dateStr));
     }
 
     private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {

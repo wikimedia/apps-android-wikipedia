@@ -61,7 +61,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private var olderRevisionId: Long = 0
     private lateinit var languageCode: String
     private val disposables = CompositeDisposable()
-    private var menu: Menu? = null
     private var watchlistExpiryChanged = false
     private var isWatched = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -134,17 +133,18 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
-            if (r.query() != null && r.query()!!.firstPage() != null) {
-                val firstPage = r.query()!!.firstPage()!!
-                currentRevision = firstPage.revisions()[0]
-                username = currentRevision!!.user
-                newerRevisionId = if (firstPage.revisions().size < 2) {
-                    -1
-                } else {
-                    firstPage.revisions()[1].revId
-                }
-                olderRevisionId = currentRevision!!.parentRevId
+            if (r.query() == null || r.query()!!.firstPage() == null) {
+                throw RuntimeException("Received empty response page: " + GsonUtil.getDefaultGson().toJson(r))
             }
+            val firstPage = r.query()!!.firstPage()!!
+            currentRevision = firstPage.revisions()[0]
+            username = currentRevision!!.user
+            newerRevisionId = if (firstPage.revisions().size < 2) {
+                -1
+            } else {
+                firstPage.revisions()[1].revId
+            }
+            olderRevisionId = currentRevision!!.parentRevId
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -177,7 +177,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
         view.setTextColor(themedColor)
-        view.iconTint = (ColorStateList.valueOf(themedColor))
+        view.iconTint = ColorStateList.valueOf(themedColor)
     }
 
     private fun watchOrUnwatchTitle(@Nullable expiry: WatchlistExpiry?, unwatch: Boolean) {
@@ -281,25 +281,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun displayDiff(diffs: MutableList<DiffItem>) {
         for (diff in diffs) {
             val prefixLength = diffText.text.length
-            val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_64))
-            val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_65))
-            val boldStyle = StyleSpan(Typeface.BOLD)
-
             val spannableString = SpannableStringBuilder(diffText.text).append(if (diff.text.isNotEmpty()) diff.text else "\n")
             when (diff.type) {
                 DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
                 }
                 DIFF_TYPE_LINE_ADDED -> {
-                    spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                            R.attr.edit_green_highlight)), prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(foregroundAddedColor, prefixLength, prefixLength + diff.text.length, 0)
+                    updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_LINE_REMOVED -> {
-                    spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                            R.attr.edit_red_highlight)), prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(foregroundRemovedColor, prefixLength, prefixLength + diff.text.length, 0)
+                    updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_LINE_WITH_DIFF -> {
                     for (hightlightRange in diff.highlightRanges) {
@@ -309,38 +299,31 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         else getByteInCharacters(diff.text, hightlightRange.length, highlightRangeStart)
 
                         if (hightlightRange.type == HIGHLIGHT_TYPE_ADD) {
-                            spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                                    R.attr.edit_green_highlight)), prefixLength + highlightRangeStart,
-                                    prefixLength + highlightRangeStart + highlightRangeLength, 0)
-                            spannableString.setSpan(foregroundAddedColor, prefixLength + highlightRangeStart,
-                                    prefixLength + highlightRangeStart + highlightRangeLength, 0)
-
+                            updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
                         } else {
-                            spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                                    R.attr.edit_red_highlight)), prefixLength + highlightRangeStart,
-                                    prefixLength + highlightRangeStart + highlightRangeLength, 0)
-                            spannableString.setSpan(foregroundRemovedColor, prefixLength + highlightRangeStart,
-                                    prefixLength + highlightRangeStart + highlightRangeLength, 0)
+                            updateDiffTextDecor(spannableString, false, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
                         }
-                        spannableString.setSpan(boldStyle, prefixLength + highlightRangeStart,
-                                prefixLength + highlightRangeStart + highlightRangeLength, 0)
                     }
                 }
                 DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
-                    spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                            R.attr.edit_red_highlight)), prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(foregroundRemovedColor, prefixLength, prefixLength + diff.text.length, 0)
+                    updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
-                    spannableString.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                            R.attr.edit_green_highlight)), prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(boldStyle, prefixLength, prefixLength + diff.text.length, 0)
-                    spannableString.setSpan(foregroundAddedColor, prefixLength, prefixLength + diff.text.length, 0)
+                    updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
             }
             diffText.text = spannableString.append("\n")
         }
+    }
+
+    private fun updateDiffTextDecor(spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
+        val boldStyle = StyleSpan(Typeface.BOLD)
+        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_64))
+        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_65))
+        spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
+                if (isAddition) R.attr.edit_green_highlight else R.attr.edit_red_highlight)), start, end, 0)
+        spannableText.setSpan(boldStyle, start, end, 0)
+        spannableText.setSpan(if (isAddition) foregroundAddedColor else foregroundRemovedColor, start, end, 0)
     }
 
     private fun getByteInCharacters(diffText: String?, byteLength: Int, start: Int): Int {
@@ -371,7 +354,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_edit_details, menu)
-        this.menu = menu
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
