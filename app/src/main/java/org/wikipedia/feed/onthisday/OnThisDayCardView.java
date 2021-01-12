@@ -28,13 +28,11 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -68,13 +66,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         super(context);
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
-        setUpFooter();
-    }
-
-    private void setUpFooter() {
-        indicatorView.setVisibility(GONE);
-        cardFooterView.setFooterActionText(getContext().getString(R.string.more_events_text));
-        cardFooterView.setCallback(this);
     }
 
     @Override
@@ -101,6 +92,12 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         yearTextView.setText(DateUtil.yearToStringWithEra(card.year()));
     }
 
+    private void footer(@NonNull OnThisDayCard card) {
+        indicatorView.setVisibility(GONE);
+        cardFooterView.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode());
+        cardFooterView.setCallback(this);
+    }
+
     @Override
     public void setCard(@NonNull OnThisDayCard card) {
         super.setCard(card);
@@ -109,6 +106,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         yearsInfoTextView.setText(DateUtil.getYearDifferenceString(card.year()));
         updateOtdEventUI(card);
         header(card);
+        footer(card);
     }
 
     @OnClick({R.id.view_on_this_day_click_container, R.id.year}) void onCardClicked(View view) {
@@ -154,9 +152,23 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                     PageTitle pageTitle = finalChosenPage.getPageTitle(card.wikiSite());
                     HistoryEntry entry = new HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD);
 
-                    new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+                    new LongPressMenu(view, true, new LongPressMenu.Callback() {
                         @Override
-                        public void onAddRequest(boolean addToDefault) {
+                        public void onOpenLink(@NonNull HistoryEntry entry) {
+                            if (getCallback() != null) {
+                                getCallback().onSelectPage(card, entry, TransitionUtil.getSharedElements(getContext(), otdEventImage));
+                            }
+                        }
+
+                        @Override
+                        public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                            if (getCallback() != null) {
+                                getCallback().onSelectPage(card, entry, true);
+                            }
+                        }
+
+                        @Override
+                        public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
                             if (addToDefault) {
                                 ReadingListBehaviorsUtil.INSTANCE.addToDefaultList((AppCompatActivity) getContext(), entry.getTitle(), ON_THIS_DAY_CARD_BODY,
                                         readingListId ->
@@ -169,22 +181,11 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                         }
 
                         @Override
-                        public void onMoveRequest(@Nullable ReadingListPage page) {
+                        public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                             bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
                                     MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_CARD_BODY));
                         }
-
-                        @Override
-                        public void onDeleted(@Nullable ReadingListPage page) {
-                            FeedbackUtil.showMessage((AppCompatActivity) getContext(),
-                                    getContext().getResources().getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-                        }
-
-                        @Override
-                        public void onShare() {
-                            ShareUtil.shareText(getContext(), entry.getTitle());
-                        }
-                    }).show(entry.getTitle());
+                    }).show(entry);
 
                     return true;
                 });
