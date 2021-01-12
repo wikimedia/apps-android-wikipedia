@@ -65,7 +65,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private var watchlistExpiryChanged = false
     private var isWatched = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private var watchlistExpirySession: WatchlistExpiry? = null
+    private var watchlistExpirySession = WatchlistExpiry.NEVER
     private var currentRevision: Revision? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -213,7 +213,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         isWatched = watch.watched
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.prefixedText))
-            watchlistExpirySession = null
+            watchlistExpirySession = WatchlistExpiry.NEVER
         } else if (watch.watched && expiry != null) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
@@ -226,7 +226,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                     bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
             }
-            watchlistExpirySession = null
+            watchlistExpirySession = expiry
             snackbar.show()
         }
     }
