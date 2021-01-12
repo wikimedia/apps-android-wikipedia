@@ -39,7 +39,7 @@ public final class EventPlatformClient {
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
-    private static boolean ENABLED = isOnline() && isEventLoggingEnabled();
+    private static boolean ENABLED = isOnline();
 
 
     /**
