@@ -25,6 +25,7 @@ import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -34,10 +35,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.restbase.DiffResponse.*
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
-import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_ARTICLE_TITLE
-import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_LANGUAGE_CODE
-import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_REVISION_ID
-import org.wikipedia.diff.ArticleEditDetailsActivity.Companion.EXTRA_SOURCE_EDIT_SIZE
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -79,13 +76,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        articleTitle = StringUtils.defaultString(requireActivity().intent
-                .getStringExtra(EXTRA_SOURCE_ARTICLE_TITLE), "")
-        revisionId = requireActivity().intent
-                .getLongExtra(EXTRA_SOURCE_EDIT_REVISION_ID, 0)
-        languageCode = StringUtils.defaultString(requireActivity().intent
-                .getStringExtra(EXTRA_SOURCE_EDIT_LANGUAGE_CODE), "en")
-
+        articleTitle = StringUtils.defaultString(arguments?.getString(INTENT_EXTRA_ARTICLE_TITLE), "")
+        revisionId = arguments?.getLong(INTENT_EXTRA_EDIT_REVISION_ID, 0)!!
+        languageCode = StringUtils.defaultString(arguments?.getString(INTENT_EXTRA_EDIT_LANGUAGE_CODE), "en")
         setUpInitialUI()
         setUpListeners()
         fetchEditDetails()
@@ -123,7 +116,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     private fun setUpInitialUI() {
-        diffSize = requireActivity().intent.getIntExtra(EXTRA_SOURCE_EDIT_SIZE, 0)
+        diffSize = arguments?.getInt(INTENT_EXTRA_EDIT_SIZE, 0)!!
         diffText.movementMethod = ScrollingMovementMethod()
         articleTitleView.text = articleTitle
         if (diffSize >= 0) {
@@ -138,18 +131,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     private fun fetchEditDetails() {
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articleTitle, revisionId),
-                ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle),
-                { r, w ->
-                    isWatched = w.query()!!.firstPage()!!.isWatched
-                    currentRevision = r.query()!!.firstPage()!!.revisions()[0]
-                    username = currentRevision!!.user
-                    newerRevisionId = if (r.query()!!.firstPage()!!.revisions().size < 2) {
-                        -1
-                    } else {
-                        r.query()!!.firstPage()!!.revisions()[1].revId
-                    }
-                    olderRevisionId = currentRevision!!.parentRevId
-                })
+                ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle), { r, w ->
+            isWatched = w.query()!!.firstPage()!!.isWatched
+            if (r.query() != null && r.query()!!.firstPage() != null) {
+                val firstPage = r.query()!!.firstPage()!!
+                currentRevision = firstPage.revisions()[0]
+                username = currentRevision!!.user
+                newerRevisionId = if (firstPage.revisions().size < 2) {
+                    -1
+                } else {
+                    firstPage.revisions()[1].revId
+                }
+                olderRevisionId = currentRevision!!.parentRevId
+            }
+        })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -211,8 +206,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun updateWatchlistButtonUI() {
         setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
                 if (isWatched) R.attr.color_group_62 else R.attr.colorAccent))
-        watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label
-        else R.string.watchlist_details_watch_label)
+        watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
     }
 
     private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, watch: Watch) {
@@ -220,7 +214,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articleTitle))
             watchlistExpirySession = null
-
         } else if (watch.watched && expiry != null) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
@@ -258,9 +251,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun sendThanks() {
         ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).csrfToken
                 .subscribeOn(Schedulers.io())
-                .flatMap { response: MwQueryResponse ->
-                    val csrfToken = response.query()!!.csrfToken()
-                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, csrfToken!!)
+                .flatMap {
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query()!!.csrfToken()!!)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -276,8 +268,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         disposables.add(ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getDiff(olderRevisionId, revisionId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    displayDiff(response.diffs)
+                .subscribe({
+                    displayDiff(it.diffs)
                 }) { t: Throwable? -> L.e(t) })
     }
 
@@ -386,11 +378,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 true
             }
             R.id.menu_user_profile_page -> {
-                FeedbackUtil.showUserProfilePage(requireContext(), username)
+                FeedbackUtil.showUserProfilePage(requireContext(), username!!)
                 true
             }
             R.id.menu_user_contributions_page -> {
-                FeedbackUtil.showUserContributionsPage(requireContext(), username)
+                FeedbackUtil.showUserContributionsPage(requireContext(), username!!)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -398,8 +390,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     companion object {
-        fun newInstance(): ArticleEditDetailsFragment {
-            return ArticleEditDetailsFragment()
+        fun newInstance(articleTitle: String, revisionId: Long, languageCode: String, diffSize: Int): ArticleEditDetailsFragment {
+            val articleEditDetailsFragment = ArticleEditDetailsFragment()
+            val args = Bundle()
+            args.putString(INTENT_EXTRA_ARTICLE_TITLE, articleTitle)
+            args.putLong(INTENT_EXTRA_EDIT_REVISION_ID, revisionId)
+            args.putString(INTENT_EXTRA_EDIT_LANGUAGE_CODE, languageCode)
+            args.putInt(INTENT_EXTRA_EDIT_SIZE, diffSize)
+            articleEditDetailsFragment.arguments = args
+            return articleEditDetailsFragment
         }
     }
 
