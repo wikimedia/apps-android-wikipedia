@@ -4,9 +4,9 @@
 * Saraiki
 -->
 <resources>
-  <string name="app_name_prod">ویکیپیڈیا</string>
-  <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
-  <string name="app_name_alpha">ویکیپیڈیا الفا</string>
+  <string name="app_name_prod">وکیپیڈیا</string>
+  <string name="app_name_beta">وکیپیڈیا آزمائشی</string>
+  <string name="app_name_alpha">وکیپیڈیا الفا</string>
   <string name="wikimedia">ویکیمیڈیا</string>
   <string name="nav_item_back">واپس</string>
   <string name="page_tabs_back">پچھوں</string>
@@ -115,7 +115,7 @@
   <string name="create_account_button">کھاتہ کھولو</string>
   <string name="create_account_ip_block_details">تفصیلاں</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
+  <string name="wikipedia_app_faq">وکیپیڈیا ایپ عمومی سوالات</string>
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="page_protected_can_not_edit_title">ایہ ورقہ محفوظ ہے</string>
@@ -302,7 +302,7 @@
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
-  <string name="app_shortcuts_random">پُٹھے سِدھے</string>
+  <string name="app_shortcuts_random">قݨے نال</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>

@@ -66,7 +66,7 @@
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於條目尋找</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
-  <string name="menu_page_font_and_theme">字型與主題</string>
+  <string name="menu_page_font_and_theme">字型與佈景主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
   <string name="menu_page_add_to_default_list">儲存</string>
   <string name="feed_card_add_to_list">新增至閱讀清單</string>
@@ -191,7 +191,7 @@
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="preference_title_auto_upload_crash_reports">傳送損毀報告</string>
-  <string name="preference_summary_auto_upload_crash_reports">請允許手機應用程式自動傳送崩潰報告，至第三方服務提供者，以讓我們可以更快速、更簡易地來檢查故障並修復。</string>
+  <string name="preference_summary_auto_upload_crash_reports">請允許手機應用程式自動傳送崩潰報告至第三方服務提供者，以讓我們可以更快速、更簡易地來檢查故障並修復。</string>
   <string name="editing_error_spamblacklist">檢測到來自被封鎖網域（%s）的連結。請刪除它們並再試一次。</string>
   <string name="history_filter_list_hint">篩選歷史</string>
   <string name="error_can_not_process_link">無法顯示此連結</string>
@@ -359,10 +359,10 @@
   <string name="view_wiki_error_message_timeout">無法連接到維基百科。請檢查您的網路連線，或稍後再試</string>
   <string name="reference_title">參考資料 %s</string>
   <string name="reference_list_title">參考資料</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗主題）</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">調暗圖片（在陰暗佈景主題）</string>
   <string name="preference_title_prefer_offline_content">首選離線內容</string>
   <string name="preference_summary_prefer_offline_content">透過載入離線狀況下可用條目的儲存資料使用，而不必每次載入條目的最新版本</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">符合系統主題</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">符合系統佈景主題</string>
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
   <string name="menu_save_all_tabs">儲存所有分頁</string>
@@ -373,20 +373,20 @@
   <string name="article_menu_bar_save_button">儲存</string>
   <string name="article_menu_bar_language_button">語言</string>
   <string name="article_menu_bar_search_button">搜尋</string>
-  <string name="article_menu_bar_theme_button">主題</string>
+  <string name="article_menu_bar_theme_button">佈景主題</string>
   <string name="article_menu_bar_contents_button">目錄</string>
   <string name="article_header_edit_hint">編輯…</string>
   <string name="article_header_edit_description">編輯條目描述</string>
   <string name="article_header_edit_lead_section">編輯簡介</string>
-  <string name="color_theme_select">主題</string>
+  <string name="color_theme_select">佈景主題</string>
   <string name="color_theme_light">明亮</string>
   <string name="color_theme_dark">陰暗</string>
   <string name="color_theme_black">漆黑</string>
   <string name="color_theme_sepia">深褐</string>
   <string name="color_theme_test_title">試樣文字</string>
   <string name="color_theme_test_text">拖拉滑標來變更使用在閱讀條目的文字大小。要設定應用程式之外其餘文字大小部份，請在您的系統文字大小做變更。</string>
-  <string name="preference_title_app_theme">套用主題</string>
-  <string name="preference_summary_color_theme">切換到使用應用程式的陰暗色彩主題</string>
+  <string name="preference_title_app_theme">套用佈景主題</string>
+  <string name="preference_summary_color_theme">切換到使用應用程式的陰暗色彩佈景主題</string>
   <string name="text_size_increase">增加文字大小</string>
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
@@ -835,23 +835,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">您已使用「建議編輯」為維基百科做出了 1 次貢獻。感謝您！</item>
-    <item quantity="other">您已使用「建議編輯」為維基百科做出了 %d 次貢獻。感謝您！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">您今天有做出編輯，請繼續加油，%2$s！</item>
-    <item quantity="other">您在 %1$d 天裡每天都有做出編輯，請挑戰讓紀錄繼續延續下去，%2$s！</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">您的編輯在過去 30 天裡有被 1 個人看到。感謝您，請繼續加油！</item>
-    <item quantity="other">您的編輯在過去 30 天裡有被 %d 個人看到。感謝您，請繼續加油！</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">您在維基百科上使用建議編輯做出了 %d 次貢獻。感謝您！</string>
-  <string name="suggested_edits_rewards_edit_streak">到目前為止，您有連續 %1$d 天每日做出編輯的紀錄。請挑戰讓紀錄繼續延續下去，%2$s！</string>
-  <string name="suggested_edits_rewards_pageviews">您的編輯內容在過去 30 天裡已被 %d 個人觀看過。感謝您，並請繼續加油！</string>
-  <string name="suggested_edits_rewards_edit_quality">您的編輯到目前為止是%s。請繼續加油！我們期待您之後的貢獻。</string>
-  <string name="suggested_edits_rewards_continue_button">繼續</string>
   <string name="suggested_edits_encourage_account_creation_title">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="suggested_edits_encourage_account_creation_message">建議編輯是在 Android 上編輯維基百科的新方式。這能讓您做出微小；但對於維基百科是至關重要的貢獻。\n我們的目標是讓所有人能夠更輕鬆地編輯！請登入或加入維基百科來開始。</string>
   <string name="suggested_edits_encourage_account_creation_login_button">登入/加入維基百科</string>
@@ -974,4 +957,5 @@
   <string name="talk_message_hint">撰寫訊息</string>
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
+  <string name="go_to_user_page">前往使用者頁面</string>
 </resources>

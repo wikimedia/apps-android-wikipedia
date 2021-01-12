@@ -46,6 +46,8 @@
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in article</string>
+    <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
+    <string name="menu_page_remove_from_watchlist">Remove from Watchlist</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -187,6 +189,8 @@
     <string name="page_protected_can_not_edit">Sorry, your account does not have sufficient privileges to edit this page at this time.</string>
     <string name="page_protected_can_not_edit_anon">Sorry, this page cannot be edited anonymously at this time.</string>
     <string name="page_protected_can_not_edit_title">This page is protected</string>
+    <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Add to Watchlist</string>
+    <string name="page_watchlist_overflow_menu_onboarding_tooltip_text"><![CDATA[Keep track of what\'s happening to articles you are interested in. Tap the overflow menu and select <b>Add to Watchlist</b> to see changes to an article.]]></string>
     <string name="settings_item_preferences">Settings</string>
     <string name="settings_activity_title">Settings</string>
     <string name="about_description">About the Wikipedia app</string>
@@ -575,6 +579,7 @@
     <string name="notifications_view_archived_button_text">View archived notifications</string>
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
+    <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
     <string name="preference_category_notification_types">In-app notification types</string>
@@ -857,23 +862,6 @@
     </plurals>
     <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
     <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
-    <plurals name="suggested_edits_rewards_contributions">
-        <item quantity="one">You\'ve made one contribution to Wikipedia using Suggested Edits. Thank you!</item>
-        <item quantity="other">You\'ve made %d contributions to Wikipedia using Suggested Edits. Thank you!</item>
-    </plurals>
-    <plurals name="suggested_edits_rewards_edit_streaks">
-        <item quantity="one">You\'ve been editing for one whole day. Keep the streak going, %2$s!</item>
-        <item quantity="other">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</item>
-    </plurals>
-    <plurals name="suggested_edits_rewards_page_views">
-        <item quantity="one">Your edits have been seen by one person in the last 30 days. Thanks, and keep going!</item>
-        <item quantity="other">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</item>
-    </plurals>
-    <string name="suggested_edits_rewards_contribution">You\'ve made %d contributions to Wikipedia using Suggested edits. Thank you!</string>
-    <string name="suggested_edits_rewards_edit_streak">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</string>
-    <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
-    <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
-    <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_encourage_account_creation_title">Did you know that everyone can edit Wikipedia?</string>
     <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
     <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
@@ -1014,6 +1002,8 @@
     <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>
     <string name="main_tooltip_text_v2">Did you know that everyone can edit Wikipedia?</string>
     <string name="main_tooltip_action_button">Get started</string>
+    <string name="main_tooltip_watchlist_title">Watchlist</string>
+    <string name="main_tooltip_watchlist_text"><![CDATA[Find articles and pages you previously added to your watchlist in the More menu under <b>Watchlist</b>.]]></string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>
@@ -1030,4 +1020,26 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="go_to_user_page">Go to user page</string>
+
+    <!-- Watchlist -->
+    <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_action">Change</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanently</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">for 1 week</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">for 1 month</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">for 3 months</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">for 6 months</string>
+    <string name="watchlist_page_removed_from_watchlist_snackbar">%s and its talk page have been removed from your watchlist.</string>
+    <string name="watchlist_expiry_dialog_title">Select Watchlist time period</string>
+    <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+    <string name="watchlist_expiry_dialog_one_week">1 week</string>
+    <string name="watchlist_expiry_dialog_one_month">1 month</string>
+    <string name="watchlist_expiry_dialog_three_months">3 months</string>
+    <string name="watchlist_expiry_dialog_six_months">6 months</string>
+    <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
+    <string name="watchlist_filter_all">All</string>
+    <string name="watchlist_filter_talk">Talk</string>
+    <string name="watchlist_filter_pages">Pages</string>
+    <string name="watchlist_filter_other">Other</string>
 </resources>

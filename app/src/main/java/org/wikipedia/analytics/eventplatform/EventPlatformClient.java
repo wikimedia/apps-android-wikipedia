@@ -99,7 +99,7 @@ public final class EventPlatformClient {
      * as other considerations.
      */
     public static synchronized void setEnabled(boolean enabled) {
-        ENABLED = enabled && isEventLoggingEnabled();
+        ENABLED = enabled;
 
         if (ENABLED) {
             /*
@@ -249,7 +249,9 @@ public final class EventPlatformClient {
                 eventsByStream.get(stream).add(event);
             }
             for (String stream : eventsByStream.keySet()) {
-                postEvents(getStreamConfig(stream), eventsByStream.get(stream));
+                if (isEventLoggingEnabled()) {
+                    postEvents(getStreamConfig(stream), eventsByStream.get(stream));
+                }
             }
         }
     }

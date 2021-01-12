@@ -119,7 +119,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun loadImage(summaryForEdit: PageSummaryForEdit, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
         ImageZoomHelper.setViewZoomable(imageView)
-        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE))
+        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE), false, false, true, null)
         imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, ViewUtil.adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
 
