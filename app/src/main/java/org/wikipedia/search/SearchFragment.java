@@ -31,12 +31,12 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MoveToReadingListDialog;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.CabSearchView;
@@ -57,6 +57,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.INTENT_PROCESS_TEXT;
 import static org.wikipedia.Constants.InvokeSource.INTENT_SHARE;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
@@ -317,19 +318,19 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     }
 
     @Override
-    public void onSearchResultCopyLink(@NonNull PageTitle title) {
-        ClipboardUtil.setPlainText(requireContext(), null, title.getUri());
-        FeedbackUtil.showMessage(this, R.string.address_copied);
+    public void onSearchAddPageToList(HistoryEntry entry, boolean addToDefault) {
+        if (addToDefault) {
+            ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), entry.getTitle(), FEED, readingListId -> onSearchMovePageToList(readingListId, entry));
+        } else {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    AddToReadingListDialog.newInstance(entry.getTitle(), FEED));
+        }
     }
 
     @Override
-    public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull InvokeSource source) {
-        bottomSheetPresenter.show(getChildFragmentManager(), AddToReadingListDialog.newInstance(title, source));
-    }
-
-    @Override
-    public void onSearchResultShareLink(@NonNull PageTitle title) {
-        ShareUtil.shareText(requireContext(), title);
+    public void onSearchMovePageToList(long sourceReadingListId, HistoryEntry entry) {
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), FEED));
     }
 
     @Override

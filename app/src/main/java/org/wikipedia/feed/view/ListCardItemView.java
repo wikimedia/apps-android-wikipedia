@@ -18,7 +18,7 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.mostread.MostReadArticles;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageAvailableOfflineHandler;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -40,12 +40,10 @@ import butterknife.OnLongClick;
 public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
-        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
+        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewBackgroundTab);
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements);
         void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
-        void onRemovePageFromList(@NonNull HistoryEntry entry);
-        void onSharePage(@NonNull HistoryEntry entry);
     }
 
     @BindView(R.id.view_list_card_number) GradientCircleNumberView numberView;
@@ -99,35 +97,35 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @OnLongClick boolean onLongClick(View view) {
-        new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+        new LongPressMenu(view, true, new LongPressMenu.Callback() {
             @Override
-            public void onAddRequest(boolean addToDefault) {
-                if (getCallback() != null && entry != null) {
+            public void onOpenLink(@NonNull HistoryEntry entry) {
+                if (getCallback() != null && card != null) {
+                    getCallback().onSelectPage(card, entry, false);
+                }
+            }
+
+            @Override
+            public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                if (getCallback() != null && card != null) {
+                    getCallback().onSelectPage(card, entry, true);
+                }
+            }
+
+            @Override
+            public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
+                if (getCallback() != null) {
                     getCallback().onAddPageToList(entry, addToDefault);
                 }
             }
 
             @Override
-            public void onMoveRequest(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
+            public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
+                if (getCallback() != null) {
                     getCallback().onMovePageToList(page.listId(), entry);
                 }
             }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onRemovePageFromList(entry);
-                }
-            }
-
-            @Override
-            public void onShare() {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onSharePage(entry);
-                }
-            }
-        }).show(entry.getTitle());
+        }).show(entry);
         return false;
     }
 
