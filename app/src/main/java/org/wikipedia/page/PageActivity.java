@@ -619,16 +619,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageRemoveFromReadingLists(@NonNull PageTitle title) {
-        if (!pageFragment.isAdded()) {
-            return;
-        }
-        FeedbackUtil.showMessage(this,
-                getString(R.string.reading_list_item_deleted, title.getDisplayText()));
-        pageFragment.updateBookmarkAndMenuOptionsFromDao();
-    }
-
-    @Override
     public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
         pageFragment.updateWatchlist(expiry, false);
     }

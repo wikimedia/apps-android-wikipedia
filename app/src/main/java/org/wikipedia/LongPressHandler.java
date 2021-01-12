@@ -3,8 +3,6 @@ package org.wikipedia;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.view.ContextMenu;
-import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +10,17 @@ import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.PopupMenu;
 
-import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.LongPressMenu;
 
-import static org.wikipedia.Constants.InvokeSource.CONTEXT_MENU;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;
 
-public class LongPressHandler implements View.OnCreateContextMenuListener,
-        View.OnTouchListener, PopupMenu.OnMenuItemClickListener {
-    private final OverflowMenuListener overflowMenuListener;
+public class LongPressHandler implements View.OnCreateContextMenuListener, View.OnTouchListener {
+    private final LongPressMenu.Callback callback;
     private final int historySource;
     @Nullable private String referrer = null;
     private PageTitle title;
@@ -33,15 +28,15 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
     private float clickPositionX;
     private float clickPositionY;
 
-    public LongPressHandler(@NonNull View view, int historySource, @NonNull OverflowMenuListener listener) {
+    public LongPressHandler(@NonNull View view, int historySource, @NonNull LongPressMenu.Callback callback) {
         this.historySource = historySource;
-        this.overflowMenuListener = listener;
+        this.callback = callback;
         view.setOnCreateContextMenuListener(this);
         view.setOnTouchListener(this);
     }
 
-    public LongPressHandler(@NonNull View view, @NonNull PageTitle pageTitle, int historySource, @NonNull OverflowMenuListener listener) {
-        this(view, historySource, listener);
+    public LongPressHandler(@NonNull View view, @NonNull PageTitle pageTitle, int historySource, @NonNull LongPressMenu.Callback callback) {
+        this(view, historySource, callback);
         this.title = pageTitle;
     }
 
@@ -55,12 +50,12 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
                 if (isValidPageLink(uri)) {
                     WikiSite wikiSite = new WikiSite(uri);
                     // the following logic keeps the correct language code if the domain has multiple variants (e.g. zh).
-                    if (wikiSite.dbName().equals(((WebViewOverflowMenuListener) overflowMenuListener).getWikiSite().dbName())
-                            && !wikiSite.languageCode().equals(((WebViewOverflowMenuListener) overflowMenuListener).getWikiSite().languageCode())) {
-                        wikiSite = ((WebViewOverflowMenuListener) overflowMenuListener).getWikiSite();
+                    if (wikiSite.dbName().equals(((WebViewMenuCallback) callback).getWikiSite().dbName())
+                            && !wikiSite.languageCode().equals(((WebViewMenuCallback) callback).getWikiSite().languageCode())) {
+                        wikiSite = ((WebViewMenuCallback) callback).getWikiSite();
                     }
                     title = wikiSite.titleForInternalLink(uri.getPath());
-                    referrer = ((WebViewOverflowMenuListener) overflowMenuListener).getReferrer();
+                    referrer = ((WebViewMenuCallback) callback).getReferrer();
                     showPopupMenu(view, true);
                 }
             }
@@ -84,55 +79,20 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
             hideSoftKeyboard(view);
             entry = new HistoryEntry(title, historySource);
             entry.setReferrer(referrer);
-            PopupMenu popupMenu;
+            View anchorView = view;
             if (createAnchorView) {
                 View tempView = new View(view.getContext());
                 tempView.setX(clickPositionX);
                 tempView.setY(clickPositionY);
                 ((ViewGroup) view.getRootView()).addView(tempView);
-                popupMenu = new PopupMenu(view.getContext(), tempView, 0);
-                popupMenu.setOnDismissListener(menu1 -> ((ViewGroup) view.getRootView()).removeView(tempView));
-            } else {
-                popupMenu = new PopupMenu(view.getContext(), view, Gravity.END);
+                anchorView = tempView;
             }
-            popupMenu.getMenuInflater().inflate(R.menu.menu_page_long_press, popupMenu.getMenu());
-            popupMenu.setOnMenuItemClickListener(this);
-            popupMenu.show();
+
+            new LongPressMenu(anchorView, true, callback).show(entry);
         }
     }
 
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_long_press_open_page:
-                overflowMenuListener.onOpenLink(title, entry);
-                return true;
-            case R.id.menu_long_press_open_in_new_tab:
-                overflowMenuListener.onOpenInNewTab(title, entry);
-                return true;
-            case R.id.menu_long_press_copy_page:
-                overflowMenuListener.onCopyLink(title);
-                return true;
-            case R.id.menu_long_press_share_page:
-                overflowMenuListener.onShareLink(title);
-                return true;
-            case R.id.menu_long_press_add_to_list:
-                overflowMenuListener.onAddToList(title, CONTEXT_MENU);
-                return true;
-            default:
-            return false;
-        }
-    }
-
-    public interface OverflowMenuListener {
-        void onOpenLink(PageTitle title, HistoryEntry entry);
-        void onOpenInNewTab(PageTitle title, HistoryEntry entry);
-        void onCopyLink(PageTitle title);
-        void onShareLink(PageTitle title);
-        void onAddToList(PageTitle title, InvokeSource source);
-    }
-
-    public interface WebViewOverflowMenuListener extends OverflowMenuListener {
+    public interface WebViewMenuCallback extends LongPressMenu.Callback {
         @NonNull WikiSite getWikiSite();
         @Nullable String getReferrer();
     }

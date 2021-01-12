@@ -6,6 +6,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.L10nUtil
 
 class SuggestedEditsCard(
         wiki: WikiSite,
@@ -22,5 +23,9 @@ class SuggestedEditsCard(
 
     override fun subtitle(): String {
         return DateUtil.getFeedCardDateString(age)
+    }
+
+    fun footerActionText(): String {
+        return WikipediaApp.getInstance().getString(R.string.suggested_card_more_edits)
     }
 }
