@@ -214,7 +214,7 @@
   <string name="page_protected_can_not_edit_anon">Message in dialog box telling the user that this page is currently protected against anonymous editing.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Title of tooltip telling the user that the article can be added to the Watchlist.</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Message of tooltip telling the user that the article can be added to the Watchlist.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Message of tooltip telling the user that the article can be added to the Watchlist.\n\n\"Add to Watchlist\" is {{msg-wm|Wikipedia-android-strings-menu page add to watchlist}}</string>
   <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.\n{{Identical|Settings}}</string>
   <string name="settings_activity_title">Title at the top of the Settings screen.\n{{Identical|Settings}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
@@ -264,6 +264,7 @@
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
   <string name="find_first_occurence">Text that shows up in hint when user tries to get to first occurence when he is already on it.</string>
   <string name="find_last_occurence">Text that shows up in hint when user tries to get to last occurence when he is already on it.</string>
+  <string name="article_opened_in_background_tab">Message that notifies the user that the article has been opened in a background tab.</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
@@ -392,7 +393,6 @@
   <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.\n{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
-  <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="color_theme_select">Label that describes color theme selection\n{{Identical|Theme}}</string>
   <string name="color_theme_light">Button label for Light color theme\n{{Identical|Light}}</string>
   <string name="color_theme_dark">Button label for Dark color theme\n{{Identical|Dark}}</string>
@@ -586,6 +586,7 @@
   <string name="notifications_view_archived_button_text">Button label for navigating to the list of archived notifications.</string>
   <string name="notification_preferences_title">Title of activity where the notification preferences are managed.</string>
   <string name="notifications_mark_unread">Menu label for marking the selected notifications as unread.</string>
+  <string name="watchlist_title">Title of screen that contains the watchlist for the current user.</string>
   <string name="preference_title_notification_poll">Label for settings switch that enables or disables polling of new notifications.\n\n{{doc-important|\"Poll\" is a verb here. This is about the polling of notifications, not about notifications of polls.}}</string>
   <string name="preference_summary_notification_poll">Short summary explaining what polling of notification means.</string>
   <string name="preference_category_notification_types">Label for the settings category that contains the types of notifications that are shown in the app.</string>

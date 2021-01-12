@@ -22,15 +22,15 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
@@ -40,6 +40,7 @@ import butterknife.OnClick;
 import butterknife.OnLongClick;
 
 import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 
 public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.page_list_item_title) TextView pageItemTitleTextView;
@@ -95,37 +96,37 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     boolean showOverflowMenu(View anchorView) {
         HistoryEntry entry = new HistoryEntry(selectedPage.getPageTitle(wiki), HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
-        new ReadingListBookmarkMenu(anchorView, true, new ReadingListBookmarkMenu.Callback() {
+        new LongPressMenu(anchorView, true, new LongPressMenu.Callback() {
             @Override
-            public void onAddRequest(boolean addToDefault) {
+            public void onOpenLink(@NonNull HistoryEntry entry) {
+                PageActivity.newIntentForNewTab(activity, entry, entry.getTitle());
+            }
+
+            @Override
+            public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                TabUtil.openInNewBackgroundTab(entry);
+                FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab);
+            }
+
+            @Override
+            public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
                 if (addToDefault) {
                     ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(activity, entry.getTitle(), NEWS_ACTIVITY,
                             readingListId ->
                                     bottomSheetPresenter.show(fragmentManager,
-                                            MoveToReadingListDialog.newInstance(readingListId, entry.getTitle(), NEWS_ACTIVITY)));
+                                            MoveToReadingListDialog.newInstance(readingListId, entry.getTitle(), ON_THIS_DAY_ACTIVITY)));
                 } else {
                     bottomSheetPresenter.show(fragmentManager,
-                            AddToReadingListDialog.newInstance(entry.getTitle(), NEWS_ACTIVITY));
+                            AddToReadingListDialog.newInstance(entry.getTitle(), ON_THIS_DAY_ACTIVITY));
                 }
             }
 
             @Override
-            public void onMoveRequest(@Nullable ReadingListPage page) {
+            public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                 bottomSheetPresenter.show(fragmentManager,
-                        MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), NEWS_ACTIVITY));
+                        MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_ACTIVITY));
             }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page) {
-                FeedbackUtil.showMessage(activity,
-                        activity.getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-            }
-
-            @Override
-            public void onShare() {
-                ShareUtil.shareText(activity, entry.getTitle());
-            }
-        }).show(entry.getTitle());
+        }).show(entry);
 
         return true;
     }

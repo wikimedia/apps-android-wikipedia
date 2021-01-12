@@ -35,7 +35,7 @@ public class MostReadCardView extends ListCardView<MostReadListCard> {
         }
         footerView().setVisibility(View.VISIBLE);
         footerView().setCallback(getFooterCallback(getCard()));
-        footerView().setFooterActionText(getCard().footerActionText());
+        footerView().setFooterActionText(getCard().footerActionText(), getCard().wikiSite().languageCode());
     }
 
     private void header() {

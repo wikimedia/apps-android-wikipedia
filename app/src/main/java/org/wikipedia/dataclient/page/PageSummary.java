@@ -49,7 +49,7 @@ public class PageSummary {
 
     public PageSummary(@NonNull String displayTitle, @NonNull String prefixTitle, @Nullable String description,
                        @Nullable String extract, @Nullable String thumbnail, @NonNull String lang) {
-        this.titles = new Titles(displayTitle, prefixTitle);
+        this.titles = new Titles(prefixTitle, displayTitle);
         this.description = description;
         this.extract = extract;
         this.thumbnail = new Thumbnail(thumbnail, 0, 0);
