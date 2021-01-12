@@ -3,17 +3,13 @@ package org.wikipedia.page;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.Constants.InvokeSource;
+import org.wikipedia.Constants;
 import org.wikipedia.LongPressHandler;
-import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.util.ClipboardUtil;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
+import org.wikipedia.readinglist.database.ReadingListPage;
 
-public class PageContainerLongPressHandler implements LongPressHandler.OverflowMenuListener,
-        LongPressHandler.WebViewOverflowMenuListener{
+public class PageContainerLongPressHandler implements LongPressHandler.WebViewMenuCallback {
     @NonNull
     private final PageFragment fragment;
 
@@ -22,29 +18,23 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
     }
 
     @Override
-    public void onOpenLink(PageTitle title, HistoryEntry entry) {
-        fragment.loadPage(title, entry);
+    public void onOpenLink(@NonNull HistoryEntry entry) {
+        fragment.loadPage(entry.getTitle(), entry);
     }
 
     @Override
-    public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        fragment.openInNewBackgroundTab(title, entry);
+    public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+        fragment.openInNewBackgroundTab(entry.getTitle(), entry);
     }
 
     @Override
-    public void onCopyLink(PageTitle title) {
-        copyLink(title.getUri());
-        showCopySuccessMessage();
+    public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
+        fragment.addToReadingList(entry.getTitle(), Constants.InvokeSource.CONTEXT_MENU, addToDefault);
     }
 
     @Override
-    public void onShareLink(PageTitle title) {
-        ShareUtil.shareText(fragment.getActivity(), title);
-    }
-
-    @Override
-    public void onAddToList(PageTitle title, InvokeSource source) {
-        fragment.addToReadingList(title, source);
+    public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
+        fragment.moveToReadingList(page.listId(), entry.getTitle(), Constants.InvokeSource.CONTEXT_MENU, true);
     }
 
     @NonNull
@@ -57,13 +47,5 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
     @Override
     public String getReferrer() {
         return fragment.getTitle() != null ? fragment.getTitle().getUri() : null;
-    }
-
-    private void copyLink(String url) {
-        ClipboardUtil.setPlainText(fragment.getActivity(), null, url);
-    }
-
-    private void showCopySuccessMessage() {
-        FeedbackUtil.showMessage(fragment.getActivity(), R.string.address_copied);
     }
 }

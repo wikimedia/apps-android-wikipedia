@@ -81,6 +81,8 @@
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Maddede bul</string>
+  <string name="menu_page_add_to_watchlist">İzleme Listesine Ekle</string>
+  <string name="menu_page_remove_from_watchlist">İzleme Listesinden Kaldır</string>
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
@@ -217,6 +219,8 @@
   <string name="page_protected_can_not_edit">Üzgünüz; hesabınız şu an bu sayfayı düzenlemek için gerekli yetkilere sahip değil.</string>
   <string name="page_protected_can_not_edit_anon">Maalesef, bu sayfa şu anda anonim olarak düzenlenemez.</string>
   <string name="page_protected_can_not_edit_title">Bu sayfa koruma altındadır</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">İzleme Listesine Ekle</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">İlgilendiğiniz maddelere ne olduğunu takip edin. Bir maddedeki değişiklikleri görmek için taşma menüsüne dokunun ve &lt;b&gt;İzleme Listesine Ekle&lt;/b&gt; seçeneğini seçin.</string>
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Vikipedi uygulaması hakkında</string>
@@ -587,6 +591,7 @@
   <string name="notifications_view_archived_button_text">Arşivlenmiş bildirimleri görüntüle</string>
   <string name="notification_preferences_title">Bildirim tercihleri</string>
   <string name="notifications_mark_unread">Okunmamış olarak işaretle</string>
+  <string name="watchlist_title">İzleme listesi</string>
   <string name="preference_title_notification_poll">Anket bildirimleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
   <string name="preference_category_notification_types">Uygulama içi bildirim türleri</string>
@@ -821,7 +826,7 @@
     <item quantity="other">%d gün</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Önerilen düzenlemeler nedir?</string>
-  <string name="suggested_edits_what_is_text">Önerilen düzenlemeler, Vikipedi\'ye küçük ama hayati katkılar için fırsatlar sunar.</string>
+  <string name="suggested_edits_what_is_text">Önerilen düzenlemeler, Vikipedi\'ye küçük ancak hayati katkılar için fırsatlar sunar.</string>
   <string name="suggested_edits_learn_more">Daha fazla bilgi</string>
   <string name="suggested_edits_paused_title">Durduruldu</string>
   <string name="suggested_edits_disabled_title">Devre dışı</string>
@@ -874,7 +879,7 @@
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
-  <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
+  <string name="description_edit_revert_intro">Elinizden gelenin en iyisini yaptığınızı biliyoruz, ancak inceleyicilerden birinin bir endişesi vardı. Düzenlemenizin geri alınmasının olası nedenleri şunlardır:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
   <string name="description_edit_revert_reason2">katkınız bir deneme ya da vandalizm gibi görünüyordu.</string>
   <string name="description_edit_revert_history">Eğer ilgileniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
@@ -958,6 +963,8 @@
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
   <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>
+  <string name="main_tooltip_watchlist_title">İzleme listesi</string>
+  <string name="main_tooltip_watchlist_text">Daha önce izleme listenize eklediğiniz maddeleri ve sayfaları &lt;b&gt;İzleme listesi&lt;/b&gt; altındaki Daha fazla menüsünde bulun.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_cancel_button_text">İptal</string>
@@ -974,4 +981,23 @@
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
   <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 haftalık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 aylık</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ve onun tartışma sayfası izleme listenizden kaldırıldı.</string>
+  <string name="watchlist_expiry_dialog_title">İzleme listesi dönemini seçin</string>
+  <string name="watchlist_expiry_dialog_permanent">Kalıcı</string>
+  <string name="watchlist_expiry_dialog_one_week">1 hafta</string>
+  <string name="watchlist_expiry_dialog_one_month">1 ay</string>
+  <string name="watchlist_expiry_dialog_three_months">3 ay</string>
+  <string name="watchlist_expiry_dialog_six_months">6 ay</string>
+  <string name="watchlist_empty">İzleme listenizde madde yok.</string>
+  <string name="watchlist_filter_all">Hepsi</string>
+  <string name="watchlist_filter_talk">Tartışma</string>
+  <string name="watchlist_filter_pages">Sayfalar</string>
+  <string name="watchlist_filter_other">Diğer</string>
 </resources>
