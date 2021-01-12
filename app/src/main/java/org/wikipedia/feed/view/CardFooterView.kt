@@ -1,11 +1,17 @@
 package org.wikipedia.feed.view
 
 import android.content.Context
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.TextUtils
+import android.text.style.ImageSpan
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_card_footer.view.*
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
+import org.wikipedia.util.L10nUtil
 
 internal class CardFooterView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
@@ -21,7 +27,12 @@ internal class CardFooterView constructor(context: Context, attrs: AttributeSet?
         }
     }
 
-    fun setFooterActionText(actionText: String) {
-        footerActionButton.text = actionText
+    fun setFooterActionText(actionText: String, langCode: String?) {
+        val actionTextWithSpace = "$actionText  "
+        val spannableStringBuilder = SpannableStringBuilder(actionTextWithSpace)
+        val isRTL = L10nUtil.isLangRTL(langCode ?: WikipediaApp.getInstance().language().systemLanguageCode)
+        val arrowImageSpan = ImageSpan(context, if (isRTL) R.drawable.ic_baseline_arrow_left_alt_themed_24px else R.drawable.ic_baseline_arrow_right_alt_themed_24px)
+        spannableStringBuilder.setSpan(arrowImageSpan, actionTextWithSpace.length - 1, actionTextWithSpace.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        footerActionButton.text = spannableStringBuilder
     }
 }
