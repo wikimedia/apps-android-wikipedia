@@ -159,13 +159,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision!!.timeStamp())
         editComment.text = currentRevision!!.comment
 
-        newerIdButton.isClickable = newerRevisionId.compareTo(-1) != 0
-        olderIdButton.isClickable = olderRevisionId.compareTo(0) != 0
+        newerIdButton.isClickable = newerRevisionId != -1L
+        olderIdButton.isClickable = olderRevisionId != 0L
         ImageViewCompat.setImageTintList(newerIdButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId.compareTo(-1) == 0)
+                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId == -1L)
                     R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
         ImageViewCompat.setImageTintList(olderIdButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId.compareTo(0) == 0)
+                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId == 0L)
                     R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
         setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         thankButton.isClickable = true
