@@ -53,7 +53,7 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
-    private lateinit var articleTitle: String
+    private lateinit var articlePageTitle: PageTitle
     private var revisionId: Long = 0
     private var diffSize: Int = 0
     private var username: String? = null
@@ -76,9 +76,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        articleTitle = StringUtils.defaultString(arguments?.getString(INTENT_EXTRA_ARTICLE_TITLE), "")
         revisionId = arguments?.getLong(INTENT_EXTRA_EDIT_REVISION_ID, 0)!!
         languageCode = StringUtils.defaultString(arguments?.getString(INTENT_EXTRA_EDIT_LANGUAGE_CODE), "en")
+        articlePageTitle = PageTitle(StringUtils.defaultString(arguments?.getString(INTENT_EXTRA_ARTICLE_TITLE), ""),
+                WikiSite.forLanguageCode(languageCode))
         setUpInitialUI()
         setUpListeners()
         fetchEditDetails()
@@ -86,12 +87,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     private fun setUpListeners() {
         articleTitleView.setOnClickListener {
-            val title = PageTitle(articleTitle, WikiSite.forLanguageCode(languageCode))
-            if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-                startActivity(newIntent(requireContext(), title.pageTitleForTalkPage()))
+            if (articlePageTitle.namespace() == Namespace.USER_TALK || articlePageTitle.namespace() == Namespace.TALK) {
+                startActivity(newIntent(requireContext(), articlePageTitle.pageTitleForTalkPage()))
             } else {
                 startActivity(PageActivity.newIntentForNewTab(requireContext(),
-                        HistoryEntry(title, HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY), title))
+                        HistoryEntry(articlePageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY), articlePageTitle))
             }
         }
         newerIdButton.setOnClickListener {
@@ -118,7 +118,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun setUpInitialUI() {
         diffSize = arguments?.getInt(INTENT_EXTRA_EDIT_SIZE, 0)!!
         diffText.movementMethod = ScrollingMovementMethod()
-        articleTitleView.text = articleTitle
+        articleTitleView.text = articlePageTitle.displayText
         if (diffSize >= 0) {
             diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
                     R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
@@ -130,8 +130,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     private fun fetchEditDetails() {
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articleTitle, revisionId),
-                ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articleTitle), { r, w ->
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
+                ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
             if (r.query() != null && r.query()!!.firstPage() != null) {
                 val firstPage = r.query()!!.firstPage()!!
@@ -187,7 +187,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                     if (TextUtils.isEmpty(watchToken)) {
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }
-                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postWatch(if (unwatch) 1 else null, null, articleTitle,
+                    ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postWatch(if (unwatch) 1 else null, null, articlePageTitle.prefixedText,
                             expiry?.expiry, watchToken!!)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
@@ -212,12 +212,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, watch: Watch) {
         isWatched = watch.watched
         if (watch.unwatched) {
-            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articleTitle))
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.prefixedText))
             watchlistExpirySession = null
         } else if (watch.watched && expiry != null) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                            articleTitle,
+                            articlePageTitle.prefixedText,
                             getString(expiry.stringId)),
                     FeedbackUtil.LENGTH_DEFAULT)
             if (!watchlistExpiryChanged) {
@@ -373,7 +373,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
             R.id.menu_share_edit -> {
-                ShareUtil.shareText(requireContext(), PageTitle(articleTitle,
+                ShareUtil.shareText(requireContext(), PageTitle(articlePageTitle.prefixedText,
                         WikiSite.forLanguageCode(languageCode)), revisionId, olderRevisionId)
                 true
             }
