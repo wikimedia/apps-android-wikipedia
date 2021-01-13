@@ -95,7 +95,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     @Override
     protected void onResume() {
         super.onResume();
-        showTabCountsAnimation = false;
         supportInvalidateOptionsMenu();
     }
 
@@ -128,6 +127,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
             FeedbackUtil.setButtonLongPressToast(tabCountsView);
+            showTabCountsAnimation = false;
         }
         return true;
     }
