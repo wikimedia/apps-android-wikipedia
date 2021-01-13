@@ -116,6 +116,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
+        void updateTabCountsView();
         void updateToolbarElevation(boolean elevate);
     }
 
@@ -289,7 +290,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (openInNewBackgroundTab) {
             TabUtil.openInNewBackgroundTab(entry);
             FeedbackUtil.showMessage(this, R.string.article_opened_in_background_tab);
-            requireActivity().invalidateOptionsMenu();
+            callback().updateTabCountsView();
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         }
