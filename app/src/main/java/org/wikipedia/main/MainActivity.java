@@ -53,6 +53,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     @Nullable private TabCountsView tabCountsView;
 
     private boolean controlNavTabInFragment;
+    private boolean showTabCountsAnimation;
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);
@@ -94,6 +95,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     @Override
     protected void onResume() {
         super.onResume();
+        showTabCountsAnimation = false;
         supportInvalidateOptionsMenu();
     }
 
@@ -121,7 +123,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
                     startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
                 }
             });
-            tabCountsView.updateTabCount();
+            tabCountsView.updateTabCount(showTabCountsAnimation);
             tabCountsView.setContentDescription(getString(R.string.menu_page_show_tabs));
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
@@ -156,6 +158,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             controlNavTabInFragment = true;
         }
         getFragment().requestUpdateToolbarElevation();
+    }
+
+    @Override
+    public void updateTabCountsView() {
+        showTabCountsAnimation = true;
+        supportInvalidateOptionsMenu();
     }
 
     @Override
