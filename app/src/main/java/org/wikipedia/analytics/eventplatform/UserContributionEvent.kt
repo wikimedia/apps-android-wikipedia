@@ -1,9 +1,7 @@
 package org.wikipedia.analytics.eventplatform
 
-import com.google.gson.annotations.SerializedName
-
 class UserContributionEvent : Event(SCHEMA_NAME, STREAM_NAME) {
-    @SerializedName("action") private var action: String = ""
+    private var action: String = ""
 
     fun logOpen() {
         action = "open_hist"

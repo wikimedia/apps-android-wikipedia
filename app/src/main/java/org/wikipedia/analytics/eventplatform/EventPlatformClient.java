@@ -41,7 +41,6 @@ public final class EventPlatformClient {
      */
     private static boolean ENABLED = isOnline();
 
-
     /**
      * A regular expression to match JavaScript regular expression literals. (How meta!)
      *This is not as strict as it could be in that it allows individual flags to be specified more
