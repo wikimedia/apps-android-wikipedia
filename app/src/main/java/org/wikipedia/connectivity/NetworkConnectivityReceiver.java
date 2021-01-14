@@ -41,11 +41,10 @@ public class NetworkConnectivityReceiver extends BroadcastReceiver {
 
     @VisibleForTesting
     protected void updateOnlineState() {
-        WikipediaApp app = WikipediaApp.getInstance();
         NetworkInfo info = getConnectivityManager(WikipediaApp.getInstance()).getActiveNetworkInfo();
         online = info != null && info.isConnected();
 
-        EventPlatformClient epc = app.getEventPlatformClient();
+        EventPlatformClient epc = WikipediaApp.getInstance().getEventPlatformClient();
         if (epc != null) {
             EventPlatformClient.setEnabled(online);
         }
