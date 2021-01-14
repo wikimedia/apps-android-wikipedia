@@ -11,6 +11,8 @@ import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.FrameLayout
 import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat
@@ -113,6 +115,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             }
         }
         thankButton.setOnClickListener { showThankDialog() }
+        errorView.setBackClickListener { requireActivity().finish() }
+    }
+
+    private fun setErrorState(t: Throwable) {
+        L.e(t)
+        errorView.setError(t)
+        errorView.visibility = VISIBLE
+        revisionDetailsView.visibility = GONE
     }
 
     private fun setUpInitialUI() {
@@ -130,7 +140,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     private fun fetchEditDetails() {
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails("lala", revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
             if (r.query() == null || r.query()!!.firstPage() == null) {
@@ -150,7 +160,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     updateUI()
-                }) { t: Throwable? -> L.e(t) })
+                }) { setErrorState(it!!) })
     }
 
     private fun updateUI() {
@@ -292,13 +302,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                     updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_LINE_WITH_DIFF -> {
-                    for (hightlightRange in diff.highlightRanges) {
-                        val highlightRangeStart = if (languageCode == "en") hightlightRange.start
-                        else getByteInCharacters(diff.text, hightlightRange.start, 0)
-                        val highlightRangeLength = if (languageCode == "en") hightlightRange.length
-                        else getByteInCharacters(diff.text, hightlightRange.length, highlightRangeStart)
+                    for (highlightRange in diff.highlightRanges) {
+                        val highlightRangeStart = if (languageCode == "en") highlightRange.start
+                        else getByteInCharacters(diff.text, highlightRange.start, 0)
+                        val highlightRangeLength = if (languageCode == "en") highlightRange.length
+                        else getByteInCharacters(diff.text, highlightRange.length, highlightRangeStart)
 
-                        if (hightlightRange.type == HIGHLIGHT_TYPE_ADD) {
+                        if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
                             updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
                         } else {
                             updateDiffTextDecor(spannableString, false, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
