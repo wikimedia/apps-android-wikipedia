@@ -15,6 +15,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.FrameLayout
 import androidx.annotation.Nullable
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
@@ -140,7 +141,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     private fun fetchEditDetails() {
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails("lala", revisionId),
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
             if (r.query() == null || r.query()!!.firstPage() == null) {
@@ -169,20 +170,21 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         usernameButton.text = currentRevision!!.user
         editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision!!.timeStamp())
         editComment.text = currentRevision!!.comment
-
         newerIdButton.isClickable = newerRevisionId != -1L
         olderIdButton.isClickable = olderRevisionId != 0L
-        ImageViewCompat.setImageTintList(newerIdButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (newerRevisionId == -1L)
-                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
-        ImageViewCompat.setImageTintList(olderIdButton, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
-                ResourceUtil.getThemedAttributeId(requireContext(), if (olderRevisionId == 0L)
-                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
+        setEnableDisableTint(newerIdButton, newerRevisionId == -1L)
+        setEnableDisableTint(olderIdButton, olderRevisionId == 0L)
         setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         thankButton.isClickable = true
         updateWatchlistButtonUI()
         fetchDiffText()
         requireActivity().invalidateOptionsMenu()
+    }
+
+    private fun setEnableDisableTint(view: AppCompatImageView, isDisabled: Boolean) {
+        ImageViewCompat.setImageTintList(view, ColorStateList.valueOf(ContextCompat.getColor(requireContext(),
+                ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
+                    R.attr.material_theme_de_emphasised_color else R.attr.primary_text_color))))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
