@@ -29,6 +29,8 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
+import com.skydoves.balloon.Balloon;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -142,6 +144,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
+    private Balloon watchlistTooltip;
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -238,6 +241,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_show_overflow_menu)
     public void onShowOverflowMenuButtonClicked() {
+        if (watchlistTooltip != null) {
+            watchlistTooltip.dismiss();
+        }
         showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
     }
 
@@ -867,7 +873,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     return;
                 }
                 Prefs.setWatchlistPageOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 200, -32, false, true);
+                watchlistTooltip = FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
+                        200, -32, -8, 0, false, false);
             }, 500);
         }
     }
