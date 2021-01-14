@@ -1,94 +1,73 @@
 package org.wikipedia.analytics.eventplatform
 
-class UserContributionEvent : Event(SCHEMA_NAME, STREAM_NAME) {
-    private var action: String = ""
-
-    fun logOpen() {
-        action = "open_hist"
-        submitEvent()
-    }
-
-    fun logFilterDescriptions() {
-        action = "filt_desc"
-        submitEvent()
-    }
-
-    fun logFilterCaptions() {
-        action = "filt_caption"
-        submitEvent()
-    }
-
-    fun logFilterTags() {
-        action = "filt_tag"
-        submitEvent()
-    }
-
-    fun logFilterAll() {
-        action = "filt_all"
-        submitEvent()
-    }
-
-    fun logViewDescription() {
-        action = "desc_view"
-        submitEvent()
-    }
-
-    fun logViewCaption() {
-        action = "caption_view"
-        submitEvent()
-    }
-
-    fun logViewTag() {
-        action = "tag_view"
-        submitEvent()
-    }
-
-    fun logViewMisc() {
-        action = "misc_view"
-        submitEvent()
-    }
-
-    fun logNavigateDescription() {
-        action = "desc_view2"
-        submitEvent()
-    }
-
-    fun logNavigateCaption() {
-        action = "caption_view2"
-        submitEvent()
-    }
-
-    fun logNavigateTag() {
-        action = "tag_view2"
-        submitEvent()
-    }
-
-    fun logNavigateMisc() {
-        action = "misc_view2"
-        submitEvent()
-    }
-
-    fun logPaused() {
-        action = "paused"
-        submitEvent()
-    }
-
-    fun logDisabled() {
-        action = "disabled"
-        submitEvent()
-    }
-
-    fun logIpBlock() {
-        action = "ip_block"
-        submitEvent()
-    }
-
-    private fun submitEvent() {
-        EventPlatformClient.submit(this)
-    }
+class UserContributionEvent(private val action: String) : Event(SCHEMA_NAME, STREAM_NAME) {
 
     companion object {
         private const val SCHEMA_NAME = "/analytics/mobile_apps/android_user_contribution_screen/1.0.0"
         private const val STREAM_NAME = "android.user_contribution_screen"
+
+        fun logOpen() {
+            EventPlatformClient.submit(UserContributionEvent("open_hist"))
+        }
+
+        fun logFilterDescriptions() {
+            EventPlatformClient.submit(UserContributionEvent("filt_desc"))
+        }
+
+        fun logFilterCaptions() {
+            EventPlatformClient.submit(UserContributionEvent("filt_caption"))
+        }
+
+        fun logFilterTags() {
+            EventPlatformClient.submit(UserContributionEvent("filt_tag"))
+        }
+
+        fun logFilterAll() {
+            EventPlatformClient.submit(UserContributionEvent("filt_all"))
+        }
+
+        fun logViewDescription() {
+            EventPlatformClient.submit(UserContributionEvent("desc_view"))
+        }
+
+        fun logViewCaption() {
+            EventPlatformClient.submit(UserContributionEvent("caption_view"))
+        }
+
+        fun logViewTag() {
+            EventPlatformClient.submit(UserContributionEvent("tag_view"))
+        }
+
+        fun logViewMisc() {
+            EventPlatformClient.submit(UserContributionEvent("misc_view"))
+        }
+
+        fun logNavigateDescription() {
+            EventPlatformClient.submit(UserContributionEvent("desc_view2"))
+        }
+
+        fun logNavigateCaption() {
+            EventPlatformClient.submit(UserContributionEvent("caption_view2"))
+        }
+
+        fun logNavigateTag() {
+            EventPlatformClient.submit(UserContributionEvent("tag_view2"))
+        }
+
+        fun logNavigateMisc() {
+            EventPlatformClient.submit(UserContributionEvent("misc_view2"))
+        }
+
+        fun logPaused() {
+            EventPlatformClient.submit(UserContributionEvent("paused"))
+        }
+
+        fun logDisabled() {
+            EventPlatformClient.submit(UserContributionEvent("disabled"))
+        }
+
+        fun logIpBlock() {
+            EventPlatformClient.submit(UserContributionEvent("ip_block"))
+        }
     }
 }
