@@ -1,13 +1,9 @@
-package org.wikipedia.analytics.eventplatform;
+package org.wikipedia.analytics.eventplatform
 
-import androidx.annotation.NonNull;
-
-import java.util.List;
-
-import io.reactivex.rxjava3.core.Observable;
-import retrofit2.Response;
-import retrofit2.http.Body;
-import retrofit2.http.POST;
+import io.reactivex.rxjava3.core.Observable
+import retrofit2.Response
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 /**
  * Event Platform intake service interface.
@@ -19,7 +15,7 @@ import retrofit2.http.POST;
  * TODO: In the future, consider updating to wait for processing and handle partial-success and
  * failure responses.
  */
-public interface EventService {
+interface EventService {
     @POST("/v1/events?hasty=true")
-    Observable<Response<EventServiceResponse>> postEvents(@NonNull @Body List<? extends Event> events);
+    fun postEvents(@Body events: @JvmSuppressWildcards Any): Observable<Response<EventServiceResponse?>?>?
 }

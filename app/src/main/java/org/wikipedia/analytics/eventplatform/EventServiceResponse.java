@@ -16,7 +16,7 @@ import java.util.List;
  * N.B. The response body will always be empty when sending events hastily. This class is provided
  * in anticipation of adding retry behavior for failed events in the future.
  */
-class EventServiceResponse {
+public class EventServiceResponse {
     @Nullable private List<Object> invalid;
     @Nullable private List<Object> error;
     @NonNull public List<Object> getInvalidEvents() {
