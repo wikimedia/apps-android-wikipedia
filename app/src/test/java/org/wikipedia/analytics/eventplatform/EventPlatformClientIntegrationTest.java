@@ -10,21 +10,15 @@ import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-
-import okhttp3.mockwebserver.MockResponse;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.text.MatchesPattern.matchesPattern;
 import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getIso8601Timestamp;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
 import static org.wikipedia.json.GsonUtil.getDefaultGson;
 
