@@ -35,8 +35,7 @@ import static org.wikipedia.util.DateUtil.iso8601DateFormat;
 public final class EventPlatformClient {
 
     /**
-     * Stream configs to be fetched on startup and stored for the duration of the application
-     * lifecycle.
+     * Stream configs to be fetched on startup and stored for the duration of the app lifecycle.
      */
     static Map<String, StreamConfig> STREAM_CONFIGS = new HashMap<>();
 
@@ -53,9 +52,9 @@ public final class EventPlatformClient {
 
     /**
      * A regular expression to match JavaScript regular expression literals. (How meta!)
-     *This is not as strict as it could be in that it allows individual flags to be specified more
-     *than once, but it doesn't really matter because we don't expect flags and ignore them if
-     *present.
+     * This is not as strict as it could be in that it allows individual flags to be specified more
+     * than once, but it doesn't really matter because we don't expect flags and ignore them if
+     * present.
      */
     static String JS_REGEXP_PATTERN = "^/.*/[gimsuy]{0,6}$";
 
@@ -164,15 +163,10 @@ public final class EventPlatformClient {
 
         /*
          * When an item is added to QUEUE, wait this many ms before sending.
-         *
-         * If another item is added to QUEUE during this time, reset the
-         * countdown.
+         * If another item is added to QUEUE during this time, reset the countdown.
          */
         private static final int WAIT_MS = 30000;
 
-        /*
-         * When QUEUE.size() exceeds this value TIMER becomes non-interruptable.
-         */
         private static final int MAX_QUEUE_SIZE = 128;
 
         private static final Timer TIMER = new Timer();
@@ -187,7 +181,7 @@ public final class EventPlatformClient {
             TIMER.cancel();
 
             if (ENABLED) {
-                send(QUEUE);
+                send();
                 QUEUE.clear();
             }
         }
@@ -204,16 +198,9 @@ public final class EventPlatformClient {
 
             if (ENABLED) {
                 if (QUEUE.size() >= MAX_QUEUE_SIZE) {
-                    /*
-                     * >= because while sending is disabled, any number of items
-                     * could be added to QUEUE without it emptying.
-                     */
                     sendAllScheduled();
                 } else {
-                    /*
-                     * The arrival of a new item interrupts the timer and resets
-                     * the countdown.
-                     */
+                    //The arrival of a new item interrupts the timer and resets the countdown.
                     TIMER.cancel();
                     TIMER.schedule(new SendOnTimerTask(), WAIT_MS);
                 }
@@ -224,11 +211,10 @@ public final class EventPlatformClient {
          * If sending is enabled, attempt to send the provided events.
          * Also batch the events ordered by their streams, as the QUEUE
          * can contain events of different streams
-         * @param events list of events
          */
-        private static void send(List<Event> events) {
+        private static void send() {
             Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
-            for (Event event : events) {
+            for (Event event : QUEUE) {
                 String stream = event.getStream();
                 if (!eventsByStream.containsKey(stream) || eventsByStream.get(stream) == null) {
                     eventsByStream.put(stream, new ArrayList<>());
@@ -318,18 +304,13 @@ public final class EventPlatformClient {
          */
         static String getSessionId() {
             if (SESSION_ID == null) {
-                /*
-                 * If there is no runtime value for SESSION_ID, try to load a
-                 * value from persistent store.
-                 */
+                // If there is no runtime value for SESSION_ID, try to load a
+                // value from persistent store.
                 SESSION_ID = Prefs.getEventPlatformSessionId();
 
                 if (SESSION_ID == null) {
-                    /*
-                     * If there is no value in the persistent store, generate a
-                     * new value for SESSION_ID, and write the update to the
-                     * persistent store.
-                     */
+                    // If there is no value in the persistent store, generate a new value for
+                    // SESSION_ID, and write the update to the persistent store.
                     SESSION_ID = generateRandomId();
                     Prefs.setEventPlatformSessionId(SESSION_ID);
                 }
@@ -337,20 +318,12 @@ public final class EventPlatformClient {
             return SESSION_ID;
         }
 
-        /**
-         * Unset the session.
-         */
         static void beginNewSession() {
-            /*
-             * Clear runtime and persisted value for SESSION_ID.
-             */
+            // Clear runtime and persisted value for SESSION_ID.
             SESSION_ID = null;
             Prefs.setEventPlatformSessionId(null);
 
-            /*
-             * A session refresh implies a pageview refresh, so clear runtime
-             * value of PAGEVIEW_ID.
-             */
+            // A session refresh implies a pageview refresh, so clear runtime value of PAGEVIEW_ID.
             PAGEVIEW_ID = null;
         }
 
@@ -364,8 +337,6 @@ public final class EventPlatformClient {
             return String.format("%08X", random.nextInt()) + String.format("%08X", random.nextInt()) + String.format("%04X", random.nextInt() & 0xFFFF);
         }
     }
-
-    /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
     /**
      * SamplingController: computes various sampling functions on the client
@@ -391,25 +362,15 @@ public final class EventPlatformClient {
 
             StreamConfig streamConfig = getStreamConfig(stream);
 
-            /*
-             * If the specified stream isn't configured, bail out.
-             */
             if (streamConfig == null) {
                 return false;
             }
 
             SamplingConfig samplingConfig = streamConfig.getSamplingConfig();
 
-            /*
-             * Default to 100% (always in-sample) for this stream if the stream is configured
-             * but has no sampling config defined.
-             */
             if (samplingConfig == null || samplingConfig.getRate() == 1.0) {
                 return true;
             }
-            /*
-             * Take a shortcut if the sampling rate is zero.
-             */
             if (samplingConfig.getRate() == 0.0) {
                 return false;
             }
@@ -457,9 +418,6 @@ public final class EventPlatformClient {
         Prefs.setStreamConfigs(STREAM_CONFIGS);
     }
 
-    /*
-     * The constructor is private, so instantiation from other classes is impossible.
-     */
     public static void setUpStreamConfigs() {
         STREAM_CONFIGS = Prefs.getStreamConfigs();
         refreshStreamConfigs();
