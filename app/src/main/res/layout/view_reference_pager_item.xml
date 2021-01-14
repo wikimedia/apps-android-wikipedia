@@ -29,6 +29,7 @@
         android:textColor="?android:textColorPrimary"
         android:textIsSelectable="true"
         android:textSize="16sp"
+        android:textDirection="locale"
         tools:text="Reference text" />
 
 </LinearLayout>

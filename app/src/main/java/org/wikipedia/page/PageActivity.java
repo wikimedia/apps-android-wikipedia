@@ -17,8 +17,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -194,7 +192,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(false);
         maybeShowWatchlistTooltip();
 
         toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
@@ -244,9 +242,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     public void animateTabsButton() {
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
-        tabsButton.startAnimation(anim);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(true);
     }
 
     public void hideSoftKeyboard() {
@@ -256,7 +252,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (!isDestroyed()) {
-            tabsButton.updateTabCount();
+            tabsButton.updateTabCount(false);
         }
         return false;
     }
