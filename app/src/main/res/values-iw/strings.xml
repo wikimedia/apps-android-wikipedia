@@ -251,6 +251,7 @@
   <string name="find_previous">חיפוש הקודם</string>
   <string name="find_first_occurence">זה המופע הראשון</string>
   <string name="find_last_occurence">זה המופע האחרון</string>
+  <string name="article_opened_in_background_tab">הערך הזה נפתח בלשונית רקע.</string>
   <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. האם באמת לפרסם אותה?</string>
   <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>

@@ -13,6 +13,8 @@ import androidx.preference.TwoStatePreference;
 import org.wikipedia.LeakCanaryStubKt;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.eventplatform.Event;
+import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
@@ -157,11 +159,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                                 PageTitle title = summary.getPageTitle(WikipediaApp.getInstance().getWikiSite());
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
-                                            .setNegativeButton(R.string.cancel, null)
+                                            .setNegativeButton(android.R.string.cancel, null)
                                             .show(),
                                     throwable -> new AlertDialog.Builder(getActivity())
                                             .setMessage(throwable.getMessage())
-                                            .setPositiveButton(R.string.ok, null)
+                                            .setPositiveButton(android.R.string.ok, null)
                                             .show());
                     return true;
                 });
@@ -179,11 +181,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                                 PageTitle title = pair.getSecond().getPageTitle(WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
-                                            .setNegativeButton(R.string.cancel, null)
+                                            .setNegativeButton(android.R.string.cancel, null)
                                             .show(),
                                     throwable -> new AlertDialog.Builder(getActivity())
                                             .setMessage(throwable.getMessage())
-                                            .setPositiveButton(R.string.ok, null)
+                                            .setPositiveButton(android.R.string.ok, null)
                                             .show());
                     return true;
                 });
@@ -224,6 +226,13 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preference_key_memory_leak_test))
                 .setOnPreferenceChangeListener((preference, newValue) -> {
                     LeakCanaryStubKt.setupLeakCanary();
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preference_key_send_event_platform_test_event))
+                .setOnPreferenceClickListener(preference -> {
+                    Event event = new Event("/analytics/test/1.0.0", "test.instrumentation");
+                    EventPlatformClient.submit(event);
                     return true;
                 });
     }

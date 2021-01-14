@@ -250,6 +250,7 @@
   <string name="find_previous">Sök föregående</string>
   <string name="find_first_occurence">Detta är den första förekomsten</string>
   <string name="find_last_occurence">Detta är den sista förekomsten</string>
+  <string name="article_opened_in_background_tab">Artikeln har öppnats i en flik i bakgrunden.</string>
   <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill publicera den?</string>
   <string name="abusefilter_title_disallow">Du kan inte publicera denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömmande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
