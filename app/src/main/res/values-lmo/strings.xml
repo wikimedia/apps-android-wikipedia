@@ -92,7 +92,7 @@
   <string name="edit_section_captcha_message">Per ajutà a scombat el ruf automatich, per piasè met dent i parolle che gh\'è chì de sota.</string>
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuf</string>
+  <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuv</string>
   <string name="nav_item_login">Va dent in Wikipedia</string>
   <string name="login_username_hint">Nom de l\'utent</string>
   <string name="login_password_hint">Parola d\'ordin</string>
@@ -148,7 +148,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Sgionta on adress de posta eletronica</string>
   <string name="create_account_button">Crea un cunt</string>
   <string name="create_account_name_unavailable">\"%s\" come nom de l\'utent a l\'è minga disponibil. Per piesè, catenn foeura un\'alter.</string>
-  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, al moment, a l\'è blocad e te podet creà no di noeuf cunt.</string>
+  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, al moment, a l\'è blocad e te podet creà no di noeuv cunt.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">General</string>
@@ -211,7 +211,7 @@
   <string name="edit_summary_tag_other">Alter</string>
   <string name="edit_summary_tag_other_hint">Alter manere cont i quae te podet migliorà la pagina</string>
   <string name="edit_conflict_title">Conflit de edizzion</string>
-  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in confrlit con la toa modifica. Copia i modifiche, torna indrée e sgiorna la pagina, quindi proeuva a modificà de noeuf.</string>
+  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in confrlit con la toa modifica. Copia i modifiche, torna indrée e sgiorna la pagina, quindi proeuva a modificà de noeuv.</string>
   <string name="find_next">Troeuva el prossim</string>
   <string name="find_previous">Troeuva precedent</string>
   <string name="find_first_occurence">Questchì l\'è el prim avveniment</string>

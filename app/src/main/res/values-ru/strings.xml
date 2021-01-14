@@ -939,8 +939,10 @@
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_add_reply">Ответить</string>
   <string name="talk_reply_subject">Тема</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 месяцев</string>
   <string name="watchlist_expiry_dialog_one_week">1 неделя</string>
   <string name="watchlist_expiry_dialog_one_month">1 месяц</string>
   <string name="watchlist_expiry_dialog_three_months">3 месяца</string>
