@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.dataclient.watch.WatchPostResponse;
 import org.wikipedia.dataclient.wikidata.Claims;
@@ -132,6 +133,8 @@ public interface Service {
     @NonNull Observable<MwPostResponse> postSetOptions(@NonNull @Field("change") String change,
                                                        @NonNull @Field("token") String token);
 
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
+    @NonNull Observable<MwStreamConfigsResponse> getStreamConfigs();
 
     // ------- CSRF, Login, and Create Account -------
 

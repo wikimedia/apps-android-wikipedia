@@ -7,9 +7,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.net.ConnectivityManagerCompat;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 import org.wikipedia.events.NetworkConnectEvent;
 
 import java.util.concurrent.TimeUnit;
@@ -30,16 +32,22 @@ public class NetworkConnectivityReceiver extends BroadcastReceiver {
     @Override public void onReceive(Context context, Intent intent) {
         if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
             NetworkInfo networkInfo = getNetworkInfoFromBroadcast(context, intent);
+            updateOnlineState();
             if (networkInfo != null && networkInfo.isConnected()) {
                 WikipediaApp.getInstance().getBus().post(new NetworkConnectEvent());
             }
-            updateOnlineState();
         }
     }
 
-    private void updateOnlineState() {
+    @VisibleForTesting
+    protected void updateOnlineState() {
         NetworkInfo info = getConnectivityManager(WikipediaApp.getInstance()).getActiveNetworkInfo();
         online = info != null && info.isConnected();
+
+        EventPlatformClient epc = WikipediaApp.getInstance().getEventPlatformClient();
+        if (epc != null) {
+            EventPlatformClient.setEnabled(online);
+        }
     }
 
     @Nullable private NetworkInfo getNetworkInfoFromBroadcast(Context context, Intent intent) {
