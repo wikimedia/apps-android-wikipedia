@@ -114,7 +114,7 @@
   <string name="create_account_already_have">Že imate račun?</string>
   <string name="create_account_activity_title">Ustvarite račun</string>
   <string name="dialog_create_account_checking_progress">Preverjanje</string>
-  <string name="create_account_email_hint">E-pošta (neobvezno)</string>
+  <string name="create_account_email_hint">E-poštni naslov (izbirno)</string>
   <string name="create_account_password_repeat_hint">Ponovite geslo</string>
   <string name="create_account_passwords_mismatch_error">Gesla se ne ujemata</string>
   <string name="create_account_email_error">Neveljaven e-poštni naslov</string>
@@ -206,7 +206,7 @@
   <string name="reading_list_menu_rename" fuzzy="true">Preimenuj</string>
   <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Ime seznama</string>
-  <string name="reading_list_description_hint">Opis (neobvezno)</string>
+  <string name="reading_list_description_hint">Opis (izbirno)</string>
   <string name="reading_list_item_deleted">Članek %s je bil izbrisan iz seznama</string>
   <string name="reading_list_items_deleted">%d člankov izbrisanih iz seznama</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
