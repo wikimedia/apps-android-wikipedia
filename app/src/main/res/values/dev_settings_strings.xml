@@ -36,6 +36,18 @@
     <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
     <string name="preferences_developer_suggested_edits_reactivation_notification_stage_one">Show the first stage local notification for editor re-activation</string>
     <string name="preferences_developer_suggested_edits_reactivation_notification_stage_two">Show the second stage local notification for editor re-activation</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_last_edit_quality_shown">Last time the edit quality card showed.\nEnter 0 to reset.</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_last_pageviews_shown">Last time the pageviews card showed.\nEnter 0 to reset.</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_contribution_on_initial_count">Show the contribution card if it reaches the [number] count.\nDefault is 5</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_contribution_on_count">Show the contribution card on every [number] count.\nDefault is 50</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_edit_streak_on_count">Show the edit streak card on every [number] count.\nDefault is 5</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_edit_quality_on_day">Show the edit quality card on every [number] day.\nDefault is 14</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_pageviews_on_day">Show the pageviews card on every [number] day.\nDefault is 30</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_QA_override">This will override the existing logic and show the reward interstitial sequentially by swiping to the next card</string>
+
+    <string name="preference_developer_event_platform_intake_base_uri_title">Override Event Platform intake base URI</string>
+    <string name="preference_developer_send_event_platform_test_event_title">Send test event</string>
+    <string name="preference_developer_send_event_platform_test_event_summary">Send a test event to the configured Event Platform intake endpoint</string>
     <string name="preference_developer_clear_all_talk_topics">clearAllTalkTopics</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>

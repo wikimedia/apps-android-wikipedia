@@ -13,15 +13,16 @@ import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
+import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
-import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.userprofile.ContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.userprofile.ContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
@@ -75,10 +76,22 @@ class ContributionDetailsFragment : Fragment() {
 
     private fun startTypeSpecificActivity() {
         when (contribution.editType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logNavigateDescription()
-            EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logNavigateCaption()
-            EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logNavigateTag()
-            else -> UserContributionFunnel.get().logNavigateMisc()
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                UserContributionFunnel.get().logNavigateDescription()
+                UserContributionEvent().logNavigateDescription()
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                UserContributionFunnel.get().logNavigateCaption()
+                UserContributionEvent().logNavigateCaption()
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                UserContributionFunnel.get().logNavigateTag()
+                UserContributionEvent().logNavigateTag()
+            }
+            else -> {
+                UserContributionFunnel.get().logNavigateMisc()
+                UserContributionEvent().logNavigateMisc()
+            }
         }
         val pageTitle = PageTitle(contribution.apiTitle, contribution.wikiSite, contribution.imageUrl, contribution.description, contribution.displayTitle)
         if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {

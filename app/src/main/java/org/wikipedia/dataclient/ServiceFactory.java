@@ -6,7 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.eventplatform.DestinationEventService;
+import org.wikipedia.analytics.eventplatform.EventService;
+import org.wikipedia.analytics.eventplatform.StreamConfig;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.settings.Prefs;
@@ -14,17 +18,21 @@ import org.wikipedia.settings.Prefs;
 import java.io.IOException;
 
 import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static org.wikipedia.settings.Prefs.getEventPlatformIntakeUriOverride;
+
 public final class ServiceFactory {
     private static final int SERVICE_CACHE_SIZE = 8;
     private static LruCache<Long, Service> SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
     private static LruCache<Long, RestService> REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
     private static LruCache<Long, CoreRestService> CORE_REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
+    private static LruCache<String, EventService> ANALYTICS_REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
 
     public static Service get(@NonNull WikiSite wiki) {
         long hashCode = wiki.hashCode();
@@ -59,6 +67,28 @@ public final class ServiceFactory {
         return s;
     }
 
+    public static EventService getAnalyticsRest(@NonNull StreamConfig streamConfig) {
+        DestinationEventService destinationEventService = streamConfig.getDestinationEventService();
+        if (destinationEventService == null) {
+            destinationEventService = DestinationEventService.ANALYTICS;
+        }
+
+        EventService s;
+        if (ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId()) != null) {
+            s = ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId());
+            if (s != null) {
+                return s;
+            }
+        }
+
+        String intakeBaseUriOverride = getEventPlatformIntakeUriOverride();
+
+        Retrofit r = createRetrofit(null, StringUtils.defaultString(intakeBaseUriOverride, destinationEventService.getBaseUri()));
+        s = r.create(EventService.class);
+        ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.getId(), s);
+        return s;
+    }
+
     public static <T> T get(@NonNull WikiSite wiki, @Nullable String baseUrl, Class<T> service) {
         Retrofit r = createRetrofit(wiki, TextUtils.isEmpty(baseUrl) ? wiki.url() + "/" : baseUrl);
         return r.create(service);
@@ -78,8 +108,13 @@ public final class ServiceFactory {
         return path;
     }
 
-    private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {
+    private static Retrofit createRetrofit(@Nullable WikiSite wiki, @NonNull String baseUrl) {
+        OkHttpClient.Builder okHttpClientBuilder = OkHttpConnectionFactory.getClient().newBuilder();
+        if (wiki != null) {
+            okHttpClientBuilder.addInterceptor(new LanguageVariantHeaderInterceptor(wiki));
+        }
         return new Retrofit.Builder()
+                .client(okHttpClientBuilder.build())
                 .baseUrl(baseUrl)
                 .client(OkHttpConnectionFactory.getClient().newBuilder().addInterceptor(new LanguageVariantHeaderInterceptor(wiki)).build())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

@@ -264,6 +264,7 @@
   <string name="find_previous">Encontrar anterior</string>
   <string name="find_first_occurence">Esta é a primeira ocorrência</string>
   <string name="find_last_occurence">Esta é a última ocorrência</string>
+  <string name="article_opened_in_background_tab">O artigo foi aberto em uma guia em segundo plano.</string>
   <string name="abusefilter_title_warn">Isso pode ser uma edição não construtiva. Tem certeza de que deseja publicá-la?</string>
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou que esta edição contém possíveis erros. Ela pode conter uma ou mais das seguintes características:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de letras maiúsculas;&lt;br/&gt;· Entradas em branco ou com spam;&lt;br/&gt;· Imagens ou ligações externas irrelevantes; e&lt;br/&gt;· Repetição de caracteres.</string>
@@ -819,8 +820,8 @@
     <item quantity="one">%d dia</item>
     <item quantity="other">%d dias</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">O que é edições sugeridas?</string>
-  <string name="suggested_edits_what_is_text">As edições sugeridas apresentam oportunidades para contribuições pequenas, mas vitais, para a Wikipédia.</string>
+  <string name="suggested_edits_what_is_title">O que são edições sugeridas?</string>
+  <string name="suggested_edits_what_is_text">As edições sugeridas apresentam oportunidades para contribuições pequenas, mas vitais para a Wikipédia.</string>
   <string name="suggested_edits_learn_more">Saiba mais</string>
   <string name="suggested_edits_paused_title">Pausado</string>
   <string name="suggested_edits_disabled_title">Desativado</string>

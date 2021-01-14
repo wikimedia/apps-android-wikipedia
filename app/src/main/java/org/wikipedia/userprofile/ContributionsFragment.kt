@@ -24,6 +24,7 @@ import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
+import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -104,6 +105,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         resetAndFetch()
 
         UserContributionFunnel.get().logOpen()
+        UserContributionEvent().logOpen()
     }
 
     override fun onDestroyView() {
@@ -117,10 +119,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     override fun onTypeItemClick(editType: Int) {
         editFilterType = editType
         when (editFilterType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logFilterDescriptions()
-            EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logFilterCaptions()
-            EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logFilterTags()
-            else -> UserContributionFunnel.get().logFilterAll()
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                UserContributionFunnel.get().logFilterDescriptions()
+                UserContributionEvent().logFilterDescriptions()
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                UserContributionFunnel.get().logFilterCaptions()
+                UserContributionEvent().logFilterCaptions()
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                UserContributionFunnel.get().logFilterTags()
+                UserContributionEvent().logFilterTags()
+            }
+            else -> {
+                UserContributionFunnel.get().logFilterAll()
+                UserContributionEvent().logFilterAll()
+            }
         }
 
         createConsolidatedList()
@@ -551,10 +565,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private class ItemCallback : Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             when (contribution.editType) {
-                EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logViewDescription()
-                EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logViewCaption()
-                EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logViewTag()
-                else -> UserContributionFunnel.get().logViewMisc()
+                EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                    UserContributionFunnel.get().logViewDescription()
+                    UserContributionEvent().logViewDescription()
+                }
+                EDIT_TYPE_IMAGE_CAPTION -> {
+                    UserContributionFunnel.get().logViewCaption()
+                    UserContributionEvent().logViewCaption()
+                }
+                EDIT_TYPE_IMAGE_TAG -> {
+                    UserContributionFunnel.get().logViewTag()
+                    UserContributionEvent().logViewTag()
+                }
+                else -> {
+                    UserContributionFunnel.get().logViewMisc()
+                    UserContributionEvent().logViewMisc()
+                }
             }
             context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
         }

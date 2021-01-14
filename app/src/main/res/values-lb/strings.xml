@@ -45,6 +45,7 @@
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
+  <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht dobäisetzen</string>
   <string name="menu_page_remove_from_watchlist">Vun der Iwwerwaachungslëscht erofhuelen</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
@@ -167,6 +168,7 @@
   <string name="page_protected_can_not_edit">Pardon, Äre Benotzerkont huet net genuch Rechter fir dës Säit elo z\'änneren.</string>
   <string name="page_protected_can_not_edit_anon">Leider kann dës Säit zu dësem Zäitpunkt net anonym geännert ginn.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>
@@ -684,6 +686,7 @@
   <string name="talk_reply_subject">Sujet</string>
   <string name="go_to_user_page">Op d\'Benotzersäit goen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">fir 1 Mount</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">fir 3 Méint</string>
@@ -693,6 +696,7 @@
   <string name="watchlist_expiry_dialog_one_month">1 Mount</string>
   <string name="watchlist_expiry_dialog_three_months">3 Méint</string>
   <string name="watchlist_expiry_dialog_six_months">6 Méint</string>
+  <string name="watchlist_empty">Dir hutt keng Artikelen op Ärer Iwwerwaachungslëscht.</string>
   <string name="watchlist_filter_all">All</string>
   <string name="watchlist_filter_talk">Diskussioun</string>
   <string name="watchlist_filter_pages">Säiten</string>
