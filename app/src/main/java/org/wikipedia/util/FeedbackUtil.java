@@ -7,7 +7,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +42,6 @@ public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
     public static final int LENGTH_MEDIUM = (int) TimeUnit.SECONDS.toMillis(8);
     public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(15);
-    private static final int SNACKBAR_MAX_LINES = 10;
     private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
         showToastOverView(v, v.getContentDescription(), LENGTH_DEFAULT);
         return true;
@@ -153,12 +151,9 @@ public final class FeedbackUtil {
     }
 
     public static Snackbar makeSnackbar(Activity activity, CharSequence text, int duration) {
-        final float snackbarLineSpacing = 5.0f;
         View view = findBestView(activity);
         Snackbar snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration);
         TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
-        textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, snackbarLineSpacing, activity.getResources().getDisplayMetrics()), 1.0f);
-        textView.setMaxLines(SNACKBAR_MAX_LINES);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
         actionView.setTextColor(ResourceUtil.getThemedColor(view.getContext(), R.attr.color_group_52));
