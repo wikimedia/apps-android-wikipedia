@@ -23,7 +23,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class BecauseYouReadClient implements FeedClient {
-    private CompositeDisposable disposables = new CompositeDisposable();
+    private final CompositeDisposable disposables = new CompositeDisposable();
 
     @Override public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                                   @NonNull final FeedClient.Callback cb) {
@@ -61,7 +61,7 @@ public class BecauseYouReadClient implements FeedClient {
                 .toList()
                 .subscribe(list -> {
                     PageSummary headerPage = list.remove(0);
-                    FeedCoordinator.postCardsToCallback(cb, (list == null || list.size() == 0)
+                    FeedCoordinator.postCardsToCallback(cb, list.isEmpty()
                                     ? Collections.emptyList() : Collections.singletonList(toBecauseYouReadCard(list, headerPage, entry.getTitle().getWikiSite())));
                 }, cb::error));
     }
