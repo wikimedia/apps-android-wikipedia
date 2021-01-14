@@ -233,6 +233,7 @@
   <string name="find_previous">Foarige fine</string>
   <string name="find_first_occurence">Dit is de earste treffer</string>
   <string name="find_last_occurence">Dit is de lêste treffer</string>
+  <string name="article_opened_in_background_tab">It artikel is yn in tabblêd op \'e eftergrûn iepene.</string>
   <string name="abusefilter_title_warn">Dizze bewurking liket net-opbouwend. Wolle jo it wier publisearje?</string>
   <string name="abusefilter_title_disallow">Jo kinne dizze bewurking net publisearje. Graach weromgean en it feroarje.</string>
   <string name="abusefilter_text_warn">In automatisearre filter hat dizze bewurking werkend as mooglik net-opbouwend. It kin ien of mear fan it neikommende befetsje:&lt;br /&gt;&lt;br /&gt;· Alles yn haadletters typen&lt;br /&gt;· Artikels leechmeitsjen as spamjen&lt;br /&gt;· Ungaadlike keppelings om utens as plaatsjes&lt;br /&gt;· Werheljende tekens</string>

@@ -270,6 +270,7 @@
   <string name="find_previous">Öncekini bul</string>
   <string name="find_first_occurence">Bu, ilk olay</string>
   <string name="find_last_occurence">Bu, son olay</string>
+  <string name="article_opened_in_background_tab">Madde bir arka plan sekmesinde açıldı.</string>
   <string name="abusefilter_title_warn">Bu, yapıcı olmayan bir düzenleme olabilir. Yayımlamak istediğinizden emin misiniz?</string>
   <string name="abusefilter_title_disallow">Bu düzenlemeyi yayımlayamazsınız. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
