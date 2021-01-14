@@ -51,7 +51,7 @@ final class EventPlatformClientIntegration {
      * @param streamConfig stream config
      * @param events Events to be posted. Gson will take care of serializing to JSON.
      */
-    static void postEvents(@NonNull StreamConfig streamConfig, @NonNull List<Event> events) {
+    static void postEvents(@NonNull StreamConfig streamConfig, @NonNull List<? extends Event> events) {
         CompositeDisposable disposable = new CompositeDisposable();
         disposable.add(ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
                 .subscribeOn(Schedulers.io())
