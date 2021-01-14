@@ -321,7 +321,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         disabledStatesView.setIPBlocked()
         disabledStatesView.visibility = VISIBLE
         UserContributionFunnel.get().logIpBlock()
-        UserContributionEvent().logIpBlock()
+        UserContributionEvent.logIpBlock()
     }
 
     private fun setRequiredLoginStatus() {
@@ -339,14 +339,14 @@ class SuggestedEditsTasksFragment : Fragment() {
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logDisabled()
-            UserContributionEvent().logDisabled()
+            UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logPaused()
-            UserContributionEvent().logPaused()
+            UserContributionEvent.logPaused()
             return true
         }
 
