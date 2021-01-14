@@ -53,26 +53,6 @@ public class EventPlatformClientIntegrationTest extends MockRetrofitTest {
     }
 
     @Test
-    public void testPostEventsSuccess() {
-        List<Event> events = new ArrayList<>();
-        StreamConfig streamConfig = new StreamConfig("test");
-        setStreamConfig(streamConfig);
-        server().enqueue(new MockResponse().setResponseCode(202));
-        events.add(new Event("test", "test"));
-        postEvents(streamConfig, events);
-    }
-
-    @Test
-    public void testDoesNotThrowOnPostEventsFailureResponse() {
-        List<Event> events = new ArrayList<>();
-        StreamConfig streamConfig = new StreamConfig("test");
-        setStreamConfig(streamConfig);
-        server().enqueue(new MockResponse().setResponseCode(400));
-        events.add(new Event("test", "test"));
-        postEvents(streamConfig, events);
-    }
-
-    @Test
     public void testStreamConfigMapSerializationDeserialization() throws IOException {
         String json = TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE);
         MwStreamConfigsResponse response = GSON.fromJson(json, MwStreamConfigsResponse.class);
