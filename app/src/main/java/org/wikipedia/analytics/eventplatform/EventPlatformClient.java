@@ -333,7 +333,7 @@ public final class EventPlatformClient {
         @SuppressWarnings("checkstyle:magicnumber")
         public static String generateRandomId() {
             Random random = new Random();
-            return String.format("%08X", random.nextInt()) + String.format("%08X", random.nextInt()) + String.format("%04X", random.nextInt() & 0xFFFF).toLowerCase();
+            return String.format("%08x", random.nextInt()) + String.format("%08x", random.nextInt()) + String.format("%04x", random.nextInt() & 0xFFFF).toLowerCase();
         }
     }
 
