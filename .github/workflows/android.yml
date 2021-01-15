@@ -16,7 +16,7 @@ jobs:
     - name: Check for missing qq strings
       run: ./scripts/missing-qq.py
     - name: Build, test, and lint
-      run: ./gradlew clean checkstyle assembleAlphaRelease lintAlphaRelease testAlphaRelease
+      run: ./gradlew clean checkstyle ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease
     - name: List
       run: ls -alR ./app/build/outputs/apk/
     - uses: r0adkll/sign-android-release@v1

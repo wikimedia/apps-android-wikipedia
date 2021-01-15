@@ -23,8 +23,8 @@ object SuggestedEditsSnackbars {
         val app = WikipediaApp.getInstance()
         if (sequentialSnackbar) {
             val snackbar = FeedbackUtil.makeSnackbar(activity,
-                    if ((action == Action.TRANSLATE_DESCRIPTION || action == Action.TRANSLATE_CAPTION)
-                            && app.language().appLanguageCodes.size > 1) {
+                    if ((action == Action.TRANSLATE_DESCRIPTION || action == Action.TRANSLATE_CAPTION) &&
+                            app.language().appLanguageCodes.size > 1) {
                         activity.getString(
                                 if (action == Action.TRANSLATE_DESCRIPTION) {
                                     R.string.description_edit_success_saved_in_lang_snackbar

@@ -52,7 +52,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 
-
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private lateinit var articlePageTitle: PageTitle
     private lateinit var languageCode: String

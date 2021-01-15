@@ -13,7 +13,8 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.view_file_page.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
-import org.wikipedia.Constants.*
+import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.commons.FilePageFragment.Companion.ACTIVITY_REQUEST_ADD_IMAGE_CAPTION
@@ -22,8 +23,8 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -32,7 +33,6 @@ import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
 import java.util.*
-import kotlin.math.roundToInt
 
 class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     init {
@@ -97,7 +97,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         requestLayout()
     }
 
-    private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String) : String? {
+    private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String): String? {
         if (!imageTags.containsKey(languageCode)) {
             return null
         }
@@ -131,7 +131,6 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             ), ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
         }
     }
-
 
     private fun imageTagsOnClickListener(fragment: Fragment, page: MwQueryPage): OnClickListener {
         return OnClickListener {

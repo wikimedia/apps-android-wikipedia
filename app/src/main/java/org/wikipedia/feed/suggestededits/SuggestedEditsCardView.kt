@@ -13,7 +13,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context),
