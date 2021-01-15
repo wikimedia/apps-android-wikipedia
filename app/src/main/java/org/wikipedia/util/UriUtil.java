@@ -120,6 +120,16 @@ public final class UriUtil {
         return title.getUri() + "?wprov=" + context.getString(provId);
     }
 
+    public static String getUrlForDiff(@NonNull PageTitle title, long newId, long oldId) {
+        return String.format(
+                "%1$s://%2$s/w/index.php?title=%3$s&diff=%4$s&oldid=%5$s",
+                title.getWikiSite().scheme(),
+                title.getWikiSite().authority(),
+                encodeURL(title.getPrefixedText()),
+                newId, oldId
+        );
+    }
+
     @NonNull
     public static String getFilenameFromUploadUrl(@NonNull String url) {
         String[] splitArray = url.split("/");

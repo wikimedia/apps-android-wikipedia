@@ -339,6 +339,15 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
     @NonNull Observable<MwQueryResponse> getWatchlist();
 
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
+    @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,
+                                                            @Query("rvstartid") @NonNull Long revisionStartId);
+
+    @POST(MW_API_PREFIX + "action=thank")
+    @FormUrlEncoded
+    Observable<EntityPostResponse> postThanksToRevision(@Field("rev") long revisionId,
+                                                        @NonNull @Field("token") String token);
+
     @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded
     Observable<WatchPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,

@@ -1,6 +1,15 @@
 package org.wikipedia.analytics.eventplatform;
 
+import androidx.annotation.NonNull;
+
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.ServiceFactory;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.log.L;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,26 +17,25 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.deleteStoredSessionId;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.fetchStreamConfigs;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getAppInstallId;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getIso8601Timestamp;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredSessionId;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.getStoredStreamConfigs;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.isOnline;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.postEvents;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredSessionId;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClientIntegration.setStoredStreamConfigs;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import static java.net.HttpURLConnection.HTTP_ACCEPTED;
+import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
+import static java.net.HttpURLConnection.HTTP_CREATED;
+import static java.net.HttpURLConnection.HTTP_GATEWAY_TIMEOUT;
+import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
+import static java.net.HttpURLConnection.HTTP_UNAVAILABLE;
+import static org.wikipedia.BuildConfig.META_WIKI_BASE_URI;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
 import static org.wikipedia.settings.Prefs.isEventLoggingEnabled;
+import static org.wikipedia.util.DateUtil.iso8601DateFormat;
 
 public final class EventPlatformClient {
 
     /**
-     * Stream configs to be fetched on startup and stored for the duration of the application
-     * lifecycle.
+     * Stream configs to be fetched on startup and stored for the duration of the app lifecycle.
      */
     static Map<String, StreamConfig> STREAM_CONFIGS = new HashMap<>();
 
@@ -39,13 +47,13 @@ public final class EventPlatformClient {
      * Inputs: network connection state on/off, connection state bad y/n?
      * Taken out of iOS client, but flag can be set on the request object to wait until connected to send
      */
-    private static boolean ENABLED = isOnline();
+    private static boolean ENABLED = WikipediaApp.getInstance().isOnline();
 
     /**
      * A regular expression to match JavaScript regular expression literals. (How meta!)
-     *This is not as strict as it could be in that it allows individual flags to be specified more
-     *than once, but it doesn't really matter because we don't expect flags and ignore them if
-     *present.
+     * This is not as strict as it could be in that it allows individual flags to be specified more
+     * than once, but it doesn't really matter because we don't expect flags and ignore them if
+     * present.
      */
     static String JS_REGEXP_PATTERN = "^/.*/[gimsuy]{0,6}$";
 
@@ -133,10 +141,10 @@ public final class EventPlatformClient {
      */
     static void addEventMetadata(Event event) {
         if (event.getTimestamp() == null) {
-            event.setTimestamp(getIso8601Timestamp());
+            event.setTimestamp(iso8601DateFormat(new Date()));
         }
         event.setSessionId(AssociationController.getSessionId());
-        event.setAppInstallId(getAppInstallId());
+        event.setAppInstallId(Prefs.getAppInstallId());
     }
 
     /**
@@ -150,50 +158,29 @@ public final class EventPlatformClient {
      */
     static class OutputBuffer {
 
-        private static List<Event> QUEUE = new ArrayList<>();
+        private static final List<Event> QUEUE = new ArrayList<>();
 
         /*
          * When an item is added to QUEUE, wait this many ms before sending.
-         *
-         * If another item is added to QUEUE during this time, reset the
-         * countdown.
+         * If another item is added to QUEUE during this time, reset the countdown.
          */
         private static final int WAIT_MS = 30000;
 
-        /*
-         * When QUEUE.size() exceeds this value TIMER becomes non-interruptable.
-         */
         private static final int MAX_QUEUE_SIZE = 128;
 
-        /*
-         * IMPLEMENTATION NOTE: Java Timer will provide the desired asynchronous
-         * countdown after a new item is added to QUEUE.
-         */
-        private static Timer TIMER = new Timer();
+        private static final Timer TIMER = new Timer();
 
-        /*
-         * IMPLEMENTATION NOTE: Java abstract TimerTask class requires a run()
-         * method be defined.
-         *
-         * The run() method is called when the Timer expires.
-         */
-        private static class Task extends TimerTask {
+        private static class SendOnTimerTask extends TimerTask {
             public void run() {
                 sendAllScheduled();
             }
         }
 
-        /**
-         * If sending is enabled, dequeue and call send() on all scheduled items.
-         */
         static synchronized void sendAllScheduled() {
             TIMER.cancel();
 
             if (ENABLED) {
-                /*
-                 * All items on QUEUE are permanently removed.
-                 */
-                send(QUEUE);
+                send();
                 QUEUE.clear();
             }
         }
@@ -204,30 +191,17 @@ public final class EventPlatformClient {
          * @param event event data
          */
         static synchronized void schedule(Event event) {
-            /*
-             * Item is enqueued only when enabled(online and user has enabled usage reports),
-              or when queue size is within limits while offline.
-             */
             if (ENABLED || QUEUE.size() <= MAX_QUEUE_SIZE) {
                 QUEUE.add(event);
             }
 
             if (ENABLED) {
                 if (QUEUE.size() >= MAX_QUEUE_SIZE) {
-                    /*
-                     * >= because while sending is disabled, any number of items
-                     * could be added to QUEUE without it emptying.
-                     */
                     sendAllScheduled();
                 } else {
-                    /*
-                     * The arrival of a new item interrupts the timer and resets
-                     * the countdown.
-                     */
+                    //The arrival of a new item interrupts the timer and resets the countdown.
                     TIMER.cancel();
-                    TIMER.purge();
-                    TIMER = new Timer();
-                    TIMER.schedule(new Task(), WAIT_MS);
+                    TIMER.schedule(new SendOnTimerTask(), WAIT_MS);
                 }
             }
         }
@@ -236,11 +210,10 @@ public final class EventPlatformClient {
          * If sending is enabled, attempt to send the provided events.
          * Also batch the events ordered by their streams, as the QUEUE
          * can contain events of different streams
-         * @param events list of events
          */
-        static void send(List<Event> events) {
+        private static void send() {
             Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
-            for (Event event : events) {
+            for (Event event : QUEUE) {
                 String stream = event.getStream();
                 if (!eventsByStream.containsKey(stream) || eventsByStream.get(stream) == null) {
                     eventsByStream.put(stream, new ArrayList<>());
@@ -249,13 +222,46 @@ public final class EventPlatformClient {
             }
             for (String stream : eventsByStream.keySet()) {
                 if (isEventLoggingEnabled()) {
-                    postEvents(getStreamConfig(stream), eventsByStream.get(stream));
+                    sendEventsForStream(getStreamConfig(stream), eventsByStream.get(stream));
                 }
             }
         }
-    }
 
-    /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+        private static void sendEventsForStream(@NonNull StreamConfig streamConfig, @NonNull List<Event> events) {
+            ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(response -> {
+                        switch (response.code()) {
+                            case HTTP_CREATED: // 201 - Success
+                            case HTTP_ACCEPTED: // 202 - Hasty success
+                                break;
+                            // Status 207 will not be received when sending hastily.
+                            // case 207: // Partial Success
+                            //    TODO: Retry failed events?
+                            //    L.logRemoteError(new RuntimeException(response.toString()));
+                            //    break;
+                            case HTTP_BAD_REQUEST: // 400 - Failure
+                                L.logRemoteError(new RuntimeException(response.toString()));
+                                break;
+                            // Occasional server errors are unfortunately not unusual, so log the error
+                            // but don't crash even on pre-production builds.
+                            case HTTP_INTERNAL_ERROR: // 500
+                            case HTTP_UNAVAILABLE: // 503
+                            case HTTP_GATEWAY_TIMEOUT: // 504
+                                L.logRemoteError(new RuntimeException(response.message()));
+                                break;
+                            default:
+                                // Something unexpected happened. Crash if this is a pre-production build.
+                                L.logRemoteErrorIfProd(
+                                        new RuntimeException("Unexpected EventGate response: "
+                                                + response.toString())
+                                );
+                                break;
+                        }
+                    });
+        }
+
+    }
 
     /**
      * AssociationController: provides associative identifiers and manage their
@@ -297,39 +303,26 @@ public final class EventPlatformClient {
          */
         static String getSessionId() {
             if (SESSION_ID == null) {
-                /*
-                 * If there is no runtime value for SESSION_ID, try to load a
-                 * value from persistent store.
-                 */
-                SESSION_ID = getStoredSessionId();
+                // If there is no runtime value for SESSION_ID, try to load a
+                // value from persistent store.
+                SESSION_ID = Prefs.getEventPlatformSessionId();
 
                 if (SESSION_ID == null) {
-                    /*
-                     * If there is no value in the persistent store, generate a
-                     * new value for SESSION_ID, and write the update to the
-                     * persistent store.
-                     */
+                    // If there is no value in the persistent store, generate a new value for
+                    // SESSION_ID, and write the update to the persistent store.
                     SESSION_ID = generateRandomId();
-                    setStoredSessionId(SESSION_ID);
+                    Prefs.setEventPlatformSessionId(SESSION_ID);
                 }
             }
             return SESSION_ID;
         }
 
-        /**
-         * Unset the session.
-         */
         static void beginNewSession() {
-            /*
-             * Clear runtime and persisted value for SESSION_ID.
-             */
+            // Clear runtime and persisted value for SESSION_ID.
             SESSION_ID = null;
-            deleteStoredSessionId();
+            Prefs.setEventPlatformSessionId(null);
 
-            /*
-             * A session refresh implies a pageview refresh, so clear runtime
-             * value of PAGEVIEW_ID.
-             */
+            // A session refresh implies a pageview refresh, so clear runtime value of PAGEVIEW_ID.
             PAGEVIEW_ID = null;
         }
 
@@ -343,8 +336,6 @@ public final class EventPlatformClient {
             return String.format("%08X", random.nextInt()) + String.format("%08X", random.nextInt()) + String.format("%04X", random.nextInt() & 0xFFFF).toLowerCase();
         }
     }
-
-    /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
     /**
      * SamplingController: computes various sampling functions on the client
@@ -370,31 +361,17 @@ public final class EventPlatformClient {
 
             StreamConfig streamConfig = getStreamConfig(stream);
 
-            /*
-             * If the specified stream isn't configured, bail out.
-             */
             if (streamConfig == null) {
                 return false;
             }
 
             SamplingConfig samplingConfig = streamConfig.getSamplingConfig();
 
-            /*
-             * Default to 100% (always in-sample) for this stream if the stream is configured
-             * but has no sampling config defined.
-             */
-            if (samplingConfig == null) {
+            if (samplingConfig == null || samplingConfig.getRate() == 1.0) {
                 return true;
             }
-
-            /*
-             * Take a shortcut if the sampling rate is zero or one.
-             */
             if (samplingConfig.getRate() == 0.0) {
                 return false;
-            }
-            if (samplingConfig.getRate() == 1.0) {
-                return true;
             }
 
             boolean inSample = getSamplingValue(samplingConfig.getIdentifier()) < samplingConfig.getRate();
@@ -421,29 +398,27 @@ public final class EventPlatformClient {
                 return AssociationController.getPageViewId();
             }
             if (identifier == DEVICE) {
-                return getAppInstallId();
+                return Prefs.getAppInstallId();
             }
             throw new RuntimeException("Bad identifier type");
         }
 
     }
 
-    interface StreamConfigsCallback {
-        void onSuccess(Map<String, StreamConfig> streamConfigs);
+    private static void refreshStreamConfigs() {
+        ServiceFactory.get(new WikiSite(META_WIKI_BASE_URI))
+                .getStreamConfigs()
+                .subscribeOn(Schedulers.io())
+                .subscribe(response -> updateStreamConfigs(response.getStreamConfigs()), L::e);
     }
 
-    private static synchronized void refreshStreamConfigs() {
-        fetchStreamConfigs(streamConfigs -> {
-            STREAM_CONFIGS = streamConfigs;
-            setStoredStreamConfigs(streamConfigs);
-        });
+    private static synchronized void updateStreamConfigs(@NonNull Map<String, StreamConfig> streamConfigs) {
+        STREAM_CONFIGS = streamConfigs;
+        Prefs.setStreamConfigs(STREAM_CONFIGS);
     }
 
-    /*
-     * The constructor is private, so instantiation from other classes is impossible.
-     */
     public static void setUpStreamConfigs() {
-        STREAM_CONFIGS = getStoredStreamConfigs();
+        STREAM_CONFIGS = Prefs.getStreamConfigs();
         refreshStreamConfigs();
     }
 
