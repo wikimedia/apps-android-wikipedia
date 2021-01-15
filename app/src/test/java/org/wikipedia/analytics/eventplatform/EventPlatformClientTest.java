@@ -62,10 +62,10 @@ public class EventPlatformClientTest {
 
     @Test
     public void testGetStream() {
-        setStreamConfig(new StreamConfig("test"));
-        setStreamConfig(new StreamConfig("/^f[a-z]{2}$/"));
-        setStreamConfig(new StreamConfig("/^mediawiki\\.job\\..+/"));
-        setStreamConfig(new StreamConfig("/^swift\\.(.+\\.)?upload-complete$/"));
+        setStreamConfig(new StreamConfig("test", null, null));
+        setStreamConfig(new StreamConfig("/^f[a-z]{2}$/", null, null));
+        setStreamConfig(new StreamConfig("/^mediawiki\\.job\\..+/", null, null));
+        setStreamConfig(new StreamConfig("/^swift\\.(.+\\.)?upload-complete$/", null, null));
 
         assertThat(getStreamConfig("test"), is(notNullValue()));
         assertThat(getStreamConfig("foo"), is(notNullValue()));
@@ -76,10 +76,13 @@ public class EventPlatformClientTest {
     }
 
     @Test
-    public void testAddEventMetadata() {
+    public void testEventSerialization() {
         Event event = new Event("test", "test");
         addEventMetadata(event);
-        assertThat(event.getTimestamp(), is(notNullValue()));
+        String serialized = GsonMarshaller.marshal(event);
+        assertThat(serialized.contains("client_dt"), is(true));
+        assertThat(serialized.contains("app_session_id"), is(true));
+        assertThat(serialized.contains("app_install_id"), is(true));
     }
 
     @Test
@@ -126,19 +129,19 @@ public class EventPlatformClientTest {
 
     @Test
     public void testAlwaysInSampleIfStreamConfiguredButNoSamplingConfig() {
-        setStreamConfig(new StreamConfig("configured"));
+        setStreamConfig(new StreamConfig("configured", null, null));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "configured")), is(true));
     }
 
     @Test
     public void testAlwaysInSample() {
-        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0)));
+        setStreamConfig(new StreamConfig("alwaysInSample", new SamplingConfig(1.0, null), null));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "alwaysInSample")), is(true));
     }
 
     @Test
     public void testNeverInSample() {
-        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0)));
+        setStreamConfig(new StreamConfig("neverInSample", new SamplingConfig(0.0, null), null));
         assertThat(EventPlatformClient.SamplingController.isInSample(new Event("test", "neverInSample")), is(false));
     }
 
@@ -185,7 +188,7 @@ public class EventPlatformClientTest {
 
     @Test
     public void testGetEventServiceDefaultDestination() {
-        StreamConfig streamConfig = new StreamConfig("test");
+        StreamConfig streamConfig = new StreamConfig("test", null, null);
         assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
     }
 
