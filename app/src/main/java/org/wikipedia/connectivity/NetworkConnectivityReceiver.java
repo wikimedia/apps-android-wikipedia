@@ -17,7 +17,7 @@ import org.wikipedia.events.NetworkConnectEvent;
 import java.util.concurrent.TimeUnit;
 
 public class NetworkConnectivityReceiver extends BroadcastReceiver {
-    private static long ONLINE_CHECK_THRESHOLD_MILLIS = TimeUnit.MINUTES.toMillis(1);
+    private static final long ONLINE_CHECK_THRESHOLD_MILLIS = TimeUnit.MINUTES.toMillis(1);
     private boolean online = true;
     private long lastCheckedMillis;
 
@@ -43,11 +43,7 @@ public class NetworkConnectivityReceiver extends BroadcastReceiver {
     protected void updateOnlineState() {
         NetworkInfo info = getConnectivityManager(WikipediaApp.getInstance()).getActiveNetworkInfo();
         online = info != null && info.isConnected();
-
-        EventPlatformClient epc = WikipediaApp.getInstance().getEventPlatformClient();
-        if (epc != null) {
-            EventPlatformClient.setEnabled(online);
-        }
+        EventPlatformClient.setEnabled(online);
     }
 
     @Nullable private NetworkInfo getNetworkInfoFromBroadcast(Context context, Intent intent) {
