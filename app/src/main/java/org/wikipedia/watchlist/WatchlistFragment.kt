@@ -20,6 +20,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -288,7 +289,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
-        // TODO: plug in Diff activity here.
+        startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), item.title,
+                item.revid, item.wiki.languageCode(), item.newlen - item.oldlen))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem) {

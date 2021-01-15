@@ -1021,7 +1021,18 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="menu_option_share_edit">Share edit</string>
+    <string name="menu_option_user_profile">%s\'s profile</string>
+    <string name="menu_option_user_contributions">%s\'s contributions</string>
+    <string name="watchlist_details_watching_label">Watching</string>
+    <string name="watchlist_details_watch_label">Watch</string>
+    <string name="user_contributions_url">https://en.wikipedia.org/wiki/Special:Contributions/%s</string>
+    <string name="user_profile_url">https://en.wikipedia.org/wiki/User:%s</string>
+    <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
+    <string name="thank_dialog_positive_button_text">SEND THANKS</string>
+    <string name="thank_dialog_negative_button_text">CANCEL</string>
+    <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
