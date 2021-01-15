@@ -9,7 +9,7 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Indrée</string>
   <string name="page_tabs_back">Indrée</string>
-  <string name="nav_item_forward">Innanz</string>
+  <string name="nav_item_forward">Inanz</string>
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="search_hint_voice_search">Ricerca vocal</string>
   <string name="search_hint_search_languages">Cerca una lengua</string>
@@ -28,8 +28,8 @@
   <string name="menu_clear_all_history">Scancela la cronologia</string>
   <string name="history_item_deleted">%s tolt via de la cronologia</string>
   <string name="history_items_deleted">%d vos tolte via de la cronologia</string>
-  <string name="history_item_delete_undo">Torna a \'me che l\'era</string>
-  <string name="notification_archive_undo">Torna a \'me che l\'era</string>
+  <string name="history_item_delete_undo">Torna a \'me che l\'era inanz</string>
+  <string name="notification_archive_undo">Torna a \'me che l\'era inanz</string>
   <string name="app_settings">Impostazzion de l\'aplicazzion</string>
   <string name="search_tab_tooltip">Clica anmò l\'imagin per comenzà direttament una ricerca.</string>
   <string name="history_list_title">Cronologia</string>
@@ -69,7 +69,7 @@
   <string name="language_count_link_text">Disponibil in alter %d lengove</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Cont el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de dà la toa contribuzzion a la definitiva second conforma a la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Con el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de da la toa contribuzzion a la definitiva second conforma a la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. I modifiche i ghe sarann atribuid a l\'adress IP del to dispositiv. Se &lt;a href=\"https://#login\"&gt;te se autentichet&lt;/a&gt; te gh\'avaret pussée de riservatezza.</string>
+  <string name="edit_save_action_license_anon">Con el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de da la toa contribuzzion a la definitiva second conforma a la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. I modifiche i ghe sarann atribuid a l\'adress IP del to dispositif. Se &lt;a href=\"https://#login\"&gt;te se autentichet&lt;/a&gt; te gh\'avaret pussée de riservatezza.</string>
   <string name="preference_title_language">Lengov de la Wikipedia</string>
   <string name="langlinks_filter_hint">Cerca</string>
   <string name="langlinks_empty">Questa pagina chì a l\'è minga disponibil in alter lengove</string>
@@ -92,7 +92,7 @@
   <string name="edit_section_captcha_message">Per ajutà a scombat el ruf automatich, per piasè met dent i parolle che gh\'è chì de sota.</string>
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuf</string>
+  <string name="edit_section_captcha_reload">Toca el CAPTCHA per caregà de noeuv</string>
   <string name="nav_item_login">Va dent in Wikipedia</string>
   <string name="login_username_hint">Nom de l\'utent</string>
   <string name="login_password_hint">Parola d\'ordin</string>
@@ -113,21 +113,21 @@
   <string name="reset_password_button">Salva e và dent</string>
   <string name="preference_title_logout">Và foeura</string>
   <string name="toast_logout_complete">Desconness</string>
-  <string name="logout_prompt">Quest el te desconligarà de tucc i dispostiv che te seet conligad al moment. Te voeuret andà innanz?</string>
+  <string name="logout_prompt">Quest el te desconligarà de tucc i dispostiv che te seet conligad al moment. Te voeuret andà inanz?</string>
   <string name="logout_dialog_cancel_button_text">Annulla</string>
   <string name="logged_out_in_background_title">Desconness</string>
   <string name="logged_out_in_background_dialog">Te see stad desconness de Wikipedia. Te voeuret andà dent anmò?</string>
   <string name="logged_out_in_background_login">Và dent</string>
   <string name="logged_out_in_background_cancel">Annulla</string>
   <string name="history_empty_title">Nissuna vos vardada de recent</string>
-  <string name="history_empty_message">Manten el segn del quel che te see stad adrée a lensg scià</string>
+  <string name="history_empty_message">Manten el segn del quell che te see stad adrée a lensg scià</string>
   <string name="history_offline_articles_toast">Di vos ind la cronologia i podarissen vesser minga visibel quand che te see minga conness.</string>
   <string name="search_empty_message">Cerca e lensg l\'enciclpedia libera ind la toa lengua.</string>
   <string name="search_empty_message_multilingual_upgrade">Cerca in Wikipedia in diverse lengove</string>
   <string name="delete_selected_items">Scancela i element selezionad</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom de l\'utent</string>
-  <string name="login_dont_have_account">Te set nananmò registrad?</string>
+  <string name="login_dont_have_account">Te see nananmò registrad?</string>
   <string name="login_join_wikipedia">Iscrivet a Wikipedia</string>
   <string name="login_forgot_password">Te see desmentegad la toa parola d\'ordin?</string>
   <string name="create_account_already_have">Te gh\'heet sgiamò un cunt?</string>
@@ -139,7 +139,7 @@
   <string name="create_account_email_error">Adress de posta eletronica minga valid</string>
   <string name="create_account_username_error">Carater minga in del nom de l\'utent</string>
   <string name="create_account_password_error">La parola d\'ordin a l\'è minga valida.</string>
-  <string name="create_account_generic_error">A se poeu nò creà el cunt</string>
+  <string name="create_account_generic_error">A se poeul nò creà el cunt</string>
   <string name="create_account_next">Prossim</string>
   <string name="email_recommendation_dialog_title">Creà un cunt senza on adress de posta eletronica?</string>
   <string name="email_recommendation_dialog_message">Ancaben l\'adress de posta eletronica el sia minga obligatori, a l\'è &lt;b&gt;assosen consiliad&lt;/b&gt;, desgià gh\'è besogn de on adress de posta per recuperà el to cunt semai che te perdesset la parola d\'ordin.</string>
@@ -148,20 +148,20 @@
   <string name="email_recommendation_dialog_create_with_email_action">Sgionta on adress de posta eletronica</string>
   <string name="create_account_button">Crea un cunt</string>
   <string name="create_account_name_unavailable">\"%s\" come nom de l\'utent a l\'è minga disponibil. Per piesè, catenn foeura un\'alter.</string>
-  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, al moment, a l\'è blocad e te podet creà no di noeuf cunt.</string>
+  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, al moment, a l\'è blocad e te podet creà no di noeuv cunt.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="send_feedback">Dinn quel che te penset sora l\'aplicazzion</string>
+  <string name="send_feedback">Dinn quell che te penset sora l\'aplicazzion</string>
   <string name="create_account_account_created_toast">Cunt cread!</string>
   <string name="preferences_heading_syncing">Sincronizzazzion</string>
   <string name="preferences_heading_data_usage">Utilizzazzion di dati</string>
   <string name="preferences_heading_experimental">Sperimental</string>
   <string name="preference_title_sync_reading_lists_from_account">Sincronizzazion di liste de lettura</string>
   <string name="preference_title_download_reading_list_articles">Descarega i vos di liste de lettura</string>
-  <string name="preference_summary_sync_reading_lists">Sincronizza i liste de lettura in su diversi dispositiv cont el salvai ind el to cunt Wikipedia.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sincronizza i liste de lettura in su diversi dispositiv cont el salvai ind el to cunt Wikipedia \"%s\"</string>
+  <string name="preference_summary_sync_reading_lists">Sincronizza i liste de lettura in su diversi dispositif cont el salvai ind el to cunt Wikipedia.</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sincronizza i liste de lettura in su diversi dispositif cont el salvai ind el to cunt Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Toeu via i liste de lettura sincronizzade de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Questa azzion la scancelarà del tut tucce i list de lettura sincronizzad in del claud. Te voeuret toeu via tucce i liste sincronizzade de l\'utenza «%s»?</string>
   <string name="preferences_privacy_settings_heading">Riservatezza</string>
@@ -171,7 +171,7 @@
   <string name="preference_summary_auto_upload_crash_reports">Permet a l\'aplicazzion de invià in automatich i raport sora i arrest anormai a un terz fornidor de servizzi, de manera de podè toeu in esamm el to arrest anormal e corrensg l\'eror pussée failcment e a la svelta.</string>
   <string name="editing_error_spamblacklist">A l\'è stad rilevad un conligament a \'n domini blocad (%s). Teouvel via e preouva anmò.</string>
   <string name="history_filter_list_hint">Cerca ind la cronologia</string>
-  <string name="error_can_not_process_link">A l\'è minga possibil vardà quel conligement chì</string>
+  <string name="error_can_not_process_link">A l\'è minga possibil vardà quell conligement chì</string>
   <string name="page_protected_autoconfirmed">Questa pagina chì l\'è stada semi-protesgiuda</string>
   <string name="page_protected_sysop">Questa pagina chì l\'è stada protesgiuda completament.</string>
   <string name="page_protected_other">Questa pagina chì l\'è stada protesgiuda a chì nivei chì: %s</string>
@@ -201,7 +201,7 @@
   <string name="edit_next">Prossim</string>
   <string name="edit_done">Met foeura</string>
   <string name="edit_preview">La pagina com\'a l\'è innanz de salvala</string>
-  <string name="edit_undo">Torna a \'me che l\'era</string>
+  <string name="edit_undo">Torna a \'me che l\'era inanz</string>
   <string name="edit_redo">Fà anmò \'na volta</string>
   <string name="edit_zoom_in">Ingrandiment</string>
   <string name="edit_zoom_out">Spisciniment</string>
@@ -211,7 +211,7 @@
   <string name="edit_summary_tag_other">Alter</string>
   <string name="edit_summary_tag_other_hint">Alter manere cont i quae te podet migliorà la pagina</string>
   <string name="edit_conflict_title">Conflit de edizzion</string>
-  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in confrlit con la toa modifica. Copia i modifiche, torna indrée e sgiorna la pagina, quindi proeuva a modificà de noeuf.</string>
+  <string name="edit_conflict_message">La pagina l\'è stada sgiamò modifica de un\'alter utent e l\'è in confrlit con la toa modifica. Copia i modifiche, torna indrée e sgiorna la pagina, quindi proeuva a modificà de noeuv.</string>
   <string name="find_next">Troeuva el prossim</string>
   <string name="find_previous">Troeuva precedent</string>
   <string name="find_first_occurence">Questchì l\'è el prim avveniment</string>

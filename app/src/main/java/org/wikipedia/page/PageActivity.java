@@ -17,8 +17,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -41,6 +39,7 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.WatchlistFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -195,7 +194,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(false);
         maybeShowWatchlistTooltip();
 
         toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
@@ -245,9 +244,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     public void animateTabsButton() {
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
-        tabsButton.startAnimation(anim);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(true);
     }
 
     public void hideSoftKeyboard() {
@@ -257,7 +254,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (!isDestroyed()) {
-            tabsButton.updateTabCount();
+            tabsButton.updateTabCount(false);
         }
         return false;
     }
@@ -620,16 +617,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageRemoveFromReadingLists(@NonNull PageTitle title) {
-        if (!pageFragment.isAdded()) {
-            return;
-        }
-        FeedbackUtil.showMessage(this,
-                getString(R.string.reading_list_item_deleted, title.getDisplayText()));
-        pageFragment.updateBookmarkAndMenuOptionsFromDao();
-    }
-
-    @Override
     public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
         watchlistFunnel.logAddExpiry();
         pageFragment.updateWatchlist(expiry, false);
@@ -882,7 +869,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (!Prefs.isWatchlistPageOnboardingTooltipShown()) {
+        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
             overflowButton.postDelayed(() -> {
                 if (isDestroyed()) {
                     return;

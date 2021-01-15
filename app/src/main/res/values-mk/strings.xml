@@ -48,6 +48,8 @@
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
+  <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
+  <string name="menu_page_remove_from_watchlist">Отстрани набљудуваните</string>
   <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
@@ -184,6 +186,8 @@
   <string name="page_protected_can_not_edit">За жал, вашата сметка засега нема право да ја уредува страницава.</string>
   <string name="page_protected_can_not_edit_anon">За жал, страницава засега не може да се уредува анонимно.</string>
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај во набљудувани</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете што се случува со статиите кои ве интересираат. Допрете на расклопеното мени и изберете and select &lt;b&gt;Додај во набљудувани&lt;/b&gt; за да видите промени во статија.</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="about_description">За прилогот „Википедија“</string>
@@ -233,6 +237,7 @@
   <string name="find_previous">Најди претходно</string>
   <string name="find_first_occurence">Ова е првото јавување</string>
   <string name="find_last_occurence">Ова е последното јавување</string>
+  <string name="article_opened_in_background_tab">Статијата е отворена како заднинско јазиче.</string>
   <string name="abusefilter_title_warn">Ова уредување може да е неконструктивно. Дали сигурно сакате да го објавите?</string>
   <string name="abusefilter_title_disallow">Не можете да го објавите уредувањево. Вратете се и изменето го.</string>
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>
@@ -554,6 +559,7 @@
   <string name="notifications_view_archived_button_text">Погл. архивирани известувања</string>
   <string name="notification_preferences_title">Нагодувања на известувањата</string>
   <string name="notifications_mark_unread">Означи како непрочитано</string>
+  <string name="watchlist_title">Набљудувања</string>
   <string name="preference_title_notification_poll">Известувања за анкети</string>
   <string name="preference_summary_notification_poll">Дозволи му на прилогот да користи податоци за да проверува нови известувања во позадина.</string>
   <string name="preference_category_notification_types">Видови известувања во прилог</string>
@@ -928,6 +934,8 @@
   <string name="main_tooltip_text">Здраво, %s. Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="main_tooltip_text_v2">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="main_tooltip_action_button">Започнете</string>
+  <string name="main_tooltip_watchlist_title">Набљудувања</string>
+  <string name="main_tooltip_watchlist_text">Најдете статии и страници кои претходно сте ги ставиле во набљудуваните во мените Повеќе под &lt;b&gt;Набљудувани&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Откажи</string>
@@ -943,4 +951,24 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
+  <string name="go_to_user_page">Оди на корисничката страница</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 недела</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 месец</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеци</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и нејзината разговорна страница се отстранети од вашите набљудувања.</string>
+  <string name="watchlist_expiry_dialog_title">Изберете временски период на Набљудуваните</string>
+  <string name="watchlist_expiry_dialog_permanent">Трајно</string>
+  <string name="watchlist_expiry_dialog_one_week">1 недела</string>
+  <string name="watchlist_expiry_dialog_one_month">1 месец</string>
+  <string name="watchlist_expiry_dialog_three_months">3 месеци</string>
+  <string name="watchlist_expiry_dialog_six_months">6 месеци</string>
+  <string name="watchlist_empty">Немате ниедна статија во набљудуваните.</string>
+  <string name="watchlist_filter_all">Сите</string>
+  <string name="watchlist_filter_talk">Разговор</string>
+  <string name="watchlist_filter_pages">Страници</string>
+  <string name="watchlist_filter_other">Друго</string>
 </resources>

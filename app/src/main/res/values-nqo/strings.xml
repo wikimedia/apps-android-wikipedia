@@ -210,6 +210,7 @@
   <string name="edit_redo">ߊ߬ ߞߍ߫ ߕߎ߲߯</string>
   <string name="edit_zoom_in">ߊ߬ ߟߊߞߎ߲߬ߓߊ߬ߦߊ߫</string>
   <string name="edit_zoom_out">ߊ߬ ߟߊߡߛߐ߫</string>
+  <string name="edit_summary_tag_typo">ߛߓߍߟߌ ߞߍߢߊ ߛߊߞߍߟߌ</string>
   <string name="edit_summary_tag_grammar">ߞߊ߲ߜߍ ߘߐߓߍ߲߬</string>
   <string name="edit_summary_tag_links">ߛߘߌ߬ߜߋ߲ ߠߊߘߏ߲߬</string>
   <string name="edit_summary_tag_other">ߘߏ߫ ߜߘߍ߫</string>
@@ -478,6 +479,7 @@
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
+  <string name="watchlist_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="preference_title_notification_system">ߞߊ߲ߞߋ</string>
   <string name="preference_summary_notification_system">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߊ߲ߞߋ ߟߊ߫</string>
   <string name="preference_title_notification_milestone">ߛߊ߯ߘߊ߫ ߣߝߊ߬ߡߊ</string>

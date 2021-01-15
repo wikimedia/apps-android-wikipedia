@@ -9,6 +9,7 @@ import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.analytics.eventplatform.StreamConfig;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -23,6 +24,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -271,6 +273,11 @@ public final class Prefs {
 
     public static boolean getMediaWikiBaseUriSupportsLangCode() {
         return getBoolean(R.string.preference_key_mediawiki_base_uri_supports_lang_code, true);
+    }
+
+    @Nullable
+    public static String getEventPlatformIntakeUriOverride() {
+        return getString(R.string.preference_key_event_platform_intake_base_uri, null);
     }
 
     public static long getLastRunTime(@NonNull String task) {
@@ -948,6 +955,24 @@ public final class Prefs {
 
     public static void setShowSearchTabTooltip(boolean show) {
         setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
+    }
+
+    public static String getEventPlatformSessionId() {
+        return getString(R.string.preference_key_event_platform_session_id, null);
+    }
+
+    public static void setEventPlatformSessionId(@Nullable String sessionId) {
+        setString(R.string.preference_key_event_platform_session_id, sessionId);
+    }
+
+    public static Map<String, StreamConfig> getStreamConfigs() {
+        TypeToken<HashMap<String, StreamConfig>> streamConfigMapType = new TypeToken<HashMap<String, StreamConfig>>() {};
+        String streamConfigJson = getString(R.string.preference_key_event_platform_stored_stream_configs, "{}");
+        return (HashMap<String, StreamConfig>) GsonUnmarshaller.unmarshal(streamConfigMapType, streamConfigJson);
+    }
+
+    public static void setStreamConfigs(@NonNull Map<String, StreamConfig> streamConfigs) {
+        setString(R.string.preference_key_event_platform_stored_stream_configs, GsonMarshaller.marshal(streamConfigs));
     }
 
     public static void setLocalClassName(@Nullable String className) {

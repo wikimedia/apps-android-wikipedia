@@ -874,4 +874,5 @@
   <string name="text_input_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_cancel_button_text">إلغاء</string>
   <string name="custom_date_picker_dialog_cancel_button_text">إلغاء</string>
+  <string name="watchlist_expiry_dialog_three_months">3 أشهر</string>
 </resources>

@@ -72,6 +72,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.watchlist.WatchlistActivity;
 
@@ -116,6 +117,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
+        void updateTabCountsView();
         void updateToolbarElevation(boolean elevate);
     }
 
@@ -151,7 +153,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         });
 
         maybeShowEditsTooltip();
-        maybeShowWatchlistTooltip();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
@@ -177,6 +178,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        maybeShowWatchlistTooltip();
     }
 
     @Override public void onDestroyView() {
@@ -285,8 +287,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+    @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewBackgroundTab) {
+        if (openInNewBackgroundTab) {
+            TabUtil.openInNewBackgroundTab(entry);
+            FeedbackUtil.showMessage(this, R.string.article_opened_in_background_tab);
+            callback().updateTabCountsView();
+        } else {
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+        }
     }
 
     @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
@@ -310,16 +318,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedMovePageToList(long sourceReadingListId, HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), FEED));
-    }
-
-    @Override
-    public void onFeedRemovePageFromList(@NonNull HistoryEntry entry) {
-        FeedbackUtil.showMessage(requireActivity(),
-                getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-    }
-
-    @Override public void onFeedSharePage(HistoryEntry entry) {
-        ShareUtil.shareText(requireContext(), entry.getTitle());
     }
 
     @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
@@ -566,7 +564,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (Prefs.isWatchlistPageOnboardingTooltipShown() && !Prefs.isWatchlistMainOnboardingTooltipShown()) {
+        if (Prefs.isWatchlistPageOnboardingTooltipShown()
+                && !Prefs.isWatchlistMainOnboardingTooltipShown()
+                && AccountUtil.isLoggedIn()) {
             moreContainer.postDelayed(() -> {
                 if (!isAdded()) {
                     return;
