@@ -14,7 +14,6 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.DimenUtil
 
-
 class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
     interface Callback {

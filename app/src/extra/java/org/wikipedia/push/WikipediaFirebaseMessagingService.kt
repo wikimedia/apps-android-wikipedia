@@ -31,9 +31,9 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         }
 
         // The message could also contain a notification payload, but that's not how we're using it.
-        //remoteMessage.notification?.let {
+        // remoteMessage.notification?.let {
         //    ...
-        //}
+        // }
     }
 
     // Called when a token is first generated for the app, or when a token is revoked and
@@ -64,9 +64,9 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         private const val UNSUBSCRIBE_RETRY_COUNT = 3
 
         fun isUsingPush(): Boolean {
-            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS
-                    && Prefs.getPushNotificationToken().isNotEmpty()
-                    && Prefs.isPushNotificationTokenSubscribed()
+            return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS &&
+                    Prefs.getPushNotificationToken().isNotEmpty() &&
+                    Prefs.isPushNotificationTokenSubscribed()
         }
 
         fun updateSubscription() {

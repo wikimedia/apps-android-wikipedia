@@ -33,7 +33,7 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
     }
 
     private fun getLicenseTextRes(arg: String): Int =
-            when(arg) {
+            when (arg) {
                 ARG_NOTICE_ARTICLE_DESCRIPTION -> R.string.suggested_edits_license_notice
                 ARG_NOTICE_IMAGE_CAPTION -> R.string.suggested_edits_image_caption_license_notice
                 else -> R.string.description_edit_license_notice
