@@ -52,6 +52,10 @@ android {
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
     }
 
+    buildFeatures {
+        viewBinding true
+    }
+
     sourceSets {
 
         prod { java.srcDirs += 'src/extra/java' }
