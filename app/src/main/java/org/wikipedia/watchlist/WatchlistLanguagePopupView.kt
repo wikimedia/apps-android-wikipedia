@@ -12,8 +12,8 @@ import android.widget.*
 import androidx.core.widget.PopupWindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.view_watchlist_language_popup.view.*
 import kotlinx.android.synthetic.main.item_watchlist_language.view.*
+import kotlinx.android.synthetic.main.view_watchlist_language_popup.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs

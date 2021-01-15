@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
-import org.wikipedia.feed.mostread.MostReadArticles
 import org.wikipedia.util.ResourceUtil
 
 class GraphView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
@@ -47,7 +46,7 @@ class GraphView(context: Context, attributeSet: AttributeSet) : View(context, at
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldW: Int, oldH: Int) {
-        pathPaint.shader =  LinearGradient(0f, 0f, width.toFloat(), height.toFloat(),
+        pathPaint.shader = LinearGradient(0f, 0f, width.toFloat(), height.toFloat(),
                 intArrayOf(gradientColor1, gradientColor2),
                 floatArrayOf(0f, 1f), Shader.TileMode.MIRROR)
     }

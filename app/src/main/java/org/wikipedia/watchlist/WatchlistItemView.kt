@@ -3,13 +3,14 @@ package org.wikipedia.watchlist
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
-import org.wikipedia.R
-import org.wikipedia.dataclient.mwapi.MwQueryResult
 import kotlinx.android.synthetic.main.item_watchlist.view.*
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil

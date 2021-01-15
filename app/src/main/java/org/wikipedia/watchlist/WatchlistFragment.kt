@@ -134,7 +134,6 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                     L.e(t)
                     onError(t)
                 }))
-
     }
 
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
@@ -157,10 +156,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         var curDay = -1
 
         for (item in watchlistItems) {
-            if ((filterMode == FILTER_MODE_ALL)
-                    || (filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main())
-                    || (filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk())
-                    || (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
+            if ((filterMode == FILTER_MODE_ALL) ||
+                    (filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
+                    (filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
+                    (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
 
                 calendar.time = item.date
                 if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {

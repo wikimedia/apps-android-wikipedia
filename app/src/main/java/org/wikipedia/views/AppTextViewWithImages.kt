@@ -57,7 +57,7 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
      * @param drawableId    A drawable resource Id.
      * @param size          The desired size (i.e. width and height) of the image icon in pixels.
      * @param color         The color to apply to the image.
-     * @return  A single-length ImageSpan that can be swapped into a CharSequence to replace a
+     * @return A single-length ImageSpan that can be swapped into a CharSequence to replace a
      * placeholder.
      */
     @VisibleForTesting
@@ -105,6 +105,5 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
             drawable.draw(canvas)
             canvas.restore()
         }
-
     }
 }

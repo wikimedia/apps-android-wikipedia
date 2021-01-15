@@ -23,7 +23,6 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
     val isShowing: Boolean
         get() = visibility == VISIBLE
 
-
     fun show() {
         visibility = VISIBLE
     }
@@ -76,5 +75,4 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 15
     }
-
 }

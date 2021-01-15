@@ -66,8 +66,8 @@ object EditingSuggestionsProvider {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             val targetWiki = WikiSite.forLanguageCode(targetLang)
             var cachedPair: Pair<PageTitle, PageTitle>? = null
-            if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode()
-                    || articlesWithTranslatableDescriptionCacheToLang != targetLang) {
+            if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode() ||
+                    articlesWithTranslatableDescriptionCacheToLang != targetLang) {
                 // evict the cache if the language has changed.
                 articlesWithTranslatableDescriptionCache.clear()
             }
@@ -85,11 +85,11 @@ object EditingSuggestionsProvider {
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
                                 val entity = page.entity
-                                if (entity == null
-                                        || entity.descriptions().containsKey(targetLang)
-                                        || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
-                                        || !entity.sitelinks().containsKey(sourceWiki.dbName())
-                                        || !entity.sitelinks().containsKey(targetWiki.dbName())) {
+                                if (entity == null ||
+                                        entity.descriptions().containsKey(targetLang) ||
+                                        sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode()) ||
+                                        !entity.sitelinks().containsKey(sourceWiki.dbName()) ||
+                                        !entity.sitelinks().containsKey(targetWiki.dbName())) {
                                     continue
                                 }
                                 val sourceTitle = PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)
@@ -157,8 +157,8 @@ object EditingSuggestionsProvider {
     fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<Pair<String, String>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedPair: Pair<String, String>? = null
-            if (imagesWithTranslatableCaptionCacheFromLang != sourceLang
-                    || imagesWithTranslatableCaptionCacheToLang != targetLang) {
+            if (imagesWithTranslatableCaptionCacheFromLang != sourceLang ||
+                    imagesWithTranslatableCaptionCacheToLang != targetLang) {
                 // evict the cache if the language has changed.
                 imagesWithTranslatableCaptionCache.clear()
             }
