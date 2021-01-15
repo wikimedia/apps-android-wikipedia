@@ -241,8 +241,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_show_overflow_menu)
     public void onShowOverflowMenuButtonClicked() {
-        if (watchlistTooltip != null) {
+        if (watchlistTooltip != null && watchlistTooltip.isShowing()) {
             watchlistTooltip.dismiss();
+            watchlistTooltip = null;
         }
         showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
     }
