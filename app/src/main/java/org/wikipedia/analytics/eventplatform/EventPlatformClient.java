@@ -168,7 +168,7 @@ public final class EventPlatformClient {
 
         private static final int MAX_QUEUE_SIZE = 128;
 
-        private static final Timer TIMER = new Timer();
+        private static Timer TIMER = new Timer();
 
         private static class SendOnTimerTask extends TimerTask {
             public void run() {
@@ -201,6 +201,7 @@ public final class EventPlatformClient {
                 } else {
                     //The arrival of a new item interrupts the timer and resets the countdown.
                     TIMER.cancel();
+                    TIMER = new Timer();
                     TIMER.schedule(new SendOnTimerTask(), WAIT_MS);
                 }
             }
