@@ -20,25 +20,13 @@ class SamplingConfig {
         @SerializedName("device") DEVICE
     }
 
-    @NonNull private final Double rate;
-    @NonNull private final Identifier identifier;
+    private double rate = 1.0;
+    @Nullable private Identifier identifier;
 
     // This constructor is needed for correct Gson deserialization. Do not remove!
-    SamplingConfig() {
-        this(null);
-    }
+    SamplingConfig() { }
 
-    @VisibleForTesting SamplingConfig(@Nullable Double rate) {
-        this(rate, null);
-    }
-
-    @VisibleForTesting SamplingConfig(@Nullable Double rate, @Nullable Identifier identifier) {
-        if (rate == null) {
-            rate = 1.0;
-        }
-        if (identifier == null) {
-            identifier = Identifier.SESSION;
-        }
+    @VisibleForTesting SamplingConfig(double rate, @Nullable Identifier identifier) {
         this.rate = rate;
         this.identifier = identifier;
     }
@@ -48,7 +36,7 @@ class SamplingConfig {
     }
 
     @NonNull public Identifier getIdentifier() {
-        return identifier;
+        return identifier != null ? identifier : Identifier.SESSION;
     }
 
 }

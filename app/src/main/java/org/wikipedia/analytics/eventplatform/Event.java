@@ -5,6 +5,10 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
+import static org.wikipedia.util.DateUtil.iso8601DateFormat;
+
 /**
  * Base class for an Event Platform event.
  *s
@@ -20,25 +24,14 @@ public class Event {
     @SerializedName("app_session_id") @Nullable private String sessionId;
     @SerializedName("app_install_id") @Nullable private String appInstallId;
 
-    public Event(@NonNull String schema) {
-        this(schema, null);
-    }
-
     public Event(@NonNull String schema, @NonNull String stream) {
         this.schema = schema;
         this.metadata = new Metadata(stream);
+        this.timestamp = iso8601DateFormat(new Date());
     }
 
     @NonNull public String getStream() {
         return metadata.getStream();
-    }
-
-    @Nullable public String getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(@NonNull String timestamp) {
-        this.timestamp = timestamp;
     }
 
     public void setSessionId(@NonNull String sessionId) {

@@ -9,7 +9,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +29,6 @@ import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DE
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
 import static org.wikipedia.settings.Prefs.isEventLoggingEnabled;
-import static org.wikipedia.util.DateUtil.iso8601DateFormat;
 
 public final class EventPlatformClient {
 
@@ -140,9 +138,6 @@ public final class EventPlatformClient {
      * @param event event
      */
     static void addEventMetadata(Event event) {
-        if (event.getTimestamp() == null) {
-            event.setTimestamp(iso8601DateFormat(new Date()));
-        }
         event.setSessionId(AssociationController.getSessionId());
         event.setAppInstallId(Prefs.getAppInstallId());
     }
