@@ -314,7 +314,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith{ o2, o1 -> (o1.date.compareTo(o2.date)) }
+        sortedContributions.sortWith { o2, o1 -> (o1.date.compareTo(o2.date)) }
 
         if (!sortedContributions.isNullOrEmpty()) {
             var currentDate = sortedContributions[0].date
@@ -346,7 +346,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun deCommentString(str: String): String {
         return if (str.length < 4) str else str.substring(2, str.length - 2).trim()
     }
-    
+
     @Suppress("SameParameterValue")
     private fun extractDescriptionFromComment(editComment: String, metaComment: String): String {
         var outStr = editComment.replace(metaComment, "")

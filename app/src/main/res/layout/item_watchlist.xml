@@ -72,7 +72,7 @@
             android:textStyle="bold"
             tools:text="zh-hant" />
 
-        <TextView
+        <org.wikipedia.views.GoneIfEmptyTextView
             android:id="@+id/summaryText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="6dp"
             android:textSize="16sp"
-            android:lineSpacingExtra="8sp"
+            android:lineSpacingExtra="4sp"
             android:maxLines="4"
             android:ellipsize="end"
             android:textColor="?attr/material_theme_secondary_color"
@@ -123,7 +123,7 @@
             android:textAlignment="viewStart"
             android:maxLines="1"
             android:ellipsize="end"
-            app:icon="@drawable/ic_baseline_person_24"
+            app:icon="@drawable/ic_user_talk"
             app:iconSize="20dp"
             app:iconPadding="8dp"
             app:iconTint="?attr/material_theme_secondary_color"

@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_contributions_header.view.*
 import org.wikipedia.R
+import org.wikipedia.suggestededits.SuggestedEditsTypeItemView
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.suggestededits.SuggestedEditsTypeItemView
 
 class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), SuggestedEditsTypeItemView.Callback {
 

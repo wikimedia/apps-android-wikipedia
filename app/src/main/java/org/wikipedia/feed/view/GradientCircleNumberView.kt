@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.view_gradient_circle_number.view.*
 import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil
 
-
 internal class GradientCircleNumberView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     private val gradientColor1 = ResourceUtil.getThemedColor(context, R.attr.colorAccent)

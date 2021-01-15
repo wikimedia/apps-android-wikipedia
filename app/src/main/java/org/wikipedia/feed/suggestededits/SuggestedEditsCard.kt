@@ -6,7 +6,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.L10nUtil
 
 class SuggestedEditsCard(
         wiki: WikiSite,

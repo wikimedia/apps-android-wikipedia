@@ -109,7 +109,7 @@ class FilePageFragment : Fragment() {
                 .flatMap {
                     page = it.query()!!.pages()!![0]
                     val imageInfo = page.imageInfo()!!
-                    pageSummaryForEdit =  PageSummaryForEdit(
+                    pageSummaryForEdit = PageSummaryForEdit(
                             pageTitle.prefixedText,
                             pageTitle.wikiSite.languageCode(),
                             pageTitle,

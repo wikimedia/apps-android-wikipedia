@@ -21,7 +21,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar.Companion.MIN_PROGRESS
 import java.util.*
 
-
 object ReadingListBehaviorsUtil {
 
     interface SearchCallback {
@@ -201,7 +200,7 @@ object ReadingListBehaviorsUtil {
         }
         if (page.offline()) {
             scope.launch(exceptionHandler) {
-                val pages = withContext(dispatcher) { ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(page))}
+                val pages = withContext(dispatcher) { ReadingListDbHelper.instance().getAllPageOccurrences(ReadingListPage.toPageTitle(page)) }
                 val lists = withContext(dispatcher) { ReadingListDbHelper.instance().getListsFromPageOccurrences(pages) }
                 if (lists.size > 1) {
                     val dialog = AlertDialog.Builder(activity)
@@ -247,7 +246,6 @@ object ReadingListBehaviorsUtil {
                         .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id()) }.show()
                 callback?.onCompleted()
             }
-
         }
     }
 

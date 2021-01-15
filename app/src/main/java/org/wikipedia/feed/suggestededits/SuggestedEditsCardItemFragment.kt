@@ -200,7 +200,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
             ADD_IMAGE_TAGS -> showImageTagsUI()
             else -> showAddDescriptionUI()
         }
-
     }
 
     private fun addDescription() {
