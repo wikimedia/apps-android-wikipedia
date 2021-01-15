@@ -78,7 +78,12 @@
         <item name="color_group_59">@color/base30</item>
         <item name="color_group_60">@color/base80</item>
         <item name="color_group_61">@color/black26</item>
+        <item name="color_group_62">@color/osage</item>
         <item name="color_group_63">@color/black54</item>
+        <item name="color_group_64">@color/base10</item>
+        <item name="color_group_65">@color/base10</item>
+        <item name="edit_green_highlight">@color/green90 </item>
+        <item name="edit_red_highlight">@color/red90</item>
         <item name="action_mode_green_background">@color/green50</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
