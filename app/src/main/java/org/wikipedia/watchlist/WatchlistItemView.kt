@@ -50,7 +50,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         timeText.text = DateUtil.getTimeString(item.date)
         userNameText.text = item.user
 
-        userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_baseline_person_24)
+        userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_talk)
 
         val diffByteCount = item.newlen - item.oldlen
         if (diffByteCount >= 0) {
