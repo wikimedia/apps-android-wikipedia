@@ -6,6 +6,9 @@ import androidx.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Collections;
 import java.util.List;
 
 public class StreamConfig {
@@ -23,14 +26,6 @@ public class StreamConfig {
     @SerializedName("destination_event_service") @Nullable private DestinationEventService destinationEventService;
 
     @SerializedName("sampling") @Nullable private SamplingConfig samplingConfig;
-
-    @VisibleForTesting StreamConfig(@NonNull String streamName) {
-        this(streamName, null);
-    }
-
-    @VisibleForTesting StreamConfig(@NonNull String streamName, @Nullable SamplingConfig samplingConfig) {
-        this(streamName, samplingConfig, null);
-    }
 
     /**
      * Constructor for testing.
@@ -50,28 +45,28 @@ public class StreamConfig {
         this.destinationEventService = destinationEventService;
     }
 
-    @Nullable public String getStreamName() {
-        return streamName;
+    @NonNull public String getStreamName() {
+        return StringUtils.defaultString(streamName);
     }
 
-    @Nullable public String getSchemaTitle() {
-        return schemaTitle;
+    @NonNull public String getSchemaTitle() {
+        return StringUtils.defaultString(schemaTitle);
     }
 
-    @Nullable public List<String> getTopicPrefixes() {
-        return topicPrefixes;
+    @NonNull public List<String> getTopicPrefixes() {
+        return topicPrefixes != null ? topicPrefixes : Collections.emptyList();
     }
 
-    @Nullable public List<String> getTopics() {
-        return topics;
+    @NonNull public List<String> getTopics() {
+        return topics != null ? topics : Collections.emptyList();
     }
 
     public boolean areCanaryEventsEnabled() {
         return canaryEventsEnabled;
     }
 
-    @Nullable public DestinationEventService getDestinationEventService() {
-        return destinationEventService;
+    @NonNull public DestinationEventService getDestinationEventService() {
+        return destinationEventService != null ? destinationEventService : DestinationEventService.ANALYTICS;
     }
 
     @Nullable public SamplingConfig getSamplingConfig() {
