@@ -14,8 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -168,16 +166,10 @@ public final class EventPlatformClient {
 
         private static final int MAX_QUEUE_SIZE = 128;
 
-        private static Timer TIMER = new Timer();
-
-        private static class SendOnTimerTask extends TimerTask {
-            public void run() {
-                sendAllScheduled();
-            }
-        }
+        private static final Runnable SEND_RUNNABLE = OutputBuffer::sendAllScheduled;
 
         static synchronized void sendAllScheduled() {
-            TIMER.cancel();
+            WikipediaApp.getInstance().getMainThreadHandler().removeCallbacks(SEND_RUNNABLE);
 
             if (ENABLED) {
                 send();
@@ -200,9 +192,8 @@ public final class EventPlatformClient {
                     sendAllScheduled();
                 } else {
                     //The arrival of a new item interrupts the timer and resets the countdown.
-                    TIMER.cancel();
-                    TIMER = new Timer();
-                    TIMER.schedule(new SendOnTimerTask(), WAIT_MS);
+                    WikipediaApp.getInstance().getMainThreadHandler().removeCallbacks(SEND_RUNNABLE);
+                    WikipediaApp.getInstance().getMainThreadHandler().postDelayed(SEND_RUNNABLE, WAIT_MS);
                 }
             }
         }
