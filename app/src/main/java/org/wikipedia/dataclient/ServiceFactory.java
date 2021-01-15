@@ -69,9 +69,6 @@ public final class ServiceFactory {
 
     public static EventService getAnalyticsRest(@NonNull StreamConfig streamConfig) {
         DestinationEventService destinationEventService = streamConfig.getDestinationEventService();
-        if (destinationEventService == null) {
-            destinationEventService = DestinationEventService.ANALYTICS;
-        }
         if (ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId()) != null) {
             return ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId());
         }
