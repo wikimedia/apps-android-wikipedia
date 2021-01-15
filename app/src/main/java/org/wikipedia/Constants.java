@@ -49,10 +49,6 @@ public final class Constants {
     public static final String INTENT_EXTRA_INVOKE_SOURCE = "invokeSource";
     public static final String INTENT_EXTRA_ACTION = "intentAction";
     public static final String INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim";
-    public static final String INTENT_EXTRA_ARTICLE_TITLE = "articleTitle";
-    public static final String INTENT_EXTRA_EDIT_REVISION_ID = "revisionId";
-    public static final String INTENT_EXTRA_EDIT_LANGUAGE_CODE = "languageCode";
-    public static final String INTENT_EXTRA_EDIT_SIZE = "diffSize";
 
 
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
