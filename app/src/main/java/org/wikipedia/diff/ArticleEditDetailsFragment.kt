@@ -225,7 +225,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         } else {
                             watchlistFunnel.logAddSuccess()
                         }
-                        
+
                         showWatchlistSnackbar(expiry, firstWatch)
                     }
                 }) { t: Throwable? ->
