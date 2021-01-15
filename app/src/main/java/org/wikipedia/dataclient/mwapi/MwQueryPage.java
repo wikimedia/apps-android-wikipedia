@@ -177,11 +177,25 @@ public class MwQueryPage extends BaseModel {
         @Nullable private String comment;
         @Nullable private Map<String, RevisionSlot> slots;
 
+        @NonNull public String getComment() {
+            return StringUtils.defaultString(comment);
+        }
+
         public long getRevId() {
             return revid;
         }
 
-        @NonNull public String content() {
+        public long getParentRevId() {
+            return parentid;
+        }
+
+        @Nullable
+        public String getUser() {
+            return user;
+        }
+
+        @NonNull
+        public String content() {
             return StringUtils.defaultString(content);
         }
 
