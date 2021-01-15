@@ -1,7 +1,9 @@
 package org.wikipedia.analytics.eventplatform;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,10 +19,10 @@ import java.util.List;
 public class EventServiceResponse {
     @Nullable private List<Object> invalid;
     @Nullable private List<Object> error;
-    @Nullable public List<Object> getInvalidEvents() {
-        return invalid;
+    @NonNull public List<Object> getInvalidEvents() {
+        return invalid != null ? invalid : Collections.emptyList();
     }
-    @Nullable public List<Object> getErrorEvents() {
-        return error;
+    @NonNull public List<Object> getErrorEvents() {
+        return error != null ? error : Collections.emptyList();
     }
 }

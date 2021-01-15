@@ -12,7 +12,6 @@ import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.microsoft.appcenter.AppCenter;
@@ -72,7 +71,6 @@ import static org.wikipedia.util.ReleaseUtil.getChannel;
 public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<>());
-    private EventPlatformClient eventPlatformClient;
     private Handler mainThreadHandler;
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
@@ -115,10 +113,6 @@ public class WikipediaApp extends Application {
 
     public RemoteConfig getRemoteConfig() {
         return remoteConfig;
-    }
-
-    public EventPlatformClient getEventPlatformClient() {
-        return eventPlatformClient;
     }
 
     /**
@@ -465,10 +459,5 @@ public class WikipediaApp extends Application {
 
     public boolean isAnyActivityResumed() {
         return activityLifecycleHandler.isAnyActivityResumed();
-    }
-
-    @VisibleForTesting
-    public void setEventPlatformClient(@NonNull EventPlatformClient eventPlatformClient) {
-        this.eventPlatformClient = eventPlatformClient;
     }
 }

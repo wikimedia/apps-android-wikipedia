@@ -1,21 +1,17 @@
 package org.wikipedia.crash
 
 import android.content.Intent
-
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import com.microsoft.appcenter.crashes.AbstractCrashesListener
+import com.microsoft.appcenter.crashes.Crashes
 import com.microsoft.appcenter.crashes.ingestion.models.ErrorAttachmentLog
 import com.microsoft.appcenter.crashes.model.ErrorReport
-
 import org.wikipedia.WikipediaApp
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
-
-import java.util.HashMap
-
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import com.microsoft.appcenter.crashes.Crashes
+import java.util.*
 
 class AppCenterCrashesListener : AbstractCrashesListener(), Thread.UncaughtExceptionHandler {
     private val props = HashMap<String, String>()

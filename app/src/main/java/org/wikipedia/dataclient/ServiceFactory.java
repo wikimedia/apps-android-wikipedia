@@ -69,22 +69,14 @@ public final class ServiceFactory {
 
     public static EventService getAnalyticsRest(@NonNull StreamConfig streamConfig) {
         DestinationEventService destinationEventService = streamConfig.getDestinationEventService();
-        if (destinationEventService == null) {
-            destinationEventService = DestinationEventService.ANALYTICS;
-        }
-
-        EventService s;
         if (ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId()) != null) {
-            s = ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId());
-            if (s != null) {
-                return s;
-            }
+            return ANALYTICS_REST_SERVICE_CACHE.get(destinationEventService.getId());
         }
 
         String intakeBaseUriOverride = getEventPlatformIntakeUriOverride();
 
         Retrofit r = createRetrofit(null, StringUtils.defaultString(intakeBaseUriOverride, destinationEventService.getBaseUri()));
-        s = r.create(EventService.class);
+        EventService s = r.create(EventService.class);
         ANALYTICS_REST_SERVICE_CACHE.put(destinationEventService.getId(), s);
         return s;
     }

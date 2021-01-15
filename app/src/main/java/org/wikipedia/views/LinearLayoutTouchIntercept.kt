@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.widget.LinearLayout
 
-class LinearLayoutTouchIntercept @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
-    : LinearLayout(context, attrs, defStyleAttr) {
+class LinearLayoutTouchIntercept @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+        LinearLayout(context, attrs, defStyleAttr) {
     private var onInterceptTouchListener: OnTouchListener? = null
 
     fun setOnInterceptTouchListener(listener: OnTouchListener?) {
