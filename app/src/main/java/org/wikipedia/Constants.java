@@ -50,6 +50,7 @@ public final class Constants {
     public static final String INTENT_EXTRA_ACTION = "intentAction";
     public static final String INTENT_EXTRA_HAS_TRANSITION_ANIM = "hasTransitionAnim";
 
+
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
     public static final int API_QUERY_MAX_TITLES = 50;
 

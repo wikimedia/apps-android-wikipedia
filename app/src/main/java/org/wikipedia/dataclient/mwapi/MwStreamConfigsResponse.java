@@ -1,17 +1,19 @@
 package org.wikipedia.dataclient.mwapi;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.analytics.eventplatform.StreamConfig;
 
+import java.util.Collections;
 import java.util.Map;
 
 public class MwStreamConfigsResponse extends MwResponse {
 
-    @NonNull private Map<String, StreamConfig> streams;
+    @Nullable private Map<String, StreamConfig> streams;
 
     @NonNull public Map<String, StreamConfig> getStreamConfigs() {
-        return streams;
+        return streams != null ? streams : Collections.emptyMap();
     }
 
 }

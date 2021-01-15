@@ -85,8 +85,12 @@
         <item name="color_group_59">@color/base50</item>
         <item name="color_group_60">@color/base20</item>
         <item name="color_group_61">@color/base30</item>
+        <item name="color_group_62">@color/osage</item>
         <item name="color_group_63">@color/white50</item>
-
+        <item name="color_group_64">@color/green50</item>
+        <item name="color_group_65">@color/red75</item>
+        <item name="edit_green_highlight">@android:color/transparent</item>
+        <item name="edit_red_highlight">@android:color/transparent</item>
     </style>
 
     <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">
