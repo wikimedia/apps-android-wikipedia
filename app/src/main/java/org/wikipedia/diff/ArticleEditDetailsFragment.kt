@@ -108,9 +108,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         }
         watchButton.setOnClickListener {
             if (isWatched) {
-                watchlistFunnel.logRemoveArticle();
+                watchlistFunnel.logRemoveArticle()
             } else {
-                watchlistFunnel.logAddArticle();
+                watchlistFunnel.logAddArticle()
             }
             watchButton.isCheckable = false
             watchOrUnwatchTitle(watchlistExpirySession, isWatched)
@@ -220,9 +220,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         watchlistExpiryChanged = false
                     }
                     if (unwatch) {
-                        watchlistFunnel.logRemoveSuccess();
+                        watchlistFunnel.logRemoveSuccess()
                     } else {
-                        watchlistFunnel.logAddSuccess();
+                        watchlistFunnel.logAddSuccess()
                     }
                     showWatchlistSnackbar(expiry, firstWatch)
                 }) { t: Throwable? ->
@@ -414,7 +414,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
-        watchlistFunnel.logAddExpiry();
+        watchlistFunnel.logAddExpiry()
         watchOrUnwatchTitle(expiry, false)
         bottomSheetPresenter.dismiss(childFragmentManager)
     }
