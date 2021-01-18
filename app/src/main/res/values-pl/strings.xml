@@ -897,7 +897,9 @@
   <string name="talk_message_hint">Utwórz wiadomość</string>
   <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
+  <string name="watchlist_details_watch_label">Obserwuj</string>
   <string name="go_to_user_page">Przejdź do strony użytkownika</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmień</string>
   <string name="watchlist_expiry_dialog_one_week">1 tydzień</string>
   <string name="watchlist_expiry_dialog_one_month">1 miesiąc</string>
   <string name="watchlist_expiry_dialog_three_months">3 miesiące</string>
