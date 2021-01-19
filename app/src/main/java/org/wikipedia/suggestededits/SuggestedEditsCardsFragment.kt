@@ -206,6 +206,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         disposables.clear()
         binding.cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
         binding.cardsViewPager.adapter = null
+        _binding = null
         super.onDestroyView()
     }
 
