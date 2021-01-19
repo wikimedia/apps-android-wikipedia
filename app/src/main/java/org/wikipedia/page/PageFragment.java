@@ -1092,6 +1092,20 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
             bridge.onPcsReady();
             callback().onPageLoadComplete();
+
+            // do we have a URL fragment to scroll to?
+            if (model.getTitle() != null && !TextUtils.isEmpty(model.getTitle().getFragment())
+                    && scrollTriggerListener.getStagedScrollY() == 0) {
+                final int scrollDelay = 100;
+                webView.postDelayed(() -> {
+                    if (!isAdded()) {
+                        return;
+                    }
+                    if (model.getTitle() != null && !TextUtils.isEmpty(model.getTitle().getFragment())) {
+                        scrollToSection(model.getTitle().getFragment());
+                    }
+                }, scrollDelay);
+            }
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
@@ -1500,6 +1514,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         void setStagedScrollY(int stagedScrollY) {
             this.stagedScrollY = stagedScrollY;
+        }
+
+        int getStagedScrollY() {
+            return stagedScrollY;
         }
 
         @Override

@@ -66,7 +66,7 @@ public class PageTitle implements Parcelable {
     //       are broken.
     @Nullable private final String namespace;
     @NonNull private String text;
-    @Nullable private final String fragment;
+    @Nullable private String fragment;
     @Nullable private String thumbUrl;
     @SerializedName("site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
@@ -200,6 +200,10 @@ public class PageTitle implements Parcelable {
 
     @Nullable public String getFragment() {
         return fragment;
+    }
+
+    public void setFragment(@Nullable String fragment) {
+        this.fragment = fragment;
     }
 
     @Nullable public String getThumbUrl() {
