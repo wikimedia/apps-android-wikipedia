@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -256,18 +257,14 @@ public class PageTitle implements Parcelable {
         return getUriForDomain(getWikiSite().authority().replace(".wikipedia.org", ".m.wikipedia.org"));
     }
 
-    public String getUriForAction(String action) {
-        try {
-            return String.format(
-                    "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
-                    getWikiSite().scheme(),
-                    getWikiSite().authority(),
-                    URLEncoder.encode(getPrefixedText(), "utf-8"),
-                    action
-            );
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+    public String getWebApiUrl(String fragment) {
+        return String.format(
+                "%1$s://%2$s/w/index.php?title=%3$s&%4$s",
+                getWikiSite().scheme(),
+                getWikiSite().authority(),
+                UriUtil.encodeURL(getPrefixedText()),
+                fragment
+        );
     }
 
     public String getPrefixedText() {
