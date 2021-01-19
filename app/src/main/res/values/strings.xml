@@ -1026,8 +1026,6 @@
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
-    <string name="user_contributions_url">https://en.wikipedia.org/wiki/Special:Contributions/%s</string>
-    <string name="user_profile_url">https://en.wikipedia.org/wiki/User:%s</string>
     <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
     <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
