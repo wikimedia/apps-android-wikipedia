@@ -189,9 +189,9 @@ public class MwQueryPage extends BaseModel {
             return parentid;
         }
 
-        @Nullable
+        @NonNull
         public String getUser() {
-            return user;
+            return StringUtils.defaultString(user);
         }
 
         @NonNull

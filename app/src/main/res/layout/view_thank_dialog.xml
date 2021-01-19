@@ -18,7 +18,7 @@
         android:layout_marginTop="16dp"
         android:letterSpacing="0.01"
         android:lineSpacingExtra="8sp"
-        android:text="Publicly send \'Thanks\'"
+        android:text="@strings/thank_dialog_title"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="20sp"
         android:textStyle="bold" />

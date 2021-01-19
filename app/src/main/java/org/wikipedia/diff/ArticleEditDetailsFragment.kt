@@ -19,7 +19,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.load.Key.CHARSET
 import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -51,6 +50,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
+import java.nio.charset.StandardCharsets
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private lateinit var articlePageTitle: PageTitle
@@ -338,12 +338,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         spannableText.setSpan(if (isAddition) foregroundAddedColor else foregroundRemovedColor, start, end, 0)
     }
 
-    private fun getByteInCharacters(diffText: String?, byteLength: Int, start: Int): Int {
+    private fun getByteInCharacters(diffText: String, byteLength: Int, start: Int): Int {
         var charCount = 0
         var bytes = byteLength
 
-        for (pos in start until diffText!!.length - 1) {
-            val idBytes = diffText[pos].toString().toByteArray(CHARSET).size
+        for (pos in start until diffText.length - 1) {
+            val idBytes = diffText[pos].toString().toByteArray(StandardCharsets.UTF_8).size
             charCount++
             bytes -= idBytes
             if (bytes <= 0) {
