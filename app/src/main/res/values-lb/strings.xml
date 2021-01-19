@@ -684,7 +684,11 @@
   <string name="talk_add_reply">Äntweren</string>
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
+  <string name="watchlist_details_watch_label">Iwwerwaachen</string>
+  <string name="user_profile_url">https://lb.wikipedia.org/wiki/User:%s</string>
   <string name="go_to_user_page">Op d\'Benotzersäit goen</string>
+  <string name="thank_dialog_positive_button_text">MERCI SCHECKEN</string>
+  <string name="thank_dialog_negative_button_text">OFBRIECHEN</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>

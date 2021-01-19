@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Eafoð
 * Salvemm el lombard
 -->
 <resources>
@@ -43,6 +44,8 @@
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lengua</string>
   <string name="menu_page_find_in_page">Troeuva ind la vos</string>
+  <string name="menu_page_add_to_watchlist">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
+  <string name="menu_page_remove_from_watchlist">Toeu via de la lista di pagine che te tegnet d\'oeugg</string>
   <string name="edit_section_find_in_page">Troeuva ind la pagina</string>
   <string name="menu_page_font_and_theme">Carater e tema</string>
   <string name="menu_page_add_to_list">Sgionta a la lista di robe de leger</string>
@@ -148,7 +151,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Sgionta on adress de posta eletronica</string>
   <string name="create_account_button">Crea un cunt</string>
   <string name="create_account_name_unavailable">\"%s\" come nom de l\'utent a l\'è minga disponibil. Per piesè, catenn foeura un\'alter.</string>
-  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, al moment, a l\'è blocad e te podet creà no di noeuv cunt.</string>
+  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, adesedess, a l\'è blocad e te podet creà no di noeuv cunt.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">General</string>
@@ -178,6 +181,7 @@
   <string name="page_protected_can_not_edit">El ne rincress, el to cunt el gh\'hà minga assée de privilensg de modificà quela pagina chì adess.</string>
   <string name="page_protected_can_not_edit_anon">El ne rincress, quela pagina chì la po vesser minga modifigada di utent anonim in \'sto moment.</string>
   <string name="page_protected_can_not_edit_title">Quela pagina chì l\'è protesgiuda</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
   <string name="settings_item_preferences">Impostazzion</string>
   <string name="settings_activity_title">Impostazzion</string>
   <string name="about_description">Informazzion sora l\'app de Wikipedia</string>
@@ -243,6 +247,10 @@
   <string name="notifications_mark_unread">Insegna come nananmò leggiud</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_title_notification_system">Sistema</string>
-  <string name="feed_accessibility_card_load_more_button">Carega pussée</string>
+  <string name="feed_accessibility_card_load_more_button">Caregenn anmò</string>
   <string name="suggested_edits_my_contributions">I me contrbuzzion</string>
+  <string name="menu_option_share_edit">Scompartiss modifega</string>
+  <string name="watchlist_details_watch_label">Varda</string>
+  <string name="thank_label">Grazzia</string>
+  <string name="thank_dialog_positive_button_text">RENGRAZZIA</string>
 </resources>
