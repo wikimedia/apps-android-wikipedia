@@ -142,20 +142,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun fetchEditDetails() {
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
-                    isWatched = w.query()!!.firstPage()!!.isWatched
-                    if (r.query() == null || r.query()!!.firstPage() == null) {
-                        throw RuntimeException("Received empty response page: " + GsonUtil.getDefaultGson().toJson(r))
-                    }
-                    val firstPage = r.query()!!.firstPage()!!
-                    currentRevision = firstPage.revisions()[0]
-                    username = currentRevision!!.user
-                    newerRevisionId = if (firstPage.revisions().size < 2) {
-                        -1
-                    } else {
-                        firstPage.revisions()[1].revId
-                    }
-                    olderRevisionId = currentRevision!!.parentRevId
-                })
+            isWatched = w.query()!!.firstPage()!!.isWatched
+            if (r.query() == null || r.query()!!.firstPage() == null) {
+                throw RuntimeException("Received empty response page: " + GsonUtil.getDefaultGson().toJson(r))
+            }
+            val firstPage = r.query()!!.firstPage()!!
+            currentRevision = firstPage.revisions()[0]
+            username = currentRevision!!.user
+            newerRevisionId = if (firstPage.revisions().size < 2) {
+                -1
+            } else {
+                firstPage.revisions()[1].revId
+            }
+            olderRevisionId = currentRevision!!.parentRevId
+        })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -305,10 +305,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 }
                 DIFF_TYPE_LINE_WITH_DIFF -> {
                     for (highlightRange in diff.highlightRanges) {
-                        val highlightRangeStart = if (languageCode == "en") highlightRange.start
-                        else getByteInCharacters(diff.text, highlightRange.start, 0)
-                        val highlightRangeLength = if (languageCode == "en") highlightRange.length
-                        else getByteInCharacters(diff.text, highlightRange.length, highlightRangeStart)
+                        val highlightRangeStart = getByteInCharacters(diff.text, highlightRange.start, 0)
+                        val highlightRangeLength = getByteInCharacters(diff.text, highlightRange.length, highlightRangeStart)
 
                         if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
                             updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
