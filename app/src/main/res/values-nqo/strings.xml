@@ -48,6 +48,8 @@
   <string name="menu_page_show_tabs">ߘߎ߲ߛߓߍ ߟߎ߬ ߦߌ߬ߘߊ߬</string>
   <string name="menu_page_other_languages">ߞߊ߲ ߡߊߝߊ߬ߟߋ߲߬</string>
   <string name="menu_page_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߎߡߘߊ ߘߐ߫</string>
+  <string name="menu_page_add_to_watchlist">ߊ߬ ߟߊߘߏ߲߬ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="menu_page_remove_from_watchlist">ߊ߬ ߛߋ߲߬ߓߐ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="edit_section_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
   <string name="menu_page_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="menu_page_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
@@ -174,6 +176,7 @@
   <string name="page_protected_can_not_edit">ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߘߐߥߛߊ߬ߣߍ߲߬ ߕߍ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߞߐߜߍ ߣߌ߲߬ ߡߊߦߟߍ߬ߡߊ߲߬.</string>
   <string name="page_protected_can_not_edit_anon">ߤߊߞߍ߬ߕߏ߫߸ ߞߐߜߍ ߣߌ߲߬ ߕߴߛߋ߫ ߡߊߦߟߍ߬ߡߊ߲߬ ߠߊ߫ ߕߐ߯ߒߕߊ߲ߧߊ ߘߐ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫.</string>
   <string name="page_protected_can_not_edit_title">ߞߐߜߍ ߣߌ߲߬ ߠߊߞߊ߲ߘߊߣߍ߲ ߠߋ߬.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ߊ߬ ߟߊߘߏ߲߬ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="settings_item_preferences">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ</string>
   <string name="settings_activity_title">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ</string>
   <string name="about_description">ߞߊ߬ ߓߍ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬</string>
