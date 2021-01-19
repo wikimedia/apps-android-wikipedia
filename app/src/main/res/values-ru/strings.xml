@@ -53,6 +53,7 @@
 * VitalKanev
 * Vlad5250
 * Wikisaurus
+* Wileyfoxyx
 * WindEwriX
 * Wirbel78
 * Yuryleb
@@ -289,6 +290,7 @@
   <string name="find_previous">Найти ранее</string>
   <string name="find_first_occurence">Это первое совпадение</string>
   <string name="find_last_occurence">Это последнее совпадение</string>
+  <string name="article_opened_in_background_tab">Статья была открыта в фоновой вкладке.</string>
   <string name="abusefilter_title_warn">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
   <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
@@ -939,6 +941,17 @@
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_add_reply">Ответить</string>
   <string name="talk_reply_subject">Тема</string>
+  <string name="menu_option_user_profile">Профиль %s</string>
+  <string name="menu_option_user_contributions">Вклад участника %s</string>
+  <string name="watchlist_details_watching_label">Слежу</string>
+  <string name="watchlist_details_watch_label">Следить</string>
+  <string name="user_contributions_url">https://ru.wikipedia.org/wiki/Служебная:Вклад/%s</string>
+  <string name="user_profile_url">https://ru.wikipedia.org/wiki/Участник:%s</string>
+  <string name="thank_label">Благодарность</string>
+  <string name="go_to_user_page">Перейти на страницу пользователя</string>
+  <string name="thank_dialog_negative_button_text">ОТМЕНА</string>
+  <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
