@@ -108,14 +108,14 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             if (disabledLangCodes.contains(lang)) {
                 continue
             }
-            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(lang)).watchlist
+            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(lang)).getWatchlist(lang)
                     .subscribeOn(Schedulers.io()))
         }
 
         disposables.add(Observable.zip(calls) { resultList ->
             val items = ArrayList<MwQueryResult.WatchlistItem>()
             for (result in resultList) {
-                val wiki = WikiSite.forLanguageCode((result as MwQueryResponse).query()!!.siteInfo()!!.lang()!!)
+                val wiki = WikiSite.forLanguageCode((result as MwQueryResponse).query()!!.allMessages[0]!!.name)
                 for (item in result.query()!!.watchlist) {
                     item.wiki = wiki
                     items.add(item)
