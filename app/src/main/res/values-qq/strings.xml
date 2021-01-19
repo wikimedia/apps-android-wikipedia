@@ -972,8 +972,18 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
+  <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
+  <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
   <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
+  <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.</string>
+  <string name="user_contributions_url">URL leading to the user\'s contributions page. %s represents username.</string>
+  <string name="user_profile_url">URL leading to the user\'s profile page. %s represents username.</string>
+  <string name="thank_label">Label on the button suggesting the user to thank the edit.</string>
   <string name="go_to_user_page">Menu item label for going to the user page of the selected user.</string>
+  <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
+  <string name="thank_dialog_negative_button_text">Negative button label on the thank dialog.\n{{identical|Cancel}}</string>
+  <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>
@@ -993,14 +1003,4 @@
   <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist</string>
   <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
   <string name="watchlist_filter_other">Filter selection to show only non-main and non-talk pages in the watchlist</string>
-  <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
-  <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
-  <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
-  <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
-  <string name="thank_dialog_negative_button_text">Negative button label on the thank dialog.</string>
-  <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
-  <string name="user_contributions_url">URL leading to the user\'s contributions page. %s represents username.</string>
-  <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.</string>
-  <string name="thank_label">Label on the button suggesting the user to thank the edit.</string>
-  <string name="user_profile_url">URL leading to the user\'s profile page. %s represents username.</string>
 </resources>
