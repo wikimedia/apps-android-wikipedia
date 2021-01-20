@@ -34,6 +34,8 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
+import org.wikipedia.staticdata.SpecialAliasData;
+import org.wikipedia.staticdata.UserAliasData;
 import org.wikipedia.suggestededits.SuggestionsActivity;
 
 import java.util.concurrent.TimeUnit;
@@ -108,12 +110,12 @@ public final class FeedbackUtil {
     }
 
     public static void showUserContributionsPage(@NonNull Context context, @NonNull String username, String languageCode) {
-        PageTitle title = new PageTitle(context.getString(R.string.user_contributions_url, username), WikiSite.forLanguageCode(languageCode));
+        PageTitle title = new PageTitle(SpecialAliasData.valueFor(languageCode) + ":" + "Contributions/" + username, WikiSite.forLanguageCode(languageCode));
         visitInExternalBrowser(context, Uri.parse(title.getUri()));
     }
 
     public static void showUserProfilePage(@NonNull Context context, @NonNull String username, String languageCode) {
-        PageTitle title = new PageTitle(context.getString(R.string.user_profile_url, username), WikiSite.forLanguageCode(languageCode));
+        PageTitle title = new PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode));
         visitInExternalBrowser(context, Uri.parse(title.getUri()));
     }
 

@@ -61,11 +61,13 @@ public class PageSummary {
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
+        PageTitle newTitle = title;
         if (titles != null && titles.canonical != null) {
-            title = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
+            newTitle = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
+            newTitle.setFragment(title.getFragment());
         }
-        title.setDescription(description);
-        return title;
+        newTitle.setDescription(description);
+        return newTitle;
     }
 
     @NonNull
