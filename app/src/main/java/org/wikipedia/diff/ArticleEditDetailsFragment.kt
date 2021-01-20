@@ -19,7 +19,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.load.Key.CHARSET
 import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -51,6 +50,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
+import java.nio.charset.StandardCharsets
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private lateinit var articlePageTitle: PageTitle
@@ -142,20 +142,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun fetchEditDetails() {
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
-                    isWatched = w.query()!!.firstPage()!!.isWatched
-                    if (r.query() == null || r.query()!!.firstPage() == null) {
-                        throw RuntimeException("Received empty response page: " + GsonUtil.getDefaultGson().toJson(r))
-                    }
-                    val firstPage = r.query()!!.firstPage()!!
-                    currentRevision = firstPage.revisions()[0]
-                    username = currentRevision!!.user
-                    newerRevisionId = if (firstPage.revisions().size < 2) {
-                        -1
-                    } else {
-                        firstPage.revisions()[1].revId
-                    }
-                    olderRevisionId = currentRevision!!.parentRevId
-                })
+            isWatched = w.query()!!.firstPage()!!.isWatched
+            if (r.query() == null || r.query()!!.firstPage() == null) {
+                throw RuntimeException("Received empty response page: " + GsonUtil.getDefaultGson().toJson(r))
+            }
+            val firstPage = r.query()!!.firstPage()!!
+            currentRevision = firstPage.revisions()[0]
+            username = currentRevision!!.user
+            newerRevisionId = if (firstPage.revisions().size < 2) {
+                -1
+            } else {
+                firstPage.revisions()[1].revId
+            }
+            olderRevisionId = currentRevision!!.parentRevId
+        })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
@@ -305,10 +305,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 }
                 DIFF_TYPE_LINE_WITH_DIFF -> {
                     for (highlightRange in diff.highlightRanges) {
-                        val highlightRangeStart = if (languageCode == "en") highlightRange.start
-                        else getByteInCharacters(diff.text, highlightRange.start, 0)
-                        val highlightRangeLength = if (languageCode == "en") highlightRange.length
-                        else getByteInCharacters(diff.text, highlightRange.length, highlightRangeStart)
+                        val highlightRangeStart = getByteInCharacters(diff.text, highlightRange.start, 0)
+                        val highlightRangeLength = getByteInCharacters(diff.text, highlightRange.length, highlightRangeStart)
 
                         if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
                             updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
@@ -338,12 +336,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         spannableText.setSpan(if (isAddition) foregroundAddedColor else foregroundRemovedColor, start, end, 0)
     }
 
-    private fun getByteInCharacters(diffText: String?, byteLength: Int, start: Int): Int {
+    private fun getByteInCharacters(diffText: String, byteLength: Int, start: Int): Int {
         var charCount = 0
         var bytes = byteLength
 
-        for (pos in start until diffText!!.length - 1) {
-            val idBytes = diffText[pos].toString().toByteArray(CHARSET).size
+        for (pos in start until diffText.length - 1) {
+            val idBytes = diffText[pos].toString().toByteArray(StandardCharsets.UTF_8).size
             charCount++
             bytes -= idBytes
             if (bytes <= 0) {
@@ -377,11 +375,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 true
             }
             R.id.menu_user_profile_page -> {
-                FeedbackUtil.showUserProfilePage(requireContext(), username!!)
+                FeedbackUtil.showUserProfilePage(requireContext(), username!!, languageCode)
                 true
             }
             R.id.menu_user_contributions_page -> {
-                FeedbackUtil.showUserContributionsPage(requireContext(), username!!)
+                FeedbackUtil.showUserContributionsPage(requireContext(), username!!, languageCode)
                 true
             }
             else -> super.onOptionsItemSelected(item)
