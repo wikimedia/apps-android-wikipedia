@@ -18,7 +18,7 @@
         android:layout_marginTop="16dp"
         android:letterSpacing="0.01"
         android:lineSpacingExtra="8sp"
-        android:text="Publicly send \'Thanks\'"
+        android:text="@string/thank_dialog_title_text"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -29,7 +29,7 @@
         android:layout_marginTop="8dp"
         android:letterSpacing="0.01"
         android:lineSpacingExtra="8sp"
-        android:text="\'Thanks\' are an easy way to show appreciation for an editor’s work on Wikipedia. &apos;Thanks&apos; cannot be undone and are publicly viewable"
+        android:text="@string/thank_dialog_text"
         android:textColor="?attr/material_theme_secondary_color"
         android:textSize="16sp" />
 
