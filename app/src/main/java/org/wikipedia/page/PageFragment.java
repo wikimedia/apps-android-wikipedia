@@ -1167,7 +1167,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             } else if ("languages".equals(itemType)) {
                 startLangLinksActivity();
             } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
-                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getUriForAction("history")));
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getWebApiUrl("action=history")));
             } else if ("coordinate".equals(itemType) && model.getPage() != null && model.getPage().getPageProperties().getGeo() != null) {
                 GeoUtil.sendGeoIntent(requireActivity(), model.getPage().getPageProperties().getGeo(), model.getPage().getDisplayTitle());
             } else if ("disambiguation".equals(itemType)) {

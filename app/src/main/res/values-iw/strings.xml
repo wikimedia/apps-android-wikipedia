@@ -1022,8 +1022,6 @@
   <string name="menu_option_user_contributions">התרומות של %s</string>
   <string name="watchlist_details_watching_label">במעקב</string>
   <string name="watchlist_details_watch_label">לעקוב</string>
-  <string name="user_contributions_url">https://en.wikipedia.org/wiki/Special:Contributions/%s</string>
-  <string name="user_profile_url">https://en.wikipedia.org/wiki/User:%s</string>
   <string name="thank_label">תודה</string>
   <string name="go_to_user_page">מעבר לדף משתמש</string>
   <string name="thank_dialog_positive_button_text">לשלוח תודה</string>
