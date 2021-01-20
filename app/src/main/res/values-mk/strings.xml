@@ -956,8 +956,6 @@
   <string name="menu_option_user_contributions">Придонеси на %s</string>
   <string name="watchlist_details_watching_label">Набљудувана</string>
   <string name="watchlist_details_watch_label">Набљудувај</string>
-  <string name="user_contributions_url">https://mk.wikipedia.org/wiki/Специјална:Придонеси/%s</string>
-  <string name="user_profile_url">https://mk.wikipedia.org/wiki/Корисник:%s</string>
   <string name="thank_label">Благодарност</string>
   <string name="go_to_user_page">Оди на корисничката страница</string>
   <string name="thank_dialog_positive_button_text">ИСПРАТИ БЛАГОДАРНИЦА</string>

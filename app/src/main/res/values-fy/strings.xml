@@ -950,8 +950,6 @@
   <string name="menu_option_user_contributions">Bydragen fan %s</string>
   <string name="watchlist_details_watching_label">Folge</string>
   <string name="watchlist_details_watch_label">Folgje</string>
-  <string name="user_contributions_url">https://fy.wikipedia.org/wiki/Special:Contributions/%s</string>
-  <string name="user_profile_url">https://fy.wikipedia.org/wiki/User:%s</string>
   <string name="thank_label">Betankje</string>
   <string name="go_to_user_page">Nei meidoggerside gean</string>
   <string name="thank_dialog_positive_button_text">BETANKJE STJOERE</string>

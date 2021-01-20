@@ -959,8 +959,6 @@
   <string name="menu_option_user_contributions">%s님의 기여</string>
   <string name="watchlist_details_watching_label">주시 중</string>
   <string name="watchlist_details_watch_label">주시</string>
-  <string name="user_contributions_url">https://ko.wikipedia.org/wiki/특수:기여/%s</string>
-  <string name="user_profile_url">https://ko.wikipedia.org/wiki/사용자:%s</string>
   <string name="thank_label">감사 표현</string>
   <string name="go_to_user_page">사용자 문서로 이동하기</string>
   <string name="thank_dialog_positive_button_text">감사 표현하기</string>
