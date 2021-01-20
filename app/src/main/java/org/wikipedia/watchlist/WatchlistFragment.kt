@@ -120,16 +120,17 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
 
         disposables.add(Observable.zip(calls) { resultList ->
-            val items = ArrayList<MwQueryResult.WatchlistItem>()
-            for (result in resultList) {
-                val wiki = WikiSite.forLanguageCode((result as MwQueryResponse).query()!!.siteInfo()!!.lang()!!)
-                for (item in result.query()!!.watchlist) {
-                    item.wiki = wiki
-                    items.add(item)
+                    val items = ArrayList<MwQueryResult.WatchlistItem>()
+                    resultList.forEachIndexed { index, result ->
+                        val wiki = WikiSite.forLanguageCode(displayLanguages[index])
+                        for (item in (result as MwQueryResponse).query()!!.watchlist) {
+                            item.wiki = wiki
+                            items.add(item)
+                        }
+                    }
+                    items
                 }
-            }
-            items
-        }.subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     watchlistRefreshView.isRefreshing = false

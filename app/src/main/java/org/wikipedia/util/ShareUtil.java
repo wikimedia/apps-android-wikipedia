@@ -60,7 +60,8 @@ public final class ShareUtil {
     }
 
     public static void shareText(@NonNull final Context context, @NonNull final PageTitle title, long newId, long oldId) {
-        shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(), title.getWebApiUrl("diff=" + newId + "&oldid=" + oldId));
+        shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(),
+                title.getWebApiUrl("diff=" + newId + "&oldid=" + oldId + "&variant=" + title.getWikiSite().languageCode()));
     }
 
     /**
