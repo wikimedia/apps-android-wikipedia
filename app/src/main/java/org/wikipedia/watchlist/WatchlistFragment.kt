@@ -104,19 +104,21 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
         val calls = ArrayList<Observable<MwQueryResponse>>()
+        val enabledLangCodes = mutableListOf<String>()
         for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
             if (disabledLangCodes.contains(lang)) {
                 continue
             }
-            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(lang)).getWatchlist(lang)
+            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(lang)).watchlist
                     .subscribeOn(Schedulers.io()))
+            enabledLangCodes.add(lang)
         }
 
         disposables.add(Observable.zip(calls) { resultList ->
                     val items = ArrayList<MwQueryResult.WatchlistItem>()
                     for (result in resultList) {
-                        val wiki = WikiSite.forLanguageCode((result as MwQueryResponse).query()!!.allMessages[0]!!.name)
-                        for (item in result.query()!!.watchlist) {
+                        val wiki = WikiSite.forLanguageCode(enabledLangCodes.removeFirst())
+                        for (item in (result as MwQueryResponse).query()!!.watchlist) {
                             item.wiki = wiki
                             items.add(item)
                         }

@@ -39,7 +39,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @Nullable private List<WatchlistItem> watchlist;
     @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
-    @SerializedName("allmessages") @Nullable private List<AllMessages> allMessages;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -135,10 +134,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @NonNull public List<WatchlistItem> getWatchlist() {
         return watchlist != null ? watchlist : Collections.emptyList();
-    }
-
-    @NonNull public List<AllMessages> getAllMessages() {
-        return allMessages != null ? allMessages : Collections.emptyList();
     }
 
     public boolean isEditProtected() {
@@ -350,19 +345,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
         public long getRevid() {
             return revid;
-        }
-    }
-
-    public static class AllMessages {
-        @Nullable private String name;
-        @Nullable private String normalizedname;
-
-        @NonNull public String getName() {
-            return StringUtils.defaultString(name, "en");
-        }
-
-        @NonNull public String getNormalizedName() {
-            return StringUtils.defaultString(normalizedname, "en");
         }
     }
 }
