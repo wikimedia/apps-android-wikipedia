@@ -970,8 +970,6 @@
   <string name="menu_option_user_contributions">%s的貢獻</string>
   <string name="watchlist_details_watching_label">正在查看</string>
   <string name="watchlist_details_watch_label">監視</string>
-  <string name="user_contributions_url">https://zh.wikipedia.org/wiki/Special:Contributions/%s</string>
-  <string name="user_profile_url">https://zh.wikipedia.org/wiki/User:%s</string>
   <string name="thank_label">感謝</string>
   <string name="go_to_user_page">前往使用者頁面</string>
   <string name="thank_dialog_positive_button_text">發送感謝</string>

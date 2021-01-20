@@ -1094,6 +1094,20 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
             bridge.onPcsReady();
             callback().onPageLoadComplete();
+
+            // do we have a URL fragment to scroll to?
+            if (model.getTitle() != null && !TextUtils.isEmpty(model.getTitle().getFragment())
+                    && scrollTriggerListener.getStagedScrollY() == 0) {
+                final int scrollDelay = 100;
+                webView.postDelayed(() -> {
+                    if (!isAdded()) {
+                        return;
+                    }
+                    if (model.getTitle() != null && !TextUtils.isEmpty(model.getTitle().getFragment())) {
+                        scrollToSection(model.getTitle().getFragment());
+                    }
+                }, scrollDelay);
+            }
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
@@ -1155,7 +1169,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             } else if ("languages".equals(itemType)) {
                 startLangLinksActivity();
             } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
-                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getUriForAction("history")));
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getWebApiUrl("action=history")));
             } else if ("coordinate".equals(itemType) && model.getPage() != null && model.getPage().getPageProperties().getGeo() != null) {
                 GeoUtil.sendGeoIntent(requireActivity(), model.getPage().getPageProperties().getGeo(), model.getPage().getDisplayTitle());
             } else if ("disambiguation".equals(itemType)) {
@@ -1502,6 +1516,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         void setStagedScrollY(int stagedScrollY) {
             this.stagedScrollY = stagedScrollY;
+        }
+
+        int getStagedScrollY() {
+            return stagedScrollY;
         }
 
         @Override

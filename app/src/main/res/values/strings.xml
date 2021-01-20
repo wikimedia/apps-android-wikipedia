@@ -1026,12 +1026,12 @@
     <string name="menu_option_user_contributions">%s\'s contributions</string>
     <string name="watchlist_details_watching_label">Watching</string>
     <string name="watchlist_details_watch_label">Watch</string>
-    <string name="user_contributions_url">https://en.wikipedia.org/wiki/Special:Contributions/%s</string>
-    <string name="user_profile_url">https://en.wikipedia.org/wiki/User:%s</string>
     <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
-    <string name="thank_dialog_positive_button_text">SEND THANKS</string>
-    <string name="thank_dialog_negative_button_text">CANCEL</string>
+    <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
+    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
+    <string name="thank_dialog_positive_button_text">Send thanks</string>
+    <string name="thank_dialog_negative_button_text">Cancel</string>
     <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
 
     <!-- Watchlist -->

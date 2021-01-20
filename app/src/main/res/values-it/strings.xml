@@ -987,8 +987,6 @@
   <string name="menu_option_user_contributions">Contributi di %s</string>
   <string name="watchlist_details_watching_label">Osservato</string>
   <string name="watchlist_details_watch_label">Osserva</string>
-  <string name="user_contributions_url">https://it.wikipedia.org/wiki/Speciale:Contributi/%s</string>
-  <string name="user_profile_url">https://it.wikipedia.org/wiki/Utente:%s</string>
   <string name="thank_label">Ringrazia</string>
   <string name="go_to_user_page">Vai alla pagina utente</string>
   <string name="thank_dialog_positive_button_text">RINGRAZIA</string>
