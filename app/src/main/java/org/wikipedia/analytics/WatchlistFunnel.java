@@ -7,7 +7,7 @@ import org.wikipedia.util.StringUtil;
 
 import java.util.List;
 
-public class WatchlistFunnel extends TimedFunnel {
+public class WatchlistFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppWatchlist";
     private static final int REV_ID = 20936401;
 
