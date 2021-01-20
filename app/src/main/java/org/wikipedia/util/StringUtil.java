@@ -95,12 +95,8 @@ public final class StringUtil {
         return StringUtils.defaultString(text).replace("_", " ");
     }
 
-    public static boolean hasSectionAnchor(@NonNull String text) {
-        return text.contains("#");
-    }
-
     public static String removeSectionAnchor(String text) {
-        return text.substring(0, text.indexOf("#"));
+        return text.contains("#") ? text.substring(0, text.indexOf("#")) : text;
     }
 
     public static String removeNamespace(@NonNull String text) {
