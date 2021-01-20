@@ -983,9 +983,7 @@
   <string name="menu_option_user_contributions">Contribuições de %s</string>
   <string name="watchlist_details_watching_label">Vigiado</string>
   <string name="watchlist_details_watch_label">Vigiar</string>
-  <string name="user_contributions_url">https://pt.wikipedia.org/wiki/Special:Contributions/%s</string>
-  <string name="user_profile_url">https://pt.wikipedia.org/wiki/User:%s</string>
-  <string name="thank_label">Obrigado</string>
+    <string name="thank_label">Obrigado</string>
   <string name="go_to_user_page">Vá para a página do usuário</string>
   <string name="thank_dialog_positive_button_text">ENVIE AGRADECIMENTOS</string>
   <string name="thank_dialog_negative_button_text">CANCELAR</string>

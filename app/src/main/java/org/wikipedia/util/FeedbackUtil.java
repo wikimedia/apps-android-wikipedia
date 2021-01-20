@@ -28,10 +28,14 @@ import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
+import org.wikipedia.staticdata.SpecialAliasData;
+import org.wikipedia.staticdata.UserAliasData;
 import org.wikipedia.suggestededits.SuggestionsActivity;
 
 import java.util.concurrent.TimeUnit;
@@ -105,12 +109,14 @@ public final class FeedbackUtil {
         showAndroidAppEditingFAQ(context, R.string.android_app_edit_help_url);
     }
 
-    public static void showUserContributionsPage(@NonNull Context context, @NonNull String username) {
-        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.user_contributions_url, username)));
+    public static void showUserContributionsPage(@NonNull Context context, @NonNull String username, String languageCode) {
+        PageTitle title = new PageTitle(SpecialAliasData.valueFor(languageCode) + ":" + "Contributions/" + username, WikiSite.forLanguageCode(languageCode));
+        visitInExternalBrowser(context, Uri.parse(title.getUri()));
     }
 
-    public static void showUserProfilePage(@NonNull Context context, @NonNull String username) {
-        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.user_profile_url, username)));
+    public static void showUserProfilePage(@NonNull Context context, @NonNull String username, String languageCode) {
+        PageTitle title = new PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode));
+        visitInExternalBrowser(context, Uri.parse(title.getUri()));
     }
 
     public static void showAndroidAppEditingFAQ(Context context, @StringRes int urlStr) {

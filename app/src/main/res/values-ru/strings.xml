@@ -945,8 +945,6 @@
   <string name="menu_option_user_contributions">Вклад участника %s</string>
   <string name="watchlist_details_watching_label">Слежу</string>
   <string name="watchlist_details_watch_label">Следить</string>
-  <string name="user_contributions_url">https://ru.wikipedia.org/wiki/Служебная:Вклад/%s</string>
-  <string name="user_profile_url">https://ru.wikipedia.org/wiki/Участник:%s</string>
   <string name="thank_label">Благодарность</string>
   <string name="go_to_user_page">Перейти на страницу пользователя</string>
   <string name="thank_dialog_negative_button_text">ОТМЕНА</string>
