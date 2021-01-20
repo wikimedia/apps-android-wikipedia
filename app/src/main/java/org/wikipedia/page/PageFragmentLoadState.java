@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -201,11 +202,11 @@ public class PageFragmentLoadState {
                         isWatched = watchedResponse.query().firstPage().isWatched();
                     }
 
-                    if (pageSummaryResponse.body() != null) {
-                        createPageModel(pageSummaryResponse.body(), isWatched);
-                    } else {
+                    if (pageSummaryResponse.body() == null) {
                         throw new RuntimeException("Summary response was invalid.");
                     }
+
+                    createPageModel(pageSummaryResponse, isWatched);
 
                     if (OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                         showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
@@ -237,15 +238,20 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPageModel(@NonNull PageSummary pageSummary, boolean isWatched) {
-        if (!fragment.isAdded()) {
+    private void createPageModel(@NonNull Response<PageSummary> response, boolean isWatched) {
+        if (!fragment.isAdded() || response.body() == null) {
             return;
         }
-
+        PageSummary pageSummary = response.body();
         Page page = pageSummary.toPage(model.getTitle());
+
         model.setPage(page);
         model.setWatched(isWatched);
         model.setTitle(page.getTitle());
+
+        if (!TextUtils.isEmpty(response.raw().request().url().fragment())) {
+            model.getTitle().setFragment(response.raw().request().url().fragment());
+        }
 
         if (page.getTitle().getDescription() == null) {
             app.getSessionFunnel().noDescription();
