@@ -96,7 +96,7 @@ public final class StringUtil {
     }
 
     public static String removeSectionAnchor(String text) {
-        return text.contains("#") ? text.substring(0, text.indexOf("#")) : text;
+        return StringUtils.defaultString(text.contains("#") ? text.substring(0, text.indexOf("#")) : text);
     }
 
     public static String removeNamespace(@NonNull String text) {
