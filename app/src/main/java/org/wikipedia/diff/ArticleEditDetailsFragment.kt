@@ -382,11 +382,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 true
             }
             R.id.menu_user_profile_page -> {
-                FeedbackUtil.showUserProfilePage(requireContext(), username!!)
+                FeedbackUtil.showUserProfilePage(requireContext(), username!!, languageCode)
                 true
             }
             R.id.menu_user_contributions_page -> {
-                FeedbackUtil.showUserContributionsPage(requireContext(), username!!)
+                FeedbackUtil.showUserContributionsPage(requireContext(), username!!, languageCode)
                 true
             }
             else -> super.onOptionsItemSelected(item)
