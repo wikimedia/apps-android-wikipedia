@@ -971,8 +971,6 @@
   <string name="menu_option_user_contributions">Contribucions de %s</string>
   <string name="watchlist_details_watching_label">En seguiment</string>
   <string name="watchlist_details_watch_label">Segueix</string>
-  <string name="user_contributions_url">https://ca.wikipedia.org/wiki/Special:Contributions/%s</string>
-  <string name="user_profile_url">https://ca.wikipedia.org/wiki/Usuari:%s</string>
   <string name="thank_label">Agraeix</string>
   <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
   <string name="thank_dialog_positive_button_text">ENVIA AGRAÏMENTS</string>

@@ -7,8 +7,6 @@
     <!-- URLs -->
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
     <string name="suggested_edits_survey_url">https://docs.google.com/forms/d/e/1FAIpQLSeT1raQgMf6gIExh9vq-Fk3iDgLYx_NHcH7agg4hfJhaXScLQ/viewform</string>
-    <string name="user_contributions_url">Special:Contributions/%s</string>
-    <string name="user_profile_url">User:%s</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>

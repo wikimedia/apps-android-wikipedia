@@ -25,7 +25,6 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
@@ -37,6 +36,7 @@ import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUtil
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
@@ -78,8 +78,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         revisionId = requireArguments().getLong(EXTRA_EDIT_REVISION_ID, 0)
-        languageCode = StringUtils.defaultString(requireArguments().getString(EXTRA_EDIT_LANGUAGE_CODE), "en")
-        articlePageTitle = PageTitle(StringUtils.defaultString(requireArguments().getString(EXTRA_ARTICLE_TITLE), ""),
+        languageCode = requireArguments().getString(EXTRA_EDIT_LANGUAGE_CODE, AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)
+        articlePageTitle = PageTitle(requireArguments().getString(EXTRA_ARTICLE_TITLE, ""),
                 WikiSite.forLanguageCode(languageCode))
         diffSize = requireArguments().getInt(EXTRA_EDIT_SIZE, 0)
         setUpInitialUI()
@@ -286,14 +286,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    displayDiff(it.diffs)
+                    displayDiffs(it.diffs)
                 }) { t: Throwable? -> L.e(t) })
     }
 
-    private fun displayDiff(diffs: MutableList<DiffItem>) {
+    private fun displayDiffs(diffs: List<DiffItem>) {
+        val spannableString = SpannableStringBuilder()
         for (diff in diffs) {
-            val prefixLength = diffText.text.length
-            val spannableString = SpannableStringBuilder(diffText.text).append(if (diff.text.isNotEmpty()) diff.text else "\n")
+            val prefixLength = spannableString.length
+            spannableString.append(if (diff.text.isNotEmpty()) diff.text else "\n")
             when (diff.type) {
                 DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
                 }
@@ -305,13 +306,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                 }
                 DIFF_TYPE_LINE_WITH_DIFF -> {
                     for (highlightRange in diff.highlightRanges) {
-                        val highlightRangeStart = getByteInCharacters(diff.text, highlightRange.start, 0)
-                        val highlightRangeLength = getByteInCharacters(diff.text, highlightRange.length, highlightRangeStart)
+                        val indices = utf8Indices(diff.text)
+                        val highlightRangeStart = indices[highlightRange.start]
+                        val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size) indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
 
                         if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
-                            updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
+                            updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
                         } else {
-                            updateDiffTextDecor(spannableString, false, prefixLength + highlightRangeStart, prefixLength + highlightRangeStart + highlightRangeLength)
+                            updateDiffTextDecor(spannableString, false, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
                         }
                     }
                 }
@@ -322,8 +324,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                     updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
             }
-            diffText.text = spannableString.append("\n")
+            spannableString.append("\n")
         }
+        diffText.text = spannableString
     }
 
     private fun updateDiffTextDecor(spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
@@ -336,19 +339,23 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         spannableText.setSpan(if (isAddition) foregroundAddedColor else foregroundRemovedColor, start, end, 0)
     }
 
-    private fun getByteInCharacters(diffText: String, byteLength: Int, start: Int): Int {
-        var charCount = 0
-        var bytes = byteLength
-
-        for (pos in start until diffText.length - 1) {
-            val idBytes = diffText[pos].toString().toByteArray(StandardCharsets.UTF_8).size
-            charCount++
-            bytes -= idBytes
-            if (bytes <= 0) {
-                break
+    private fun utf8Indices(s: String): IntArray {
+        val indices = IntArray(s.toByteArray(StandardCharsets.UTF_8).size)
+        var ptr = 0
+        var count = 0
+        for (i in s.indices) {
+            val c = s.codePointAt(i)
+            when {
+                c <= 0x7F -> count = 1
+                c <= 0x7FF -> count = 2
+                c <= 0xFFFF -> count = 3
+                c <= 0x1FFFFF -> count = 4
+            }
+            for (j in 0 until count) {
+                indices[ptr++] = i
             }
         }
-        return charCount
+        return indices
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
