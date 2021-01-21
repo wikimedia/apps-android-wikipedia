@@ -917,7 +917,7 @@
     <string name="onboarding_explore_title">New ways to explore</string>
     <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
+    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a> ]]></string>
     <string name="onboarding_analytics_title">Send anonymous data</string>
     <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
@@ -945,7 +945,7 @@
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
     </plurals>
-    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀</string>
+    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀 </string>
     <string name="on_this_day_back_to_future">Back to the future</string>
     <!-- /On This Day -->
 
