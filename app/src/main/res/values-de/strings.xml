@@ -983,8 +983,8 @@
   <string name="watchlist_details_watch_label">Beobachten</string>
   <string name="thank_label">Danken</string>
   <string name="go_to_user_page">Zur Benutzerseite</string>
-  <string name="thank_dialog_positive_button_text">Danke senden</string>
-  <string name="thank_dialog_negative_button_text">Abbrechen</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">Danke senden</string>
+  <string name="thank_dialog_negative_button_text" fuzzy="true">Abbrechen</string>
   <string name="thank_success_message">Dein Danke wurde an %s gesendet 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s und die Diskussionsseite wurde deiner Beobachtungsliste %2$s hinzugefügt.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändern</string>
