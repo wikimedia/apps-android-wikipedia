@@ -24,6 +24,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
 import org.wikipedia.R
+import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -64,6 +65,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private var watchlistExpiryChanged = false
     private var isWatched = false
     private var watchlistExpirySession = WatchlistExpiry.NEVER
+    private val watchlistFunnel = WatchlistFunnel()
 
     private val disposables = CompositeDisposable()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -104,6 +106,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             fetchEditDetails()
         }
         watchButton.setOnClickListener {
+            if (isWatched) {
+                watchlistFunnel.logRemoveArticle()
+            } else {
+                watchlistFunnel.logAddArticle()
+            }
             watchButton.isCheckable = false
             watchOrUnwatchTitle(watchlistExpirySession, isWatched)
         }
@@ -211,6 +218,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
                         if (watchlistExpiryChanged && unwatch) {
                             watchlistExpiryChanged = false
                         }
+
+                        if (unwatch) {
+                            watchlistFunnel.logRemoveSuccess()
+                        } else {
+                            watchlistFunnel.logAddSuccess()
+                        }
+
                         showWatchlistSnackbar(expiry, firstWatch)
                     }
                 }) { t: Throwable? ->
@@ -413,6 +427,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
+        watchlistFunnel.logAddExpiry()
         watchOrUnwatchTitle(expiry, false)
         bottomSheetPresenter.dismiss(childFragmentManager)
     }

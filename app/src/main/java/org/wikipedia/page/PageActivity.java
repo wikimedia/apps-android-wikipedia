@@ -29,6 +29,8 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
+import com.skydoves.balloon.Balloon;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -38,6 +40,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
@@ -142,6 +145,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
+    private Balloon watchlistTooltip;
+    private final WatchlistFunnel watchlistFunnel = new WatchlistFunnel();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -238,6 +243,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_show_overflow_menu)
     public void onShowOverflowMenuButtonClicked() {
+        if (watchlistTooltip != null && watchlistTooltip.isShowing()) {
+            watchlistTooltip.dismiss();
+            watchlistTooltip = null;
+        }
         showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
     }
 
@@ -616,6 +625,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+        watchlistFunnel.logAddExpiry();
         pageFragment.updateWatchlist(expiry, false);
     }
 
@@ -686,6 +696,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         @Override
         public void watchlistClick(boolean hasWatchlistExpirySession) {
+            if (hasWatchlistExpirySession) {
+                watchlistFunnel.logRemoveArticle();
+            } else {
+                watchlistFunnel.logAddArticle();
+            }
             pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
         }
 
@@ -866,8 +881,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 if (isDestroyed()) {
                     return;
                 }
+                watchlistFunnel.logShowTooltip();
                 Prefs.setWatchlistPageOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 200, -32, false, true);
+                watchlistTooltip = FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
+                        200, -32, -8, false, false);
             }, 500);
         }
     }

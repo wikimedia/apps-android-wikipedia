@@ -57,6 +57,7 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
@@ -177,6 +178,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private PageViewModel model;
 
     @NonNull private TabFunnel tabFunnel = new TabFunnel();
+    @NonNull private WatchlistFunnel watchlistFunnel = new WatchlistFunnel();
 
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
@@ -1560,6 +1562,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         // Reset to make the "Change" button visible.
                         if (watchlistExpiryChanged && unwatch) {
                             watchlistExpiryChanged = false;
+                        }
+
+                        if (unwatch) {
+                            watchlistFunnel.logRemoveSuccess();
+                        } else {
+                            watchlistFunnel.logAddSuccess();
                         }
 
                         showWatchlistSnackbar(expiry, firstWatch);

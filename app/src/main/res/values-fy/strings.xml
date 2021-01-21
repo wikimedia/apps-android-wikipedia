@@ -952,8 +952,9 @@
   <string name="watchlist_details_watch_label">Folgje</string>
   <string name="thank_label">Betankje</string>
   <string name="go_to_user_page">Nei meidoggerside gean</string>
-  <string name="thank_dialog_positive_button_text">BETANKJE STJOERE</string>
-  <string name="thank_dialog_negative_button_text">ANNULEARJE</string>
+  <string name="thank_dialog_title_text">Publyklik in betankje stjoere</string>
+  <string name="thank_dialog_positive_button_text">Betankje stjoere</string>
+  <string name="thank_dialog_negative_button_text">Annulearje</string>
   <string name="thank_success_message">Jo betankje foar %s is ferstjoerd 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en de oerlisside binne %2$s oan jo folchlist tafoege.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Feroarje</string>

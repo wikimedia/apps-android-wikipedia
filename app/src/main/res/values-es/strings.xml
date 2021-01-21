@@ -972,8 +972,8 @@
   <string name="menu_option_user_contributions">Contribuciones de %s</string>
   <string name="thank_label">Agradecer</string>
   <string name="go_to_user_page">Ir a la página de usuario</string>
-  <string name="thank_dialog_positive_button_text">AGRADECER</string>
-  <string name="thank_dialog_negative_button_text">CANCELAR</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">AGRADECER</string>
+  <string name="thank_dialog_negative_button_text" fuzzy="true">CANCELAR</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">por 1 semana</string>
