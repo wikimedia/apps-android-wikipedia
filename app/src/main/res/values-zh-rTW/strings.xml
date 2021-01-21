@@ -968,10 +968,12 @@
   <string name="menu_option_share_edit">分享編輯</string>
   <string name="menu_option_user_profile">%s基本資料</string>
   <string name="menu_option_user_contributions">%s的貢獻</string>
-  <string name="watchlist_details_watching_label">正在查看</string>
+  <string name="watchlist_details_watching_label">已監視</string>
   <string name="watchlist_details_watch_label">監視</string>
   <string name="thank_label">感謝</string>
   <string name="go_to_user_page">前往使用者頁面</string>
+  <string name="thank_dialog_title_text">公開發送感謝</string>
+  <string name="thank_dialog_text">「感謝」是在維基百科上向其他編者所修改出內容表達讚賞的簡易方式。請留意感謝無法撤回發送，並且是公開可見的</string>
   <string name="thank_dialog_positive_button_text">發送感謝</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的感謝已發送給%s 👍</string>

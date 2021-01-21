@@ -996,8 +996,10 @@
   <string name="watchlist_details_watch_label">Suivre</string>
   <string name="thank_label">Remercier</string>
   <string name="go_to_user_page">Aller à la page utilisateur</string>
-  <string name="thank_dialog_positive_button_text">ENVOYER DES REMERCIEMENTS</string>
-  <string name="thank_dialog_negative_button_text">ANNULER</string>
+  <string name="thank_dialog_title_text">Envoyer \'Merci\' publiquement</string>
+  <string name="thank_dialog_text">\'Merci\' est une manière facile de montrer son appréciation du travail d’un éditeur sur Wikipédia. Les \'Merci\' ne peuvent être annulés et sont publiquement visibles.</string>
+  <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>
+  <string name="thank_dialog_negative_button_text">Annuler</string>
   <string name="thank_success_message">Votre remerciement a été envoyé à %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s et sa page de discussion ont été ajoutés à votre liste de suivi %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifier</string>
