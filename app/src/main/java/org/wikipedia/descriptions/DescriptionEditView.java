@@ -178,11 +178,9 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
         if (action == TRANSLATE_DESCRIPTION) {
             return getContext().getString(R.string.description_edit_translate_article_description_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (action == TRANSLATE_CAPTION) {
+        } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
             return getContext().getString(R.string.description_edit_translate_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (action == ADD_CAPTION) {
-            return getContext().getString(R.string.description_edit_add_caption_hint);
         } else {
             return getContext().getString(R.string.description_edit_text_hint);
         }
