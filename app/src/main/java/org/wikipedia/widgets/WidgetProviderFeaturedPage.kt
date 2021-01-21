@@ -89,7 +89,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     val widgetText: CharSequence = StringUtil.fromHtml(response.displayTitle)
                     val pageTitle = response.getPageTitle(app.wikiSite)
                     cb.onFeaturedArticleReceived(pageTitle, widgetText)
-                }) { throwable: Throwable? ->
+                }) { throwable: Throwable ->
                     cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.displayText)
                     L.e(throwable)
                 }
