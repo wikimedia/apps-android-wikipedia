@@ -961,8 +961,8 @@
   <string name="watchlist_details_watch_label">주시</string>
   <string name="thank_label">감사 표현</string>
   <string name="go_to_user_page">사용자 문서로 이동하기</string>
-  <string name="thank_dialog_positive_button_text">감사 표현하기</string>
-  <string name="thank_dialog_negative_button_text">취소</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">감사 표현하기</string>
+  <string name="thank_dialog_negative_button_text" fuzzy="true">취소</string>
   <string name="thank_success_message">%s님에게 감사를 표했습니다 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%2$s에 %1$s 문서 및 토론 문서가 주시문서 목록에 추가되었습니다.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">변경</string>

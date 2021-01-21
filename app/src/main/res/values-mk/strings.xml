@@ -958,8 +958,10 @@
   <string name="watchlist_details_watch_label">Набљудувај</string>
   <string name="thank_label">Благодарност</string>
   <string name="go_to_user_page">Оди на корисничката страница</string>
-  <string name="thank_dialog_positive_button_text">ИСПРАТИ БЛАГОДАРНИЦА</string>
-  <string name="thank_dialog_negative_button_text">ОТКАЖИ</string>
+  <string name="thank_dialog_title_text">Јавно испрати благодарница</string>
+  <string name="thank_dialog_text">Благодарниците се лесен начин да му кажете на некој уредник дека го цените неговиот труд на Википедија. Тие се неотповикливи и се јавно видливи.</string>
+  <string name="thank_dialog_positive_button_text">Испрати благодарница</string>
+  <string name="thank_dialog_negative_button_text">Откажи</string>
   <string name="thank_success_message">Вашата благодарница е испратена на %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
