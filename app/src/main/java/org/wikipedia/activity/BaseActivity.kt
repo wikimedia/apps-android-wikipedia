@@ -227,11 +227,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun unregisterExclusiveBusMethods() {
-        if (EXCLUSIVE_BUS_METHODS != null && EXCLUSIVE_DISPOSABLE != null) {
-            EXCLUSIVE_DISPOSABLE!!.dispose()
-            EXCLUSIVE_DISPOSABLE = null
-            EXCLUSIVE_BUS_METHODS = null
-        }
+        EXCLUSIVE_DISPOSABLE?.dispose()
+        EXCLUSIVE_DISPOSABLE = null
+        EXCLUSIVE_BUS_METHODS = null
     }
 
     private fun maybeShowLoggedOutInBackgroundDialog() {
