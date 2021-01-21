@@ -1,6 +1,7 @@
 package org.wikipedia.util.log
 
 import android.util.Log
+import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.ReleaseUtil
 
@@ -33,27 +34,27 @@ object L {
     }
 
     @JvmStatic
-    fun v(msg: CharSequence) {
+    fun v(msg: String) {
         LEVEL_V.log(msg, null)
     }
 
     @JvmStatic
-    fun d(msg: CharSequence) {
+    fun d(msg: String) {
         LEVEL_D.log(msg, null)
     }
 
     @JvmStatic
-    fun i(msg: CharSequence) {
+    fun i(msg: String) {
         LEVEL_I.log(msg, null)
     }
 
     @JvmStatic
-    fun w(msg: CharSequence) {
+    fun w(msg: String) {
         LEVEL_W.log(msg, null)
     }
 
     @JvmStatic
-    fun e(msg: CharSequence) {
+    fun e(msg: String) {
         LEVEL_E.log(msg, null)
     }
 
@@ -81,26 +82,26 @@ object L {
         LEVEL_E.log("", t)
     }
 
-    fun v(msg: CharSequence, t: Throwable?) {
+    fun v(msg: String, t: Throwable?) {
         LEVEL_V.log(msg, t)
     }
 
     @JvmStatic
-    fun d(msg: CharSequence, t: Throwable?) {
+    fun d(msg: String, t: Throwable?) {
         LEVEL_D.log(msg, t)
     }
 
-    fun i(msg: CharSequence, t: Throwable?) {
+    fun i(msg: String, t: Throwable?) {
         LEVEL_I.log(msg, t)
     }
 
     @JvmStatic
-    fun w(msg: CharSequence, t: Throwable?) {
+    fun w(msg: String, t: Throwable?) {
         LEVEL_W.log(msg, t)
     }
 
     @JvmStatic
-    fun e(msg: CharSequence, t: Throwable?) {
+    fun e(msg: String, t: Throwable?) {
         LEVEL_E.log(msg, t)
     }
 
@@ -125,9 +126,13 @@ object L {
 
     private abstract class LogLevel {
         abstract fun logLevel(tag: String?, msg: String?, t: Throwable?)
-        fun log(msg: CharSequence, t: Throwable?) {
-            val element = Thread.currentThread().stackTrace[STACK_INDEX]
-            logLevel(element.className, stackTraceElementToMessagePrefix(element) + msg, t)
+        fun log(msg: String, t: Throwable?) {
+            if (ReleaseUtil.isDevRelease()) {
+                val element = Thread.currentThread().stackTrace[STACK_INDEX]
+                logLevel(element.className, stackTraceElementToMessagePrefix(element) + msg, t)
+            } else {
+                logLevel(BuildConfig.APPLICATION_ID, msg, t)
+            }
         }
 
         private fun stackTraceElementToMessagePrefix(element: StackTraceElement): String {
