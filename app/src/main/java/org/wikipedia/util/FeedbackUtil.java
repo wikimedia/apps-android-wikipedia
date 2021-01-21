@@ -192,8 +192,9 @@ public final class FeedbackUtil {
         return showTooltip(getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
-    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
-        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight,
+                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
+        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -212,7 +213,7 @@ public final class FeedbackUtil {
 
     @SuppressWarnings("checkstyle:magicnumber")
     public static Balloon getTooltip(@NonNull Context context, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
-        return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
+        return getTooltipBuilder(context, 0, aboveOrBelow, autoDismiss)
                 .setText(text)
                 .setTextSize(14f)
                 .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
@@ -222,8 +223,9 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
-        return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
+    private static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight,
+                                     int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
+        return getTooltipBuilder(context, topOrBottomMargin, aboveOrBelow, autoDismiss)
                 .setLayout(layoutRes)
                 .setHeight(layoutHeight)
                 .setWidthRatio(DimenUtil.isLandscape(context) ? 0.4f : 0.8f)
@@ -232,7 +234,7 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private static Balloon.Builder getTooltipBuilder(@NonNull Context context, boolean aboveOrBelow, boolean autoDismiss) {
+    private static Balloon.Builder getTooltipBuilder(@NonNull Context context, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
         return new Balloon.Builder(context)
                 .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
@@ -240,6 +242,8 @@ public final class FeedbackUtil {
                 .setArrowSize(24)
                 .setMarginLeft(8)
                 .setMarginRight(8)
+                .setMarginTop(aboveOrBelow ? 0 : topOrBottomMargin)
+                .setMarginBottom(aboveOrBelow ? topOrBottomMargin : 0)
                 .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
                 .setDismissWhenTouchOutside(autoDismiss);
     }
