@@ -78,12 +78,12 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         disposables.add(ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN)).getDefinition(StringUtil.addUnderscores(selectedText))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { usages: Map<String?, Array<Usage?>?>? -> RbDefinition(usages!!) }
-                .subscribe({ definition: RbDefinition? ->
+                .map { usages: Map<String, Array<Usage>> -> RbDefinition(usages) }
+                .subscribe({ definition: RbDefinition ->
                     binding.dialogWiktionaryProgress.visibility = View.GONE
                     currentDefinition = definition
                     layOutDefinitionsByUsage()
-                }) { throwable: Throwable? ->
+                }) { throwable: Throwable ->
                     displayNoDefinitionsFound()
                     L.e(throwable)
                 })
@@ -146,7 +146,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun removeLinkFragment(url: String): String {
-        val splitUrl = url.split("#".toRegex()).toTypedArray()
+        val splitUrl = url.split('#')
         return if (splitUrl[0].endsWith(GLOSSARY_OF_TERMS) && splitUrl.size > 1) splitUrl[1] else splitUrl[0]
     }
 
