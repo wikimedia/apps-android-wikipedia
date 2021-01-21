@@ -14,6 +14,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_watchlist.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -36,6 +37,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private val disposables = CompositeDisposable()
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
     private var filterMode = FILTER_MODE_ALL
+    private var displayLanguages = listOf<String>()
+    private val funnel = WatchlistFunnel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -55,7 +58,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
         watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        updateDisplayLanguages()
         fetchWatchlist(false)
+
+        funnel.logOpenWatchlist()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -88,6 +94,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
     }
 
+    private fun updateDisplayLanguages() {
+        displayLanguages = WikipediaApp.getInstance().language().appLanguageCodes.filterNot { Prefs.getWatchlistDisabledLanguages().contains(it) }
+    }
+
     private fun fetchWatchlist(refreshing: Boolean) {
         disposables.clear()
         watchlistEmptyContainer.visibility = View.GONE
@@ -102,22 +112,17 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             watchlistProgressBar.visibility = View.VISIBLE
         }
 
-        val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
         val calls = ArrayList<Observable<MwQueryResponse>>()
-        val enabledLangCodes = mutableListOf<String>()
-        for (lang in WikipediaApp.getInstance().language().appLanguageCodes) {
-            if (disabledLangCodes.contains(lang)) {
-                continue
-            }
-            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(lang)).watchlist
+
+        displayLanguages.forEach {
+            calls.add(ServiceFactory.get(WikiSite.forLanguageCode(it)).watchlist
                     .subscribeOn(Schedulers.io()))
-            enabledLangCodes.add(lang)
         }
 
         disposables.add(Observable.zip(calls) { resultList ->
                     val items = ArrayList<MwQueryResult.WatchlistItem>()
-                    for (result in resultList) {
-                        val wiki = WikiSite.forLanguageCode(enabledLangCodes.removeFirst())
+                    resultList.forEachIndexed { index, result ->
+                        val wiki = WikiSite.forLanguageCode(displayLanguages[index])
                         for (item in (result as MwQueryResponse).query()!!.watchlist) {
                             item.wiki = wiki
                             items.add(item)
@@ -278,6 +283,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onLanguageChanged() {
+        updateDisplayLanguages()
+        funnel.logChangeLanguage(displayLanguages)
         fetchWatchlist(false)
     }
 

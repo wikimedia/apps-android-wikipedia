@@ -84,7 +84,7 @@
   <string name="dialog_message_edit_failed">Modifega fallada!</string>
   <string name="dialog_message_edit_failed_retry">Proeuva anmò</string>
   <string name="dialog_message_edit_failed_cancel">Annulla</string>
-  <string name="dialog_message_leaving_edit">I to modifiche a inn stade nanamò misse foeura. Te see sicur che te voeuret andà foeura de quela pagina chì?</string>
+  <string name="dialog_message_leaving_edit">I to modifiche a inn stade nanamò misse foeura. Te see sicur che te voeuret andà foeura de quella pagina chì?</string>
   <string name="dialog_message_leaving_edit_leave">Lassa</string>
   <string name="dialog_message_leaving_edit_stay">Resta</string>
   <string name="menu_show_toc">Indes</string>
@@ -178,9 +178,9 @@
   <string name="page_protected_autoconfirmed">Questa pagina chì l\'è stada semi-protesgiuda</string>
   <string name="page_protected_sysop">Questa pagina chì l\'è stada protesgiuda completament.</string>
   <string name="page_protected_other">Questa pagina chì l\'è stada protesgiuda a chì nivei chì: %s</string>
-  <string name="page_protected_can_not_edit">El ne rincress, el to cunt el gh\'hà minga assée de privilensg de modificà quela pagina chì adess.</string>
-  <string name="page_protected_can_not_edit_anon">El ne rincress, quela pagina chì la po vesser minga modifigada di utent anonim in \'sto moment.</string>
-  <string name="page_protected_can_not_edit_title">Quela pagina chì l\'è protesgiuda</string>
+  <string name="page_protected_can_not_edit">El ne rincress, el to cunt el gh\'hà minga assée de privilensg de modificà quella pagina chì adess.</string>
+  <string name="page_protected_can_not_edit_anon">El ne rincress, quella pagina chì la po vesser minga modifigada di utent anonim in \'sto moment.</string>
+  <string name="page_protected_can_not_edit_title">Quella pagina chì l\'è protesgiuda</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
   <string name="settings_item_preferences">Impostazzion</string>
   <string name="settings_activity_title">Impostazzion</string>
@@ -192,7 +192,7 @@
   <string name="about_translators_heading">Tradutor</string>
   <string name="about_translators_translatewiki">Questa applicazzion chì l\'è stada tradotta de tradutor volontari in su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; second conforma a la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; second conforma a la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodot de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazzion</string>
   <string name="edit_abandon_confirm">La pagina l\'è stada modificada. Te see sicur che te voeuret sortì senza salvà i cambiament?</string>
@@ -204,7 +204,7 @@
   <string name="edit_how_page_improved">Com \'a l\'è che t\'hee migliorà la pagina?</string>
   <string name="edit_next">Prossim</string>
   <string name="edit_done">Met foeura</string>
-  <string name="edit_preview">La pagina com\'a l\'è innanz de salvala</string>
+  <string name="edit_preview">Veduda antecipada</string>
   <string name="edit_undo">Torna a \'me che l\'era inanz</string>
   <string name="edit_redo">Fà anmò \'na volta</string>
   <string name="edit_zoom_in">Ingrandiment</string>
@@ -221,9 +221,9 @@
   <string name="find_first_occurence">Questchì l\'è el prim avveniment</string>
   <string name="find_last_occurence">Chesschì l\'è l\'ultim avveniment</string>
   <string name="abusefilter_title_warn">Questa chì la podaria vesser una modifega minga creativa. Te seet proppi sicur de vorè publicala.</string>
-  <string name="abusefilter_title_disallow">Te podet minga publicà quela modifega chì. Per piesè torna indrée a cambiala.</string>
-  <string name="abusefilter_text_warn">Un filter automatich l\'hà reconossud come inutil quela modifega chì. La podariss avegh denter vun o diversi de \'sti element chì:&lt;br /&gt;&lt;br /&gt;· Test tut in majuscul&lt;br /&gt;· Articol voeud o di ruf&lt;br /&gt;· Ligam de foeura o imagin minga riguardante&lt;br /&gt;· Carater bissad</string>
-  <string name="abusefilter_text_disallow">Un filter automatich l\'ha reconossud quela modifega chì probabilment minga creativa, o possibil vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia a l\'è un\'enciclopedia e la gh\'ha de vegh denter doma di contegnud neutrai e significativ.</string>
+  <string name="abusefilter_title_disallow">Te podet minga publicà quella modifega chì. Per piesè torna indrée a cambiala.</string>
+  <string name="abusefilter_text_warn">Un filter automatich l\'hà reconossud come inutil questa modifega chì. La podariss avegh denter vun o diversi de \'sti element chì:&lt;br /&gt;&lt;br /&gt;· Test tut in majuscul&lt;br /&gt;· Articol voeud o di ruf&lt;br /&gt;· Ligam de foeura o imagin minga riguardante&lt;br /&gt;· Carater bissad</string>
+  <string name="abusefilter_text_disallow">Un filter automatich l\'ha reconossud quella modifega chì probabilment minga creativa, o possibil vandalismo.&lt;br /&gt;&lt;br /&gt;Wikipedia a l\'è un\'enciclopedia e la gh\'ha de vegh denter doma di contegnud neutrai e significativ.</string>
   <string name="page_similar_titles">Pagine compagne</string>
   <string name="search_did_you_mean">Te voeurevet dì: \"%s\"?</string>
   <string name="search_recent_header">Ricerche recente:</string>
@@ -252,5 +252,5 @@
   <string name="menu_option_share_edit">Scompartiss modifega</string>
   <string name="watchlist_details_watch_label">Varda</string>
   <string name="thank_label">Grazzia</string>
-  <string name="thank_dialog_positive_button_text">RENGRAZZIA</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">RENGRAZZIA</string>
 </resources>
