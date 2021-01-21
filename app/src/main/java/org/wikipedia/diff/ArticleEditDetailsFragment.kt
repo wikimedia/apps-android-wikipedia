@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.TextUtils
 import android.text.method.ScrollingMovementMethod
-import android.text.style.BackgroundColorSpan
-import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.*
 import android.view.View.GONE
@@ -48,6 +46,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.BackgroundColorSpanWithLineSpacing
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.nio.charset.StandardCharsets
@@ -331,12 +330,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     private fun updateDiffTextDecor(spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
         val boldStyle = StyleSpan(Typeface.BOLD)
-        val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_64))
-        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_65))
-        spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                if (isAddition) R.attr.edit_green_highlight else R.attr.edit_red_highlight)), start, end, 0)
+        val foregroundAddedColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_64)
+        val foregroundRemovedColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_65)
+        val backgroundSpan = BackgroundColorSpanWithLineSpacing(ResourceUtil.getThemedColor(requireContext(),
+                if (isAddition) R.attr.edit_green_highlight else R.attr.edit_red_highlight),
+                if (isAddition) foregroundAddedColor else foregroundRemovedColor,
+                diffText.layout.spacingAdd)
+        spannableText.setSpan(backgroundSpan, start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)
-        spannableText.setSpan(if (isAddition) foregroundAddedColor else foregroundRemovedColor, start, end, 0)
     }
 
     private fun utf8Indices(s: String): IntArray {
