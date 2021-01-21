@@ -77,12 +77,6 @@ public class StringUtilTest {
     }
 
     @Test
-    public void testHasSectionAnchor() {
-        assertThat(StringUtil.hasSectionAnchor("te_st"), is(false));
-        assertThat(StringUtil.hasSectionAnchor("#te_st"), is(true));
-    }
-
-    @Test
     public void testRemoveSectionAnchor() {
         assertThat(StringUtil.removeSectionAnchor("#te_st"), is(""));
         assertThat(StringUtil.removeSectionAnchor("sec#te_st"), is("sec"));
