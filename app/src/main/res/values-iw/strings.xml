@@ -1024,6 +1024,8 @@
   <string name="watchlist_details_watch_label">לעקוב</string>
   <string name="thank_label">תודה</string>
   <string name="go_to_user_page">מעבר לדף משתמש</string>
+  <string name="thank_dialog_title_text">שליחת \"תודה\" באופן ציבורי</string>
+  <string name="thank_dialog_text">\"תודה\" היא דרך קלה להראות הערכה לעבודה של עורך בוויקיפדיה. לא ניתן לבטל פעולות שליחת \"תודה\" והן מוצגות באופן ציבורי.</string>
   <string name="thank_dialog_positive_button_text">לשלוח תודה</string>
   <string name="thank_dialog_negative_button_text">ביטול</string>
   <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
