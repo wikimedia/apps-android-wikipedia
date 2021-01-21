@@ -346,9 +346,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     private fun updateDiffTextDecor(spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
         val boldStyle = StyleSpan(Typeface.BOLD)
         val foregroundAddedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_64))
-        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_65))
+        val foregroundRemovedColor = ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_66))
         spannableText.setSpan(BackgroundColorSpan(ResourceUtil.getThemedColor(requireContext(),
-                if (isAddition) R.attr.edit_green_highlight else R.attr.edit_red_highlight)), start, end, 0)
+                if (isAddition) R.attr.color_group_65 else R.attr.color_group_67)), start, end, 0)
         spannableText.setSpan(boldStyle, start, end, 0)
         spannableText.setSpan(if (isAddition) foregroundAddedColor else foregroundRemovedColor, start, end, 0)
     }
