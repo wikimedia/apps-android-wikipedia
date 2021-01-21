@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import org.wikipedia.activity.SingleFragmentActivity
 
-class WatchlistActivity : SingleFragmentActivity<WatchlistFragment?>() {
+class WatchlistActivity : SingleFragmentActivity<WatchlistFragment>() {
     public override fun createFragment(): WatchlistFragment {
         return WatchlistFragment.newInstance()
     }
