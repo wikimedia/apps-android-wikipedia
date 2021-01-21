@@ -838,6 +838,7 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Отказ</string>
   <string name="watchlist_details_watch_label">Наблюдение</string>
   <string name="thank_label">Благодарност</string>
+  <string name="thank_dialog_negative_button_text">Отказ</string>
   <string name="watchlist_expiry_dialog_one_week">1 седмица</string>
   <string name="watchlist_expiry_dialog_one_month">1 месец</string>
   <string name="watchlist_expiry_dialog_three_months">3 месеца</string>

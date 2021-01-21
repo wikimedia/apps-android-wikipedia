@@ -973,8 +973,8 @@
   <string name="watchlist_details_watch_label">Segueix</string>
   <string name="thank_label">Agraeix</string>
   <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
-  <string name="thank_dialog_positive_button_text">ENVIA AGRAÏMENTS</string>
-  <string name="thank_dialog_negative_button_text">CANCEL·LA</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">ENVIA AGRAÏMENTS</string>
+  <string name="thank_dialog_negative_button_text" fuzzy="true">CANCEL·LA</string>
   <string name="thank_success_message">S\'han enviat els agraïments a %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i la seva pàgina de discussió s\'han afegit a la vostra llista de seguiment %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Canvia</string>

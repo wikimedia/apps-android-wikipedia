@@ -355,6 +355,7 @@
   <string name="talk_new_topic">Jauna tēma</string>
   <string name="talk_add_reply">Atbildēt</string>
   <string name="thank_label">Pateikties</string>
-  <string name="thank_dialog_positive_button_text">NOSŪTĪT PATEICĪBU</string>
-  <string name="thank_dialog_negative_button_text">ATCELT</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">NOSŪTĪT PATEICĪBU</string>
+  <string name="thank_dialog_negative_button_text" fuzzy="true">ATCELT</string>
+  <string name="thank_success_message">Tava pateicība tika nosūtīta %s 👍</string>
 </resources>

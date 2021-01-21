@@ -964,4 +964,6 @@
   <string name="talk_message_hint">メッセージを組み立てる</string>
   <string name="talk_message_empty">メッセージを空にすることはできません。</string>
   <string name="talk_subject_empty">件名を空にすることはできません。</string>
+  <string name="watchlist_details_watch_label">ウォッチ</string>
+  <string name="thank_label">感謝</string>
 </resources>
