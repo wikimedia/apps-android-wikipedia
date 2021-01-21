@@ -3,33 +3,34 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.text.method.LinkMovementMethod
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.view_description_edit_license.view.*
 import org.wikipedia.R
+import org.wikipedia.databinding.ViewDescriptionEditLicenseBinding
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.StringUtil
 
 class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+    private val binding = ViewDescriptionEditLicenseBinding.inflate(LayoutInflater.from(context), this)
 
     init {
-        inflate(context, R.layout.view_description_edit_license, this)
-        licenseText.movementMethod = LinkMovementMethod.getInstance()
+        binding.licenseText.movementMethod = LinkMovementMethod.getInstance()
         buildLicenseNotice(ARG_NOTICE_DEFAULT)
     }
 
     fun buildLicenseNotice(arg: String) {
-        licenseText.text = StringUtil.fromHtml(context.getString(getLicenseTextRes(arg),
+        binding.licenseText.text = StringUtil.fromHtml(context.getString(getLicenseTextRes(arg),
                 context.getString(R.string.terms_of_use_url), context.getString(R.string.cc_0_url)))
-        RichTextUtil.removeUnderlinesFromLinks(licenseText)
+        RichTextUtil.removeUnderlinesFromLinks(binding.licenseText)
     }
 
     fun darkLicenseView() {
         val white70 = ContextCompat.getColor(context, R.color.white70)
         setBackgroundResource(android.R.color.black)
-        licenseText.setTextColor(white70)
-        licenseText.setLinkTextColor(white70)
-        licenseIcon.setColorFilter(white70, android.graphics.PorterDuff.Mode.SRC_IN)
+        binding.licenseText.setTextColor(white70)
+        binding.licenseText.setLinkTextColor(white70)
+        binding.licenseIcon.setColorFilter(white70, android.graphics.PorterDuff.Mode.SRC_IN)
     }
 
     private fun getLicenseTextRes(arg: String): Int =
