@@ -66,9 +66,7 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
 
-        if (supportActionBar != null) {
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
             NotificationFunnel.processIntent(intent)
         }
