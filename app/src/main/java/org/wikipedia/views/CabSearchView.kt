@@ -3,7 +3,6 @@ package org.wikipedia.views
 import android.content.Context
 import android.text.InputFilter
 import android.text.Spanned
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.widget.ImageView
@@ -14,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import java.util.*
 
 /** [SearchView] that exposes contextual action bar callbacks.  */
 class CabSearchView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = androidx.appcompat.R.attr.searchViewStyle) :
