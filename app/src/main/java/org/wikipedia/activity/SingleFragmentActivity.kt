@@ -11,22 +11,19 @@ import org.wikipedia.R
  * Boilerplate for a FragmentActivity containing a single stack of Fragments.
  */
 abstract class SingleFragmentActivity<T : Fragment> : BaseActivity() {
+    @Suppress("UNCHECKED_CAST")
+    val fragment: T?
+        get() = supportFragmentManager.findFragmentById(containerId) as T?
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout)
-        if (getFragment() == null) {
+        if (fragment == null) {
             supportFragmentManager.beginTransaction().add(containerId, createFragment()).commit()
         }
     }
 
     protected abstract fun createFragment(): T
-
-    /** @return The Fragment added to the stack.
-     */
-    @Suppress("UNCHECKED_CAST")
-    protected open fun getFragment(): T? {
-        return supportFragmentManager.findFragmentById(containerId) as T?
-    }
 
     /** @return The resource layout to inflate which must contain a [android.view.ViewGroup]
      * whose ID is [.getContainerId].
