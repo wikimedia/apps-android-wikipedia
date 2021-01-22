@@ -20,19 +20,17 @@ object BatchUtil {
     //
     // Bug: T162497
     @JvmStatic
-    fun <T> makeBatches(titles: List<PageTitle?>,
-                        handler: Handler<T>,
-                        callback: Callback<T>) {
+    fun <T> makeBatches(titles: List<PageTitle?>, handler: Handler<T>, callback: Callback<T>?) {
         var i = 0
         while (i < titles.size) {
             handler.handleBatch(titles.subList(i, i + min(Constants.API_QUERY_MAX_TITLES, titles.size - i)),
                     titles.size, object : Callback<T> {
                 override fun success(results: List<T>) {
-                    callback.success(results)
+                    callback?.success(results)
                 }
 
                 override fun failure(caught: Throwable) {
-                    callback.failure(caught)
+                    callback?.failure(caught)
                 }
             })
             i += min(Constants.API_QUERY_MAX_TITLES, titles.size - i)
