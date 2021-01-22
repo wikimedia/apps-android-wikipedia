@@ -140,7 +140,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void image(@Nullable Uri uri) {
-        wikiArticleCardView.setImageUri(uri);
+        wikiArticleCardView.setImageUri(uri, false);
         if (uri != null) {
             ImageZoomHelper.setViewZoomable(wikiArticleCardView.getImageView());
         }

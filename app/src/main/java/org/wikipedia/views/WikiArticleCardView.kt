@@ -42,8 +42,8 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
         return TransitionUtil.getSharedElements(context, articleTitle, articleDescription, articleImage, articleDivider)
     }
 
-    fun setImageUri(uri: Uri?) {
-        if (uri == null || DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) {
+    fun setImageUri(uri: Uri?, hideInLandscape: Boolean = true) {
+        if (uri == null || (DimenUtil.isLandscape(context) && hideInLandscape) || !Prefs.isImageDownloadEnabled()) {
             articleImageContainer.visibility = GONE
         } else {
             articleImageContainer.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT,
