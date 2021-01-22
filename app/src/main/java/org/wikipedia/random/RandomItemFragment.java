@@ -123,7 +123,7 @@ public class RandomItemFragment extends Fragment {
         wikiArticleCardView.setDescription(summary.getDescription());
         wikiArticleCardView.setExtract(summary.getExtract(), EXTRACT_MAX_LINES);
         wikiArticleCardView.setImageUri(TextUtils.isEmpty(summary.getThumbnailUrl()) ? null
-                : Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_CARD_THUMBNAIL_SIZE)));
+                : Uri.parse(ImageUrlUtil.getUrlForPreferredSize(summary.getThumbnailUrl(), PREFERRED_CARD_THUMBNAIL_SIZE)), false);
     }
 
     @Nullable public PageTitle getTitle() {
