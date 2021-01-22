@@ -70,7 +70,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         }
 
         fun updateSubscription() {
-            if (!AccountUtil.isLoggedIn()) {
+            if (!AccountUtil.isLoggedIn) {
                 // Don't bother doing anything if the user is not logged in.
                 return
             }
