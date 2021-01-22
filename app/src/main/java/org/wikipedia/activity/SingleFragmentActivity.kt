@@ -6,7 +6,6 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 
-
 /**
  * Boilerplate for a FragmentActivity containing a single stack of Fragments.
  */
