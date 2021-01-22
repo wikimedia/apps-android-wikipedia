@@ -391,6 +391,27 @@ public class ReadingListDbHelper {
         }
     }
 
+    public void updateMetadataByTitle(@NonNull String title, @NonNull String lang,
+                                      @Nullable String description, @Nullable String thumbUrl) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.getName(), thumbUrl);
+            contentValues.put(ReadingListPageContract.Col.DESCRIPTION.getName(), description);
+            int result = db.update(ReadingListPageContract.TABLE, contentValues,
+                    ReadingListPageContract.Col.API_TITLE.getName() + " = ? AND "
+                            + ReadingListPageContract.Col.LANG.getName() + " = ?",
+                    new String[]{title, lang});
+            if (result != 1) {
+                L.w("Failed to update db entry for page " + title);
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
     private void insertPageInDb(SQLiteDatabase db, @NonNull ReadingList list, @NonNull ReadingListPage page) {
         page.listId(list.id());
         long id = db.insertOrThrow(ReadingListPageContract.TABLE, null,
