@@ -9,7 +9,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.html.ParseException;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -41,7 +40,7 @@ class PageComponentsUrlParser {
                     urls.add(UriUtil.resolveProtocolRelativeUrl(site, url));
                 }
             }
-        } catch (ParseException e) {
+        } catch (Exception e) {
             L.d("Parsing exception" + e);
         }
 
