@@ -14,8 +14,14 @@ abstract class SingleFragmentActivity<T : Fragment> : BaseActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout)
-        fragment = createFragment()
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit()
+
+        val currentFragment: T? = supportFragmentManager.findFragmentById(R.id.fragment_container) as T?
+        if (currentFragment != null) {
+            fragment = currentFragment
+        } else {
+            fragment = createFragment()
+            supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit()
+        }
     }
 
     protected abstract fun createFragment(): T
