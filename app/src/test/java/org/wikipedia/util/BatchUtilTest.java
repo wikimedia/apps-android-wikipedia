@@ -34,7 +34,7 @@ import static org.hamcrest.Matchers.is;
             private List<Integer> sizes = new ArrayList<>();
             private int count;
 
-            @Override public void handleBatch(@NonNull List<PageTitle> batchTitles, int total,
+            @Override public void handleBatch(@NonNull List<? extends PageTitle> batchTitles, int total,
                                               BatchUtil.Callback<Integer> cb) {
                 sizes.add(batchTitles.size());
                 count += batchTitles.size();
