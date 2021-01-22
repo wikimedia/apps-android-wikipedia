@@ -391,8 +391,8 @@ public class ReadingListDbHelper {
         }
     }
 
-    public void updateMetadataByTitle(@NonNull String title, @NonNull String lang,
-                                      @Nullable String description, @Nullable String thumbUrl) {
+    public void updateMetadataByTitle(@NonNull ReadingListPage pageProto, @Nullable String description,
+                                      @Nullable String thumbUrl) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
@@ -401,10 +401,11 @@ public class ReadingListDbHelper {
             contentValues.put(ReadingListPageContract.Col.DESCRIPTION.getName(), description);
             int result = db.update(ReadingListPageContract.TABLE, contentValues,
                     ReadingListPageContract.Col.API_TITLE.getName() + " = ? AND "
+                            + ReadingListPageContract.Col.DISPLAY_TITLE.getName() + " = ? AND "
                             + ReadingListPageContract.Col.LANG.getName() + " = ?",
-                    new String[]{title, lang});
+                    new String[]{pageProto.apiTitle(), pageProto.title(), pageProto.lang()});
             if (result != 1) {
-                L.w("Failed to update db entry for page " + title);
+                L.w("Failed to update db entry for page " + pageProto.title());
             }
             db.setTransactionSuccessful();
         } finally {

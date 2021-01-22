@@ -538,7 +538,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             disposables.add(Completable.fromAction(() -> {
                 if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
                         || !TextUtils.equals(page.description(), title.getDescription())) {
-                    ReadingListDbHelper.instance().updateMetadataByTitle(page.apiTitle(), page.lang(),
+                    ReadingListDbHelper.instance().updateMetadataByTitle(page,
                             title.getDescription(), title.getThumbUrl());
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
