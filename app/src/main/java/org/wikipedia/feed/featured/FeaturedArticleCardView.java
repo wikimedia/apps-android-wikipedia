@@ -151,7 +151,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             if (getCallback() != null && getCard() != null) {
                 getCallback().onSelectPage(getCard(), new HistoryEntry(
                         new PageTitle(SiteInfoClient.getMainPageForLang(getCard().wikiSite().languageCode()),
-                                getCard().wikiSite()), getCard().historyEntry().getSource()), true);
+                                getCard().wikiSite()), getCard().historyEntry().getSource()), false);
             }
         };
     }
