@@ -443,7 +443,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<SuggestedEditsTaskView>, i: Int) {
-            holder.view.setUpViews(items()[i], callback)
+            holder.view.setUpViews(items[i], callback)
         }
     }
 
