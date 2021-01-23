@@ -66,6 +66,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="-8dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -86,19 +87,23 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="24dp"
+                    android:paddingBottom="12dp"
                     android:scaleX="-1"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                     app:tint="?attr/primary_text_color" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/newerIdButton"
-                    android:layout_width="48dp"
+                    android:layout_width="56dp"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="12dp"
+                    android:paddingStart="32dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                     app:tint="?attr/primary_text_color" />
             </LinearLayout>
