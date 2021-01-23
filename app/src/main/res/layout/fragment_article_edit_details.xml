@@ -80,7 +80,7 @@
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/newerIdButton"
+                    android:id="@+id/olderIdButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
@@ -92,7 +92,7 @@
                     app:tint="?attr/primary_text_color" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/olderIdButton"
+                    android:id="@+id/newerIdButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
