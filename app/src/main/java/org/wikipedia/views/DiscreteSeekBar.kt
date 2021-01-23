@@ -5,11 +5,9 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import androidx.annotation.AttrRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatSeekBar
 import org.wikipedia.R
-import org.wikipedia.util.log.L
 
 class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
         AppCompatSeekBar(context, attrs, defStyleAttr) {
