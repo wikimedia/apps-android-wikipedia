@@ -7,17 +7,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnClick
-import butterknife.Unbinder
 import org.wikipedia.R
+import org.wikipedia.databinding.DatePickerDialogBinding
+import org.wikipedia.databinding.ViewCustomCalendarDayBinding
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import java.util.*
@@ -27,74 +23,59 @@ class CustomDatePicker : DialogFragment() {
         fun onDatePicked(month: Int, day: Int)
     }
 
-    private var callback: Callback? = null
-    private var unbinder: Unbinder? = null
+    private var _binding: DatePickerDialogBinding? = null
+    private val binding get() = _binding!!
 
-    @BindView(R.id.day)
-    var day: TextView? = null
-
-    @BindView(R.id.month_string)
-    var monthString: TextView? = null
-
-    @BindView(R.id.grid)
-    var monthGrid: RecyclerView? = null
-
-    @BindView(R.id.previous_month)
-    var previousMonthBtn: ImageView? = null
-
-    @BindView(R.id.next_month)
-    var nextMonthBtn: ImageView? = null
-    private var today: Calendar? = null
+    private val today = Calendar.getInstance()
     private val selectedDay = Calendar.getInstance()
     private val callbackDay = Calendar.getInstance()
+
+    var callback: Callback? = null
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val view = View.inflate(requireContext(), R.layout.date_picker_dialog, null)
-        unbinder = ButterKnife.bind(this, view)
-        today = Calendar.getInstance()
+        _binding = DatePickerDialogBinding.inflate(LayoutInflater.from(requireContext()))
         setUpMonthGrid()
         setMonthString()
         setDayString()
+        setPreviousMonthClickListener()
+        setNextMonthClickListener()
         return AlertDialog.Builder(requireActivity())
-                .setView(view)
-                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text
-                ) { dialog: DialogInterface?, id: Int -> callback!!.onDatePicked(callbackDay[Calendar.MONTH], callbackDay[Calendar.DATE]) }
-                .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text
-                ) { dialog: DialogInterface, id: Int -> dialog.dismiss() }
+                .setView(binding.root)
+                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text) { _: DialogInterface?, _: Int -> callback?.onDatePicked(callbackDay[Calendar.MONTH], callbackDay[Calendar.DATE]) }
+                .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
                 .create()
     }
 
-    @OnClick(R.id.previous_month)
-    fun onPreviousMonthClicked() {
-        val currentMonth = selectedDay[Calendar.MONTH]
-        selectedDay[LEAP_YEAR, if (currentMonth == 0) Calendar.DECEMBER else currentMonth - 1] = 1
-        setMonthString()
-        monthGrid!!.adapter!!.notifyDataSetChanged()
+    private fun setPreviousMonthClickListener() {
+        binding.previousMonth.setOnClickListener {
+            val currentMonth = selectedDay[Calendar.MONTH]
+            selectedDay[LEAP_YEAR, if (currentMonth == 0) Calendar.DECEMBER else currentMonth - 1] = 1
+            setMonthString()
+        }
     }
 
-    @OnClick(R.id.next_month)
-    fun onNextMonthClicked() {
-        val currentMonth = selectedDay[Calendar.MONTH]
-        selectedDay[LEAP_YEAR, if (currentMonth == Calendar.DECEMBER) Calendar.JANUARY else currentMonth + 1] = 1
-        setMonthString()
-        monthGrid!!.adapter!!.notifyDataSetChanged()
+    private fun setNextMonthClickListener() {
+        binding.nextMonth.setOnClickListener {
+            val currentMonth = selectedDay[Calendar.MONTH]
+            selectedDay[LEAP_YEAR, if (currentMonth == Calendar.DECEMBER) Calendar.JANUARY else currentMonth + 1] = 1
+            setMonthString()
+        }
     }
 
     private fun setUpMonthGrid() {
-        monthGrid!!.layoutManager = GridLayoutManager(requireContext(), MAX_COLUMN_SPAN)
-        monthGrid!!.adapter = CustomCalendarAdapter()
+        binding.calendarGrid.layoutManager = GridLayoutManager(requireContext(), MAX_COLUMN_SPAN)
+        binding.calendarGrid.adapter = CustomCalendarAdapter()
     }
 
     private fun setMonthString() {
-        monthString!!.text = DateUtil.getMonthOnlyWithoutDayDateString(selectedDay.time)
-    }
-
-    fun setCallback(callback: Callback?) {
-        this.callback = callback
+        binding.currentMonth.text = DateUtil.getMonthOnlyWithoutDayDateString(selectedDay.time)
+        binding.calendarGrid.adapter!!.notifyDataSetChanged()
     }
 
     inner class CustomCalendarAdapter : RecyclerView.Adapter<CustomCalendarAdapter.ViewHolder>() {
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(LayoutInflater.from(requireContext()).inflate(R.layout.view_custom_calendar_day, parent, false))
+            return ViewHolder(ViewCustomCalendarDayBinding.inflate(LayoutInflater.from(requireContext()), parent, false))
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -105,43 +86,39 @@ class CustomDatePicker : DialogFragment() {
             return selectedDay.getActualMaximum(Calendar.DAY_OF_MONTH)
         }
 
-        inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-            private val dayTextView: TextView
-            private val circleBackGround: ImageView
-            override fun onClick(view: View) {
-                selectedDay[Calendar.DATE] = adapterPosition + 1
-                callbackDay[LEAP_YEAR, selectedDay[Calendar.MONTH]] = adapterPosition + 1
-                setDayString()
-                notifyDataSetChanged()
+        inner class ViewHolder internal constructor(private val binding: ViewCustomCalendarDayBinding) :
+                RecyclerView.ViewHolder(binding.root) {
+
+            init {
+                binding.root.setOnClickListener {
+                    selectedDay[Calendar.DATE] = adapterPosition + 1
+                    callbackDay[LEAP_YEAR, selectedDay[Calendar.MONTH]] = adapterPosition + 1
+                    setDayString()
+                    notifyDataSetChanged()
+                }
             }
 
             fun setFields(position: Int) {
-                if (position == today!![Calendar.DATE] && today!![Calendar.MONTH] == selectedDay[Calendar.MONTH]) {
-                    dayTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+                if (position == today[Calendar.DATE] && today[Calendar.MONTH] == selectedDay[Calendar.MONTH]) {
+                    binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
                 } else {
-                    dayTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color))
+                    binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color))
                 }
                 if (position == callbackDay[Calendar.DATE] && selectedDay[Calendar.MONTH] == callbackDay[Calendar.MONTH]) {
-                    dayTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-                    dayTextView.typeface = Typeface.DEFAULT_BOLD
-                    circleBackGround.visibility = View.VISIBLE
+                    binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+                    binding.dayText.typeface = Typeface.DEFAULT_BOLD
+                    binding.dayCircleBackground.visibility = View.VISIBLE
                 } else {
-                    dayTextView.typeface = Typeface.DEFAULT
-                    circleBackGround.visibility = View.GONE
+                    binding.dayText.typeface = Typeface.DEFAULT
+                    binding.dayCircleBackground.visibility = View.GONE
                 }
-                dayTextView.text = String.format(Locale.getDefault(), "%d", position)
-            }
-
-            init {
-                dayTextView = itemView.findViewById(R.id.custom_day)
-                circleBackGround = itemView.findViewById(R.id.circle)
-                itemView.setOnClickListener(this)
+                binding.dayText.text = String.format(Locale.getDefault(), "%d", position)
             }
         }
     }
 
     private fun setDayString() {
-        day!!.text = DateUtil.getFeedCardShortDateString(selectedDay)
+        binding.calendarDay.text = DateUtil.getFeedCardShortDateString(selectedDay)
     }
 
     fun setSelectedDay(month: Int, day: Int) {
@@ -150,15 +127,12 @@ class CustomDatePicker : DialogFragment() {
     }
 
     override fun onDestroyView() {
-        if (unbinder != null) {
-            unbinder!!.unbind()
-            unbinder = null
-        }
+        _binding = null
         super.onDestroyView()
     }
 
     companion object {
-        const val LEAP_YEAR = 2016
         private const val MAX_COLUMN_SPAN = 7
+        const val LEAP_YEAR = 2016
     }
 }
