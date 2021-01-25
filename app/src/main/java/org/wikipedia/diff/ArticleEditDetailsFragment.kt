@@ -236,7 +236,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
 
     private fun updateWatchlistButtonUI() {
         setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
-                if (isWatched) R.attr.color_group_62 else R.attr.colorAccent))
+                if (isWatched) R.attr.color_group_68 else R.attr.colorAccent))
         watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
     }
 
