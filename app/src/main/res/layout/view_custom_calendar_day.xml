@@ -6,7 +6,7 @@
     android:gravity="center">
 
     <ImageView
-        android:id="@+id/circle"
+        android:id="@+id/day_circle_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:tint="?attr/colorAccent"
@@ -15,7 +15,7 @@
         app:srcCompat="@drawable/shape_circle" />
 
     <TextView
-        android:id="@+id/custom_day"
+        android:id="@+id/day_text"
         style="@style/TextViewCentered"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
