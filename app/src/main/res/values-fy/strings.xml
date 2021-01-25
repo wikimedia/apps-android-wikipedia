@@ -953,6 +953,7 @@
   <string name="thank_label">Betankje</string>
   <string name="go_to_user_page">Nei meidoggerside gean</string>
   <string name="thank_dialog_title_text">Publyklik in betankje stjoere</string>
+  <string name="thank_dialog_text">Betankjes bringe op noflike wize jo wurdearring oer foar it wurk fan ien op \'e Wikipedy. Betankjes kinne net ynlutsen wurde en elkenien kin se sjen.</string>
   <string name="thank_dialog_positive_button_text">Betankje stjoere</string>
   <string name="thank_dialog_negative_button_text">Annulearje</string>
   <string name="thank_success_message">Jo betankje foar %s is ferstjoerd 👍</string>

@@ -104,7 +104,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         watchlistRecyclerView.visibility = View.GONE
         watchlistErrorView.visibility = View.GONE
 
-        if (!AccountUtil.isLoggedIn()) {
+        if (!AccountUtil.isLoggedIn) {
             return
         }
 

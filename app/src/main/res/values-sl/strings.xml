@@ -347,4 +347,7 @@
   <string name="text_input_dialog_ok_button_text">V redu</string>
   <string name="text_input_dialog_cancel_button_text">Prekliči</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Prekliči</string>
+  <string name="talk_add_reply">Odgovori</string>
+  <string name="talk_reply_subject">Tema</string>
+  <string name="talk_reply_hint">Sestavite odgovor</string>
 </resources>
