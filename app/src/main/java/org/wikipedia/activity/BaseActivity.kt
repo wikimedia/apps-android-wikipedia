@@ -248,8 +248,8 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * Bus consumer that should be registered by all created activities.
      */
-    private inner class NonExclusiveBusConsumer : Consumer<Any?> {
-        override fun accept(event: Any?) {
+    private inner class NonExclusiveBusConsumer : Consumer<Any> {
+        override fun accept(event: Any) {
             if (event is ThemeFontChangeEvent) {
                 recreate()
             }
@@ -259,8 +259,8 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * Bus methods that should be caught only by the topmost activity.
      */
-    private inner class ExclusiveBusConsumer : Consumer<Any?> {
-        override fun accept(event: Any?) {
+    private inner class ExclusiveBusConsumer : Consumer<Any> {
+        override fun accept(event: Any) {
             if (event is NetworkConnectEvent) {
                 SavedPageSyncService.enqueue()
             } else if (event is SplitLargeListsEvent) {
