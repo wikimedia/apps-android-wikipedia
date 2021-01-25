@@ -1,22 +1,18 @@
 package org.wikipedia.bridge
 
-import org.wikipedia.bridge.JavaScriptActionHandler.setUp
 import android.annotation.SuppressLint
 import android.os.Handler
-import android.webkit.ValueCallback
-import com.google.gson.JsonObject
-import android.webkit.WebView
-import org.wikipedia.page.PageViewModel
-import org.wikipedia.page.PageTitle
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.RestService
-import org.wikipedia.util.UriUtil
 import android.os.Looper
 import android.os.Message
-import android.webkit.WebChromeClient
-import android.webkit.ConsoleMessage
-import android.webkit.JavascriptInterface
+import android.webkit.*
+import com.google.gson.JsonObject
+import org.wikipedia.bridge.JavaScriptActionHandler.setUp
+import org.wikipedia.dataclient.RestService
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.json.GsonUtil
+import org.wikipedia.page.PageTitle
+import org.wikipedia.page.PageViewModel
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
 /**
@@ -70,8 +66,8 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         if (communicationBridgeListener.model.shouldLoadAsMobileWeb()) {
             communicationBridgeListener.webView.loadUrl(pageTitle.mobileUri)
         } else {
-            communicationBridgeListener.webView.loadUrl(ServiceFactory.getRestBasePath(pageTitle.wikiSite)
-                    + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText))
+            communicationBridgeListener.webView.loadUrl(ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
+                    RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText))
         }
     }
 
