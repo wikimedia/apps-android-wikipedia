@@ -985,8 +985,10 @@
   <string name="watchlist_details_watch_label">Vigiar</string>
   <string name="thank_label">Obrigado</string>
   <string name="go_to_user_page">Vá para a página do usuário</string>
-  <string name="thank_dialog_positive_button_text" fuzzy="true">ENVIE AGRADECIMENTOS</string>
-  <string name="thank_dialog_negative_button_text" fuzzy="true">CANCELAR</string>
+  <string name="thank_dialog_title_text">Envie publicamente \"Obrigado\"</string>
+  <string name="thank_dialog_text">\'Obrigado\' é uma maneira fácil de mostrar apreço pelo trabalho de um editor na Wikipédia. \'Obrigado\' não pode ser desfeito e pode ser visto publicamente</string>
+  <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
+  <string name="thank_dialog_negative_button_text">Cancelar</string>
   <string name="thank_success_message">O seu \'agradecimento\' foi enviado para %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua página de discussão foi adicionada à sua lista de páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Mudar</string>
