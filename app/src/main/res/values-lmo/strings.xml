@@ -43,10 +43,10 @@
   <string name="search_redirect_from">Redirezzion de %s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lengua</string>
-  <string name="menu_page_find_in_page">Troeuva ind la vos</string>
+  <string name="menu_page_find_in_page">Troeuva in la vos</string>
   <string name="menu_page_add_to_watchlist">Sgionta a la lista di pagine che te tegnet d\'oeugg</string>
   <string name="menu_page_remove_from_watchlist">Toeu via de la lista di pagine che te tegnet d\'oeugg</string>
-  <string name="edit_section_find_in_page">Troeuva ind la pagina</string>
+  <string name="edit_section_find_in_page">Troeuva in la pagina</string>
   <string name="menu_page_font_and_theme">Carater e tema</string>
   <string name="menu_page_add_to_list">Sgionta a la lista di robe de leger</string>
   <string name="menu_page_add_to_default_list">Salva</string>
@@ -68,7 +68,7 @@
   <string name="talk_page_link_text">Varda la pagina de discussion</string>
   <string name="edit_history_link_text">Varda la cronologia di cambiament</string>
   <string name="map_view_link_text">Varda in su \'na mappa</string>
-  <string name="other_languages_indication_text">Lensg ind un\'altra lengua</string>
+  <string name="other_languages_indication_text">Lensg in d\'un\'altra lengua</string>
   <string name="language_count_link_text">Disponibil in alter %d lengove</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Cont el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de dà la toa contribuzzion a la definitiva second conforma a la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -91,7 +91,7 @@
   <string name="search_no_results_found">Nissun risultad trovad</string>
   <string name="search_reading_list_no_results">Nissun risultad trovad in \"%s\"</string>
   <string name="search_reading_lists_no_results">Nissun risultad trovad in di elench de lettura</string>
-  <string name="search_history_no_results">Nissun risultad trovad ind la cronologia</string>
+  <string name="search_history_no_results">Nissun risultad trovad in la cronologia</string>
   <string name="edit_section_captcha_message">Per ajutà a scombat el ruf automatich, per piasè met dent i parolle che gh\'è chì de sota.</string>
   <string name="edit_section_captcha_request_an_account_message">Te riesset minga a vedè l\'imagin? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Ciama on utenza&lt;/a&gt;</string>
   <string name="title_captcha">Met denter el CAPTCHA</string>
@@ -173,7 +173,7 @@
   <string name="preference_title_auto_upload_crash_reports">Invia di segnalazzion de eror</string>
   <string name="preference_summary_auto_upload_crash_reports">Permet a l\'aplicazzion de invià in automatich i raport sora i arrest anormai a un terz fornidor de servizzi, de manera de podè toeu in esamm el to arrest anormal e corrensg l\'eror pussée failcment e a la svelta.</string>
   <string name="editing_error_spamblacklist">A l\'è stad rilevad un conligament a \'n domini blocad (%s). Teouvel via e preouva anmò.</string>
-  <string name="history_filter_list_hint">Cerca ind la cronologia</string>
+  <string name="history_filter_list_hint">Cerca in la cronologia</string>
   <string name="error_can_not_process_link">A l\'è minga possibil vardà quell conligement chì</string>
   <string name="page_protected_autoconfirmed">Questa pagina chì l\'è stada semi-protesgiuda</string>
   <string name="page_protected_sysop">Questa pagina chì l\'è stada protesgiuda completament.</string>
@@ -199,8 +199,8 @@
   <string name="edit_abandon_confirm_yes">Sì</string>
   <string name="edit_abandon_confirm_no">Nò</string>
   <string name="user_blocked_from_editing_title">Blocad</string>
-  <string name="user_logged_in_blocked_from_editing">El to cunt l\'è stad blocad ind i modifiche a questa wiki.</string>
-  <string name="user_anon_blocked_from_editing">El to adress IP l\'è stad blocad ind i modifiche.</string>
+  <string name="user_logged_in_blocked_from_editing">El to cunt l\'è stad blocad in di modifiche a questa wiki.</string>
+  <string name="user_anon_blocked_from_editing">El to adress IP l\'è stad blocad in di modifiche.</string>
   <string name="edit_how_page_improved">Com \'a l\'è che t\'hee migliorà la pagina?</string>
   <string name="edit_next">Prossim</string>
   <string name="edit_done">Met foeura</string>

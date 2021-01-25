@@ -432,8 +432,11 @@
   <string name="text_style_title">Шрифт</string>
   <string name="nav_item_reading_lists">Мои списки</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
+  <string name="reading_list_move_to">Перенести в список для чтения</string>
   <string name="reading_list_create_new">Создать новый</string>
   <string name="reading_list_title_exists">Список для чтения «%s» уже существует.</string>
+  <string name="reading_list_article_already_exists_message">Всё хорошо! %1$s уже содержит %2$s.</string>
+  <string name="reading_list_articles_already_exist_message" fuzzy="true">Всё хорошо! %1$s уже содержит все статьи.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
   <string name="reading_list_add_to_list_button">Добавить в список</string>
   <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МБ</string>
