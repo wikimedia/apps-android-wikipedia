@@ -96,7 +96,7 @@ object JavaScriptActionHandler {
                 "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled()}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}," +
-                "   \"userGroups\": \"${AccountUtil.getGroups()}\"" +
+                "   \"userGroups\": \"${AccountUtil.groups}\"" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }
 

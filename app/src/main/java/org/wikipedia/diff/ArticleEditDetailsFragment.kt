@@ -116,7 +116,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             watchOrUnwatchTitle(watchlistExpirySession, isWatched)
         }
         usernameButton.setOnClickListener {
-            if (AccountUtil.isLoggedIn() && username != null) {
+            if (AccountUtil.isLoggedIn && username != null) {
                 startActivity(newIntent(requireActivity(),
                         PageTitle(UserTalkAliasData.valueFor(languageCode),
                                 username!!, WikiSite.forLanguageCode(languageCode))))

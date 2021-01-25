@@ -74,7 +74,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
         // Conditionally execute all recurring tasks
         RecurringTasksExecutor(WikipediaApp.getInstance()).run()
-        if (Prefs.isReadingListsFirstTimeSync() && AccountUtil.isLoggedIn()) {
+        if (Prefs.isReadingListsFirstTimeSync() && AccountUtil.isLoggedIn) {
             Prefs.setReadingListsFirstTimeSync(false)
             Prefs.setReadingListSyncEnabled(true)
             ReadingListSyncAdapter.manualSyncWithForce()
