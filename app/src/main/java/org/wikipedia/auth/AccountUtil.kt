@@ -5,7 +5,6 @@ import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.os.Build
 import android.os.Bundle
-import android.text.TextUtils
 import com.google.gson.reflect.TypeToken
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -75,7 +74,7 @@ object AccountUtil {
         get() {
             val account = account() ?: return emptySet()
             val setStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_groups))
-            return if (TextUtils.isEmpty(setStr)) emptySet() else GsonUnmarshaller.unmarshal(object : TypeToken<Set<String>>() {}, setStr)
+            return if (setStr.isNullOrEmpty()) emptySet() else GsonUnmarshaller.unmarshal(object : TypeToken<Set<String>>() {}, setStr)
         }
         set(groups) {
             val account = account() ?: return
@@ -126,7 +125,7 @@ object AccountUtil {
 
     private fun createAccount(userName: String, password: String): Boolean {
         var account = account()
-        if (account == null || TextUtils.isEmpty(account.name) || account.name != userName) {
+        if (account == null || account.name.isNullOrEmpty() || account.name != userName) {
             removeAccount()
             account = Account(userName, accountType())
             return accountManager().addAccountExplicitly(account, password, null)
@@ -145,7 +144,7 @@ object AccountUtil {
         get() {
             val account = account() ?: return emptyMap()
             val mapStr = accountManager().getUserData(account, WikipediaApp.getInstance().getString(R.string.preference_key_login_user_id_map))
-            return if (TextUtils.isEmpty(mapStr)) emptyMap() else GsonUnmarshaller.unmarshal(object : TypeToken<Map<String, Int>>() {}, mapStr)
+            return if (mapStr.isNullOrEmpty()) emptyMap() else GsonUnmarshaller.unmarshal(object : TypeToken<Map<String, Int>>() {}, mapStr)
         }
         private set(ids) {
             val account = account() ?: return
