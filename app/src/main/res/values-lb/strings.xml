@@ -690,7 +690,7 @@
   <string name="thank_label">Merci soen</string>
   <string name="go_to_user_page">Op d\'Benotzersäit goen</string>
   <string name="thank_dialog_positive_button_text" fuzzy="true">MERCI SCHECKEN</string>
-  <string name="thank_dialog_negative_button_text" fuzzy="true">OFBRIECHEN</string>
+  <string name="thank_dialog_negative_button_text">Ofbriechen</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>

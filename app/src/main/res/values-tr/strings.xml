@@ -2,6 +2,7 @@
 <!-- Authors:
 * 1917 Ekim Devrimi
 * Abijeet Patro
+* Agaafd
 * Alidemirtas
 * BaRaN6161 TURK
 * Bulgu
@@ -981,7 +982,11 @@
   <string name="talk_message_hint">Mesaj oluştur</string>
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
+  <string name="thank_label">Teşekkür et</string>
   <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
+  <string name="thank_dialog_text">\'Teşekkür\', bir editörün Vikipedi\'deki çalışmalarını takdir etmenin kolay bir yoludur. \'Teşekkür\' geri alınamaz ve herkes tarafından görülebilir.</string>
+  <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
+  <string name="thank_dialog_negative_button_text">İptal</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
