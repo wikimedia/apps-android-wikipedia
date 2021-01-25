@@ -41,6 +41,14 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         val toolbarMargin: Int
     }
 
+    init {
+        communicationBridgeListener.webView.settings.javaScriptEnabled = true
+        communicationBridgeListener.webView.settings.allowUniversalAccessFromFileURLs = true
+        communicationBridgeListener.webView.settings.mediaPlaybackRequiresUserGesture = false
+        communicationBridgeListener.webView.webChromeClient = CommunicatingChrome()
+        communicationBridgeListener.webView.addJavascriptInterface(PcsClientJavascriptInterface(), "pcsClient")
+    }
+
     fun onPcsReady() {
         isPcsReady = true
         flushMessages()
@@ -178,13 +186,5 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
 
     companion object {
         private const val MESSAGE_HANDLE_MESSAGE_FROM_JS = 1
-    }
-
-    init {
-        communicationBridgeListener.webView.settings.javaScriptEnabled = true
-        communicationBridgeListener.webView.settings.allowUniversalAccessFromFileURLs = true
-        communicationBridgeListener.webView.settings.mediaPlaybackRequiresUserGesture = false
-        communicationBridgeListener.webView.webChromeClient = CommunicatingChrome()
-        communicationBridgeListener.webView.addJavascriptInterface(PcsClientJavascriptInterface(), "pcsClient")
     }
 }
