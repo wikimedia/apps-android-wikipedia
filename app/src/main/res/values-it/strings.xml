@@ -990,6 +990,7 @@
   <string name="thank_label">Ringrazia</string>
   <string name="go_to_user_page">Vai alla pagina utente</string>
   <string name="thank_dialog_title_text">Invia pubblicamente un \'ringraziamento\'</string>
+  <string name="thank_dialog_text">\'Ringrazia\' è un modo semplice per mostrare apprezzamento per il lavoro di un editore su Wikipedia. I \'Ringrazia\' non possono essere annullati e sono visibili pubblicamente</string>
   <string name="thank_dialog_positive_button_text">Invia ringraziamento</string>
   <string name="thank_dialog_negative_button_text">Annulla</string>
   <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>

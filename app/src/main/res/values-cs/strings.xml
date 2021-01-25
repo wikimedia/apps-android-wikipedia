@@ -955,8 +955,8 @@
   <string name="watchlist_details_watch_label">Sledovat</string>
   <string name="thank_label">Poděkovat</string>
   <string name="go_to_user_page">Přejít na uživatelskou stránku</string>
-  <string name="thank_dialog_positive_button_text" fuzzy="true">ODESLAT PODĚKOVÁNÍ</string>
-  <string name="thank_dialog_negative_button_text" fuzzy="true">STORNO</string>
+  <string name="thank_dialog_positive_button_text">Odeslat poděkování</string>
+  <string name="thank_dialog_negative_button_text">Storno</string>
   <string name="thank_success_message">Poděkování bylo odesláno uživateli/uživatelce %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Změnit</string>
