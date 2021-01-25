@@ -1,6 +1,5 @@
 package org.wikipedia.views
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
@@ -9,8 +8,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatSeekBar
 import org.wikipedia.R
 
-class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
-        AppCompatSeekBar(context, attrs, defStyleAttr) {
+class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
+        AppCompatSeekBar(context, attrs) {
     private var minNumber = 0
     private var tickDrawable: Drawable? = null
     private var centerDrawable: Drawable? = null
@@ -38,6 +37,9 @@ class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: Attribu
             array.recycle()
         }
         isRtl = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
+
+        // Set this to false to prevent the issue of canvas not drawing in init{}
+        setWillNotDraw(false)
     }
 
     @Synchronized
