@@ -6,12 +6,8 @@ import android.content.Context
 
 object ClipboardUtil {
     @JvmStatic
-    fun setPlainText(context: Context?, label: CharSequence?, text: CharSequence?) {
-        val clip = ClipData.newPlainText(label, text)
-        getManager(context).setPrimaryClip(clip)
-    }
-
-    private fun getManager(context: Context?): ClipboardManager {
-        return context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    fun setPlainText(context: Context, label: CharSequence?, text: CharSequence?) {
+        (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)
+                .setPrimaryClip(ClipData.newPlainText(label, text))
     }
 }
