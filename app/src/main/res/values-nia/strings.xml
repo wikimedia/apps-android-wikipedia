@@ -157,7 +157,7 @@
   <string name="preference_summary_sync_reading_lists">Tola tefagölösi gangolita nibaso ba fefu wakake ni\'oguna\'ö, na ö\'irö\'ö ia ba akun Wikipedia</string>
   <string name="preference_summary_sync_reading_lists_from_account">Irö\'ö gangolita nibaso ba akun \"%s\" ena\'ö tefagölösi ba fefu wakake ni\'oguna\'ö</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Tibo\'ö gangolita nibaso moroi ba \"%s\"?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Edöna tetibo\'ö fefu gangolita nibaso si no mu\'irö\'ö ba server. Hadia ötohugö?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Edöna tetibo\'ö fefu gangolita nibaso si no mu\'irö\'ö ba server. Hadia ötohugö \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Fa\'ohe\'ö duria wangoguna\'ö</string>
   <string name="preference_summary_eventlogging_opt_in">Tehegö khö Wikimedia wangowuloi informasi wangoguna\'ö aplikasi, ni\'oguna\'ö dania ba wame ena\'ö abölö sökhi aplikasi.</string>
