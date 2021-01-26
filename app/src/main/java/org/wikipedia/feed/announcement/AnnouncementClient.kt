@@ -1,31 +1,22 @@
 package org.wikipedia.feed.announcement
 
 import android.content.Context
-import org.wikipedia.util.log.L.v
-import org.wikipedia.auth.AccountUtil.isLoggedIn
-import org.wikipedia.feed.dataclient.FeedClient
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.ServiceFactory
-import io.reactivex.rxjava3.schedulers.Schedulers
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import org.wikipedia.feed.announcement.AnnouncementList
-import org.wikipedia.feed.FeedCoordinator
-import org.wikipedia.feed.announcement.AnnouncementClient
-import org.wikipedia.util.log.L
-import org.wikipedia.feed.announcement.Announcement
-import org.wikipedia.util.GeoUtil
-import org.wikipedia.feed.announcement.SurveyCard
-import org.wikipedia.feed.announcement.FundraisingCard
-import org.wikipedia.feed.announcement.AnnouncementCard
-import org.wikipedia.settings.Prefs
 import android.text.TextUtils
 import androidx.annotation.VisibleForTesting
-import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.auth.AccountUtil
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.feed.FeedCoordinator
+import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
-import java.lang.NumberFormatException
+import org.wikipedia.settings.Prefs
+import org.wikipedia.util.GeoUtil
+import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.log.L.v
 import java.util.*
 
 class AnnouncementClient : FeedClient {
@@ -48,6 +39,7 @@ class AnnouncementClient : FeedClient {
     companion object {
         private const val PLATFORM_CODE = "AndroidApp"
         private const val PLATFORM_CODE_NEW = "AndroidAppV2"
+
         @VisibleForTesting
         private fun buildCards(announcements: List<Announcement>): List<Card> {
             val cards: MutableList<Card> = ArrayList()
@@ -71,11 +63,12 @@ class AnnouncementClient : FeedClient {
         fun shouldShow(announcement: Announcement?,
                        country: String?,
                        date: Date): Boolean {
-            return (announcement != null && (announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
-                    && matchesCountryCode(announcement, country)
-                    && matchesDate(announcement, date)
-                    && matchesVersionCodes(announcement.minVersion(), announcement.maxVersion())
-                    && matchesConditions(announcement))
+            return (announcement != null && (announcement.platforms().contains(PLATFORM_CODE) ||
+                    announcement.platforms().contains(PLATFORM_CODE_NEW)) &&
+                    matchesCountryCode(announcement, country) &&
+                    matchesDate(announcement, date) &&
+                    matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) &&
+                    matchesConditions(announcement))
         }
 
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {

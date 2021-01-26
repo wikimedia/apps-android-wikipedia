@@ -18,14 +18,14 @@ object PermissionUtil {
     @JvmStatic
     fun isPermitted(grantResults: IntArray): Boolean {
         // If request is cancelled, the result arrays are empty.
-        return (grantResults.isNotEmpty()
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        return (grantResults.isNotEmpty() &&
+                grantResults[0] == PackageManager.PERMISSION_GRANTED)
     }
 
     @TargetApi(Build.VERSION_CODES.M)
     fun shouldShowWritePermissionRationale(activity: AppCompatActivity): Boolean {
-        return (!Prefs.askedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                || activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
+        return (!Prefs.askedForPermissionOnce(Manifest.permission.WRITE_EXTERNAL_STORAGE) ||
+                activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE))
     }
 
     @JvmStatic
