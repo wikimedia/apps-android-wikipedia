@@ -21,7 +21,7 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
         View.inflate(context, R.layout.view_wiki_article_card, this)
     }
 
-    fun setTitle(title: String) {
+    fun setTitle(title: String?) {
         articleTitle.text = StringUtil.fromHtml(title)
     }
 
