@@ -37,6 +37,7 @@
 
         <!-- TODO: remove when the components can get correct custom ?attr/colorPrimary -->
         <item name="colorPrimary">?attr/colorPrimary</item>
+        <item name="actionBarPopupTheme">@style/ToolbarPopupTheme</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
