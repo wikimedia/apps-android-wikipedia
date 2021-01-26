@@ -295,7 +295,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
                 if (isNewTopic()) "new" else topicId.toString(),
                 if (isNewTopic()) subject else null,
-                "", if (AccountUtil.isLoggedIn()) "user" else null,
+                "", if (AccountUtil.isLoggedIn) "user" else null,
                 if (isNewTopic()) body else null, if (isNewTopic()) null else body,
                 currentRevision, token, null, null)
                 .subscribeOn(Schedulers.io())

@@ -168,7 +168,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         var totalContributionCount = 0
         disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
-        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
+        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     totalContributionCount += response.query()!!.userInfo()!!.editCount
@@ -224,7 +224,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             }
                 },
                 if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
                                 totalContributionCount += response.query()!!.userInfo()!!.editCount
@@ -376,7 +376,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         errorView.visibility = VISIBLE
     }
 
-    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
+    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView>(itemView) {
         fun bindItem() {
             view.callback = this@ContributionsFragment
             view.updateFilterViewUI(editFilterType, totalContributionCount)
@@ -384,7 +384,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
+    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
             itemView.setPaddingRelative(itemView.paddingStart, 0, itemView.paddingEnd, 0)
             itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
@@ -396,7 +396,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
+    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution

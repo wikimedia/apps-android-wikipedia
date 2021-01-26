@@ -11,6 +11,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorAccent"
+            android:progressBackgroundTint="@color/accent30"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/errorView"
             android:layout_width="wrap_content"
@@ -36,6 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:lineSpacingExtra="8sp"
                     android:textColor="?attr/colorAccent"
@@ -48,6 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
+                    android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-medium"
                     android:letterSpacing="0.04"
                     android:textSize="14sp"
@@ -66,6 +80,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="-4dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -80,25 +95,29 @@
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/newerIdButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:padding="12dp"
-                    android:scaleX="-1"
-                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-                    app:tint="?attr/primary_text_color" />
-
-                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/olderIdButton"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="24dp"
+                    android:paddingBottom="12dp"
+                    android:scaleX="-1"
+                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                    app:tint="?attr/primary_text_color" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/newerIdButton"
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="32dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                     app:tint="?attr/primary_text_color" />
             </LinearLayout>
@@ -149,7 +168,8 @@
                     android:textSize="14sp"
                     app:icon="@drawable/ic_heart_24"
                     app:iconGravity="textStart"
-                    app:iconSize="20dp" />
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/colorAccent" />
 
                 <TextView
                     android:id="@+id/diffCharacterCountView"

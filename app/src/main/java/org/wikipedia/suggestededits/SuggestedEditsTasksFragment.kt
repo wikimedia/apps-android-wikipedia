@@ -155,7 +155,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun fetchUserContributions() {
-        if (!AccountUtil.isLoggedIn()) {
+        if (!AccountUtil.isLoggedIn) {
             showAccountCreationOrIPBlocked()
             return
         }
@@ -167,8 +167,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
-                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable(), { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
@@ -275,13 +275,13 @@ class SuggestedEditsTasksFragment : Fragment() {
             userStatsViewsGroup.visibility = GONE
             onboardingImageView.visibility = VISIBLE
             onboardingTextView.visibility = VISIBLE
-            onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
+            onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.userName))
         } else {
             userStatsViewsGroup.visibility = VISIBLE
             onboardingImageView.visibility = GONE
             onboardingTextView.visibility = GONE
             userStatsClickTarget.isEnabled = true
-            userNameView.text = AccountUtil.getUserName()
+            userNameView.text = AccountUtil.userName
             contributionsStatsView.setTitle(totalContributions.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
             if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip()) {
@@ -336,14 +336,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (UserContributionsStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
-            disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
+            disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logDisabled()
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
+            disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logPaused()
             UserContributionEvent.logPaused()
@@ -443,7 +443,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<SuggestedEditsTaskView>, i: Int) {
-            holder.view.setUpViews(items()[i], callback)
+            holder.view.setUpViews(items[i], callback)
         }
     }
 
