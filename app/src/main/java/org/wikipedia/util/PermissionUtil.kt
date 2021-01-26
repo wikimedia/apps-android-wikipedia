@@ -34,6 +34,7 @@ object PermissionUtil {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
     }
 
+    @JvmStatic
     fun requestWriteStorageRuntimePermissions(fragment: Fragment, requestCode: Int) {
         fragment.requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), requestCode)
         // once permission is granted/denied it will continue with onRequestPermissionsResult
