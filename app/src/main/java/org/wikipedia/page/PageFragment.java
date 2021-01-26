@@ -488,6 +488,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
 
             public void onPageFinished(WebView view, String url) {
+                if (!isAdded()) {
+                    return;
+                }
                 bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();", pcsExists -> {
                     if (!isAdded()) {
                         return;
