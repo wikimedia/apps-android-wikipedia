@@ -58,15 +58,13 @@ class RandomFragment : Fragment() {
 
     private val disposables = CompositeDisposable()
 
-    private var wikiSite: WikiSite? = null
-    private val requireWikiSite get() = wikiSite ?: throw IllegalStateException("wikiSite is null.")
-
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var funnel: RandomizerFunnel? = null
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
 
-    private var saveButtonState = false
+    private lateinit var wikiSite: WikiSite
     private val topTitle get() = getTopChild()?.title
+    private var saveButtonState = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -76,7 +74,7 @@ class RandomFragment : Fragment() {
 
         FeedbackUtil.setButtonLongPressToast(binding.randomNextButton, binding.randomSaveButton)
 
-        wikiSite = arguments?.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)
+        wikiSite = requireArguments().getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
         binding.randomItemPager.offscreenPageLimit = 2
         binding.randomItemPager.adapter = RandomItemAdapter(this)
@@ -253,7 +251,7 @@ class RandomFragment : Fragment() {
         }
 
         override fun createFragment(position: Int): Fragment {
-            return RandomItemFragment.newInstance(requireWikiSite)
+            return RandomItemFragment.newInstance(wikiSite)
         }
     }
 

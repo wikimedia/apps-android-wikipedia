@@ -35,18 +35,16 @@ class RandomItemFragment : Fragment() {
 
     private val disposables = CompositeDisposable()
 
+    private lateinit var wikiSite: WikiSite
     private var summary: PageSummary? = null
 
-    private var wikiSite: WikiSite? = null
-    private val requireWikiSite get() = wikiSite ?: throw IllegalStateException("wikiSite is null.")
-
     val isLoadComplete: Boolean get() = summary != null
-    val title: PageTitle? get() = summary?.getPageTitle(requireWikiSite)
+    val title: PageTitle? get() = summary?.getPageTitle(wikiSite)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        wikiSite = arguments?.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)
+        wikiSite = requireArguments().getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
 
         retainInstance = true
     }
@@ -78,7 +76,7 @@ class RandomItemFragment : Fragment() {
             getRandomPage()
         }
 
-        L10nUtil.setConditionalLayoutDirection(view, requireWikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(view, wikiSite.languageCode())
         return view
     }
 
@@ -90,7 +88,7 @@ class RandomItemFragment : Fragment() {
     }
 
     private fun getRandomPage() {
-        val d = ServiceFactory.getRest(requireWikiSite).randomSummary
+        val d = ServiceFactory.getRest(wikiSite).randomSummary
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pageSummary ->
@@ -122,17 +120,15 @@ class RandomItemFragment : Fragment() {
         binding.randomItemProgress.visibility =
                 if (summary == null) View.VISIBLE else View.GONE
 
-        if (summary == null) {
-            return
-        }
+        val summary = summary ?: return
 
-        binding.randomItemWikiArticleCardView.setTitle(summary?.displayTitle)
-        binding.randomItemWikiArticleCardView.setDescription(summary?.description)
-        binding.randomItemWikiArticleCardView.setExtract(summary?.extract, EXTRACT_MAX_LINES)
+        binding.randomItemWikiArticleCardView.setTitle(summary.displayTitle)
+        binding.randomItemWikiArticleCardView.setDescription(summary.description)
+        binding.randomItemWikiArticleCardView.setExtract(summary.extract, EXTRACT_MAX_LINES)
 
         var imageUri: Uri? = null
 
-        summary?.thumbnailUrl.takeUnless { it.isNullOrBlank() }?.let { thumbnailUrl ->
+        summary.thumbnailUrl.takeUnless { it.isNullOrBlank() }?.let { thumbnailUrl ->
             imageUri = Uri.parse(getUrlForPreferredSize(thumbnailUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
         }
         binding.randomItemWikiArticleCardView.setImageUri(imageUri, false)
