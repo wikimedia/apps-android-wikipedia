@@ -134,4 +134,4 @@ public class AnnouncementClient implements FeedClient {
         }
         return true;
     }
-}
+ }
