@@ -151,6 +151,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun fetchEditDetails() {
+        revisionDetailsView.visibility = GONE
+        progressBar.visibility = VISIBLE
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
@@ -190,6 +192,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         fetchDiffText()
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
+        revisionDetailsView.visibility = VISIBLE
+        progressBar.visibility = GONE
     }
 
     private fun maybeHideThankButton() {
