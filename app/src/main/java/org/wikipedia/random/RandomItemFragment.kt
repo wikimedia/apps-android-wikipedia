@@ -58,7 +58,7 @@ class RandomItemFragment : Fragment() {
         val view = binding.root
 
         binding.randomItemWikiArticleCardView.setOnClickListener {
-            title?.let {  title ->
+            title?.let { title ->
                 parent().onSelectPage(title, binding.randomItemWikiArticleCardView.getSharedElements())
             }
         }

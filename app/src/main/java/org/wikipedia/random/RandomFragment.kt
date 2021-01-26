@@ -74,7 +74,7 @@ class RandomFragment : Fragment() {
         _binding = FragmentRandomBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        FeedbackUtil.setButtonLongPressToast(binding.randomNextButton,  binding.randomSaveButton)
+        FeedbackUtil.setButtonLongPressToast(binding.randomNextButton, binding.randomSaveButton)
 
         wikiSite = arguments?.getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)
 
