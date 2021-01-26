@@ -78,8 +78,8 @@ public class AnnouncementClient implements FeedClient {
     }
 
     public static boolean shouldShow(@Nullable Announcement announcement,
-                                     @Nullable String country,
-                                     @NonNull Date date) {
+                              @Nullable String country,
+                              @NonNull Date date) {
         return announcement != null
                 && (announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
                 && matchesCountryCode(announcement, country)
