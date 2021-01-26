@@ -9,7 +9,6 @@ import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 object DateUtil {
     private val DATE_FORMATS: MutableMap<String, SimpleDateFormat> = HashMap()
