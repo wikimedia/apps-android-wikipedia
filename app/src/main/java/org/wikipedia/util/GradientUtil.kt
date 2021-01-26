@@ -16,6 +16,7 @@ import org.wikipedia.WikipediaApp
 object GradientUtil {
     private const val GRADIENT_NUM_STOPS = 8
     private const val GRADIENT_POWER = 3
+
     @JvmStatic
     fun getPowerGradient(@ColorRes baseColor: Int, gravity: Int): Drawable {
         val drawable = PaintDrawable()

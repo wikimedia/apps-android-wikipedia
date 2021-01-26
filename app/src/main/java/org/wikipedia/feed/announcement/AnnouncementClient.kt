@@ -1,7 +1,6 @@
 package org.wikipedia.feed.announcement
 
 import android.content.Context
-import android.text.TextUtils
 import androidx.annotation.VisibleForTesting
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -74,10 +73,10 @@ class AnnouncementClient : FeedClient {
         private fun matchesCountryCode(announcement: Announcement, country: String?): Boolean {
             var country = country
             val announcementsCountryOverride = Prefs.getAnnouncementsCountryOverride()
-            if (!TextUtils.isEmpty(announcementsCountryOverride)) {
+            if (announcementsCountryOverride.isNotEmpty()) {
                 country = announcementsCountryOverride
             }
-            return if (TextUtils.isEmpty(country)) {
+            return if (country!!.isEmpty()) {
                 false
             } else announcement.countries().contains(country)
         }
@@ -103,10 +102,10 @@ class AnnouncementClient : FeedClient {
         private fun matchesVersionCodes(minVersion: String?, maxVersion: String?): Boolean {
             val versionCode = if (Prefs.announcementsVersionCode() > 0) Prefs.announcementsVersionCode() else WikipediaApp.getInstance().versionCode
             try {
-                if (!TextUtils.isEmpty(minVersion) && minVersion!!.toInt() > versionCode) {
+                if (minVersion!!.isNotEmpty() && minVersion.toInt() > versionCode) {
                     return false
                 }
-                if (!TextUtils.isEmpty(maxVersion) && maxVersion!!.toInt() < versionCode) {
+                if (maxVersion!!.isNotEmpty() && maxVersion.toInt() < versionCode) {
                     return false
                 }
             } catch (e: NumberFormatException) {
