@@ -40,19 +40,11 @@ object DimenUtil {
         return getValue(id).float
     }
 
-    /** @return Dimension in dp.
-     */
     @JvmStatic
     fun getDimension(@DimenRes id: Int): Float {
         return TypedValue.complexToFloat(getValue(id).data)
     }
 
-    /**
-     * Calculates the actual font size for the current device, based on an "sp" measurement.
-     * @param window The window on which the font will be rendered.
-     * @param fontSp Measurement in "sp" units of the font.
-     * @return Actual font size for the given sp amount.
-     */
     @JvmStatic
     fun getFontSizeFromSp(window: Window, fontSp: Float): Float {
         val metrics = DisplayMetrics()
@@ -105,13 +97,6 @@ object DimenUtil {
         return roundedPxToDp(getToolbarHeightPx(context).toFloat()).toFloat()
     }
 
-    /**
-     * Returns the height of the toolbar in the current activity. The system controls the height of
-     * the toolbar, which may be slightly different depending on screen orientation, and device
-     * version.
-     * @param context Context used for retrieving the height attribute.
-     * @return Height of the toolbar.
-     */
     @JvmStatic
     fun getToolbarHeightPx(context: Context): Int {
         val styledAttributes = context.theme.obtainStyledAttributes(intArrayOf(
