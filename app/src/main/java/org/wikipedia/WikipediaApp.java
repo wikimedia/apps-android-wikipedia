@@ -20,6 +20,7 @@ import com.microsoft.appcenter.crashes.Crashes;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
@@ -185,6 +186,7 @@ public class WikipediaApp extends Application {
         // For good measure, explicitly call our token subscription function, in case the
         // API failed in previous attempts.
         WikipediaFirebaseMessagingService.Companion.updateSubscription();
+        EventPlatformClient.setUpStreamConfigs();
     }
 
     public int getVersionCode() {

@@ -12,6 +12,7 @@
 * Hzy980512
 * Kanon und wikipedia
 * Kkairri
+* LaMagiaaa
 * Los688
 * Mirinano
 * Omotecho
@@ -964,4 +965,9 @@
   <string name="talk_message_hint">メッセージを組み立てる</string>
   <string name="talk_message_empty">メッセージを空にすることはできません。</string>
   <string name="talk_subject_empty">件名を空にすることはできません。</string>
+  <string name="watchlist_details_watch_label">ウォッチ</string>
+  <string name="thank_label">感謝</string>
+  <string name="thank_dialog_title_text">感謝を公に示す</string>
+  <string name="thank_dialog_negative_button_text">キャンセル</string>
+  <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
 </resources>

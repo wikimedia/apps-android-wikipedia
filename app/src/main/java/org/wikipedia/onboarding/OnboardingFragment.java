@@ -53,7 +53,11 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         new TabLayoutMediator(pageIndicatorView, viewPager, (tab, position) -> { }).attach();
 
         doneButton.setText(getDoneButtonText());
-        updateButtonState();
+
+        if (savedInstanceState == null) {
+            updateButtonState();
+        }
+
         updatePageIndicatorContentDescription();
         return view;
     }

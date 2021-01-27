@@ -73,6 +73,7 @@
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
   <string name="menu_page_other_languages">غير اللغة</string>
   <string name="menu_page_find_in_page" fuzzy="true">البحث في الصفحة</string>
+  <string name="menu_page_remove_from_watchlist">أزل من قائمة المراقبة</string>
   <string name="edit_section_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
@@ -874,4 +875,10 @@
   <string name="text_input_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_cancel_button_text">إلغاء</string>
   <string name="custom_date_picker_dialog_cancel_button_text">إلغاء</string>
+  <string name="menu_option_user_contributions">مساهمات %s</string>
+  <string name="thank_dialog_title_text">إرسال الشكر علنًا</string>
+  <string name="thank_dialog_positive_button_text">إرسال شكر</string>
+  <string name="watchlist_expiry_dialog_three_months">3 أشهر</string>
+  <string name="watchlist_filter_all">الكل</string>
+  <string name="watchlist_filter_talk">نقاش</string>
 </resources>

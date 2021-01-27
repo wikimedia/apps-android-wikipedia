@@ -44,6 +44,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private Map<String, String> varianttitles;
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
     @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
+    private boolean watched;
 
 
     @NonNull public String title() {
@@ -156,6 +157,10 @@ public class MwQueryPage extends BaseModel {
         return StringUtils.defaultString(imagerepository).equals("shared");
     }
 
+    public boolean isWatched() {
+        return watched;
+    }
+
     public long getLastRevId() {
         return lastrevid;
     }
@@ -172,11 +177,25 @@ public class MwQueryPage extends BaseModel {
         @Nullable private String comment;
         @Nullable private Map<String, RevisionSlot> slots;
 
+        @NonNull public String getComment() {
+            return StringUtils.defaultString(comment);
+        }
+
         public long getRevId() {
             return revid;
         }
 
-        @NonNull public String content() {
+        public long getParentRevId() {
+            return parentid;
+        }
+
+        @NonNull
+        public String getUser() {
+            return StringUtils.defaultString(user);
+        }
+
+        @NonNull
+        public String content() {
             return StringUtils.defaultString(content);
         }
 

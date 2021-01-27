@@ -79,12 +79,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onFeedSearchRequested(View view);
         void onFeedVoiceSearchRequested();
-        void onFeedSelectPage(HistoryEntry entry);
+        void onFeedSelectPage(HistoryEntry entry, boolean openInNewBackgroundTab);
         void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] shareElements);
         void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
-        void onFeedRemovePageFromList(HistoryEntry entry);
-        void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsCard card, NewsItemView view);
         void onFeedSeCardFooterClicked();
         void onFeedShareImage(FeaturedImageCard card);
@@ -310,9 +308,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewBackgroundTab) {
             if (getCallback() != null) {
-                getCallback().onFeedSelectPage(entry);
+                getCallback().onFeedSelectPage(entry, openInNewBackgroundTab);
                 funnel.cardClicked(card.type(), getCardLanguageCode(card));
             }
         }
@@ -336,20 +334,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onMovePageToList(long sourceReadingList, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedMovePageToList(sourceReadingList, entry);
-            }
-        }
-
-        @Override
-        public void onRemovePageFromList(@NonNull HistoryEntry entry) {
-            if (getCallback() != null) {
-                getCallback().onFeedRemovePageFromList(entry);
-            }
-        }
-
-        @Override
-        public void onSharePage(@NonNull HistoryEntry entry) {
-            if (getCallback() != null) {
-                getCallback().onFeedSharePage(entry);
             }
         }
 

@@ -50,8 +50,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     @BindView(R.id.single_fragment_toolbar_wordmark) ImageView wordMark;
     private ImageZoomHelper imageZoomHelper;
     @Nullable private Balloon currentTooltip;
+    @Nullable private TabCountsView tabCountsView;
 
     private boolean controlNavTabInFragment;
+    private boolean showTabCountsAnimation;
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, MainActivity.class);
@@ -109,9 +111,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
         if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
             tabsItem.setVisible(false);
+            tabCountsView = null;
         } else {
             tabsItem.setVisible(true);
-            TabCountsView tabCountsView = new TabCountsView(this, null);
+            tabCountsView = new TabCountsView(this, null);
             tabCountsView.setOnClickListener(v -> {
                 if (WikipediaApp.getInstance().getTabCount() == 1) {
                     startActivity(PageActivity.newIntent(MainActivity.this));
@@ -119,11 +122,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
                     startActivityForResult(TabActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
                 }
             });
-            tabCountsView.updateTabCount();
+            tabCountsView.updateTabCount(showTabCountsAnimation);
             tabCountsView.setContentDescription(getString(R.string.menu_page_show_tabs));
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
             FeedbackUtil.setButtonLongPressToast(tabCountsView);
+            showTabCountsAnimation = false;
         }
         return true;
     }
@@ -154,6 +158,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             controlNavTabInFragment = true;
         }
         getFragment().requestUpdateToolbarElevation();
+    }
+
+    @Override
+    public void updateTabCountsView() {
+        showTabCountsAnimation = true;
+        supportInvalidateOptionsMenu();
     }
 
     @Override

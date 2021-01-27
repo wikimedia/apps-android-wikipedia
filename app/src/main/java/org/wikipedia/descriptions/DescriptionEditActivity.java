@@ -52,7 +52,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     private static final String EXTRA_SOURCE_SUMMARY = "sourceSummary";
     private static final String EXTRA_TARGET_SUMMARY = "targetSummary";
     private Action action;
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private final ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
@@ -62,7 +62,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
                                    @NonNull Action action,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
-                .putExtra(EXTRA_TITLE, GsonMarshaller.marshal(title))
+                .putExtra(EXTRA_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary == null ? null : GsonMarshaller.marshal(sourceSummary))
                 .putExtra(EXTRA_TARGET_SUMMARY, targetSummary == null ? null : GsonMarshaller.marshal(targetSummary))
@@ -135,7 +135,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public DescriptionEditFragment createFragment() {
         InvokeSource invokeSource = (InvokeSource) getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE);
         action = (Action) getIntent().getSerializableExtra(INTENT_EXTRA_ACTION);
-        PageTitle title = GsonUnmarshaller.unmarshal(PageTitle.class, getIntent().getStringExtra(EXTRA_TITLE));
+        PageTitle title = getIntent().getParcelableExtra(EXTRA_TITLE);
         SuggestedEditsFunnel.get().click(title.getDisplayText(), action);
 
         return DescriptionEditFragment.newInstance(title,

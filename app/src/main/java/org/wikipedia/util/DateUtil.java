@@ -20,9 +20,10 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 public final class DateUtil {
-    private static Map<String, SimpleDateFormat> DATE_FORMATS = new HashMap<>();
+    private static final Map<String, SimpleDateFormat> DATE_FORMATS = new HashMap<>();
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
 
@@ -80,6 +81,14 @@ public final class DateUtil {
 
     private static String getExtraShortDateString(@NonNull Date date) {
         return getDateStringWithSkeletonPattern(date, "MMM d");
+    }
+
+    public static String getTimeString(@NonNull Date date) {
+        return getDateStringWithSkeletonPattern(date, "HH:mm");
+    }
+
+    public static String getDateAndTimeStringFromTimestampString(@NonNull String dateStr) throws ParseException {
+        return getCachedDateFormat("MMM dd, yyyy | HH:mm", Locale.ROOT, false).format(iso8601DateParse(dateStr));
     }
 
     private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
@@ -156,6 +165,10 @@ public final class DateUtil {
             return diffInYears == 0 ? context.getString(R.string.this_year)
                     : context.getResources().getQuantityString(R.plurals.diff_years, diffInYears, diffInYears);
         }
+    }
+
+    @NonNull public static String getDaysAgoString(@NonNull Date date) {
+        return getDaysAgoString((int)TimeUnit.MILLISECONDS.toDays((new Date()).getTime() - date.getTime()));
     }
 
     @NonNull public static String getDaysAgoString(int daysAgo) {

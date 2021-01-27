@@ -17,8 +17,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -31,6 +29,8 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
+import com.skydoves.balloon.Balloon;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -40,6 +40,8 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -73,6 +75,7 @@ import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiArticleCardView;
+import org.wikipedia.watchlist.WatchlistExpiry;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 import java.util.ArrayList;
@@ -142,6 +145,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
+    private Balloon watchlistTooltip;
+    private final WatchlistFunnel watchlistFunnel = new WatchlistFunnel();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -192,7 +197,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(false);
+        maybeShowWatchlistTooltip();
 
         toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
 
@@ -237,13 +243,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_show_overflow_menu)
     public void onShowOverflowMenuButtonClicked() {
+        if (watchlistTooltip != null && watchlistTooltip.isShowing()) {
+            watchlistTooltip.dismiss();
+            watchlistTooltip = null;
+        }
         showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
     }
 
     public void animateTabsButton() {
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
-        tabsButton.startAnimation(anim);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(true);
     }
 
     public void hideSoftKeyboard() {
@@ -253,7 +261,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (!isDestroyed()) {
-            tabsButton.updateTabCount();
+            tabsButton.updateTabCount(false);
         }
         return false;
     }
@@ -616,13 +624,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageRemoveFromReadingLists(@NonNull PageTitle title) {
-        if (!pageFragment.isAdded()) {
-            return;
-        }
-        FeedbackUtil.showMessage(this,
-                getString(R.string.reading_list_item_deleted, title.getDisplayText()));
-        pageFragment.updateBookmarkAndMenuOptionsFromDao();
+    public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+        watchlistFunnel.logAddExpiry();
+        pageFragment.updateWatchlist(expiry, false);
     }
 
     @Override
@@ -681,7 +685,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab());
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getWatchlistExpirySession());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
@@ -691,8 +695,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void findInPageClick() {
-            pageFragment.showFindInPage();
+        public void watchlistClick(boolean hasWatchlistExpirySession) {
+            if (hasWatchlistExpirySession) {
+                watchlistFunnel.logRemoveArticle();
+            } else {
+                watchlistFunnel.logAddArticle();
+            }
+            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
         }
 
         @Override
@@ -864,6 +873,22 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .create()
                 .show();
     }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowWatchlistTooltip() {
+        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
+            overflowButton.postDelayed(() -> {
+                if (isDestroyed()) {
+                    return;
+                }
+                watchlistFunnel.logShowTooltip();
+                Prefs.setWatchlistPageOnboardingTooltipShown(true);
+                watchlistTooltip = FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
+                        200, -32, -8, false, false);
+            }, 500);
+        }
+    }
+
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override

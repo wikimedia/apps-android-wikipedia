@@ -41,7 +41,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun updateContents() {
         setUpPagerWithSECards()
-        cardFooter.setFooterActionText(context.getString(R.string.suggested_card_more_edits))
+        cardFooter.setFooterActionText(card!!.footerActionText(), null)
         cardFooter.callback = this
     }
 

@@ -16,7 +16,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -25,8 +24,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.json.GsonMarshaller
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -69,7 +66,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         talkRecyclerView.adapter = TalkReplyItemAdapter()
-        
+
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
 
         talkErrorView.setBackClickListener {
@@ -239,7 +236,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     @Suppress("RedundantInnerClassModifier")
-    internal inner class ReplyTextWatcher: TextWatcher {
+    internal inner class ReplyTextWatcher : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
         }
 
@@ -298,7 +295,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         disposables.add(ServiceFactory.get(pageTitle.wikiSite).postEditSubmit(pageTitle.prefixedText,
                 if (isNewTopic()) "new" else topicId.toString(),
                 if (isNewTopic()) subject else null,
-                "", if (AccountUtil.isLoggedIn()) "user" else null,
+                "", if (AccountUtil.isLoggedIn) "user" else null,
                 if (isNewTopic()) body else null, if (isNewTopic()) null else body,
                 currentRevision, token, null, null)
                 .subscribeOn(Schedulers.io())
@@ -321,8 +318,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     response
                 }
                 .retry(20) { t ->
-                    (t is IllegalStateException)
-                            || (isNewTopic() && t is HttpStatusException && t.code() == 404)
+                    (t is IllegalStateException) ||
+                            (isNewTopic() && t is HttpStatusException && t.code() == 404)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

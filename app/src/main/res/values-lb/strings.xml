@@ -45,6 +45,8 @@
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
+  <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht dobäisetzen</string>
+  <string name="menu_page_remove_from_watchlist">Vun der Iwwerwaachungslëscht erofhuelen</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
   <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
@@ -166,6 +168,7 @@
   <string name="page_protected_can_not_edit">Pardon, Äre Benotzerkont huet net genuch Rechter fir dës Säit elo z\'änneren.</string>
   <string name="page_protected_can_not_edit_anon">Leider kann dës Säit zu dësem Zäitpunkt net anonym geännert ginn.</string>
   <string name="page_protected_can_not_edit_title">Dës Säit ass gespaart</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Op d\'Iwwerwaachungslëscht derbäisetzen</string>
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>
@@ -463,6 +466,7 @@
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
   <string name="notifications_mark_unread">Als net gelies markéieren</string>
+  <string name="watchlist_title">Iwwerwaachungslëscht</string>
   <string name="preference_title_notification_system">System</string>
   <string name="preference_summary_notification_system">Message vum System</string>
   <string name="preference_title_notification_milestone">Meilesteen</string>
@@ -668,6 +672,7 @@
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_tooltip_text_v2">Wousst dir datt jiddwereen Wikipedia ännere kann?</string>
   <string name="main_tooltip_action_button">Fir unzefänken</string>
+  <string name="main_tooltip_watchlist_title">Iwwerwaachungslëscht</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Ofbriechen</string>
@@ -679,4 +684,26 @@
   <string name="talk_add_reply">Äntweren</string>
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
+  <string name="menu_option_user_contributions">Kontributioune vum %s</string>
+  <string name="watchlist_details_watching_label">Iwwerwaacht</string>
+  <string name="watchlist_details_watch_label">Iwwerwaachen</string>
+  <string name="thank_label">Merci soen</string>
+  <string name="go_to_user_page">Op d\'Benotzersäit goen</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">MERCI SCHECKEN</string>
+  <string name="thank_dialog_negative_button_text">Ofbriechen</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Änneren</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">fir 1 Woch</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">fir 1 Mount</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">fir 3 Méint</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">fir 6 Méint</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 Woch</string>
+  <string name="watchlist_expiry_dialog_one_month">1 Mount</string>
+  <string name="watchlist_expiry_dialog_three_months">3 Méint</string>
+  <string name="watchlist_expiry_dialog_six_months">6 Méint</string>
+  <string name="watchlist_empty">Dir hutt keng Artikelen op Ärer Iwwerwaachungslëscht.</string>
+  <string name="watchlist_filter_all">All</string>
+  <string name="watchlist_filter_talk">Diskussioun</string>
+  <string name="watchlist_filter_pages">Säiten</string>
 </resources>

@@ -90,6 +90,8 @@
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
   <string name="menu_page_find_in_page">在文章中查找</string>
+  <string name="menu_page_add_to_watchlist">添加到监视列表</string>
+  <string name="menu_page_remove_from_watchlist">移出监视列表</string>
   <string name="edit_section_find_in_page">在页面中查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
@@ -226,6 +228,7 @@
   <string name="page_protected_can_not_edit">对不起，您的账户目前没有足够的权限来编辑该页面。</string>
   <string name="page_protected_can_not_edit_anon">对不起，该页面目前不能匿名编辑。</string>
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">添加到监视列表</string>
   <string name="settings_item_preferences">设置</string>
   <string name="settings_activity_title">设置</string>
   <string name="about_description">关于维基百科应用</string>
@@ -275,6 +278,7 @@
   <string name="find_previous">查找上一个</string>
   <string name="find_first_occurence">这是首次出现</string>
   <string name="find_last_occurence">这是最后一次出现</string>
+  <string name="article_opened_in_background_tab">条目已在后台标签页中打开。</string>
   <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要发布它么？</string>
   <string name="abusefilter_title_disallow">您不能发布该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全文大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>
@@ -585,6 +589,7 @@
   <string name="notifications_view_archived_button_text">查看已存档通知</string>
   <string name="notification_preferences_title">通知参数设置</string>
   <string name="notifications_mark_unread">标记为未读</string>
+  <string name="watchlist_title">监视列表</string>
   <string name="preference_title_notification_poll">投票通知</string>
   <string name="preference_summary_notification_poll">允许应用使用数据在后台检查新通知。</string>
   <string name="preference_category_notification_types">应用内通知类型</string>
@@ -937,6 +942,7 @@
   <string name="main_tooltip_text">您好，%s，您知道每个人都可以编辑维基百科吗？</string>
   <string name="main_tooltip_text_v2">您知道每个人都可以编辑维基百科吗？</string>
   <string name="main_tooltip_action_button">入门</string>
+  <string name="main_tooltip_watchlist_title">监视列表</string>
   <string name="custom_date_picker_dialog_ok_button_text">确认</string>
   <string name="text_input_dialog_ok_button_text">确定</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>
@@ -952,4 +958,31 @@
   <string name="talk_message_hint">撰写信息</string>
   <string name="talk_message_empty">消息不能为空。</string>
   <string name="talk_subject_empty">主题不能为空。</string>
+  <string name="menu_option_share_edit">分享编辑</string>
+  <string name="menu_option_user_profile">%s的个人资料</string>
+  <string name="menu_option_user_contributions">%s的贡献</string>
+  <string name="watchlist_details_watching_label">已监视</string>
+  <string name="watchlist_details_watch_label">监视</string>
+  <string name="thank_label">感谢</string>
+  <string name="go_to_user_page">转至用户页</string>
+  <string name="thank_dialog_positive_button_text">发送感谢</string>
+  <string name="thank_dialog_negative_button_text">取消</string>
+  <string name="thank_success_message">您的“感谢”已发给 %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1周</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1个月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3个月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6个月</string>
+  <string name="watchlist_expiry_dialog_title">选择监视列表持续时间</string>
+  <string name="watchlist_expiry_dialog_permanent">永久</string>
+  <string name="watchlist_expiry_dialog_one_week">1周</string>
+  <string name="watchlist_expiry_dialog_one_month">1个月</string>
+  <string name="watchlist_expiry_dialog_three_months">3个月</string>
+  <string name="watchlist_expiry_dialog_six_months">6个月</string>
+  <string name="watchlist_empty">您的监视列表中没有任何条目。</string>
+  <string name="watchlist_filter_all">全部</string>
+  <string name="watchlist_filter_talk">讨论</string>
+  <string name="watchlist_filter_pages">页面</string>
+  <string name="watchlist_filter_other">其他</string>
 </resources>

@@ -567,6 +567,7 @@
   <string name="notifications_view_archived_button_text">Vis arkiverede notifikationer</string>
   <string name="notification_preferences_title">Notifikationsindstillinger</string>
   <string name="notifications_mark_unread">Marker som ulæst</string>
+  <string name="watchlist_title">Overvågningsliste</string>
   <string name="preference_title_notification_poll">Hent notifikationer</string>
   <string name="preference_summary_notification_poll">Lad appen bruge data for at hente nye notifikationer i baggrunden.</string>
   <string name="preference_category_notification_types">Notifikationstyper i appen</string>
@@ -870,6 +871,7 @@
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
   <string name="main_tooltip_action_button">Kom i gang</string>
+  <string name="main_tooltip_watchlist_title">Overvågningsliste</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annullér</string>
@@ -879,4 +881,18 @@
   <string name="talk_add_reply">Svar</string>
   <string name="talk_no_subject">(Intet emne)</string>
   <string name="talk_reply_subject">Emne</string>
+  <string name="menu_option_share_edit">Del redigering</string>
+  <string name="thank_label">Tak</string>
+  <string name="go_to_user_page">Gå til brugerside</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 uge</string>
+  <string name="watchlist_expiry_dialog_one_month">1 måned</string>
+  <string name="watchlist_expiry_dialog_three_months">3 måneder</string>
+  <string name="watchlist_expiry_dialog_six_months">6 måneder</string>
+  <string name="watchlist_empty">Du har ingen artikler på din overvågningsliste</string>
+  <string name="watchlist_filter_all">Alle</string>
+  <string name="watchlist_filter_talk">Diskussion</string>
+  <string name="watchlist_filter_pages">Sider</string>
+  <string name="watchlist_filter_other">Andet</string>
 </resources>

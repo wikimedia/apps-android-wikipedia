@@ -24,19 +24,20 @@ import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
+import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.userprofile.ContributionsItemView.Callback
-import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_CONTRIBUTIONS
 import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_PAGEVIEWS
+import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -104,6 +105,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         resetAndFetch()
 
         UserContributionFunnel.get().logOpen()
+        UserContributionEvent.logOpen()
     }
 
     override fun onDestroyView() {
@@ -117,10 +119,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     override fun onTypeItemClick(editType: Int) {
         editFilterType = editType
         when (editFilterType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logFilterDescriptions()
-            EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logFilterCaptions()
-            EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logFilterTags()
-            else -> UserContributionFunnel.get().logFilterAll()
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                UserContributionFunnel.get().logFilterDescriptions()
+                UserContributionEvent.logFilterDescriptions()
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                UserContributionFunnel.get().logFilterCaptions()
+                UserContributionEvent.logFilterCaptions()
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                UserContributionFunnel.get().logFilterTags()
+                UserContributionEvent.logFilterTags()
+            }
+            else -> {
+                UserContributionFunnel.get().logFilterAll()
+                UserContributionEvent.logFilterAll()
+            }
         }
 
         createConsolidatedList()
@@ -154,7 +168,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         var totalContributionCount = 0
         disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
-        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
+        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     totalContributionCount += response.query()!!.userInfo()!!.editCount
@@ -210,7 +224,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             }
                 },
                 if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
                                 totalContributionCount += response.query()!!.userInfo()!!.editCount
@@ -300,7 +314,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith{ o2, o1 -> (o1.date.compareTo(o2.date)) }
+        sortedContributions.sortWith { o2, o1 -> (o1.date.compareTo(o2.date)) }
 
         if (!sortedContributions.isNullOrEmpty()) {
             var currentDate = sortedContributions[0].date
@@ -332,7 +346,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun deCommentString(str: String): String {
         return if (str.length < 4) str else str.substring(2, str.length - 2).trim()
     }
-    
+
     @Suppress("SameParameterValue")
     private fun extractDescriptionFromComment(editComment: String, metaComment: String): String {
         var outStr = editComment.replace(metaComment, "")
@@ -362,7 +376,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         errorView.visibility = VISIBLE
     }
 
-    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
+    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView>(itemView) {
         fun bindItem() {
             view.callback = this@ContributionsFragment
             view.updateFilterViewUI(editFilterType, totalContributionCount)
@@ -370,7 +384,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
+    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
             itemView.setPaddingRelative(itemView.paddingStart, 0, itemView.paddingEnd, 0)
             itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
@@ -382,7 +396,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
+    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
@@ -551,10 +565,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private class ItemCallback : Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             when (contribution.editType) {
-                EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logViewDescription()
-                EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logViewCaption()
-                EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logViewTag()
-                else -> UserContributionFunnel.get().logViewMisc()
+                EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                    UserContributionFunnel.get().logViewDescription()
+                    UserContributionEvent.logViewDescription()
+                }
+                EDIT_TYPE_IMAGE_CAPTION -> {
+                    UserContributionFunnel.get().logViewCaption()
+                    UserContributionEvent.logViewCaption()
+                }
+                EDIT_TYPE_IMAGE_TAG -> {
+                    UserContributionFunnel.get().logViewTag()
+                    UserContributionEvent.logViewTag()
+                }
+                else -> {
+                    UserContributionFunnel.get().logViewMisc()
+                    UserContributionEvent.logViewMisc()
+                }
             }
             context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
         }

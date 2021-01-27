@@ -24,14 +24,15 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.RandomizerFunnel;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.AnimationUtil;
@@ -49,6 +50,7 @@ import butterknife.Unbinder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
@@ -94,6 +96,8 @@ public class RandomFragment extends Fragment {
 
         randomPager.setPageTransformer(new AnimationUtil.PagerTransformer(getResources().getConfiguration().getLayoutDirection() == ViewCompat.LAYOUT_DIRECTION_RTL));
         randomPager.registerOnPageChangeCallback(viewPagerListener);
+
+        disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         updateSaveShareButton();
         updateBackButton(0);
@@ -151,29 +155,27 @@ public class RandomFragment extends Fragment {
             return;
         }
         if (saveButtonState) {
-            new ReadingListBookmarkMenu(saveButton, new ReadingListBookmarkMenu.Callback() {
+            new LongPressMenu(saveButton, new LongPressMenu.Callback() {
                 @Override
-                public void onAddRequest(boolean addToDefault) {
+                public void onOpenLink(@NonNull HistoryEntry entry) {
+                    // ignore
+                }
+
+                @Override
+                public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                    // ignore
+                }
+
+                @Override
+                public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
                     onAddPageToList(title, addToDefault);
                 }
 
                 @Override
-                public void onMoveRequest(@Nullable ReadingListPage page) {
+                public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                     onMovePageToList(page.listId(), title);
                 }
-
-                @Override
-                public void onDeleted(@Nullable ReadingListPage page) {
-                    FeedbackUtil.showMessage(getActivity(),
-                            getString(R.string.reading_list_item_deleted, title.getDisplayText()));
-                    updateSaveShareButton(title);
-                }
-
-                @Override
-                public void onShare() {
-                    // ignore
-                }
-            }).show(title);
+            }).show(new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM));
         } else {
             onAddPageToList(title, true);
         }
@@ -291,6 +293,23 @@ public class RandomFragment extends Fragment {
             nextPageSelectedAutomatic = false;
             prevPosition = position;
             updateSaveShareButton();
+        }
+    }
+
+    private class EventBusConsumer implements Consumer<Object> {
+        @Override
+        public void accept(Object event) {
+            if (event instanceof ArticleSavedOrDeletedEvent) {
+                if (!isAdded() || getTopTitle() == null) {
+                    return;
+                }
+                for (ReadingListPage page : ((ArticleSavedOrDeletedEvent) event).getPages()) {
+                    if (page.apiTitle().equals(getTopTitle().getPrefixedText())
+                            && page.wiki().languageCode().equals(getTopTitle().getWikiSite().languageCode())) {
+                        updateSaveShareButton(getTopTitle());
+                    }
+                }
+            }
         }
     }
 }

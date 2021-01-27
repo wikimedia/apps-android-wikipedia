@@ -10,8 +10,8 @@
 -->
 <resources>
   <string name="app_name_prod">Wikipedija</string>
-  <string name="app_name_beta">Wikipedija Beta</string>
-  <string name="app_name_alpha">Wikipedija Alfa</string>
+  <string name="app_name_beta">Wikipedija beta</string>
+  <string name="app_name_alpha">Wikipedija alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Nazaj</string>
   <string name="page_tabs_back">Nazaj</string>
@@ -48,7 +48,7 @@
   <string name="feed_card_add_to_list">Dodaj na bralni seznam</string>
   <string name="menu_page_share">Deli povezavo</string>
   <string name="menu_page_open_a_new_tab">Odpri v novem zavihku</string>
-  <string name="menu_page_reading_lists">Liste za branje</string>
+  <string name="menu_page_reading_lists">Bralni seznami</string>
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
   <string name="menu_long_press_open_page">Odpri</string>
   <string name="menu_long_press_open_in_new_tab">Odpri v novem zavihku</string>
@@ -114,7 +114,7 @@
   <string name="create_account_already_have">Že imate račun?</string>
   <string name="create_account_activity_title">Ustvarite račun</string>
   <string name="dialog_create_account_checking_progress">Preverjanje</string>
-  <string name="create_account_email_hint">E-pošta (neobvezno)</string>
+  <string name="create_account_email_hint">E-poštni naslov (izbirno)</string>
   <string name="create_account_password_repeat_hint">Ponovite geslo</string>
   <string name="create_account_passwords_mismatch_error">Gesla se ne ujemata</string>
   <string name="create_account_email_error">Neveljaven e-poštni naslov</string>
@@ -137,7 +137,7 @@
   <string name="settings_item_preferences">Nastavitve</string>
   <string name="settings_activity_title">Nastavitve</string>
   <string name="about_description">O Aplikaciji Wikipedija</string>
-  <string name="privacy_policy_description">Politika zasebnosti</string>
+  <string name="privacy_policy_description">Pravilnik o zasebnosti</string>
   <string name="terms_of_use_description">Pogoji uporabe</string>
   <string name="about_wikipedia_url">https://sl.wikipedia.org/wiki/Wikipedija:O_Wikipediji</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.sl</string>
@@ -206,7 +206,7 @@
   <string name="reading_list_menu_rename" fuzzy="true">Preimenuj</string>
   <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Ime seznama</string>
-  <string name="reading_list_description_hint">Opis (neobvezno)</string>
+  <string name="reading_list_description_hint">Opis (izbirno)</string>
   <string name="reading_list_item_deleted">Članek %s je bil izbrisan iz seznama</string>
   <string name="reading_list_items_deleted">%d člankov izbrisanih iz seznama</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
@@ -347,4 +347,7 @@
   <string name="text_input_dialog_ok_button_text">V redu</string>
   <string name="text_input_dialog_cancel_button_text">Prekliči</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Prekliči</string>
+  <string name="talk_add_reply">Odgovori</string>
+  <string name="talk_reply_subject">Tema</string>
+  <string name="talk_reply_hint">Sestavite odgovor</string>
 </resources>

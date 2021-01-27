@@ -9,6 +9,7 @@
 * Macofe
 * MuratTheTurkish
 * Puvircho
+* Winstonza
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -108,7 +109,7 @@
   <string name="create_account_generic_error">Kon nie gebruiker skep nie</string>
   <string name="create_account_next">Volgende</string>
   <string name="email_recommendation_dialog_title">Skep \'n rekening met geen e-posadres?</string>
-  <string name="email_recommendation_dialog_message">Alhoewel die e-posadres opsioneel is, word dit &lt;b&gt;ten sterkste&lt;/b&gt; aanbeveel aangesien \'n e-posadres nodig is om \'n rekening te herstel as die wagwoord dalk sou verloor.</string>
+  <string name="email_recommendation_dialog_message">Alhoewel die e-posadres opsioneel is, word dit &lt;b&gt;ten sterkste&lt;/b&gt; aanbeveel aangesien \'n e-posadres nodig is om \'n rekening te herstel as u die wagwoord dalk sou verloor.</string>
   <string name="email_recommendation_message">Aanbeveel aangesien e-pos nodig is vir rekeningherstel.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Gaan voort sonder e-pos</string>
   <string name="email_recommendation_dialog_create_with_email_action">Voeg ’n e-posadres by</string>

@@ -46,6 +46,8 @@
     <string name="menu_page_show_tabs">Show tabs</string>
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in article</string>
+    <string name="menu_page_add_to_watchlist">Add to Watchlist</string>
+    <string name="menu_page_remove_from_watchlist">Remove from Watchlist</string>
     <string name="edit_section_find_in_page">Find in page</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
@@ -187,6 +189,8 @@
     <string name="page_protected_can_not_edit">Sorry, your account does not have sufficient privileges to edit this page at this time.</string>
     <string name="page_protected_can_not_edit_anon">Sorry, this page cannot be edited anonymously at this time.</string>
     <string name="page_protected_can_not_edit_title">This page is protected</string>
+    <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Add to Watchlist</string>
+    <string name="page_watchlist_overflow_menu_onboarding_tooltip_text"><![CDATA[Keep track of what\'s happening to articles you are interested in. Tap the overflow menu and select <b>Add to Watchlist</b> to see changes to an article.]]></string>
     <string name="settings_item_preferences">Settings</string>
     <string name="settings_activity_title">Settings</string>
     <string name="about_description">About the Wikipedia app</string>
@@ -236,6 +240,7 @@
     <string name="find_previous">Find previous</string>
     <string name="find_first_occurence">This is the first occurrence</string>
     <string name="find_last_occurence">This is the last occurrence</string>
+    <string name="article_opened_in_background_tab">The article has been opened in a background tab.</string>
     <!-- need this and next? -->
     <string name="abusefilter_title_warn">This may be an unconstructive edit. Are you sure you want to publish it?</string>
     <string name="abusefilter_title_disallow">You cannot publish this edit. Please go back and change it.</string>
@@ -575,6 +580,7 @@
     <string name="notifications_view_archived_button_text">View archived notifications</string>
     <string name="notification_preferences_title">Notification preferences</string>
     <string name="notifications_mark_unread">Mark as unread</string>
+    <string name="watchlist_title">Watchlist</string>
     <string name="preference_title_notification_poll">Poll notifications</string>
     <string name="preference_summary_notification_poll">Allow the app to use data to check for new notifications in the background.</string>
     <string name="preference_category_notification_types">In-app notification types</string>
@@ -911,7 +917,7 @@
     <string name="onboarding_explore_title">New ways to explore</string>
     <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a> ]]></string>
+    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
     <string name="onboarding_analytics_title">Send anonymous data</string>
     <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
@@ -939,7 +945,7 @@
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
     </plurals>
-    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀 </string>
+    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀</string>
     <string name="on_this_day_back_to_future">Back to the future</string>
     <!-- /On This Day -->
 
@@ -1005,6 +1011,8 @@
     <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>
     <string name="main_tooltip_text_v2">Did you know that everyone can edit Wikipedia?</string>
     <string name="main_tooltip_action_button">Get started</string>
+    <string name="main_tooltip_watchlist_title">Watchlist</string>
+    <string name="main_tooltip_watchlist_text"><![CDATA[Find articles and pages you previously added to your watchlist in the More menu under <b>Watchlist</b>.]]></string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>
@@ -1021,5 +1029,37 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="menu_option_share_edit">Share edit</string>
+    <string name="menu_option_user_profile">%s\'s profile</string>
+    <string name="menu_option_user_contributions">%s\'s contributions</string>
+    <string name="watchlist_details_watching_label">Watching</string>
+    <string name="watchlist_details_watch_label">Watch</string>
+    <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
+    <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
+    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
+    <string name="thank_dialog_positive_button_text">Send thanks</string>
+    <string name="thank_dialog_negative_button_text">Cancel</string>
+    <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
+
+    <!-- Watchlist -->
+    <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_action">Change</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanently</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">for 1 week</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">for 1 month</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">for 3 months</string>
+    <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">for 6 months</string>
+    <string name="watchlist_page_removed_from_watchlist_snackbar">%s and its talk page have been removed from your watchlist.</string>
+    <string name="watchlist_expiry_dialog_title">Select Watchlist time period</string>
+    <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+    <string name="watchlist_expiry_dialog_one_week">1 week</string>
+    <string name="watchlist_expiry_dialog_one_month">1 month</string>
+    <string name="watchlist_expiry_dialog_three_months">3 months</string>
+    <string name="watchlist_expiry_dialog_six_months">6 months</string>
+    <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
+    <string name="watchlist_filter_all">All</string>
+    <string name="watchlist_filter_talk">Talk</string>
+    <string name="watchlist_filter_pages">Pages</string>
+    <string name="watchlist_filter_other">Other</string>
 </resources>
