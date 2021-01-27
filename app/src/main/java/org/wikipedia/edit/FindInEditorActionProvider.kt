@@ -2,8 +2,11 @@ package org.wikipedia.edit
 
 import android.graphics.Rect
 import android.view.ActionMode
+import android.view.MenuItem
+import android.view.View
 import android.widget.ScrollView
 import org.wikipedia.edit.richtext.SyntaxHighlighter
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
@@ -17,9 +20,15 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
 
     init {
         listener = this
+    }
+
+    override fun onCreateActionView(menuItem: MenuItem): View {
+        val view = super.onCreateActionView(menuItem)
         textView.tag?.let {
             setSearchViewQuery(it as String)
+            DeviceUtil.showSoftKeyboard(view)
         }
+        return view
     }
 
     private fun findInPage(text: String) {

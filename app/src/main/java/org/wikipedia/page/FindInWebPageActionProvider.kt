@@ -1,6 +1,5 @@
 package org.wikipedia.page
 
-import android.webkit.WebView
 import org.wikipedia.analytics.FindInPageFunnel
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
