@@ -41,7 +41,6 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.WatchlistFunnel;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -876,7 +875,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
+//        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
             overflowButton.postDelayed(() -> {
                 if (isDestroyed()) {
                     return;
@@ -886,7 +885,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 watchlistTooltip = FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
                         200, -32, -8, false, false);
             }, 500);
-        }
+//        }
     }
 
 

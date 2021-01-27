@@ -25,6 +25,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.skydoves.balloon.ArrowConstraints;
 import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
+import com.skydoves.balloon.BalloonSizeSpec;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -225,12 +226,20 @@ public final class FeedbackUtil {
     @SuppressWarnings("checkstyle:magicnumber")
     private static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight,
                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
-        return getTooltipBuilder(context, topOrBottomMargin, aboveOrBelow, autoDismiss)
-                .setLayout(layoutRes)
-                .setHeight(layoutHeight)
+        View view = LayoutInflater.from(context).inflate(layoutRes, null);
+        TextView title = view.findViewById(R.id.tooltip_title);
+        TextView content = view.findViewById(R.id.tooltip_content);
+
+        Balloon balloon = getTooltipBuilder(context, topOrBottomMargin, aboveOrBelow, autoDismiss)
+                .setLayout(view)
+                .setHeight(BalloonSizeSpec.WRAP)
                 .setWidthRatio(DimenUtil.isLandscape(context) ? 0.4f : 0.8f)
                 .setArrowAlignAnchorPadding(arrowAnchorPadding)
                 .build();
+
+        title.setMaxWidth(balloon.getMeasuredWidth());
+        content.setMaxWidth(balloon.getMeasuredWidth());
+        return balloon;
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
