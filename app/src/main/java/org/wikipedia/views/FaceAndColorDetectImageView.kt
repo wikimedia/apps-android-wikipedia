@@ -16,7 +16,6 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CenterCropWithFaceTransformation
 import org.wikipedia.util.WhiteBackgroundTransformation
@@ -31,7 +30,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
 
     private fun shouldDetectFace(uri: Uri): Boolean {
         // TODO: not perfect; should ideally detect based on MIME type.
-        val path = StringUtils.defaultString(uri.path).toLowerCase(Locale.ROOT)
+        val path = uri.path.orEmpty().toLowerCase(Locale.ROOT)
         return path.endsWith(".jpg") || path.endsWith(".jpeg")
     }
 
