@@ -41,6 +41,9 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     }
 
     public void startEditingSection(int sectionID, @Nullable String highlightText) {
+        if (currentPage == null) {
+            return;
+        }
         if (!currentPage.getPageProperties().canEdit()) {
             showUneditableDialog();
             return;

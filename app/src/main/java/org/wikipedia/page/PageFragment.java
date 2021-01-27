@@ -810,6 +810,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         errorView.setVisibility(View.GONE);
 
         watchlistExpirySession = null;
+        watchlistExpiryChanged = false;
 
         model.setTitle(title);
         model.setCurEntry(entry);
