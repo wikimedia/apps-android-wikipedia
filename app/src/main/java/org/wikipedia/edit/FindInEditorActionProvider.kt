@@ -2,7 +2,6 @@ package org.wikipedia.edit
 
 import android.graphics.Rect
 import android.view.ActionMode
-import android.view.View
 import android.widget.ScrollView
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DimenUtil
@@ -15,16 +14,18 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
                                  private val syntaxHighlighter: SyntaxHighlighter,
                                  private val actionMode: ActionMode) : FindInPageActionProvider(textView.context), FindInPageListener {
     private var searchQuery: String? = null
-    override fun onCreateActionView(): View {
-        val view = super.onCreateActionView()
-        setSearchViewQuery((textView.tag as String))
-        return view
+
+    init {
+        listener = this
+        textView.tag?.let {
+            setSearchViewQuery(it as String)
+        }
     }
 
-    fun findInPage(s: String?) {
+    private fun findInPage(text: String) {
         textView.setFindListener { activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean ->
             setMatchesResults(activeMatchOrdinal, numberOfMatches)
-            textView.setSelection(textPosition, textPosition + s!!.length)
+            textView.setSelection(textPosition, textPosition + text.length)
             val r = Rect()
             textView.getFocusedRect(r)
             val scrollTopOffset = 32
@@ -33,7 +34,7 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
                 textView.requestFocus()
             }
         }
-        textView.findInEditor(s, syntaxHighlighter)
+        textView.findInEditor(text, syntaxHighlighter)
     }
 
     override fun onFindNextClicked() {
@@ -58,16 +59,12 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
     }
 
     override fun onSearchTextChanged(text: String?) {
-        if (text!!.length > 0) {
+        if (!text.isNullOrEmpty()) {
             findInPage(text)
         } else {
             textView.clearMatches(syntaxHighlighter)
             syntaxHighlighter.applyFindTextSyntax(text, null)
         }
         searchQuery = text
-    }
-
-    init {
-        listener = this
     }
 }

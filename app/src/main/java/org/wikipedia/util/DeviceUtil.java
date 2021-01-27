@@ -92,9 +92,11 @@ public final class DeviceUtil {
         }
     }
 
-    public static void setContextClickAsLongClick(@NonNull View view) {
+    public static void setContextClickAsLongClick(@NonNull View ...views) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.setOnContextClickListener(View::performLongClick);
+            for (View view : views) {
+                view.setOnContextClickListener(View::performLongClick);
+            }
         }
     }
 
