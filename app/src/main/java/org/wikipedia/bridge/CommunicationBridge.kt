@@ -85,6 +85,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         eventListeners.clear()
         incomingMessageHandler?.removeCallbacksAndMessages(null)
         incomingMessageHandler = null
+        communicationBridgeListener.webView.webViewClient = WebViewClient()
         communicationBridgeListener.webView.removeJavascriptInterface("pcsClient")
         // Explicitly load a blank page into the WebView, to stop playback of any media.
         loadBlankPage()

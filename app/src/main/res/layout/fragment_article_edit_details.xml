@@ -11,6 +11,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorAccent"
+            android:progressBackgroundTint="@color/accent30"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/errorView"
             android:layout_width="wrap_content"
@@ -155,9 +167,9 @@
                     android:textAllCaps="false"
                     android:textSize="14sp"
                     app:icon="@drawable/ic_heart_24"
-                    app:iconTint="?attr/colorAccent"
                     app:iconGravity="textStart"
-                    app:iconSize="20dp" />
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/colorAccent" />
 
                 <TextView
                     android:id="@+id/diffCharacterCountView"

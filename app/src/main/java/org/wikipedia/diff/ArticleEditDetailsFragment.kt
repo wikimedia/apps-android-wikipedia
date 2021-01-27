@@ -25,6 +25,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_article_edit_details.*
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
@@ -42,8 +43,11 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
+import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -53,7 +57,7 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.nio.charset.StandardCharsets
 
-class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
+class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, LinkPreviewDialog.Callback {
     private lateinit var articlePageTitle: PageTitle
     private lateinit var languageCode: String
     private var revisionId: Long = 0
@@ -94,8 +98,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
             if (articlePageTitle.namespace() == Namespace.USER_TALK || articlePageTitle.namespace() == Namespace.TALK) {
                 startActivity(newIntent(requireContext(), articlePageTitle.pageTitleForTalkPage()))
             } else {
-                startActivity(PageActivity.newIntentForNewTab(requireContext(),
-                        HistoryEntry(articlePageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY), articlePageTitle))
+                bottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
+                        HistoryEntry(articlePageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
             }
         }
         newerIdButton.setOnClickListener {
@@ -147,6 +151,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     }
 
     private fun fetchEditDetails() {
+        revisionDetailsView.visibility = GONE
+        progressBar.visibility = VISIBLE
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
@@ -185,6 +191,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
         updateWatchlistButtonUI()
         fetchDiffText()
         requireActivity().invalidateOptionsMenu()
+        maybeHideThankButton()
+        revisionDetailsView.visibility = VISIBLE
+        progressBar.visibility = GONE
+    }
+
+    private fun maybeHideThankButton() {
+        thankButton.visibility = if (AccountUtil.userName.equals(currentRevision?.user)) GONE else VISIBLE
     }
 
     private fun setEnableDisableTint(view: AppCompatImageView, isDisabled: Boolean) {
@@ -434,5 +447,31 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback {
     override fun onDestroyView() {
         disposables.clear()
         super.onDestroyView()
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        if (inNewTab) {
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
+        } else {
+            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
+        }
+    }
+
+    override fun onLinkPreviewCopyLink(title: PageTitle) {
+        copyLink(title.uri)
+    }
+
+    override fun onLinkPreviewAddToList(title: PageTitle) {
+        bottomSheetPresenter.show(childFragmentManager,
+                AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
+    }
+
+    override fun onLinkPreviewShareLink(title: PageTitle) {
+        ShareUtil.shareText(requireContext(), title)
+    }
+
+    private fun copyLink(uri: String?) {
+        setPlainText(requireContext(), null, uri)
+        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 }
