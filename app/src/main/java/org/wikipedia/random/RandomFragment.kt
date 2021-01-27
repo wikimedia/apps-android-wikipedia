@@ -59,7 +59,7 @@ class RandomFragment : Fragment() {
     private val disposables = CompositeDisposable()
 
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private var funnel: RandomizerFunnel? = null
+    private lateinit var funnel: RandomizerFunnel
     private val viewPagerListener: ViewPagerListener = ViewPagerListener()
 
     private lateinit var wikiSite: WikiSite
@@ -102,17 +102,13 @@ class RandomFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
         updateSaveShareButton(topTitle)
     }
 
     override fun onDestroyView() {
         disposables.clear()
         binding.randomItemPager.unregisterOnPageChangeCallback(viewPagerListener)
-
-        funnel?.done()
-        funnel = null
-
+        funnel.done()
         _binding = null
         super.onDestroyView()
     }
@@ -125,7 +121,7 @@ class RandomFragment : Fragment() {
         viewPagerListener.setNextPageSelectedAutomatic()
         binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem + 1, true)
 
-        funnel?.clickedForward()
+        funnel.clickedForward()
     }
 
     private fun onBackClick() {
@@ -133,8 +129,7 @@ class RandomFragment : Fragment() {
 
         if (binding.randomItemPager.currentItem > 0) {
             binding.randomItemPager.setCurrentItem(binding.randomItemPager.currentItem - 1, true)
-
-            funnel?.clickedBack()
+            funnel.clickedBack()
         }
     }
 
@@ -269,9 +264,9 @@ class RandomFragment : Fragment() {
 
             if (!nextPageSelectedAutomatic) {
                 if (position > prevPosition) {
-                    funnel?.swipedForward()
+                    funnel.swipedForward()
                 } else if (position < prevPosition) {
-                    funnel?.swipedBack()
+                    funnel.swipedBack()
                 }
             }
 

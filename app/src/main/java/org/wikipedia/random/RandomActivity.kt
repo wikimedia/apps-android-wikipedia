@@ -29,13 +29,7 @@ class RandomActivity : SingleFragmentActivity<RandomFragment>() {
     }
 
     public override fun createFragment(): RandomFragment {
-        val wikiSite = intent.getParcelableExtra<WikiSite>(INTENT_EXTRA_WIKISITE)
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource
-
-        if (wikiSite != null && invokeSource != null) {
-            return RandomFragment.newInstance(wikiSite, invokeSource)
-        } else {
-            throw IllegalStateException("wikiSite or invokeSource is null.")
-        }
+        return RandomFragment.newInstance(intent.getParcelableExtra(INTENT_EXTRA_WIKISITE)!!,
+                intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
     }
 }
