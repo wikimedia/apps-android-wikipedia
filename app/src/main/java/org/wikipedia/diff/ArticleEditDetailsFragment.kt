@@ -323,32 +323,30 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             val prefixLength = spannableString.length
             spannableString.append(if (diff.text.isNotEmpty()) diff.text else "\n")
             when (diff.type) {
-                DIFF_TYPE_LINE_WITH_SAME_CONTENT -> {
-                }
                 DIFF_TYPE_LINE_ADDED -> {
                     updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_LINE_REMOVED -> {
                     updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
-                DIFF_TYPE_LINE_WITH_DIFF -> {
-                    for (highlightRange in diff.highlightRanges) {
-                        val indices = utf8Indices(diff.text)
-                        val highlightRangeStart = indices[highlightRange.start]
-                        val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size) indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
-
-                        if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
-                            updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
-                        } else {
-                            updateDiffTextDecor(spannableString, false, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
-                        }
-                    }
-                }
                 DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
                     updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
                     updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
+                }
+            }
+            if (diff.highlightRanges.isNotEmpty()) {
+                for (highlightRange in diff.highlightRanges) {
+                    val indices = utf8Indices(diff.text)
+                    val highlightRangeStart = indices[highlightRange.start]
+                    val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size) indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
+
+                    if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
+                        updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
+                    } else {
+                        updateDiffTextDecor(spannableString, false, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
+                    }
                 }
             }
             spannableString.append("\n")
