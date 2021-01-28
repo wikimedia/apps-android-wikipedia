@@ -5,7 +5,7 @@ object MathUtil {
 
     @JvmStatic
     fun constrain(f: Float, min: Float, max: Float): Float {
-        return min.coerceAtLeast(f).coerceAtMost(max)
+        return f.coerceIn(min,max)
     }
 
     @JvmStatic

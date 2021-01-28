@@ -239,6 +239,8 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             // center on the nose, not on the eyes
             facePos.y += faces[0].eyesDistance() / 2;
             // normalize the position to [0, 1]
+            //Todo: Remove MathUtil.constrain(..) when this file gets converted to Kotlin,
+            // by using coerceIn() here
             facePos.set(MathUtil.constrain(facePos.x / testBitmap.getWidth(), 0, 1),
                     MathUtil.constrain(facePos.y / testBitmap.getHeight(), 0, 1));
             L.d("Found face at " + facePos.x + ", " + facePos.y);

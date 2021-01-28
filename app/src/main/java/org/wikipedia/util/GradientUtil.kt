@@ -12,6 +12,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import org.wikipedia.WikipediaApp
+import kotlin.math.pow
 
 object GradientUtil {
     private const val GRADIENT_NUM_STOPS = 8
@@ -48,7 +49,7 @@ object GradientUtil {
         val alpha = Color.alpha(baseColor)
         for (i in 0 until GRADIENT_NUM_STOPS) {
             val x = i * 1f / (GRADIENT_NUM_STOPS - 1)
-            val opacity = MathUtil.constrain(Math.pow(x.toDouble(), GRADIENT_POWER.toDouble()).toFloat(), 0.0f, 1.0f)
+            val opacity = (x.toDouble().pow(GRADIENT_POWER.toDouble())).toFloat().coerceIn(0.0f, 1.0f)
             stopColors[i] = Color.argb((alpha * opacity).toInt(), red, green, blue)
         }
         val x0: Float

@@ -41,8 +41,8 @@ object PermissionUtil {
     }
 
     @JvmStatic
-    fun requestWriteStorageRuntimePermissions(activity: AppCompatActivity?, requestCode: Int) {
-        ActivityCompat.requestPermissions(activity!!, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), requestCode)
+    fun requestWriteStorageRuntimePermissions(activity: AppCompatActivity, requestCode: Int) {
+        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), requestCode)
         // once permission is granted/denied it will continue with onRequestPermissionsResult
     }
 }
