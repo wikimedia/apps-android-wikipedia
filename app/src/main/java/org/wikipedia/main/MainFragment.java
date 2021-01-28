@@ -71,6 +71,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.log.L;
@@ -563,7 +564,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (Prefs.isWatchlistPageOnboardingTooltipShown()
+        if (ReleaseUtil.isPreBetaRelease()
+                && Prefs.isWatchlistPageOnboardingTooltipShown()
                 && !Prefs.isWatchlistMainOnboardingTooltipShown()
                 && AccountUtil.isLoggedIn()) {
             moreContainer.postDelayed(() -> {
