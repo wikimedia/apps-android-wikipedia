@@ -125,7 +125,7 @@
   <string name="history_empty_title">Nissuna vos vardada de recent</string>
   <string name="history_empty_message">Manten el segn del quell che te see stad adrée a lensg scià</string>
   <string name="history_offline_articles_toast">Di vos ind la cronologia i podarissen vesser minga visibel quand che te see minga conness.</string>
-  <string name="search_empty_message">Cerca e lensg l\'enciclpedia libera ind la toa lengua.</string>
+  <string name="search_empty_message">Cerca e lensg l\'enciclpedia libera in la toa lengua.</string>
   <string name="search_empty_message_multilingual_upgrade">Cerca in Wikipedia in diverse lengove</string>
   <string name="delete_selected_items">Scancela i element selezionad</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -252,5 +252,5 @@
   <string name="menu_option_share_edit">Scompartiss modifega</string>
   <string name="watchlist_details_watch_label">Varda</string>
   <string name="thank_label">Grazzia</string>
-  <string name="thank_dialog_positive_button_text" fuzzy="true">RENGRAZZIA</string>
+  <string name="thank_dialog_positive_button_text">RENGRAZZIA</string>
 </resources>

@@ -126,7 +126,7 @@
   <string name="toast_logout_complete">Hate derketin</string>
   <string name="logout_dialog_cancel_button_text">Betal bike</string>
   <string name="logged_out_in_background_title">Hat derketin</string>
-  <string name="logged_out_in_background_dialog">Tu ji Wîkîpediyayê derketiyî. Dixwazî dîsa têkevî?</string>
+  <string name="logged_out_in_background_dialog">Tu ji Wîkîpediyayê derketi yî. Dixwazî dîsa têkevî?</string>
   <string name="logged_out_in_background_login">Têkeve</string>
   <string name="logged_out_in_background_cancel">Betal bike</string>
   <string name="history_empty_title">Rûpelên ku te di demên dawî de dîtibe tine ne!</string>

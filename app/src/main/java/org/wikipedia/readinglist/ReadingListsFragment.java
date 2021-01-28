@@ -583,12 +583,12 @@ public class ReadingListsFragment extends Fragment implements
 
         @Override
         public void onSaveAllOffline(@NonNull ReadingList readingList) {
-            ReadingListBehaviorsUtil.INSTANCE.savePagesForOffline(requireActivity(), readingList.pages(), ReadingListsFragment.this::updateLists);
+            ReadingListBehaviorsUtil.INSTANCE.savePagesForOffline(requireActivity(), readingList.pages(), () -> updateLists(currentSearchQuery, true));
         }
 
         @Override
         public void onRemoveAllOffline(@NonNull ReadingList readingList) {
-            ReadingListBehaviorsUtil.INSTANCE.removePagesFromOffline(requireActivity(), readingList.pages(), ReadingListsFragment.this::updateLists);
+            ReadingListBehaviorsUtil.INSTANCE.removePagesFromOffline(requireActivity(), readingList.pages(), () -> updateLists(currentSearchQuery, true));
         }
     }
 
