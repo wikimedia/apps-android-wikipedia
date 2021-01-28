@@ -34,7 +34,7 @@
 * Wladek92
 * Zoranzoki21
 -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="all">
   <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
   <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
   <string name="app_name_alpha">Name of the alpha version of the application.</string>
