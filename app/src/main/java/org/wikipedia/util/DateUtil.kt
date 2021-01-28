@@ -11,26 +11,25 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object DateUtil {
-    private val DATE_FORMATS: MutableMap<String, SimpleDateFormat> = HashMap()
+    private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
     @JvmStatic
     @Synchronized
-    fun iso8601DateFormat(date: Date?): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true)!!.format(date!!)
+    fun iso8601DateFormat(date: Date): String {
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true)!!.format(date)
     }
 
     @JvmStatic
     @Synchronized
-    @Throws(ParseException::class)
-    fun iso8601DateParse(date: String?): Date {
+    fun iso8601DateParse(date: String): Date {
         return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true)!!.parse(date!!)!!
     }
 
     @JvmStatic
     @Synchronized
-    fun iso8601LocalDateFormat(date: Date?): String {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false)!!.format(date!!)
+    fun iso8601LocalDateFormat(date: Date): String {
+        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT, false)!!.format(date)
     }
 
     @JvmStatic
@@ -41,9 +40,8 @@ object DateUtil {
 
     @JvmStatic
     @Synchronized
-    @Throws(ParseException::class)
-    fun dbDateParse(date: String?): Date {
-        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true)!!.parse(date!!)!!
+    fun dbDateParse(date: String): Date {
+        return getCachedDateFormat("yyyyMMddHHmmss", Locale.ROOT, true)!!.parse(date)!!
     }
 
     @JvmStatic
@@ -92,7 +90,6 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "HH:mm")
     }
 
-    @Throws(ParseException::class)
     fun getDateAndTimeStringFromTimestampString(dateStr: String): String {
         return getCachedDateFormat("MMM dd, yyyy | HH:mm", Locale.ROOT, false)!!.format(iso8601DateParse(dateStr))
     }

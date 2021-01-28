@@ -15,7 +15,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
 import org.wikipedia.util.DateUtil;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -308,11 +307,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         }
 
         @NonNull public Date getDate() {
-            try {
-                return DateUtil.iso8601DateParse(timestamp);
-            } catch (ParseException e) {
-                return new Date();
-            }
+            return DateUtil.iso8601DateParse(StringUtils.defaultString(timestamp));
         }
 
         @NonNull public String getParsedComment() {
