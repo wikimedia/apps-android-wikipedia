@@ -564,6 +564,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
+        // TODO remove feature flag when ready
         if (ReleaseUtil.isPreBetaRelease()
                 && Prefs.isWatchlistPageOnboardingTooltipShown()
                 && !Prefs.isWatchlistMainOnboardingTooltipShown()
