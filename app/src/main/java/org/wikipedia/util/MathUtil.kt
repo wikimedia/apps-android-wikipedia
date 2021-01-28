@@ -4,11 +4,6 @@ object MathUtil {
     private const val PERCENTAGE_BASE = 100
 
     @JvmStatic
-    fun constrain(f: Float, min: Float, max: Float): Float {
-        return f.coerceIn(min,max)
-    }
-
-    @JvmStatic
     fun percentage(numerator: Float, denominator: Float): Float {
         return numerator / denominator * PERCENTAGE_BASE
     }

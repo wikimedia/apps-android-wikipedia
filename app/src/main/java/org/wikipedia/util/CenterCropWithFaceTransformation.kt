@@ -88,7 +88,7 @@ class CenterCropWithFaceTransformation : BitmapTransformation() {
             // center on the nose, not on the eyes
             facePos.y += faces[0]!!.eyesDistance() / 2
             // normalize the position to [0, 1]
-            facePos[MathUtil.constrain((facePos.x / testBitmap.width, 0f, 1f)] = MathUtil.constrain(facePos.y / testBitmap.height, 0f, 1f)
+            facePos[(facePos.x / testBitmap.width).coerceIn(0f, 1f)] = (facePos.y / testBitmap.height).coerceIn(0f, 1f)
             L.d("Found face at " + facePos.x + ", " + facePos.y)
         }
         L.d("Face detection took " + (System.currentTimeMillis() - millis) + "ms")
