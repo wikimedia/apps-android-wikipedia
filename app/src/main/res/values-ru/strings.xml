@@ -951,7 +951,7 @@
   <string name="thank_label">Благодарность</string>
   <string name="go_to_user_page">Перейти на страницу пользователя</string>
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>
-  <string name="thank_dialog_negative_button_text" fuzzy="true">ОТМЕНА</string>
+  <string name="thank_dialog_negative_button_text">Отмена</string>
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
