@@ -22,8 +22,8 @@ import androidx.fragment.app.Fragment;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.snackbar.Snackbar;
-import com.skydoves.balloon.ArrowConstraints;
-import com.skydoves.balloon.ArrowOrientation;
+import com.skydoves.balloon.ArrowOrientationRules;
+import com.skydoves.balloon.ArrowPositionRules;
 import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
@@ -192,9 +192,9 @@ public final class FeedbackUtil {
         return showTooltip(getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
-    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight,
-                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
-        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int arrowAnchorPadding,
+                                      int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
+        return showTooltip(getTooltip(anchor.getContext(), layoutRes, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -223,11 +223,10 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight,
-                                     int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
+    private static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int arrowAnchorPadding,
+                                      int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
         return getTooltipBuilder(context, topOrBottomMargin, aboveOrBelow, autoDismiss)
                 .setLayout(layoutRes)
-                .setHeight(layoutHeight)
                 .setWidthRatio(DimenUtil.isLandscape(context) ? 0.4f : 0.8f)
                 .setArrowAlignAnchorPadding(arrowAnchorPadding)
                 .build();
@@ -237,8 +236,9 @@ public final class FeedbackUtil {
     private static Balloon.Builder getTooltipBuilder(@NonNull Context context, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
         return new Balloon.Builder(context)
                 .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
-                .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-                .setArrowOrientation(aboveOrBelow ? ArrowOrientation.BOTTOM : ArrowOrientation.TOP)
+                .setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
+                .setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
+                .setArrowElevation(0)
                 .setArrowSize(24)
                 .setMarginLeft(8)
                 .setMarginRight(8)

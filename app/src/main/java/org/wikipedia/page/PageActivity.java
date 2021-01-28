@@ -878,8 +878,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 }
                 watchlistFunnel.logShowTooltip();
                 Prefs.setWatchlistPageOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
-                        200, -32, -8, false, true);
+                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, -32, -8, false, true);
             }, 500);
         }
     }
