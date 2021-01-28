@@ -11,8 +11,7 @@ import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.*
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.widget.FrameLayout
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatImageView
@@ -151,8 +150,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun fetchEditDetails() {
-        revisionDetailsView.visibility = GONE
-        progressBar.visibility = VISIBLE
+        hideOrShowViews(true)
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
@@ -176,6 +174,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }) { setErrorState(it!!) })
     }
 
+    private fun hideOrShowViews(isLoading: Boolean) {
+        if (isLoading) {
+            progressBar.visibility = VISIBLE
+            userDetailsFlowView.visibility = INVISIBLE
+            editComment.visibility = INVISIBLE
+            diffText.visibility = INVISIBLE
+        } else {
+            progressBar.visibility = INVISIBLE
+            userDetailsFlowView.visibility = VISIBLE
+            editComment.visibility = VISIBLE
+            diffText.visibility = VISIBLE
+        }
+    }
+
     private fun updateUI() {
         diffText.scrollTo(0, 0)
         diffText.text = ""
@@ -192,8 +204,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         fetchDiffText()
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
-        revisionDetailsView.visibility = VISIBLE
-        progressBar.visibility = GONE
+        hideOrShowViews(false)
     }
 
     private fun maybeHideThankButton() {
