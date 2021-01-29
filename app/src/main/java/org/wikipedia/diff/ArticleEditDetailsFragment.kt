@@ -65,6 +65,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private var newerRevisionId: Long = 0
     private var olderRevisionId: Long = 0
     private var currentRevision: Revision? = null
+    private var charCount: Int = 0
 
     private var watchlistExpiryChanged = false
     private var isWatched = false
@@ -102,10 +103,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         newerIdButton.setOnClickListener {
+            charCount = 0
             revisionId = newerRevisionId
             fetchEditDetails()
         }
         olderIdButton.setOnClickListener {
+            charCount = 0
             revisionId = olderRevisionId
             fetchEditDetails()
         }
@@ -139,6 +142,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setUpInitialUI() {
         diffText.movementMethod = ScrollingMovementMethod()
         articleTitleView.text = articlePageTitle.displayText
+        updateDiffCharCountView(diffSize)
+    }
+
+    private fun updateDiffCharCountView(diffSize: Int) {
         if (diffSize >= 0) {
             diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
                     R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
@@ -335,15 +342,19 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             spannableString.append(if (diff.text.isNotEmpty()) diff.text else "\n")
             when (diff.type) {
                 DIFF_TYPE_LINE_ADDED -> {
+                    charCount += diff.text.length
                     updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_LINE_REMOVED -> {
+                    charCount -= diff.text.length
                     updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_PARAGRAPH_MOVED_FROM -> {
+                    charCount -= diff.text.length
                     updateDiffTextDecor(spannableString, false, prefixLength, prefixLength + diff.text.length)
                 }
                 DIFF_TYPE_PARAGRAPH_MOVED_TO -> {
+                    charCount += diff.text.length
                     updateDiffTextDecor(spannableString, true, prefixLength, prefixLength + diff.text.length)
                 }
             }
@@ -354,8 +365,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     val highlightRangeEnd = if (highlightRange.start + highlightRange.length < indices.size) indices[highlightRange.start + highlightRange.length] else indices[indices.size - 1]
 
                     if (highlightRange.type == HIGHLIGHT_TYPE_ADD) {
+                        charCount += indices[highlightRange.length]
                         updateDiffTextDecor(spannableString, true, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
                     } else {
+                        charCount -= indices[highlightRange.length]
                         updateDiffTextDecor(spannableString, false, prefixLength + highlightRangeStart, prefixLength + highlightRangeEnd)
                     }
                 }
@@ -363,6 +376,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             spannableString.append("\n")
         }
         diffText.text = spannableString
+        updateDiffCharCountView(charCount)
     }
 
     private fun updateDiffTextDecor(spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
