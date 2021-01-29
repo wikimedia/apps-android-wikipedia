@@ -1003,4 +1003,7 @@
   <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist</string>
   <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
   <string name="watchlist_filter_other">Filter selection to show only non-main and non-talk pages in the watchlist</string>
+  <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
+  <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
+  <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
 </resources>
