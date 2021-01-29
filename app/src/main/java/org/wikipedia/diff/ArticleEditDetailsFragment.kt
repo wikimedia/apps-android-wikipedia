@@ -267,12 +267,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, watch: Watch) {
         isWatched = watch.watched
         if (watch.unwatched) {
-            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.prefixedText))
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.displayText))
             watchlistExpirySession = WatchlistExpiry.NEVER
         } else if (watch.watched && expiry != null) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                            articlePageTitle.prefixedText,
+                            articlePageTitle.displayText,
                             getString(expiry.stringId)),
                     FeedbackUtil.LENGTH_DEFAULT)
             if (!watchlistExpiryChanged) {
