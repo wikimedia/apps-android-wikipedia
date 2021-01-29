@@ -16,7 +16,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.EditFunnel
+import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
@@ -28,7 +31,6 @@ import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
@@ -44,6 +46,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var csrfClient: CsrfTokenClient? = null
     private var currentRevision: Long = 0
+    private lateinit var talkFunnel: TalkFunnel
+    private lateinit var editFunnel: EditFunnel
 
     private var linkHandler: TalkLinkHandler? = null
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
@@ -77,13 +81,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         talkReplyButton.setOnClickListener {
+            talkFunnel.logReplyClick()
             replyActive = true
             talkRecyclerView.adapter?.notifyDataSetChanged()
             talkScrollContainer.fullScroll(View.FOCUS_DOWN)
             replySaveButton.visibility = View.VISIBLE
             replyTextLayout.visibility = View.VISIBLE
             replyTextLayout.requestFocus()
-            DeviceUtil.showSoftKeyboard(replyEditText)
+            onStartComposition()
             talkReplyButton.hide()
         }
 
@@ -95,11 +100,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         talkRefreshView.isEnabled = !isNewTopic()
         talkRefreshView.setOnRefreshListener {
+            talkFunnel.logRefresh()
             loadTopic()
         }
 
         talkReplyButton.visibility = View.GONE
 
+        talkFunnel = TalkFunnel(pageTitle, intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
+        talkFunnel.logOpenTopic()
+
+        editFunnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
         onInitialLoad()
     }
 
@@ -121,7 +131,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             replyTextLayout.hint = getString(R.string.talk_message_hint)
             replyTextLayout.visibility = View.VISIBLE
             replySubjectLayout.requestFocus()
-            DeviceUtil.showSoftKeyboard(replySubjectLayout)
+            onStartComposition()
         } else {
             replyActive = false
             replyEditText.setText("")
@@ -131,6 +141,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             replyTextLayout.hint = getString(R.string.talk_reply_hint)
             loadTopic()
         }
+    }
+
+    private fun onStartComposition() {
+        editFunnel.logStart()
+        DeviceUtil.showSoftKeyboard(replySubjectLayout)
     }
 
     private fun loadTopic() {
@@ -162,7 +177,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun updateOnSuccess() {
         talkProgressBar.visibility = View.GONE
         talkErrorView.visibility = View.GONE
-        talkReplyButton.show()
+        if (replyActive) {
+            talkReplyButton.hide()
+        } else {
+            talkReplyButton.show()
+        }
         talkRefreshView.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
@@ -180,7 +199,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
         if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-            startActivity(newIntent(this, title.pageTitleForTalkPage()))
+            startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage(), Constants.InvokeSource.TALK_ACTIVITY))
         } else {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
@@ -275,6 +294,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkProgressBar.visibility = View.VISIBLE
         replySaveButton.isEnabled = false
 
+        talkFunnel.logEditSubmit()
+
         csrfClient = CsrfTokenClient(pageTitle.wikiSite, pageTitle.wikiSite)
         csrfClient?.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
@@ -315,7 +336,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     if (response.revision < newRevision) {
                         throw IllegalStateException()
                     }
-                    response
+                    response.revision
                 }
                 .retry(20) { t ->
                     (t is IllegalStateException) ||
@@ -323,15 +344,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    onSaveSuccess()
+                    onSaveSuccess(it)
                 }, { t ->
                     L.e(t)
                     onSaveError(t)
                 }))
     }
 
-    private fun onSaveSuccess() {
+    private fun onSaveSuccess(newRevision: Long) {
         talkProgressBar.visibility = View.GONE
+        editFunnel.logSaved(newRevision)
 
         if (isNewTopic()) {
             setResult(RESULT_EDIT_SUCCESS)
@@ -342,6 +364,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun onSaveError(t: Throwable) {
+        editFunnel.logError(t.message)
         talkProgressBar.visibility = View.GONE
         FeedbackUtil.showError(this, t)
     }
@@ -371,10 +394,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         const val RESULT_EDIT_SUCCESS = 1
 
         @JvmStatic
-        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC, topicId)
+                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
 }

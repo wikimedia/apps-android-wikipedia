@@ -1054,4 +1054,7 @@
     <string name="watchlist_filter_talk">Talk</string>
     <string name="watchlist_filter_pages">Pages</string>
     <string name="watchlist_filter_other">Other</string>
+    <string name="watchlist_page_moved">Moved</string>
+    <string name="watchlist_page_protected">Protected</string>
+    <string name="watchlist_page_deleted">Deleted</string>
 </resources>
