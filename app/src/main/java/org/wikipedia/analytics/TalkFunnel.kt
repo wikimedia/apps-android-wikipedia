@@ -1,6 +1,5 @@
 package org.wikipedia.analytics
 
-import android.text.TextUtils
 import org.json.JSONObject
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -14,7 +13,7 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "source", invokeSource.getName())
         preprocessData(eventData, "anon", !isLoggedIn)
-        preprocessData(eventData, "pageNS", if (!TextUtils.isEmpty(title.namespace))
+        preprocessData(eventData, "pageNS", if (!title.namespace.isNullOrEmpty())
             title.namespace!!.toLowerCase(Locale.ROOT).capitalize(Locale.ROOT) else title.namespace)
         return super.preprocessData(eventData)
     }
