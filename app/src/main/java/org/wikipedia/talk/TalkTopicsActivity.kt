@@ -79,7 +79,6 @@ class TalkTopicsActivity : BaseActivity() {
         funnel.logOpenTalk()
 
         talkNewTopicButton.visibility = View.GONE
-        loadTopics()
     }
 
     public override fun onDestroy() {
