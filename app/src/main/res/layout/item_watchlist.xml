@@ -98,10 +98,12 @@
             android:paddingBottom="8dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            app:layout_constraintTop_toBottomOf="@id/summaryText"
-            app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/green50"
+            app:layout_constraintTop_toBottomOf="@id/summaryText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:iconSize="20dp"
+            app:iconPadding="8dp"
             tools:text="+123"/>
 
         <com.google.android.material.button.MaterialButton
@@ -113,20 +115,20 @@
             android:paddingBottom="8dp"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
-            app:layout_constraintTop_toTopOf="@id/diffText"
-            app:layout_constraintStart_toEndOf="@id/diffText"
-            app:layout_constraintWidth_max="220dp"
             android:layout_marginStart="12dp"
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="false"
             android:textAlignment="viewStart"
+            android:textColor="?attr/material_theme_secondary_color"
             android:maxLines="1"
             android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@id/diffText"
+            app:layout_constraintStart_toEndOf="@id/diffText"
+            app:layout_constraintWidth_max="220dp"
             app:icon="@drawable/ic_user_talk"
             app:iconSize="20dp"
             app:iconPadding="8dp"
             app:iconTint="?attr/material_theme_secondary_color"
-            android:textColor="?attr/material_theme_secondary_color"
             tools:text="Username"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
