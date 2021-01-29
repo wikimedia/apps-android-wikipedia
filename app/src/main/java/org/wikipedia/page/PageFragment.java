@@ -1220,7 +1220,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     private void startTalkTopicActivity(@NonNull PageTitle pageTitle) {
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage()));
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage(), PAGE_ACTIVITY));
     }
 
     private void startGalleryActivity(@NonNull String fileName) {
