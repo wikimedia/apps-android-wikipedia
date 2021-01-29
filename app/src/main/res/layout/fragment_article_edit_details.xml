@@ -20,7 +20,7 @@
             android:indeterminate="true"
             android:indeterminateTint="?attr/colorAccent"
             android:progressBackgroundTint="@color/accent30"
-            android:visibility="gone"
+            android:visibility="invisible"
             tools:visibility="visible" />
 
         <org.wikipedia.views.WikiErrorView
@@ -64,10 +64,12 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="sans-serif-medium"
                     android:letterSpacing="0.04"
+                    android:text="@string/watchlist_details_watching_label"
                     android:textSize="14sp"
                     app:icon="@drawable/ic_icon_star"
                     app:iconGravity="textStart"
-                    app:iconSize="20dp" />
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/color_group_68" />
             </LinearLayout>
 
             <View
@@ -130,6 +132,7 @@
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/userDetailsFlowView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:constraint_referenced_ids="usernameButton,thankButton,diffCharacterCountView"
