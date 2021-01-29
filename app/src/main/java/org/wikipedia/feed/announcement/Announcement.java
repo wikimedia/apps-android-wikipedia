@@ -11,7 +11,6 @@ import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.util.DateUtil;
 
-import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -69,19 +68,11 @@ public class Announcement extends BaseModel {
 
     @Nullable
     public Date startTime() {
-        try {
-            return DateUtil.iso8601DateParse(startTime);
-        } catch (ParseException e) {
-            return null;
-        }
+        return DateUtil.iso8601DateParse(startTime);
     }
 
     @Nullable Date endTime() {
-        try {
-            return DateUtil.iso8601DateParse(endTime);
-        } catch (ParseException e) {
-            return null;
-        }
+        return DateUtil.iso8601DateParse(endTime);
     }
 
     @NonNull List<String> platforms() {
