@@ -176,6 +176,7 @@ public class MwQueryPage extends BaseModel {
         @Nullable private String content;
         @Nullable private String comment;
         @Nullable private Map<String, RevisionSlot> slots;
+        private int size;
 
         @NonNull public String getComment() {
             return StringUtils.defaultString(comment);
@@ -192,6 +193,10 @@ public class MwQueryPage extends BaseModel {
         @NonNull
         public String getUser() {
             return StringUtils.defaultString(user);
+        }
+
+        public int getSize() {
+            return size;
         }
 
         @NonNull
