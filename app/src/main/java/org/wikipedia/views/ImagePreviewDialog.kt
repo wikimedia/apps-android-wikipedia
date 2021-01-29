@@ -12,9 +12,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.dialog_image_preview.*
 import org.wikipedia.R
 import org.wikipedia.commons.ImageTagsProvider
+import org.wikipedia.databinding.DialogImagePreviewBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -31,45 +31,48 @@ import org.wikipedia.util.log.L
 
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
+    private var _binding: DialogImagePreviewBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
     private lateinit var action: Action
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
+        _binding = DialogImagePreviewBinding.inflate(inflater, container, false)
         pageSummaryForEdit = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, requireArguments().getString(ARG_SUMMARY))
         action = requireArguments().getSerializable(ARG_ACTION) as Action
-        setConditionalLayoutDirection(rootView, pageSummaryForEdit.lang)
-        return rootView
+        setConditionalLayoutDirection(binding.root, pageSummaryForEdit.lang)
+        return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil
-                .roundedDpToPx(DimenUtil.getDimension(R.dimen.imagePreviewSheetPeekHeight))
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.imagePreviewSheetPeekHeight))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        progressBar!!.visibility = VISIBLE
-        toolbarView.setOnClickListener { dismiss() }
-        titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(pageSummaryForEdit.displayTitle!!))
+        binding.progressBar.visibility = VISIBLE
+        binding.toolbarView.setOnClickListener { dismiss() }
+        binding.titleText.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(pageSummaryForEdit.displayTitle!!))
         loadImageInfo()
     }
 
     override fun onDestroyView() {
-        toolbarView!!.setOnClickListener(null)
+        binding.toolbarView.setOnClickListener(null)
+        _binding = null
         disposables.clear()
         super.onDestroyView()
     }
 
     private fun showError(caught: Throwable?) {
-        dialogDetailContainer.layoutTransition = null
-        dialogDetailContainer.minimumHeight = 0
-        progressBar.visibility = GONE
-        filePageView.visibility = GONE
-        errorView.visibility = VISIBLE
-        errorView.setError(caught)
+        binding.dialogDetailContainer.layoutTransition = null
+        binding.dialogDetailContainer.minimumHeight = 0
+        binding.progressBar.visibility = GONE
+        binding.filePageView.visibility = GONE
+        binding.errorView.visibility = VISIBLE
+        binding.errorView.setError(caught)
     }
 
     private fun loadImageInfo() {
@@ -105,14 +108,14 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    filePageView.visibility = VISIBLE
-                    progressBar.visibility = GONE
-                    filePageView.setup(
+                    binding.filePageView.visibility = VISIBLE
+                    binding.progressBar.visibility = GONE
+                    binding.filePageView.setup(
                             this,
                             pageSummaryForEdit,
                             imageTags,
                             page,
-                            dialogDetailContainer.width,
+                            binding.dialogDetailContainer.width,
                             thumbnailWidth, thumbnailHeight,
                             imageFromCommons = isFromCommons,
                             showFilename = false,
