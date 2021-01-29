@@ -190,7 +190,7 @@ public class PageFragmentLoadState {
                 .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.getCacheControl().toString(),
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText())),
-                AccountUtil.isLoggedIn() ? ServiceFactory.get(model.getTitle().getWikiSite()).getWatchedInfo(model.getTitle().getPrefixedText()) : Observable.just(new MwQueryResponse()), Pair::new)
+                (app.isOnline() && AccountUtil.isLoggedIn()) ? ServiceFactory.get(model.getTitle().getWikiSite()).getWatchedInfo(model.getTitle().getPrefixedText()) : Observable.just(new MwQueryResponse()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
