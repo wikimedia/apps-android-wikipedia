@@ -502,7 +502,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 finish();
                 return true;
             } else if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage()));
+                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY));
                 finish();
                 return true;
             }
