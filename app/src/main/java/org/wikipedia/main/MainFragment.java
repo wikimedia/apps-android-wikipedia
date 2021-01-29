@@ -448,7 +448,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
             startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                     new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
-                            AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
+                            AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode())),
+                    NAV_MENU));
         }
     }
 
