@@ -1,7 +1,6 @@
 package org.wikipedia.analytics
 
 import android.text.TextUtils
-import org.apache.commons.lang3.StringUtils
 import org.json.JSONObject
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -16,7 +15,7 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         preprocessData(eventData, "source", invokeSource.getName())
         preprocessData(eventData, "anon", !isLoggedIn)
         preprocessData(eventData, "pageNS", if (!TextUtils.isEmpty(title.namespace))
-            StringUtils.capitalize(title.namespace!!.toLowerCase(Locale.ROOT)) else title.namespace)
+            title.namespace!!.toLowerCase(Locale.ROOT).capitalize(Locale.ROOT) else title.namespace)
         return super.preprocessData(eventData)
     }
 
