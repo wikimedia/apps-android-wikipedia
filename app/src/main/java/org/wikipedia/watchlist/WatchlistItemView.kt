@@ -1,11 +1,14 @@
 package org.wikipedia.watchlist
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.annotation.AttrRes
+import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.item_watchlist.view.*
 import org.wikipedia.R
@@ -52,15 +55,39 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         userNameText.text = item.user
 
         userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_talk)
-
-        val diffByteCount = item.newlen - item.oldlen
-        if (diffByteCount >= 0) {
-            diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50) else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
-            diffText.text = String.format("%+d", diffByteCount)
+        if (item.logType.isNotEmpty()) {
+            when (item.logType) {
+                context.getString(R.string.page_moved) -> {
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_moved), R.attr.suggestions_background_color, R.drawable.ic_info_outline_black_24dp)
+                }
+                context.getString(R.string.page_protected) -> {
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_protected), R.attr.suggestions_background_color, R.drawable.ic_baseline_lock_24)
+                }
+                context.getString(R.string.page_deleted) -> {
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_deleted), R.attr.suggestions_background_color, R.drawable.ic_delete_white_24dp)
+                }
+            }
         } else {
-            diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
-            diffText.text = String.format("%+d", diffByteCount)
+            val diffByteCount = item.newlen - item.oldlen
+            setButtonTextAndIconColor(String.format("%+d", diffByteCount), R.attr.color_group_22)
+            if (diffByteCount >= 0) {
+                diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50)
+                else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
+            } else {
+                diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
+            }
         }
+    }
+
+    private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int? = null) {
+        val themedTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_61))
+        diffText.text = text
+        diffText.setTextColor(themedTint)
+        iconResourceDrawable?.let {
+            diffText.icon = ContextCompat.getDrawable(context, it)
+        }
+        diffText.iconTint = themedTint
+        diffText.setBackgroundColor(ResourceUtil.getThemedColor(context, backgroundTint))
     }
 
     interface Callback {
