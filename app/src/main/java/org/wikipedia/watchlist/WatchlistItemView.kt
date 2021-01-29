@@ -1,6 +1,8 @@
 package org.wikipedia.watchlist
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import android.view.View.OnClickListener
@@ -52,15 +54,48 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         userNameText.text = item.user
 
         userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_talk)
-
-        val diffByteCount = item.newlen - item.oldlen
-        if (diffByteCount >= 0) {
-            diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50) else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
-            diffText.text = String.format("%+d", diffByteCount)
+        if (item.logType.isNotEmpty()) {
+            when (item.logType) {
+                context.getString(R.string.page_moved) -> {
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_moved),
+                            ResourceUtil.getThemedColor(context, R.attr.color_group_61),
+                            ContextCompat.getDrawable(context, R.drawable.ic_info_outline_black_24dp),
+                            R.attr.suggestions_background_color)
+                }
+                context.getString(R.string.page_protected) -> {
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_protected),
+                            ResourceUtil.getThemedColor(context, R.attr.color_group_61),
+                            ContextCompat.getDrawable(context, R.drawable.ic_baseline_lock_24),
+                            R.attr.suggestions_background_color)
+                }
+                context.getString(R.string.page_deleted) -> {
+                    setButtonTextAndIconColor(context.getString(R.string.watchlist_page_deleted),
+                            ResourceUtil.getThemedColor(context, R.attr.color_group_61),
+                            ContextCompat.getDrawable(context, R.drawable.ic_delete_white_24dp),
+                            R.attr.suggestions_background_color)
+                }
+            }
         } else {
-            diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
-            diffText.text = String.format("%+d", diffByteCount)
+            val diffByteCount = item.newlen - item.oldlen
+            setButtonTextAndIconColor(String.format("%+d", diffByteCount),
+                    ResourceUtil.getThemedColor(context, R.attr.color_group_61),
+                    null, R.attr.color_group_22)
+            if (diffByteCount >= 0) {
+                diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50)
+                else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
+            } else {
+                diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
+            }
         }
+    }
+
+    private fun setButtonTextAndIconColor(text: String, themedIconTint: Int,
+                                          iconResourceDrawable: Drawable?, backgroundTint: Int) {
+        diffText.text = text
+        diffText.setTextColor(themedIconTint)
+        diffText.icon = iconResourceDrawable
+        diffText.iconTint = ColorStateList.valueOf(themedIconTint)
+        diffText.setBackgroundColor(ResourceUtil.getThemedColor(context, backgroundTint))
     }
 
     interface Callback {
