@@ -39,7 +39,7 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
     }
 
     fun getSharedElements(): Array<Pair<View, String>> {
-        return TransitionUtil.getSharedElements(context, articleTitle, articleDescription, articleImage, articleDivider)
+        return TransitionUtil.getSharedElements(context, articleTitle, articleDescription, articleImage)
     }
 
     fun setImageUri(uri: Uri?, hideInLandscape: Boolean = true) {
@@ -58,6 +58,7 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
 
         setTitle(title.displayText)
         setDescription(title.description)
+        articleDivider.visibility = View.GONE
         L10nUtil.setConditionalLayoutDirection(this, title.wikiSite.languageCode())
     }
 }

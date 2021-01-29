@@ -12,6 +12,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_watchlist.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.WatchlistFunnel
@@ -289,13 +290,17 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     override fun onItemClick(item: MwQueryResult.WatchlistItem) {
+        if (item.logType.isNotEmpty()) {
+            return
+        }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), item.title,
-                item.revid, item.wiki.languageCode(), item.newlen - item.oldlen))
+                item.revid, item.wiki.languageCode()))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem) {
         startActivity(TalkTopicsActivity.newIntent(requireContext(),
-                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki)))
+                PageTitle(UserTalkAliasData.valueFor(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE) + ":" + item.user, item.wiki),
+                Constants.InvokeSource.WATCHLIST_ACTIVITY))
     }
 
     companion object {
