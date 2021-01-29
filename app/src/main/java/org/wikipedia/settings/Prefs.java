@@ -20,7 +20,6 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -815,12 +814,8 @@ public final class Prefs {
 
     public static Date getSuggestedEditsPauseDate() {
         Date date = new Date(0);
-        try {
-            if (contains(R.string.preference_key_suggested_edits_pause_date)) {
-                date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
-            }
-        } catch (ParseException e) {
-            // ignore
+        if (contains(R.string.preference_key_suggested_edits_pause_date)) {
+            date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
         }
         return date;
     }
