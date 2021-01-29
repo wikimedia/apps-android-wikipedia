@@ -19,6 +19,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
@@ -41,6 +42,8 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var pageTitle: PageTitle
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
+    private lateinit var invokeSource: Constants.InvokeSource
+    private lateinit var funnel: TalkFunnel
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,12 +65,18 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         talkNewTopicButton.setOnClickListener {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, -1))
+            funnel.logNewTopicClick()
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, -1, invokeSource))
         }
 
         talkRefreshView.setOnRefreshListener {
+            funnel.logRefresh()
             loadTopics()
         }
+
+        invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+        funnel = TalkFunnel(pageTitle, invokeSource)
+        funnel.logOpenTalk()
 
         talkNewTopicButton.visibility = View.GONE
         loadTopics()
@@ -89,6 +98,7 @@ class TalkTopicsActivity : BaseActivity() {
             if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                 if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
+                    funnel.logChangeLanguage()
                     pageTitle = PageTitle(pageTitle.namespace, StringUtil.removeNamespace(pageTitle.prefixedText),
                             WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
                     loadTopics()
@@ -202,7 +212,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, id, invokeSource))
         }
     }
 
@@ -224,9 +234,10 @@ class TalkTopicsActivity : BaseActivity() {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
 
         @JvmStatic
-        fun newIntent(context: Context, pageTitle: PageTitle): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
 }
