@@ -73,6 +73,9 @@
     <string name="language_data">multilingual</string>
     <string name="empty" />
     <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
+    <string name="page_moved">move</string>
+    <string name="page_deleted">delete</string>
+    <string name="page_protected">protect</string>
 
     <!-- Font family -->
     <string name="font_family_sans_serif">sans-serif</string>

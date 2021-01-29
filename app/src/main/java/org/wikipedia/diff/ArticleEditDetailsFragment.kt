@@ -11,8 +11,7 @@ import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.*
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.widget.FrameLayout
 import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatImageView
@@ -46,7 +45,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
+import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -96,7 +95,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setUpListeners() {
         articleTitleView.setOnClickListener {
             if (articlePageTitle.namespace() == Namespace.USER_TALK || articlePageTitle.namespace() == Namespace.TALK) {
-                startActivity(newIntent(requireContext(), articlePageTitle.pageTitleForTalkPage()))
+                startActivity(TalkTopicsActivity.newIntent(requireContext(), articlePageTitle.pageTitleForTalkPage(), InvokeSource.DIFF_ACTIVITY))
             } else {
                 bottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(articlePageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
@@ -121,9 +120,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         usernameButton.setOnClickListener {
             if (AccountUtil.isLoggedIn && username != null) {
-                startActivity(newIntent(requireActivity(),
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                         PageTitle(UserTalkAliasData.valueFor(languageCode),
-                                username!!, WikiSite.forLanguageCode(languageCode))))
+                                username!!, WikiSite.forLanguageCode(languageCode)), InvokeSource.DIFF_ACTIVITY))
             }
         }
         thankButton.setOnClickListener { showThankDialog() }
@@ -151,8 +150,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun fetchEditDetails() {
-        revisionDetailsView.visibility = GONE
-        progressBar.visibility = VISIBLE
+        hideOrShowViews(true)
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId),
                 ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getWatchedInfo(articlePageTitle.prefixedText), { r, w ->
             isWatched = w.query()!!.firstPage()!!.isWatched
@@ -176,6 +174,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }) { setErrorState(it!!) })
     }
 
+    private fun hideOrShowViews(isLoading: Boolean) {
+        if (isLoading) {
+            progressBar.visibility = VISIBLE
+            userDetailsFlowView.visibility = INVISIBLE
+            editComment.visibility = INVISIBLE
+            diffText.visibility = INVISIBLE
+        } else {
+            progressBar.visibility = INVISIBLE
+            userDetailsFlowView.visibility = VISIBLE
+            editComment.visibility = VISIBLE
+            diffText.visibility = VISIBLE
+        }
+    }
+
     private fun updateUI() {
         diffText.scrollTo(0, 0)
         diffText.text = ""
@@ -192,8 +204,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         fetchDiffText()
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
-        revisionDetailsView.visibility = VISIBLE
-        progressBar.visibility = GONE
+        hideOrShowViews(false)
     }
 
     private fun maybeHideThankButton() {
@@ -256,12 +267,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, watch: Watch) {
         isWatched = watch.watched
         if (watch.unwatched) {
-            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.prefixedText))
+            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.displayText))
             watchlistExpirySession = WatchlistExpiry.NEVER
         } else if (watch.watched && expiry != null) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                            articlePageTitle.prefixedText,
+                            articlePageTitle.displayText,
                             getString(expiry.stringId)),
                     FeedbackUtil.LENGTH_DEFAULT)
             if (!watchlistExpiryChanged) {

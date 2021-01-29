@@ -290,6 +290,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         @Nullable private String timestamp;
         @Nullable private String comment;
         @Nullable private String parsedcomment;
+        @Nullable private String logtype;
         private boolean anon;
         private boolean bot;
         @SerializedName("new") private boolean isNew;
@@ -304,6 +305,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
         @NonNull public String getTitle() {
             return StringUtils.defaultString(title);
+        }
+
+        @NonNull public String getLogType() {
+            return StringUtils.defaultString(logtype);
         }
 
         @NonNull public Date getDate() {
