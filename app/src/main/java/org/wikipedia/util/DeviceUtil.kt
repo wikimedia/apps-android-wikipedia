@@ -88,9 +88,11 @@ object DeviceUtil {
     }
 
     @JvmStatic
-    fun setContextClickAsLongClick(view: View) {
+    fun setContextClickAsLongClick(vararg views: View) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.setOnContextClickListener { obj: View -> obj.performLongClick() }
+            views.forEach {
+                it.setOnContextClickListener { obj: View -> obj.performLongClick() }
+            }
         }
     }
 
