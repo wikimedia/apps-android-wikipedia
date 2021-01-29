@@ -338,7 +338,8 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getWatchedInfo(@NonNull @Query("titles") String titles);
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
+
     @NonNull Observable<MwQueryResponse> getWatchlist();
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")

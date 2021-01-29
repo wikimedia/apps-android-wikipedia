@@ -98,7 +98,9 @@ public final class Constants {
         SNACKBAR_ACTION("snackbar"),
         PAGE_ACTION_TAB("pageActionTab"),
         TALK_ACTIVITY("talkActivity"),
-        SETTINGS("settings");
+        SETTINGS("settings"),
+        DIFF_ACTIVITY("diffActivity"),
+        WATCHLIST_ACTIVITY("watchlist");
 
         private String name;
 
