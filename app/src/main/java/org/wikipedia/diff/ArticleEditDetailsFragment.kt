@@ -73,6 +73,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private val disposables = CompositeDisposable()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+        revisionId = requireArguments().getLong(EXTRA_EDIT_REVISION_ID, 0)
+        languageCode = requireArguments().getString(EXTRA_EDIT_LANGUAGE_CODE, AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)
+        articlePageTitle = PageTitle(requireArguments().getString(EXTRA_ARTICLE_TITLE, ""),
+                WikiSite.forLanguageCode(languageCode))
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -81,10 +90,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        revisionId = requireArguments().getLong(EXTRA_EDIT_REVISION_ID, 0)
-        languageCode = requireArguments().getString(EXTRA_EDIT_LANGUAGE_CODE, AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)
-        articlePageTitle = PageTitle(requireArguments().getString(EXTRA_ARTICLE_TITLE, ""),
-                WikiSite.forLanguageCode(languageCode))
         setUpInitialUI()
         setUpListeners()
         getWatchedStatus()
@@ -101,12 +106,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         newerIdButton.setOnClickListener {
-            diffSize = 0
             revisionId = newerRevisionId
             fetchEditDetails()
         }
         olderIdButton.setOnClickListener {
-            diffSize = 0
             revisionId = olderRevisionId
             fetchEditDetails()
         }
@@ -172,6 +175,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribe({
                     val firstPage = it.query()!!.firstPage()!!
                     currentRevision = firstPage.revisions()[0]
+                    revisionId = currentRevision!!.revId
                     username = currentRevision!!.user
                     newerRevisionId = if (firstPage.revisions().size < 2) {
                         -1
@@ -186,12 +190,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun hideOrShowViews(isLoading: Boolean) {
         if (isLoading) {
             progressBar.visibility = VISIBLE
-            userDetailsFlowView.visibility = INVISIBLE
+            usernameButton.visibility = INVISIBLE
+            thankButton.visibility = INVISIBLE
             editComment.visibility = INVISIBLE
             diffText.visibility = INVISIBLE
+            diffCharacterCountView.visibility = INVISIBLE
         } else {
-            progressBar.visibility = INVISIBLE
-            userDetailsFlowView.visibility = VISIBLE
+            usernameButton.visibility = VISIBLE
+            thankButton.visibility = VISIBLE
             editComment.visibility = VISIBLE
             diffText.visibility = VISIBLE
         }
@@ -329,15 +335,22 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun fetchDiffText() {
         disposables.add(ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getDiff(olderRevisionId, revisionId)
+                .map {
+                    createSpannable(it.diffs)
+                }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    displayDiffs(it.diffs)
+                    diffText.text = it
+                    updateDiffCharCountView(diffSize)
+                    progressBar.visibility = INVISIBLE
+                    diffCharacterCountView.visibility = VISIBLE
                 }) { t: Throwable? -> L.e(t) })
     }
 
-    private fun displayDiffs(diffs: List<DiffItem>) {
+    private fun createSpannable(diffs: List<DiffItem>): CharSequence {
         val spannableString = SpannableStringBuilder()
+        diffSize = 0
         for (diff in diffs) {
             val prefixLength = spannableString.length
             spannableString.append(if (diff.text.isNotEmpty()) diff.text else "\n")
@@ -376,8 +389,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             spannableString.append("\n")
         }
-        diffText.text = spannableString
-        updateDiffCharCountView(diffSize)
+        return spannableString
     }
 
     private fun updateDiffTextDecor(spannableText: SpannableStringBuilder, isAddition: Boolean, start: Int, end: Int) {
