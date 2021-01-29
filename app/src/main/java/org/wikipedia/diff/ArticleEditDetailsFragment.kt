@@ -45,7 +45,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
+import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -95,7 +95,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setUpListeners() {
         articleTitleView.setOnClickListener {
             if (articlePageTitle.namespace() == Namespace.USER_TALK || articlePageTitle.namespace() == Namespace.TALK) {
-                startActivity(newIntent(requireContext(), articlePageTitle.pageTitleForTalkPage()))
+                startActivity(TalkTopicsActivity.newIntent(requireContext(), articlePageTitle.pageTitleForTalkPage(), InvokeSource.DIFF_ACTIVITY))
             } else {
                 bottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(articlePageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
@@ -120,9 +120,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         usernameButton.setOnClickListener {
             if (AccountUtil.isLoggedIn && username != null) {
-                startActivity(newIntent(requireActivity(),
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                         PageTitle(UserTalkAliasData.valueFor(languageCode),
-                                username!!, WikiSite.forLanguageCode(languageCode))))
+                                username!!, WikiSite.forLanguageCode(languageCode)), InvokeSource.DIFF_ACTIVITY))
             }
         }
         thankButton.setOnClickListener { showThankDialog() }
