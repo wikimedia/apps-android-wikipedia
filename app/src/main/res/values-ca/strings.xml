@@ -997,4 +997,7 @@
   <string name="watchlist_filter_talk">Discussió</string>
   <string name="watchlist_filter_pages">Pàgines</string>
   <string name="watchlist_filter_other">Altre</string>
+  <string name="watchlist_page_moved">Moguda</string>
+  <string name="watchlist_page_protected">Protegida</string>
+  <string name="watchlist_page_deleted">Suprimida</string>
 </resources>
