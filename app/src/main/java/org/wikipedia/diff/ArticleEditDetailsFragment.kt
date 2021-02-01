@@ -428,8 +428,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
-        menu.findItem(R.id.menu_user_profile_page)?.title = getString(R.string.menu_option_user_profile, currentRevision?.user)
-        menu.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, currentRevision?.user)
+        val userProfileMenuItem = menu.findItem(R.id.menu_user_profile_page)
+        currentRevision?.let {
+            if (it.isAnon) {
+                userProfileMenuItem.isVisible = false
+            } else {
+                userProfileMenuItem?.title = getString(R.string.menu_option_user_profile, it.user)
+            }
+            menu.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, it.user)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

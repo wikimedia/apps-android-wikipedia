@@ -169,6 +169,7 @@ public class MwQueryPage extends BaseModel {
         private long revid;
         private long parentid;
         private boolean minor;
+        private boolean anon;
         @Nullable private String user;
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
@@ -192,6 +193,9 @@ public class MwQueryPage extends BaseModel {
         @NonNull
         public String getUser() {
             return StringUtils.defaultString(user);
+        }
+        public boolean isAnon() {
+            return anon;
         }
 
         @NonNull
