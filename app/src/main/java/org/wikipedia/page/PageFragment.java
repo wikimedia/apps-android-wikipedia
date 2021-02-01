@@ -172,7 +172,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private boolean pageRefreshed;
     private boolean errorState = false;
     private boolean watchlistExpiryChanged;
-    private WatchlistExpiry watchlistExpirySession;
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -326,11 +325,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public ViewGroup getContainerView() {
         return containerView;
-    }
-
-    @Nullable public WatchlistExpiry getWatchlistExpirySession() {
-        // TODO: use real Watchlist expiry data from API when it's ready.
-        return watchlistExpirySession == null ? model.isWatched() ? WatchlistExpiry.NEVER : null : watchlistExpirySession;
     }
 
     @Override
@@ -809,7 +803,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         errorState = false;
         errorView.setVisibility(View.GONE);
 
-        watchlistExpirySession = null;
         watchlistExpiryChanged = false;
 
         model.setTitle(title);
@@ -1578,7 +1571,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void showWatchlistSnackbar(@Nullable WatchlistExpiry expiry, Watch watch) {
         if (watch.getUnwatched()) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, getTitle().getDisplayText()));
-            watchlistExpirySession = null;
             model.setWatched(false);
             model.hasWatchlistExpiry(false);
         } else if (watch.getWatched() && expiry != null) {
@@ -1595,8 +1587,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 });
             }
 
+            model.setWatched(true);
+            model.hasWatchlistExpiry(expiry != WatchlistExpiry.NEVER);
             snackbar.show();
-            watchlistExpirySession = expiry;
         }
     }
 

@@ -19,7 +19,6 @@ import com.google.android.material.textview.MaterialTextView;
 import org.wikipedia.R;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.watchlist.WatchlistExpiry;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +28,7 @@ public class PageActionOverflowView extends FrameLayout {
 
     public interface Callback {
         void forwardClick();
-        void watchlistClick(boolean hasWatchlistExpirySession);
+        void watchlistClick(boolean isWatched);
         void shareClick();
         void newTabClick();
         void feedClick();
@@ -37,7 +36,7 @@ public class PageActionOverflowView extends FrameLayout {
 
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
-    private boolean hasWatchlistExpirySession;
+    private boolean isWatched;
     @BindView(R.id.overflow_forward) MaterialTextView forwardButton;
     @BindView(R.id.overflow_feed) MaterialTextView exploreButton;
     @BindView(R.id.overflow_watchlist) MaterialTextView watchlistButton;
@@ -48,25 +47,25 @@ public class PageActionOverflowView extends FrameLayout {
         ButterKnife.bind(this);
     }
 
-    public void show(@NonNull View anchorView, @Nullable Callback callback, @NonNull Tab currentTab, @Nullable WatchlistExpiry watchlistExpiry) {
+    public void show(@NonNull View anchorView, @Nullable Callback callback, @NonNull Tab currentTab, boolean isWatched, boolean hasWatchlistExpiry) {
         this.callback = callback;
+        this.isWatched = isWatched;
         popupWindowHost = new PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT, true);
         popupWindowHost.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
         PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
-        hasWatchlistExpirySession = watchlistExpiry != null;
         forwardButton.setVisibility(currentTab.canGoForward() ? VISIBLE : GONE);
-        watchlistButton.setText(hasWatchlistExpirySession ? R.string.menu_page_remove_from_watchlist : R.string.menu_page_add_to_watchlist);
-        watchlistButton.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(watchlistExpiry), 0, 0, 0);
+        watchlistButton.setText(isWatched ? R.string.menu_page_remove_from_watchlist : R.string.menu_page_add_to_watchlist);
+        watchlistButton.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0);
         watchlistButton.setVisibility(AccountUtil.isLoggedIn() ? VISIBLE : GONE);
     }
 
     @DrawableRes
-    private int getWatchlistIcon(@Nullable WatchlistExpiry expiry) {
-        if (expiry == WatchlistExpiry.NEVER) {
+    private int getWatchlistIcon(boolean isWatched, boolean hasWatchlistExpiry) {
+        if (isWatched && !hasWatchlistExpiry) {
             return R.drawable.ic_star_24;
-        } else if (expiry == null) {
+        } else if (!isWatched) {
             return R.drawable.ic_baseline_star_outline_24;
         } else {
             return R.drawable.ic_baseline_star_half_24;
@@ -87,7 +86,7 @@ public class PageActionOverflowView extends FrameLayout {
                 callback.forwardClick();
                 break;
             case R.id.overflow_watchlist:
-                callback.watchlistClick(hasWatchlistExpirySession);
+                callback.watchlistClick(isWatched);
                 break;
             case R.id.overflow_new_tab:
                 callback.newTabClick();

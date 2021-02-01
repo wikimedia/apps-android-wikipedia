@@ -678,7 +678,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getWatchlistExpirySession());
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(),
+                pageFragment.getModel().isWatched(), pageFragment.getModel().hasWatchlistExpiry());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
@@ -688,13 +689,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void watchlistClick(boolean hasWatchlistExpirySession) {
-            if (hasWatchlistExpirySession) {
+        public void watchlistClick(boolean isWatched) {
+            if (isWatched) {
                 watchlistFunnel.logRemoveArticle();
             } else {
                 watchlistFunnel.logAddArticle();
             }
-            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
+            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, isWatched);
         }
 
         @Override
