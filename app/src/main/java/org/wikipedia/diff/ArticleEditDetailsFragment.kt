@@ -14,7 +14,6 @@ import android.view.*
 import android.view.View.*
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
-import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
