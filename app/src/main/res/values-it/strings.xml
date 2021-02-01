@@ -1013,4 +1013,7 @@
   <string name="watchlist_filter_talk">Discussioni</string>
   <string name="watchlist_filter_pages">Pagine</string>
   <string name="watchlist_filter_other">Altro</string>
+  <string name="watchlist_page_moved">Spostato</string>
+  <string name="watchlist_page_protected">Protetto</string>
+  <string name="watchlist_page_deleted">Cancellato</string>
 </resources>
