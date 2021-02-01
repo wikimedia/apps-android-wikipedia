@@ -617,7 +617,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+    public void onPageWatchlistExpirySelect(@NonNull WatchlistExpiry expiry) {
         watchlistFunnel.logAddExpiry();
         pageFragment.updateWatchlist(expiry, false);
     }

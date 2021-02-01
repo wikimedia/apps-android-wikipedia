@@ -238,7 +238,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         view.iconTint = ColorStateList.valueOf(themedColor)
     }
 
-    private fun watchOrUnwatchTitle(@Nullable expiry: WatchlistExpiry?, unwatch: Boolean) {
+    private fun watchOrUnwatchTitle(expiry: WatchlistExpiry, unwatch: Boolean) {
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response: MwQueryResponse ->
@@ -247,7 +247,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }
                     ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postWatch(if (unwatch) 1 else null, null, articlePageTitle.prefixedText,
-                            expiry?.expiry, watchToken!!)
+                            expiry.expiry, watchToken!!)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ watchPostResponse: WatchPostResponse ->
@@ -292,12 +292,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
     }
 
-    private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, watch: Watch) {
+    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
         isWatched = watch.watched
+        hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.displayText))
-            hasWatchlistExpiry = false
-        } else if (watch.watched && expiry != null) {
+        } else if (watch.watched) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             articlePageTitle.displayText,
@@ -309,7 +309,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
             }
-            hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
             snackbar.show()
         }
         watchButton.isCheckable = true
