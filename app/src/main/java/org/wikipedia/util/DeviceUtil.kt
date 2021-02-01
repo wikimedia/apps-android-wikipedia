@@ -82,7 +82,7 @@ object DeviceUtil {
         } else {
             setLightSystemUiVisibility(activity)
         }
-        toolbar?.navigationIcon!!.colorFilter = BlendModeColorFilterCompat
+        toolbar?.navigationIcon?.colorFilter = BlendModeColorFilterCompat
                 .createBlendModeColorFilterCompat(if (reset) Color.WHITE
                 else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), BlendModeCompat.SRC_IN)
     }

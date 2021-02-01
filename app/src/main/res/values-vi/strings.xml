@@ -765,7 +765,7 @@
   <string name="suggested_edits_image_tags_publishing">Đang xuất bản</string>
   <string name="suggested_edits_image_tags_published">Đã xuất bản</string>
   <string name="suggested_edits_image_tags_onboarding_title">Gắn thẻ quyền cho hình ảnh giúp chúng dễ tìm hơn.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Bằng cách thêm thẻ quyền hình ảnh, bạn sẽ giúp tìm kiếm hình ảnh dễ dàng hơn trên Commons, kho lưu trữ hình ảnh giấy phép miễn phí mà Wikipedia sử dụng cho hình ảnh trong các bài viết của mình.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Bằng cách thêm thẻ quyền hình ảnh, bạn sẽ giúp tìm kiếm hình ảnh dễ dàng hơn trên Commons, kho lưu trữ hình ảnh giấy phép tự do mà Wikipedia sử dụng cho hình ảnh trong các bài viết.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Chỉ những thẻ quyền bạn chọn mới được thêm vào hình ảnh</string>
   <string name="suggested_edits_image_tags_task_detail">Thêm thẻ quyền tùy chỉnh vào hình ảnh để dễ tìm hơn.</string>
   <string name="suggested_edits_image_tags_choose">Thêm hoặc lựa chọn các thẻ quyền phù hợp</string>
@@ -819,8 +819,44 @@
   <string name="suggested_edits_task_new">mới</string>
   <string name="suggested_edits_cc0_notice">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Sửa đổi gợi ý</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Cảm ơn đã đóng góp cho Wikipedia! Tại sao không tiếp tục nơi bạn đã dừng lại?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Có vài phút để tiếp tục đóng góp cho Wikipedia? Xem các sửa đổi gợi ý này.</string>
+  <string name="suggested_edits_contributions_screen_title">%s\'s đóng góp</string>
+  <string name="suggested_edits_contribution_language_label">Ngôn ngữ</string>
+  <string name="suggested_edits_contribution_date_time_label">Ngày / Giờ</string>
+  <string name="suggested_edits_contribution_type_label">Loại đóng góp</string>
   <string name="suggested_edits_contribution_image_label">Hình ảnh</string>
+  <string name="suggested_edits_contribution_article_label">Bài viết</string>
+  <string name="suggested_edits_contribution_views">%s xem</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Lượt xem trang trong 30 ngày qua.</item>
+    <item quantity="other">Đã xem %s lần trong 30 ngày qua.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">Đã xem %s lần trong 30 ngày qua.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Bạn đã thêm thẻ %d</item>
+    <item quantity="other">Bạn đã thêm thẻ %d</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Hôm qua</string>
+  <string name="suggested_edits_encourage_account_creation_title">Bạn có biết rằng bất cứ ai cũng có thể đóng góp cho Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Các sửa đổi gợi ý là một cách mới để đóng góp cho Wikipedia trên Android. Nó giúp bạn có những đóng góp nhỏ nhưng quan trọng cho Wikipedia.\nMục tiêu của chúng tôi là làm cho việc sửa đổi dễ dàng hơn và dễ tiếp cận hơn cho mọi người! Đăng nhập hoặc tham gia Wikipedia để bắt đầu.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Đăng nhập / Tham gia Wikipedia</string>
+  <string name="suggested_edits_contribution_type_image_tag">Thẻ quyền cho hình ảnh</string>
   <string name="suggested_edits_contribution_current_revision_text">Chỉnh sửa của bạn đang ở trên Wikipedia</string>
+  <string name="suggested_card_more_edits">Thêm các sửa đổi gợi ý</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s thẻ</item>
+    <item quantity="other">%1$s thẻ</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s ký tự</item>
+    <item quantity="other">%1$s ký tự</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Bạn đã xóa %d ký tự</item>
+    <item quantity="other">Bạn đã xóa %d ký tự</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
