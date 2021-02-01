@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient.mwapi;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -44,6 +46,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private Map<String, String> varianttitles;
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
     @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
+    @SerializedName("watchlistexpiry") @Nullable private String watchlistExpiry;
     private boolean watched;
 
 
@@ -155,6 +158,10 @@ public class MwQueryPage extends BaseModel {
 
     public boolean isImageShared() {
         return StringUtils.defaultString(imagerepository).equals("shared");
+    }
+
+    public boolean hasWatchlistExpiry() {
+        return !TextUtils.isEmpty(watchlistExpiry);
     }
 
     public boolean isWatched() {
