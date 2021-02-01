@@ -996,4 +996,7 @@
   <string name="watchlist_filter_talk">討論</string>
   <string name="watchlist_filter_pages">頁面</string>
   <string name="watchlist_filter_other">其它</string>
+  <string name="watchlist_page_moved">已移動</string>
+  <string name="watchlist_page_protected">已保護</string>
+  <string name="watchlist_page_deleted">已刪除</string>
 </resources>

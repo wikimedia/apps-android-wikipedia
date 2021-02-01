@@ -995,4 +995,7 @@
   <string name="watchlist_filter_talk">Diskussion</string>
   <string name="watchlist_filter_pages">Sidor</string>
   <string name="watchlist_filter_other">Övrigt</string>
+  <string name="watchlist_page_moved">Flyttades</string>
+  <string name="watchlist_page_protected">Skyddades</string>
+  <string name="watchlist_page_deleted">Raderades</string>
 </resources>

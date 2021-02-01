@@ -955,4 +955,7 @@
   <string name="talk_message_hint">Üzenet megfogalmazása</string>
   <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
   <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
+  <string name="watchlist_page_moved">Áthelyezve</string>
+  <string name="watchlist_page_protected">Védett</string>
+  <string name="watchlist_page_deleted">Törölve</string>
 </resources>
