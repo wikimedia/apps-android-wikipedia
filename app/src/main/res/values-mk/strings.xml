@@ -982,4 +982,7 @@
   <string name="watchlist_filter_talk">Разговор</string>
   <string name="watchlist_filter_pages">Страници</string>
   <string name="watchlist_filter_other">Друго</string>
+  <string name="watchlist_page_moved">Преместена</string>
+  <string name="watchlist_page_protected">Заштитена</string>
+  <string name="watchlist_page_deleted">Избришана</string>
 </resources>

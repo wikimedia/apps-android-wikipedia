@@ -738,4 +738,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">untuk 1 bulan</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">untuk 3 bulan</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
+  <string name="watchlist_page_moved">Dipindahkan</string>
+  <string name="watchlist_page_protected">Dilindungi</string>
+  <string name="watchlist_page_deleted">Dihapuskan</string>
 </resources>
