@@ -194,6 +194,7 @@ public class MwQueryPage extends BaseModel {
         public String getUser() {
             return StringUtils.defaultString(user);
         }
+
         public boolean isAnon() {
             return anon;
         }

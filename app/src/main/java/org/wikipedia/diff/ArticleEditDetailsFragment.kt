@@ -433,9 +433,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it.isAnon) {
                 userProfileMenuItem.isVisible = false
             } else {
-                userProfileMenuItem?.title = getString(R.string.menu_option_user_profile, it.user)
+                userProfileMenuItem.title = getString(R.string.menu_option_user_profile, it.user)
             }
-            menu.findItem(R.id.menu_user_contributions_page)?.title = getString(R.string.menu_option_user_contributions, it.user)
+            menu.findItem(R.id.menu_user_contributions_page).title = getString(R.string.menu_option_user_contributions, it.user)
         }
     }
 
