@@ -90,8 +90,8 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "HH:mm")
     }
 
-    fun getDateAndTimeStringFromTimestampString(dateStr: String): String {
-        return getCachedDateFormat("MMM dd, yyyy | HH:mm", Locale.ROOT, false)!!.format(iso8601DateParse(dateStr))
+    fun getDateAndTimeWithPipe(date: Date): String {
+        return getCachedDateFormat("MMM d, yyyy | HH:mm", Locale.getDefault(), false)!!.format(date)
     }
 
     @Synchronized
