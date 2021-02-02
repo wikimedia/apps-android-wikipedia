@@ -71,7 +71,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             containerView.isClickable = false
         } else {
             val diffByteCount = item.newlen - item.oldlen
-            setButtonTextAndIconColor(String.format("%+d", diffByteCount), R.attr.color_group_22)
+            setButtonTextAndIconColor(String.format(if (diffByteCount != 0) "%+d" else "%d", diffByteCount), R.attr.color_group_22)
             if (diffByteCount >= 0) {
                 diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50)
                 else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))

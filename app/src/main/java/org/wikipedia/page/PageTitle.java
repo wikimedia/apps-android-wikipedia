@@ -353,7 +353,7 @@ public class PageTitle implements Parcelable {
                     domain,
                     domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
-                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
+                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + URLEncoder.encode(this.fragment, "utf-8")) : ""
             );
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
