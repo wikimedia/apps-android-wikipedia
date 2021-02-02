@@ -18,7 +18,7 @@ object StringUtil {
 
     @JvmStatic
     fun listToCsv(list: List<String?>): String {
-        return list.joinToString { CSV_DELIMITER }
+        return list.joinToString(CSV_DELIMITER)
     }
 
     @JvmStatic
