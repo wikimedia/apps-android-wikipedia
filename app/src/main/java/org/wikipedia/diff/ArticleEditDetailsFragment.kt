@@ -138,6 +138,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         errorView.setError(t)
         errorView.visibility = VISIBLE
         revisionDetailsView.visibility = GONE
+        progressBar.visibility = INVISIBLE
     }
 
     private fun setUpInitialUI() {
@@ -147,13 +148,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateDiffCharCountView(diffSize: Int) {
+        diffCharacterCountView.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
         if (diffSize >= 0) {
             diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
                     R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
-            diffCharacterCountView.text = String.format("%+d", diffSize)
         } else {
             diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
-            diffCharacterCountView.text = String.format("%+d", diffSize)
         }
     }
 
@@ -170,6 +170,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun fetchEditDetails() {
         hideOrShowViews(true)
+        disposables.clear()
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -185,6 +186,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     }
                     olderRevisionId = currentRevision!!.parentRevId
                     updateUI()
+                    if (olderRevisionId > 0L) {
+                        fetchDiffText()
+                    } else {
+                        progressBar.visibility = INVISIBLE
+                    }
                 }) { setErrorState(it!!) })
     }
 
@@ -208,7 +214,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         diffText.scrollTo(0, 0)
         diffText.text = ""
         usernameButton.text = currentRevision!!.user
-        editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision!!.timeStamp())
+        editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp()))
         editComment.text = currentRevision!!.comment
         newerIdButton.isClickable = newerRevisionId != -1L
         olderIdButton.isClickable = olderRevisionId != 0L
@@ -216,7 +222,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setEnableDisableTint(olderIdButton, olderRevisionId == 0L)
         setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         thankButton.isClickable = true
-        fetchDiffText()
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
         hideOrShowViews(false)
@@ -267,8 +272,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
                         updateWatchlistButtonUI()
                     }
-                }) { t: Throwable? ->
-                    L.d(t)
+                }) {
+                    setErrorState(it!!)
                     watchButton.isCheckable = true
                 })
     }
@@ -342,7 +347,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(),
                             R.attr.material_theme_de_emphasised_color))
                     thankButton.isClickable = false
-                }) { t: Throwable? -> L.e(t) })
+                }) { setErrorState(it!!) })
     }
 
     private fun fetchDiffText() {
@@ -355,9 +360,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribe({
                     diffText.text = it
                     updateDiffCharCountView(diffSize)
-                    progressBar.visibility = INVISIBLE
                     diffCharacterCountView.visibility = VISIBLE
-                }) { t: Throwable? -> L.e(t) })
+                    progressBar.visibility = INVISIBLE
+                }) {
+                    setErrorState(it!!)
+                })
     }
 
     private fun createSpannable(diffs: List<DiffItem>): CharSequence {
