@@ -16,8 +16,6 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -346,18 +344,14 @@ public class PageTitle implements Parcelable {
     }
 
     private String getUriForDomain(String domain) {
-        try {
-            return String.format(
-                    "%1$s://%2$s/%3$s/%4$s%5$s",
-                    getWikiSite().scheme(),
-                    domain,
-                    domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
-                    URLEncoder.encode(getPrefixedText(), "utf-8"),
-                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
-            );
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return String.format(
+                "%1$s://%2$s/%3$s/%4$s%5$s",
+                getWikiSite().scheme(),
+                domain,
+                domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
+                UriUtil.encodeURL(getPrefixedText()),
+                (this.fragment != null && this.fragment.length() > 0) ? ("#" + UriUtil.encodeURL(this.fragment)) : ""
+        );
     }
 
     private PageTitle(Parcel in) {
