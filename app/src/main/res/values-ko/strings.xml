@@ -984,4 +984,7 @@
   <string name="watchlist_filter_talk">토론</string>
   <string name="watchlist_filter_pages">문서</string>
   <string name="watchlist_filter_other">기타</string>
+  <string name="watchlist_page_moved">이동됨</string>
+  <string name="watchlist_page_protected">보호됨</string>
+  <string name="watchlist_page_deleted">삭제됨</string>
 </resources>

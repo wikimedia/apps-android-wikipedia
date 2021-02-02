@@ -7,11 +7,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 
-import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
@@ -135,11 +135,7 @@ public class EditorTaskCounts {
             return date;
         }
         EditStreak streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak.class);
-        try {
-            date = DateUtil.dbDateParse(streak.lastEditTime);
-        } catch (ParseException e) {
-            // ignore
-        }
+        date = DateUtil.dbDateParse(StringUtils.defaultString(streak.lastEditTime));
         return date;
     }
 

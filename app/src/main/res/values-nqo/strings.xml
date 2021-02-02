@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Aboubacar.banamoridou.toure
 * Babamamadidianee
 * Dbrant
 * Lancine.kounfantoh.fofana
@@ -770,4 +771,5 @@
   <string name="talk_message_hint">ߗߋߛߓߍ ߛߏ߯ߙߏ߫</string>
   <string name="talk_message_empty">ߗߋߛߓߍ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
   <string name="talk_subject_empty">ߝߐߡߊ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
+  <string name="watchlist_page_protected">ߟߊߕߊ߲߬ߞߊ߬ߣߍ߲</string>
 </resources>

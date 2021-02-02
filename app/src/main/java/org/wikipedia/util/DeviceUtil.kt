@@ -82,15 +82,17 @@ object DeviceUtil {
         } else {
             setLightSystemUiVisibility(activity)
         }
-        toolbar?.navigationIcon!!.colorFilter = BlendModeColorFilterCompat
+        toolbar?.navigationIcon?.colorFilter = BlendModeColorFilterCompat
                 .createBlendModeColorFilterCompat(if (reset) Color.WHITE
                 else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), BlendModeCompat.SRC_IN)
     }
 
     @JvmStatic
-    fun setContextClickAsLongClick(view: View) {
+    fun setContextClickAsLongClick(vararg views: View) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.setOnContextClickListener { obj: View -> obj.performLongClick() }
+            views.forEach {
+                it.setOnContextClickListener { obj: View -> obj.performLongClick() }
+            }
         }
     }
 
