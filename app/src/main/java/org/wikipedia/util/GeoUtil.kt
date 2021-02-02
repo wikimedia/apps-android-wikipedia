@@ -5,7 +5,6 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.location.Location
 import android.net.Uri
-import android.text.TextUtils
 import org.wikipedia.R
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
 
@@ -17,7 +16,7 @@ object GeoUtil {
         // Using geo:latitude,longitude doesn't give a point on the map, hence using query
         var geoStr = ("geo:0,0?q=" + location.latitude +
                 "," + location.longitude)
-        if (!TextUtils.isEmpty(placeName)) {
+        if (!placeName.isNullOrEmpty()) {
             geoStr += "(" + Uri.encode(placeName) + ")"
         }
         try {
