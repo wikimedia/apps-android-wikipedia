@@ -203,8 +203,8 @@ object ShareUtil {
 
     private fun isIntentActivityBlacklisted(intentActivity: ResolveInfo?,
                                             packageNameBlacklistRegex: String?): Boolean {
-        return (intentActivity != null
-                && getPackageName(intentActivity).matches(StringUtils.defaultString(packageNameBlacklistRegex).toRegex()))
+        return (intentActivity != null && getPackageName(intentActivity)
+                .matches(StringUtils.defaultString(packageNameBlacklistRegex).toRegex()))
     }
 
     private fun buildLabeledIntent(intent: Intent, intentActivity: ResolveInfo): LabeledIntent {

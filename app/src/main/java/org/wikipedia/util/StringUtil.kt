@@ -2,7 +2,6 @@ package org.wikipedia.util
 
 import android.text.Spanned
 import android.text.SpannedString
-import android.text.TextUtils
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.IntRange
@@ -19,7 +18,7 @@ object StringUtil {
 
     @JvmStatic
     fun listToCsv(list: List<String?>): String {
-        return TextUtils.join(CSV_DELIMITER, list)
+        return list.joinToString { CSV_DELIMITER }
     }
 
     @JvmStatic
@@ -30,7 +29,7 @@ object StringUtil {
     @JvmStatic
     fun delimiterStringToList(delimitedString: String,
                               delimiter: String): List<String> {
-        return listOf(*TextUtils.split(delimitedString, delimiter))
+        return delimitedString.split(delimiter)
     }
 
     @JvmStatic
@@ -148,11 +147,9 @@ object StringUtil {
         var parentText = parentText
         val startIndex = indexOf(parentText, searchQuery)
         if (startIndex >= 0) {
-            parentText = (parentText.substring(0, startIndex)
-                    + "<strong>"
-                    + parentText.substring(startIndex, startIndex + searchQuery!!.length)
-                    + "</strong>"
-                    + parentText.substring(startIndex + searchQuery.length))
+            parentText = (parentText.substring(0, startIndex) + "<strong>" +
+                    parentText.substring(startIndex, startIndex + searchQuery!!.length) + "</strong>" +
+                    parentText.substring(startIndex + searchQuery.length))
             textView.text = fromHtml(parentText)
         } else {
             textView.text = parentText
@@ -161,10 +158,10 @@ object StringUtil {
 
     // case insensitive indexOf, also more lenient with similar chars, like chars with accents
     private fun indexOf(original: String, search: String?): Int {
-        if (!TextUtils.isEmpty(search)) {
+        if (!search.isNullOrEmpty()) {
             val collator = Collator.getInstance()
             collator.strength = Collator.PRIMARY
-            for (i in 0..original.length - search!!.length) {
+            for (i in 0..original.length - search.length) {
                 if (collator.equals(search, original.substring(i, i + search.length))) {
                     return i
                 }
@@ -179,7 +176,7 @@ object StringUtil {
         val base = 26
         var str = ""
         while (--number >= 0) {
-            str = ('A' + number % base) + str;
+            str = ('A' + number % base) + str
             number /= base
         }
         return str
