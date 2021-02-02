@@ -15,8 +15,8 @@ object GeoUtil {
                       location: Location,
                       placeName: String?) {
         // Using geo:latitude,longitude doesn't give a point on the map, hence using query
-        var geoStr = ("geo:0,0?q=" + location.latitude
-                + "," + location.longitude)
+        var geoStr = ("geo:0,0?q=" + location.latitude +
+                "," + location.longitude)
         if (!TextUtils.isEmpty(placeName)) {
             geoStr += "(" + Uri.encode(placeName) + ")"
         }
