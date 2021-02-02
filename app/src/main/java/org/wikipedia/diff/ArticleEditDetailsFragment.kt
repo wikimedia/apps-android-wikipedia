@@ -147,13 +147,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateDiffCharCountView(diffSize: Int) {
+        diffCharacterCountView.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
         if (diffSize >= 0) {
             diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
                     R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
-            diffCharacterCountView.text = String.format("%+d", diffSize)
         } else {
             diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
-            diffCharacterCountView.text = String.format("%+d", diffSize)
         }
     }
 
@@ -207,7 +206,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         diffText.scrollTo(0, 0)
         diffText.text = ""
         usernameButton.text = currentRevision!!.user
-        editTimestamp.text = DateUtil.getDateAndTimeStringFromTimestampString(currentRevision!!.timeStamp())
+        editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp()))
         editComment.text = currentRevision!!.comment
         newerIdButton.isClickable = newerRevisionId != -1L
         olderIdButton.isClickable = olderRevisionId != 0L
