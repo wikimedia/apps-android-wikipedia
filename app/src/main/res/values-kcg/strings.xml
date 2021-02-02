@@ -278,7 +278,7 @@
   <string name="error_page_does_not_exist">Peji huni nwai shyia̱</string>
   <string name="view_wiki_error_message_offline">Á̱ si̱ mi̱n fwop ma̱ng a̱cyetaneang</string>
   <string name="reference_title">Ta̱fang %s</string>
-  <string name="reference_list_title">Ya̱fang</string>
+  <string name="reference_list_title">Ta̱fang</string>
   <string name="preference_title_prefer_offline_content">Khai kyangmami ma̱ntalang</string>
   <string name="empty_tab_title">Byam fai</string>
   <string name="menu_save_all_tabs">Sak a̱mgba̱m mbyam</string>
