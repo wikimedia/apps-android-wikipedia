@@ -91,7 +91,7 @@ object DateUtil {
     }
 
     fun getDateAndTimeWithPipe(date: Date): String {
-        return getCachedDateFormat("MMM dd, yyyy | HH:mm", Locale.getDefault(), false)!!.format(date)
+        return getCachedDateFormat("MMM d, yyyy | HH:mm", Locale.getDefault(), false)!!.format(date)
     }
 
     @Synchronized
