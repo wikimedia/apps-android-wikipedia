@@ -138,6 +138,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         errorView.setError(t)
         errorView.visibility = VISIBLE
         revisionDetailsView.visibility = GONE
+        progressBar.visibility = INVISIBLE
     }
 
     private fun setUpInitialUI() {
@@ -154,6 +155,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         } else {
             diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
         }
+        diffCharacterCountView.visibility = VISIBLE
     }
 
     private fun getWatchedStatus() {
@@ -193,12 +195,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             thankButton.visibility = INVISIBLE
             editComment.visibility = INVISIBLE
             diffText.visibility = INVISIBLE
-            diffCharacterCountView.visibility = INVISIBLE
         } else {
             usernameButton.visibility = VISIBLE
             thankButton.visibility = VISIBLE
             editComment.visibility = VISIBLE
             diffText.visibility = VISIBLE
+            progressBar.visibility = INVISIBLE
         }
     }
 
@@ -265,8 +267,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
                         showWatchlistSnackbar(expiry, firstWatch)
                     }
-                }) { t: Throwable? ->
-                    L.d(t)
+                }) {
+                    setErrorState(it!!)
                     watchButton.isCheckable = true
                 })
     }
@@ -329,11 +331,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(),
                             R.attr.material_theme_de_emphasised_color))
                     thankButton.isClickable = false
-                }) { t: Throwable? -> L.e(t) })
+                }) { setErrorState(it!!) })
     }
 
     private fun fetchDiffText() {
         if (olderRevisionId == 0L) {
+            diffCharacterCountView.visibility = INVISIBLE
             return
         }
         disposables.add(ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getDiff(olderRevisionId, revisionId)
@@ -345,9 +348,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribe({
                     diffText.text = it
                     updateDiffCharCountView(diffSize)
-                    progressBar.visibility = INVISIBLE
-                    diffCharacterCountView.visibility = VISIBLE
-                }) { t: Throwable? -> L.e(t) })
+                }) {
+                    setErrorState(it!!)
+                    diffCharacterCountView.visibility = INVISIBLE
+                })
     }
 
     private fun createSpannable(diffs: List<DiffItem>): CharSequence {
