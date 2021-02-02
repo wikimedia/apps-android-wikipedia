@@ -334,6 +334,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun fetchDiffText() {
+        if (olderRevisionId == 0L) {
+            return
+        }
         disposables.add(ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getDiff(olderRevisionId, revisionId)
                 .map {
                     createSpannable(it.diffs)
