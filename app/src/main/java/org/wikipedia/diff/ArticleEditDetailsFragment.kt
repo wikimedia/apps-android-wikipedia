@@ -155,7 +155,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         } else {
             diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
         }
-        diffCharacterCountView.visibility = VISIBLE
     }
 
     private fun getWatchedStatus() {
@@ -170,6 +169,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun fetchEditDetails() {
         hideOrShowViews(true)
+        disposables.clear()
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -185,6 +185,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     }
                     olderRevisionId = currentRevision!!.parentRevId
                     updateUI()
+                    if (olderRevisionId > 0L) {
+                        fetchDiffText()
+                    } else {
+                        progressBar.visibility = INVISIBLE
+                    }
                 }) { setErrorState(it!!) })
     }
 
@@ -195,12 +200,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             thankButton.visibility = INVISIBLE
             editComment.visibility = INVISIBLE
             diffText.visibility = INVISIBLE
+            diffCharacterCountView.visibility = INVISIBLE
         } else {
             usernameButton.visibility = VISIBLE
             thankButton.visibility = VISIBLE
             editComment.visibility = VISIBLE
             diffText.visibility = VISIBLE
-            progressBar.visibility = INVISIBLE
         }
     }
 
@@ -216,7 +221,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setEnableDisableTint(olderIdButton, olderRevisionId == 0L)
         setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
         thankButton.isClickable = true
-        fetchDiffText()
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
         hideOrShowViews(false)
@@ -335,10 +339,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun fetchDiffText() {
-        if (olderRevisionId == 0L) {
-            diffCharacterCountView.visibility = INVISIBLE
-            return
-        }
         disposables.add(ServiceFactory.getCoreRest(WikiSite.forLanguageCode(languageCode)).getDiff(olderRevisionId, revisionId)
                 .map {
                     createSpannable(it.diffs)
@@ -348,9 +348,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribe({
                     diffText.text = it
                     updateDiffCharCountView(diffSize)
+                    diffCharacterCountView.visibility = VISIBLE
+                    progressBar.visibility = INVISIBLE
                 }) {
                     setErrorState(it!!)
-                    diffCharacterCountView.visibility = INVISIBLE
                 })
     }
 
