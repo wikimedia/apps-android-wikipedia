@@ -1048,4 +1048,7 @@
   <string name="watchlist_filter_talk">שיחה</string>
   <string name="watchlist_filter_pages">דפים</string>
   <string name="watchlist_filter_other">אחר</string>
+  <string name="watchlist_page_moved">הועבר</string>
+  <string name="watchlist_page_protected">הוגן</string>
+  <string name="watchlist_page_deleted">נמחק</string>
 </resources>

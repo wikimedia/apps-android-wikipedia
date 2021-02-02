@@ -881,4 +881,5 @@
   <string name="watchlist_expiry_dialog_three_months">3 أشهر</string>
   <string name="watchlist_filter_all">الكل</string>
   <string name="watchlist_filter_talk">نقاش</string>
+  <string name="watchlist_page_protected">محمية</string>
 </resources>

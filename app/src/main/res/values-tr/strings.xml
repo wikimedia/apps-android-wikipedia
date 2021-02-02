@@ -982,11 +982,18 @@
   <string name="talk_message_hint">Mesaj oluştur</string>
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
+  <string name="menu_option_share_edit">Değişikliği paylaş</string>
+  <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
+  <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
+  <string name="watchlist_details_watching_label">İzleniyor</string>
+  <string name="watchlist_details_watch_label">İzle</string>
   <string name="thank_label">Teşekkür et</string>
   <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
+  <string name="thank_dialog_title_text">Açık olarak \'Teşekkür\' gönder</string>
   <string name="thank_dialog_text">\'Teşekkür\', bir editörün Vikipedi\'deki çalışmalarını takdir etmenin kolay bir yoludur. \'Teşekkür\' geri alınamaz ve herkes tarafından görülebilir.</string>
   <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
   <string name="thank_dialog_negative_button_text">İptal</string>
+  <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
@@ -1006,4 +1013,7 @@
   <string name="watchlist_filter_talk">Tartışma</string>
   <string name="watchlist_filter_pages">Sayfalar</string>
   <string name="watchlist_filter_other">Diğer</string>
+  <string name="watchlist_page_moved">Taşındı</string>
+  <string name="watchlist_page_protected">Korumalı</string>
+  <string name="watchlist_page_deleted">Silindi</string>
 </resources>
