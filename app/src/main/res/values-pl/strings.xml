@@ -907,4 +907,7 @@
   <string name="watchlist_expiry_dialog_six_months">3 miesiące</string>
   <string name="watchlist_filter_talk">Dyskusja</string>
   <string name="watchlist_filter_pages">Strony</string>
+  <string name="watchlist_page_moved">Przeniesiona</string>
+  <string name="watchlist_page_protected">Zabezpieczona</string>
+  <string name="watchlist_page_deleted">Usunięta</string>
 </resources>

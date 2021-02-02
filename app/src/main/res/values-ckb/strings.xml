@@ -26,6 +26,7 @@
   <string name="filter_hint_filter_my_lists_and_articles">فلتەرکردنی پێڕستەکەم</string>
   <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
+  <string name="nav_item_search">گەڕان</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
   <string name="page_error_retry">ھەوڵداناوە</string>
   <string name="card_offline_error_retry">ھەوڵداناوە</string>
@@ -646,6 +647,8 @@
     <item quantity="other">%d ڕۆژ</item>
   </plurals>
   <string name="suggested_edits_learn_more">زیاتر بزانە</string>
+  <string name="suggested_edits_paused_title">ڕاگیرا</string>
+  <string name="suggested_edits_disabled_title">لەکارخستن</string>
   <string name="suggested_edits_last_edited">کۆتا دەستکاری</string>
   <string name="suggested_edits_last_edited_never">ھەرگیز</string>
   <string name="suggested_edits_task_new">نوێ</string>
@@ -749,4 +752,31 @@
   <string name="text_input_dialog_ok_button_text">باشە</string>
   <string name="text_input_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>
   <string name="custom_date_picker_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>
+  <string name="talk_title">وتووێژ</string>
+  <string name="talk_user_title">وتووێژ: %s</string>
+  <string name="talk_new_topic">بابەتی نوێ</string>
+  <string name="talk_page_empty">پەڕەی ئەم وتووێژە بەتاڵە.</string>
+  <string name="talk_add_reply">وەڵامدانەوە</string>
+  <string name="talk_no_subject">(ھیچ بابەتێک نییە)</string>
+  <string name="talk_reply_subject">بابەت</string>
+  <string name="thank_label">سپاس</string>
+  <string name="go_to_user_page">بڕۆ بۆ پەڕەی بەکارھێنەر</string>
+  <string name="thank_dialog_positive_button_text">سپاس بکە</string>
+  <string name="thank_dialog_negative_button_text">ھەڵوەشاندنەوە</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">گۆڕین</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">بۆ ١ ھەفتە</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">بۆ ١ مانگ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">بۆ ٣ مانگ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">بۆ ٦ مانگ</string>
+  <string name="watchlist_expiry_dialog_one_week">١ ھەفتە</string>
+  <string name="watchlist_expiry_dialog_one_month">١ مانگ</string>
+  <string name="watchlist_expiry_dialog_three_months">٣ مانگ</string>
+  <string name="watchlist_expiry_dialog_six_months">٦ مانگ</string>
+  <string name="watchlist_empty">تۆ ھیچ وتارێکت نییە لە پێڕستی چاودێرییەکەت.</string>
+  <string name="watchlist_filter_all">ھەموو</string>
+  <string name="watchlist_filter_talk">وتووێژ</string>
+  <string name="watchlist_filter_pages">پەڕەکان</string>
+  <string name="watchlist_filter_other">دیکە</string>
+  <string name="watchlist_page_moved">گواستراوە</string>
+  <string name="watchlist_page_deleted">سڕدراو</string>
 </resources>

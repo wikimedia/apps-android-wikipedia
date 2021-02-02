@@ -67,6 +67,8 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
                     setButtonTextAndIconColor(context.getString(R.string.watchlist_page_deleted), R.attr.suggestions_background_color, R.drawable.ic_delete_white_24dp)
                 }
             }
+            containerView.alpha = 0.5f
+            containerView.isClickable = false
         } else {
             val diffByteCount = item.newlen - item.oldlen
             setButtonTextAndIconColor(String.format("%+d", diffByteCount), R.attr.color_group_22)
@@ -76,6 +78,8 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             } else {
                 diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
             }
+            containerView.alpha = 1.0f
+            containerView.isClickable = true
         }
     }
 
@@ -83,9 +87,8 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         val themedTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.color_group_61))
         diffText.text = text
         diffText.setTextColor(themedTint)
-        iconResourceDrawable?.let {
-            diffText.icon = ContextCompat.getDrawable(context, it)
-        }
+        diffText.icon = if (iconResourceDrawable == null) null
+        else ContextCompat.getDrawable(context, iconResourceDrawable)
         diffText.iconTint = themedTint
         diffText.setBackgroundColor(ResourceUtil.getThemedColor(context, backgroundTint))
     }
