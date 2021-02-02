@@ -7,7 +7,6 @@ object FileUtil {
     private const val JPEG_QUALITY = 85
 
     @JvmStatic
-    @Throws(IOException::class)
     fun writeToFile(bytes: ByteArrayOutputStream, destinationFile: File): File {
         val fo = FileOutputStream(destinationFile)
         try {
@@ -27,7 +26,6 @@ object FileUtil {
     }
 
     @JvmStatic
-    @Throws(IOException::class)
     fun readFile(inputStream: InputStream?): String {
         BufferedReader(InputStreamReader(inputStream)).use { reader ->
             val stringBuilder = StringBuilder()
