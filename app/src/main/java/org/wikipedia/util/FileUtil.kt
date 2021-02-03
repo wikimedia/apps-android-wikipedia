@@ -40,8 +40,8 @@ object FileUtil {
     @JvmStatic
     fun deleteRecursively(f: File) {
         if (f.isDirectory) {
-            for (child in f.listFiles()) {
-                deleteRecursively(child)
+            f.listFiles()?.forEach {
+                deleteRecursively(it)
             }
         }
         f.delete()
