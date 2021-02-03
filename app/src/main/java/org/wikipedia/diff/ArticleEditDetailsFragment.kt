@@ -13,7 +13,7 @@ import android.text.style.StyleSpan
 import android.view.*
 import android.view.View.*
 import android.widget.FrameLayout
-import androidx.annotation.Nullable
+import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
@@ -64,7 +64,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private var watchlistExpiryChanged = false
     private var isWatched = false
-    private var watchlistExpirySession = WatchlistExpiry.NEVER
+    private var hasWatchlistExpiry = false
     private val watchlistFunnel = WatchlistFunnel()
 
     private val disposables = CompositeDisposable()
@@ -120,7 +120,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 watchlistFunnel.logAddArticle()
             }
             watchButton.isCheckable = false
-            watchOrUnwatchTitle(watchlistExpirySession, isWatched)
+            watchOrUnwatchTitle(WatchlistExpiry.NEVER, isWatched)
         }
         usernameButton.setOnClickListener {
             if (AccountUtil.isLoggedIn && username != null) {
@@ -163,6 +163,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     isWatched = it.query()!!.firstPage()!!.isWatched
+                    hasWatchlistExpiry = it.query()!!.firstPage()!!.hasWatchlistExpiry()
                     updateWatchlistButtonUI()
                 }) { setErrorState(it!!) })
     }
@@ -240,7 +241,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         view.iconTint = ColorStateList.valueOf(themedColor)
     }
 
-    private fun watchOrUnwatchTitle(@Nullable expiry: WatchlistExpiry?, unwatch: Boolean) {
+    private fun watchOrUnwatchTitle(expiry: WatchlistExpiry, unwatch: Boolean) {
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).watchToken
                 .subscribeOn(Schedulers.io())
                 .flatMap { response: MwQueryResponse ->
@@ -249,14 +250,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                         throw RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response))
                     }
                     ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postWatch(if (unwatch) 1 else null, null, articlePageTitle.prefixedText,
-                            expiry?.expiry, watchToken!!)
+                            expiry.expiry, watchToken!!)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ watchPostResponse: WatchPostResponse ->
                     val firstWatch = watchPostResponse.getFirst()
                     if (firstWatch != null) {
-                        isWatched = firstWatch.watched
-                        updateWatchlistButtonUI()
                         // Reset to make the "Change" button visible.
                         if (watchlistExpiryChanged && unwatch) {
                             watchlistExpiryChanged = false
@@ -269,6 +268,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                         }
 
                         showWatchlistSnackbar(expiry, firstWatch)
+
+                        updateWatchlistButtonUI()
                     }
                 }) {
                     setErrorState(it!!)
@@ -280,14 +281,26 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
                 if (isWatched) R.attr.color_group_68 else R.attr.colorAccent))
         watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
+        watchButton.setIconResource(getWatchlistIcon(isWatched, hasWatchlistExpiry))
     }
 
-    private fun showWatchlistSnackbar(@Nullable expiry: WatchlistExpiry?, watch: Watch) {
+    @DrawableRes
+    private fun getWatchlistIcon(isWatched: Boolean, hasWatchlistExpiry: Boolean): Int {
+        return if (isWatched && !hasWatchlistExpiry) {
+            R.drawable.ic_star_24
+        } else if (!isWatched) {
+            R.drawable.ic_baseline_star_outline_24
+        } else {
+            R.drawable.ic_baseline_star_half_24
+        }
+    }
+
+    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
         isWatched = watch.watched
+        hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, articlePageTitle.displayText))
-            watchlistExpirySession = WatchlistExpiry.NEVER
-        } else if (watch.watched && expiry != null) {
+        } else if (watch.watched) {
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             articlePageTitle.displayText,
@@ -299,7 +312,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     bottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
             }
-            watchlistExpirySession = expiry
             snackbar.show()
         }
         watchButton.isCheckable = true
