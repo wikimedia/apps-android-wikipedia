@@ -105,10 +105,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         newerIdButton.setOnClickListener {
             revisionId = newerRevisionId
+            disposables.clear()
             fetchEditDetails()
         }
         olderIdButton.setOnClickListener {
             revisionId = olderRevisionId
+            disposables.clear()
             fetchEditDetails()
         }
         watchButton.setOnClickListener {
@@ -167,7 +169,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun fetchEditDetails() {
         hideOrShowViews(true)
-        disposables.clear()
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getRevisionDetails(articlePageTitle.prefixedText, revisionId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
