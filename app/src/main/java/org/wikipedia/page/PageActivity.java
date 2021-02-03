@@ -29,8 +29,6 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
-import com.skydoves.balloon.Balloon;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -145,7 +143,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
-    private Balloon watchlistTooltip;
     private final WatchlistFunnel watchlistFunnel = new WatchlistFunnel();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -243,10 +240,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_show_overflow_menu)
     public void onShowOverflowMenuButtonClicked() {
-        if (watchlistTooltip != null && watchlistTooltip.isShowing()) {
-            watchlistTooltip.dismiss();
-            watchlistTooltip = null;
-        }
         showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
     }
 
@@ -509,7 +502,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 finish();
                 return true;
             } else if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage()));
+                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY));
                 finish();
                 return true;
             }
@@ -624,7 +617,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+    public void onPageWatchlistExpirySelect(@NonNull WatchlistExpiry expiry) {
         watchlistFunnel.logAddExpiry();
         pageFragment.updateWatchlist(expiry, false);
     }
@@ -685,7 +678,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getWatchlistExpirySession());
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(),
+                pageFragment.getModel().isWatched(), pageFragment.getModel().hasWatchlistExpiry());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
@@ -695,13 +689,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void watchlistClick(boolean hasWatchlistExpirySession) {
-            if (hasWatchlistExpirySession) {
+        public void watchlistClick(boolean isWatched) {
+            if (isWatched) {
                 watchlistFunnel.logRemoveArticle();
             } else {
                 watchlistFunnel.logAddArticle();
             }
-            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
+            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, isWatched);
         }
 
         @Override
@@ -876,15 +870,17 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
+        // TODO remove feature flag when ready
+        if (ReleaseUtil.isPreBetaRelease()
+                && !Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
             overflowButton.postDelayed(() -> {
                 if (isDestroyed()) {
                     return;
                 }
                 watchlistFunnel.logShowTooltip();
                 Prefs.setWatchlistPageOnboardingTooltipShown(true);
-                watchlistTooltip = FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
-                        200, -32, -8, false, false);
+                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
+                        200, -32, -8, false, true);
             }, 500);
         }
     }

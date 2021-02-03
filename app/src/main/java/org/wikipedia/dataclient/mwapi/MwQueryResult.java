@@ -15,7 +15,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
 import org.wikipedia.util.DateUtil;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -291,6 +290,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         @Nullable private String timestamp;
         @Nullable private String comment;
         @Nullable private String parsedcomment;
+        @Nullable private String logtype;
         private boolean anon;
         private boolean bot;
         @SerializedName("new") private boolean isNew;
@@ -307,12 +307,12 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
             return StringUtils.defaultString(title);
         }
 
+        @NonNull public String getLogType() {
+            return StringUtils.defaultString(logtype);
+        }
+
         @NonNull public Date getDate() {
-            try {
-                return DateUtil.iso8601DateParse(timestamp);
-            } catch (ParseException e) {
-                return new Date();
-            }
+            return DateUtil.iso8601DateParse(StringUtils.defaultString(timestamp));
         }
 
         @NonNull public String getParsedComment() {

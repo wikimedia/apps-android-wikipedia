@@ -190,7 +190,7 @@ public class PageFragmentLoadState {
                 .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.getCacheControl().toString(),
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText())),
-                AccountUtil.isLoggedIn() ? ServiceFactory.get(model.getTitle().getWikiSite()).getWatchedInfo(model.getTitle().getPrefixedText()) : Observable.just(new MwQueryResponse()), Pair::new)
+                (app.isOnline() && AccountUtil.isLoggedIn()) ? ServiceFactory.get(model.getTitle().getWikiSite()).getWatchedInfo(model.getTitle().getPrefixedText()) : Observable.just(new MwQueryResponse()), Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pair -> {
@@ -198,15 +198,17 @@ public class PageFragmentLoadState {
                     MwQueryResponse watchedResponse = pair.second;
 
                     boolean isWatched = false;
+                    boolean hasWatchlistExpiry = false;
                     if (watchedResponse != null && watchedResponse.query() != null && watchedResponse.query().firstPage() != null) {
                         isWatched = watchedResponse.query().firstPage().isWatched();
+                        hasWatchlistExpiry = watchedResponse.query().firstPage().hasWatchlistExpiry();
                     }
 
                     if (pageSummaryResponse.body() == null) {
                         throw new RuntimeException("Summary response was invalid.");
                     }
 
-                    createPageModel(pageSummaryResponse, isWatched);
+                    createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry);
 
                     if (OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                         showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
@@ -238,7 +240,9 @@ public class PageFragmentLoadState {
         }
     }
 
-    private void createPageModel(@NonNull Response<PageSummary> response, boolean isWatched) {
+    private void createPageModel(@NonNull Response<PageSummary> response,
+                                 boolean isWatched,
+                                 boolean hasWatchlistExpiry) {
         if (!fragment.isAdded() || response.body() == null) {
             return;
         }
@@ -247,6 +251,7 @@ public class PageFragmentLoadState {
 
         model.setPage(page);
         model.setWatched(isWatched);
+        model.hasWatchlistExpiry(hasWatchlistExpiry);
         model.setTitle(page.getTitle());
 
         if (!TextUtils.isEmpty(response.raw().request().url().fragment())) {
