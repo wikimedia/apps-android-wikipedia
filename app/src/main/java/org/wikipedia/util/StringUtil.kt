@@ -29,7 +29,7 @@ object StringUtil {
     @JvmStatic
     fun delimiterStringToList(delimitedString: String,
                               delimiter: String): List<String> {
-        return delimitedString.split(delimiter)
+        return delimiter.toRegex().split(delimitedString).filter { it.isNotBlank() }
     }
 
     @JvmStatic
