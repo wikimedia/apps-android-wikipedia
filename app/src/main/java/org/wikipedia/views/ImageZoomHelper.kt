@@ -101,7 +101,7 @@ class ImageZoomHelper(activity: Activity) {
                             ((pointerCoords2.y + pointerCoords1.y) / 2).toInt()
                     )
 
-                    //storing pivot point for zooming image from its touch coordinates
+                    // storing pivot point for zooming image from its touch coordinates
                     pivotX = ev.rawX.toInt() - originalXY[0]
                     pivotY = ev.rawY.toInt() - originalXY[1]
                     isZooming = true
@@ -283,8 +283,8 @@ class ImageZoomHelper(activity: Activity) {
                     visibleRect.top = location[1]
                     visibleRect.right = visibleRect.left + child.width
                     visibleRect.bottom = visibleRect.top + child.height
-                    if (visibleRect.contains(pointerCoords1.x.toInt(), pointerCoords1.y.toInt())
-                            && visibleRect.contains(pointerCoords2.x.toInt(), pointerCoords2.y.toInt())) {
+                    if (visibleRect.contains(pointerCoords1.x.toInt(), pointerCoords1.y.toInt()) &&
+                            visibleRect.contains(pointerCoords2.x.toInt(), pointerCoords2.y.toInt())) {
                         return if (getIntTag(child) and FLAG_ZOOMABLE != 0) child else findZoomableView(event, child)
                     }
                 }
