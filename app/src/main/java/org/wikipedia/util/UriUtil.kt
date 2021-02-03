@@ -10,7 +10,7 @@ import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.log.L.d
+import org.wikipedia.util.log.L
 import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
 import java.net.URLEncoder
@@ -31,7 +31,7 @@ object UriUtil {
         } catch (e: IllegalArgumentException) {
             // Swallow IllegalArgumentException (can happen with malformed encoding), and just
             // return the original string.
-            d("URL decoding failed. String was: $url")
+            L.d("URL decoding failed. String was: $url")
             url
         } catch (e: UnsupportedEncodingException) {
             throw RuntimeException(e)
@@ -104,10 +104,10 @@ object UriUtil {
 
     @JvmStatic
     fun getFilenameFromUploadUrl(url: String): String {
-        val splitArray = url.split("/".toRegex()).toTypedArray()
-        val thumbnailName = splitArray[splitArray.size - 1]
-        return if (url.contains("/thumb/") && splitArray.size > 2) {
-            splitArray[splitArray.size - 2]
+        val splitList = url.split("/")
+        val thumbnailName = splitList[splitList.size - 1]
+        return if (url.contains("/thumb/") && splitList.size > 2) {
+            splitList[splitList.size - 2]
         } else thumbnailName
     }
 
@@ -143,9 +143,5 @@ object UriUtil {
     @VisibleForTesting
     fun removeFragment(link: String): String {
         return link.replaceFirst("#.*$".toRegex(), "")
-    }
-
-    fun getFragment(link: String?): String? {
-        return Uri.parse(link).fragment
     }
 }
