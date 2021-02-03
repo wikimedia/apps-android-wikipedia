@@ -77,7 +77,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTa
     override fun logSuccess() {
     }
 
-    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         try {
             return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
         } catch (e: Exception) {
