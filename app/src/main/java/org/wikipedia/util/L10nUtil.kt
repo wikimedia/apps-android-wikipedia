@@ -7,7 +7,7 @@ import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.os.ConfigurationCompat
 import org.wikipedia.WikipediaApp
-import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.language.AppLanguageLookUpTable.*
 import org.wikipedia.page.PageTitle
 import java.util.*
 
@@ -19,8 +19,15 @@ object L10nUtil {
     )
 
     @JvmStatic
+    val isDeviceRTL: Boolean
+        get() = isCharRTL(Locale.getDefault().displayName[0])
+
+    private val currentConfiguration: Configuration
+        get() = Configuration(WikipediaApp.getInstance().resources.configuration)
+
+    @JvmStatic
     fun isLangRTL(lang: String): Boolean {
-        return Arrays.binarySearch(RTL_LANGS, lang, null) >= 0
+        return RTL_LANGS.binarySearch(lang) >= 0
     }
 
     @JvmStatic
@@ -32,10 +39,6 @@ object L10nUtil {
     fun setConditionalLayoutDirection(view: View, lang: String) {
         view.layoutDirection = if (isLangRTL(lang)) View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR
     }
-
-    @JvmStatic
-    val isDeviceRTL: Boolean
-        get() = isCharRTL(Locale.getDefault().displayName[0])
 
     private fun isCharRTL(c: Char): Boolean {
         val dir = Character.getDirectionality(c).toInt()
@@ -74,9 +77,6 @@ object L10nUtil {
         return localizedStrings
     }
 
-    private val currentConfiguration: Configuration
-        get() = Configuration(WikipediaApp.getInstance().resources.configuration)
-
     private fun getTargetStrings(@StringRes strings: IntArray, altConfig: Configuration): SparseArray<String> {
         val localizedStrings = SparseArray<String>()
         val targetResources = Resources(WikipediaApp.getInstance().resources.assets,
@@ -97,8 +97,10 @@ object L10nUtil {
     private fun getDesiredLocale(desiredLocale: Locale): Locale {
         // TODO: maybe other language variants also have this issue, we need to add manually. e.g. kk?
         return when (desiredLocale.language) {
-            AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE -> Locale.TRADITIONAL_CHINESE
-            AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_MY_LANGUAGE_CODE -> Locale.SIMPLIFIED_CHINESE
+            TRADITIONAL_CHINESE_LANGUAGE_CODE, CHINESE_TW_LANGUAGE_CODE, CHINESE_HK_LANGUAGE_CODE,
+            CHINESE_MO_LANGUAGE_CODE -> Locale.TRADITIONAL_CHINESE
+            SIMPLIFIED_CHINESE_LANGUAGE_CODE, CHINESE_CN_LANGUAGE_CODE, CHINESE_SG_LANGUAGE_CODE,
+            CHINESE_MY_LANGUAGE_CODE -> Locale.SIMPLIFIED_CHINESE
             else -> desiredLocale
         }
     }
@@ -106,8 +108,10 @@ object L10nUtil {
     @JvmStatic
     fun getDesiredLanguageCode(langCode: String): String {
         return when (langCode) {
-            AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_TW_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_HK_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_MO_LANGUAGE_CODE -> AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
-            AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_SG_LANGUAGE_CODE, AppLanguageLookUpTable.CHINESE_MY_LANGUAGE_CODE -> AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE
+            TRADITIONAL_CHINESE_LANGUAGE_CODE, CHINESE_TW_LANGUAGE_CODE, CHINESE_HK_LANGUAGE_CODE,
+            CHINESE_MO_LANGUAGE_CODE -> TRADITIONAL_CHINESE_LANGUAGE_CODE
+            SIMPLIFIED_CHINESE_LANGUAGE_CODE, CHINESE_CN_LANGUAGE_CODE, CHINESE_SG_LANGUAGE_CODE,
+            CHINESE_MY_LANGUAGE_CODE -> SIMPLIFIED_CHINESE_LANGUAGE_CODE
             else -> langCode
         }
     }
@@ -118,7 +122,7 @@ object L10nUtil {
         // but if we want to display chinese correctly based on the article itself, we have to
         // detect the variant from the API responses; otherwise, we will only get english texts.
         // And this might only happen in Chinese variant
-        if (desiredLocale.language == AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) {
+        if (desiredLocale.language == CHINESE_LANGUAGE_CODE) {
             // create a new Locale object to manage only "zh" language code based on its app language
             // code. e.g.: search "HK" article in "zh-hant" or "zh-hans" will get "zh" language code
             config.setLocale(getDesiredLocale(Locale(WikipediaApp.getInstance().language().appLanguageCode)))
