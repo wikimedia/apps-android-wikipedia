@@ -56,9 +56,8 @@ object ThrowableUtil {
                             inner.localizedMessage))
         } else if (e is HttpStatusException) {
             AppError(e.message!!, e.code().toString())
-        } else if (inner is LoginFailedException
-                || inner is CreateAccountException
-                || inner is MwException) {
+        } else if (inner is LoginFailedException || inner is CreateAccountException ||
+                inner is MwException) {
             AppError(inner.localizedMessage!!, "")
         } else if (throwableContainsException(e, JSONException::class.java)) {
             AppError(context.getString(R.string.error_response_malformed),
@@ -73,8 +72,8 @@ object ThrowableUtil {
 
     @JvmStatic
     fun isOffline(caught: Throwable?): Boolean {
-        return (caught is UnknownHostException
-                || caught is SocketException)
+        return (caught is UnknownHostException ||
+                caught is SocketException)
     }
 
     @JvmStatic
@@ -89,9 +88,9 @@ object ThrowableUtil {
 
     @JvmStatic
     fun isNetworkError(e: Throwable): Boolean {
-        return (throwableContainsException(e, UnknownHostException::class.java)
-                || throwableContainsException(e, TimeoutException::class.java)
-                || throwableContainsException(e, SSLException::class.java))
+        return (throwableContainsException(e, UnknownHostException::class.java) ||
+                throwableContainsException(e, TimeoutException::class.java) ||
+                throwableContainsException(e, SSLException::class.java))
     }
 
     @Deprecated("")
