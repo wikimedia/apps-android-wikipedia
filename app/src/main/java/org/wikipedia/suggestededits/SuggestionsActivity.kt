@@ -30,7 +30,7 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
                 intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
     }
 
-    override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         try {
             return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
         } catch (e: Exception) {
