@@ -45,11 +45,8 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.*
 import org.wikipedia.util.ClipboardUtil.setPlainText
-import org.wikipedia.util.DateUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -94,6 +91,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setUpListeners()
         getWatchedStatus()
         fetchEditDetails()
+        L10nUtil.setConditionalLayoutDirection(getView(), languageCode)
     }
 
     private fun setUpListeners() {

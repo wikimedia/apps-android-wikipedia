@@ -15,6 +15,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
@@ -81,6 +82,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             containerView.alpha = 1.0f
             containerView.isClickable = true
         }
+        L10nUtil.setConditionalLayoutDirection(this, item.wiki.languageCode())
     }
 
     private fun setButtonTextAndIconColor(text: String, @AttrRes backgroundTint: Int, @DrawableRes iconResourceDrawable: Int? = null) {
