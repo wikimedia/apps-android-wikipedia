@@ -16,6 +16,7 @@ public class PageViewModel {
     @Nullable private PageTitle title;
     @Nullable private HistoryEntry curEntry;
     @Nullable private ReadingListPage readingListPage;
+    private boolean hasWatchlistExpiry;
     private boolean watched;
 
     private boolean forceNetwork;
@@ -78,6 +79,14 @@ public class PageViewModel {
 
     public boolean isWatched() {
         return watched;
+    }
+
+    public void hasWatchlistExpiry(boolean hasWatchlistExpiry) {
+        this.hasWatchlistExpiry = hasWatchlistExpiry;
+    }
+
+    public boolean hasWatchlistExpiry() {
+        return hasWatchlistExpiry;
     }
 
     public CacheControl getCacheControl() {
