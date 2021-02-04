@@ -107,7 +107,7 @@ object L {
 
     @JvmStatic
     fun logRemoteErrorIfProd(t: Throwable) {
-        if (ReleaseUtil.isProdRelease()) {
+        if (ReleaseUtil.isProdRelease) {
             logRemoteError(t)
         } else {
             throw RuntimeException(t)
@@ -119,7 +119,7 @@ object L {
     @JvmStatic
     fun logRemoteError(t: Throwable) {
         LEVEL_E.log("", t)
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (!ReleaseUtil.isPreBetaRelease) {
             WikipediaApp.getInstance().logCrashManually(t)
         }
     }
@@ -127,7 +127,7 @@ object L {
     private abstract class LogLevel {
         abstract fun logLevel(tag: String?, msg: String?, t: Throwable?)
         fun log(msg: String, t: Throwable?) {
-            if (ReleaseUtil.isDevRelease()) {
+            if (ReleaseUtil.isDevRelease) {
                 val element = Thread.currentThread().stackTrace[STACK_INDEX]
                 logLevel(element.className, stackTraceElementToMessagePrefix(element) + msg, t)
             } else {
