@@ -110,16 +110,16 @@ object StringUtil {
 
     @JvmStatic
     fun fromHtml(source: String?): Spanned {
-        var source = source ?: return SpannedString("")
-        if (!source.contains("<") && !source.contains("&")) {
+        var sourceStr = source ?: return SpannedString("")
+        if (!sourceStr.contains("<") && !sourceStr.contains("&")) {
             // If the string doesn't contain any hints of HTML entities, then skip the expensive
             // processing that fromHtml() performs.
-            return SpannedString(source)
+            return SpannedString(sourceStr)
         }
-        source = source.replace("&#8206;".toRegex(), "\u200E")
+        sourceStr = sourceStr.replace("&#8206;".toRegex(), "\u200E")
                 .replace("&#8207;".toRegex(), "\u200F")
                 .replace("&amp;".toRegex(), "&")
-        return HtmlCompat.fromHtml(source, HtmlCompat.FROM_HTML_MODE_LEGACY)
+        return HtmlCompat.fromHtml(sourceStr, HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 
     @JvmStatic
@@ -144,15 +144,15 @@ object StringUtil {
 
     @JvmStatic
     fun boldenKeywordText(textView: TextView, parentText: String, searchQuery: String?) {
-        var parentText = parentText
-        val startIndex = indexOf(parentText, searchQuery)
+        var parentTextStr = parentText
+        val startIndex = indexOf(parentTextStr, searchQuery)
         if (startIndex >= 0) {
-            parentText = (parentText.substring(0, startIndex) + "<strong>" +
-                    parentText.substring(startIndex, startIndex + searchQuery!!.length) + "</strong>" +
-                    parentText.substring(startIndex + searchQuery.length))
-            textView.text = fromHtml(parentText)
+            parentTextStr = (parentTextStr.substring(0, startIndex) + "<strong>" +
+                    parentTextStr.substring(startIndex, startIndex + searchQuery!!.length) + "</strong>" +
+                    parentTextStr.substring(startIndex + searchQuery.length))
+            textView.text = fromHtml(parentTextStr)
         } else {
-            textView.text = parentText
+            textView.text = parentTextStr
         }
     }
 
@@ -172,12 +172,12 @@ object StringUtil {
 
     @JvmStatic
     fun getBase26String(@IntRange(from = 1) number: Int): String {
-        var number = number
+        var num = number
         val base = 26
         var str = ""
-        while (--number >= 0) {
-            str = ('A' + number % base) + str
-            number /= base
+        while (--num >= 0) {
+            str = ('A' + num % base) + str
+            num /= base
         }
         return str
     }

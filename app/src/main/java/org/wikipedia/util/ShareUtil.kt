@@ -145,15 +145,15 @@ object ShareUtil {
 
     private fun cleanFileName(fileName: String): String {
         // Google+ doesn't like file names that have characters %28, %29, %2C
-        var fileName = fileName
-        fileName = fileName.replace("%2[0-9A-F]".toRegex(), "_")
-                .replace("[^0-9a-zA-Z-_\\.]".toRegex(), "_")
+        var fileNameStr = fileName
+        fileNameStr = fileNameStr.replace("%2[0-9A-F]".toRegex(), "_")
+                .replace("[^0-9a-zA-Z-_.]".toRegex(), "_")
                 .replace("_+".toRegex(), "_")
         // ensure file name ends with .jpg
-        if (!fileName.endsWith(".jpg")) {
-            fileName = "$fileName.jpg"
+        if (!fileNameStr.endsWith(".jpg")) {
+            fileNameStr = "$fileNameStr.jpg"
         }
-        return fileName
+        return fileNameStr
     }
 
     @JvmStatic
