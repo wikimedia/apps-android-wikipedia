@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Nkansahrexford
+* Rberchie
+-->
 <resources>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="search_hint">Hwehwɛ Wikipedia mu</string>
-  <string name="nav_item_history">Nea atwam</string>
   <string name="error_network_error" fuzzy="true">Hwɛ sɛ wo network no yɛ adwuma a :(</string>
   <string name="page_error_retry">Yɛ bio</string>
   <string name="menu_clear_all_history">Pepa nea woayɛ atwam</string>
   <string name="dialog_title_clear_history" fuzzy="true">Popa browsing a atwam</string>
-    <string name="share_via">Kyekyɛ denam</string>
+  <string name="share_via">Kyekyɛ denam</string>
   <string name="menu_page_other_languages" fuzzy="true">Kan wɔ kasa ahorow mu</string>
-  <string name="menu_page_find_in_page">Hwehwɛ wɔ krataa yi mu</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Hwehwɛ wɔ krataa yi mu</string>
   <string name="menu_page_share" fuzzy="true">Kyekyɛ</string>
   <string name="last_updated_text">Wo nkyerɛase %s</string>
-    <string name="preference_title_language">Wikipedia kasa</string>
-    <string name="langlinks_filter_hint">Hwehwɛ</string>
+  <string name="preference_title_language" fuzzy="true">Wikipedia kasa</string>
+  <string name="langlinks_filter_hint">Hwehwɛ</string>
   <string name="langlinks_empty">Saa krataa yi nni kasa a worehwehwɛ no mu</string>
   <string name="langlinks_activity_title">Kasa ahorow</string>
-  <string name="menu_save_changes">Fa nsakrae no sie</string>
-  <string name="dialog_saving_in_progress">Mede resie</string>
-  <string name="edit_saved_successfully">Mede nsakrae no asie</string>
+  <string name="menu_save_changes" fuzzy="true">Fa nsakrae no sie</string>
+  <string name="edit_saved_successfully" fuzzy="true">Mede nsakrae no asie</string>
   <string name="dialog_message_edit_failed">Anyɛ yiye</string>
   <string name="dialog_message_edit_failed_retry">San yɛ bio</string>
   <string name="dialog_message_edit_failed_cancel">Gyae</string>
@@ -28,7 +30,7 @@
   <string name="edit_section_captcha_hint">San kyerɛw ɛsoro hɔ nsɛm</string>
   <string name="title_captcha">Kyerɛw CAPTCHA</string>
   <string name="edit_section_captcha_reload">Mia CAPTCHA no so na ɛnsesa</string>
-    <string name="nav_item_login" fuzzy="true">Kɔ mu</string>
+  <string name="nav_item_login" fuzzy="true">Kɔ mu</string>
   <string name="login_username_hint">Username</string>
   <string name="login_password_hint">Password</string>
   <string name="menu_login">Kɔ mu</string>
@@ -49,23 +51,21 @@
   <string name="create_account_next">Nea edi hɔ</string>
   <string name="create_account_button">Bue account</string>
   <string name="preferences_general_heading">Nneɛma pii</string>
-    <string name="edit_preview_fetching_dialog_message">Hwɛ sɛnea ɛte…</string>
   <string name="send_feedback">Ma yɛn nyansahyɛ</string>
   <string name="create_account_account_created_toast">Woabue wo account!</string>
   <string name="preference_summary_eventlogging_opt_in">Ma Wikimedia kwan ma ɔnfa wo adwinade yi ho nsɛm nyɛ nhwehwɛmu sɛnea ebetu mpɔn</string>
   <string name="editing_error_spamblacklist" fuzzy="true">Yi links ahorow a yɛmpɛ no fi mu, na san yɛ bio (%s). Please remove them and try again.</string>
-  <string name="history_search_list_hint" fuzzy="true">Hwehwɛ</string>
   <string name="error_can_not_process_link">Antumi anfa link no ankyerɛ</string>
   <string name="page_protected_autoconfirmed">Woabɔ krataa yi ho ban kakraa</string>
   <string name="page_protected_sysop">Woabɔ krataa yi ho ban korakora</string>
   <string name="page_protected_other">Woabɔ krataa yi ho ban akodu: %s</string>
-  <string name="page_protected_can_not_edit">Wo nni hokwan sɛ wo kyerɛw biribiara wɔ ha</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Wo nni hokwan sɛ wo kyerɛw biribiara wɔ ha</string>
   <string name="page_protected_can_not_edit_title">Woabɔ krataa yi ho ban</string>
   <string name="settings_activity_title" fuzzy="true">Kyerɛ nea wopɛ</string>
   <string name="about_description">Efa Wikipedia adwinade yi</string>
   <string name="about_libraries_heading" fuzzy="true">Libraries used</string>
   <string name="about_contributors_heading" fuzzy="true">aboafo</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; adwinade</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; adwinade</string>
   <string name="about_activity_title">ɛho nsɛm</string>
   <string name="edit_abandon_confirm">Saa krataa yi asesa. Wogyedi sɛ wopɛsɛ wofi a womfa wo nsakrae no nsie?</string>
   <string name="user_blocked_from_editing_title">ɛho nni kwan</string>
@@ -73,7 +73,7 @@
   <string name="user_anon_blocked_from_editing">Woabra wo IP address no wɔ ha</string>
   <string name="edit_how_page_improved">Nsakrae bɛn na woyɛe wɔ ha?</string>
   <string name="edit_next">Nea edi hɔ</string>
-  <string name="edit_done">Fa sie</string>
+  <string name="edit_done" fuzzy="true">Fa sie</string>
   <string name="edit_preview">Hwɛ ansa</string>
   <string name="edit_summary_tag_typo">Fixed typo</string>
   <string name="edit_summary_tag_grammar">M\'ama emu ada hɔ</string>

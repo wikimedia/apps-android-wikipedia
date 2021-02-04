@@ -33,7 +33,7 @@
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
-  <string name="nav_item_more">Fler</string>
+  <string name="nav_item_more">Mer</string>
   <string name="nav_item_search">Sök</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
@@ -409,13 +409,13 @@
     <item quantity="other">%1$d artiklar • %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d av artikel är tillgänglig offline • %3$.2f MB</item>
+    <item quantity="one">%1$d av 1 artikel är tillgänglig offline • %3$.2f MB</item>
     <item quantity="other">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline • %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel är tillgänglig offline • %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_ellipsis">Sortera efter...</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
