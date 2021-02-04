@@ -188,15 +188,9 @@ object ShareUtil {
 
     @JvmStatic
     fun canOpenUrlInApp(context: Context, url: String): Boolean {
-        var canOpen = false
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        for (intentActivity in context.packageManager.queryIntentActivities(intent, 0)) {
-            if (getPackageName(intentActivity).matches(APP_PACKAGE_REGEX.toRegex())) {
-                canOpen = true
-                break
-            }
-        }
-        return canOpen
+        return context.packageManager.queryIntentActivities(intent, 0)
+                .any { getPackageName(it).matches(APP_PACKAGE_REGEX.toRegex()) }
     }
 
     private fun isIntentActivityBlacklisted(intentActivity: ResolveInfo?,
