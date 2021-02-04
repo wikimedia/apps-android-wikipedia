@@ -58,19 +58,18 @@ object ShareUtil {
     fun shareImage(context: Context, bmp: Bitmap,
                    imageFileName: String, subject: String, text: String) {
         Observable.fromCallable {
-            getUriFromFile(context,
-                    processBitmapForSharing(context, bmp, imageFileName))
+            getUriFromFile(context, processBitmapForSharing(context, bmp, imageFileName))
         }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ uri: Uri? ->
-                    if (uri == null) {
-                        displayShareErrorMessage(context)
-                        return@subscribe
-                    }
-                    val chooserIntent = buildImageShareChooserIntent(context, subject, text, uri)
-                    context.startActivity(chooserIntent)
-                }) { caught: Throwable -> displayOnCatchMessage(caught, context) }
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe({ uri: Uri? ->
+            if (uri == null) {
+                displayShareErrorMessage(context)
+                return@subscribe
+            }
+            val chooserIntent = buildImageShareChooserIntent(context, subject, text, uri)
+            context.startActivity(chooserIntent)
+        }) { caught: Throwable -> displayOnCatchMessage(caught, context) }
     }
 
     @JvmStatic
