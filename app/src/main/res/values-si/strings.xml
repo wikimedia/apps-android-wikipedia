@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* MuratTheTurkish
+* Pradeepmaduranga
+* Sahan.ssw
+* UMDP
+* හරිත
+* 1100100
+-->
 <resources>
   <string name="app_name_prod">විකිපීඩියා</string>
   <string name="app_name_beta">විකිපීඩියා බීටා</string>
   <string name="app_name_alpha">විකිපීඩිය ඇල්ෆා</string>
+  <string name="wikimedia">විකිමාධ්‍ය</string>
   <string name="search_hint">විකිපීඩියාව ගවේෂණය කරන්න</string>
-  <string name="nav_item_history">ඉතිහාසය</string>
   <string name="error_network_error">අන්තර්ජාලය වෙත සම්බන්ධ විය නොහැක.</string>
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
+  <string name="page_error_back_to_main">ආපසු යන්න</string>
   <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>
-  <string name="dialog_title_clear_history" fuzzy="true">පිරික්සුම් ඉතිහාසය මකන්න?</string>
-    <string name="share_via">මගින් හුවමාරු කරන්න</string>
+  <string name="dialog_title_clear_history">සෙවුම් ඉතිහාසය මකන්න</string>
+  <string name="dialog_message_clear_history">මෙමගින් ඔබේ සියලු සෙවුම් ඉතිහාසය මකා දැමෙනු ඇත, එමෙන්ම සියලු විවෘත ටැබ්(කුඩා තීරු) ද වැසෙනු ඇත. ඔබට සහතික ද?</string>
+  <string name="share_via">මගින් හුවමාරු කරන්න</string>
+  <string name="search_redirect_from">%s වෙතින් යළි යොමුකරන ලදී</string>
   <string name="menu_page_show_tabs">ටැබ් පෙන්වන්න</string>
-  <string name="menu_page_other_languages" fuzzy="true">වෙනත් භාෂාවලින් කියවන්න</string>
-  <string name="menu_page_find_in_page">පිටුවෙහි සොයන්න</string>
+  <string name="menu_page_other_languages">භාෂාව වෙනස් කරන්න</string>
+  <string name="menu_page_find_in_page" fuzzy="true">පිටුවෙහි සොයන්න</string>
   <string name="menu_page_font_and_theme">අකුරු රටාව හා තේමාව</string>
+  <string name="menu_page_add_to_list">කියවීමේ ලැයිස්තුවට එක්කරන්න</string>
   <string name="menu_page_share">සබැඳිය හුවමාරු කරන්න</string>
   <string name="menu_long_press_open_page">විවෘත කරන්න</string>
   <string name="menu_long_press_open_in_new_tab">නව ටැබයක විවෘත කරන්න</string>
   <string name="menu_long_press_copy_page">සබැඳි ලිපිනය පිටපත් කරන්න</string>
+  <string name="menu_text_select_define">පැහැදිලි කිරීම</string>
+  <string name="menu_text_select_edit_here">මෙහි සංස්කරණය කරන්න</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
-  <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
-    <string name="langlinks_filter_hint">සොයන්න</string>
+  <string name="talk_page_link_text" fuzzy="true">සාකච්ඡාව</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ. ඔබේ උපාංගයේ IP ලිපිනයට සංස්කරණ ආරෝපණය කෙරෙනු ඇත. ඔබ &lt;a href=\"https://#login\"&gt;පිවිසියේ&lt;/a&gt; නම්, ඔබේ පෞද්ගලිකත්වයට වැඩි ඉඩක් හිමිවනු ඇත.</string>
+  <string name="preference_title_language" fuzzy="true">විකිපීඩියා භාෂාව</string>
+  <string name="langlinks_filter_hint">සොයන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
-  <string name="langlinks_no_match">ඔබේ සෙවීමට සමාන භාෂා සොයාගැනීමට නොහැක</string>
+  <string name="langlinks_no_match" fuzzy="true">ඔබේ සෙවීමට සමාන භාෂා සොයාගැනීමට නොහැක</string>
   <string name="langlinks_activity_title">වෙනත් භාෂාවන්</string>
-  <string name="menu_save_changes">වෙනස්කම් සුරකින්න</string>
-  <string name="dialog_saving_in_progress">සුරැකෙමින් පවතී…</string>
-  <string name="edit_saved_successfully">සංස්කරණය සුරකින ලදී!</string>
+  <string name="menu_save_changes" fuzzy="true">වෙනස්කම් සුරකින්න</string>
+  <string name="edit_saved_successfully" fuzzy="true">සංස්කරණය සුරකින ලදී!</string>
   <string name="dialog_message_edit_failed">සංස්කරණය අසාර්ථකයි!</string>
   <string name="dialog_message_edit_failed_retry">නැවත උත්සහ කරන්න</string>
   <string name="dialog_message_edit_failed_cancel">අවලංගු කරන්න</string>
@@ -43,10 +59,10 @@
   <string name="menu_login">පිවිසෙන්න</string>
   <string name="login_activity_title" fuzzy="true">විකිපීඩියාවට පිවිසෙන්න</string>
   <string name="login_in_progress_dialog_message">ඔබව ඇතුළු කරමින්…</string>
-  <string name="login_success_toast">පිවිසුම සාර්ථකයි!</string>
+  <string name="login_success_toast" fuzzy="true">පිවිසුම සාර්ථකයි!</string>
   <string name="preference_title_logout">නික්මීම</string>
   <string name="toast_logout_complete">නික්මී ඇත</string>
-  <string name="history_empty_title">මෑත පිටු මෙහි නොමැත!</string>
+  <string name="history_empty_title" fuzzy="true">මෑත පිටු මෙහි නොමැත!</string>
   <string name="wp_stylized">&lt;big&gt;වි&lt;/big&gt;කිපීඩි&lt;big&gt;යා&lt;/big&gt;</string>
   <string name="create_account_username_hint">පරිශීලක නාමය</string>
   <string name="create_account_activity_title">ගිණුමක් තනන්න</string>
@@ -62,16 +78,17 @@
   <string name="wikipedia_app_faq">විකිපීඩියා යෙදුම නිති අසන පැන</string>
   <string name="create_account_account_created_toast">ගිණුම තනන ලදි!</string>
   <string name="preference_title_eventlogging_opt_in">භාවිත වාර්තා යවන්න</string>
-  <string name="history_search_list_hint">ඉතිහාසය සොයන්න</string>
   <string name="page_protected_can_not_edit_title">මෙම පිටුව ආරක්ෂණය කර ඇත</string>
   <string name="settings_activity_title">සැකසුම්</string>
   <string name="privacy_policy_description">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
   <string name="terms_of_use_description">භාවිතයේ කොන්දේසි</string>
+  <string name="about_wikipedia_url">https://si.wikipedia.org/wiki/විකිපීඩියා:පිළිබඳ</string>
+  <string name="android_app_request_an_account_url">https://si.wikipedia.org/wiki/විකිපීඩියා:Request_an_account</string>
   <string name="about_contributors_heading" fuzzy="true">දායකයින්</string>
   <string name="about_translators_heading" fuzzy="true">පරිවර්තකයෝ</string>
   <string name="about_activity_title">පිළිබඳ</string>
   <string name="user_anon_blocked_from_editing">ඔබගේ IP ලිපිනය සංස්කරණයන් සිදුකිරීමට නොහැකි අයුරින් වාරණය කර ඇත.</string>
   <string name="edit_next">මීළඟ</string>
-  <string name="edit_done">සුරකින්න</string>
+  <string name="edit_done" fuzzy="true">සුරකින්න</string>
   <string name="edit_preview">පෙරදසුන</string>
 </resources>
