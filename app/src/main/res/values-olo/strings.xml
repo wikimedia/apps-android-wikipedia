@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Denö
+* Envlh
+* Ilja.mos
+* Mashoi7
+-->
 <resources>
   <string name="app_name_prod">Wikipedii</string>
   <string name="app_name_beta">Wikipedii Beta</string>
   <string name="app_name_alpha">Wikipedii Alfa</string>
   <string name="wikimedia">Wikimedii</string>
   <string name="search_hint">Eči Wikipedies</string>
-  <string name="nav_item_history">Histourii</string>
   <string name="error_network_error">Yhtevytty internettah ei sua muvvostua</string>
   <string name="page_error_retry">Opi uvvessah</string>
   <string name="page_error_back_to_main">Mene järilleh</string>
@@ -16,8 +21,8 @@
   <string name="search_redirect_from">Siirretty sivus \"%s\"</string>
   <string name="menu_page_show_tabs">Ozuta liittehet</string>
   <string name="menu_page_other_languages">Luve toizil kielil</string>
-  <string name="menu_page_find_in_page">Eči täl sivul</string>
-    <string name="menu_page_font_and_theme">Kirjaimien kogo da muodo</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Eči täl sivul</string>
+  <string name="menu_page_font_and_theme">Kirjaimien kogo da muodo</string>
   <string name="menu_page_share">Jua linki</string>
   <string name="menu_long_press_open_page">Avua</string>
   <string name="menu_long_press_open_in_new_tab">Avua uvves välilehtes</string>
@@ -25,20 +30,19 @@
   <string name="menu_text_select_define">Merkičys</string>
   <string name="menu_text_select_edit_here">Kohendele täs</string>
   <string name="last_updated_text">Jälgimäine päivitys %s</string>
-  <string name="talk_page_link_text">Pagin</string>
-    <string name="edit_save_action_license_logged_in">Tallendajen hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehtot&lt;/a&gt; da peruuttamattomasti piästät kohendukset ilmah &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lizenzien ehtoloin mugah.</string>
-  <string name="preference_title_language">Wikipedien kieli</string>
-    <string name="langlinks_filter_hint">Eči</string>
+  <string name="talk_page_link_text" fuzzy="true">Pagin</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Tallendajen hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehtot&lt;/a&gt; da peruuttamattomasti piästät kohendukset ilmah &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lizenzien ehtoloin mugah.</string>
+  <string name="preference_title_language" fuzzy="true">Wikipedien kieli</string>
+  <string name="langlinks_filter_hint">Eči</string>
   <string name="langlinks_empty">Tädä sivuu ei ole toizil kielil</string>
-  <string name="langlinks_no_match">Ečittävii kielii ei löydynyh</string>
+  <string name="langlinks_no_match" fuzzy="true">Ečittävii kielii ei löydynyh</string>
   <string name="langlinks_activity_title">Toizet kielet</string>
   <string name="menu_save_changes" fuzzy="true">Tallenda muutokset</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Tallendetah...</string>
   <string name="edit_saved_successfully" fuzzy="true">Kohendus on tallendettu!</string>
   <string name="dialog_message_edit_failed">Haireh kohendukses!</string>
   <string name="dialog_message_edit_failed_retry">Opi uvvessah</string>
   <string name="dialog_message_edit_failed_cancel">Hylgiä</string>
-  <string name="dialog_message_leaving_edit">Sinun muutoksii ei vie tallendettu. Oletgo varmu, gu tahtot poistuo sivulpäi?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Sinun muutoksii ei vie tallendettu. Oletgo varmu, gu tahtot poistuo sivulpäi?</string>
   <string name="dialog_message_leaving_edit_leave">Poistuo</string>
   <string name="dialog_message_leaving_edit_stay">Jiäjä</string>
   <string name="menu_show_toc">Sizällysluvettelo</string>
@@ -51,9 +55,9 @@
   <string name="login_username_hint">Käyttäinimi</string>
   <string name="login_password_hint">Salasana</string>
   <string name="menu_login">Kirjuttai</string>
-  <string name="login_activity_title">Kirjuttai Wikipedieh</string>
+  <string name="login_activity_title" fuzzy="true">Kirjuttai Wikipedieh</string>
   <string name="login_in_progress_dialog_message">Sistiemah kirjuttamine...</string>
-  <string name="login_success_toast">Kirjutittos sistiemah!</string>
+  <string name="login_success_toast" fuzzy="true">Kirjutittos sistiemah!</string>
   <string name="preference_title_logout">Kirjuttai ullos</string>
   <string name="toast_logout_complete">Ulloskirjutannuhes</string>
   <string name="history_empty_title" fuzzy="true">Ei jälgimäzii sivuloi!</string>
@@ -70,9 +74,8 @@
   <string name="create_account_button">Luaji tili</string>
   <string name="preferences_general_heading">Yleine</string>
   <string name="wikipedia_app_faq">Wikipedii-sobevutuksen PKK</string>
-    <string name="send_feedback">Sano oma mieli</string>
+  <string name="send_feedback">Sano oma mieli</string>
   <string name="create_account_account_created_toast">Tili luajittu!</string>
-  <string name="history_search_list_hint">Eči histouriespäi</string>
   <string name="error_can_not_process_link">Tädä linkii ei voinuh ozuttua</string>
   <string name="page_protected_sysop">Tämä sivu on kogonah suojattu.</string>
   <string name="page_protected_can_not_edit" fuzzy="true">Sinul ei ole oigevuksii kohendella tädä sivuu</string>
@@ -104,7 +107,6 @@
   <string name="find_next">Eči tulii</string>
   <string name="find_previous">Eči ielline</string>
   <string name="abusefilter_title_disallow" fuzzy="true">Et voi tallendua tädä kohendustu. Mene järilleh da muuta sidä.</string>
-    <string name="text_size_select">Fontan kogo</string>
   <string name="page_similar_titles">Yhtenjyttymät sivut</string>
   <string name="search_did_you_mean">Tarkoititgo \"%s\"?</string>
   <string name="search_recent_header">Jälgimäzet ečot:</string>
@@ -126,11 +128,8 @@
   <string name="color_theme_light">Valpas</string>
   <string name="color_theme_dark">Muzavu</string>
   <string name="nav_item_reading_lists">Minun luvettelot</string>
-    <string name="reading_list_create_new">Luaji uuzi</string>
-  <string name="reading_list_added_to_named">Ližätty luvetteloh %s</string>
+  <string name="reading_list_create_new">Luaji uuzi</string>
   <string name="view_random_card_title">Piävyndähistämine</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Luve piävyndähine kirjutus Wikipedies</string>
   <string name="view_main_page_card_title">Tänäpäi Wikipedies</string>
-  <string name="view_main_page_card_subtitle">Piäsivu %s</string>
   <string name="view_featured_image_card_title">Päivän kuva</string>
 </resources>

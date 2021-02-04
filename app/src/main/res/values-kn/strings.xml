@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* AVSmalnad77
+* Ananth subray
+* MuratTheTurkish
+* Nayvik
+* Omshivaprakash
+* VASANTH S.N.
+* Vikashegde
+* రహ్మానుద్దీన్
+-->
 <resources>
   <string name="app_name_prod">ವಿಕಿಪೀಡಿಯ</string>
   <string name="app_name_beta">ವಿಕಿಪೀಡಿಯ ಬೀಟಾ</string>
   <string name="app_name_alpha">ವಿಕಿಪೀಡಿಯ ಆಲ್ಫಾ</string>
+  <string name="wikimedia">ವಿಕಿಮೀಡಿಯ</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯ ಹುಡುಕು</string>
-  <string name="nav_item_history">ಇತಿಹಾಸ</string>
   <string name="error_network_error" fuzzy="true">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>
   <string name="page_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="menu_clear_all_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="dialog_title_clear_history" fuzzy="true">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
-    <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
+  <string name="dialog_message_clear_history_yes">ಹೌದು</string>
+  <string name="dialog_message_clear_history_no">ಇಲ್ಲ</string>
+  <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
   <string name="menu_page_show_tabs">ಮೇಜನ್ನು ತೋರಿಸಿ</string>
   <string name="menu_page_other_languages" fuzzy="true">ಭಾಷೆ ಬದಲಿಸಿ</string>
-  <string name="menu_page_share" fuzzy="true">ಹಂಚು</string>
+  <string name="menu_page_add_to_default_list">ಉಳಿಸಿ</string>
+  <string name="feed_card_add_to_list">ಓದುವ ಪಟ್ಟಿಗೆ ಸೇರಿಸಿ</string>
+  <string name="feed_card_add_to_default_list">ಉಳಿಸಿ</string>
+  <string name="menu_page_share">ಕೊಂಡಿಯನ್ನು ಹಂಚು</string>
+  <string name="menu_page_open_a_new_tab">ಹೊಸ ಟ್ಯಾಬ್ ತೆರೆ</string>
+  <string name="menu_page_new_tab">ಹೊಸ ಟ್ಯಾಬ್</string>
   <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %s</string>
-  <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
-    <string name="langlinks_filter_hint">ಹುಡುಕು</string>
+  <string name="preference_title_language" fuzzy="true">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
+  <string name="langlinks_filter_hint">ಹುಡುಕು</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇರೆಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ.</string>
-  <string name="langlinks_no_match">ನಿಮ್ಮ ಪ್ರಶ್ನೆಗೆ ಸರಿಹೊಂದುವ ಯಾವುದೇ ಭಾಷೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ .</string>
+  <string name="langlinks_no_match" fuzzy="true">ನಿಮ್ಮ ಪ್ರಶ್ನೆಗೆ ಸರಿಹೊಂದುವ ಯಾವುದೇ ಭಾಷೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ .</string>
   <string name="langlinks_activity_title">ಇತರೆ ಭಾಷೆಗಳು</string>
-  <string name="menu_save_changes">ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ</string>
-  <string name="dialog_saving_in_progress">ಉಳಿಸಲಾಗುತ್ತಿದೆ....</string>
-  <string name="edit_saved_successfully">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿದೆ!</string>
+  <string name="menu_save_changes" fuzzy="true">ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ</string>
+  <string name="edit_saved_successfully" fuzzy="true">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿದೆ!</string>
   <string name="dialog_message_edit_failed">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿಲ್ಲ!</string>
   <string name="dialog_message_edit_failed_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="dialog_message_edit_failed_cancel">ರದ್ದುಮಾಡು</string>
-  <string name="dialog_message_leaving_edit">ನಿಮ್ಮ ಬದಲಾವಣೆಗಳನ್ನು ಇನ್ನೂ ಉಳಿಸಲಾಗಿಲ್ಲ . ಈ ಪುಟದಿಂದ ನಿರ್ಗಮಿಸಲು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">ನಿಮ್ಮ ಬದಲಾವಣೆಗಳನ್ನು ಇನ್ನೂ ಉಳಿಸಲಾಗಿಲ್ಲ . ಈ ಪುಟದಿಂದ ನಿರ್ಗಮಿಸಲು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?</string>
   <string name="dialog_message_leaving_edit_leave">ಬಿಡು</string>
   <string name="dialog_message_leaving_edit_stay">ಇರು</string>
   <string name="menu_show_toc">ಪರಿವಿಡಿ</string>
@@ -41,9 +57,11 @@
   <string name="login_success_toast" fuzzy="true">ಲಾಗಿನ್ ಯಶಸ್ವಿ!</string>
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
   <string name="toast_logout_complete">ನಿರ್ಗಮನ</string>
-  <string name="history_empty_title">ಇಲ್ಲಿ ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ</string>
+  <string name="history_empty_title" fuzzy="true">ಇಲ್ಲಿ ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ</string>
   <string name="history_empty_message" fuzzy="true">ನಿಮ್ಮ ಇತಿಹಾಸಪುಟ ಖಾಲಿಯಾಗಿದೆ.</string>
   <string name="create_account_username_hint">ಬಳಕೆದಾರರ ಹೆಸರು</string>
+  <string name="login_dont_have_account">ಖಾತೆ ಇಲ್ಲವೇ?</string>
+  <string name="login_forgot_password">ನಿಮ್ಮ ಪ್ರವೇಶಪದ ಮರೆತಿರೇ?</string>
   <string name="create_account_activity_title">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ</string>
   <string name="create_account_email_hint">ಮಿಂಚಂಚೆ(ಐಚ್ಛಿಕ)</string>
@@ -52,21 +70,29 @@
   <string name="create_account_email_error">ಸಮರ್ಪಕ ಮಿಂಚಂಚೆ ವಿಳಾಸ</string>
   <string name="create_account_generic_error">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಗುತ್ತಿಲ್ಲ</string>
   <string name="create_account_next">ಮುಂದಿನ</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ಇ-ಅಂಚೆ ವಿಳಾಸವನ್ನು ಸೇರಿಸಿ</string>
   <string name="create_account_button">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
+  <string name="create_account_ip_block_details">ವಿವರಗಳು</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
+  <string name="preferences_privacy_settings_heading">ಗೋಪ್ಯತೆ</string>
   <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
-  <string name="history_search_list_hint">ಇತಿಹಾಸ  ಹುಡುಕಿ</string>
-  <string name="settings_activity_title" fuzzy="true">ವ್ಯವಸ್ಥೆಗಳು</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ವೀಕ್ಷಣಾಪಟ್ಟಿಗೆ ಸೇರಿಸು</string>
+  <string name="settings_item_preferences">ವ್ಯವಸ್ಥೆಗಳು</string>
+  <string name="settings_activity_title">ವ್ಯವಸ್ಥೆಗಳು</string>
+  <string name="privacy_policy_description">ಗೌಪ್ಯತಾ ನೀತಿ</string>
   <string name="terms_of_use_description">ಬಳಕೆಯನ್ನು ನಿಬಂಧನೆಗಳು</string>
+  <string name="about_wikipedia_url">https://kn.wikipedia.org/wiki/ವಿಕಿಪೀಡಿಯ:ನಮ್ಮ_ಬಗ್ಗೆ</string>
   <string name="about_activity_title">ನಮ್ಮ ಬಗ್ಗೆ</string>
   <string name="user_blocked_from_editing_title">ನಿರ್ಬಂಧಿಸಿದ್ದರೆ</string>
   <string name="edit_next">ಮುಂದೆ</string>
-  <string name="edit_done">ಉಳಿಸಿ</string>
+  <string name="edit_done">ಪ್ರಕಟಿಸು</string>
   <string name="edit_preview">ಮುನ್ನೋಟ</string>
   <string name="edit_summary_tag_other">ಇತರೆ</string>
+  <string name="edit_conflict_title">ಸಂಪಾದನಾ ಘರ್ಷಣೆ</string>
   <string name="find_next">ಮುಂದಿನದನ್ನು ಹುಡುಕು</string>
   <string name="find_previous">ಹಿಂದಿನದನ್ನು ಹುಡುಕು</string>
+  <string name="table_other">ಹೆಚ್ಚಿನ ಮಾಹಿತಿ</string>
   <string name="table_close">ಮುಚ್ಚಿ</string>
   <string name="dialog_close_description">ಮುಚ್ಚು</string>
   <string name="preference_title_show_images">ಚಿತ್ರಗಳನ್ನು ತೋರಿಸಲು</string>
@@ -80,6 +106,11 @@
   <string name="error_unknown">ಅಪರಿಚಿತ ತಪ್ಪು ಸಂಭವಿಸಿದೆ</string>
   <string name="format_error_server_message">ಸಂದೇಶ: \"%s\"</string>
   <string name="button_continue_to_article">ಲೇಖನ ಓದಿ</string>
+  <string name="menu_save_all_tabs">ಎಲ್ಲಾ ಟ್ಯಾಬ್‍ಗಳನ್ನು ಉಳಿಸಿ</string>
+  <string name="article_menu_bar_language_button">ಭಾಷೆ</string>
+  <string name="article_menu_bar_search_button">ಹುಡುಕು</string>
+  <string name="article_menu_bar_theme_button">ಥೀಮ್</string>
+  <string name="article_menu_bar_contents_button">ಪರಿವಿಡಿ</string>
   <string name="reading_list_sort">ವಿಂಗಡಿಸು</string>
   <string name="reading_list_item_delete_undo">ಕಳಚು</string>
   <string name="reading_lists_onboarding_got_it">ಗೊತ್ತಾಯಿತು</string>

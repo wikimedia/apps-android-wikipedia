@@ -16,7 +16,7 @@
   <string name="nav_item_back">Nazaj</string>
   <string name="page_tabs_back">Nazaj</string>
   <string name="nav_item_forward">Naprej</string>
-  <string name="search_hint">Išči po Wikipediji</string>
+  <string name="search_hint">Išči v Wikipediji</string>
   <string name="search_hint_voice_search">Iskanje z glasovnim vnosom</string>
   <string name="search_hint_search_languages">Poiščite jezik</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje sezname</string>
@@ -32,7 +32,7 @@
   <string name="page_error_back_to_main">Pojdi nazaj</string>
   <string name="error_back">Pojdi nazaj</string>
   <string name="menu_clear_all_history">Izbriši zgodovino</string>
-  <string name="history_item_deleted">Članek %s je bil izbrisan iz zgodovine</string>
+  <string name="history_item_deleted">Članek %s izbrisan iz zgodovine</string>
   <string name="history_items_deleted">%d člankov izbrisanih iz zgodovine</string>
   <string name="history_item_delete_undo">Razveljavi</string>
   <string name="notification_archive_undo">Razveljavi</string>
@@ -58,12 +58,12 @@
   <string name="feed_card_add_to_list">Dodaj na bralni seznam</string>
   <string name="feed_card_add_to_default_list">Shrani</string>
   <string name="menu_page_share">Deli povezavo</string>
-  <string name="menu_page_open_a_new_tab">Odpri v novem zavihku</string>
+  <string name="menu_page_open_a_new_tab">Odpri na novem zavihku</string>
   <string name="menu_page_new_tab">Nov zavihek</string>
   <string name="menu_page_reading_lists">Bralni seznami</string>
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
   <string name="menu_long_press_open_page">Odpri</string>
-  <string name="menu_long_press_open_in_new_tab">Odpri v novem zavihku</string>
+  <string name="menu_long_press_open_in_new_tab">Odpri na novem zavihku</string>
   <string name="menu_long_press_copy_page">Kopiraj naslov povezave</string>
   <string name="menu_text_select_define">Opredeli</string>
   <string name="on_this_day_page_share">Deli</string>
@@ -175,9 +175,9 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">S tem boste iz shranjevanja v oblaku v celoti izbrisali vse predhodno sinhronizirane bralne sezame. Odstranim z vašega računa »%s« vse sinhronizirane sezname?</string>
   <string name="preferences_privacy_settings_heading">Zasebnost</string>
   <string name="preference_title_eventlogging_opt_in">Pošiljaj poročila o uporabi</string>
-  <string name="preference_summary_eventlogging_opt_in">Omogočite Wikimedii zbiranje informacij o tem, kako uporabljate aplikacijo, da bo ta postala še boljša</string>
+  <string name="preference_summary_eventlogging_opt_in">Omogočite Wikimedii zbiranje podatkov o tem, kako uporabljate aplikacijo, da bo ta postala še boljša.</string>
   <string name="preference_title_auto_upload_crash_reports">Pošiljaj poročila o sesutjih</string>
-  <string name="preference_summary_auto_upload_crash_reports">Omogoči aplikaciji samodejno pošiljanje poročil o sesutjih tretjemu ponudniku storitve, da bomo lahko pregledali dogodke ter hitreje in lažje odpravili hrošče.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Omogočite aplikaciji samodejno pošiljanje poročil o sesutjih tretjemu ponudniku storitve, da bomo lahko pregledali dogodke ter hitreje in lažje odpravili hrošče.</string>
   <string name="editing_error_spamblacklist">Zaznane so bile povezave na blokirane domene (%s). Prosimo, odstranite jih in poskusite znova.</string>
   <string name="history_filter_list_hint">Filtriraj zgodovino</string>
   <string name="error_can_not_process_link">Te povezave ni mogoče prikazati</string>
@@ -191,7 +191,7 @@
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledite spremembe člankov, ki vas zanimajo. Tapnite prelivni meni in izberite &lt;b&gt;Dodaj na spisek nadzorov&lt;/b&gt;, da si ogledate spremembe članka.</string>
   <string name="settings_item_preferences">Nastavitve</string>
   <string name="settings_activity_title">Nastavitve</string>
-  <string name="about_description">O Aplikaciji Wikipedija</string>
+  <string name="about_description">O aplikaciji Wikipedija</string>
   <string name="privacy_policy_description">Pravilnik o zasebnosti</string>
   <string name="terms_of_use_description">Pogoji uporabe</string>
   <string name="about_wikipedia_url">https://sl.wikipedia.org/wiki/Wikipedija:O_Wikipediji</string>
@@ -267,7 +267,7 @@
   <string name="alpha_update_notification_text">Tapni za prenos</string>
   <string name="dialog_close_description">Zapri</string>
   <string name="preference_title_show_images">Prikazuj slike</string>
-  <string name="preference_summary_show_images">Omogoči ali onemogoči nalaganje slik na straneh. Če je vaša internetna povezava počasna ali imate omejen prenos podatkov, to možnost odkljukajte.</string>
+  <string name="preference_summary_show_images">Omogočite ali onemogočite nalaganje slik na straneh. Če je vaša internetna povezava počasna ali imate omejen prenos podatkov, to možnost odkljukajte.</string>
   <string name="preference_title_download_only_over_wifi">Prenašaj samo prek Wi-Fi-ja</string>
   <string name="dialog_title_download_only_over_wifi">Potrdim prenos z mobilnimi podatki?</string>
   <string name="dialog_text_download_only_over_wifi">V nastavitvah ste vklopili možnost »Prenašaj samo prek Wi-Fi-ja«. Ali želite omogočiti mobilni prenos podatkov samo za ta prenos?</string>
@@ -351,7 +351,7 @@
   <string name="reference_title">Sklic %s</string>
   <string name="reference_list_title">Sklici</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatemnitev slike (pri temni temi)</string>
-  <string name="preference_title_prefer_offline_content">Preferiraj neppreneseno vsebino</string>
+  <string name="preference_title_prefer_offline_content">Prednost daj nepreneseni vsebini</string>
   <string name="preference_summary_prefer_offline_content">Da prihranite pri porabi podatkov, lahko namesto stalnega nalaganja zadnje različice članka nalagate članke, ki so na voljo preneseni.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Usklajeno s sistemsko temo</string>
   <string name="page_footer_license_text">Vsebina je na voljo pod licenco $1, razen če je navedeno drugače.</string>
@@ -374,8 +374,8 @@
   <string name="color_theme_dark">Temna</string>
   <string name="color_theme_black">Črna</string>
   <string name="color_theme_sepia">Sepija</string>
-  <string name="color_theme_test_title">Primer besedila</string>
-  <string name="color_theme_test_text">Povlecite drsnik, da spremenite velikost besedila, ki se uporablja pri branju člankov. Za nastavitev velikosti besedila v vsej aplikaciji spremenite sistemsko velikost besedila.</string>
+  <string name="color_theme_test_title">Vzorčno besedilo</string>
+  <string name="color_theme_test_text">Povlecite drsnik, da spremenite velikost besedila pri branju člankov. Za nastavitev velikosti besedila v vsej aplikaciji spremenite sistemsko velikost besedila.</string>
   <string name="preference_title_app_theme">Tema aplikacije</string>
   <string name="preference_summary_color_theme">Preklopi na uporabo temne teme</string>
   <string name="text_size_increase">Povečaj velikost besedila</string>
@@ -404,7 +404,7 @@
     <item quantity="one">Brez povezave je na voljo %1$d od 1 članka, %3$.2f MB</item>
     <item quantity="two">Brez povezave je na voljo %1$d od 2 člankov, %3$.2f MB</item>
     <item quantity="few">Brez povezave je na voljo %1$d od %2$d člankov, %3$.2f MB</item>
-    <item quantity="other">Brez povezave je na voljo %1$d of %2$d člankov, %3$.2f MB</item>
+    <item quantity="other">Brez povezave je na voljo %1$d od %2$d člankov, %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 članek, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d čl., %2$.2f MB</string>
@@ -428,8 +428,8 @@
   <string name="reading_list_action_menu_move_to_another_list">Prestavi na drug seznam</string>
   <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Naslov seznama</string>
-  <string name="reading_list_description_hint">Opis (izbirno)</string>
-  <string name="reading_list_item_deleted">Članek %s je bil odstranjen s seznama</string>
+  <string name="reading_list_description_hint">Opis (neobvezno)</string>
+  <string name="reading_list_item_deleted">Članek %s je odstranjen s seznama</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d članek odstranjen s seznama</item>
     <item quantity="two">%d članka odstranjena s seznama</item>
@@ -439,7 +439,7 @@
   <string name="reading_list_items_deleted">%d člankov odstranjenih s seznama</string>
   <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
-  <string name="reading_list_deleted">Seznam %s je bil izbrisan</string>
+  <string name="reading_list_deleted">Seznam %s izbrisan</string>
   <string name="saved_list_empty_title">Nimate še prenesenih strani</string>
   <string name="reading_lists_empty_message">Dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave.</string>
   <string name="reading_lists_onboarding_intro">dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave!</string>
@@ -512,7 +512,7 @@
     <item quantity="few">Članki ne bodo več na voljo brez povezave.</item>
     <item quantity="other">Članki ne bodo več na voljo brez povezave.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Bralni seznami sinhronizirani</string>
+  <string name="reading_list_toast_last_sync">Bralni seznami sinhronizirani.</string>
   <string name="reading_list_menu_last_sync">Zadnja sinhronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">V redu</string>
   <string name="reading_list_delete_dialog_ok_button_text">V redu</string>
@@ -639,14 +639,14 @@
   <string name="view_offline_card_text">Vsebine ni mogoče naložiti brez povezave.</string>
   <string name="view_featured_article_card_title">Izbrani članki</string>
   <string name="view_static_card_save_button_label">Shrani</string>
-  <string name="feed_configure_activity_title">Prilagajanje vira</string>
+  <string name="feed_configure_activity_title">Prilagodi vir</string>
   <string name="feed_configure_menu_reset">Ponastavi na privzeto</string>
   <string name="feed_configure_menu_select_all">Prikaži vse</string>
   <string name="feed_configure_menu_deselect_all">Skrij vse</string>
   <string name="feed_configure_language_warning">Vse vrste kartic niso podprte v vseh jezikih Wikipedije. Izbrane jezike lahko urejate v nastavitvah.</string>
   <string name="feed_item_type_news">Članki o tekočih dogodkih</string>
   <string name="feed_item_type_on_this_day">Zgodovinski dogodki na današnji dan</string>
-  <string name="feed_item_type_because_you_read">Predlogi glede na pred kratkim prebran članek iz vaše zgodovine</string>
+  <string name="feed_item_type_because_you_read">Predlogi glede na pred kratkim prebrani članek iz vaše zgodovine</string>
   <string name="feed_item_type_featured_article">Izbrani članek dneva v Wikipediji</string>
   <string name="feed_item_type_trending">Danes najbolj obiskani članki</string>
   <string name="feed_item_type_featured_image">Izbrana slika dneva iz Wikimedijine zbirke</string>
@@ -722,7 +722,7 @@
   <string name="suggested_edits_my_contributions">Moji prispevki</string>
   <string name="suggested_edits_no_description">Ta datoteka nima opisa</string>
   <string name="suggested_edits_license_notice">S shranitvijo opisa se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljam pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">S pripisom napisa k sliki se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in nepreklicno objavljam svoj prispevek pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Ob objavi napisa k sliki se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in nepreklicno objavljam svoj prispevek pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_task_add_description_title">Dodajanje opisov k člankom</string>
   <string name="suggested_edits_task_add_description_description">Prispevajte k člankom brez opisa</string>
@@ -749,7 +749,7 @@
     <item quantity="other">%d prispevkov</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Predlagana urejanja</string>
-  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodajte opis članka</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začni</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Napis k sliki (%s)</string>
@@ -763,13 +763,13 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Več o tem</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stran datoteke v Wikimedijini zbirki</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stran datoteke v Wikipediji</string>
-  <string name="suggested_edits_article_cta_image_tags">Dodaj oznake k sliki</string>
+  <string name="suggested_edits_article_cta_image_tags">Dodajte sliki oznake</string>
   <string name="suggested_edits_article_cta_image_caption">Dodaj napis k sliki</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj napis k sliki (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodaj napis k sliki</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Dodajte napis k sliki</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj napis k sliki (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">Dodaj oznake k sliki</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Dodajte sliki oznake</string>
   <string name="suggested_edits_snackbar_survey_text">Kako je potekalo urejanje? Prosimo, vzemite si trenutek in odgovorite na anketo o urejanju z aplikacijo.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Opravi anketo</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
@@ -815,10 +815,10 @@
   <string name="suggested_edits_quality_bad_text">Slaba</string>
   <string name="suggested_edits_label">Predlagana urejanja</string>
   <plurals name="suggested_edits_contribution">
-    <item quantity="one">Prispevek</item>
-    <item quantity="two">Prispevka</item>
-    <item quantity="few">Prispevki</item>
-    <item quantity="other">Prispevki</item>
+    <item quantity="one">prispevek</item>
+    <item quantity="two">prispevki</item>
+    <item quantity="few">prispevki</item>
+    <item quantity="other">prispevki</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dan</item>
@@ -893,7 +893,7 @@
   </plurals>
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
-  <string name="file_page_add_image_tags_button">Dodajte oznake sliki</string>
+  <string name="file_page_add_image_tags_button">Dodajte sliki oznake</string>
   <string name="description_edit_revert_subtitle">Hvala za urejanje Wikipedije!</string>
   <string name="description_edit_revert_intro">Vemo, da ste se potrudili po najboljših močeh, vendar je eden od pregledovalcev imel pomisleke. Možni razlogi za vrnitev vašega urejanja so:</string>
   <string name="description_edit_revert_reason1">vaš prispevek ni bil v skladu z eno od &lt;a href=\"%1$s\"&gt;smernic&lt;/a&gt;.</string>
