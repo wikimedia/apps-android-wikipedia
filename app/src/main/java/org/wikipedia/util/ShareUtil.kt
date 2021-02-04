@@ -57,15 +57,15 @@ object ShareUtil {
     @JvmStatic
     @SuppressLint("CheckResult")
     fun shareImage(context: Context, bmp: Bitmap,
-                   imageFileName: String, subject: String?,
-                   text: String?) {
+                   imageFileName: String, subject: String, text: String) {
         Observable.fromCallable {
             getUriFromFile(context,
                     processBitmapForSharing(context, bmp, imageFileName))
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ uri: Uri? ->
+                .subscribe({
+                    uri: Uri? ->
                     if (uri == null) {
                         displayShareErrorMessage(context)
                         return@subscribe
@@ -80,8 +80,8 @@ object ShareUtil {
         return context.getString(R.string.feed_featured_image_share_subject) + " | " + getFeedCardDateString(age)
     }
 
-    private fun buildImageShareChooserIntent(context: Context, subject: String?,
-                                             text: String?, uri: Uri): Intent {
+    private fun buildImageShareChooserIntent(context: Context, subject: String,
+                                             text: String, uri: Uri): Intent {
         val shareIntent = createImageShareIntent(subject, text, uri)
         return Intent.createChooser(shareIntent,
                 context.resources.getString(R.string.image_share_via))
@@ -104,7 +104,7 @@ object ShareUtil {
         return FileUtil.writeToFile(bytes, File(shareFolder, cleanFileName(imageFileName)))
     }
 
-    private fun createImageShareIntent(subject: String?, text: String?, uri: Uri): Intent {
+    private fun createImageShareIntent(subject: String, text: String, uri: Uri): Intent {
         return Intent(Intent.ACTION_SEND)
                 .putExtra(Intent.EXTRA_SUBJECT, subject)
                 .putExtra(Intent.EXTRA_TEXT, text)
@@ -166,15 +166,15 @@ object ShareUtil {
             // This implies that the Wikipedia app itself has been chosen as the default handler
             // for our links, so we need to explicitly build a chooser that contains other activities.
             intents = queryIntents(context, targetIntent, true)
-            if (!intents.isEmpty()) {
+            if (intents.isNotEmpty()) {
                 chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toTypedArray<Parcelable?>())
             }
         }
         return chooser
     }
 
-    private fun queryIntents(context: Context, targetIntent: Intent, replaceUri: Boolean): List<Intent?> {
-        val intents: MutableList<Intent?> = ArrayList()
+    private fun queryIntents(context: Context, targetIntent: Intent, replaceUri: Boolean): List<Intent> {
+        val intents: MutableList<Intent> = ArrayList()
         var queryIntent = targetIntent
         if (replaceUri) {
             queryIntent = Intent(targetIntent)
