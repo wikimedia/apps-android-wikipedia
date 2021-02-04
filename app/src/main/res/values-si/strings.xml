@@ -34,8 +34,8 @@
   <string name="menu_text_select_edit_here">මෙහි සංස්කරණය කරන්න</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
   <string name="talk_page_link_text" fuzzy="true">සාකච්ඡාව</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ. ඔබේ උපාංගයේ IP ලිපිනයට සංස්කරණ ආරෝපණය කෙරෙනු ඇත. ඔබ &lt;a href=\"https://#login\"&gt;පිවිසියේ&lt;/a&gt; නම්, ඔබේ පෞද්ගලිකත්වයට වැඩි ඉඩක් හිමිවනු ඇත.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">සුරැකීම මගින්, &lt;a href=\"%1$s\"&gt;භාවිතයේ කොන්දේසි&lt;/a&gt; වලට ඔබ එකඟ වෙයි, තවද ඔබේ දායකත්වය වෙනස් නොකළ හැකි &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; බලපත යටතේ නිදහස් කිරීමට ඔබ එකඟ වේ. ඔබේ උපාංගයේ IP ලිපිනයට සංස්කරණ ආරෝපණය කෙරෙනු ඇත. ඔබ &lt;a href=\"https://#login\"&gt;පිවිසියේ&lt;/a&gt; නම්, ඔබේ පෞද්ගලිකත්වයට වැඩි ඉඩක් හිමිවනු ඇත.</string>
   <string name="preference_title_language" fuzzy="true">විකිපීඩියා භාෂාව</string>
   <string name="langlinks_filter_hint">සොයන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
