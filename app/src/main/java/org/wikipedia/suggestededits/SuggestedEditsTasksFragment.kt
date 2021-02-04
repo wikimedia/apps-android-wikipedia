@@ -380,7 +380,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setupTestingButtons() {
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (!ReleaseUtil.isPreBetaRelease) {
             showIPBlockedMessage.visibility = GONE
             showOnboardingMessage.visibility = GONE
         }
