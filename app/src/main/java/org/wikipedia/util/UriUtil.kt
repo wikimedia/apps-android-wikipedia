@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
@@ -122,7 +121,7 @@ object UriUtil {
         if (uri.path.isNullOrEmpty()) {
             return ""
         }
-        val parts = StringUtils.defaultString(uri.path).split('/')
+        val parts = uri.path!!.split('/')
         return if (parts.size > 1 && parts[0] != "wiki") parts[0] else ""
     }
 
