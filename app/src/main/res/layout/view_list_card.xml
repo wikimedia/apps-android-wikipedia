@@ -41,7 +41,7 @@
         android:layout_marginBottom="6dp"
         app:layout_constraintBottom_toTopOf="@id/view_list_card_footer">
 
-        <org.wikipedia.views.NavMenuAwareRecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/view_list_card_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

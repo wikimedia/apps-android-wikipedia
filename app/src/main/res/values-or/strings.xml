@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* DareDevil
+* Hellohappy
+* Jnanaranjan Sahu
+* MKar
+* MuratTheTurkish
+* Psubhashish
+* Susant purohit
+-->
 <resources>
   <string name="app_name_prod">ଉଇକିପିଡ଼ିଆ</string>
   <string name="app_name_beta">ଉଇକିପିଡ଼ିଆ ବିଟା</string>
   <string name="app_name_alpha">ଉଇକିପିଡ଼ିଆ ଆଲ୍ଫା</string>
   <string name="wikimedia">ଉଇକିମିଡ଼ିଆ</string>
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
-  <string name="nav_item_history">ଇତିହାସ</string>
   <string name="error_network_error">ନେଟୱର୍କ ସହ ସଂଯୋଗ ହୋଇ ପାରିବ ନାହିଁ।</string>
   <string name="page_error_retry">ପୁଣି ଚେଷ୍ଟାକରନ୍ତୁ</string>
   <string name="page_error_back_to_main">ପଛକୁ ଫେରିବେ</string>
@@ -16,8 +24,8 @@
   <string name="search_redirect_from">%s ରୁ ଲେଉଟିଆସିଛି</string>
   <string name="menu_page_show_tabs">ଟ୍ୟାବସବୁ ଦେଖାନ୍ତୁ</string>
   <string name="menu_page_other_languages">ଭାଷା ବଦଳାଇବେ</string>
-  <string name="menu_page_find_in_page">ପୃଷ୍ଠାରେ ଖୋଜିବେ</string>
-    <string name="menu_page_font_and_theme">ଫଣ୍ଟ ଓ ଥିମ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">ପୃଷ୍ଠାରେ ଖୋଜିବେ</string>
+  <string name="menu_page_font_and_theme">ଫଣ୍ଟ ଓ ଥିମ</string>
   <string name="menu_page_add_to_list">ଦେଖଣା ତାଲିକାରେ ଯୋଡ଼ନ୍ତୁ</string>
   <string name="menu_page_share">ଲିଙ୍କ ବାଣ୍ଟିବେ</string>
   <string name="menu_long_press_open_page">ଖୋଲିବେ</string>
@@ -26,19 +34,18 @@
   <string name="menu_text_select_define">ବଖାଣନ୍ତୁ</string>
   <string name="menu_text_select_edit_here">ଏଠାରେ ସମ୍ପାଦନା କରନ୍ତୁ</string>
   <string name="last_updated_text">%s ରେ ଶେଷଥର ଅପଡେଟ ହୋଇଥିଲା</string>
-  <string name="talk_page_link_text">ଆଲୋଚନା</string>
-    <string name="preference_title_language">ଉଇକିପିଡ଼ିଆ ଭାଷା</string>
-    <string name="langlinks_filter_hint">ଖୋଜନ୍ତୁ</string>
+  <string name="talk_page_link_text" fuzzy="true">ଆଲୋଚନା</string>
+  <string name="preference_title_language" fuzzy="true">ଉଇକିପିଡ଼ିଆ ଭାଷା</string>
+  <string name="langlinks_filter_hint">ଖୋଜନ୍ତୁ</string>
   <string name="langlinks_empty">ଏହି ପୃଷ୍ଠାଟି ଅନ୍ୟ ଭାଷାରେ ଉପଲବ୍ଧ ନାହିଁ</string>
-  <string name="langlinks_no_match">ଆପଣ ଖୋଜୁଥିବା ଭାଷା ମିଳିଲା ନାହିଁ ।</string>
+  <string name="langlinks_no_match" fuzzy="true">ଆପଣ ଖୋଜୁଥିବା ଭାଷା ମିଳିଲା ନାହିଁ ।</string>
   <string name="langlinks_activity_title">ଅନ୍ୟ ଭାଷା</string>
   <string name="menu_save_changes" fuzzy="true">ସାଇତିବେ</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">ସଞ୍ଚୁଛି…</string>
   <string name="edit_saved_successfully" fuzzy="true">ସମ୍ପାଦନା ସାଇତାଗଲା!</string>
   <string name="dialog_message_edit_failed">ସମ୍ପାଦନା କରିବାରେ ବିଫଳ!</string>
   <string name="dialog_message_edit_failed_retry">ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="dialog_message_edit_failed_cancel">ବାତିଲ</string>
-  <string name="dialog_message_leaving_edit">ଆପଣଙ୍କ ସମ୍ପାଦନା ଏଯାଏ ସାଇତାଯାଇନାହିଁ । ଆପଣ ଏ ପୃଷ୍ଠାଟି ଛାଡ଼ିବା ବାବଦରେ ନିଶ୍ଚିତ ତ?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">ଆପଣଙ୍କ ସମ୍ପାଦନା ଏଯାଏ ସାଇତାଯାଇନାହିଁ । ଆପଣ ଏ ପୃଷ୍ଠାଟି ଛାଡ଼ିବା ବାବଦରେ ନିଶ୍ଚିତ ତ?</string>
   <string name="dialog_message_leaving_edit_leave">ବାତିଲ</string>
   <string name="dialog_message_leaving_edit_stay">ରହିବେ</string>
   <string name="menu_show_toc">ବିଷୟବସ୍ତୁର ସାରଣୀ</string>
@@ -51,9 +58,9 @@
   <string name="login_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="menu_login">ଲଗଇନ</string>
-  <string name="login_activity_title">ଉଇକିପିଡ଼ିଆରେ ଲଗଇନ କରନ୍ତୁ</string>
+  <string name="login_activity_title" fuzzy="true">ଉଇକିପିଡ଼ିଆରେ ଲଗଇନ କରନ୍ତୁ</string>
   <string name="login_in_progress_dialog_message">ଆପଣଙ୍କୁ ଲଗ ଇନ କରାଉଛି</string>
-  <string name="login_success_toast">ଲଗ ଇନ ହୋଇଗଲା!</string>
+  <string name="login_success_toast" fuzzy="true">ଲଗ ଇନ ହୋଇଗଲା!</string>
   <string name="preference_title_logout">ଲଗ ଆଉଟ</string>
   <string name="toast_logout_complete">ଲଗ ଆଉଟ ହୋଇଗଲା</string>
   <string name="history_empty_title" fuzzy="true">କୌଣସି ନଗଦ ପୃଷ୍ଠା ନାହିଁ!</string>
@@ -71,7 +78,6 @@
   <string name="create_account_button">ଆକାଉଣ୍ଟଟିଏ ଖୋଲନ୍ତୁ</string>
   <string name="preferences_general_heading">ସାଧାରଣ</string>
   <string name="wikipedia_app_faq">ଉଇକିପିଡ଼ିଆ ଆପ ବାବଦରେ ଜାଣିବାକଥା</string>
-    <string name="edit_preview_fetching_dialog_message">ଦେଖଣା ଆହରଣ କରୁଛି</string>
   <string name="send_feedback">ଆପ ବାବଦରେ ମତାମତ ପଠାନ୍ତୁ</string>
   <string name="create_account_account_created_toast">ଖାତାଟି ଖୋଲିଗଲା!</string>
   <string name="preferences_privacy_settings_heading">ଗୋପନୀୟତା</string>
@@ -79,7 +85,6 @@
   <string name="preference_summary_eventlogging_opt_in">ଏହି ଆପ୍ଲିକେସନଟିକୁ ଆହୁରି ଉନ୍ନତ କରିବା ପାଇଁ ଉଇକିମିଡ଼ିଆକୁ ସହଯୋଗ କରନ୍ତୁ</string>
   <string name="preference_title_auto_upload_crash_reports">କ୍ରାସ ବିବରଣୀ ପଠାନ୍ତୁ</string>
   <string name="editing_error_spamblacklist">ଅଟକାଯାଇଥିବା ଡୋମେନସବୁ (%s) ମିଳିଲା । ଦୟାକରି ସେସବୁ କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
-  <string name="history_search_list_hint">ଇତିହାସରୁ ଖୋଜିବେ</string>
   <string name="error_can_not_process_link">ଲିଙ୍କ ଦେଖାଇ ହେଲାନାହିଁ</string>
   <string name="page_protected_autoconfirmed">ଏହି ପୃଷ୍ଠାଟି କିଛିକାଂଶରେ କିଳାଯାଇଛି ।</string>
   <string name="page_protected_sysop">ଏହି ପୃଷ୍ଠାଟି ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ କିଳାଯାଇଛି ।</string>
@@ -91,6 +96,8 @@
   <string name="about_description">ଉଇକିପିଡ଼ିଆ ଆପ ବାବଦରେ</string>
   <string name="privacy_policy_description">ଗୁମର ନୀତି</string>
   <string name="terms_of_use_description">ବ୍ୟବହାର ନିୟମାବଳୀ</string>
+  <string name="about_wikipedia_url">https://or.wikipedia.org/wiki/ଉଇକିପିଡ଼ିଆ:ଉଇକିପିଡ଼ିଆ_ବାବଦରେ</string>
+  <string name="android_app_request_an_account_url">https://or.wikipedia.org/wiki/ଉଇକିପିଡ଼ିଆ:Request_an_account</string>
   <string name="about_libraries_heading">ବ୍ୟବହୃତ ଲାଇବ୍ରେରି</string>
   <string name="about_contributors_heading">ଅବଦାନକାରୀଗଣ</string>
   <string name="about_translators_heading">ଅନୁବାଦକଗଣ</string>
@@ -115,7 +122,6 @@
   <string name="find_previous">ପୂର୍ବଟି ଖୋଜନ୍ତୁ</string>
   <string name="abusefilter_title_warn" fuzzy="true">ଏହା ହୁଏତ ଏକ ଅଦରକାରୀ ସମ୍ପାଦନା ହୋଇଥାଇପାରେ । ଏହାକୁ ସାଇତିବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">ଆପଣ ଏହା ସାଇତିପାରିବେ ନାହିଁ । ଦୟାକରି ପଛକୁ ଫେରି ସମ୍ପାଦନା କରନ୍ତୁ ।</string>
-    <string name="text_size_select">ଫଣ୍ଟ ଆକାର</string>
   <string name="page_similar_titles">ସମାନ ଧରଣର ପୃଷ୍ଠା</string>
   <string name="search_did_you_mean">ଆପଣ \"%s\" ଖୋଜୁଥିଲେ କି?</string>
   <string name="color_theme_select">ଥିମ</string>
@@ -124,7 +130,6 @@
   <string name="reading_list_action_menu_remove_from_offline">ଅଫଲାଇନ ତାଲିକାରୁ ବାହାର କରିବେ</string>
   <string name="reading_list_action_menu_save_for_offline">ଅଫଲାଇନ ସାଇତିବେ</string>
   <string name="reading_list_action_menu_add_to_another_list">ଅନ୍ୟ ଏକ ତାଲିକାରେ ଯୋଗ କରିବେ</string>
-  <string name="view_random_card_subtitle" fuzzy="true">ଉଇକିପିଡିଆରୁ ଯେକୌଣସି ଏକ ଲେଖା ପଢନ୍ତୁ</string>
   <string name="view_main_page_card_title">ଆଜି ଦିନରେ ଉଇକିପିଡିଆର ଅବସ୍ଥା</string>
   <string name="view_featured_image_card_title">ଦିନର ବଛା ଛବି</string>
   <string name="view_featured_image_card_download">ଡାଉନଲୋଡ଼</string>
@@ -132,7 +137,7 @@
   <string name="menu_feed_card_dismissed">ଆପଣଙ୍କ କାର୍ଡ ଲୁଚାଗଲା</string>
   <string name="feed_featured_image_share_subject">ଉଇକିମିଡିଆ କମନ୍ସ ରୁ ବଛା ଛବି</string>
   <string name="feed">ଅଧିକ ଦେଖନ୍ତୁ</string>
-  <string name="most_read_list_card_title">ଅଧିକ ବ୍ୟବହୃତ</string>
   <string name="view_static_card_icon_content_description">କାର୍ଡ ଆଇକନ</string>
   <string name="view_card_news_title">ଖବରରେ</string>
+  <string name="suggested_edits_feed_card_add_image_caption">ଛବିରେ ଶୀର୍ଷକ ଯୋଡନ୍ତୁ</string>
 </resources>
