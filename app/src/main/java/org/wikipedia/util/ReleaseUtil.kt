@@ -14,17 +14,20 @@ object ReleaseUtil {
     @JvmStatic
     val isProdRelease: Boolean
         get() = calculateReleaseType() == RELEASE_PROD
+
     @JvmStatic
     val isPreProdRelease: Boolean
         get() = calculateReleaseType() != RELEASE_PROD
     val isAlphaRelease: Boolean
         get() = calculateReleaseType() == RELEASE_ALPHA
+
     @JvmStatic
     val isPreBetaRelease: Boolean
         get() = when (calculateReleaseType()) {
             RELEASE_PROD, RELEASE_BETA -> false
             else -> true
         }
+
     @JvmStatic
     val isDevRelease: Boolean
         get() = calculateReleaseType() == RELEASE_DEV
@@ -40,16 +43,11 @@ object ReleaseUtil {
     }
 
     private fun calculateReleaseType(): Int {
-        if (BuildConfig.APPLICATION_ID.contains("beta")) {
-            return RELEASE_BETA
-        }
-        if (BuildConfig.APPLICATION_ID.contains("alpha")) {
-            return RELEASE_ALPHA
-        }
-        return if (BuildConfig.APPLICATION_ID.contains("dev")) {
-            RELEASE_DEV
-        } else {
-            RELEASE_PROD
+        return when {
+            BuildConfig.APPLICATION_ID.contains("beta") -> RELEASE_BETA
+            BuildConfig.APPLICATION_ID.contains("alpha") -> RELEASE_ALPHA
+            BuildConfig.APPLICATION_ID.contains("dev") -> RELEASE_DEV
+            else -> RELEASE_PROD
         }
     }
 
