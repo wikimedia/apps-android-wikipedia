@@ -45,10 +45,10 @@ object StringUtil {
         val len = str.length
         var start = 0
         var end = len - 1
-        while (start < len && Character.isWhitespace(str[start])) {
+        while (start < len && str[start].isWhitespace()) {
             start++
         }
-        while (end > 0 && Character.isWhitespace(str[end])) {
+        while (end > 0 && str[end].isWhitespace()) {
             end--
         }
         return if (end > start) {
@@ -183,17 +183,17 @@ object StringUtil {
     }
 
     @JvmStatic
-    fun listToJsonArrayString(list: List<String?>): String {
+    fun listToJsonArrayString(list: List<String>): String {
         return JSONArray(list).toString()
     }
 
     @JvmStatic
-    fun stringToListMapToJSONString(map: Map<String?, List<Int?>?>?): String {
+    fun stringToListMapToJSONString(map: Map<String, List<Int>>): String {
         return Gson().toJson(map)
     }
 
     @JvmStatic
-    fun listToJSONString(list: List<Int?>?): String {
+    fun listToJSONString(list: List<Int>): String {
         return Gson().toJson(list)
     }
 }

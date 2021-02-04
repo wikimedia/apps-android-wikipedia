@@ -19,7 +19,6 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil.getFeedCardDateString
-import org.wikipedia.util.StringUtil.fromHtml
 import org.wikipedia.util.log.L.e
 import java.io.File
 import java.util.*
@@ -44,12 +43,12 @@ object ShareUtil {
 
     @JvmStatic
     fun shareText(context: Context, title: PageTitle) {
-        shareText(context, fromHtml(title.displayText).toString(),
+        shareText(context, StringUtil.fromHtml(title.displayText).toString(),
                 UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link))
     }
 
     fun shareText(context: Context, title: PageTitle, newId: Long, oldId: Long) {
-        shareText(context, fromHtml(title.displayText).toString(),
+        shareText(context, StringUtil.fromHtml(title.displayText).toString(),
                 title.getWebApiUrl("diff=" + newId + "&oldid=" +
                         oldId + "&variant=" + title.wikiSite.languageCode()))
     }
@@ -64,8 +63,7 @@ object ShareUtil {
         }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    uri: Uri? ->
+                .subscribe({ uri: Uri? ->
                     if (uri == null) {
                         displayShareErrorMessage(context)
                         return@subscribe
