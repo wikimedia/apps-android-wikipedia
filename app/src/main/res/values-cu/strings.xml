@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<!-- Authors:
+* Илья Драконов
+* ОйЛ
+-->
+<resources>
   <string name="app_name_prod">Википєдїꙗ</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Википєдїꙗ · вита</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Википєдїꙗ · алфа</string>
+  <string name="app_name_beta">Википєдїꙗ · вита</string>
+  <string name="app_name_alpha">Википєдїꙗ · алфа</string>
   <string name="search_hint">Википєдїи исканиѥ</string>
-  <string name="nav_item_history">їсторїꙗ</string>
   <string name="error_network_error" fuzzy="true">сѣтьна достѫпа нѣстъ</string>
   <string name="page_error_retry">опакꙑ искоуси сѧ</string>
   <string name="menu_clear_all_history">їсторїѩ обитиѥ</string>
-  <string name="dialog_title_clear_history">исканиꙗ їсторїѩ обити ли ;</string>
-    <string name="share_via">раꙁдѣлити прѣꙁь</string>
+  <string name="dialog_title_clear_history">исканиꙗ їсторїѩ обитиѥ</string>
+  <string name="share_via">раꙁдѣлити прѣꙁь</string>
   <string name="menu_page_font_and_theme">боукъвиѥ и ѳєма</string>
   <string name="menu_long_press_open_page">отъврьстиѥ</string>
-  <string name="preference_title_language">Википєдїѩ ѩꙁꙑкъ</string>
-    <string name="langlinks_filter_hint">исканиѥ</string>
-  <string name="langlinks_empty">си страницѧ дроугꙑ ѩꙁꙑкꙑ нѣстъ</string>
+  <string name="preference_title_language" fuzzy="true">Википєдїѩ ѩꙁꙑкъ</string>
+  <string name="langlinks_filter_hint">исканиѥ</string>
+  <string name="langlinks_empty">сѥѩ страницѧ дроугꙑ ѩꙁꙑкꙑ нѣстъ</string>
   <string name="langlinks_activity_title">дроуꙃи ѩꙁꙑци</string>
-  <string name="menu_save_changes">мѣнъ съхранѥниѥ</string>
-  <string name="dialog_saving_in_progress">съхранѥниѥ···</string>
-  <string name="edit_saved_successfully">мѣна съхранѥна ѥстъ</string>
+  <string name="menu_save_changes" fuzzy="true">мѣнъ съхранѥниѥ</string>
+  <string name="edit_saved_successfully" fuzzy="true">мѣна съхранѥна ѥстъ</string>
   <string name="dialog_message_edit_failed">мѣна нє съхранѥна ѥстъ</string>
   <string name="dialog_message_edit_failed_retry">опакꙑ искоуси сѧ</string>
-  <string name="dialog_message_edit_failed_cancel">Отмѣна</string>
-  <string name="dialog_message_leaving_edit">твоꙗ мѣна ю нє съхранѥна ѥстъ ⁙ исто жє отъ си страницѧ исъходъ сътворити хощєши ли ;</string>
-  <string name="dialog_message_leaving_edit_leave">Уйти</string>
+  <string name="dialog_message_edit_failed_cancel">отъмѣтаниѥ</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">твоꙗ мѣна ю нє съхранѥна ѥстъ ⁙ исто жє отъ сѥѩ страницѧ исъходъ сътворити хощєши ли ;</string>
+  <string name="dialog_message_leaving_edit_leave">исхождєниѥ</string>
   <string name="dialog_message_leaving_edit_stay">остави сѧ</string>
   <string name="search_no_results_found">исканиѥ ничєсо жє нє авило ѥстъ</string>
-  <string name="title_captcha">Ввѣдитѣ капчу</string>
-  <string name="edit_section_captcha_reload">Нажмите на капчу, дабы пѣрѣзапустить</string>
-  <string name="nav_item_login">въниди</string>
+  <string name="title_captcha">CAPTCHA напиши</string>
+  <string name="edit_section_captcha_reload">жьми CAPTCHA оновлѥниꙗ дѣлꙗ</string>
+  <string name="nav_item_login" fuzzy="true">въниди</string>
   <string name="login_username_hint">польꙃєватєлꙗ имѧ</string>
   <string name="login_password_hint">таино слово</string>
   <string name="menu_login">въниди</string>
-  <string name="login_activity_title">въниди въ Википєдїѭ</string>
+  <string name="login_activity_title" fuzzy="true">въниди въ Википєдїѭ</string>
   <string name="login_in_progress_dialog_message">въходъ···</string>
-  <string name="login_success_toast">тꙑ въшьлъ ѥси</string>
+  <string name="login_success_toast" fuzzy="true">тꙑ въшьлъ ѥси</string>
   <string name="preference_title_logout">ис̾ходъ</string>
   <string name="toast_logout_complete">ис̾ходъ сътворѥнъ ѥстъ</string>
   <string name="create_account_username_hint">польꙃєватєлꙗ имѧ</string>
@@ -44,7 +46,11 @@
   <string name="create_account_password_repeat_hint">таино слово опакꙑ напьши</string>
   <string name="create_account_passwords_mismatch_error">таинꙑ слова ѥдина вида нє имѫтъ</string>
   <string name="create_account_button">съꙁижди си мѣсто</string>
-  <string name="about_translators_heading">тльци</string>
-  <string name="edit_done">съхранѥниѥ</string>
+  <string name="create_account_account_created_toast">мѣсто сътворєно ѥстъ</string>
+  <string name="preferences_privacy_settings_heading">личьнꙑ вѣсти</string>
+  <string name="settings_item_preferences">строи</string>
+  <string name="settings_activity_title">строи</string>
+  <string name="about_translators_heading" fuzzy="true">тльци</string>
+  <string name="edit_done" fuzzy="true">съхранѥниѥ</string>
   <string name="color_theme_select">ѳєма</string>
 </resources>
