@@ -17,7 +17,7 @@ class RecurringTasksExecutor(private val app: WikipediaApp) {
             for (task in allTasks) {
                 task.runIfNecessary()
             }
-            if (ReleaseUtil.isAlphaRelease()) {
+            if (ReleaseUtil.isAlphaRelease) {
                 AlphaUpdateChecker(app).runIfNecessary()
             }
         }.subscribeOn(Schedulers.io()).subscribe()
