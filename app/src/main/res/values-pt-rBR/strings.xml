@@ -1009,4 +1009,7 @@
   <string name="watchlist_filter_talk">Discussão</string>
   <string name="watchlist_filter_pages">Páginas</string>
   <string name="watchlist_filter_other">Outro</string>
+  <string name="watchlist_page_moved">Movido</string>
+  <string name="watchlist_page_protected">Protegido</string>
+  <string name="watchlist_page_deleted">Excluído</string>
 </resources>

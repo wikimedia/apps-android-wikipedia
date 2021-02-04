@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Edwingudfriend
+* Kwisha
+* MuratTheTurkish
+* Obsuser
+* Rance
+* Yasen igra
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia ya Beta</string>
   <string name="app_name_alpha">Wikipedia ya Alpha</string>
+  <string name="nav_item_back">Nyuma</string>
+  <string name="page_tabs_back">Rudi</string>
+  <string name="nav_item_forward">Mbele</string>
   <string name="search_hint">Tafuta Wikipedia</string>
-  <string name="nav_item_history">Historia</string>
   <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>
   <string name="page_error_retry">Jaribu tena</string>
   <string name="menu_clear_all_history">Futa historia</string>
+  <string name="history_list_title">Historia</string>
   <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
-    <string name="share_via">Shiriki kupitia</string>
+  <string name="dialog_message_clear_history_yes">Ndiyo</string>
+  <string name="dialog_message_clear_history_no">Siyo</string>
+  <string name="share_via">Shiriki kupitia</string>
   <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
-  <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Tafuta katika ukurasa</string>
   <string name="menu_page_share" fuzzy="true">Gawa</string>
   <string name="last_updated_text">Ilisasishwa mwisho %s</string>
-    <string name="preference_title_language">Lugha ya Wikipedia</string>
-    <string name="langlinks_filter_hint">Tafuta</string>
+  <string name="preference_title_language" fuzzy="true">Lugha ya Wikipedia</string>
+  <string name="langlinks_filter_hint">Tafuta</string>
   <string name="langlinks_empty">Ukurasa huu haupatikani katika lugha zingine.</string>
   <string name="langlinks_activity_title">Lugha zingine</string>
-  <string name="menu_save_changes">Hifadhi mabadiliko</string>
-  <string name="dialog_saving_in_progress">Inahifadhi…</string>
-  <string name="edit_saved_successfully">Hariri imehifadhiwa!</string>
+  <string name="menu_save_changes" fuzzy="true">Hifadhi mabadiliko</string>
+  <string name="edit_saved_successfully" fuzzy="true">Hariri imehifadhiwa!</string>
   <string name="dialog_message_edit_failed_retry">Jaribu tena</string>
   <string name="dialog_message_edit_failed_cancel">Ghairi</string>
   <string name="dialog_message_leaving_edit_leave">Toka</string>
@@ -37,7 +49,8 @@
   <string name="login_in_progress_dialog_message">Inakuingiza…</string>
   <string name="login_success_toast" fuzzy="true">Umefaulu kuingia</string>
   <string name="preference_title_logout">Toka</string>
-  <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+  <string name="logout_dialog_cancel_button_text">Ghairi</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Jina la mtumiaji</string>
   <string name="create_account_activity_title">Unda akaunti</string>
   <string name="dialog_create_account_checking_progress">Inadhibitisha</string>
@@ -49,27 +62,30 @@
   <string name="create_account_next">Inayofuata</string>
   <string name="create_account_button">Unda akaunti</string>
   <string name="preferences_general_heading">Kijumla</string>
-    <string name="edit_preview_fetching_dialog_message">Inapakia mtazamo…</string>
   <string name="send_feedback">Toa maoni ya programu timizi</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
   <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
-  <string name="history_search_list_hint" fuzzy="true">Tafuta</string>
   <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>
   <string name="page_protected_autoconfirmed">Ukurasa huu umezuiwa kiasi</string>
   <string name="page_protected_sysop">Ukurasa huu umezuiwa kabisa.</string>
   <string name="page_protected_can_not_edit_title">Ukurasa huu umezuiwa</string>
+  <string name="settings_item_preferences">Mipangilio</string>
+  <string name="settings_activity_title">Mipangilio</string>
   <string name="about_description">Kuhusu programu tumizi ya Wikimedia</string>
   <string name="privacy_policy_description">Sera ya faragha</string>
   <string name="terms_of_use_description">Masharti ya matumizi</string>
-  <string name="about_libraries_heading" fuzzy="true">maktaba yanayotumiwa</string>
-  <string name="about_contributors_heading" fuzzy="true">wachangiaji</string>
-  <string name="about_translators_heading" fuzzy="true">wafasiri</string>
+  <string name="about_wikipedia_url">https://sw.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_libraries_heading">Maktaba yanayotumiwa</string>
+  <string name="about_contributors_heading">Wachangiaji</string>
+  <string name="about_translators_heading">Wafasiri</string>
   <string name="about_translators_translatewiki">Programu tumizi hii imetafsiriwa na wahnga katika &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Bidhaa ya &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wakfu wa Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Bidhaa ya &lt;a href=\"https://wikimediafoundation.org/\"&gt;Uanzilishi wa Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Kuhusu</string>
+  <string name="edit_abandon_confirm_yes">Ndiyo</string>
+  <string name="edit_abandon_confirm_no">Hapana</string>
   <string name="user_blocked_from_editing_title">Imezuia</string>
   <string name="edit_next">Inayofuata</string>
-  <string name="edit_done">Hifadhi</string>
+  <string name="edit_done" fuzzy="true">Hifadhi</string>
   <string name="edit_preview">Onyesha hakikisho</string>
   <string name="edit_summary_tag_grammar">Nimerekebisha sarufi</string>
   <string name="edit_summary_tag_links">Nimeongeza viungo</string>
@@ -79,6 +95,9 @@
   <string name="find_previous">Tafuta iliyotangulia</string>
   <string name="page_similar_titles">Kurasa zifananazo</string>
   <string name="search_did_you_mean">Je ulimaanisha \"%s\"?</string>
+  <string name="search_results_count_zero">Hakuna matokeo</string>
+  <string name="clear_recent_searches_confirm_yes">Ndiyo</string>
+  <string name="clear_recent_searches_confirm_no">Hapana</string>
   <string name="table_other">Maelezo zaidi</string>
   <string name="table_close">Funga</string>
   <string name="dialog_close_description">Funga</string>
@@ -88,4 +107,72 @@
   <string name="gallery_share_error">Haingeshiriki picha: %s</string>
   <string name="err_cannot_save_file">Haiwezi kuhifadhi faili</string>
   <string name="cc_logo">Leseni ya Creative Commons</string>
+  <string name="close_all_tabs_confirm_yes">Ndiyo</string>
+  <string name="close_all_tabs_confirm_no">Hapana</string>
+  <string name="button_continue_to_article">Soma makala</string>
+  <string name="error_page_does_not_exist">Ukarasa haupo.</string>
+  <string name="crash_report_quit">Ondoka</string>
+  <string name="article_header_edit_hint">Hariri...</string>
+  <string name="color_theme_select">Modi</string>
+  <string name="color_theme_light">Hafifu</string>
+  <string name="color_theme_dark">Kolevu</string>
+  <string name="color_theme_black">Nyeusi</string>
+  <string name="nav_item_reading_lists">Orodha yangu</string>
+  <string name="reading_list_added_view_button">Tazama orodha</string>
+  <string name="reading_list_item_delete_undo">Tengua</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Ndiyo</string>
+  <string name="reading_lists_confirm_remote_delete_no">Hapana</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ghairisha</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Ingia</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Sawa</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Mipangilio</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">Sawa</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Sawa</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Batilisha</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Batilisha</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Batilisha</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Batilisha</string>
+  <string name="reading_list_split_dialog_ok_button_text">Sawa</string>
+  <string name="user_option_sync_label">Mapendekezo</string>
+  <string name="notification_syncing_cancel_button">Ghairi</string>
+  <string name="preference_title_notification_thanks">Asante</string>
+  <string name="view_featured_image_card_title">Picha ya siku</string>
+  <string name="view_featured_image_card_download">Pakua</string>
+  <string name="view_continue_reading_card_subtitle_today">leo</string>
+  <string name="view_static_card_save_button_label">Hifadhi</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">Sawa</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Ghairi</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Sawa</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Ghairi</string>
+  <string name="description_edit_cancel_hint">Ghairi</string>
+  <string name="suggested_edits_my_contributions">Michango yangu</string>
+  <string name="description_edit_login_cancel_button_text">Futa</string>
+  <string name="app_shortcuts_search">Tafuta</string>
+  <string name="on_this_day_card_title">Katika siku hii</string>
+  <string name="this_year">Mwaka huu</string>
+  <string name="languages_list_all_text">Lugha zote</string>
+  <string name="wikipedia_languages_title">Lugha ya Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">Lugha yenu</string>
+  <string name="more_language_options">zaidi</string>
+  <string name="remove_language_dialog_cancel_button_text">Ghairi</string>
+  <string name="remove_language_dialog_ok_button_text">Sawa</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Sawa</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Sawa</string>
+  <string name="edit_conflict_dialog_ok_button_text">Sawa</string>
+  <string name="reverted_edit_dialog_ok_button_text">Sawa</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Ghairi</string>
+  <string name="wikitext_bold">Koze</string>
+  <string name="wikitext_italic">Mlazo</string>
+  <string name="wikitext_link">Kiungo</string>
+  <string name="wikitext_template">Kigezo</string>
+  <string name="wikitext_reference">Marejeo</string>
+  <string name="custom_date_picker_dialog_ok_button_text">Sawa</string>
+  <string name="text_input_dialog_ok_button_text">Sawa</string>
+  <string name="text_input_dialog_cancel_button_text">Ghairi</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Ghairi</string>
+  <string name="talk_reply_subject">Mada:</string>
+  <string name="talk_reply_hint">Tunga majibu</string>
+  <string name="talk_message_hint">Tunga ujumbe</string>
+  <string name="talk_message_empty">Ujumbe hauwezi kuwa tupu.</string>
+  <string name="talk_subject_empty">Mada haiwezi kuwa tupu</string>
 </resources>

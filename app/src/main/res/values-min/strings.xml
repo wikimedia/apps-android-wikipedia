@@ -13,10 +13,7 @@
   <string name="nav_item_forward">Manaruihkan</string>
   <string name="search_hint">Cari Wikipedia</string>
   <string name="search_hint_voice_search">Cari jo suaro</string>
-  <string name="search_hint_search_history">Cari riwayaik</string>
   <string name="search_hint_search_languages">Cari bahaso</string>
-  <string name="search_hint_search_my_lists_and_articles">Cari dalam daftar jo artikel awak</string>
-  <string name="nav_item_history">Sijarah</string>
   <string name="error_network_error">Indak dapek tahubuang ka internet.</string>
   <string name="page_error_retry">Cubo lai</string>
   <string name="card_offline_error_retry">Cubo lai</string>
@@ -40,7 +37,7 @@
   <string name="search_redirect_from">Dialiahkan dari %s</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ganti bahaso</string>
-  <string name="menu_page_find_in_page">Cari di laman</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Cari di laman</string>
   <string name="edit_section_find_in_page">Cari di laman</string>
   <string name="menu_page_font_and_theme">Hurup dan tema</string>
   <string name="menu_page_add_to_list">Tambah ka daftar bacoan</string>
@@ -99,7 +96,7 @@
   <string name="reading_lists_sync_login">Masuak log</string>
   <string name="create_account_login">Masuak log</string>
   <string name="menu_login">Masuak log</string>
-  <string name="login_activity_title">Masuak log ka Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Masuak log ka Wikipedia</string>
   <string name="login_in_progress_dialog_message">Tangah masuak log…</string>
   <string name="login_success_toast" fuzzy="true">Barasil masuak log!</string>
   <string name="reset_password_title">Masuakan kato sandi</string>
@@ -165,7 +162,6 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karusakan</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkan aplikasi untuak mangirimkan laporan karusakan ka HockeyApp / panyadio layanan pihak katigo sacaro otomatis sainggo kami dapek maninjau karusakan Sanak jo mameloki kasalahan labiah capek sarato labiah mudah.</string>
   <string name="editing_error_spamblacklist">Pautan ka domain nan disakek (%s) tadeteksi. Arok maapuihnyo dan cubo baliak.</string>
-  <string name="history_search_list_hint">Cari riwayaik</string>
   <string name="error_can_not_process_link">Indak dapek manampakan pautan ko</string>
   <string name="page_protected_autoconfirmed">Laman ko alah dilinduangi sabagian.</string>
   <string name="settings_item_preferences">Pangaturan</string>
@@ -195,7 +191,6 @@
   <string name="edit_zoom_in">Gadangkan</string>
   <string name="edit_zoom_out">Ketekkan</string>
   <string name="edit_summary_tag_other">Lainnyo</string>
-  <string name="text_size_select">Ukuran hurup</string>
   <string name="clear_recent_searches_confirm_yes">Yo</string>
   <string name="clear_recent_searches_confirm_no">Ndak</string>
   <string name="table_close">Tutuik</string>
