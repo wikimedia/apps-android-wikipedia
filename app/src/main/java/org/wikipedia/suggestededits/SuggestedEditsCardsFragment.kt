@@ -181,6 +181,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             binding.addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
 
+        if (action == IMAGE_RECOMMENDATION) {
+            binding.bottomButtonContainer.visibility = GONE
+        } else {
+            binding.bottomButtonContainer.visibility = VISIBLE
+        }
+
         if (action == ADD_IMAGE_TAGS) {
             if (binding.addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
@@ -190,9 +196,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                 binding.addContributionButton.text = getString(R.string.description_edit_save)
                 binding.addContributionButton.icon = null
             }
-        } else if (action == IMAGE_RECOMMENDATION) {
-            binding.addContributionButton.text = getString(R.string.image_recommendations_task_skip)
-            binding.addContributionButton.icon = null
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
             binding.addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
         } else if (binding.addContributionButton.tag == "portrait") {

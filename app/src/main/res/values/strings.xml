@@ -994,6 +994,7 @@
     <string name="image_recommendations_task_skip">Skip</string>
     <string name="image_recommendations_task_accept">Yes</string>
     <string name="image_recommendations_task_reject">No</string>
+    <string name="image_recommendations_task_not_sure">Not sure</string>
     <string name="image_recommendations_task_thanks">Thanks!</string>
     <string name="image_recommendations_task_instruction">Is this a good image for the following article?</string>
 

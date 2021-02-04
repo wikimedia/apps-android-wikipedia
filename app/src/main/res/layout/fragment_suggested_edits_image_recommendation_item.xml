@@ -35,99 +35,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <View
-                android:id="@+id/instructionTick"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/ic_triangle_back"
-                android:backgroundTint="?attr/chip_background_color"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <TextView
-                android:id="@+id/instructionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="@id/instructionTick"
-                android:layout_marginStart="17dp"
-                android:background="?attr/chip_background_color"
-                android:padding="10dp"
-                android:text="Is this a good image for the article below?"/>
-
-            <!-- Container layout is necessary to make the ImageView zoomable in-place. -->
-            <FrameLayout
-                android:id="@+id/imageContainer"
-                android:layout_width="0dp"
-                android:layout_height="220dp"
-                app:layout_constraintTop_toBottomOf="@id/instructionText"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginEnd="8dp">
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitCenter"
-                    android:contentDescription="@null"/>
-            </FrameLayout>
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/imageCaptionText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@id/imageContainer"
-                app:layout_constraintStart_toStartOf="@id/imageContainer"
-                app:layout_constraintEnd_toEndOf="@id/imageContainer"
-                android:padding="4dp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:lineSpacingMultiplier="1.1"
-                android:background="@color/black54"
-                android:textColor="@android:color/white"
-                android:textColorLink="@android:color/white"
-                android:textSize="12sp"
-                android:textStyle="italic"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/acceptButton"
-                style="@style/FlatButton.Small"
-                app:layout_constraintTop_toBottomOf="@id/imageContainer"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/image_recommendations_task_accept"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                app:icon="@drawable/ic_baseline_thumb_up_24"
-                app:iconSize="20dp"
-                app:iconPadding="8dp"
-                app:iconTint="?attr/colorAccent"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/rejectButton"
-                style="@style/FlatButton.Small"
-                app:layout_constraintTop_toBottomOf="@id/imageContainer"
-                app:layout_constraintEnd_toStartOf="@id/acceptButton"
-                android:text="@string/image_recommendations_task_reject"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                app:icon="@drawable/ic_baseline_thumb_down_24"
-                app:iconSize="20dp"
-                app:iconPadding="8dp"
-                app:iconTint="?attr/colorAccent"/>
-
             <TextView
                 android:id="@+id/articleTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/acceptButton"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
                 android:ellipsize="end"
                 android:fontFamily="serif"
                 android:lineSpacingMultiplier="1.1"
@@ -141,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:lineSpacingMultiplier="1.1"
                 android:textColor="?attr/secondary_text_color"
                 android:textSize="13sp"
@@ -151,12 +67,152 @@
 
             <View
                 android:id="@+id/articleDivider"
-                android:layout_width="@dimen/divider_width_for_article"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="16dp"
                 android:background="?attr/material_theme_border_color"
                 app:layout_constraintStart_toStartOf="@id/articleTitle"
+                app:layout_constraintEnd_toEndOf="@id/articleTitle"
                 app:layout_constraintTop_toBottomOf="@id/articleDescription"/>
+
+            <ImageView
+                android:id="@+id/robotIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/articleDivider"
+                android:layout_marginStart="16dp"
+                app:srcCompat="@drawable/ic_robot_24"
+                app:tint="?attr/colorAccent"
+                android:layout_marginTop="22dp"
+                android:contentDescription="@null" />
+
+            <View
+                android:id="@+id/instructionTick"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_triangle_back"
+                android:backgroundTint="?attr/color_group_22"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="@id/instructionText"
+                app:layout_constraintStart_toEndOf="@id/robotIcon"/>
+
+            <TextView
+                android:id="@+id/instructionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/articleDivider"
+                app:layout_constraintStart_toEndOf="@id/robotIcon"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="17dp"
+                android:background="@drawable/rounded_8dp_accent90_fill"
+                android:padding="10dp"
+                android:textColor="?attr/material_theme_primary_color"
+                android:text="Is this a good image for the article?"/>
+
+            <!-- Container layout is necessary to make the ImageView zoomable in-place. -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageContainer"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                app:layout_constraintTop_toBottomOf="@id/instructionText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp">
+
+                <org.wikipedia.views.FaceAndColorDetectImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@null"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/black54"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp">
+
+                    <TextView
+                        android:id="@+id/imageCaptionText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:lineSpacingMultiplier="1.1"
+                        android:textColor="@android:color/white"
+                        android:textColorLink="@android:color/white"
+                        android:textSize="14sp"
+                        tools:text="Lorem ipsum"/>
+
+                    <TextView
+                        android:id="@+id/imageMoreButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_margin="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:text="@string/nav_item_more"
+                        android:textColor="@color/accent75"
+                        android:fontFamily="sans-serif-medium"
+                        android:textAllCaps="true"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/acceptButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/image_recommendations_task_accept"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:icon="@drawable/ic_baseline_thumb_up_24"
+                app:iconSize="20dp"
+                app:iconPadding="8dp"
+                app:iconTint="?attr/colorAccent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rejectButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageContainer"
+                app:layout_constraintEnd_toStartOf="@id/acceptButton"
+                android:text="@string/image_recommendations_task_reject"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:icon="@drawable/ic_baseline_thumb_down_24"
+                app:iconSize="20dp"
+                app:iconPadding="8dp"
+                app:iconTint="?attr/colorAccent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/notSureButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/imageContainer"
+                app:layout_constraintEnd_toStartOf="@id/rejectButton"
+                android:text="@string/image_recommendations_task_not_sure"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"/>
 
             <TextView
                 android:id="@+id/articleExtract"
@@ -164,15 +220,16 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:lineSpacingMultiplier="1.3"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="8dp"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/articleDivider"
+                app:layout_constraintTop_toBottomOf="@id/notSureButton"
                 app:layout_constraintStart_toStartOf="@id/articleTitle"
                 app:layout_constraintEnd_toEndOf="@id/articleTitle"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 
     <FrameLayout
@@ -182,6 +239,8 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="gone"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="2dp"
         tools:visibility="visible">
 
         <ProgressBar
@@ -192,22 +251,22 @@
 
         <ProgressBar
             android:id="@+id/publishProgressBarComplete"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_gravity="center"
-            style="?android:attr/progressBarStyleHorizontal"
             android:indeterminate="false"
             android:max="100"
-            android:secondaryProgress="100"
-            android:progressDrawable="@drawable/circular_progress" />
+            android:progressDrawable="@drawable/circular_progress"
+            android:secondaryProgress="100" />
 
         <ImageView
             android:id="@+id/publishProgressCheck"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_check_borderless"
-            android:contentDescription="@null"/>
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_check_borderless" />
 
         <TextView
             android:id="@+id/publishProgressText"
@@ -215,10 +274,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="38dp"
-            android:textAllCaps="true"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.06"
-            android:text="@string/image_recommendations_task_thanks"/>
+            android:text="@string/image_recommendations_task_thanks"
+            android:textAllCaps="true" />
 
     </FrameLayout>
 

@@ -2,10 +2,12 @@ package org.wikipedia.suggestededits
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -18,19 +20,21 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
-import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.*
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
-import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
 
@@ -74,6 +78,12 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
 
         rejectButton.setOnClickListener {
             doPublish(false)
+        }
+
+        imageMoreButton.setOnClickListener {
+            if (page != null) {
+                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.imageTitle, WikiSite(Service.COMMONS_URL))))
+            }
         }
 
         getNextItem()
@@ -127,7 +137,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
                     val imageInfo = pair.first.query()!!.firstPage()!!.imageInfo()!!
                     val summary = pair.second
 
-                    ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+                    imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
                     imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.fromHtml(imageInfo.metadata!!.imageDescription())
 
                     articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
@@ -161,24 +171,22 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
 
         funnel?.logSaveAttempt()
 
-        //publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
+        // publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
         publishProgressBarComplete.visibility = GONE
         publishProgressBar.visibility = VISIBLE
 
-
-        //funnel?.logSaved(...)
+        // funnel?.logSaved(...)
         publishSuccess = true
         onSuccess()
         // or onError(caught)
-
 
         /*
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
-                //funnel?.logSaved(...)
+                // funnel?.logSaved(...)
                 publishSuccess = true
                 onSuccess()
                 // or onError(caught)
@@ -210,7 +218,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         publishProgressBarComplete.animate()
                 .alpha(1f)
                 .withEndAction {
-                    //publishProgressText.setText(R.string.suggested_edits_image_tags_published)
+                    // publishProgressText.setText(R.string.suggested_edits_image_tags_published)
                 }
                 .duration = duration / 2
 

@@ -239,7 +239,7 @@ object EditingSuggestionsProvider {
             var cachedItem: ImageRecommendationResponse? = null
             if (!articlesWithMissingImagesCache.empty()) {
                 cachedItem = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
-                //cachedItem = articlesWithMissingImagesCache.pop()
+                // cachedItem = articlesWithMissingImagesCache.pop()
             }
 
             if (cachedItem != null) {
@@ -262,7 +262,7 @@ object EditingSuggestionsProvider {
                 var item: ImageRecommendationResponse? = null
                 if (!articlesWithMissingImagesCache.empty()) {
                     item = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
-                    //item = articlesWithMissingImagesCache.pop()
+                    // item = articlesWithMissingImagesCache.pop()
                 }
                 Observable.just(item!!)
             }

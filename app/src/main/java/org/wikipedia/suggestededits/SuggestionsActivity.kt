@@ -21,7 +21,7 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action))
+        supportActionBar!!.title = getActionBarTitle(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
         imageZoomHelper = ImageZoomHelper(this)
     }
 
@@ -38,15 +38,15 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
         return false
     }
 
-    private fun getActionBarTitleRes(action: Action): Int {
+    private fun getActionBarTitle(action: Action): String {
         return if (action == ADD_IMAGE_TAGS) {
-            R.string.suggested_edits_tag_images
+            getString(R.string.suggested_edits_tag_images)
         } else if (action == IMAGE_RECOMMENDATION) {
-            R.string.image_recommendations_task_title
+            ""
         } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
-            R.string.suggested_edits_caption_images
+            getString(R.string.suggested_edits_caption_images)
         } else {
-            R.string.suggested_edits_describe_articles
+            getString(R.string.suggested_edits_describe_articles)
         }
     }
 
