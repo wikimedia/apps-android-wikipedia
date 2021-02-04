@@ -1,39 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Википедиа Бета хувилбар</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Википедиа Альфа хувилбар</string>
-  <string name="search_hint">Википедиа -аас хайх</string>
-  <string name="nav_item_history">Түүх</string>
-  <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>
+<!-- Authors:
+* Chinneeb
+* Mongol
+* Munkhzaya.E
+* MuratTheTurkish
+* Wisdom
+* Буцах
+-->
+<resources>
+  <string name="app_name_prod">Википедиа</string>
+  <string name="app_name_beta">Википедиа Бета хувилбар</string>
+  <string name="app_name_alpha">Википедиа Альфа хувилбар</string>
+  <string name="wikimedia">Википедиа</string>
+  <string name="nav_item_back">Буцах</string>
+  <string name="page_tabs_back">Буцах</string>
+  <string name="nav_item_forward">Дараах</string>
+  <string name="search_hint">Википедиагаас хайх</string>
+  <string name="search_hint_search_languages">Хэл хайх</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Миний жагсаалтыг шүүх</string>
+  <string name="nav_item_suggested_edits">Засварууд</string>
+  <string name="nav_item_more">Илүү</string>
+  <string name="nav_item_search">Хайх</string>
+  <string name="error_network_error">Интернэтэд холбогдохгүй байна.</string>
   <string name="page_error_retry">Дахин оролд</string>
+  <string name="card_offline_error_retry">Ахиад оролдох</string>
+  <string name="storage_access_error_retry">Давтах</string>
+  <string name="article_load_error_retry">Давтах</string>
+  <string name="offline_load_error_retry">Давтах</string>
+  <string name="page_error_back_to_main">Буцах</string>
+  <string name="error_back">Буцаж очих</string>
   <string name="menu_clear_all_history">Түүх арилгах</string>
-  <string name="dialog_title_clear_history">Хөтчид хадгалагдсан түүхийг устгах</string>
-    <string name="menu_page_share">Хуваалцах</string>
+  <string name="history_item_deleted">%s явцын түүхээс устгасан</string>
+  <string name="history_items_deleted">%d Гарчиг явцын түүхээс устгагдсан.</string>
+  <string name="history_item_delete_undo">Үйлдэл буцаах</string>
+  <string name="notification_archive_undo">Үйлдэл буцаах</string>
+  <string name="app_settings">Апп-Тохиргоонууд</string>
+  <string name="search_tab_tooltip">Хайсан нэршлийг оруулахын тулд тэмдэгийг  дахин товшино уу.</string>
+  <string name="history_list_title">Түүх</string>
+  <string name="dialog_title_clear_history">Хөтчийн түүхийг арилгах</string>
+  <string name="dialog_message_clear_history">Үүгээр таны хөтчийн бүх түүх устах ба одоогоор нээлттэй байгаа бүх цонх хаагдах болно. Та итгэлтэй байна уу?</string>
+  <string name="dialog_message_clear_history_yes">Тийм</string>
+  <string name="dialog_message_clear_history_no">Үгүй</string>
   <string name="share_via">Хуваалцахдаа</string>
-    <string name="langlinks_filter_hint">Хайлт</string>
-  <string name="menu_page_other_languages">Бусад хэл дээр унших</string>
+  <string name="image_share_via">Хуваалцахдаа</string>
+  <string name="search_redirect_from">%s-с чиглүүлсэн</string>
+  <string name="menu_page_show_tabs">Цонхнуудыг харуулах</string>
+  <string name="menu_page_other_languages">Хэл солих</string>
+  <string name="menu_page_find_in_page">Гарчигт хай.</string>
+  <string name="edit_section_find_in_page">Хуудаст хай.</string>
+  <string name="menu_page_font_and_theme">Үсгийн төрөл болон өнгөний схемийг өөрчлөх</string>
+  <string name="menu_page_add_to_list">Унших жагсаалтад нэмэх</string>
+  <string name="menu_page_add_to_default_list">Хадгалах</string>
+  <string name="feed_card_add_to_list">Унших жагсаалтад нэмэх</string>
+  <string name="feed_card_add_to_default_list">Хадгалах</string>
+  <string name="menu_page_share">Хуваалцах</string>
+  <string name="menu_page_open_a_new_tab">Шинэ цонх нээх</string>
+  <string name="menu_page_new_tab">Шинэ цонх</string>
+  <string name="menu_page_reading_lists">Унших жагсаалтууд</string>
+  <string name="menu_page_recently_viewed">Сүүлд үзсэн</string>
+  <string name="menu_long_press_open_page">Нээх</string>
+  <string name="menu_long_press_open_in_new_tab">Шинэ цонхонд нээх</string>
+  <string name="menu_long_press_copy_page">Холбоос хаягийг хуулах</string>
+  <string name="menu_text_select_define">Тодорхойлох</string>
+  <string name="on_this_day_page_share">Хуваалцах</string>
+  <string name="reading_list_page_share">Хуваалцах</string>
+  <string name="menu_text_select_edit_here">Энд засварлах</string>
+  <string name="last_updated_text">Сүүлд шинэчилсэн %s</string>
+  <string name="talk_page_link_text">Хэлэлцүүлгийн хуудсыг үзэх</string>
+  <string name="edit_history_link_text">Хувилбарын түүхийг үзэх</string>
+  <string name="map_view_link_text">Газрын зураг дээр үзэх</string>
+  <string name="other_languages_indication_text">Өөр хэл дээр унших</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="preference_title_language">Википедиагийн хэлнүүд</string>
+  <string name="langlinks_filter_hint">Хайлт</string>
+  <string name="langlinks_empty">Энэ хуудсыг бусад хэл дээр үзэх боломжгүй.</string>
+  <string name="langlinks_no_match">Хэл олдсонгүй</string>
   <string name="langlinks_activity_title">Бусад хэл</string>
-  <string name="menu_save_changes">Өөрчлөлтөө хадгалах</string>
-  <string name="dialog_saving_in_progress">Хадгалж байна…</string>
-  <string name="edit_saved_successfully">Хадгалснаа засах!</string>
+  <string name="langlinks_your_wikipedia_languages">Таны Википедиа хэл</string>
+  <string name="menu_save_changes">Өөрчлөлтөө нийтлэх</string>
+  <string name="edit_saved_successfully">Засварууд нийтлэгдсэн!</string>
   <string name="dialog_message_edit_failed">Алдаатайг засах!</string>
   <string name="dialog_message_edit_failed_retry">Дахин оролд</string>
   <string name="dialog_message_edit_failed_cancel">Цуцлах</string>
+  <string name="dialog_message_leaving_edit">Таны засварууд хадгалагдаагүй байна. Та хуудаснаас гарах гэж байгаа даа итгэлтэй байна уу?</string>
+  <string name="dialog_message_leaving_edit_leave">Орхин одох</string>
+  <string name="dialog_message_leaving_edit_stay">Үлдэх</string>
   <string name="menu_show_toc">Агуулгын хүснэгт</string>
   <string name="search_no_results_found">Үр дүн олдсонгүй</string>
+  <string name="search_reading_list_no_results">\"%s\"-д илэрц олдсонгүй</string>
+  <string name="search_reading_lists_no_results">Жагсаалтыг уншихад үр дүн олдсонгүй</string>
+  <string name="search_history_no_results">Явцын түүхэнд ямар ч үр дүн олдсонгүй</string>
   <string name="edit_section_captcha_message">Автомат спамаас хамгаалахын тулд доор харагдаж байгаа үгнүүдийг оруулна уу</string>
+  <string name="edit_section_captcha_request_an_account_message">Та энэ зургийг харж чадахгүй байна уу? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Request an account&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Дээрх үгнүүдийг давтана уу</string>
   <string name="title_captcha">CAPTCHA -г оруулна уу</string>
-  <string name="nav_item_login">Нэвтрэх</string>
+  <string name="edit_section_captcha_reload">CAPTCHA оруулна уу</string>
+  <string name="nav_item_login">Википедиад нэвтрэх</string>
   <string name="login_username_hint">Хэрэглэгчийн нэр</string>
   <string name="login_password_hint">Нууц үг</string>
+  <string name="account_creation_password_hint">Нууц үг</string>
+  <string name="login_2fa_hint">Хоёр нөхцөлт баталгаажуулалтын код</string>
+  <string name="onboarding_card_login">Нэвтрэх</string>
+  <string name="page_editing_login">Нэвтрэх</string>
+  <string name="reading_lists_sync_login">Нэвтрэх</string>
+  <string name="create_account_login">Нэвтрэх</string>
   <string name="menu_login">Нэвтрэх</string>
-  <string name="login_activity_title">Википедия руу нэвтрэх</string>
+  <string name="login_activity_title">Нэвтрэх</string>
   <string name="login_in_progress_dialog_message">… руу нэвтэрч байна.</string>
-  <string name="login_success_toast">Нэвтрэлт амжилттай боллоо</string>
+  <string name="login_success_toast">Нэвтэрсэн</string>
+  <string name="reset_password_title">Нууц үгээ товлоно уу</string>
+  <string name="reset_password_description">Та түр зуурын нууц үгээр нэвтэрсэн байна. Нэвтрэх явцыг бүрэн дуусгахын тулд энд та шинэ нууц үгээ товлоно уу!</string>
+  <string name="reset_password_hint">Шинэ нууц үг</string>
+  <string name="reset_password_button">Хадгалаад нэвтрэх</string>
   <string name="preference_title_logout">Гарах</string>
   <string name="toast_logout_complete">Гарлаа</string>
+  <string name="logout_prompt">Та түр зуурын нууц үгээр нэвтэрсэн байна. Нэвтрэх явцыг бүрэн дуусгахын тулд энд та Үүгээр та одоогоор нэвтэрсэн байгаа бүх төхөөрөмжөөс гарч байна. Та гарах явцыг үргэлжлүүлэх үү?</string>
+  <string name="logout_dialog_cancel_button_text">Цуцлах</string>
+  <string name="logged_out_in_background_title">Гарсан</string>
+  <string name="logged_out_in_background_login">Нэвтрэх</string>
+  <string name="logged_out_in_background_cancel">Цуцлах</string>
   <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
   <string name="create_account_activity_title">Бүртгүүлэх</string>
   <string name="create_account_email_hint">Емайл (Албагүй)</string>
@@ -44,5 +129,7 @@
   <string name="create_account_next">Дараагийн</string>
   <string name="create_account_button">Бүртгүүлэх</string>
   <string name="preferences_general_heading">Ерөнхий</string>
+  <string name="settings_activity_title">Тохиргоо</string>
+  <string name="about_wikipedia_url">https://mn.wikipedia.org/wiki/Wikipedia:Википедиагийн_тухай</string>
   <string name="page_similar_titles" fuzzy="true">Бусад утга</string>
 </resources>

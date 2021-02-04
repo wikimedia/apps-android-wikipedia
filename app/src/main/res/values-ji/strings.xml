@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Alefbeis
 * Har-wradim
+* MuratTheTurkish
 * פוילישער
 -->
 <resources>
@@ -13,9 +14,7 @@
   <string name="nav_item_back">צוריק</string>
   <string name="nav_item_forward">ווײַטער</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
-  <string name="search_hint_search_history">זוך־היסטאריע</string>
   <string name="search_hint_search_languages">זוכן א שפראך</string>
-  <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="page_error_back_to_main">צוריקגיין</string>
@@ -31,7 +30,7 @@
   <string name="search_redirect_from">אַריבערגעפֿירט פון %s</string>
   <string name="menu_page_show_tabs">ווײַזן טאבן</string>
   <string name="menu_page_other_languages">ענדערן שפראך</string>
-  <string name="menu_page_find_in_page">טרעפן אין בלאט</string>
+  <string name="menu_page_find_in_page" fuzzy="true">טרעפן אין בלאט</string>
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
   <string name="menu_page_add_to_list">צולייגן צו ליינליסטע</string>
   <string name="menu_page_share">טיילן לינק</string>
@@ -119,6 +118,7 @@
   <string name="about_description">וועגן דעם וויקימעדיע־אפ</string>
   <string name="privacy_policy_description">פּריוואַטקייט פּאליסי</string>
   <string name="terms_of_use_description">ניצבאדינגונגען</string>
+  <string name="about_wikipedia_url">https://yi.wikipedia.org/wiki/װיקיפּעדיע:וועגן</string>
   <string name="about_libraries_heading">געניצטע ביבליאטעקן</string>
   <string name="about_contributors_heading">בײַשטײַערער</string>
   <string name="about_translators_heading">איבערזעצער</string>
@@ -141,7 +141,6 @@
   <string name="edit_conflict_title">רעדאקטירן קאנפֿליקט</string>
   <string name="find_next">זוכן נעקסטע</string>
   <string name="find_previous">זוכן פריערדיקע</string>
-  <string name="text_size_select">פֿאנט גרייס</string>
   <string name="page_similar_titles">ענלעכע בלעטער</string>
   <string name="search_did_you_mean">צי האט איר געמיינט \"%s\"?</string>
   <string name="search_recent_header">לעצטיקע זוכן:</string>
@@ -181,7 +180,7 @@
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="button_continue_to_article">לייענען דעם ארטיקל</string>
   <string name="button_get_directions">באקומען ריכטונגען</string>
-  <string name="nav_item_donate">שטיצן וויקיפעדיע</string>
+  <string name="nav_item_donate" fuzzy="true">שטיצן וויקיפעדיע</string>
   <string name="enable_location_service">אַקטיווירן</string>
   <string name="view_link_preview_error_button_dismiss">צומאַכן</string>
   <string name="error_page_does_not_exist">דער בלאט עקזיסטירט נישט</string>
