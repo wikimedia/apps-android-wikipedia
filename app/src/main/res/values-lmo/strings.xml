@@ -164,7 +164,7 @@
   <string name="preference_title_sync_reading_lists_from_account">Sincronizzazion di liste de lettura</string>
   <string name="preference_title_download_reading_list_articles">Descarega i vos di liste de lettura</string>
   <string name="preference_summary_sync_reading_lists">Sincronizza i liste de lettura in su diversi dispositif cont el salvai in del to cunt Wikipedia.</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sincronizza i liste de lettura in su diversi dispositif cont el salvai ind el to cunt Wikipedia \"%s\"</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sincronizza i liste de lettura in su diversi dispositif cont el salvai in del to cunt Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Toeu via i liste de lettura sincronizzade de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Questa azzion la scancelarà del tut tucce i list de lettura sincronizzad in del claud. Te voeuret toeu via tucce i liste sincronizzade de l\'utenza «%s»?</string>
   <string name="preferences_privacy_settings_heading">Riservatezza</string>
