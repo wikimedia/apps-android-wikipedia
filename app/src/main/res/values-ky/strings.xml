@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Askar Nazyrov
+* Envlh
+* Janatkg
+* MuratTheTurkish
+-->
 <resources>
   <string name="app_name_prod">Уикипедия</string>
   <string name="app_name_beta">Уикипедия Бета</string>
   <string name="app_name_alpha">Уикипедия Альфа</string>
   <string name="search_hint">Уикипедиядан издөө</string>
-  <string name="nav_item_history">Тарых</string>
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
   <string name="dialog_title_clear_history" fuzzy="true">Тарыхты өчүрүү керекпи?</string>
-    <string name="share_via">аркылуу бөлүшүү</string>
+  <string name="share_via">аркылуу бөлүшүү</string>
   <string name="menu_page_other_languages" fuzzy="true">Башка тилдерде окуу</string>
-  <string name="menu_page_find_in_page">Бул барактан табуу</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Бул барактан табуу</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="menu_page_share" fuzzy="true">Бөлүшүү</string>
   <string name="last_updated_text">Акыркы жаңылоо: %s</string>
-    <string name="edit_save_action_license_logged_in">Өзгөртүүлөрдү сактоо менен бирге, сиз &lt;a href=\"%1$s\"&gt;колдонуу шарттары&lt;/a&gt; менен, ошондой эле &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензиясы боюнча irrevocably release шарттарына макул экендигиңизди билдиресиз.</string>
-  <string name="preference_title_language">Уикипедия тили</string>
-    <string name="langlinks_filter_hint">Издөө</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Өзгөртүүлөрдү сактоо менен бирге, сиз &lt;a href=\"%1$s\"&gt;колдонуу шарттары&lt;/a&gt; менен, ошондой эле &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы боюнча irrevocably release шарттарына макул экендигиңизди билдиресиз.</string>
+  <string name="preference_title_language" fuzzy="true">Уикипедия тили</string>
+  <string name="langlinks_filter_hint">Издөө</string>
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>
-  <string name="langlinks_no_match">Сиздин сурооңузга төп тил табылбады.</string>
+  <string name="langlinks_no_match" fuzzy="true">Сиздин сурооңузга төп тил табылбады.</string>
   <string name="langlinks_activity_title">Башка тилдер</string>
-  <string name="menu_save_changes">Өзгөртүүлөрдү сактоо</string>
-  <string name="dialog_saving_in_progress">Сакталууда…</string>
-  <string name="edit_saved_successfully">Оңдоо сакталды!</string>
+  <string name="menu_save_changes" fuzzy="true">Өзгөртүүлөрдү сактоо</string>
+  <string name="edit_saved_successfully" fuzzy="true">Оңдоо сакталды!</string>
   <string name="dialog_message_edit_failed">Оңдоо катасы!</string>
   <string name="dialog_message_edit_failed_retry">Кайра аракет кылуу</string>
   <string name="dialog_message_edit_failed_cancel">Жокко чыгаруу</string>
@@ -33,7 +37,7 @@
   <string name="edit_section_captcha_hint">Жогоруда көрсөтүлгөн сөздөрдү кайталаңыз</string>
   <string name="title_captcha">CAPTCHA\'ны териңиз</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'ны жаңылоо үчүн, аны басып коюңуз</string>
-    <string name="nav_item_login" fuzzy="true">Кирүү</string>
+  <string name="nav_item_login" fuzzy="true">Кирүү</string>
   <string name="login_username_hint">Колдонуучу аты</string>
   <string name="login_password_hint">Сырсөз</string>
   <string name="menu_login">Кирүү</string>
@@ -42,8 +46,8 @@
   <string name="login_success_toast" fuzzy="true">Сиз ийгиликтүү кирдиңиз!</string>
   <string name="preference_title_logout">Чыгуу</string>
   <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
-  <string name="history_empty_title">Жакында каралган барактар жок!</string>
-  <string name="history_empty_message">Кыязы, сиз алардын баарын өчүргөн окшойсуз. Кийинки жолу баракка киргенде, бул жактан кайрылсаңыз болот</string>
+  <string name="history_empty_title" fuzzy="true">Жакында каралган барактар жок!</string>
+  <string name="history_empty_message" fuzzy="true">Кыязы, сиз алардын баарын өчүргөн окшойсуз. Кийинки жолу баракка киргенде, бул жактан кайрылсаңыз болот</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Колдонуучу аты</string>
   <string name="create_account_activity_title">Катталуу</string>
@@ -56,30 +60,29 @@
   <string name="create_account_next">Кийинки</string>
   <string name="create_account_button">Катталуу</string>
   <string name="preferences_general_heading">Жалпы</string>
-    <string name="edit_preview_fetching_dialog_message">Алдын ала көрсөтүү даярдалууда…</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
   <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
   <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
   <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>
-  <string name="history_search_list_hint" fuzzy="true">Издөө</string>
   <string name="error_can_not_process_link">Бул шилтемени көрсөтүүгө мүмкүнчүлүк болбоду.</string>
   <string name="page_protected_autoconfirmed">Бул барак жарым-жартылай корголгон.</string>
   <string name="page_protected_sysop">Бул барак толугу менен корголгон.</string>
   <string name="page_protected_other">Бул барак мындай деңгээлдерде корголгон: %s</string>
-  <string name="page_protected_can_not_edit">Бул баракты оңдоого сиздин укугуңуз жок.</string>
+  <string name="page_protected_can_not_edit" fuzzy="true">Бул баракты оңдоого сиздин укугуңуз жок.</string>
   <string name="page_protected_can_not_edit_title">Бул барак корголгон</string>
   <string name="settings_activity_title" fuzzy="true">Ырастоолор</string>
   <string name="about_description">«Уикипедия» тиркемеси жөнүндө</string>
   <string name="privacy_policy_description">Купуялуулук саясаты</string>
   <string name="terms_of_use_description">Колдонуу шарттары</string>
+  <string name="about_wikipedia_url">https://ky.wikipedia.org/wiki/Уикипедия:тууралуу</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Купуялуулук_саясаты</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading" fuzzy="true">колдонулган китепканалар</string>
   <string name="about_contributors_heading" fuzzy="true">авторлор</string>
   <string name="about_translators_heading" fuzzy="true">котормочулар</string>
   <string name="about_translators_translatewiki">Бул тиркеме &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'деги ыктыярчылар тарабынан которулган.</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
+  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Уикимедиа Фонду&lt;/a&gt;нун өнүмү</string>
   <string name="about_activity_title">Тиркеме жөнүндө</string>
   <string name="edit_abandon_confirm">Барак өзгөрүлдү. Сиз өзгөртүүлөрдү сактабай чыгууңузга ишенесизби?</string>
   <string name="user_blocked_from_editing_title">Бөгөттөлгөн</string>
@@ -87,7 +90,7 @@
   <string name="user_anon_blocked_from_editing">Сиздин IP-дарегиңиз оңдоодон бөгөттөлгөн.</string>
   <string name="edit_how_page_improved">Сиз бул баракты кантип жакшырттыңыз?</string>
   <string name="edit_next">Кийинки</string>
-  <string name="edit_done">Сактоо</string>
+  <string name="edit_done" fuzzy="true">Сактоо</string>
   <string name="edit_preview">Алдын ала көрсөтүү</string>
   <string name="edit_summary_tag_typo">Жазуу катасы түзөтүлдү</string>
   <string name="edit_summary_tag_grammar">Жазуу эрежелери түзөтүлдү</string>
@@ -96,12 +99,8 @@
   <string name="edit_summary_tag_other_hint">Бул баракты жакшыртууңуздун башка ыкмалары</string>
   <string name="find_next">Ушуну табуу</string>
   <string name="find_previous">Мурункуну табуу</string>
-  <string name="abusefilter_title_warn">Бул оңдоо бузуку болушу мүмкүн. Сиз аны сактооңузга ишенесизби?</string>
-  <string name="abusefilter_title_disallow">Сиз бул оңдоону сактай албайсыз. Сураныч, артка кайтыңыз жана аны өзгөртүңүз.</string>
-    <string name="text_size_select">Жазуу түрүнүн өлчөмү</string>
-  <string name="color_theme_select">Жасалга</string>
-  <string name="color_theme_light">Ачык</string>
-  <string name="color_theme_dark">Караңгы</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Бул оңдоо бузуку болушу мүмкүн. Сиз аны сактооңузга ишенесизби?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Сиз бул оңдоону сактай албайсыз. Сураныч, артка кайтыңыз жана аны өзгөртүңүз.</string>
   <string name="page_similar_titles">Окшош барактар</string>
   <string name="search_did_you_mean">Издегениңиз «%s» болуп жүрбөсүн?</string>
   <string name="search_recent_header">Соңку издөөлөр:</string>
@@ -109,4 +108,7 @@
   <string name="error_browser_not_found">Веб-баракты ачууга мүмкүнчүлүк болбоду (браузер тиркемеси табылган жок).</string>
   <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
   <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
+  <string name="color_theme_select">Жасалга</string>
+  <string name="color_theme_light">Ачык</string>
+  <string name="color_theme_dark">Караңгы</string>
 </resources>

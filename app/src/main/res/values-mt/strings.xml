@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Abijeet Patro
+* Chrisportelli
+* Leli Forte
+* Macofe
+-->
 <resources>
   <string name="app_name_prod">Wikipedija</string>
   <string name="app_name_beta">Wikipedija Beta</string>
   <string name="app_name_alpha">Wikipedija Alpha</string>
   <string name="search_hint">Fittex fuq il-Wikipedija</string>
-  <string name="nav_item_history">Kronoloġija</string>
   <string name="error_network_error" fuzzy="true">M\'hemm l-ebda konnessjoni man-netwerk :(</string>
   <string name="page_error_retry">Erġa\' pprova</string>
   <string name="menu_clear_all_history">Ħassar il-kronoloġija</string>
   <string name="dialog_title_clear_history" fuzzy="true">Trid tħassar il-kronoloġija tan-navigazzjoni?</string>
-    <string name="share_via">Aqsam permezz…</string>
+  <string name="share_via">Aqsam permezz…</string>
   <string name="menu_page_other_languages" fuzzy="true">Aqra f\'lingwa oħra</string>
-  <string name="menu_page_find_in_page">Sib fil-paġna</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Sib fil-paġna</string>
   <string name="menu_page_share" fuzzy="true">Aqsam</string>
   <string name="last_updated_text">L-aħħar aġġornament %s</string>
-    <string name="edit_save_action_license_logged_in">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Il-modifiki se jiġu attribwiti għall-indirizz IP ta\' dan l-apparat. Jekk &lt;a href=\"https://#login\"&gt;tidħol fil-kont&lt;/a&gt;, int ikollok aktar privatezza.</string>
-  <string name="preference_title_language">Lingwa tal-Wikipedija</string>
-    <string name="langlinks_filter_hint">Fittex</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Il-modifiki se jiġu attribwiti għall-indirizz IP ta\' dan l-apparat. Jekk &lt;a href=\"https://#login\"&gt;tidħol fil-kont&lt;/a&gt;, int ikollok aktar privatezza.</string>
+  <string name="preference_title_language" fuzzy="true">Lingwa tal-Wikipedija</string>
+  <string name="langlinks_filter_hint">Fittex</string>
   <string name="langlinks_empty">Din il-paġna hija disponibbli f\'lingwi oħrajn.</string>
-  <string name="langlinks_no_match">L-ebda lingwa ma taqbel mar-rikjesta tiegħek.</string>
+  <string name="langlinks_no_match" fuzzy="true">L-ebda lingwa ma taqbel mar-rikjesta tiegħek.</string>
   <string name="langlinks_activity_title">Lingwi oħrajn</string>
-  <string name="menu_save_changes">Issejvja l-modifiki</string>
+  <string name="menu_save_changes" fuzzy="true">Ippubblika l-modifiki</string>
   <string name="dialog_message_edit_failed_retry">Erġa\' pprova</string>
   <string name="dialog_message_edit_failed_cancel">Ikkanċella</string>
   <string name="dialog_message_leaving_edit_leave">Ħalli</string>
@@ -50,12 +55,11 @@
   <string name="create_account_next">Li jmiss</string>
   <string name="create_account_button">Oħloq kont</string>
   <string name="preferences_general_heading">Ġenerali</string>
-    <string name="send_feedback">Ibgħat kumment fuq l-app</string>
+  <string name="send_feedback">Ibgħat kumment fuq l-app</string>
   <string name="create_account_account_created_toast">Il-kont ġie maħluq!</string>
   <string name="preference_title_eventlogging_opt_in">Ibgħat rapporti fuq l-użu</string>
   <string name="preference_summary_eventlogging_opt_in">Ħalli \'l-Wikipedija li tiġbor informazzjoni dwar kif tuża l-app sabiex ittejjeb l-app</string>
   <string name="editing_error_spamblacklist">Instabu ħoloq lejn dominji mblukkati (%s). Jekk jogħġbok neħħihom u erġa\' pprova.</string>
-  <string name="history_search_list_hint" fuzzy="true">Fittex</string>
   <string name="error_can_not_process_link">Il-ħolqa ma setgħetx tintwera</string>
   <string name="page_protected_autoconfirmed">Din il-paġna hija semiprotetta.</string>
   <string name="page_protected_sysop">Din il-paġna hija protetta.</string>
@@ -66,7 +70,7 @@
   <string name="about_contributors_heading" fuzzy="true">kontributuri</string>
   <string name="about_translators_heading">Tradutturi</string>
   <string name="about_translators_translatewiki">Din l-app ġiet tradotta minn tradutturi voluntiera fuq &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Prodott tal-&lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondazzjoni Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf" fuzzy="true">Prodott tal-&lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondazzjoni Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Dwar</string>
   <string name="edit_abandon_confirm">Din il-paġna ġiet modifikata. Inti ċert li trid toħroġ mingħajr ma tissejvja l-modifiki tiegħek?</string>
   <string name="user_blocked_from_editing_title">Imblukkat</string>
@@ -74,7 +78,7 @@
   <string name="user_anon_blocked_from_editing">L-indirizz IP tiegħek ġie mblukkat milli jagħmel modifiki.</string>
   <string name="edit_how_page_improved">Kif tejjibt din il-paġna?</string>
   <string name="edit_next">Li jmiss</string>
-  <string name="edit_done">Issejvja</string>
+  <string name="edit_done" fuzzy="true">Issejvja</string>
   <string name="edit_preview">Dehra proviżorja</string>
   <string name="edit_summary_tag_typo">Tiswija ta\' żball tipografiku</string>
   <string name="edit_summary_tag_grammar">Tiswija tal-grammatika</string>
@@ -83,12 +87,12 @@
   <string name="edit_summary_tag_other_hint">Modi oħra kif inti tejjibt il-paġna</string>
   <string name="find_next">Sib li jmiss</string>
   <string name="find_previous">Sib ta\' qabel</string>
-  <string name="abusefilter_title_warn">Din tista\' tkun modifiki inutli. Inti ċert li tixtieq tissejvjaha?</string>
-  <string name="abusefilter_title_disallow">Ma tistax tissejvja din il-modifika. Jekk jogħġbok mura lura u biddilha.</string>
+  <string name="abusefilter_title_warn" fuzzy="true">Din tista\' tkun modifiki inutli. Inti ċert li tixtieq tissejvjaha?</string>
+  <string name="abusefilter_title_disallow" fuzzy="true">Ma tistax tissejvja din il-modifika. Jekk jogħġbok mura lura u biddilha.</string>
   <string name="dialog_close_description">Agħlaq</string>
   <string name="preference_title_show_images">Uri l-istampi</string>
   <string name="read_more_section">Aqra aktar</string>
-  <string name="menu_gallery_visit_page">Mur fil-paġna tal-fajl</string>
+  <string name="menu_gallery_visit_image_page">Mur fil-paġna tal-fajl</string>
   <string name="gallery_error_draw_failed">L-istampa ma setgħetx tiġi ġġenerata.</string>
   <string name="gallery_menu_share">Aqsam</string>
   <string name="gallery_share_error">L-istampa ma setgħetx tiġi mxerrda: %s</string>
