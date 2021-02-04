@@ -9,8 +9,10 @@ import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.L10nUtil
 import kotlin.math.abs
 
-class FrameLayoutNavMenuTriggerer @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
-        FrameLayout(context, attrs, defStyleAttr) {
+class FrameLayoutNavMenuTriggerer : FrameLayout {
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr)
 
     interface Callback {
         fun onNavMenuSwipeRequest(gravity: Int)
