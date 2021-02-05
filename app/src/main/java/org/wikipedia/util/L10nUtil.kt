@@ -1,7 +1,6 @@
 package org.wikipedia.util
 
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
@@ -65,33 +64,26 @@ object L10nUtil {
         val systemLocale = ConfigurationCompat.getLocales(config)[0]
         if (systemLocale.language == targetLocale.language) {
             val localizedStrings = SparseArray<String>()
-            for (stringRes in strings) {
-                localizedStrings.put(stringRes, WikipediaApp.getInstance().getString(stringRes))
+            strings.forEach {
+                localizedStrings.put(it, WikipediaApp.getInstance().getString(it))
             }
             return localizedStrings
         }
         setDesiredLocale(config, targetLocale)
         val localizedStrings = getTargetStrings(strings, config)
         config.setLocale(systemLocale)
-        resetConfiguration(config)
+        // reset to current configuration
+        WikipediaApp.getInstance().createConfigurationContext(config)
         return localizedStrings
     }
 
     private fun getTargetStrings(@StringRes strings: IntArray, altConfig: Configuration): SparseArray<String> {
         val localizedStrings = SparseArray<String>()
-        val targetResources = Resources(WikipediaApp.getInstance().resources.assets,
-                WikipediaApp.getInstance().resources.displayMetrics,
-                altConfig)
-        for (stringRes in strings) {
-            localizedStrings.put(stringRes, targetResources.getString(stringRes))
+        val targetResources = WikipediaApp.getInstance().createConfigurationContext(altConfig).resources
+        strings.forEach {
+            localizedStrings.put(it, targetResources.getString(it))
         }
         return localizedStrings
-    }
-
-    private fun resetConfiguration(defaultConfig: Configuration) {
-        Resources(WikipediaApp.getInstance().resources.assets,
-                WikipediaApp.getInstance().resources.displayMetrics,
-                defaultConfig)
     }
 
     private fun getDesiredLocale(desiredLocale: Locale): Locale {
