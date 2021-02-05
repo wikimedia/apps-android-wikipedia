@@ -1,7 +1,6 @@
 package org.wikipedia.util
 
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.util.SparseArray
 import android.view.View
 import androidx.annotation.StringRes
