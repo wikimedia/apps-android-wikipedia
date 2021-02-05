@@ -49,7 +49,7 @@ class FrameLayoutNavMenuTriggerer : FrameLayout {
                     post { super.dispatchTouchEvent(moveEvent) }
 
                     // and trigger our custom swipe request!
-                    callback!!.onNavMenuSwipeRequest(if (L10nUtil.isDeviceRTL())
+                    callback!!.onNavMenuSwipeRequest(if (L10nUtil.isDeviceRTL)
                         if (ev.x > initialX) Gravity.END else Gravity.START else if (ev.x > initialX) Gravity.START else Gravity.END)
                 }
             }
