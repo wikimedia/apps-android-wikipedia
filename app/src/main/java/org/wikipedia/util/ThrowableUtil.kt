@@ -48,9 +48,8 @@ object ThrowableUtil {
     @Deprecated("")
     fun getAppError(context: Context, e: Throwable): AppError {
         val inner = getInnermostThrowable(e)
-        val result: AppError
         // look at what kind of exception it is...
-        result = if (isNetworkError(e)) {
+        return if (isNetworkError(e)) {
             AppError(context.getString(R.string.error_network_error),
                     context.getString(R.string.format_error_server_message,
                             inner.localizedMessage))
@@ -67,13 +66,11 @@ object ThrowableUtil {
             AppError(context.getString(R.string.error_unknown),
                     inner.localizedMessage)
         }
-        return result
     }
 
     @JvmStatic
     fun isOffline(caught: Throwable?): Boolean {
-        return (caught is UnknownHostException ||
-                caught is SocketException)
+        return caught is UnknownHostException || caught is SocketException
     }
 
     @JvmStatic
@@ -88,9 +85,9 @@ object ThrowableUtil {
 
     @JvmStatic
     fun isNetworkError(e: Throwable): Boolean {
-        return (throwableContainsException(e, UnknownHostException::class.java) ||
+        return throwableContainsException(e, UnknownHostException::class.java) ||
                 throwableContainsException(e, TimeoutException::class.java) ||
-                throwableContainsException(e, SSLException::class.java))
+                throwableContainsException(e, SSLException::class.java)
     }
 
     @Deprecated("")
