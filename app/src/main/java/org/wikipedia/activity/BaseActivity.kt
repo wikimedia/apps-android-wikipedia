@@ -239,7 +239,7 @@ abstract class BaseActivity : AppCompatActivity() {
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
                     .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { dialog : DialogInterface, _: Int ->
+                    .setPositiveButton(R.string.logged_out_in_background_login) { dialog: DialogInterface, _: Int ->
                         startActivity(LoginActivity.newIntent(this@BaseActivity, LoginFunnel.SOURCE_LOGOUT_BACKGROUND))
                         dialog.dismiss()
                     }
