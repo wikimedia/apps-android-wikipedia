@@ -2,23 +2,17 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.graphics.Color
-import org.wikipedia.auth.AccountUtil.isLoggedIn
-import android.widget.FrameLayout
-import android.widget.PopupWindow
-import butterknife.BindView
-import org.wikipedia.R
-import com.google.android.material.textview.MaterialTextView
-import android.view.ViewGroup
 import android.graphics.drawable.ColorDrawable
-import androidx.core.widget.PopupWindowCompat
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import org.wikipedia.auth.AccountUtil
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.PopupWindow
 import androidx.annotation.DrawableRes
-import androidx.core.view.children
-import butterknife.OnClick
-import butterknife.ButterKnife
+import androidx.core.widget.PopupWindowCompat
+import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewPageActionOverflowBinding
 import org.wikipedia.page.tabs.Tab
 
@@ -54,7 +48,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
         binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
         binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
-        binding.overflowWatchlist.visibility = if (isLoggedIn) VISIBLE else GONE
+        binding.overflowWatchlist.visibility = if (AccountUtil.isLoggedIn) VISIBLE else GONE
     }
 
     @DrawableRes
