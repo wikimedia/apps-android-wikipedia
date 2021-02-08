@@ -386,7 +386,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (SearchCallback.is(actionMode)) {
             finishActionMode();
         }
-        if (!MultiSelectCallback.is(actionMode)) {
+        if (!MultiSelectCallback.isTagType(actionMode)) {
             getAppCompatActivity().startSupportActionMode(multiSelectActionModeCallback);
         }
     }
@@ -536,7 +536,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (page == null) {
             return;
         }
-        if (actionMode == null || MultiSelectCallback.is(actionMode)) {
+        if (actionMode == null || MultiSelectCallback.isTagType(actionMode)) {
             beginMultiSelect();
             toggleSelectPage(page);
         }
@@ -804,7 +804,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private class ReadingListPageItemCallback implements PageItemView.Callback<ReadingListPage> {
         @Override
         public void onClick(@Nullable ReadingListPage page) {
-            if (MultiSelectCallback.is(actionMode)) {
+            if (MultiSelectCallback.isTagType(actionMode)) {
                 toggleSelectPage(page);
             } else if (page != null) {
                 PageTitle title = ReadingListPage.toPageTitle(page);
