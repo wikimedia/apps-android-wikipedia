@@ -394,7 +394,7 @@
     <!-- /Theme -->
 
     <!-- Reading lists -->
-    <string name="nav_item_reading_lists">My lists</string>
+    <string name="nav_item_saved">Saved</string>
     <string name="reading_list_save_to">Save to reading list</string>
     <string name="reading_list_move_to">Move to reading list</string>
     <string name="reading_list_create_new">Create new</string>
