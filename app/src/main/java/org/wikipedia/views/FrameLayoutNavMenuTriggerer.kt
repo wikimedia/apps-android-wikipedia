@@ -9,8 +9,10 @@ import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.L10nUtil
 import kotlin.math.abs
 
-class FrameLayoutNavMenuTriggerer @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
-        FrameLayout(context, attrs, defStyleAttr) {
+class FrameLayoutNavMenuTriggerer : FrameLayout {
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet? = null) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr)
 
     interface Callback {
         fun onNavMenuSwipeRequest(gravity: Int)
@@ -47,7 +49,7 @@ class FrameLayoutNavMenuTriggerer @JvmOverloads constructor(context: Context, at
                     post { super.dispatchTouchEvent(moveEvent) }
 
                     // and trigger our custom swipe request!
-                    callback!!.onNavMenuSwipeRequest(if (L10nUtil.isDeviceRTL())
+                    callback!!.onNavMenuSwipeRequest(if (L10nUtil.isDeviceRTL)
                         if (ev.x > initialX) Gravity.END else Gravity.START else if (ev.x > initialX) Gravity.START else Gravity.END)
                 }
             }
