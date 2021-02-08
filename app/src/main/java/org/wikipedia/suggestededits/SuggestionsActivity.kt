@@ -16,26 +16,16 @@ import org.wikipedia.views.ImageZoomHelper
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
 
-    private lateinit var imageZoomHelper: ImageZoomHelper
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action))
-        imageZoomHelper = ImageZoomHelper(this)
+        setImageZoomHelper()
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
         return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action,
                 intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-    }
-
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        try {
-            return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
-        } catch (e: Exception) {
-        }
-        return false
     }
 
     private fun getActionBarTitleRes(action: Action): Int {
