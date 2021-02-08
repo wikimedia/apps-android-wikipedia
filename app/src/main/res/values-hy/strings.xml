@@ -323,6 +323,8 @@
   <string name="text_input_dialog_ok_button_text">Լավ</string>
   <string name="text_input_dialog_cancel_button_text">Չեղարկել</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="watchlist_details_watch_label">Հսկել</string>
+  <string name="thank_dialog_positive_button_text">Շնորհակալություն հայտնել</string>
   <string name="watchlist_expiry_dialog_one_week">1 շաբաթ</string>
   <string name="watchlist_expiry_dialog_one_month">1 ամիս</string>
   <string name="watchlist_expiry_dialog_three_months">3 ամիս</string>

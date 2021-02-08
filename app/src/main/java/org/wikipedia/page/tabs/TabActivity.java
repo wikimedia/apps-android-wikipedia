@@ -132,7 +132,7 @@ public class TabActivity extends BaseActivity {
         ButterKnife.bind(this);
         app = WikipediaApp.getInstance();
         funnel.logEnterList(app.getTabCount());
-        tabCountsView.updateTabCount();
+        tabCountsView.updateTabCount(false);
         launchedFromPageActivity = getIntent().hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY);
 
         FeedbackUtil.setButtonLongPressToast(tabCountsView);
@@ -343,7 +343,7 @@ public class TabActivity extends BaseActivity {
                 org.wikipedia.page.tabs.Tab tab = app.getTabList().remove(tabIndex);
                 app.getTabList().add(tab);
             }
-            tabCountsView.updateTabCount();
+            tabCountsView.updateTabCount(false);
             cancelled = false;
 
             final int tabUpdateDebounceMillis = 250;
@@ -360,7 +360,7 @@ public class TabActivity extends BaseActivity {
 
         @Override
         public void onTabAdded(@NonNull TabSwitcher tabSwitcher, int index, @NonNull Tab tab, @NonNull Animation animation) {
-            tabCountsView.updateTabCount();
+            tabCountsView.updateTabCount(false);
             tabUpdatedTimeMillis = System.currentTimeMillis();
         }
 
@@ -370,7 +370,7 @@ public class TabActivity extends BaseActivity {
             org.wikipedia.page.tabs.Tab appTab = app.getTabList().remove(tabIndex);
 
             funnel.logClose(app.getTabCount(), tabIndex);
-            tabCountsView.updateTabCount();
+            tabCountsView.updateTabCount(false);
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             showUndoSnackbar(tab, index, appTab, tabIndex);
             tabUpdatedTimeMillis = System.currentTimeMillis();
@@ -382,7 +382,7 @@ public class TabActivity extends BaseActivity {
             List<org.wikipedia.page.tabs.Tab> appTabs = new ArrayList<>(app.getTabList());
 
             app.getTabList().clear();
-            tabCountsView.updateTabCount();
+            tabCountsView.updateTabCount(false);
             setResult(RESULT_LOAD_FROM_BACKSTACK);
             showUndoAllSnackbar(tabs, appTabs);
             tabUpdatedTimeMillis = System.currentTimeMillis();

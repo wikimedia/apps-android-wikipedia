@@ -27,6 +27,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
@@ -70,6 +71,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.log.L;
@@ -116,6 +118,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
+        void updateTabCountsView();
         void updateToolbarElevation(boolean elevate);
     }
 
@@ -288,8 +291,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewBackgroundTab) {
         if (openInNewBackgroundTab) {
             TabUtil.openInNewBackgroundTab(entry);
-            FeedbackUtil.showMessage(this, R.string.article_opened_in_background_tab);
-            requireActivity().invalidateOptionsMenu();
+            callback().updateTabCountsView();
         } else {
             startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
         }
@@ -446,7 +448,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
             startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                     new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
-                            AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
+                            AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode())),
+                    NAV_MENU));
         }
     }
 
@@ -465,6 +468,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void watchlistClick() {
         if (AccountUtil.isLoggedIn()) {
+            new WatchlistFunnel().logViewWatchlist();
             startActivity(WatchlistActivity.Companion.newIntent(requireActivity()));
         }
     }
@@ -561,15 +565,18 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (Prefs.isWatchlistPageOnboardingTooltipShown()
+        // TODO remove feature flag when ready
+        if (ReleaseUtil.isPreBetaRelease()
+                && Prefs.isWatchlistPageOnboardingTooltipShown()
                 && !Prefs.isWatchlistMainOnboardingTooltipShown()
                 && AccountUtil.isLoggedIn()) {
             moreContainer.postDelayed(() -> {
                 if (!isAdded()) {
                     return;
                 }
+                new WatchlistFunnel().logShowTooltipMore();
                 Prefs.setWatchlistMainOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, true, false);
+                FeedbackUtil.showTooltip(moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, 0, true, false);
             }, 500);
         }
     }

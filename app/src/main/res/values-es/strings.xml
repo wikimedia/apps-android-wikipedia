@@ -37,6 +37,7 @@
 * Macofe
 * Madamebiblio
 * MarcoAurelio
+* MarleneR329
 * Mouse21
 * Mynor Archila
 * Pantareje
@@ -95,6 +96,8 @@
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>
+  <string name="menu_page_add_to_watchlist">Añadir a lista de seguimiento</string>
+  <string name="menu_page_remove_from_watchlist">Quitar de lista de seguimiento</string>
   <string name="edit_section_find_in_page">Buscar en la página</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
   <string name="menu_page_add_to_list">Añadir a lista de lectura</string>
@@ -690,7 +693,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">¡Descripción de artículo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Se publicó el pie de foto (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">¡Etiqueta(s) de imagen(es) publicadas!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Se publicaron las etiquetas de imagen.</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">¿Lo disfrutaste? Ayúdanos a añadir más.</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
@@ -965,9 +968,21 @@
   <string name="talk_message_hint">Redactar mensaje</string>
   <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
   <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
+  <string name="menu_option_user_profile">Perfil de %s</string>
+  <string name="menu_option_user_contributions">Contribuciones de %s</string>
+  <string name="thank_label">Agradecer</string>
   <string name="go_to_user_page">Ir a la página de usuario</string>
+  <string name="thank_dialog_positive_button_text" fuzzy="true">AGRADECER</string>
+  <string name="thank_dialog_negative_button_text" fuzzy="true">CANCELAR</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">por 1 semana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">por 1 mes</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">por 3 meses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">por 6 meses</string>
+  <string name="watchlist_expiry_dialog_permanent">permanente</string>
   <string name="watchlist_expiry_dialog_one_week">1 semana</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mes</string>
   <string name="watchlist_expiry_dialog_three_months">3 meses</string>
   <string name="watchlist_expiry_dialog_six_months">6 meses</string>
   <string name="watchlist_filter_all">Todos</string>

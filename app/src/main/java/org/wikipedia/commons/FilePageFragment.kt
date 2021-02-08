@@ -40,7 +40,7 @@ class FilePageFragment : Fragment() {
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        L10nUtil.setConditionalLayoutDirection(container, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(container!!, pageTitle.wikiSite.languageCode())
         return inflater.inflate(R.layout.fragment_file_page, container, false)
     }
 
@@ -109,7 +109,7 @@ class FilePageFragment : Fragment() {
                 .flatMap {
                     page = it.query()!!.pages()!![0]
                     val imageInfo = page.imageInfo()!!
-                    pageSummaryForEdit =  PageSummaryForEdit(
+                    pageSummaryForEdit = PageSummaryForEdit(
                             pageTitle.prefixedText,
                             pageTitle.wikiSite.languageCode(),
                             pageTitle,

@@ -264,6 +264,7 @@
   <string name="find_previous">Encontrar anterior</string>
   <string name="find_first_occurence">Esta é a primeira ocorrência</string>
   <string name="find_last_occurence">Esta é a última ocorrência</string>
+  <string name="article_opened_in_background_tab">O artigo foi aberto em uma guia em segundo plano.</string>
   <string name="abusefilter_title_warn">Isso pode ser uma edição não construtiva. Tem certeza de que deseja publicá-la?</string>
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou que esta edição contém possíveis erros. Ela pode conter uma ou mais das seguintes características:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de letras maiúsculas;&lt;br/&gt;· Entradas em branco ou com spam;&lt;br/&gt;· Imagens ou ligações externas irrelevantes; e&lt;br/&gt;· Repetição de caracteres.</string>
@@ -819,8 +820,8 @@
     <item quantity="one">%d dia</item>
     <item quantity="other">%d dias</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">O que é edições sugeridas?</string>
-  <string name="suggested_edits_what_is_text">As edições sugeridas apresentam oportunidades para contribuições pequenas, mas vitais, para a Wikipédia.</string>
+  <string name="suggested_edits_what_is_title">O que são edições sugeridas?</string>
+  <string name="suggested_edits_what_is_text">As edições sugeridas apresentam oportunidades para contribuições pequenas, mas vitais para a Wikipédia.</string>
   <string name="suggested_edits_learn_more">Saiba mais</string>
   <string name="suggested_edits_paused_title">Pausado</string>
   <string name="suggested_edits_disabled_title">Desativado</string>
@@ -977,7 +978,18 @@
   <string name="talk_message_hint">Compor mensagem</string>
   <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
   <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
+  <string name="menu_option_share_edit">Compartilhar edição</string>
+  <string name="menu_option_user_profile">Perfil de %s</string>
+  <string name="menu_option_user_contributions">Contribuições de %s</string>
+  <string name="watchlist_details_watching_label">Vigiado</string>
+  <string name="watchlist_details_watch_label">Vigiar</string>
+  <string name="thank_label">Obrigado</string>
   <string name="go_to_user_page">Vá para a página do usuário</string>
+  <string name="thank_dialog_title_text">Envie publicamente \"Obrigado\"</string>
+  <string name="thank_dialog_text">\'Obrigado\' é uma maneira fácil de mostrar apreço pelo trabalho de um editor na Wikipédia. \'Obrigado\' não pode ser desfeito e pode ser visto publicamente</string>
+  <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
+  <string name="thank_dialog_negative_button_text">Cancelar</string>
+  <string name="thank_success_message">O seu \'agradecimento\' foi enviado para %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua página de discussão foi adicionada à sua lista de páginas vigiadas %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Mudar</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
@@ -997,4 +1009,7 @@
   <string name="watchlist_filter_talk">Discussão</string>
   <string name="watchlist_filter_pages">Páginas</string>
   <string name="watchlist_filter_other">Outro</string>
+  <string name="watchlist_page_moved">Movido</string>
+  <string name="watchlist_page_protected">Protegido</string>
+  <string name="watchlist_page_deleted">Excluído</string>
 </resources>

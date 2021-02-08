@@ -34,8 +34,8 @@ class SwipeableListView constructor(context: Context, attrs: AttributeSet? = nul
 
         override fun onFling(event1: MotionEvent, event2: MotionEvent,
                              velocityX: Float, velocityY: Float): Boolean {
-            if (swipeDetected(event1, event2) && abs(velocityX) > SWIPE_MIN_X_VELOCITY
-                    && abs(velocityY) < SWIPE_MAX_Y_VELOCITY) {
+            if (swipeDetected(event1, event2) && abs(velocityX) > SWIPE_MIN_X_VELOCITY &&
+                    abs(velocityY) < SWIPE_MAX_Y_VELOCITY) {
                 listener?.onSwipeOut()
             }
             return false

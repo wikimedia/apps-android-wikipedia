@@ -218,7 +218,7 @@
   <string name="page_protected_can_not_edit_anon">Spiacenti, questa pagina non può essere modificata anonimamente in questo momento.</string>
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Aggiungi agli osservati speciali</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Traccia gli eventi degli articoli a cui sei interessato. Premi nel menu e selezione &lt;b&gt;Aggiungi agli osservati speciali&lt;/b&gt; per vedere le modifiche di un articolo.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Traccia ciò che accade alle voci a cui sei interessato. Premi nel menu e seleziona &lt;b&gt;Aggiungi agli osservati speciali&lt;/b&gt; per vedere le modifiche ad una voce.</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
   <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
@@ -268,6 +268,7 @@
   <string name="find_previous">Trova precedente</string>
   <string name="find_first_occurence">Questo è il primo evento</string>
   <string name="find_last_occurence">Questo è l\'ultimo evento</string>
+  <string name="article_opened_in_background_tab">La voce è stata aperta in una scheda in background.</string>
   <string name="abusefilter_title_warn">Questa potrebbe essere una modifica non costruttiva. Sei proprio sicuro di volerla pubblicare?</string>
   <string name="abusefilter_title_disallow">Non puoi pubblicare questa modifica. Per favore torna indietro e modificala.</string>
   <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>
@@ -965,7 +966,7 @@
   <string name="main_tooltip_text_v2">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="main_tooltip_action_button">Inizia</string>
   <string name="main_tooltip_watchlist_title">Osservati speciali</string>
-  <string name="main_tooltip_watchlist_text">Trova articoli e pagine che hai aggiunto precedentemente alla tua lista di osservati speciali nel menu Altro sotto &lt;b&gt;Osservati speciali&lt;/b&gt;.</string>
+  <string name="main_tooltip_watchlist_text">Trova voci e pagine che hai aggiunto precedentemente alla tua lista di osservati speciali nel menu Altro sotto &lt;b&gt;Osservati speciali&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annulla</string>
@@ -981,7 +982,18 @@
   <string name="talk_message_hint">Scrivi un messaggio</string>
   <string name="talk_message_empty">Il messaggio non può essere vuoto.</string>
   <string name="talk_subject_empty">L\'oggetto non può essere vuoto.</string>
+  <string name="menu_option_share_edit">Condividi modifica</string>
+  <string name="menu_option_user_profile">Profilo di %s</string>
+  <string name="menu_option_user_contributions">Contributi di %s</string>
+  <string name="watchlist_details_watching_label">Osservato</string>
+  <string name="watchlist_details_watch_label">Osserva</string>
+  <string name="thank_label">Ringrazia</string>
   <string name="go_to_user_page">Vai alla pagina utente</string>
+  <string name="thank_dialog_title_text">Invia pubblicamente un \'ringraziamento\'</string>
+  <string name="thank_dialog_text">\'Ringrazia\' è un modo semplice per mostrare apprezzamento per il lavoro di un editore su Wikipedia. I \'Ringrazia\' non possono essere annullati e sono visibili pubblicamente</string>
+  <string name="thank_dialog_positive_button_text">Invia ringraziamento</string>
+  <string name="thank_dialog_negative_button_text">Annulla</string>
+  <string name="thank_success_message">Il tuo \'ringraziamento\' è stato inviato a %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e la sua pagina di discussione sono state aggiunte alla tua lista degli osservati speciali %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Modifica</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
@@ -1001,4 +1013,7 @@
   <string name="watchlist_filter_talk">Discussioni</string>
   <string name="watchlist_filter_pages">Pagine</string>
   <string name="watchlist_filter_other">Altro</string>
+  <string name="watchlist_page_moved">Spostato</string>
+  <string name="watchlist_page_protected">Protetto</string>
+  <string name="watchlist_page_deleted">Cancellato</string>
 </resources>

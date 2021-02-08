@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient.mwapi;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -44,6 +46,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private Map<String, String> varianttitles;
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
     @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
+    @SerializedName("watchlistexpiry") @Nullable private String watchlistExpiry;
     private boolean watched;
 
 
@@ -157,6 +160,10 @@ public class MwQueryPage extends BaseModel {
         return StringUtils.defaultString(imagerepository).equals("shared");
     }
 
+    public boolean hasWatchlistExpiry() {
+        return !TextUtils.isEmpty(watchlistExpiry);
+    }
+
     public boolean isWatched() {
         return watched;
     }
@@ -169,6 +176,7 @@ public class MwQueryPage extends BaseModel {
         private long revid;
         private long parentid;
         private boolean minor;
+        private boolean anon;
         @Nullable private String user;
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
@@ -177,11 +185,29 @@ public class MwQueryPage extends BaseModel {
         @Nullable private String comment;
         @Nullable private Map<String, RevisionSlot> slots;
 
+        @NonNull public String getComment() {
+            return StringUtils.defaultString(comment);
+        }
+
         public long getRevId() {
             return revid;
         }
 
-        @NonNull public String content() {
+        public long getParentRevId() {
+            return parentid;
+        }
+
+        @NonNull
+        public String getUser() {
+            return StringUtils.defaultString(user);
+        }
+
+        public boolean isAnon() {
+            return anon;
+        }
+
+        @NonNull
+        public String content() {
             return StringUtils.defaultString(content);
         }
 

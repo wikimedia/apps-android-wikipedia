@@ -7,7 +7,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,10 +28,14 @@ import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
+import org.wikipedia.staticdata.SpecialAliasData;
+import org.wikipedia.staticdata.UserAliasData;
 import org.wikipedia.suggestededits.SuggestionsActivity;
 
 import java.util.concurrent.TimeUnit;
@@ -43,7 +46,6 @@ public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
     public static final int LENGTH_MEDIUM = (int) TimeUnit.SECONDS.toMillis(8);
     public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(15);
-    private static final int SNACKBAR_MAX_LINES = 10;
     private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
         showToastOverView(v, v.getContentDescription(), LENGTH_DEFAULT);
         return true;
@@ -107,6 +109,16 @@ public final class FeedbackUtil {
         showAndroidAppEditingFAQ(context, R.string.android_app_edit_help_url);
     }
 
+    public static void showUserContributionsPage(@NonNull Context context, @NonNull String username, String languageCode) {
+        PageTitle title = new PageTitle(SpecialAliasData.valueFor(languageCode) + ":" + "Contributions/" + username, WikiSite.forLanguageCode(languageCode));
+        visitInExternalBrowser(context, Uri.parse(title.getUri()));
+    }
+
+    public static void showUserProfilePage(@NonNull Context context, @NonNull String username, String languageCode) {
+        PageTitle title = new PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode));
+        visitInExternalBrowser(context, Uri.parse(title.getUri()));
+    }
+
     public static void showAndroidAppEditingFAQ(Context context, @StringRes int urlStr) {
         SuggestedEditsFunnel.get().helpOpened();
         visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)));
@@ -153,12 +165,9 @@ public final class FeedbackUtil {
     }
 
     public static Snackbar makeSnackbar(Activity activity, CharSequence text, int duration) {
-        final float snackbarLineSpacing = 5.0f;
         View view = findBestView(activity);
         Snackbar snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration);
         TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
-        textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, snackbarLineSpacing, activity.getResources().getDisplayMetrics()), 1.0f);
-        textView.setMaxLines(SNACKBAR_MAX_LINES);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
         actionView.setTextColor(ResourceUtil.getThemedColor(view.getContext(), R.attr.color_group_52));
@@ -183,8 +192,9 @@ public final class FeedbackUtil {
         return showTooltip(getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
-    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
-        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight,
+                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
+        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -203,7 +213,7 @@ public final class FeedbackUtil {
 
     @SuppressWarnings("checkstyle:magicnumber")
     public static Balloon getTooltip(@NonNull Context context, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
-        return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
+        return getTooltipBuilder(context, 0, aboveOrBelow, autoDismiss)
                 .setText(text)
                 .setTextSize(14f)
                 .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
@@ -213,8 +223,9 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight, int arrowAnchorPadding, boolean aboveOrBelow, boolean autoDismiss) {
-        return getTooltipBuilder(context, aboveOrBelow, autoDismiss)
+    private static Balloon getTooltip(@NonNull Context context, @LayoutRes int layoutRes, int layoutHeight,
+                                     int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
+        return getTooltipBuilder(context, topOrBottomMargin, aboveOrBelow, autoDismiss)
                 .setLayout(layoutRes)
                 .setHeight(layoutHeight)
                 .setWidthRatio(DimenUtil.isLandscape(context) ? 0.4f : 0.8f)
@@ -223,7 +234,7 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private static Balloon.Builder getTooltipBuilder(@NonNull Context context, boolean aboveOrBelow, boolean autoDismiss) {
+    private static Balloon.Builder getTooltipBuilder(@NonNull Context context, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
         return new Balloon.Builder(context)
                 .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
@@ -231,6 +242,8 @@ public final class FeedbackUtil {
                 .setArrowSize(24)
                 .setMarginLeft(8)
                 .setMarginRight(8)
+                .setMarginTop(aboveOrBelow ? 0 : topOrBottomMargin)
+                .setMarginBottom(aboveOrBelow ? topOrBottomMargin : 0)
                 .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
                 .setDismissWhenTouchOutside(autoDismiss);
     }

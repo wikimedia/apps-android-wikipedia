@@ -394,7 +394,7 @@
     <!-- /Theme -->
 
     <!-- Reading lists -->
-    <string name="nav_item_reading_lists">My lists</string>
+    <string name="nav_item_saved">Saved</string>
     <string name="reading_list_save_to">Save to reading list</string>
     <string name="reading_list_move_to">Move to reading list</string>
     <string name="reading_list_create_new">Create new</string>
@@ -917,7 +917,7 @@
     <string name="onboarding_explore_title">New ways to explore</string>
     <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
-    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a> ]]></string>
+    <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
     <string name="onboarding_analytics_title">Send anonymous data</string>
     <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
@@ -945,7 +945,7 @@
         <item quantity="one">Last year</item>
         <item quantity="other">%d years ago</item>
     </plurals>
-    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀 </string>
+    <string name="on_this_day_end_of_scroll_message">You travelled through time 🚀</string>
     <string name="on_this_day_back_to_future">Back to the future</string>
     <!-- /On This Day -->
 
@@ -1021,7 +1021,18 @@
     <string name="talk_message_hint">Compose message</string>
     <string name="talk_message_empty">The message cannot be empty.</string>
     <string name="talk_subject_empty">The subject cannot be empty.</string>
+    <string name="menu_option_share_edit">Share edit</string>
+    <string name="menu_option_user_profile">%s\'s profile</string>
+    <string name="menu_option_user_contributions">%s\'s contributions</string>
+    <string name="watchlist_details_watching_label">Watching</string>
+    <string name="watchlist_details_watch_label">Watch</string>
+    <string name="thank_label">Thank</string>
     <string name="go_to_user_page">Go to user page</string>
+    <string name="thank_dialog_title_text">Publicly send \'Thanks\'</string>
+    <string name="thank_dialog_text">\'Thanks\' are an easy way to show appreciation for an editor\’s work on Wikipedia. \'Thanks\' cannot be undone and are publicly viewable</string>
+    <string name="thank_dialog_positive_button_text">Send thanks</string>
+    <string name="thank_dialog_negative_button_text">Cancel</string>
+    <string name="thank_success_message">Your \'Thanks\' was sent to %s 👍</string>
 
     <!-- Watchlist -->
     <string name="watchlist_page_add_to_watchlist_snackbar">%1$s and its talk page have been added to your watchlist %2$s.</string>
@@ -1043,4 +1054,7 @@
     <string name="watchlist_filter_talk">Talk</string>
     <string name="watchlist_filter_pages">Pages</string>
     <string name="watchlist_filter_other">Other</string>
+    <string name="watchlist_page_moved">Moved</string>
+    <string name="watchlist_page_protected">Protected</string>
+    <string name="watchlist_page_deleted">Deleted</string>
 </resources>

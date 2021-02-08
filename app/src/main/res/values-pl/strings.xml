@@ -897,11 +897,17 @@
   <string name="talk_message_hint">Utwórz wiadomość</string>
   <string name="talk_message_empty">Wiadomość nie może być pusta.</string>
   <string name="talk_subject_empty">Pole tematu nie może być puste.</string>
+  <string name="watchlist_details_watch_label">Obserwuj</string>
   <string name="go_to_user_page">Przejdź do strony użytkownika</string>
+  <string name="thank_dialog_negative_button_text">Anuluj</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Zmień</string>
   <string name="watchlist_expiry_dialog_one_week">1 tydzień</string>
   <string name="watchlist_expiry_dialog_one_month">1 miesiąc</string>
   <string name="watchlist_expiry_dialog_three_months">3 miesiące</string>
   <string name="watchlist_expiry_dialog_six_months">3 miesiące</string>
   <string name="watchlist_filter_talk">Dyskusja</string>
   <string name="watchlist_filter_pages">Strony</string>
+  <string name="watchlist_page_moved">Przeniesiona</string>
+  <string name="watchlist_page_protected">Zabezpieczona</string>
+  <string name="watchlist_page_deleted">Usunięta</string>
 </resources>

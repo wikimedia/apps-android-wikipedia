@@ -14,9 +14,8 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -66,7 +65,7 @@ public class PageTitle implements Parcelable {
     //       are broken.
     @Nullable private final String namespace;
     @NonNull private String text;
-    @Nullable private final String fragment;
+    @Nullable private String fragment;
     @Nullable private String thumbUrl;
     @SerializedName("site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
@@ -202,6 +201,10 @@ public class PageTitle implements Parcelable {
         return fragment;
     }
 
+    public void setFragment(@Nullable String fragment) {
+        this.fragment = fragment;
+    }
+
     @Nullable public String getThumbUrl() {
         return thumbUrl;
     }
@@ -256,18 +259,14 @@ public class PageTitle implements Parcelable {
         return getUriForDomain(getWikiSite().authority().replace(".wikipedia.org", ".m.wikipedia.org"));
     }
 
-    public String getUriForAction(String action) {
-        try {
-            return String.format(
-                    "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
-                    getWikiSite().scheme(),
-                    getWikiSite().authority(),
-                    URLEncoder.encode(getPrefixedText(), "utf-8"),
-                    action
-            );
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+    public String getWebApiUrl(String fragment) {
+        return String.format(
+                "%1$s://%2$s/w/index.php?title=%3$s&%4$s",
+                getWikiSite().scheme(),
+                getWikiSite().authority(),
+                UriUtil.encodeURL(getPrefixedText()),
+                fragment
+        );
     }
 
     public String getPrefixedText() {
@@ -345,18 +344,14 @@ public class PageTitle implements Parcelable {
     }
 
     private String getUriForDomain(String domain) {
-        try {
-            return String.format(
-                    "%1$s://%2$s/%3$s/%4$s%5$s",
-                    getWikiSite().scheme(),
-                    domain,
-                    domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
-                    URLEncoder.encode(getPrefixedText(), "utf-8"),
-                    (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
-            );
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return String.format(
+                "%1$s://%2$s/%3$s/%4$s%5$s",
+                getWikiSite().scheme(),
+                domain,
+                domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
+                UriUtil.encodeURL(getPrefixedText()),
+                (this.fragment != null && this.fragment.length() > 0) ? ("#" + UriUtil.encodeURL(this.fragment)) : ""
+        );
     }
 
     private PageTitle(Parcel in) {

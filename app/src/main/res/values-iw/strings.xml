@@ -7,6 +7,7 @@
 * Envlh
 * Eraab
 * Erelon
+* Ghsuvr
 * Guycn2
 * IKhitron
 * Inkbug
@@ -251,6 +252,7 @@
   <string name="find_previous">חיפוש הקודם</string>
   <string name="find_first_occurence">זה המופע הראשון</string>
   <string name="find_last_occurence">זה המופע האחרון</string>
+  <string name="article_opened_in_background_tab">הערך הזה נפתח בלשונית רקע.</string>
   <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. האם באמת לפרסם אותה?</string>
   <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
@@ -1015,7 +1017,18 @@
   <string name="talk_message_hint">כתיבת הודעה</string>
   <string name="talk_message_empty">ההודעה אינה יכולה להיות ריקה.</string>
   <string name="talk_subject_empty">הכותרת אינה יכולה להיות ריקה.</string>
+  <string name="menu_option_share_edit">לשתף את העריכה</string>
+  <string name="menu_option_user_profile">הפרופיל של %s</string>
+  <string name="menu_option_user_contributions">התרומות של %s</string>
+  <string name="watchlist_details_watching_label">במעקב</string>
+  <string name="watchlist_details_watch_label">לעקוב</string>
+  <string name="thank_label">תודה</string>
   <string name="go_to_user_page">מעבר לדף משתמש</string>
+  <string name="thank_dialog_title_text">שליחת \"תודה\" באופן ציבורי</string>
+  <string name="thank_dialog_text">\"תודה\" היא דרך קלה להראות הערכה לעבודה של עורך בוויקיפדיה. לא ניתן לבטל פעולות שליחת \"תודה\" והן מוצגות באופן ציבורי.</string>
+  <string name="thank_dialog_positive_button_text">לשלוח תודה</string>
+  <string name="thank_dialog_negative_button_text">ביטול</string>
+  <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
@@ -1035,4 +1048,7 @@
   <string name="watchlist_filter_talk">שיחה</string>
   <string name="watchlist_filter_pages">דפים</string>
   <string name="watchlist_filter_other">אחר</string>
+  <string name="watchlist_page_moved">הועבר</string>
+  <string name="watchlist_page_protected">הוגן</string>
+  <string name="watchlist_page_deleted">נמחק</string>
 </resources>

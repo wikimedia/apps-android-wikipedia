@@ -3,7 +3,6 @@ package org.wikipedia.feed.view
 import android.content.Context
 import android.text.SpannableStringBuilder
 import android.text.Spanned
-import android.text.TextUtils
 import android.text.style.ImageSpan
 import android.util.AttributeSet
 import android.view.View

@@ -34,7 +34,7 @@
 * Wladek92
 * Zoranzoki21
 -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="all">
   <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
   <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
   <string name="app_name_alpha">Name of the alpha version of the application.</string>
@@ -406,7 +406,6 @@
   <string name="text_size_decrease">Button hint for decreasing the text size used in articles.</string>
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
   <string name="text_style_title">Label that describes text style selection\n{{Identical|Font}}</string>
-  <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
@@ -972,7 +971,18 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="menu_option_share_edit">Menu option label for sharing edit.</string>
+  <string name="menu_option_user_profile">Menu option label for user\'s profile page. %s indicating the username.</string>
+  <string name="menu_option_user_contributions">Menu option label for user contributions screen. %s indicating the username.</string>
+  <string name="watchlist_details_watching_label">Label indicating that user is watching the article.</string>
+  <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.</string>
+  <string name="thank_label">Label on the button suggesting the user to thank the edit.</string>
   <string name="go_to_user_page">Menu item label for going to the user page of the selected user.</string>
+  <string name="thank_dialog_title_text">Title text on the thank dialog</string>
+  <string name="thank_dialog_text">Dialog text for the thank dialog</string>
+  <string name="thank_dialog_positive_button_text">Positive button label on the thank dialog.</string>
+  <string name="thank_dialog_negative_button_text">Negative button label on the thank dialog.\n{{identical|Cancel}}</string>
+  <string name="thank_success_message">Message shown to user after thanking an edit in the diff screen. %s is the contributing user\'s username.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Message shown when the article is added to Watchlist. The %1$s symbol will be replaced by the article title and the %2$s symbol will be replaced by the time period.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Button label for changing the time period of the article in Watchlist.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">Text for the time period that exists permanently.</string>
@@ -992,4 +1002,8 @@
   <string name="watchlist_filter_talk">Filter selection to show only Talk pages in the watchlist</string>
   <string name="watchlist_filter_pages">Filter selection to show only main-namespace pages in the watchlist</string>
   <string name="watchlist_filter_other">Filter selection to show only non-main and non-talk pages in the watchlist</string>
+  <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
+  <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
+  <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
 </resources>

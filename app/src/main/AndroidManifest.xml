@@ -270,6 +270,11 @@
         <activity
             android:name=".talk.TalkTopicActivity" />
 
+        <activity
+            android:name=".diff.ArticleEditDetailsActivity"
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar"  />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

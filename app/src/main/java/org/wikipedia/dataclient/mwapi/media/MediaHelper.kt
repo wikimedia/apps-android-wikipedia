@@ -4,8 +4,7 @@ import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-
-import java.util.HashMap
+import java.util.*
 
 object MediaHelper {
     private const val COMMONS_DB_NAME = "commonswiki"
@@ -23,5 +22,4 @@ object MediaHelper {
                     captions
                 }
     }
-
 }

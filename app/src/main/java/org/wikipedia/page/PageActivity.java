@@ -17,8 +17,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -40,6 +38,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
@@ -144,6 +143,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private ViewHideHandler toolbarHideHandler;
     private OverflowCallback overflowCallback = new OverflowCallback();
+    private final WatchlistFunnel watchlistFunnel = new WatchlistFunnel();
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
@@ -194,7 +194,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(false);
         maybeShowWatchlistTooltip();
 
         toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
@@ -244,9 +244,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     public void animateTabsButton() {
-        Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
-        tabsButton.startAnimation(anim);
-        tabsButton.updateTabCount();
+        tabsButton.updateTabCount(true);
     }
 
     public void hideSoftKeyboard() {
@@ -256,7 +254,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         if (!isDestroyed()) {
-            tabsButton.updateTabCount();
+            tabsButton.updateTabCount(false);
         }
         return false;
     }
@@ -504,7 +502,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 finish();
                 return true;
             } else if (title.namespace() == Namespace.USER_TALK || title.namespace() == Namespace.TALK) {
-                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage()));
+                startActivity(TalkTopicsActivity.newIntent(this, title.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY));
                 finish();
                 return true;
             }
@@ -619,7 +617,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+    public void onPageWatchlistExpirySelect(@NonNull WatchlistExpiry expiry) {
+        watchlistFunnel.logAddExpiry();
         pageFragment.updateWatchlist(expiry, false);
     }
 
@@ -679,7 +678,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getWatchlistExpirySession());
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(),
+                pageFragment.getModel().isWatched(), pageFragment.getModel().hasWatchlistExpiry());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
@@ -689,8 +689,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void watchlistClick(boolean hasWatchlistExpirySession) {
-            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
+        public void watchlistClick(boolean isWatched) {
+            if (isWatched) {
+                watchlistFunnel.logRemoveArticle();
+            } else {
+                watchlistFunnel.logAddArticle();
+            }
+            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, isWatched);
         }
 
         @Override
@@ -865,13 +870,17 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
+        // TODO remove feature flag when ready
+        if (ReleaseUtil.isPreBetaRelease()
+                && !Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
             overflowButton.postDelayed(() -> {
                 if (isDestroyed()) {
                     return;
                 }
+                watchlistFunnel.logShowTooltip();
                 Prefs.setWatchlistPageOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip, 200, -32, false, true);
+                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
+                        200, -32, -8, false, true);
             }, 500);
         }
     }

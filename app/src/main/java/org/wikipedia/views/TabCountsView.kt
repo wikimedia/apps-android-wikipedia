@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import kotlinx.android.synthetic.main.view_tabs_count.view.*
@@ -22,7 +23,7 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
         isFocusable = true
     }
 
-    fun updateTabCount() {
+    fun updateTabCount(animation: Boolean) {
         val count = WikipediaApp.getInstance().tabCount
         tabsCountText.text = count.toString()
 
@@ -35,6 +36,10 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
         }
 
         tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_PX, DimenUtil.dpToPx(tabTextSize))
+
+        if (animation) {
+            startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
+        }
     }
 
     fun setColor(@ColorInt color: Int) {

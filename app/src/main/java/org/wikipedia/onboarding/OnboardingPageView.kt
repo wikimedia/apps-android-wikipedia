@@ -12,11 +12,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.view_onboarding_language_list.view.*
-import kotlinx.android.synthetic.main.view_onboarding_page.view.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.databinding.ViewOnboardingPageBinding
 import org.wikipedia.onboarding.OnboardingPageView.LanguageListAdapter.OptionsViewHolder
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
@@ -35,11 +34,12 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         override fun onListActionButtonClicked(view: OnboardingPageView) {}
     }
 
+    private val binding = ViewOnboardingPageBinding.inflate(LayoutInflater.from(context), this)
+    private val bindingLanguageList = binding.languageListContainer
     var callback: Callback? = null
     private var listDataType: String? = null
 
     init {
-        View.inflate(context, R.layout.view_onboarding_page, this)
         if (attrs != null) {
             val array = context.obtainStyledAttributes(attrs, R.styleable.OnboardingPageView)
             val centeredImage = AppCompatResources.getDrawable(context,
@@ -53,31 +53,31 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             val background = array.getDrawable(R.styleable.OnboardingPageView_background)
             val imageSize = array.getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
             background?.let { setBackground(it) }
-            imageViewCentered.setImageDrawable(centeredImage)
+            binding.imageViewCentered.setImageDrawable(centeredImage)
             if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
                 val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
-                val params = imageViewCentered.layoutParams
+                val params = binding.imageViewCentered.layoutParams
                 params.width = imageSize.toInt()
                 params.height = (imageSize / aspect).toInt()
-                imageViewCentered.layoutParams = params
+                binding.imageViewCentered.layoutParams = params
             }
-            primaryTextView.text = primaryText
-            secondaryTextView.text = StringUtil.fromHtml(secondaryText)
-            tertiaryTextView.text = tertiaryText
-            switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
-            switchView.text = switchText
+            binding.primaryTextView.text = primaryText
+            binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
+            binding.tertiaryTextView.text = tertiaryText
+            binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
+            binding.switchView.text = switchText
             setUpLanguageListContainer(showListView, listDataType)
-            secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
+            binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
                 if (callback != null) {
                     callback!!.onLinkClick(this@OnboardingPageView, url)
                 }
             }
-            addLangContainer.setOnClickListener {
+            bindingLanguageList.addLangContainer.setOnClickListener {
                 if (callback != null) {
                     callback!!.onListActionButtonClicked(this)
                 }
             }
-            switchView.setOnCheckedChangeListener { _, checked ->
+            binding.switchView.setOnCheckedChangeListener { _, checked ->
                 if (callback != null) {
                     callback!!.onSwitchChange(this, checked)
                 }
@@ -87,17 +87,17 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     }
 
     fun setSwitchChecked(checked: Boolean) {
-        switchView.isChecked = checked
+        binding.switchView.isChecked = checked
     }
 
     private fun setUpLanguageListContainer(showListView: Boolean, dataType: String?) {
         if (!showListView) {
             return
         }
-        tertiaryTextView.visibility = View.GONE
-        languageListContainer.visibility = View.VISIBLE
-        languagesList.layoutManager = LinearLayoutManager(context)
-        languagesList.adapter = LanguageListAdapter(getListData(dataType))
+        binding.tertiaryTextView.visibility = View.GONE
+        bindingLanguageList.root.visibility = View.VISIBLE
+        bindingLanguageList.languagesList.layoutManager = LinearLayoutManager(context)
+        bindingLanguageList.languagesList.adapter = LanguageListAdapter(getListData(dataType))
     }
 
     private fun getListData(dataType: String?): List<String?> {
@@ -116,7 +116,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         override fun onBindViewHolder(holder: OptionsViewHolder, position: Int) {
-            holder.optionLabelTextView.textDirection = if (ViewCompat.LAYOUT_DIRECTION_LTR == ViewCompat.getLayoutDirection(primaryTextView)) View.TEXT_DIRECTION_LTR else View.TEXT_DIRECTION_RTL
+            holder.optionLabelTextView.textDirection = if (ViewCompat.LAYOUT_DIRECTION_LTR == ViewCompat.getLayoutDirection(binding.primaryTextView)) View.TEXT_DIRECTION_LTR else View.TEXT_DIRECTION_RTL
             holder.optionLabelTextView.text = context.getString(R.string.onboarding_option_string, (position + 1).toString(), items[position])
         }
 
@@ -128,10 +128,10 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     }
 
     fun refreshLanguageList() {
-        if (languagesList.adapter != null) {
-            languagesList.adapter = null
-            languagesList.adapter = LanguageListAdapter(getListData(listDataType))
-            languagesList.adapter!!.notifyDataSetChanged()
+        if (bindingLanguageList.languagesList.adapter != null) {
+            bindingLanguageList.languagesList.adapter = null
+            bindingLanguageList.languagesList.adapter = LanguageListAdapter(getListData(listDataType))
+            bindingLanguageList.languagesList.adapter!!.notifyDataSetChanged()
         }
     }
 }

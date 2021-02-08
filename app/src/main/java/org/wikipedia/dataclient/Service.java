@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.dataclient.watch.WatchPostResponse;
 import org.wikipedia.dataclient.wikidata.Claims;
@@ -132,6 +133,8 @@ public interface Service {
     @NonNull Observable<MwPostResponse> postSetOptions(@NonNull @Field("change") String change,
                                                        @NonNull @Field("token") String token);
 
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
+    @NonNull Observable<MwStreamConfigsResponse> getStreamConfigs();
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -330,11 +333,23 @@ public interface Service {
                                                      @NonNull @Field("batch") String batchLabels);
     // ------- Watchlist -------
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
     @NonNull Observable<MwQueryResponse> getWatchedInfo(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user")
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
+
     @NonNull Observable<MwQueryResponse> getWatchlist();
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
+    @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,
+                                                            @Query("rvstartid") @NonNull Long revisionStartId);
+
+    @POST(MW_API_PREFIX + "action=thank")
+    @FormUrlEncoded
+    Observable<EntityPostResponse> postThanksToRevision(@Field("rev") long revisionId,
+                                                        @NonNull @Field("token") String token);
 
     @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
     @FormUrlEncoded

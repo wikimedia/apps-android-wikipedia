@@ -44,7 +44,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -57,6 +56,7 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
@@ -158,7 +158,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
         void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList);
-        void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry);
+        void onPageWatchlistExpirySelect(@NonNull WatchlistExpiry expiry);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
         void onPageSetToolbarElevationEnabled(boolean enabled);
@@ -171,12 +171,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private boolean pageRefreshed;
     private boolean errorState = false;
     private boolean watchlistExpiryChanged;
-    private WatchlistExpiry watchlistExpirySession;
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
 
     @NonNull private TabFunnel tabFunnel = new TabFunnel();
+    @NonNull private WatchlistFunnel watchlistFunnel = new WatchlistFunnel();
 
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
@@ -324,11 +324,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public ViewGroup getContainerView() {
         return containerView;
-    }
-
-    @Nullable public WatchlistExpiry getWatchlistExpirySession() {
-        // TODO: use real Watchlist expiry data from API when it's ready.
-        return watchlistExpirySession == null ? model.isWatched() ? WatchlistExpiry.NEVER : null : watchlistExpirySession;
     }
 
     @Override
@@ -536,9 +531,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             disposables.add(Completable.fromAction(() -> {
                 if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
                         || !TextUtils.equals(page.description(), title.getDescription())) {
-                    page.thumbUrl(title.getThumbUrl());
-                    page.description(title.getDescription());
-                    ReadingListDbHelper.instance().updatePage(page);
+                    ReadingListDbHelper.instance().updateMetadataByTitle(page,
+                            title.getDescription(), title.getThumbUrl());
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
         }
@@ -808,7 +802,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         errorState = false;
         errorView.setVisibility(View.GONE);
 
-        watchlistExpirySession = null;
+        watchlistExpiryChanged = false;
 
         model.setTitle(title);
         model.setCurEntry(entry);
@@ -1092,6 +1086,20 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
             bridge.onPcsReady();
             callback().onPageLoadComplete();
+
+            // do we have a URL fragment to scroll to?
+            if (model.getTitle() != null && !TextUtils.isEmpty(model.getTitle().getFragment())
+                    && scrollTriggerListener.getStagedScrollY() == 0) {
+                final int scrollDelay = 100;
+                webView.postDelayed(() -> {
+                    if (!isAdded()) {
+                        return;
+                    }
+                    if (model.getTitle() != null && !TextUtils.isEmpty(model.getTitle().getFragment())) {
+                        scrollToSection(model.getTitle().getFragment());
+                    }
+                }, scrollDelay);
+            }
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
@@ -1153,7 +1161,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             } else if ("languages".equals(itemType)) {
                 startLangLinksActivity();
             } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
-                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getUriForAction("history")));
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getWebApiUrl("action=history")));
             } else if ("coordinate".equals(itemType) && model.getPage() != null && model.getPage().getPageProperties().getGeo() != null) {
                 GeoUtil.sendGeoIntent(requireActivity(), model.getPage().getPageProperties().getGeo(), model.getPage().getDisplayTitle());
             } else if ("disambiguation".equals(itemType)) {
@@ -1204,7 +1212,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     private void startTalkTopicActivity(@NonNull PageTitle pageTitle) {
-        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage()));
+        startActivity(TalkTopicsActivity.newIntent(requireActivity(), pageTitle.pageTitleForTalkPage(), PAGE_ACTIVITY));
     }
 
     private void startGalleryActivity(@NonNull String fileName) {
@@ -1352,7 +1360,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
 
     @Override
-    public void onExpirySelect(@NotNull WatchlistExpiry expiry) {
+    public void onExpirySelect(@NonNull WatchlistExpiry expiry) {
         Callback callback = callback();
         if (callback != null) {
             callback.onPageWatchlistExpirySelect(expiry);
@@ -1502,6 +1510,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             this.stagedScrollY = stagedScrollY;
         }
 
+        int getStagedScrollY() {
+            return stagedScrollY;
+        }
+
         @Override
         public void onContentHeightChanged(int contentHeight) {
             if (stagedScrollY > 0 && (contentHeight * getDensityScalar() - webView.getHeight()) > stagedScrollY) {
@@ -1524,7 +1536,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         leadImagesHandler.openImageInGallery(language);
     }
 
-    void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
+    void updateWatchlist(@NonNull WatchlistExpiry expiry, boolean unwatch) {
         disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
@@ -1532,8 +1544,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     if (TextUtils.isEmpty(watchToken)) {
                         throw new RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response));
                     }
-                    return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(),
-                            expiry != null ? expiry.getExpiry() : null, watchToken);
+                    return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(), expiry.getExpiry(), watchToken);
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(watchPostResponse -> {
@@ -1544,16 +1555,23 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             watchlistExpiryChanged = false;
                         }
 
+                        if (unwatch) {
+                            watchlistFunnel.logRemoveSuccess();
+                        } else {
+                            watchlistFunnel.logAddSuccess();
+                        }
+
                         showWatchlistSnackbar(expiry, firstWatch);
                     }
                 }, L::d));
     }
 
-    private void showWatchlistSnackbar(@Nullable WatchlistExpiry expiry, Watch watch) {
+    private void showWatchlistSnackbar(@NonNull WatchlistExpiry expiry, @NonNull Watch watch) {
+        model.setWatched(watch.getWatched());
+        model.hasWatchlistExpiry(expiry != WatchlistExpiry.NEVER);
         if (watch.getUnwatched()) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, getTitle().getDisplayText()));
-            watchlistExpirySession = null;
-        } else if (watch.getWatched() && expiry != null) {
+        } else if (watch.getWatched()) {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             getTitle().getDisplayText(),
@@ -1566,9 +1584,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     bottomSheetPresenter.show(getChildFragmentManager(), WatchlistExpiryDialog.newInstance(expiry));
                 });
             }
-
             snackbar.show();
-            watchlistExpirySession = expiry;
         }
     }
 

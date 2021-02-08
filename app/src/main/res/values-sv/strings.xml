@@ -33,7 +33,7 @@
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
-  <string name="nav_item_more">Fler</string>
+  <string name="nav_item_more">Mer</string>
   <string name="nav_item_search">Sök</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
@@ -250,6 +250,7 @@
   <string name="find_previous">Sök föregående</string>
   <string name="find_first_occurence">Detta är den första förekomsten</string>
   <string name="find_last_occurence">Detta är den sista förekomsten</string>
+  <string name="article_opened_in_background_tab">Artikeln har öppnats i en flik i bakgrunden.</string>
   <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill publicera den?</string>
   <string name="abusefilter_title_disallow">Du kan inte publicera denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömmande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
@@ -408,13 +409,13 @@
     <item quantity="other">%1$d artiklar • %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d av artikel är tillgänglig offline • %3$.2f MB</item>
+    <item quantity="one">%1$d av 1 artikel är tillgänglig offline • %3$.2f MB</item>
     <item quantity="other">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline • %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel är tillgänglig offline • %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_ellipsis">Sortera efter...</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
@@ -963,7 +964,18 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
+  <string name="menu_option_share_edit">Dela redigering</string>
+  <string name="menu_option_user_profile">%ss profil</string>
+  <string name="menu_option_user_contributions">%ss bidrag</string>
+  <string name="watchlist_details_watching_label">Bevakar</string>
+  <string name="watchlist_details_watch_label">Bevaka</string>
+  <string name="thank_label">Tacka</string>
   <string name="go_to_user_page">Gå till användarsidan</string>
+  <string name="thank_dialog_title_text">Skicka offentligt tack</string>
+  <string name="thank_dialog_text">\"Tack\" är ett enkelt sätt att visa sin uppskattning för en redigerares arbete på Wikipedia. Man kan inte ångra ett tack och de är offentliga.</string>
+  <string name="thank_dialog_positive_button_text">Skicka tack</string>
+  <string name="thank_dialog_negative_button_text">Avbryt</string>
+  <string name="thank_success_message">Ditt tack skickades till %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändra</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
@@ -983,4 +995,7 @@
   <string name="watchlist_filter_talk">Diskussion</string>
   <string name="watchlist_filter_pages">Sidor</string>
   <string name="watchlist_filter_other">Övrigt</string>
+  <string name="watchlist_page_moved">Flyttades</string>
+  <string name="watchlist_page_protected">Skyddades</string>
+  <string name="watchlist_page_deleted">Raderades</string>
 </resources>
