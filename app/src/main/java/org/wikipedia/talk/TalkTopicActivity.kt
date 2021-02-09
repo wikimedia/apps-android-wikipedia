@@ -14,6 +14,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
+import kotlinx.android.synthetic.main.item_suggested_edits_type.view.*
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -124,6 +125,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         if (isNewTopic()) {
             replyActive = true
             title = getString(R.string.talk_new_topic)
+            talkSubjectView.visibility = View.GONE
             talkProgressBar.visibility = View.GONE
             talkErrorView.visibility = View.GONE
             replySaveButton.visibility = View.VISIBLE
@@ -185,7 +187,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkRefreshView.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
-        title = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+        talkSubjectView.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+        talkSubjectView.visibility = View.VISIBLE
         talkRecyclerView.adapter?.notifyDataSetChanged()
     }
 
