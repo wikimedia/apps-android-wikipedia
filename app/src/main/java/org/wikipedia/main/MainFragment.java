@@ -556,10 +556,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void maybeShowEditsTooltip() {
         if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment) && Prefs.shouldShowSuggestedEditsTooltip()
                 && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
-            Prefs.setShouldShowSuggestedEditsTooltip(false);
-            FeedbackUtil.showTooltip(requireActivity(), tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
-                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                    : getString(R.string.main_tooltip_text_v2), true, false);
+            tabLayout.postDelayed(() -> {
+                if (!isAdded()) {
+                    return;
+                }
+                Prefs.setShouldShowSuggestedEditsTooltip(false);
+                FeedbackUtil.showTooltip(requireActivity(), tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
+                        ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                        : getString(R.string.main_tooltip_text_v2), true, false);
+            }, 500);
         }
     }
 
