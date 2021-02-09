@@ -72,8 +72,10 @@ object StringUtil {
     }
 
     @JvmStatic
-    fun removeSectionAnchor(text: String): String {
-        return StringUtils.defaultString(if (text.contains("#")) text.substring(0, text.indexOf("#")) else text)
+    fun removeSectionAnchor(text: String?): String {
+        StringUtils.defaultString(text).let {
+            return if (it.contains("#")) it.substring(0, it.indexOf("#")) else it
+        }
     }
 
     @JvmStatic
