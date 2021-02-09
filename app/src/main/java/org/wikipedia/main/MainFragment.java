@@ -561,7 +561,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                     return;
                 }
                 Prefs.setShouldShowSuggestedEditsTooltip(false);
-                FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
+                FeedbackUtil.showTooltip(requireActivity(), tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
                         ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
                         : getString(R.string.main_tooltip_text_v2), true, false);
             }, 500);
@@ -581,7 +581,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 }
                 new WatchlistFunnel().logShowTooltipMore();
                 Prefs.setWatchlistMainOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, 0, true, false);
+                FeedbackUtil.showTooltip(requireActivity(), moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, 0, true);
             }, 500);
         }
     }
