@@ -194,8 +194,8 @@ public final class FeedbackUtil {
     }
 
     public static Balloon showTooltip(@NonNull Activity activity, @NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight,
-                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
-        return showTooltip(activity, getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow) {
+        return showTooltip(activity, getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, false), anchor, aboveOrBelow, false);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

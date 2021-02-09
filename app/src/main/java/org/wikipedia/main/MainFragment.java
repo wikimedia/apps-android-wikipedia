@@ -576,7 +576,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 }
                 new WatchlistFunnel().logShowTooltipMore();
                 Prefs.setWatchlistMainOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(requireActivity(), moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, 0, true, false);
+                FeedbackUtil.showTooltip(requireActivity(), moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, 0, true);
             }, 500);
         }
     }
