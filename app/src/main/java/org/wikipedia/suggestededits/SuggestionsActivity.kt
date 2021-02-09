@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.MotionEvent
 import org.wikipedia.Constants
 import org.wikipedia.Constants.INTENT_EXTRA_ACTION
 import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
@@ -12,7 +11,6 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
-import org.wikipedia.views.ImageZoomHelper
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
 
