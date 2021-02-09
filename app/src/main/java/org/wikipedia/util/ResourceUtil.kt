@@ -14,6 +14,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.MenuItemCompat
+import kotlin.jvm.Throws
 
 object ResourceUtil {
 
