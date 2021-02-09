@@ -1,6 +1,5 @@
 package org.wikipedia.util
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LabeledIntent
@@ -14,12 +13,11 @@ import androidx.core.content.FileProvider
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DateUtil.getFeedCardDateString
-import org.wikipedia.util.log.L.e
+import org.wikipedia.util.log.L
 import java.io.File
 import java.util.*
 
@@ -49,27 +47,25 @@ object ShareUtil {
 
     fun shareText(context: Context, title: PageTitle, newId: Long, oldId: Long) {
         shareText(context, StringUtil.fromHtml(title.displayText).toString(),
-                title.getWebApiUrl("diff=" + newId + "&oldid=" +
-                        oldId + "&variant=" + title.wikiSite.languageCode()))
+                title.getWebApiUrl("diff=$newId&oldid=$oldId&variant=${title.wikiSite.languageCode()}"))
     }
 
     @JvmStatic
-    @SuppressLint("CheckResult")
     fun shareImage(context: Context, bmp: Bitmap,
                    imageFileName: String, subject: String, text: String) {
         Observable.fromCallable {
-            getUriFromFile(context, processBitmapForSharing(context, bmp, imageFileName))
-        }
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe({ uri: Uri? ->
-            if (uri == null) {
-                displayShareErrorMessage(context)
-                return@subscribe
+                getUriFromFile(context, processBitmapForSharing(context, bmp, imageFileName))
             }
-            val chooserIntent = buildImageShareChooserIntent(context, subject, text, uri)
-            context.startActivity(chooserIntent)
-        }) { caught: Throwable -> displayOnCatchMessage(caught, context) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ uri: Uri? ->
+                if (uri == null) {
+                    displayShareErrorMessage(context)
+                    return@subscribe
+                }
+                val chooserIntent = buildImageShareChooserIntent(context, subject, text, uri)
+                context.startActivity(chooserIntent)
+            }) { caught: Throwable -> displayOnCatchMessage(caught, context) }
     }
 
     @JvmStatic
@@ -132,7 +128,7 @@ object ShareUtil {
             FileUtil.deleteRecursively(dir)
             return dir
         } catch (caught: Throwable) {
-            e("Caught " + caught.message, caught)
+            L.e("Caught " + caught.message, caught)
         }
         return null
     }
@@ -164,7 +160,7 @@ object ShareUtil {
             // for our links, so we need to explicitly build a chooser that contains other activities.
             intents = queryIntents(context, targetIntent, true)
             if (intents.isNotEmpty()) {
-                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toTypedArray<Parcelable?>())
+                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toTypedArray<Parcelable>())
             }
         }
         return chooser
@@ -177,11 +173,11 @@ object ShareUtil {
             queryIntent = Intent(targetIntent)
             queryIntent.data = Uri.parse("https://example.com/")
         }
-        for (intentActivity in context.packageManager.queryIntentActivities(queryIntent, 0)) {
-            if (!isIntentActivityBlacklisted(intentActivity, APP_PACKAGE_REGEX)) {
-                intents.add(buildLabeledIntent(targetIntent, intentActivity))
-            }
-        }
+
+        intents.addAll(context.packageManager.queryIntentActivities(queryIntent, 0)
+                .filter { !isIntentActivityBlacklisted(it) }
+                .map { buildLabeledIntent(targetIntent, it) })
+
         return intents
     }
 
@@ -192,10 +188,9 @@ object ShareUtil {
                 .any { getPackageName(it).matches(APP_PACKAGE_REGEX.toRegex()) }
     }
 
-    private fun isIntentActivityBlacklisted(intentActivity: ResolveInfo?,
-                                            packageNameBlacklistRegex: String?): Boolean {
-        return (intentActivity != null && getPackageName(intentActivity)
-                .matches(StringUtils.defaultString(packageNameBlacklistRegex).toRegex()))
+    private fun isIntentActivityBlacklisted(intentActivity: ResolveInfo?): Boolean {
+        return intentActivity != null && getPackageName(intentActivity)
+                .matches(APP_PACKAGE_REGEX.toRegex())
     }
 
     private fun buildLabeledIntent(intent: Intent, intentActivity: ResolveInfo): LabeledIntent {

@@ -155,7 +155,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun sanitizeForDialogTitle(text: String?): String {
-        return StringUtil.removeUnderscores(StringUtil.removeSectionAnchor(text!!))
+        return StringUtil.removeUnderscores(StringUtil.removeSectionAnchor(text))
     }
 
     private fun callback(): Callback? {
