@@ -510,9 +510,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
         }
-        @Override
-        public void onSecondaryActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
-        }
 
         @Override
         public void onListChipClick(@NonNull ReadingList readingList) {

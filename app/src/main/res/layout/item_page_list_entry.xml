@@ -14,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:paddingEnd="8dp"
         app:layout_constraintBottom_toTopOf="@id/page_list_item_description"
-        app:layout_constraintEnd_toStartOf="@+id/page_list_item_secondary_container"
+        app:layout_constraintEnd_toStartOf="@+id/page_list_item_action_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
@@ -35,7 +35,7 @@
         tools:text="Lorem ipsum" />
 
     <FrameLayout
-        android:id="@+id/page_list_item_secondary_container"
+        android:id="@+id/page_list_item_action_container"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
@@ -53,7 +53,7 @@
             app:progressColor="?attr/colorAccent" />
 
         <ImageView
-            android:id="@+id/page_list_item_action_secondary"
+            android:id="@+id/page_list_item_action"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackgroundBorderless"
