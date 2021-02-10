@@ -51,6 +51,42 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
         FeedbackUtil.setButtonLongPressToast(binding.pageListItemAction)
     }
 
+    override fun setSelected(selected: Boolean) {
+        if (this.selected != selected) {
+            this.selected = selected
+            updateSelectedState()
+        }
+    }
+
+    private fun setOnClickListeners() {
+        setOnClickListener {
+            callback?.onClick(item)
+        }
+        setOnLongClickListener {
+            callback?.onLongClick(item)
+            false
+        }
+        binding.pageListItemImage.setOnClickListener {
+            callback?.onThumbClick(item)
+        }
+        binding.pageListItemAction.setOnClickListener {
+            callback?.onActionClick(item, this)
+        }
+    }
+
+    private fun updateSelectedState() {
+        if (selected) {
+            binding.pageListItemSelectedImage.visibility = VISIBLE
+            binding.pageListItemImage.visibility = GONE
+            setBackgroundColor(getThemedColor(context, R.attr.multi_select_background_color))
+        } else {
+            binding.pageListItemImage.visibility = if (imageUrl.isNullOrEmpty()) GONE else VISIBLE
+            ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
+            binding.pageListItemSelectedImage.visibility = GONE
+            setBackground(AppCompatResources.getDrawable(context, getThemedAttributeId(context, R.attr.selectableItemBackground)))
+        }
+    }
+
     fun setTitle(text: String?) {
         binding.pageListItemTitle.text = fromHtml(text)
     }
@@ -96,42 +132,6 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     fun setActionHint(@StringRes id: Int) {
         binding.pageListItemAction.contentDescription = context.getString(id)
-    }
-
-    override fun setSelected(selected: Boolean) {
-        if (this.selected != selected) {
-            this.selected = selected
-            updateSelectedState()
-        }
-    }
-
-    private fun setOnClickListeners() {
-        setOnClickListener {
-            callback?.onClick(item)
-        }
-        setOnLongClickListener {
-            callback?.onLongClick(item)
-            false
-        }
-        binding.pageListItemImage.setOnClickListener {
-            callback?.onThumbClick(item)
-        }
-        binding.pageListItemAction.setOnClickListener {
-            callback?.onActionClick(item, this)
-        }
-    }
-
-    private fun updateSelectedState() {
-        if (selected) {
-            binding.pageListItemSelectedImage.visibility = VISIBLE
-            binding.pageListItemImage.visibility = GONE
-            setBackgroundColor(getThemedColor(context, R.attr.multi_select_background_color))
-        } else {
-            binding.pageListItemImage.visibility = if (imageUrl.isNullOrEmpty()) GONE else VISIBLE
-            ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
-            binding.pageListItemSelectedImage.visibility = GONE
-            setBackground(AppCompatResources.getDrawable(context, getThemedAttributeId(context, R.attr.selectableItemBackground)))
-        }
     }
 
     fun setListItemImageDimensions(width: Int, height: Int) {
