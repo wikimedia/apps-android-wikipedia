@@ -185,24 +185,8 @@ class ObservableWebView : WebView {
 
     companion object {
         private val INVALIDATE_EVENT = WebViewInvalidateEvent()
-
-        /**
-         * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
-         */
         private val FAST_SCROLL_THRESHOLD = (1000 * densityScalar).toInt()
-
-        /**
-         * Maximum single scroll amount (in pixels) to be considered a "human" scroll.
-         * Otherwise it's probably a programmatic scroll, which we won't count.
-         */
         private val MAX_HUMAN_SCROLL = (500 * densityScalar).toInt()
-
-        /**
-         * Maximum amount of time that needs to elapse before the previous scroll amount
-         * is "forgotten." That is, if the user scrolls once, then scrolls again within this
-         * time, then the two scroll actions will be added together as one, and counted towards
-         * a possible "fast" scroll.
-         */
         private const val MAX_MILLIS_BETWEEN_SCROLLS = 500
         private const val SWIPE_DRAW_TOLERANCE = 4
     }
