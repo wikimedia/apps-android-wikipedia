@@ -144,6 +144,7 @@ object StringUtil {
         }
     }
 
+    @JvmStatic
     fun boldenKeywordText(textView: TextView, parentText: String, searchQuery: String?) {
         var parentTextStr = parentText
         val startIndex = indexOf(parentTextStr, searchQuery)
