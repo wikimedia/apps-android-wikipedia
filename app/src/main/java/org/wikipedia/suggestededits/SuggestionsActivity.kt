@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.MotionEvent
 import org.wikipedia.Constants
 import org.wikipedia.Constants.INTENT_EXTRA_ACTION
 import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
@@ -12,30 +11,19 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
-import org.wikipedia.views.ImageZoomHelper
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
-
-    private lateinit var imageZoomHelper: ImageZoomHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(getActionBarTitleRes(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action))
-        imageZoomHelper = ImageZoomHelper(this)
+        setImageZoomHelper()
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
         return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action,
                 intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-    }
-
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        try {
-            return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
-        } catch (e: Exception) {
-        }
-        return false
     }
 
     private fun getActionBarTitleRes(action: Action): Int {

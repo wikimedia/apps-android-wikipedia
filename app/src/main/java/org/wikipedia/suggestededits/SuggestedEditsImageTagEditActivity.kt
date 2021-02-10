@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.MotionEvent
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
@@ -18,11 +17,9 @@ import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.ImageZoomHelper
 
 class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
 
-    private lateinit var imageZoomHelper: ImageZoomHelper
     private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
     var page: MwQueryPage? = null
 
@@ -31,7 +28,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTa
         page = Gson().fromJson(intent.getStringExtra(ARG_PAGE), MwQueryPage::class.java)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(R.string.suggested_edits_tag_images)
-        imageZoomHelper = ImageZoomHelper(this)
+        setImageZoomHelper()
         setContentView(R.layout.activity_suggested_edits_feed_card_image_tags)
 
         suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
@@ -75,14 +72,6 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTa
     }
 
     override fun logSuccess() {
-    }
-
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        try {
-            return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
-        } catch (e: Exception) {
-        }
-        return false
     }
 
     private fun maybeShowOnboarding() {

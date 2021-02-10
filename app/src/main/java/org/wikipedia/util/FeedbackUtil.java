@@ -27,6 +27,7 @@ import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
+import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.main.MainActivity;
@@ -188,24 +189,24 @@ public final class FeedbackUtil {
         return toast;
     }
 
-    public static Balloon showTooltip(@NonNull View anchor, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
-        return showTooltip(getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    public static Balloon showTooltip(@NonNull Activity activity, @NonNull View anchor, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
+        return showTooltip(activity, getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
     }
 
-    public static Balloon showTooltip(@NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight,
-                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow, boolean autoDismiss) {
-        return showTooltip(getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss);
+    public static Balloon showTooltip(@NonNull Activity activity, @NonNull View anchor, @LayoutRes int layoutRes, int layoutHeight,
+                                      int arrowAnchorPadding, int topOrBottomMargin, boolean aboveOrBelow) {
+        return showTooltip(activity, getTooltip(anchor.getContext(), layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, false), anchor, aboveOrBelow, false);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    private static Balloon showTooltip(@NonNull Balloon balloon, @NonNull View anchor, boolean aboveOrBelow, boolean autoDismiss) {
+    private static Balloon showTooltip(@NonNull Activity activity, @NonNull Balloon balloon, @NonNull View anchor, boolean aboveOrBelow, boolean autoDismiss) {
         if (aboveOrBelow) {
             balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f));
         } else {
             balloon.showAlignBottom(anchor, 0, -DimenUtil.roundedDpToPx(8f));
         }
-        if (!autoDismiss && anchor.getContext() instanceof MainActivity) {
-            ((MainActivity) anchor.getContext()).setCurrentTooltip(balloon);
+        if (!autoDismiss) {
+            ((BaseActivity) activity).setCurrentTooltip(balloon);
         }
         return balloon;
     }
