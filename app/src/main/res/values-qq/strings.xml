@@ -1006,4 +1006,7 @@
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
   <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
+  <string name="menu_page_talk">Menu item text for accessing the article talk page.</string>
+  <string name="menu_page_edit_history">Menu item text for accessing the article edit history.</string>
+
 </resources>
