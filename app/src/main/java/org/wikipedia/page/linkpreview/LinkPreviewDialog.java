@@ -215,14 +215,14 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
                     PageSummary summary = response.body();
-                    // check if our URL was redirected, which might include a URL fragment that leads
-                    // to a specific section in the target article.
                     funnel.setPageId(summary.getPageId());
                     pageTitle.setThumbUrl(summary.getThumbnailUrl());
                     revision = summary.getRevision();
                     titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                     // TODO: remove after the restbase endpoint supports ZH variants
                     pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
+                    // check if our URL was redirected, which might include a URL fragment that leads
+                    // to a specific section in the target article.
                     if (!TextUtils.isEmpty(response.raw().request().url().fragment())) {
                         pageTitle.setFragment(response.raw().request().url().fragment());
                     }
