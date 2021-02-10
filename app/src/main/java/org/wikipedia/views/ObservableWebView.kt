@@ -135,7 +135,7 @@ class ObservableWebView : WebView {
             MotionEvent.ACTION_UP -> {
                 if (abs(event.x - touchStartX) <= touchSlop &&
                         abs(event.y - touchStartY) <= touchSlop) {
-                    if(onClickListeners.any { it.onClick(event.x, event.y) }) {
+                    if (onClickListeners.any { it.onClick(event.x, event.y) }) {
                         return true
                     }
                 }
