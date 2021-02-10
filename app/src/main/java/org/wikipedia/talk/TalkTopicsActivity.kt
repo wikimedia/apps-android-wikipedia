@@ -50,8 +50,7 @@ class TalkTopicsActivity : BaseActivity() {
         setContentView(R.layout.activity_talk_topics)
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
-        title = pageTitle.displayText
-
+        talkUsernameView.text = pageTitle.displayText
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
@@ -166,7 +165,7 @@ class TalkTopicsActivity : BaseActivity() {
         } else {
             talkErrorView.visibility = View.GONE
             talkNewTopicButton.show()
-            talkRecyclerView.visibility - View.VISIBLE
+            talkRecyclerView.visibility = View.VISIBLE
             talkRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
@@ -174,7 +173,7 @@ class TalkTopicsActivity : BaseActivity() {
     private fun updateOnError(t: Throwable) {
         topics.clear()
         talkRecyclerView.adapter?.notifyDataSetChanged()
-        talkRecyclerView.visibility - View.GONE
+        talkRecyclerView.visibility = View.GONE
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code() == 404) {
@@ -187,7 +186,7 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnEmpty() {
-        talkRecyclerView.visibility - View.GONE
+        talkRecyclerView.visibility = View.GONE
         talkEmptyContainer.visibility = View.VISIBLE
         // Allow them to create a new topic anyway
         talkNewTopicButton.show()
