@@ -21,6 +21,8 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
     interface Callback {
         fun forwardClick()
         fun watchlistClick(isWatched: Boolean)
+        fun talkClick()
+        fun editHistoryClick()
         fun shareClick()
         fun newTabClick()
         fun feedClick()
@@ -81,6 +83,14 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowWatchlist.setOnClickListener {
             dismissPopupWindowHost()
             callback?.watchlistClick(isWatched)
+        }
+        binding.overflowTalk.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.talkClick()
+        }
+        binding.overflowEditHistory.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.editHistoryClick()
         }
         binding.overflowFeed.setOnClickListener {
             dismissPopupWindowHost()
