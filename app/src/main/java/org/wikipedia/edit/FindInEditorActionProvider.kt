@@ -32,7 +32,7 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
     }
 
     private fun findInPage(text: String) {
-        textView.findListener = object: PlainPasteEditText.FindListener {
+        textView.findListener = object : PlainPasteEditText.FindListener {
             override fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean) {
                 setMatchesResults(activeMatchOrdinal, numberOfMatches)
                 textView.setSelection(textPosition, textPosition + text.length)
