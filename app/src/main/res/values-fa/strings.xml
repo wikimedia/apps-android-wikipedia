@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Ahmad252
 * Ajam
 * Albe Albe460
@@ -406,7 +405,6 @@
   <string name="text_size_decrease">کاهش اندازهٔ متن</string>
   <string name="text_size_percent_default">%s (پیش‌فرض)</string>
   <string name="text_style_title">قلم</string>
-  <string name="nav_item_reading_lists">فهرست‌های من</string>
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
   <string name="reading_list_move_to">انتقال به فهرست مطالعه</string>
   <string name="reading_list_create_new">ایجاد جدید</string>

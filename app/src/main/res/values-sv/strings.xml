@@ -2,7 +2,6 @@
 <!-- Authors:
 * Aaoo
 * Abbedabb
-* Abijeet Patro
 * Ainali
 * Bengtsson96
 * Dbrant
@@ -392,7 +391,7 @@
   <string name="text_size_decrease">Minska textstorlek</string>
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="text_style_title">Typsnitt</string>
-  <string name="nav_item_reading_lists">Mina listor</string>
+  <string name="nav_item_saved">Sparades</string>
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_move_to">Flytta till läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>

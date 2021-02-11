@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * AnB
 * Chameleon222
 * Citadell
@@ -356,7 +355,6 @@
   <string name="text_size_increase">Øk tekststørrelse</string>
   <string name="text_size_decrease">Senk tekststørrelse</string>
   <string name="text_size_percent_default">%s (Standard)</string>
-  <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
   <string name="reading_list_create_new">Opprett ny</string>
   <string name="reading_list_title_exists">Leselisten «%s» finnes allerede.</string>

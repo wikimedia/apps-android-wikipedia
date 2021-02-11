@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Kareyac
 * ShockD
 * Spas.Z.Spasov
@@ -369,7 +368,6 @@
   <string name="text_size_decrease">Намаляване на размера на текста</string>
   <string name="text_size_percent_default">%s (по подразбиране)</string>
   <string name="text_style_title">Шрифт</string>
-  <string name="nav_item_reading_lists">Моите списъци</string>
   <string name="reading_list_save_to">Добавяне в списъка за четене</string>
   <string name="reading_list_move_to">Преместване в списък за четене</string>
   <string name="reading_list_create_new">Създаване на нов</string>

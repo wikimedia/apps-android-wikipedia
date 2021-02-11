@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aftabuzzaman
 * Al Riaz Uddin Ripon
 * Bellayet
@@ -20,6 +19,7 @@
 * Titodutta
 * Wikisagnik
 * YahyA
+* Yahya
 * আজিজ
 * আফতাবুজ্জামান
 * ফাহাদ কাজমী
@@ -351,7 +351,6 @@
   <string name="text_size_increase">পাঠ্যের আকার বৃদ্ধি করুন</string>
   <string name="text_size_decrease">পাঠ্যের আকার হ্রাস করুন</string>
   <string name="text_size_percent_default">%s (পূর্বনির্ধারিত)</string>
-  <string name="nav_item_reading_lists">আমার তালিকা</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
   <string name="reading_list_title_exists">পড়ার তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
