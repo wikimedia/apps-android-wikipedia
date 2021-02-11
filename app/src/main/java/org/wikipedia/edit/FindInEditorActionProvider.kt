@@ -32,15 +32,17 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
     }
 
     private fun findInPage(text: String) {
-        textView.setFindListener { activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean ->
-            setMatchesResults(activeMatchOrdinal, numberOfMatches)
-            textView.setSelection(textPosition, textPosition + text.length)
-            val r = Rect()
-            textView.getFocusedRect(r)
-            val scrollTopOffset = 32
-            scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(scrollTopOffset.toFloat()))
-            if (findingNext) {
-                textView.requestFocus()
+        textView.findListener = object : PlainPasteEditText.FindListener {
+            override fun onFinished(activeMatchOrdinal: Int, numberOfMatches: Int, textPosition: Int, findingNext: Boolean) {
+                setMatchesResults(activeMatchOrdinal, numberOfMatches)
+                textView.setSelection(textPosition, textPosition + text.length)
+                val r = Rect()
+                textView.getFocusedRect(r)
+                val scrollTopOffset = 32
+                scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(scrollTopOffset.toFloat()))
+                if (findingNext) {
+                    textView.requestFocus()
+                }
             }
         }
         textView.findInEditor(text, syntaxHighlighter)
