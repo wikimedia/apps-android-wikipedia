@@ -2,7 +2,6 @@
 <!-- Authors:
 * 129femtoseconds
 * A2y4
-* Abijeet Patro
 * Aefgh39622
 * Afaz
 * Bonfire12
@@ -408,7 +407,6 @@
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
   <string name="text_style_title">フォント</string>
-  <string name="nav_item_reading_lists">マイリスト</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>
   <string name="reading_list_create_new">新規作成</string>

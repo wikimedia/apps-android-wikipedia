@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Athena in Wonderland
 * CaiusSPQR
 * Dbrant
@@ -390,7 +389,6 @@
   <string name="text_size_decrease">Reduzir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
   <string name="text_style_title">Fonte</string>
-  <string name="nav_item_reading_lists">As minhas listas</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_move_to">Mover para lista de leitura</string>
   <string name="reading_list_create_new">Criar nova</string>

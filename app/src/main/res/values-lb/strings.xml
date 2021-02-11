@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Envlh
 * Les Meloures
 * MuratTheTurkish
@@ -318,7 +317,6 @@
   <string name="text_size_increase">Gréisst vum Text méi grouss maachen</string>
   <string name="text_size_decrease">Gréisst vum Text méi kleng maachen</string>
   <string name="text_size_percent_default">%s (Standard)</string>
-  <string name="nav_item_reading_lists">Meng Lëschten</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_move_to">Op d\'Lieslëscht réckelen</string>
   <string name="reading_list_create_new">Neier uleeën</string>

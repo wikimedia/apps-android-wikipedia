@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Arnobarnard
 * Biggs ZA
 * Envlh
@@ -257,7 +256,6 @@
   <string name="text_size_increase">Vergroot teks</string>
   <string name="text_size_decrease">Verklein teks</string>
   <string name="text_size_percent_default">%s (verstek)</string>
-  <string name="nav_item_reading_lists">My lyste</string>
   <string name="reading_list_save_to">Bewaar in leeslys</string>
   <string name="reading_list_create_new">Skep nuwe</string>
   <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>

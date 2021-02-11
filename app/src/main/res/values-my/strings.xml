@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * Dr Lotus Black
 * July Amyutay
@@ -375,7 +374,6 @@
   <string name="text_size_decrease">စာလုံးအရွယ်အစား သေးရန်။</string>
   <string name="text_size_percent_default">%s (နဂိုအတိုင်း)</string>
   <string name="text_style_title">ဖောင့်</string>
-  <string name="nav_item_reading_lists">ကျွန်ုပ်၏ စာရင်းများ</string>
   <string name="reading_list_save_to">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>
   <string name="reading_list_move_to">ဖတ်ရှုနေသောစာရင်သို့ ရွှေ့ရန်</string>
   <string name="reading_list_create_new">အသစ်ဖန်တီးရန်</string>

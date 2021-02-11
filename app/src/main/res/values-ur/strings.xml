@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abdulq
-* Abijeet Patro
 * BukhariSaeed
 * Hindustanilanguage
 * Meno25
@@ -379,7 +378,6 @@
   <string name="text_size_decrease">متن کا حجم گھٹائیں</string>
   <string name="text_size_percent_default">%s (طے شدہ)</string>
   <string name="text_style_title">فونٹ</string>
-  <string name="nav_item_reading_lists">مطالعہ کی فہرستیں</string>
   <string name="reading_list_save_to">فہرست مطالعہ میں محفوظ کریں</string>
   <string name="reading_list_move_to">اپنی فہرست مطالعہ میں منتقل کریں</string>
   <string name="reading_list_create_new">نیا بنائیں</string>
@@ -698,4 +696,5 @@
   <string name="text_input_dialog_ok_button_text">ٹھیک</string>
   <string name="text_input_dialog_cancel_button_text">منسوخ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">منسوخ</string>
+  <string name="watchlist_expiry_dialog_permanent">مستقل</string>
 </resources>

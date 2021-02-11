@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aursani
 * Indus Asia
 * KaleemBhatti
@@ -358,7 +357,6 @@
   <string name="text_size_decrease">متن جي ماپ گھٽايو</string>
   <string name="text_size_percent_default">%s (ڏنل)</string>
   <string name="text_style_title">فونٽ</string>
-  <string name="nav_item_reading_lists">منھنجون فھرستون</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
   <string name="reading_list_move_to">پڙھڻ جي فھرست ڏانھن چوريو</string>
   <string name="reading_list_create_new">نئين سرجيو</string>
