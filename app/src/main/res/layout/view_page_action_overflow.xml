@@ -44,7 +44,7 @@
             style="@style/OverflowMenuItem"
             android:drawablePadding="16dp"
             android:text="@string/menu_page_talk"
-            app:drawableStartCompat="@drawable/ic_baseline_article_talk"
+            app:drawableStartCompat="@drawable/ic_icon_speech_bubbles_ooui_ltr"
             app:drawableTint="?attr/material_theme_secondary_color" />
 
         <com.google.android.material.textview.MaterialTextView
