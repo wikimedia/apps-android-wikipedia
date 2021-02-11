@@ -254,10 +254,14 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         }
     }
 
+    @SuppressWarnings("magicnumber")
     private void showMultiLingualOnboarding() {
         if (Prefs.isMultilingualSearchTutorialEnabled()) {
-            FeedbackUtil.showTapTargetView(requireActivity(), langButton, R.string.empty,
-                    R.string.tool_tip_lang_button, null);
+            langButton.postDelayed(() -> {
+                if (isAdded()) {
+                    FeedbackUtil.showTooltip(requireActivity(), langButton, getString(R.string.tool_tip_lang_button), false, false);
+                }
+            }, 500);
             Prefs.setMultilingualSearchTutorialEnabled(false);
         }
     }

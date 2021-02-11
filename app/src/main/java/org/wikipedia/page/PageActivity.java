@@ -907,9 +907,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     pageFragment.updateFontSize();
                 }
             } else if (event instanceof ArticleSavedOrDeletedEvent) {
-                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
-                    Prefs.shouldShowBookmarkToolTip(false);
-                }
                 if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitle() == null) {
                     return;
                 }
