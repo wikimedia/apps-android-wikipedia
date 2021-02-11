@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Anders Feder
 * Christian List
 * Dargelf
@@ -387,7 +386,6 @@
   <string name="text_size_decrease">Sænk tekststørrelse</string>
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="text_style_title">Skrifttype</string>
-  <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_save_to">Gem til læseliste</string>
   <string name="reading_list_move_to">Flyt til læseliste</string>
   <string name="reading_list_create_new">Opret ny</string>
@@ -895,4 +893,7 @@
   <string name="watchlist_filter_talk">Diskussion</string>
   <string name="watchlist_filter_pages">Sider</string>
   <string name="watchlist_filter_other">Andet</string>
+  <string name="watchlist_page_moved">Flyttet</string>
+  <string name="watchlist_page_protected">Beskyttet</string>
+  <string name="watchlist_page_deleted">Slettet</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1917 Ekim Devrimi
-* Abijeet Patro
 * Agaafd
 * Alidemirtas
 * BaRaN6161 TURK
@@ -413,7 +412,7 @@
   <string name="text_size_decrease">Metin boyutunu küçült</string>
   <string name="text_size_percent_default">%s (Varsayılan)</string>
   <string name="text_style_title">Yazı tipi</string>
-  <string name="nav_item_reading_lists">Listelerim</string>
+  <string name="nav_item_saved">Kaydedilmiş</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
   <string name="reading_list_create_new">Yeni oluştur</string>

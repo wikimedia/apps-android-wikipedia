@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aboubacar.banamoridou.toure
 * Babamamadidianee
 * Dbrant
@@ -340,7 +339,6 @@
   <string name="text_size_decrease">ߛߓߍߟߌ ߢߊ߲ߞߊ߲ ߡߊߖߌ߰</string>
   <string name="text_size_percent_default">(ߓߐߛߎ߲) %s</string>
   <string name="text_style_title">ߞߟߏߜߍ</string>
-  <string name="nav_item_reading_lists">ߒ ߠߊ߫ ߛߙߍߘߍ</string>
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_move_to">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_create_new">ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</string>

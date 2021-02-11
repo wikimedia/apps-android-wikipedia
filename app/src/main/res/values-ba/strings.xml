@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Envlh
 * Lizalizaufa
 * MR973
 * MuratTheTurkish
 * Patriccck
+* Patrik L.
 * Sagan
 * Азат Хәлилов
 * Айсар
@@ -331,7 +331,6 @@
   <string name="color_theme_dark">Ҡараңғы</string>
   <string name="text_size_increase">Текст ҙурлығын арттырырға</string>
   <string name="text_size_decrease">Шрифт ҙурлығын кәметергә</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Уҡыу өсөн исемлектәр</string>
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>
   <string name="reading_list_create_new">Яңыны төҙөргә</string>
   <string name="reading_list_added_view_button">Исемлекте ҡарау</string>
