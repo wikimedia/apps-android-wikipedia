@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 4shadoww
-* Abijeet Patro
 * AinScept
 * Alluk.
 * Areee
@@ -397,7 +396,6 @@
   <string name="text_size_decrease">Kasvata tekstin kokoa</string>
   <string name="text_size_percent_default">%s (oletus)</string>
   <string name="text_style_title">Kirjasin</string>
-  <string name="nav_item_reading_lists">Omat listat</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_move_to">Siirrä lukulistaan</string>
   <string name="reading_list_create_new">Luo uusi</string>
@@ -988,4 +986,7 @@
   <string name="watchlist_filter_talk">Keskustelusivut</string>
   <string name="watchlist_filter_pages">Artikkelisivut</string>
   <string name="watchlist_filter_other">Muut</string>
+  <string name="watchlist_page_moved">Siirretty</string>
+  <string name="watchlist_page_protected">Suojattu</string>
+  <string name="watchlist_page_deleted">Poistettu</string>
 </resources>

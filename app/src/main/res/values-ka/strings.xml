@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Arabuli
 * BRUTE
 * David1010
@@ -293,7 +292,6 @@
   <string name="color_theme_test_title">ტექსტის ნიმუში</string>
   <string name="preference_title_app_theme">აპლიკაციის თემა</string>
   <string name="text_size_percent_default">%s (საწყისად)</string>
-  <string name="nav_item_reading_lists">ჩემი სიები</string>
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
   <string name="reading_list_create_new">ახლის შექმნა</string>
   <string name="reading_list_title_exists">საკითხავი სია „%s“ უკვე არსებობს.</string>

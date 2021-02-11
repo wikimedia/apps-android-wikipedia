@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * BHARATHESHA ALASANDEMAJALU
 * Bharathesha Alasandemajalu
 * Kiranpoojary
@@ -231,7 +230,6 @@
   <string name="color_theme_light">ಎಲಮೆ ಬಣ್ಣೊ</string>
   <string name="color_theme_dark">ಕಡ್ಪೋ ಬಣ್ಣೊ</string>
   <string name="color_theme_black">ಕಪ್ಪು</string>
-  <string name="nav_item_reading_lists">ಎನ್ನ ಓದುನ  ಲಿಸ್ಟ್</string>
   <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
   <string name="reading_list_create_new">ಪೊಸತ್ ಮಾನ್ಪುಲೇ</string>
   <string name="reading_list_added_view_button">ಪಟ್ಟಿ ತುಲೇ</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Ahdan
 * Akmaie Ajam
 * Arifin.wijaya
@@ -71,6 +70,8 @@
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ubah bahasa</string>
   <string name="menu_page_find_in_page">Cari di artikel</string>
+  <string name="menu_page_add_to_watchlist">Tambahkan ke daftar pantauan</string>
+  <string name="menu_page_remove_from_watchlist">Hapus dari daftar pantauan</string>
   <string name="edit_section_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke daftar bacaan</string>
@@ -207,6 +208,8 @@
   <string name="page_protected_can_not_edit">Maaf, akun Anda tidak memiliki cukup hak untuk menyunting halaman ini pada saat ini.</string>
   <string name="page_protected_can_not_edit_anon">Maaf, halaman ini tidak dapat disunting secara anonim pada saat ini.</string>
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tambahkan ke daftar pantauan</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Lacak apa yang terjadi pada artikel yang Anda minati. Ketuk menu tambahan dan pilih &lt;b&gt;Tambahkan ke Daftar Pantauan&lt;/b&gt; untuk melihat perubahan pada artikel.</string>
   <string name="settings_item_preferences">Pengaturan</string>
   <string name="settings_activity_title">Pengaturan</string>
   <string name="about_description">Tentang aplikasi Wikipedia</string>
@@ -256,6 +259,7 @@
   <string name="find_previous">Cari sebelumnya</string>
   <string name="find_first_occurence">Ini adalah kejadian pertama</string>
   <string name="find_last_occurence">Ini adalah kejadian terakhir</string>
+  <string name="article_opened_in_background_tab">Artikel telah dibuka di tab latar belakang.</string>
   <string name="abusefilter_title_warn">Ini mungkin suntingan yang tidak konstruktif. Apakah Anda yakin ingin menerbitkannya?</string>
   <string name="abusefilter_title_disallow">Anda tidak dapat menerbitkan suntingan ini. Silakan kembali dan mengubahnya.</string>
   <string name="abusefilter_text_warn">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif. Ini mungkin berisi satu atau lebih hal berikut:&lt;br /&gt;&lt;br /&gt;· Mengetik dengan semua huruf besar&lt;br /&gt;· Mengosongkan artikel atau spam &lt;br /&gt;· Pranala luar atau gambar yang tidak relevan &lt;br /&gt;· Karakter berulang</string>
@@ -394,7 +398,6 @@
   <string name="text_size_decrease">Kurangi ukuran teks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="text_style_title">Jenis huruf</string>
-  <string name="nav_item_reading_lists">Daftar saya</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
   <string name="reading_list_create_new">Buat baru</string>
@@ -568,6 +571,7 @@
   <string name="notifications_view_archived_button_text">Lihat pemberitahuan yang diarsipkan</string>
   <string name="notification_preferences_title">Pengaturan pemberitahuan</string>
   <string name="notifications_mark_unread">Tandai belum dibaca</string>
+  <string name="watchlist_title">Daftar pantauan</string>
   <string name="preference_title_notification_poll">Pilih pemberitahuan</string>
   <string name="preference_summary_notification_poll">Izinkan aplikasi menggunakan data untuk memeriksa pemberitahuan baru di latar belakang.</string>
   <string name="preference_category_notification_types">Jenis pemberitahuan dalam aplikasi</string>
@@ -920,6 +924,8 @@
   <string name="main_tooltip_text">Halo %s, tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
   <string name="main_tooltip_text_v2">Tahukah Anda bahwa semua orang bisa menyunting Wikipedia?</string>
   <string name="main_tooltip_action_button">Memulai</string>
+  <string name="main_tooltip_watchlist_title">Daftar pantauan</string>
+  <string name="main_tooltip_watchlist_text">Temukan artikel dan halaman yang sebelumnya Anda tambahkan ke daftar pantauan Anda di menu Lainnya di bawah &lt;b&gt;Daftar Pantauan&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Batal</string>
@@ -935,4 +941,38 @@
   <string name="talk_message_hint">Susun pesan</string>
   <string name="talk_message_empty">Pesannya tidak bisa kosong.</string>
   <string name="talk_subject_empty">Subjeknya tidak bisa kosong.</string>
+  <string name="menu_option_share_edit">Bagikan hasil suntingan</string>
+  <string name="menu_option_user_profile">%s profil</string>
+  <string name="menu_option_user_contributions">%s kontribusi</string>
+  <string name="watchlist_details_watching_label">Memantau</string>
+  <string name="watchlist_details_watch_label">Pantau</string>
+  <string name="thank_label">Berterimakasih</string>
+  <string name="go_to_user_page">Kunjungi halaman pengguna</string>
+  <string name="thank_dialog_title_text">Kirim \'Terima kasih\' secara publik</string>
+  <string name="thank_dialog_text">\'Terima kasih\' adalah cara mudah untuk menunjukkan penghargaan atas karya penyunting di Wikipedia. Pemberian \'Terima kasih\' tidak dapat diurungkan dan dapat dilihat secara publik.</string>
+  <string name="thank_dialog_positive_button_text">Kirim ucapan terima kasih</string>
+  <string name="thank_dialog_negative_button_text">Batalkan</string>
+  <string name="thank_success_message">\'Terima kasih\' anda telah dikirim kepada %s</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s dan halaman pembicaraannya telah ditambahkan ke daftar pantauan Anda %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Ubah</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">selamanya</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">untuk 1 minggu</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">untuk 1 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">untuk 3 bulan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">untuk 6 bulan</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s dan halaman pembicaraannya telah dihapus dari daftar pantauan Anda.</string>
+  <string name="watchlist_expiry_dialog_title">Pilih periode waktu Daftar Pantauan</string>
+  <string name="watchlist_expiry_dialog_permanent">Selamanya</string>
+  <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
+  <string name="watchlist_expiry_dialog_one_month">1 bulan</string>
+  <string name="watchlist_expiry_dialog_three_months">3 bulan</string>
+  <string name="watchlist_expiry_dialog_six_months">6 bulan</string>
+  <string name="watchlist_empty">Anda tidak memiliki artikel apapun dalam daftar pantauan.</string>
+  <string name="watchlist_filter_all">Semua</string>
+  <string name="watchlist_filter_talk">Pembicaraan</string>
+  <string name="watchlist_filter_pages">Halaman</string>
+  <string name="watchlist_filter_other">Lainnya</string>
+  <string name="watchlist_page_moved">Dipindahkan</string>
+  <string name="watchlist_page_protected">Dilindungi</string>
+  <string name="watchlist_page_deleted">Dihapus</string>
 </resources>
