@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Bert Jickty
 * Envlh
 * HalanTul
 * Krivoshapkina
 * MuratTheTurkish
 * Patriccck
+* Patrik L.
 * Алгыс
 * Марианна
 -->
@@ -343,7 +343,6 @@
   <string name="text_size_increase">Бичигин улаатыннар</string>
   <string name="text_size_decrease">Бичигин кыччат</string>
   <string name="text_size_percent_default">%s (анаан эппэтэххэ)</string>
-  <string name="nav_item_reading_lists">Тиһилигим</string>
   <string name="reading_list_save_to">Ааҕар тиһиликкэ киллэр</string>
   <string name="reading_list_create_new">Саҥаны ай</string>
   <string name="reading_list_title_exists">Аҕыы испииһэгэ «%s» хайыы-үйэ баар эбит.</string>

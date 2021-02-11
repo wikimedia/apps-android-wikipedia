@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Bsitzmann
 * Chaduvari
 * Chsasank
@@ -214,7 +213,6 @@
   <string name="color_theme_black">నలుపు</string>
   <string name="color_theme_test_title">నమూనా పాఠ్యం</string>
   <string name="text_size_percent_default">%s (అప్రమేయం)</string>
-  <string name="nav_item_reading_lists">నా జాబితాలు</string>
   <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
   <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>
   <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aranka
 * Ciell
 * Dbrant
@@ -396,7 +395,6 @@
   <string name="text_size_decrease">Tekstgrootte verkleinen</string>
   <string name="text_size_percent_default">%s (standaard)</string>
   <string name="text_style_title">Lettertype</string>
-  <string name="nav_item_reading_lists">Mijn lijsten</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>

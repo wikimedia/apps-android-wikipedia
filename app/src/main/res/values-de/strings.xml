@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1233qwer1234qwer4
-* Abijeet Patro
 * Bergrübe
 * Bxalber
 * Chronist
@@ -30,6 +29,7 @@
 * Tobi 406
 * Umherirrender
 * Vogone
+* Wolfdietmann
 * Xqt
 -->
 <resources>
@@ -404,7 +404,7 @@
   <string name="text_size_decrease">Text verkleinern</string>
   <string name="text_size_percent_default">%s (Standard)</string>
   <string name="text_style_title">Schriftart</string>
-  <string name="nav_item_reading_lists">Meine Listen</string>
+  <string name="nav_item_saved">Gespeichert</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_move_to">In Leseliste verschieben</string>
   <string name="reading_list_create_new">Neue erstellen</string>

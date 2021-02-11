@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Agne1992
 * Eitvys200
 * Gediminas
@@ -281,7 +280,6 @@
   <string name="text_size_increase">Padidinti teksto dydį</string>
   <string name="text_size_decrease">Sumažinti teksto dydį</string>
   <string name="text_size_percent_default">%s (Numatytasis)</string>
-  <string name="nav_item_reading_lists">Mano sąrašai</string>
   <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>
   <string name="reading_list_create_new">Sukurti naują</string>
   <string name="reading_list_added_view_button">Žiūrėti sąrašą</string>

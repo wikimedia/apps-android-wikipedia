@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Alex Khimich
 * Andrew J.Kurbiko
 * Andriykopanytsia
@@ -392,7 +391,6 @@
   <string name="text_size_decrease">Зменшити розмір тексту</string>
   <string name="text_size_percent_default">%s (стандартно)</string>
   <string name="text_style_title">Шрифт</string>
-  <string name="nav_item_reading_lists">Мої списки</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_move_to">Перенести до читального списку</string>
   <string name="reading_list_create_new">Створити новий</string>
