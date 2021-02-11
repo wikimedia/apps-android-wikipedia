@@ -91,7 +91,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setUpListeners()
         getWatchedStatus()
         fetchEditDetails()
-        L10nUtil.setConditionalLayoutDirection(getView(), languageCode)
+        L10nUtil.setConditionalLayoutDirection(requireView(), languageCode)
     }
 
     private fun setUpListeners() {

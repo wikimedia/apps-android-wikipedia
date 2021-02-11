@@ -181,9 +181,7 @@
   <string name="notification_syncing_resume_button">Хулоса</string>
   <string name="notification_syncing_cancel_button">Тамом кардан</string>
   <string name="preference_title_notification_thanks">Ташаккур</string>
-  <string name="view_featured_article_footer_save_button_label">Захира</string>
   <string name="view_static_card_save_button_label">Захира</string>
-  <string name="view_featured_article_footer_saved_button_label">Захира</string>
   <string name="description_edit_text_hint">Тавзеҳоти иақола</string>
   <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Мақолаҳо (%s)</string>
   <string name="description_edit_save">Нашр</string>

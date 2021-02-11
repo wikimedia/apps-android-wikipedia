@@ -352,7 +352,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         if (SearchCallback.is(actionMode)) {
             finishActionMode();
         }
-        if (!MultiSelectCallback.is(actionMode)) {
+        if (!MultiSelectCallback.isTagType(actionMode)) {
             startSupportActionMode(multiSelectActionModeCallback);
         }
     }
@@ -547,7 +547,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         }
 
         @Override public void onClick(View v) {
-            if (MultiSelectCallback.is(actionMode)) {
+            if (MultiSelectCallback.isTagType(actionMode)) {
                 toggleSelectItem(container);
             } else {
                 bottomSheetPresenter.show(getSupportFragmentManager(),

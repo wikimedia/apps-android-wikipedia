@@ -386,7 +386,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (SearchCallback.is(actionMode)) {
             finishActionMode();
         }
-        if (!MultiSelectCallback.is(actionMode)) {
+        if (!MultiSelectCallback.isTagType(actionMode)) {
             getAppCompatActivity().startSupportActionMode(multiSelectActionModeCallback);
         }
     }
@@ -536,7 +536,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (page == null) {
             return;
         }
-        if (actionMode == null || MultiSelectCallback.is(actionMode)) {
+        if (actionMode == null || MultiSelectCallback.isTagType(actionMode)) {
             beginMultiSelect();
             toggleSelectPage(page);
         }
@@ -629,7 +629,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
-            getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
+            getView().setActionHint(R.string.reading_list_article_make_offline);
             getView().setSearchQuery(currentSearchQuery);
             getView().setListItemImageDimensions(getImageDimension(), getImageDimension());
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
@@ -804,7 +804,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     private class ReadingListPageItemCallback implements PageItemView.Callback<ReadingListPage> {
         @Override
         public void onClick(@Nullable ReadingListPage page) {
-            if (MultiSelectCallback.is(actionMode)) {
+            if (MultiSelectCallback.isTagType(actionMode)) {
                 toggleSelectPage(page);
             } else if (page != null) {
                 PageTitle title = ReadingListPage.toPageTitle(page);
@@ -838,16 +838,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         @Override
         public void onActionClick(@Nullable ReadingListPage page, @NonNull View view) {
-            if (page == null) {
-                return;
-            }
-            bottomSheetPresenter.show(getChildFragmentManager(),
-                    ReadingListItemActionsDialog.newInstance(TextUtils.isEmpty(currentSearchQuery)
-                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page.id(), actionMode != null));
-        }
-
-        @Override
-        public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull View view) {
             if (page != null) {
                 if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()
                         && page.status() == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
