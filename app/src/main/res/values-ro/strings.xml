@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Carcassonne93
 * Danutz
 * Dbrant
@@ -360,7 +359,6 @@
   <string name="text_size_increase">Crește dimensiunea textului</string>
   <string name="text_size_decrease">Scade dimensiunea textului</string>
   <string name="text_size_percent_default">%s (Implicit)</string>
-  <string name="nav_item_reading_lists">Listele mele</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
   <string name="reading_list_move_to">Accesați lista de citire</string>
   <string name="reading_list_create_new">Creează una nouă</string>

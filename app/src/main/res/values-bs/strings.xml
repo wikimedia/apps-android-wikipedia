@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Srdjan m
 * Srđan
 -->
@@ -299,7 +298,6 @@
   <string name="text_size_increase">Povećaj veličinu teksta</string>
   <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_size_percent_default">%s (predodređeno)</string>
-  <string name="nav_item_reading_lists">Moji spiskovi</string>
   <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
   <string name="reading_list_move_to">Premjesti na spisak za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>

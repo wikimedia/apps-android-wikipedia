@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Aaribaud
-* Abijeet Patro
 * Alno
 * Bbernrd
 * Blurby
@@ -417,7 +416,7 @@
   <string name="text_size_decrease">Réduire la taille du texte</string>
   <string name="text_size_percent_default">%s (par défaut)</string>
   <string name="text_style_title">Police</string>
-  <string name="nav_item_reading_lists">Mes listes</string>
+  <string name="nav_item_saved">Enregistré</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
   <string name="reading_list_move_to">Déplacer vers la liste de lecture</string>
   <string name="reading_list_create_new">Créer un nouveau</string>

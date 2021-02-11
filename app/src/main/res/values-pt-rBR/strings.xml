@@ -2,7 +2,6 @@
 <!-- Authors:
 * !Silent
 * AVrana
-* Abijeet Patro
 * Alvarenga
 * Anaclaudiaml
 * BarbaraAckles
@@ -13,6 +12,7 @@
 * Dianakc
 * EVinente
 * Eduardo Addad de Oliveira
+* Eduardoaddad
 * Envlh
 * Fasouzafreitas
 * Felipe L. Ewald
@@ -406,7 +406,7 @@
   <string name="text_size_decrease">Diminuir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
   <string name="text_style_title">Fonte</string>
-  <string name="nav_item_reading_lists">Minhas listas</string>
+  <string name="nav_item_saved">Salvado</string>
   <string name="reading_list_save_to">Salvar na lista de leitura</string>
   <string name="reading_list_move_to">Mover à lista de leitura</string>
   <string name="reading_list_create_new">Criar nova</string>

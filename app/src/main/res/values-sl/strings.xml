@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Eleassar
 * Franga2000
 * HairyFotr
@@ -18,7 +17,7 @@
   <string name="nav_item_forward">Naprej</string>
   <string name="search_hint">Išči v Wikipediji</string>
   <string name="search_hint_voice_search">Iskanje z glasovnim vnosom</string>
-  <string name="search_hint_search_languages">Poiščite jezik</string>
+  <string name="search_hint_search_languages">Poišči jezik</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje sezname</string>
   <string name="nav_item_suggested_edits">Urejanja</string>
   <string name="nav_item_more">Več</string>
@@ -70,20 +69,20 @@
   <string name="reading_list_page_share">Deli</string>
   <string name="menu_text_select_edit_here">Uredi tukaj</string>
   <string name="last_updated_text">Zadnja posodobitev: %s</string>
-  <string name="talk_page_link_text">Prikaži pogovorno stran</string>
+  <string name="talk_page_link_text">Ogled pogovorne strani</string>
   <string name="edit_history_link_text">Prikaži zgodovino urejanj</string>
   <string name="map_view_link_text">Prikaži na karti</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d drugih jezikih</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Z objavo se strinjate s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Z objavo se strinjate s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Urejanja bodo pripisana IP-naslovu vaše naprave. Če se boste &lt;a href=\"https://#login\"&gt;prijavili&lt;/a&gt;, boste imeli več zasebnosti.</string>
   <string name="preference_title_language">Jeziki Wikipedije</string>
   <string name="langlinks_filter_hint">Iskanje</string>
   <string name="langlinks_empty">Ta stran ni na voljo v drugih jezikih.</string>
   <string name="langlinks_no_match">Noben jezik ni bil najden</string>
   <string name="langlinks_activity_title">Drugi jeziki</string>
-  <string name="langlinks_your_wikipedia_languages">Vaši jeziki Wikipedije</string>
+  <string name="langlinks_your_wikipedia_languages">Wikipedija v vaših jezikih</string>
   <string name="menu_save_changes">Objavi spremembe</string>
   <string name="edit_saved_successfully">Sprememba objavljena!</string>
   <string name="dialog_message_edit_failed">Urejanje neuspešno!</string>
@@ -273,7 +272,7 @@
   <string name="dialog_text_download_only_over_wifi">V nastavitvah ste vklopili možnost »Prenašaj samo prek Wi-Fi-ja«. Ali želite omogočiti mobilni prenos podatkov samo za ta prenos?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Dovoli</string>
   <string name="read_more_section">Preberite še kaj</string>
-  <string name="about_article_section">O tem članku</string>
+  <string name="about_article_section">O članku</string>
   <string name="menu_gallery_visit_image_page">Pojdi na stran s sliko</string>
   <string name="gallery_error_draw_failed">Slike ni mogoče narisati.</string>
   <string name="license_title">Licenca za %s</string>
@@ -382,7 +381,6 @@
   <string name="text_size_decrease">Zmanjšaj velikost besedila</string>
   <string name="text_size_percent_default">%s (privzeto)</string>
   <string name="text_style_title">Pisava</string>
-  <string name="nav_item_reading_lists">Moji seznami</string>
   <string name="reading_list_save_to">Shrani na bralni seznam</string>
   <string name="reading_list_move_to">Premakni na bralni seznam</string>
   <string name="reading_list_create_new">Ustvari novo</string>
@@ -677,7 +675,7 @@
   <string name="description_edit_translate_description">Prevedi opis članka</string>
   <string name="description_edit_edit_description">Uredi opis članka</string>
   <string name="description_edit_add_image_caption">Dodaj napis k sliki</string>
-  <string name="description_edit_edit_image_caption">Uredi napis k sliki</string>
+  <string name="description_edit_edit_image_caption">Uredite napis k sliki</string>
   <string name="description_edit_translate_image_caption">Prevedi napis k sliki</string>
   <string name="description_edit_cancel_hint">Prekliči</string>
   <string name="description_edit_help_title">Informacije: opisi člankov</string>
@@ -709,7 +707,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Začetek urejanja</string>
   <string name="description_edit_tutorial_promise">Ob začetku obljubljam, da te funkcije ne bom zlorabil/a</string>
   <string name="suggested_edits_describe_articles">Opisovanje člankov</string>
-  <string name="suggested_edits_caption_images">Dodajte k slikam napise</string>
+  <string name="suggested_edits_caption_images">Dodajte napise k slikam</string>
   <string name="suggested_edits_tag_images">Označujte slike</string>
   <string name="suggested_edits_review_description">Pregled opisa članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
@@ -722,7 +720,7 @@
   <string name="suggested_edits_my_contributions">Moji prispevki</string>
   <string name="suggested_edits_no_description">Ta datoteka nima opisa</string>
   <string name="suggested_edits_license_notice">S shranitvijo opisa se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljam pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Ob objavi napisa k sliki se strinjam s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in nepreklicno objavljam svoj prispevek pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">S pripisom napisa k sliki izražam strinjanje s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in nepreklicno objavljam svoj prispevek pod licenco &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_task_add_description_title">Dodajanje opisov k člankom</string>
   <string name="suggested_edits_task_add_description_description">Prispevajte k člankom brez opisa</string>
@@ -764,7 +762,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stran datoteke v Wikimedijini zbirki</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stran datoteke v Wikipediji</string>
   <string name="suggested_edits_article_cta_image_tags">Dodajte sliki oznake</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj napis k sliki</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodajte napis k sliki</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj napis k sliki (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodajte napis k sliki</string>
@@ -792,7 +790,7 @@
   <string name="suggested_edits_encouragement_message">%s, hvala za vaša urejanja. Tu boste našli več načinov za prispevanje k Wikipediji.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdravljeni, %s&lt;/b&gt;, tu lahko najdete nekaj hitrih in preprostih načinov za izboljšanje Wikipedije. Svoj prispevek boste opazili takoj, ko boste začeli. Uspešno urejanje!</string>
   <string name="suggested_edits_image_captions_task_detail">Opišite sliko, da bodo bralci lahko razumeli njen pomen in kontekst.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Povzemite članek, da bodo bralci lahko temo razumeli že ob prvem pogledu.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Povzemite članek, da bodo bralci temo lahko razumeli že ob prvem pogledu.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Skupno število vaših urejanj do zdaj.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Število zaporednih dni, ko ste urejali. Če nekaj časa niste sodelovali, je prikazan datum vašega zadnjega prispevka.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Skupno število ogledov predmetov, h katerim ste prispevali, v zadnjih 30 dneh.</string>
@@ -937,12 +935,12 @@
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Potovali ste skozi čas 🚀</string>
   <string name="on_this_day_back_to_future">Nazaj v prihodnost</string>
-  <string name="languages_list_activity_title">Dodaj jezik</string>
+  <string name="languages_list_activity_title">Dodajte jezik</string>
   <string name="languages_list_suggested_text">Predlagano</string>
   <string name="languages_list_all_text">Vsi jeziki</string>
   <string name="wikipedia_languages_title">Jeziki Wikipedije</string>
   <string name="wikipedia_languages_your_languages_text">Vaš jezik</string>
-  <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
+  <string name="wikipedia_languages_add_language_text">Dodajte jezik</string>
   <string name="wikipedia_languages_remove_text">Odstrani jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odstrani jezik</string>
   <plurals name="wikipedia_languages_remove_dialog_title">

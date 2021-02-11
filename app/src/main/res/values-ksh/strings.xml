@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Nemo bis
 * Niedzielski
 * Purodha
@@ -159,7 +158,6 @@
   <string name="color_theme_select">Ußsinn</string>
   <string name="color_theme_light">Häll</string>
   <string name="color_theme_dark">Donkel</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Leßte zom lässe</string>
   <string name="reading_list_save_to">Donn op ming Leß zom Lässe</string>
   <string name="reading_list_create_new">Maach en neue Leß op</string>
   <string name="reading_list_added_view_button">De Leß belohre</string>

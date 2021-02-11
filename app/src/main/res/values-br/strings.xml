@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Ash Crow
 * Dishual
 * Envlh
@@ -322,7 +321,6 @@
   <string name="text_size_increase">Brasaat ment an destenn</string>
   <string name="text_size_decrease">Bihanaat ment an destenn</string>
   <string name="text_size_percent_default">%s (dre ziouer)</string>
-  <string name="nav_item_reading_lists">Ma rolloù</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
   <string name="reading_list_title_exists">Ar roll lenn «%s» zo anezhañ dija.</string>

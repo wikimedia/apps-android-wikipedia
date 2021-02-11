@@ -3,6 +3,7 @@
 * Malikxan
 * Ochilov
 * Patriccck
+* Patrik L.
 * Sociologist
 * Zafar Shamsiddinov
 * Таржимон
@@ -48,6 +49,8 @@
   <string name="menu_page_show_tabs">Tablarni ko‘rsatish</string>
   <string name="menu_page_other_languages">Boshqa tillarda o‘qish</string>
   <string name="menu_page_find_in_page">Maqoladan izlash</string>
+  <string name="menu_page_add_to_watchlist">Kuzatuv roʻyxatiga qoʻshmoq</string>
+  <string name="menu_page_remove_from_watchlist">Kuzatuv roʻyxatidan oʻchirmoq</string>
   <string name="edit_section_find_in_page">Sahifadan izlash</string>
   <string name="menu_page_font_and_theme">Shrift va tema</string>
   <string name="menu_page_add_to_list">Ro‘yxatga qo‘shmoq</string>
@@ -184,6 +187,8 @@
   <string name="page_protected_can_not_edit">Kechirasiz, hozirda sizning sahifangizni tahrirlash uchun sizning hisob qaydnomangizda yetarli imtiyozlar mavjud emas.</string>
   <string name="page_protected_can_not_edit_anon">Kechirasiz, ushbu sahifani hozircha anonim ravishda tahrirlab boʻlmaydi.</string>
   <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Kuzatuv roʻyxatiga qoʻshmoq</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Siz qiziqish bildirgan maqolalarda qanday oʻzgarishlar boʻlayotganligini kuzatib turing. Maqoladagi oʻzgarishlardan boxabar boʻlib borish uchun qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxatiga qoʻshmoq&lt;/b&gt; tugmasini tanlang.</string>
   <string name="settings_item_preferences">Tanlovlar</string>
   <string name="settings_activity_title">Tanlovlar</string>
   <string name="about_description">«Vikipediya» ilovasi haqida</string>
@@ -231,6 +236,7 @@
   <string name="find_previous">Oldingisini topish</string>
   <string name="find_first_occurence">Bu birinchi hodisa</string>
   <string name="find_last_occurence">Bu so‘nggi hodisa</string>
+  <string name="article_opened_in_background_tab">Ushbu maqola orqa fondagi xatchoʻpda ochilgan.</string>
   <string name="abusefilter_title_warn">Bu konstruktiv bo‘lmagan tahrir bo‘lishi mumkin. Haqiqatan ham nashr etmoqchimisiz?</string>
   <string name="abusefilter_title_disallow">Siz ushbu tahrirni nashr qila olmaysiz. Iltimos, orqaga qayting va uni o‘zgartiring.</string>
   <string name="abusefilter_text_warn">Avtomatlashtirilgan filtr ushbu tahrirni potentsial bo‘lmagan deb topdi. U quyidagilardan birini yoki bir nechtasini o‘z ichiga olishi mumkin: &lt;br/&gt; &lt;br/&gt; Barcha shriftlarda yozish &lt;br/&gt; Maqolalarni bo‘shatish yoki spam yuborish &lt;br /&gt; Tashqi aloqalar yoki rasmlarning ahamiyatsizligi &lt;br /&gt; Takrorlanayotgan belgilar</string>
@@ -372,7 +378,6 @@
   <string name="text_size_decrease">Matn oʻlchamini kichraytirmoq</string>
   <string name="text_size_percent_default">%s (standart)</string>
   <string name="text_style_title">Shrift</string>
-  <string name="nav_item_reading_lists">Ro‘yxatim</string>
   <string name="reading_list_save_to">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="reading_list_move_to">Oʻqish roʻyxatiga oʻtmoq</string>
   <string name="reading_list_create_new">Maqola tuzmoq</string>
@@ -552,6 +557,7 @@
   <string name="notifications_view_archived_button_text">Arxivlangan bildirishnomalar</string>
   <string name="notification_preferences_title">Bildirishnoma tanlovlari</string>
   <string name="notifications_mark_unread">Oʻqilmagan deb belgilamoq</string>
+  <string name="watchlist_title">Kuzatuv roʻyxati</string>
   <string name="preference_title_notification_poll">Bildirishnomalarga ovoz bermoq</string>
   <string name="preference_summary_notification_poll">Orqa fonda yangi bildirishnomalarni tekshirish uchun ilovaga trafikdan foydalanishga ruxsat bering.</string>
   <string name="preference_category_notification_types">Ilovadagi bildirishnoma turlari</string>
@@ -924,6 +930,8 @@
   <string name="main_tooltip_text">Salom %s, Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
   <string name="main_tooltip_text_v2">Vikipediyani hamma tahrirlashi mumkinligini bilasizmi?</string>
   <string name="main_tooltip_action_button">Boshladik</string>
+  <string name="main_tooltip_watchlist_title">Kuzatuv roʻyxati</string>
+  <string name="main_tooltip_watchlist_text">Oldin kuzatuv roʻyxatiga qoʻshgan maqolalar va sahifalarni izlab topish uchun Qoʻshimcha menyudagi &lt;b&gt;Kuzatuv roʻyxati&lt;/b&gt; boʻlimini tanlang.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Bekor qilmoq</string>
@@ -939,4 +947,38 @@
   <string name="talk_message_hint">Xabar qoldirmoq</string>
   <string name="talk_message_empty">Xabar boʻsh qolmasin.</string>
   <string name="talk_subject_empty">Mavzu boʻsh qolishi kerak emas.</string>
+  <string name="menu_option_share_edit">Tahrirlashni ulashmoq</string>
+  <string name="menu_option_user_profile">%sʼning profili</string>
+  <string name="menu_option_user_contributions">%sning hissalari</string>
+  <string name="watchlist_details_watching_label">Kuzatilmoqda</string>
+  <string name="watchlist_details_watch_label">Kuzatmoq</string>
+  <string name="thank_label">Tashakkur</string>
+  <string name="go_to_user_page">Foydalanuvchi sahifasiga oʻtmoq</string>
+  <string name="thank_dialog_title_text">«Tashakkur» bildirmoq</string>
+  <string name="thank_dialog_text">«Tashakkur» - Vikipediyada muharrirning ishiga minnatdorchilik bildirishning oson usuli. «Tashakkur» bekor qilinmaydi va hammaga koʻra oladi</string>
+  <string name="thank_dialog_positive_button_text">Tashakkur bildirmoq</string>
+  <string name="thank_dialog_negative_button_text">Bekor qilmoq</string>
+  <string name="thank_success_message">Sizning «Tashakkur»ingiz %sga bildirildi 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s va uning munozara sahifasi sizning %2$s-kuzatuvlar roʻyxatigizga qoʻshildi.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Oʻzgaritirmoq</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vaqtinchalik</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 haftaga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 oyga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 oyga</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 oyga</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s 1 va uning munozara sahifasi sizning kuzatuvlaringiz roʻyxatidan oʻchirildi.</string>
+  <string name="watchlist_expiry_dialog_title">Kuzatuv roʻyxati vaqtini tanlang</string>
+  <string name="watchlist_expiry_dialog_permanent">Vaqtinchalik</string>
+  <string name="watchlist_expiry_dialog_one_week">1 hafta</string>
+  <string name="watchlist_expiry_dialog_one_month">1 oy</string>
+  <string name="watchlist_expiry_dialog_three_months">3 oy</string>
+  <string name="watchlist_expiry_dialog_six_months">6 oy</string>
+  <string name="watchlist_empty">Kuzatuvlar roʻyxatida hali hech qanaqa maqola yoʻq.</string>
+  <string name="watchlist_filter_all">Barchasi</string>
+  <string name="watchlist_filter_talk">Munozara</string>
+  <string name="watchlist_filter_pages">Sahifalar</string>
+  <string name="watchlist_filter_other">Boshqa</string>
+  <string name="watchlist_page_moved">Koʻchirilgan</string>
+  <string name="watchlist_page_protected">Himoyalangan</string>
+  <string name="watchlist_page_deleted">O‘chirilgan</string>
 </resources>

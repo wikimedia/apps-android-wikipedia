@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * ASHmed
-* Abijeet Patro
 * Aboulouei1
 * Alaa
 * Asaifm
@@ -388,7 +387,6 @@
   <string name="text_size_increase">زيادة حجم الخط</string>
   <string name="text_size_decrease">تقليل حجم الخط</string>
   <string name="text_size_percent_default">%s (افتراضي)</string>
-  <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>

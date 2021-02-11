@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Drjpoudel
 * MuratTheTurkish
 * Nirajan pant
@@ -317,7 +316,6 @@
   <string name="text_size_increase">पाठ आकार बढाउनुहोस्</string>
   <string name="text_size_decrease">पाठ आकार घटाउनुहोस्</string>
   <string name="text_size_percent_default">%s (पूर्वनिर्धारित)</string>
-  <string name="nav_item_reading_lists">मेरा सूचीहरू</string>
   <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>

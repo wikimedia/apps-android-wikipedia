@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Algentem
 * Dbrant
 * Joao Xavier
@@ -274,7 +273,6 @@
   <string name="color_theme_test_title">Exemplo pri texto</string>
   <string name="preference_summary_color_theme">Chanjar a la obskura temo dil aplo</string>
   <string name="text_size_percent_default">%s (Default)</string>
-  <string name="nav_item_reading_lists">Mea listi</string>
   <string name="reading_list_save_to">Adjuntez a la lektebla listo</string>
   <string name="reading_list_move_to">Movar a lektebla listo</string>
   <string name="reading_list_create_new">Krear nova</string>
