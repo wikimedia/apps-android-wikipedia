@@ -22,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.ArrowConstraints
 import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.Balloon
+import com.skydoves.balloon.createBalloon
 import org.wikipedia.R
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.WikiSite
@@ -61,14 +62,17 @@ object FeedbackUtil {
         showMessage(activity, richText.toString())
     }
 
+    @JvmStatic
     fun showMessage(fragment: Fragment, @StringRes text: Int) {
         makeSnackbar(fragment.requireActivity(), fragment.getString(text), Snackbar.LENGTH_LONG).show()
     }
 
+    @JvmStatic
     fun showMessage(fragment: Fragment, text: String) {
         makeSnackbar(fragment.requireActivity(), text, Snackbar.LENGTH_LONG).show()
     }
 
+    @JvmStatic
     fun showMessage(activity: Activity, @StringRes resId: Int) {
         showMessage(activity, activity.getString(resId), Snackbar.LENGTH_LONG)
     }
@@ -78,6 +82,7 @@ object FeedbackUtil {
     }
 
     @JvmOverloads
+    @JvmStatic
     fun showMessage(activity: Activity, text: CharSequence, duration: Int = Snackbar.LENGTH_LONG) {
         makeSnackbar(activity, text, duration).show()
     }
@@ -108,17 +113,21 @@ object FeedbackUtil {
     }
 
     fun showUserContributionsPage(context: Context, username: String, languageCode: String?) {
-        val title = PageTitle(SpecialAliasData.valueFor(languageCode) + ":" + "Contributions/" + username, WikiSite.forLanguageCode(languageCode!!))
+        val title = PageTitle(SpecialAliasData.valueFor(languageCode) + ":" +
+                "Contributions/" + username, WikiSite.forLanguageCode(languageCode!!))
         UriUtil.visitInExternalBrowser(context, Uri.parse(title.uri))
     }
 
     fun showUserProfilePage(context: Context, username: String, languageCode: String?) {
-        val title = PageTitle(UserAliasData.valueFor(languageCode) + ":" + username, WikiSite.forLanguageCode(languageCode!!))
+        val title = PageTitle(UserAliasData.valueFor(languageCode) + ":" +
+                username, WikiSite.forLanguageCode(languageCode!!))
         UriUtil.visitInExternalBrowser(context, Uri.parse(title.uri))
     }
 
     @JvmOverloads
-    fun showAndroidAppEditingFAQ(context: Context, @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
+    @JvmStatic
+    fun showAndroidAppEditingFAQ(context: Context,
+                                 @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
         SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
@@ -128,8 +137,7 @@ object FeedbackUtil {
         if (TextUtils.isEmpty(status)) {
             return
         }
-        val message: String
-        message = when (status) {
+        val message: String = when (status) {
             "sysop" -> activity.getString(R.string.page_protected_sysop)
             "autoconfirmed" -> activity.getString(R.string.page_protected_autoconfirmed)
             else -> activity.getString(R.string.page_protected_other, status)
@@ -185,16 +193,22 @@ object FeedbackUtil {
         return toast
     }
 
+    @JvmStatic
     fun showTooltip(anchor: View, text: CharSequence, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
-        return showTooltip(getTooltip(anchor.context, text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
+        return showTooltip(getTooltip(anchor.context, text, aboveOrBelow, autoDismiss), anchor,
+                aboveOrBelow, autoDismiss)
     }
 
+    @JvmStatic
     fun showTooltip(anchor: View, @LayoutRes layoutRes: Int, layoutHeight: Int,
-                    arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
-        return showTooltip(getTooltip(anchor.context, layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
+                    arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean,
+                    autoDismiss: Boolean): Balloon {
+        return showTooltip(getTooltip(anchor.context, layoutRes, layoutHeight, arrowAnchorPadding,
+                topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
     }
 
-    private fun showTooltip(balloon: Balloon, anchor: View, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
+    private fun showTooltip(balloon: Balloon, anchor: View, aboveOrBelow: Boolean,
+                            autoDismiss: Boolean): Balloon {
         if (aboveOrBelow) {
             balloon.showAlignTop(anchor, 0, roundedDpToPx(8f))
         } else {
@@ -206,53 +220,66 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
-        return getTooltipBuilder(context, 0, aboveOrBelow, autoDismiss)
-                .setText(text)
-                .setTextSize(14f)
-                .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
-                .setTextColor(Color.WHITE)
-                .setPadding(16)
-                .build()
+    fun getTooltip(context: Context, text: CharSequence, aboveOrBelow: Boolean,
+                   autoDismiss: Boolean): Balloon {
+        return createBalloon(context) {
+            setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
+            setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+            setArrowOrientation(if (aboveOrBelow) ArrowOrientation.BOTTOM else ArrowOrientation.TOP)
+            setArrowSize(24)
+            setMarginLeft(8)
+            setMarginRight(8)
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setDismissWhenTouchOutside(autoDismiss)
+            setText(text)
+            setTextSize(14f)
+            setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
+            setTextColor(Color.WHITE)
+            setPadding(16)
+        }
     }
 
     private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, layoutHeight: Int,
-                           arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
-        return getTooltipBuilder(context, topOrBottomMargin, aboveOrBelow, autoDismiss)
-                .setLayout(layoutRes)
-                .setHeight(layoutHeight)
-                .setWidthRatio(if (isLandscape(context)) 0.4f else 0.8f)
-                .setArrowAlignAnchorPadding(arrowAnchorPadding)
-                .build()
-    }
-
-    private fun getTooltipBuilder(context: Context, topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Builder {
-        return Builder(context)
-                .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
-                .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-                .setArrowOrientation(if (aboveOrBelow) ArrowOrientation.BOTTOM else ArrowOrientation.TOP)
-                .setArrowSize(24)
-                .setMarginLeft(8)
-                .setMarginRight(8)
-                .setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
-                .setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-                .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
-                .setDismissWhenTouchOutside(autoDismiss)
+                           arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean,
+                           autoDismiss: Boolean): Balloon {
+        return createBalloon(context) {
+            setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
+            setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+            setArrowOrientation(if (aboveOrBelow) ArrowOrientation.BOTTOM else ArrowOrientation.TOP)
+            setArrowSize(24)
+            setMarginLeft(8)
+            setMarginRight(8)
+            setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
+            setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setDismissWhenTouchOutside(autoDismiss)
+            setLayout(layoutRes)
+            setHeight(layoutHeight)
+            setWidthRatio(if (isLandscape(context)) 0.4f else 0.8f)
+            setArrowAlignAnchorPadding(arrowAnchorPadding)
+        }
     }
 
     private fun findBestView(activity: Activity): View {
-        return if (activity is MainActivity) {
-            activity.findViewById(R.id.fragment_main_coordinator)
-        } else if (activity is PageActivity) {
-            activity.findViewById(R.id.fragment_page_coordinator)
-        } else if (activity is RandomActivity) {
-            activity.findViewById(R.id.random_coordinator_layout)
-        } else if (activity is ReadingListActivity) {
-            activity.findViewById(R.id.fragment_reading_list_coordinator)
-        } else if (activity is SuggestionsActivity) {
-            activity.findViewById(R.id.suggestedEditsCardsCoordinator)
-        } else {
-            activity.findViewById(android.R.id.content)
+        return when (activity) {
+            is MainActivity -> {
+                activity.findViewById(R.id.fragment_main_coordinator)
+            }
+            is PageActivity -> {
+                activity.findViewById(R.id.fragment_page_coordinator)
+            }
+            is RandomActivity -> {
+                activity.findViewById(R.id.random_coordinator_layout)
+            }
+            is ReadingListActivity -> {
+                activity.findViewById(R.id.fragment_reading_list_coordinator)
+            }
+            is SuggestionsActivity -> {
+                activity.findViewById(R.id.suggestedEditsCardsCoordinator)
+            }
+            else -> {
+                activity.findViewById(android.R.id.content)
+            }
         }
     }
 }
