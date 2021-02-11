@@ -36,16 +36,7 @@ object ThrowableUtil {
         return false
     }
 
-    /**
-     * DEPRECATED: This is a rarely-used function intended to sift through server error responses
-     * and pass through the relevant bits along with standardized strings in certain cases.
-     *
-     * Getting the handful of canned strings depends on processing contexts that might be null by
-     * the time we make it here.  Further, we're moving away from using raw server messages in favor
-     * of statically defined XML error views, which are safer.  This should no longer be used.
-     */
     @JvmStatic
-    @Deprecated("")
     fun getAppError(context: Context, e: Throwable): AppError {
         val inner = getInnermostThrowable(e)
         // look at what kind of exception it is...
@@ -90,6 +81,5 @@ object ThrowableUtil {
                 throwableContainsException(e, SSLException::class.java)
     }
 
-    @Deprecated("")
     class AppError(val error: String, val detail: String?)
 }
