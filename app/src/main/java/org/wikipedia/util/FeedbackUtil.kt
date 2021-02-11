@@ -16,8 +16,6 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import com.getkeepsafe.taptargetview.TapTarget
-import com.getkeepsafe.taptargetview.TapTargetView
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.ArrowConstraints
 import com.skydoves.balloon.ArrowOrientation
@@ -151,22 +149,6 @@ object FeedbackUtil {
         for (v in views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER)
         }
-    }
-
-    @JvmStatic
-    fun showTapTargetView(activity: Activity, target: View,
-                          @StringRes titleId: Int, @StringRes descriptionId: Int,
-                          listener: TapTargetView.Listener?) {
-        val tooltipAlpha = 0.9f
-        TapTargetView.showFor(activity,
-                TapTarget.forView(target, activity.getString(titleId),
-                        activity.getString(descriptionId))
-                        .targetCircleColor(ResourceUtil.getThemedAttributeId(activity, R.attr.colorAccent))
-                        .outerCircleColor(ResourceUtil.getThemedAttributeId(activity, R.attr.colorAccent))
-                        .outerCircleAlpha(tooltipAlpha)
-                        .cancelable(true)
-                        .transparentTarget(true),
-                listener)
     }
 
     @JvmStatic
