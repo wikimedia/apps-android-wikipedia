@@ -673,7 +673,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(),
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getModel().shouldLoadAsMobileWeb(),
                 pageFragment.getModel().isWatched(), pageFragment.getModel().hasWatchlistExpiry());
     }
 
