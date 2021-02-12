@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aboubacar.banamoridou.toure
 * Babamamadidianee
 * Dbrant
@@ -340,7 +339,6 @@
   <string name="text_size_decrease">ߛߓߍߟߌ ߢߊ߲ߞߊ߲ ߡߊߖߌ߰</string>
   <string name="text_size_percent_default">(ߓߐߛߎ߲) %s</string>
   <string name="text_style_title">ߞߟߏߜߍ</string>
-  <string name="nav_item_reading_lists">ߒ ߠߊ߫ ߛߙߍߘߍ</string>
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_move_to">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_create_new">ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</string>
@@ -541,6 +539,7 @@
   <string name="feed_item_type_featured_image">ߕߋ߬ߟߋ ߖߌ߬ߦߊ߬ߓߍ߬ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
   <string name="feed_item_type_main_page">ߥߞߌߔߋߘߌߦߊ ߕߋ߬ߟߋ ߞߣߐߘߐ߫ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬ ߓߏ߬ߟߏ߲߬ߘߊ ߞߐߜߍ.</string>
   <string name="feed_item_type_randomizer">ߓߍ߲߬ߛߋ߲߬ߡߊ߬ ߦߌߟߡߊ ߘߐߞߊ߬ߙߊ߲߬ߕߊ ߟߎ߬ ߟߊߞߊ߬ߝߏ߬ߣߍ߲</string>
+  <string name="feed_configure_onboarding_action">ߖߘߍ߬ߕߦߊ߬ߟߌ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ߘߐ߬ߛߊ߬ߟߌ</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>

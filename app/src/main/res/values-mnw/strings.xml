@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aue Nai
 * Htawmonzel
 * MuratTheTurkish
@@ -360,7 +359,6 @@
   <string name="text_size_increase">ပခိုဟ်ပတိုန် ဇမၞော် မလိက်</string>
   <string name="text_size_decrease">ပရေအ်ဖျေဟ် ဇမၞော် မလိက်</string>
   <string name="text_size_percent_default">%s (ဒးစုတ်ဟေင်)</string>
-  <string name="nav_item_reading_lists">စရင် အဲ</string>
   <string name="reading_list_save_to">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="reading_list_move_to">ပြံင်ဏာ ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="reading_list_create_new">ခၞံကၠောန် တၟိ</string>

@@ -90,6 +90,7 @@ import io.reactivex.rxjava3.functions.Consumer;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
@@ -617,7 +618,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry) {
+    public void onPageWatchlistExpirySelect(@NonNull WatchlistExpiry expiry) {
         watchlistFunnel.logAddExpiry();
         pageFragment.updateWatchlist(expiry, false);
     }
@@ -678,7 +679,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getWatchlistExpirySession());
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(),
+                pageFragment.getModel().isWatched(), pageFragment.getModel().hasWatchlistExpiry());
     }
 
     private class OverflowCallback implements PageActionOverflowView.Callback {
@@ -688,13 +690,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
-        public void watchlistClick(boolean hasWatchlistExpirySession) {
-            if (hasWatchlistExpirySession) {
+        public void watchlistClick(boolean isWatched) {
+            if (isWatched) {
                 watchlistFunnel.logRemoveArticle();
             } else {
                 watchlistFunnel.logAddArticle();
             }
-            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, hasWatchlistExpirySession);
+            pageFragment.updateWatchlist(WatchlistExpiry.NEVER, isWatched);
         }
 
         @Override
@@ -710,6 +712,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         @Override
         public void feedClick() {
             goToMainTab(NavTab.EXPLORE);
+        }
+
+        @Override
+        public void talkClick() {
+            startActivity(TalkTopicsActivity.newIntent(PageActivity.this,
+                    pageFragment.getTitle().pageTitleForTalkPage(), PAGE_ACTIVITY));
+        }
+
+        @Override
+        public void editHistoryClick() {
+            visitInExternalBrowser(PageActivity.this,
+                    Uri.parse(pageFragment.getTitle().getWebApiUrl("action=history")));
         }
     }
 
@@ -878,8 +892,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 }
                 watchlistFunnel.logShowTooltip();
                 Prefs.setWatchlistPageOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(overflowButton, R.layout.view_watchlist_page_tooltip,
-                        200, -32, -8, false, true);
+                FeedbackUtil.showTooltip(this, overflowButton, R.layout.view_watchlist_page_tooltip,
+                        200, -32, -8, false);
             }, 500);
         }
     }
@@ -893,9 +907,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     pageFragment.updateFontSize();
                 }
             } else if (event instanceof ArticleSavedOrDeletedEvent) {
-                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
-                    Prefs.shouldShowBookmarkToolTip(false);
-                }
                 if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitle() == null) {
                     return;
                 }

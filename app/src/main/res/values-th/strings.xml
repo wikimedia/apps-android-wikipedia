@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aefgh39622
 * Ans
 * B20180
@@ -376,7 +375,6 @@
   <string name="text_size_decrease">ลดขนาดข้อความ</string>
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
   <string name="text_style_title">แบบอักษร</string>
-  <string name="nav_item_reading_lists">รายการของฉัน</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_move_to">ย้ายลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>

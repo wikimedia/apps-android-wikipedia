@@ -4,7 +4,6 @@
 * A Chinese Wikipedian
 * A Retired User
 * AYZ04
-* Abijeet Patro
 * Cwek
 * Davidzdh
 * Deathkon
@@ -412,7 +411,6 @@
   <string name="text_size_increase">调高文本大小</string>
   <string name="text_size_decrease">调低文本大小</string>
   <string name="text_size_percent_default">%s（默认）</string>
-  <string name="nav_item_reading_lists">我的列表</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
   <string name="reading_list_move_to">移动至阅读列表</string>
   <string name="reading_list_create_new">创建新的</string>

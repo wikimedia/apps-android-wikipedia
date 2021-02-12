@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.widget.ImageView;
 
 import androidx.annotation.LayoutRes;
@@ -15,8 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
-import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -32,8 +29,6 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.views.ImageZoomHelper;
-import org.wikipedia.views.LinearLayoutTouchIntercept;
 import org.wikipedia.views.TabCountsView;
 
 import butterknife.BindView;
@@ -45,11 +40,8 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 
 public class MainActivity extends SingleFragmentActivity<MainFragment> implements MainFragment.Callback {
 
-    @BindView(R.id.main_container) LinearLayoutTouchIntercept mainContainer;
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
     @BindView(R.id.single_fragment_toolbar_wordmark) ImageView wordMark;
-    private ImageZoomHelper imageZoomHelper;
-    @Nullable private Balloon currentTooltip;
     @Nullable private TabCountsView tabCountsView;
 
     private boolean controlNavTabInFragment;
@@ -65,13 +57,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         AppShortcuts.setShortcuts(this);
-        imageZoomHelper = new ImageZoomHelper(this);
-
-        mainContainer.setOnInterceptTouchListener((view, motionEvent) -> {
-            dismissCurrentTooltip();
-            return false;
-        });
-
+        setImageZoomHelper();
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
@@ -150,7 +136,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             controlNavTabInFragment = false;
         } else {
             if (tab.equals(NavTab.SEARCH) && Prefs.shouldShowSearchTabTooltip()) {
-                FeedbackUtil.showTooltip(getFragment().tabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), true, false);
+                FeedbackUtil.showTooltip(this, getFragment().tabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), true, false);
                 Prefs.setShowSearchTabTooltip(false);
             }
             wordMark.setVisibility(GONE);
@@ -214,11 +200,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
         super.onBackPressed();
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event);
-    }
-
     public Toolbar getToolbar() {
         return toolbar;
     }
@@ -233,17 +214,5 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
 
     protected void clearToolbarElevation() {
         getToolbar().setElevation(0f);
-    }
-
-    private void dismissCurrentTooltip() {
-        if (currentTooltip != null) {
-            currentTooltip.dismiss();
-        }
-        currentTooltip = null;
-    }
-
-    public void setCurrentTooltip(@NonNull Balloon tooltip) {
-        dismissCurrentTooltip();
-        currentTooltip = tooltip;
     }
 }

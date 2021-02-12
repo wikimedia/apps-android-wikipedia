@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aktron
 * Bsitzmann
 * Cvanca
@@ -21,6 +20,7 @@
 * Mormegil
 * MrJaroslavik
 * Patriccck
+* Patrik L.
 * Robins7
 * Tereza
 * Vojtěch Dostál
@@ -396,7 +396,6 @@
   <string name="text_size_decrease">Zmenšit velikost textu</string>
   <string name="text_size_percent_default">%s (Výchozí)</string>
   <string name="text_style_title">Písmo</string>
-  <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_move_to">Přesunout do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>

@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Ammartivari
+* Bjakupi
+* GretaDoci
+* Kosovastar
+* Liridon
+* Olsi
+-->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="search_hint">Kërko në Wikipedia</string>
-  <string name="nav_item_history">Historiku</string>
   <string name="error_network_error">Nuk mund të lidhet me internet.</string>
   <string name="page_error_retry">Riprovo</string>
   <string name="page_error_back_to_main">Kthehu</string>
   <string name="menu_clear_all_history">Fshij historikun?</string>
   <string name="dialog_title_clear_history">Pastro historikun e shfletimit</string>
   <string name="dialog_message_clear_history">Ky veprim do të fshijë gjithë historikun e kërkimit dhe do të mbyllë çdo skedë të hapur. Jeni të sigurt?</string>
-    <string name="share_via">Shpërndaj nëpërmjet</string>
+  <string name="share_via">Shpërndaj nëpërmjet</string>
   <string name="search_redirect_from">Përcjellë nga %s</string>
   <string name="menu_page_show_tabs">Trego skedat</string>
   <string name="menu_page_other_languages">Ndrysho gjuhën</string>
-  <string name="menu_page_find_in_page">Gjej në faqe</string>
-    <string name="menu_page_font_and_theme">Shkrimi dhe tema</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Gjej në faqe</string>
+  <string name="menu_page_talk">Diskutimi</string>
+  <string name="menu_page_edit_history">Historiku i redaktimeve</string>
+  <string name="menu_page_font_and_theme">Shkrimi dhe tema</string>
   <string name="menu_page_add_to_list">Shtoni në listën e leximit</string>
   <string name="menu_page_share">Shpërndaj lidhjen</string>
   <string name="menu_long_press_open_page">Hap</string>
@@ -25,20 +34,19 @@
   <string name="menu_text_select_define">Përcaktoje</string>
   <string name="menu_text_select_edit_here">Redakto këtu</string>
   <string name="last_updated_text">Përditësim i fundit %s</string>
-    <string name="edit_save_action_license_logged_in">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktimet do t\'i atribuohen IP adresës të pajisjes tuaj. Nëse ju &lt;a href=\"https://#login\"&gt;kyçeni&lt;/a&gt;, do të keni më shumë privatësi.</string>
-  <string name="preference_title_language">Gjuha e Wikipedias</string>
-    <string name="langlinks_filter_hint">Kërko</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktimet do t\'i atribuohen IP adresës të pajisjes tuaj. Nëse ju &lt;a href=\"https://#login\"&gt;kyçeni&lt;/a&gt;, do të keni më shumë privatësi.</string>
+  <string name="preference_title_language" fuzzy="true">Gjuha e Wikipedias</string>
+  <string name="langlinks_filter_hint">Kërko</string>
   <string name="langlinks_empty">Kjo faqe nuk është në dispozicion në gjuhë të tjera.</string>
-  <string name="langlinks_no_match">Nuk u gjet asnjë gjuhë që përputhet me kërkimin tuaj.</string>
+  <string name="langlinks_no_match" fuzzy="true">Nuk u gjet asnjë gjuhë që përputhet me kërkimin tuaj.</string>
   <string name="langlinks_activity_title">Gjuhët e tjera</string>
-  <string name="menu_save_changes">Ruaj ndryshimet</string>
-  <string name="dialog_saving_in_progress">Duke ruajtur…</string>
-  <string name="edit_saved_successfully">Redaktimi u shpëtua!</string>
+  <string name="menu_save_changes" fuzzy="true">Ruaj ndryshimet</string>
+  <string name="edit_saved_successfully" fuzzy="true">Redaktimi u shpëtua!</string>
   <string name="dialog_message_edit_failed">Redaktimi dështoi!</string>
   <string name="dialog_message_edit_failed_retry">Riprovo</string>
   <string name="dialog_message_edit_failed_cancel">Anulo</string>
-  <string name="dialog_message_leaving_edit">Ndryshimet tuaja nuk janë ruajtur ende. Jeni të sigurt që dëshironi të largoheni nga kjo faqe?</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">Ndryshimet tuaja nuk janë ruajtur ende. Jeni të sigurt që dëshironi të largoheni nga kjo faqe?</string>
   <string name="dialog_message_leaving_edit_leave">Largohu</string>
   <string name="dialog_message_leaving_edit_stay">Qëndro</string>
   <string name="menu_show_toc">Tabela e Përmbajtjeve</string>
@@ -51,12 +59,12 @@
   <string name="login_username_hint">Emri i përdoruesit</string>
   <string name="login_password_hint">Fjalëkalimi</string>
   <string name="menu_login">Hyni</string>
-  <string name="login_activity_title">Hyni në Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Hyni në Wikipedia</string>
   <string name="login_in_progress_dialog_message">Duke hyrë…</string>
-  <string name="login_success_toast">Identifikim i suksesshëm!</string>
+  <string name="login_success_toast" fuzzy="true">Identifikim i suksesshëm!</string>
   <string name="preference_title_logout">Dil</string>
   <string name="toast_logout_complete">Dolët</string>
-  <string name="history_empty_message">Ndoshta i keni fshirë të gjitha. Herën tjetër që shkoni në një faqe, ju mund të riktheheni te ajo nga këtu.</string>
+  <string name="history_empty_message" fuzzy="true">Ndoshta i keni fshirë të gjitha. Herën tjetër që shkoni në një faqe, ju mund të riktheheni te ajo nga këtu.</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Emri i përdoruesit</string>
   <string name="create_account_activity_title">Krijo një llogari</string>
@@ -69,20 +77,27 @@
   <string name="create_account_button">Krijo llogari</string>
   <string name="preferences_general_heading">Të përgjithshme</string>
   <string name="wikipedia_app_faq">Pyetje dhe përgjigje</string>
-    <string name="create_account_account_created_toast">Llogaria u krijua!</string>
+  <string name="create_account_account_created_toast">Llogaria u krijua!</string>
   <string name="preferences_privacy_settings_heading">Privatësia</string>
   <string name="edit_summary_tag_typo">Korrigjim gabim shtypi</string>
   <string name="edit_summary_tag_other">Tjetër</string>
-  <string name="text_size_select">Madhësia e shkrimit</string>
-  <string name="color_theme_select">Tema</string>
   <string name="dialog_close_description">Mbyll</string>
   <string name="preference_title_show_images">Shfaq imazhet</string>
   <string name="format_error_server_message">Mesazh: \"%s\"</string>
   <string name="address_copied">Adresa që keni kopjuar në clipboard.</string>
   <string name="text_copied">Teksti që keni kopjuar në clipboard.</string>
   <string name="button_continue_to_article">Lexoni artikullin</string>
-  <string name="nav_item_donate">Mbështesni Wikipedia-n</string>
+  <string name="nav_item_donate" fuzzy="true">Mbështesni Wikipedia-n</string>
   <string name="error_voice_search_not_available">Na vjen keq, njohja e zërit nuk është në dispozicion.</string>
   <string name="location_service_disabled">Shërbimet e vendndodhjes janë të çaktivizuara.</string>
   <string name="enable_location_service">Aktivizo</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 artikull, %1$.2f MiB</string>
+  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d artikuj, %2$.2f MiB</string>
+  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d nga %2$d artikuj janë në dispozicion offline, %3$.2f MiB</string>
+  <string name="onboarding_welcome_title_v2" fuzzy="true">Enciklopedia falas\n...afersisht ne 300 gjuhe</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Largo nje variant ne Gjuhen Kineze nga gjuhet ne aplikacionin tuaj?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">You tani keni setin e varianteve te te dyjave te asaj Tradicionale dhe Kineze te thjeshtesuar ne gjuhet e aplikacionit.\nRino rradhitjen e gjuhes ne aplikacionin tuaj?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Hyn tek gjuhet</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Jo faleminderit</string>
 </resources>

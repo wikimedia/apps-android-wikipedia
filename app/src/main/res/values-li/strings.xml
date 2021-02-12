@@ -9,10 +9,6 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Doorzeuk Wikipedia</string>
-  <string name="search_hint_search_history">Zeukgesjiedenis</string>
-  <string name="search_hint_search_my_lists">Doorzeuk mien lieste</string>
-  <string name="search_hint_search_reading_list">Doorzeuk mien laeslieste</string>
-  <string name="nav_item_history">Gesjiedenis</string>
   <string name="error_network_error">Kan gein verbinje make mit internet.</string>
   <string name="page_error_retry">Perbeer oppernuuj</string>
   <string name="page_error_back_to_main">Trök</string>
@@ -29,7 +25,7 @@
   <string name="search_redirect_from">Doorverweze vanaaf %s</string>
   <string name="menu_page_show_tabs">Tuin tabblajer</string>
   <string name="menu_page_other_languages">Veranger spraok</string>
-  <string name="menu_page_find_in_page">Zeuk op pagina</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Zeuk op pagina</string>
   <string name="menu_page_font_and_theme">Littertype en thema</string>
   <string name="menu_page_add_to_list">Veug tou aan laeslies</string>
   <string name="menu_page_share">Deil link</string>
@@ -44,7 +40,7 @@
   <string name="map_view_link_text">Betrach op \'n kaart</string>
   <string name="other_languages_indication_text">Laes in \'n anger spraok</string>
   <string name="language_count_link_text">Besjikbaar in %d anger spraoke</string>
-    <string name="edit_save_action_license_logged_in" fuzzy="true">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Door op te slaon geis se akkaord mit de &lt;a href=\"%1$s\"&gt;gebroeksveurwaerd&lt;/a&gt; en \'t ónherropelik vriegaeve van dien biedraag ónger de &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-licentie. Bewirkinge waere toegesjreve aan \'t IP-adres van die toestèl. Es se dich &lt;a href=\"https://#login\"&gt;aanmeljs&lt;/a&gt;, höbs se mieër privaatrechte.</string>
   <string name="preference_title_language" fuzzy="true">Wikipedia-spraok</string>
   <string name="langlinks_filter_hint">Zeuk</string>
@@ -52,7 +48,6 @@
   <string name="langlinks_no_match">Gein spraoke gevónje</string>
   <string name="langlinks_activity_title">Anger spraoke</string>
   <string name="menu_save_changes">Bring verangeringe oet</string>
-  <string name="dialog_saving_in_progress">Oet \'nt bringe...</string>
   <string name="edit_saved_successfully">Bewirking oetgebrach!</string>
   <string name="dialog_message_edit_failed">Bewirking mislök!</string>
   <string name="dialog_message_edit_failed_retry">Perbeer oppernuuj</string>
@@ -75,9 +70,9 @@
   <string name="login_2fa_hint">Twieëtrapsauthenticatiecode</string>
   <string name="login_2fa_other_workflow_error_msg">Twieëtrapsauthenticatie vereisj! Gank trögk nao de wichtigste aktiviteit en melj dich aan mit dien 2FA-code en perbeer \'t den oppernuuj.</string>
   <string name="menu_login">Meld dich aan</string>
-  <string name="login_activity_title">Meld dich aan bie Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Meld dich aan bie Wikipedia</string>
   <string name="login_in_progress_dialog_message">Zich aan \'nt melde...</string>
-  <string name="login_success_toast">Doe bös aangemeld!</string>
+  <string name="login_success_toast" fuzzy="true">Doe bös aangemeld!</string>
   <string name="preference_title_logout">Meld dich aaf</string>
   <string name="toast_logout_complete">Aafgemeld</string>
   <string name="history_empty_title">Gein recèntelik betrachde pagina\'s</string>
@@ -104,7 +99,6 @@
   <string name="create_account_name_unavailable">De gebroekersnaam \"%s\" is neet besjikbaar. Kees estebleef \'nen angere naam.</string>
   <string name="preferences_general_heading">Algemein</string>
   <string name="wikipedia_app_faq">Väölgestèlde vraoge euver de Wikipedia-app</string>
-  <string name="edit_preview_fetching_dialog_message">Veurvertuining op \'nt haole...</string>
   <string name="send_feedback">Gaef feedback euveren app</string>
   <string name="create_account_account_created_toast">Konto aangemaak!</string>
   <string name="preferences_heading_syncing">Synchronisere</string>
@@ -115,7 +109,6 @@
   <string name="preference_title_eventlogging_opt_in">Versjik gebroekersrapporte</string>
   <string name="preference_summary_eventlogging_opt_in">Gaef Wikimedia toustumming infermasie te verzamele euver wie se de app gebroeks veur de app te kónne verbaetere</string>
   <string name="preference_title_auto_upload_crash_reports">Versjik rapport euver vasloupe</string>
-  <string name="history_search_list_hint">Zeuk in historie</string>
   <string name="error_can_not_process_link">Kós de link neet waergaeve</string>
   <string name="page_protected_autoconfirmed">Dees pagina is hauf-besjermp.</string>
   <string name="page_protected_sysop">Dees pagina is gans besjermp.</string>
@@ -125,7 +118,7 @@
   <string name="about_description">Euver de Wikipedia-app</string>
   <string name="privacy_policy_description">Privaatbeleid</string>
   <string name="terms_of_use_description">Algemein veurwaerd</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -153,6 +146,5 @@
   <string name="button_continue_to_article">Laes artikel</string>
   <string name="button_add_to_reading_list">Veug tou aan laeslies</string>
   <string name="page_offline_notice_cannot_load_while_offline">Artikel kan neet offline waere gelaje.</string>
-    <string name="crash_report_activity_title">Programmafout</string>
-  <string name="nav_item_reading_lists">Mien lieste</string>
+  <string name="crash_report_activity_title">Programmafout</string>
 </resources>

@@ -44,7 +44,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -159,7 +158,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
         void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList);
-        void onPageWatchlistExpirySelect(@Nullable WatchlistExpiry expiry);
+        void onPageWatchlistExpirySelect(@NonNull WatchlistExpiry expiry);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
         void onPageSetToolbarElevationEnabled(boolean enabled);
@@ -172,7 +171,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private boolean pageRefreshed;
     private boolean errorState = false;
     private boolean watchlistExpiryChanged;
-    private WatchlistExpiry watchlistExpirySession;
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -214,7 +212,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
         @Override
         public void onAddToReadingListTabSelected() {
-            Prefs.shouldShowBookmarkToolTip(false);
             if (model.isInReadingList()) {
                 new LongPressMenu(tabLayout, new LongPressMenu.Callback() {
                     @Override
@@ -326,11 +323,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public ViewGroup getContainerView() {
         return containerView;
-    }
-
-    @Nullable public WatchlistExpiry getWatchlistExpirySession() {
-        // TODO: use real Watchlist expiry data from API when it's ready.
-        return watchlistExpirySession == null ? model.isWatched() ? WatchlistExpiry.NEVER : null : watchlistExpirySession;
     }
 
     @Override
@@ -549,7 +541,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setVisibility(View.VISIBLE);
         }
 
-        checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
 
         bridge.onMetadataReady();
@@ -809,7 +800,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         errorState = false;
         errorView.setVisibility(View.GONE);
 
-        watchlistExpirySession = null;
         watchlistExpiryChanged = false;
 
         model.setTitle(title);
@@ -1295,15 +1285,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         pageFragmentLoadState.goForward();
     }
 
-    private void checkAndShowBookmarkOnboarding() {
-        if (Prefs.shouldShowBookmarkToolTip() && Prefs.getOverflowReadingListsOptionClickCount() == 2) {
-            View targetView = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
-            FeedbackUtil.showTapTargetView(requireActivity(), targetView,
-                    R.string.tool_tip_bookmark_icon_title, R.string.tool_tip_bookmark_icon_text, null);
-            Prefs.shouldShowBookmarkToolTip(false);
-        }
-    }
-
     private void initPageScrollFunnel() {
         if (model.getPage() != null) {
             pageScrollFunnel = new PageScrollFunnel(app, model.getPage().getPageProperties().getPageId());
@@ -1368,7 +1349,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
 
     @Override
-    public void onExpirySelect(@NotNull WatchlistExpiry expiry) {
+    public void onExpirySelect(@NonNull WatchlistExpiry expiry) {
         Callback callback = callback();
         if (callback != null) {
             callback.onPageWatchlistExpirySelect(expiry);
@@ -1544,7 +1525,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         leadImagesHandler.openImageInGallery(language);
     }
 
-    void updateWatchlist(@Nullable WatchlistExpiry expiry, boolean unwatch) {
+    void updateWatchlist(@NonNull WatchlistExpiry expiry, boolean unwatch) {
         disposables.add(ServiceFactory.get(getTitle().getWikiSite()).getWatchToken()
                 .subscribeOn(Schedulers.io())
                 .flatMap(response -> {
@@ -1552,8 +1533,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     if (TextUtils.isEmpty(watchToken)) {
                         throw new RuntimeException("Received empty watch token: " + GsonUtil.getDefaultGson().toJson(response));
                     }
-                    return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(),
-                            expiry != null ? expiry.getExpiry() : null, watchToken);
+                    return ServiceFactory.get(getTitle().getWikiSite()).postWatch(unwatch ? 1 : null, null, getTitle().getPrefixedText(), expiry.getExpiry(), watchToken);
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(watchPostResponse -> {
@@ -1575,12 +1555,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 }, L::d));
     }
 
-    private void showWatchlistSnackbar(@Nullable WatchlistExpiry expiry, Watch watch) {
+    private void showWatchlistSnackbar(@NonNull WatchlistExpiry expiry, @NonNull Watch watch) {
+        model.setWatched(watch.getWatched());
+        model.hasWatchlistExpiry(expiry != WatchlistExpiry.NEVER);
         if (watch.getUnwatched()) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, getTitle().getDisplayText()));
-            watchlistExpirySession = null;
-            model.setWatched(false);
-        } else if (watch.getWatched() && expiry != null) {
+        } else if (watch.getWatched()) {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             getTitle().getDisplayText(),
@@ -1593,9 +1573,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     bottomSheetPresenter.show(getChildFragmentManager(), WatchlistExpiryDialog.newInstance(expiry));
                 });
             }
-
             snackbar.show();
-            watchlistExpirySession = expiry;
         }
     }
 

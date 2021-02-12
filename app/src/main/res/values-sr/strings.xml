@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Acamicamacaraca
 * Aktron
 * BadDog
@@ -366,7 +365,6 @@
   <string name="text_size_increase">Повећај величину текста</string>
   <string name="text_size_decrease">Смањи величину текста</string>
   <string name="text_size_percent_default">%s (подразумевано)</string>
-  <string name="nav_item_reading_lists">Моје листе</string>
   <string name="reading_list_save_to">Сачувај на листу за читање</string>
   <string name="reading_list_move_to">Премести на листу за читање</string>
   <string name="reading_list_create_new">Направи нови</string>

@@ -1,5 +1,6 @@
 package org.wikipedia.views
 
+import android.app.Activity
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
@@ -25,7 +26,7 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnLongClickListener {
             if (tooltipText.isNotEmpty()) {
-                FeedbackUtil.showTooltip(binding.description, tooltipText, false, true)
+                FeedbackUtil.showTooltip(context as Activity, binding.description, tooltipText, false, true)
             }
             true
         }
