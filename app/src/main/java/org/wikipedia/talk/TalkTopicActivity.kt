@@ -54,6 +54,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler?.onUrlClick(url, null, "")
     }
+    private lateinit var inLineReplyText: String
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +66,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
+        inLineReplyText = " [ <a href='#in-line-reply'>${L10nUtil.getStringForArticleLanguage(pageTitle, R.string.talk_add_reply)}</a> ]"
 
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
 
@@ -219,7 +221,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
         fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
-            text.text = StringUtil.fromHtml(reply.html)
+            text.text = StringUtil.fromHtml(reply.html + inLineReplyText)
             indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
             bottomSpace.visibility = if (!isLast || replyActive) View.GONE else View.VISIBLE
         }
