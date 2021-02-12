@@ -22,7 +22,7 @@ object ReadingListTitleDialog {
                     dialog.setHint(R.string.reading_list_name_hint)
                     dialog.setSecondaryHint(R.string.reading_list_description_hint)
                     dialog.setText(title, true)
-                    dialog.setSecondaryText(StringUtils.defaultString(description))
+                    dialog.setSecondaryText(description.orEmpty())
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
