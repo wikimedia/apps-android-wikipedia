@@ -219,6 +219,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     revision = summary.getRevision();
 
                     // Rebuild our PageTitle, since it may have been redirected or normalized.
+                    String oldFragment = pageTitle.getFragment();
                     pageTitle = new PageTitle(summary.getApiTitle(), pageTitle.getWikiSite(), summary.getThumbnailUrl(),
                             summary.getDescription(), summary.getDisplayTitle());
 
@@ -226,6 +227,8 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     // to a specific section in the target article.
                     if (!TextUtils.isEmpty(response.raw().request().url().fragment())) {
                         pageTitle.setFragment(response.raw().request().url().fragment());
+                    } else if (!TextUtils.isEmpty(oldFragment)) {
+                        pageTitle.setFragment(oldFragment);
                     }
 
                     titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
