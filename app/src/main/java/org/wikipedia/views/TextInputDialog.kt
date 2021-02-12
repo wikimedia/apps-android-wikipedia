@@ -25,6 +25,7 @@ class TextInputDialog constructor(context: Context) : AlertDialog(context) {
     var callback: Callback? = null
 
     init {
+        setView(binding.root)
         binding.textInputContainer.isErrorEnabled = true
         setButton(BUTTON_POSITIVE, context.getString(R.string.text_input_dialog_ok_button_text)) { _: DialogInterface, _: Int ->
             callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString())
