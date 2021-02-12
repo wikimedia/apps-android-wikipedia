@@ -28,10 +28,6 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     private var popupWindowHost: PopupWindow? = null
 
     init {
-        setClickListeners()
-    }
-
-    private fun setClickListeners() {
         binding.readingListsOverflowSortBy.setOnClickListener {
             dismissPopupWindowHost()
             callback?.sortByClick()
@@ -47,33 +43,29 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     }
 
     private fun dismissPopupWindowHost() {
-        popupWindowHost?.let {
-            it.dismiss()
-            popupWindowHost = null
-        }
+        popupWindowHost?.dismiss()
+        popupWindowHost = null
     }
 
-    fun show(anchorView: View?, callback: Callback?) {
-        anchorView?.let { view ->
-            this.callback = callback
+    fun show(anchorView: View, callback: Callback) {
+        this.callback = callback
 
-            PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT, true).let {
-                popupWindowHost = it
-                it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                PopupWindowCompat.setOverlapAnchor(it, true)
-                PopupWindowCompat.showAsDropDown(it, view, 0, 0, Gravity.END)
-            }
+        PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT, true).let {
+            popupWindowHost = it
+            it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            PopupWindowCompat.setOverlapAnchor(it, true)
+            PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
+        }
 
-            Prefs.getReadingListsLastSyncTime().let {
-                binding.readingListsOverflowLastSync.visibility = if (it.isNullOrEmpty()) GONE else VISIBLE
-                if (!it.isNullOrEmpty()) {
-                    try {
-                        binding.readingListsOverflowLastSync.text = context.getString(R.string.reading_list_menu_last_sync,
-                                getReadingListsLastSyncDateString(Prefs.getReadingListsLastSyncTime()))
-                    } catch (e: ParseException) {
-                        // ignore
-                    }
+        Prefs.getReadingListsLastSyncTime().let {
+            binding.readingListsOverflowLastSync.visibility = if (it.isNullOrEmpty()) GONE else VISIBLE
+            if (!it.isNullOrEmpty()) {
+                try {
+                    binding.readingListsOverflowLastSync.text = context.getString(R.string.reading_list_menu_last_sync,
+                            getReadingListsLastSyncDateString(Prefs.getReadingListsLastSyncTime()))
+                } catch (e: ParseException) {
+                    // ignore
                 }
             }
         }
