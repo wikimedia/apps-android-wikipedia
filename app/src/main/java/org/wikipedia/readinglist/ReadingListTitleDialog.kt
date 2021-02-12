@@ -1,7 +1,6 @@
 package org.wikipedia.readinglist
 
 import android.app.Activity
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.views.TextInputDialog
 
