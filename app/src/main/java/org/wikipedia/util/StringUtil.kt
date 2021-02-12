@@ -8,7 +8,6 @@ import androidx.annotation.IntRange
 import androidx.core.text.HtmlCompat
 import com.google.gson.Gson
 import okio.ByteString.Companion.encodeUtf8
-import org.apache.commons.lang3.StringUtils
 import org.json.JSONArray
 import java.text.Collator
 import java.text.Normalizer
@@ -63,17 +62,17 @@ object StringUtil {
 
     @JvmStatic
     fun addUnderscores(text: String?): String {
-        return StringUtils.defaultString(text).replace(" ", "_")
+        return text.orEmpty().replace(" ", "_")
     }
 
     @JvmStatic
     fun removeUnderscores(text: String?): String {
-        return StringUtils.defaultString(text).replace("_", " ")
+        return text.orEmpty().replace("_", " ")
     }
 
     @JvmStatic
     fun removeSectionAnchor(text: String?): String {
-        StringUtils.defaultString(text).let {
+        text.orEmpty().let {
             return if (it.contains("#")) it.substring(0, it.indexOf("#")) else it
         }
     }
