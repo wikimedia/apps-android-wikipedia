@@ -19,6 +19,7 @@ enum class Theme(val marshallingId: Int, val funnelName: String, @field:StyleRes
 
     val isDefault: Boolean
         get() = this == fallback
+
     val isDark: Boolean
         get() = this == DARK || this == BLACK
 
@@ -29,12 +30,7 @@ enum class Theme(val marshallingId: Int, val funnelName: String, @field:StyleRes
 
         @JvmStatic
         fun ofMarshallingId(id: Int): Theme? {
-            values().forEach {
-                if (it.marshallingId == id) {
-                    return it
-                }
-            }
-            return null
+            return values().find { it.marshallingId == id }
         }
     }
 }
