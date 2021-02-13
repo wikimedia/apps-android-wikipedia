@@ -17,6 +17,7 @@ import org.wikipedia.util.log.L;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.wikipedia.talk.TalkTopicActivity.IN_LINE_REPLY_ANCHOR;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 /**
@@ -66,6 +67,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         Uri uri = Uri.parse(href);
 
         if (!TextUtils.isEmpty(uri.getFragment()) && uri.getFragment().contains("cite")) {
+            onPageLinkClicked(uri.getFragment(), linkText);
+            return;
+        }
+
+        if (!TextUtils.isEmpty(uri.getFragment()) && uri.getFragment().contains(IN_LINE_REPLY_ANCHOR)) {
             onPageLinkClicked(uri.getFragment(), linkText);
             return;
         }

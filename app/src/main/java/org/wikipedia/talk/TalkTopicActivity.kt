@@ -43,6 +43,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
+    private var inLineReplyPosition = -1
     private val textWatcher = ReplyTextWatcher()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var csrfClient: CsrfTokenClient? = null
@@ -54,7 +55,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler?.onUrlClick(url, null, "")
     }
-    private lateinit var inLineReplyText: String
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +66,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
-        inLineReplyText = " [ <a href='#in-line-reply'>${L10nUtil.getStringForArticleLanguage(pageTitle, R.string.talk_add_reply)}</a> ]"
 
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
 
@@ -215,15 +214,24 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         return topicId == -1
     }
 
+    private fun inLineReplyText(position: Int): String {
+        return " [ <a href='$IN_LINE_REPLY_ANCHOR$position'>${L10nUtil.getStringForArticleLanguage(pageTitle, R.string.talk_add_reply)}</a> ]"
+    }
+
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         private val text: TextView = view.findViewById(R.id.replyText)
         private val indentArrow: View = view.findViewById(R.id.replyIndentArrow)
-        private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
-        fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
+        private val inlineReplyTextLayout: View = view.findViewById(R.id.replyTextLayout)
+        fun bindItem(reply: TalkPage.TopicReply, position: Int) {
             text.movementMethod = linkMovementMethod
-            text.text = StringUtil.fromHtml(reply.html + inLineReplyText)
+            text.text = StringUtil.fromHtml(reply.html + inLineReplyText(position))
             indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
-            bottomSpace.visibility = if (!isLast || replyActive) View.GONE else View.VISIBLE
+            if (inLineReplyPosition == position) {
+                inlineReplyTextLayout.visibility = View.VISIBLE
+                inlineReplyTextLayout.requestFocus()
+            } else {
+                inlineReplyTextLayout.visibility = View.GONE
+            }
         }
     }
 
@@ -237,7 +245,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos], pos == itemCount - 1)
+            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos], pos)
         }
     }
 
@@ -251,7 +259,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onPageLinkClicked(anchor: String, linkText: String) {
-            // TODO
+            inLineReplyPosition = anchor.split("-")[1].toInt()
+            replyActive = true
+            replySaveButton.visibility = View.VISIBLE
+            replyTextLayout.visibility = View.GONE
+            talkReplyButton.visibility = View.GONE
+            talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
@@ -396,6 +409,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_TOPIC = "topicId"
+        const val IN_LINE_REPLY_ANCHOR = "#inlinereply-"
         const val RESULT_EDIT_SUCCESS = 1
 
         @JvmStatic
