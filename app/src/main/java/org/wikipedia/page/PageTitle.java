@@ -232,7 +232,8 @@ public class PageTitle implements Parcelable {
     }
 
     @NonNull public String getDisplayText() {
-        return displayText == null ? StringUtil.removeUnderscores(getPrefixedText()) : displayText;
+        return displayText == null ? StringUtil.removeUnderscores(getPrefixedText())
+                : namespace == null ? displayText : StringUtil.addUnderscores(namespace) + ":" + displayText;
     }
 
     public void setDisplayText(@Nullable String displayText) {
@@ -294,8 +295,10 @@ public class PageTitle implements Parcelable {
     }
 
     public PageTitle pageTitleForTalkPage() {
-        return new PageTitle(StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase()),
+        PageTitle pageTitle = new PageTitle(StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase()),
                 StringUtil.removeNamespace(getPrefixedText()), getWikiSite());
+        pageTitle.setDisplayText(getDisplayText());
+        return pageTitle;
     }
 
     /**

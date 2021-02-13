@@ -50,7 +50,7 @@ class TalkTopicsActivity : BaseActivity() {
         setContentView(R.layout.activity_talk_topics)
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
-        talkUsernameView.text = pageTitle.displayText
+        talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
