@@ -29,6 +29,7 @@
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Navrhované úpravy</string>
+  <string name="nav_item_more">Viac</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
