@@ -26,7 +26,6 @@ import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -352,7 +351,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     void onLangButtonClick() {
         langBtnClicked = true;
         tempLangCodeHolder = searchLanguageCode;
-        Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(), LanguageSettingsInvokeSource.SEARCH.text());
+        Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH);
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH);
     }
 
