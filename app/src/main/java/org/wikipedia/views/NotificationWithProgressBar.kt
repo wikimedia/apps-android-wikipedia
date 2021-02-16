@@ -84,7 +84,7 @@ class NotificationWithProgressBar {
             val actionCancel = actionBuilder(context,
                     targetClass,
                     Constants.INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL,
-                    R.drawable.ic_cancel_black_24dp,
+                    R.drawable.ic_close_black_24dp,
                     R.string.notification_syncing_cancel_button,
                     1)
             builder.addAction(actionCancel)
