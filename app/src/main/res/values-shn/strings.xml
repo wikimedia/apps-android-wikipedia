@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * MuratTheTurkish
 * Saimawnkham
@@ -329,7 +328,6 @@
   <string name="text_size_increase">တိူဝ်းသႅၼ်းတူဝ်လိၵ်ႈ</string>
   <string name="text_size_decrease">ယွၼ်ႇသႅၼ်းတူဝ်လိၵ်ႈ</string>
   <string name="text_size_percent_default">%s (ပိူင်ၵႅဝ်ႈ)</string>
-  <string name="nav_item_reading_lists">သဵၼ်ႈမၢႆၵဝ်ၶႃႈ</string>
   <string name="reading_list_save_to">သိမ်းသႂ်ႇၸူး သဵၼ်ႈမၢႆလူ</string>
   <string name="reading_list_create_new">ၵေႃႇသၢင်ႈ ဢၼ်မႂ်ႇ</string>
   <string name="reading_list_title_exists">သဵၼ်ႈမၢႆလူ \"%s\" ၼႆႉ မီးဝႆႉယဝ်ႉ။</string>

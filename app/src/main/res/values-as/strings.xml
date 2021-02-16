@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * Dibya Dutta
 * Gitartha.bordoloi
@@ -367,7 +366,6 @@
   <string name="text_size_decrease">আখৰৰ আকাৰ হ্ৰাস কৰক</string>
   <string name="text_size_percent_default">%s পূৰ্বনিৰ্ধাৰিত</string>
   <string name="text_style_title">ফণ্ট</string>
-  <string name="nav_item_reading_lists">মোৰ তালিকাসমূহ</string>
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
   <string name="reading_list_move_to">পঢ়া সূচীলৈ নিয়ক</string>
   <string name="reading_list_create_new">নতুন সৃষ্টি কৰক</string>

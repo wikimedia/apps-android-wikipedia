@@ -108,10 +108,11 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DrawableItemDecoration(this, R.attr.list_separator_drawable));
 
-        ItemTouchHelper.Callback touchCallback = new SwipeableItemTouchHelperCallback(this,
+        SwipeableItemTouchHelperCallback touchCallback = new SwipeableItemTouchHelperCallback(this,
                 ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
                 R.drawable.ic_archive_white_24dp,
                 ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color));
+        touchCallback.setSwipeableEnabled(true);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
@@ -352,7 +353,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         if (SearchCallback.is(actionMode)) {
             finishActionMode();
         }
-        if (!MultiSelectCallback.is(actionMode)) {
+        if (!MultiSelectCallback.isTagType(actionMode)) {
             startSupportActionMode(multiSelectActionModeCallback);
         }
     }
@@ -547,7 +548,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         }
 
         @Override public void onClick(View v) {
-            if (MultiSelectCallback.is(actionMode)) {
+            if (MultiSelectCallback.isTagType(actionMode)) {
                 toggleSelectItem(container);
             } else {
                 bottomSheetPresenter.show(getSupportFragmentManager(),

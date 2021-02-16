@@ -333,8 +333,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             funnel.logGalleryShare(pageTitle, item.getImageTitle().getDisplayText());
         }
         if (bitmap != null && item.getMediaInfo() != null) {
-            ShareUtil.shareImage(this, bitmap, new File(ImageUrlUtil.getUrlForPreferredSize(item.getMediaInfo().getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)).getName(),
-                    subject, title.getUri());
+            ShareUtil.shareImage(this, bitmap, new File(ImageUrlUtil.getUrlForPreferredSize(item.getMediaInfo().getThumbUrl(),
+                    PREFERRED_GALLERY_IMAGE_SIZE)).getName(), subject, title.getUri());
         } else {
             ShareUtil.shareText(this, title);
         }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * AZISS
-* Abijeet Patro
 * Masalli qasimli
 * Neriman2003
 * Toghrul Rahimli
@@ -268,7 +267,6 @@
   <string name="color_theme_black">Qara</string>
   <string name="color_theme_sepia">Sepiya</string>
   <string name="color_theme_test_title">Nümunə üçün mətn</string>
-  <string name="nav_item_reading_lists">Mənim siyahılarıım</string>
   <string name="reading_list_save_to">Oxuma siyahısına əlavə et</string>
   <string name="reading_list_create_new">Yenisini yarat</string>
   <string name="reading_list_added_view_button">Siyahıya bax</string>

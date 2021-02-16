@@ -11,11 +11,13 @@ import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.functions.Consumer
@@ -42,12 +44,15 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.PermissionUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ImageZoomHelper
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
     private val networkStateReceiver = NetworkStateReceiver()
     private var previousNetworkState = WikipediaApp.getInstance().isOnline
     private val disposables = CompositeDisposable()
+    private var currentTooltip: Balloon? = null
+    private var imageZoomHelper: ImageZoomHelper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -159,6 +164,14 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        dismissCurrentTooltip()
+        imageZoomHelper?.let {
+            return it.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
+        }
+        return super.dispatchTouchEvent(event)
+    }
+
     protected fun setStatusBarColor(@ColorInt color: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.statusBarColor = color
@@ -243,6 +256,20 @@ abstract class BaseActivity : AppCompatActivity() {
                     .setNegativeButton(R.string.logged_out_in_background_cancel, null)
                     .show()
         }
+    }
+
+    private fun dismissCurrentTooltip() {
+        currentTooltip?.dismiss()
+        currentTooltip = null
+    }
+
+    fun setCurrentTooltip(tooltip: Balloon) {
+        dismissCurrentTooltip()
+        currentTooltip = tooltip
+    }
+
+    fun setImageZoomHelper() {
+        imageZoomHelper = ImageZoomHelper(this)
     }
 
     /**

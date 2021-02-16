@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * GBeecham
 * Kwekubo
 * Smirkybec
@@ -343,7 +342,6 @@
   <string name="text_size_decrease">Laghdaigh méid an téacs</string>
   <string name="text_size_percent_default">%s (Réamhshocrú)</string>
   <string name="text_style_title">Cló</string>
-  <string name="nav_item_reading_lists">Mo chuid liostaí</string>
   <string name="reading_list_save_to">Sábháil ar liosta léitheoireachta</string>
   <string name="reading_list_move_to">Bog chuig liosta léitheoireachta</string>
   <string name="reading_list_create_new">Cruthaigh nua</string>

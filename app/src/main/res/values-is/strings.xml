@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * Maxí
 * MuratTheTurkish
@@ -348,7 +347,6 @@
   <string name="text_size_increase">Stækka texta</string>
   <string name="text_size_decrease">Minnka texta</string>
   <string name="text_size_percent_default">%s (sjálfgefið)</string>
-  <string name="nav_item_reading_lists">Listarnir mínir</string>
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_create_new">Búa til nýjan</string>
   <string name="reading_list_title_exists">Leslistinn „%s“ er þegar til.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Alefbeis
 * Har-wradim
 * MuratTheTurkish
@@ -197,7 +196,6 @@
   <string name="color_theme_dark">טונקל</string>
   <string name="color_theme_black">שווארץ</string>
   <string name="color_theme_test_title">ביישפיל־טעקסט</string>
-  <string name="nav_item_reading_lists">מיינע ליסטעס</string>
   <string name="reading_list_create_new">שאפֿן ניי</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_list_menu_delete">אויסמעקן רשימה</string>
