@@ -73,7 +73,7 @@
                     android:id="@+id/view_featured_image_card_share_button"
                     style="@style/FlatButton.Small"
                     android:text="@string/view_featured_image_card_share"
-                    app:icon="@drawable/ic_share_white_24dp"
+                    app:icon="@drawable/ic_share"
                     app:iconSize="20dp"
                     app:iconPadding="10dp"
                     app:iconTint="?attr/colorAccent"/>

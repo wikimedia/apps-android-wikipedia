@@ -165,9 +165,9 @@
     </style>
 
     <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/ic_close_main_themed_24dp</item>
-        <item name="searchIcon">@drawable/ic_search_main_themed_24dp</item>
-        <item name="searchHintIcon">@drawable/ic_search_main_themed_24dp</item>
+        <item name="closeIcon">@drawable/ic_close_themed_24dp</item>
+        <item name="searchIcon">@drawable/ic_search_themed_24dp</item>
+        <item name="searchHintIcon">@drawable/ic_search_themed_24dp</item>
     </style>
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
