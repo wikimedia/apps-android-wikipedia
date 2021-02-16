@@ -232,12 +232,11 @@ public class PageTitle implements Parcelable {
     }
 
     @NonNull public String getDisplayText() {
-        return displayText == null ? StringUtil.removeUnderscores(getPrefixedText())
-                : namespace == null ? displayText : StringUtil.removeUnderscores(namespace) + ":" + displayText;
+        return displayText == null ? StringUtil.removeUnderscores(getPrefixedText()) : displayText;
     }
 
     public void setDisplayText(@Nullable String displayText) {
-        this.displayText = namespace == null ? displayText : StringUtil.removeNamespace(displayText);
+        this.displayText = displayText;
     }
 
     @Nullable public PageProperties getProperties() {
@@ -295,9 +294,12 @@ public class PageTitle implements Parcelable {
     }
 
     public PageTitle pageTitleForTalkPage() {
-        PageTitle pageTitle = new PageTitle(StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase()),
-                StringUtil.removeNamespace(getPrefixedText()), getWikiSite());
-        pageTitle.setDisplayText(getDisplayText());
+        String namespace = StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase());
+        PageTitle pageTitle = new PageTitle(namespace, (namespace().userTalk() || namespace().user())
+                ? StringUtil.removeNamespace(getPrefixedText()) : getPrefixedText(), getWikiSite());
+        if (namespace().userTalk() || namespace().user()) {
+            pageTitle.setDisplayText(StringUtil.removeUnderscores(namespace) + ": " + StringUtil.removeNamespace(getDisplayText()));
+        }
         return pageTitle;
     }
 

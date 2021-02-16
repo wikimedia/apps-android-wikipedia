@@ -37,6 +37,8 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var pageTitle: PageTitle
