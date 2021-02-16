@@ -233,11 +233,11 @@ public class PageTitle implements Parcelable {
 
     @NonNull public String getDisplayText() {
         return displayText == null ? StringUtil.removeUnderscores(getPrefixedText())
-                : namespace == null ? displayText : StringUtil.addUnderscores(namespace) + ":" + displayText;
+                : namespace == null ? displayText : StringUtil.removeNamespace(namespace) + ":" + displayText;
     }
 
     public void setDisplayText(@Nullable String displayText) {
-        this.displayText = displayText;
+        this.displayText = namespace == null ? displayText : StringUtil.removeNamespace(displayText);
     }
 
     @Nullable public PageProperties getProperties() {
