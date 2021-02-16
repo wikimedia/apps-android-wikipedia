@@ -1,5 +1,6 @@
 package org.wikipedia.util
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LabeledIntent
@@ -154,6 +155,13 @@ object ShareUtil {
     @JvmStatic
     fun createChooserIntent(targetIntent: Intent, context: Context): Intent {
         val chooser = Intent.createChooser(targetIntent, null)
+
+
+        //val componentName = ComponentName(activityInfo.packageName, activityInfo.name)
+
+        //chooser.putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, )
+
+
         var intents = queryIntents(context, targetIntent, false)
         if (intents.isEmpty()) {
             // This implies that the Wikipedia app itself has been chosen as the default handler
@@ -166,6 +174,51 @@ object ShareUtil {
         return chooser
     }
 
+    fun getIntentChooser(context: Context, intent: Intent, chooserTitle: CharSequence? = null): Intent? {
+        val resolveInfos = context.packageManager.queryIntentActivities(intent, 0)
+        val excludedComponentNames = HashSet<ComponentName>()
+        resolveInfos.forEach {
+            val activityInfo = it.activityInfo
+            val componentName = ComponentName(activityInfo.packageName, activityInfo.name)
+            if (isSelfComponentName(componentName))
+                excludedComponentNames.add(componentName)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Intent.createChooser(intent, chooserTitle).putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponentNames.toTypedArray())
+        }
+        if (resolveInfos.isNotEmpty()) {
+            val targetIntents: MutableList<Intent> = ArrayList()
+            for (resolveInfo in resolveInfos) {
+                val activityInfo = resolveInfo.activityInfo
+                if (excludedComponentNames.contains(ComponentName(activityInfo.packageName, activityInfo.name)))
+                    continue
+                val targetIntent = Intent(intent)
+                targetIntent.setPackage(activityInfo.packageName)
+                targetIntent.component = ComponentName(activityInfo.packageName, activityInfo.name)
+                val labeledIntent = LabeledIntent(targetIntent, activityInfo.packageName, resolveInfo.labelRes, resolveInfo.icon)
+                // add filtered intent to a list
+                targetIntents.add(labeledIntent)
+            }
+            val chooserIntent: Intent?
+            chooserIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Intent.createChooser(Intent(), chooserTitle)
+            } else {
+                Intent.createChooser(targetIntents.removeAt(0), chooserTitle)
+            }
+            if (chooserIntent == null) {
+                return null
+            }
+            // add initial intents
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toTypedArray<Parcelable>())
+            return chooserIntent
+        }
+        return null
+    }
+
+
+
+
+
     private fun queryIntents(context: Context, targetIntent: Intent, replaceUri: Boolean): List<Intent> {
         val intents: MutableList<Intent> = ArrayList()
         var queryIntent = targetIntent
@@ -175,7 +228,7 @@ object ShareUtil {
         }
 
         intents.addAll(context.packageManager.queryIntentActivities(queryIntent, 0)
-                .filter { !isIntentActivityBlacklisted(it) }
+                //.filter { !isIntentActivityBlacklisted(it) }
                 .map { buildLabeledIntent(targetIntent, it) })
 
         return intents
@@ -188,9 +241,8 @@ object ShareUtil {
                 .any { getPackageName(it).matches(APP_PACKAGE_REGEX.toRegex()) }
     }
 
-    private fun isIntentActivityBlacklisted(intentActivity: ResolveInfo?): Boolean {
-        return intentActivity != null && getPackageName(intentActivity)
-                .matches(APP_PACKAGE_REGEX.toRegex())
+    private fun isSelfComponentName(componentName: ComponentName): Boolean {
+        return componentName.packageName.matches(APP_PACKAGE_REGEX.toRegex())
     }
 
     private fun buildLabeledIntent(intent: Intent, intentActivity: ResolveInfo): LabeledIntent {
