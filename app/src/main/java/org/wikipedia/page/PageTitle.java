@@ -233,7 +233,7 @@ public class PageTitle implements Parcelable {
 
     @NonNull public String getDisplayText() {
         return displayText == null ? StringUtil.removeUnderscores(getPrefixedText())
-                : namespace == null ? displayText : StringUtil.removeNamespace(namespace) + ":" + displayText;
+                : namespace == null ? displayText : StringUtil.removeUnderscores(namespace) + ":" + displayText;
     }
 
     public void setDisplayText(@Nullable String displayText) {
