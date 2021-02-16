@@ -294,11 +294,11 @@ public class PageTitle implements Parcelable {
     }
 
     public PageTitle pageTitleForTalkPage() {
-        String namespace = StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase());
-        PageTitle pageTitle = new PageTitle(namespace, (namespace().userTalk() || namespace().user())
+        String talkNamespace = StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase());
+        PageTitle pageTitle = new PageTitle(talkNamespace, (namespace().userTalk() || namespace().user())
                 ? StringUtil.removeNamespace(getPrefixedText()) : getPrefixedText(), getWikiSite());
         if (namespace().userTalk() || namespace().user()) {
-            pageTitle.setDisplayText(StringUtil.removeUnderscores(namespace) + ": " + StringUtil.removeNamespace(getDisplayText()));
+            pageTitle.setDisplayText(StringUtil.removeUnderscores(talkNamespace) + ": " + StringUtil.removeNamespace(getDisplayText()));
         }
         return pageTitle;
     }
