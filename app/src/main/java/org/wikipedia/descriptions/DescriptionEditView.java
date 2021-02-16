@@ -441,7 +441,7 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
 
     @Override
     public void onLanguageDetectionSuccess(@NonNull String languageCode) {
-        if (!languageCode.equals(pageSummaryForEdit.getLang())
+        if (pageSummaryForEdit != null && !languageCode.equals(pageSummaryForEdit.getLang())
                 && !languageCode.equals(WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.getLang()))) {
             isLanguageWrong = true;
             enqueueValidateText();

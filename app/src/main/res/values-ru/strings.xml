@@ -102,6 +102,8 @@
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
   <string name="menu_page_add_to_watchlist">Добавить в список наблюдения</string>
+  <string name="menu_page_talk">Обсуждение</string>
+  <string name="menu_page_edit_history">История правок</string>
   <string name="menu_page_remove_from_watchlist">Удалить из списка наблюдения</string>
   <string name="edit_section_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
@@ -844,6 +846,7 @@
   <string name="suggested_edits_contribution_article_label">Статьи</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Войти в Википедию</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Текущая версия</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
@@ -887,6 +890,7 @@
     <item quantity="many">%d лет назад</item>
     <item quantity="other">%d лет назад</item>
   </plurals>
+  <string name="on_this_day_back_to_future">Назад в будущее</string>
   <string name="languages_list_activity_title">Добавить язык</string>
   <string name="languages_list_suggested_text">Предложенные</string>
   <string name="languages_list_all_text">Все языки</string>
@@ -939,6 +943,7 @@
   <string name="text_input_dialog_cancel_button_text">Отмена</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отмена</string>
   <string name="talk_title">Обсуждение</string>
+  <string name="talk_user_title">Обсуждение: %s</string>
   <string name="talk_new_topic">Новая тема</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_add_reply">Ответить</string>
@@ -949,11 +954,14 @@
   <string name="watchlist_details_watch_label">Следить</string>
   <string name="thank_label">Благодарность</string>
   <string name="go_to_user_page">Перейти на страницу пользователя</string>
+  <string name="thank_dialog_title_text">Публично отправить \'Спасибо\'</string>
   <string name="thank_dialog_positive_button_text">Отправить благодарность</string>
   <string name="thank_dialog_negative_button_text">Отмена</string>
   <string name="thank_success_message">Ваше \"Спасибо\" отправлено участнику %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Участник %1$s и его страница обсуждений добавлены в ваш список наблюдения %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Изменить</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">постоянно</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">на 1 неделю</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">на 6 месяцев</string>
@@ -961,6 +969,7 @@
   <string name="watchlist_expiry_dialog_one_month">1 месяц</string>
   <string name="watchlist_expiry_dialog_three_months">3 месяца</string>
   <string name="watchlist_expiry_dialog_six_months">6 месяцев</string>
+  <string name="watchlist_empty">В вашем списке наблюдения нет статей.</string>
   <string name="watchlist_filter_all">Все</string>
   <string name="watchlist_filter_talk">Обсуждение</string>
   <string name="watchlist_filter_pages">Страницы</string>

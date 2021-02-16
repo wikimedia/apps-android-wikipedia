@@ -588,7 +588,7 @@ public class SearchResultsFragment extends Fragment {
 
                 searchResultIcon.setVisibility(VISIBLE);
                 searchResultIcon.setImageResource(result.getType() == SearchResult.SearchResultType.HISTORY
-                        ? R.drawable.ic_restore_black_24dp : result.getType() == SearchResult.SearchResultType.TAB_LIST
+                        ? R.drawable.ic_history_24 : result.getType() == SearchResult.SearchResultType.TAB_LIST
                         ? R.drawable.ic_tab_one_24px : R.drawable.ic_bookmark_white_24dp);
             }
 
