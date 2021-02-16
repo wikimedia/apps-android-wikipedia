@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Ahrada2016
 * Bsitzmann
 * Oromoo
 * Tumsaa
@@ -12,6 +13,8 @@
   <string name="page_error_retry">Lammata yaali</string>
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
   <string name="menu_clear_all_history">Seenaa balleessi</string>
+  <string name="menu_page_talk">Haasaa</string>
+  <string name="menu_page_edit_history">Seenaa gulaali</string>
   <string name="menu_page_add_to_default_list">ol kaa\'i</string>
   <string name="feed_card_add_to_default_list">Ol kaa\'i</string>
   <string name="menu_page_share" fuzzy="true">Hiri</string>
@@ -73,6 +76,7 @@
   <string name="gallery_uploader_unknown">Ol fe\'aan hin beekkamu.</string>
   <string name="color_theme_light">Ifaa</string>
   <string name="color_theme_dark">Dukkanaa\'aa</string>
+  <string name="nav_item_saved">Olkaa\'ameera</string>
   <string name="reading_list_article_added_to_default_list">%s ol kayame. Tarreetti isa dabaluu feetaa?</string>
   <string name="reading_list_add_to_list_button">Tarreetti dabali</string>
 </resources>
