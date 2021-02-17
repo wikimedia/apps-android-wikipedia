@@ -29,10 +29,7 @@ import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ImageUrlUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
@@ -72,6 +69,10 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         publishProgressCheck.imageTintList = colorStateList
         publishProgressText.setTextColor(colorStateList)
 
+        imageContainer.elevation = 0f
+        imageContainer.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)
+        imageContainer.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
+
         acceptButton.setOnClickListener {
             doPublish(true)
         }
@@ -80,7 +81,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
             doPublish(false)
         }
 
-        imageMoreButton.setOnClickListener {
+        imageFileNameText.setOnClickListener {
             if (page != null) {
                 startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.imageTitle, WikiSite(Service.COMMONS_URL))))
             }
@@ -143,6 +144,9 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
                     articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
                     articleDescription.text = summary.description
                     articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
+
+                    val arr = imageInfo.commonsUrl.split('/')
+                    imageFileNameText.text = UriUtil.decodeURL(arr[arr.size - 1])
                 })
 
         callback().updateActionButton()
