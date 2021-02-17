@@ -31,12 +31,15 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var pageTitle: PageTitle
@@ -50,7 +53,6 @@ class TalkTopicsActivity : BaseActivity() {
         setContentView(R.layout.activity_talk_topics)
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
-        talkUsernameView.text = pageTitle.displayText
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
@@ -97,7 +99,18 @@ class TalkTopicsActivity : BaseActivity() {
                 val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
                 if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
                     funnel.logChangeLanguage()
-                    pageTitle = PageTitle(pageTitle.namespace, StringUtil.removeNamespace(pageTitle.prefixedText),
+
+                    val newNamespace = when {
+                        pageTitle.namespace() == Namespace.USER -> {
+                            UserAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                        }
+                        pageTitle.namespace() == Namespace.USER_TALK -> {
+                            UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                        }
+                        else -> pageTitle.namespace
+                    }
+
+                    pageTitle = PageTitle(newNamespace, StringUtil.removeNamespace(pageTitle.prefixedText),
                             WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos]))
                     loadTopics()
                 }
@@ -131,6 +144,7 @@ class TalkTopicsActivity : BaseActivity() {
     private fun loadTopics() {
         invalidateOptionsMenu()
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, pageTitle.wikiSite.languageCode())
+        talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
 
         disposables.clear()
         talkProgressBar.visibility = View.VISIBLE

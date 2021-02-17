@@ -28,7 +28,7 @@
             style="@style/OverflowMenuItem"
             android:drawablePadding="16dp"
             android:text="@string/menu_page_share"
-            app:drawableStartCompat="@drawable/ic_share_white_24dp"
+            app:drawableStartCompat="@drawable/ic_share"
             app:drawableTint="?attr/material_theme_secondary_color" />
 
         <com.google.android.material.textview.MaterialTextView
