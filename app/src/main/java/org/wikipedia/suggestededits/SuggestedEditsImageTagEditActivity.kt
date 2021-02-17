@@ -32,7 +32,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTa
         setContentView(R.layout.activity_suggested_edits_feed_card_image_tags)
 
         suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
-        suggestedEditsImageTagsFragment?.invokeSource = intent.getSerializableExtra(ARG_INVOKE_SOURCE) as Constants.InvokeSource
+        suggestedEditsImageTagsFragment?.invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
         addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
         addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
@@ -83,13 +83,12 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTa
 
     companion object {
         private const val ARG_PAGE = "imageTagPage"
-        private const val ARG_INVOKE_SOURCE = "invokeSource"
 
         @JvmStatic
         fun newIntent(context: Context, page: MwQueryPage, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, SuggestedEditsImageTagEditActivity::class.java)
                     .putExtra(ARG_PAGE, GsonMarshaller.marshal(page))
-                    .putExtra(ARG_INVOKE_SOURCE, invokeSource)
+                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
 }

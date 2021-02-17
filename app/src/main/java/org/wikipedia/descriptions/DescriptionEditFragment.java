@@ -80,7 +80,6 @@ public class DescriptionEditFragment extends Fragment {
     private static final String ARG_DESCRIPTION = "description";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
     private static final String ARG_ACTION = "action";
-    private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_SOURCE_SUMMARY = "sourceSummary";
     private static final String ARG_TARGET_SUMMARY = "targetSummary";
 
@@ -144,7 +143,7 @@ public class DescriptionEditFragment extends Fragment {
         args.putString(ARG_SOURCE_SUMMARY, sourceSummary);
         args.putString(ARG_TARGET_SUMMARY, targetSummary);
         args.putSerializable(ARG_ACTION, action);
-        args.putSerializable(ARG_INVOKE_SOURCE, source);
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         instance.setArguments(args);
         return instance;
     }
@@ -157,7 +156,7 @@ public class DescriptionEditFragment extends Fragment {
                 : DescriptionEditFunnel.Type.EXISTING;
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT);
         action = (Action) requireArguments().getSerializable(ARG_ACTION);
-        invokeSource = (InvokeSource) requireArguments().getSerializable(ARG_INVOKE_SOURCE);
+        invokeSource = (InvokeSource) requireArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
 
         if (requireArguments().getString(ARG_SOURCE_SUMMARY) != null) {
             sourceSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, requireArguments().getString(ARG_SOURCE_SUMMARY));
