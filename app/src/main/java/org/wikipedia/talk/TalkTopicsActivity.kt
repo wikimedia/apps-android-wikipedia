@@ -37,6 +37,8 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var pageTitle: PageTitle
@@ -50,7 +52,7 @@ class TalkTopicsActivity : BaseActivity() {
         setContentView(R.layout.activity_talk_topics)
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
-        talkUsernameView.text = pageTitle.displayText
+        talkUsernameView.text = StringUtil.fromHtml(pageTitle.displayText)
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
