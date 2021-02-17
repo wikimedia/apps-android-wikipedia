@@ -49,7 +49,6 @@ object UriUtil {
 
     @JvmStatic
     fun visitInExternalBrowser(context: Context, uri: Uri) {
-        //val chooserIntent = ShareUtil.createChooserIntent(Intent(Intent.ACTION_VIEW, uri), context)
         val chooserIntent = ShareUtil.getIntentChooser(context, Intent(Intent.ACTION_VIEW, uri))
         try {
             chooserIntent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -62,8 +61,7 @@ object UriUtil {
     }
 
     @JvmStatic
-    fun resolveProtocolRelativeUrl(wiki: WikiSite,
-                                   url: String): String {
+    fun resolveProtocolRelativeUrl(wiki: WikiSite, url: String): String {
         val ret = resolveProtocolRelativeUrl(url)
 
         // also handle images like /w/extensions/ImageMap/desc-20.png?15600 on Estados Unidos
