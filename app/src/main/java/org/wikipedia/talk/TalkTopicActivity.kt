@@ -310,6 +310,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
             // TODO: use getWikiTextForSection() to get the section and append text to certain line?
             // TODO: then use postEdit()?
+            if (!body.endsWith("~~~~")) {
+                body += " ~~~~"
+            }
+            body = "\n\n:$body"
         } else {
             subject = replySubjectText.text.toString().trim()
             body = replyEditText.text.toString().trim()
