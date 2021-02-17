@@ -66,7 +66,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
         builder = if (shouldDetectFace(uri)) {
             builder.transform(if (roundedCorners) FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS else FACE_DETECT_TRANSFORM)
         } else {
-            builder.transform(if (roundedCorners) ViewUtil.getCenterCropLargeRoundedCorners() else CENTER_CROP_WHITE_BACKGROUND)
+            builder.transform(if (roundedCorners) ViewUtil.CENTER_CROP_LARGE_ROUNDED_CORNERS  else CENTER_CROP_WHITE_BACKGROUND)
         }
         builder.into(this)
     }
@@ -77,7 +77,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
 
     companion object {
         private val FACE_DETECT_TRANSFORM = CenterCropWithFaceTransformation()
-        private val FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS = MultiTransformation(FACE_DETECT_TRANSFORM, ViewUtil.getRoundedCorners())
+        private val FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS = MultiTransformation(FACE_DETECT_TRANSFORM, ViewUtil.ROUNDED_CORNERS)
         private val CENTER_CROP_WHITE_BACKGROUND = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation())
     }
 }
