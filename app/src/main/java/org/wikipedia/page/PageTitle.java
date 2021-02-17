@@ -13,6 +13,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.staticdata.TalkAliasData;
+import org.wikipedia.staticdata.UserTalkAliasData;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 
@@ -294,22 +296,17 @@ public class PageTitle implements Parcelable {
     }
 
     public PageTitle pageTitleForTalkPage() {
-        String talkNamespace = StringUtils.capitalize((namespace().user() || namespace().userTalk() ? Namespace.USER_TALK : Namespace.TALK).name().toLowerCase());
+        String talkNamespace = namespace().user() || namespace().userTalk()
+                ? UserTalkAliasData.valueFor(wiki.languageCode()) : TalkAliasData.valueFor(wiki.languageCode());
+
         PageTitle pageTitle = new PageTitle(talkNamespace, (namespace().userTalk() || namespace().user())
-                ? StringUtil.removeNamespace(getPrefixedText()) : getPrefixedText(), getWikiSite());
+                ? StringUtil.removeNamespace(getPrefixedText()) : getPrefixedText(), wiki);
         if (namespace().userTalk() || namespace().user()) {
-            pageTitle.setDisplayText(StringUtil.removeUnderscores(talkNamespace) + ": " + StringUtil.removeNamespace(getDisplayText()));
+            pageTitle.setDisplayText(StringUtil.removeUnderscores(talkNamespace) + ":" + StringUtil.removeNamespace(getDisplayText()));
+        } else {
+            pageTitle.setDisplayText(talkNamespace + ":" + getDisplayText());
         }
         return pageTitle;
-    }
-
-    /**
-     * Check if the Title represents a talk page
-     *
-     * @return true if it is a talk page, false if not
-     */
-    public boolean isTalkPage() {
-        return namespace().talk();
     }
 
     @Override public void writeToParcel(Parcel parcel, int flags) {
