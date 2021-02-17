@@ -1,6 +1,5 @@
 package org.wikipedia.util
 
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -50,11 +49,11 @@ object UriUtil {
 
     @JvmStatic
     fun visitInExternalBrowser(context: Context, uri: Uri) {
-        val chooserIntent = ShareUtil.createChooserIntent(Intent(Intent.ACTION_VIEW, uri), context)
+        val chooserIntent = ShareUtil.getIntentChooser(context, Intent(Intent.ACTION_VIEW, uri))
         try {
-            chooserIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            chooserIntent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(chooserIntent)
-        } catch (e: ActivityNotFoundException) {
+        } catch (e: Exception) {
             // This means that there was no way to handle this link.
             // We will just show a toast now. FIXME: Make this more visible?
             ShareUtil.showUnresolvableIntentMessage(context)
@@ -62,8 +61,7 @@ object UriUtil {
     }
 
     @JvmStatic
-    fun resolveProtocolRelativeUrl(wiki: WikiSite,
-                                   url: String): String {
+    fun resolveProtocolRelativeUrl(wiki: WikiSite, url: String): String {
         val ret = resolveProtocolRelativeUrl(url)
 
         // also handle images like /w/extensions/ImageMap/desc-20.png?15600 on Estados Unidos

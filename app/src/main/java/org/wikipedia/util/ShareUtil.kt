@@ -1,9 +1,9 @@
 package org.wikipedia.util
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LabeledIntent
-import android.content.pm.ResolveInfo
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
@@ -31,7 +31,8 @@ object ShareUtil {
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
         shareIntent.putExtra(Intent.EXTRA_TEXT, text)
         shareIntent.type = "text/plain"
-        val chooserIntent = Intent.createChooser(shareIntent, context.getString(R.string.share_via))
+
+        val chooserIntent = getIntentChooser(context, shareIntent, context.getString(R.string.share_via))
         if (chooserIntent == null) {
             showUnresolvableIntentMessage(context)
         } else {
@@ -74,9 +75,9 @@ object ShareUtil {
     }
 
     private fun buildImageShareChooserIntent(context: Context, subject: String,
-                                             text: String, uri: Uri): Intent {
+                                             text: String, uri: Uri): Intent? {
         val shareIntent = createImageShareIntent(subject, text, uri)
-        return Intent.createChooser(shareIntent,
+        return getIntentChooser(context, shareIntent,
                 context.resources.getString(R.string.image_share_via))
     }
 
@@ -151,57 +152,50 @@ object ShareUtil {
         return fileNameStr
     }
 
-    @JvmStatic
-    fun createChooserIntent(targetIntent: Intent, context: Context): Intent {
-        val chooser = Intent.createChooser(targetIntent, null)
-        var intents = queryIntents(context, targetIntent, false)
-        if (intents.isEmpty()) {
-            // This implies that the Wikipedia app itself has been chosen as the default handler
-            // for our links, so we need to explicitly build a chooser that contains other activities.
-            intents = queryIntents(context, targetIntent, true)
-            if (intents.isNotEmpty()) {
-                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toTypedArray<Parcelable>())
-            }
+    fun getIntentChooser(context: Context, intent: Intent, chooserTitle: CharSequence? = null): Intent? {
+        val infoList = context.packageManager.queryIntentActivities(intent, 0)
+        val excludedComponents = HashSet<ComponentName>()
+        infoList.forEach {
+            val activityInfo = it.activityInfo
+            val componentName = ComponentName(activityInfo.packageName, activityInfo.name)
+            if (isSelfComponentName(componentName))
+                excludedComponents.add(componentName)
         }
-        return chooser
-    }
-
-    private fun queryIntents(context: Context, targetIntent: Intent, replaceUri: Boolean): List<Intent> {
-        val intents: MutableList<Intent> = ArrayList()
-        var queryIntent = targetIntent
-        if (replaceUri) {
-            queryIntent = Intent(targetIntent)
-            queryIntent.data = Uri.parse("https://example.com/")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Intent.createChooser(intent, chooserTitle)
+                    .putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, excludedComponents.toTypedArray())
         }
+        if (infoList.isEmpty()) {
+            return null
+        }
+        val targetIntents = ArrayList<Intent>()
+        for (info in infoList) {
+            val activityInfo = info.activityInfo
+            if (excludedComponents.contains(ComponentName(activityInfo.packageName, activityInfo.name)))
+                continue
+            val targetIntent = Intent(intent)
+                    .setPackage(activityInfo.packageName)
+                    .setComponent(ComponentName(activityInfo.packageName, activityInfo.name))
+            targetIntents.add(LabeledIntent(targetIntent, activityInfo.packageName, info.labelRes, info.icon))
+        }
+        val chooserIntent = (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Intent.createChooser(Intent(), chooserTitle)
+        } else {
+            Intent.createChooser(targetIntents.removeAt(0), chooserTitle)
+        }) ?: return null
 
-        intents.addAll(context.packageManager.queryIntentActivities(queryIntent, 0)
-                .filter { !isIntentActivityBlacklisted(it) }
-                .map { buildLabeledIntent(targetIntent, it) })
-
-        return intents
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetIntents.toTypedArray<Parcelable>())
+        return chooserIntent
     }
 
     @JvmStatic
     fun canOpenUrlInApp(context: Context, url: String): Boolean {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         return context.packageManager.queryIntentActivities(intent, 0)
-                .any { getPackageName(it).matches(APP_PACKAGE_REGEX.toRegex()) }
+                .any { it.activityInfo.packageName.matches(APP_PACKAGE_REGEX.toRegex()) }
     }
 
-    private fun isIntentActivityBlacklisted(intentActivity: ResolveInfo?): Boolean {
-        return intentActivity != null && getPackageName(intentActivity)
-                .matches(APP_PACKAGE_REGEX.toRegex())
-    }
-
-    private fun buildLabeledIntent(intent: Intent, intentActivity: ResolveInfo): LabeledIntent {
-        val labeledIntent = LabeledIntent(intent, intentActivity.resolvePackageName,
-                intentActivity.labelRes, intentActivity.iconResource)
-        labeledIntent.setPackage(getPackageName(intentActivity))
-        labeledIntent.setClassName(getPackageName(intentActivity), intentActivity.activityInfo.name)
-        return labeledIntent
-    }
-
-    private fun getPackageName(intentActivity: ResolveInfo): String {
-        return intentActivity.activityInfo.packageName
+    private fun isSelfComponentName(componentName: ComponentName): Boolean {
+        return componentName.packageName.matches(APP_PACKAGE_REGEX.toRegex())
     }
 }
