@@ -69,9 +69,9 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         publishProgressCheck.imageTintList = colorStateList
         publishProgressText.setTextColor(colorStateList)
 
-        imageContainer.elevation = 0f
-        imageContainer.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)
-        imageContainer.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
+        imageCard.elevation = 0f
+        imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)
+        imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
         acceptButton.setOnClickListener {
             doPublish(true)
@@ -81,7 +81,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
             doPublish(false)
         }
 
-        imageFileNameText.setOnClickListener {
+        imageClickTarget.setOnClickListener {
             if (page != null) {
                 startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.imageTitle, WikiSite(Service.COMMONS_URL))))
             }
@@ -139,7 +139,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
                     val summary = pair.second
 
                     imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
-                    imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.fromHtml(imageInfo.metadata!!.imageDescription())
+                    imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
 
                     articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
                     articleDescription.text = summary.description
