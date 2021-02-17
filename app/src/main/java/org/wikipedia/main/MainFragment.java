@@ -50,7 +50,6 @@ import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
-import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
@@ -65,6 +64,7 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.staticdata.UserTalkAliasData;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
@@ -447,8 +447,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void talkClick() {
         if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
             startActivity(TalkTopicsActivity.newIntent(requireActivity(),
-                    new PageTitle(Namespace.USER.name(), AccountUtil.getUserName(),
-                            WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode())).pageTitleForTalkPage(),
+                    new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
+                            AccountUtil.getUserName(),
+                            WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode())),
                     NAV_MENU));
         }
     }
