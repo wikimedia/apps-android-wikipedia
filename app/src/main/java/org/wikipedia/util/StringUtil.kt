@@ -38,21 +38,8 @@ object StringUtil {
 
     @JvmStatic
     fun strip(str: CharSequence?): CharSequence {
-        if (str.isNullOrEmpty()) {
-            return ""
-        }
-        val len = str.length
-        var start = 0
-        var end = len - 1
-        while (start < len && str[start].isWhitespace()) {
-            start++
-        }
-        while (end > 0 && str[end].isWhitespace()) {
-            end--
-        }
-        return if (end > start) {
-            str.subSequence(start, end + 1)
-        } else ""
+        // TODO: remove this function once Kotlin conversion of consumers is complete.
+        return if (str.isNullOrEmpty()) "" else str.trim()
     }
 
     @JvmStatic
@@ -87,7 +74,7 @@ object StringUtil {
     }
 
     @JvmStatic
-    fun removeHTMLTags(text: String): String {
+    fun removeHTMLTags(text: String?): String {
         return fromHtml(text).toString()
     }
 
