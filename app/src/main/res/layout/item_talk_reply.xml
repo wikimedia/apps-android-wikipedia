@@ -55,6 +55,13 @@
             android:lineSpacingExtra="6sp"
             android:textSize="16sp" />
 
+    <Space
+        android:id="@+id/replyBottomSpace"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/replyTextLayout"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

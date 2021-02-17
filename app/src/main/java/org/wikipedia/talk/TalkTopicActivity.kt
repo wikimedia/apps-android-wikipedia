@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
 import kotlinx.android.synthetic.main.item_suggested_edits_type.view.*
+import kotlinx.android.synthetic.main.view_on_this_day_event.view.*
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -35,6 +37,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.PlainPasteEditText
 import java.util.concurrent.TimeUnit
 
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
@@ -222,10 +225,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         private val text: TextView = view.findViewById(R.id.replyText)
         private val indentArrow: View = view.findViewById(R.id.replyIndentArrow)
         private val inlineReplyTextLayout: View = view.findViewById(R.id.replyTextLayout)
-        fun bindItem(reply: TalkPage.TopicReply, position: Int) {
+        private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
+        fun bindItem(reply: TalkPage.TopicReply, position: Int, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html + inLineReplyText(position))
             indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
+            bottomSpace.visibility = if (!isLast || replyActive) View.GONE else View.VISIBLE
             if (inLineReplyPosition == position) {
                 inlineReplyTextLayout.visibility = View.VISIBLE
                 inlineReplyTextLayout.requestFocus()
@@ -245,7 +250,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos], pos)
+            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos], pos, pos == itemCount - 1)
         }
     }
 
@@ -259,11 +264,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onPageLinkClicked(anchor: String, linkText: String) {
-            inLineReplyPosition = anchor.split("-")[1].toInt()
-            replyActive = true
-            replySaveButton.visibility = View.VISIBLE
-            replyTextLayout.visibility = View.GONE
-            talkReplyButton.visibility = View.GONE
+            val position = anchor.split("-")[1].toInt()
+            if (replyActive && position == inLineReplyPosition) {
+                inLineReplyPosition = -1
+                replyActive = false
+                replySaveButton.visibility = View.GONE
+                talkReplyButton.visibility = View.VISIBLE
+            } else {
+                inLineReplyPosition = position
+                replyActive = true
+                replySaveButton.visibility = View.VISIBLE
+                replyTextLayout.visibility = View.GONE
+                talkReplyButton.visibility = View.GONE
+            }
             talkRecyclerView.adapter?.notifyDataSetChanged()
         }
 
@@ -287,27 +300,42 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun onSaveClicked() {
-        val subject = replySubjectText.text.toString().trim()
-        var body = replyEditText.text.toString().trim()
+        var subject = ""
+        var body = ""
+        if (inLineReplyPosition != -1) {
+            body = talkRecyclerView.layoutManager
+                    ?.findViewByPosition(inLineReplyPosition)
+                    ?.findViewById<PlainPasteEditText>(R.id.replyEditText)
+                    ?.text.toString().trim()
 
-        if (isNewTopic() && subject.isEmpty()) {
-            replySubjectLayout.error = getString(R.string.talk_subject_empty)
-            replySubjectLayout.requestFocus()
-            return
-        } else if (body.isEmpty()) {
-            replyTextLayout.error = getString(R.string.talk_message_empty)
-            replyTextLayout.requestFocus()
-            return
+            // TODO: use getWikiTextForSection() to get the section and append text to certain line?
+            // TODO: then use postEdit()?
+        } else {
+            subject = replySubjectText.text.toString().trim()
+            body = replyEditText.text.toString().trim()
+
+            if (isNewTopic() && subject.isEmpty()) {
+                replySubjectLayout.error = getString(R.string.talk_subject_empty)
+                replySubjectLayout.requestFocus()
+                return
+            } else if (body.isEmpty()) {
+                replyTextLayout.error = getString(R.string.talk_message_empty)
+                replyTextLayout.requestFocus()
+                return
+            }
+
+            // if the message is not signed, then sign it explicitly
+            if (!body.endsWith("~~~~")) {
+                body += " ~~~~"
+            }
+            if (!isNewTopic()) {
+                // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+                body = "\n\n" + body
+            }
         }
 
-        // if the message is not signed, then sign it explicitly
-        if (!body.endsWith("~~~~")) {
-            body += " ~~~~"
-        }
-        if (!isNewTopic()) {
-            // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-            body = "\n\n" + body
-        }
+        // TODO: remove this
+        return
 
         talkProgressBar.visibility = View.VISIBLE
         replySaveButton.isEnabled = false
