@@ -303,17 +303,10 @@ public class PageTitle implements Parcelable {
                 ? StringUtil.removeNamespace(getPrefixedText()) : getPrefixedText(), wiki);
         if (namespace().userTalk() || namespace().user()) {
             pageTitle.setDisplayText(StringUtil.removeUnderscores(talkNamespace) + ":" + StringUtil.removeNamespace(getDisplayText()));
+        } else {
+            pageTitle.setDisplayText(talkNamespace + ":" + getDisplayText());
         }
         return pageTitle;
-    }
-
-    /**
-     * Check if the Title represents a talk page
-     *
-     * @return true if it is a talk page, false if not
-     */
-    public boolean isTalkPage() {
-        return namespace().talk();
     }
 
     @Override public void writeToParcel(Parcel parcel, int flags) {
