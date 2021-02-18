@@ -48,7 +48,6 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ViewAnimations;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -162,7 +161,6 @@ public class WikipediaApp extends Application {
 
         bus = new RxBus();
 
-        ViewAnimations.init(getResources());
         currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
 
         appLanguageState = new AppLanguageState(this);
