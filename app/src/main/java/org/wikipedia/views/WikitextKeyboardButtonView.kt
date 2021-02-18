@@ -1,13 +1,11 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.appcompat.content.res.AppCompatResources
-import butterknife.ButterKnife
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikitextKeyboardButtonBinding
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
@@ -19,7 +17,6 @@ class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeS
     init {
         val binding = ViewWikitextKeyboardButtonBinding.inflate(LayoutInflater.from(context), this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        ButterKnife.bind(this)
         attrs?.let {
             val array = context.obtainStyledAttributes(attrs,
                     R.styleable.WikitextKeyboardButtonView, 0, 0)
@@ -37,7 +34,7 @@ class WikitextKeyboardButtonView constructor(context: Context, attrs: AttributeS
                 binding.wikitextButtonText.visibility = VISIBLE
                 binding.wikitextButtonHint.visibility = VISIBLE
                 binding.wikitextButtonImage.visibility = GONE
-                if (!TextUtils.isEmpty(buttonText)) {
+                if (!buttonHint.isNullOrEmpty()) {
                     binding.wikitextButtonText.text = buttonText
                 }
                 binding.wikitextButtonText.setTextColor(buttonTextColor)
