@@ -84,9 +84,9 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        errorView.setBackClickListener((v) -> onBackPressed());
+        errorView.setBackClickListener(v -> onBackPressed());
 
-        errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
+        errorView.setRetryClickListener(v -> errorView.setVisibility(View.GONE));
 
         // Don't allow user to attempt login until they've put in a username and password
         new NonEmptyValidator(loginButton, usernameInput, passwordInput);
