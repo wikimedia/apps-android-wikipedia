@@ -49,8 +49,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             }
         }
 
-        cardItemErrorView.setBackClickListener { requireActivity().finish() }
-        cardItemErrorView.setRetryClickListener {
+        cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
+        cardItemErrorView.retryClickListener = View.OnClickListener {
             cardItemProgressBar.visibility = VISIBLE
             getArticleWithMissingDescription()
         }

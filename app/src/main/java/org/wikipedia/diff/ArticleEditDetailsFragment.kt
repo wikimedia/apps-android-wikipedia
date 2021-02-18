@@ -130,7 +130,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         thankButton.setOnClickListener { showThankDialog() }
-        errorView.setBackClickListener { requireActivity().finish() }
+        errorView.backClickListener = OnClickListener { requireActivity().finish() }
     }
 
     private fun setErrorState(t: Throwable) {
