@@ -30,9 +30,9 @@ import org.wikipedia.util.DimenUtil.roundedDpToPx
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
 import org.wikipedia.util.ResourceUtil.getThemedColor
 
-
 class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
-    private lateinit var binding: DialogThemeChooserBinding
+    private var _binding: DialogThemeChooserBinding? = null
+    private val binding get() = _binding!!
 
     interface Callback {
         fun onToggleDimImages()
@@ -49,8 +49,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private val disposables = CompositeDisposable()
     private var updatingFont = false
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DialogThemeChooserBinding.inflate(inflater, container, false)
-
+        _binding = DialogThemeChooserBinding.inflate(inflater, container, false)
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
         binding.buttonIncreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.INCREASE))
         setButtonLongPressToast(binding.buttonDecreaseTextSize, binding.buttonIncreaseTextSize)
@@ -101,6 +100,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     override fun onDestroy() {
         super.onDestroy()
         disposables.clear()
+        _binding = null
     }
 
     override fun onCancel(dialog: DialogInterface) {
