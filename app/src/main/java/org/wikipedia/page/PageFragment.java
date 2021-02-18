@@ -406,8 +406,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge = new CommunicationBridge(this);
         setupMessageHandlers();
 
-        errorView.setRetryClickListener((v) -> refreshPage());
-        errorView.setBackClickListener((v) -> {
+        errorView.setRetryClickListener(v -> refreshPage());
+        errorView.setBackClickListener(v-> {
             boolean back = onBackPressed();
 
             // Needed if we're coming from another activity or fragment

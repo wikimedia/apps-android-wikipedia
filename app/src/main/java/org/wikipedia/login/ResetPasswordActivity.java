@@ -63,8 +63,8 @@ public class ResetPasswordActivity extends BaseActivity {
         setContentView(R.layout.activity_reset_password);
         ButterKnife.bind(this);
 
-        errorView.setBackClickListener((v) -> onBackPressed());
-        errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
+        errorView.setBackClickListener(v -> onBackPressed());
+        errorView.setRetryClickListener(v -> errorView.setVisibility(View.GONE));
 
         new NonEmptyValidator(loginButton, passwordInput, passwordRepeatInput);
 

@@ -58,10 +58,10 @@ class TalkTopicsActivity : BaseActivity() {
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         talkRecyclerView.adapter = TalkTopicItemAdapter()
 
-        talkErrorView.setBackClickListener {
+        talkErrorView.backClickListener = View.OnClickListener {
             finish()
         }
-        talkErrorView.setRetryClickListener {
+        talkErrorView.retryClickListener = View.OnClickListener {
             loadTopics()
         }
 

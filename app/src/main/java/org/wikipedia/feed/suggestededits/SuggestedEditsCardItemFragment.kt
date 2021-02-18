@@ -129,7 +129,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun updateContents() {
         cardItemContainer.setOnClickListener(startDescriptionEditScreenListener())
         callToActionButton.setOnClickListener(startDescriptionEditScreenListener())
-        seCardErrorView.setBackClickListener {
+        seCardErrorView.backClickListener = View.OnClickListener {
             seCardErrorView.visibility = GONE
             fetchCardTypeEdit()
         }
