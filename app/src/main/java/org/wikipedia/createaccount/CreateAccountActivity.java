@@ -91,8 +91,8 @@ public class CreateAccountActivity extends BaseActivity {
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
 
-        errorView.setBackClickListener((v) -> onBackPressed());
-        errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
+        errorView.setBackClickListener(v -> onBackPressed());
+        errorView.setRetryClickListener(v -> errorView.setVisibility(View.GONE));
 
         wiki = WikipediaApp.getInstance().getWikiSite();
 

@@ -50,7 +50,7 @@ class FilePageFragment : Fragment() {
             swipeRefreshLayout.isRefreshing = false
             loadImageInfo()
         }
-        errorView.setBackClickListener { requireActivity().finish() }
+        errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         loadImageInfo()
     }
 

@@ -98,7 +98,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
-        errorView.setRetryClickListener { refreshContents() }
+        errorView.retryClickListener = View.OnClickListener { refreshContents() }
 
         suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
