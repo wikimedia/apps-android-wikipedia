@@ -98,7 +98,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             resetAndFetch()
         }
 
-        errorView.setBackClickListener {
+        errorView.backClickListener = View.OnClickListener {
             resetAndFetch()
         }
 
