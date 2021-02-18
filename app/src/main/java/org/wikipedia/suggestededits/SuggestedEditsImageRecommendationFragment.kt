@@ -50,8 +50,8 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cardItemErrorView.setBackClickListener { requireActivity().finish() }
-        cardItemErrorView.setRetryClickListener {
+        cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
+        cardItemErrorView.retryClickListener = View.OnClickListener {
             cardItemProgressBar.visibility = VISIBLE
             cardItemErrorView.visibility = GONE
             getNextItem()
