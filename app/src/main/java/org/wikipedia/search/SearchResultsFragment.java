@@ -99,8 +99,8 @@ public class SearchResultsFragment extends Fragment {
         searchResultsList.setLayoutManager(new LinearLayoutManager(getActivity()));
         searchResultsList.setAdapter(new SearchResultAdapter());
 
-        searchErrorView.setBackClickListener((v) -> requireActivity().finish());
-        searchErrorView.setRetryClickListener((v) -> {
+        searchErrorView.setBackClickListener(v-> requireActivity().finish());
+        searchErrorView.setRetryClickListener(v -> {
             searchErrorView.setVisibility(GONE);
             startSearch(currentSearchTerm, true);
         });
