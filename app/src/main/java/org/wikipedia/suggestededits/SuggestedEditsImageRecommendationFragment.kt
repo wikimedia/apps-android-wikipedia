@@ -34,7 +34,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
+class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecommendationDialog.Callback {
 
     var publishing: Boolean = false
     var publishSuccess: Boolean = false
@@ -79,7 +79,11 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         }
 
         rejectButton.setOnClickListener {
-            doPublish(false)
+            SuggestedEditsImageRecommendationDialog().show(childFragmentManager, null)
+        }
+
+        notSureButton.setOnClickListener {
+            SuggestedEditsImageRecommendationDialog().show(childFragmentManager, null)
         }
 
         imageClickTarget.setOnClickListener {
@@ -168,6 +172,10 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
     override fun publish() {
         // the "Publish" button in our case is actually the "skip" button.
         callback().nextPage(this)
+    }
+
+    override fun onDialogSubmit() {
+        doPublish(true)
     }
 
     fun doPublish(accept: Boolean) {

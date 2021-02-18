@@ -1,0 +1,126 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imageRecommendationDialogContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Can you tell us why you are not sure if this is a suitable image?"
+        android:textColor="?attr/material_theme_primary_color"
+        android:textSize="16sp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLineMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideLineMiddle"
+        app:layout_constraintTop_toBottomOf="@id/instructionText"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:paddingEnd="8dp"
+        android:background="@drawable/rounded_12dp_corner_base90_fill"
+        android:text="Not relevant"
+        android:textColor="?attr/material_theme_primary_color"
+        app:buttonTint="?attr/colorAccent" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
+        app:layout_constraintTop_toTopOf="@id/checkBox1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="4dp"
+        android:paddingEnd="8dp"
+        android:text="Low quality"
+        android:textColor="?attr/material_theme_primary_color"
+        android:background="@drawable/rounded_12dp_corner_base90_fill"
+        app:buttonTint="?attr/colorAccent" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/checkBox1"
+        app:layout_constraintEnd_toEndOf="@id/checkBox1"
+        app:layout_constraintTop_toBottomOf="@id/checkBox1"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="8dp"
+        android:text="Not enough information"
+        android:textColor="?attr/material_theme_primary_color"
+        android:background="@drawable/rounded_12dp_corner_base90_fill"
+        app:buttonTint="?attr/colorAccent" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/checkBox2"
+        app:layout_constraintEnd_toEndOf="@id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@id/checkBox2"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="8dp"
+        android:text="Don't know this subject"
+        android:textColor="?attr/material_theme_primary_color"
+        android:background="@drawable/rounded_12dp_corner_base90_fill"
+        app:buttonTint="?attr/colorAccent" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/checkBox3"
+        app:layout_constraintEnd_toEndOf="@id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@id/checkBox3"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="8dp"
+        android:text="Offensive"
+        android:textColor="?attr/material_theme_primary_color"
+        android:background="@drawable/rounded_12dp_corner_base90_fill"
+        app:buttonTint="?attr/colorAccent" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/checkBox4"
+        app:layout_constraintEnd_toEndOf="@id/checkBox4"
+        app:layout_constraintTop_toBottomOf="@id/checkBox4"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="8dp"
+        android:text="Other"
+        android:textColor="?attr/material_theme_primary_color"
+        android:background="@drawable/rounded_12dp_corner_base90_fill"
+        app:buttonTint="?attr/colorAccent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continueButton"
+        style="@style/App.Button.Blue"
+        android:layout_width="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkBox6"
+        android:layout_height="48dp"
+        android:text="Continue"
+        android:layout_gravity="end"
+        android:layout_marginTop="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

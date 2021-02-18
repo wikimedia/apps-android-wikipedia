@@ -271,8 +271,7 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="gone"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="2dp"
+        android:elevation="14dp"
         tools:visibility="visible">
 
         <ProgressBar
