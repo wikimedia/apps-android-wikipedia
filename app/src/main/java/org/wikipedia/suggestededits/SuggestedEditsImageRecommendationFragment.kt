@@ -9,6 +9,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -114,12 +115,12 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
         cardItemErrorView.setError(t)
         cardItemErrorView.visibility = VISIBLE
         cardItemProgressBar.visibility = GONE
-        contentContainer.visibility = GONE
+        articleContentContainer.visibility = GONE
     }
 
     private fun updateContents() {
         cardItemErrorView.visibility = GONE
-        contentContainer.visibility = if (page != null) VISIBLE else GONE
+        articleContentContainer.visibility = if (page != null) VISIBLE else GONE
         cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
         if (page == null) {
             return
@@ -144,6 +145,12 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment() {
                     articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
                     articleDescription.text = summary.description
                     articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
+
+                    articleScrollSpacer.post {
+                        if (isAdded) {
+                            articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, imageSuggestionContainer.height)
+                        }
+                    }
 
                     val arr = imageInfo.commonsUrl.split('/')
                     imageFileNameText.text = UriUtil.decodeURL(arr[arr.size - 1])

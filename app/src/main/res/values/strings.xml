@@ -991,8 +991,9 @@
     <string name="content_description_for_page_indicator">Page %1$d of %2$d</string>
     <!-- /Content description -->
 
-    <string name="image_recommendations_task_title">Image recommendations</string>
+    <string name="image_recommendations_task_title">Article images training</string>
     <string name="image_recommendations_task_detail">Add suggested images to unillustrated articles.</string>
+    <string name="image_recommendations_task_get_started">Get started</string>
     <string name="image_recommendations_task_skip">Skip</string>
     <string name="image_recommendations_task_accept">Yes</string>
     <string name="image_recommendations_task_reject">No</string>

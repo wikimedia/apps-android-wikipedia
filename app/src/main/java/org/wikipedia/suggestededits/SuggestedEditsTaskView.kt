@@ -26,14 +26,15 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     private fun updateTranslateActionUI() {
         val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
             R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
-        translateButton.iconTint = ColorStateList.valueOf(color)
-        translateButton.setTextColor(color)
+        secondaryButton.iconTint = ColorStateList.valueOf(color)
+        secondaryButton.setTextColor(color)
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
         updateTranslateActionUI()
         taskTitle.text = task.title
         taskDescription.text = task.description
+        primaryButton.text = task.primaryAction
         taskIcon.setImageResource(task.imageDrawable)
         taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
 
@@ -42,20 +43,21 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
                 callback?.onViewClick(task, false)
             }
         }
-        addButton.setOnClickListener {
+        primaryButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }
         }
-        translateButton.setOnClickListener {
+        secondaryButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, true)
             }
         }
-        translateButton.visibility = if (task.translatable) View.VISIBLE else GONE
+        secondaryButton.visibility = if (task.secondaryAction.isNullOrEmpty()) View.GONE else VISIBLE
+        secondaryButton.text = task.secondaryAction
     }
 
     interface Callback {
-        fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean)
+        fun onViewClick(task: SuggestedEditsTask, secondary: Boolean)
     }
 }

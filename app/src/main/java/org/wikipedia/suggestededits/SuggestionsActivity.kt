@@ -30,7 +30,7 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
         return if (action == ADD_IMAGE_TAGS) {
             getString(R.string.suggested_edits_tag_images)
         } else if (action == IMAGE_RECOMMENDATION) {
-            ""
+            getString(R.string.image_recommendations_task_title)
         } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
             getString(R.string.suggested_edits_caption_images)
         } else {
