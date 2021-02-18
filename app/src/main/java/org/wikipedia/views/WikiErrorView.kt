@@ -104,6 +104,5 @@ class WikiErrorView : LinearLayout {
             }
 
         abstract fun buttonClickListener(errorView: WikiErrorView): OnClickListener?
-
     }
 }
