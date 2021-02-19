@@ -174,7 +174,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
                     }
 
                     val arr = imageInfo.commonsUrl.split('/')
-                    binding.imageFileNameText.text = UriUtil.decodeURL(arr[arr.size - 1])
+                    binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
                 }, { setErrorState(it) }))
 
         callback().updateActionButton()
