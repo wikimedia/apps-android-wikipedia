@@ -163,10 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="200dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground">
+                android:layout_marginTop="200dp">
 
                 <TextView
                     android:id="@+id/imageCaptionText"

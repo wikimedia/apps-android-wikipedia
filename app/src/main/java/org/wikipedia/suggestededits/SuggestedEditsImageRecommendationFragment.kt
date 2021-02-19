@@ -90,7 +90,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
                     .show(childFragmentManager, null)
         }
 
-        binding.imageClickTarget.setOnClickListener {
+        binding.imageCard.setOnClickListener {
             if (page != null) {
                 startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.imageTitle, WikiSite(Service.COMMONS_URL))))
                 detailsClicked = true
