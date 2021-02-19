@@ -9,13 +9,13 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_recommendation_item.*
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -40,6 +41,11 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
     private var page: ImageRecommendationResponse? = null
 
     private var detailsClicked: Boolean = false
+    private var scrolled: Boolean = false
+
+    private val onScrollListener = ViewTreeObserver.OnScrollChangedListener {
+        scrolled = true
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -91,6 +97,8 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
                 detailsClicked = true
             }
         }
+
+        articleContentContainer.viewTreeObserver.addOnScrollChangedListener(onScrollListener)
 
         getNextItem()
         updateContents()
@@ -194,7 +202,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         publishProgressBar.visibility = VISIBLE
 
         ImageRecommendationsFunnel().logSubmit(WikipediaApp.getInstance().appOrSystemLanguageCode, page!!.title, page!!.imageTitle,
-                response, reasons, detailsClicked, false, AccountUtil.userName, false)
+                response, reasons, detailsClicked, scrolled, AccountUtil.userName, Prefs.isImageRecsTeacherMode())
 
         publishSuccess = true
         onSuccess()

@@ -978,6 +978,10 @@ public final class Prefs {
         setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled);
     }
 
+    public static boolean isImageRecsTeacherMode() {
+        return getBoolean(R.string.preference_key_image_recs_teacher_mode, false);
+    }
+
 
     private Prefs() { }
 }
