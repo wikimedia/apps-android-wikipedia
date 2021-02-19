@@ -18,7 +18,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.ImageRecommendationsFunnel
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationItemBinding
 import org.wikipedia.dataclient.Service
@@ -26,13 +25,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
-import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import java.util.*
 
 class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecommendationDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecommendationItemBinding? = null
@@ -61,7 +60,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
             getNextItem()
         }
 
-        val transparency = 0xcc000000
+        val transparency = 0xd8000000
 
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
@@ -101,6 +100,8 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         binding.articleContentContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
             scrolled = true
         })
+
+        binding.dailyProgressView.setMaximum(DAILY_COUNT_TARGET)
 
         getNextItem()
         updateContents(null)
@@ -180,12 +181,6 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         callback().updateActionButton()
     }
 
-    companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageRecommendationFragment()
-        }
-    }
-
     override fun publish() {
         // the "Publish" button in our case is actually the "skip" button.
         callback().nextPage(this)
@@ -218,9 +213,25 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
     }
 
     private fun onSuccess() {
-        SuggestedEditsFunnel.get().success(DescriptionEditActivity.Action.IMAGE_RECOMMENDATION)
 
-        val duration = 500L
+        val day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
+        var oldCount = Prefs.getImageRecsDailyCount()
+        if (day != Prefs.getImageRecsDayId()) {
+            // it's a brand new day!
+            Prefs.setImageRecsDayId(day)
+            oldCount = 0
+        }
+        val newCount = oldCount + 1
+        Prefs.setImageRecsDailyCount(newCount)
+
+        val progressText = when {
+            newCount < DAILY_COUNT_TARGET -> resources.getQuantityString(R.plurals.image_recommendations_task_goal_progress, DAILY_COUNT_TARGET - newCount)
+            newCount == DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_complete)
+            else -> getString(R.string.image_recommendations_task_goal_surpassed)
+        }
+        binding.dailyProgressView.update(oldCount, newCount, progressText)
+
+        val duration = 750L
         binding.publishProgressBar.alpha = 1f
         binding.publishProgressBar.animate()
                 .alpha(0f)
@@ -260,5 +271,13 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
+    }
+
+    companion object {
+        const val DAILY_COUNT_TARGET = 8
+
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsImageRecommendationFragment()
+        }
     }
 }

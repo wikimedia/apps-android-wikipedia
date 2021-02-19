@@ -982,6 +982,21 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_image_recs_teacher_mode, false);
     }
 
+    public static int getImageRecsDailyCount() {
+        return getInt(R.string.preference_key_image_recs_daily_progress, 0);
+    }
+
+    public static void setImageRecsDailyCount(int count) {
+        setInt(R.string.preference_key_image_recs_daily_progress, count);
+    }
+
+    public static int getImageRecsDayId() {
+        return getInt(R.string.preference_key_image_recs_day_id, -1);
+    }
+
+    public static void setImageRecsDayId(int day) {
+        setInt(R.string.preference_key_image_recs_day_id, day);
+    }
 
     private Prefs() { }
 }

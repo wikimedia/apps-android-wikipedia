@@ -1000,6 +1000,12 @@
     <string name="image_recommendations_task_not_sure">Not sure</string>
     <string name="image_recommendations_task_thanks">Thanks!</string>
     <string name="image_recommendations_task_instruction">Is this a good image for the following article?</string>
+    <plurals name="image_recommendations_task_goal_progress">
+        <item quantity="one">%d left for daily goal</item>
+        <item quantity="other">%d left for daily goal</item>
+    </plurals>
+    <string name="image_recommendations_task_goal_complete">Congrats! 👏</string>
+    <string name="image_recommendations_task_goal_surpassed">You\'ve reached the goal</string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>

@@ -310,6 +310,12 @@
             android:text="@string/image_recommendations_task_thanks"
             android:textAllCaps="true" />
 
+        <org.wikipedia.suggestededits.DailyProgressView
+            android:id="@+id/dailyProgressView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"/>
+
     </FrameLayout>
 
 </FrameLayout>
