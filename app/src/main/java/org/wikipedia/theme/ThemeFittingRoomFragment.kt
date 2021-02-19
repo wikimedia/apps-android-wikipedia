@@ -16,9 +16,10 @@ import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.settings.Prefs
 
 class ThemeFittingRoomFragment : Fragment() {
-    private val disposables = CompositeDisposable()
     private var _binding: FragmentThemeFittingRoomBinding? = null
     private val binding get() = _binding!!
+    private val disposables = CompositeDisposable()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentThemeFittingRoomBinding.inflate(inflater, container, false)
         disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
