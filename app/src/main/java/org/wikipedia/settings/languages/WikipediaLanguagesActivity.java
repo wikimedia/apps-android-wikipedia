@@ -5,19 +5,18 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 
+import org.wikipedia.Constants;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 
 public class WikipediaLanguagesActivity extends SingleFragmentActivity<WikipediaLanguagesFragment> {
-    static final String INVOKE_SOURCE_EXTRA = "invokeSource";
-
-    public static Intent newIntent(@NonNull Context context, @NonNull String invokeSource) {
+    public static Intent newIntent(@NonNull Context context, @NonNull Constants.InvokeSource invokeSource) {
         return new Intent(context, WikipediaLanguagesActivity.class)
-                .putExtra(INVOKE_SOURCE_EXTRA, invokeSource);
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
     }
     @Override
     protected WikipediaLanguagesFragment createFragment() {
-        return WikipediaLanguagesFragment.newInstance(getIntent().getStringExtra(INVOKE_SOURCE_EXTRA));
+        return WikipediaLanguagesFragment.newInstance((Constants.InvokeSource) getIntent().getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE));
     }
 
     @Override protected void onDestroy() {
