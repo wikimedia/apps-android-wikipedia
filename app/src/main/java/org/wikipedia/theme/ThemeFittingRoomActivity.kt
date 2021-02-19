@@ -1,6 +1,5 @@
 package org.wikipedia.theme
 
-import android.R
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -20,8 +19,8 @@ class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment
         }
 
         // Don't let changed theme affects the status bar color and navigation bar color
-        setStatusBarColor(ContextCompat.getColor(this, R.color.black))
-        setNavigationBarColor(ContextCompat.getColor(this, R.color.black))
+        setStatusBarColor(ContextCompat.getColor(this, android.R.color.black))
+        setNavigationBarColor(ContextCompat.getColor(this, android.R.color.black))
     }
 
     override fun createFragment(): ThemeFittingRoomFragment {
