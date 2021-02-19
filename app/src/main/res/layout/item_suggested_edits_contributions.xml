@@ -38,7 +38,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/contributionTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -48,7 +48,7 @@
             android:textStyle="bold" />
 
         <org.wikipedia.views.GoneIfEmptyTextView
-            android:id="@+id/description"
+            android:id="@+id/contributionDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -98,7 +98,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/contributionImage"
         style="@style/ImageViewDefault"
         android:layout_width="40dp"
         android:layout_height="40dp"
