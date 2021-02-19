@@ -414,8 +414,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
-                val intent = WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SUGGESTED_EDITS)
-                startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE)
+                startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 return
             }
             if (task == addDescriptionsTask) {
