@@ -225,13 +225,13 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         Prefs.setImageRecsDailyCount(newCount)
 
         val progressText = when {
-            newCount < DAILY_COUNT_TARGET -> resources.getQuantityString(R.plurals.image_recommendations_task_goal_progress, DAILY_COUNT_TARGET - newCount)
+            newCount < DAILY_COUNT_TARGET -> resources.getQuantityString(R.plurals.image_recommendations_task_goal_progress, DAILY_COUNT_TARGET - newCount, DAILY_COUNT_TARGET - newCount)
             newCount == DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_complete)
             else -> getString(R.string.image_recommendations_task_goal_surpassed)
         }
-        binding.dailyProgressView.update(oldCount, newCount, progressText)
+        binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
 
-        val duration = 750L
+        val duration = 1000L
         binding.publishProgressBar.alpha = 1f
         binding.publishProgressBar.animate()
                 .alpha(0f)

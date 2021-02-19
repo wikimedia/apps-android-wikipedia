@@ -357,6 +357,17 @@
         <SwitchPreferenceCompat
             android:key="@string/preference_key_image_recs_teacher_mode"
             android:title="@string/preference_key_image_recs_teacher_mode" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_image_recs_daily_progress"
+            android:title="@string/preference_key_image_recs_daily_progress" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_image_recs_day_id"
+            android:title="@string/preference_key_image_recs_day_id" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="A/B tests">

@@ -3,6 +3,8 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.animation.Animation
+import android.view.animation.Transformation
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import org.wikipedia.R
@@ -21,12 +23,29 @@ class DailyProgressView : ConstraintLayout {
     }
 
     fun setMaximum(max: Int) {
-        binding.progressBar.max = max
+        binding.progressBar.max = max * 100
     }
 
-    fun update(oldProgress: Int, newProgress: Int, text: String) {
+    fun update(oldProgress: Int, newProgress: Int, max: Int, text: String) {
+        val progress = newProgress.coerceAtMost(binding.progressBar.max)
         binding.instructionText.text = text
-        binding.progressBar.progress = newProgress.coerceAtMost(binding.progressBar.max)
-        binding.percentText.text = context.getString(R.string.text_size_percent, newProgress)
+        binding.percentText.text = context.getString(R.string.text_size_percent, (newProgress * 100f / max).toInt())
+
+        val anim = ProgressBarAnimation(oldProgress.toFloat(), progress.toFloat())
+        anim.duration = 500
+        binding.progressBar.startAnimation(anim)
+    }
+
+    inner class ProgressBarAnimation(var from: Float, var to: Float) : Animation() {
+        init {
+            from *= 100
+            to *= 100
+        }
+
+        override fun applyTransformation(interpolatedTime: Float, t: Transformation?) {
+            super.applyTransformation(interpolatedTime, t)
+            val value = from + (to - from) * interpolatedTime
+            binding.progressBar.progress = value.toInt()
+        }
     }
 }

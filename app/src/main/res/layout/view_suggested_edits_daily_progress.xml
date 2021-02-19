@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="@id/instructionText"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:indeterminate="false"
         android:progress="50"
         android:progressDrawable="@drawable/progress_bar_thick"
