@@ -43,11 +43,12 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         INCREASE, DECREASE, RESET
     }
 
-    private var app: WikipediaApp? = null
-    private var funnel: AppearanceChangeFunnel? = null
-    private var invokeSource: InvokeSource? = null
+    private var app = WikipediaApp.getInstance()
+    private lateinit var funnel: AppearanceChangeFunnel
+    private lateinit var invokeSource: InvokeSource
     private val disposables = CompositeDisposable()
     private var updatingFont = false
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogThemeChooserBinding.inflate(inflater, container, false)
         binding.buttonDecreaseTextSize.setOnClickListener(FontSizeButtonListener(FontSizeAction.DECREASE))
@@ -67,11 +68,11 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                     return
                 }
                 val currentMultiplier = Prefs.getTextSizeMultiplier()
-                val changed = app!!.setFontSizeMultiplier(binding.textSizeSeekBar.value)
+                val changed = app.setFontSizeMultiplier(binding.textSizeSeekBar.value)
                 if (changed) {
                     updatingFont = true
                     updateFontSize()
-                    funnel!!.logFontSizeChange(currentMultiplier.toFloat(), Prefs.getTextSizeMultiplier().toFloat())
+                    funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.getTextSizeMultiplier().toFloat())
                 }
             }
 
@@ -91,10 +92,9 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        app = WikipediaApp.getInstance()
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
-        funnel = AppearanceChangeFunnel(app, app!!.wikiSite, invokeSource)
+        funnel = AppearanceChangeFunnel(app, app.wikiSite, invokeSource)
     }
 
     override fun onDestroy() {
@@ -127,15 +127,15 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             return
         }
         Prefs.setMatchSystemTheme(enabled)
-        val currentTheme = app!!.currentTheme
+        val currentTheme = app.currentTheme
         if (isMatchingSystemThemeEnabled) {
-            when (app!!.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-                Configuration.UI_MODE_NIGHT_YES -> if (!app!!.currentTheme.isDark) {
-                    app!!.currentTheme = if (!app!!.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.BLACK else app!!.unmarshalTheme(Prefs.getPreviousThemeId())
+            when (app.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+                Configuration.UI_MODE_NIGHT_YES -> if (!app.currentTheme.isDark) {
+                    app.currentTheme = if (!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.BLACK else app.unmarshalTheme(Prefs.getPreviousThemeId())
                     Prefs.setPreviousThemeId(currentTheme.marshallingId)
                 }
-                Configuration.UI_MODE_NIGHT_NO -> if (app!!.currentTheme.isDark) {
-                    app!!.currentTheme = if (app!!.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.LIGHT else app!!.unmarshalTheme(Prefs.getPreviousThemeId())
+                Configuration.UI_MODE_NIGHT_NO -> if (app.currentTheme.isDark) {
+                    app.currentTheme = if (app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.LIGHT else app.unmarshalTheme(Prefs.getPreviousThemeId())
                     Prefs.setPreviousThemeId(currentTheme.marshallingId)
                 }
                 else -> {
@@ -146,14 +146,14 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun conditionallyDisableThemeButtons() {
-        binding.buttonThemeLight.alpha = if (isMatchingSystemThemeEnabled && app!!.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeSepia.alpha = if (isMatchingSystemThemeEnabled && app!!.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeDark.alpha = if (isMatchingSystemThemeEnabled && !app!!.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeBlack.alpha = if (isMatchingSystemThemeEnabled && !app!!.currentTheme.isDark) 0.2f else 1.0f
-        binding.buttonThemeLight.isEnabled = !isMatchingSystemThemeEnabled || !app!!.currentTheme.isDark
-        binding.buttonThemeSepia.isEnabled = !isMatchingSystemThemeEnabled || !app!!.currentTheme.isDark
-        binding.buttonThemeDark.isEnabled = !isMatchingSystemThemeEnabled || app!!.currentTheme.isDark
-        binding.buttonThemeBlack.isEnabled = !isMatchingSystemThemeEnabled || app!!.currentTheme.isDark
+        binding.buttonThemeLight.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
+        binding.buttonThemeSepia.alpha = if (isMatchingSystemThemeEnabled && app.currentTheme.isDark) 0.2f else 1.0f
+        binding.buttonThemeDark.alpha = if (isMatchingSystemThemeEnabled && !app.currentTheme.isDark) 0.2f else 1.0f
+        binding.buttonThemeBlack.alpha = if (isMatchingSystemThemeEnabled && !app.currentTheme.isDark) 0.2f else 1.0f
+        binding.buttonThemeLight.isEnabled = !isMatchingSystemThemeEnabled || !app.currentTheme.isDark
+        binding.buttonThemeSepia.isEnabled = !isMatchingSystemThemeEnabled || !app.currentTheme.isDark
+        binding.buttonThemeDark.isEnabled = !isMatchingSystemThemeEnabled || app.currentTheme.isDark
+        binding.buttonThemeBlack.isEnabled = !isMatchingSystemThemeEnabled || app.currentTheme.isDark
     }
 
     private val isMatchingSystemThemeEnabled: Boolean
@@ -196,10 +196,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateThemeButtons() {
-        updateThemeButtonStroke(binding.buttonThemeLight, app!!.currentTheme === Theme.LIGHT)
-        updateThemeButtonStroke(binding.buttonThemeSepia, app!!.currentTheme === Theme.SEPIA)
-        updateThemeButtonStroke(binding.buttonThemeDark, app!!.currentTheme === Theme.DARK)
-        updateThemeButtonStroke(binding.buttonThemeBlack, app!!.currentTheme === Theme.BLACK)
+        updateThemeButtonStroke(binding.buttonThemeLight, app.currentTheme === Theme.LIGHT)
+        updateThemeButtonStroke(binding.buttonThemeSepia, app.currentTheme === Theme.SEPIA)
+        updateThemeButtonStroke(binding.buttonThemeDark, app.currentTheme === Theme.DARK)
+        updateThemeButtonStroke(binding.buttonThemeBlack, app.currentTheme === Theme.BLACK)
     }
 
     private fun updateThemeButtonStroke(button: MaterialButton, selected: Boolean) {
@@ -209,16 +209,16 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun updateDimImagesSwitch() {
         binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.shouldDimDarkModeImages()
-        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app!!.currentTheme.isDark
+        binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app.currentTheme.isDark
         binding.themeChooserDarkModeDimImagesSwitch.setTextColor(if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
             getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
     }
 
     private inner class ThemeButtonListener(private val theme: Theme) : View.OnClickListener {
         override fun onClick(v: View) {
-            if (app!!.currentTheme !== theme) {
-                funnel!!.logThemeChange(app!!.currentTheme, theme)
-                app!!.currentTheme = theme
+            if (app.currentTheme !== theme) {
+                funnel.logThemeChange(app.currentTheme, theme)
+                app.currentTheme = theme
             }
         }
     }
@@ -227,8 +227,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(v: View) {
             if (v.tag != null) {
                 val newFontFamily = v.tag as String
-                funnel!!.logFontThemeChange(Prefs.getFontFamily(), newFontFamily)
-                app!!.setFontFamily(newFontFamily)
+                funnel.logFontThemeChange(Prefs.getFontFamily(), newFontFamily)
+                app.setFontFamily(newFontFamily)
             }
         }
     }
@@ -238,19 +238,19 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             val currentMultiplier = Prefs.getTextSizeMultiplier()
             val changed = when (action) {
                 FontSizeAction.INCREASE -> {
-                    app!!.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1)
+                    app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1)
                 }
                 FontSizeAction.DECREASE -> {
-                    app!!.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1)
+                    app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1)
                 }
                 FontSizeAction.RESET -> {
-                    app!!.setFontSizeMultiplier(0)
+                    app.setFontSizeMultiplier(0)
                 }
             }
             if (changed) {
                 updatingFont = true
                 updateFontSize()
-                funnel!!.logFontSizeChange(currentMultiplier.toFloat(), Prefs.getTextSizeMultiplier().toFloat())
+                funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.getTextSizeMultiplier().toFloat())
             }
         }
     }
