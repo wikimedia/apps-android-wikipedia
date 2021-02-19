@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
@@ -427,7 +426,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
-                showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
+                startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 return
             }
             if (task == addDescriptionsTask) {
@@ -444,11 +443,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, InvokeSource.SUGGESTED_EDITS))
             }
         }
-    }
-
-    private fun showLanguagesActivity(invokeSource: String) {
-        val intent = WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource)
-        startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE)
     }
 
     internal inner class RecyclerAdapter(tasks: List<SuggestedEditsTask>) : DefaultRecyclerAdapter<SuggestedEditsTask, SuggestedEditsTaskView>(tasks) {

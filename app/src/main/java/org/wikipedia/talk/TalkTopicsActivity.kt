@@ -127,7 +127,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_change_language) {
-            startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY.getName()),
+            startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
             return true
         } else if (item.itemId == R.id.menu_view_in_browser) {

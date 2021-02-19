@@ -2,18 +2,12 @@ package org.wikipedia.views
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.content.res.Resources
 import android.view.View
+import org.wikipedia.WikipediaApp
 
 object ViewAnimations {
-    private var SHORT_ANIMATION_DURATION: Long = 0
-    private var MEDIUM_ANIMATION_DURATION: Long = 0
-
-    @JvmStatic
-    fun init(resources: Resources) {
-        SHORT_ANIMATION_DURATION = resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
-        MEDIUM_ANIMATION_DURATION = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
-    }
+    private val SHORT_ANIMATION_DURATION = WikipediaApp.getInstance().resources.getInteger(android.R.integer.config_shortAnimTime).toLong()
+    private val MEDIUM_ANIMATION_DURATION = WikipediaApp.getInstance().resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
 
     @JvmStatic
     fun crossFade(curView: View, newView: View) {
