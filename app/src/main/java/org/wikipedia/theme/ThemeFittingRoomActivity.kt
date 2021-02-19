@@ -11,6 +11,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment>(), ThemeChooserDialog.Callback {
     private var themeChooserDialog: ThemeChooserDialog? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
