@@ -54,8 +54,7 @@ public final class EventLoggingService {
             }
 
             if (dataURL.length() > MAX_URL_LEN) {
-                L.logRemoteErrorIfProd(new RuntimeException("EventLogging max length exceeded")
-                        .put("length", String.valueOf(dataURL.length())));
+                L.logRemoteErrorIfProd(new RuntimeException("EventLogging max length exceeded"));
             }
 
             Request request = new Request.Builder().url(dataURL).post(EMPTY_REQ).build();
