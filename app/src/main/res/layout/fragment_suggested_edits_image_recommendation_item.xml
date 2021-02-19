@@ -149,7 +149,8 @@
             <FrameLayout
                 android:id="@+id/imageViewContainer"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                android>
                 <org.wikipedia.views.FaceAndColorDetectImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"

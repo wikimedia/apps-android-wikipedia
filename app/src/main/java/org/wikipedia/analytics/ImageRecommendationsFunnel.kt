@@ -14,13 +14,13 @@ class ImageRecommendationsFunnel :
 
     override fun preprocessSessionToken(eventData: JSONObject) { }
 
-    fun logSubmit(lang: String, pageTitle: String, imageTitle: String, response: Int, reason: Int,
-                  detailsClicked: Boolean, scrolled: Boolean, userName: String, teacherMode: Boolean) {
+    fun logSubmit(lang: String, pageTitle: String, imageTitle: String, response: Int, reasons: List<Int>,
+                  detailsClicked: Boolean, scrolled: Boolean, userName: String?, teacherMode: Boolean) {
         log("lang", lang,
                 "pageTitle", pageTitle,
                 "imageTitle", imageTitle,
                 "response", response,
-                "reason", reason,
+                "reason", reasons.joinToString(","),
                 "detailsClicked", detailsClicked,
                 "scrolled", scrolled,
                 "userName", userName,
@@ -28,6 +28,10 @@ class ImageRecommendationsFunnel :
     }
 
     companion object {
+        const val RESPONSE_ACCEPT = 0
+        const val RESPONSE_REJECT = 1
+        const val RESPONSE_NOT_SURE = 2
+
         private const val SCHEMA_NAME = "MobileWikiAppImageRecommendations"
         private const val REV_ID = 21020341
     }

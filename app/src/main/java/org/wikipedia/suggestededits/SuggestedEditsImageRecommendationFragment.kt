@@ -19,10 +19,10 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.EditFunnel
+import org.wikipedia.analytics.ImageRecommendationsFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -35,14 +35,11 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
 class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecommendationDialog.Callback {
-
     var publishing: Boolean = false
-    var publishSuccess: Boolean = false
-    private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
+    private var publishSuccess: Boolean = false
     private var page: ImageRecommendationResponse? = null
 
-    var invokeSource: InvokeSource = InvokeSource.SUGGESTED_EDITS
-    private var funnel: EditFunnel? = null
+    private var detailsClicked: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -75,20 +72,23 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
         acceptButton.setOnClickListener {
-            doPublish(true)
+            doPublish(ImageRecommendationsFunnel.RESPONSE_ACCEPT, emptyList())
         }
 
         rejectButton.setOnClickListener {
-            SuggestedEditsImageRecommendationDialog().show(childFragmentManager, null)
+            SuggestedEditsImageRecommendationDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_REJECT)
+                    .show(childFragmentManager, null)
         }
 
         notSureButton.setOnClickListener {
-            SuggestedEditsImageRecommendationDialog().show(childFragmentManager, null)
+            SuggestedEditsImageRecommendationDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_NOT_SURE)
+                    .show(childFragmentManager, null)
         }
 
         imageClickTarget.setOnClickListener {
             if (page != null) {
                 startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.imageTitle, WikiSite(Service.COMMONS_URL))))
+                detailsClicked = true
             }
         }
 
@@ -120,17 +120,17 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         cardItemErrorView.visibility = VISIBLE
         cardItemProgressBar.visibility = GONE
         articleContentContainer.visibility = GONE
+        imageSuggestionContainer.visibility = GONE
     }
 
     private fun updateContents() {
         cardItemErrorView.visibility = GONE
         articleContentContainer.visibility = if (page != null) VISIBLE else GONE
+        imageSuggestionContainer.visibility = if (page != null) VISIBLE else GONE
         cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
         if (page == null) {
             return
         }
-
-        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title, WikiSite(Service.COMMONS_URL)))
 
         ImageZoomHelper.setViewZoomable(imageView)
 
@@ -138,7 +138,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
                         ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, page!!.title).subscribeOn(Schedulers.io()),
                         { imageInfoResponse, summaryResponse -> Pair(imageInfoResponse, summaryResponse)
                 }).observeOn(AndroidSchedulers.mainThread())
-                .subscribe { pair ->
+                .subscribe({ pair ->
 
                     val imageInfo = pair.first.query()!!.firstPage()!!.imageInfo()!!
                     val summary = pair.second
@@ -158,7 +158,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
                     val arr = imageInfo.commonsUrl.split('/')
                     imageFileNameText.text = UriUtil.decodeURL(arr[arr.size - 1])
-                })
+                }, { setErrorState(it) }))
 
         callback().updateActionButton()
     }
@@ -174,12 +174,12 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         callback().nextPage(this)
     }
 
-    override fun onDialogSubmit() {
-        doPublish(true)
+    override fun onDialogSubmit(response: Int, selectedItems: List<Int>) {
+        doPublish(response, selectedItems)
     }
 
-    fun doPublish(accept: Boolean) {
-        if (publishing || publishSuccess) {
+    private fun doPublish(response: Int, reasons: List<Int>) {
+        if (publishing || publishSuccess || page == null) {
             return
         }
 
@@ -188,39 +188,16 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         publishing = true
         publishSuccess = false
 
-        funnel?.logSaveAttempt()
-
-        // publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
         publishProgressBarComplete.visibility = GONE
         publishProgressBar.visibility = VISIBLE
 
-        // funnel?.logSaved(...)
+        ImageRecommendationsFunnel().logSubmit(WikipediaApp.getInstance().appOrSystemLanguageCode, page!!.title, page!!.imageTitle,
+                response, reasons, detailsClicked, false, AccountUtil.userName, false)
+
         publishSuccess = true
         onSuccess()
-        // or onError(caught)
-
-        /*
-        csrfClient.request(false, object : CsrfTokenClient.Callback {
-            override fun success(token: String) {
-
-                // funnel?.logSaved(...)
-                publishSuccess = true
-                onSuccess()
-                // or onError(caught)
-
-            }
-
-            override fun failure(caught: Throwable) {
-                onError(caught)
-            }
-
-            override fun twoFactorPrompt() {
-                onError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
-            }
-        })
-        */
     }
 
     private fun onSuccess() {
@@ -254,14 +231,6 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
                 callback().logSuccess()
             }
         }, duration * 3)
-    }
-
-    private fun onError(caught: Throwable) {
-        // TODO: expand this a bit.
-        SuggestedEditsFunnel.get().failure(DescriptionEditActivity.Action.IMAGE_RECOMMENDATION)
-        funnel?.logError(caught.localizedMessage)
-        publishOverlayContainer.visibility = GONE
-        FeedbackUtil.showError(requireActivity(), caught)
     }
 
     override fun publishEnabled(): Boolean {
