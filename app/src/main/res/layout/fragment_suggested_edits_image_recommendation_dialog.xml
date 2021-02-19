@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Can you tell us why you are not sure if this is a suitable image?"
+        android:text="@string/image_recommendations_task_choice_instruction"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="16sp"/>
 
@@ -38,7 +38,7 @@
         android:layout_marginEnd="4dp"
         android:paddingEnd="8dp"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
-        android:text="Not relevant"
+        android:text="@string/image_recommendations_task_choice_not_relevant"
         android:textColor="?attr/material_theme_primary_color"
         app:buttonTint="?attr/colorAccent" />
 
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="4dp"
         android:paddingEnd="8dp"
-        android:text="Low quality"
+        android:text="@string/image_recommendations_task_choice_low_quality"
         android:textColor="?attr/material_theme_primary_color"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/checkBox1"
         android:layout_marginTop="8dp"
         android:paddingEnd="8dp"
-        android:text="Not enough information"
+        android:text="@string/image_recommendations_task_choice_noinfo"
         android:textColor="?attr/material_theme_primary_color"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@id/checkBox2"
         android:layout_marginTop="8dp"
         android:paddingEnd="8dp"
-        android:text="Don't know this subject"
+        android:text="@string/image_recommendations_task_choice_nosubject"
         android:textColor="?attr/material_theme_primary_color"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
@@ -93,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@id/checkBox3"
         android:layout_marginTop="8dp"
         android:paddingEnd="8dp"
-        android:text="Offensive"
+        android:text="@string/image_recommendations_task_choice_offensive"
         android:textColor="?attr/material_theme_primary_color"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
@@ -107,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@id/checkBox4"
         android:layout_marginTop="8dp"
         android:paddingEnd="8dp"
-        android:text="Other"
+        android:text="@string/image_recommendations_task_choice_other"
         android:textColor="?attr/material_theme_primary_color"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
@@ -119,7 +119,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkBox6"
         android:layout_height="48dp"
-        android:text="Continue"
+        android:text="@string/image_recommendations_task_choice_continue"
         android:layout_gravity="end"
         android:layout_marginTop="8dp"/>
 

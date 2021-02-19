@@ -29,7 +29,6 @@
         android:textSize="32sp"
         android:textStyle="bold|italic"
         android:textColor="@color/red75"
-        android:text="75%"
         tools:text="75%"/>
 
     <TextView

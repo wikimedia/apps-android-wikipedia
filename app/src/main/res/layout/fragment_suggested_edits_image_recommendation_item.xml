@@ -131,7 +131,7 @@
             android:padding="10dp"
             android:textSize="16sp"
             android:textColor="?attr/material_theme_primary_color"
-            android:text="Is this a good image for the article?"/>
+            android:text="@string/image_recommendations_task_instruction"/>
 
         <!-- Container layout is necessary to make the ImageView zoomable in-place. -->
         <org.wikipedia.views.WikiCardView
