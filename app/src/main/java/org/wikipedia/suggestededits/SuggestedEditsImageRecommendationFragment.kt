@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.widget.NestedScrollView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -25,6 +24,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationItemBi
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
@@ -100,11 +100,10 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
         binding.articleContentContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
             scrolled = true
-            L.d(">>>>>>>>>> yes.")
         })
 
         getNextItem()
-        updateContents()
+        updateContents(null)
     }
 
     override fun onStart() {
@@ -123,15 +122,20 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         }
         disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingImage(WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
+                .flatMap {
+                    this.page = it
+                    ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, it.title).subscribeOn(Schedulers.io())
+                }
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    this.page = response
-                    updateContents()
+                .retry(10)
+                .subscribe({ summary ->
+                    updateContents(summary)
                 }, { this.setErrorState(it) })!!)
     }
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
+        page = null
         binding.cardItemErrorView.setError(t)
         binding.cardItemErrorView.visibility = VISIBLE
         binding.cardItemProgressBar.visibility = GONE
@@ -139,25 +143,22 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         binding.imageSuggestionContainer.visibility = GONE
     }
 
-    private fun updateContents() {
+    private fun updateContents(summary: PageSummary?) {
         binding.cardItemErrorView.visibility = GONE
         binding.articleContentContainer.visibility = if (page != null) VISIBLE else GONE
         binding.imageSuggestionContainer.visibility = if (page != null) VISIBLE else GONE
         binding.cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
-        if (page == null) {
+        if (page == null || summary == null) {
             return
         }
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode).subscribeOn(Schedulers.io()),
-                        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, page!!.title).subscribeOn(Schedulers.io()),
-                        { imageInfoResponse, summaryResponse -> Pair(imageInfoResponse, summaryResponse)
-                }).observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pair ->
-
-                    val imageInfo = pair.first.query()!!.firstPage()!!.imageInfo()!!
-                    val summary = pair.second
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    val imageInfo = response.query()!!.firstPage()!!.imageInfo()!!
 
                     binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
