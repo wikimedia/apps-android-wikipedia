@@ -9,20 +9,19 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import android.widget.LinearLayout
+import androidx.core.widget.NestedScrollView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_suggested_edits_image_recommendation_item.*
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.ImageRecommendationsFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationItemBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -36,6 +35,9 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
 class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecommendationDialog.Callback {
+    private var _binding: FragmentSuggestedEditsImageRecommendationItemBinding? = null
+    private val binding get() = _binding!!
+
     var publishing: Boolean = false
     private var publishSuccess: Boolean = false
     private var page: ImageRecommendationResponse? = null
@@ -43,62 +45,63 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
     private var detailsClicked: Boolean = false
     private var scrolled: Boolean = false
 
-    private val onScrollListener = ViewTreeObserver.OnScrollChangedListener {
-        scrolled = true
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_suggested_edits_image_recommendation_item, container, false)
+        _binding = FragmentSuggestedEditsImageRecommendationItemBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
-        cardItemErrorView.retryClickListener = View.OnClickListener {
-            cardItemProgressBar.visibility = VISIBLE
-            cardItemErrorView.visibility = GONE
+
+        binding.cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
+        binding.cardItemErrorView.retryClickListener = View.OnClickListener {
+            binding.cardItemProgressBar.visibility = VISIBLE
+            binding.cardItemErrorView.visibility = GONE
             getNextItem()
         }
 
         val transparency = 0xcc000000
 
-        publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
-        publishOverlayContainer.visibility = GONE
+        binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
+        binding.publishOverlayContainer.visibility = GONE
 
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
                 intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
-        publishProgressBar.progressTintList = colorStateList
-        publishProgressBarComplete.progressTintList = colorStateList
-        publishProgressCheck.imageTintList = colorStateList
-        publishProgressText.setTextColor(colorStateList)
+        binding.publishProgressBar.progressTintList = colorStateList
+        binding.publishProgressBarComplete.progressTintList = colorStateList
+        binding.publishProgressCheck.imageTintList = colorStateList
+        binding.publishProgressText.setTextColor(colorStateList)
 
-        imageCard.elevation = 0f
-        imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)
-        imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
+        binding.imageCard.elevation = 0f
+        binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)
+        binding.imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
-        acceptButton.setOnClickListener {
+        binding.acceptButton.setOnClickListener {
             doPublish(ImageRecommendationsFunnel.RESPONSE_ACCEPT, emptyList())
         }
 
-        rejectButton.setOnClickListener {
+        binding.rejectButton.setOnClickListener {
             SuggestedEditsImageRecommendationDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_REJECT)
                     .show(childFragmentManager, null)
         }
 
-        notSureButton.setOnClickListener {
+        binding.notSureButton.setOnClickListener {
             SuggestedEditsImageRecommendationDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_NOT_SURE)
                     .show(childFragmentManager, null)
         }
 
-        imageClickTarget.setOnClickListener {
+        binding.imageClickTarget.setOnClickListener {
             if (page != null) {
                 startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.imageTitle, WikiSite(Service.COMMONS_URL))))
                 detailsClicked = true
             }
         }
 
-        articleContentContainer.viewTreeObserver.addOnScrollChangedListener(onScrollListener)
+        binding.articleContentContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
+            scrolled = true
+            L.d(">>>>>>>>>> yes.")
+        })
 
         getNextItem()
         updateContents()
@@ -107,6 +110,11 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
     override fun onStart() {
         super.onStart()
         callback().updateActionButton()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun getNextItem() {
@@ -124,23 +132,23 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
-        cardItemErrorView.setError(t)
-        cardItemErrorView.visibility = VISIBLE
-        cardItemProgressBar.visibility = GONE
-        articleContentContainer.visibility = GONE
-        imageSuggestionContainer.visibility = GONE
+        binding.cardItemErrorView.setError(t)
+        binding.cardItemErrorView.visibility = VISIBLE
+        binding.cardItemProgressBar.visibility = GONE
+        binding.articleContentContainer.visibility = GONE
+        binding.imageSuggestionContainer.visibility = GONE
     }
 
     private fun updateContents() {
-        cardItemErrorView.visibility = GONE
-        articleContentContainer.visibility = if (page != null) VISIBLE else GONE
-        imageSuggestionContainer.visibility = if (page != null) VISIBLE else GONE
-        cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
+        binding.cardItemErrorView.visibility = GONE
+        binding.articleContentContainer.visibility = if (page != null) VISIBLE else GONE
+        binding.imageSuggestionContainer.visibility = if (page != null) VISIBLE else GONE
+        binding.cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
         if (page == null) {
             return
         }
 
-        ImageZoomHelper.setViewZoomable(imageView)
+        ImageZoomHelper.setViewZoomable(binding.imageView)
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode).subscribeOn(Schedulers.io()),
                         ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, page!!.title).subscribeOn(Schedulers.io()),
@@ -151,21 +159,21 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
                     val imageInfo = pair.first.query()!!.firstPage()!!.imageInfo()!!
                     val summary = pair.second
 
-                    imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
-                    imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
+                    binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+                    binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
 
-                    articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
-                    articleDescription.text = summary.description
-                    articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
+                    binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
+                    binding.articleDescription.text = summary.description
+                    binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
 
-                    articleScrollSpacer.post {
+                    binding.articleScrollSpacer.post {
                         if (isAdded) {
-                            articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, imageSuggestionContainer.height)
+                            binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.imageSuggestionContainer.height)
                         }
                     }
 
                     val arr = imageInfo.commonsUrl.split('/')
-                    imageFileNameText.text = UriUtil.decodeURL(arr[arr.size - 1])
+                    binding.imageFileNameText.text = UriUtil.decodeURL(arr[arr.size - 1])
                 }, { setErrorState(it) }))
 
         callback().updateActionButton()
@@ -196,13 +204,13 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         publishing = true
         publishSuccess = false
 
-        publishProgressCheck.visibility = GONE
-        publishOverlayContainer.visibility = VISIBLE
-        publishProgressBarComplete.visibility = GONE
-        publishProgressBar.visibility = VISIBLE
+        binding.publishProgressCheck.visibility = GONE
+        binding.publishOverlayContainer.visibility = VISIBLE
+        binding.publishProgressBarComplete.visibility = GONE
+        binding.publishProgressBar.visibility = VISIBLE
 
         ImageRecommendationsFunnel().logSubmit(WikipediaApp.getInstance().appOrSystemLanguageCode, page!!.title, page!!.imageTitle,
-                response, reasons, detailsClicked, scrolled, AccountUtil.userName, Prefs.isImageRecsTeacherMode())
+                response, reasons, detailsClicked, scrolled, /* TODO: AccountUtil.userName */ null, Prefs.isImageRecsTeacherMode())
 
         publishSuccess = true
         onSuccess()
@@ -212,29 +220,29 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         SuggestedEditsFunnel.get().success(DescriptionEditActivity.Action.IMAGE_RECOMMENDATION)
 
         val duration = 500L
-        publishProgressBar.alpha = 1f
-        publishProgressBar.animate()
+        binding.publishProgressBar.alpha = 1f
+        binding.publishProgressBar.animate()
                 .alpha(0f)
                 .duration = duration / 2
 
-        publishProgressBarComplete.alpha = 0f
-        publishProgressBarComplete.visibility = VISIBLE
-        publishProgressBarComplete.animate()
+        binding.publishProgressBarComplete.alpha = 0f
+        binding.publishProgressBarComplete.visibility = VISIBLE
+        binding.publishProgressBarComplete.animate()
                 .alpha(1f)
                 .withEndAction {
                     // publishProgressText.setText(R.string.suggested_edits_image_tags_published)
                 }
                 .duration = duration / 2
 
-        publishProgressCheck.alpha = 0f
-        publishProgressCheck.visibility = VISIBLE
-        publishProgressCheck.animate()
+        binding.publishProgressCheck.alpha = 0f
+        binding.publishProgressCheck.visibility = VISIBLE
+        binding.publishProgressCheck.animate()
                 .alpha(1f)
                 .duration = duration
 
-        publishProgressBar.postDelayed({
+        binding.publishProgressBar.postDelayed({
             if (isAdded) {
-                publishOverlayContainer.visibility = GONE
+                binding.publishOverlayContainer.visibility = GONE
                 callback().nextPage(this)
                 callback().logSuccess()
             }

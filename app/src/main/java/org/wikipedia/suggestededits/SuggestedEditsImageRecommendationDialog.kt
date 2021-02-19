@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.FrameLayout
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
@@ -66,8 +67,8 @@ class SuggestedEditsImageRecommendationDialog : DialogFragment() {
     }
 
     private fun updateSubmitState() {
-        val enabled = (binding.checkBox1.isChecked || binding.checkBox2.isChecked || binding.checkBox3.isChecked
-                || binding.checkBox4.isChecked || binding.checkBox5.isChecked || binding.checkBox6.isChecked)
+        val enabled = (binding.checkBox1.isChecked || binding.checkBox2.isChecked || binding.checkBox3.isChecked ||
+                binding.checkBox4.isChecked || binding.checkBox5.isChecked || binding.checkBox6.isChecked)
         binding.continueButton.isEnabled = enabled
         binding.continueButton.alpha = if (enabled) 1f else 0.5f
     }
@@ -80,9 +81,9 @@ class SuggestedEditsImageRecommendationDialog : DialogFragment() {
         const val ARG_RESPONSE = "response"
 
         fun newInstance(response: Int): SuggestedEditsImageRecommendationDialog {
-            val dialog = SuggestedEditsImageRecommendationDialog();
-            dialog.arguments?.putInt(ARG_RESPONSE, response)
-            return dialog
+            return SuggestedEditsImageRecommendationDialog().apply {
+                arguments = bundleOf(ARG_RESPONSE to response)
+            }
         }
     }
 }
