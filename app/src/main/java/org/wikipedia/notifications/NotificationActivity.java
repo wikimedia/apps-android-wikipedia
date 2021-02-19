@@ -102,8 +102,8 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
 
-        errorView.setRetryClickListener((v) -> beginUpdateList());
-        errorView.setBackClickListener((v) -> onBackPressed());
+        errorView.setRetryClickListener(v -> beginUpdateList());
+        errorView.setBackClickListener(v -> onBackPressed());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DrawableItemDecoration(this, R.attr.list_separator_drawable));

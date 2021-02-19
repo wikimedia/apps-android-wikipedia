@@ -70,7 +70,7 @@
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null"
             app:tint="?attr/secondary_text_color"
-            app:srcCompat="@drawable/ic_share_black_24dp" />
+            app:srcCompat="@drawable/ic_share" />
 
         <TextView
             android:layout_width="0dp"
