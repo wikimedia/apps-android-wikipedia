@@ -7,6 +7,7 @@ class PrefixSearchResponse : MwQueryResponse() {
     @SerializedName("searchinfo")
     private val searchInfo: SearchInfo? = null
     private val search: Search? = null
+
     fun suggestion(): String? {
         return searchInfo?.suggestion()
     }
