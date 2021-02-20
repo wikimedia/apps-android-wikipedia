@@ -49,6 +49,7 @@ class RecentSearch : Parcelable {
     companion object {
         @JvmField
         val DATABASE_TABLE = RecentSearchDatabaseTable()
+        @JvmField
         val CREATOR: Parcelable.Creator<RecentSearch> = object : Parcelable.Creator<RecentSearch> {
             override fun createFromParcel(`in`: Parcel): RecentSearch {
                 return RecentSearch(`in`)
