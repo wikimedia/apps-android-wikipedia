@@ -176,7 +176,7 @@ class TalkTopicsActivity : BaseActivity() {
         if (topics.isEmpty()) {
             updateOnEmpty()
         } else {
-            binding. talkErrorView.visibility = View.GONE
+            binding.talkErrorView.visibility = View.GONE
             binding.talkNewTopicButton.show()
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()

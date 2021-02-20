@@ -23,7 +23,6 @@ import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityTalkTopicBinding
-import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
