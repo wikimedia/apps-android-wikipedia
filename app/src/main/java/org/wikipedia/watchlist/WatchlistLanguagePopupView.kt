@@ -12,23 +12,22 @@ import android.widget.*
 import androidx.core.widget.PopupWindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_watchlist_language.view.*
-import kotlinx.android.synthetic.main.view_watchlist_language_popup.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.databinding.ViewWatchlistLanguagePopupBinding
 import org.wikipedia.settings.Prefs
 
 class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs), CompoundButton.OnCheckedChangeListener {
+    val binding = ViewWatchlistLanguagePopupBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
-    var popupWindowHost: PopupWindow? = null
-    val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
+    private var popupWindowHost: PopupWindow? = null
+    private val disabledLangCodes = Prefs.getWatchlistDisabledLanguages()
 
     init {
-        View.inflate(context, R.layout.view_watchlist_language_popup, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        languageRecyclerView.layoutManager = LinearLayoutManager(getContext())
-        languageRecyclerView.adapter = RecyclerAdapter()
+        binding.languageRecyclerView.layoutManager = LinearLayoutManager(getContext())
+        binding.languageRecyclerView.adapter = RecyclerAdapter()
     }
 
     fun show(anchorView: View?, callback: Callback?) {
@@ -55,7 +54,7 @@ class WatchlistLanguagePopupView constructor(context: Context, attrs: AttributeS
         }
     }
 
-    internal inner class RecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         override fun getItemCount(): Int {
             return WikipediaApp.getInstance().language().appLanguageCodes.size
         }
