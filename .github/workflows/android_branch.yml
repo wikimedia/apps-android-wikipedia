@@ -1,6 +1,9 @@
 name: Android branch build
 
-on: [workflow_dispatch]
+on:
+  pull_request:
+    branches:
+      - '*design*'
 
 jobs:
   build_branch:
