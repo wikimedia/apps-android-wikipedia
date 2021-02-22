@@ -13,7 +13,7 @@ import org.wikipedia.databinding.ItemWatchlistHeaderBinding
 import org.wikipedia.util.ResourceUtil
 
 class WatchlistHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), View.OnClickListener {
-    val binding = ItemWatchlistHeaderBinding.inflate(LayoutInflater.from(context))
+    val binding = ItemWatchlistHeaderBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
 
     init {
