@@ -1,7 +1,7 @@
 name: Android branch build
 
 on:
-  pull_request:
+  push:
     branches:
       - '*design*'
 
