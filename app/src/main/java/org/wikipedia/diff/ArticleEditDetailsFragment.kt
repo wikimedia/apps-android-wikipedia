@@ -130,7 +130,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         thankButton.setOnClickListener { showThankDialog() }
-        errorView.setBackClickListener { requireActivity().finish() }
+        errorView.backClickListener = OnClickListener { requireActivity().finish() }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -342,7 +342,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    FeedbackUtil.showMessage(activity, getString(R.string.thank_success_message, username))
+                    FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message, username))
                     setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(),
                             R.attr.material_theme_de_emphasised_color))
                     thankButton.isClickable = false

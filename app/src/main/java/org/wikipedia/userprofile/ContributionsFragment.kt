@@ -18,7 +18,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
@@ -26,6 +25,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.databinding.FragmentContributionsSuggestedEditsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -50,6 +50,8 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
+    private var _binding: FragmentContributionsSuggestedEditsBinding? = null
+    private val binding get() = _binding!!
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
 
     private var allContributions = ArrayList<Contribution>()
@@ -67,21 +69,21 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private val commentRegex = """/\*.*?\*/""".toRegex()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
         totalContributionCount = arguments?.getInt(EXTRA_SOURCE_CONTRIBUTIONS, 0)!!
         totalPageViews = arguments?.getLong(EXTRA_SOURCE_PAGEVIEWS, 0)!!
-
-        return inflater.inflate(R.layout.fragment_contributions_suggested_edits, container, false)
+        _binding = FragmentContributionsSuggestedEditsBinding.inflate(LayoutInflater.from(context), container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
-        contributionsRecyclerView.adapter = adapter
+        binding.contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.contributionsRecyclerView.adapter = adapter
 
-        contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val scrollY = recyclerView.computeVerticalScrollOffset()
                 val activity = requireActivity() as AppCompatActivity
@@ -93,12 +95,12 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             }
         })
 
-        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener {
+        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.swipeRefreshLayout.setOnRefreshListener {
             resetAndFetch()
         }
 
-        errorView.setBackClickListener {
+        binding.errorView.backClickListener = View.OnClickListener {
             resetAndFetch()
         }
 
@@ -109,8 +111,9 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     }
 
     override fun onDestroyView() {
-        contributionsRecyclerView.adapter = null
-        contributionsRecyclerView.clearOnScrollListeners()
+        binding.contributionsRecyclerView.adapter = null
+        binding.contributionsRecyclerView.clearOnScrollListeners()
+        _binding = null
         disposables.clear()
         UserContributionFunnel.reset()
         super.onDestroyView()
@@ -143,7 +146,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun resetAndFetch() {
         allContributions.clear()
         displayedContributions.clear()
-        errorView.visibility = GONE
+        binding.errorView.visibility = GONE
         articleContributionsContinuation = null
         imageContributionsContinuation = null
         adapter.notifyDataSetChanged()
@@ -156,7 +159,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             return
         }
 
-        progressBar.visibility = VISIBLE
+        binding.progressBar.visibility = VISIBLE
         disposables.clear()
 
         if (allContributions.isEmpty()) {
@@ -284,8 +287,8 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    swipeRefreshLayout.isRefreshing = false
-                    progressBar.visibility = GONE
+                    binding.swipeRefreshLayout.isRefreshing = false
+                    binding.progressBar.visibility = GONE
                 }
                 .subscribe({
                     allContributions.addAll(it)
@@ -330,7 +333,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             }
         }
         adapter.notifyDataSetChanged()
-        contributionsRecyclerView.visibility = VISIBLE
+        binding.contributionsRecyclerView.visibility = VISIBLE
     }
 
     private fun getCorrectDateString(date: Date): String {
@@ -370,10 +373,10 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     }
 
     private fun showError(t: Throwable) {
-        swipeRefreshLayout.isRefreshing = false
-        contributionsRecyclerView.visibility = GONE
-        errorView.setError(t)
-        errorView.visibility = VISIBLE
+        binding.swipeRefreshLayout.isRefreshing = false
+        binding.contributionsRecyclerView.visibility = GONE
+        binding.errorView.setError(t)
+        binding.errorView.visibility = VISIBLE
     }
 
     private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView>(itemView) {

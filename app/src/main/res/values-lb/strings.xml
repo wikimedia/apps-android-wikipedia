@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Envlh
 * Les Meloures
 * MuratTheTurkish
@@ -318,7 +317,7 @@
   <string name="text_size_increase">Gréisst vum Text méi grouss maachen</string>
   <string name="text_size_decrease">Gréisst vum Text méi kleng maachen</string>
   <string name="text_size_percent_default">%s (Standard)</string>
-  <string name="nav_item_reading_lists">Meng Lëschten</string>
+  <string name="nav_item_saved">Gespäichert</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_move_to">Op d\'Lieslëscht réckelen</string>
   <string name="reading_list_create_new">Neier uleeën</string>
@@ -650,7 +649,7 @@
   <string name="more_language_options">méi</string>
   <string name="add_wikipedia_languages_text">Wikipedia-Sproochen derbäisetzen</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Eng chineesesch Variant vun Ären App Sproochen ewechhuelen?</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo souwuel déi traditionell wéi déi vereinfacht chineesesch Variant an Ären App sproochen agestallt. Wëllt dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Dir hutt elo souwuel déi traditionell wéi déi vereinfacht chineesesch Variant an Ären App sproochen agestallt. Wëllt Dir d\'Astellunge vun de Sprooche vun Ären Appen änneren?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sproochen änneren</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nee, merci</string>
   <string name="remove_language_dialog_cancel_button_text">Ofbriechen</string>

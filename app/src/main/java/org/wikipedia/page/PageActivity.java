@@ -90,6 +90,7 @@ import io.reactivex.rxjava3.functions.Consumer;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
@@ -712,6 +713,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         public void feedClick() {
             goToMainTab(NavTab.EXPLORE);
         }
+
+        @Override
+        public void talkClick() {
+            startActivity(TalkTopicsActivity.newIntent(PageActivity.this,
+                    pageFragment.getTitle().pageTitleForTalkPage(), PAGE_ACTIVITY));
+        }
+
+        @Override
+        public void editHistoryClick() {
+            visitInExternalBrowser(PageActivity.this,
+                    Uri.parse(pageFragment.getTitle().getWebApiUrl("action=history")));
+        }
     }
 
     @Override
@@ -894,9 +907,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     pageFragment.updateFontSize();
                 }
             } else if (event instanceof ArticleSavedOrDeletedEvent) {
-                if (((ArticleSavedOrDeletedEvent) event).isAdded()) {
-                    Prefs.shouldShowBookmarkToolTip(false);
-                }
                 if (pageFragment == null || !pageFragment.isAdded() || pageFragment.getTitle() == null) {
                     return;
                 }

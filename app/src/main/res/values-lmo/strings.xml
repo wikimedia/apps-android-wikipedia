@@ -151,7 +151,7 @@
   <string name="email_recommendation_dialog_create_with_email_action">Sgionta on adress de posta eletronica</string>
   <string name="create_account_button">Crea un cunt</string>
   <string name="create_account_name_unavailable">\"%s\" come nom de l\'utent a l\'è minga disponibil. Per piesè, catenn foeura un\'alter.</string>
-  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, adesedess, a l\'è blocad e te podet creà no di noeuv cunt.</string>
+  <string name="create_account_ip_block_message">El ne rincress, el to adress IP, adsedess, a l\'è blocad e te podet creà no di noeuv cunt.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Detali</string>
   <string name="preferences_general_heading">General</string>
@@ -243,7 +243,6 @@
   <string name="close_all_tabs_confirm_no">Nò</string>
   <string name="button_close_tab">Sara su la scheda</string>
   <string name="text_style_title">Tipo de caratter</string>
-  <string name="nav_item_reading_lists">I me list</string>
   <string name="notifications_mark_unread">Insegna come nananmò leggiud</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
   <string name="preference_title_notification_system">Sistema</string>

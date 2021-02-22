@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aranka
 * Ciell
 * Dbrant
@@ -75,6 +74,7 @@
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Op artikel zoeken</string>
+  <string name="menu_page_add_to_watchlist">Toevoegen aan volglijst</string>
   <string name="edit_section_find_in_page">Op pagina zoeken</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
@@ -210,6 +210,7 @@
   <string name="page_protected_can_not_edit">Sorry, uw account heeft niet de benodigde rechten om op deze moment deze pagina aan te passen.</string>
   <string name="page_protected_can_not_edit_anon">Sorry, deze pagina kan momenteel niet anoniem aangepast worden.</string>
   <string name="page_protected_can_not_edit_title">Deze pagina is beveiligd</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Toevoegen aan volglijst</string>
   <string name="settings_item_preferences">Instellingen</string>
   <string name="settings_activity_title">Instellingen</string>
   <string name="about_description">Over de Wikipedia-app</string>
@@ -396,7 +397,7 @@
   <string name="text_size_decrease">Tekstgrootte verkleinen</string>
   <string name="text_size_percent_default">%s (standaard)</string>
   <string name="text_style_title">Lettertype</string>
-  <string name="nav_item_reading_lists">Mijn lijsten</string>
+  <string name="nav_item_saved">Opgeslagen</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
@@ -566,6 +567,7 @@
   <string name="notifications_view_archived_button_text">Bekijk gearchiveerde meldingen</string>
   <string name="notification_preferences_title">Meldingsvoorkeuren</string>
   <string name="notifications_mark_unread">Markeren als ongelezen</string>
+  <string name="watchlist_title">Volglijst</string>
   <string name="preference_title_notification_poll">Ververs meldingen</string>
   <string name="preference_summary_notification_poll">Sta de app toe data te gebruiken om op de achtergrond te checken op nieuwe meldingen.</string>
   <string name="preference_category_notification_types">Meldingtypes in de app</string>
@@ -586,11 +588,14 @@
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
   <string name="view_random_article_card_title">Willekeurig artikel</string>
+  <string name="view_random_article_card_action">Meer willekeurige artikelen</string>
+  <string name="view_top_read_card_title">Meest gelezen</string>
   <string name="view_next_random_article">Ander willekeurige pagina laden</string>
   <string name="view_main_page_card_title">Vandaag op Wikipedia</string>
   <string name="view_main_page_card_action">Hoofdpagina bekijken</string>
   <string name="view_featured_image_card_title">Afbeelding van de dag</string>
   <string name="view_featured_image_card_download">Downloaden</string>
+  <string name="view_featured_image_card_share">Delen</string>
   <string name="menu_feed_card_dismiss">Deze kaart verbergen</string>
   <string name="menu_feed_card_dismissed">Kaart verborgen.</string>
   <string name="menu_feed_card_edit_card_languages">Bewerk kaarttalen</string>
@@ -879,6 +884,7 @@
   <string name="main_tooltip_text">Hoi %s, wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="main_tooltip_text_v2">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="main_tooltip_action_button">Aan de slag</string>
+  <string name="main_tooltip_watchlist_title">Volglijst</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuleren</string>
@@ -894,4 +900,19 @@
   <string name="talk_message_hint">Bericht opstellen</string>
   <string name="talk_message_empty">Het bericht mag niet leeg zijn.</string>
   <string name="talk_subject_empty">Het onderwerp mag niet leeg zijn.</string>
+  <string name="watchlist_details_watch_label">Volgen</string>
+  <string name="thank_label">Bedanken</string>
+  <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
+  <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
+  <string name="thank_dialog_negative_button_text">Annuleren</string>
+  <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_filter_all">Alle</string>
+  <string name="watchlist_filter_talk">Overleg</string>
+  <string name="watchlist_filter_pages">Pagina\'s</string>
+  <string name="watchlist_filter_other">Overige</string>
+  <string name="watchlist_page_moved">Hernoemd</string>
+  <string name="watchlist_page_protected">Beveiligd</string>
+  <string name="watchlist_page_deleted">Verwijderd</string>
 </resources>

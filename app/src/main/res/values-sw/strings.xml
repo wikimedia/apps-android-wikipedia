@@ -117,7 +117,6 @@
   <string name="color_theme_light">Hafifu</string>
   <string name="color_theme_dark">Kolevu</string>
   <string name="color_theme_black">Nyeusi</string>
-  <string name="nav_item_reading_lists">Orodha yangu</string>
   <string name="reading_list_added_view_button">Tazama orodha</string>
   <string name="reading_list_item_delete_undo">Tengua</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ndiyo</string>

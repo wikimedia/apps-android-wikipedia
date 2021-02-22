@@ -212,7 +212,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
         @Override
         public void onAddToReadingListTabSelected() {
-            Prefs.shouldShowBookmarkToolTip(false);
             if (model.isInReadingList()) {
                 new LongPressMenu(tabLayout, new LongPressMenu.Callback() {
                     @Override
@@ -407,8 +406,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge = new CommunicationBridge(this);
         setupMessageHandlers();
 
-        errorView.setRetryClickListener((v) -> refreshPage());
-        errorView.setBackClickListener((v) -> {
+        errorView.setRetryClickListener(v -> refreshPage());
+        errorView.setBackClickListener(v-> {
             boolean back = onBackPressed();
 
             // Needed if we're coming from another activity or fragment
@@ -542,7 +541,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setVisibility(View.VISIBLE);
         }
 
-        checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
 
         bridge.onMetadataReady();
@@ -1285,15 +1283,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     public void goForward() {
         pageFragmentLoadState.goForward();
-    }
-
-    private void checkAndShowBookmarkOnboarding() {
-        if (Prefs.shouldShowBookmarkToolTip() && Prefs.getOverflowReadingListsOptionClickCount() == 2) {
-            View targetView = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
-            FeedbackUtil.showTapTargetView(requireActivity(), targetView,
-                    R.string.tool_tip_bookmark_icon_title, R.string.tool_tip_bookmark_icon_text, null);
-            Prefs.shouldShowBookmarkToolTip(false);
-        }
     }
 
     private void initPageScrollFunnel() {

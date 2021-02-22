@@ -129,7 +129,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     private fun updateContents() {
         cardItemContainer.setOnClickListener(startDescriptionEditScreenListener())
         callToActionButton.setOnClickListener(startDescriptionEditScreenListener())
-        seCardErrorView.setBackClickListener {
+        seCardErrorView.backClickListener = View.OnClickListener {
             seCardErrorView.visibility = GONE
             fetchCardTypeEdit()
         }
@@ -231,13 +231,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
         }
         disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(forLanguageCode(langFromCode), targetLanguage!!, true, MAX_RETRY_LIMIT)
-                .map {
-                    if (it.second.description.isNullOrEmpty()) {
-                        throw EditingSuggestionsProvider.ListEmptyException()
-                    }
-                    it
-                }
-                .retry(MAX_RETRY_LIMIT) { t: Throwable -> t is EditingSuggestionsProvider.ListEmptyException }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->

@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
@@ -98,7 +97,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
-        errorView.setRetryClickListener { refreshContents() }
+        errorView.retryClickListener = View.OnClickListener { refreshContents() }
 
         suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
@@ -415,7 +414,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
-                showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
+                startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 return
             }
             if (task == addDescriptionsTask) {
@@ -430,11 +429,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun showLanguagesActivity(invokeSource: String) {
-        val intent = WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource)
-        startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE)
     }
 
     internal inner class RecyclerAdapter(tasks: List<SuggestedEditsTask>) : DefaultRecyclerAdapter<SuggestedEditsTask, SuggestedEditsTaskView>(tasks) {

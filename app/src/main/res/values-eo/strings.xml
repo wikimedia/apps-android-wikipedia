@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * Juan Cuartas
 * KuboF
@@ -15,6 +14,7 @@
 * Robin van der Vliet
 * SHaran (WMF)
 * Surfo
+* Wierzbowski
 * YvesNevelsteen
 -->
 <resources>
@@ -342,7 +342,7 @@
   <string name="text_size_increase">Pliigi la tekstograndon</string>
   <string name="text_size_decrease">Malpliigi la tekstograndon</string>
   <string name="text_size_percent_default">%s (Defaŭlto)</string>
-  <string name="nav_item_reading_lists">Miaj listoj</string>
+  <string name="nav_item_saved">Konservita</string>
   <string name="reading_list_save_to">Konservi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>

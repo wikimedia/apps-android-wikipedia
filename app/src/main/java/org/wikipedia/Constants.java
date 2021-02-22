@@ -100,7 +100,10 @@ public final class Constants {
         TALK_ACTIVITY("talkActivity"),
         SETTINGS("settings"),
         DIFF_ACTIVITY("diffActivity"),
-        WATCHLIST_ACTIVITY("watchlist");
+        WATCHLIST_ACTIVITY("watchlist"),
+        SEARCH("search"),
+        ANNOUNCEMENT("announcement"),
+        LANG_VARIANT_DIALOG("lang_variant_dialog");
 
         private String name;
 

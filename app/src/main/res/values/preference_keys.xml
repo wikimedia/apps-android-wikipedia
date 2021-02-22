@@ -89,8 +89,6 @@
     <string name="preference_key_locally_known_notifications">locallyKnownNotifications</string>
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
     <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
-    <string name="preference_key_show_bookmark_tooltip">showBookmarkTooltip</string>
-    <string name="preference_key_overflow_reading_lists_option_click_count">overflowReadingListsClickCount</string>
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
     <string name="preference_key_show_edit_tasks_onboarding">showEditTasksOnboarding</string>
     <string name="preference_key_logged_out_in_background">loggedOutInBackground</string>

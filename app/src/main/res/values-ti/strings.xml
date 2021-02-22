@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Joanmp17
 -->
 <resources>
@@ -195,7 +194,6 @@
   <string name="preference_title_app_theme">ገጽታ መተግበሪ</string>
   <string name="text_size_percent_default">%s (ንቡር)</string>
   <string name="text_style_title">ቅርጺ ፊደል</string>
-  <string name="nav_item_reading_lists">ዝርዝራተይ</string>
   <string name="reading_list_create_new">ሓድሽ ፍጠር</string>
   <string name="reading_list_added_view_button">ዝርዝር ርኣይ</string>
   <string name="reading_list_add_to_list_button">ናብ ዝርዝር ወስኽ</string>
