@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.dialog_watchlist_expiry.*
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.databinding.DialogWatchlistExpiryBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.DimenUtil
 
@@ -20,21 +20,23 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
         fun onExpirySelect(expiry: WatchlistExpiry)
     }
 
+    private var _binding: DialogWatchlistExpiryBinding? = null
+    private val binding get() = _binding!!
     private lateinit var expiry: WatchlistExpiry
     private lateinit var expiryOptions: Array<View>
     private val expiryList = arrayOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
             WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = DialogWatchlistExpiryBinding.inflate(inflater, container, false)
         expiry = requireArguments().getSerializable(ARG_EXPIRY) as WatchlistExpiry
-        return inflater.inflate(R.layout.dialog_watchlist_expiry, container)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        expiryOptions = arrayOf(watchlistExpiryPermanent, watchlistExpiryOneWeek, watchlistExpiryOneMonth,
-                watchlistExpiryThreeMonths, watchlistExpirySixMonths)
+        expiryOptions = arrayOf(binding.watchlistExpiryPermanent, binding.watchlistExpiryOneWeek, binding.watchlistExpiryOneMonth,
+                binding.watchlistExpiryThreeMonths, binding.watchlistExpirySixMonths)
         setupListeners()
         resetAllOptions()
         selectOption(expiry)
@@ -43,6 +45,11 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
     override fun onStart() {
         super.onStart()
         BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.navTabDialogPeekHeight))
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun setupListeners() {
