@@ -36,7 +36,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentSuggestedEditsCardsItemBinding.inflate(LayoutInflater.from(context), container, false)
+        _binding = FragmentSuggestedEditsCardsItemBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -67,6 +67,11 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             }
         }
         showAddedContributionView(addedContribution)
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     private fun getArticleWithMissingDescription() {
