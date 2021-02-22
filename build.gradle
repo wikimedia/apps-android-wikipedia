@@ -18,5 +18,6 @@ allprojects {
         maven { url "https://jitpack.io" }
         google()
         mavenLocal()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
 }
