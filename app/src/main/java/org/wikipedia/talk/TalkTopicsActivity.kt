@@ -48,7 +48,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTalkTopicsBinding.inflate(LayoutInflater.from(this))
+        binding = ActivityTalkTopicsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!

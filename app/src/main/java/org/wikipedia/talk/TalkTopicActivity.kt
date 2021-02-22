@@ -58,7 +58,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTalkTopicBinding.inflate(LayoutInflater.from(this))
+        binding = ActivityTalkTopicBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
