@@ -63,6 +63,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.buttonFontFamilySerif.setOnClickListener(FontFamilyListener())
         binding.themeChooserDarkModeDimImagesSwitch.setOnCheckedChangeListener { _, b -> onToggleDimImages(b) }
         binding.themeChooserMatchSystemThemeSwitch.setOnCheckedChangeListener { _, b -> onToggleMatchSystemTheme(b) }
+        
         binding.textSizeSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, value: Int, fromUser: Boolean) {
                 if (!fromUser) {
@@ -83,6 +84,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateComponents()
         disableBackgroundDim()
         setNavigationBarColor(getThemedColor(requireContext(), R.attr.paper_color))
+
+        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
         return binding.root
     }
 
@@ -94,12 +97,11 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
         funnel = AppearanceChangeFunnel(app, app.wikiSite, invokeSource)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         disposables.clear()
         _binding = null
     }
