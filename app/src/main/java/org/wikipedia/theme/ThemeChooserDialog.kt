@@ -63,7 +63,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.buttonFontFamilySerif.setOnClickListener(FontFamilyListener())
         binding.themeChooserDarkModeDimImagesSwitch.setOnCheckedChangeListener { _, b -> onToggleDimImages(b) }
         binding.themeChooserMatchSystemThemeSwitch.setOnCheckedChangeListener { _, b -> onToggleMatchSystemTheme(b) }
-        
         binding.textSizeSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, value: Int, fromUser: Boolean) {
                 if (!fromUser) {
