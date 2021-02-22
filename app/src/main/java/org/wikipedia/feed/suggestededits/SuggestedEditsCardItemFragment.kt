@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_suggested_edits_card_item.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
@@ -23,6 +22,7 @@ import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.databinding.FragmentSuggestedEditsCardItemBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -52,6 +52,9 @@ private const val AGE = "age"
 private const val CARD_TYPE = "cardType"
 
 class SuggestedEditsCardItemFragment : Fragment() {
+    private var _binding: FragmentSuggestedEditsCardItemBinding? = null
+    private val binding get() = _binding!!
+
     private var age = 0
     private var cardActionType: Action? = null
     private var app = WikipediaApp.getInstance()
@@ -83,9 +86,9 @@ class SuggestedEditsCardItemFragment : Fragment() {
         SuggestedEditsFunnel.get(FEED).impression(cardActionType)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_suggested_edits_card_item, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentSuggestedEditsCardItemBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -127,10 +130,10 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun updateContents() {
-        cardItemContainer.setOnClickListener(startDescriptionEditScreenListener())
-        callToActionButton.setOnClickListener(startDescriptionEditScreenListener())
-        seCardErrorView.backClickListener = View.OnClickListener {
-            seCardErrorView.visibility = GONE
+        binding.cardItemContainer.setOnClickListener(startDescriptionEditScreenListener())
+        binding.callToActionButton.setOnClickListener(startDescriptionEditScreenListener())
+        binding.seCardErrorView.backClickListener = View.OnClickListener {
+            binding.seCardErrorView.visibility = GONE
             fetchCardTypeEdit()
         }
         fetchCardTypeEdit()
@@ -164,7 +167,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
     }
 
     private fun fetchCardTypeEdit() {
-        seFeedCardProgressBar.visibility = VISIBLE
+        binding.seFeedCardProgressBar.visibility = VISIBLE
         when (cardActionType) {
             ADD_DESCRIPTION -> addDescription()
             TRANSLATE_DESCRIPTION -> translateDescription()
@@ -176,6 +179,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     override fun onDestroyView() {
         disposables.clear()
+        _binding = null
         super.onDestroyView()
     }
 
@@ -184,11 +188,11 @@ class SuggestedEditsCardItemFragment : Fragment() {
             return
         }
         itemClickable = true
-        seFeedCardProgressBar.visibility = GONE
-        seCardErrorView.visibility = GONE
-        callToActionButton.visibility = VISIBLE
+        binding.seFeedCardProgressBar.visibility = GONE
+        binding.seCardErrorView.visibility = GONE
+        binding.callToActionButton.visibility = VISIBLE
         if (sourceSummaryForEdit != null) {
-            cardView.layoutDirection = if (L10nUtil.isLangRTL(if (targetSummaryForEdit != null)
+            binding.cardView.layoutDirection = if (L10nUtil.isLangRTL(if (targetSummaryForEdit != null)
                         targetSummaryForEdit!!.lang else sourceSummaryForEdit!!.lang))
                 View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR
         }
@@ -386,67 +390,67 @@ class SuggestedEditsCardItemFragment : Fragment() {
 
     private fun showImageTagsUI() {
         showAddImageCaptionUI()
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
-        viewArticleExtract.text = StringUtil.removeNamespace(imageTagPage!!.title())
+        binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_tags)
+        binding.viewArticleExtract.text = StringUtil.removeNamespace(imageTagPage!!.title())
     }
 
     private fun showAddDescriptionUI() {
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_description_button)
-        articleDescriptionPlaceHolder1.visibility = VISIBLE
-        articleDescriptionPlaceHolder2.visibility = VISIBLE
-        viewArticleTitle.visibility = VISIBLE
-        divider.visibility = VISIBLE
-        viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle!!)
-        viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit!!.extract)
-        viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+        binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_description_button)
+        binding.articleDescriptionPlaceHolder1.visibility = VISIBLE
+        binding.articleDescriptionPlaceHolder2.visibility = VISIBLE
+        binding.viewArticleTitle.visibility = VISIBLE
+        binding.divider.visibility = VISIBLE
+        binding.viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle!!)
+        binding.viewArticleExtract.text = StringUtil.fromHtml(sourceSummaryForEdit!!.extract)
+        binding.viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         showItemImage()
     }
 
     private fun showTranslateDescriptionUI() {
         showAddDescriptionUI()
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
+        binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        viewArticleSubtitle.visibility = VISIBLE
-        viewArticleSubtitle.text = sourceSummaryForEdit?.description
+        binding.viewArticleSubtitle.visibility = VISIBLE
+        binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }
 
     private fun showAddImageCaptionUI() {
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_caption)
-        viewArticleTitle.visibility = GONE
-        viewArticleExtract.visibility = VISIBLE
-        viewArticleExtract.text = StringUtil.removeNamespace(StringUtils.defaultString(sourceSummaryForEdit?.displayTitle))
+        binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_add_image_caption)
+        binding.viewArticleTitle.visibility = GONE
+        binding.viewArticleExtract.visibility = VISIBLE
+        binding.viewArticleExtract.text = StringUtil.removeNamespace(StringUtils.defaultString(sourceSummaryForEdit?.displayTitle))
         showItemImage()
     }
 
     private fun showTranslateImageCaptionUI() {
         showAddImageCaptionUI()
-        callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
+        binding.callToActionButton.text = context?.getString(R.string.suggested_edits_feed_card_translate_image_caption,
                 app.language().getAppLanguageCanonicalName(targetLanguage))
-        viewArticleSubtitle.visibility = VISIBLE
-        viewArticleSubtitle.text = sourceSummaryForEdit?.description
+        binding.viewArticleSubtitle.visibility = VISIBLE
+        binding.viewArticleSubtitle.text = sourceSummaryForEdit?.description
     }
 
     private fun showItemImage() {
-        viewArticleImage.visibility = VISIBLE
+        binding.viewArticleImage.visibility = VISIBLE
         if (cardActionType == ADD_IMAGE_TAGS) {
-            viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize
+            binding.viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize
             (imageTagPage!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
         } else {
             if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
-                viewArticleImage.visibility = GONE
-                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+                binding.viewArticleImage.visibility = GONE
+                binding.viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
             } else {
-                viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.thumbnailUrl))
-                viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
+                binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.thumbnailUrl))
+                binding.viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
             }
         }
     }
 
     fun showError(caught: Throwable?) {
-        seFeedCardProgressBar.visibility = GONE
-        seCardErrorView.setError(caught)
-        seCardErrorView.visibility = VISIBLE
-        seCardErrorView.bringToFront()
+        binding.seFeedCardProgressBar.visibility = GONE
+        binding.seCardErrorView.setError(caught)
+        binding.seCardErrorView.visibility = VISIBLE
+        binding.seCardErrorView.bringToFront()
     }
 
     companion object {
