@@ -9,17 +9,14 @@ class PrefixSearchResponse : MwQueryResponse() {
     private val search: Search? = null
 
     fun suggestion(): String? {
-        return searchInfo?.suggestion()
+        return searchInfo?.suggestion
     }
 
     internal class SearchInfo {
-        private val suggestion: String? = null
+        val suggestion: String? = null
 
         @SerializedName("suggestionsnippet")
         private val snippet: String? = null
-        fun suggestion(): String? {
-            return suggestion
-        }
     }
 
     internal class Search {
