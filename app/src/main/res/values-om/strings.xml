@@ -13,8 +13,6 @@
   <string name="page_error_retry">Lammata yaali</string>
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
   <string name="menu_clear_all_history">Seenaa balleessi</string>
-  <string name="menu_page_talk">Haasaa</string>
-  <string name="menu_page_edit_history">Seenaa gulaali</string>
   <string name="menu_page_add_to_default_list">ol kaa\'i</string>
   <string name="feed_card_add_to_default_list">Ol kaa\'i</string>
   <string name="menu_page_share" fuzzy="true">Hiri</string>
