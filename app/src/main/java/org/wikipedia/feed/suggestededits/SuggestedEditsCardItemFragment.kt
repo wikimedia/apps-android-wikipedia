@@ -235,13 +235,6 @@ class SuggestedEditsCardItemFragment : Fragment() {
         }
         disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(forLanguageCode(langFromCode), targetLanguage!!, true, MAX_RETRY_LIMIT)
-                .map {
-                    if (it.second.description.isNullOrEmpty()) {
-                        throw EditingSuggestionsProvider.ListEmptyException()
-                    }
-                    it
-                }
-                .retry(MAX_RETRY_LIMIT) { t: Throwable -> t is EditingSuggestionsProvider.ListEmptyException }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
