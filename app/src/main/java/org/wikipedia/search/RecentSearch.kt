@@ -1,18 +1,8 @@
 package org.wikipedia.search
 
-import android.os.Parcel
-import android.os.Parcelable
 import java.util.*
 
-class RecentSearch : Parcelable {
-    val text: String?
-    val timestamp: Date
-
-    @JvmOverloads
-    constructor(text: String?, timestamp: Date = Date()) {
-        this.text = text
-        this.timestamp = timestamp
-    }
+class RecentSearch @JvmOverloads constructor(val text: String?, val timestamp: Date = Date()) {
 
     override fun equals(other: Any?): Boolean {
         if (other !is RecentSearch) {
@@ -32,32 +22,8 @@ class RecentSearch : Parcelable {
                 '}')
     }
 
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    override fun writeToParcel(dest: Parcel, flags: Int) {
-        dest.writeString(text)
-        dest.writeLong(timestamp.time)
-    }
-
-    private constructor(`in`: Parcel) {
-        text = `in`.readString()
-        timestamp = Date(`in`.readLong())
-    }
-
     companion object {
         @JvmField
         val DATABASE_TABLE = RecentSearchDatabaseTable()
-        @JvmField
-        val CREATOR: Parcelable.Creator<RecentSearch> = object : Parcelable.Creator<RecentSearch> {
-            override fun createFromParcel(`in`: Parcel): RecentSearch {
-                return RecentSearch(`in`)
-            }
-
-            override fun newArray(size: Int): Array<RecentSearch?> {
-                return arrayOfNulls(size)
-            }
-        }
     }
 }
