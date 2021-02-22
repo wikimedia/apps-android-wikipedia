@@ -777,7 +777,7 @@
   <string name="suggested_edits_image_tags_publishing">Objavljam</string>
   <string name="suggested_edits_image_tags_published">Objavljeno</string>
   <string name="suggested_edits_image_tags_onboarding_title">Označevanje slik omogoča, da jih je lažje najti.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Z dodajanjem oznak k slikam boste omogočili lažje iskanje slik v Zbirki, repozitoriju prosto licenciranih slik, ki ga Wikipedija uporablja za slike v člankih.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Z dodajanjem oznak k slikam boste omogočili lažje iskanje slik v Zbirki, shrambi prosto licenciranih slik, ki jo Wikipedija uporablja za slike v člankih.</string>
   <string name="suggested_edits_image_tags_onboarding_note">K slikam bodo dodane samo oznake, ki jih boste izbrali.</string>
   <string name="suggested_edits_image_tags_task_detail">Dodajte oznake po meri, da bo sliko lažje najti.</string>
   <string name="suggested_edits_image_tags_choose">Dodajte ali izberite ustrezne oznake</string>

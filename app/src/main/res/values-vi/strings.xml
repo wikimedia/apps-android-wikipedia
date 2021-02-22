@@ -63,8 +63,8 @@
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
   <string name="menu_page_add_to_watchlist">Thêm vào danh sách theo dõi</string>
-  <string name="menu_page_talk">Thảo luận</string>
-  <string name="menu_page_edit_history">Lịch sử sửa đổi</string>
+  <string name="menu_page_view_talk">Xem trang thảo luận</string>
+  <string name="menu_page_view_edit_history">Xem lịch sử sửa đổi</string>
   <string name="menu_page_remove_from_watchlist">Xóa khỏi danh sách theo dõi</string>
   <string name="edit_section_find_in_page">Tìm trong trang</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
@@ -210,10 +210,10 @@
   <string name="privacy_policy_description">Quy định về quyền riêng tư</string>
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
   <string name="about_wikipedia_url">https://vi.wikipedia.org/wiki/Wikipedia:Giới_thiệu</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/vi?uselang=vi</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/vi?uselang=vi</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/vi</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="android_app_request_an_account_url">https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -904,6 +904,8 @@
     <item quantity="one">Năm ngoái</item>
     <item quantity="other">%d năm trước</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Bạn đã du hành ngược đến đầu thời gian 🚀</string>
+  <string name="on_this_day_back_to_future">Đã trở lại tương lai</string>
   <string name="languages_list_activity_title">Thêm ngôn ngữ</string>
   <string name="languages_list_suggested_text">Được khuyến nghị</string>
   <string name="languages_list_all_text">Tất cả ngôn ngữ</string>
@@ -959,12 +961,17 @@
   <string name="talk_new_topic">Đề tài mới</string>
   <string name="talk_page_empty">Trang thảo luận này hiện đang trống.</string>
   <string name="talk_add_reply">Trả lời</string>
+  <string name="talk_no_subject">(Không tiêu đề)</string>
+  <string name="talk_reply_subject">Tiêu đề</string>
   <string name="talk_reply_hint">Nhập câu trả lời</string>
   <string name="talk_message_hint">Nhập tin nhắn</string>
   <string name="talk_message_empty">Tin nhắn này không trống</string>
+  <string name="talk_subject_empty">Không thể để trống tiêu đề.</string>
   <string name="menu_option_share_edit">Chia sẻ sửa đổi</string>
   <string name="menu_option_user_profile">%s\'s trang cá nhân</string>
   <string name="menu_option_user_contributions">%s\'s đóng góp</string>
+  <string name="watchlist_details_watching_label">Đang theo dõi</string>
+  <string name="watchlist_details_watch_label">Theo dõi</string>
   <string name="thank_label">Cảm ơn</string>
   <string name="go_to_user_page">Đi đến trang thành viên</string>
   <string name="thank_dialog_title_text">Gửi lời \'Cảm ơn\'</string>

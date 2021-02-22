@@ -63,8 +63,8 @@
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
-  <string name="menu_page_talk">שיחה</string>
-  <string name="menu_page_edit_history">היסטוריית עריכות</string>
+  <string name="menu_page_view_talk">הצגת דף השיחה</string>
+  <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
   <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
