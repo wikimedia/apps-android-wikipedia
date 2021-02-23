@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -82,6 +83,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         updateComponents()
         disableBackgroundDim()
         setNavigationBarColor(getThemedColor(requireContext(), R.attr.paper_color))
+
+        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
         return binding.root
     }
 
@@ -93,22 +96,18 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
         funnel = AppearanceChangeFunnel(app, app.wikiSite, invokeSource)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         disposables.clear()
         _binding = null
     }
 
     override fun onCancel(dialog: DialogInterface) {
         super.onCancel(dialog)
-        if (callback() != null) {
-            // noinspection ConstantConditions
-            callback()!!.onCancelThemeChooser()
-        }
+        callback()?.onCancelThemeChooser()
     }
 
     private fun onToggleDimImages(enabled: Boolean) {
@@ -116,10 +115,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             return
         }
         Prefs.setDimDarkModeImages(enabled)
-        if (callback() != null) {
-            // noinspection ConstantConditions
-            callback()!!.onToggleDimImages()
-        }
+        callback()?.onToggleDimImages()
     }
 
     private fun onToggleMatchSystemTheme(enabled: Boolean) {
@@ -137,8 +133,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 Configuration.UI_MODE_NIGHT_NO -> if (app.currentTheme.isDark) {
                     app.currentTheme = if (app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark) Theme.LIGHT else app.unmarshalTheme(Prefs.getPreviousThemeId())
                     Prefs.setPreviousThemeId(currentTheme.marshallingId)
-                }
-                else -> {
                 }
             }
         }
@@ -273,11 +267,9 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
         @JvmStatic
         fun newInstance(source: InvokeSource): ThemeChooserDialog {
-            val dialog = ThemeChooserDialog()
-            val args = Bundle()
-            args.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
-            dialog.arguments = args
-            return dialog
+            return ThemeChooserDialog().apply {
+                arguments = bundleOf(Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
+            }
         }
     }
 }
