@@ -6,7 +6,6 @@ import android.text.Spanned
 import android.text.style.ImageSpan
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -22,7 +21,6 @@ internal class CardFooterView constructor(context: Context, attrs: AttributeSet?
     var callback: Callback? = null
 
     init {
-        View.inflate(context, R.layout.view_card_footer, this)
         binding.footerActionButton.setOnClickListener {
             callback?.onFooterClicked()
         }
