@@ -13,10 +13,9 @@ class PrefixSearchResponse : MwQueryResponse() {
     }
 
     internal class SearchInfo {
-        val suggestion: String? = null
-
         @SerializedName("suggestionsnippet")
         private val snippet: String? = null
+        val suggestion: String? = null
     }
 
     internal class Search {
