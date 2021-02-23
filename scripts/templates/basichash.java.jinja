@@ -12,25 +12,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class {{class_name}} {
-    @NonNull private static final Map<String, String> DATA_MAP = Collections.unmodifiableMap(newMap());
-
-    @NonNull public static String valueFor(String key) {
-        key = L10nUtil.getDesiredLanguageCode(key);
-        if (DATA_MAP.containsKey(key)) {
-            return DATA_MAP.get(key);
+    private val DATA_MAP = Collections.unmodifiableMap(newMap())
+        @JvmStatic
+        fun valueFor(key: String?): String {
+            var key = key
+            key = getDesiredLanguageCode(key!!)
+            return if (DATA_MAP.containsKey(key)) {
+                DATA_MAP[key]!!
+            } else DATA_MAP["en"]!!
         }
-        return DATA_MAP.get("en");
-    }
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
-    private static Map<String, String> newMap() {
-        final int size = {{wikis|length}};
-        Map<String, String> map = new HashMap<>(size);
+     private fun newMap(): Map<String, String> {
+            val size = 307
+            val map: MutableMap<String, String> = HashMap(size)
 
         {%- for wiki in wikis %}
-        map.put("{{wiki.lang}}", "{{wiki.props[key]}}");
+        map.put("{{wiki.lang}}", "{{wiki.props[key]}}")
         {%- endfor %}
-        return map;
+        return map
     }
 
     private {{class_name}}() { }
