@@ -44,6 +44,10 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         binding.image.setImageDrawable(AppCompatResources.getDrawable(context, imageDrawable))
     }
 
+    fun getDescriptionView(): View {
+        return binding.description
+    }
+
     fun setGoodnessState(severity: Int) {
         val iconRes: Int
         val iconTint: Int
