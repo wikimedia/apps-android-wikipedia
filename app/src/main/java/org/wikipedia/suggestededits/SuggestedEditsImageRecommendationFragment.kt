@@ -1,7 +1,5 @@
 package org.wikipedia.suggestededits
 
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -70,13 +68,6 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
-
-        val colorStateList = ColorStateList(arrayOf(intArrayOf()),
-                intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
-        binding.publishProgressBar.progressTintList = colorStateList
-        binding.publishProgressBarComplete.progressTintList = colorStateList
-        binding.publishProgressCheck.imageTintList = colorStateList
-        binding.publishProgressText.setTextColor(colorStateList)
 
         binding.imageCard.elevation = 0f
         binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)
@@ -213,6 +204,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
         binding.publishProgressCheck.visibility = GONE
         binding.publishOverlayContainer.visibility = VISIBLE
+        binding.publishBoltView.visibility = GONE
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
@@ -236,11 +228,11 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         Prefs.setImageRecsDailyCount(newCount)
 
         val progressText = when {
-            newCount < DAILY_COUNT_TARGET -> resources.getQuantityString(R.plurals.image_recommendations_task_goal_progress, DAILY_COUNT_TARGET - newCount, DAILY_COUNT_TARGET - newCount)
+            newCount < DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_progress)
             newCount == DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_complete)
             else -> getString(R.string.image_recommendations_task_goal_surpassed)
         }
-        binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
+        binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
 
         val duration = 1000L
         binding.publishProgressBar.alpha = 1f
@@ -252,15 +244,20 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         binding.publishProgressBarComplete.visibility = VISIBLE
         binding.publishProgressBarComplete.animate()
                 .alpha(1f)
-                .withEndAction {
-                    // publishProgressText.setText(R.string.suggested_edits_image_tags_published)
-                }
                 .duration = duration / 2
 
         binding.publishProgressCheck.alpha = 0f
         binding.publishProgressCheck.visibility = VISIBLE
         binding.publishProgressCheck.animate()
                 .alpha(1f)
+                .withEndAction {
+                    binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
+                    if (newCount >= DAILY_COUNT_TARGET) {
+                        binding.publishProgressBarComplete.visibility = GONE
+                        binding.publishProgressCheck.visibility = GONE
+                        binding.publishBoltView.visibility = VISIBLE
+                    }
+                }
                 .duration = duration
 
         binding.publishProgressBar.postDelayed({

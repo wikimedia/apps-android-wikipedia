@@ -1016,7 +1016,7 @@
   <string name="image_recommendations_task_accept">Button label for accepting the recommended image.</string>
   <string name="image_recommendations_task_reject">Button label for rejecting the recommended image.</string>
   <string name="image_recommendations_task_not_sure">Button label for being unsure about the current image recommendation.</string>
-  <string name="image_recommendations_task_thanks">Label shown when the current recommendation is submitted successfully.</string>
+  <string name="image_recommendations_task_processing">Label shown when the current recommendation is being processed.</string>
   <string name="image_recommendations_task_instruction">Question asked for the user to evaluate the current image recommendation.</string>
   <string name="image_recommendations_task_choice_instruction">Follow-up question asked when the user rejects or is unsure about the recommendation.</string>
   <string name="image_recommendations_task_choice_not_relevant">Checkbox label selected if the current image recommendation is not relevant.</string>
@@ -1026,10 +1026,7 @@
   <string name="image_recommendations_task_choice_offensive">Checkbox label selected if the current image recommendation is offensive</string>
   <string name="image_recommendations_task_choice_other">Checkbox label selected if the user cannot evaluate the current image recommendation for another reason.</string>
   <string name="image_recommendations_task_choice_continue">Button label for continuing with the current selection(s).</string>
-  <plurals name="image_recommendations_task_goal_progress">
-    <item quantity="one">Label indicating that the user has one item left towards their daily goal.</item>
-    <item quantity="other">Label indicating that the user has %d items left towards their daily goal.</item>
-  </plurals>
+  <string name="image_recommendations_task_goal_progress">Label indicating that the user has made progress towards their daily goal.</string>
   <string name="image_recommendations_task_goal_complete">Congratulatory message to indicate that the user has reached the daily goal.</string>
   <string name="image_recommendations_task_goal_surpassed">Label that indicates the user has reached or exceeded the daily goal.</string>
 

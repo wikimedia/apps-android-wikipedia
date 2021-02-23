@@ -997,7 +997,7 @@
     <string name="image_recommendations_task_accept">Yes</string>
     <string name="image_recommendations_task_reject">No</string>
     <string name="image_recommendations_task_not_sure">Not sure</string>
-    <string name="image_recommendations_task_thanks">Thanks!</string>
+    <string name="image_recommendations_task_processing">Processing…</string>
     <string name="image_recommendations_task_instruction">Is this a good image for the article?</string>
     <string name="image_recommendations_task_choice_instruction">Can you tell us why you are not sure if this is a suitable image?</string>
     <string name="image_recommendations_task_choice_not_relevant">Not relevant</string>
@@ -1007,11 +1007,8 @@
     <string name="image_recommendations_task_choice_offensive">Offensive</string>
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
-    <plurals name="image_recommendations_task_goal_progress">
-        <item quantity="one">%d left for daily goal</item>
-        <item quantity="other">%d left for daily goal</item>
-    </plurals>
-    <string name="image_recommendations_task_goal_complete">Congrats! 👏</string>
+    <string name="image_recommendations_task_goal_progress">Great, keep going! 👍</string>
+    <string name="image_recommendations_task_goal_complete">Daily goal achieved! 👏</string>
     <string name="image_recommendations_task_goal_surpassed">You\'ve reached the goal</string>
 
     <string name="wikitext_bold">Bold</string>

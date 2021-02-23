@@ -261,7 +261,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/publishOverlayContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -271,18 +271,45 @@
         android:elevation="14dp"
         tools:visibility="visible">
 
+        <View
+            android:id="@+id/publishBackgroundView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dailyProgressView"
+            app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
+            android:background="@color/green90"/>
+
+        <org.wikipedia.suggestededits.DailyProgressView
+            android:id="@+id/dailyProgressView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="72dp"/>
+
         <ProgressBar
             android:id="@+id/publishProgressBar"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_gravity="center" />
+            android:indeterminateTint="@color/green50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dailyProgressView"
+            app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
+            android:layout_marginStart="16dp"/>
 
         <ProgressBar
             android:id="@+id/publishProgressBarComplete"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintStart_toStartOf="@id/publishProgressBar"
+            app:layout_constraintEnd_toEndOf="@id/publishProgressBar"
+            app:layout_constraintTop_toTopOf="@id/publishProgressBar"
+            app:layout_constraintBottom_toBottomOf="@id/publishProgressBar"
+            android:progressTint="@color/green50"
             android:indeterminate="false"
             android:max="100"
             android:progressDrawable="@drawable/circular_progress"
@@ -292,27 +319,26 @@
             android:id="@+id/publishProgressCheck"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="@id/publishProgressBar"
+            app:layout_constraintEnd_toEndOf="@id/publishProgressBar"
+            app:layout_constraintTop_toTopOf="@id/publishProgressBar"
+            app:layout_constraintBottom_toBottomOf="@id/publishProgressBar"
             android:contentDescription="@null"
+            app:tint="@color/green50"
             app:srcCompat="@drawable/ic_check_borderless" />
 
-        <TextView
-            android:id="@+id/publishProgressText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="38dp"
-            android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0.06"
-            android:text="@string/image_recommendations_task_thanks"
-            android:textAllCaps="true" />
+        <ImageView
+            android:id="@+id/publishBoltView"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintStart_toStartOf="@id/publishProgressBar"
+            app:layout_constraintEnd_toEndOf="@id/publishProgressBar"
+            app:layout_constraintTop_toTopOf="@id/publishProgressBar"
+            app:layout_constraintBottom_toBottomOf="@id/publishProgressBar"
+            android:contentDescription="@null"
+            app:tint="@color/green50"
+            app:srcCompat="@drawable/ic_bolt_24" />
 
-        <org.wikipedia.suggestededits.DailyProgressView
-            android:id="@+id/dailyProgressView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"/>
-
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.animation.Animation
 import android.view.animation.Transformation
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewSuggestedEditsDailyProgressBinding
 
@@ -17,10 +16,6 @@ class DailyProgressView : ConstraintLayout {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
-
-    init {
-        setBackgroundColor(ContextCompat.getColor(context, R.color.red90))
-    }
 
     fun setMaximum(max: Int) {
         binding.progressBar.max = max * 100
