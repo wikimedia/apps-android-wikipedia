@@ -22,11 +22,11 @@ import com.google.android.material.button.MaterialButton
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_article_edit_details.*
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
@@ -53,6 +53,8 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.nio.charset.StandardCharsets
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, LinkPreviewDialog.Callback {
+    private var _binding: FragmentArticleEditDetailsBinding? = null
+    private val binding get() = _binding!!
     private lateinit var articlePageTitle: PageTitle
     private lateinit var languageCode: String
     private var revisionId: Long = 0
@@ -79,10 +81,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 WikiSite.forLanguageCode(languageCode))
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_article_edit_details, container, false)
+        _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -95,7 +97,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun setUpListeners() {
-        articleTitleView.setOnClickListener {
+        binding.articleTitleView.setOnClickListener {
             if (articlePageTitle.namespace() == Namespace.USER_TALK || articlePageTitle.namespace() == Namespace.TALK) {
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), articlePageTitle.pageTitleForTalkPage(), InvokeSource.DIFF_ACTIVITY))
             } else {
@@ -103,57 +105,57 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                         HistoryEntry(articlePageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
             }
         }
-        newerIdButton.setOnClickListener {
+        binding.newerIdButton.setOnClickListener {
             revisionId = newerRevisionId
             disposables.clear()
             fetchEditDetails()
         }
-        olderIdButton.setOnClickListener {
+        binding.olderIdButton.setOnClickListener {
             revisionId = olderRevisionId
             disposables.clear()
             fetchEditDetails()
         }
-        watchButton.setOnClickListener {
+        binding.watchButton.setOnClickListener {
             if (isWatched) {
                 watchlistFunnel.logRemoveArticle()
             } else {
                 watchlistFunnel.logAddArticle()
             }
-            watchButton.isCheckable = false
+            binding.watchButton.isCheckable = false
             watchOrUnwatchTitle(WatchlistExpiry.NEVER, isWatched)
         }
-        usernameButton.setOnClickListener {
+        binding.usernameButton.setOnClickListener {
             if (AccountUtil.isLoggedIn && username != null) {
                 startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                         PageTitle(UserTalkAliasData.valueFor(languageCode),
                                 username!!, WikiSite.forLanguageCode(languageCode)), InvokeSource.DIFF_ACTIVITY))
             }
         }
-        thankButton.setOnClickListener { showThankDialog() }
-        errorView.backClickListener = OnClickListener { requireActivity().finish() }
+        binding.thankButton.setOnClickListener { showThankDialog() }
+        binding.errorView.backClickListener = OnClickListener { requireActivity().finish() }
     }
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
-        errorView.setError(t)
-        errorView.visibility = VISIBLE
-        revisionDetailsView.visibility = GONE
-        progressBar.visibility = INVISIBLE
+        binding.errorView.setError(t)
+        binding.errorView.visibility = VISIBLE
+        binding.revisionDetailsView.visibility = GONE
+        binding.progressBar.visibility = INVISIBLE
     }
 
     private fun setUpInitialUI() {
-        diffText.movementMethod = ScrollingMovementMethod()
-        articleTitleView.text = articlePageTitle.displayText
+        binding.diffText.movementMethod = ScrollingMovementMethod()
+        binding.articleTitleView.text = articlePageTitle.displayText
         updateDiffCharCountView(diffSize)
     }
 
     private fun updateDiffCharCountView(diffSize: Int) {
-        diffCharacterCountView.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
+        binding.diffCharacterCountView.text = String.format(if (diffSize != 0) "%+d" else "%d", diffSize)
         if (diffSize >= 0) {
-            diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
+            binding.diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
                     R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
         } else {
-            diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
+            binding.diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
         }
     }
 
@@ -188,46 +190,46 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     if (olderRevisionId > 0L) {
                         fetchDiffText()
                     } else {
-                        progressBar.visibility = INVISIBLE
+                        binding.progressBar.visibility = INVISIBLE
                     }
                 }) { setErrorState(it!!) })
     }
 
     private fun hideOrShowViews(isLoading: Boolean) {
         if (isLoading) {
-            progressBar.visibility = VISIBLE
-            usernameButton.visibility = INVISIBLE
-            thankButton.visibility = INVISIBLE
-            editComment.visibility = INVISIBLE
-            diffText.visibility = INVISIBLE
-            diffCharacterCountView.visibility = INVISIBLE
+            binding.progressBar.visibility = VISIBLE
+            binding.usernameButton.visibility = INVISIBLE
+            binding.thankButton.visibility = INVISIBLE
+            binding.editComment.visibility = INVISIBLE
+            binding.diffText.visibility = INVISIBLE
+            binding.diffCharacterCountView.visibility = INVISIBLE
         } else {
-            usernameButton.visibility = VISIBLE
-            thankButton.visibility = VISIBLE
-            editComment.visibility = VISIBLE
-            diffText.visibility = VISIBLE
+            binding.usernameButton.visibility = VISIBLE
+            binding.thankButton.visibility = VISIBLE
+            binding.editComment.visibility = VISIBLE
+            binding.diffText.visibility = VISIBLE
         }
     }
 
     private fun updateUI() {
-        diffText.scrollTo(0, 0)
-        diffText.text = ""
-        usernameButton.text = currentRevision!!.user
-        editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp()))
-        editComment.text = currentRevision!!.comment
-        newerIdButton.isClickable = newerRevisionId != -1L
-        olderIdButton.isClickable = olderRevisionId != 0L
-        setEnableDisableTint(newerIdButton, newerRevisionId == -1L)
-        setEnableDisableTint(olderIdButton, olderRevisionId == 0L)
-        setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
-        thankButton.isClickable = true
+        binding.diffText.scrollTo(0, 0)
+        binding.diffText.text = ""
+        binding.usernameButton.text = currentRevision!!.user
+        binding.editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp()))
+        binding.editComment.text = currentRevision!!.comment
+        binding.newerIdButton.isClickable = newerRevisionId != -1L
+        binding.olderIdButton.isClickable = olderRevisionId != 0L
+        setEnableDisableTint(binding.newerIdButton, newerRevisionId == -1L)
+        setEnableDisableTint(binding.olderIdButton, olderRevisionId == 0L)
+        setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+        binding.thankButton.isClickable = true
         requireActivity().invalidateOptionsMenu()
         maybeHideThankButton()
         hideOrShowViews(false)
     }
 
     private fun maybeHideThankButton() {
-        thankButton.visibility = if (AccountUtil.userName.equals(currentRevision?.user)) GONE else VISIBLE
+        binding.thankButton.visibility = if (AccountUtil.userName.equals(currentRevision?.user)) GONE else VISIBLE
     }
 
     private fun setEnableDisableTint(view: AppCompatImageView, isDisabled: Boolean) {
@@ -273,15 +275,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     }
                 }) {
                     setErrorState(it!!)
-                    watchButton.isCheckable = true
+                    binding.watchButton.isCheckable = true
                 })
     }
 
     private fun updateWatchlistButtonUI() {
-        setButtonTextAndIconColor(watchButton, ResourceUtil.getThemedColor(requireContext(),
+        setButtonTextAndIconColor(binding.watchButton, ResourceUtil.getThemedColor(requireContext(),
                 if (isWatched) R.attr.color_group_68 else R.attr.colorAccent))
-        watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
-        watchButton.setIconResource(getWatchlistIcon(isWatched, hasWatchlistExpiry))
+        binding.watchButton.text = getString(if (isWatched) R.string.watchlist_details_watching_label else R.string.watchlist_details_watch_label)
+        binding.watchButton.setIconResource(getWatchlistIcon(isWatched, hasWatchlistExpiry))
     }
 
     @DrawableRes
@@ -314,7 +316,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             snackbar.show()
         }
-        watchButton.isCheckable = true
+        binding.watchButton.isCheckable = true
     }
 
     private fun showThankDialog() {
@@ -343,9 +345,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message, username))
-                    setButtonTextAndIconColor(thankButton, ResourceUtil.getThemedColor(requireContext(),
+                    setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
                             R.attr.material_theme_de_emphasised_color))
-                    thankButton.isClickable = false
+                    binding.thankButton.isClickable = false
                 }) { setErrorState(it!!) })
     }
 
@@ -357,10 +359,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    diffText.text = it
+                    binding.diffText.text = it
                     updateDiffCharCountView(diffSize)
-                    diffCharacterCountView.visibility = VISIBLE
-                    progressBar.visibility = INVISIBLE
+                    binding.diffCharacterCountView.visibility = VISIBLE
+                    binding.progressBar.visibility = INVISIBLE
                 }) {
                     setErrorState(it!!)
                 })
@@ -505,6 +507,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onDestroyView() {
         disposables.clear()
+        _binding = null
         super.onDestroyView()
     }
 
