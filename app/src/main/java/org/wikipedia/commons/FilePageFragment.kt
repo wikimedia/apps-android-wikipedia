@@ -12,7 +12,6 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.R
 import org.wikipedia.databinding.FragmentFilePageBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -40,10 +39,12 @@ class FilePageFragment : Fragment() {
         pageTitle = arguments?.getParcelable(ARG_PAGE_TITLE)!!
         retainInstance = true
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
+        _binding = FragmentFilePageBinding.inflate(inflater, container, false)
         L10nUtil.setConditionalLayoutDirection(container!!, pageTitle.wikiSite.languageCode())
-        return inflater.inflate(R.layout.fragment_file_page, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
