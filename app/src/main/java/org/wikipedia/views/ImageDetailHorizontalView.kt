@@ -22,6 +22,10 @@ class ImageDetailHorizontalView constructor(context: Context, attrs: AttributeSe
         orientation = HORIZONTAL
     }
 
+    fun setTitleText(title: String) {
+        binding.titleText.text = title
+    }
+
     fun setDetailText(detail: String?) {
         if (!detail.isNullOrEmpty()) {
             binding.detailText.text = StringUtil.removeHTMLTags(detail)
