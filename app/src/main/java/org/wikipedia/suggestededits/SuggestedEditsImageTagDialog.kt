@@ -21,10 +21,10 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.dialog_image_tag_select.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.databinding.DialogImageTagSelectBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -42,6 +42,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         fun onSearchDismiss(searchTerm: String)
     }
 
+    private var _binding: DialogImageTagSelectBinding? = null
+    private val binding get() = _binding!!
     private var currentSearchTerm: String = ""
     private val textWatcher = SearchTextWatcher()
     private val adapter = ResultListAdapter(Collections.emptyList())
@@ -53,14 +55,15 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.dialog_image_tag_select, container)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = DialogImageTagSelectBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        imageTagsRecycler.layoutManager = LinearLayoutManager(activity)
-        imageTagsRecycler.adapter = adapter
-        imageTagsSearchText.addTextChangedListener(textWatcher)
+        binding.imageTagsRecycler.layoutManager = LinearLayoutManager(activity)
+        binding.imageTagsRecycler.adapter = adapter
+        binding.imageTagsSearchText.addTextChangedListener(textWatcher)
         applyResults(Collections.emptyList())
     }
 
@@ -96,13 +99,13 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
                     val primaryClip = clipboard.primaryClip!!
                     val clipText = primaryClip.getItemAt(primaryClip.itemCount - 1).coerceToText(requireContext()).toString()
                     if (clipText.isNotEmpty()) {
-                        imageTagsSearchText.setText(clipText)
-                        imageTagsSearchText.selectAll()
+                        binding.imageTagsSearchText.setText(clipText)
+                        binding.imageTagsSearchText.selectAll()
                     }
                 }
             } else if (requireArguments().getString("lastText")!!.isNotEmpty()) {
-                imageTagsSearchText.setText(requireArguments().getString("lastText")!!)
-                imageTagsSearchText.selectAll()
+                binding.imageTagsSearchText.setText(requireArguments().getString("lastText")!!)
+                binding.imageTagsSearchText.selectAll()
             }
         } catch (ignore: Exception) {
         }
@@ -111,9 +114,10 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        imageTagsSearchText.removeTextChangedListener(textWatcher)
-        imageTagsSearchText.removeCallbacks(searchRunnable)
+        binding.imageTagsSearchText.removeTextChangedListener(textWatcher)
+        binding.imageTagsSearchText.removeCallbacks(searchRunnable)
         disposables.clear()
+        _binding = null
     }
 
     private inner class SearchTextWatcher : TextWatcher {
@@ -121,8 +125,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
         override fun onTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {
             currentSearchTerm = text.toString()
-            imageTagsSearchText.removeCallbacks(searchRunnable)
-            imageTagsSearchText.postDelayed(searchRunnable, 500)
+            binding.imageTagsSearchText.removeCallbacks(searchRunnable)
+            binding.imageTagsSearchText.postDelayed(searchRunnable, 500)
         }
 
         override fun afterTextChanged(editable: Editable) {}
@@ -152,17 +156,17 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         adapter.setResults(results)
         adapter.notifyDataSetChanged()
         if (currentSearchTerm.isEmpty()) {
-            noResultsText.visibility = View.GONE
-            imageTagsRecycler.visibility = View.GONE
-            imageTagsDivider.visibility = View.INVISIBLE
+            binding.noResultsText.visibility = View.GONE
+            binding.imageTagsRecycler.visibility = View.GONE
+            binding.imageTagsDivider.visibility = View.INVISIBLE
         } else {
-            imageTagsDivider.visibility = View.VISIBLE
+            binding.imageTagsDivider.visibility = View.VISIBLE
             if (results.isEmpty()) {
-                noResultsText.visibility = View.VISIBLE
-                imageTagsRecycler.visibility = View.GONE
+                binding.noResultsText.visibility = View.VISIBLE
+                binding.imageTagsRecycler.visibility = View.GONE
             } else {
-                noResultsText.visibility = View.GONE
-                imageTagsRecycler.visibility = View.VISIBLE
+                binding.noResultsText.visibility = View.GONE
+                binding.imageTagsRecycler.visibility = View.VISIBLE
             }
         }
     }
