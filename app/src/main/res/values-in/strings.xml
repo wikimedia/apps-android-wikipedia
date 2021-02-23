@@ -2,6 +2,7 @@
 <!-- Authors:
 * Ahdan
 * Akmaie Ajam
+* Andikbuyung
 * Arifin.wijaya
 * ArlandGa
 * BaconSenpai
@@ -71,6 +72,8 @@
   <string name="menu_page_other_languages">Ubah bahasa</string>
   <string name="menu_page_find_in_page">Cari di artikel</string>
   <string name="menu_page_add_to_watchlist">Tambahkan ke daftar pantauan</string>
+  <string name="menu_page_view_talk">Lihat halaman pembicaraan</string>
+  <string name="menu_page_view_edit_history">Lihat riwayat suntingan</string>
   <string name="menu_page_remove_from_watchlist">Hapus dari daftar pantauan</string>
   <string name="edit_section_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
