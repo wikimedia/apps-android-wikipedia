@@ -5,7 +5,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 
 class ImageRecommendationsFunnel :
-        Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+        TimedFunnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "anon", !isLoggedIn)

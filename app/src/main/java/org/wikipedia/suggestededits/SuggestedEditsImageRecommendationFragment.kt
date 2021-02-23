@@ -41,8 +41,14 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
     private var publishSuccess: Boolean = false
     private var page: ImageRecommendationResponse? = null
 
+    private val funnel = ImageRecommendationsFunnel()
     private var detailsClicked: Boolean = false
     private var scrolled: Boolean = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        funnel.pause()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -105,6 +111,11 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
         getNextItem()
         updateContents(null)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        funnel.resume()
     }
 
     override fun onStart() {
@@ -205,7 +216,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
-        ImageRecommendationsFunnel().logSubmit(WikipediaApp.getInstance().appOrSystemLanguageCode, page!!.title, page!!.imageTitle,
+        funnel.logSubmit(WikipediaApp.getInstance().appOrSystemLanguageCode, page!!.title, page!!.imageTitle,
                 response, reasons, detailsClicked, scrolled, /* TODO: AccountUtil.userName */ null, Prefs.isImageRecsTeacherMode())
 
         publishSuccess = true
