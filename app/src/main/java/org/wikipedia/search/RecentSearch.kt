@@ -16,10 +16,10 @@ class RecentSearch @JvmOverloads constructor(val text: String?, val timestamp: D
     }
 
     override fun toString(): String {
-        return ("RecentSearch{" +
+        return "RecentSearch{" +
                 "text=" + text +
                 ", timestamp=" + timestamp.time +
-                '}')
+                "}"
     }
 
     companion object {
