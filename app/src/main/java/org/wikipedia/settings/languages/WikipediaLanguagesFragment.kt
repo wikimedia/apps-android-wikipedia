@@ -59,8 +59,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
-                && resultCode == Activity.RESULT_OK) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == Activity.RESULT_OK) {
             interactionsCount += data!!.getIntExtra(ADD_LANGUAGE_INTERACTIONS, 0)
             isLanguageSearched = isLanguageSearched || data.getBooleanExtra(LanguagesListActivity.LANGUAGE_SEARCHED, false)
             prepareWikipediaLanguagesList()
