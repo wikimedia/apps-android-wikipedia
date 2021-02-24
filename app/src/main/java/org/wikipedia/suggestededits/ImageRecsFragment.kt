@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -31,6 +32,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecommendationItemBinding? = null
@@ -41,13 +43,11 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     private var page: ImageRecommendationResponse? = null
 
     private val funnel = ImageRecommendationsFunnel()
+    private var startMillis: Long = 0
+    private var buttonClickedMillis: Long = 0
+    private var infoClicked: Boolean = false
     private var detailsClicked: Boolean = false
     private var scrolled: Boolean = false
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        funnel.pause()
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -75,15 +75,18 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
         binding.acceptButton.setOnClickListener {
+            buttonClickedMillis = SystemClock.uptimeMillis()
             doPublish(ImageRecommendationsFunnel.RESPONSE_ACCEPT, emptyList())
         }
 
         binding.rejectButton.setOnClickListener {
+            buttonClickedMillis = SystemClock.uptimeMillis()
             ImageRecsDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_REJECT)
                     .show(childFragmentManager, null)
         }
 
         binding.notSureButton.setOnClickListener {
+            buttonClickedMillis = SystemClock.uptimeMillis()
             ImageRecsDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_NOT_SURE)
                     .show(childFragmentManager, null)
         }
@@ -107,7 +110,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     override fun onResume() {
         super.onResume()
-        funnel.resume()
+        startMillis = SystemClock.uptimeMillis()
     }
 
     override fun onStart() {
@@ -243,8 +246,11 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
-        funnel.logSubmit(WikipediaApp.getInstance().appOrSystemLanguageCode, page!!.title, page!!.imageTitle,
-                response, reasons, detailsClicked, scrolled, if (Prefs.isImageRecsConsentEnabled()) AccountUtil.userName else null,
+        funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
+                page!!.title, page!!.imageTitle, response, reasons, detailsClicked, infoClicked, scrolled,
+                TimeUnit.MILLISECONDS.toSeconds(buttonClickedMillis - startMillis).toInt(),
+                TimeUnit.MILLISECONDS.toSeconds(SystemClock.uptimeMillis() - startMillis).toInt(),
+                if (Prefs.isImageRecsConsentEnabled()) AccountUtil.userName else null,
                 Prefs.isImageRecsTeacherMode())
 
         publishSuccess = true

@@ -5,7 +5,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 
 class ImageRecommendationsFunnel :
-        TimedFunnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+        Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "anon", !isLoggedIn)
@@ -15,14 +15,18 @@ class ImageRecommendationsFunnel :
     override fun preprocessSessionToken(eventData: JSONObject) { }
 
     fun logSubmit(lang: String, pageTitle: String, imageTitle: String, response: Int, reasons: List<Int>,
-                  detailsClicked: Boolean, scrolled: Boolean, userName: String?, teacherMode: Boolean) {
+                  detailsClicked: Boolean, infoClicked: Boolean, scrolled: Boolean,
+                  timeUntilClick: Int, timeUntilSubmit: Int, userName: String?, teacherMode: Boolean) {
         log("lang", lang,
                 "pageTitle", pageTitle,
                 "imageTitle", imageTitle,
                 "response", response,
                 "reason", reasons.joinToString(","),
+                "infoClicked", infoClicked,
                 "detailsClicked", detailsClicked,
                 "scrolled", scrolled,
+                "timeUntilClick", timeUntilClick,
+                "timeUntilSubmit", timeUntilSubmit,
                 "userName", userName,
                 "teacherMode", teacherMode)
     }
