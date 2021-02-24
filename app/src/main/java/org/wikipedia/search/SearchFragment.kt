@@ -9,12 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import butterknife.Unbinder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -45,10 +43,8 @@ import org.wikipedia.views.ViewUtil.formatLangButton
 import java.util.*
 
 class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
-
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    private var unbinder: Unbinder? = null
     private val disposables = CompositeDisposable()
     private var app: WikipediaApp? = null
     private var funnel: SearchFunnel? = null
@@ -65,11 +61,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var recentSearchesFragment: RecentSearchesFragment? = null
     private var searchResultsFragment: SearchResultsFragment? = null
+
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
         funnel!!.searchCancel(searchLanguageCode)
         false
     }
+
     private val searchQueryListener: SearchView.OnQueryTextListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextSubmit(queryText: String): Boolean {
             hideSoftKeyboard(requireActivity())
@@ -99,7 +97,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         app = WikipediaApp.getInstance()
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val childFragmentManager = childFragmentManager
@@ -260,13 +258,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchProgressBar.visibility = if (enabled) View.VISIBLE else View.GONE
     }
 
-    fun onSearchContainerClick() {
+    private fun onSearchContainerClick() {
         // Give the root container view an empty click handler, so that click events won't
         // get passed down to any underlying views (e.g. a PageFragment on top of which
         // this fragment is shown)
     }
 
-    fun onLangButtonClick() {
+    private fun onLangButtonClick() {
         langBtnClicked = true
         tempLangCodeHolder = searchLanguageCode
         val intent = WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SEARCH)
@@ -284,7 +282,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             showPanel(PANEL_SEARCH_RESULTS)
         }
         query = term
-        if (StringUtils.isBlank(term) && !force) {
+        if (term.isNullOrBlank() && !force) {
             return
         }
         searchResultsFragment!!.startSearch(term, force)
@@ -337,7 +335,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private fun initSearchView() {
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
         binding.searchCabView.setOnCloseListener(searchCloseListener)
-        binding.searchCabView.setSearchHintTextColor(getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+        binding.searchCabView.setSearchHintTextColor(getThemedColor(requireContext(),
+                R.attr.material_theme_de_emphasised_color))
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
@@ -347,7 +346,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun initLangButton() {
         binding.searchLangButton.text = app!!.language().appLanguageCode.toUpperCase(Locale.ENGLISH)
-        formatLangButton(binding.searchLangButton, app!!.language().appLanguageCode.toUpperCase(Locale.ENGLISH), LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
+        formatLangButton(binding.searchLangButton, app!!.language().appLanguageCode.toUpperCase(Locale.ENGLISH),
+                LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
         setButtonLongPressToast(binding.searchLangButtonContainer)
     }
 
@@ -357,10 +357,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun addRecentSearch(title: String?) {
         if (isValidQuery(title)) {
-            disposables.add(Completable.fromAction { app!!.getDatabaseClient(RecentSearch::class.java).upsert(RecentSearch(title), SearchHistoryContract.Query.SELECTION) }
+            disposables.add(Completable.fromAction {
+                app!!.getDatabaseClient(RecentSearch::class.java).upsert(RecentSearch(title), SearchHistoryContract.Query.SELECTION)
+            }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ recentSearchesFragment!!.updateList() }) { obj: Throwable -> obj.printStackTrace() })
+                    .subscribe({ recentSearchesFragment!!.updateList() })
+                    { obj: Throwable -> obj.printStackTrace() })
         }
     }
 
@@ -394,8 +397,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         const val LANG_BUTTON_TEXT_SIZE_SMALLER = 8
 
         @JvmStatic
-        fun newInstance(source: InvokeSource?,
-                        query: String?): SearchFragment {
+        fun newInstance(source: InvokeSource?, query: String?): SearchFragment {
             val fragment = SearchFragment()
             val args = Bundle()
             args.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
