@@ -1006,6 +1006,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_image_recs_show_onboarding, enabled);
     }
 
+    public static boolean isImageRecsConsentEnabled() {
+        return getBoolean(R.string.preference_key_image_recs_consent, true);
+    }
+
+    public static void setImageRecsConsentEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_image_recs_consent, enabled);
+    }
 
     private Prefs() { }
 }

@@ -16,6 +16,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.ImageRecommendationsFunnel
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationItemBinding
 import org.wikipedia.dataclient.Service
@@ -31,7 +32,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import java.util.*
 
-class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), SuggestedEditsImageRecommendationDialog.Callback {
+class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecommendationItemBinding? = null
     private val binding get() = _binding!!
 
@@ -78,12 +79,12 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         }
 
         binding.rejectButton.setOnClickListener {
-            SuggestedEditsImageRecommendationDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_REJECT)
+            ImageRecsDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_REJECT)
                     .show(childFragmentManager, null)
         }
 
         binding.notSureButton.setOnClickListener {
-            SuggestedEditsImageRecommendationDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_NOT_SURE)
+            ImageRecsDialog.newInstance(ImageRecommendationsFunnel.RESPONSE_NOT_SURE)
                     .show(childFragmentManager, null)
         }
 
@@ -243,7 +244,8 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         binding.publishProgressBar.visibility = VISIBLE
 
         funnel.logSubmit(WikipediaApp.getInstance().appOrSystemLanguageCode, page!!.title, page!!.imageTitle,
-                response, reasons, detailsClicked, scrolled, /* TODO: AccountUtil.userName */ null, Prefs.isImageRecsTeacherMode())
+                response, reasons, detailsClicked, scrolled, if (Prefs.isImageRecsConsentEnabled()) AccountUtil.userName else null,
+                Prefs.isImageRecsTeacherMode())
 
         publishSuccess = true
         onSuccess()
@@ -319,7 +321,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         const val DAILY_COUNT_TARGET = 8
 
         fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageRecommendationFragment()
+            return ImageRecsFragment()
         }
     }
 }

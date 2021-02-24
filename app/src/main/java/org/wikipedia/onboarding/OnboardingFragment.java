@@ -31,8 +31,16 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
     @BindView(R.id.view_onboarding_page_indicator) TabLayout pageIndicatorView;
     @BindView(R.id.fragment_onboarding_done_button) Button doneButton;
     private Unbinder unbinder;
+    private boolean enableSkip = true;
     private FragmentStateAdapter adapter;
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
+
+    public OnboardingFragment() {
+    }
+
+    public OnboardingFragment(boolean enableSkip) {
+        this.enableSkip = enableSkip;
+    }
 
     public interface Callback {
         void onComplete();
@@ -124,7 +132,7 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
             forwardButton.setVisibility(View.GONE);
             doneButton.setVisibility(View.VISIBLE);
         } else {
-            skipButton.setVisibility(View.VISIBLE);
+            skipButton.setVisibility(enableSkip ? View.VISIBLE : View.GONE);
             forwardButton.setVisibility(View.VISIBLE);
             doneButton.setVisibility(View.GONE);
         }

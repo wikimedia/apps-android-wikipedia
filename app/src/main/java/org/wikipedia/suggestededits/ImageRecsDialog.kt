@@ -13,7 +13,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationDialogBinding
 import org.wikipedia.util.DimenUtil
 
-class SuggestedEditsImageRecommendationDialog : DialogFragment() {
+class ImageRecsDialog : DialogFragment() {
     interface Callback {
         fun onDialogSubmit(response: Int, selectedItems: List<Int>)
     }
@@ -80,8 +80,8 @@ class SuggestedEditsImageRecommendationDialog : DialogFragment() {
     companion object {
         const val ARG_RESPONSE = "response"
 
-        fun newInstance(response: Int): SuggestedEditsImageRecommendationDialog {
-            return SuggestedEditsImageRecommendationDialog().apply {
+        fun newInstance(response: Int): ImageRecsDialog {
+            return ImageRecsDialog().apply {
                 arguments = bundleOf(ARG_RESPONSE to response)
             }
         }

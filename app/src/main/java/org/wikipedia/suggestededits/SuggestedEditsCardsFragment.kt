@@ -96,6 +96,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
         funnel?.start()
 
+        if (action == IMAGE_RECOMMENDATION) {
+            binding.cardsViewPager.isUserInputEnabled = false
+        }
+
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
                 // Fragment is created for the first time.
@@ -386,7 +390,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                     SuggestedEditsImageTagsFragment.newInstance()
                 }
                 IMAGE_RECOMMENDATION -> {
-                    SuggestedEditsImageRecommendationFragment.newInstance()
+                    ImageRecsFragment.newInstance()
                 }
                 else -> {
                     SuggestedEditsCardsItemFragment.newInstance()

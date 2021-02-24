@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -142,6 +143,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
+        } else if (requestCode == ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING && resultCode == Activity.RESULT_OK) {
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, InvokeSource.SUGGESTED_EDITS))
         } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
         }
@@ -417,8 +420,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask = SuggestedEditsTask()
         imageRecommendationsTask.title = getString(R.string.image_recommendations_task_title)
         imageRecommendationsTask.description = getString(R.string.image_recommendations_task_detail)
-        imageRecommendationsTask.imageDrawable = R.drawable.ic_image_caption
+        imageRecommendationsTask.imageDrawable = R.drawable.ic_article_images
         imageRecommendationsTask.primaryAction = getString(R.string.image_recommendations_task_get_started)
+        imageRecommendationsTask.new = true
 
         displayedTasks.add(imageRecommendationsTask)
         displayedTasks.add(addDescriptionsTask)
@@ -443,7 +447,11 @@ class SuggestedEditsTasksFragment : Fragment() {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
                 }
             } else if (task == imageRecommendationsTask) {
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, InvokeSource.SUGGESTED_EDITS))
+                if (Prefs.shouldShowImageRecsOnboarding()) {
+                    startActivityForResult(ImageRecsOnboardingActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING)
+                } else {
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, InvokeSource.SUGGESTED_EDITS))
+                }
             }
         }
     }
