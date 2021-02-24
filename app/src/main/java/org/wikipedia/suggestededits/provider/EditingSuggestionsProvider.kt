@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits.provider
 
+import com.google.gson.reflect.TypeToken
 import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -8,6 +9,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
+import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageTitle
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -238,15 +240,14 @@ object EditingSuggestionsProvider {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: ImageRecommendationResponse? = null
             if (!articlesWithMissingImagesCache.empty()) {
-                cachedItem = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
-                // cachedItem = articlesWithMissingImagesCache.pop()
+                // cachedItem = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
+                cachedItem = articlesWithMissingImagesCache.pop()
             }
 
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-
-                val stream = WikipediaApp.getInstance().assets.open("sample_suggestion_data_with_annotations_extended.tsv")
+                val stream = WikipediaApp.getInstance().assets.open(lang + "wiki_wd_image_candidates.tsv")
                 val reader = BufferedReader(InputStreamReader(stream))
                 // skip over column headers
                 reader.readLine()
@@ -256,13 +257,18 @@ object EditingSuggestionsProvider {
                         break
                     }
                     val arr = line.split('\t')
-                    articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[0], arr[1], arr[2]))
+
+                    val list = GsonUnmarshaller.unmarshal(object : TypeToken<List<ImageRecommendationResponse.ImageRecommendation>>() {}, arr[4])
+                    articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[3], list[0]))
+                    if (articlesWithMissingImagesCache.size > 1000) {
+                        break
+                    }
                 }
 
                 var item: ImageRecommendationResponse? = null
                 if (!articlesWithMissingImagesCache.empty()) {
-                    item = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
-                    // item = articlesWithMissingImagesCache.pop()
+                    // item = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
+                    item = articlesWithMissingImagesCache.pop()
                 }
                 Observable.just(item!!)
             }

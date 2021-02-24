@@ -93,7 +93,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.imageCard.setOnClickListener {
             if (page != null) {
-                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.imageTitle, WikiSite(Service.COMMONS_URL))))
+                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.recommendation.image, WikiSite(Service.COMMONS_URL))))
                 detailsClicked = true
             }
         }
@@ -190,7 +190,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.recommendation.image, WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry(5)
@@ -213,7 +213,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
 
-                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, page!!.notes))
+                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, page!!.recommendation.note))
 
                     maybeShowTooltipSequence()
                 }, { setErrorState(it) }))
@@ -247,7 +247,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressBar.visibility = VISIBLE
 
         funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
-                page!!.title, page!!.imageTitle, response, reasons, detailsClicked, infoClicked, scrolled,
+                page!!.title, page!!.recommendation.image, response, reasons, detailsClicked, infoClicked, scrolled,
                 TimeUnit.MILLISECONDS.toSeconds(buttonClickedMillis - startMillis).toInt(),
                 TimeUnit.MILLISECONDS.toSeconds(SystemClock.uptimeMillis() - startMillis).toInt(),
                 if (Prefs.isImageRecsConsentEnabled()) AccountUtil.userName else null,
