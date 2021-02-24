@@ -362,8 +362,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ recentSearchesFragment!!.updateList() })
-                    { obj: Throwable -> obj.printStackTrace() })
+                    .subscribe({ recentSearchesFragment!!.updateList() }) { obj: Throwable -> obj.printStackTrace() })
         }
     }
 
