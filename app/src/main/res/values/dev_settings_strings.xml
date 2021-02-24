@@ -15,7 +15,6 @@
     <string name="preferences_developer_announcement_country_override_hint">Type a two-letter, all caps country code.</string>
     <string name="preferences_developer_announcement_ignore_date">Ignore date</string>
     <string name="preferences_developer_announcement_version_code_hint">Set to 0 to reset.</string>
-    <string name="preferences_developer_announcement_reset_shown_dialogs_key">announcement_shown_dialogs</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_title">Reset shown dialogs</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_summary">%d shown dialog(s).</string>
 

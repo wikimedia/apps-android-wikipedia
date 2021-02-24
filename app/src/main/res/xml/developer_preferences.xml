@@ -24,7 +24,7 @@
             android:title="@string/preference_key_announcement_version_code"
             android:dialogMessage="@string/preferences_developer_announcement_version_code_hint"/>
 
-        <Preference android:key="@string/preferences_developer_announcement_reset_shown_dialogs_key"
+        <Preference android:key="@string/preference_key_announcement_shown_dialogs"
             android:title="@string/preferences_developer_announcement_reset_shown_dialogs_title" />
     </PreferenceCategory>
 

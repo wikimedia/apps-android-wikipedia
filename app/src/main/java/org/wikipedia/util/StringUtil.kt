@@ -42,6 +42,10 @@ object StringUtil {
         return if (str.isNullOrEmpty()) "" else str.trim()
     }
 
+    fun trim(str: Any): String {
+        return str.toString().trim { it <= ' ' }
+    }
+
     @JvmStatic
     fun intToHexStr(i: Int): String {
         return String.format("x%08x", i)
