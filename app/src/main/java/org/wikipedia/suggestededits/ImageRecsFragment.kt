@@ -319,6 +319,10 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         return false
     }
 
+    fun onInfoClicked() {
+        infoClicked = true
+    }
+
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
     }

@@ -128,11 +128,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(action == ADD_IMAGE_TAGS)
+        setHasOptionsMenu(action == ADD_IMAGE_TAGS || action == IMAGE_RECOMMENDATION)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if (action == ADD_IMAGE_TAGS) {
+        if (action == ADD_IMAGE_TAGS || action == IMAGE_RECOMMENDATION) {
             inflater.inflate(R.menu.menu_suggested_edits, menu)
             ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
         }
@@ -145,6 +145,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                     FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_tags_help_url)
                 } else {
                     FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                }
+                val child = topBaseChild()
+                if (child != null && child is ImageRecsFragment) {
+                    child.onInfoClicked()
                 }
                 true
             }

@@ -24,7 +24,7 @@ class DailyProgressView : ConstraintLayout {
     fun update(oldProgress: Int, newProgress: Int, max: Int, text: String) {
         val progress = newProgress.coerceAtMost(binding.progressBar.max)
         binding.instructionText.text = text
-        binding.percentText.text = context.getString(R.string.text_size_percent, (newProgress * 100f / max).toInt())
+        binding.percentText.text = context.getString(R.string.image_recommendations_task_daily_amount, newProgress, max)
 
         val anim = ProgressBarAnimation(oldProgress.toFloat(), progress.toFloat())
         anim.duration = 500
