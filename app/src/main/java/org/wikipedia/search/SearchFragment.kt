@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -122,7 +121,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         setUpLanguageScroll(Prefs.getSelectedLanguagePositionInSearch())
         startSearch(query, langBtnClicked)
         binding.searchCabView.setCloseButtonVisibility(query)
-        if (!TextUtils.isEmpty(query)) {
+        if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
     }
@@ -278,10 +277,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (!isSearchActive) {
             openSearch()
         }
-        if (TextUtils.isEmpty(term)) {
+        if (term.isNullOrEmpty()) {
             showPanel(PANEL_RECENT_SEARCHES)
         } else if (activePanel == PANEL_RECENT_SEARCHES) {
-            //start with title search...
+            // start with title search...
             showPanel(PANEL_SEARCH_RESULTS)
         }
         query = term
@@ -326,12 +325,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         }
     }
 
-    //otherwise, the recent searches must be showing:
+    // otherwise, the recent searches must be showing:
     private val activePanel: Int
         get() = if (searchResultsFragment!!.isShowing) {
             PANEL_SEARCH_RESULTS
         } else {
-            //otherwise, the recent searches must be showing:
+            // otherwise, the recent searches must be showing:
             PANEL_RECENT_SEARCHES
         }
 
@@ -353,7 +352,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun isValidQuery(queryText: String?): Boolean {
-        return queryText != null && TextUtils.getTrimmedLength(queryText) > 0
+        return queryText != null && queryText.trim().isNotEmpty()
     }
 
     private fun addRecentSearch(title: String?) {
@@ -367,13 +366,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     override fun onLanguageTabSelected(selectedLanguageCode: String) {
         if (langBtnClicked) {
-            //We need to skip an event when we return back from 'add languages' screen,
+            // We need to skip an event when we return back from 'add languages' screen,
             // because it triggers two events while re-drawing the UI
             langBtnClicked = false
         } else {
-            //We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
+            // We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
             // gets overwritten when UI is re-drawn
-            funnel!!.searchLanguageSwitch(if (!TextUtils.isEmpty(tempLangCodeHolder) && tempLangCodeHolder != selectedLanguageCode)
+            funnel!!.searchLanguageSwitch(if (!tempLangCodeHolder.isNullOrEmpty() && tempLangCodeHolder != selectedLanguageCode)
                 tempLangCodeHolder else searchLanguageCode, selectedLanguageCode)
             tempLangCodeHolder = null
         }
