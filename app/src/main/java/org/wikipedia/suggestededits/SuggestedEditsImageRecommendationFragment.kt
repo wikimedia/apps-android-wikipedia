@@ -70,7 +70,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         binding.publishOverlayContainer.visibility = GONE
 
         binding.imageCard.elevation = 0f
-        binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color)
+        binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_border_color)
         binding.imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
         binding.acceptButton.setOnClickListener {
@@ -119,6 +119,35 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         _binding = null
     }
 
+    private fun maybeShowTooltipSequence() {
+        binding.root.post {
+            if (!isResumed || !isAdded) {
+                return@post
+            }
+            if (Prefs.shouldShowImageRecsOnboarding()) {
+                Prefs.setShowImageRecsOnboarding(false)
+
+                // binding.imageSuggestionContainer.visibility = GONE
+                // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, binding.imageSuggestionContainer.height)
+
+                FeedbackUtil.showTooltip(requireActivity(), binding.articleTitlePlaceholder, "Review this article to understand its topic.", aboveOrBelow = false, autoDismiss = true)
+                        .setOnBalloonDismissListener {
+
+                            // binding.imageSuggestionContainer.visibility = VISIBLE
+                            // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, 0)
+
+                            FeedbackUtil.showTooltip(requireActivity(), binding.instructionText, "Inspect the image and its associated information.", aboveOrBelow = true, autoDismiss = true)
+                                    .setOnBalloonDismissListener {
+                                        FeedbackUtil.showTooltip(requireActivity(), binding.acceptButton, "Decide if the image will help readers better understand this topic.", aboveOrBelow = true, autoDismiss = true)
+                                    }
+                        }
+            } else {
+                // binding.imageSuggestionContainer.visibility = VISIBLE
+                // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, 0)
+            }
+        }
+    }
+
     private fun getNextItem() {
         if (page != null) {
             return
@@ -160,6 +189,7 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.imageTitle, WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .retry(5)
                 .subscribe({ response ->
                     val imageInfo = response.query()!!.firstPage()!!.imageInfo()!!
 
@@ -178,6 +208,10 @@ class SuggestedEditsImageRecommendationFragment : SuggestedEditsItemFragment(), 
 
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
+
+                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, page!!.notes))
+
+                    maybeShowTooltipSequence()
                 }, { setErrorState(it) }))
 
         callback().updateActionButton()

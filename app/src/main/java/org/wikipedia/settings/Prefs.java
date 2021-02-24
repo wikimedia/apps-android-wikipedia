@@ -998,5 +998,14 @@ public final class Prefs {
         setInt(R.string.preference_key_image_recs_day_id, day);
     }
 
+    public static boolean shouldShowImageRecsOnboarding() {
+        return getBoolean(R.string.preference_key_image_recs_show_onboarding, true);
+    }
+
+    public static void setShowImageRecsOnboarding(boolean enabled) {
+        setBoolean(R.string.preference_key_image_recs_show_onboarding, enabled);
+    }
+
+
     private Prefs() { }
 }

@@ -998,7 +998,7 @@
     <string name="image_recommendations_task_reject">No</string>
     <string name="image_recommendations_task_not_sure">Not sure</string>
     <string name="image_recommendations_task_processing">Processing…</string>
-    <string name="image_recommendations_task_instruction">Is this a good image for the article?</string>
+    <string name="image_recommendations_task_instruction">Would you add this image to the article?</string>
     <string name="image_recommendations_task_choice_instruction">Can you tell us why you are not sure if this is a suitable image?</string>
     <string name="image_recommendations_task_choice_not_relevant">Not relevant</string>
     <string name="image_recommendations_task_choice_low_quality">Low quality</string>
@@ -1010,6 +1010,7 @@
     <string name="image_recommendations_task_goal_progress">Great, keep going! 👍</string>
     <string name="image_recommendations_task_goal_complete">Daily goal achieved! 👏</string>
     <string name="image_recommendations_task_goal_surpassed">You\'ve reached the goal</string>
+    <string name="image_recommendations_task_suggestion_reason"><![CDATA[<i>Suggestion reason:</i> %s]]></string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>

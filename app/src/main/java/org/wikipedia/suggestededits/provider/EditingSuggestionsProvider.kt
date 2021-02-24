@@ -256,7 +256,7 @@ object EditingSuggestionsProvider {
                         break
                     }
                     val arr = line.split('\t')
-                    articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[1], arr[2]))
+                    articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[0], arr[1], arr[2]))
                 }
 
                 var item: ImageRecommendationResponse? = null

@@ -35,7 +35,6 @@
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:paddingTop="8dp"
             android:orientation="vertical">
 
             <TextView
@@ -48,6 +47,11 @@
                 android:maxLines="3"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="26sp" />
+
+            <View
+                android:id="@+id/articleTitlePlaceholder"
+                android:layout_width="120dp"
+                android:layout_height="0dp" />
 
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/articleDescription"
@@ -90,13 +94,28 @@
         android:id="@+id/imageSuggestionContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="16dp"
+
         android:paddingBottom="4dp"
         android:background="?attr/paper_color"
         android:elevation="12dp"
         android:layout_gravity="bottom">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="?attr/material_theme_border_color" />
+
+        <View
+            android:layout_width="22dp"
+            android:layout_height="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_2dp_fill" />
 
         <ImageView
             android:id="@+id/robotIcon"
@@ -104,9 +123,10 @@
             android:layout_height="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp"
             app:srcCompat="@drawable/ic_robot_24"
             app:tint="?attr/colorAccent"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="26dp"
             android:contentDescription="@null" />
 
         <View
@@ -127,6 +147,7 @@
             app:layout_constraintStart_toEndOf="@id/robotIcon"
             app:layout_constrainedWidth="true"
             android:layout_marginStart="17dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_8dp_accent90_fill"
             android:padding="10dp"
             android:textSize="16sp"
@@ -143,13 +164,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="12dp"
             android:layout_marginStart="64dp"
+            android:layout_marginEnd="16dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp">
 
             <FrameLayout
                 android:id="@+id/imageViewContainer"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="180dp">
                 <org.wikipedia.views.FaceAndColorDetectImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
@@ -163,7 +185,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="200dp">
+                android:layout_marginTop="180dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/imageFileNameText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:paddingTop="4dp"
+                        android:lineSpacingMultiplier="1.1"
+                        android:textColor="?attr/colorAccent"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium"
+                        tools:text="Lorem ipsum"/>
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_chevron_forward_gray"
+                        app:tint="?attr/colorAccent"
+                        android:contentDescription="@null"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/imageCaptionText"
@@ -173,47 +228,27 @@
                     android:maxLines="2"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
-                    android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:lineSpacingMultiplier="1.1"
-                    android:textColor="?attr/material_theme_primary_color"
-                    android:textColorLink="?attr/material_theme_primary_color"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif-medium"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColorLink="?android:attr/textColorSecondary"
+                    android:textSize="12sp"
                     tools:text="Lorem ipsum"/>
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/imageSuggestionReason"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
-                    android:paddingBottom="10dp">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_gravity="center_vertical"
-                        app:srcCompat="@drawable/ic_attach_file_24"
-                        app:tint="?attr/colorAccent"
-                        android:contentDescription="@null"/>
-
-                    <TextView
-                        android:id="@+id/imageFileNameText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:ellipsize="end"
-                        android:maxLines="2"
-                        android:paddingStart="4dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:lineSpacingMultiplier="1.1"
-                        android:textColor="?attr/colorAccent"
-                        android:textSize="12sp"
-                        tools:text="Lorem ipsum"/>
-
-                </LinearLayout>
+                    android:paddingBottom="10dp"
+                    android:lineSpacingMultiplier="1.1"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textColorLink="?android:attr/textColorSecondary"
+                    android:textSize="12sp"
+                    tools:text="Lorem ipsum"/>
 
             </LinearLayout>
 
@@ -257,7 +292,8 @@
             app:layout_constraintTop_toBottomOf="@id/imageCard"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/image_recommendations_task_not_sure"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -269,7 +305,7 @@
         android:focusable="true"
         android:visibility="gone"
         android:elevation="14dp"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <View
             android:id="@+id/publishBackgroundView"

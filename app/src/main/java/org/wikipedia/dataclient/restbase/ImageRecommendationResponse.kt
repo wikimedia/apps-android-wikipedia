@@ -1,3 +1,3 @@
 package org.wikipedia.dataclient.restbase
 
-data class ImageRecommendationResponse(val title: String, val imageTitle: String)
+data class ImageRecommendationResponse(val title: String, val imageTitle: String, val notes: String)

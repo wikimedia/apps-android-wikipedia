@@ -129,4 +129,5 @@
     <string name="preference_key_image_recs_teacher_mode">imageRecsTeacherMode</string>
     <string name="preference_key_image_recs_daily_progress">imageRecsDailyProgress</string>
     <string name="preference_key_image_recs_day_id">imageRecsDayId</string>
+    <string name="preference_key_image_recs_show_onboarding">imageRecsShowOnboarding</string>
 </resources>
