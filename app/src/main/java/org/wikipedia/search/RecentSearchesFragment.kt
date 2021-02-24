@@ -31,8 +31,8 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
     private var _binding: FragmentSearchRecentBinding? = null
     private val binding get() = _binding!!
-    private var callback: Callback? = null
-    private var adapter: RecentSearchesAdapter? = null
+    var callback: Callback? = null
+    private lateinit var adapter: RecentSearchesAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -68,9 +68,7 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         binding.recentSearchesList.adapter = adapter
         binding.recentSearchesList.onItemClickListener = OnItemClickListener { _, view: View, _, _ ->
             val entry = view.tag as RecentSearch
-            if (callback != null) {
-                callback!!.switchToSearch(entry.text!!)
-            }
+            callback?.switchToSearch(entry.text!!)
         }
         val supportLoaderManager = LoaderManager.getInstance(this)
         supportLoaderManager.initLoader(Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this)
@@ -100,10 +98,6 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         binding.recentSearches.visibility = if (!searchesEmpty) View.VISIBLE else View.INVISIBLE
     }
 
-    fun setCallback(callback: Callback?) {
-        this.callback = callback
-    }
-
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {
         if (searchesEmpty) {
             binding.searchEmptyContainer.visibility = View.VISIBLE
@@ -120,9 +114,7 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     }
 
     fun onAddLangButtonClick() {
-        if (callback != null) {
-            callback!!.onAddLanguageClicked()
-        }
+        callback?.onAddLanguageClicked()
     }
 
     override fun onLoaderReset(cursorLoaderLoader: Loader<Cursor>) {
