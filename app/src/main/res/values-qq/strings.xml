@@ -1015,6 +1015,7 @@
   <string name="image_recommendations_task_get_started">Button label for starting the Image Recommendations task.</string>
   <string name="image_recommendations_task_accept">Button label for accepting the recommended image.</string>
   <string name="image_recommendations_task_reject">Button label for rejecting the recommended image.</string>
+  <string name="image_recommendations_task_daily_amount">Label that shows the number of tasks that the user completed (the first %d symbol)), out of a total amount (the second %d symbol).</string>
   <string name="image_recommendations_task_not_sure">Button label for being unsure about the current image recommendation.</string>
   <string name="image_recommendations_task_processing">Label shown when the current recommendation is being processed.</string>
   <string name="image_recommendations_task_instruction">Question asked for the user to evaluate the current image recommendation.</string>
@@ -1025,10 +1026,16 @@
   <string name="image_recommendations_task_choice_noinfo">Checkbox label selected if the current image recommendation does not convey enough information.</string>
   <string name="image_recommendations_task_choice_nosubject">Checkbox label selected if the user does not know enough to evaluate the current image recommendation.</string>
   <string name="image_recommendations_task_choice_offensive">Checkbox label selected if the current image recommendation is offensive</string>
+  <string name="image_recommendations_task_choice_invisible">Checkbox label selected if the user is unable to see the current image recommendation.</string>
+  <string name="image_recommendations_task_choice_understand">Checkbox label selected if the user does not understand the task itself.</string>
   <string name="image_recommendations_task_choice_other">Checkbox label selected if the user cannot evaluate the current image recommendation for another reason.</string>
+  <string name="image_recommendations_task_suggestion_reason">Label that shows the reason that this image is being suggested for the current article. The %s is replaced with the reason.</string>
   <string name="image_recommendations_task_choice_continue">Button label for continuing with the current selection(s).</string>
   <string name="image_recommendations_task_goal_progress">Label indicating that the user has made progress towards their daily goal.</string>
   <string name="image_recommendations_task_goal_complete">Congratulatory message to indicate that the user has reached the daily goal.</string>
   <string name="image_recommendations_task_goal_surpassed">Label that indicates the user has reached or exceeded the daily goal.</string>
+  <string name="image_recommendations_onboarding_text1">Tutorial message that familiarizes the user with our new Image Recommendations structured task, where images are matched to unillustrated articles by a machine algorithm, and the user responds whether the chosen image is appropriate for the article.</string>
+  <string name="image_recommendations_onboarding_text2">Tutorial message explaining to the user how and why their username will be used by this project, if they consent to sharing it.</string>
+  <string name="image_recommendations_onboarding_consent">Checkbox label where the user consents to share their username for additional analytics of the Image Recommendations project.</string>
 
 </resources>
