@@ -2,10 +2,6 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/preferences_developer_feature_testing_heading">
-
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/preferences_developer_announcements_heading">
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference

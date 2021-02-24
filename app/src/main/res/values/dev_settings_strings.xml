@@ -8,7 +8,6 @@
     <string name="menu_developer_settings">@string/developer_settings_activity_title</string>
     <string name="preferences_developer_misc_heading">Miscellaneous</string>
     <string name="preferences_developer_onboarding_heading">Onboarding</string>
-    <string name="preferences_developer_feature_testing_heading">A/B feature testing</string>
 
     <string name="preferences_developer_announcements_heading">Announcements</string>
     <string name="preferences_developer_announcement_country_override">Country Override</string>
