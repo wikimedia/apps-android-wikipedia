@@ -1,9 +1,9 @@
 package org.wikipedia.suggestededits
 
-import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.onboarding.OnboardingFragment
 import android.content.Context
 import android.content.Intent
+import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.onboarding.OnboardingFragment
 
 class ImageRecsOnboardingActivity : SingleFragmentActivity<ImageRecsOnboardingFragment>(), OnboardingFragment.Callback {
     override fun onComplete() {

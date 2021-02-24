@@ -10,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.ImageRecommendationsFunnel
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationDialogBinding
 import org.wikipedia.util.DimenUtil
 
@@ -50,6 +51,25 @@ class ImageRecsDialog : DialogFragment() {
 
             callback()?.onDialogSubmit(responseCode, itemList)
             dismiss()
+        }
+
+        if (responseCode == ImageRecommendationsFunnel.RESPONSE_REJECT) {
+            binding.instructionText.text = getString(R.string.image_recommendations_task_choice_no)
+            binding.checkBox1.text = getString(R.string.image_recommendations_task_choice_not_relevant)
+            binding.checkBox2.text = getString(R.string.image_recommendations_task_choice_noinfo)
+            binding.checkBox3.text = getString(R.string.image_recommendations_task_choice_offensive)
+            binding.checkBox4.text = getString(R.string.image_recommendations_task_choice_low_quality)
+            binding.checkBox5.text = getString(R.string.image_recommendations_task_choice_nosubject)
+            binding.checkBox6.text = getString(R.string.image_recommendations_task_choice_other)
+            binding.checkBox6.visibility = View.VISIBLE
+        } else if (responseCode == ImageRecommendationsFunnel.RESPONSE_NOT_SURE) {
+            binding.instructionText.text = getString(R.string.image_recommendations_task_choice_unsure)
+            binding.checkBox1.text = getString(R.string.image_recommendations_task_choice_noinfo)
+            binding.checkBox2.text = getString(R.string.image_recommendations_task_choice_invisible)
+            binding.checkBox3.text = getString(R.string.image_recommendations_task_choice_nosubject)
+            binding.checkBox4.text = getString(R.string.image_recommendations_task_choice_understand)
+            binding.checkBox5.text = getString(R.string.image_recommendations_task_choice_other)
+            binding.checkBox6.visibility = View.INVISIBLE
         }
 
         updateSubmitState()

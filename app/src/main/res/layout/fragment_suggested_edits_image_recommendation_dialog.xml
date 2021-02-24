@@ -16,9 +16,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/image_recommendations_task_choice_instruction"
+        android:text="@string/image_recommendations_task_choice_no"
         android:textColor="?attr/material_theme_primary_color"
-        android:textSize="16sp"/>
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideLineMiddle"
@@ -34,12 +35,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideLineMiddle"
         app:layout_constraintTop_toBottomOf="@id/instructionText"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
         android:paddingEnd="8dp"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         android:text="@string/image_recommendations_task_choice_not_relevant"
         android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
         app:buttonTint="?attr/colorAccent" />
 
     <com.google.android.material.checkbox.MaterialCheckBox
@@ -53,6 +55,7 @@
         android:paddingEnd="8dp"
         android:text="@string/image_recommendations_task_choice_low_quality"
         android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
 
@@ -67,6 +70,7 @@
         android:paddingEnd="8dp"
         android:text="@string/image_recommendations_task_choice_noinfo"
         android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
 
@@ -81,6 +85,7 @@
         android:paddingEnd="8dp"
         android:text="@string/image_recommendations_task_choice_nosubject"
         android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
 
@@ -95,6 +100,7 @@
         android:paddingEnd="8dp"
         android:text="@string/image_recommendations_task_choice_offensive"
         android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
 
@@ -109,6 +115,7 @@
         android:paddingEnd="8dp"
         android:text="@string/image_recommendations_task_choice_other"
         android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
         android:background="@drawable/rounded_12dp_corner_base90_fill"
         app:buttonTint="?attr/colorAccent" />
 

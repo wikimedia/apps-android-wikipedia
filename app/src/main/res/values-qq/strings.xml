@@ -1018,7 +1018,8 @@
   <string name="image_recommendations_task_not_sure">Button label for being unsure about the current image recommendation.</string>
   <string name="image_recommendations_task_processing">Label shown when the current recommendation is being processed.</string>
   <string name="image_recommendations_task_instruction">Question asked for the user to evaluate the current image recommendation.</string>
-  <string name="image_recommendations_task_choice_instruction">Follow-up question asked when the user rejects or is unsure about the recommendation.</string>
+  <string name="image_recommendations_task_choice_no">Follow-up question asked when the user rejects the recommendation.</string>
+  <string name="image_recommendations_task_choice_unsure">Follow-up question asked when the user is unsure about the recommendation.</string>
   <string name="image_recommendations_task_choice_not_relevant">Checkbox label selected if the current image recommendation is not relevant.</string>
   <string name="image_recommendations_task_choice_low_quality">Checkbox label selected if the current image recommendation is low quality.</string>
   <string name="image_recommendations_task_choice_noinfo">Checkbox label selected if the current image recommendation does not convey enough information.</string>
