@@ -1112,7 +1112,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
-            if (backLinks.size() > 0) {
+            if (backLinks != null && backLinks.size() > 0) {
                 List<String> backLinksList = new ArrayList<>();
                 for (int i = 0; i < backLinks.size(); i++) {
                     backLinksList.add(backLinks.get(i).getAsJsonObject().get("id").getAsString());
@@ -1122,11 +1122,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
-            int diffY = payload.getAsJsonObject("rect").has("y")
-                    ? DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat())
-                    : DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("top").getAsFloat());
-            final int offsetFraction = 3;
-            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
+            JsonObject rect = payload.getAsJsonObject("rect");
+            if (rect != null) {
+                int diffY = rect.has("y")
+                        ? DimenUtil.roundedDpToPx(rect.get("y").getAsFloat())
+                        : DimenUtil.roundedDpToPx(rect.get("top").getAsFloat());
+                final int offsetFraction = 3;
+                webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
+            }
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),

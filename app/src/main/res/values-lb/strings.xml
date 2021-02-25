@@ -45,6 +45,8 @@
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Am Artikel sichen</string>
   <string name="menu_page_add_to_watchlist">Op d\'Iwwerwaachungslëscht dobäisetzen</string>
+  <string name="menu_page_view_talk">Diskussiounssäit weisen</string>
+  <string name="menu_page_view_edit_history">All Versioune vun der Säit weisen</string>
   <string name="menu_page_remove_from_watchlist">Vun der Iwwerwaachungslëscht erofhuelen</string>
   <string name="edit_section_find_in_page">Op der Säit sichen</string>
   <string name="menu_page_font_and_theme">Schrëftaart a Faarwen</string>
