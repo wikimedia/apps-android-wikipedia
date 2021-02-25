@@ -6,9 +6,10 @@ package org.wikipedia.staticdata
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
 import java.util.*
 
-class FileAliasData {
+object FileAliasData {
     private val dataMap = Collections.unmodifiableMap(newMap())
 
+    @JvmStatic
     fun valueFor(key: String?): String {
         var keyStr = key
         keyStr = getDesiredLanguageCode(keyStr!!)
