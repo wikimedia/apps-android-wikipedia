@@ -2,6 +2,7 @@
 <!-- Authors:
 * AZISS
 * Masalli qasimli
+* NMW03
 * Neriman2003
 * Toghrul Rahimli
 * Verman1
@@ -257,7 +258,8 @@
   <string name="close_all_tabs_confirm_yes">Bəli</string>
   <string name="close_all_tabs_confirm_no">Xeyr</string>
   <string name="button_continue_to_article">Məqalə oxu</string>
-  <string name="button_continue_to_disambiguation">Oxşar səhifələrə bax</string>
+  <string name="button_continue_to_disambiguation">Oxşar səhifələrə baxın</string>
+  <string name="link_preview_disambiguation_description">Bu başlıq birdən çox səhifəyə aiddir:</string>
   <string name="reference_list_title">İstinadlar</string>
   <string name="article_menu_bar_language_button">Dil</string>
   <string name="article_menu_bar_search_button">Axtar</string>
