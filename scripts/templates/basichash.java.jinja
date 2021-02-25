@@ -5,33 +5,29 @@ package org.wikipedia.staticdata;
 
 import androidx.annotation.NonNull;
 
-import org.wikipedia.util.L10nUtil;
+import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.*
 
-public final class {{class_name}} {
+class {{class_name}} {
     private val DATA_MAP = Collections.unmodifiableMap(newMap())
-        @JvmStatic
-        fun valueFor(key: String?): String {
-            var key = key
-            key = getDesiredLanguageCode(key!!)
-            return if (DATA_MAP.containsKey(key)) {
-                DATA_MAP[key]!!
-            } else DATA_MAP["en"]!!
-        }
+    fun valueFor(key: String?): String {
+        var keyStr = key
+        keyStr = getDesiredLanguageCode(keyStr!!)
+        return if (DATA_MAP.containsKey(keyStr))
+        { DATA_MAP[keyStr]!! }
+        else DATA_MAP["en"]!!
+    }
 
-    @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
-     private fun newMap(): Map<String, String> {
-            val size = 307
-            val map: MutableMap<String, String> = HashMap(size)
+    private fun newMap(): Map<String, String> {
+        val size = {{wikis|length}}
+        val map = HashMap<String, String>(size)
 
         {%- for wiki in wikis %}
-        map.put("{{wiki.lang}}", "{{wiki.props[key]}}")
+        map["{{wiki.lang}}"] = "{{wiki.props[key]}}"
         {%- endfor %}
         return map
     }
-
-    private {{class_name}}() { }
 }
