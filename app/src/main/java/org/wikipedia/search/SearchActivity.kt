@@ -11,7 +11,7 @@ import org.wikipedia.analytics.IntentFunnel
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
         return SearchFragment.newInstance(intent.getSerializableExtra(
-                Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?,
+                Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource,
                 intent.getStringExtra(QUERY_EXTRA))
     }
 
