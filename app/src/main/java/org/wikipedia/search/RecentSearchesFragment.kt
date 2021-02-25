@@ -64,7 +64,7 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        adapter = RecentSearchesAdapter(context, null, true)
+        adapter = RecentSearchesAdapter(requireContext(), null, true)
         binding.recentSearchesList.adapter = adapter
         binding.recentSearchesList.onItemClickListener = OnItemClickListener { _, view: View, _, _ ->
             val entry = view.tag as RecentSearch
@@ -91,7 +91,7 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         if (!isAdded) {
             return
         }
-        adapter!!.swapCursor(cursorLoader)
+        adapter.swapCursor(cursorLoader)
         val searchesEmpty = binding.recentSearchesList.count == 0
         binding.searchEmptyContainer.visibility = if (searchesEmpty) View.VISIBLE else View.INVISIBLE
         updateSearchEmptyView(searchesEmpty)
@@ -118,14 +118,14 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     }
 
     override fun onLoaderReset(cursorLoaderLoader: Loader<Cursor>) {
-        adapter!!.changeCursor(null)
+        adapter.changeCursor(null)
     }
 
     fun updateList() {
-        adapter!!.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
     }
 
-    private inner class RecentSearchesAdapter(context: Context?, c: Cursor?, autoRequery: Boolean) : CursorAdapter(context, c, autoRequery) {
+    private inner class RecentSearchesAdapter(context: Context, c: Cursor?, autoRequery: Boolean) : CursorAdapter(context, c, autoRequery) {
         override fun newView(context: Context, cursor: Cursor, viewGroup: ViewGroup): View {
             return LayoutInflater.from(activity).inflate(R.layout.item_search_recent, viewGroup, false)
         }
@@ -141,8 +141,8 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             return getEntry(cursor).text!!
         }
 
-        fun getEntry(cursor: Cursor?): RecentSearch {
-            return RecentSearch.DATABASE_TABLE.fromCursor(cursor!!)
+        fun getEntry(cursor: Cursor): RecentSearch {
+            return RecentSearch.DATABASE_TABLE.fromCursor(cursor)
         }
     }
 }
