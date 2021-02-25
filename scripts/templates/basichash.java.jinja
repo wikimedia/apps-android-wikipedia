@@ -1,14 +1,9 @@
 /* THIS IS AN AUTOMATICALLY GENERATED FILE
    IF YOU MODIFY THIS BY HAND BE PREPARED!
    TO HAVE YOUR CHANGES OVERWRITTEN */
-package org.wikipedia.staticdata;
-
-import androidx.annotation.NonNull;
+package org.wikipedia.staticdata
 
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
-
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.*
 
 class {{class_name}} {
@@ -16,9 +11,9 @@ class {{class_name}} {
     fun valueFor(key: String?): String {
         var keyStr = key
         keyStr = getDesiredLanguageCode(keyStr!!)
-        return if (DATA_MAP.containsKey(keyStr))
-        { DATA_MAP[keyStr]!! }
-        else DATA_MAP["en"]!!
+        return if (DATA_MAP.containsKey(keyStr)) {
+            DATA_MAP[keyStr]!!
+        } else DATA_MAP["en"]!!
     }
 
     private fun newMap(): Map<String, String> {
