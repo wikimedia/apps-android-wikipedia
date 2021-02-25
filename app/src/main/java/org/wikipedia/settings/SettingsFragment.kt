@@ -73,7 +73,7 @@ class SettingsFragment : PreferenceLoaderFragment() {
     }
 
     private fun launchDeveloperSettingsActivity() {
-        startActivity(newIntent(activity))
+        startActivity(newIntent(requireActivity()))
     }
 
     private fun prepareDeveloperSettingsMenuItem(menu: Menu) {
