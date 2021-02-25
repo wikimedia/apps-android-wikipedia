@@ -7,13 +7,14 @@ import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
 import java.util.*
 
 class SpecialAliasData {
-    private val DATA_MAP = Collections.unmodifiableMap(newMap())
+    private val dataMap = Collections.unmodifiableMap(newMap())
+
     fun valueFor(key: String?): String {
         var keyStr = key
         keyStr = getDesiredLanguageCode(keyStr!!)
-        return if (DATA_MAP.containsKey(keyStr)) {
-            DATA_MAP[keyStr]!!
-        } else DATA_MAP["en"]!!
+        return if (dataMap.containsKey(keyStr)) {
+            dataMap[keyStr]!!
+        } else dataMap["en"]!!
     }
 
     private fun newMap(): Map<String, String> {
