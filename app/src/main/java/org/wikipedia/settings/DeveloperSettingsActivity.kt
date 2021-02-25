@@ -11,7 +11,7 @@ class DeveloperSettingsActivity : SingleFragmentActivity<DeveloperSettingsFragme
 
     companion object {
         @JvmStatic
-        fun newIntent(context: Context?): Intent {
+        fun newIntent(context: Context): Intent {
             return Intent(context, DeveloperSettingsActivity::class.java)
         }
     }

@@ -21,7 +21,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider.getNextArticleWithMissingDescription
 import org.wikipedia.talk.TalkPageSeenDatabaseTable.resetAllUnseen
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.StringUtil.fromHtml
 import java.util.*
 
@@ -41,30 +40,30 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         findPreference(R.string.preferences_developer_crash_key).onPreferenceClickListener = Preference.OnPreferenceClickListener { throw TestException("User tested crash functionality.") }
         findPreference(R.string.preference_key_add_articles).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             if (!isEmptyOrZero(newValue)) {
-                createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, StringUtil.trim(newValue).toInt())
+                createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, newValue.toString().trim().toInt())
             }
             true
         }
         findPreference(R.string.preference_key_add_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             if (!isEmptyOrZero(newValue)) {
-                createTestReadingList(TEXT_OF_READING_LIST, StringUtil.trim(newValue).toInt(), 10)
+                createTestReadingList(TEXT_OF_READING_LIST, newValue.toString().trim().toInt(), 10)
             }
             true
         }
         findPreference(R.string.preference_key_delete_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             if (!isEmptyOrZero(newValue)) {
-                deleteTestReadingList(TEXT_OF_READING_LIST, StringUtil.trim(newValue).toInt())
+                deleteTestReadingList(TEXT_OF_READING_LIST, newValue.toString().trim().toInt())
             }
             true
         }
         findPreference(R.string.preference_key_delete_test_reading_lists).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
             if (!isEmptyOrZero(newValue)) {
-                deleteTestReadingList(TEXT_OF_TEST_READING_LIST, StringUtil.trim(newValue).toInt())
+                deleteTestReadingList(TEXT_OF_TEST_READING_LIST, newValue.toString().trim().toInt())
             }
             true
         }
         findPreference(R.string.preference_key_add_malformed_reading_list_page).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any ->
-            val numberOfArticles = if (newValue.toString().isEmpty()) 1 else StringUtil.trim(newValue).toInt()
+            val numberOfArticles = if (newValue.toString().isEmpty()) 1 else newValue.toString().trim().toInt()
             val pages: MutableList<ReadingListPage> = ArrayList()
             for (i in 0 until numberOfArticles) {
                 val pageTitle = PageTitle("Malformed page $i", WikiSite.forLanguageCode("foo"))
@@ -167,7 +166,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         var index = 0
         ReadingListDbHelper.instance().allListsWithoutContents.asReversed().forEach {
             if (it.title().contains(listName)) {
-                val trimmedListTitle = StringUtil.trim(it.title().substring(listName.length))
+                val trimmedListTitle = it.title().substring(listName.length).trim()
                 index = if (trimmedListTitle.isEmpty()) index else trimmedListTitle.toInt().coerceAtLeast(index)
                 return
             }
@@ -195,7 +194,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     }
 
     private fun isEmptyOrZero(newValue: Any): Boolean {
-        return StringUtil.trim(newValue).isEmpty() || StringUtil.trim(newValue) == "0"
+        return newValue.toString().trim().isEmpty() || newValue.toString().trim() == "0"
     }
 
     private class TestException constructor(message: String?) : RuntimeException(message)
