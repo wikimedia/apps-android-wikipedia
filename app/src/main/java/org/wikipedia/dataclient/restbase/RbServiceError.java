@@ -5,12 +5,11 @@ import androidx.annotation.NonNull;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.model.BaseModel;
 
 /**
  * Gson POJO for a RESTBase API error.
  */
-public class RbServiceError extends BaseModel implements ServiceError {
+public class RbServiceError implements ServiceError {
     @SuppressWarnings("unused") private String type;
     @SuppressWarnings("unused") private String title;
     @SuppressWarnings("unused") private String detail;

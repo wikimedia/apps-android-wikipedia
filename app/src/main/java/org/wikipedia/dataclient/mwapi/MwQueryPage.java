@@ -10,7 +10,6 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.gallery.ImageInfo;
-import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.Namespace;
 
 import java.util.Collections;
@@ -21,7 +20,7 @@ import java.util.Map;
  * A class representing a standard page object as returned by the MediaWiki API.
  */
 @SuppressWarnings("unused")
-public class MwQueryPage extends BaseModel {
+public class MwQueryPage {
     private int pageid;
     private int ns;
     private int index;

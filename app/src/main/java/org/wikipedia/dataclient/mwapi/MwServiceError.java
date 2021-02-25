@@ -5,14 +5,13 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
-import org.wikipedia.model.BaseModel;
 
 import java.util.List;
 
 /**
  * Gson POJO for a MediaWiki API error.
  */
-public class MwServiceError extends BaseModel implements ServiceError {
+public class MwServiceError implements ServiceError {
     @SuppressWarnings("unused") @Nullable private String code;
     @SuppressWarnings("unused") @Nullable private String text;
     @SuppressWarnings("unused") @Nullable private Data data;

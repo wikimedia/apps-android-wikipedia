@@ -3,9 +3,8 @@ package org.wikipedia.page;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.model.BaseModel;
 
-public class PageBackStackItem extends BaseModel {
+public class PageBackStackItem {
     @NonNull private PageTitle title;
     @NonNull private HistoryEntry historyEntry;
 

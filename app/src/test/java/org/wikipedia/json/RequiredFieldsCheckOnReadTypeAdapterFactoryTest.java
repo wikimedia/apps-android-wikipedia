@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.model.BaseModel;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -157,28 +156,28 @@ public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
         assertThat(result, nullValue());
     }
 
-    private static class RequiredModel extends BaseModel {
+    private static class RequiredModel {
         @SuppressWarnings("NullableProblems") @Required @NonNull private Integer field;
     }
 
-    private static class OptionalModel extends BaseModel {
+    private static class OptionalModel {
         @Nullable private Integer field;
     }
 
-    private static class ComposedModel extends BaseModel {
+    private static class ComposedModel {
         @SuppressWarnings("NullableProblems") @Required @NonNull private RequiredModel required;
         @Nullable private OptionalModel optional;
     }
 
-    private static class RequiredTypeAdapterModel extends BaseModel {
+    private static class RequiredTypeAdapterModel {
         @SuppressWarnings("NullableProblems") @Required @NonNull private Uri uri;
     }
 
-    private static class OptionalTypeAdapterModel extends BaseModel {
+    private static class OptionalTypeAdapterModel {
         @Nullable private Uri uri;
     }
 
-    private static class SerializedNameModel extends BaseModel {
+    private static class SerializedNameModel {
         @SuppressWarnings("NullableProblems") @SerializedName("foo") @Required @NonNull private String bar;
     }
 }

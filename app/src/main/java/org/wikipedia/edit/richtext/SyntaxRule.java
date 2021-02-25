@@ -1,7 +1,5 @@
 package org.wikipedia.edit.richtext;
 
-import org.wikipedia.model.BaseModel;
-
 /**
  * Represents a single syntax highlighting rule.
  *
@@ -12,7 +10,7 @@ import org.wikipedia.model.BaseModel;
  *                     |
  *                 spanStyle
  */
-public class SyntaxRule extends BaseModel {
+public class SyntaxRule {
     private final String startSymbol;
     private final String endSymbol;
     private final SyntaxRuleStyle spanStyle;
