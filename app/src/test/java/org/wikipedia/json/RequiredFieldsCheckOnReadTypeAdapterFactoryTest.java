@@ -29,7 +29,7 @@ public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
         RequiredModel expected = new RequiredModel();
         expected.field = 1;
         RequiredModel result = unmarshal(gson, RequiredModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.field, is(expected.field));
     }
 
     @Test
@@ -50,21 +50,21 @@ public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
         OptionalModel expected = new OptionalModel();
         expected.field = 1;
         OptionalModel result = unmarshal(gson, OptionalModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.field, is(expected.field));
     }
 
     @Test
     public void testOptionalNull() {
         OptionalModel expected = new OptionalModel();
         OptionalModel result = unmarshal(gson, OptionalModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.field, is(expected.field));
     }
 
     @Test
     public void testOptionalMissing() {
         OptionalModel expected = new OptionalModel();
         OptionalModel result = unmarshal(gson, OptionalModel.class, "{}");
-        assertThat(result, is(expected));
+        assertThat(result.field, is(expected.field));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
         RequiredTypeAdapterModel expected = new RequiredTypeAdapterModel();
         expected.uri = Uri.parse(Service.WIKIPEDIA_URL);
         RequiredTypeAdapterModel result = unmarshal(gson, RequiredTypeAdapterModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.uri, is(expected.uri));
     }
 
     @Test
@@ -93,21 +93,21 @@ public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
         OptionalTypeAdapterModel expected = new OptionalTypeAdapterModel();
         expected.uri = Uri.parse(Service.WIKIPEDIA_URL);
         OptionalTypeAdapterModel result = unmarshal(gson, OptionalTypeAdapterModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.uri, is(expected.uri));
     }
 
     @Test
     public void testOptionalTypeAdapterNull() {
         OptionalTypeAdapterModel expected = new OptionalTypeAdapterModel();
         OptionalTypeAdapterModel result = unmarshal(gson, OptionalTypeAdapterModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.uri, is(expected.uri));
     }
 
     @Test
     public void testOptionalTypeAdapterMissing() {
         OptionalTypeAdapterModel expected = new OptionalTypeAdapterModel();
         OptionalTypeAdapterModel result = unmarshal(gson, OptionalTypeAdapterModel.class, "{}");
-        assertThat(result, is(expected));
+        assertThat(result.uri, is(expected.uri));
     }
 
     @Test
@@ -115,7 +115,7 @@ public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
         SerializedNameModel expected = new SerializedNameModel();
         expected.bar = "hello world";
         SerializedNameModel result = unmarshal(gson, SerializedNameModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.bar, is(expected.bar));
     }
 
     @Test
@@ -141,7 +141,8 @@ public class RequiredFieldsCheckOnReadTypeAdapterFactoryTest {
         expected.optional = optional;
 
         ComposedModel result = unmarshal(gson, ComposedModel.class, marshal(gson, expected));
-        assertThat(result, is(expected));
+        assertThat(result.optional.field, is(expected.optional.field));
+        assertThat(result.required.field, is(expected.required.field));
     }
 
     @Test
