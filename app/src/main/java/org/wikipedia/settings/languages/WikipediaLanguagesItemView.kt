@@ -10,7 +10,6 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemWikipediaLanguageBinding
 import org.wikipedia.search.SearchFragment
@@ -18,6 +17,7 @@ import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.ResourceUtil.getThemedAttributeId
 import org.wikipedia.util.ResourceUtil.getThemedColor
 import org.wikipedia.views.ViewUtil.formatLangButton
+import java.util.*
 
 class WikipediaLanguagesItemView : LinearLayout {
     interface Callback {
@@ -59,7 +59,7 @@ class WikipediaLanguagesItemView : LinearLayout {
     fun setContents(langCode: String, languageLocalizedName: String?, position: Int) {
         this.position = position
         binding.wikiLanguageOrder.text = (position + 1).toString()
-        binding.wikiLanguageTitle.text = StringUtils.capitalize(languageLocalizedName)
+        binding.wikiLanguageTitle.text = languageLocalizedName.orEmpty().capitalize(Locale.getDefault())
         binding.wikiLanguageCode.text = langCode
         binding.wikiLanguageCode.setTextColor(getThemedColor(context, R.attr.material_theme_de_emphasised_color))
         binding.wikiLanguageCode.background.colorFilter = BlendModeColorFilterCompat
