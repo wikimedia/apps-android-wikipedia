@@ -12,6 +12,7 @@
 * Envlh
 * FF11
 * Gnom
+* HajFunk
 * Hikemaniac
 * Hwboehm
 * Killarnee
@@ -74,6 +75,8 @@
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
   <string name="menu_page_add_to_watchlist">Zur Beobachtungsliste hinzufügen</string>
+  <string name="menu_page_view_talk">Disskussionsseite anzeigen</string>
+  <string name="menu_page_view_edit_history">Versionsgeschichte anzeigen</string>
   <string name="menu_page_remove_from_watchlist">Von der Beobachtungsliste entfernen</string>
   <string name="edit_section_find_in_page">In Seite suchen</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
