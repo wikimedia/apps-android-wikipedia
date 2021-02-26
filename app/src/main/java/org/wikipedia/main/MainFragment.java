@@ -208,6 +208,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             if (!Prefs.shouldShowSuggestedEditsTooltip()) {
                 FeedbackUtil.showMessage(this, R.string.login_success_toast);
             }
+
+            // TODO: update this logic after user testing
+            maybeShowImageRecsTooltip();
+
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().getTabCount() == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -583,6 +587,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 new WatchlistFunnel().logShowTooltipMore();
                 Prefs.setWatchlistMainOnboardingTooltipShown(true);
                 FeedbackUtil.showTooltip(requireActivity(), moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, 0, true);
+            }, 500);
+        }
+    }
+
+    private void maybeShowImageRecsTooltip() {
+        if (ReleaseUtil.isPreBetaRelease()
+                && AccountUtil.isLoggedIn()) {
+            tabLayout.postDelayed(() -> {
+                if (!isAdded()) {
+                    return;
+                }
+                FeedbackUtil.showTooltip(requireActivity(), tabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip,
+                        180, 0, 0, true);
             }, 500);
         }
     }

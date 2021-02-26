@@ -1037,5 +1037,6 @@
   <string name="image_recommendations_onboarding_text1">Tutorial message that familiarizes the user with our new Image Recommendations structured task, where images are matched to unillustrated articles by a machine algorithm, and the user responds whether the chosen image is appropriate for the article.</string>
   <string name="image_recommendations_onboarding_text2">Tutorial message explaining to the user how and why their username will be used by this project, if they consent to sharing it.</string>
   <string name="image_recommendations_onboarding_consent">Checkbox label where the user consents to share their username for additional analytics of the Image Recommendations project.</string>
+  <string name="image_recommendations_onboarding_tooltip">Tooltip that encourages the user to find the new image recommendation task.</string>
 
 </resources>
