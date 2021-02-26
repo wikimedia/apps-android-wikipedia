@@ -2,14 +2,15 @@ package org.wikipedia.settings
 
 import android.content.Context
 import android.util.AttributeSet
+import org.wikipedia.R
 
 open class IntPreference @JvmOverloads constructor(context: Context,
-                                              attrs: AttributeSet? = null,
-                                              defStyleAttr: Int = DEFAULT_STYLE_ATTR,
-                                              defStyleRes: Int) :
+                                                   attrs: AttributeSet? = null,
+                                                   defStyleAttr: Int = R.attr.intPreferenceStyle,
+                                                   defStyleRes: Int = R.style.IntPreference) :
         LongPreference(context, attrs, defStyleAttr, defStyleRes) {
 
-    override fun getPersistedString(defaultRadixValue: String): String {
+    override fun getPersistedString(defaultRadixValue: String?): String {
         return intToSummary(getPersistedInt(radixStringToInt(defaultRadixValue)))
     }
 

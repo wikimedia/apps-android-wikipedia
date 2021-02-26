@@ -6,25 +6,25 @@ import org.wikipedia.R
 
 open class LongPreference @JvmOverloads constructor(context: Context,
                                                     attrs: AttributeSet? = null,
-                                                    defStyleAttr: Int,
-                                                    defStyleRes: Int = DEFAULT_STYLE) :
+                                                    defStyleAttr: Int = R.attr.longPreferenceStyle,
+                                                    defStyleRes: Int = R.style.LongPreference) :
         EditTextAutoSummarizePreference(context, attrs, defStyleAttr, defStyleRes) {
 
     private var radix = DEFAULT_RADIX
     var summaryFormat: String? = DEFAULT_SUMMARY_FORMAT
 
     init {
-        val array = context.obtainStyledAttributes(attrs, DEFAULT_STYLEABLE)
+        val array = context.obtainStyledAttributes(attrs, R.styleable.LongPreference)
         radix = array.getInteger(R.styleable.LongPreference_radix, DEFAULT_RADIX)
         summaryFormat = array.getString(R.styleable.LongPreference_summaryFormat).toString().ifEmpty { DEFAULT_SUMMARY_FORMAT }
         array.recycle()
     }
 
-    override fun getPersistedString(defaultRadixValue: String): String {
+    override fun getPersistedString(defaultRadixValue: String?): String {
         return longToSummary(getPersistedLong(radixStringToLong(defaultRadixValue)))
     }
 
-    override fun persistString(value: String): Boolean {
+    override fun persistString(value: String?): Boolean {
         val persistent = persistRadixString(value)
         updateAutoSummary(value)
         return persistent
@@ -43,7 +43,7 @@ open class LongPreference @JvmOverloads constructor(context: Context,
     }
 
     protected fun radixStringToLong(radixValue: String?): Long {
-        return if (radixValue.isNullOrEmpty()) 0 else radixValue.toLong(radix)
+        return if (radixValue.isNullOrEmpty() || radixValue == "null") 0 else radixValue.toLong(radix)
     }
 
     private fun longToSummary(value: Long): String {
@@ -51,8 +51,6 @@ open class LongPreference @JvmOverloads constructor(context: Context,
     }
 
     companion object {
-        private val DEFAULT_STYLEABLE = R.styleable.LongPreference
-        private const val DEFAULT_STYLE = R.style.LongPreference
         private const val DEFAULT_RADIX = 10
         private const val DEFAULT_SUMMARY_FORMAT = "%d"
     }
