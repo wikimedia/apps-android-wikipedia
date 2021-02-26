@@ -184,7 +184,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                             i += syntaxItem.startSymbol.length
                             incrementDone = true
                         }
-                        //skip the check of end symbol when start symbol is found at end of the text
+                        // skip the check of end symbol when start symbol is found at end of the text
                         if (i + syntaxItem.startSymbol.length > text.length) {
                             continue
                         }
