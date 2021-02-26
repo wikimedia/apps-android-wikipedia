@@ -4,27 +4,16 @@
 package org.wikipedia.staticdata
 
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
-import java.util.*
 
 object {{class_name}} {
-    private val dataMap = Collections.unmodifiableMap(newMap())
-
     @JvmStatic
-    fun valueFor(key: String?): String {
-        var keyStr = key
-        keyStr = getDesiredLanguageCode(keyStr!!)
-        return if (dataMap.containsKey(keyStr)) {
-            dataMap[keyStr]!!
-        } else dataMap["en"]!!
+    fun valueFor(key: String): String {
+        return dataMap[getDesiredLanguageCode(key)] ?: dataMap["en"]!!
     }
 
-    private fun newMap(): Map<String, String> {
-        val size = {{wikis|length}}
-        val map = HashMap<String, String>(size)
-
-        {%- for wiki in wikis %}
-        map["{{wiki.lang}}"] = "{{wiki.props[key]}}"
-        {%- endfor %}
-        return map
-    }
+    private val dataMap = mapOf(
+            {%- for wiki in wikis %}
+            "{{wiki.lang}}" to "{{wiki.props[key]}}",
+            {%- endfor %}
+    )
 }
