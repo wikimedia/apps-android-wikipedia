@@ -4,334 +4,324 @@
 package org.wikipedia.staticdata
 
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
-import java.util.*
 
 object UserTalkAliasData {
-    private val dataMap = Collections.unmodifiableMap(newMap())
-
     @JvmStatic
-    fun valueFor(key: String?): String {
-        var keyStr = key
-        keyStr = getDesiredLanguageCode(keyStr!!)
-        return if (dataMap.containsKey(keyStr)) {
-            dataMap[keyStr]!!
-        } else dataMap["en"]!!
+    fun valueFor(key: String): String {
+        return dataMap[getDesiredLanguageCode(key)] ?: dataMap["en"]!!
     }
 
-    private fun newMap(): Map<String, String> {
-        val size = 311
-        val map = HashMap<String, String>(size)
-        map["ab"] = "Алахәыла ахцәажәара"
-        map["ace"] = "Marit Ureuëng Ngui"
-        map["ady"] = "User talk"
-        map["af"] = "Gebruikerbespreking"
-        map["ak"] = "Odwumanyɛni nkɔmmɔbea"
-        map["als"] = "Benutzer Diskussion"
-        map["alt"] = "Туружаачыны шӱӱжери"
-        map["am"] = "አባል ውይይት"
-        map["an"] = "Descusión usuario"
-        map["ang"] = "Brūcendmōtung"
-        map["ar"] = "نقاش المستخدم"
-        map["arc"] = "ܡܡܠܠܐ ܕܡܦܠܚܢܐ"
-        map["ary"] = "نقاش المستخدم"
-        map["arz"] = "نقاش المستخدم"
-        map["as"] = "সদস্য বাৰ্তা"
-        map["ast"] = "Usuariu alderique"
-        map["atj"] = "Ke ici aimihitonaniwok notcita iriniw"
-        map["av"] = "ГӀахьалчиясул бахӀс"
-        map["avk"] = "Favesikprilara"
-        map["awa"] = "यूजर बातचीत"
-        map["ay"] = "Usuario discusión"
-        map["az"] = "İstifadəçi müzakirəsi"
-        map["azb"] = "ایشلدن دانیشیغی"
-        map["ba"] = "Ҡатнашыусы менән һөйләшеү"
-        map["ban"] = "Pabligbagan Sang Anganggé"
-        map["bar"] = "Nutza Dischkrian"
-        map["bat-smg"] = "Nauduotuojė aptarėms"
-        map["bcl"] = "Olay kan paragamit"
-        map["be"] = "Размовы з удзельнікам"
-        map["be-x-old"] = "Гутаркі ўдзельніка"
-        map["bg"] = "Потребител беседа"
-        map["bh"] = "प्रयोगकर्ता वार्ता"
-        map["bi"] = "User talk"
-        map["bjn"] = "Pamandiran Pamakai"
-        map["bm"] = "Discussion utilisateur"
-        map["bn"] = "ব্যবহারকারী আলাপ"
-        map["bo"] = "User talk"
-        map["bpy"] = "আতাকুরার য়্যারী"
-        map["br"] = "Kaozeadenn Implijer"
-        map["bs"] = "Razgovor s korisnikom"
-        map["bug"] = "Pembicaraan Pengguna"
-        map["bxr"] = "Хэрэглэгшые хэлэлсэхэ"
-        map["ca"] = "Usuari Discussió"
-        map["cbk-zam"] = "Usuario discusión"
-        map["cdo"] = "用戶討論"
-        map["ce"] = "Декъашхочун дийцаре"
-        map["ceb"] = "Hisgot sa Gumagamit"
-        map["ch"] = "Kombetsasion ni muna'sesetbi"
-        map["chr"] = "User talk"
-        map["chy"] = "User talk"
-        map["ckb"] = "لێدوانی بەکارھێنەر"
-        map["co"] = "Discussioni utente"
-        map["cr"] = "User talk"
-        map["crh"] = "Qullanıcı muzakeresi"
-        map["cs"] = "Diskuse s wikipedistou"
-        map["csb"] = "Diskùsëjô brëkòwnika"
-        map["cu"] = "Польꙃєватєлꙗ бєсѣда"
-        map["cv"] = "Хутшăнаканăн канашлу страници"
-        map["cy"] = "Sgwrs Defnyddiwr"
-        map["da"] = "Brugerdiskussion"
-        map["de"] = "Benutzer Diskussion"
-        map["din"] = "Jam kekë dulooi"
-        map["diq"] = "Karber vaten"
-        map["dsb"] = "Diskusija wužywarja"
-        map["dty"] = "प्रयोगकर्ता कुरणि"
-        map["dv"] = "މެމްބަރުގެ ވާހަކަ"
-        map["dz"] = "User talk"
-        map["ee"] = "User talk"
-        map["el"] = "Συζήτηση χρήστη"
-        map["eml"] = "Discussioni utente"
-        map["en"] = "User talk"
-        map["eo"] = "Uzanto-Diskuto"
-        map["es"] = "Usuario discusión"
-        map["et"] = "Kasutaja arutelu"
-        map["eu"] = "Lankide eztabaida"
-        map["ext"] = "Usuario caraba"
-        map["fa"] = "بحث کاربر"
-        map["ff"] = "Discussion utilisateur"
-        map["fi"] = "Keskustelu käyttäjästä"
-        map["fiu-vro"] = "Pruukja arotus"
-        map["fj"] = "User talk"
-        map["fo"] = "Brúkarakjak"
-        map["fr"] = "Discussion utilisateur"
-        map["frp"] = "Discussion utilisator"
-        map["frr"] = "Benutzer Diskussion"
-        map["fur"] = "Discussion utent"
-        map["fy"] = "Meidogger oerlis"
-        map["ga"] = "Plé úsáideora"
-        map["gag"] = "Kullanıcı dartışma"
-        map["gan"] = "用戶・談詑"
-        map["gcr"] = "Diskisyon itilizatò"
-        map["gd"] = "Deasbaireachd a' chleachdaiche"
-        map["gl"] = "Conversa usuario"
-        map["glk"] = "کارگيرˇ گب"
-        map["gn"] = "Puruhára myangekõi"
-        map["gom"] = "वापरपी चर्चा"
-        map["gor"] = "Lo'iya ta ohu'uwo"
-        map["got"] = "𐌽𐌹𐌿𐍄𐌰𐌽𐌳𐌹𐍃 𐌲𐌰𐍅𐌰𐌿𐍂𐌳𐌾𐌰"
-        map["gu"] = "સભ્યની ચર્ચા"
-        map["gv"] = "Resooney ymmydeyr"
-        map["ha"] = "User talk"
-        map["hak"] = "用戶討論"
-        map["haw"] = "Kūkākūkā o mea hoʻohana"
-        map["he"] = "שיחת משתמש"
-        map["hi"] = "सदस्य वार्ता"
-        map["hif"] = "sadasya ke baat"
-        map["hr"] = "Razgovor sa suradnikom"
-        map["hsb"] = "Diskusija z wužiwarjom"
-        map["ht"] = "Diskisyon Itilizatè"
-        map["hu"] = "Szerkesztővita"
-        map["hy"] = "Մասնակցի քննարկում"
-        map["hyw"] = "Մասնակցի քննարկում"
-        map["ia"] = "Discussion Usator"
-        map["id"] = "Pembicaraan Pengguna"
-        map["ie"] = "Usator Discussion"
-        map["ig"] = "Okwu ọbanife"
-        map["ik"] = "User talk"
-        map["ilo"] = "Agar-aramat tungtungan"
-        map["inh"] = "Доакъашхочун дувцар"
-        map["io"] = "Uzanto Debato"
-        map["is"] = "Notandaspjall"
-        map["it"] = "Discussioni utente"
-        map["iu"] = "User talk"
-        map["ja"] = "利用者‐会話"
-        map["jam"] = "User talk"
-        map["jbo"] = "casnu lo pilno"
-        map["jv"] = "Parembugan Naraguna"
-        map["ka"] = "მომხმარებლის განხილვა"
-        map["kaa"] = "Paydalanıwshı sa'wbeti"
-        map["kab"] = "Amyannan umsqedac"
-        map["kbd"] = "ЦӀыхухэт тепсэлъэхьыгъуэ"
-        map["kbp"] = "Discussion utilisateur"
-        map["kg"] = "Disolo kisadi"
-        map["ki"] = "User talk"
-        map["kk"] = "Қатысушы талқылауы"
-        map["kl"] = "Atuisup oqalliffia"
-        map["km"] = "ការពិភាក្សារបស់អ្នកប្រើប្រាស់"
-        map["kn"] = "ಸದಸ್ಯರ ಚರ್ಚೆಪುಟ"
-        map["ko"] = "사용자토론"
-        map["koi"] = "Обсуждение участника"
-        map["krc"] = "Къошулуучуну сюзюу"
-        map["ks"] = "رُکُن بَحَژ"
-        map["ksh"] = "Metmaacher Klaaf"
-        map["ku"] = "Gotûbêja bikarhêner"
-        map["kv"] = "Пырыськӧд сёрнитанiн"
-        map["kw"] = "Keskows Devnydhyer"
-        map["ky"] = "Колдонуучунун баарлашуулары"
-        map["la"] = "Disputatio Usoris"
-        map["lad"] = "Messaje de Usador"
-        map["lb"] = "Benotzer Diskussioun"
-        map["lbe"] = "Гьуртту хьуминнал ихтилат"
-        map["lez"] = "Уртахдин веревирд авун"
-        map["lfn"] = "Usor Discute"
-        map["lg"] = "User talk"
-        map["li"] = "Euverlèk gebroeker"
-        map["lij"] = "Discûscioîn ûtente"
-        map["lld"] = "Discussioni utente"
-        map["lmo"] = "Ciciarada Druvadur"
-        map["ln"] = "Discussion utilisateur"
-        map["lo"] = "ສົນທະນາຂອງຜູ້ໃຊ້"
-        map["lt"] = "Naudotojo aptarimas"
-        map["ltg"] = "Sprīža ap lītuotuoju"
-        map["lv"] = "Dalībnieka diskusija"
-        map["mad"] = "Pakanḍhâ'ânna pangangghuy"
-        map["mai"] = "प्रयोगकर्ता वार्ता"
-        map["map-bms"] = "Parembugan Naraguna"
-        map["mdf"] = "Тиись корхнема"
-        map["mg"] = "Dinika amin'ny mpikambana"
-        map["mhr"] = "Пайдаланышын каҥашымашыже"
-        map["mi"] = "User talk"
-        map["min"] = "Rundiang Pangguno"
-        map["mk"] = "Разговор со корисник"
-        map["ml"] = "ഉപയോക്താവിന്റെ സംവാദം"
-        map["mn"] = "Хэрэглэгчийн яриа"
-        map["mni"] = "User talk"
-        map["mnw"] = "ညးလွပ် ဓရီုကျာ"
-        map["mr"] = "सदस्य चर्चा"
-        map["mrj"] = "Сирӹшӹм кӓнгӓшӹмӓш"
-        map["ms"] = "Perbincangan pengguna"
-        map["mt"] = "Diskussjoni utent"
-        map["mwl"] = "Cumbersa outelizador(a)"
-        map["my"] = "အသုံးပြုသူ ဆွေးနွေးချက်"
-        map["myv"] = "Теицянь кортамось"
-        map["mzn"] = "کارور گپ"
-        map["na"] = "User talk"
-        map["nah"] = "Tlatequitiltilīlli tēixnāmiquiliztli"
-        map["nap"] = "Utente chiàcchiera"
-        map["nds"] = "Bruker Diskuschoon"
-        map["nds-nl"] = "Overleg gebruker"
-        map["ne"] = "प्रयोगकर्ता वार्ता"
-        map["new"] = "छ्येलेमि खँलाबँला"
-        map["nia"] = "Huhuo zangoguna"
-        map["nl"] = "Overleg gebruiker"
-        map["nn"] = "Brukardiskusjon"
-        map["nb"] = "Brukerdiskusjon"
-        map["nov"] = "User talk"
-        map["nqo"] = "ߟߊߓߊ߯ߙߟߊ ߟߊ߫ ߢߊߝߐߞߣߍ"
-        map["nrm"] = "Discussion utilisateur"
-        map["nso"] = "Boledišana le Mošomi"
-        map["nv"] = "Choyoołʼįįhí bichʼįʼ yáshtiʼ"
-        map["ny"] = "User talk"
-        map["oc"] = "Discussion Utilizaire"
-        map["olo"] = "Käyttäi pagin"
-        map["om"] = "User talk"
-        map["or"] = "ବ୍ୟବହାରକାରୀଙ୍କ ଆଲୋଚନା"
-        map["os"] = "Архайæджы ныхас"
-        map["pa"] = "ਵਰਤੋਂਕਾਰ ਗੱਲ-ਬਾਤ"
-        map["pag"] = "User talk"
-        map["pam"] = "User talk"
-        map["pap"] = "User talk"
-        map["pcd"] = "Discussion utilisateur"
-        map["pdc"] = "Yuuser Dischbedutt"
-        map["pfl"] = "Middawaida Dischbediere"
-        map["pi"] = "अवयव सम्भासित"
-        map["pih"] = "User talk"
-        map["pl"] = "Dyskusja wikipedysty"
-        map["pms"] = "Ciaciarade"
-        map["pnb"] = "ورتن گل بات"
-        map["pnt"] = "Καλάτσεμαν χρήστε"
-        map["ps"] = "د کارن خبرې اترې"
-        map["pt"] = "Usuário(a) Discussão"
-        map["qu"] = "Ruraq rimanakuy"
-        map["rm"] = "Utilisader discussiun"
-        map["rmy"] = "Jeno vakyarimata"
-        map["rn"] = "User talk"
-        map["ro"] = "Discuție Utilizator"
-        map["roa-rup"] = "Discuție Utilizator"
-        map["roa-tara"] = "Discussioni utente"
-        map["ru"] = "Обсуждение участника"
-        map["rue"] = "Діскузія з хоснователём"
-        map["rw"] = "User talk"
-        map["sa"] = "सदस्यसम्भाषणम्"
-        map["sah"] = "Кыттааччы ырытыыта"
-        map["sat"] = "ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱜᱟᱞᱢᱟᱨᱟᱣ"
-        map["sc"] = "Cuntierra usuàriu"
-        map["scn"] = "Discussioni utenti"
-        map["sco"] = "Uiser collogue"
-        map["sd"] = "واپرائيندڙ بحث"
-        map["se"] = "Geavaheaddjeságastallan"
-        map["sg"] = "Discussion utilisateur"
-        map["sh"] = "Razgovor sa korisnikom"
-        map["shn"] = "ဢုပ်ႇၵုမ် ၽူႈၸႂ်ႉတိုဝ်း"
-        map["si"] = "පරිශීලක සාකච්ඡාව"
-        map["simple"] = "User talk"
-        map["sk"] = "Diskusia s redaktorom"
-        map["skr"] = "ورتݨ آلے دی ڳالھ مہاڑ"
-        map["sl"] = "Uporabniški pogovor"
-        map["sm"] = "User talk"
-        map["smn"] = "Savâstâllâm kevttest"
-        map["sn"] = "User talk"
-        map["so"] = "User talk"
-        map["sq"] = "Përdoruesi diskutim"
-        map["sr"] = "Разговор са корисником"
-        map["srn"] = "Taki fu masyin"
-        map["ss"] = "User talk"
-        map["st"] = "User talk"
-        map["stq"] = "Benutser Diskussion"
-        map["su"] = "Obrolan pamaké"
-        map["sv"] = "Användardiskussion"
-        map["sw"] = "Majadiliano ya mtumiaji"
-        map["szl"] = "Dyskusyjo używacza"
-        map["szy"] = "pisubelidan tu kamu ni misaungayay sapimatatengil"
-        map["ta"] = "பயனர் பேச்சு"
-        map["tcy"] = "ಬಳಕೆದಾರೆ ಪಾತೆರ"
-        map["te"] = "వాడుకరి చర్చ"
-        map["tet"] = "Diskusaun Uza-na'in"
-        map["tg"] = "Баҳси корбар"
-        map["th"] = "คุยกับผู้ใช้"
-        map["ti"] = "ተጠቃሚ ምይይጥ"
-        map["tk"] = "Ulanyjy çekişme"
-        map["tl"] = "Usapang tagagamit"
-        map["tn"] = "User talk"
-        map["to"] = "User talk"
-        map["tpi"] = "Toktok bilong yusa"
-        map["tr"] = "Kullanıcı mesaj"
-        map["ts"] = "User talk"
-        map["tt"] = "Кулланучы бәхәсе"
-        map["tum"] = "User talk"
-        map["tw"] = "User talk"
-        map["ty"] = "Discussion utilisateur"
-        map["tyv"] = "Aжыглакчы чугаа"
-        map["udm"] = "Викиавтор сярысь вераськон"
-        map["ug"] = "ئىشلەتكۈچى مۇنازىرىسى"
-        map["uk"] = "Обговорення користувача"
-        map["ur"] = "تبادلۂ خیال صارف"
-        map["uz"] = "Foydalanuvchi munozarasi"
-        map["ve"] = "User talk"
-        map["vec"] = "Discusion Utensa"
-        map["vep"] = "Lodu kävutajas"
-        map["vi"] = "Thảo luận Thành viên"
-        map["vls"] = "Discuusje gebruker"
-        map["vo"] = "Gebanibespik"
-        map["wa"] = "Uzeu copene"
-        map["war"] = "Hiruhimangaw hiton gumaramit"
-        map["wo"] = "Waxtaani jëfandikukat"
-        map["wuu"] = "User talk"
-        map["xal"] = "Демнчна туск меткән"
-        map["xh"] = "User talk"
-        map["xmf"] = "მომხმარებლის განხილვა"
-        map["yi"] = "באַניצער רעדן"
-        map["yo"] = "Ọ̀rọ̀ oníṣe"
-        map["za"] = "用户讨论"
-        map["zea"] = "Overleg gebruker"
-        map["zh"] = "User talk"
-        map["zh-hans"] = "User talk"
-        map["zh-hant"] = "User talk"
-        map["zh-classical"] = "用戶討論"
-        map["zh-min-nan"] = "Iōng-chiá thó-lūn"
-        map["zh-yue"] = "User talk"
-        map["zu"] = "User talk"
-        map["test"] = "User talk"
-        return map
-    }
+    private val dataMap = mapOf(
+            "ab" to "Алахәыла ахцәажәара",
+            "ace" to "Marit Ureuëng Ngui",
+            "ady" to "User talk",
+            "af" to "Gebruikerbespreking",
+            "ak" to "Odwumanyɛni nkɔmmɔbea",
+            "als" to "Benutzer Diskussion",
+            "alt" to "Туружаачыны шӱӱжери",
+            "am" to "አባል ውይይት",
+            "an" to "Descusión usuario",
+            "ang" to "Brūcendmōtung",
+            "ar" to "نقاش المستخدم",
+            "arc" to "ܡܡܠܠܐ ܕܡܦܠܚܢܐ",
+            "ary" to "نقاش المستخدم",
+            "arz" to "نقاش المستخدم",
+            "as" to "সদস্য বাৰ্তা",
+            "ast" to "Usuariu alderique",
+            "atj" to "Ke ici aimihitonaniwok notcita iriniw",
+            "av" to "ГӀахьалчиясул бахӀс",
+            "avk" to "Favesikprilara",
+            "awa" to "यूजर बातचीत",
+            "ay" to "Usuario discusión",
+            "az" to "İstifadəçi müzakirəsi",
+            "azb" to "ایشلدن دانیشیغی",
+            "ba" to "Ҡатнашыусы менән һөйләшеү",
+            "ban" to "Pabligbagan Sang Anganggé",
+            "bar" to "Nutza Dischkrian",
+            "bat-smg" to "Nauduotuojė aptarėms",
+            "bcl" to "Olay kan paragamit",
+            "be" to "Размовы з удзельнікам",
+            "be-x-old" to "Гутаркі ўдзельніка",
+            "bg" to "Потребител беседа",
+            "bh" to "प्रयोगकर्ता वार्ता",
+            "bi" to "User talk",
+            "bjn" to "Pamandiran Pamakai",
+            "bm" to "Discussion utilisateur",
+            "bn" to "ব্যবহারকারী আলাপ",
+            "bo" to "User talk",
+            "bpy" to "আতাকুরার য়্যারী",
+            "br" to "Kaozeadenn Implijer",
+            "bs" to "Razgovor s korisnikom",
+            "bug" to "Pembicaraan Pengguna",
+            "bxr" to "Хэрэглэгшые хэлэлсэхэ",
+            "ca" to "Usuari Discussió",
+            "cbk-zam" to "Usuario discusión",
+            "cdo" to "用戶討論",
+            "ce" to "Декъашхочун дийцаре",
+            "ceb" to "Hisgot sa Gumagamit",
+            "ch" to "Kombetsasion ni muna'sesetbi",
+            "chr" to "User talk",
+            "chy" to "User talk",
+            "ckb" to "لێدوانی بەکارھێنەر",
+            "co" to "Discussioni utente",
+            "cr" to "User talk",
+            "crh" to "Qullanıcı muzakeresi",
+            "cs" to "Diskuse s wikipedistou",
+            "csb" to "Diskùsëjô brëkòwnika",
+            "cu" to "Польꙃєватєлꙗ бєсѣда",
+            "cv" to "Хутшăнаканăн канашлу страници",
+            "cy" to "Sgwrs Defnyddiwr",
+            "da" to "Brugerdiskussion",
+            "de" to "Benutzer Diskussion",
+            "din" to "Jam kekë dulooi",
+            "diq" to "Karber vaten",
+            "dsb" to "Diskusija wužywarja",
+            "dty" to "प्रयोगकर्ता कुरणि",
+            "dv" to "މެމްބަރުގެ ވާހަކަ",
+            "dz" to "User talk",
+            "ee" to "User talk",
+            "el" to "Συζήτηση χρήστη",
+            "eml" to "Discussioni utente",
+            "en" to "User talk",
+            "eo" to "Uzanto-Diskuto",
+            "es" to "Usuario discusión",
+            "et" to "Kasutaja arutelu",
+            "eu" to "Lankide eztabaida",
+            "ext" to "Usuario caraba",
+            "fa" to "بحث کاربر",
+            "ff" to "Discussion utilisateur",
+            "fi" to "Keskustelu käyttäjästä",
+            "fiu-vro" to "Pruukja arotus",
+            "fj" to "User talk",
+            "fo" to "Brúkarakjak",
+            "fr" to "Discussion utilisateur",
+            "frp" to "Discussion utilisator",
+            "frr" to "Benutzer Diskussion",
+            "fur" to "Discussion utent",
+            "fy" to "Meidogger oerlis",
+            "ga" to "Plé úsáideora",
+            "gag" to "Kullanıcı dartışma",
+            "gan" to "用戶・談詑",
+            "gcr" to "Diskisyon itilizatò",
+            "gd" to "Deasbaireachd a' chleachdaiche",
+            "gl" to "Conversa usuario",
+            "glk" to "کارگيرˇ گب",
+            "gn" to "Puruhára myangekõi",
+            "gom" to "वापरपी चर्चा",
+            "gor" to "Lo'iya ta ohu'uwo",
+            "got" to "𐌽𐌹𐌿𐍄𐌰𐌽𐌳𐌹𐍃 𐌲𐌰𐍅𐌰𐌿𐍂𐌳𐌾𐌰",
+            "gu" to "સભ્યની ચર્ચા",
+            "gv" to "Resooney ymmydeyr",
+            "ha" to "User talk",
+            "hak" to "用戶討論",
+            "haw" to "Kūkākūkā o mea hoʻohana",
+            "he" to "שיחת משתמש",
+            "hi" to "सदस्य वार्ता",
+            "hif" to "sadasya ke baat",
+            "hr" to "Razgovor sa suradnikom",
+            "hsb" to "Diskusija z wužiwarjom",
+            "ht" to "Diskisyon Itilizatè",
+            "hu" to "Szerkesztővita",
+            "hy" to "Մասնակցի քննարկում",
+            "hyw" to "Մասնակցի քննարկում",
+            "ia" to "Discussion Usator",
+            "id" to "Pembicaraan Pengguna",
+            "ie" to "Usator Discussion",
+            "ig" to "Okwu ọbanife",
+            "ik" to "User talk",
+            "ilo" to "Agar-aramat tungtungan",
+            "inh" to "Доакъашхочун дувцар",
+            "io" to "Uzanto Debato",
+            "is" to "Notandaspjall",
+            "it" to "Discussioni utente",
+            "iu" to "User talk",
+            "ja" to "利用者‐会話",
+            "jam" to "User talk",
+            "jbo" to "casnu lo pilno",
+            "jv" to "Parembugan Naraguna",
+            "ka" to "მომხმარებლის განხილვა",
+            "kaa" to "Paydalanıwshı sa'wbeti",
+            "kab" to "Amyannan umsqedac",
+            "kbd" to "ЦӀыхухэт тепсэлъэхьыгъуэ",
+            "kbp" to "Discussion utilisateur",
+            "kg" to "Disolo kisadi",
+            "ki" to "User talk",
+            "kk" to "Қатысушы талқылауы",
+            "kl" to "Atuisup oqalliffia",
+            "km" to "ការពិភាក្សារបស់អ្នកប្រើប្រាស់",
+            "kn" to "ಸದಸ್ಯರ ಚರ್ಚೆಪುಟ",
+            "ko" to "사용자토론",
+            "koi" to "Обсуждение участника",
+            "krc" to "Къошулуучуну сюзюу",
+            "ks" to "رُکُن بَحَژ",
+            "ksh" to "Metmaacher Klaaf",
+            "ku" to "Gotûbêja bikarhêner",
+            "kv" to "Пырыськӧд сёрнитанiн",
+            "kw" to "Keskows Devnydhyer",
+            "ky" to "Колдонуучунун баарлашуулары",
+            "la" to "Disputatio Usoris",
+            "lad" to "Messaje de Usador",
+            "lb" to "Benotzer Diskussioun",
+            "lbe" to "Гьуртту хьуминнал ихтилат",
+            "lez" to "Уртахдин веревирд авун",
+            "lfn" to "Usor Discute",
+            "lg" to "User talk",
+            "li" to "Euverlèk gebroeker",
+            "lij" to "Discûscioîn ûtente",
+            "lld" to "Discussioni utente",
+            "lmo" to "Ciciarada Druvadur",
+            "ln" to "Discussion utilisateur",
+            "lo" to "ສົນທະນາຂອງຜູ້ໃຊ້",
+            "lt" to "Naudotojo aptarimas",
+            "ltg" to "Sprīža ap lītuotuoju",
+            "lv" to "Dalībnieka diskusija",
+            "mad" to "Pakanḍhâ'ânna pangangghuy",
+            "mai" to "प्रयोगकर्ता वार्ता",
+            "map-bms" to "Parembugan Naraguna",
+            "mdf" to "Тиись корхнема",
+            "mg" to "Dinika amin'ny mpikambana",
+            "mhr" to "Пайдаланышын каҥашымашыже",
+            "mi" to "User talk",
+            "min" to "Rundiang Pangguno",
+            "mk" to "Разговор со корисник",
+            "ml" to "ഉപയോക്താവിന്റെ സംവാദം",
+            "mn" to "Хэрэглэгчийн яриа",
+            "mni" to "User talk",
+            "mnw" to "ညးလွပ် ဓရီုကျာ",
+            "mr" to "सदस्य चर्चा",
+            "mrj" to "Сирӹшӹм кӓнгӓшӹмӓш",
+            "ms" to "Perbincangan pengguna",
+            "mt" to "Diskussjoni utent",
+            "mwl" to "Cumbersa outelizador(a)",
+            "my" to "အသုံးပြုသူ ဆွေးနွေးချက်",
+            "myv" to "Теицянь кортамось",
+            "mzn" to "کارور گپ",
+            "na" to "User talk",
+            "nah" to "Tlatequitiltilīlli tēixnāmiquiliztli",
+            "nap" to "Utente chiàcchiera",
+            "nds" to "Bruker Diskuschoon",
+            "nds-nl" to "Overleg gebruker",
+            "ne" to "प्रयोगकर्ता वार्ता",
+            "new" to "छ्येलेमि खँलाबँला",
+            "nia" to "Huhuo zangoguna",
+            "nl" to "Overleg gebruiker",
+            "nn" to "Brukardiskusjon",
+            "nb" to "Brukerdiskusjon",
+            "nov" to "User talk",
+            "nqo" to "ߟߊߓߊ߯ߙߟߊ ߟߊ߫ ߢߊߝߐߞߣߍ",
+            "nrm" to "Discussion utilisateur",
+            "nso" to "Boledišana le Mošomi",
+            "nv" to "Choyoołʼįįhí bichʼįʼ yáshtiʼ",
+            "ny" to "User talk",
+            "oc" to "Discussion Utilizaire",
+            "olo" to "Käyttäi pagin",
+            "om" to "User talk",
+            "or" to "ବ୍ୟବହାରକାରୀଙ୍କ ଆଲୋଚନା",
+            "os" to "Архайæджы ныхас",
+            "pa" to "ਵਰਤੋਂਕਾਰ ਗੱਲ-ਬਾਤ",
+            "pag" to "User talk",
+            "pam" to "User talk",
+            "pap" to "User talk",
+            "pcd" to "Discussion utilisateur",
+            "pdc" to "Yuuser Dischbedutt",
+            "pfl" to "Middawaida Dischbediere",
+            "pi" to "अवयव सम्भासित",
+            "pih" to "User talk",
+            "pl" to "Dyskusja wikipedysty",
+            "pms" to "Ciaciarade",
+            "pnb" to "ورتن گل بات",
+            "pnt" to "Καλάτσεμαν χρήστε",
+            "ps" to "د کارن خبرې اترې",
+            "pt" to "Usuário(a) Discussão",
+            "qu" to "Ruraq rimanakuy",
+            "rm" to "Utilisader discussiun",
+            "rmy" to "Jeno vakyarimata",
+            "rn" to "User talk",
+            "ro" to "Discuție Utilizator",
+            "roa-rup" to "Discuție Utilizator",
+            "roa-tara" to "Discussioni utente",
+            "ru" to "Обсуждение участника",
+            "rue" to "Діскузія з хоснователём",
+            "rw" to "User talk",
+            "sa" to "सदस्यसम्भाषणम्",
+            "sah" to "Кыттааччы ырытыыта",
+            "sat" to "ᱵᱮᱵᱷᱟᱨᱤᱭᱟᱹ ᱜᱟᱞᱢᱟᱨᱟᱣ",
+            "sc" to "Cuntierra usuàriu",
+            "scn" to "Discussioni utenti",
+            "sco" to "Uiser collogue",
+            "sd" to "واپرائيندڙ بحث",
+            "se" to "Geavaheaddjeságastallan",
+            "sg" to "Discussion utilisateur",
+            "sh" to "Razgovor sa korisnikom",
+            "shn" to "ဢုပ်ႇၵုမ် ၽူႈၸႂ်ႉတိုဝ်း",
+            "si" to "පරිශීලක සාකච්ඡාව",
+            "simple" to "User talk",
+            "sk" to "Diskusia s redaktorom",
+            "skr" to "ورتݨ آلے دی ڳالھ مہاڑ",
+            "sl" to "Uporabniški pogovor",
+            "sm" to "User talk",
+            "smn" to "Savâstâllâm kevttest",
+            "sn" to "User talk",
+            "so" to "User talk",
+            "sq" to "Përdoruesi diskutim",
+            "sr" to "Разговор са корисником",
+            "srn" to "Taki fu masyin",
+            "ss" to "User talk",
+            "st" to "User talk",
+            "stq" to "Benutser Diskussion",
+            "su" to "Obrolan pamaké",
+            "sv" to "Användardiskussion",
+            "sw" to "Majadiliano ya mtumiaji",
+            "szl" to "Dyskusyjo używacza",
+            "szy" to "pisubelidan tu kamu ni misaungayay sapimatatengil",
+            "ta" to "பயனர் பேச்சு",
+            "tcy" to "ಬಳಕೆದಾರೆ ಪಾತೆರ",
+            "te" to "వాడుకరి చర్చ",
+            "tet" to "Diskusaun Uza-na'in",
+            "tg" to "Баҳси корбар",
+            "th" to "คุยกับผู้ใช้",
+            "ti" to "ተጠቃሚ ምይይጥ",
+            "tk" to "Ulanyjy çekişme",
+            "tl" to "Usapang tagagamit",
+            "tn" to "User talk",
+            "to" to "User talk",
+            "tpi" to "Toktok bilong yusa",
+            "tr" to "Kullanıcı mesaj",
+            "ts" to "User talk",
+            "tt" to "Кулланучы бәхәсе",
+            "tum" to "User talk",
+            "tw" to "User talk",
+            "ty" to "Discussion utilisateur",
+            "tyv" to "Aжыглакчы чугаа",
+            "udm" to "Викиавтор сярысь вераськон",
+            "ug" to "ئىشلەتكۈچى مۇنازىرىسى",
+            "uk" to "Обговорення користувача",
+            "ur" to "تبادلۂ خیال صارف",
+            "uz" to "Foydalanuvchi munozarasi",
+            "ve" to "User talk",
+            "vec" to "Discusion Utensa",
+            "vep" to "Lodu kävutajas",
+            "vi" to "Thảo luận Thành viên",
+            "vls" to "Discuusje gebruker",
+            "vo" to "Gebanibespik",
+            "wa" to "Uzeu copene",
+            "war" to "Hiruhimangaw hiton gumaramit",
+            "wo" to "Waxtaani jëfandikukat",
+            "wuu" to "User talk",
+            "xal" to "Демнчна туск меткән",
+            "xh" to "User talk",
+            "xmf" to "მომხმარებლის განხილვა",
+            "yi" to "באַניצער רעדן",
+            "yo" to "Ọ̀rọ̀ oníṣe",
+            "za" to "用户讨论",
+            "zea" to "Overleg gebruker",
+            "zh" to "User talk",
+            "zh-hans" to "User talk",
+            "zh-hant" to "User talk",
+            "zh-classical" to "用戶討論",
+            "zh-min-nan" to "Iōng-chiá thó-lūn",
+            "zh-yue" to "User talk",
+            "zu" to "User talk",
+            "test" to "User talk",
+    )
 }

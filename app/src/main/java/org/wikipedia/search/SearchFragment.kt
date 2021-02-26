@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -86,13 +87,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
-        invokeSource = arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        query = arguments?.getString(ARG_QUERY)
+        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        query = requireArguments().getString(ARG_QUERY)
         funnel = SearchFunnel(app, invokeSource)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
     }
 
@@ -127,11 +128,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         Prefs.setSelectedLanguagePositionInSearch(binding.searchLanguageScrollView.selectedPosition)
     }
 
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
@@ -154,13 +150,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         val intentFunnel = IntentFunnel(WikipediaApp.getInstance())
         if (Intent.ACTION_SEND == intent.action && Constants.PLAIN_TEXT_MIME_TYPE == intent.type) {
             intentFunnel.logShareIntent()
-            arguments?.putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT))
-            arguments?.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_SHARE)
+            requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_TEXT))
+            requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_SHARE)
         } else if (Intent.ACTION_PROCESS_TEXT == intent.action && Constants.PLAIN_TEXT_MIME_TYPE ==
                 intent.type && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             intentFunnel.logProcessTextIntent()
-            arguments?.putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT))
-            arguments?.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_PROCESS_TEXT)
+            requireArguments().putString(ARG_QUERY, intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT))
+            requireArguments().putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, InvokeSource.INTENT_PROCESS_TEXT)
         }
     }
 
@@ -210,9 +206,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         return funnel
     }
 
-    override fun switchToSearch(queryText: String) {
-        startSearch(queryText, true)
-        binding.searchCabView.setQuery(queryText, false)
+    override fun switchToSearch(text: String) {
+        startSearch(text, true)
+        binding.searchCabView.setQuery(text, false)
     }
 
     override fun onAddLanguageClicked() {
@@ -316,8 +312,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                 recentSearchesFragment.hide()
                 searchResultsFragment.show()
             }
-            else -> {
-            }
         }
     }
 
@@ -394,12 +388,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         const val LANG_BUTTON_TEXT_SIZE_SMALLER = 8
 
         @JvmStatic
-        fun newInstance(source: InvokeSource?, query: String?): SearchFragment =
+        fun newInstance(source: InvokeSource, query: String?): SearchFragment =
                 SearchFragment().apply {
-                    arguments = Bundle().apply {
-                        putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
-                        putString(ARG_QUERY, query)
-                    }
+                    arguments = bundleOf(
+                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
+                        ARG_QUERY to query
+                    )
                 }
     }
 }
