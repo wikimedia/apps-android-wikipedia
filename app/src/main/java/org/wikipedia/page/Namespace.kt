@@ -183,11 +183,7 @@ enum class Namespace(private val code: Int) : EnumCode {
 
     companion object {
         @JvmStatic
-        val CODE_ENUM: CodeEnum<Namespace> = object : CodeEnum<Namespace> {
-            override fun enumeration(code: Int): Namespace {
-                return of(code)
-            }
-        }
+        val CODE_ENUM: CodeEnum<Namespace> = CodeEnum { code -> of(code) }
         private const val TALK_MASK = 0x1
         private val MAP = EnumCodeMap(Namespace::class.java)
 
