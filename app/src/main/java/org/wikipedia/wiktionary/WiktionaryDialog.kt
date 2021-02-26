@@ -69,7 +69,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun loadDefinitions() {
-        if (selectedText.trim { it <= ' ' }.isEmpty()) {
+        if (selectedText.trim().isEmpty()) {
             displayNoDefinitionsFound()
             return
         }
