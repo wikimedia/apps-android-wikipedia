@@ -23,8 +23,8 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     constructor(context: Context, textBox: EditText) : this(context, textBox, null)
 
     interface OnSyntaxHighlightListener {
-        fun syntaxHighlightResults(spanExtents: List<SpanExtents>?)
-        fun findTextMatches(spanExtents: List<SpanExtents>?)
+        fun syntaxHighlightResults(spanExtents: List<SpanExtents>)
+        fun findTextMatches(spanExtents: List<SpanExtents>)
     }
 
     private val syntaxRules = listOf(
@@ -218,8 +218,8 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     }
 
     private inner class SyntaxHighlightSearchMatchesTask constructor(text: Editable, searchText: String?, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
-        private val searchText: String = StringUtils.lowerCase(searchText)
-        private val text: String = StringUtils.lowerCase(text.toString())
+        private val searchText: String = StringUtils.lowerCase(searchText).orEmpty()
+        private val text: String = StringUtils.lowerCase(text.toString()).orEmpty()
 
         override fun call(): List<SpanExtents> {
             val spansToSet: MutableList<SpanExtents> = ArrayList()
