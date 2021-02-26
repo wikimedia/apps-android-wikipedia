@@ -24,8 +24,8 @@ open class AppTextView constructor(context: Context, attrs: AttributeSet? = null
         // Workaround for https://code.google.com/p/android/issues/detail?id=191430
         // which only occurs on API 23
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
-            if (event.actionMasked == MotionEvent.ACTION_DOWN
-                    && selectionStart != selectionEnd) {
+            if (event.actionMasked == MotionEvent.ACTION_DOWN &&
+                    selectionStart != selectionEnd) {
                 val text = text
                 setText(null)
                 setText(text)

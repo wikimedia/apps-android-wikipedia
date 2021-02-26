@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Archana
 * BPositive
 * NehalDaveND
@@ -258,7 +257,6 @@
   <string name="preference_title_app_theme">अॅप थीम</string>
   <string name="text_size_increase">टंकाचा आकार वाढवा</string>
   <string name="text_size_decrease">टंकाचा आकार कमी करा</string>
-  <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
@@ -301,7 +299,6 @@
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">आज</string>
   <string name="view_announcement_card_negative_action">नाही धन्यवाद</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
-  <string name="view_featured_article_footer_save_button_label">जतन करा</string>
   <string name="description_edit_text_hint" fuzzy="true">वर्णन टाका</string>
   <string name="description_edit_save" fuzzy="true">जतन करा</string>
   <string name="description_edit_add_description" fuzzy="true">थोडक्यात वर्णन जोडा</string>

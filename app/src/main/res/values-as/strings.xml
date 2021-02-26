@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * Dibya Dutta
 * Gitartha.bordoloi
@@ -39,6 +38,7 @@
   <string name="history_item_delete_undo">পূৰ্ববত কৰক</string>
   <string name="notification_archive_undo">পূৰ্ববত কৰক</string>
   <string name="app_settings">এপ্‌ ছেটিং</string>
+  <string name="search_tab_tooltip">সন্ধান শব্দ চিধাই টাইপ কৰা আৰম্ভ কৰিবলৈ আইকনটোত পুনৰ টেপ কৰক।</string>
   <string name="history_list_title">ইতিহাস</string>
   <string name="dialog_title_clear_history">ব্ৰাউজিং ইতিহাস মচি পেলাওক</string>
   <string name="dialog_message_clear_history">এই কাৰ্যই আপোনাৰ সমগ্ৰ ব্ৰাউজিং ইতিহাস মচি পেলাব আৰু বৰ্তমানে খোলা সকলো টব্‌ বন্ধ কৰিব। আপুনি নিশ্চিতনে?</string>
@@ -171,6 +171,7 @@
   <string name="preference_summary_sync_reading_lists">আপোনাৰ ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
   <string name="preference_summary_sync_reading_lists_from_account">আপোনাৰ \"%s\" ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"ৰ পৰা ছীঙ্ক কৰা পাঠ্য তালিকা আঁতৰাব?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ই ৰিম\'ট ষ্ট\'ৰেজৰ পৰা পূৰ্বতে ছিংক কৰা সকলো পঢ়া তালিকা সম্পূৰ্ণৰূপে মচি পেলাব। আপোনাৰ একাউণ্ট \"%s\"ৰ পৰা সকলো ছিংক কৰা তালিকা আঁতৰাবনে?</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
   <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
@@ -237,6 +238,10 @@
   <string name="search_did_you_mean">আপুনি \"%s\" বুজাইছেনে?</string>
   <string name="search_recent_header">শেহতীয়া সন্ধানসমূহ:</string>
   <string name="search_results_count_zero">কোনো ফলাফল নাই</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1টা ফলাফল</item>
+    <item quantity="other">%dটা ফলাফল</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">শেহতীয়া সন্ধানসমূহ পৰিষ্কাৰ কৰক</string>
   <string name="clear_recent_searches_confirm">আপুনি আপোনাৰ সন্ধান ইতিহাস পৰিষ্কাৰ কৰিব বুলি নিশ্চিতনে?</string>
   <string name="clear_recent_searches_confirm_yes">হয়</string>
@@ -361,7 +366,6 @@
   <string name="text_size_decrease">আখৰৰ আকাৰ হ্ৰাস কৰক</string>
   <string name="text_size_percent_default">%s পূৰ্বনিৰ্ধাৰিত</string>
   <string name="text_style_title">ফণ্ট</string>
-  <string name="nav_item_reading_lists">মোৰ তালিকাসমূহ</string>
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
   <string name="reading_list_move_to">পঢ়া সূচীলৈ নিয়ক</string>
   <string name="reading_list_create_new">নতুন সৃষ্টি কৰক</string>
@@ -437,6 +441,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">প্ৰৱেশ</string>
   <string name="reading_list_turned_sync_off_dialog_ok">বাৰু</string>
   <string name="reading_list_turned_sync_off_dialog_settings">ছেটিংছ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">পঢ়া তালিকা ছিংক চালু কৰিবনে?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">মোক এইটো আকৌ নেদেখুৱাব</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ছিংক কৰাটো সক্ৰিয় কৰক</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">নালাগে দিয়ক</string>
@@ -525,13 +530,12 @@
   <string name="view_announcement_card_negative_action">নালাগে। ধন্যবাদ</string>
   <string name="view_offline_card_text">অফলাইন হ\'লে সমল ল\'ড কৰিব নোৱাৰি।</string>
   <string name="view_featured_article_card_title">বৈশিষ্ট্যপূৰ্ণ প্ৰবন্ধ</string>
-  <string name="view_featured_article_footer_save_button_label">সাঁচি থওক</string>
   <string name="view_static_card_save_button_label">সাঁচি থওক</string>
-  <string name="view_featured_article_footer_saved_button_label">সাঁচি থোৱা হ\'ল</string>
   <string name="feed_configure_activity_title">ফীড কাষ্টমাইজ কৰক</string>
   <string name="feed_configure_menu_reset">ডিফ\'ল্ট ভিউ পুনঃস্থাপন কৰক</string>
   <string name="feed_configure_menu_select_all">সকলোবোৰ দেখুৱাওক</string>
   <string name="feed_configure_menu_deselect_all">সকলোবোৰ লুকুৱাওক</string>
+  <string name="feed_item_type_on_this_day">ইতিহাসত আজিৰ দিনটোত</string>
   <string name="feed_item_type_featured_article">ৱিকিপিডিয়াৰ দৈনিক নিৰ্বাচিত প্ৰবন্ধ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">বাৰু</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">বাতিল</string>
@@ -563,6 +567,12 @@
   <string name="description_edit_voice_input_description">মাত ইনপুট</string>
   <string name="description_too_short">পাঠখিনি খুবেই সৰু।</string>
   <string name="description_edit_success_saved">প্ৰবন্ধৰ বৰ্ণনা প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_saved_snackbar">প্ৰবন্ধৰ বৰ্ণনা প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">প্ৰবন্ধৰ বৰ্ণনা প্ৰকাশিত হ\'ল! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">ছবিৰ কেপশ্যন প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ছবিৰ কেপশ্যন প্ৰকাশিত হ\'ল! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">ছবি টেগ(সমূহ) প্ৰকাশিত হ\'ল!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">সেয়া উপভোগ কৰিছেনে? আমাক আৰু যোগ দিয়াত সহায় কৰক।</string>
   <string name="description_edit_success_encouragement">আপুনি সকলোৰে বাবে ৱিকিপিডিয়া উন্নত কৰি তুলিছে</string>
   <string name="description_edit_success_done">কৰা হ’ল</string>
   <string name="description_edit_success_did_you_know">আপুনি জানেনে?</string>
@@ -648,7 +658,6 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">যোৱা ৩০ দিনত %s বাৰ চোৱা হৈছে।</string>
   <string name="suggested_edits_contribution_date_yesterday_text">কালি</string>
-  <string name="suggested_edits_rewards_continue_button">অব্যাহত ৰাখক</string>
   <string name="suggested_edits_encourage_account_creation_title"> আপুনি জানেনে যে ৱিকিপিডিয়াত সকলোৱে সম্পাদনা কৰিব পাৰে?</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>

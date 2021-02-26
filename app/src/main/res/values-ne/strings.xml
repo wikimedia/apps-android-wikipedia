@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Drjpoudel
 * MuratTheTurkish
 * Nirajan pant
@@ -317,7 +316,6 @@
   <string name="text_size_increase">पाठ आकार बढाउनुहोस्</string>
   <string name="text_size_decrease">पाठ आकार घटाउनुहोस्</string>
   <string name="text_size_percent_default">%s (पूर्वनिर्धारित)</string>
-  <string name="nav_item_reading_lists">मेरा सूचीहरू</string>
   <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
@@ -432,9 +430,7 @@
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
-  <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
-  <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
   <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
   <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
@@ -529,7 +525,6 @@
   <string name="suggested_edits_contribution_views">%s अवलोकनहरू</string>
   <string name="suggested_edits_contribution_seen_text">अन्तिम ३० दिनमा %s पटक हेरियो।</string>
   <string name="suggested_edits_contribution_date_yesterday_text">हिजो</string>
-  <string name="suggested_edits_rewards_continue_button">जारी राख्नुहोस्</string>
   <string name="suggested_edits_encourage_account_creation_title">जोसुकैले विकिपिडिया सम्पादन गर्न सक्छ भन्ने कुरा तपाईँलाई थाहा छ?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">प्रवेश/विकिपिडियामा जोडिनुहोस्</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">हालैको संशोधन</string>

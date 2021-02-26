@@ -224,7 +224,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             // add a fake section at the end to represent Categories.
             sections.add(new Section(CATEGORIES_SECTION_ID, 1, "Categories", "Categories", ""));
             // add a fake section at the end to represent the "about this article" contents at the bottom:
-            sections.add(new Section(ABOUT_SECTION_ID, 0,
+            sections.add(new Section(ABOUT_SECTION_ID, 1,
                     getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), ""));
             highlightedSection = 0;
             notifyDataSetChanged();

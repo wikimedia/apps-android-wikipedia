@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Anders Feder
 * Christian List
 * Dargelf
@@ -387,7 +386,6 @@
   <string name="text_size_decrease">Sænk tekststørrelse</string>
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="text_style_title">Skrifttype</string>
-  <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_save_to">Gem til læseliste</string>
   <string name="reading_list_move_to">Flyt til læseliste</string>
   <string name="reading_list_create_new">Opret ny</string>
@@ -567,6 +565,7 @@
   <string name="notifications_view_archived_button_text">Vis arkiverede notifikationer</string>
   <string name="notification_preferences_title">Notifikationsindstillinger</string>
   <string name="notifications_mark_unread">Marker som ulæst</string>
+  <string name="watchlist_title">Overvågningsliste</string>
   <string name="preference_title_notification_poll">Hent notifikationer</string>
   <string name="preference_summary_notification_poll">Lad appen bruge data for at hente nye notifikationer i baggrunden.</string>
   <string name="preference_category_notification_types">Notifikationstyper i appen</string>
@@ -616,9 +615,7 @@
   <string name="view_announcement_card_negative_action">Nej tak</string>
   <string name="view_offline_card_text">Indhold kan ikke indlæses offline.</string>
   <string name="view_featured_article_card_title">Anbefalet artikel</string>
-  <string name="view_featured_article_footer_save_button_label">Gem</string>
   <string name="view_static_card_save_button_label">Gem</string>
-  <string name="view_featured_article_footer_saved_button_label">Gemt</string>
   <string name="feed_configure_activity_title">Tilpas nyhedskilden</string>
   <string name="feed_configure_menu_reset">Gendan standardvisningen</string>
   <string name="feed_configure_menu_select_all">Vis alt</string>
@@ -787,7 +784,6 @@
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_seen_text">Set %s gange de sidste 30 dage.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
-  <string name="suggested_edits_rewards_continue_button">Fortsæt</string>
   <string name="suggested_edits_encourage_account_creation_title">Vidste du at gud og hver mand kan redigere Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log på / registrer dig på Wikipedia</string>
   <string name="suggested_edits_contribution_current_revision_text">Din redigering findes nu på Wikipedia</string>
@@ -873,6 +869,7 @@
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
   <string name="main_tooltip_action_button">Kom i gang</string>
+  <string name="main_tooltip_watchlist_title">Overvågningsliste</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annullér</string>
@@ -882,4 +879,21 @@
   <string name="talk_add_reply">Svar</string>
   <string name="talk_no_subject">(Intet emne)</string>
   <string name="talk_reply_subject">Emne</string>
+  <string name="menu_option_share_edit">Del redigering</string>
+  <string name="thank_label">Tak</string>
+  <string name="go_to_user_page">Gå til brugerside</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 uge</string>
+  <string name="watchlist_expiry_dialog_one_month">1 måned</string>
+  <string name="watchlist_expiry_dialog_three_months">3 måneder</string>
+  <string name="watchlist_expiry_dialog_six_months">6 måneder</string>
+  <string name="watchlist_empty">Du har ingen artikler på din overvågningsliste</string>
+  <string name="watchlist_filter_all">Alle</string>
+  <string name="watchlist_filter_talk">Diskussion</string>
+  <string name="watchlist_filter_pages">Sider</string>
+  <string name="watchlist_filter_other">Andet</string>
+  <string name="watchlist_page_moved">Flyttet</string>
+  <string name="watchlist_page_protected">Beskyttet</string>
+  <string name="watchlist_page_deleted">Slettet</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * MuratTheTurkish
 * Ерней
 * Ильнар
@@ -157,7 +156,6 @@
   <string name="color_theme_black">Кара</string>
   <string name="color_theme_sepia">Сепия</string>
   <string name="color_theme_test_title">Мисал булырлык текст</string>
-  <string name="nav_item_reading_lists">Минем исемлекләрем</string>
   <string name="reading_list_save_to">Уку исемлегенә өстәү</string>
   <string name="reading_list_create_new">Яңаны төзү</string>
   <string name="reading_list_item_delete_undo">Кире кайтару</string>
@@ -186,9 +184,7 @@
   <string name="preference_title_notification_revert">Кире кайтару</string>
   <string name="view_continue_reading_card_subtitle_today">бүген</string>
   <string name="view_announcement_card_negative_action">Юк, рәхмәт</string>
-  <string name="view_featured_article_footer_save_button_label">Саклау</string>
   <string name="view_static_card_save_button_label">Саклау</string>
-  <string name="view_featured_article_footer_saved_button_label">Сакланган</string>
   <string name="feed_configure_menu_select_all">Барысын да күрсәтү</string>
   <string name="feed_configure_menu_deselect_all">Барысын да яшерү</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Ярар</string>

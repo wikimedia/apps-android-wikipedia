@@ -188,12 +188,12 @@ public class EditSectionActivity extends BaseActivity {
             handleAbuseFilter();
         }
 
-        errorView.setRetryClickListener((v) -> {
+        errorView.setRetryClickListener(v -> {
             errorView.setVisibility(View.GONE);
             fetchSectionText();
         });
 
-        errorView.setBackClickListener((v) -> onBackPressed());
+        errorView.setBackClickListener(v -> onBackPressed());
 
         setConditionalTextDirection(sectionText, title.getWikiSite().languageCode());
 

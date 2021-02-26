@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abella
-* Abijeet Patro
 * Akifumii
+* Alan Mena
 * Alvaro Vidal-Abarca
 * Annamerida
 * Dbrant
@@ -63,6 +63,10 @@
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cerca a l\'article</string>
+  <string name="menu_page_add_to_watchlist">Afegeix a la llista de seguiment</string>
+  <string name="menu_page_view_talk">Mostra la pàgina de discussió</string>
+  <string name="menu_page_view_edit_history">Mostra l\'historial de modificacions</string>
+  <string name="menu_page_remove_from_watchlist">Suprimeix de la llista de seguiment</string>
   <string name="edit_section_find_in_page">Cerca a la pàgina</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
@@ -199,6 +203,8 @@
   <string name="page_protected_can_not_edit">Ho sentim, el vostre compte no té prou permisos per a modificar aquesta pàgina en aquest moment.</string>
   <string name="page_protected_can_not_edit_anon">Ho sentim, aquesta pàgina no es pot editar de forma anònima en aquest moment.</string>
   <string name="page_protected_can_not_edit_title">La pàgina està protegida</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Afegeix a la llista de seguiment</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Vigileu tot allò que passa en els articles en què esteu interessat. Toqueu el menú que sobresurt i seleccioneu &lt;b&gt;Afegeix a la llista de seguiment&lt;/b&gt; per a veure els canvis d\'un article.</string>
   <string name="settings_item_preferences">Configuració</string>
   <string name="settings_activity_title">Configuració</string>
   <string name="about_description">Quant a l’aplicació de la Viquipèdia</string>
@@ -248,6 +254,7 @@
   <string name="find_previous">Cercar l\'anterior</string>
   <string name="find_first_occurence">Aquesta és la primera ocurrència</string>
   <string name="find_last_occurence">Aquesta és la darrera ocurrència</string>
+  <string name="article_opened_in_background_tab">S\'ha obert l\'article en una pestanya en segon pla.</string>
   <string name="abusefilter_title_warn">Això podria ser una modificació no constructiva. Segur que voleu publicar-la?</string>
   <string name="abusefilter_title_disallow">No podeu publicar la modificació. Aneu enrere i canvieu-la.</string>
   <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs o imatges irrellevants&lt;br /&gt;· Caràcters que es repeteixin</string>
@@ -389,7 +396,7 @@
   <string name="text_size_decrease">Redueix la mida del text</string>
   <string name="text_size_percent_default">%s (per defecte)</string>
   <string name="text_style_title">Tipus de lletra</string>
-  <string name="nav_item_reading_lists">Les meves llistes</string>
+  <string name="nav_item_saved">Desat</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_move_to">Mou a la llista de lectura</string>
   <string name="reading_list_create_new">Crea’n una nova</string>
@@ -569,6 +576,7 @@
   <string name="notifications_view_archived_button_text">Mostra les notificacions arxivades</string>
   <string name="notification_preferences_title">Preferències de notificació</string>
   <string name="notifications_mark_unread">Marca com a no llegit</string>
+  <string name="watchlist_title">Llista de seguiment</string>
   <string name="preference_title_notification_poll">Activa les notificacions</string>
   <string name="preference_summary_notification_poll">Permet a l\'aplicació utilitzar dades per comprovar si hi ha noves notificacions en segon pla.</string>
   <string name="preference_category_notification_types">Tipus de notificació a l\'aplicació</string>
@@ -618,9 +626,7 @@
   <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="view_offline_card_text">El contingut no es pot carregar quan s\'està fora de línia.</string>
   <string name="view_featured_article_card_title">Article destacat</string>
-  <string name="view_featured_article_footer_save_button_label">Desa</string>
   <string name="view_static_card_save_button_label">Desa</string>
-  <string name="view_featured_article_footer_saved_button_label">Desat</string>
   <string name="feed_configure_activity_title">Personalitza el canal</string>
   <string name="feed_configure_menu_reset">Restaura la vista per defecte</string>
   <string name="feed_configure_menu_select_all">Mostra-ho tot</string>
@@ -835,23 +841,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ahir</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Heu fet una contribució a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
-    <item quantity="other">Heu fet %d contribucions a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Heu editat un dia sencer. Seguiu, %2$s!</item>
-    <item quantity="other">Fins ara heu canviat cada dia durant %1$d Continueu, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Una persona ha vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
-    <item quantity="other"> %d persones han vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Heu fet %d contribucions a la Viquipèdia a partir d\'edicions suggerides. Gràcies!</string>
-  <string name="suggested_edits_rewards_edit_streak">Heu editat cada dia durant %1$d dies fins ara. Bon ritme, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">%d persones han vist les vostres edicions els darrers 30 dies. Gràcies i endavant!</string>
-  <string name="suggested_edits_rewards_edit_quality">Heu fet fins ara %s edicions. Endavant! Esperem les vostres contribucions.</string>
-  <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_encourage_account_creation_title">Sabíeu que tothom pot editar la Viquipèdia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Les edicions suggerides és una nova forma d\'editar a la Viquipèdia en Android. Us ajuda a fer contribucions menudes, tot i que vitals, a la Viquipèdia.\nEl nostre objectiu és facilitar-ne l\'edició i fer-la més accessible per a tothom! Inicieu una sessió a la Viquipèdia per a començar.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Inicia una sessió / uniu-vos a la Viquipèdia</string>
@@ -962,6 +951,8 @@
   <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
   <string name="main_tooltip_text_v2">Sabíeu que tothom pot editar la Viquipèdia?</string>
   <string name="main_tooltip_action_button">Primers passos</string>
+  <string name="main_tooltip_watchlist_title">Llista de seguiment</string>
+  <string name="main_tooltip_watchlist_text">Cerqueu articles i pàgines que havíeu afegit a la vostra llista de seguiment en el menú Més sota la &lt;b&gt;llista de seguiment&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">D’acord</string>
   <string name="text_input_dialog_ok_button_text">D’acord</string>
   <string name="text_input_dialog_cancel_button_text">Cancel·la</string>
@@ -977,4 +968,38 @@
   <string name="talk_message_hint">Redacta un missatge</string>
   <string name="talk_message_empty">El missatge no pot ser en blanc.</string>
   <string name="talk_subject_empty">El tema no pot ser en blanc.</string>
+  <string name="menu_option_share_edit">Comparteix l\'edició</string>
+  <string name="menu_option_user_profile">Perfil de %s</string>
+  <string name="menu_option_user_contributions">Contribucions de %s</string>
+  <string name="watchlist_details_watching_label">En seguiment</string>
+  <string name="watchlist_details_watch_label">Segueix</string>
+  <string name="thank_label">Agraeix</string>
+  <string name="go_to_user_page">Vés a la pàgina d\'usuari</string>
+  <string name="thank_dialog_title_text">Envia \'agraïments\' públicament</string>
+  <string name="thank_dialog_text">Els \'agraïments\' són una forma fàcil de mostrar apreciació pel treball d\'un editor a la Viquipèdia. Els \'agraïments\' no es poden desfer i són visibles públicament</string>
+  <string name="thank_dialog_positive_button_text">Envia agraïments</string>
+  <string name="thank_dialog_negative_button_text">Cancel·la</string>
+  <string name="thank_success_message">S\'han enviat els agraïments a %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s i la seva pàgina de discussió s\'han afegit a la vostra llista de seguiment %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Canvia</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentment</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">per 1 setmana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">per 1 mes</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">per 3 mesos</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">per 6 mesos</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s i la seva pàgina de discussió s\'han suprimit de la vostra llista de seguiment.</string>
+  <string name="watchlist_expiry_dialog_title">Seleccioneu el període de temps de la llista de seguiment</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 setmana</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mes</string>
+  <string name="watchlist_expiry_dialog_three_months">3 mesos</string>
+  <string name="watchlist_expiry_dialog_six_months">6 mesos</string>
+  <string name="watchlist_empty">No teniu cap article a la llista de seguiment.</string>
+  <string name="watchlist_filter_all">Tots</string>
+  <string name="watchlist_filter_talk">Discussió</string>
+  <string name="watchlist_filter_pages">Pàgines</string>
+  <string name="watchlist_filter_other">Altre</string>
+  <string name="watchlist_page_moved">Moguda</string>
+  <string name="watchlist_page_protected">Protegida</string>
+  <string name="watchlist_page_deleted">Suprimida</string>
 </resources>

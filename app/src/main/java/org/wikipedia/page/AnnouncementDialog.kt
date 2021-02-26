@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.net.Uri
 import android.widget.ScrollView
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.analytics.LoginFunnel
@@ -13,7 +14,6 @@ import org.wikipedia.feed.announcement.AnnouncementCardView
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
-import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
@@ -49,7 +49,7 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
             uri.toString() == UriUtil.LOCAL_URL_CUSTOMIZE_FEED ->
                 context.startActivity(ConfigureActivity.newIntent(context, card.type().code()))
             uri.toString() == UriUtil.LOCAL_URL_LANGUAGES ->
-                context.startActivity(WikipediaLanguagesActivity.newIntent(context, LanguageSettingsInvokeSource.ANNOUNCEMENT.text()))
+                context.startActivity(WikipediaLanguagesActivity.newIntent(context, Constants.InvokeSource.ANNOUNCEMENT))
             else -> UriUtil.handleExternalLink(context, uri)
         }
         funnel.cardClicked(CardType.ARTICLE_ANNOUNCEMENT, WikipediaApp.getInstance().appOrSystemLanguageCode)

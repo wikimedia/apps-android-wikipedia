@@ -21,6 +21,7 @@ import com.google.android.material.card.MaterialCardView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -56,6 +57,12 @@ public class CardLargeHeaderView extends ConstraintLayout {
         inflate(getContext(), R.layout.view_card_header_large, this);
         ButterKnife.bind(this);
         resetBackgroundColor();
+    }
+
+    @NonNull
+    public CardLargeHeaderView setLanguageCode(@NonNull String langCode) {
+        L10nUtil.setConditionalLayoutDirection(this, langCode);
+        return this;
     }
 
     @NonNull

@@ -58,6 +58,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -65,7 +66,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class HistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onLoadPage(@NonNull HistoryEntry entry);
-        void onClearHistory();
     }
 
     private Unbinder unbinder;
@@ -185,11 +185,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private void onClearHistoryClick() {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onClearHistory();
-            reloadHistoryItems();
-        }
+        disposables.add(Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class).deleteAll())
+                .subscribeOn(Schedulers.io())
+                .doAfterTerminate(this::reloadHistoryItems)
+                .subscribe());
     }
 
     private void finishActionMode() {
@@ -510,9 +509,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
-        }
-        @Override
-        public void onSecondaryActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
         }
 
         @Override

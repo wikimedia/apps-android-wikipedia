@@ -27,7 +27,9 @@ public class StringUtilTest {
     @Test
     public void testListToCsv() {
         List<String> stringList = new ArrayList<>();
+        assertThat(StringUtil.listToCsv(stringList), is(""));
         stringList.add("one");
+        assertThat(StringUtil.listToCsv(stringList), is("one"));
         stringList.add("two");
         assertThat(StringUtil.listToCsv(stringList), is("one,two"));
     }
@@ -38,6 +40,8 @@ public class StringUtilTest {
         stringList.add("one");
         stringList.add("two");
         assertThat(StringUtil.csvToList("one,two"), is(stringList));
+        assertThat(StringUtil.csvToList("one").size(), is(1));
+        assertThat(StringUtil.csvToList("").size(), is(0));
     }
 
     @Test
@@ -74,12 +78,6 @@ public class StringUtilTest {
     @Test
     public void testRemoveUnderscores() {
         assertThat(StringUtil.removeUnderscores("te_st"), is("te st"));
-    }
-
-    @Test
-    public void testHasSectionAnchor() {
-        assertThat(StringUtil.hasSectionAnchor("te_st"), is(false));
-        assertThat(StringUtil.hasSectionAnchor("#te_st"), is(true));
     }
 
     @Test

@@ -37,6 +37,7 @@
 
     <color name="find_in_page">#FFFF00</color>
     <color name="find_in_page_active">#FF9632</color>
+    <color name="osage">#ff9500</color>
 
     <!-- Sepia -->
     <color name="amate">#e1dad1</color>

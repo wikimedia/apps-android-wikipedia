@@ -2,8 +2,8 @@ name: Android branch build
 
 on:
   push:
-    branches-ignore:
-      - 'master'
+    branches:
+      - '*design*'
 
 jobs:
   build_branch:

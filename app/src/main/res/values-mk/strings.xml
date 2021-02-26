@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Bjankuloski06
 * Dbrant
 * Violetova
@@ -48,6 +47,10 @@
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди во статијата</string>
+  <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
+  <string name="menu_page_view_talk">Разговорна страница</string>
+  <string name="menu_page_view_edit_history">Историја на уредувања</string>
+  <string name="menu_page_remove_from_watchlist">Отстрани набљудуваните</string>
   <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
@@ -184,6 +187,8 @@
   <string name="page_protected_can_not_edit">За жал, вашата сметка засега нема право да ја уредува страницава.</string>
   <string name="page_protected_can_not_edit_anon">За жал, страницава засега не може да се уредува анонимно.</string>
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај во набљудувани</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете што се случува со статиите кои ве интересираат. Допрете на расклопеното мени и изберете and select &lt;b&gt;Додај во набљудувани&lt;/b&gt; за да видите промени во статија.</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="about_description">За прилогот „Википедија“</string>
@@ -233,6 +238,7 @@
   <string name="find_previous">Најди претходно</string>
   <string name="find_first_occurence">Ова е првото јавување</string>
   <string name="find_last_occurence">Ова е последното јавување</string>
+  <string name="article_opened_in_background_tab">Статијата е отворена како заднинско јазиче.</string>
   <string name="abusefilter_title_warn">Ова уредување може да е неконструктивно. Дали сигурно сакате да го објавите?</string>
   <string name="abusefilter_title_disallow">Не можете да го објавите уредувањево. Вратете се и изменето го.</string>
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>
@@ -374,7 +380,7 @@
   <string name="text_size_decrease">Намали текст</string>
   <string name="text_size_percent_default">%s (по основно)</string>
   <string name="text_style_title">Фонт</string>
-  <string name="nav_item_reading_lists">Мои списоци</string>
+  <string name="nav_item_saved">Зачувано</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_move_to">Премести во списокот за читање</string>
   <string name="reading_list_create_new">Создај нов</string>
@@ -554,6 +560,7 @@
   <string name="notifications_view_archived_button_text">Погл. архивирани известувања</string>
   <string name="notification_preferences_title">Нагодувања на известувањата</string>
   <string name="notifications_mark_unread">Означи како непрочитано</string>
+  <string name="watchlist_title">Набљудувања</string>
   <string name="preference_title_notification_poll">Известувања за анкети</string>
   <string name="preference_summary_notification_poll">Дозволи му на прилогот да користи податоци за да проверува нови известувања во позадина.</string>
   <string name="preference_category_notification_types">Видови известувања во прилог</string>
@@ -603,9 +610,7 @@
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
   <string name="view_offline_card_text">Содржината не може да се вчита додека не сте на линија.</string>
   <string name="view_featured_article_card_title">Избрана статија</string>
-  <string name="view_featured_article_footer_save_button_label">Зачувај</string>
   <string name="view_static_card_save_button_label">Зачувај</string>
-  <string name="view_featured_article_footer_saved_button_label">Зачувано</string>
   <string name="feed_configure_activity_title">Прилагоди го доводот</string>
   <string name="feed_configure_menu_reset">Поврати основен изглед</string>
   <string name="feed_configure_menu_select_all">Прикажи сè</string>
@@ -820,23 +825,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Имате направено дадено еден придонес на Википедија користејќи „Предложени уредувања“. Ви благодариме!</item>
-    <item quantity="other">Имате дадено %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Уредувавте цел еден ден. Само напред, %2$s!</item>
-    <item quantity="other">Уредувавте секој ден последниве %1$d дена. Само напред, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Вашите уредувања се видени од едно лице во последниве 30 дена. Ви благодариме и само напред!</item>
-    <item quantity="other">Вашите уредувања се видени од %d лица во последниве 30 дена. Ви благодариме и само напред!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Имате %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</string>
-  <string name="suggested_edits_rewards_edit_streak">Досега уредувате %1$d последователни денови. Само така, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Вашите уредувања се видени од %d луѓе во последниве 30 дена. Ви благодариме, и само напред!</string>
-  <string name="suggested_edits_rewards_edit_quality">Засега вашите уредувања се со %s квалитет. Само така! Со нетрпение ги очекуваме вашите понатамошни придонеси.</string>
-  <string name="suggested_edits_rewards_continue_button">Продолжи</string>
   <string name="suggested_edits_encourage_account_creation_title">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Најава / придружување на Википедија</string>
@@ -947,6 +935,8 @@
   <string name="main_tooltip_text">Здраво, %s. Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="main_tooltip_text_v2">Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="main_tooltip_action_button">Започнете</string>
+  <string name="main_tooltip_watchlist_title">Набљудувања</string>
+  <string name="main_tooltip_watchlist_text">Најдете статии и страници кои претходно сте ги ставиле во набљудуваните во мените Повеќе под &lt;b&gt;Набљудувани&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_cancel_button_text">Откажи</string>
@@ -962,4 +952,38 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
+  <string name="menu_option_share_edit">Сподели уредување</string>
+  <string name="menu_option_user_profile">Профил на %s</string>
+  <string name="menu_option_user_contributions">Придонеси на %s</string>
+  <string name="watchlist_details_watching_label">Набљудувана</string>
+  <string name="watchlist_details_watch_label">Набљудувај</string>
+  <string name="thank_label">Благодарност</string>
+  <string name="go_to_user_page">Оди на корисничката страница</string>
+  <string name="thank_dialog_title_text">Јавно испрати благодарница</string>
+  <string name="thank_dialog_text">Благодарниците се лесен начин да му кажете на некој уредник дека го цените неговиот труд на Википедија. Тие се неотповикливи и се јавно видливи.</string>
+  <string name="thank_dialog_positive_button_text">Испрати благодарница</string>
+  <string name="thank_dialog_negative_button_text">Откажи</string>
+  <string name="thank_success_message">Вашата благодарница е испратена на %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s и нејзината разговорна страница се додадени во вашите набљудувања %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Смени</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">трајно</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 недела</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 месец</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 месеци</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 месеци</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s и нејзината разговорна страница се отстранети од вашите набљудувања.</string>
+  <string name="watchlist_expiry_dialog_title">Изберете временски период на Набљудуваните</string>
+  <string name="watchlist_expiry_dialog_permanent">Трајно</string>
+  <string name="watchlist_expiry_dialog_one_week">1 недела</string>
+  <string name="watchlist_expiry_dialog_one_month">1 месец</string>
+  <string name="watchlist_expiry_dialog_three_months">3 месеци</string>
+  <string name="watchlist_expiry_dialog_six_months">6 месеци</string>
+  <string name="watchlist_empty">Немате ниедна статија во набљудуваните.</string>
+  <string name="watchlist_filter_all">Сите</string>
+  <string name="watchlist_filter_talk">Разговор</string>
+  <string name="watchlist_filter_pages">Страници</string>
+  <string name="watchlist_filter_other">Друго</string>
+  <string name="watchlist_page_moved">Преместена</string>
+  <string name="watchlist_page_protected">Заштитена</string>
+  <string name="watchlist_page_deleted">Избришана</string>
 </resources>

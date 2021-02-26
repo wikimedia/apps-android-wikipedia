@@ -6,24 +6,25 @@ import android.net.Uri
 import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.view_file_page.view.*
-import kotlinx.android.synthetic.main.view_image_detail.view.*
-import org.wikipedia.Constants.*
+import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.commons.FilePageFragment.Companion.ACTIVITY_REQUEST_ADD_IMAGE_CAPTION
 import org.wikipedia.commons.FilePageFragment.Companion.ACTIVITY_REQUEST_ADD_IMAGE_TAGS
+import org.wikipedia.databinding.ViewFilePageBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -32,11 +33,11 @@ import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
 import java.util.*
-import kotlin.math.roundToInt
 
 class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+    val binding = ViewFilePageBinding.inflate(LayoutInflater.from(context), this)
+
     init {
-        View.inflate(context, R.layout.view_file_page, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
@@ -55,15 +56,15 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         loadImage(summaryForEdit, containerWidth, thumbWidth, thumbHeight)
 
         if (showFilename) {
-            filenameView.visibility = View.VISIBLE
-            filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_image)
-            filenameView.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
-            filenameView.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle!!)
-            filenameView.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
-            filenameView.divider.visibility = View.GONE
+            binding.filenameView.visibility = View.VISIBLE
+            binding.filenameView.binding.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_image)
+            binding.filenameView.binding.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+            binding.filenameView.binding.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle!!)
+            binding.filenameView.binding.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
+            binding.filenameView.binding.divider.visibility = View.GONE
         }
 
-        detailsContainer.removeAllViews()
+        binding.detailsContainer.removeAllViews()
 
         if (summaryForEdit.pageTitle.description.isNullOrEmpty() && summaryForEdit.description.isNullOrEmpty() && showEditButton) {
             addActionButton(context.getString(R.string.file_page_add_image_caption_button), imageCaptionOnClickListener(fragment, summaryForEdit))
@@ -97,7 +98,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         requestLayout()
     }
 
-    private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String) : String? {
+    private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String): String? {
         if (!imageTags.containsKey(languageCode)) {
             return null
         }
@@ -118,9 +119,9 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private fun loadImage(summaryForEdit: PageSummaryForEdit, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
-        ImageZoomHelper.setViewZoomable(imageView)
-        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE))
-        imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, ViewUtil.adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
+        ImageZoomHelper.setViewZoomable(binding.imageView)
+        ViewUtil.loadImage(binding.imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, PREFERRED_GALLERY_IMAGE_SIZE), false, false, true, null)
+        binding.imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, ViewUtil.adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
 
     private fun imageCaptionOnClickListener(fragment: Fragment, summaryForEdit: PageSummaryForEdit): OnClickListener {
@@ -131,7 +132,6 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             ), ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
         }
     }
-
 
     private fun imageTagsOnClickListener(fragment: Fragment, page: MwQueryPage): OnClickListener {
         return OnClickListener {
@@ -155,38 +155,38 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     private fun addDetail(showDivider: Boolean, titleString: String, detail: String?, externalLink: String?, listener: OnClickListener?) {
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(context)
-            view.titleText.text = titleString
-            view.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
-            RichTextUtil.removeUnderlinesFromLinks(view.contentText)
+            view.binding.titleText.text = titleString
+            view.binding.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
+            RichTextUtil.removeUnderlinesFromLinks(view.binding.contentText)
             if (!externalLink.isNullOrEmpty()) {
-                view.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-                view.contentText.setTextIsSelectable(false)
-                view.externalLink.visibility = View.VISIBLE
-                view.contentContainer.setOnClickListener {
+                view.binding.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+                view.binding.contentText.setTextIsSelectable(false)
+                view.binding.externalLink.visibility = View.VISIBLE
+                view.binding.contentContainer.setOnClickListener {
                     UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
                 }
             } else {
-                view.contentText.movementMethod = movementMethod
+                view.binding.contentText.movementMethod = movementMethod
             }
             if (!showDivider) {
-                view.divider.visibility = View.GONE
+                view.binding.divider.visibility = View.GONE
             }
             if (listener != null) {
-                view.editButton.visibility = View.VISIBLE
-                view.editButton.setOnClickListener(listener)
+                view.binding.editButton.visibility = View.VISIBLE
+                view.binding.editButton.setOnClickListener(listener)
             }
-            detailsContainer.addView(view)
+            binding.detailsContainer.addView(view)
         }
     }
 
     private fun addActionButton(buttonText: String, listener: OnClickListener) {
         val view = ImageDetailView(context)
-        view.titleContainer.visibility = View.GONE
-        view.contentContainer.visibility = View.GONE
-        view.actionButton.visibility = View.VISIBLE
-        view.actionButton.text = buttonText
-        view.actionButton.setOnClickListener(listener)
-        detailsContainer.addView(view)
+        view.binding.titleContainer.visibility = View.GONE
+        view.binding.contentContainer.visibility = View.GONE
+        view.binding.actionButton.visibility = View.VISIBLE
+        view.binding.actionButton.text = buttonText
+        view.binding.actionButton.setOnClickListener(listener)
+        binding.detailsContainer.addView(view)
     }
 
     private val movementMethod = LinkMovementMethodExt { url: String ->

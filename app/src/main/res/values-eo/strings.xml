@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * Juan Cuartas
 * KuboF
@@ -15,6 +14,7 @@
 * Robin van der Vliet
 * SHaran (WMF)
 * Surfo
+* Wierzbowski
 * YvesNevelsteen
 -->
 <resources>
@@ -342,7 +342,7 @@
   <string name="text_size_increase">Pliigi la tekstograndon</string>
   <string name="text_size_decrease">Malpliigi la tekstograndon</string>
   <string name="text_size_percent_default">%s (Defaŭlto)</string>
-  <string name="nav_item_reading_lists">Miaj listoj</string>
+  <string name="nav_item_saved">Konservita</string>
   <string name="reading_list_save_to">Konservi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>
@@ -526,9 +526,7 @@
   <string name="view_announcement_card_negative_action">Ne, dankon</string>
   <string name="view_offline_card_text">Enhavo ne povas esti ŝargita kiam eksterrete.</string>
   <string name="view_featured_article_card_title">Elstarigita artikolo</string>
-  <string name="view_featured_article_footer_save_button_label">Konservi</string>
   <string name="view_static_card_save_button_label">Konservi</string>
-  <string name="view_featured_article_footer_saved_button_label">Konservita</string>
   <string name="feed_configure_activity_title">Tajlori la fluon</string>
   <string name="feed_configure_menu_reset">Restarigi la defaŭltan vidon</string>
   <string name="feed_configure_menu_select_all">Montri ĉiujn</string>
@@ -635,11 +633,6 @@
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
-  <string name="suggested_edits_rewards_contribution" fuzzy="true">Vi faris %d kontribuojn al Vikipedio uzante sugestitajn redaktojn. Dankon!</string>
-  <string name="suggested_edits_rewards_edit_streak">Vi redaktis ĉiun tagon dum %1$d tagoj ĝin nun. Tenu la daŭron, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Viaj redaktoj estis viditaj de %d homoj en la lasta 30 tagoj. Dankon Kaj daŭrigu!</string>
-  <string name="suggested_edits_rewards_edit_quality">Viaj redaktoj ĝis nun estas %s. Daŭrigu! Ni atendas viajn kontribuojn</string>
-  <string name="suggested_edits_rewards_continue_button">Daŭrigi</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>

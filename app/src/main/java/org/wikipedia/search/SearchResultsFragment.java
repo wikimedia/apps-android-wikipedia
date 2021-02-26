@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -30,7 +29,9 @@ import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
@@ -63,9 +64,8 @@ import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
     public interface Callback {
-        void onSearchResultCopyLink(@NonNull PageTitle title);
-        void onSearchResultAddToList(@NonNull PageTitle title, @NonNull InvokeSource source);
-        void onSearchResultShareLink(@NonNull PageTitle title);
+        void onSearchAddPageToList(HistoryEntry entry, boolean addToDefault);
+        void onSearchMovePageToList(long sourceReadingListId, HistoryEntry entry);
         void onSearchProgressBar(boolean enabled);
         void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
         void setSearchText(@NonNull CharSequence text);
@@ -99,8 +99,8 @@ public class SearchResultsFragment extends Fragment {
         searchResultsList.setLayoutManager(new LinearLayoutManager(getActivity()));
         searchResultsList.setAdapter(new SearchResultAdapter());
 
-        searchErrorView.setBackClickListener((v) -> requireActivity().finish());
-        searchErrorView.setRetryClickListener((v) -> {
+        searchErrorView.setBackClickListener(v-> requireActivity().finish());
+        searchErrorView.setRetryClickListener(v -> {
             searchErrorView.setVisibility(GONE);
             startSearch(currentSearchTerm, true);
         });
@@ -454,51 +454,39 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.OverflowMenuListener {
-        private int lastPositionRequested;
+    private class SearchResultsFragmentLongPressHandler implements LongPressMenu.Callback {
+        private final int lastPositionRequested;
+        private final Callback callback = callback();
 
         SearchResultsFragmentLongPressHandler(int position) {
             lastPositionRequested = position;
         }
 
         @Override
-        public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            Callback callback = callback();
+        public void onOpenLink(@NonNull HistoryEntry entry) {
             if (callback != null) {
-                callback.navigateToTitle(title, false, lastPositionRequested);
+                callback.navigateToTitle(entry.getTitle(), false, lastPositionRequested);
             }
         }
 
         @Override
-        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            Callback callback = callback();
+        public void onOpenInNewTab(@NonNull HistoryEntry entry) {
             if (callback != null) {
-                callback.navigateToTitle(title, true, lastPositionRequested);
+                callback.navigateToTitle(entry.getTitle(), true, lastPositionRequested);
             }
         }
 
         @Override
-        public void onCopyLink(PageTitle title) {
-            Callback callback = callback();
+        public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
             if (callback != null) {
-                callback.onSearchResultCopyLink(title);
+                callback.onSearchAddPageToList(entry, addToDefault);
             }
         }
 
         @Override
-        public void onShareLink(PageTitle title) {
-            Callback callback = callback();
+        public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
             if (callback != null) {
-                callback.onSearchResultShareLink(title);
-            }
-        }
-
-        @Override
-        public void onAddToList(@NonNull PageTitle title, @NonNull InvokeSource source) {
-            Callback callback = callback();
-            if (callback != null) {
-                callback.onSearchResultAddToList(title, source);
+                callback.onSearchMovePageToList(page.listId(), entry);
             }
         }
     }
@@ -600,7 +588,7 @@ public class SearchResultsFragment extends Fragment {
 
                 searchResultIcon.setVisibility(VISIBLE);
                 searchResultIcon.setImageResource(result.getType() == SearchResult.SearchResultType.HISTORY
-                        ? R.drawable.ic_restore_black_24dp : result.getType() == SearchResult.SearchResultType.TAB_LIST
+                        ? R.drawable.ic_history_24 : result.getType() == SearchResult.SearchResultType.TAB_LIST
                         ? R.drawable.ic_tab_one_24px : R.drawable.ic_bookmark_white_24dp);
             }
 

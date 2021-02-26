@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Bert Jickty
 * Envlh
 * HalanTul
 * Krivoshapkina
 * MuratTheTurkish
 * Patriccck
+* Patrik L.
 * Алгыс
 * Марианна
 -->
@@ -343,7 +343,6 @@
   <string name="text_size_increase">Бичигин улаатыннар</string>
   <string name="text_size_decrease">Бичигин кыччат</string>
   <string name="text_size_percent_default">%s (анаан эппэтэххэ)</string>
-  <string name="nav_item_reading_lists">Тиһилигим</string>
   <string name="reading_list_save_to">Ааҕар тиһиликкэ киллэр</string>
   <string name="reading_list_create_new">Саҥаны ай</string>
   <string name="reading_list_title_exists">Аҕыы испииһэгэ «%s» хайыы-үйэ баар эбит.</string>
@@ -528,9 +527,7 @@
   <string name="view_announcement_card_negative_action">Суох, махтанабын</string>
   <string name="view_offline_card_text">Ситимэ суох көрдөрөр табыллыбат эбит.</string>
   <string name="view_featured_article_card_title">Бастыҥ ыстатыйа</string>
-  <string name="view_featured_article_footer_save_button_label">Бигэргэт</string>
   <string name="view_static_card_save_button_label">Бигэргэт</string>
-  <string name="view_featured_article_footer_saved_button_label">Бигэргэннэ</string>
   <string name="feed_configure_activity_title">Лиэнтэни нарылаа</string>
   <string name="feed_configure_menu_reset">Анаан этиллибэтэҕинэ турар сиидэлэри сөргүтүү</string>
   <string name="feed_configure_menu_select_all">Барытын көрдөр</string>

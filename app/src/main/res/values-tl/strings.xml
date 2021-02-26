@@ -7,6 +7,7 @@
 * Jewel457
 * Leeheonjin
 * MuratTheTurkish
+* SHaran (WMF)
 * Sky Harbor
 * Stranger195
 -->
@@ -51,6 +52,8 @@
   <string name="menu_page_show_tabs">Ipakita ang mga tab</string>
   <string name="menu_page_other_languages">Palitan ang wika</string>
   <string name="menu_page_find_in_page">Hanapin sa artikulo</string>
+  <string name="menu_page_add_to_watchlist">Ilagay sa Mga Binabantayan</string>
+  <string name="menu_page_remove_from_watchlist">Tanggalin sa Mga Binabantayan</string>
   <string name="edit_section_find_in_page">Hanapin sa pahina</string>
   <string name="menu_page_font_and_theme">Titik at tema</string>
   <string name="menu_page_add_to_list">Idagdag sa listahan</string>
@@ -59,6 +62,7 @@
   <string name="feed_card_add_to_default_list">I-save</string>
   <string name="menu_page_share">Ibahagi ang link</string>
   <string name="menu_page_open_a_new_tab">Magbukas ng bago</string>
+  <string name="menu_page_new_tab">Bagong tab</string>
   <string name="menu_page_reading_lists">Mga Listahan</string>
   <string name="menu_page_recently_viewed">Kababása</string>
   <string name="menu_long_press_open_page">Buksan</string>
@@ -186,6 +190,8 @@
   <string name="page_protected_can_not_edit">Paumanhin, ngunit kulang ang pahintulot sa account mo para ma-edit ang pahinang ito.</string>
   <string name="page_protected_can_not_edit_anon">Paumanhin, ngunit pinagbabawalan ang pag-edit sa pahinang ito nang hindi naka-login.</string>
   <string name="page_protected_can_not_edit_title">Protektado ang pahinang ito</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Idagdag sa Mga Binabantayan</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Bantayan ang mga nangyayari sa mga artikulong interesado ka. Pindutin lamang ang overflow menu at piliin ang &lt;b&gt;Idagdag sa Mga Binabantayan&lt;/b&gt; para makita ang mga pagbabago sa isang artikulo.</string>
   <string name="settings_item_preferences">Pagsasaayos</string>
   <string name="settings_activity_title">Pagsasaayos</string>
   <string name="about_description">Tungkol sa Wikipedia app</string>
@@ -233,6 +239,7 @@
   <string name="find_previous">Nakaraan</string>
   <string name="find_first_occurence">Ito ang unang beses</string>
   <string name="find_last_occurence">Ito ang huling beses</string>
+  <string name="article_opened_in_background_tab">Nakabukás ang artikulo sa isang tab sa likuran.</string>
   <string name="abusefilter_title_warn">Di yata makakatulong ang in-edit mo. Sigurado ka ba talagang ilalathala mo ito?</string>
   <string name="abusefilter_title_disallow">Di mo mailalathala ang edit na ito. Mangyaring bumalik at baguhin ito.</string>
   <string name="abusefilter_text_warn">Natukoy ng isang agarang panalâ na maaaring di makakatulong ang edit na ito. Maaaring naglalaman ito ng isa o higit pa sa mga ito: &lt;br /&gt;&lt;br /&gt;· Pagta-type nang naka-CAPS&lt;br /&gt;· Pagbablangko sa pahina o pambababoy&lt;br /&gt;· Di kinakailangang kawing panlabas o larawan&lt;br /&gt;· Paulit-ulit na mga karakter</string>
@@ -374,7 +381,6 @@
   <string name="text_size_decrease">Paliitin</string>
   <string name="text_size_percent_default">%s (Ipinaubaya)</string>
   <string name="text_style_title">Titik</string>
-  <string name="nav_item_reading_lists">Babasáhin Ko</string>
   <string name="reading_list_save_to">I-save sa listahan</string>
   <string name="reading_list_move_to">Ilipat</string>
   <string name="reading_list_create_new">Gumawa ng bago</string>
@@ -554,6 +560,7 @@
   <string name="notifications_view_archived_button_text">Tingnan ang mga itinabing abiso</string>
   <string name="notification_preferences_title">Pagsasaayos sa abiso</string>
   <string name="notifications_mark_unread">Markaháng babasahin</string>
+  <string name="watchlist_title">Mga Binabantayan</string>
   <string name="preference_title_notification_poll">Kunin ang mga abiso</string>
   <string name="preference_summary_notification_poll">Payagan ang app na gumamit ng data para tumingin ng bagong abiso sa gawaing likuran.</string>
   <string name="preference_category_notification_types">Uri ng abiso sa loob ng app</string>
@@ -603,9 +610,7 @@
   <string name="view_announcement_card_negative_action">Salamat na lang</string>
   <string name="view_offline_card_text">Di maikakarga ang nilalaman kapag offline.</string>
   <string name="view_featured_article_card_title">Tampok na artikulo</string>
-  <string name="view_featured_article_footer_save_button_label">I-save</string>
   <string name="view_static_card_save_button_label">I-save</string>
-  <string name="view_featured_article_footer_saved_button_label">Naka-save</string>
   <string name="feed_configure_activity_title">Isaayos ang feed</string>
   <string name="feed_configure_menu_reset">Ibalik sa dati</string>
   <string name="feed_configure_menu_select_all">Tingnan lahat</string>
@@ -617,6 +622,7 @@
   <string name="feed_item_type_featured_article">Araw-araw na tampok na artikulo sa Wikipedia</string>
   <string name="feed_item_type_trending">Mga artikulong pinaka-binabása araw-araw</string>
   <string name="feed_item_type_featured_image">Araw-araw na tampok na larawan mula Wikimedia Commons</string>
+  <string name="feed_item_type_main_page">Unang Pahina ng Wikipedia na may araw-araw na itinatampok na nilalaman</string>
   <string name="feed_item_type_randomizer">Maglabas ng kahit anong artikulong mababása</string>
   <string name="feed_item_type_suggested_edits">Mga suhestyon sa maaaring maiambag sa Wikipedia</string>
   <string name="feed_empty_message">Walang lamang sa Maglibot mo</string>
@@ -817,23 +823,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kahapon</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Nakapag-ambag ka sa Wikipedia gamit ng Alok na Edit. Salamat po!</item>
-    <item quantity="other">Nakapag-ambag ka sa Wikipedia nang %d (na) beses gamit ng Alok na Edit. Maraming salamat po!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Nag-eedit ka na nang isang buong araw. Kaya mo yan, %2$s!</item>
-    <item quantity="other">Nag-eedit ka na nang %1$d (na) araw sunod-sunod. Kaya mo yan, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Nakita ang edit mo ng isang tao sa nakaraang 30 araw. Salamat po, at ambag pa!</item>
-    <item quantity="other">Nakita ang edit mo ng %d (na) tao sa nakaraang 30 araw. Maraming salamat po, at ambag pa!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Nag-ambag ka na nang %d (na) beses sa Wikipedia gamit ang Alok na Edit. Maraming salamat po!</string>
-  <string name="suggested_edits_rewards_edit_streak">Araw-araw ka na\'ng nag-eedit sa loob ng %1$d (na) araw. Kaya mo yan, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Nakita ng %d (na) katao ang mga edit mo sa nakalipas na 30 araw. Salamat, at tuloy lang ang pag-edit!</string>
-  <string name="suggested_edits_rewards_edit_quality">Ang mga edit mo ay %s. Tuloy lang ang pag-edit! Umaasa kami ng mga magagandang ambag mo.</string>
-  <string name="suggested_edits_rewards_continue_button">Magpatuloy</string>
   <string name="suggested_edits_encourage_account_creation_title">Alam mo ba, kahit sino pwedeng mag-edit sa Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Bagong paraan para makapag-edit sa Wikipedia gamit ng Android ang mga Alok na Edit. Matutulungan ka nitong makapag-ambag ng kahit maliit ngunit mahalagang mga ambag sa Wikipedia.\nGinagawa naming mas madali at mas kaya ang pag-eedit sa lahat ng tao! Mag-login lamang o sumali sa Wikipedia para makapagsimula ka na.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Mag-login / Sumali sa Wikipedia</string>
@@ -874,5 +863,122 @@
   <string name="onboarding_get_started">Magsimula</string>
   <string name="onboarding_maybe_later">Siguro mamaya</string>
   <string name="onboarding_explore_title">Mga bagong paraan para maglibot</string>
-  <string name="more_language_options">Mga karagdagan</string>
+  <string name="onboarding_explore_text">Pasukin ang mundo ng Wikipedia gamit ang palaging updated na Maglibot-libot. &lt;br/&gt;&lt;b&gt;Isaayos&lt;/b&gt; ang feed mo depende sa kung saan ka interesado - mapa-pangyayari &lt;b&gt;ngayong araw&lt;/b&gt; yan, o maghanap ng &lt;b&gt;kahit ano&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title">Listahan na sumasabay</string>
+  <string name="onboarding_reading_list_sync_text_v2">Pwede kang gumawa ng mga listahan ng babasahin mong artikulo mamaya, kahit na naka-offline ka. &lt;br/&gt;Mag-login sa account mo sa Wikipedia para maisabay (i-sync) ang mga listahan mo. &lt;a href=\"#login\"&gt;Sumali sa Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_analytics_title">Magpadala ng anonymous na datos</string>
+  <string name="onboarding_analytics_offline_text">Tumulong sa lalong pagpapahusay sa app sa pamamagitan po ng pagsabi sa amin kung paano niyo ginagamit ito. Anonymous (walang pagkakakilanlan) po ang mga nakakolektang datos. &lt;a href=\"#privacy\"&gt;Matuto pa&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Magpadala ng datos sa paggamit</string>
+  <string name="onboarding_got_it">Kuha ko</string>
+  <string name="onboarding_multilingual_secondary_text">Nakita namin ang sumusunod sa iyong device:</string>
+  <string name="onboarding_multilingual_add_language_text">Magdagdag o isaayos ang mga wika</string>
+  <string name="onboarding_welcome_title_v2">Ang Malayang Ensiklopedya\n…sa higit 300 wika</string>
+  <string name="app_shortcuts_random">Kahit Ano</string>
+  <string name="app_shortcuts_continue_reading">Ipagpatuloy</string>
+  <string name="app_shortcuts_search">Maghanap</string>
+  <string name="on_this_day_card_title">Ngayong Araw</string>
+  <string name="more_events_text">Marami pa Ngayong Araw</string>
+  <string name="events_count_text">%1$s (na) pangyayari mula %2$s–%3$d</string>
+  <string name="this_year">Ngayong taon</string>
+  <string name="on_this_day_dialog_next_month">Susunod na buwan</string>
+  <string name="on_this_day_dialog_previous_month">Nakaraang buwan</string>
+  <string name="on_this_day_open_date_picker">Buksan ang pampili ng petsa</string>
+  <plurals name="diff_years">
+    <item quantity="one">Nakaraang taon</item>
+    <item quantity="other">%d (na) taong nakalipas</item>
+  </plurals>
+  <string name="on_this_day_end_of_scroll_message">Naglakbay ka sa oras 🚀</string>
+  <string name="on_this_day_back_to_future">Harapin ang hinaharap</string>
+  <string name="languages_list_activity_title">Magdagdag ng wika</string>
+  <string name="languages_list_suggested_text">Mga Suhestyon</string>
+  <string name="languages_list_all_text">Lahat ng wika</string>
+  <string name="wikipedia_languages_title">Mga Wika ng Wikipedia</string>
+  <string name="wikipedia_languages_your_languages_text">Mga Wika mo</string>
+  <string name="wikipedia_languages_add_language_text">Magdagdag ng wika</string>
+  <string name="wikipedia_languages_remove_text">Magtanggal ng wika</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Magtanggal ng wika</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Tanggalin ang piniling wika?</item>
+    <item quantity="other">Tanggalin ang mga piniling wika?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">Makikita mo lang ang mga nilalaman sa feed ng Maglibot-libot at sa mabilisang pagsalâ sa hinahanap para sa mga natitirang wika ng Wikipedia.</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Hindi matatanggal ang lahat ng wika</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">Magtira ng di bababa sa isang wika ng Wikipedia na magagamit mo sa paghahanap at pagbabása.</string>
+  <string name="more_language_options">karagdagan</string>
+  <string name="add_wikipedia_languages_text">Magdagdag ng wika ng Wikipedia</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Tanggalin ang isang baryante ng wikang Tsino mula sa mga wika mo?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Kasalukuyan kang gumagamit ng parehong Tradisyonal at Pinasimpleng wikang Tsino na baryante sa mga wika mo. Ia-update mo ba ang mga wika sa Settings mo?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Isaayos ang mga wika</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Salamat na lang</string>
+  <string name="remove_language_dialog_cancel_button_text">Ikansela</string>
+  <string name="remove_language_dialog_ok_button_text">Sige</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Sige</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Sige</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">Sige</string>
+  <string name="edit_conflict_dialog_ok_button_text">Sige</string>
+  <string name="reverted_edit_dialog_ok_button_text">Sige</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Ikansela</string>
+  <string name="edit_type_all">Lahat ng ambag</string>
+  <string name="content_description_for_page_indicator">Pahina %1$d ng %2$d</string>
+  <string name="wikitext_bold">Kapalin</string>
+  <string name="wikitext_italic">Pahilisin</string>
+  <string name="wikitext_link">I-link</string>
+  <string name="wikitext_bulleted_list">Listahang naka-bullet</string>
+  <string name="wikitext_numbered_list">Listahang nakabilang</string>
+  <string name="wikitext_template">Padron</string>
+  <string name="wikitext_reference">Sanggunian</string>
+  <string name="wikitext_preview_link">Link sa pagsilip</string>
+  <string name="main_drawer_help">Tulong</string>
+  <string name="main_drawer_login">Mag-login / Sumali sa Wikipedia</string>
+  <string name="main_tooltip_text">Kamusta %s, alam mo bang pwede i-edit ng kahit sino ang Wikipedia?</string>
+  <string name="main_tooltip_text_v2">Alam mo bang pwedeng i-edit ng kahit sino ang Wikipedia?</string>
+  <string name="main_tooltip_action_button">Magsimula</string>
+  <string name="main_tooltip_watchlist_title">Mga Binabantayan</string>
+  <string name="main_tooltip_watchlist_text">Maghanap ng mga artikulo at pahinang dati mong dinagdag sa Mga Binabantayan mo sa Karagdagan sa ilalim ng &lt;b&gt;Mga Binabantayan&lt;/b&gt;.</string>
+  <string name="custom_date_picker_dialog_ok_button_text">Sige</string>
+  <string name="text_input_dialog_ok_button_text">Sige</string>
+  <string name="text_input_dialog_cancel_button_text">Ikansela</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Ikansela</string>
+  <string name="talk_title">Usapan</string>
+  <string name="talk_user_title">Usapan: %s</string>
+  <string name="talk_new_topic">Bagong paksa</string>
+  <string name="talk_page_empty">Walang laman ang pahina ng usapan na ito.</string>
+  <string name="talk_add_reply">Tumugon</string>
+  <string name="talk_no_subject">(walang paksa)</string>
+  <string name="talk_reply_subject">Paksa</string>
+  <string name="talk_reply_hint">Gumawa ng tugon</string>
+  <string name="talk_message_hint">Gumawa ng mensahe</string>
+  <string name="talk_message_empty">Hindi maaaring walang laman ang mensahe.</string>
+  <string name="talk_subject_empty">Hindi maaaring walang laman ang paksa.</string>
+  <string name="menu_option_share_edit">Ibahagi ang edit</string>
+  <string name="menu_option_user_profile">Profile ni %s</string>
+  <string name="menu_option_user_contributions">Mga ambag ni %s</string>
+  <string name="watchlist_details_watching_label">Binabantayan</string>
+  <string name="watchlist_details_watch_label">Bantayán</string>
+  <string name="thank_label">Magpasalamat</string>
+  <string name="go_to_user_page">Pumunta sa pahina ng tagagamit</string>
+  <string name="thank_dialog_title_text">Hayagang magpasalamat</string>
+  <string name="thank_dialog_text">Ang Magpasalamat ay isang madaling paraan para ipakita ang iyong pasasalamat sa isang gawa ng nag-edit sa Wikipedia. Hindi matatanggal ang pasasalamat at makikita ito ng lahat</string>
+  <string name="thank_dialog_positive_button_text">Magpasalamat</string>
+  <string name="thank_dialog_negative_button_text">Ikansela</string>
+  <string name="thank_success_message">Nagpasalamat ka kay %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar" fuzzy="true">Naidagdag na sa Mga Binabantayan mo %2$s ang %1$s at ang usapan nito.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Baguhin</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">nang permanente</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">nang 1 linggo</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">nang 1 buwan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">nang 3 buwan</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">nang 6 na buwan</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">Natanggal na sa Mga Binabantayan mo ang %s at ang usapan nito.</string>
+  <string name="watchlist_expiry_dialog_title">Pumili ng oras ng pagbantay</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanente</string>
+  <string name="watchlist_expiry_dialog_one_week">1 linggo</string>
+  <string name="watchlist_expiry_dialog_one_month">1 buwan</string>
+  <string name="watchlist_expiry_dialog_three_months">3 buwan</string>
+  <string name="watchlist_expiry_dialog_six_months">6 na buwan</string>
+  <string name="watchlist_empty">Wala pang artikulong binabantayan.</string>
+  <string name="watchlist_filter_all">Lahat</string>
+  <string name="watchlist_filter_talk">Usapan</string>
+  <string name="watchlist_filter_pages">Pahina</string>
+  <string name="watchlist_filter_other">Iba pa</string>
 </resources>

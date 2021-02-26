@@ -2,14 +2,12 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.LinearLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.util.Pair
-import kotlinx.android.synthetic.main.view_wiki_article_card.view.*
-import org.wikipedia.R
+import org.wikipedia.databinding.ViewWikiArticleCardBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -17,49 +15,47 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
 
-class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
-    init {
-        View.inflate(context, R.layout.view_wiki_article_card, this)
-    }
+class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+
+    val binding = ViewWikiArticleCardBinding.inflate(LayoutInflater.from(context), this)
 
     fun setTitle(title: String) {
-        articleTitle.text = StringUtil.fromHtml(title)
+        binding.articleTitle.text = StringUtil.fromHtml(title)
     }
 
     fun setDescription(description: String?) {
-        articleDescription.text = description
-    }
-
-    fun getImageContainer(): View {
-        return articleImageContainer
+        binding.articleDescription.text = description
     }
 
     fun getImageView(): FaceAndColorDetectImageView {
-        return articleImage
+        return binding.articleImage
     }
 
     fun setExtract(extract: String?, maxLines: Int) {
-        articleExtract.text = StringUtil.fromHtml(extract)
-        articleExtract.maxLines = maxLines
+        binding.articleExtract.text = StringUtil.fromHtml(extract)
+        binding.articleExtract.maxLines = maxLines
     }
 
     fun getSharedElements(): Array<Pair<View, String>> {
-        return TransitionUtil.getSharedElements(context, articleTitle, articleDescription, articleImage, articleDivider)
+        return TransitionUtil.getSharedElements(context, binding.articleTitle, binding.articleDescription, binding.articleImage)
+    }
+
+    fun setImageUri(uri: Uri?, hideInLandscape: Boolean = true) {
+        if (uri == null || (DimenUtil.isLandscape(context) && hideInLandscape) || !Prefs.isImageDownloadEnabled()) {
+            binding.articleImageContainer.visibility = GONE
+        } else {
+            binding.articleImageContainer.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT,
+                    DimenUtil.leadImageHeightForDevice(context) - DimenUtil.getToolbarHeightPx(context))
+            binding.articleImageContainer.visibility = VISIBLE
+            binding.articleImage.loadImage(uri)
+        }
     }
 
     fun prepareForTransition(title: PageTitle) {
-        val uri = if (TextUtils.isEmpty(title.thumbUrl)) null else Uri.parse(title.thumbUrl)
-        if (uri == null || DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) {
-            articleImageContainer.visibility = GONE
-        } else {
-            articleImageContainer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    DimenUtil.leadImageHeightForDevice(context) - DimenUtil.getToolbarHeightPx(context))
-            articleImageContainer.visibility = VISIBLE
-            articleImage.loadImage(uri)
-        }
-
+        setImageUri(if (title.thumbUrl.isNullOrEmpty()) null else Uri.parse(title.thumbUrl))
         setTitle(title.displayText)
         setDescription(title.description)
+        binding.articleDivider.visibility = View.GONE
         L10nUtil.setConditionalLayoutDirection(this, title.wikiSite.languageCode())
     }
 }

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Alp Er Tunqa
+* Ilğım
+-->
 <resources>
   <string name="app_name_prod">ویکی‌پدیا</string>
   <string name="app_name_beta">ویکی‌پدیا بتا</string>
   <string name="app_name_alpha">ویکی‌پدیا آلفا</string>
   <string name="wikimedia">ویکی‌مدیا</string>
   <string name="search_hint">ویکی‌پدیادا آختار</string>
-  <string name="nav_item_history">گئچمیش</string>
   <string name="error_network_error">اینترنتی باغلانمادی</string>
   <string name="page_error_retry">یئنی‌دن چالیش</string>
   <string name="page_error_back_to_main">دالی قاییت</string>
@@ -16,8 +19,8 @@
   <string name="search_redirect_from">%s -دن يوْل‌لاندیریلمیش</string>
   <string name="menu_page_show_tabs">تبلری گؤستر</string>
   <string name="menu_page_other_languages">دیلی دَییشدیر</string>
-  <string name="menu_page_find_in_page">صفحه‌ده تاپ</string>
-    <string name="menu_page_font_and_theme">فونت ایله تمی دَییشدیر</string>
+  <string name="menu_page_find_in_page" fuzzy="true">صفحه‌ده تاپ</string>
+  <string name="menu_page_font_and_theme">فونت ایله تمی دَییشدیر</string>
   <string name="menu_page_add_to_list">اوخوما لیستینه آرتیر</string>
   <string name="menu_page_share">لینکی پایلاش</string>
   <string name="menu_long_press_open_page">آچ</string>
@@ -26,19 +29,18 @@
   <string name="menu_text_select_define">معنی</string>
   <string name="menu_text_select_edit_here">بورانی دَییشدیر</string>
   <string name="last_updated_text">سوْن گۆنجلمک %s</string>
-  <string name="talk_page_link_text">دانیشیق</string>
-  <string name="preference_title_language">ویکی‌پدیا دیلی</string>
-    <string name="langlinks_filter_hint">آختار</string>
+  <string name="talk_page_link_text" fuzzy="true">دانیشیق</string>
+  <string name="preference_title_language" fuzzy="true">ویکی‌پدیا دیلی</string>
+  <string name="langlinks_filter_hint">آختار</string>
   <string name="langlinks_empty">بو صفحه آیری دیللرده موجود دئییل.</string>
-  <string name="langlinks_no_match">ایستگینیز اوچون هئچ بیر دیل تاپیلمادی.</string>
+  <string name="langlinks_no_match" fuzzy="true">ایستگینیز اوچون هئچ بیر دیل تاپیلمادی.</string>
   <string name="langlinks_activity_title">آیری دیل‌لر</string>
   <string name="menu_save_changes" fuzzy="true">دَییشیکلیکلری ذخیره ائت</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">ذخیره اوْلونور</string>
   <string name="edit_saved_successfully" fuzzy="true">دَییشدیرمه ذخیره اولوندو.</string>
   <string name="dialog_message_edit_failed">دییشدیرمه باشاریسیز اوْلدو!</string>
   <string name="dialog_message_edit_failed_retry">یئنی‌دن چالیش</string>
   <string name="dialog_message_edit_failed_cancel">وازگئچ</string>
-  <string name="dialog_message_leaving_edit">دییشدیرمه‌لرینیز هله ذخیره اوْلونماییبدیر. بۇ صفحه‌دن چیخماغا آرخایین‌میسینیز؟</string>
+  <string name="dialog_message_leaving_edit" fuzzy="true">دییشدیرمه‌لرینیز هله ذخیره اوْلونماییبدیر. بۇ صفحه‌دن چیخماغا آرخایین‌میسینیز؟</string>
   <string name="dialog_message_leaving_edit_leave">چیخ</string>
   <string name="dialog_message_leaving_edit_stay">قال</string>
   <string name="search_no_results_found">هئچ بیر نتیجه تاپیلمادی</string>
@@ -48,9 +50,9 @@
   <string name="login_username_hint">ایشلدن آدی</string>
   <string name="login_password_hint">رمز</string>
   <string name="menu_login">گیریش</string>
-  <string name="login_activity_title">ویکی‌پدیایا گیر</string>
+  <string name="login_activity_title" fuzzy="true">ویکی‌پدیایا گیر</string>
   <string name="login_in_progress_dialog_message">گیریلیر...</string>
-  <string name="login_success_toast">باشارییلا گیریش!</string>
+  <string name="login_success_toast" fuzzy="true">باشارییلا گیریش!</string>
   <string name="preference_title_logout">چیخیش</string>
   <string name="toast_logout_complete">چیخیلدی</string>
   <string name="create_account_username_hint">ایشلدن آدی</string>
@@ -63,11 +65,10 @@
   <string name="create_account_next">سوْنراکی</string>
   <string name="create_account_button">حساب یارات</string>
   <string name="preferences_general_heading">عمومی</string>
-    <string name="create_account_account_created_toast">حساب یارادیلدی!</string>
+  <string name="create_account_account_created_toast">حساب یارادیلدی!</string>
   <string name="preferences_privacy_settings_heading">شخصی حریم</string>
   <string name="preference_title_eventlogging_opt_in">ایشلتمه راپورتلارینی گؤندر</string>
   <string name="preference_title_auto_upload_crash_reports">خطا راپورتو گؤندر</string>
-  <string name="history_search_list_hint">آختاریش گئچمیشی</string>
   <string name="error_can_not_process_link">بۇ باغلانتینی گؤسترمک اوْلماییر</string>
   <string name="page_protected_autoconfirmed">بۇ صفحه یاریم‌قوْروما آلتیندادیر.</string>
   <string name="page_protected_sysop">بۇ صفحه بۆتون‌قوْروما آلتیندادیر.</string>
@@ -93,7 +94,6 @@
   <string name="edit_summary_tag_links">آرتیریلمیش باغلانتیلار</string>
   <string name="edit_summary_tag_other">آیری</string>
   <string name="abusefilter_title_disallow" fuzzy="true">بۇ دییشدیرمه‌نی ذخیره ائده بیلمزسینیز. لۆطفاً قاییدیب اوْنو دییشدیرین.</string>
-  <string name="text_size_select">فونت اؤلچوسو</string>
   <string name="page_similar_titles">بنزر صفحه‌لر</string>
   <string name="search_recent_header">ان سوْن آختاریشلار:</string>
   <string name="button_clear_all_recent_searches">ان سوْن آختاریشلاری سیل</string>
@@ -114,15 +114,13 @@
   <string name="button_close_tab">تبی باغلا</string>
   <string name="error_unknown">بیلینمه‌ين بیر خطا باش وئردی.</string>
   <string name="button_continue_to_article">مقاله‌نی اوْخو</string>
-    <string name="crash_report_activity_title">برنامه خطاسی</string>
+  <string name="crash_report_activity_title">برنامه خطاسی</string>
   <string name="crash_report_relaunch">یئنیدن باشلا</string>
   <string name="crash_report_quit">چیخیش</string>
   <string name="color_theme_select">تِم</string>
   <string name="color_theme_light">آچیق</string>
   <string name="color_theme_dark">توخ</string>
-  <string name="nav_item_reading_lists">منیم لیستلریم</string>
-    <string name="reading_list_create_new">یئنی یارات</string>
-  <string name="reading_list_added_to_named">%s-ـه آرتیریلدی.</string>
+  <string name="reading_list_create_new">یئنی یارات</string>
   <string name="reading_list_added_view_button">لیسته باخ</string>
   <string name="reading_list_sort_by_name">آدینا گؤره دۆزولموش</string>
   <string name="reading_list_sort_by_name_desc">آدینا گؤره دۆزولموش (ترس)</string>
@@ -133,5 +131,4 @@
   <string name="reading_lists_onboarding_got_it">آنلادیم</string>
   <string name="user_option_sync_label">ترجیحلر</string>
   <string name="view_featured_article_card_title">سئچیلمیش مقاله</string>
-  <string name="view_featured_article_footer_save_button_label">ذخیره ائت</string>
 </resources>

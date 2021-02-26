@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Cymrodor
 * Johnogwen123
 * Lloffiwr
@@ -264,7 +263,6 @@
   <string name="color_theme_black">Du</string>
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Testun (sampl)</string>
-  <string name="nav_item_reading_lists">Fy rhestrau</string>
   <string name="reading_list_save_to">Arbed i\'ch rhestr ddarllen</string>
   <string name="reading_list_create_new">Creu o\'r newydd</string>
   <string name="reading_list_title_exists">Mae \"%s\" yn bodoli\'n barod</string>

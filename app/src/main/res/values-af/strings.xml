@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Arnobarnard
 * Biggs ZA
 * Envlh
@@ -9,6 +8,7 @@
 * Macofe
 * MuratTheTurkish
 * Puvircho
+* Winstonza
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -108,7 +108,7 @@
   <string name="create_account_generic_error">Kon nie gebruiker skep nie</string>
   <string name="create_account_next">Volgende</string>
   <string name="email_recommendation_dialog_title">Skep \'n rekening met geen e-posadres?</string>
-  <string name="email_recommendation_dialog_message">Alhoewel die e-posadres opsioneel is, word dit &lt;b&gt;ten sterkste&lt;/b&gt; aanbeveel aangesien \'n e-posadres nodig is om \'n rekening te herstel as die wagwoord dalk sou verloor.</string>
+  <string name="email_recommendation_dialog_message">Alhoewel die e-posadres opsioneel is, word dit &lt;b&gt;ten sterkste&lt;/b&gt; aanbeveel aangesien \'n e-posadres nodig is om \'n rekening te herstel as u die wagwoord dalk sou verloor.</string>
   <string name="email_recommendation_message">Aanbeveel aangesien e-pos nodig is vir rekeningherstel.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Gaan voort sonder e-pos</string>
   <string name="email_recommendation_dialog_create_with_email_action">Voeg ’n e-posadres by</string>
@@ -256,7 +256,6 @@
   <string name="text_size_increase">Vergroot teks</string>
   <string name="text_size_decrease">Verklein teks</string>
   <string name="text_size_percent_default">%s (verstek)</string>
-  <string name="nav_item_reading_lists">My lyste</string>
   <string name="reading_list_save_to">Bewaar in leeslys</string>
   <string name="reading_list_create_new">Skep nuwe</string>
   <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>
@@ -310,8 +309,6 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s gelees</string>
   <string name="view_announcement_card_negative_action">Nee dankie</string>
   <string name="view_featured_article_card_title">Voorbladartikel</string>
-  <string name="view_featured_article_footer_save_button_label">Stoor</string>
-  <string name="view_featured_article_footer_saved_button_label">Gestoor</string>
   <string name="description_edit_save">Publiseer</string>
   <string name="description_edit_cancel_hint">Kanselleer</string>
   <string name="description_edit_success_did_you_know">Het u geweet?</string>

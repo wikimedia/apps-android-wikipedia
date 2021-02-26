@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Arabuli
 * BRUTE
 * David1010
@@ -293,7 +292,6 @@
   <string name="color_theme_test_title">ტექსტის ნიმუში</string>
   <string name="preference_title_app_theme">აპლიკაციის თემა</string>
   <string name="text_size_percent_default">%s (საწყისად)</string>
-  <string name="nav_item_reading_lists">ჩემი სიები</string>
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
   <string name="reading_list_create_new">ახლის შექმნა</string>
   <string name="reading_list_title_exists">საკითხავი სია „%s“ უკვე არსებობს.</string>
@@ -372,8 +370,6 @@
   <string name="view_continue_reading_card_subtitle_today">დღეს</string>
   <string name="view_announcement_card_negative_action">არა, გმადლობთ</string>
   <string name="view_featured_article_card_title">რჩეული სტატია</string>
-  <string name="view_featured_article_footer_save_button_label">შენახვა</string>
-  <string name="view_featured_article_footer_saved_button_label">შენახულია</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">ყველას არჩევა</string>
   <string name="feed_configure_menu_deselect_all" fuzzy="true">არჩევის გაუქმება</string>
   <string name="description_edit_text_hint" fuzzy="true">სათაურის აღწერა</string>

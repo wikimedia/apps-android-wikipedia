@@ -38,7 +38,6 @@ import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
@@ -79,12 +78,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onFeedSearchRequested(View view);
         void onFeedVoiceSearchRequested();
-        void onFeedSelectPage(HistoryEntry entry);
+        void onFeedSelectPage(HistoryEntry entry, boolean openInNewBackgroundTab);
         void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] shareElements);
         void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
-        void onFeedRemovePageFromList(HistoryEntry entry);
-        void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsCard card, NewsItemView view);
         void onFeedSeCardFooterClicked();
         void onFeedShareImage(FeaturedImageCard card);
@@ -174,7 +171,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
                     .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
                     .setPositiveButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_edit, (dialog, which)
-                            -> showLanguagesActivity(LanguageSettingsInvokeSource.CHINESE_VARIANT_REMOVAL.text()))
+                            -> showLanguagesActivity(Constants.InvokeSource.LANG_VARIANT_DIALOG))
                     .setNegativeButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_no, null)
                     .show();
         }
@@ -310,9 +307,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewBackgroundTab) {
             if (getCallback() != null) {
-                getCallback().onFeedSelectPage(entry);
+                getCallback().onFeedSelectPage(entry, openInNewBackgroundTab);
                 funnel.cardClicked(card.type(), getCardLanguageCode(card));
             }
         }
@@ -336,20 +333,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onMovePageToList(long sourceReadingList, @NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedMovePageToList(sourceReadingList, entry);
-            }
-        }
-
-        @Override
-        public void onRemovePageFromList(@NonNull HistoryEntry entry) {
-            if (getCallback() != null) {
-                getCallback().onFeedRemovePageFromList(entry);
-            }
-        }
-
-        @Override
-        public void onSharePage(@NonNull HistoryEntry entry) {
-            if (getCallback() != null) {
-                getCallback().onFeedSharePage(entry);
             }
         }
 
@@ -431,7 +414,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 showConfigureActivity(card.type().code());
                 onRequestDismissCard(card);
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_LANGUAGES)) {
-                showLanguagesActivity(LanguageSettingsInvokeSource.ANNOUNCEMENT.text());
+                showLanguagesActivity(Constants.InvokeSource.ANNOUNCEMENT);
             } else {
                 UriUtil.handleExternalLink(requireContext(), uri);
             }
@@ -511,7 +494,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
     }
 
-    private void showLanguagesActivity(@NonNull String invokeSource) {
+    private void showLanguagesActivity(@NonNull Constants.InvokeSource invokeSource) {
         Intent intent = WikipediaLanguagesActivity.newIntent(requireActivity(), invokeSource);
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE);
     }

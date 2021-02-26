@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Gazimagomedov
+* Patriccck
+* Patrik L.
+* Аль-Гимравий
+-->
 <resources>
   <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta">Википедия (бета)</string>
+  <string name="app_name_beta">Википедия бета</string>
   <string name="search_hint">Википедиялда цӀехесе</string>
-  <string name="nav_item_history">Тарих</string>
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>
   <string name="page_error_retry">Такрар гьабизе.</string>
   <string name="menu_clear_all_history">Тарих бацӀцӀине</string>
-  <string name="dialog_title_clear_history">Тарих бацӀцӀилищ?</string>
-    <string name="share_via">Сундалъун рехселе?</string>
-  <string name="menu_page_other_languages">Цоги мацӀалда цӀализе</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Тарих бацӀцӀилищ?</string>
+  <string name="share_via">Сундалъун рехселе?</string>
+  <string name="menu_page_other_languages" fuzzy="true">Цоги мацӀалда цӀализе</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Гьумералда батизе</string>
   <string name="menu_page_share" fuzzy="true">Рехсезе</string>
-  <string name="menu_page_find_in_page">Гьумералда батизе</string>
   <string name="last_updated_text">Ахирисеб цӀигьаби:%s</string>
-    <string name="preference_title_language">Википедиялъул мацӀал</string>
-    <string name="langlinks_filter_hint">ЦIехезе</string>
+  <string name="talk_page_link_text" fuzzy="true">Гьоркьоб лъей</string>
+  <string name="preference_title_language" fuzzy="true">Википедиялъул мацӀал</string>
+  <string name="langlinks_filter_hint">ЦIехезе</string>
   <string name="langlinks_empty">Гьаб гьумер цоги мацӀалда гьечӀо</string>
   <string name="langlinks_activity_title">Цоги мацӀазда</string>
-  <string name="menu_save_changes">Хиса-басиял цIунизе</string>
-  <string name="dialog_saving_in_progress">ЦӀунула буго…</string>
-  <string name="edit_saved_successfully">Хиса-баси цӀунана!</string>
+  <string name="menu_save_changes" fuzzy="true">Хиса-басиял цIунизе</string>
+  <string name="edit_saved_successfully" fuzzy="true">Хиса-баси цӀунана!</string>
   <string name="dialog_message_edit_failed">ЦӀунизе данде ккечӀо!</string>
   <string name="dialog_message_edit_failed_retry">Такрар гьабизе</string>
   <string name="dialog_message_edit_failed_cancel">НахъчӀвазе</string>
@@ -30,7 +35,7 @@
   <string name="login_username_hint">ХӀалтӀизабулчиясул цӀар</string>
   <string name="login_password_hint">Пароль</string>
   <string name="menu_login">Жаниве лъугьине</string>
-  <string name="login_activity_title">Википедиялда жаниве лъугьине</string>
+  <string name="login_activity_title" fuzzy="true">Википедиялда жаниве лъугьине</string>
   <string name="login_in_progress_dialog_message">Системалда жаниве лъугьи…</string>
   <string name="login_success_toast" fuzzy="true">Мун системалда лъана!</string>
   <string name="preference_title_logout">Къватlиве вачIизе</string>
@@ -46,15 +51,13 @@
   <string name="create_account_next">Хаду</string>
   <string name="create_account_button">Аккаунт гьабизе</string>
   <string name="preferences_general_heading">БетIераб</string>
-    <string name="edit_preview_fetching_dialog_message">ЦӀуниялда цебе хал-кӀач гьаби…</string>
   <string name="send_feedback">Приложение хӀакъалъулъ дурго пикру битӀизе</string>
   <string name="create_account_account_created_toast">Аккаунт гьабуна!</string>
-  <string name="history_search_list_hint">ЦIехеялъул тарих</string>
   <string name="settings_activity_title" fuzzy="true">Рекъезаби</string>
-  <string name="about_translators_heading">таржамачагӀи</string>
+  <string name="about_translators_heading" fuzzy="true">таржамачагӀи</string>
   <string name="about_activity_title">Программаялъул хIакъалъулъ</string>
   <string name="edit_next">Хаду</string>
-  <string name="edit_done">ЦIунизе</string>
+  <string name="edit_done" fuzzy="true">ЦIунизе</string>
   <string name="edit_preview">Цебесеб</string>
   <string name="edit_summary_tag_other">Цоги</string>
 </resources>

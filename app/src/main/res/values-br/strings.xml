@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Ash Crow
 * Dishual
 * Envlh
@@ -322,7 +321,6 @@
   <string name="text_size_increase">Brasaat ment an destenn</string>
   <string name="text_size_decrease">Bihanaat ment an destenn</string>
   <string name="text_size_percent_default">%s (dre ziouer)</string>
-  <string name="nav_item_reading_lists">Ma rolloù</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
   <string name="reading_list_title_exists">Ar roll lenn «%s» zo anezhañ dija.</string>
@@ -482,9 +480,7 @@
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
   <string name="view_offline_card_text">N\'haller ket kargañ danvez pa vezer ezlinenn.</string>
   <string name="view_featured_article_card_title">Pennpennad</string>
-  <string name="view_featured_article_footer_save_button_label">Enrollañ</string>
   <string name="view_static_card_save_button_label">Enrollañ</string>
-  <string name="view_featured_article_footer_saved_button_label">Enrollet</string>
   <string name="feed_configure_menu_reset">Assevel ar gwel dre ziouer</string>
   <string name="feed_configure_menu_select_all">Diskouez pep tra</string>
   <string name="feed_configure_menu_deselect_all">Kuzhat pep tra</string>

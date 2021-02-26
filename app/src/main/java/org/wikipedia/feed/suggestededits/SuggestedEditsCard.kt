@@ -23,4 +23,8 @@ class SuggestedEditsCard(
     override fun subtitle(): String {
         return DateUtil.getFeedCardDateString(age)
     }
+
+    fun footerActionText(): String {
+        return WikipediaApp.getInstance().getString(R.string.suggested_card_more_edits)
+    }
 }

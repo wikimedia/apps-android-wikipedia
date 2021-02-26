@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,10 +15,9 @@ import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.WikiArticleCardView;
 
@@ -73,35 +71,35 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
             contentContainerView.dispatchTouchEvent(MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0));
         } else if (getCallback() != null && getCard() != null) {
-            new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+                    new LongPressMenu(view, true, new LongPressMenu.Callback() {
                 @Override
-                public void onAddRequest(boolean addToDefault) {
+                public void onOpenLink(@NonNull HistoryEntry entry) {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onAddPageToList(getCard().historyEntry(), addToDefault);
+                        getCallback().onSelectPage(getCard(), entry, false);
                     }
                 }
 
                 @Override
-                public void onMoveRequest(@Nullable ReadingListPage page) {
+                public void onOpenInNewTab(@NonNull HistoryEntry entry) {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onMovePageToList(page.listId(), getCard().historyEntry());
+                        getCallback().onSelectPage(getCard(), entry, true);
                     }
                 }
 
                 @Override
-                public void onDeleted(@Nullable ReadingListPage page) {
-                    if (getCallback() != null && getCard() != null) {
-                        getCallback().onRemovePageFromList(getCard().historyEntry());
+                public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
+                    if (getCallback() != null) {
+                        getCallback().onAddPageToList(entry, addToDefault);
                     }
                 }
 
                 @Override
-                public void onShare() {
-                    if (getCallback() != null && getCard() != null) {
-                        getCallback().onSharePage(getCard().historyEntry());
+                public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
+                    if (getCallback() != null) {
+                        getCallback().onMovePageToList(page.listId(), entry);
                     }
                 }
-            }).show(getCard().historyEntry().getTitle());
+            }).show(getCard().historyEntry());
         }
         return false;
     }
@@ -138,17 +136,12 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             return;
         }
         footerView.setCallback(getFooterCallback());
-        footerView.setFooterActionText(getCard().footerActionText());
+        footerView.setFooterActionText(getCard().footerActionText(), getCard().wikiSite().languageCode());
     }
 
     private void image(@Nullable Uri uri) {
-        if (uri == null) {
-            wikiArticleCardView.getImageContainer().setVisibility(GONE);
-        } else {
-            wikiArticleCardView.getImageContainer().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    DimenUtil.leadImageHeightForDevice(getContext()) - DimenUtil.getToolbarHeightPx(getContext())));
-            wikiArticleCardView.getImageContainer().setVisibility(VISIBLE);
-            wikiArticleCardView.getImageView().loadImage(uri);
+        wikiArticleCardView.setImageUri(uri, false);
+        if (uri != null) {
             ImageZoomHelper.setViewZoomable(wikiArticleCardView.getImageView());
         }
     }
@@ -158,7 +151,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             if (getCallback() != null && getCard() != null) {
                 getCallback().onSelectPage(getCard(), new HistoryEntry(
                         new PageTitle(SiteInfoClient.getMainPageForLang(getCard().wikiSite().languageCode()),
-                                getCard().wikiSite()), getCard().historyEntry().getSource()));
+                                getCard().wikiSite()), getCard().historyEntry().getSource()), false);
             }
         };
     }

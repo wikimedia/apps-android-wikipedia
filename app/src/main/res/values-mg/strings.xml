@@ -8,9 +8,7 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Hikaroka an\'i Wikipedia</string>
-  <string name="search_hint_search_history">Hikaroka ny tantara</string>
   <string name="search_hint_search_languages">Hikaroka fiteny</string>
-  <string name="nav_item_history">Tantara</string>
   <string name="error_network_error">Tsy afaka mifandray amin\'ny Aterineto.</string>
   <string name="page_error_retry">Andramana indray</string>
   <string name="page_error_back_to_main">Hiverina</string>
@@ -27,7 +25,7 @@
   <string name="search_redirect_from">Nahodina avy tamin\'i %s</string>
   <string name="menu_page_show_tabs">Haneho vakizoro</string>
   <string name="menu_page_other_languages">Hanova fiteny</string>
-  <string name="menu_page_find_in_page">Hikaroka anaty pejy</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Hikaroka anaty pejy</string>
   <string name="menu_page_add_to_list">Ampiana amin\'ny lisi-pamakiana</string>
   <string name="menu_page_share">Hizara ny rohy</string>
   <string name="menu_long_press_open_page">Sokafana</string>
@@ -68,7 +66,7 @@
   <string name="login_username_hint">Anaram-pikambana</string>
   <string name="login_password_hint">Tenimiafina</string>
   <string name="menu_login">Hiditra</string>
-  <string name="login_activity_title">Hiditra amin\'i Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Hiditra amin\'i Wikipedia</string>
   <string name="login_in_progress_dialog_message">Mampiditra anao....</string>
   <string name="login_success_toast" fuzzy="true">Tafiditra!</string>
   <string name="reset_password_title">Forony ny tenimiafinao</string>
@@ -104,7 +102,6 @@
   <string name="preferences_privacy_settings_heading">Fiainana manokana</string>
   <string name="preference_title_eventlogging_opt_in">Handefa tati-pampiasana</string>
   <string name="preference_title_auto_upload_crash_reports">Handefa tati-pijanonana tampoka</string>
-  <string name="history_search_list_hint">Tantaran-karoka</string>
   <string name="error_can_not_process_link">Tsy afaka maneho ity rohy ity</string>
   <string name="page_protected_autoconfirmed">Voaaro an-tapany ity pejy ity.</string>
   <string name="page_protected_sysop">Voaaro tanteraka ity pejy ity.</string>
@@ -139,7 +136,6 @@
   <string name="find_last_occurence">Ity ny fitrangany farany</string>
   <string name="abusefilter_title_warn">Sahala fiovana tsy mampihatsara ity. Tena tianao ho avoaka ve ilay izy?</string>
   <string name="abusefilter_title_disallow">Tsy afaka mamoaka ity fiovana ity ianao. Miverena ary ovay ilay izy.</string>
-  <string name="text_size_select">Haben-tarehin-tsoratra</string>
   <string name="page_similar_titles">Pejy mitovitovy</string>
   <string name="search_did_you_mean">\"%s\" ve no tianao tenenina?</string>
   <string name="search_recent_header">Karoka vao haingana:</string>
@@ -157,7 +153,7 @@
   <string name="preference_title_show_images">Aseho ny sary</string>
   <string name="read_more_section">Hamaky bebe kokoa</string>
   <string name="about_article_section">Momba ity lahatsoratra ity</string>
-  <string name="menu_gallery_visit_page">Hankao amin\'ny pejin-drakitra</string>
+  <string name="menu_gallery_visit_image_page">Hankao amin\'ny pejin-drakitra</string>
   <string name="gallery_error_draw_failed">Tsy nahavita an\'ilay sary.</string>
   <string name="license_title">Fahazoan-dalana ho an\'i %s</string>
   <string name="gallery_menu_share">Zaraina</string>
@@ -186,7 +182,6 @@
   <string name="crash_report_activity_title">Hadisoam-pampiharana</string>
   <string name="crash_report_relaunch">Averina indray</string>
   <string name="crash_report_quit">Hiala</string>
-  <string name="article_menu_bar_share">Hizara ny rohy mankany amin\'ny pejy</string>
   <string name="article_header_edit_hint">Ovaina...</string>
   <string name="article_header_edit_description" fuzzy="true">Hanova ny famisavisan-dohateny</string>
   <string name="article_header_edit_lead_section">Hanova ny fampidirana</string>
@@ -199,7 +194,6 @@
   <string name="text_size_increase">Hampitombo ny haben-tsoratra</string>
   <string name="text_size_decrease">Hampidina ny haben-tsoratra</string>
   <string name="text_size_percent_default">%s (Rehefa tsy misy)</string>
-  <string name="nav_item_reading_lists">Ny lisitro</string>
   <string name="reading_list_save_to">Tehirizina ao amin\'ny lisi-pamakiana</string>
   <string name="reading_list_create_new">Hamorona vaovao</string>
   <string name="reading_list_title_exists">Efa misy ny lisi-pamakiana \"%s\".</string>

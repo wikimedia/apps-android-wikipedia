@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
-import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
 import org.wikipedia.page.PageTitle;
@@ -81,7 +80,6 @@ public class DescriptionEditFragment extends Fragment {
     private static final String ARG_DESCRIPTION = "description";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
     private static final String ARG_ACTION = "action";
-    private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_SOURCE_SUMMARY = "sourceSummary";
     private static final String ARG_TARGET_SUMMARY = "targetSummary";
 
@@ -140,32 +138,32 @@ public class DescriptionEditFragment extends Fragment {
                                                       @NonNull InvokeSource source) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
+        args.putParcelable(ARG_TITLE, title);
         args.putString(ARG_HIGHLIGHT_TEXT, highlightText);
         args.putString(ARG_SOURCE_SUMMARY, sourceSummary);
         args.putString(ARG_TARGET_SUMMARY, targetSummary);
         args.putSerializable(ARG_ACTION, action);
-        args.putSerializable(ARG_INVOKE_SOURCE, source);
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         instance.setArguments(args);
         return instance;
     }
 
     @Override public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        pageTitle = GsonUnmarshaller.unmarshal(PageTitle.class, getArguments().getString(ARG_TITLE));
+        pageTitle = requireArguments().getParcelable(ARG_TITLE);
         DescriptionEditFunnel.Type type = pageTitle.getDescription() == null
                 ? DescriptionEditFunnel.Type.NEW
                 : DescriptionEditFunnel.Type.EXISTING;
-        highlightText = getArguments().getString(ARG_HIGHLIGHT_TEXT);
-        action = (Action) getArguments().getSerializable(ARG_ACTION);
-        invokeSource = (InvokeSource) getArguments().getSerializable(ARG_INVOKE_SOURCE);
+        highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT);
+        action = (Action) requireArguments().getSerializable(ARG_ACTION);
+        invokeSource = (InvokeSource) requireArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
 
-        if (getArguments().getString(ARG_SOURCE_SUMMARY) != null) {
-            sourceSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, getArguments().getString(ARG_SOURCE_SUMMARY));
+        if (requireArguments().getString(ARG_SOURCE_SUMMARY) != null) {
+            sourceSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, requireArguments().getString(ARG_SOURCE_SUMMARY));
         }
 
-        if (getArguments().getString(ARG_TARGET_SUMMARY) != null) {
-            targetSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, getArguments().getString(ARG_TARGET_SUMMARY));
+        if (requireArguments().getString(ARG_TARGET_SUMMARY) != null) {
+            targetSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, requireArguments().getString(ARG_TARGET_SUMMARY));
         }
 
         funnel = new DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource);

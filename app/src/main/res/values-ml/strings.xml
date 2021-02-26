@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Adithyak1997
 * Jameela P.
 * Jinoytommanjaly
@@ -284,7 +283,6 @@
   <string name="text_size_increase">അക്ഷരവലിപ്പം കൂട്ടുക</string>
   <string name="text_size_decrease">അക്ഷരവലിപ്പം കുറയ്ക്കുക</string>
   <string name="text_size_percent_default">%s (സ്വതേ)</string>
-  <string name="nav_item_reading_lists">എന്റെ പട്ടികകൾ</string>
   <string name="reading_list_save_to">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
   <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>
@@ -371,9 +369,7 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s വായിക്കുക</string>
   <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
   <string name="view_featured_article_card_title">തിരഞ്ഞെടുത്ത ലേഖനം</string>
-  <string name="view_featured_article_footer_save_button_label">സേവ് ചെയ്യുക</string>
   <string name="view_static_card_save_button_label">സേവ് ചെയ്യുക</string>
-  <string name="view_featured_article_footer_saved_button_label">സേവ് ചെയ്തിരിക്കുന്നു</string>
   <string name="feed_configure_menu_select_all">എല്ലാം കാണിക്കുക</string>
   <string name="feed_configure_menu_deselect_all">എല്ലാം മറയ്ക്കുക</string>
   <string name="feed_configure_onboarding_action">ഇച്ഛാനുസരണമാക്കുക</string>

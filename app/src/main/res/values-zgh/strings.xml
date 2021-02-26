@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Amara-Amaziɣ
 * Hakim1bal
 * ⵕⴰⵊⵉ
@@ -156,7 +155,6 @@
   <string name="color_theme_black">ⴰⴱⵔⴽⴰⵏ</string>
   <string name="color_theme_test_title">ⴰⴹⵕⵉⵚ ⴰⵎⴷⵢⴰ</string>
   <string name="preference_title_app_theme">ⴰⵙⴳⵓⵎ ⵏ ⵜⵙⵏⵙⵉ</string>
-  <string name="nav_item_reading_lists">ⵜⵉⵍⴳⴰⵎⵉⵏ ⵉⵏⵓ</string>
   <string name="reading_list_save_to">ⵔⵏⵓ ⵖⵔ ⵓⵎⵓⵖ ⵏ ⵜⵖⵔⵉ</string>
   <string name="reading_list_create_new">ⵙⵏⴼⵍⵓⵍ ⴰⵎⴰⵢⵎⵓ</string>
   <string name="reading_list_menu_delete">ⴽⴽⵙ ⵜⴰⵍⴳⴰⵎⵜ</string>
@@ -188,7 +186,6 @@
   <string name="home">ⴰⵙⵏⵓⴱⴳ</string>
   <string name="view_continue_reading_card_subtitle_today">ⴰⵙⵙⴰ</string>
   <string name="view_announcement_card_negative_action">ⵓⵀⵓ, ⵜⴰⵏⵎⵎⵉⵔⵜ</string>
-  <string name="view_featured_article_footer_save_button_label">ⵃⴹⵓ</string>
   <string name="view_static_card_save_button_label">ⵃⴹⵓ</string>
   <string name="feed_configure_menu_select_all">ⵙⴽⵏ ⵎⴰⵕⵕⴰ</string>
   <string name="feed_configure_menu_deselect_all">ⵙⵙⵏⵜⵍ ⵎⴰⵕⵕⴰ</string>

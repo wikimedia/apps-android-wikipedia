@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * 1917 Ekim Devrimi
-* Abijeet Patro
+* Agaafd
 * Alidemirtas
 * BaRaN6161 TURK
 * Bulgu
@@ -81,6 +81,10 @@
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>
   <string name="menu_page_find_in_page">Maddede bul</string>
+  <string name="menu_page_add_to_watchlist">İzleme Listesine Ekle</string>
+  <string name="menu_page_view_talk">Tartışma sayfasını görüntüle</string>
+  <string name="menu_page_view_edit_history">Düzenleme geçmişini görüntüle</string>
+  <string name="menu_page_remove_from_watchlist">İzleme Listesinden Kaldır</string>
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
@@ -217,16 +221,18 @@
   <string name="page_protected_can_not_edit">Üzgünüz; hesabınız şu an bu sayfayı düzenlemek için gerekli yetkilere sahip değil.</string>
   <string name="page_protected_can_not_edit_anon">Maalesef, bu sayfa şu anda anonim olarak düzenlenemez.</string>
   <string name="page_protected_can_not_edit_title">Bu sayfa koruma altındadır</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">İzleme Listesine Ekle</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">İlgilendiğiniz maddelere ne olduğunu takip edin. Bir maddedeki değişiklikleri görmek için taşma menüsüne dokunun ve &lt;b&gt;İzleme Listesine Ekle&lt;/b&gt; seçeneğini seçin.</string>
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Vikipedi uygulaması hakkında</string>
   <string name="privacy_policy_description">Gizlilik politikası</string>
   <string name="terms_of_use_description">Kullanım şartları</string>
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
@@ -266,6 +272,7 @@
   <string name="find_previous">Öncekini bul</string>
   <string name="find_first_occurence">Bu, ilk olay</string>
   <string name="find_last_occurence">Bu, son olay</string>
+  <string name="article_opened_in_background_tab">Madde bir arka plan sekmesinde açıldı.</string>
   <string name="abusefilter_title_warn">Bu, yapıcı olmayan bir düzenleme olabilir. Yayımlamak istediğinizden emin misiniz?</string>
   <string name="abusefilter_title_disallow">Bu düzenlemeyi yayımlayamazsınız. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
@@ -407,7 +414,7 @@
   <string name="text_size_decrease">Metin boyutunu küçült</string>
   <string name="text_size_percent_default">%s (Varsayılan)</string>
   <string name="text_style_title">Yazı tipi</string>
-  <string name="nav_item_reading_lists">Listelerim</string>
+  <string name="nav_item_saved">Kaydedilmiş</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_move_to">Okuma listesine taşı</string>
   <string name="reading_list_create_new">Yeni oluştur</string>
@@ -587,6 +594,7 @@
   <string name="notifications_view_archived_button_text">Arşivlenmiş bildirimleri görüntüle</string>
   <string name="notification_preferences_title">Bildirim tercihleri</string>
   <string name="notifications_mark_unread">Okunmamış olarak işaretle</string>
+  <string name="watchlist_title">İzleme listesi</string>
   <string name="preference_title_notification_poll">Anket bildirimleri</string>
   <string name="preference_summary_notification_poll">Uygulamanın, arka planda yeni bildirimleri kontrol etmek için veri kullanmasına izin verin.</string>
   <string name="preference_category_notification_types">Uygulama içi bildirim türleri</string>
@@ -636,9 +644,7 @@
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
   <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="view_featured_article_card_title">Seçkin madde</string>
-  <string name="view_featured_article_footer_save_button_label">Kaydet</string>
   <string name="view_static_card_save_button_label">Kaydet</string>
-  <string name="view_featured_article_footer_saved_button_label">Kaydedildi</string>
   <string name="feed_configure_activity_title">Yayını özelleştir</string>
   <string name="feed_configure_menu_reset">Varsayılan görünümü geri yükle</string>
   <string name="feed_configure_menu_select_all">Hepsini göster</string>
@@ -823,7 +829,7 @@
     <item quantity="other">%d gün</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Önerilen düzenlemeler nedir?</string>
-  <string name="suggested_edits_what_is_text">Önerilen düzenlemeler, Vikipedi\'ye küçük ama hayati katkılar için fırsatlar sunar.</string>
+  <string name="suggested_edits_what_is_text">Önerilen düzenlemeler, Vikipedi\'ye küçük ancak hayati katkılar için fırsatlar sunar.</string>
   <string name="suggested_edits_learn_more">Daha fazla bilgi</string>
   <string name="suggested_edits_paused_title">Durduruldu</string>
   <string name="suggested_edits_disabled_title">Devre dışı</string>
@@ -850,23 +856,6 @@
   <string name="suggested_edits_image_tag_contribution_label">%d etiket eklediniz</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dün</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye bir katkı yaptınız. Teşekkür ederiz!</item>
-    <item quantity="other">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkür ederiz!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Bir gündür düzenleme yapıyorsunuz. Seriyi devam edin, %2$s!</item>
-    <item quantity="other">%1$d gündür düzenleme yapıyorsunuz. Seriyi devam etdin, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">Yaptığınız düzenlemeler, son 30 gün içinde bir kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
-    <item quantity="other">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Önerilen düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkürler!</string>
-  <string name="suggested_edits_rewards_edit_streak">Her gün %1$d gün boyunca düzenlediniz. Art ardaya devam et, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam et!</string>
-  <string name="suggested_edits_rewards_edit_quality">Şu ana kadar yaptığınız düzenlemeler %s. Devam edin! Katkılarınızı bekliyoruz.</string>
-  <string name="suggested_edits_rewards_continue_button">Devam et</string>
   <string name="suggested_edits_encourage_account_creation_title">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="suggested_edits_encourage_account_creation_message">Önerilen düzenlemeler, Android\'de Vikipedi\'yi düzenlemenin yeni bir yoludur. Vikipedi\'ye küçük ancak hayati katkılar yapmanıza yardımcı olur.\nAmacımız, düzenlemeyi herkes için daha kolay ve daha erişilebilir hale getirmektir! Başlamak için oturum açın veya Vikipedi\'ye katılın.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Vikipedi\'ye oturum açın / katılın</string>
@@ -893,7 +882,7 @@
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
-  <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
+  <string name="description_edit_revert_intro">Elinizden gelenin en iyisini yaptığınızı biliyoruz, ancak inceleyicilerden birinin bir endişesi vardı. Düzenlemenizin geri alınmasının olası nedenleri şunlardır:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
   <string name="description_edit_revert_reason2">katkınız bir deneme ya da vandalizm gibi görünüyordu.</string>
   <string name="description_edit_revert_history">Eğer ilgileniyorsanız, &lt;a href=\"%1$s\"&gt;değişiklik geçmişine&lt;/a&gt; bakabilirsiniz.</string>
@@ -977,6 +966,8 @@
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
   <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>
+  <string name="main_tooltip_watchlist_title">İzleme listesi</string>
+  <string name="main_tooltip_watchlist_text">Daha önce izleme listenize eklediğiniz maddeleri ve sayfaları &lt;b&gt;İzleme listesi&lt;/b&gt; altındaki Daha fazla menüsünde bulun.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_cancel_button_text">İptal</string>
@@ -992,4 +983,38 @@
   <string name="talk_message_hint">Mesaj oluştur</string>
   <string name="talk_message_empty">Mesaj boş olamaz.</string>
   <string name="talk_subject_empty">Konu boş olamaz.</string>
+  <string name="menu_option_share_edit">Değişikliği paylaş</string>
+  <string name="menu_option_user_profile">%s kullanıcısının bilgileri</string>
+  <string name="menu_option_user_contributions">%s kullanıcısının katkıları</string>
+  <string name="watchlist_details_watching_label">İzleniyor</string>
+  <string name="watchlist_details_watch_label">İzle</string>
+  <string name="thank_label">Teşekkür et</string>
+  <string name="go_to_user_page">Kullanıcı sayfasına gidin</string>
+  <string name="thank_dialog_title_text">Açık olarak \'Teşekkür\' gönder</string>
+  <string name="thank_dialog_text">\'Teşekkür\', bir editörün Vikipedi\'deki çalışmalarını takdir etmenin kolay bir yoludur. \'Teşekkür\' geri alınamaz ve herkes tarafından görülebilir.</string>
+  <string name="thank_dialog_positive_button_text">Teşekkür gönder</string>
+  <string name="thank_dialog_negative_button_text">İptal</string>
+  <string name="thank_success_message">\'Teşekkür\'ün %s kullanıcısına gönderildi</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s ve onun tartışma sayfası %2$s izleme listenize eklendi.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Değiştir</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">kalıcı olarak</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 haftalık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 aylık</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 aylık</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s ve onun tartışma sayfası izleme listenizden kaldırıldı.</string>
+  <string name="watchlist_expiry_dialog_title">İzleme listesi dönemini seçin</string>
+  <string name="watchlist_expiry_dialog_permanent">Kalıcı</string>
+  <string name="watchlist_expiry_dialog_one_week">1 hafta</string>
+  <string name="watchlist_expiry_dialog_one_month">1 ay</string>
+  <string name="watchlist_expiry_dialog_three_months">3 ay</string>
+  <string name="watchlist_expiry_dialog_six_months">6 ay</string>
+  <string name="watchlist_empty">İzleme listenizde madde yok.</string>
+  <string name="watchlist_filter_all">Hepsi</string>
+  <string name="watchlist_filter_talk">Tartışma</string>
+  <string name="watchlist_filter_pages">Sayfalar</string>
+  <string name="watchlist_filter_other">Diğer</string>
+  <string name="watchlist_page_moved">Taşındı</string>
+  <string name="watchlist_page_protected">Korumalı</string>
+  <string name="watchlist_page_deleted">Silindi</string>
 </resources>

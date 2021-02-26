@@ -2,7 +2,6 @@
 <!-- Authors:
 * Aaoo
 * Abbedabb
-* Abijeet Patro
 * Ainali
 * Bengtsson96
 * Dbrant
@@ -33,7 +32,7 @@
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
-  <string name="nav_item_more">Fler</string>
+  <string name="nav_item_more">Mer</string>
   <string name="nav_item_search">Sök</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
@@ -61,6 +60,10 @@
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Hitta i artikeln</string>
+  <string name="menu_page_add_to_watchlist">Lägg till i bevakningslistan</string>
+  <string name="menu_page_view_talk">Visa diskussionssida</string>
+  <string name="menu_page_view_edit_history">Visa redigeringshistorik</string>
+  <string name="menu_page_remove_from_watchlist">Ta bort från bevakningslistan</string>
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
@@ -197,6 +200,8 @@
   <string name="page_protected_can_not_edit">Ledsen, ditt konto har inte tillräcklig behörighet för att redigera denna sida just nu.</string>
   <string name="page_protected_can_not_edit_anon">Tyvärr, denna sida kan inte redigeras anonymt just nu.</string>
   <string name="page_protected_can_not_edit_title">Denna sida är skrivskyddad</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lägg till i bevakningslistan</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Håll reda på vad som händer i artiklar du är intresserad av. Tryck på överflödesmenyn och välj &lt;b&gt;Lägg till i bevakningslistan&lt;/b&gt; för att se ändringar på en artikel.</string>
   <string name="settings_item_preferences">Inställningar</string>
   <string name="settings_activity_title">Inställningar</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -246,6 +251,7 @@
   <string name="find_previous">Sök föregående</string>
   <string name="find_first_occurence">Detta är den första förekomsten</string>
   <string name="find_last_occurence">Detta är den sista förekomsten</string>
+  <string name="article_opened_in_background_tab">Artikeln har öppnats i en flik i bakgrunden.</string>
   <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill publicera den?</string>
   <string name="abusefilter_title_disallow">Du kan inte publicera denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömmande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
@@ -387,7 +393,7 @@
   <string name="text_size_decrease">Minska textstorlek</string>
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="text_style_title">Typsnitt</string>
-  <string name="nav_item_reading_lists">Mina listor</string>
+  <string name="nav_item_saved">Sparades</string>
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_move_to">Flytta till läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>
@@ -404,13 +410,13 @@
     <item quantity="other">%1$d artiklar • %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d av artikel är tillgänglig offline • %3$.2f MB</item>
+    <item quantity="one">%1$d av 1 artikel är tillgänglig offline • %3$.2f MB</item>
     <item quantity="other">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline • %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel är tillgänglig offline • %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_ellipsis">Sortera efter...</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
@@ -567,6 +573,7 @@
   <string name="notifications_view_archived_button_text">Visa arkiverade aviseringar</string>
   <string name="notification_preferences_title">Aviseringsinställningar</string>
   <string name="notifications_mark_unread">Markera som oläst</string>
+  <string name="watchlist_title">Bevakningslista</string>
   <string name="preference_title_notification_poll">Aktivera aviseringar</string>
   <string name="preference_summary_notification_poll">Tillåt appen att använda data för att leta efter nya aviseringar i bakgrunden.</string>
   <string name="preference_category_notification_types">Aviseringstyper i appen</string>
@@ -616,9 +623,7 @@
   <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
-  <string name="view_featured_article_footer_save_button_label">Spara</string>
   <string name="view_static_card_save_button_label">Spara</string>
-  <string name="view_featured_article_footer_saved_button_label">Sparades</string>
   <string name="feed_configure_activity_title">Anpassa flödet</string>
   <string name="feed_configure_menu_reset">Återställ standardvyn</string>
   <string name="feed_configure_menu_select_all">Visa alla</string>
@@ -833,23 +838,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Igår</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Du har gjort ett bidrag på Wikipedia med redigeringsförslag. Tack!</item>
-    <item quantity="other">Du har gjort %d bidrag på Wikipedia med redigeringsförslag. Tack!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_edit_streaks">
-    <item quantity="one">Du har redigerat en hel dag i rad. Fortsätt med det, %2$s!</item>
-    <item quantity="other">Du har redigerat %1$d dagar i rad. Fortsätt med det, %2$s!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">En person har sett dina redigeringar under de senaste 30 dagarna. Tack och fortsätt med det!</item>
-    <item quantity="other">%d personer har sett dina redigeringar under de senaste 30 dagar. Tack och fortsätt med det!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Du har gjort %d bidrag på Wikipedia med redigeringsförslag. Tack!</string>
-  <string name="suggested_edits_rewards_edit_streak">Du har redigerat varje dag %1$d dagar i rad. Fortsätt med det, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Dina redigeringar har setts av %d personer under de senaste 30 dagarna. Tack och fortsätt med det!</string>
-  <string name="suggested_edits_rewards_edit_quality">Dina redigeringar är så länge %s. Fortsätt med det! Vi ser fram emot dina bidrag.</string>
-  <string name="suggested_edits_rewards_continue_button">Fortsätt</string>
   <string name="suggested_edits_encourage_account_creation_title">Visste du att alla kan redigera på Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_message">Redigeringsförslag är ett nytt sätt att redigera på Wikipedia på Android. Det hjälper dig att göra små men väsentliga bidrag på Wikipedia.\nVårt mål är att göra det enklare och åtkomligare att redigera för alla! Logga in eller registrera dig på Wikipedia för att komma igång.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logga in / skapa konto på Wikipedia</string>
@@ -960,6 +948,8 @@
   <string name="main_tooltip_text">Hej, %s. Visste du att alla kan redigera på Wikipedia?</string>
   <string name="main_tooltip_text_v2">Visste du att alla kan redigera på Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom igång</string>
+  <string name="main_tooltip_watchlist_title">Bevakningslista</string>
+  <string name="main_tooltip_watchlist_text">Hitta artiklar och sidor du tidigare lade till i din bevakningslista i Fler-menyn under &lt;b&gt;Bevakningslista&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Avbryt</string>
@@ -975,4 +965,38 @@
   <string name="talk_message_hint">Skriv meddelande</string>
   <string name="talk_message_empty">Meddelandet kan inte vara tomt.</string>
   <string name="talk_subject_empty">Ämnet kan inte vara tomt.</string>
+  <string name="menu_option_share_edit">Dela redigering</string>
+  <string name="menu_option_user_profile">%ss profil</string>
+  <string name="menu_option_user_contributions">%ss bidrag</string>
+  <string name="watchlist_details_watching_label">Bevakar</string>
+  <string name="watchlist_details_watch_label">Bevaka</string>
+  <string name="thank_label">Tacka</string>
+  <string name="go_to_user_page">Gå till användarsidan</string>
+  <string name="thank_dialog_title_text">Skicka offentligt tack</string>
+  <string name="thank_dialog_text">\"Tack\" är ett enkelt sätt att visa sin uppskattning för en redigerares arbete på Wikipedia. Man kan inte ångra ett tack och de är offentliga.</string>
+  <string name="thank_dialog_positive_button_text">Skicka tack</string>
+  <string name="thank_dialog_negative_button_text">Avbryt</string>
+  <string name="thank_success_message">Ditt tack skickades till %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Ändra</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">i 1 vecka</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">i 1 månad</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">i 3 månader</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">i 6 månader</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s och dess diskussionssida har tagits bort från din bevakningslista.</string>
+  <string name="watchlist_expiry_dialog_title">Välj period för bevakningslistan</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 vecka</string>
+  <string name="watchlist_expiry_dialog_one_month">1 månad</string>
+  <string name="watchlist_expiry_dialog_three_months">3 månader</string>
+  <string name="watchlist_expiry_dialog_six_months">6 månader</string>
+  <string name="watchlist_empty">Du har inga artiklar i din bevakningslista.</string>
+  <string name="watchlist_filter_all">Alla</string>
+  <string name="watchlist_filter_talk">Diskussion</string>
+  <string name="watchlist_filter_pages">Sidor</string>
+  <string name="watchlist_filter_other">Övrigt</string>
+  <string name="watchlist_page_moved">Flyttades</string>
+  <string name="watchlist_page_protected">Skyddades</string>
+  <string name="watchlist_page_deleted">Raderades</string>
 </resources>

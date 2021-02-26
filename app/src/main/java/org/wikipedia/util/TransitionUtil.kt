@@ -16,9 +16,10 @@ object TransitionUtil {
             if (it is TextView && it.text.isNotEmpty()) {
                 shareElements.add(Pair(it, it.transitionName))
             }
-            if (it is ImageView && it.visibility == View.VISIBLE
-                    && !DimenUtil.isLandscape(context)
-                    && Prefs.isImageDownloadEnabled()) {
+            if (it is ImageView && it.visibility == View.VISIBLE &&
+                    (it.parent as View).visibility == View.VISIBLE &&
+                    !DimenUtil.isLandscape(context) &&
+                    Prefs.isImageDownloadEnabled()) {
                 shareElements.add(Pair(it, it.transitionName))
             }
         }

@@ -485,7 +485,7 @@ public class ReadingListsFragment extends Fragment implements
                     !page.offline() || page.saving());
             getView().setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < MAX_PROGRESS);
             getView().setProgress(page.downloadProgress() == MAX_PROGRESS ? 0 : page.downloadProgress());
-            getView().setSecondaryActionHint(R.string.reading_list_article_make_offline);
+            getView().setActionHint(R.string.reading_list_article_make_offline);
             getView().setSearchQuery(currentSearchQuery);
             getView().setUpChipGroup(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page));
             PageAvailableOfflineHandler.INSTANCE.check(page, available -> getView().setViewsGreyedOut(!available));
@@ -583,12 +583,12 @@ public class ReadingListsFragment extends Fragment implements
 
         @Override
         public void onSaveAllOffline(@NonNull ReadingList readingList) {
-            ReadingListBehaviorsUtil.INSTANCE.savePagesForOffline(requireActivity(), readingList.pages(), ReadingListsFragment.this::updateLists);
+            ReadingListBehaviorsUtil.INSTANCE.savePagesForOffline(requireActivity(), readingList.pages(), () -> updateLists(currentSearchQuery, true));
         }
 
         @Override
         public void onRemoveAllOffline(@NonNull ReadingList readingList) {
-            ReadingListBehaviorsUtil.INSTANCE.removePagesFromOffline(requireActivity(), readingList.pages(), ReadingListsFragment.this::updateLists);
+            ReadingListBehaviorsUtil.INSTANCE.removePagesFromOffline(requireActivity(), readingList.pages(), () -> updateLists(currentSearchQuery, true));
         }
     }
 
@@ -628,15 +628,6 @@ public class ReadingListsFragment extends Fragment implements
 
         @Override
         public void onActionClick(@Nullable ReadingListPage page, @NonNull View view) {
-            if (page == null) {
-                return;
-            }
-            bottomSheetPresenter.show(getChildFragmentManager(),
-                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page.id(), actionMode != null));
-        }
-
-        @Override
-        public void onSecondaryActionClick(@Nullable ReadingListPage page, @NonNull View view) {
             if (page != null) {
                 if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()
                         && page.status() == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {

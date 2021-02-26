@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Bsitzmann
 * MuratTheTurkish
 * Pichnat Thong
@@ -240,7 +239,6 @@
   <string name="text_size_increase">ពង្រីកទំហំអក្សរ</string>
   <string name="text_size_decrease">បង្រួមទំហំអក្សរ</string>
   <string name="text_size_percent_default">%s (លំនាំដើម)</string>
-  <string name="nav_item_reading_lists">បញ្ជីរបស់ខ្ញុំ</string>
   <string name="reading_list_save_to">រក្សាទុកក្នុងបញ្ជីអំណាន</string>
   <string name="reading_list_create_new">បង្កើតថ្មី</string>
   <string name="reading_list_title_exists">បញ្ជីអំណាន \"%s\" មានរួចហើយ។</string>
@@ -312,8 +310,6 @@
   <string name="view_continue_reading_card_subtitle_today">ថ្ងៃនេះ</string>
   <string name="view_continue_reading_card_subtitle_read_date">បានអាននៅ %s ថ្ងៃមុន</string>
   <string name="view_announcement_card_negative_action">ទេ, អរគុណហើយ</string>
-  <string name="view_featured_article_footer_save_button_label">រក្សាទុក</string>
-  <string name="view_featured_article_footer_saved_button_label">បាន​រក្សាទុក</string>
   <string name="feed_configure_menu_select_all">បង្ហាញទាំង​អស់​</string>
   <string name="feed_configure_menu_deselect_all">លាក់ទាំង​អស់​</string>
   <string name="description_edit_save">បោះផ្សាយ</string>

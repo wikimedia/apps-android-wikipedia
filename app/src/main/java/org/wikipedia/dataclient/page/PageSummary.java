@@ -49,7 +49,7 @@ public class PageSummary {
 
     public PageSummary(@NonNull String displayTitle, @NonNull String prefixTitle, @Nullable String description,
                        @Nullable String extract, @Nullable String thumbnail, @NonNull String lang) {
-        this.titles = new Titles(displayTitle, prefixTitle);
+        this.titles = new Titles(prefixTitle, displayTitle);
         this.description = description;
         this.extract = extract;
         this.thumbnail = new Thumbnail(thumbnail, 0, 0);
@@ -61,11 +61,13 @@ public class PageSummary {
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
+        PageTitle newTitle = title;
         if (titles != null && titles.canonical != null) {
-            title = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
+            newTitle = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
+            newTitle.setFragment(title.getFragment());
         }
-        title.setDescription(description);
-        return title;
+        newTitle.setDescription(description);
+        return newTitle;
     }
 
     @NonNull

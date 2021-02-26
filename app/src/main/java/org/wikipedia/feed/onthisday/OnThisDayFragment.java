@@ -39,7 +39,6 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.CustomDatePicker;
-import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.WikiErrorView;
 
@@ -228,7 +227,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     }
 
     private void setUpRecycler(RecyclerView recycler) {
-        recycler.addOnItemTouchListener(new DontInterceptTouchListener());
         recycler.setNestedScrollingEnabled(true);
         recycler.setClipToPadding(false);
     }

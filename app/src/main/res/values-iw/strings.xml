@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Amire80
 * Dbrant
 * Deborahjay
 * Envlh
 * Eraab
 * Erelon
+* Ghsuvr
 * Guycn2
 * IKhitron
 * Inkbug
@@ -62,6 +62,10 @@
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בערך</string>
+  <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
+  <string name="menu_page_view_talk">הצגת דף השיחה</string>
+  <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
+  <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
   <string name="edit_section_find_in_page">איתור בעמוד</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
@@ -198,6 +202,8 @@
   <string name="page_protected_can_not_edit">סליחה, לחשבון שלך אין עכשיו הרשאות שמספיקות לעריכת הדף הזה.</string>
   <string name="page_protected_can_not_edit_anon">סליחה, לא ניתן עכשיו לערוך את הדף הזה בלי להיכנס לחשבון.</string>
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">הוספה לרשימת המעקב</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">עקוב אחרי מה שקורה הערכים שמעניינים אותך. לחץ על תפריט הפעולות הנוספות ובחר &lt;b&gt;הוספה לרשימת המעקב&lt;/b&gt; כיד לראות את השינויים לערך.</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
   <string name="about_description">אודות יישום ויקיפדיה</string>
@@ -247,6 +253,7 @@
   <string name="find_previous">חיפוש הקודם</string>
   <string name="find_first_occurence">זה המופע הראשון</string>
   <string name="find_last_occurence">זה המופע האחרון</string>
+  <string name="article_opened_in_background_tab">הערך הזה נפתח בלשונית רקע.</string>
   <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. האם באמת לפרסם אותה?</string>
   <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
@@ -392,7 +399,7 @@
   <string name="text_size_decrease">הקטנת הטקסט</string>
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="text_style_title">גופן</string>
-  <string name="nav_item_reading_lists">רשימות</string>
+  <string name="nav_item_saved">נשמר</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
@@ -468,7 +475,7 @@
   <string name="reading_list_remove_from_lists">הסרה מרשימות קריאה</string>
   <string name="reading_list_select_item">בחירה</string>
   <string name="reading_list_confirm_remove_article_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
-  <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע במספר רשימות</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">הערך מופיע בכמה רשימות</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">הערך %s לא יהיה זמין מחוץ לרשת בכל רשימות הקריאה:</string>
   <string name="reading_lists_sync_reminder_title">להפעיל סנכרון רשימות קריאה?</string>
   <string name="reading_lists_sync_reminder_text">עכשיו אפשר לסנכרן ערכים שנשמרו לרשימות קריאה לחשבון הוויקיפדיה שלך. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;מידע נוסף&lt;/a&gt;</string>
@@ -596,6 +603,7 @@
   <string name="notifications_view_archived_button_text">להציג הודעות בארכיון</string>
   <string name="notification_preferences_title">העדפות הודעות</string>
   <string name="notifications_mark_unread">סימון כהודעה שלא נקראה</string>
+  <string name="watchlist_title">רשימת המעקב</string>
   <string name="preference_title_notification_poll">דגימת הודעות</string>
   <string name="preference_summary_notification_poll">לאפשר ליישום להשתמש בנתונים כדי לבדוק הודעות חדשות ברקע.</string>
   <string name="preference_category_notification_types">סוגי הודעות באפליקציה</string>
@@ -647,9 +655,7 @@
   <string name="view_announcement_card_negative_action">לא, תודה</string>
   <string name="view_offline_card_text">לא ניתן לטעון את התוכן ללא חיבור לרשת.</string>
   <string name="view_featured_article_card_title">ערך מומלץ</string>
-  <string name="view_featured_article_footer_save_button_label">שמירה</string>
   <string name="view_static_card_save_button_label">שמירה</string>
-  <string name="view_featured_article_footer_saved_button_label">נשמר</string>
   <string name="feed_configure_activity_title">התאמה אישית של ההזנה</string>
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
   <string name="feed_configure_menu_select_all">להציג הכול</string>
@@ -858,6 +864,12 @@
   <string name="suggested_edits_contribution_image_label">תמונה</string>
   <string name="suggested_edits_contribution_article_label">ערך</string>
   <string name="suggested_edits_contribution_views">%s צפיות</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">נראה פעם אחת ב־30 הימים האחרונים.</item>
+    <item quantity="two">נראה פעמיים ב־30 הימים האחרונים.</item>
+    <item quantity="many">נראה %s פעמים ב־30 הימים האחרונים.</item>
+    <item quantity="other">נראה %s פעמים ב־30 הימים האחרונים.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">נצפה %s פעמים ב־30 הימים האחרונים.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">הוספת תג אחד</item>
@@ -867,11 +879,6 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
-  <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
-  <string name="suggested_edits_rewards_edit_streak">ערכת כל יום במהלך %1$d ימים עד כה. לא לשבור את הרצף, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">%d אנשים צפו בעריכות שלך ב־30 הימים האחרונים. תודה ויישר כוח!</string>
-  <string name="suggested_edits_rewards_edit_quality">העריכות שלך עד לשלב זה הן %s. יישר כוח! אנו מצפים לתרומות נוספות שלך.</string>
-  <string name="suggested_edits_rewards_continue_button">המשך</string>
   <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="suggested_edits_encourage_account_creation_message">’עריכות מוצעות’ היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה על מנת להתחיל.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">כניסה / הצטרפות לוויקיפדיה</string>
@@ -994,6 +1001,8 @@
   <string name="main_tooltip_text">היי %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_text_v2">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_action_button">להתחיל</string>
+  <string name="main_tooltip_watchlist_title">רשימת המעקב</string>
+  <string name="main_tooltip_watchlist_text">מצא ערכים ודפים שהוספת לרשימת המעקב שלך בתפריד \"עוד\" תחת &lt;b&gt;רשימת המעקב&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_cancel_button_text">ביטול</string>
@@ -1009,4 +1018,38 @@
   <string name="talk_message_hint">כתיבת הודעה</string>
   <string name="talk_message_empty">ההודעה אינה יכולה להיות ריקה.</string>
   <string name="talk_subject_empty">הכותרת אינה יכולה להיות ריקה.</string>
+  <string name="menu_option_share_edit">לשתף את העריכה</string>
+  <string name="menu_option_user_profile">הפרופיל של %s</string>
+  <string name="menu_option_user_contributions">התרומות של %s</string>
+  <string name="watchlist_details_watching_label">במעקב</string>
+  <string name="watchlist_details_watch_label">לעקוב</string>
+  <string name="thank_label">תודה</string>
+  <string name="go_to_user_page">מעבר לדף משתמש</string>
+  <string name="thank_dialog_title_text">שליחת \"תודה\" באופן ציבורי</string>
+  <string name="thank_dialog_text">\"תודה\" היא דרך קלה להראות הערכה לעבודה של עורך בוויקיפדיה. לא ניתן לבטל פעולות שליחת \"תודה\" והן מוצגות באופן ציבורי.</string>
+  <string name="thank_dialog_positive_button_text">לשלוח תודה</string>
+  <string name="thank_dialog_negative_button_text">ביטול</string>
+  <string name="thank_success_message">התודה שלך נשלחה למשתמש %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">הדף %1$s ודף השיחה שלו נוספו לרשימת המעקב שלך %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">שינוי</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">לתמיד</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">לשבוע</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">לחודש</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">ל־3 חודשים</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ל־6 חודשים</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">הדף %s ודף השיחה שלו הוסרו מרשימת המעקב שלך.</string>
+  <string name="watchlist_expiry_dialog_title">נא לבחור את הזמן לשמירה ברשימת המעקב</string>
+  <string name="watchlist_expiry_dialog_permanent">קבוע</string>
+  <string name="watchlist_expiry_dialog_one_week">שבוע</string>
+  <string name="watchlist_expiry_dialog_one_month">חודש</string>
+  <string name="watchlist_expiry_dialog_three_months">3 חודשים</string>
+  <string name="watchlist_expiry_dialog_six_months">6 חודשים</string>
+  <string name="watchlist_empty">אין לך ערכים ברשימת המעקב.</string>
+  <string name="watchlist_filter_all">הכול</string>
+  <string name="watchlist_filter_talk">שיחה</string>
+  <string name="watchlist_filter_pages">דפים</string>
+  <string name="watchlist_filter_other">אחר</string>
+  <string name="watchlist_page_moved">הועבר</string>
+  <string name="watchlist_page_protected">הוגן</string>
+  <string name="watchlist_page_deleted">נמחק</string>
 </resources>
