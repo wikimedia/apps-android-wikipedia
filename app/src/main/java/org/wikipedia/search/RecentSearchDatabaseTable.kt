@@ -6,7 +6,7 @@ import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.column.Column
 import org.wikipedia.database.contract.SearchHistoryContract
 
-class RecentSearchDatabaseTable : DatabaseTable<RecentSearch?>(SearchHistoryContract.TABLE, SearchHistoryContract.Query.URI) {
+class RecentSearchDatabaseTable : DatabaseTable<RecentSearch>(SearchHistoryContract.TABLE, SearchHistoryContract.Query.URI) {
     override fun fromCursor(cursor: Cursor): RecentSearch {
         val title = SearchHistoryContract.Col.TEXT.`val`(cursor)
         val timestamp = SearchHistoryContract.Col.TIMESTAMP.`val`(cursor)
@@ -23,18 +23,18 @@ class RecentSearchDatabaseTable : DatabaseTable<RecentSearch?>(SearchHistoryCont
     override val dBVersionIntroducedAt: Int
         get() = DB_VER_INTRODUCED
 
-    override fun toContentValues(obj: RecentSearch?): ContentValues {
+    override fun toContentValues(obj: RecentSearch): ContentValues {
         val contentValues = ContentValues()
-        contentValues.put(SearchHistoryContract.Col.TEXT.name, obj!!.text)
+        contentValues.put(SearchHistoryContract.Col.TEXT.name, obj.text)
         contentValues.put(SearchHistoryContract.Col.TIMESTAMP.name, obj.timestamp.time)
         return contentValues
     }
 
-    override fun getUnfilteredPrimaryKeySelectionArgs(obj: RecentSearch?): Array<String?> {
-        return arrayOf(obj!!.text)
+    override fun getUnfilteredPrimaryKeySelectionArgs(obj: RecentSearch): Array<String?> {
+        return arrayOf(obj.text)
     }
 
-    override fun getPrimaryKeySelection(obj: RecentSearch?, selectionArgs: Array<String>): String {
+    override fun getPrimaryKeySelection(obj: RecentSearch, selectionArgs: Array<String>): String {
         return super.getPrimaryKeySelection(obj, SearchHistoryContract.Col.SELECTION)
     }
 
