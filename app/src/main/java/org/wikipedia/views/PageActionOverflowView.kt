@@ -26,6 +26,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         fun shareClick()
         fun newTabClick()
         fun feedClick()
+        fun categoriesClick()
     }
 
     private var binding = ViewPageActionOverflowBinding.inflate(LayoutInflater.from(context), this, true)
@@ -99,6 +100,10 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowNewTab.setOnClickListener {
             dismissPopupWindowHost()
             callback?.newTabClick()
+        }
+        binding.overflowCategories.setOnClickListener {
+            dismissPopupWindowHost()
+            callback?.categoriesClick()
         }
     }
 }

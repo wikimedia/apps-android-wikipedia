@@ -196,10 +196,6 @@ public class CategoryDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         @Override
-        public void onSecondaryActionClick(@Nullable PageTitle item, @NonNull View view) {
-        }
-
-        @Override
         public void onListChipClick(@Nullable ReadingList readingList) {
         }
     }

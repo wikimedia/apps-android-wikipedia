@@ -31,7 +31,7 @@
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@null"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/ic_list_white_24dp"
+                    app:srcCompat="@drawable/ic_icon_list"
                     app:tint="?attr/material_theme_secondary_color"/>
 
                 <TextView
