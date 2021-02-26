@@ -88,7 +88,7 @@ class WikiTextKeyboardView : FrameLayout {
                         val i1 = lastIndexOf(before, "[[")
                         val i2 = after.indexOf("]]") + before.length
                         if (i1 >= 0 && i2 > 0 && i2 > i1) {
-                            str = str.substring(i1 + 2, i2).trim { it <= ' ' }
+                            str = str.substring(i1 + 2, i2).trim()
                             if (str.isNotEmpty()) {
                                 if (str.contains("|")) {
                                     str = str.split("\\|".toRegex()).toTypedArray()[0]
