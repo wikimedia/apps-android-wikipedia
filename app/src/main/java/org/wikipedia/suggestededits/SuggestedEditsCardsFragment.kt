@@ -97,7 +97,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         funnel?.start()
 
         if (action == IMAGE_RECOMMENDATION) {
-            binding.cardsViewPager.isUserInputEnabled = false
+            // TODO: when ready to require the user to respond
+            // binding.cardsViewPager.isUserInputEnabled = false
         }
 
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
