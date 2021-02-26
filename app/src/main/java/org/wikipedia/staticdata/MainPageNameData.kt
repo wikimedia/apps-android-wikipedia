@@ -4,334 +4,324 @@
 package org.wikipedia.staticdata
 
 import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
-import java.util.*
 
 object MainPageNameData {
-    private val dataMap = Collections.unmodifiableMap(newMap())
-
     @JvmStatic
-    fun valueFor(key: String?): String {
-        var keyStr = key
-        keyStr = getDesiredLanguageCode(keyStr!!)
-        return if (dataMap.containsKey(keyStr)) {
-            dataMap[keyStr]!!
-        } else dataMap["en"]!!
+    fun valueFor(key: String): String {
+        return dataMap[getDesiredLanguageCode(key)] ?: dataMap["en"]!!
     }
 
-    private fun newMap(): Map<String, String> {
-        val size = 311
-        val map = HashMap<String, String>(size)
-        map["ab"] = "Ихадоу адаҟьа"
-        map["ace"] = "Ôn Keue"
-        map["ady"] = "НэкӀубгъо шъхьаӀ"
-        map["af"] = "Tuisblad"
-        map["ak"] = "Krataafa Titiriw"
-        map["als"] = "Wikipedia:Houptsyte"
-        map["alt"] = "Тӧс бӱк"
-        map["am"] = "ዋናው ገጽ"
-        map["an"] = "Portalada"
-        map["ang"] = "Hēafodtramet"
-        map["ar"] = "الصفحة الرئيسية"
-        map["arc"] = "ܦܐܬܐ ܪܝܫܝܬܐ"
-        map["ary"] = "الصفحة اللّولا"
-        map["arz"] = "الصفحه الرئيسيه"
-        map["as"] = "বেটুপাত"
-        map["ast"] = "Portada"
-        map["atj"] = "Otitikowin"
-        map["av"] = "БетӀераб гьумер"
-        map["avk"] = "Xadola"
-        map["awa"] = "प्रधान पन्ना"
-        map["ay"] = "Nayriri uñstawi"
-        map["az"] = "Ana Səhifə"
-        map["azb"] = "آنا صفحه"
-        map["ba"] = "Баш бит"
-        map["ban"] = "Kaca Utama"
-        map["bar"] = "Hoamseitn"
-        map["bat-smg"] = "Pėrms poslapis"
-        map["bcl"] = "Panginot na Pahina"
-        map["be"] = "Галоўная старонка"
-        map["be-x-old"] = "Галоўная старонка"
-        map["bg"] = "Начална страница"
-        map["bh"] = "मुख्य पन्ना"
-        map["bi"] = "Nambawan Pej"
-        map["bjn"] = "Tungkaran Tatambaian"
-        map["bm"] = "Nyɛ fɔlɔ"
-        map["bn"] = "প্রধান পাতা"
-        map["bo"] = "གཙོ་ངོས།"
-        map["bpy"] = "পয়লা পাতা"
-        map["br"] = "Degemer"
-        map["bs"] = "Početna strana"
-        map["bug"] = "Mappadecéŋ"
-        map["bxr"] = "Нюур хуудаһан"
-        map["ca"] = "Portada"
-        map["cbk-zam"] = "El primero pagina"
-        map["cdo"] = "Tàu Hiĕk"
-        map["ce"] = "Коьрта агӀо"
-        map["ceb"] = "Unang Panid"
-        map["ch"] = "Fanhaluman"
-        map["chr"] = "ᎤᎵᎮᎵᏍᏗ"
-        map["chy"] = "Va'ohtama"
-        map["ckb"] = "دەستپێک"
-        map["co"] = "Pagina maestra"
-        map["cr"] = "ᓃᔥᑕᒻᐹᔅᑌᒋᓂᑲᓐ"
-        map["crh"] = "Baş Saife"
-        map["cs"] = "Hlavní strana"
-        map["csb"] = "Przédnô starna"
-        map["cu"] = "Главьна страница"
-        map["cv"] = "Тĕп страницă"
-        map["cy"] = "Hafan"
-        map["da"] = "Forside"
-        map["de"] = "Wikipedia:Hauptseite"
-        map["din"] = "Apam këdït"
-        map["diq"] = "Pela seri"
-        map["dsb"] = "Głowny bok"
-        map["dty"] = "मुख्य पन्ना"
-        map["dv"] = "މައި ޞަފްޙާ"
-        map["dz"] = "མ་ཤོག།"
-        map["ee"] = "Axa Gba͂tɔ"
-        map["el"] = "Πύλη:Κύρια"
-        map["eml"] = "PP"
-        map["en"] = "Main Page"
-        map["eo"] = "Vikipedio:Ĉefpaĝo"
-        map["es"] = "Wikipedia:Portada"
-        map["et"] = "Vikipeedia:Esileht"
-        map["eu"] = "Azala"
-        map["ext"] = "Página prencipal"
-        map["fa"] = "صفحهٔ اصلی"
-        map["ff"] = "Hello jaɓɓorgo"
-        map["fi"] = "Wikipedia:Etusivu"
-        map["fiu-vro"] = "Wikipedia:Pääleht"
-        map["fj"] = "Tabana levu"
-        map["fo"] = "Forsíða"
-        map["fr"] = "Wikipédia:Accueil principal"
-        map["frp"] = "Vouiquipèdia:Reçua principâla"
-        map["frr"] = "Wikipedia:Hoodsid"
-        map["fur"] = "Pagjine principâl"
-        map["fy"] = "Haadside"
-        map["ga"] = "Príomhleathanach"
-        map["gag"] = "Baş yaprak"
-        map["gan"] = "封面"
-        map["gcr"] = "Paj Prensipal"
-        map["gd"] = "Prìomh-Dhuilleag"
-        map["gl"] = "Portada"
-        map["glk"] = "گتˇ ولگ"
-        map["gn"] = "Ape"
-        map["gom"] = "मुखेल पान"
-        map["gor"] = "Halaman Bungaliyo"
-        map["got"] = "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐌹𐌻𐌰𐌿𐍆𐍃"
-        map["gu"] = "મુખપૃષ્ઠ"
-        map["gv"] = "Ard-ghuillag"
-        map["ha"] = "Babban shafi"
-        map["hak"] = "Thèu-Ya̍p"
-        map["haw"] = "Ka papa kinohi"
-        map["he"] = "עמוד ראשי"
-        map["hi"] = "मुखपृष्ठ"
-        map["hif"] = "Pahila Panna"
-        map["hr"] = "Glavna stranica"
-        map["hsb"] = "Hłowna strona"
-        map["ht"] = "Paj Prensipal"
-        map["hu"] = "Kezdőlap"
-        map["hy"] = "Գլխավոր էջ"
-        map["hyw"] = "Գլխաւոր Էջ"
-        map["ia"] = "Pagina principal"
-        map["id"] = "Halaman Utama"
-        map["ie"] = "Principal págine"
-        map["ig"] = "Ihu m̀bụ"
-        map["ik"] = "Aimaaġvik"
-        map["ilo"] = "Umuna a Panid"
-        map["inh"] = "Керттера оагӀув"
-        map["io"] = "Frontispico"
-        map["is"] = "Forsíða"
-        map["it"] = "Pagina principale"
-        map["iu"] = "ᐊᒥᖅ"
-        map["ja"] = "メインページ"
-        map["jam"] = "Mien Piej"
-        map["jbo"] = "uikipedi'as:ralju"
-        map["jv"] = "Tepas"
-        map["ka"] = "მთავარი გვერდი"
-        map["kaa"] = "Bas bet"
-        map["kab"] = "Asebtar amenzu"
-        map["kbd"] = "НапэкӀуэцӀ нэхъыщхьэ"
-        map["kbp"] = "Talɩ ɖeu"
-        map["kg"] = "Mukânda ya ngudi"
-        map["ki"] = "Main Page"
-        map["kk"] = "Басты бет"
-        map["kl"] = "Saqqaa"
-        map["km"] = "ទំព័រដើម"
-        map["kn"] = "ಮುಖ್ಯ ಪುಟ"
-        map["ko"] = "위키백과:대문"
-        map["koi"] = "Пондӧтчан листбок"
-        map["krc"] = "Баш бет"
-        map["ks"] = "اہم صَفہٕ"
-        map["ksh"] = "Wikipedia:Houpsigk"
-        map["ku"] = "Destpêk"
-        map["kv"] = "Медшӧр лист бок"
-        map["kw"] = "Folen dre"
-        map["ky"] = "Башбарак"
-        map["la"] = "Vicipaedia:Pagina prima"
-        map["lad"] = "La Primera Hoja"
-        map["lb"] = "Haaptsäit"
-        map["lbe"] = "Агьаммур лажин"
-        map["lez"] = "Кьилин ччин"
-        map["lfn"] = "Paje xef"
-        map["lg"] = "Olupapula Olusooka"
-        map["li"] = "Veurblaad"
-        map["lij"] = "Pagina prinçipâ"
-        map["lld"] = "Plata prinzipala"
-        map["lmo"] = "Pagina principala"
-        map["ln"] = "Lokásá ya libosó"
-        map["lo"] = "ໜ້າຫຼັກ"
-        map["lt"] = "Pagrindinis puslapis"
-        map["ltg"] = "Suoku puslopa"
-        map["lv"] = "Sākumlapa"
-        map["mad"] = "Tanèyan"
-        map["mai"] = "सम्मुख पन्ना"
-        map["map-bms"] = "Kaca Utama"
-        map["mdf"] = "Пря лопа"
-        map["mg"] = "Wikipedia:Fandraisana"
-        map["mhr"] = "Тӱҥ лаштык"
-        map["mi"] = "Hau Kāinga"
-        map["min"] = "Laman Utamo"
-        map["mk"] = "Главна страница"
-        map["ml"] = "പ്രധാന താൾ"
-        map["mn"] = "Нүүр хуудас"
-        map["mni"] = "ꯃꯔꯨꯑꯣꯏꯕ ꯂꯃꯥꯏ"
-        map["mnw"] = "မုက်လိက်တမ်"
-        map["mr"] = "मुखपृष्ठ"
-        map["mrj"] = "Тӹнг ӹлӹштӓш"
-        map["ms"] = "Laman Utama"
-        map["mt"] = "Il-Paġna prinċipali"
-        map["mwl"] = "Biquipédia:Páigina percipal"
-        map["my"] = "ဗဟိုစာမျက်နှာ"
-        map["myv"] = "Прявтлопа"
-        map["mzn"] = "گت صفحه"
-        map["na"] = "Bwiema peij"
-        map["nah"] = "Calīxatl"
-        map["nap"] = "Paggena prencepale"
-        map["nds"] = "Wikipedia:Hööftsiet"
-        map["nds-nl"] = "Vöärblad"
-        map["ne"] = "मुख्य पृष्ठ"
-        map["new"] = "मू पौ"
-        map["nia"] = "Olayama"
-        map["nl"] = "Hoofdpagina"
-        map["nn"] = "Hovudside"
-        map["nb"] = "Portal:Forside"
-        map["nov"] = "Chefi pagine"
-        map["nqo"] = "ߓߏ߬ߟߏ߲߬ߘߊ"
-        map["nrm"] = "Page dé garde"
-        map["nso"] = "Letlakala la pele"
-        map["nv"] = "Íiyisíí Naaltsoos"
-        map["ny"] = "Tsamba Lalikulu"
-        map["oc"] = "Acuèlh"
-        map["olo"] = "Piäsivu"
-        map["om"] = "Fuula Dura"
-        map["or"] = "ପ୍ରଧାନ ପୃଷ୍ଠା"
-        map["os"] = "Сæйраг фарс"
-        map["pa"] = "ਮੁੱਖ ਸਫ਼ਾ"
-        map["pag"] = "Arapan ya Bolong"
-        map["pam"] = "Pun Bulung"
-        map["pap"] = "Página Prinsipal"
-        map["pcd"] = "Accueul"
-        map["pdc"] = "Haaptblatt"
-        map["pfl"] = "Wikipedia:Haubdsaid"
-        map["pi"] = "पमुख पत्त Pamukha patta"
-        map["pih"] = "Mien Paij"
-        map["pl"] = "Wikipedia:Strona główna"
-        map["pms"] = "Intrada"
-        map["pnb"] = "پہلا صفہ"
-        map["pnt"] = "Αρχικόν σελίδα"
-        map["ps"] = "لومړی مخ"
-        map["pt"] = "Wikipédia:Página principal"
-        map["qu"] = "Qhapaq p'anqa"
-        map["rm"] = "Wikipedia:Pagina principala"
-        map["rmy"] = "गाहाइ बिलाइ"
-        map["rn"] = "Main Page"
-        map["ro"] = "Pagina principală"
-        map["roa-rup"] = "Prota frãndzã"
-        map["roa-tara"] = "Pagene Prengepále"
-        map["ru"] = "Заглавная страница"
-        map["rue"] = "Головна сторінка"
-        map["rw"] = "Intangiriro"
-        map["sa"] = "मुख्यपृष्ठम्"
-        map["sah"] = "Сүрүн сирэй"
-        map["sat"] = "ᱢᱩᱬᱩᱛ ᱥᱟᱦᱴᱟ"
-        map["sc"] = "Pàgina printzipale"
-        map["scn"] = "Pàggina principali"
-        map["sco"] = "Main Page"
-        map["sd"] = "مُک صفحو"
-        map["se"] = "Portála:Ovdasiidu"
-        map["sg"] = "Gä nzönî"
-        map["sh"] = "Glavna stranica"
-        map["shn"] = "ၼႃႈႁူဝ်ႁႅၵ်ႈ"
-        map["si"] = "මුල් පිටුව"
-        map["simple"] = "Main Page"
-        map["sk"] = "Hlavná stránka"
-        map["skr"] = "پہلا پرت"
-        map["sl"] = "Glavna stran"
-        map["sm"] = "Itūlau Muamua"
-        map["smn"] = "Ovdâsijđo"
-        map["sn"] = "Peji Rekutanga"
-        map["so"] = "Bogga Hore"
-        map["sq"] = "Faqja kryesore"
-        map["sr"] = "Главна страна"
-        map["srn"] = "Fesipapira"
-        map["ss"] = "Likhasi Lelikhulu"
-        map["st"] = "Leqephe la pele"
-        map["stq"] = "Haudsiede"
-        map["su"] = "Tepas"
-        map["sv"] = "Portal:Huvudsida"
-        map["sw"] = "Mwanzo"
-        map["szl"] = "Przodniŏ zajta"
-        map["szy"] = "saayaway a belih"
-        map["ta"] = "முதற் பக்கம்"
-        map["tcy"] = "ಮುಖ್ಯ ಪುಟ"
-        map["te"] = "మొదటి పేజీ"
-        map["tet"] = "Pájina Mahuluk"
-        map["tg"] = "Саҳифаи аслӣ"
-        map["th"] = "หน้าหลัก"
-        map["ti"] = "መበገሲ ገጽ"
-        map["tk"] = "Baş Sahypa"
-        map["tl"] = "Unang Pahina"
-        map["tn"] = "Main Page"
-        map["to"] = "Peesi tali fiefia"
-        map["tpi"] = "Fran pes"
-        map["tr"] = "Anasayfa"
-        map["ts"] = "Tlukankulu"
-        map["tt"] = "Баш бит"
-        map["tum"] = "Main Page"
-        map["tw"] = "Krataa Fuforo"
-        map["ty"] = "Fa’ari’ira’a"
-        map["tyv"] = "Кол арын"
-        map["udm"] = "Кутскон бам"
-        map["ug"] = "ئۇيغۇرچە ۋىكىپىدىيە"
-        map["uk"] = "Головна сторінка"
-        map["ur"] = "صفحۂ اول"
-        map["uz"] = "Bosh Sahifa"
-        map["ve"] = "Hayani"
-        map["vec"] = "Pajina prinsipałe"
-        map["vep"] = "Pälehtpol’"
-        map["vi"] = "Trang Chính"
-        map["vls"] = "Voorblad"
-        map["vo"] = "Cifapad"
-        map["wa"] = "Mwaisse pådje"
-        map["war"] = "Syahan nga Pakli"
-        map["wo"] = "Xët wu njëkk"
-        map["wuu"] = "封面"
-        map["xal"] = "Нүр халх"
-        map["xh"] = "Iphepha Elingundoqo"
-        map["xmf"] = "დუდხასჷლა"
-        map["yi"] = "הויפט זייט"
-        map["yo"] = "Ojúewé Àkọ́kọ́"
-        map["za"] = "Yiebdaeuz"
-        map["zea"] = "Vòblad"
-        map["zh"] = "Wikipedia:首页"
-        map["zh-hans"] = "Wikipedia:首页"
-        map["zh-hant"] = "Wikipedia:首页"
-        map["zh-classical"] = "維基大典:卷首"
-        map["zh-min-nan"] = "Thâu-ia̍h"
-        map["zh-yue"] = "頭版"
-        map["zu"] = "Ikhasi Elikhulu"
-        map["test"] = "Main Page"
-        return map
-    }
+    private val dataMap = mapOf(
+            "ab" to "Ихадоу адаҟьа",
+            "ace" to "Ôn Keue",
+            "ady" to "НэкӀубгъо шъхьаӀ",
+            "af" to "Tuisblad",
+            "ak" to "Krataafa Titiriw",
+            "als" to "Wikipedia:Houptsyte",
+            "alt" to "Тӧс бӱк",
+            "am" to "ዋናው ገጽ",
+            "an" to "Portalada",
+            "ang" to "Hēafodtramet",
+            "ar" to "الصفحة الرئيسية",
+            "arc" to "ܦܐܬܐ ܪܝܫܝܬܐ",
+            "ary" to "الصفحة اللّولا",
+            "arz" to "الصفحه الرئيسيه",
+            "as" to "বেটুপাত",
+            "ast" to "Portada",
+            "atj" to "Otitikowin",
+            "av" to "БетӀераб гьумер",
+            "avk" to "Xadola",
+            "awa" to "प्रधान पन्ना",
+            "ay" to "Nayriri uñstawi",
+            "az" to "Ana Səhifə",
+            "azb" to "آنا صفحه",
+            "ba" to "Баш бит",
+            "ban" to "Kaca Utama",
+            "bar" to "Hoamseitn",
+            "bat-smg" to "Pėrms poslapis",
+            "bcl" to "Panginot na Pahina",
+            "be" to "Галоўная старонка",
+            "be-x-old" to "Галоўная старонка",
+            "bg" to "Начална страница",
+            "bh" to "मुख्य पन्ना",
+            "bi" to "Nambawan Pej",
+            "bjn" to "Tungkaran Tatambaian",
+            "bm" to "Nyɛ fɔlɔ",
+            "bn" to "প্রধান পাতা",
+            "bo" to "གཙོ་ངོས།",
+            "bpy" to "পয়লা পাতা",
+            "br" to "Degemer",
+            "bs" to "Početna strana",
+            "bug" to "Mappadecéŋ",
+            "bxr" to "Нюур хуудаһан",
+            "ca" to "Portada",
+            "cbk-zam" to "El primero pagina",
+            "cdo" to "Tàu Hiĕk",
+            "ce" to "Коьрта агӀо",
+            "ceb" to "Unang Panid",
+            "ch" to "Fanhaluman",
+            "chr" to "ᎤᎵᎮᎵᏍᏗ",
+            "chy" to "Va'ohtama",
+            "ckb" to "دەستپێک",
+            "co" to "Pagina maestra",
+            "cr" to "ᓃᔥᑕᒻᐹᔅᑌᒋᓂᑲᓐ",
+            "crh" to "Baş Saife",
+            "cs" to "Hlavní strana",
+            "csb" to "Przédnô starna",
+            "cu" to "Главьна страница",
+            "cv" to "Тĕп страницă",
+            "cy" to "Hafan",
+            "da" to "Forside",
+            "de" to "Wikipedia:Hauptseite",
+            "din" to "Apam këdït",
+            "diq" to "Pela seri",
+            "dsb" to "Głowny bok",
+            "dty" to "मुख्य पन्ना",
+            "dv" to "މައި ޞަފްޙާ",
+            "dz" to "མ་ཤོག།",
+            "ee" to "Axa Gba͂tɔ",
+            "el" to "Πύλη:Κύρια",
+            "eml" to "PP",
+            "en" to "Main Page",
+            "eo" to "Vikipedio:Ĉefpaĝo",
+            "es" to "Wikipedia:Portada",
+            "et" to "Vikipeedia:Esileht",
+            "eu" to "Azala",
+            "ext" to "Página prencipal",
+            "fa" to "صفحهٔ اصلی",
+            "ff" to "Hello jaɓɓorgo",
+            "fi" to "Wikipedia:Etusivu",
+            "fiu-vro" to "Wikipedia:Pääleht",
+            "fj" to "Tabana levu",
+            "fo" to "Forsíða",
+            "fr" to "Wikipédia:Accueil principal",
+            "frp" to "Vouiquipèdia:Reçua principâla",
+            "frr" to "Wikipedia:Hoodsid",
+            "fur" to "Pagjine principâl",
+            "fy" to "Haadside",
+            "ga" to "Príomhleathanach",
+            "gag" to "Baş yaprak",
+            "gan" to "封面",
+            "gcr" to "Paj Prensipal",
+            "gd" to "Prìomh-Dhuilleag",
+            "gl" to "Portada",
+            "glk" to "گتˇ ولگ",
+            "gn" to "Ape",
+            "gom" to "मुखेल पान",
+            "gor" to "Halaman Bungaliyo",
+            "got" to "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐌹𐌻𐌰𐌿𐍆𐍃",
+            "gu" to "મુખપૃષ્ઠ",
+            "gv" to "Ard-ghuillag",
+            "ha" to "Babban shafi",
+            "hak" to "Thèu-Ya̍p",
+            "haw" to "Ka papa kinohi",
+            "he" to "עמוד ראשי",
+            "hi" to "मुखपृष्ठ",
+            "hif" to "Pahila Panna",
+            "hr" to "Glavna stranica",
+            "hsb" to "Hłowna strona",
+            "ht" to "Paj Prensipal",
+            "hu" to "Kezdőlap",
+            "hy" to "Գլխավոր էջ",
+            "hyw" to "Գլխաւոր Էջ",
+            "ia" to "Pagina principal",
+            "id" to "Halaman Utama",
+            "ie" to "Principal págine",
+            "ig" to "Ihu m̀bụ",
+            "ik" to "Aimaaġvik",
+            "ilo" to "Umuna a Panid",
+            "inh" to "Керттера оагӀув",
+            "io" to "Frontispico",
+            "is" to "Forsíða",
+            "it" to "Pagina principale",
+            "iu" to "ᐊᒥᖅ",
+            "ja" to "メインページ",
+            "jam" to "Mien Piej",
+            "jbo" to "uikipedi'as:ralju",
+            "jv" to "Tepas",
+            "ka" to "მთავარი გვერდი",
+            "kaa" to "Bas bet",
+            "kab" to "Asebtar amenzu",
+            "kbd" to "НапэкӀуэцӀ нэхъыщхьэ",
+            "kbp" to "Talɩ ɖeu",
+            "kg" to "Mukânda ya ngudi",
+            "ki" to "Main Page",
+            "kk" to "Басты бет",
+            "kl" to "Saqqaa",
+            "km" to "ទំព័រដើម",
+            "kn" to "ಮುಖ್ಯ ಪುಟ",
+            "ko" to "위키백과:대문",
+            "koi" to "Пондӧтчан листбок",
+            "krc" to "Баш бет",
+            "ks" to "اہم صَفہٕ",
+            "ksh" to "Wikipedia:Houpsigk",
+            "ku" to "Destpêk",
+            "kv" to "Медшӧр лист бок",
+            "kw" to "Folen dre",
+            "ky" to "Башбарак",
+            "la" to "Vicipaedia:Pagina prima",
+            "lad" to "La Primera Hoja",
+            "lb" to "Haaptsäit",
+            "lbe" to "Агьаммур лажин",
+            "lez" to "Кьилин ччин",
+            "lfn" to "Paje xef",
+            "lg" to "Olupapula Olusooka",
+            "li" to "Veurblaad",
+            "lij" to "Pagina prinçipâ",
+            "lld" to "Plata prinzipala",
+            "lmo" to "Pagina principala",
+            "ln" to "Lokásá ya libosó",
+            "lo" to "ໜ້າຫຼັກ",
+            "lt" to "Pagrindinis puslapis",
+            "ltg" to "Suoku puslopa",
+            "lv" to "Sākumlapa",
+            "mad" to "Tanèyan",
+            "mai" to "सम्मुख पन्ना",
+            "map-bms" to "Kaca Utama",
+            "mdf" to "Пря лопа",
+            "mg" to "Wikipedia:Fandraisana",
+            "mhr" to "Тӱҥ лаштык",
+            "mi" to "Hau Kāinga",
+            "min" to "Laman Utamo",
+            "mk" to "Главна страница",
+            "ml" to "പ്രധാന താൾ",
+            "mn" to "Нүүр хуудас",
+            "mni" to "ꯃꯔꯨꯑꯣꯏꯕ ꯂꯃꯥꯏ",
+            "mnw" to "မုက်လိက်တမ်",
+            "mr" to "मुखपृष्ठ",
+            "mrj" to "Тӹнг ӹлӹштӓш",
+            "ms" to "Laman Utama",
+            "mt" to "Il-Paġna prinċipali",
+            "mwl" to "Biquipédia:Páigina percipal",
+            "my" to "ဗဟိုစာမျက်နှာ",
+            "myv" to "Прявтлопа",
+            "mzn" to "گت صفحه",
+            "na" to "Bwiema peij",
+            "nah" to "Calīxatl",
+            "nap" to "Paggena prencepale",
+            "nds" to "Wikipedia:Hööftsiet",
+            "nds-nl" to "Vöärblad",
+            "ne" to "मुख्य पृष्ठ",
+            "new" to "मू पौ",
+            "nia" to "Olayama",
+            "nl" to "Hoofdpagina",
+            "nn" to "Hovudside",
+            "nb" to "Portal:Forside",
+            "nov" to "Chefi pagine",
+            "nqo" to "ߓߏ߬ߟߏ߲߬ߘߊ",
+            "nrm" to "Page dé garde",
+            "nso" to "Letlakala la pele",
+            "nv" to "Íiyisíí Naaltsoos",
+            "ny" to "Tsamba Lalikulu",
+            "oc" to "Acuèlh",
+            "olo" to "Piäsivu",
+            "om" to "Fuula Dura",
+            "or" to "ପ୍ରଧାନ ପୃଷ୍ଠା",
+            "os" to "Сæйраг фарс",
+            "pa" to "ਮੁੱਖ ਸਫ਼ਾ",
+            "pag" to "Arapan ya Bolong",
+            "pam" to "Pun Bulung",
+            "pap" to "Página Prinsipal",
+            "pcd" to "Accueul",
+            "pdc" to "Haaptblatt",
+            "pfl" to "Wikipedia:Haubdsaid",
+            "pi" to "पमुख पत्त Pamukha patta",
+            "pih" to "Mien Paij",
+            "pl" to "Wikipedia:Strona główna",
+            "pms" to "Intrada",
+            "pnb" to "پہلا صفہ",
+            "pnt" to "Αρχικόν σελίδα",
+            "ps" to "لومړی مخ",
+            "pt" to "Wikipédia:Página principal",
+            "qu" to "Qhapaq p'anqa",
+            "rm" to "Wikipedia:Pagina principala",
+            "rmy" to "गाहाइ बिलाइ",
+            "rn" to "Main Page",
+            "ro" to "Pagina principală",
+            "roa-rup" to "Prota frãndzã",
+            "roa-tara" to "Pagene Prengepále",
+            "ru" to "Заглавная страница",
+            "rue" to "Головна сторінка",
+            "rw" to "Intangiriro",
+            "sa" to "मुख्यपृष्ठम्",
+            "sah" to "Сүрүн сирэй",
+            "sat" to "ᱢᱩᱬᱩᱛ ᱥᱟᱦᱴᱟ",
+            "sc" to "Pàgina printzipale",
+            "scn" to "Pàggina principali",
+            "sco" to "Main Page",
+            "sd" to "مُک صفحو",
+            "se" to "Portála:Ovdasiidu",
+            "sg" to "Gä nzönî",
+            "sh" to "Glavna stranica",
+            "shn" to "ၼႃႈႁူဝ်ႁႅၵ်ႈ",
+            "si" to "මුල් පිටුව",
+            "simple" to "Main Page",
+            "sk" to "Hlavná stránka",
+            "skr" to "پہلا پرت",
+            "sl" to "Glavna stran",
+            "sm" to "Itūlau Muamua",
+            "smn" to "Ovdâsijđo",
+            "sn" to "Peji Rekutanga",
+            "so" to "Bogga Hore",
+            "sq" to "Faqja kryesore",
+            "sr" to "Главна страна",
+            "srn" to "Fesipapira",
+            "ss" to "Likhasi Lelikhulu",
+            "st" to "Leqephe la pele",
+            "stq" to "Haudsiede",
+            "su" to "Tepas",
+            "sv" to "Portal:Huvudsida",
+            "sw" to "Mwanzo",
+            "szl" to "Przodniŏ zajta",
+            "szy" to "saayaway a belih",
+            "ta" to "முதற் பக்கம்",
+            "tcy" to "ಮುಖ್ಯ ಪುಟ",
+            "te" to "మొదటి పేజీ",
+            "tet" to "Pájina Mahuluk",
+            "tg" to "Саҳифаи аслӣ",
+            "th" to "หน้าหลัก",
+            "ti" to "መበገሲ ገጽ",
+            "tk" to "Baş Sahypa",
+            "tl" to "Unang Pahina",
+            "tn" to "Main Page",
+            "to" to "Peesi tali fiefia",
+            "tpi" to "Fran pes",
+            "tr" to "Anasayfa",
+            "ts" to "Tlukankulu",
+            "tt" to "Баш бит",
+            "tum" to "Main Page",
+            "tw" to "Krataa Fuforo",
+            "ty" to "Fa’ari’ira’a",
+            "tyv" to "Кол арын",
+            "udm" to "Кутскон бам",
+            "ug" to "ئۇيغۇرچە ۋىكىپىدىيە",
+            "uk" to "Головна сторінка",
+            "ur" to "صفحۂ اول",
+            "uz" to "Bosh Sahifa",
+            "ve" to "Hayani",
+            "vec" to "Pajina prinsipałe",
+            "vep" to "Pälehtpol’",
+            "vi" to "Trang Chính",
+            "vls" to "Voorblad",
+            "vo" to "Cifapad",
+            "wa" to "Mwaisse pådje",
+            "war" to "Syahan nga Pakli",
+            "wo" to "Xët wu njëkk",
+            "wuu" to "封面",
+            "xal" to "Нүр халх",
+            "xh" to "Iphepha Elingundoqo",
+            "xmf" to "დუდხასჷლა",
+            "yi" to "הויפט זייט",
+            "yo" to "Ojúewé Àkọ́kọ́",
+            "za" to "Yiebdaeuz",
+            "zea" to "Vòblad",
+            "zh" to "Wikipedia:首页",
+            "zh-hans" to "Wikipedia:首页",
+            "zh-hant" to "Wikipedia:首页",
+            "zh-classical" to "維基大典:卷首",
+            "zh-min-nan" to "Thâu-ia̍h",
+            "zh-yue" to "頭版",
+            "zu" to "Ikhasi Elikhulu",
+            "test" to "Main Page",
+    )
 }
