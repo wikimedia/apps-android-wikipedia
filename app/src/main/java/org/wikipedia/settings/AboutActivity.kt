@@ -66,10 +66,10 @@ class AboutActivity : BaseActivity() {
         override fun onClick(v: View) {
             ++mSecretClickCount
             if (isSecretClickLimitMet) {
-                if (Prefs.isShowDeveloperSettingsEnabled()) {
+                if (Prefs.isShowDeveloperSettingsEnabled) {
                     showMessage(v.context as Activity, R.string.show_developer_settings_already_enabled)
                 } else {
-                    Prefs.setShowDeveloperSettingsEnabled(true)
+                    Prefs.isShowDeveloperSettingsEnabled = true
                     showMessage(v.context as Activity, R.string.show_developer_settings_enabled)
                 }
             }

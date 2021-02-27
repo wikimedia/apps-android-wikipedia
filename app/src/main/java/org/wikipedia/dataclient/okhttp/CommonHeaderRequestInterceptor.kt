@@ -13,8 +13,8 @@ internal class CommonHeaderRequestInterceptor : Interceptor {
         val app = WikipediaApp.getInstance()
         val builder = chain.request().newBuilder()
                 .header("User-Agent", app.userAgent)
-                .header(if (isEventLoggingEnabled()) "X-WMF-UUID" else "DNT",
-                        if (isEventLoggingEnabled()) app.appInstallID else "1")
+                .header(if (isEventLoggingEnabled) "X-WMF-UUID" else "DNT",
+                        if (isEventLoggingEnabled) app.appInstallID else "1")
         if (chain.request().url.encodedPath.contains(RestService.PAGE_HTML_ENDPOINT)) {
             builder.header("Accept", RestService.ACCEPT_HEADER_MOBILE_HTML)
         }

@@ -34,10 +34,10 @@ object ReleaseUtil {
 
     @JvmStatic
     fun getChannel(ctx: Context): String {
-        var channel = Prefs.getAppChannel()
+        var channel = Prefs.appChannel
         if (channel == null) {
             channel = getChannelFromManifest(ctx)
-            Prefs.setAppChannel(channel)
+            Prefs.appChannel = channel
         }
         return channel
     }
@@ -55,7 +55,7 @@ object ReleaseUtil {
         return try {
             val info = ctx.packageManager
                     .getApplicationInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_META_DATA)
-            val channel = info.metaData.getString(Prefs.getAppChannelKey())
+            val channel = info.metaData.getString(Prefs.appChannelKey)
             channel ?: ""
         } catch (t: Throwable) {
             ""

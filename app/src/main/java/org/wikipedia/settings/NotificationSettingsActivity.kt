@@ -42,7 +42,7 @@ class NotificationSettingsActivity : SingleFragmentActivity<NotificationSettings
                     .setTitle(R.string.notifications_poll_enable_title)
                     .setView(view)
                     .setPositiveButton(R.string.notifications_poll_enable_positive
-                    ) { _: DialogInterface?, _: Int -> Prefs.setNotificationPollEnabled(true) }
+                    ) { _: DialogInterface?, _: Int -> Prefs.notificationPollEnabled = true }
                     .setNegativeButton(R.string.notifications_poll_enable_negative, null)
                     .setOnDismissListener { Prefs.setNotificationPollReminderEnabled(!checkbox.isChecked) }
                     .show()

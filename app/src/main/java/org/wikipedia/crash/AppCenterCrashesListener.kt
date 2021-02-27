@@ -30,7 +30,7 @@ class AppCenterCrashesListener : AbstractCrashesListener(), Thread.UncaughtExcep
     }
 
     override fun shouldProcess(report: ErrorReport?): Boolean {
-        return Prefs.isCrashReportAutoUploadEnabled()
+        return Prefs.isCrashReportAutoUploadEnabled
     }
 
     override fun getErrorAttachments(report: ErrorReport?): Iterable<ErrorAttachmentLog> {
@@ -39,8 +39,8 @@ class AppCenterCrashesListener : AbstractCrashesListener(), Thread.UncaughtExcep
 
     override fun uncaughtException(thread: Thread, exception: Throwable) {
         L.e(exception)
-        if (!Prefs.crashedBeforeActivityCreated()) {
-            Prefs.crashedBeforeActivityCreated(true)
+        if (!Prefs.crashedBeforeActivityCreated) {
+            Prefs.crashedBeforeActivityCreated = true
             launchCrashReportActivity()
         } else {
             L.i("Crashed before showing UI. Skipping reboot.")

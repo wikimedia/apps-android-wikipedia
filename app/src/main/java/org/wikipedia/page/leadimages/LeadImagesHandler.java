@@ -28,6 +28,7 @@ import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
 import org.wikipedia.util.DimenUtil;
@@ -45,7 +46,6 @@ import static org.wikipedia.Constants.InvokeSource.LEAD_IMAGE;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
-import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
 public class LeadImagesHandler {
@@ -93,7 +93,7 @@ public class LeadImagesHandler {
     }
 
     public boolean isLeadImageEnabled() {
-        return isImageDownloadEnabled()
+        return Prefs.isImageDownloadEnabled()
                 && !(DimenUtil.isLandscape(getActivity()))
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
                 && !isMainPage()

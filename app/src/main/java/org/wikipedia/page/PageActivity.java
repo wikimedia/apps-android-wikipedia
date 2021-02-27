@@ -444,7 +444,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             wasTransitionShown = true;
         }
 
-        if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
+        if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !Prefs.isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
 
@@ -731,7 +731,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     protected void onResume() {
         super.onResume();
         app.resetWikiSite();
-        Prefs.storeTemporaryWikitext(null);
+        Prefs.setTemporaryWikitext(null);
     }
 
     @Override

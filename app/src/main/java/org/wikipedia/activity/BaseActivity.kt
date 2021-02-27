@@ -79,9 +79,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
         // Conditionally execute all recurring tasks
         RecurringTasksExecutor(WikipediaApp.getInstance()).run()
-        if (Prefs.isReadingListsFirstTimeSync() && AccountUtil.isLoggedIn) {
-            Prefs.setReadingListsFirstTimeSync(false)
-            Prefs.setReadingListSyncEnabled(true)
+        if (Prefs.isReadingListsFirstTimeSync && AccountUtil.isLoggedIn) {
+            Prefs.isReadingListsFirstTimeSync = false
+            Prefs.isReadingListSyncEnabled = true
             ReadingListSyncAdapter.manualSyncWithForce()
         }
 
@@ -94,7 +94,7 @@ abstract class BaseActivity : AppCompatActivity() {
         maybeShowLoggedOutInBackgroundDialog()
 
         if (this !is CrashReportActivity) {
-            Prefs.setLocalClassName(localClassName)
+            Prefs.localClassName = localClassName
         }
     }
 
@@ -124,7 +124,7 @@ abstract class BaseActivity : AppCompatActivity() {
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
         // less probable.
         if (this !is CrashReportActivity) {
-            Prefs.crashedBeforeActivityCreated(false)
+            Prefs.crashedBeforeActivityCreated = false
         }
     }
 
@@ -302,7 +302,7 @@ abstract class BaseActivity : AppCompatActivity() {
             } else if (event is LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog()
             } else if (event is ReadingListSyncEvent) {
-                if (event.showMessage() && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                if (event.showMessage() && !Prefs.isSuggestedEditsHighestPriorityEnabled) {
                     FeedbackUtil.makeSnackbar(this@BaseActivity,
                             getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
                 }

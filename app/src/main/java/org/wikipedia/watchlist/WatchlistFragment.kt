@@ -99,7 +99,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun updateDisplayLanguages() {
-        displayLanguages = WikipediaApp.getInstance().language().appLanguageCodes.filterNot { Prefs.getWatchlistDisabledLanguages().contains(it) }
+        displayLanguages = WikipediaApp.getInstance().language().appLanguageCodes.filterNot { Prefs.watchlistDisabledLanguages.contains(it) }
     }
 
     private fun fetchWatchlist(refreshing: Boolean) {

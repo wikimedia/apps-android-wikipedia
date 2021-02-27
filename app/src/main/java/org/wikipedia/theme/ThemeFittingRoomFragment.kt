@@ -43,7 +43,7 @@ class ThemeFittingRoomFragment : Fragment() {
     }
 
     private fun updateFontFamily() {
-        val currentTypeface = if (Prefs.getFontFamily() == resources.getString(R.string.font_family_sans_serif)) Typeface.SANS_SERIF else Typeface.SERIF
+        val currentTypeface = if (Prefs.fontFamily == resources.getString(R.string.font_family_sans_serif)) Typeface.SANS_SERIF else Typeface.SERIF
         binding.themeTestTitle.typeface = currentTypeface
         binding.themeTestText.typeface = currentTypeface
     }

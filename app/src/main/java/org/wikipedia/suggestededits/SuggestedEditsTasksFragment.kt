@@ -72,7 +72,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, aboveOrBelow = false, autoDismiss = true), binding.editStreakStatsView.getDescriptionView())
                 .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, aboveOrBelow = false, autoDismiss = true), binding.pageViewStatsView.getDescriptionView())
                 .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, aboveOrBelow = false, autoDismiss = true), binding.editQualityStatsView.getDescriptionView())
-        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
+        Prefs.shouldShowOneTimeSequentialUserStatsTooltip = false
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -139,7 +139,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
             binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
-            Prefs.setShowImageTagsOnboarding(false)
+            Prefs.shouldShowImageTagsOnboarding = false
             startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
         } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
@@ -286,7 +286,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.userNameView.text = AccountUtil.userName
             binding.contributionsStatsView.setTitle(totalContributions.toString())
             binding.contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
-            if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip()) {
+            if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip) {
                 showOneTimeSequentialUserStatsTooltips()
             }
         }
@@ -425,7 +425,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             } else if (task == addImageCaptionsTask) {
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION, InvokeSource.SUGGESTED_EDITS))
             } else if (task == addImageTagsTask) {
-                if (Prefs.shouldShowImageTagsOnboarding()) {
+                if (Prefs.shouldShowImageTagsOnboarding) {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))

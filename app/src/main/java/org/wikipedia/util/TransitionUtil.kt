@@ -19,7 +19,7 @@ object TransitionUtil {
             if (it is ImageView && it.visibility == View.VISIBLE &&
                     (it.parent as View).visibility == View.VISIBLE &&
                     !DimenUtil.isLandscape(context) &&
-                    Prefs.isImageDownloadEnabled()) {
+                    Prefs.isImageDownloadEnabled) {
                 shareElements.add(Pair(it, it.transitionName))
             }
         }

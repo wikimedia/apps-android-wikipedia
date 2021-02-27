@@ -25,7 +25,7 @@ object OkHttpConnectionFactory {
                 .cookieJar(SharedPreferenceCookieManager.getInstance())
                 .cache(NET_CACHE)
                 .readTimeout(20, TimeUnit.SECONDS)
-                .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.getRetrofitLogLevel()))
+                .addInterceptor(HttpLoggingInterceptor().setLevel(Prefs.retrofitLogLevel))
                 .addInterceptor(UnsuccessfulResponseInterceptor())
                 .addNetworkInterceptor(CacheControlInterceptor())
                 .addInterceptor(CommonHeaderRequestInterceptor())

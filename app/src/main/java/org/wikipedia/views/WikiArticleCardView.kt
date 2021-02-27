@@ -41,7 +41,7 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
     }
 
     fun setImageUri(uri: Uri?, hideInLandscape: Boolean = true) {
-        if (uri == null || (DimenUtil.isLandscape(context) && hideInLandscape) || !Prefs.isImageDownloadEnabled()) {
+        if (uri == null || (DimenUtil.isLandscape(context) && hideInLandscape) || !Prefs.isImageDownloadEnabled) {
             binding.articleImageContainer.visibility = GONE
         } else {
             binding.articleImageContainer.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT,

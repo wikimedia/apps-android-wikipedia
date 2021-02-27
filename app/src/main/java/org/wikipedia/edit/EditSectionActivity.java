@@ -610,7 +610,7 @@ public class EditSectionActivity extends BaseActivity {
         outState.putParcelable("abusefilter", abusefilterEditResult);
         outState.putBoolean("sectionTextModified", sectionTextModified);
         captchaHandler.saveState(outState);
-        Prefs.storeTemporaryWikitext(sectionWikitext);
+        Prefs.setTemporaryWikitext(sectionWikitext);
     }
 
     private void updateTextSize() {

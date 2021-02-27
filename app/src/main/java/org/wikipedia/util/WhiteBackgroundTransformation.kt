@@ -45,7 +45,7 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
             val canvas = Canvas(targetBitmap)
             canvas.drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_WHITE)
             canvas.drawBitmap(inBitmap, matrix, DEFAULT_PAINT)
-            if (WikipediaApp.getInstance().currentTheme.isDark && Prefs.shouldDimDarkModeImages()) {
+            if (WikipediaApp.getInstance().currentTheme.isDark && Prefs.shouldDimDarkModeImages) {
                 // "dim" images by drawing a translucent black rectangle over them.
                 canvas.drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_DARK_OVERLAY)
             }
