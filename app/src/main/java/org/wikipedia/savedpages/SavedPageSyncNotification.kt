@@ -53,7 +53,6 @@ class SavedPageSyncNotification : BroadcastReceiver() {
         return notification.isPaused
     }
 
-
     fun setNotificationProgress(context: Context, itemsTotal: Int, itemsProgress: Int) {
         notification.setNotificationProgress(context, itemsTotal, itemsProgress)
     }
