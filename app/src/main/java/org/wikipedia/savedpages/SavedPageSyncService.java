@@ -65,7 +65,7 @@ public class SavedPageSyncService extends JobIntentService {
     private SavedPageSyncNotification savedPageSyncNotification;
 
     public SavedPageSyncService() {
-        savedPageSyncNotification = SavedPageSyncNotification.getInstance();
+        savedPageSyncNotification = new SavedPageSyncNotification();
     }
 
     public static void enqueue() {
