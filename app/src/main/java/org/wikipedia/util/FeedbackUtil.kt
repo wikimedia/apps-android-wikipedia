@@ -111,15 +111,15 @@ object FeedbackUtil {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_request_an_account_url)))
     }
 
-    fun showUserContributionsPage(context: Context, username: String, languageCode: String?) {
+    fun showUserContributionsPage(context: Context, username: String, languageCode: String) {
         val title = PageTitle(SpecialAliasData.valueFor(languageCode) + ":" +
-                "Contributions/" + username, WikiSite.forLanguageCode(languageCode!!))
+                "Contributions/" + username, WikiSite.forLanguageCode(languageCode))
         UriUtil.visitInExternalBrowser(context, Uri.parse(title.uri))
     }
 
-    fun showUserProfilePage(context: Context, username: String, languageCode: String?) {
+    fun showUserProfilePage(context: Context, username: String, languageCode: String) {
         val title = PageTitle(UserAliasData.valueFor(languageCode) + ":" +
-                username, WikiSite.forLanguageCode(languageCode!!))
+                username, WikiSite.forLanguageCode(languageCode))
         UriUtil.visitInExternalBrowser(context, Uri.parse(title.uri))
     }
 

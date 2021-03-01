@@ -14,6 +14,7 @@
 * Octahedron80
 * Patsagorn Y.
 * Pon44695
+* Prame Tan
 -->
 <resources>
   <string name="app_name_prod">วิกิพีเดีย</string>
@@ -55,6 +56,8 @@
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในบทความ</string>
+  <string name="menu_page_view_talk">ดูหน้าอภิปราย</string>
+  <string name="menu_page_view_edit_history">ดูประวัติการแก้ไข</string>
   <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
   <string name="menu_page_font_and_theme">แบบอักษรและชุดตกแต่ง</string>
   <string name="menu_page_add_to_list">เพิ่มในรายการอ่าน</string>
