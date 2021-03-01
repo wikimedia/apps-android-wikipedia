@@ -6,7 +6,7 @@ import org.wikipedia.page.PageTitle
 
 data class SearchResult(val pageTitle: PageTitle,
                         val redirectFrom: String?,
-                        val type: SearchResultType?) {
+                        val type: SearchResultType) {
 
     enum class SearchResultType {
         SEARCH, HISTORY, READING_LIST, TAB_LIST
