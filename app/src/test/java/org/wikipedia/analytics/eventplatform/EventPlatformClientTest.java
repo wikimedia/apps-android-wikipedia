@@ -80,7 +80,7 @@ public class EventPlatformClientTest {
         Event event = new Event("test", "test");
         addEventMetadata(event);
         String serialized = GsonMarshaller.marshal(event);
-        assertThat(serialized.contains("client_dt"), is(true));
+        assertThat(serialized.contains("dt"), is(true));
         assertThat(serialized.contains("app_session_id"), is(true));
         assertThat(serialized.contains("app_install_id"), is(true));
     }
