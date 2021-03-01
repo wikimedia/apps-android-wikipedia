@@ -18,12 +18,12 @@ class SearchResults {
         continuation = null
     }
 
-    constructor(pages: List<MwQueryPage?>, wiki: WikiSite,
+    constructor(pages: List<MwQueryPage>, wiki: WikiSite,
                 continuation: Map<String, String>?, suggestion: String?) {
         val searchResults: MutableList<SearchResult> = ArrayList()
 
         // Sort the array based on the "index" property
-        (pages as ArrayList).sortWith { o2, o1 -> (o1?.index()!!.compareTo(o2?.index()!!)) }
+        (pages as ArrayList).sortWith { o1, o2 -> (o1?.index()!!.compareTo(o2?.index()!!)) }
 
         for (page in pages) {
             searchResults.add(SearchResult(page!!, wiki))
