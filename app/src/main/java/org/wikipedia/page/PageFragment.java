@@ -708,7 +708,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         }
         if (selectedTabPosition >= 0) {
-            setCurrentTabAndReset(selectedTabPosition);
             return;
         }
 
