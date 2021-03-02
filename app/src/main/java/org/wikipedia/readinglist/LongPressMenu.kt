@@ -16,7 +16,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.ClipboardUtil.setPlainText
+import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil.showMessage
 import org.wikipedia.util.ShareUtil.shareText
 
@@ -137,7 +137,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                 }
                 R.id.menu_long_press_copy_page -> {
                     entry?.let {
-                        setPlainText(anchorView.context, null, it.title.uri)
+                        ClipboardUtil.setPlainText(anchorView.context, null, it.title.uri)
                         showMessage((anchorView.context as AppCompatActivity), R.string.address_copied)
                     }
                     true

@@ -1,8 +1,8 @@
 package org.wikipedia.language
 
-import android.content.Context
 import android.os.Build
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.getSystemService
 import androidx.core.os.LocaleListCompat
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
@@ -34,7 +34,7 @@ object LanguageUtil {
             }
 
             // Query the installed keyboard languages, and add them to the list, if they don't exist.
-            val imm = WikipediaApp.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val imm = WikipediaApp.getInstance().getSystemService<InputMethodManager>()!!
             val ims = imm.enabledInputMethodList ?: emptyList()
             val langTagList = mutableListOf<String>()
             for (method in ims) {

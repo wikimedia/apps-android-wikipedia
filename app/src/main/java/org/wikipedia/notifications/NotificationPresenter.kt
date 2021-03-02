@@ -14,6 +14,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
@@ -99,7 +100,7 @@ object NotificationPresenter {
     }
 
     fun getDefaultBuilder(context: Context, id: Long, type: String?): NotificationCompat.Builder {
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = context.getSystemService<NotificationManager>()!!
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             var notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID)
             if (notificationChannel == null) {
@@ -128,8 +129,7 @@ object NotificationPresenter {
                 .setContentTitle(title)
                 .setContentText(text)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(id, builder.build())
+        context.getSystemService<NotificationManager>()?.notify(id, builder.build())
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {

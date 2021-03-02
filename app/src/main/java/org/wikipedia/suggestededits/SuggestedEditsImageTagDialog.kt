@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.app.Dialog
 import android.content.ClipboardManager
-import android.content.Context
 import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.graphics.drawable.InsetDrawable
@@ -12,6 +11,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
+import androidx.core.content.getSystemService
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
@@ -95,7 +95,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         super.onStart()
         try {
             if (requireArguments().getBoolean("useClipboardText")) {
-                val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clipboard = requireContext().getSystemService<ClipboardManager>()!!
                 if (clipboard.hasPrimaryClip() && clipboard.primaryClip != null) {
                     val primaryClip = clipboard.primaryClip!!
                     val clipText = primaryClip.getItemAt(primaryClip.itemCount - 1).coerceToText(requireContext()).toString()

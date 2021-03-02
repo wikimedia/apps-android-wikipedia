@@ -1,7 +1,6 @@
 package org.wikipedia.util
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
@@ -12,6 +11,7 @@ import android.view.WindowManager
 import android.view.accessibility.AccessibilityManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.getSystemService
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import org.wikipedia.R
@@ -29,8 +29,7 @@ object DeviceUtil {
      */
     @JvmStatic
     fun showSoftKeyboard(view: View) {
-        val keyboard = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        keyboard.toggleSoftInput(0, 0)
+        view.context.getSystemService<InputMethodManager>()!!.toggleSoftInput(0, 0)
     }
 
     /**
@@ -48,9 +47,8 @@ object DeviceUtil {
 
     @JvmStatic
     fun hideSoftKeyboard(view: View) {
-        val keyboard = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
-        keyboard.hideSoftInputFromWindow(view.windowToken, 0)
+        view.context.getSystemService<InputMethodManager>()!!.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     @JvmStatic
@@ -98,8 +96,8 @@ object DeviceUtil {
 
     @JvmStatic
     fun isOnWiFi(): Boolean {
-        val info = (WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
-                .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+        val info = WikipediaApp.getInstance().getSystemService<ConnectivityManager>()
+                ?.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
         return info != null && info.isConnected
     }
 
@@ -111,7 +109,7 @@ object DeviceUtil {
     @JvmStatic
     val isAccessibilityEnabled: Boolean
         get() {
-            val am = WikipediaApp.getInstance().getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+            val am = WikipediaApp.getInstance().getSystemService<AccessibilityManager>()!!
             // TODO: add more logic if other accessibility tools have different settings.
             return am.isEnabled && am.isTouchExplorationEnabled
         }

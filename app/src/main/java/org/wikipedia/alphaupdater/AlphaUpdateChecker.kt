@@ -8,6 +8,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.core.content.getSystemService
 import okhttp3.Request
 import okhttp3.Response
 import org.wikipedia.R
@@ -48,12 +49,12 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
     private fun showNotification() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL))
         val pintent = PendingIntent.getActivity(context, 0, intent, 0)
+        val notificationManager = context.getSystemService<NotificationManager>()!!
 
         // Notification channel ( >= API 26 )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val mChannel = NotificationChannel(CHANNEL_ID, "Alpha updates", NotificationManager.IMPORTANCE_LOW)
-            (context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)
-                    .createNotificationChannel(mChannel)
+            notificationManager.createNotificationChannel(mChannel)
         }
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setContentTitle(context.getString(R.string.alpha_update_notification_title))
@@ -61,8 +62,7 @@ class AlphaUpdateChecker(private val context: Context) : RecurringTask() {
                 .setContentIntent(pintent)
                 .setAutoCancel(true)
         notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent)
-        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        manager.notify(1, notificationBuilder.build())
+        notificationManager.notify(1, notificationBuilder.build())
     }
 
     companion object {

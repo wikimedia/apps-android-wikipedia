@@ -10,6 +10,7 @@ import android.os.Build
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationCompat
+import androidx.core.content.getSystemService
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.util.MathUtil.percentage
@@ -54,7 +55,7 @@ class NotificationWithProgressBar {
             val mChannel = NotificationChannel(channelId, name, importance)
             mChannel.description = description
             mChannel.setSound(null, null)
-            getNotificationManager(context).createNotificationChannel(mChannel)
+            context.getSystemService<NotificationManager>()!!.createNotificationChannel(mChannel)
         }
         val builderIcon = notificationIcon
         val builderTitle = context.resources.getQuantityString(notificationTitle, total, total)
@@ -95,17 +96,13 @@ class NotificationWithProgressBar {
     }
 
     fun cancelNotification(context: Context) {
-        getNotificationManager(context).cancel(notificationId)
+        context.getSystemService<NotificationManager>()!!.cancel(notificationId)
     }
 
     private fun showNotification(context: Context, builder: NotificationCompat.Builder) {
         if (!isCanceled) {
-            getNotificationManager(context).notify(notificationId, builder.build())
+            context.getSystemService<NotificationManager>()!!.notify(notificationId, builder.build())
         }
-    }
-
-    private fun getNotificationManager(context: Context): NotificationManager {
-        return context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
 
     private fun actionBuilder(context: Context,

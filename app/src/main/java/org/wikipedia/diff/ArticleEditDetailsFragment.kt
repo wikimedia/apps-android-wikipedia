@@ -47,7 +47,6 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
-import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -531,7 +530,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun copyLink(uri: String?) {
-        setPlainText(requireContext(), null, uri)
+        ClipboardUtil.setPlainText(requireContext(), null, uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 }
