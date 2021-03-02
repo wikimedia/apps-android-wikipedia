@@ -5,7 +5,7 @@ import android.text.style.URLSpan
 import android.widget.TextView
 import androidx.annotation.IntRange
 import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.util.log.L.e
+import org.wikipedia.util.log.L
 import java.util.*
 
 object RichTextUtil {
@@ -105,7 +105,7 @@ object RichTextUtil {
             // A number of possible exceptions can be thrown by the system from handling even
             // slightly malformed spans or paragraphs, so let's ignore them for now and just
             // return the original text.
-            e(e)
+            L.e(e)
         }
         return text
     }
