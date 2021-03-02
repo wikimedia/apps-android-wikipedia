@@ -112,6 +112,12 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             return
         }
 
+        if (displayLanguages.isEmpty()) {
+            binding.watchlistEmptyContainer.visibility = View.VISIBLE
+            binding.watchlistProgressBar.visibility = View.GONE
+            return
+        }
+
         if (!refreshing) {
             binding.watchlistProgressBar.visibility = View.VISIBLE
         }
