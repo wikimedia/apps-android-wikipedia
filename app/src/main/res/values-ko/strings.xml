@@ -192,13 +192,13 @@
   <string name="preferences_heading_experimental">실험 기능</string>
   <string name="preference_title_sync_reading_lists_from_account">읽기 목록 동기화</string>
   <string name="preference_title_download_reading_list_articles">읽기 목록 문서 다운로드</string>
-  <string name="preference_summary_sync_reading_lists">위키백과 계정에 읽기 목록을 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
+  <string name="preference_summary_sync_reading_lists">위키백과 계정에 읽기 목록을 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다.</string>
   <string name="preference_summary_sync_reading_lists_from_account">읽기 목록을 위키백과 계정 \"%s\"에 저장하여 각기 다른 장치 간에 읽기 목록을 동기화합니다</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"에서 동기화된 읽기 목록을 제거하시겠습니까?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">이전에 원격 기억 장치에 동기화된 모든 읽기 목록을 완전히 삭제합니다. \"%s\" 계정에 동기화된 모든 목록을 제거하시겠습니까?</string>
   <string name="preferences_privacy_settings_heading">개인정보</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
-  <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
+  <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다.</string>
   <string name="preference_title_auto_upload_crash_reports">충돌 보고서 보내기</string>
   <string name="preference_summary_auto_upload_crash_reports">더 빠르고 쉽게 충돌을 검토하고 수정할 수 있도록 앱이 제 3의 서비스 제공자에게 자동으로 충돌 보고를 송신하도록 허용합니다.</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
@@ -346,8 +346,8 @@
   <string name="error_no_maps_app">주어진 경로의 앱을 찾지 못하였습니다.</string>
   <string name="preference_title_customize_explore_feed">탐색 피드</string>
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
-  <string name="preference_summary_customize_explore_feed">탐색 피드 사용자 지정</string>
-  <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
+  <string name="preference_summary_customize_explore_feed">탐색 피드를 사용자 지정합니다.</string>
+  <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보여줍니다.</string>
   <string name="preference_title_collapse_tables">표 접기</string>
   <string name="preference_summary_collapse_tables">정보상자, 각주, 내용주 등 문서 안의 표를 자동으로 접습니다.</string>
   <string name="nav_item_donate">기부</string>
@@ -371,7 +371,7 @@
   <string name="reference_list_title">각주</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">영상 어둡게 하기(어두운 테마에서)</string>
   <string name="preference_title_prefer_offline_content">오프라인 콘텐츠 선호</string>
-  <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용 절약</string>
+  <string name="preference_summary_prefer_offline_content">항상 최신판 문서를 불러오지 말고 가능한 문서는 오프라인을 불러와 데이터 사용량을 줄입니다.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">시스템 테마에 동기화</string>
   <string name="page_footer_license_text">별도로 명시하지 않은 경우, 내용은 $1에 따라 사용할 수 있습니다</string>
   <string name="empty_tab_title">새 탭</string>
@@ -964,6 +964,7 @@
   <string name="thank_label">감사 표현</string>
   <string name="go_to_user_page">사용자 문서로 이동하기</string>
   <string name="thank_dialog_title_text">공개적으로 감사 표하기</string>
+  <string name="thank_dialog_text">\'감사 표현\'은 위키백과에서 편집자의 기여에 감사를 표하는 쉬운 방법입니다. \'감사 표현\'은 취소할 수 없으며 공개되지 않습니다.</string>
   <string name="thank_dialog_positive_button_text">감사 표현하기</string>
   <string name="thank_dialog_negative_button_text">취소</string>
   <string name="thank_success_message">%s님에게 감사를 표했습니다 👍</string>
