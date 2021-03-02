@@ -40,14 +40,7 @@ object RichTextUtil {
      * @see {@link android.view.inputmethod.BaseInputConnection.removeComposingSpans}
      */
     private fun getComposingSpans(spanned: Spanned, start: Int, end: Int): List<Any?> {
-        // TODO: replace with Apache CollectionUtils.filter().
-        val ret: MutableList<Any?> = ArrayList()
-        for (span in getSpans(spanned, start, end)) {
-            if (isComposingSpan(spanned, span)) {
-                ret.add(span)
-            }
-        }
-        return ret
+        return getSpans(spanned, start, end).filter { isComposingSpan(spanned, it) }
     }
 
     @JvmStatic

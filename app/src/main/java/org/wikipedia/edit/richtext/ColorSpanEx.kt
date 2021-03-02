@@ -4,7 +4,7 @@ import android.text.TextPaint
 import android.text.style.ForegroundColorSpan
 import androidx.annotation.ColorInt
 
-class ColorSpanEx(@ColorInt foreColor: Int, @field:ColorInt @param:ColorInt private val backColor: Int,
+class ColorSpanEx(@ColorInt foreColor: Int, @ColorInt private val backColor: Int,
                   override var start: Int, override var syntaxRule: SyntaxRule) :
         ForegroundColorSpan(foreColor), SpanExtents {
     override var end = 0

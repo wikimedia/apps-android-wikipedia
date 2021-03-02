@@ -5,7 +5,6 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.Spanned
-import android.text.TextUtils
 import android.text.TextWatcher
 import android.text.format.DateUtils
 import android.widget.EditText
@@ -13,7 +12,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.util.log.L
 import org.wikipedia.util.log.L.d
 import java.util.*
@@ -90,8 +88,8 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                                 findTextList.add(spanEx)
                             }
                         }
-                        if (searchText != null && searchText!!.isNotEmpty() && syntaxHighlightListener != null) {
-                            syntaxHighlightListener!!.findTextMatches(findTextList)
+                        if (!searchText.isNullOrEmpty()) {
+                            syntaxHighlightListener?.findTextMatches(findTextList)
                         }
                         time = System.currentTimeMillis() - time
                         d("That took " + time + "ms")
@@ -116,7 +114,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
         // if the user adds more text within 1/2 second, the previous request
         // is cancelled, and a new one is placed.
         handler.removeCallbacks(syntaxHighlightCallback)
-        handler.postDelayed(syntaxHighlightCallback, if (TextUtils.isEmpty(searchText)) DateUtils.SECOND_IN_MILLIS / 2 else 0)
+        handler.postDelayed(syntaxHighlightCallback, if (searchText.isNullOrEmpty()) DateUtils.SECOND_IN_MILLIS / 2 else 0)
     }
 
     fun cleanup() {
@@ -134,7 +132,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
 
         override fun call(): MutableList<SpanExtents> {
             val spanStack = Stack<SpanExtents>()
-            val spansToSet: MutableList<SpanExtents> = ArrayList()
+            val spansToSet = mutableListOf<SpanExtents>()
 
             /*
             The (naïve) algorithm:
@@ -218,12 +216,12 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     }
 
     private inner class SyntaxHighlightSearchMatchesTask constructor(text: Editable, searchText: String?, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
-        private val searchText: String = StringUtils.lowerCase(searchText).orEmpty()
-        private val text: String = StringUtils.lowerCase(text.toString()).orEmpty()
+        private val searchText: String = searchText.orEmpty().toLowerCase(Locale.getDefault())
+        private val text: String = text.toString().toLowerCase(Locale.getDefault())
 
         override fun call(): List<SpanExtents> {
             val spansToSet: MutableList<SpanExtents> = ArrayList()
-            if (TextUtils.isEmpty(searchText)) {
+            if (searchText.isEmpty()) {
                 return spansToSet
             }
             val syntaxItem = SyntaxRule("", "", SyntaxRuleStyle.SEARCH_MATCHES)
