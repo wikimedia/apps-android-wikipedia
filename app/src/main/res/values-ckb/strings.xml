@@ -40,6 +40,7 @@
   <string name="history_item_delete_undo">پووچەڵکردنەوە</string>
   <string name="notification_archive_undo">پووچەڵکردنەوە</string>
   <string name="app_settings">ڕێکخستنەکانی نەرمەواڵە</string>
+  <string name="search_tab_tooltip">ھێماکە لێبدە بۆ ئەوەی ڕاستەوخۆ دەست بکەیت بە نووسینی دەستەواژەی گەڕان.</string>
   <string name="history_list_title">مێژوو</string>
   <string name="dialog_title_clear_history">سڕینەوەی مێژووی گەڕانەکان</string>
   <string name="dialog_message_clear_history">ئەمە ھەموو مێژووی کردنەوەکانت دەسڕێتەوە، و ھەموو تابە کراوەکانی ئێستات دادەخات. تۆ دڵنیای؟</string>
@@ -52,6 +53,8 @@
   <string name="menu_page_other_languages">گۆڕینی زمان</string>
   <string name="menu_page_find_in_page">دۆزینەوە لەنێو وتار</string>
   <string name="menu_page_add_to_watchlist">خستنە سەر پێڕستی چاودێری</string>
+  <string name="menu_page_view_talk">بینینی پەڕەی وتووێژ</string>
+  <string name="menu_page_view_edit_history">بینینی مێژووی دەستکاری</string>
   <string name="menu_page_remove_from_watchlist">سڕینەوە لە پێڕستی چاودێری</string>
   <string name="edit_section_find_in_page">دۆزینەوە لەنێو پەڕە</string>
   <string name="menu_page_font_and_theme">فۆنت و ڕووکار</string>
@@ -181,6 +184,7 @@
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
   <string name="preference_summary_auto_upload_crash_reports">ڕێگە بە نەرمەواڵەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ کەسی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی نەرمەواڵەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
+  <string name="history_filter_list_hint">مێژووی فیلتەر</string>
   <string name="error_can_not_process_link">ناتوانرێت ئەم بەستەرە نیشان بدرێت</string>
   <string name="page_protected_autoconfirmed">ئەم پەڕەیە نیمچە-پارێزراوە.</string>
   <string name="page_protected_sysop">ئەم پەڕەیە بە تەواوی پارێزراوە.</string>
@@ -310,6 +314,7 @@
   <string name="address_copied">ناونیشان لەبەرگیرایەوە بۆ تەختەی لەبەرگیراوەکان.</string>
   <string name="text_copied">دەق لەبەرگیرایەوە بۆ تەختەی لەبەرگیراوەکان.</string>
   <string name="button_continue_to_article">خوێندنەوەی وتار</string>
+  <string name="button_continue_to_talk_page">کردنەوەی پەڕەی وتووێژ</string>
   <string name="button_continue_to_disambiguation">پیشاندانی پەڕە پەیوەندیدارەکان</string>
   <string name="link_preview_disambiguation_description">ئەم ناونیشانە زیاتر لە پەڕەیەکەوە پەیوەستە:</string>
   <string name="button_add_to_reading_list">زیادکردن بۆ پێڕستی خوێندنەوە</string>
@@ -366,6 +371,8 @@
   <string name="text_size_increase">قەبارەی نووسین زیاد بکە</string>
   <string name="text_size_decrease">قەبارەی نووسین کەم بکە</string>
   <string name="text_size_percent_default">%s (دواکەوتن)</string>
+  <string name="text_style_title">فۆنت</string>
+  <string name="nav_item_saved">پاشەکەوت کرا</string>
   <string name="reading_list_save_to">پاشەکەوتکردن بۆ پێڕستی خوێندنەوە</string>
   <string name="reading_list_move_to">زیادکردن بۆ پێڕستی خوێندنەوە</string>
   <string name="reading_list_create_new">دروستکردنی یەکێکی نوێ</string>
@@ -379,6 +386,10 @@
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 وتار, %2$.2f MB</item>
     <item quantity="other">%1$d وتار, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d of ١ وتار بەردەستە بەبێ ئینتەرنێت، %3$.2f MB</item>
+    <item quantity="other">%1$d of %2$d وتار بەردەستە بەبێ ئینتەرنێت، %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 وتار، %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d وتارەکان، %2$.2f MB</string>
@@ -460,8 +471,14 @@
   <string name="reading_lists_menu_create_list">دروستکردنی لیستی نوێ</string>
   <string name="reading_lists_menu_sort_by">ڕیزکردن بە</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">چوونە ژوورەوە/تۆمارکردن</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە.</item>
+    <item quantity="other"> ئەم وتارانە ئێستا بەبێ ئینتەرنێت بەردەستن.</item>
+  </plurals>
+  <plurals name="reading_list_article_not_offline_message">
+    <item quantity="one">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</item>
+    <item quantity="other">ئەم وتارانە چی تر بەردەست نابن بەبێ ئینتەرنێت.</item>
+  </plurals>
   <string name="reading_list_remove_list_dialog_ok_button_text">باشە</string>
   <string name="reading_list_delete_dialog_ok_button_text">باشە</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>
@@ -630,6 +647,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">مۆڵەتنامە</string>
   <string name="suggested_edits_image_preview_dialog_more_info">زانیاریی زیاتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">پەڕگەی پەڕە لە ویکیمدیا کۆمنز</string>
+  <string name="suggested_edits_article_cta_image_tags">زیادکردنی تاگەکانی وێنە</string>
   <string name="suggested_edits_article_cta_image_caption">زیادکردنی شرۆڤەی وێنە</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">زیادکردنی شرۆڤەی وێنە (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">بینین</string>
@@ -653,6 +671,7 @@
   <string name="suggested_edits_quality_good_text">باش</string>
   <string name="suggested_edits_quality_okay_text">باشە</string>
   <string name="suggested_edits_quality_bad_text">خراپ</string>
+  <string name="suggested_edits_label">دەستکاری پێشنیارکراوەکان</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">ھاوبەشیکردن</item>
     <item quantity="other">ھاوبەشیکردنەکان</item>
@@ -661,6 +680,8 @@
     <item quantity="one">%d ڕۆژ</item>
     <item quantity="other">%d ڕۆژ</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">دەستکاری پێشنیارکراوەکان چییە؟</string>
+  <string name="suggested_edits_what_is_text">پێشنیاری دەستکارییە ھەڵەکان بەشداریە بچووکە بەڵام گرنگەکان بۆ ویکیپیدیا پێشکەش دەکات.</string>
   <string name="suggested_edits_learn_more">زیاتر بزانە</string>
   <string name="suggested_edits_paused_title">ڕاگیرا</string>
   <string name="suggested_edits_disabled_title">لەکارخستن</string>
@@ -774,15 +795,22 @@
   <string name="talk_add_reply">وەڵامدانەوە</string>
   <string name="talk_no_subject">(ھیچ بابەتێک نییە)</string>
   <string name="talk_reply_subject">بابەت</string>
+  <string name="watchlist_details_watching_label">چاودێریکردن</string>
+  <string name="watchlist_details_watch_label">چاودێری بکە</string>
   <string name="thank_label">سپاس</string>
   <string name="go_to_user_page">بڕۆ بۆ پەڕەی بەکارھێنەر</string>
+  <string name="thank_dialog_title_text">بەئاشکرا\'سوپاس\'بنێرە</string>
   <string name="thank_dialog_positive_button_text">سپاس بکە</string>
   <string name="thank_dialog_negative_button_text">ھەڵوەشاندنەوە</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">گۆڕین</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">بە ھەمیشەیی</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">بۆ ١ ھەفتە</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">بۆ ١ مانگ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">بۆ ٣ مانگ</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">بۆ ٦ مانگ</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s و پەڕەی وتووێژی لابراوە لە پێڕستی چاودێریەکەت.</string>
+  <string name="watchlist_expiry_dialog_title">کاتی پێڕستی چاودێری دیاریبکە</string>
+  <string name="watchlist_expiry_dialog_permanent">ھەمیشەیی</string>
   <string name="watchlist_expiry_dialog_one_week">١ ھەفتە</string>
   <string name="watchlist_expiry_dialog_one_month">١ مانگ</string>
   <string name="watchlist_expiry_dialog_three_months">٣ مانگ</string>
@@ -793,5 +821,6 @@
   <string name="watchlist_filter_pages">پەڕەکان</string>
   <string name="watchlist_filter_other">دیکە</string>
   <string name="watchlist_page_moved">گواستراوە</string>
+  <string name="watchlist_page_protected">پارێزراوە</string>
   <string name="watchlist_page_deleted">سڕدراو</string>
 </resources>
