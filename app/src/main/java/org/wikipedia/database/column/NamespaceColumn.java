@@ -6,6 +6,6 @@ import org.wikipedia.page.Namespace;
 
 public class NamespaceColumn extends CodeEnumColumn<Namespace> {
     public NamespaceColumn(@NonNull String tbl, @NonNull String name) {
-        super(tbl, name, Namespace.CODE_ENUM);
+        super(tbl, name, Namespace.getCODE_ENUM());
     }
 }
