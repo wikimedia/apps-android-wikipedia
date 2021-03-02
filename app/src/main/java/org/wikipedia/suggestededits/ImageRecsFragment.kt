@@ -328,7 +328,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     }
 
     companion object {
-        const val DAILY_COUNT_TARGET = 8
+        const val DAILY_COUNT_TARGET = 20
 
         fun newInstance(): SuggestedEditsItemFragment {
             return ImageRecsFragment()
