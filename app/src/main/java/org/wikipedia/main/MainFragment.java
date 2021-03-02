@@ -591,6 +591,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowImageRecsTooltip() {
         if (ReleaseUtil.isPreBetaRelease()
                 && AccountUtil.isLoggedIn()) {

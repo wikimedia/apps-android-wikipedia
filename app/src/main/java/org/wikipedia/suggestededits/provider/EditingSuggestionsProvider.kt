@@ -2,8 +2,8 @@ package org.wikipedia.suggestededits.provider
 
 import com.google.gson.reflect.TypeToken
 import io.reactivex.rxjava3.core.Observable
-import org.wikipedia.WikipediaApp
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
