@@ -48,7 +48,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val binding get() = _binding!!
     private val disposables = CompositeDisposable()
     private var app = WikipediaApp.getInstance()
-    private lateinit var funnel: SearchFunnel
+    private lateinit var searchFunnel: SearchFunnel
     private lateinit var invokeSource: InvokeSource
     var searchLanguageCode: String? = null
         private set
@@ -65,7 +65,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
-        funnel.searchCancel(searchLanguageCode)
+        searchFunnel.searchCancel(searchLanguageCode)
         false
     }
 
@@ -89,7 +89,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         }
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         query = requireArguments().getString(ARG_QUERY)
-        funnel = SearchFunnel(app, invokeSource)
+        searchFunnel = SearchFunnel(app, invokeSource)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -193,17 +193,13 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnCloseListener(null)
         binding.searchCabView.setOnQueryTextListener(null)
         _binding = null
-        funnel.searchCancel(searchLanguageCode)
+        searchFunnel.searchCancel(searchLanguageCode)
         super.onDestroyView()
     }
 
     override fun onResume() {
         super.onResume()
         setWindowSoftInputModeResizable(requireActivity())
-    }
-
-    override fun getFunnel(): SearchFunnel {
-        return funnel
     }
 
     override fun switchToSearch(text: String) {
@@ -219,11 +215,14 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setQuery(text, false)
     }
 
+    override val funnel: SearchFunnel
+        get() = searchFunnel
+
     override fun navigateToTitle(title: PageTitle, inNewTab: Boolean, position: Int) {
         if (!isAdded) {
             return
         }
-        funnel.searchClick(position, searchLanguageCode)
+        searchFunnel.searchClick(position, searchLanguageCode)
         val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
         else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
@@ -284,8 +283,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun openSearch() {
         // create a new funnel every time Search is opened, to get a new session ID
-        funnel = SearchFunnel(app, invokeSource)
-        funnel.searchStart()
+        searchFunnel = SearchFunnel(app, invokeSource)
+        searchFunnel.searchStart()
         isSearchActive = true
         binding.searchCabView.isIconified = false
         // if we already have a previous search query, then put it into the SearchView, and it will
@@ -366,7 +365,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         } else {
             // We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
             // gets overwritten when UI is re-drawn
-            funnel.searchLanguageSwitch(if (!tempLangCodeHolder.isNullOrEmpty() && tempLangCodeHolder != selectedLanguageCode)
+            searchFunnel.searchLanguageSwitch(if (!tempLangCodeHolder.isNullOrEmpty() && tempLangCodeHolder != selectedLanguageCode)
                 tempLangCodeHolder else searchLanguageCode, selectedLanguageCode)
             tempLangCodeHolder = null
         }
@@ -391,8 +390,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         fun newInstance(source: InvokeSource, query: String?): SearchFragment =
                 SearchFragment().apply {
                     arguments = bundleOf(
-                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
-                        ARG_QUERY to query
+                            Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
+                            ARG_QUERY to query
                     )
                 }
     }

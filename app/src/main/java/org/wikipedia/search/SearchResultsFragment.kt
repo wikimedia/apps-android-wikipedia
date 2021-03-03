@@ -43,8 +43,8 @@ import java.util.concurrent.TimeUnit
 
 class SearchResultsFragment : Fragment() {
     interface Callback {
-        fun onSearchAddPageToList(entry: HistoryEntry?, addToDefault: Boolean)
-        fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry?)
+        fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
+        fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
         fun onSearchProgressBar(enabled: Boolean)
         fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int)
         fun setSearchText(text: CharSequence)
