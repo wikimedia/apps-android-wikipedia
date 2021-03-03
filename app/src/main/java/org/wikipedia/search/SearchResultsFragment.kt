@@ -524,7 +524,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private val searchLanguageCode: String
-        get() = (parentFragment as SearchFragment?)!!.searchLanguageCode
+        get() = (parentFragment as SearchFragment?)!!.searchLanguageCode!!
 
     companion object {
         private const val BATCH_SIZE = 20
