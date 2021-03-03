@@ -1,0 +1,19 @@
+/* THIS IS AN AUTOMATICALLY GENERATED FILE
+   IF YOU MODIFY THIS BY HAND BE PREPARED!
+   TO HAVE YOUR CHANGES OVERWRITTEN */
+package org.wikipedia.staticdata
+
+import org.wikipedia.util.L10nUtil.getDesiredLanguageCode
+
+object {{class_name}} {
+    @JvmStatic
+    fun valueFor(key: String): String {
+        return dataMap[getDesiredLanguageCode(key)] ?: dataMap["en"]!!
+    }
+
+    private val dataMap = mapOf(
+            {%- for wiki in wikis %}
+            "{{wiki.lang}}" to "{{wiki.props[key]}}",
+            {%- endfor %}
+    )
+}
