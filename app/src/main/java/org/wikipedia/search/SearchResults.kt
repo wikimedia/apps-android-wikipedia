@@ -9,18 +9,11 @@ data class SearchResults(
         var suggestion: String? = null) {
 
     constructor() : this(ArrayList(), null)
-
     constructor(results: MutableList<SearchResult>) : this(results, null)
-
-    constructor(pages: MutableList<MwQueryPage>, wiki: WikiSite,
-                continuation: Map<String, String>?, suggestion: String?) : this() {
+    constructor(pages: MutableList<MwQueryPage>, wiki: WikiSite, continuation: Map<String, String>?, suggestion: String?) : this() {
         // Sort the array based on the "index" property
-        (pages).sortWith { o1, o2 -> (o1?.index()!!.compareTo(o2?.index()!!)) }
-
-        for (page in pages) {
-            results.add(SearchResult(page, wiki))
-        }
-
+        pages.sortWith { o1, o2 -> o1?.index()!!.compareTo(o2?.index()!!) }
+        pages.forEach { results.add(SearchResult(it, wiki)) }
         this.continuation = continuation
         this.suggestion = suggestion
     }
