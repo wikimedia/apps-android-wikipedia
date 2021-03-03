@@ -84,11 +84,9 @@ class SearchResultsFragment : Fragment() {
     private fun onSuggestionClick() {
         val callback = callback()
         val suggestion = binding.searchSuggestion.tag as String?
-        if (callback != null && suggestion!!.isNotEmpty()) {
-            callback.funnel.searchDidYouMean(searchLanguageCode)
-            callback.setSearchText(suggestion)
-            startSearch(suggestion, true)
-        }
+        callback?.funnel?.searchDidYouMean(searchLanguageCode)
+        callback?.setSearchText(suggestion!!)
+        startSearch(suggestion, true)
     }
 
     fun show() {
@@ -118,7 +116,7 @@ class SearchResultsFragment : Fragment() {
         }
         val cacheResult: List<SearchResult>? = searchResultsCache["$searchLanguageCode-$term"]
         val cacheResultsCount = searchResultsCountCache["$searchLanguageCode-$term"]
-        if (cacheResult != null && cacheResult.isNotEmpty()) {
+        if (!cacheResult.isNullOrEmpty()) {
             clearResults()
             displayResults(cacheResult)
             return
@@ -192,8 +190,7 @@ class SearchResultsFragment : Fragment() {
         }
         val tabList = WikipediaApp.getInstance().tabList
         for (tab in tabList) {
-            if (tab.backStackPositionTitle != null && tab.backStackPositionTitle!!
-                            .displayText.toLowerCase(Locale.getDefault())
+            if (tab.backStackPositionTitle!!.displayText.toLowerCase(Locale.getDefault())
                             .contains(currentSearchTerm!!.toLowerCase(Locale.getDefault()))) {
                 val searchResult = SearchResult(tab.backStackPositionTitle!!,
                         SearchResult.SearchResultType.TAB_LIST)
@@ -438,9 +435,7 @@ class SearchResultsFragment : Fragment() {
                     SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             view.isEnabled = resultsCount > 0
             view.setOnClickListener {
-                if (parentFragment != null) {
-                    (parentFragment as SearchFragment?)!!.setUpLanguageScroll(position)
-                }
+                (parentFragment as SearchFragment?)!!.setUpLanguageScroll(position)
             }
         }
     }
@@ -482,7 +477,7 @@ class SearchResultsFragment : Fragment() {
                 if (lastFullTextResults == null) {
                     // the first full text search
                     doFullTextSearch(currentSearchTerm, null, false)
-                } else if (lastFullTextResults!!.continuation != null && lastFullTextResults!!.continuation!!.isNotEmpty()) {
+                } else if (!lastFullTextResults!!.continuation.isNullOrEmpty()) {
                     // subsequent full text searches
                     doFullTextSearch(currentSearchTerm, lastFullTextResults!!.continuation, false)
                 }
@@ -490,8 +485,8 @@ class SearchResultsFragment : Fragment() {
             view.isLongClickable = true
             view.setOnClickListener {
                 val callback = callback()
-                if (callback != null && position < totalResults.size) {
-                    callback.navigateToTitle(totalResults[position].pageTitle, false, position)
+                if (position < totalResults.size) {
+                    callback?.navigateToTitle(totalResults[position].pageTitle, false, position)
                 }
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
@@ -502,26 +497,22 @@ class SearchResultsFragment : Fragment() {
     private fun cache(resultList: List<SearchResult>, searchTerm: String) {
         val cacheKey = "$searchLanguageCode-$searchTerm"
         val cachedTitles = searchResultsCache[cacheKey]
-        if (cachedTitles != null) {
-            cachedTitles.addAll(resultList)
-            searchResultsCache.put(cacheKey, cachedTitles)
-        }
+        cachedTitles?.addAll(resultList)
+        searchResultsCache.put(cacheKey, cachedTitles!!)
     }
 
     private fun log(resultList: List<SearchResult>, startTime: Long) {
         // To ease data analysis and better make the funnel track with user behaviour,
         // only transmit search results events if there are a nonzero number of results
-        if (callback() != null && resultList.isNotEmpty()) {
+        if (resultList.isNotEmpty()) {
             // noinspection ConstantConditions
-            callback()!!.funnel.searchResults(true, resultList.size, displayTime(startTime), searchLanguageCode)
+            callback()?.funnel?.searchResults(true, resultList.size, displayTime(startTime), searchLanguageCode)
         }
     }
 
     private fun logError(fullText: Boolean, startTime: Long) {
-        if (callback() != null) {
-            // noinspection ConstantConditions
-            callback()!!.funnel.searchError(fullText, displayTime(startTime), searchLanguageCode)
-        }
+        // noinspection ConstantConditions
+        callback()?.funnel?.searchError(fullText, displayTime(startTime), searchLanguageCode)
     }
 
     private fun displayTime(startTime: Long): Int {
