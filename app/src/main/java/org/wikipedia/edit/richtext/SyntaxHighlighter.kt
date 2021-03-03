@@ -13,7 +13,6 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.util.log.L
-import org.wikipedia.util.log.L.d
 import java.util.*
 import java.util.concurrent.Callable
 
@@ -79,7 +78,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                         for (sp in prevSpans) {
                             textBox.text.removeSpan(sp)
                         }
-                        val findTextList: MutableList<SpanExtents> = ArrayList()
+                        val findTextList = mutableListOf<SpanExtents>()
 
                         // and add our new spans
                         for (spanEx in result) {
@@ -92,7 +91,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                             syntaxHighlightListener?.findTextMatches(findTextList)
                         }
                         time = System.currentTimeMillis() - time
-                        d("That took " + time + "ms")
+                        L.d("That took " + time + "ms")
                     }) { L.e(it) })
         }
     }
@@ -216,11 +215,11 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
     }
 
     private inner class SyntaxHighlightSearchMatchesTask constructor(text: Editable, searchText: String?, private val selectedMatchResultPosition: Int) : Callable<List<SpanExtents>> {
-        private val searchText: String = searchText.orEmpty().toLowerCase(Locale.getDefault())
-        private val text: String = text.toString().toLowerCase(Locale.getDefault())
+        private val searchText = searchText.orEmpty().toLowerCase(Locale.getDefault())
+        private val text = text.toString().toLowerCase(Locale.getDefault())
 
         override fun call(): List<SpanExtents> {
-            val spansToSet: MutableList<SpanExtents> = ArrayList()
+            val spansToSet = mutableListOf<SpanExtents>()
             if (searchText.isEmpty()) {
                 return spansToSet
             }
@@ -230,7 +229,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
             do {
                 position = text.indexOf(searchText, position)
                 if (position >= 0) {
-                    val newSpanInfo: SpanExtents = if (matches == selectedMatchResultPosition) {
+                    val newSpanInfo = if (matches == selectedMatchResultPosition) {
                         SyntaxRuleStyle.SEARCH_MATCH_SELECTED.createSpan(context, position, syntaxItem)
                     } else {
                         SyntaxRuleStyle.SEARCH_MATCHES.createSpan(context, position, syntaxItem)

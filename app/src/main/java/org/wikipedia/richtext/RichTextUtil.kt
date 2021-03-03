@@ -4,9 +4,8 @@ import android.text.*
 import android.text.style.URLSpan
 import android.widget.TextView
 import androidx.annotation.IntRange
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.util.*
 
 object RichTextUtil {
     /**
@@ -57,7 +56,7 @@ object RichTextUtil {
     fun removeUnderlinesFromLinks(textView: TextView) {
         val text = textView.text
         if (text is Spanned) {
-            val spannable: Spannable = SpannableString(text)
+            val spannable = SpannableString(text)
             removeUnderlinesFromLinks(spannable, spannable.getSpans(0, spannable.length, URLSpan::class.java))
             textView.text = spannable
         }
@@ -76,7 +75,7 @@ object RichTextUtil {
     fun removeUnderlinesFromLinksAndMakeBold(textView: TextView) {
         val text = textView.text
         if (text is Spanned) {
-            val spannable: Spannable = SpannableString(text)
+            val spannable = SpannableString(text)
             removeUnderlinesFromLinksAndMakeBold(spannable, spannable.getSpans(0, spannable.length, URLSpan::class.java))
             textView.text = spannable
         }
@@ -93,7 +92,7 @@ object RichTextUtil {
 
     @JvmStatic
     fun stripHtml(html: String): String {
-        return fromHtml(html).toString()
+        return StringUtil.fromHtml(html).toString()
     }
 
     @JvmStatic
