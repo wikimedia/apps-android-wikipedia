@@ -48,7 +48,7 @@ class SearchResultsFragment : Fragment() {
         fun onSearchProgressBar(enabled: Boolean)
         fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int)
         fun setSearchText(text: CharSequence)
-        val funnel: SearchFunnel
+        fun getFunnel(): SearchFunnel
     }
 
     private var _binding: FragmentSearchResultsBinding? = null
@@ -84,7 +84,7 @@ class SearchResultsFragment : Fragment() {
     private fun onSuggestionClick() {
         val callback = callback()
         val suggestion = binding.searchSuggestion.tag as String?
-        callback?.funnel?.searchDidYouMean(searchLanguageCode)
+        callback?.getFunnel()?.searchDidYouMean(searchLanguageCode)
         callback?.setSearchText(suggestion!!)
         startSearch(suggestion, true)
     }
@@ -506,13 +506,13 @@ class SearchResultsFragment : Fragment() {
         // only transmit search results events if there are a nonzero number of results
         if (resultList.isNotEmpty()) {
             // noinspection ConstantConditions
-            callback()?.funnel?.searchResults(true, resultList.size, displayTime(startTime), searchLanguageCode)
+            callback()?.getFunnel()?.searchResults(true, resultList.size, displayTime(startTime), searchLanguageCode)
         }
     }
 
     private fun logError(fullText: Boolean, startTime: Long) {
         // noinspection ConstantConditions
-        callback()?.funnel?.searchError(fullText, displayTime(startTime), searchLanguageCode)
+        callback()?.getFunnel()?.searchError(fullText, displayTime(startTime), searchLanguageCode)
     }
 
     private fun displayTime(startTime: Long): Int {

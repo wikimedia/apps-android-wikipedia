@@ -215,8 +215,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setQuery(text, false)
     }
 
-    override val funnel: SearchFunnel
-        get() = searchFunnel
+    override fun getFunnel(): SearchFunnel {
+        return searchFunnel
+    }
 
     override fun navigateToTitle(title: PageTitle, inNewTab: Boolean, position: Int) {
         if (!isAdded) {
