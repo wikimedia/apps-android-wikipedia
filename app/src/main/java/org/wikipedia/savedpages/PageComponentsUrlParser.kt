@@ -3,12 +3,11 @@ package org.wikipedia.savedpages
 import org.jsoup.Jsoup
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
-import org.wikipedia.util.log.L.d
-import java.util.*
+import org.wikipedia.util.log.L
 
 internal class PageComponentsUrlParser {
     fun parse(html: String, site: WikiSite): List<String> {
-        val urls: MutableList<String> = ArrayList()
+        val urls = mutableListOf<String>()
         try {
             val document = Jsoup.parse(html)
             // parsing css styles
@@ -29,7 +28,7 @@ internal class PageComponentsUrlParser {
                 }
             }
         } catch (e: Exception) {
-            d("Parsing exception$e")
+            L.d("Parsing exception$e")
         }
         return urls
     }

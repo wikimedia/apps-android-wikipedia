@@ -8,7 +8,7 @@ import org.wikipedia.R
 import org.wikipedia.views.NotificationWithProgressBar
 
 class SavedPageSyncNotification : BroadcastReceiver() {
-    private val notification: NotificationWithProgressBar = NotificationWithProgressBar()
+    private val notification = NotificationWithProgressBar()
 
     init {
         notification.channelId = CHANNEL_ID

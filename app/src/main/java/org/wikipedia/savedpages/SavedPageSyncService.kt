@@ -1,6 +1,5 @@
 package org.wikipedia.savedpages
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.core.app.JobIntentService
 import io.reactivex.rxjava3.core.Completable
@@ -48,10 +47,9 @@ import org.wikipedia.views.CircularProgressBar
 import retrofit2.Response
 import java.io.IOException
 import java.util.*
-import kotlin.jvm.Throws
 
 class SavedPageSyncService : JobIntentService() {
-    private val savedPageSyncNotification: SavedPageSyncNotification = SavedPageSyncNotification()
+    private val savedPageSyncNotification = SavedPageSyncNotification()
     val app: WikipediaApp = WikipediaApp.getInstance()
 
     override fun onHandleWork(intent: Intent) {
@@ -106,7 +104,6 @@ class SavedPageSyncService : JobIntentService() {
         }.also { itemsSaved = it }
     }
 
-    @SuppressLint("CheckResult")
     private fun deletePageContents(page: ReadingListPage) {
         Completable.fromAction { OfflineObjectDbHelper.instance().deleteObjectsForPageId(page.id()) }.subscribeOn(Schedulers.io())
                 .subscribe({}) { obj: Throwable -> obj.printStackTrace() }
@@ -132,7 +129,6 @@ class SavedPageSyncService : JobIntentService() {
             var success = false
             var totalSize: Long = 0
             try {
-
                 // Lengthy operation during which the db state may change...
                 totalSize = savePageFor(page)
                 success = true
@@ -193,14 +189,9 @@ class SavedPageSyncService : JobIntentService() {
                         val fileUrls: MutableSet<String> = HashSet()
 
                         // download css and javascript assets
-                        if (mobileHTMLRsp.body != null) {
-                            val body = mobileHTMLRsp.body!!.string()
-                            val componentsUrls = PageComponentsUrlParser().parse(body, pageTitle.wikiSite)
-                            for (url in componentsUrls) {
-                                if (url.isNotEmpty()) {
-                                    fileUrls.add(url)
-                                }
-                            }
+                        mobileHTMLRsp.body?.let {
+                            fileUrls.addAll(PageComponentsUrlParser().parse(it.string(),
+                                    pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
                         }
                         if (Prefs.isImageDownloadEnabled()) {
                             // download thumbnail and lead image
