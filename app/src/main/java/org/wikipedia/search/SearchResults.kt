@@ -12,7 +12,7 @@ data class SearchResults(
     constructor(results: MutableList<SearchResult>) : this(results, null)
     constructor(pages: MutableList<MwQueryPage>, wiki: WikiSite, continuation: Map<String, String>?, suggestion: String?) : this() {
         // Sort the array based on the "index" property
-        pages.sortWith { o1, o2 -> (o1?.index()!!.compareTo(o2?.index()!!)) }
+        pages.sortWith { o1, o2 -> o1?.index()!!.compareTo(o2?.index()!!) }
         pages.forEach { results.add(SearchResult(it, wiki)) }
         this.continuation = continuation
         this.suggestion = suggestion
