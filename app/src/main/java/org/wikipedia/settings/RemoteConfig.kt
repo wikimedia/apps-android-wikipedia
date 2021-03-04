@@ -6,11 +6,6 @@ import org.json.JSONObject
 class RemoteConfig {
     private var curConfig: JSONObject? = null
 
-    fun updateConfig(newConfig: JSONObject) {
-        Prefs.setRemoteConfigJson(newConfig.toString())
-        curConfig = newConfig
-    }
-
     // If there's no pref set, just give back the empty JSON Object
     val config: JSONObject
         get() {
@@ -24,4 +19,9 @@ class RemoteConfig {
             }
             return curConfig!!
         }
+
+    fun updateConfig(newConfig: JSONObject) {
+        Prefs.setRemoteConfigJson(newConfig.toString())
+        curConfig = newConfig
+    }
 }
