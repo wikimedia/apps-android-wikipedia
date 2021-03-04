@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 class RemoteConfigRefreshTask : RecurringTask() {
     override val name = "remote-config-refresher"
-    
+
     override fun shouldRun(lastRun: Date): Boolean {
         return System.currentTimeMillis() - lastRun.time >= RUN_INTERVAL_MILLI
     }
