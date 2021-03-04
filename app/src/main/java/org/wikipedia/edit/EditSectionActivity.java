@@ -90,6 +90,7 @@ public class EditSectionActivity extends BaseActivity {
     @BindView(R.id.edit_section_abusefilter_image) ImageView abuseFilterImage;
     @BindView(R.id.edit_section_abusefilter_title) TextView abusefilterTitle;
     @BindView(R.id.edit_section_abusefilter_text) TextView abusefilterText;
+    @BindView(R.id.captcha_container) View captchaInnerContainer;
     @BindView(R.id.edit_section_captcha_container) View captchaContainer;
 
     private CsrfTokenClient csrfClient;
@@ -164,7 +165,7 @@ public class EditSectionActivity extends BaseActivity {
         syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
         sectionScrollView.setSmoothScrollingEnabled(false);
 
-        captchaHandler = new CaptchaHandler(this, title.getWikiSite(), sectionText, "", null);
+        captchaHandler = new CaptchaHandler(this, title.getWikiSite(), captchaInnerContainer, sectionText, "", null);
 
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
         editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
@@ -179,13 +180,6 @@ public class EditSectionActivity extends BaseActivity {
 
         if (savedInstanceState != null && savedInstanceState.containsKey("hasTemporaryWikitextStored")) {
             sectionWikitext = Prefs.getTemporaryWikitext();
-        }
-
-        captchaHandler.restoreState(savedInstanceState);
-
-        if (savedInstanceState != null && savedInstanceState.containsKey("abusefilter")) {
-            abusefilterEditResult = savedInstanceState.getParcelable("abusefilter");
-            handleAbuseFilter();
         }
 
         errorView.setRetryClickListener(v -> {
@@ -607,9 +601,7 @@ public class EditSectionActivity extends BaseActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("hasTemporaryWikitextStored", true);
-        outState.putParcelable("abusefilter", abusefilterEditResult);
         outState.putBoolean("sectionTextModified", sectionTextModified);
-        captchaHandler.saveState(outState);
         Prefs.storeTemporaryWikitext(sectionWikitext);
     }
 
