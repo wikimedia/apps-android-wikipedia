@@ -272,6 +272,11 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         val newCount = oldCount + 1
         Prefs.setImageRecsDailyCount(newCount)
 
+        val durationBoost = when (newCount) {
+            DAILY_COUNT_TARGET -> 5
+            else -> 3
+        }
+
         val progressText = when {
             newCount < DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_progress)
             newCount == DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_complete)
@@ -311,7 +316,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 callback().nextPage(this)
                 callback().logSuccess()
             }
-        }, duration * 3)
+        }, duration * durationBoost)
     }
 
     override fun publishEnabled(): Boolean {
