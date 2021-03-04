@@ -66,8 +66,8 @@ class SavedPageSyncNotification : BroadcastReceiver() {
     }
 
     companion object {
-        val instance = SavedPageSyncNotification()
         private const val CHANNEL_ID = "SYNCING_CHANNEL"
         private const val NOTIFICATION_ID = 1001
+        val instance = SavedPageSyncNotification()
     }
 }
