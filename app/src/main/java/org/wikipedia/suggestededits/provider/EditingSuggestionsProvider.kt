@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.*
@@ -270,9 +271,12 @@ object EditingSuggestionsProvider {
                         break
                     }
                     val arr = line.split('\t')
-
-                    val list = GsonUnmarshaller.unmarshal(object : TypeToken<List<ImageRecommendationResponse.ImageRecommendation>>() {}, arr[4])
-                    articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[3], list[0]))
+                    try {
+                        val list = GsonUnmarshaller.unmarshal(object : TypeToken<List<ImageRecommendationResponse.ImageRecommendation>>() {}, arr[4])
+                        articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[3], list[0]))
+                    } catch (e: Exception) {
+                        L.e(e)
+                    }
                     if (articlesWithMissingImagesCache.size > 1000) {
                         break
                     }

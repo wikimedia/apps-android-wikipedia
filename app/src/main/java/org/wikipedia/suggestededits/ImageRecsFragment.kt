@@ -103,6 +103,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             scrolled = true
         })
 
+        ImageZoomHelper.setViewZoomable(binding.imageView)
         binding.dailyProgressView.setMaximum(DAILY_COUNT_TARGET)
 
         getNextItem()
@@ -189,7 +190,9 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             return
         }
 
-        ImageZoomHelper.setViewZoomable(binding.imageView)
+        binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
+        binding.articleDescription.text = summary.description
+        binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
 
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.recommendation.image, WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
@@ -201,10 +204,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
 
-                    binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
-                    binding.articleDescription.text = summary.description
-                    binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
-
                     binding.articleScrollSpacer.post {
                         if (isAdded) {
                             binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.imageSuggestionContainer.height)
@@ -213,7 +212,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
-
                     binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, page!!.recommendation.note))
 
                     ViewAnimations.fadeIn(binding.imageSuggestionContainer)

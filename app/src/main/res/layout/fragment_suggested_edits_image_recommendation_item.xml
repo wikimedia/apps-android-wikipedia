@@ -9,9 +9,7 @@
         android:id="@+id/cardItemProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="64dp" />
+        android:layout_gravity="center" />
 
     <org.wikipedia.views.WikiErrorView
         android:id="@+id/cardItemErrorView"
@@ -305,7 +303,7 @@
         android:focusable="true"
         android:visibility="gone"
         android:elevation="14dp"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <View
             android:id="@+id/publishBackgroundView"
