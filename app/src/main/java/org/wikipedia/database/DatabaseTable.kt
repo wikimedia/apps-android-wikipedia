@@ -85,10 +85,11 @@ abstract class DatabaseTable<T>(private val tableName: String, val baseContentUR
     }
 
     protected open fun onUpgradeSchema(db: SQLiteDatabase, fromVersion: Int, toVersion: Int) {}
-    private fun createTables(db: SQLiteDatabase) {
+
+    protected fun createTables(db: SQLiteDatabase) {
         L.i("Creating table=$tableName")
         val cols = getColumnsAdded(dBVersionIntroducedAt)
-        db.execSQL("CREATE TABLE " + tableName + " ( " + cols.joinToString(", ") + " )")
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " ( " + cols.joinToString(", ") + " )")
     }
 
     private fun dropTable(db: SQLiteDatabase) {
