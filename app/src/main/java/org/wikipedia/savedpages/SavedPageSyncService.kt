@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.core.app.JobIntentService
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.ObservableEmitter
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.Request
 import okio.Buffer
@@ -36,7 +35,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import retrofit2.Response
 import java.io.IOException
-import java.util.*
 
 class SavedPageSyncService : JobIntentService() {
     private val savedPageSyncNotification = SavedPageSyncNotification()
@@ -96,7 +94,7 @@ class SavedPageSyncService : JobIntentService() {
 
     private fun deletePageContents(page: ReadingListPage) {
         Completable.fromAction { OfflineObjectDbHelper.instance().deleteObjectsForPageId(page.id()) }.subscribeOn(Schedulers.io())
-                .subscribe({}) { obj: Throwable -> L.e(obj) }
+                .subscribe({}) { obj -> L.e(obj) }
     }
 
     private fun savePages(queue: MutableList<ReadingListPage>): Int {
@@ -117,7 +115,7 @@ class SavedPageSyncService : JobIntentService() {
             }
             savedPageSyncNotification.setNotificationProgress(applicationContext, itemsTotal, itemsSaved)
             var success = false
-            var totalSize: Long = 0
+            var totalSize = 0L
             try {
                 // Lengthy operation during which the db state may change...
                 totalSize = savePageFor(page)
@@ -160,23 +158,21 @@ class SavedPageSyncService : JobIntentService() {
     @Throws(Exception::class)
     private fun savePageFor(page: ReadingListPage): Long {
         val pageTitle = ReadingListPage.toPageTitle(page)
-        var pageSize: Long = 0
+        var pageSize = 0L
         var exception: Exception? = null
         reqPageSummary(pageTitle)
-                .flatMap { rsp: Response<PageSummary?> ->
+                .flatMap { rsp ->
                     val revision = if (rsp.body() != null) rsp.body()!!.revision else 0
                     Observable.zip(Observable.just(rsp),
                             reqMediaList(pageTitle, revision),
-                            reqMobileHTML(pageTitle)) { summaryRsp: Response<PageSummary?>,
-                                                        mediaListRsp: Response<MediaList>,
-                                                        mobileHTMLRsp: okhttp3.Response ->
+                            reqMobileHTML(pageTitle)) { summaryRsp, mediaListRsp, mobileHTMLRsp ->
                         page.downloadProgress(SUMMARY_PROGRESS)
                         app.bus.post(PageDownloadEvent(page))
                         page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS)
                         app.bus.post(PageDownloadEvent(page))
                         page.downloadProgress(MEDIA_LIST_PROGRESS)
                         app.bus.post(PageDownloadEvent(page))
-                        val fileUrls: MutableSet<String> = HashSet()
+                        val fileUrls = mutableSetOf<String>()
 
                         // download css and javascript assets
                         mobileHTMLRsp.body?.let {
@@ -209,10 +205,12 @@ class SavedPageSyncService : JobIntentService() {
                     }
                 }
                 .subscribeOn(Schedulers.io())
-                .blockingSubscribe({ size: Long -> pageSize = size }) { t: Throwable -> exception = t as Exception }
-        if (exception != null) {
-            throw exception!!
+                .blockingSubscribe({ size -> pageSize = size }) { t -> exception = t as Exception }
+
+        exception?.let {
+            throw it
         }
+
         return pageSize
     }
 
@@ -235,7 +233,7 @@ class SavedPageSyncService : JobIntentService() {
                 ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
                         RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText),
                 pageTitle).build()
-        return Observable.create { emitter: ObservableEmitter<okhttp3.Response> ->
+        return Observable.create { emitter ->
             try {
                 if (!emitter.isDisposed) {
                     emitter.onNext(client.newCall(request).execute())
@@ -275,7 +273,7 @@ class SavedPageSyncService : JobIntentService() {
 
     @Throws(IOException::class)
     private fun reqSaveUrl(pageTitle: PageTitle, wiki: WikiSite, url: String) {
-        val request: Request = makeUrlRequest(wiki, url, pageTitle).build()
+        val request = makeUrlRequest(wiki, url, pageTitle).build()
         val rsp = client.newCall(request).execute()
 
         // Read the entirety of the response, so that it's written to cache by the interceptor.
