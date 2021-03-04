@@ -16,6 +16,7 @@ import android.view.View
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -278,7 +279,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private inner class NonExclusiveBusConsumer : Consumer<Any> {
         override fun accept(event: Any) {
             if (event is ThemeFontChangeEvent) {
-                recreate()
+                ActivityCompat.recreate(this@BaseActivity)
             }
         }
     }
