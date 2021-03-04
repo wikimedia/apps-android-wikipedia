@@ -15,12 +15,12 @@ object SiteInfoClient {
 
     @JvmStatic
     fun getMainPageForLang(lang: String): String {
-        val info = getSiteInfoForLang(lang)
-        return if (info != null && !info.mainpage.isNullOrEmpty()) {
-            info.mainpage
-        } else {
-            MainPageNameData.valueFor(lang)
+        getSiteInfoForLang(lang)?.let {
+            if (!it.mainpage.isNullOrEmpty()) {
+                return it.mainpage
+            }
         }
+        return MainPageNameData.valueFor(lang)
     }
 
     @JvmStatic
