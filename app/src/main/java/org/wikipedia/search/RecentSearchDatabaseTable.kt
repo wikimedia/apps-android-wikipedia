@@ -39,6 +39,6 @@ class RecentSearchDatabaseTable : DatabaseTable<RecentSearch>(SearchHistoryContr
     }
 
     companion object {
-        const val DB_VER_INTRODUCED = 0
+        const val DB_VER_INTRODUCED = 5
     }
 }
