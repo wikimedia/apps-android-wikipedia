@@ -8,11 +8,11 @@ internal class EditAbuseFilterResult(val code: String?, val info: String?, val w
     // TODO: More properly handle the case where the AbuseFilter throws an arbitrary error.
     // Oh, and, you know, also fix the AbuseFilter API to not throw arbitrary error codes.
     val type: Int
-        get() = if (code != null && code.startsWith("abusefilter-warning")) {
+        get() = if (code.orEmpty().startsWith("abusefilter-warning")) {
             TYPE_WARNING
-        } else if (code != null && code.startsWith("abusefilter-disallowed")) {
+        } else if (code.orEmpty().startsWith("abusefilter-disallowed")) {
             TYPE_ERROR
-        } else if (info != null && info.startsWith("Hit AbuseFilter")) {
+        } else if (info.orEmpty().startsWith("Hit AbuseFilter")) {
             // This case is here because, unfortunately, an admin can create an abuse filter which
             // emits an arbitrary error code over the API.
             // TODO: More properly handle the case where the AbuseFilter throws an arbitrary error.
