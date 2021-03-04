@@ -3,10 +3,6 @@ package org.wikipedia.settings
 import org.json.JSONException
 import org.json.JSONObject
 
-/**
- * Store for config values that are retrieved from a server,
- * and refreshed periodically.
- */
 class RemoteConfig {
     private var curConfig: JSONObject? = null
 
