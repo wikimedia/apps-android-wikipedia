@@ -20,7 +20,6 @@ import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.databinding.DialogAddToReadingListBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.ReadingListItemView
 import org.wikipedia.readinglist.ReadingListTitleDialog.readingListTitleDialog
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListDbHelper
