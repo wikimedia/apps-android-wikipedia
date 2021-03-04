@@ -40,6 +40,10 @@ class ImageRecsDialog : DialogFragment() {
         binding.checkBox5.setOnCheckedChangeListener(checkBoxChangedHandler)
         binding.checkBox6.setOnCheckedChangeListener(checkBoxChangedHandler)
 
+        binding.cancelButton.setOnClickListener {
+            dismiss()
+        }
+
         binding.continueButton.setOnClickListener {
             val itemList = ArrayList<Int>()
             if (binding.checkBox1.isChecked) { itemList.add(0) }
@@ -69,7 +73,7 @@ class ImageRecsDialog : DialogFragment() {
             binding.checkBox3.text = getString(R.string.image_recommendations_task_choice_nosubject)
             binding.checkBox4.text = getString(R.string.image_recommendations_task_choice_understand)
             binding.checkBox5.text = getString(R.string.image_recommendations_task_choice_other)
-            binding.checkBox6.visibility = View.INVISIBLE
+            binding.checkBox6.visibility = View.GONE
         }
 
         updateSubmitState()

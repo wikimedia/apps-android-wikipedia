@@ -233,6 +233,7 @@
   <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
   <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.\n\n{{optional}}</string>
   <string name="suggested_edits_image_tags_help_url">URL for more information about contributing image tags from the app.</string>
+  <string name="suggested_edits_image_recs_help_url">URL for more information about the image recommendations feature.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
   <string name="about_contributors">URL leading to the page of the Wikimedia Android app team. {{doc-important|Please don\'t translate links and link titles.}}</string>

@@ -248,7 +248,9 @@
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
             android:theme="@style/AppTheme.ActionBar" />
 
-        <activity android:name=".suggestededits.ImageRecsOnboardingActivity" />
+        <activity
+            android:name=".suggestededits.ImageRecsOnboardingActivity"
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".userprofile.ContributionsActivity"
