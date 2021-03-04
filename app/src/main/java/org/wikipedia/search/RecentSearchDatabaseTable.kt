@@ -2,6 +2,7 @@ package org.wikipedia.search
 
 import android.content.ContentValues
 import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.column.Column
 import org.wikipedia.database.contract.SearchHistoryContract
@@ -38,7 +39,14 @@ class RecentSearchDatabaseTable : DatabaseTable<RecentSearch>(SearchHistoryContr
         return super.getPrimaryKeySelection(obj, SearchHistoryContract.Col.SELECTION)
     }
 
+    override fun onUpgradeSchema(db: SQLiteDatabase, fromVersion: Int, toVersion: Int) {
+        if (toVersion == DB_VER_FIXED_FROM_CORRUPTION) {
+            createTables(db)
+        }
+    }
+
     companion object {
-        const val DB_VER_INTRODUCED = 0
+        const val DB_VER_INTRODUCED = 5
+        const val DB_VER_FIXED_FROM_CORRUPTION = 22
     }
 }
