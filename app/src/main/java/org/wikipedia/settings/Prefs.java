@@ -982,6 +982,12 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_image_recs_teacher_mode, false);
     }
 
+    public static int getImageRecsItemSequence() {
+        int seq = getInt(R.string.preference_key_image_recs_item_sequence, 0);
+        setInt(R.string.preference_key_image_recs_item_sequence, seq + 1);
+        return seq;
+    }
+
     public static int getImageRecsDailyCount() {
         return getInt(R.string.preference_key_image_recs_daily_progress, 0);
     }
