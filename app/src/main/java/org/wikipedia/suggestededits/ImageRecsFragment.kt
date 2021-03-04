@@ -185,21 +185,23 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.cardItemErrorView.visibility = GONE
         binding.articleContentContainer.visibility = if (page != null) VISIBLE else GONE
         binding.imageSuggestionContainer.visibility = GONE
-        binding.cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
+        binding.cardItemProgressBar.visibility = VISIBLE
         if (page == null || summary == null) {
             return
         }
-
-        binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
-        binding.articleDescription.text = summary.description
-        binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
 
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.recommendation.image, WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry(5)
                 .subscribe({ response ->
+                    binding.cardItemProgressBar.visibility = GONE
+
                     val imageInfo = response.query()!!.firstPage()!!.imageInfo()!!
+
+                    binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
+                    binding.articleDescription.text = summary.description
+                    binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
 
                     binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
