@@ -31,6 +31,7 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewAnimations
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -182,7 +183,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     private fun updateContents(summary: PageSummary?) {
         binding.cardItemErrorView.visibility = GONE
         binding.articleContentContainer.visibility = if (page != null) VISIBLE else GONE
-        binding.imageSuggestionContainer.visibility = if (page != null) VISIBLE else GONE
+        binding.imageSuggestionContainer.visibility = GONE
         binding.cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
         if (page == null || summary == null) {
             return
@@ -214,6 +215,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
 
                     binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, page!!.recommendation.note))
+
+                    ViewAnimations.fadeIn(binding.imageSuggestionContainer)
 
                     maybeShowTooltipSequence()
                 }, { setErrorState(it) }))
