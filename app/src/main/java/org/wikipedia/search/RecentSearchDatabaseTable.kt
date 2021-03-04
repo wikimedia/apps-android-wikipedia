@@ -40,11 +40,13 @@ class RecentSearchDatabaseTable : DatabaseTable<RecentSearch>(SearchHistoryContr
     }
 
     override fun onUpgradeSchema(db: SQLiteDatabase, fromVersion: Int, toVersion: Int) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + SearchHistoryContract.TABLE +
-                " ( " + getColumnsAdded(dBVersionIntroducedAt).joinToString(", ") + " )")
+        if (toVersion == DB_VER_FIXED_FROM_CORRUPTION) {
+            createTables(db)
+        }
     }
 
     companion object {
         const val DB_VER_INTRODUCED = 5
+        const val DB_VER_FIXED_FROM_CORRUPTION = 22
     }
 }
