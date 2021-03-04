@@ -93,7 +93,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.imageCard.setOnClickListener {
             if (page != null) {
-                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.recommendation.image, WikiSite(Service.COMMONS_URL))))
+                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.recommendation.image, WikiSite(Service.COMMONS_URL)), false))
                 detailsClicked = true
             }
         }
