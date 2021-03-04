@@ -53,18 +53,14 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="end|center_vertical">
 
-                <ImageView
+                <Button
                     android:id="@+id/fragment_onboarding_forward_button"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:contentDescription="@string/onboarding_continue"
-                    android:scaleType="center"
-                    app:tint="?attr/colorAccent"
-                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp" />
+                    style="@style/TransparentButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:text="@string/onboarding_continue"
+                    android:textColor="?attr/colorAccent" />
 
                 <Button
                     android:id="@+id/fragment_onboarding_done_button"

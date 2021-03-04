@@ -36,8 +36,17 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         binding.taskTitle.text = task.title
         binding.taskDescription.text = task.description
         binding.primaryButton.text = task.primaryAction
+        if (task.primaryActionIcon != 0) {
+            binding.primaryButton.setIconResource(task.primaryActionIcon)
+            binding.primaryButton.iconSize = DimenUtil.roundedDpToPx(16f)
+            binding.primaryButton.iconPadding = DimenUtil.roundedDpToPx(8f)
+        }
         binding.taskIcon.setImageResource(task.imageDrawable)
-        binding.taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
+        binding.taskTitleNewLabel.visibility = if (task.new) VISIBLE else GONE
+        binding.taskDailyProgress?.visibility = if (!task.new && task.dailyProgressMax > 0) VISIBLE else GONE
+        if (task.dailyProgressMax > 0) {
+            binding.taskDailyProgress?.update(task.dailyProgress, task.dailyProgressMax)
+        }
 
         setOnClickListener {
             if (!task.disabled) {

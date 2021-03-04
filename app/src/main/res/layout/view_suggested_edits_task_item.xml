@@ -48,7 +48,15 @@
             android:textSize="14sp"
             android:textColor="@color/green50"
             android:textStyle="bold"
+            android:textAllCaps="true"
             android:text="@string/suggested_edits_task_new"/>
+
+        <org.wikipedia.suggestededits.DailyProgressViewSmall
+            android:id="@+id/taskDailyProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/taskTitle" />
 
         <TextView
             android:id="@+id/taskDescription"

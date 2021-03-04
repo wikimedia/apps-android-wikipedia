@@ -106,7 +106,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
-        setUpTasks()
         binding.tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
@@ -127,6 +126,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        setUpTasks()
         refreshContents()
         SuggestedEditsFunnel.get().resume()
     }
@@ -422,7 +422,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.description = getString(R.string.image_recommendations_task_detail)
         imageRecommendationsTask.imageDrawable = R.drawable.ic_article_images
         imageRecommendationsTask.primaryAction = getString(R.string.image_recommendations_task_get_started)
-        imageRecommendationsTask.new = true
+        imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
+        imageRecommendationsTask.new = Prefs.shouldShowImageRecsOnboarding()
+        imageRecommendationsTask.dailyProgressMax = ImageRecsFragment.DAILY_COUNT_TARGET
+        imageRecommendationsTask.dailyProgress = Prefs.getImageRecsDailyCount()
 
         displayedTasks.add(imageRecommendationsTask)
         displayedTasks.add(addDescriptionsTask)
