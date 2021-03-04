@@ -129,6 +129,7 @@
   <string name="login_forgot_password">A bwung swang-nwuai ang ja kee?</string>
   <string name="create_account_already_have">A ka̱n byia̱ a̱la̱n a?</string>
   <string name="create_account_activity_title">Khwuk a̱la̱n</string>
+  <string name="dialog_create_account_checking_progress">Á̱ cat cucuk</string>
   <string name="create_account_email_hint">Imet (Khai fwuo hwa)</string>
   <string name="create_account_password_repeat_hint">Bu-lyuut swang-nwuai</string>
   <string name="create_account_passwords_mismatch_error">Swáng-nwuai tai njhyang bah</string>
@@ -523,6 +524,7 @@
   <string name="suggested_edits_task_image_caption_title">Mbeang pipyia̱ a̱lyiat ghwughwu</string>
   <string name="suggested_edits_task_translate_caption_title">Bwuak pipyia̱ a̱lyiat ghwughwu</string>
   <string name="suggested_edits_task_translate_caption_description">Bwuak pipyia̱ a̱lyiat ghwughwu nat di̱ lilyem ghyáng</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Á̱ nyim si̱ nang a jhyuk á̱lyiat wa̱i mi̱ wa̱i a̱ti̱kut %d (á̱ cat cucuk)</string>
   <string name="suggested_edits_task_multilingual_negative">Si̱ nung gwa bah</string>
   <string name="suggested_edits_task_multilingual_positive">Mbeang lilyem</string>
   <string name="suggested_edits_image_caption_summary_title_image">Ghwughwu</string>
@@ -540,22 +542,32 @@
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Wa̱i ghwughwu (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Ghwughwu</string>
   <string name="suggested_edits_image_preview_dialog_artist">A̱tyughwang</string>
+  <string name="suggested_edits_image_preview_dialog_tags">A̱yaalama</string>
   <string name="suggested_edits_image_preview_dialog_date">Mam zwat</string>
   <string name="suggested_edits_image_preview_dialog_source">A̱vwuoneet/A̱tyukyiakghwughwu</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Nwuat kwambwat yak</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Nkhang njhyang</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Peji fail nshyia̱ Wikimidya Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Peji fail nshyia̱ Wikipidya</string>
+  <string name="suggested_edits_article_cta_image_tags">Mbeang a̱yaalama ghwughwu</string>
   <string name="suggested_edits_article_cta_image_caption">Mbeang a̱pyia̱ a̱lyiat ghwughwu</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Mbeang a̱pyia̱ a̱lyiat ghwughwu (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Li</string>
   <string name="suggested_edits_feed_card_add_image_caption">Mbeang a̱pyia̱ a̱lyiat ghwughwu</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Mbeang a̱pyia̱ a̱lyiat ghwughwu (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Mbeang a̱yaalama ghwughwu</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Cyet a lii</string>
   <string name="suggested_edits_task_action_text_add">Mbeang</string>
   <string name="suggested_edits_task_action_text_translate">Bwuak</string>
   <string name="suggested_edits_image_captions">Pipyia̱ a̱lyiat ghwughwu</string>
+  <string name="suggested_edits_image_tags">A̱yaalama ghwughwu</string>
   <string name="suggested_edits_image_tags_publishing">Á̱ shyia̱ di̱ shei</string>
   <string name="suggested_edits_image_tags_published">Á̱ shei</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Tyei a̱yaalama tazwa nghwughwu ni̱ ntyia̱ shyat naa ku li ma̱ hyohyoot.</string>
+  <string name="suggested_edits_image_tags_published_list">Shei a̱yaalama</string>
+  <string name="suggested_edits_image_tags_search">Zop a̱yaalama</string>
+  <string name="suggested_edits_image_tags_add_tag">Mbeang a̱lama</string>
+  <string name="suggested_edits_image_zoom_tooltip">Swat a nhyaat cung ghwughwu huni.</string>
   <string name="suggested_edits_views_label_text">Nwuan mi̱ nwuan</string>
   <string name="suggested_edits_quality_label_text">Cet jhyuk</string>
   <string name="suggested_edits_quality_perfect_text">A̱za̱za̱rak</string>
@@ -589,8 +601,11 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Lyuo</string>
   <string name="suggested_edits_encourage_account_creation_title">A wa lyen nyia̱ konyan wa maai jhyuk Wikipidya a?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Nwuo/Shyia̱ nwuai Wikipidya</string>
+  <string name="suggested_edits_contribution_type_image_tag">A̱lama ghwughwu</string>
+  <string name="suggested_edits_contribution_current_revision_text">Jhyuk ang hu mi̱ di̱ yong huni shyia̱ bat Wikipidya</string>
   <string name="file_page_activity_title">Peji fail</string>
   <string name="file_page_add_image_caption_button">Mbeang a̱pyia̱ a̱lyiat ghwughwu</string>
+  <string name="file_page_add_image_tags_button">Mbeang a̱yaalama ghwughwu</string>
   <string name="description_edit_revert_subtitle">A̱gwai mat jhyuk Wikipidya!</string>
   <string name="description_edit_login_cancel_button_text">Lyang</string>
   <string name="size_gb">%.2f GB</string>
@@ -599,6 +614,7 @@
   <string name="onboarding_continue">Ya a̱son</string>
   <string name="onboarding_get_started">Ka̱di zi̱ tsa</string>
   <string name="onboarding_maybe_later">Ka̱ doot jenjini̱shi</string>
+  <string name="onboarding_explore_title">Nvak cyet nfai</string>
   <string name="onboarding_analytics_switch_title">Ta̱m ma̱ng deita nyian ta̱m</string>
   <string name="onboarding_got_it">N fi̱k</string>
   <string name="onboarding_multilingual_secondary_text">Zi̱ ta̱taat si̱ hu ku khwi ni mi̱ kyangta̱m ang hu:</string>
@@ -628,6 +644,7 @@
   <string name="wikipedia_languages_add_language_text">Mbeang a̱lyem</string>
   <string name="wikipedia_languages_remove_text">Turung a̱lyem</string>
   <string name="wikipedia_languages_remove_action_mode_title">Turung a̱lyem</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Si̱ mi̱n nga a̱mgba̱m lilyem wu bah</string>
   <string name="more_language_options">nkyang njhyang</string>
   <string name="add_wikipedia_languages_text">Mbeang lilyem Wikipidya</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Jhyuk lilyem</string>
@@ -645,6 +662,7 @@
   <string name="wikitext_bold">A̱tutuk</string>
   <string name="wikitext_italic">Italik</string>
   <string name="wikitext_link">A̱fwop</string>
+  <string name="wikitext_bulleted_list">Lis hyet ntsuung</string>
   <string name="wikitext_numbered_list">Lis la̱mba</string>
   <string name="wikitext_template">Templet</string>
   <string name="wikitext_reference">Ta̱fang</string>
@@ -699,4 +717,7 @@
   <string name="watchlist_filter_talk">A̱lyiat</string>
   <string name="watchlist_filter_pages">Pejí</string>
   <string name="watchlist_filter_other">A̱ghyang</string>
+  <string name="watchlist_page_moved">Á̱ shyei</string>
+  <string name="watchlist_page_protected">Á̱ cok</string>
+  <string name="watchlist_page_deleted">Á̱ ti̱n</string>
 </resources>
