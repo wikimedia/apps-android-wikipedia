@@ -144,6 +144,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             R.id.menu_help -> {
                 if (action == ADD_IMAGE_TAGS) {
                     FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_tags_help_url)
+                } else if (action == IMAGE_RECOMMENDATION) {
+                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_recs_help_url)
                 } else {
                     FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 }
