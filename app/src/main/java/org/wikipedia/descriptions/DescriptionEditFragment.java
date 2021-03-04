@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -40,8 +41,10 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,12 +78,14 @@ public class DescriptionEditFragment extends Fragment {
         void onBottomBarContainerClicked(@NonNull DescriptionEditActivity.Action action);
     }
 
+    public static final String TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})";
+    private static final String[] DESCRIPTION_TEMPLATES = {"Short description", "SHORTDESC"};
+
     private static final String ARG_TITLE = "title";
     private static final String ARG_REVIEWING = "inReviewing";
     private static final String ARG_DESCRIPTION = "description";
     private static final String ARG_HIGHLIGHT_TEXT = "highlightText";
     private static final String ARG_ACTION = "action";
-    private static final String ARG_INVOKE_SOURCE = "invokeSource";
     private static final String ARG_SOURCE_SUMMARY = "sourceSummary";
     private static final String ARG_TARGET_SUMMARY = "targetSummary";
 
@@ -94,9 +99,10 @@ public class DescriptionEditFragment extends Fragment {
     @Nullable private DescriptionEditFunnel funnel;
     private Action action;
     private InvokeSource invokeSource;
-    private CompositeDisposable disposables = new CompositeDisposable();
+    private final CompositeDisposable disposables = new CompositeDisposable();
+    private final Pattern templateParsePattern = Pattern.compile(TEMPLATE_PARSE_REGEX);
 
-    private Runnable successRunnable = new Runnable() {
+    private final Runnable successRunnable = new Runnable() {
         @Override public void run() {
             if (!AccountUtil.isLoggedIn()) {
                 Prefs.incrementTotalAnonDescriptionsEdited();
@@ -144,7 +150,7 @@ public class DescriptionEditFragment extends Fragment {
         args.putString(ARG_SOURCE_SUMMARY, sourceSummary);
         args.putString(ARG_TARGET_SUMMARY, targetSummary);
         args.putSerializable(ARG_ACTION, action);
-        args.putSerializable(ARG_INVOKE_SOURCE, source);
+        args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         instance.setArguments(args);
         return instance;
     }
@@ -157,7 +163,7 @@ public class DescriptionEditFragment extends Fragment {
                 : DescriptionEditFunnel.Type.EXISTING;
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT);
         action = (Action) requireArguments().getSerializable(ARG_ACTION);
-        invokeSource = (InvokeSource) requireArguments().getSerializable(ARG_INVOKE_SOURCE);
+        invokeSource = (InvokeSource) requireArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
 
         if (requireArguments().getString(ARG_SOURCE_SUMMARY) != null) {
             sourceSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, requireArguments().getString(ARG_SOURCE_SUMMARY));
@@ -257,6 +263,10 @@ public class DescriptionEditFragment extends Fragment {
         return FragmentUtil.getCallback(this, Callback.class);
     }
 
+    private boolean shouldWriteToLocalWiki() {
+        return (action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION) && pageTitle.getWikiSite().languageCode().equals("en");
+    }
+
     private class EditViewCallback implements DescriptionEditView.Callback {
         private final WikiSite wikiData = new WikiSite(Service.WIKIDATA_URL, "");
         private final WikiSite wikiCommons = new WikiSite(Service.COMMONS_URL);
@@ -275,7 +285,7 @@ public class DescriptionEditFragment extends Fragment {
                 if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
                     csrfClient = new CsrfTokenClient(wikiCommons);
                 } else {
-                    csrfClient = new CsrfTokenClient(wikiData, pageTitle.getWikiSite());
+                    csrfClient = new CsrfTokenClient(shouldWriteToLocalWiki() ? pageTitle.getWikiSite() : wikiData, pageTitle.getWikiSite());
                 }
                 getEditTokenThenSave(false);
 
@@ -292,7 +302,13 @@ public class DescriptionEditFragment extends Fragment {
             csrfClient.request(forceLogin, new CsrfTokenClient.Callback() {
                 @Override
                 public void success(@NonNull String token) {
-                    postDescription(token);
+                    if (shouldWriteToLocalWiki()) {
+                        // If the description is being applied to an article on English Wikipedia, it
+                        // should be written directly to the article instead of Wikidata.
+                        postDescriptionToArticle(token);
+                    } else {
+                        postDescriptionToWikidata(token);
+                    }
                 }
 
                 @Override
@@ -308,10 +324,59 @@ public class DescriptionEditFragment extends Fragment {
             });
         }
 
-        /* send updated description to Wikidata */
         @SuppressWarnings("checkstyle:magicnumber")
-        private void postDescription(@NonNull String editToken) {
+        private void postDescriptionToArticle(@NonNull String editToken) {
+            WikiSite wikiSite = WikiSite.forLanguageCode(pageTitle.getWikiSite().languageCode());
 
+            disposables.add(ServiceFactory.get(wikiSite).getWikiTextForSection(pageTitle.getPrefixedText(), 0)
+                    .subscribeOn(Schedulers.io())
+                    .flatMap(mwQueryResponse -> {
+                        String text = mwQueryResponse.query().firstPage().revisions().get(0).content();
+                        long baseRevId = mwQueryResponse.query().firstPage().revisions().get(0).getRevId();
+
+                        text = updateDescriptionInArticle(text, editView.getDescription());
+
+                        return ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.getPrefixedText(),
+                                "0", null, action == ADD_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                        : action == TRANSLATE_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : "",
+                                AccountUtil.isLoggedIn() ? "user" : null, text, null, baseRevId, editToken, null, null)
+                                .subscribeOn(Schedulers.io());
+                    })
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(result -> {
+                        if (result.hasEditResult() && result.edit() != null) {
+                            if (result.edit().editSucceeded()) {
+                                new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4));
+                                if (funnel != null) {
+                                    funnel.logSaved(result.edit().newRevId());
+                                }
+                            } else if (result.edit().hasEditErrorCode()) {
+
+                                // TODO: handle AbuseFilter messages
+                                // new EditAbuseFilterResult(result.edit().code(), result.edit().info(), result.edit().warning());
+
+                                editFailed(new IOException(StringUtils.defaultString(result.edit().warning())), false);
+                            } else if (result.edit().hasCaptchaResponse()) {
+
+                                // TODO: handle captcha.
+                                // new CaptchaResult(result.edit().captchaId());
+
+                                if (funnel != null) {
+                                    funnel.logCaptchaShown();
+                                }
+                            } else if (result.edit().hasSpamBlacklistResponse()) {
+                                editFailed(new IOException(getString(R.string.editing_error_spamblacklist)), false);
+                            } else {
+                                editFailed(new IOException("Received unrecognized edit response"), true);
+                            }
+                        } else {
+                            editFailed(new IOException("An unknown error occurred."), true);
+                        }
+                    }, caught -> editFailed(caught, true)));
+        }
+
+        @SuppressWarnings("checkstyle:magicnumber")
+        private void postDescriptionToWikidata(@NonNull String editToken) {
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.getWikiSite().languageCode())).getSiteInfo()
                     .flatMap(response -> {
                         String languageCode = response.query().siteInfo() != null
@@ -416,5 +481,18 @@ public class DescriptionEditFragment extends Fragment {
                 FeedbackUtil.showMessage(requireActivity(), R.string.error_voice_search_not_available);
             }
         }
+    }
+
+    @NonNull
+    private String updateDescriptionInArticle(@NonNull String articleText, @NonNull String newDescription) {
+        String newText;
+        if (templateParsePattern.matcher(articleText).find()) {
+            // update existing description template
+            newText = articleText.replaceFirst(TEMPLATE_PARSE_REGEX, "$1" + newDescription + "$3");
+        } else {
+            // add new description template
+            newText = "{{" + DESCRIPTION_TEMPLATES[0] + "|" + newDescription + "}}\n" + articleText;
+        }
+        return newText;
     }
 }

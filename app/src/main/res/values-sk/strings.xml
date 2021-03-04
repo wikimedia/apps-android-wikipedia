@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * AtonX
 * EditorPO
 * Hromoslav
@@ -9,6 +8,7 @@
 * Lexected
 * Luky001
 * Patriccck
+* Patrik L.
 * Pmikolas44
 * Rudko
 * Spider 001757
@@ -29,6 +29,7 @@
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Navrhované úpravy</string>
+  <string name="nav_item_more">Viac</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
@@ -357,7 +358,6 @@
   <string name="text_size_increase">Zväčšiť veľkosť textu</string>
   <string name="text_size_decrease">Zmenšiť veľkosť textu</string>
   <string name="text_size_percent_default">%s (predvolená hodnota)</string>
-  <string name="nav_item_reading_lists">Moje zoznamy</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_move_to">Presunúť do zoznamu na prečítanie</string>
   <string name="reading_list_create_new">Vytvoriť nový</string>

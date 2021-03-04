@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Ahrada2016
 * Bsitzmann
 * Oromoo
 * Tumsaa
@@ -73,6 +74,7 @@
   <string name="gallery_uploader_unknown">Ol fe\'aan hin beekkamu.</string>
   <string name="color_theme_light">Ifaa</string>
   <string name="color_theme_dark">Dukkanaa\'aa</string>
+  <string name="nav_item_saved">Olkaa\'ameera</string>
   <string name="reading_list_article_added_to_default_list">%s ol kayame. Tarreetti isa dabaluu feetaa?</string>
   <string name="reading_list_add_to_list_button">Tarreetti dabali</string>
 </resources>

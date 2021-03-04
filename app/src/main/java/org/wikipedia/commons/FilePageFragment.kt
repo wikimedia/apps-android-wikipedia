@@ -11,9 +11,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.R
+import org.wikipedia.databinding.FragmentFilePageBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -29,6 +28,8 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class FilePageFragment : Fragment() {
+    private var _binding: FragmentFilePageBinding? = null
+    private val binding get() = _binding!!
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
     private val disposables = CompositeDisposable()
@@ -38,24 +39,27 @@ class FilePageFragment : Fragment() {
         pageTitle = arguments?.getParcelable(ARG_PAGE_TITLE)!!
         retainInstance = true
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
+        _binding = FragmentFilePageBinding.inflate(inflater, container, false)
         L10nUtil.setConditionalLayoutDirection(container!!, pageTitle.wikiSite.languageCode())
-        return inflater.inflate(R.layout.fragment_file_page, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        swipeRefreshLayout.setOnRefreshListener {
-            swipeRefreshLayout.isRefreshing = false
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            binding.swipeRefreshLayout.isRefreshing = false
             loadImageInfo()
         }
-        errorView.setBackClickListener { requireActivity().finish() }
+        binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         loadImageInfo()
     }
 
     override fun onDestroyView() {
         disposables.clear()
+        _binding = null
         super.onDestroyView()
     }
 
@@ -69,10 +73,10 @@ class FilePageFragment : Fragment() {
     }
 
     private fun showError(caught: Throwable?) {
-        progressBar.visibility = View.GONE
-        filePageView.visibility = View.GONE
-        errorView.visibility = View.VISIBLE
-        errorView.setError(caught)
+        binding.progressBar.visibility = View.GONE
+        binding.filePageView.visibility = View.GONE
+        binding.errorView.visibility = View.VISIBLE
+        binding.errorView.setError(caught)
     }
 
     private fun loadImageInfo() {
@@ -83,9 +87,9 @@ class FilePageFragment : Fragment() {
         var thumbnailWidth = 0
         var thumbnailHeight = 0
 
-        errorView.visibility = View.GONE
-        filePageView.visibility = View.GONE
-        progressBar.visibility = View.VISIBLE
+        binding.errorView.visibility = View.GONE
+        binding.filePageView.visibility = View.GONE
+        binding.progressBar.visibility = View.VISIBLE
 
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()), {
@@ -133,14 +137,14 @@ class FilePageFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    filePageView.visibility = View.VISIBLE
-                    progressBar.visibility = View.GONE
-                    filePageView.setup(
+                    binding.filePageView.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                    binding.filePageView.setup(
                             this,
                             pageSummaryForEdit,
                             imageTags,
                             page,
-                            container.width,
+                            binding.container.width,
                             thumbnailWidth,
                             thumbnailHeight,
                             imageFromCommons = isFromCommons,

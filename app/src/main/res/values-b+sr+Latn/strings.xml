@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Patriccck
 * Srđan
 -->
@@ -336,7 +335,6 @@
   <string name="text_size_increase">Povećaj veličinu teksta</string>
   <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_size_percent_default">%s (podrazumevano)</string>
-  <string name="nav_item_reading_lists">Moje liste</string>
   <string name="reading_list_save_to">Sačuvaj na listu za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>
   <string name="reading_list_title_exists">Lista za čitanje „%s” već postoji.</string>

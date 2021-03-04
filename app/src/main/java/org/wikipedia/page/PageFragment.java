@@ -31,6 +31,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
@@ -212,7 +213,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
         @Override
         public void onAddToReadingListTabSelected() {
-            Prefs.shouldShowBookmarkToolTip(false);
             if (model.isInReadingList()) {
                 new LongPressMenu(tabLayout, new LongPressMenu.Callback() {
                     @Override
@@ -407,8 +407,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge = new CommunicationBridge(this);
         setupMessageHandlers();
 
-        errorView.setRetryClickListener((v) -> refreshPage());
-        errorView.setBackClickListener((v) -> {
+        errorView.setRetryClickListener(v -> refreshPage());
+        errorView.setBackClickListener(v-> {
             boolean back = onBackPressed();
 
             // Needed if we're coming from another activity or fragment
@@ -544,7 +544,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setVisibility(View.VISIBLE);
         }
 
-        checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
 
         bridge.onMetadataReady();
@@ -1120,7 +1119,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
-            if (backLinks.size() > 0) {
+            if (backLinks != null && backLinks.size() > 0) {
                 List<String> backLinksList = new ArrayList<>();
                 for (int i = 0; i < backLinks.size(); i++) {
                     backLinksList.add(backLinks.get(i).getAsJsonObject().get("id").getAsString());
@@ -1130,11 +1129,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
-            int diffY = payload.getAsJsonObject("rect").has("y")
-                    ? DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat())
-                    : DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("top").getAsFloat());
-            final int offsetFraction = 3;
-            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
+            JsonObject rect = payload.getAsJsonObject("rect");
+            if (rect != null) {
+                int diffY = rect.has("y")
+                        ? DimenUtil.roundedDpToPx(rect.get("y").getAsFloat())
+                        : DimenUtil.roundedDpToPx(rect.get("top").getAsFloat());
+                final int offsetFraction = 3;
+                webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
+            }
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
@@ -1294,15 +1296,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         pageFragmentLoadState.goForward();
     }
 
-    private void checkAndShowBookmarkOnboarding() {
-        if (Prefs.shouldShowBookmarkToolTip() && Prefs.getOverflowReadingListsOptionClickCount() == 2) {
-            View targetView = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
-            FeedbackUtil.showTapTargetView(requireActivity(), targetView,
-                    R.string.tool_tip_bookmark_icon_title, R.string.tool_tip_bookmark_icon_text, null);
-            Prefs.shouldShowBookmarkToolTip(false);
-        }
-    }
-
     private void initPageScrollFunnel() {
         if (model.getPage() != null) {
             pageScrollFunnel = new PageScrollFunnel(app, model.getPage().getPageProperties().getPageId());
@@ -1347,7 +1340,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     @Override
     public void onToggleDimImages() {
-        requireActivity().recreate();
+        ActivityCompat.recreate(requireActivity());
     }
 
     @Override

@@ -448,7 +448,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
             startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                     new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
-                            AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode())),
+                            AccountUtil.getUserName(),
+                            WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode())),
                     NAV_MENU));
         }
     }
@@ -581,7 +582,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 }
                 new WatchlistFunnel().logShowTooltipMore();
                 Prefs.setWatchlistMainOnboardingTooltipShown(true);
-                FeedbackUtil.showTooltip(requireActivity(), moreContainer, R.layout.view_watchlist_main_tooltip, 180, 0, 0, true);
+                FeedbackUtil.showTooltip(requireActivity(), moreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, true);
             }, 500);
         }
     }

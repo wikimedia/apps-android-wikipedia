@@ -61,11 +61,11 @@ class RandomItemFragment : Fragment() {
             }
         }
 
-        binding.randomItemErrorView.setBackClickListener {
+        binding.randomItemErrorView.backClickListener = View.OnClickListener {
             requireActivity().finish()
         }
 
-        binding.randomItemErrorView.setRetryClickListener {
+        binding.randomItemErrorView.retryClickListener = View.OnClickListener {
             binding.randomItemProgress.visibility = View.VISIBLE
             getRandomPage()
         }

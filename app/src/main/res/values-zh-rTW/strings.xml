@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * A2093064
-* Abijeet Patro
 * Cwlin0416
 * Dbrant
 * Eric850130
@@ -66,6 +65,8 @@
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於條目尋找</string>
   <string name="menu_page_add_to_watchlist">新增至監視清單</string>
+  <string name="menu_page_view_talk">檢視討論頁</string>
+  <string name="menu_page_view_edit_history">檢視編輯歷史</string>
   <string name="menu_page_remove_from_watchlist">從監視清單中移除</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與佈景主題</string>
@@ -123,7 +124,7 @@
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
   <string name="login_2fa_hint">雙重驗證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙因素驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙重驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -144,7 +145,7 @@
   <string name="logged_out_in_background_dialog">您已登出維基百科。您要重新登入嗎？</string>
   <string name="logged_out_in_background_login">登入</string>
   <string name="logged_out_in_background_cancel">取消</string>
-  <string name="history_empty_title">沒有近期檢視的頁面</string>
+  <string name="history_empty_title">沒有近期查看過的條目</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="history_offline_articles_toast">一些在歷史紀錄裡的條目可能無法在離線時閱覽。</string>
   <string name="search_empty_message">以您的語言來搜尋閱讀自由的百科全書</string>
@@ -396,7 +397,7 @@
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
   <string name="text_style_title">字型</string>
-  <string name="nav_item_reading_lists">我的清單</string>
+  <string name="nav_item_saved">已儲存</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_move_to">移動至閱讀清單</string>
   <string name="reading_list_create_new">建立新的</string>

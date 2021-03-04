@@ -9,9 +9,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
-import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
 import org.wikipedia.R
+import org.wikipedia.databinding.FragmentSuggestedEditsCardsItemBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -28,30 +27,33 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
 class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
+    private var _binding: FragmentSuggestedEditsCardsItemBinding? = null
+    private val binding get() = _binding!!
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var addedContribution: String = ""
         internal set
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_suggested_edits_cards_item, container, false)
+        _binding = FragmentSuggestedEditsCardsItemBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
+        setConditionalLayoutDirection(binding.viewArticleContainer, parent().langFromCode)
 
-        viewArticleImage.setOnClickListener {
+        binding.viewArticleImage.setOnClickListener {
             if (Prefs.shouldShowImageZoomTooltip()) {
                 Prefs.setShouldShowImageZoomTooltip(false)
                 FeedbackUtil.showMessage(requireActivity(), R.string.suggested_edits_image_zoom_tooltip)
             }
         }
 
-        cardItemErrorView.setBackClickListener { requireActivity().finish() }
-        cardItemErrorView.setRetryClickListener {
-            cardItemProgressBar.visibility = VISIBLE
+        binding.cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
+        binding.cardItemErrorView.retryClickListener = View.OnClickListener {
+            binding.cardItemProgressBar.visibility = VISIBLE
             getArticleWithMissingDescription()
         }
         updateContents()
@@ -59,12 +61,17 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             getArticleWithMissingDescription()
         }
 
-        viewArticleContainer.setOnClickListener {
+        binding.viewArticleContainer.setOnClickListener {
             if (sourceSummaryForEdit != null) {
                 parent().onSelectPage()
             }
         }
         showAddedContributionView(addedContribution)
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     private fun getArticleWithMissingDescription() {
@@ -224,30 +231,30 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
     fun showAddedContributionView(addedContribution: String?) {
         if (!addedContribution.isNullOrEmpty()) {
-            viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = addedContribution
+            binding.viewArticleSubtitleContainer.visibility = VISIBLE
+            binding.viewArticleSubtitle.text = addedContribution
             this.addedContribution = addedContribution
         }
     }
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
-        cardItemErrorView.setError(t)
-        cardItemErrorView.visibility = VISIBLE
-        cardItemProgressBar.visibility = GONE
-        cardItemContainer.visibility = GONE
+        binding.cardItemErrorView.setError(t)
+        binding.cardItemErrorView.visibility = VISIBLE
+        binding.cardItemProgressBar.visibility = GONE
+        binding.cardItemContainer.visibility = GONE
     }
 
     private fun updateContents() {
         val sourceAvailable = sourceSummaryForEdit != null
-        cardItemErrorView.visibility = GONE
-        cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
-        cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
+        binding.cardItemErrorView.visibility = GONE
+        binding.cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
+        binding.cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
         if (!sourceAvailable) {
             return
         }
 
-        ImageZoomHelper.setViewZoomable(viewArticleImage)
+        ImageZoomHelper.setViewZoomable(binding.viewArticleImage)
 
         if (parent().action == ADD_DESCRIPTION || parent().action == TRANSLATE_DESCRIPTION) {
             updateDescriptionContents()
@@ -257,28 +264,28 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     }
 
     private fun updateDescriptionContents() {
-        viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle)
-        viewArticleTitle.visibility = VISIBLE
+        binding.viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle)
+        binding.viewArticleTitle.visibility = VISIBLE
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
-            viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummaryForEdit!!.description
+            binding.viewArticleSubtitleContainer.visibility = VISIBLE
+            binding.viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummaryForEdit!!.description
         }
 
-        viewImageSummaryContainer.visibility = GONE
+        binding.viewImageSummaryContainer.visibility = GONE
 
-        viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummaryForEdit!!.extractHtml!!)
+        binding.viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummaryForEdit!!.extractHtml!!)
         if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
-            viewArticleImagePlaceholder.visibility = GONE
+            binding.viewArticleImagePlaceholder.visibility = GONE
         } else {
-            viewArticleImagePlaceholder.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+            binding.viewArticleImagePlaceholder.visibility = VISIBLE
+            binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
         }
     }
 
     private fun updateCaptionContents() {
-        viewArticleTitle.visibility = GONE
-        viewArticleSubtitleContainer.visibility = VISIBLE
+        binding.viewArticleTitle.visibility = GONE
+        binding.viewArticleSubtitleContainer.visibility = VISIBLE
 
         val descriptionText = when {
             addedContribution.isNotEmpty() -> addedContribution
@@ -286,22 +293,22 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             else -> getString(R.string.suggested_edits_no_description)
         }
 
-        viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
-        viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummaryForEdit!!.displayTitle!!))
+        binding.viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
+        binding.viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummaryForEdit!!.displayTitle!!))
 
         if (!sourceSummaryForEdit!!.user.isNullOrEmpty()) {
-            viewImageArtist.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
-            viewImageArtist.setDetailText(sourceSummaryForEdit!!.user)
+            binding.viewImageArtist.setTitleText(getString(R.string.suggested_edits_image_caption_summary_title_author))
+            binding.viewImageArtist.setDetailText(sourceSummaryForEdit!!.user)
         } else {
-            viewImageArtist.titleText.text = StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist())
+            binding.viewImageArtist.setTitleText(StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist()))
         }
 
-        viewImageDate.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
-        viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
-        viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
+        binding.viewImageDate.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
+        binding.viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
+        binding.viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 
-        viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
-        viewArticleExtract.visibility = GONE
+        binding.viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+        binding.viewArticleExtract.visibility = GONE
     }
 
     companion object {

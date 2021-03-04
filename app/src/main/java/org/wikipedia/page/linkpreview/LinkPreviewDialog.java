@@ -216,16 +216,22 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                 .subscribe(response -> {
                     PageSummary summary = response.body();
                     funnel.setPageId(summary.getPageId());
-                    pageTitle.setThumbUrl(summary.getThumbnailUrl());
                     revision = summary.getRevision();
-                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                    // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
+
+                    // Rebuild our PageTitle, since it may have been redirected or normalized.
+                    String oldFragment = pageTitle.getFragment();
+                    pageTitle = new PageTitle(summary.getApiTitle(), pageTitle.getWikiSite(), summary.getThumbnailUrl(),
+                            summary.getDescription(), summary.getDisplayTitle());
+
                     // check if our URL was redirected, which might include a URL fragment that leads
                     // to a specific section in the target article.
                     if (!TextUtils.isEmpty(response.raw().request().url().fragment())) {
                         pageTitle.setFragment(response.raw().request().url().fragment());
+                    } else if (!TextUtils.isEmpty(oldFragment)) {
+                        pageTitle.setFragment(oldFragment);
                     }
+
+                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);

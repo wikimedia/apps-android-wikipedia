@@ -15,6 +15,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.Collections;
+import java.util.regex.Pattern;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.observers.TestObserver;
@@ -26,6 +27,18 @@ import static org.mockito.Mockito.when;
 
 public class DescriptionEditClientTest extends MockRetrofitTest {
     private static final String MOCK_EDIT_TOKEN = "+\\";
+
+    @Test public void testEditLocalDescriptionWithRegex() {
+        String text = "test test test test {{Short description|This is a description.}} foo foo {{Another template|12345}} foo foo";
+        String newText = text.replaceFirst(DescriptionEditFragment.TEMPLATE_PARSE_REGEX, "$1" + "New description." + "$3");
+        assertThat(Pattern.compile(DescriptionEditFragment.TEMPLATE_PARSE_REGEX).matcher(text).find(), is(true));
+        assertThat(newText, is("test test test test {{Short description|New description.}} foo foo {{Another template|12345}} foo foo"));
+    }
+
+    @Test public void testRegexWithNoLocalDescription() {
+        String text = "test test test test foo foo {{Another template|12345}} foo foo";
+        assertThat(Pattern.compile(DescriptionEditFragment.TEMPLATE_PARSE_REGEX).matcher(text).find(), is(false));
+    }
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("description_edit.json");

@@ -11,12 +11,12 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_watchlist.*
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.WatchlistFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.databinding.FragmentWatchlistBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -35,29 +35,31 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback, WatchlistLanguagePopupView.Callback {
+    private var _binding: FragmentWatchlistBinding? = null
+    private val binding get() = _binding!!
     private val disposables = CompositeDisposable()
     private val totalItems = ArrayList<MwQueryResult.WatchlistItem>()
     private var filterMode = FILTER_MODE_ALL
     private var displayLanguages = listOf<String>()
     private val funnel = WatchlistFunnel()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        val view = inflater.inflate(R.layout.fragment_watchlist, container, false)
+        _binding = FragmentWatchlistBinding.inflate(inflater, container, false)
 
         (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.watchlist_title)
 
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        watchlistRefreshView.setOnRefreshListener { fetchWatchlist(true) }
+        binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.watchlistRefreshView.setOnRefreshListener { fetchWatchlist(true) }
 
-        watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.watchlistRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         updateDisplayLanguages()
         fetchWatchlist(false)
@@ -70,9 +72,10 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         setHasOptionsMenu(true)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         disposables.clear()
+        _binding = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -101,16 +104,22 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
 
     private fun fetchWatchlist(refreshing: Boolean) {
         disposables.clear()
-        watchlistEmptyContainer.visibility = View.GONE
-        watchlistRecyclerView.visibility = View.GONE
-        watchlistErrorView.visibility = View.GONE
+        binding.watchlistEmptyContainer.visibility = View.GONE
+        binding.watchlistRecyclerView.visibility = View.GONE
+        binding.watchlistErrorView.visibility = View.GONE
 
         if (!AccountUtil.isLoggedIn) {
             return
         }
 
+        if (displayLanguages.isEmpty()) {
+            binding.watchlistEmptyContainer.visibility = View.VISIBLE
+            binding.watchlistProgressBar.visibility = View.GONE
+            return
+        }
+
         if (!refreshing) {
-            watchlistProgressBar.visibility = View.VISIBLE
+            binding.watchlistProgressBar.visibility = View.VISIBLE
         }
 
         val calls = ArrayList<Observable<MwQueryResponse>>()
@@ -134,8 +143,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    watchlistRefreshView.isRefreshing = false
-                    watchlistProgressBar.visibility = View.GONE
+                    binding.watchlistRefreshView.isRefreshing = false
+                    binding.watchlistProgressBar.visibility = View.GONE
                 }
                 .subscribe({ items ->
                     onSuccess(items)
@@ -153,8 +162,8 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     private fun onError(t: Throwable) {
-        watchlistErrorView.setError(t)
-        watchlistErrorView.visibility = View.VISIBLE
+        binding.watchlistErrorView.setError(t)
+        binding.watchlistErrorView.visibility = View.VISIBLE
     }
 
     private fun onUpdateList(watchlistItems: List<MwQueryResult.WatchlistItem>) {
@@ -181,12 +190,12 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         }
 
         if (filterMode == FILTER_MODE_ALL && items.size < 2) {
-            watchlistRecyclerView.visibility = View.GONE
-            watchlistEmptyContainer.visibility = View.VISIBLE
+            binding.watchlistRecyclerView.visibility = View.GONE
+            binding.watchlistEmptyContainer.visibility = View.VISIBLE
         } else {
-            watchlistEmptyContainer.visibility = View.GONE
-            watchlistRecyclerView.adapter = RecyclerAdapter(items)
-            watchlistRecyclerView.visibility = View.VISIBLE
+            binding.watchlistEmptyContainer.visibility = View.GONE
+            binding.watchlistRecyclerView.adapter = RecyclerAdapter(items)
+            binding.watchlistRecyclerView.visibility = View.VISIBLE
         }
     }
 

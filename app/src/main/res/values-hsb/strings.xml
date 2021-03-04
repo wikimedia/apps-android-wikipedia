@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * J budissin
 * Michawiki
@@ -327,7 +326,6 @@
   <string name="text_size_increase">Tekst powjetšić</string>
   <string name="text_size_decrease">Tekst pomjeńšić</string>
   <string name="text_size_percent_default">%s (standard)</string>
-  <string name="nav_item_reading_lists">Moje lisćiny</string>
   <string name="reading_list_save_to">K čitanskej lisćinje přidać</string>
   <string name="reading_list_create_new">Nowu wutworić</string>
   <string name="reading_list_title_exists">Čitanska lisćina „%s“ hižo eksistuje.</string>

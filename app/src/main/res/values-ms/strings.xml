@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Anakmalaysia
 * Arifin.wijaya
 * Aviator
@@ -359,7 +358,6 @@
   <string name="text_size_increase">Tingkatkan saiz teks</string>
   <string name="text_size_decrease">Kurangkan saiz teks</string>
   <string name="text_size_percent_default">%s (Asal)</string>
-  <string name="nav_item_reading_lists">Senarai saya</string>
   <string name="reading_list_save_to">Simpan ke senarai bacaan</string>
   <string name="reading_list_move_to">Pindah ke senarai pembacaan</string>
   <string name="reading_list_create_new">Cipta yang baru</string>

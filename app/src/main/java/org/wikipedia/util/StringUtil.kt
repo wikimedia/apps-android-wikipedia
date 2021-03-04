@@ -8,7 +8,6 @@ import androidx.annotation.IntRange
 import androidx.core.text.HtmlCompat
 import com.google.gson.Gson
 import okio.ByteString.Companion.encodeUtf8
-import org.apache.commons.lang3.StringUtils
 import org.json.JSONArray
 import java.text.Collator
 import java.text.Normalizer
@@ -39,21 +38,8 @@ object StringUtil {
 
     @JvmStatic
     fun strip(str: CharSequence?): CharSequence {
-        if (str.isNullOrEmpty()) {
-            return ""
-        }
-        val len = str.length
-        var start = 0
-        var end = len - 1
-        while (start < len && str[start].isWhitespace()) {
-            start++
-        }
-        while (end > 0 && str[end].isWhitespace()) {
-            end--
-        }
-        return if (end > start) {
-            str.subSequence(start, end + 1)
-        } else ""
+        // TODO: remove this function once Kotlin conversion of consumers is complete.
+        return if (str.isNullOrEmpty()) "" else str.trim()
     }
 
     @JvmStatic
@@ -63,17 +49,17 @@ object StringUtil {
 
     @JvmStatic
     fun addUnderscores(text: String?): String {
-        return StringUtils.defaultString(text).replace(" ", "_")
+        return text.orEmpty().replace(" ", "_")
     }
 
     @JvmStatic
     fun removeUnderscores(text: String?): String {
-        return StringUtils.defaultString(text).replace("_", " ")
+        return text.orEmpty().replace("_", " ")
     }
 
     @JvmStatic
     fun removeSectionAnchor(text: String?): String {
-        StringUtils.defaultString(text).let {
+        text.orEmpty().let {
             return if (it.contains("#")) it.substring(0, it.indexOf("#")) else it
         }
     }
@@ -88,7 +74,7 @@ object StringUtil {
     }
 
     @JvmStatic
-    fun removeHTMLTags(text: String): String {
+    fun removeHTMLTags(text: String?): String {
         return fromHtml(text).toString()
     }
 

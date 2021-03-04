@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Saraiki
 -->
 <resources>
@@ -215,7 +214,6 @@
   <string name="color_theme_dark">گہرا</string>
   <string name="color_theme_black">کالا</string>
   <string name="text_style_title">فونٹ</string>
-  <string name="nav_item_reading_lists">میݙیاں لسٹاں</string>
   <string name="reading_list_save_to">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="reading_list_create_new">نواں بݨاؤ</string>
   <string name="reading_list_added_view_button">فہرست ݙیکھو</string>
