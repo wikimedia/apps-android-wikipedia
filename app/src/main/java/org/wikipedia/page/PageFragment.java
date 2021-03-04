@@ -31,6 +31,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
@@ -708,7 +709,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         }
         if (selectedTabPosition >= 0) {
-            setCurrentTabAndReset(selectedTabPosition);
             return;
         }
 
@@ -1332,7 +1332,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     @Override
     public void onToggleDimImages() {
-        requireActivity().recreate();
+        ActivityCompat.recreate(requireActivity());
     }
 
     @Override

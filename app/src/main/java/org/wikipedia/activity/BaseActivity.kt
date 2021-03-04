@@ -16,6 +16,7 @@ import android.view.View
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -278,7 +279,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private inner class NonExclusiveBusConsumer : Consumer<Any> {
         override fun accept(event: Any) {
             if (event is ThemeFontChangeEvent) {
-                recreate()
+                ActivityCompat.recreate(this@BaseActivity)
             }
         }
     }
@@ -292,7 +293,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 SavedPageSyncService.enqueue()
             } else if (event is SplitLargeListsEvent) {
                 AlertDialog.Builder(this@BaseActivity)
-                        .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.getMaxPagesPerReadingList()))
+                        .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.maxPagesPerReadingList))
                         .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show()
             } else if (event is ReadingListsNoLongerSyncedEvent) {
