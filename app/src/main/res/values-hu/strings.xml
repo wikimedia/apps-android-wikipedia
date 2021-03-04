@@ -251,6 +251,7 @@
   <string name="find_previous">Előző keresése</string>
   <string name="find_first_occurence">Ez az első találat</string>
   <string name="find_last_occurence">Ez az utolsó találat</string>
+  <string name="article_opened_in_background_tab">A szócikk megnyílt egy fülön a háttérben.</string>
   <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan közzé akarod tenni?</string>
   <string name="abusefilter_title_disallow">Nem teheted közzé ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
   <string name="abusefilter_text_warn">Egy automatikus szűrő potenciálisan nem konstruktívnak találta a szerkesztésedet. Az alábbiak közül egyet vagy többet tartalmazhat:&lt;br /&gt;&lt;br /&gt;· Csupa nagybetűs szöveg&lt;br /&gt;· A szócikk teljes tartalmának eltávolítása vagy spam&lt;br /&gt;· Irreleváns külső linkek vagy képek&lt;br /&gt;· Karakterismétlés</string>
@@ -967,6 +968,8 @@
   <string name="menu_option_share_edit">Szerkesztés megosztása</string>
   <string name="menu_option_user_profile">%s profilja</string>
   <string name="menu_option_user_contributions">%s közreműködései</string>
+  <string name="watchlist_details_watching_label">Figyelve</string>
+  <string name="watchlist_details_watch_label">Lap figyelése</string>
   <string name="thank_label">Köszönet</string>
   <string name="go_to_user_page">Ugrás a szerkesztői lapra</string>
   <string name="thank_dialog_title_text">Nyilvános köszönetküldés</string>
