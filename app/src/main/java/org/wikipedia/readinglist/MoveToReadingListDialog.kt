@@ -20,7 +20,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.util.log.L
 import java.util.*
 
-
 class MoveToReadingListDialog : AddToReadingListDialog() {
     private var sourceReadingList: ReadingList? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
