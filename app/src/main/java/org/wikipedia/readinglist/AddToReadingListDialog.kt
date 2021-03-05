@@ -34,7 +34,7 @@ import java.util.*
 
 open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     private var _binding: DialogAddToReadingListBinding? = null
-    val binding get() = _binding!!
+    private val binding get() = _binding!!
 
     private lateinit var titles: List<PageTitle>
     private lateinit var adapter: ReadingListAdapter
@@ -42,15 +42,15 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     private var showDefaultList = false
     private val displayedLists = mutableListOf<ReadingList>()
     private val listItemCallback = ReadingListItemCallback()
+    lateinit var invokeSource: InvokeSource
     var readingLists = listOf<ReadingList>()
-    var invokeSource: InvokeSource? = null
     var disposables = CompositeDisposable()
     var dismissListener: DialogInterface.OnDismissListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         titles = requireArguments().getParcelableArrayList(PAGE_TITLE_LIST)!!
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         showDefaultList = requireArguments().getBoolean(SHOW_DEFAULT_LIST)
         adapter = ReadingListAdapter()
     }
@@ -140,20 +140,14 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun showCreateListDialog() {
-        val existingTitles: MutableList<String?> = ArrayList()
-        for (tempList in readingLists) {
-            existingTitles.add(tempList.title())
-        }
-        readingListTitleDialog(requireActivity(), "", "",
-                existingTitles) { text: String?, description: String? ->
-            val list = ReadingListDbHelper.instance().createList(text!!, description)
-            addAndDismiss(list, titles)
+        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title() }) { text, description ->
+            addAndDismiss(ReadingListDbHelper.instance().createList(text, description), titles)
         }.show()
     }
 
     private fun addAndDismiss(readingList: ReadingList, titles: List<PageTitle>?) {
-        if (readingList.pages().size + titles!!.size > SiteInfoClient.getMaxPagesPerReadingList()) {
-            val message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList())
+        if (readingList.pages().size + titles!!.size > SiteInfoClient.maxPagesPerReadingList) {
+            val message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.maxPagesPerReadingList)
             makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
             dismiss()
             return
@@ -171,7 +165,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ addedTitlesList: List<String> ->
+                .subscribe({ addedTitlesList ->
                     val message: String
                     if (addedTitlesList.isEmpty()) {
                         message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title(), titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title())
@@ -186,7 +180,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
     fun showViewListSnackBar(list: ReadingList, message: String) {
         makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
-                .setAction(R.string.reading_list_added_view_button) { v: View -> v.context.startActivity(ReadingListActivity.newIntent(v.context, list)) }.show()
+                .setAction(R.string.reading_list_added_view_button) { v -> v.context.startActivity(ReadingListActivity.newIntent(v.context, list)) }.show()
     }
 
     private inner class ReadingListItemCallback : ReadingListItemView.Callback {
