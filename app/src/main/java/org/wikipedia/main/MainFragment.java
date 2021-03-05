@@ -599,8 +599,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 if (!isAdded()) {
                     return;
                 }
-                FeedbackUtil.showTooltip(requireActivity(), tabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip,
-                        180, 0, 0, true);
+                FeedbackUtil.showTooltip(requireActivity(), tabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip, 0, 0, true, false);
             }, 500);
         }
     }
