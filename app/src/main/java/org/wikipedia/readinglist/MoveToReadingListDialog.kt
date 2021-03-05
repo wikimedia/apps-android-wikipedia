@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -68,15 +69,13 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
                         source: InvokeSource,
                         showDefaultList: Boolean = true,
                         listener: DialogInterface.OnDismissListener? = null): MoveToReadingListDialog {
-            val dialog = MoveToReadingListDialog()
-            val args = Bundle()
-            args.putParcelableArrayList(PAGE_TITLE_LIST, ArrayList<Parcelable>(titles))
-            args.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
-            args.putLong(SOURCE_READING_LIST_ID, sourceReadingListId)
-            args.putBoolean(SHOW_DEFAULT_LIST, showDefaultList)
-            dialog.arguments = args
-            dialog.dismissListener = listener
-            return dialog
+            return MoveToReadingListDialog().apply {
+                arguments = bundleOf(PAGE_TITLE_LIST to ArrayList<Parcelable>(titles),
+                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
+                        SOURCE_READING_LIST_ID to sourceReadingListId,
+                        SHOW_DEFAULT_LIST to showDefaultList)
+                dismissListener = listener
+            }
         }
     }
 }

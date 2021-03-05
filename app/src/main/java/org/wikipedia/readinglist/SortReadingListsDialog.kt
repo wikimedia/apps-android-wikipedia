@@ -11,7 +11,6 @@ import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.DialogSortReadingListsBinding
 import org.wikipedia.databinding.ViewReadingListsSortOptionsItemBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import java.util.*
 
 class SortReadingListsDialog : ExtendedBottomSheetDialogFragment() {
     fun interface Callback {
@@ -20,8 +19,9 @@ class SortReadingListsDialog : ExtendedBottomSheetDialogFragment() {
 
     private var _binding: DialogSortReadingListsBinding? = null
     private val binding get() = _binding!!
-    private var adapter: ReadingListSortAdapter? = null
-    private var sortOptions: List<String> = ArrayList()
+
+    private lateinit var adapter: ReadingListSortAdapter
+    private lateinit var sortOptions: List<String>
     private var chosenSortOption = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

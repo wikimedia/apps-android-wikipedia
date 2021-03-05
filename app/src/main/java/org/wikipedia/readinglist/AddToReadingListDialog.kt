@@ -6,6 +6,7 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -249,14 +250,12 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         fun newInstance(titles: List<PageTitle>,
                         source: InvokeSource,
                         listener: DialogInterface.OnDismissListener? = null): AddToReadingListDialog {
-            val dialog = AddToReadingListDialog()
-            val args = Bundle()
-            args.putParcelableArrayList(PAGE_TITLE_LIST, ArrayList<Parcelable>(titles))
-            args.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
-            args.putBoolean(SHOW_DEFAULT_LIST, true)
-            dialog.arguments = args
-            dialog.dismissListener = listener
-            return dialog
+            return AddToReadingListDialog().apply {
+                arguments = bundleOf(PAGE_TITLE_LIST to ArrayList<Parcelable>(titles),
+                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source,
+                        SHOW_DEFAULT_LIST to true)
+                dismissListener = listener
+            }
         }
     }
 }
