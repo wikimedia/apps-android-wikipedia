@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
@@ -81,11 +82,10 @@ class SortReadingListsDialog : ExtendedBottomSheetDialogFragment() {
         private const val SORT_OPTION = "sortOption"
         @JvmStatic
         fun newInstance(sortOption: Int): SortReadingListsDialog {
-            val dialog = SortReadingListsDialog()
-            val args = Bundle()
-            args.putInt(SORT_OPTION, sortOption)
-            dialog.arguments = args
-            return dialog
+
+            return SortReadingListsDialog().apply {
+                arguments = bundleOf(SORT_OPTION to sortOption)
+            }
         }
     }
 }
