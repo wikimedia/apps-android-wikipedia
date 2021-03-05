@@ -82,7 +82,6 @@ class SortReadingListsDialog : ExtendedBottomSheetDialogFragment() {
         private const val SORT_OPTION = "sortOption"
         @JvmStatic
         fun newInstance(sortOption: Int): SortReadingListsDialog {
-
             return SortReadingListsDialog().apply {
                 arguments = bundleOf(SORT_OPTION to sortOption)
             }

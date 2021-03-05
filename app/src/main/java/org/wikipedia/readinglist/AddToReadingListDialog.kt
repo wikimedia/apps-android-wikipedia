@@ -57,7 +57,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         _binding = DialogAddToReadingListBinding.inflate(inflater, container, false)
         binding.listOfLists.layoutManager = LinearLayoutManager(requireActivity())
         binding.listOfLists.adapter = adapter
@@ -125,7 +125,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                     ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
                     adapter.notifyDataSetChanged()
                     checkAndShowOnboarding()
-                }) { obj: Throwable -> L.w(obj) })
+                }) { obj -> L.w(obj) })
     }
 
     private inner class CreateButtonClickListener : View.OnClickListener {
@@ -176,7 +176,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                     }
                     showViewListSnackBar(readingList, message)
                     dismiss()
-                }) { obj: Throwable -> L.w(obj) })
+                }) { obj -> L.w(obj) })
     }
 
     fun showViewListSnackBar(list: ReadingList, message: String) {
@@ -200,8 +200,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
             (itemView as ReadingListItemView).setReadingList(readingList, ReadingListItemView.Description.SUMMARY)
         }
 
-        val view: ReadingListItemView
-            get() = itemView as ReadingListItemView
+        val view get() = itemView as ReadingListItemView
 
         init {
             itemView.isLongClickable = false

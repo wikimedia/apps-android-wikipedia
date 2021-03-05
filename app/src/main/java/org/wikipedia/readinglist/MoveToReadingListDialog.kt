@@ -25,7 +25,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     private var sourceReadingList: ReadingList? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val parentView = super.onCreateView(inflater, container, savedInstanceState)!!
+        val parentView = super.onCreateView(inflater, container, savedInstanceState)
         parentView.findViewById<TextView>(R.id.dialog_title).setText(R.string.reading_list_move_to)
         val sourceReadingListId = requireArguments().getLong(SOURCE_READING_LIST_ID)
         sourceReadingList = ReadingListDbHelper.instance().getListById(sourceReadingListId, false)
@@ -49,7 +49,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
                     ReadingListsFunnel().logMoveToList(readingList, readingLists.size, invokeSource)
                     showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title()) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title()))
                     dismiss()
-                }) { obj: Throwable -> L.w(obj) })
+                }) { obj -> L.w(obj) })
     }
 
     companion object {
