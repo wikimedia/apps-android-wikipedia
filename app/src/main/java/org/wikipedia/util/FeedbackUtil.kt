@@ -180,8 +180,8 @@ object FeedbackUtil {
 
     @JvmStatic
     fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
-                    arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean): Balloon {
-        return showTooltip(activity, getTooltip(anchor.context, layoutRes, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow), anchor, aboveOrBelow, false)
+                    arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
+        return showTooltip(activity, getTooltip(anchor.context, layoutRes, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
     }
 
     private fun showTooltip(activity: Activity, balloon: Balloon, anchor: View, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
@@ -215,7 +215,7 @@ object FeedbackUtil {
     }
 
     private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, arrowAnchorPadding: Int,
-                           topOrBottomMargin: Int, aboveOrBelow: Boolean): Balloon {
+                           topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
         return createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
@@ -226,7 +226,7 @@ object FeedbackUtil {
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
-            setDismissWhenTouchOutside(true)
+            setDismissWhenTouchOutside(autoDismiss)
             setLayout(layoutRes)
             setWidthRatio(if (isLandscape(context)) 0.4f else 0.8f)
             setArrowAlignAnchorPadding(arrowAnchorPadding)
