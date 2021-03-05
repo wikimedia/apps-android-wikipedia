@@ -10,9 +10,15 @@ import org.wikipedia.analytics.IntentFunnel
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
-        return SearchFragment.newInstance(intent.getSerializableExtra(
-                Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource,
-                intent.getStringExtra(QUERY_EXTRA))
+        var source = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        if (source == null) {
+            if (Intent.ACTION_SEND == intent.action) {
+                source = InvokeSource.INTENT_SHARE
+            } else if (Intent.ACTION_PROCESS_TEXT == intent.action) {
+                source = InvokeSource.INTENT_PROCESS_TEXT
+            }
+        }
+        return SearchFragment.newInstance(source!!, intent.getStringExtra(QUERY_EXTRA))
     }
 
     companion object {
