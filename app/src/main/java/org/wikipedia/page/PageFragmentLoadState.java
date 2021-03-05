@@ -196,7 +196,6 @@ public class PageFragmentLoadState {
         if (model.getTitle().namespace() == Namespace.SPECIAL) {
             // Short-circuit the entire process of fetching the Summary, since Special: pages
             // are not supported in RestBase.
-            model.setPage(null);
             bridge.resetHtml(model.getTitle());
             leadImagesHandler.loadLeadImage();
             fragment.requireActivity().invalidateOptionsMenu();
