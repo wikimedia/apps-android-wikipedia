@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.core.app.JobIntentService
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.ObservableEmitter
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.Request
 import okio.Buffer
@@ -30,23 +29,12 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DeviceUtil.isOnWiFi
-import org.wikipedia.util.DimenUtil.calculateLeadImageWidth
-import org.wikipedia.util.DimenUtil.densityScalar
-import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
-import org.wikipedia.util.ThrowableUtil.is404
-import org.wikipedia.util.ThrowableUtil.isNetworkError
-import org.wikipedia.util.ThrowableUtil.isOffline
-import org.wikipedia.util.ThrowableUtil.isTimeout
-import org.wikipedia.util.UriUtil.encodeURL
-import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
-import org.wikipedia.util.log.L.e
-import org.wikipedia.util.log.L.i
-import org.wikipedia.util.log.L.logRemoteError
+import org.wikipedia.util.*
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar
 import retrofit2.Response
 import java.io.IOException
-import java.util.*
 
 class SavedPageSyncService : JobIntentService() {
     private val savedPageSyncNotification = SavedPageSyncNotification()
@@ -58,7 +46,7 @@ class SavedPageSyncService : JobIntentService() {
             return
         }
         val pagesToSave = ReadingListDbHelper.instance().allPagesToBeForcedSave
-        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || isOnWiFi()) &&
+        if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) &&
                 Prefs.isDownloadingReadingListArticlesEnabled()) {
             pagesToSave.addAll(ReadingListDbHelper.instance().allPagesToBeSaved)
         }
@@ -73,7 +61,7 @@ class SavedPageSyncService : JobIntentService() {
                 deletePageContents(page)
             }
         } catch (e: Exception) {
-            e("Error while deleting page: " + e.message)
+            L.e("Error while deleting page: " + e.message)
         } finally {
             if (pagesToDelete.isNotEmpty()) {
                 ReadingListDbHelper.instance().purgeDeletedPages()
@@ -106,7 +94,7 @@ class SavedPageSyncService : JobIntentService() {
 
     private fun deletePageContents(page: ReadingListPage) {
         Completable.fromAction { OfflineObjectDbHelper.instance().deleteObjectsForPageId(page.id()) }.subscribeOn(Schedulers.io())
-                .subscribe({}) { obj: Throwable -> obj.printStackTrace() }
+                .subscribe({}) { obj -> L.e(obj) }
     }
 
     private fun savePages(queue: MutableList<ReadingListPage>): Int {
@@ -127,7 +115,7 @@ class SavedPageSyncService : JobIntentService() {
             }
             savedPageSyncNotification.setNotificationProgress(applicationContext, itemsTotal, itemsSaved)
             var success = false
-            var totalSize: Long = 0
+            var totalSize = 0L
             try {
                 // Lengthy operation during which the db state may change...
                 totalSize = savePageFor(page)
@@ -137,18 +125,18 @@ class SavedPageSyncService : JobIntentService() {
             } catch (e: Exception) {
                 // This can be an IOException from the storage media, or several types
                 // of network exceptions from malformed URLs, timeouts, etc.
-                e.printStackTrace()
+                L.e(e)
 
                 // If we're offline, or if there's a transient network error, then don't do
                 // anything.  Otherwise...
-                if (!isOffline(e) && !isTimeout(e) && !isNetworkError(e)) {
+                if (!ThrowableUtil.isOffline(e) && !ThrowableUtil.isTimeout(e) && !ThrowableUtil.isNetworkError(e)) {
                     // If it's not a transient network error (e.g. a 404 status response), it implies
                     // that there's no way to fetch the page next time, or ever, therefore let's mark
                     // it as "successful" so that it won't be retried again.
                     success = true
                     if (e !is HttpStatusException) {
                         // And if it's something other than an HTTP status, let's log it and see what it is.
-                        logRemoteError(e)
+                        L.logRemoteError(e)
                     }
                 }
             }
@@ -170,23 +158,21 @@ class SavedPageSyncService : JobIntentService() {
     @Throws(Exception::class)
     private fun savePageFor(page: ReadingListPage): Long {
         val pageTitle = ReadingListPage.toPageTitle(page)
-        val pageSize = arrayOfNulls<Long>(1)
-        val exception = arrayOfNulls<Exception>(1)
+        var pageSize = 0L
+        var exception: Exception? = null
         reqPageSummary(pageTitle)
-                .flatMap { rsp: Response<PageSummary?> ->
+                .flatMap { rsp ->
                     val revision = if (rsp.body() != null) rsp.body()!!.revision else 0
                     Observable.zip(Observable.just(rsp),
                             reqMediaList(pageTitle, revision),
-                            reqMobileHTML(pageTitle)) { summaryRsp: Response<PageSummary?>,
-                                                        mediaListRsp: Response<MediaList>,
-                                                        mobileHTMLRsp: okhttp3.Response ->
+                            reqMobileHTML(pageTitle)) { summaryRsp, mediaListRsp, mobileHTMLRsp ->
                         page.downloadProgress(SUMMARY_PROGRESS)
                         app.bus.post(PageDownloadEvent(page))
                         page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS)
                         app.bus.post(PageDownloadEvent(page))
                         page.downloadProgress(MEDIA_LIST_PROGRESS)
                         app.bus.post(PageDownloadEvent(page))
-                        val fileUrls: MutableSet<String> = HashSet()
+                        val fileUrls = mutableSetOf<String>()
 
                         // download css and javascript assets
                         mobileHTMLRsp.body?.let {
@@ -196,17 +182,17 @@ class SavedPageSyncService : JobIntentService() {
                         if (Prefs.isImageDownloadEnabled()) {
                             // download thumbnail and lead image
                             if (summaryRsp.body()!!.thumbnailUrl!!.isNotEmpty()) {
-                                page.thumbUrl(resolveProtocolRelativeUrl(pageTitle.wikiSite,
+                                page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite,
                                         summaryRsp.body()!!.thumbnailUrl!!))
                                 persistPageThumbnail(pageTitle, page.thumbUrl()!!)
-                                fileUrls.add(resolveProtocolRelativeUrl(
-                                        getUrlForPreferredSize(page.thumbUrl()!!, calculateLeadImageWidth())))
+                                fileUrls.add(UriUtil.resolveProtocolRelativeUrl(
+                                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl()!!, DimenUtil.calculateLeadImageWidth())))
                             }
 
                             // download article images
                             for (item in mediaListRsp.body()!!.getItems("image")) {
                                 if (item.srcSets.isNotEmpty()) {
-                                    fileUrls.add(item.getImageUrl(densityScalar))
+                                    fileUrls.add(item.getImageUrl(DimenUtil.densityScalar))
                                 }
                             }
                         }
@@ -214,38 +200,40 @@ class SavedPageSyncService : JobIntentService() {
                         page.description(summaryRsp.body()!!.description)
                         reqSaveFiles(page, pageTitle, fileUrls)
                         val totalSize = OfflineObjectDbHelper.instance().getTotalBytesForPageId(page.id())
-                        i("Saved page " + pageTitle.prefixedText + " (" + totalSize + ")")
+                        L.i("Saved page " + pageTitle.prefixedText + " (" + totalSize + ")")
                         totalSize
                     }
                 }
                 .subscribeOn(Schedulers.io())
-                .blockingSubscribe({ size: Long? -> pageSize[0] = size }) { t: Throwable? -> exception[0] = t as Exception? }
-        if (exception[0] != null) {
-            throw exception[0]!!
+                .blockingSubscribe({ size -> pageSize = size }) { t -> exception = t as Exception }
+
+        exception?.let {
+            throw it
         }
-        return pageSize[0]!!
+
+        return pageSize
     }
 
     private fun reqPageSummary(pageTitle: PageTitle): Observable<Response<PageSummary?>> {
         return ServiceFactory.getRest(pageTitle.wikiSite).getSummaryResponse(pageTitle.prefixedText,
                 null, CACHE_CONTROL_FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode(),
-                encodeURL(pageTitle.prefixedText))
+                UriUtil.encodeURL(pageTitle.prefixedText))
     }
 
     private fun reqMediaList(pageTitle: PageTitle, revision: Long): Observable<Response<MediaList>> {
         return ServiceFactory.getRest(pageTitle.wikiSite).getMediaListResponse(pageTitle.prefixedText,
                 revision, CACHE_CONTROL_FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode(),
-                encodeURL(pageTitle.prefixedText))
+                UriUtil.encodeURL(pageTitle.prefixedText))
     }
 
     private fun reqMobileHTML(pageTitle: PageTitle): Observable<okhttp3.Response> {
         val request: Request = makeUrlRequest(pageTitle.wikiSite,
                 ServiceFactory.getRestBasePath(pageTitle.wikiSite) +
-                        RestService.PAGE_HTML_ENDPOINT + encodeURL(pageTitle.prefixedText),
+                        RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText),
                 pageTitle).build()
-        return Observable.create { emitter: ObservableEmitter<okhttp3.Response> ->
+        return Observable.create { emitter ->
             try {
                 if (!emitter.isDisposed) {
                     emitter.onNext(client.newCall(request).execute())
@@ -285,7 +273,7 @@ class SavedPageSyncService : JobIntentService() {
 
     @Throws(IOException::class)
     private fun reqSaveUrl(pageTitle: PageTitle, wiki: WikiSite, url: String) {
-        val request: Request = makeUrlRequest(wiki, url, pageTitle).build()
+        val request = makeUrlRequest(wiki, url, pageTitle).build()
         val rsp = client.newCall(request).execute()
 
         // Read the entirety of the response, so that it's written to cache by the interceptor.
@@ -302,11 +290,11 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     private fun makeUrlRequest(wiki: WikiSite, url: String, pageTitle: PageTitle): Request.Builder {
-        return Request.Builder().cacheControl(CACHE_CONTROL_FORCE_NETWORK).url(resolveProtocolRelativeUrl(wiki, url))
+        return Request.Builder().cacheControl(CACHE_CONTROL_FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
                 .addHeader("Accept-Language", app.getAcceptLanguage(pageTitle.wikiSite))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.wikiSite.languageCode())
-                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, encodeURL(pageTitle.prefixedText))
+                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.prefixedText))
     }
 
     private fun persistPageThumbnail(title: PageTitle, url: String) {
@@ -322,7 +310,7 @@ class SavedPageSyncService : JobIntentService() {
         // Errors that do *not* qualify for retrying include:
         // - IllegalArgumentException (thrown for any kind of malformed URL)
         // - HTTP 404 status (for nonexistent media)
-        return !(t is IllegalArgumentException || is404(t))
+        return !(t is IllegalArgumentException || ThrowableUtil.is404(t))
     }
 
     companion object {
@@ -332,6 +320,7 @@ class SavedPageSyncService : JobIntentService() {
         const val SUMMARY_PROGRESS = 10
         const val MOBILE_HTML_SECTION_PROGRESS = 20
         const val MEDIA_LIST_PROGRESS = 30
+
         private val ENQUEUE_RUNNABLE = Runnable {
             enqueueWork(WikipediaApp.getInstance(),
                     SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.getInstance(), SavedPageSyncService::class.java))
