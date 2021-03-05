@@ -380,9 +380,9 @@ public class DescriptionEditFragment extends Fragment {
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.getWikiSite().languageCode())).getSiteInfo()
                     .flatMap(response -> {
                         String languageCode = response.query().siteInfo() != null
-                                && response.query().siteInfo().lang() != null
-                                && !response.query().siteInfo().lang().equals(CHINESE_LANGUAGE_CODE)
-                                ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
+                                && response.query().siteInfo().getLang() != null
+                                && !response.query().siteInfo().getLang().equals(CHINESE_LANGUAGE_CODE)
+                                ? response.query().siteInfo().getLang() : pageTitle.getWikiSite().languageCode();
                         return getPostObservable(editToken, languageCode);
                     })
                     .subscribeOn(Schedulers.io())
