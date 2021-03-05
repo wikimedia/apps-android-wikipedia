@@ -2,7 +2,6 @@ package org.wikipedia.search
 
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -29,7 +27,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.history.HistoryDbHelper.findHistoryItem
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.tabs.Tab
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -60,8 +57,8 @@ class SearchResultsFragment : Fragment() {
     private val searchResultsCountCache = LruCache<String, List<Int>>(MAX_CACHE_SIZE_SEARCH_RESULTS)
     private var currentSearchTerm: String? = ""
     private var lastFullTextResults: SearchResults? = null
-    private val totalResults: MutableList<SearchResult> = ArrayList()
-    private val resultsCountList: MutableList<Int> = ArrayList()
+    private val totalResults = mutableListOf<SearchResult>()
+    private val resultsCountList = mutableListOf<Int>()
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -108,16 +105,16 @@ class SearchResultsFragment : Fragment() {
     }
 
     fun startSearch(term: String?, force: Boolean) {
-        if (!force && StringUtils.equals(currentSearchTerm, term)) {
+        if (!force && currentSearchTerm == term) {
             return
         }
         cancelSearchTask()
         currentSearchTerm = term
-        if (StringUtils.isBlank(term)) {
+        if (term.isNullOrBlank()) {
             clearResults()
             return
         }
-        val cacheResult: List<SearchResult>? = searchResultsCache["$searchLanguageCode-$term"]
+        val cacheResult = searchResultsCache["$searchLanguageCode-$term"]
         val cacheResultsCount = searchResultsCountCache["$searchLanguageCode-$term"]
         if (!cacheResult.isNullOrEmpty()) {
             clearResults()
@@ -135,15 +132,15 @@ class SearchResultsFragment : Fragment() {
         searchResultsCountCache.evictAll()
     }
 
-    private fun doTitlePrefixSearch(searchTerm: String?, force: Boolean) {
+    private fun doTitlePrefixSearch(searchTerm: String, force: Boolean) {
         cancelSearchTask()
         val startTime = System.nanoTime()
         updateProgressBar(true)
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
             Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode!!)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                    if (searchTerm!!.length >= 2) Observable.fromCallable { ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm!!) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm!!) } else Observable.just(SearchResults()),
                     if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(currentSearchTerm!!) } else Observable.just(SearchResults()),
-                    { searchResponse: PrefixSearchResponse?, readingListSearchResults: SearchResults?, historySearchResults: SearchResults ->
+                    { searchResponse, readingListSearchResults: SearchResults?, historySearchResults: SearchResults ->
                         val searchResults: SearchResults = if (searchResponse?.query()!!.pages() != null) {
                             // noinspection ConstantConditions
                             SearchResults(searchResponse.query()!!.pages()!!,
@@ -163,7 +160,7 @@ class SearchResultsFragment : Fragment() {
                             SearchResults()
                         }
                         handleSuggestion(searchResults.suggestion)
-                        val resultList: MutableList<SearchResult> = ArrayList()
+                        val resultList = mutableListOf<SearchResult>()
                         addSearchResultsFromTabs(resultList)
                         resultList.addAll(readingListSearchResults!!.results)
                         resultList.addAll(historySearchResults.results)
@@ -174,9 +171,9 @@ class SearchResultsFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate { updateProgressBar(false) }
-                .subscribe({ results: MutableList<SearchResult> ->
+                .subscribe({ results ->
                     binding.searchErrorView.visibility = View.GONE
-                    handleResults(results, searchTerm!!, startTime)
+                    handleResults(results, searchTerm, startTime)
                 }) { caught: Throwable? ->
                     binding.searchErrorView.visibility = View.VISIBLE
                     binding.searchErrorView.setError(caught)
@@ -189,7 +186,7 @@ class SearchResultsFragment : Fragment() {
         if (currentSearchTerm!!.length < 2) {
             return
         }
-        val tabList: List<Tab> = WikipediaApp.getInstance().tabList
+        val tabList = WikipediaApp.getInstance().tabList
         for (tab in tabList) {
             if (tab.backStackPositionTitle != null &&
                     tab.backStackPositionTitle!!.displayText.toLowerCase(Locale.getDefault())
@@ -252,7 +249,7 @@ class SearchResultsFragment : Fragment() {
                 continueOffset?.get("continue"), continueOffset?.get("gsroffset"))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { response: MwQueryResponse ->
+                .map { response ->
                     if (response.query() != null) {
                         // noinspection ConstantConditions
                         return@map SearchResults(response.query()!!.pages()!!, WikiSite.forLanguageCode(searchLanguageCode!!),
@@ -260,7 +257,7 @@ class SearchResultsFragment : Fragment() {
                     }
                     SearchResults()
                 }
-                .flatMap { results: SearchResults ->
+                .flatMap { results ->
                     val resultList = results.results
                     cache(resultList, searchTerm!!)
                     log(resultList, startTime)
@@ -280,7 +277,7 @@ class SearchResultsFragment : Fragment() {
                 }
                 .toList()
                 .doAfterTerminate { updateProgressBar(false) }
-                .subscribe({ list: List<Int> ->
+                .subscribe({ list ->
                     var resultsCount = list
                     if (resultsCount.isNotEmpty()) {
 
@@ -306,7 +303,7 @@ class SearchResultsFragment : Fragment() {
 
     private fun doSearchResultsCountObservable(searchTerm: String?): Observable<Int> {
         return Observable.fromIterable(WikipediaApp.getInstance().language().appLanguageCodes)
-                .concatMap { langCode: String ->
+                .concatMap { langCode ->
                     if (langCode == searchLanguageCode) {
                         return@concatMap Observable.just(MwQueryResponse())
                     }
@@ -326,8 +323,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun updateProgressBar(enabled: Boolean) {
-        val callback = callback()
-        callback?.onSearchProgressBar(enabled)
+        callback()?.onSearchProgressBar(enabled)
     }
 
     private fun clearResults(clearSuggestion: Boolean = true) {
@@ -341,7 +337,7 @@ class SearchResultsFragment : Fragment() {
         lastFullTextResults = null
         totalResults.clear()
         resultsCountList.clear()
-        adapter!!.notifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
     }
 
     private val adapter: SearchResultAdapter?
@@ -368,25 +364,24 @@ class SearchResultsFragment : Fragment() {
         resultsCountList.clear()
         resultsCountList.addAll(list)
         binding.searchResultsContainer.visibility = View.VISIBLE
-        adapter!!.notifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
     }
 
     private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) : LongPressMenu.Callback {
-        private val callback = callback()
         override fun onOpenLink(entry: HistoryEntry) {
-            callback?.navigateToTitle(entry.title, false, lastPositionRequested)
+            callback()?.navigateToTitle(entry.title, false, lastPositionRequested)
         }
 
         override fun onOpenInNewTab(entry: HistoryEntry) {
-            callback?.navigateToTitle(entry.title, true, lastPositionRequested)
+            callback()?.navigateToTitle(entry.title, true, lastPositionRequested)
         }
 
         override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-            callback?.onSearchAddPageToList(entry, addToDefault)
+            callback()?.onSearchAddPageToList(entry, addToDefault)
         }
 
         override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-            callback?.onSearchMovePageToList(page!!.listId(), entry)
+            callback()?.onSearchMovePageToList(page!!.listId(), entry)
         }
     }
 
@@ -436,7 +431,7 @@ class SearchResultsFragment : Fragment() {
                     SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             view.isEnabled = resultsCount > 0
             view.setOnClickListener {
-                (parentFragment as SearchFragment?)!!.setUpLanguageScroll(position)
+                (parentFragment as SearchFragment).setUpLanguageScroll(position)
             }
         }
     }
@@ -450,7 +445,7 @@ class SearchResultsFragment : Fragment() {
             val descriptionText: GoneIfEmptyTextView = view.findViewById(R.id.page_list_item_description)
             val redirectText = view.findViewById<TextView>(R.id.page_list_item_redirect)
             val redirectArrow = view.findViewById<View>(R.id.page_list_item_redirect_arrow)
-            if (TextUtils.isEmpty(redirectFrom)) {
+            if (redirectFrom.isNullOrEmpty()) {
                 redirectText.visibility = View.GONE
                 redirectArrow.visibility = View.GONE
                 descriptionText.text = pageTitle.description
@@ -485,9 +480,8 @@ class SearchResultsFragment : Fragment() {
             }
             view.isLongClickable = true
             view.setOnClickListener {
-                val callback = callback()
                 if (position < totalResults.size) {
-                    callback?.navigateToTitle(totalResults[position].pageTitle, false, position)
+                    callback()?.navigateToTitle(totalResults[position].pageTitle, false, position)
                 }
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
@@ -497,9 +491,10 @@ class SearchResultsFragment : Fragment() {
 
     private fun cache(resultList: List<SearchResult>, searchTerm: String) {
         val cacheKey = "$searchLanguageCode-$searchTerm"
-        val cachedTitles = searchResultsCache[cacheKey]
-        cachedTitles?.addAll(resultList)
-        searchResultsCache.put(cacheKey, cachedTitles!!)
+        searchResultsCache[cacheKey]?.let {
+            it.addAll(resultList)
+            searchResultsCache.put(cacheKey, it)
+        }
     }
 
     private fun log(resultList: List<SearchResult>, startTime: Long) {
@@ -524,8 +519,8 @@ class SearchResultsFragment : Fragment() {
         return getCallback(this, Callback::class.java)
     }
 
-    private val searchLanguageCode: String?
-        get() = (parentFragment as SearchFragment?)!!.searchLanguageCode
+    private val searchLanguageCode: String
+        get() = (parentFragment as SearchFragment).searchLanguageCode
 
     companion object {
         private const val VIEW_TYPE_ITEM = 0

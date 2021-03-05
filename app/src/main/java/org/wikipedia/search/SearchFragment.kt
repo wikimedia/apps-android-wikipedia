@@ -50,7 +50,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private var app = WikipediaApp.getInstance()
     private lateinit var funnel: SearchFunnel
     private lateinit var invokeSource: InvokeSource
-    var searchLanguageCode: String? = null
+    lateinit var searchLanguageCode: String
         private set
     private var tempLangCodeHolder: String? = null
     private var langBtnClicked = false
