@@ -14,11 +14,11 @@ import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
-import org.wikipedia.util.DimenUtil.roundedDpToPx
-import org.wikipedia.util.ResourceUtil.getThemedAttributeId
-import org.wikipedia.util.StringUtil.boldenKeywordText
-import org.wikipedia.views.ViewUtil.loadImage
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ViewUtil
 
 class ReadingListItemView : ConstraintLayout {
     interface Callback {
@@ -44,12 +44,12 @@ class ReadingListItemView : ConstraintLayout {
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setPadding(0, roundedDpToPx(16f), 0, roundedDpToPx(16f))
-        background = AppCompatResources.getDrawable(context, getThemedAttributeId(context, R.attr.selectableItemBackground))
+        setPadding(0, DimenUtil.roundedDpToPx(16f), 0, DimenUtil.roundedDpToPx(16f))
+        background = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         isClickable = true
         isFocusable = true
         clearThumbnails()
-        setContextClickAsLongClick(this)
+        DeviceUtil.setContextClickAsLongClick(this)
 
         setOnClickListener {
             readingList?.let {
@@ -112,7 +112,7 @@ class ReadingListItemView : ConstraintLayout {
 
     fun setSearchQuery(searchQuery: String?) {
         // highlight search term within the text
-        boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), searchQuery)
+        StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), searchQuery)
     }
 
     fun setOverflowViewVisibility(visibility: Int) {
@@ -135,33 +135,22 @@ class ReadingListItemView : ConstraintLayout {
 
     private fun clearThumbnails() {
         imageViews.forEach {
-            loadImage(it, null)
+            ViewUtil.loadImage(it, null)
         }
     }
 
     private fun updateThumbnails() {
         readingList?.let {
             clearThumbnails()
-            val thumbUrls = mutableListOf<String>()
+            val thumbUrls = arrayOfNulls<String>(imageViews.size)
+            var thumbUrlsIndex = 0
             it.pages().forEach { page ->
-                if (!page.thumbUrl().isNullOrEmpty()) {
-                    thumbUrls.add(page.thumbUrl()!!)
-                }
-                if (thumbUrls.size > imageViews.size) {
-                    return
+                if (!page.thumbUrl().isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
+                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl()
                 }
             }
-            run {
-                var i = thumbUrls.size
-                while (i < imageViews.size && i < it.pages().size) {
-                    thumbUrls.add("")
-                    i++
-                }
-            }
-            var i = 0
-            while (i < thumbUrls.size && i < imageViews.size) {
-                loadImage(imageViews[i], thumbUrls[i])
-                ++i
+            thumbUrls.forEachIndexed { i, url ->
+                ViewUtil.loadImage(imageViews[i], url)
             }
         }
     }

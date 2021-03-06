@@ -9,8 +9,8 @@ import android.widget.FrameLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewReadingListHeaderBinding
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.GradientUtil.getPowerGradient
-import org.wikipedia.views.ViewUtil.loadImage
+import org.wikipedia.util.GradientUtil
+import org.wikipedia.views.ViewUtil
 
 class ReadingListHeaderView : FrameLayout {
 
@@ -25,7 +25,7 @@ class ReadingListHeaderView : FrameLayout {
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        binding.readingListHeaderImageGradient.background = getPowerGradient(R.color.black54, Gravity.TOP)
+        binding.readingListHeaderImageGradient.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
         if (!isInEditMode) {
             clearThumbnails()
         }
@@ -45,33 +45,22 @@ class ReadingListHeaderView : FrameLayout {
 
     private fun clearThumbnails() {
         imageViews.forEach {
-            loadImage(it, null)
+            ViewUtil.loadImage(it, null)
         }
     }
 
     private fun updateThumbnails() {
         readingList?.let {
             clearThumbnails()
-            val thumbUrls = mutableListOf<String>()
+            val thumbUrls = arrayOfNulls<String>(imageViews.size)
+            var thumbUrlsIndex = 0
             it.pages().forEach { page ->
-                if (!page.thumbUrl().isNullOrEmpty()) {
-                    thumbUrls.add(page.thumbUrl()!!)
-                }
-                if (thumbUrls.size > imageViews.size) {
-                    return
+                if (!page.thumbUrl().isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
+                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl()
                 }
             }
-            run {
-                var i = thumbUrls.size
-                while (i < imageViews.size && i < it.pages().size) {
-                    thumbUrls.add("")
-                    i++
-                }
-            }
-            var i = 0
-            while (i < thumbUrls.size && i < imageViews.size) {
-                loadImage(imageViews[i], thumbUrls[i])
-                ++i
+            thumbUrls.forEachIndexed { i, url ->
+                ViewUtil.loadImage(imageViews[i], url)
             }
         }
     }
