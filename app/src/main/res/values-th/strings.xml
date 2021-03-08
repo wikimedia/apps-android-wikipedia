@@ -429,6 +429,7 @@
   <string name="reading_list_article_make_offline">ทำให้บทความนี้ใช้ได้ขณะออฟไลน์</string>
   <string name="reading_list_add_to_other_list">เพิ่มลงในรายการอ่านอื่น</string>
   <string name="reading_list_move_to_other_list">ย้ายไปยังรายการอ่านอื่น</string>
+  <string name="reading_list_move_from_to_other_list">ย้ายจาก %s ไปยังรายการอ่านอื่น</string>
   <string name="reading_list_remove_from_list">เอาออกจาก %s</string>
   <string name="reading_list_remove_from_lists">ลบออกจากรายการอ่าน</string>
   <string name="reading_list_select_item">เลือก</string>
@@ -543,6 +544,7 @@
   <string name="notifications_view_archived_button_text">ดูการแจ้งเตือนที่เก็บถาวร</string>
   <string name="notification_preferences_title">การตั้งค่าการแจ้งเตือน</string>
   <string name="notifications_mark_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
+  <string name="watchlist_title">รายการเฝ้าดู</string>
   <string name="preference_title_notification_poll">การแจ้งเตือนโพล</string>
   <string name="preference_summary_notification_poll">อนุญาตให้แอปใช้ข้อมูลเพื่อตรวจสอบการแจ้งเตือนใหม่ในเบื้องหลัง</string>
   <string name="preference_category_notification_types">ชนิดการแจ้งเตือนในแอป</string>
@@ -717,6 +719,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">เพิ่มคำบรรยายภาพ</string>
   <string name="suggested_edits_feed_card_translate_image_caption">เพิ่มคำบรรยายภาพ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">เพิ่มป้ายกำกับภาพ</string>
+  <string name="suggested_edits_snackbar_survey_text">ประสบการณ์ในการแก้ไขของคุณเป็นอย่างไรบ้าง โปรดสละเวลาสักครู่เพื่อทำแบบสอบถามเกี่ยวกับการแก้ไขจากภายในแอป</string>
   <string name="suggested_edits_snackbar_survey_action_text">ทำแบบสำรวจ</string>
   <string name="suggested_edits_task_action_text_add">เพิ่ม</string>
   <string name="suggested_edits_task_action_text_translate">แปล</string>
@@ -724,6 +727,7 @@
   <string name="suggested_edits_image_tags">ป้ายกำกับภาพ</string>
   <string name="suggested_edits_image_tags_publishing">กำลังเผยแพร่</string>
   <string name="suggested_edits_image_tags_published">เผยแพร่แล้ว</string>
+  <string name="suggested_edits_image_tags_onboarding_title">การเพิ่มป้ายระบุให้กับภาพช่วยให้สามารถค้นหาภาพได้ง่ายขึ้น</string>
   <string name="suggested_edits_image_tags_onboarding_note">เฉพาะแท็กที่คุณยืนยันที่จะถูกเพิ่มไปยังภาพ</string>
   <string name="suggested_edits_image_tags_published_list">แท็กที่เผยแพร่แล้ว</string>
   <string name="suggested_edits_image_tags_search">ค้นหาแท็ก</string>
@@ -750,6 +754,7 @@
     <item quantity="one">%d วัน</item>
     <item quantity="other">%d วัน</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">การแก้ไขที่แนะนำคืออะไร</string>
   <string name="suggested_edits_learn_more">เรียนรู้เพิ่มเติม</string>
   <string name="suggested_edits_paused_title">หยุดชั่วคราว</string>
   <string name="suggested_edits_disabled_title">ปิดใช้งาน</string>
@@ -847,12 +852,22 @@
   <string name="main_drawer_help">วิธีใช้</string>
   <string name="main_drawer_login">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
   <string name="main_tooltip_action_button">เริ่มต้นใช้งาน</string>
+  <string name="main_tooltip_watchlist_title">รายการเฝ้าดู</string>
   <string name="custom_date_picker_dialog_ok_button_text">ตกลง</string>
   <string name="text_input_dialog_ok_button_text">ตกลง</string>
   <string name="text_input_dialog_cancel_button_text">ยกเลิก</string>
   <string name="custom_date_picker_dialog_cancel_button_text">ยกเลิก</string>
   <string name="talk_title">คุย</string>
+  <string name="talk_new_topic">หัวข้อใหม่</string>
+  <string name="talk_page_empty">หน้าคุยนี้ว่างเปล่า</string>
   <string name="talk_add_reply">ตอบกลับ</string>
   <string name="talk_no_subject">(ไม่มีหัวเรื่อง)</string>
   <string name="talk_reply_subject">หัวเรื่อง</string>
+  <string name="watchlist_filter_all">ทั้งหมด</string>
+  <string name="watchlist_filter_talk">คุย</string>
+  <string name="watchlist_filter_pages">หน้า</string>
+  <string name="watchlist_filter_other">อื่น ๆ</string>
+  <string name="watchlist_page_moved">ถูกย้าย</string>
+  <string name="watchlist_page_protected">ถูกป้องกัน</string>
+  <string name="watchlist_page_deleted">ถูกลบ</string>
 </resources>
