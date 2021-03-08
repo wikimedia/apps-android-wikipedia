@@ -293,6 +293,8 @@
   <string name="gallery_save_success">ফাইল সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন।</string>
+  <string name="gallery_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
+  <string name="gallery_add_image_caption_in_language_button">ছবির ক্যাপশন যোগ করুন (%s)</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
   <string name="cc_logo">ক্রিয়েটিভ কমন্স লাইসেন্স</string>
@@ -323,7 +325,7 @@
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
-  <string name="nav_item_donate" fuzzy="true">দান করুন</string>
+  <string name="nav_item_donate">দান করুন</string>
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ শনাক্তকরণ উপলব্ধ নয়।</string>
   <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
   <string name="enable_location_service">সক্রিয় করুন</string>
@@ -530,10 +532,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="description_edit_text_hint" fuzzy="true">শিরোনামের বিবরণ</string>
   <string name="description_edit_article_description_label">নিবন্ধ</string>
+  <string name="description_edit_add_caption_label">ছবির বিবরণ</string>
+  <string name="description_edit_add_caption_hint">ছবির ক্যাপশন</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_read">পড়ুন</string>
-  <string name="description_edit_add_description" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
-  <string name="description_edit_translate_description" fuzzy="true">বিবরণ অনুবাদ করুন</string>
+  <string name="description_edit_add_description">নিবন্ধের বিবরণ যোগ করুন</string>
+  <string name="description_edit_translate_description">নিবন্ধের বিবরণ অনুবাদ করুন</string>
   <string name="description_edit_edit_description" fuzzy="true">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title" fuzzy="true">সাহায্য: শিরোনামের বিবরণ</string>
@@ -567,6 +571,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
   <string name="suggested_edits_image_preview_dialog_image">ফাইল</string>
   <string name="suggested_edits_image_preview_dialog_date">তারিখ</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">আরও তথ্য</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
