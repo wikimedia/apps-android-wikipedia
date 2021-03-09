@@ -213,7 +213,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ReadingListItemHolder {
-            val view = ReadingListItemView(context)
+            val view = ReadingListItemView(requireContext())
             return ReadingListItemHolder(view)
         }
 
@@ -223,11 +223,11 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
         override fun onViewAttachedToWindow(holder: ReadingListItemHolder) {
             super.onViewAttachedToWindow(holder)
-            holder.view.setCallback(listItemCallback)
+            holder.view.callback = listItemCallback
         }
 
         override fun onViewDetachedFromWindow(holder: ReadingListItemHolder) {
-            holder.view.setCallback(null)
+            holder.view.callback = null
             super.onViewDetachedFromWindow(holder)
         }
     }
