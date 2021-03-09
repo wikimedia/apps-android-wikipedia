@@ -25,7 +25,7 @@ object ReadingListTitleDialog {
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
-                    text.toString().trim { it <= ' ' }.let {
+                    text.toString().trim().let {
                         when {
                             it.isEmpty() -> {
                                 dialog.setError(null)
@@ -44,7 +44,7 @@ object ReadingListTitleDialog {
                 }
 
                 override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
-                    callback?.onSuccess(text.toString().trim { it <= ' ' }, secondaryText.toString().trim { it <= ' ' })
+                    callback?.onSuccess(text.toString().trim(), secondaryText.toString().trim())
                 }
 
                 override fun onCancel() {}

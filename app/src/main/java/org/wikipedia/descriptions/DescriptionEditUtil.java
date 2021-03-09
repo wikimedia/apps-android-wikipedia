@@ -15,6 +15,11 @@ public final class DescriptionEditUtil {
 
     public static boolean isEditAllowed(@NonNull Page page) {
         PageProperties props = page.getPageProperties();
+        if (page.getTitle().getWikiSite().languageCode().equals("en")) {
+            // For English Wikipedia, allow editing the description for all articles, since the
+            // edit will go directly into the article instead of Wikidata.
+            return true;
+        }
         return !TextUtils.isEmpty(props.getWikiBaseItem())
                 && !DESCRIPTION_SOURCE_LOCAL.equals(props.getDescriptionSource());
     }

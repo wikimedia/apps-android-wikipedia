@@ -129,7 +129,7 @@ public final class EventPlatformClient {
     /**
      * Supplement the outgoing event with additional metadata, if not already present.
      * These include:
-     * - client_dt: ISO 8601 timestamp
+     * - dt: ISO 8601 timestamp
      * - app_session_id: the current session ID
      * - app_install_id: app install ID
      *
