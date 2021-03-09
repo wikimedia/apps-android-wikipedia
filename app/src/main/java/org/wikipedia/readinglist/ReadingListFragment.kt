@@ -504,7 +504,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
             view.setListItemImageDimensions(imageDimension, imageDimension)
-            check(page, PageAvailableOfflineHandler.Callback { available: Boolean -> view.setViewsGreyedOut(!available) })
+            check(page, PageAvailableOfflineHandler.Callback { available -> view.setViewsGreyedOut(!available) })
             if (!currentSearchQuery.isNullOrEmpty()) {
                 view.setTitleMaxLines(2)
                 view.setTitleEllipsis()
