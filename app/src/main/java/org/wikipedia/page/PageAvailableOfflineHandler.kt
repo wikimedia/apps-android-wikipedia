@@ -8,7 +8,7 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.log.L
 
 object PageAvailableOfflineHandler {
-    interface Callback {
+    fun interface Callback {
         fun onFinish(available: Boolean)
     }
 
