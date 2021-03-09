@@ -888,6 +888,16 @@
         <item quantity="one">You added %d character</item>
         <item quantity="other">You added %d characters</item>
     </plurals>
+    <string name="suggested_edits_image_recommendations_task_title">Train image algorithm</string>
+    <string name="suggested_edits_image_recommendations_task_detail">Decide if a suggested image will improve an article.</string>
+    <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
+    <string name="suggested_edits_image_recommendations_task_goal_progress">Great, keep going! 👍</string>
+    <string name="suggested_edits_image_recommendations_task_goal_complete">Daily goal achieved! 👏</string>
+    <string name="suggested_edits_image_recommendations_task_goal_surpassed">You\'ve reached the goal</string>
+    <string name="suggested_edits_image_recommendations_onboarding_tooltip">A new Suggested Edits task is now available. Train an algorithm to match images with unillustrated articles.</string>
+    <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia articles are written and edited by thousands of volunteers from around the world. Unfortunately, many articles lack images.\n\nImages will be suggested to you using an algorithm. The algorithm will pull images from other sources and suggest a match with an article that does not have an image.\n\nYour feedback will help us improve the suggestions over time. Because the goal of this task is to improve the suggested images, the matches you make will not be published at this time.</string>
+    <string name="suggested_edits_image_recommendations_onboarding_text2">We would you like to recognize your contributions to this effort. Would you like your username displayed on our algorithm training page?</string>
+    <string name="suggested_edits_image_recommendations_onboarding_consent">Yes, my username can be displayed on the algorithm training page</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
@@ -992,9 +1002,6 @@
     <string name="content_description_for_page_indicator">Page %1$d of %2$d</string>
     <!-- /Content description -->
 
-    <string name="suggested_edits_image_recommendations_task_title">Train image algorithm</string>
-    <string name="suggested_edits_image_recommendations_task_detail">Decide if a suggested image will improve an article.</string>
-    <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
     <string name="image_recommendations_task_accept">Yes</string>
     <string name="image_recommendations_task_reject">No</string>
     <string name="image_recommendations_task_not_sure">Not sure</string>
@@ -1013,13 +1020,6 @@
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
     <string name="image_recommendations_task_suggestion_reason"><![CDATA[<i>Suggestion reason:</i> %s]]></string>
-    <string name="suggested_edits_image_recommendations_task_goal_progress">Great, keep going! 👍</string>
-    <string name="suggested_edits_image_recommendations_task_goal_complete">Daily goal achieved! 👏</string>
-    <string name="suggested_edits_image_recommendations_task_goal_surpassed">You\'ve reached the goal</string>
-    <string name="suggested_edits_image_recommendations_onboarding_tooltip">A new Suggested Edits task is now available. Train an algorithm to match images with unillustrated articles.</string>
-    <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia articles are written and edited by thousands of volunteers from around the world. Unfortunately, many articles lack images.\n\nImages will be suggested to you using an algorithm. The algorithm will pull images from other sources and suggest a match with an article that does not have an image.\n\nYour feedback will help us improve the suggestions over time. Because the goal of this task is to improve the suggested images, the matches you make will not be published at this time.</string>
-    <string name="suggested_edits_image_recommendations_onboarding_text2">We would you like to recognize your contributions to this effort. Would you like your username displayed on our algorithm training page?</string>
-    <string name="suggested_edits_image_recommendations_onboarding_consent">Yes, my username can be displayed on the algorithm training page</string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
