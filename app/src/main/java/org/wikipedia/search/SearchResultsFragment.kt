@@ -82,10 +82,9 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun onSuggestionClick() {
-        val callback = callback()
         val suggestion = binding.searchSuggestion.tag as String
-        callback?.getFunnel()?.searchDidYouMean(searchLanguageCode)
-        callback?.setSearchText(suggestion)
+        callback()?.getFunnel()?.searchDidYouMean(searchLanguageCode)
+        callback()?.setSearchText(suggestion)
         startSearch(suggestion, true)
     }
 
@@ -97,8 +96,7 @@ class SearchResultsFragment : Fragment() {
         binding.searchResultsDisplay.visibility = View.GONE
     }
 
-    val isShowing: Boolean
-        get() = binding.searchResultsDisplay.visibility == View.VISIBLE
+    val isShowing get() = binding.searchResultsDisplay.visibility == View.VISIBLE
 
     fun setLayoutDirection(langCode: String) {
         setConditionalLayoutDirection(binding.searchResultsList, langCode)
@@ -141,7 +139,7 @@ class SearchResultsFragment : Fragment() {
                     if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm!!) } else Observable.just(SearchResults()),
                     if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(currentSearchTerm!!) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults: SearchResults?, historySearchResults: SearchResults ->
-                        val searchResults: SearchResults = if (searchResponse?.query()!!.pages() != null) {
+                        val searchResults = if (searchResponse?.query()!!.pages() != null) {
                             // noinspection ConstantConditions
                             SearchResults(searchResponse.query()!!.pages()!!,
                                     WikiSite.forLanguageCode(searchLanguageCode!!), searchResponse.continuation(),
@@ -174,7 +172,7 @@ class SearchResultsFragment : Fragment() {
                 .subscribe({ results ->
                     binding.searchErrorView.visibility = View.GONE
                     handleResults(results, searchTerm, startTime)
-                }) { caught: Throwable? ->
+                }) { caught ->
                     binding.searchErrorView.visibility = View.VISIBLE
                     binding.searchErrorView.setError(caught)
                     binding.searchResultsContainer.visibility = View.GONE
@@ -310,7 +308,7 @@ class SearchResultsFragment : Fragment() {
                     ServiceFactory.get(WikiSite.forLanguageCode(langCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                            .flatMap { response: PrefixSearchResponse ->
+                            .flatMap { response ->
                                 if (response.query()?.pages() != null) {
                                     return@flatMap Observable.just(response)
                                 }
@@ -319,7 +317,7 @@ class SearchResultsFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { response: MwQueryResponse -> if (response.query()?.pages() != null) response.query()!!.pages()!!.size else 0 }
+                .map { response -> if (response.query()?.pages() != null) response.query()!!.pages()!!.size else 0 }
     }
 
     private fun updateProgressBar(enabled: Boolean) {
@@ -337,11 +335,11 @@ class SearchResultsFragment : Fragment() {
         lastFullTextResults = null
         totalResults.clear()
         resultsCountList.clear()
-        adapter?.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
     }
 
-    private val adapter: SearchResultAdapter?
-        get() = binding.searchResultsList.adapter as SearchResultAdapter?
+    private val adapter: SearchResultAdapter
+        get() = binding.searchResultsList.adapter as SearchResultAdapter
 
     private fun displayResults(results: List<SearchResult>) {
         for (newResult in results) {
@@ -357,7 +355,7 @@ class SearchResultsFragment : Fragment() {
             }
         }
         binding.searchResultsContainer.visibility = View.VISIBLE
-        adapter!!.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
     }
 
     private fun displayResultsCount(list: List<Int>) {
@@ -381,7 +379,9 @@ class SearchResultsFragment : Fragment() {
         }
 
         override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-            callback()?.onSearchMovePageToList(page!!.listId(), entry)
+            page.let {
+                callback()?.onSearchMovePageToList(page!!.listId(), entry)
+            }
         }
     }
 
@@ -431,7 +431,10 @@ class SearchResultsFragment : Fragment() {
                     SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             view.isEnabled = resultsCount > 0
             view.setOnClickListener {
-                (parentFragment as SearchFragment).setUpLanguageScroll(position)
+                if (!isAdded) {
+                    return@setOnClickListener
+                }
+                (requireParentFragment() as SearchFragment).setUpLanguageScroll(position)
             }
         }
     }
@@ -442,7 +445,7 @@ class SearchResultsFragment : Fragment() {
             val (pageTitle, redirectFrom, type) = totalResults[position]
             val searchResultItemImage = view.findViewById<ImageView>(R.id.page_list_item_image)
             val searchResultIcon = view.findViewById<ImageView>(R.id.page_list_icon)
-            val descriptionText: GoneIfEmptyTextView = view.findViewById(R.id.page_list_item_description)
+            val descriptionText = view.findViewById<GoneIfEmptyTextView>(R.id.page_list_item_description)
             val redirectText = view.findViewById<TextView>(R.id.page_list_item_redirect)
             val redirectArrow = view.findViewById<View>(R.id.page_list_item_redirect_arrow)
             if (redirectFrom.isNullOrEmpty()) {
@@ -520,7 +523,7 @@ class SearchResultsFragment : Fragment() {
     }
 
     private val searchLanguageCode: String
-        get() = (parentFragment as SearchFragment).searchLanguageCode
+        get() = (requireParentFragment() as SearchFragment).searchLanguageCode
 
     companion object {
         private const val VIEW_TYPE_ITEM = 0
