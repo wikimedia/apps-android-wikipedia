@@ -522,7 +522,7 @@ class SearchResultsFragment : Fragment() {
         return getCallback(this, Callback::class.java)
     }
 
-    private val searchLanguageCode get() = 
+    private val searchLanguageCode get() =
         if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.getInstance().language().appLanguageCode
 
     companion object {
