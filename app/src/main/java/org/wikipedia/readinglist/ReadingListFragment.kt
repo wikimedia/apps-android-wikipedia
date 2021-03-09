@@ -196,7 +196,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
     private fun setHeaderView() {
         headerView = ReadingListItemView(requireContext())
-        headerView.setCallback(HeaderCallback())
+        headerView.callback = HeaderCallback()
         headerView.isClickable = false
         headerView.setThumbnailVisible(false)
         headerView.setTitleTextAppearance(R.style.ReadingListTitleTextAppearance)
@@ -552,7 +552,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerView.ViewHolder {
             return when (type) {
                 Companion.TYPE_ITEM -> {
-                    val view = ReadingListItemView(context)
+                    val view = ReadingListItemView(requireContext())
                     ReadingListItemHolder(view)
                 }
                 Companion.TYPE_HEADER -> {
@@ -577,7 +577,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
             super.onViewAttachedToWindow(holder)
             if (holder is ReadingListItemHolder) {
-                holder.view.setCallback(readingListItemCallback)
+                holder.view.callback = readingListItemCallback
             } else if (holder is ReadingListPageItemHolder) {
                 holder.view.callback = readingListPageItemCallback
             }
@@ -585,7 +585,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
         override fun onViewDetachedFromWindow(holder: RecyclerView.ViewHolder) {
             if (holder is ReadingListItemHolder) {
-                holder.view.setCallback(null)
+                holder.view.callback = null
             } else if (holder is ReadingListPageItemHolder) {
                 holder.view.callback = null
             }
@@ -663,7 +663,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         override fun onLongClick(item: ReadingListPage?): Boolean {
             item?.let {
                 bottomSheetPresenter.show(childFragmentManager,
-                        ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList)
+                        ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
                         else ReadingListBehaviorsUtil.getListsContainPage(it), it.id(), actionMode != null))
                 return true
             }
