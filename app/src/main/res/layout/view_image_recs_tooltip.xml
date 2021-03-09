@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/image_recommendations_task_title"
+            android:text="@string/suggested_edits_image_recommendations_task_title"
             android:textAllCaps="true"
             android:textSize="14sp"
             android:textColor="@android:color/white"
@@ -30,7 +30,7 @@
             android:textSize="14sp"
             android:textColor="@android:color/white"
             android:lineSpacingExtra="7sp"
-            app:html="@string/image_recommendations_onboarding_tooltip"/>
+            app:html="@string/suggested_edits_image_recommendations_onboarding_tooltip"/>
 
     </LinearLayout>
 

@@ -10,7 +10,7 @@ import org.wikipedia.onboarding.OnboardingFragment
 class ImageRecsOnboardingActivity : SingleFragmentActivity<ImageRecsOnboardingFragment>(), OnboardingFragment.Callback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = getString(R.string.image_recommendations_task_title)
+        title = getString(R.string.suggested_edits_image_recommendations_task_title)
     }
 
     override fun onComplete() {

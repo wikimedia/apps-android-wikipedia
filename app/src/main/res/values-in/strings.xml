@@ -41,7 +41,7 @@
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="search_hint_voice_search">Pencarian input suara</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Pilih daftar saya</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Sortir daftar saya</string>
   <string name="nav_item_suggested_edits">Suntingan</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="nav_item_search">Cari</string>
@@ -59,7 +59,7 @@
   <string name="history_item_delete_undo">Urungkan</string>
   <string name="notification_archive_undo">Balikkan</string>
   <string name="app_settings">Pengaturan aplikasi</string>
-  <string name="search_tab_tooltip">Ketuk ikonnya lagi untuk mulai mengetik istilah pencarian.</string>
+  <string name="search_tab_tooltip">Ketuk ikon lagi untuk mulai mengetik istilah pencarian.</string>
   <string name="history_list_title">Riwayat</string>
   <string name="dialog_title_clear_history">Hapus riwayat penelusuran</string>
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penelusuran Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
@@ -130,7 +130,7 @@
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="account_creation_password_hint">Kata sandi</string>
-  <string name="login_2fa_hint">Kode Otentikasi Dua Faktor</string>
+  <string name="login_2fa_hint">Kode Autentikasi Dua Faktor</string>
   <string name="login_2fa_other_workflow_error_msg">Otentikasi dua faktor diperlukan! Silakan kembali ke aktivitas utama dan masuk log dengan token 2FA Anda, kemudian coba lagi.</string>
   <string name="onboarding_card_login">Masuk log</string>
   <string name="page_editing_login">Masuk log</string>
@@ -175,7 +175,7 @@
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
   <string name="create_account_next">Selanjutnya</string>
   <string name="email_recommendation_dialog_title">Buat akun tanpa alamat surel?</string>
-  <string name="email_recommendation_dialog_message">Meskipun alamat surel adalah opsional, &lt;b&gt;sangat disarankan&lt;/b&gt;, karena surel diperlukan untuk pemulihan akun jika Anda kehilangan kata sandi.</string>
+  <string name="email_recommendation_dialog_message">Meskipun alamat surel adalah opsional, ini &lt;b&gt;sangat disarankan&lt;/b&gt;, karena surel diperlukan untuk pemulihan akun jika Anda kehilangan kata sandi.</string>
   <string name="email_recommendation_message">Disarankan karena surel diperlukan untuk pemulihan akun.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Lanjutkan tanpa surel</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tambahkan alamat surel</string>
@@ -401,6 +401,7 @@
   <string name="text_size_decrease">Kurangi ukuran teks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
   <string name="text_style_title">Jenis huruf</string>
+  <string name="nav_item_saved">Tersimpan</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_move_to">Pindahkan ke daftar bacaan</string>
   <string name="reading_list_create_new">Buat baru</string>

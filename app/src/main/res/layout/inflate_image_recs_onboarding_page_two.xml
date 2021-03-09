@@ -6,5 +6,5 @@
     android:orientation="vertical"
     app:centeredImage="@drawable/illustration_image_recs_onboard2"
     app:imageSize="360dp"
-    app:secondaryText="@string/image_recommendations_onboarding_text2"
-    app:switchText="@string/image_recommendations_onboarding_consent" />
+    app:secondaryText="@string/suggested_edits_image_recommendations_onboarding_text2"
+    app:switchText="@string/suggested_edits_image_recommendations_onboarding_consent" />

@@ -278,9 +278,9 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         }
 
         val progressText = when {
-            newCount < DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_progress)
-            newCount == DAILY_COUNT_TARGET -> getString(R.string.image_recommendations_task_goal_complete)
-            else -> getString(R.string.image_recommendations_task_goal_surpassed)
+            newCount < DAILY_COUNT_TARGET -> getString(R.string.suggested_edits_image_recommendations_task_goal_progress)
+            newCount == DAILY_COUNT_TARGET -> getString(R.string.suggested_edits_image_recommendations_task_goal_complete)
+            else -> getString(R.string.suggested_edits_image_recommendations_task_goal_surpassed)
         }
         binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
 
