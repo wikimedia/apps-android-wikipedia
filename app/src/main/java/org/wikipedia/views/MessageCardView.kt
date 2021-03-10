@@ -16,7 +16,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
-internal class MessageCardView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+class MessageCardView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     val binding = ViewMessageCardBinding.inflate(LayoutInflater.from(context), this, true)
 

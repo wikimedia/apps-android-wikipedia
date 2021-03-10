@@ -816,7 +816,6 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         private const val TYPE_ITEM = 1
         private const val TYPE_PAGE_ITEM = 2
 
-        @JvmStatic
         fun newInstance(listId: Long): ReadingListFragment {
             return ReadingListFragment().apply {
                 arguments = bundleOf(ReadingListActivity.EXTRA_READING_LIST_ID to listId)

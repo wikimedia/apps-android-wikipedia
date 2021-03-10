@@ -99,7 +99,6 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         private const val ARG_READING_LIST_PAGE = "readingListPage"
         private const val ARG_READING_LIST_HAS_ACTION_MODE = "hasActionMode"
 
-        @JvmStatic
         fun newInstance(lists: List<ReadingList>, pageID: Long, hasActionMode: Boolean): ReadingListItemActionsDialog {
             return ReadingListItemActionsDialog().apply {
                 arguments = bundleOf(ARG_READING_LIST_NAME to lists[0].title(),
