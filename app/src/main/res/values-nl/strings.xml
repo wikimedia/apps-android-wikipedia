@@ -75,6 +75,9 @@
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Op artikel zoeken</string>
   <string name="menu_page_add_to_watchlist">Toevoegen aan volglijst</string>
+  <string name="menu_page_view_talk">Overlegpagina bekijken</string>
+  <string name="menu_page_view_edit_history">Bewerkingsgeschiedenis bekijken</string>
+  <string name="menu_page_remove_from_watchlist">Verwijderen uit volglijst</string>
   <string name="edit_section_find_in_page">Op pagina zoeken</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
@@ -203,6 +206,7 @@
   <string name="preference_title_auto_upload_crash_reports">Crashrapporten verzenden</string>
   <string name="preference_summary_auto_upload_crash_reports">Sta de app toe om automatisch crashrapporteren naar een dienstverlener te sturen zodat we de omstandigheden van uw crash kunnen analyseren en fouten sneller kunnen herstellen.</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
+  <string name="history_filter_list_hint">Filtergeschiedenis</string>
   <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
   <string name="page_protected_autoconfirmed">Deze pagina is semibeveiligd.</string>
   <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
@@ -908,6 +912,10 @@
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
+  <string name="watchlist_expiry_dialog_one_week">1 week</string>
+  <string name="watchlist_expiry_dialog_one_month">1 maand</string>
+  <string name="watchlist_expiry_dialog_three_months">3 maanden</string>
+  <string name="watchlist_expiry_dialog_six_months">6 maanden</string>
   <string name="watchlist_filter_all">Alle</string>
   <string name="watchlist_filter_talk">Overleg</string>
   <string name="watchlist_filter_pages">Pagina\'s</string>

@@ -68,6 +68,7 @@ public class CreateAccountActivity extends BaseActivity {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @BindView(R.id.create_account_primary_container) View primaryContainer;
+    @BindView(R.id.captcha_container) View captchaContainer;
     @BindView(R.id.create_account_username) TextInputLayout usernameInput;
     @BindView(R.id.create_account_password_input) TextInputLayout passwordInput;
     @BindView(R.id.create_account_password_repeat) TextInputLayout passwordRepeatInput;
@@ -96,7 +97,7 @@ public class CreateAccountActivity extends BaseActivity {
         wiki = WikipediaApp.getInstance().getWikiSite();
 
         captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getWikiSite(),
-                primaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button));
+                captchaContainer, primaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button));
 
         // Don't allow user to submit registration unless they've put in a username and password
         new NonEmptyValidator(createAccountButton, usernameInput, passwordInput);
@@ -288,8 +289,8 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     private void createAccount() {
-        if (captchaHandler.isActive() && captchaHandler.token() != null) {
-            doCreateAccount(captchaHandler.token());
+        if (captchaHandler.isActive() && captchaHandler.getToken() != null) {
+            doCreateAccount(captchaHandler.getToken());
         } else {
             getCreateAccountInfo();
         }

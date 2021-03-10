@@ -17,10 +17,7 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import com.skydoves.balloon.ArrowConstraints
-import com.skydoves.balloon.ArrowOrientation
-import com.skydoves.balloon.Balloon
-import com.skydoves.balloon.createBalloon
+import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
@@ -178,13 +175,13 @@ object FeedbackUtil {
 
     @JvmStatic
     fun showTooltip(activity: Activity, anchor: View, text: CharSequence, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
-        return showTooltip(activity, getTooltip(anchor.context, text, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
+        return showTooltip(activity, getTooltip(anchor.context, text, autoDismiss), anchor, aboveOrBelow, autoDismiss)
     }
 
     @JvmStatic
-    fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int, layoutHeight: Int,
-                    arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean): Balloon {
-        return showTooltip(activity, getTooltip(anchor.context, layoutRes, layoutHeight, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, false), anchor, aboveOrBelow, false)
+    fun showTooltip(activity: Activity, anchor: View, @LayoutRes layoutRes: Int,
+                    arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
+        return showTooltip(activity, getTooltip(anchor.context, layoutRes, arrowAnchorPadding, topOrBottomMargin, aboveOrBelow, autoDismiss), anchor, aboveOrBelow, autoDismiss)
     }
 
     private fun showTooltip(activity: Activity, balloon: Balloon, anchor: View, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
@@ -199,12 +196,11 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, aboveOrBelow: Boolean,
-                   autoDismiss: Boolean): Balloon {
+    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean): Balloon {
         return createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
-            setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-            setArrowOrientation(if (aboveOrBelow) ArrowOrientation.BOTTOM else ArrowOrientation.TOP)
+            setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
+            setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
             setArrowSize(24)
             setMarginLeft(8)
             setMarginRight(8)
@@ -218,13 +214,12 @@ object FeedbackUtil {
         }
     }
 
-    private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, layoutHeight: Int,
-                           arrowAnchorPadding: Int, topOrBottomMargin: Int, aboveOrBelow: Boolean,
-                           autoDismiss: Boolean): Balloon {
+    private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, arrowAnchorPadding: Int,
+                           topOrBottomMargin: Int, aboveOrBelow: Boolean, autoDismiss: Boolean): Balloon {
         return createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
-            setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-            setArrowOrientation(if (aboveOrBelow) ArrowOrientation.BOTTOM else ArrowOrientation.TOP)
+            setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
+            setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
             setArrowSize(24)
             setMarginLeft(8)
             setMarginRight(8)
@@ -233,7 +228,6 @@ object FeedbackUtil {
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(layoutRes)
-            setHeight(layoutHeight)
             setWidthRatio(if (isLandscape(context)) 0.4f else 0.8f)
             setArrowAlignAnchorPadding(arrowAnchorPadding)
         }

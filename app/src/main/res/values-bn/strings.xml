@@ -5,6 +5,7 @@
 * Bellayet
 * Bodhisattwa
 * Elias Ahmmad
+* Greatder
 * Masumrezarock100
 * Md. Golam Mukit Khan
 * MuratTheTurkish
@@ -30,16 +31,16 @@
   <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="wikimedia">উইকিমিডিয়া</string>
-  <string name="nav_item_back">পিছনে যান</string>
-  <string name="page_tabs_back">পিছনে যান</string>
-  <string name="nav_item_forward">সামনে যান</string>
+  <string name="nav_item_back">পিছনে</string>
+  <string name="page_tabs_back">পিছনে</string>
+  <string name="nav_item_forward">সামনে</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
-  <string name="search_hint_voice_search">কণ্ঠ দ্বারা অনুসন্ধান</string>
-  <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
+  <string name="search_hint_voice_search">কথা দ্বারা অনুসন্ধান</string>
+  <string name="search_hint_search_languages">ভাষার জন্য অনুসন্ধান</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">আরও</string>
   <string name="nav_item_search">অনুসন্ধান</string>
-  <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
+  <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাচ্ছে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="card_offline_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="storage_access_error_retry">পুনঃচেষ্টা করুন</string>
@@ -55,16 +56,20 @@
   <string name="app_settings">অ্যাপ সেটিং</string>
   <string name="history_list_title">ইতিহাস</string>
   <string name="dialog_title_clear_history">ব্রাউজ করার ইতিহাস অপসারণ করবেন</string>
-  <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
+  <string name="dialog_message_clear_history">এটি আপনার ব্রাউজ করা সব ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="dialog_message_clear_history_yes">হ্যাঁ</string>
   <string name="dialog_message_clear_history_no">না</string>
   <string name="share_via">এর মাধ্যমে শেয়ার</string>
-  <string name="image_share_via">এর মাধ্যমে শেয়ার করুন</string>
+  <string name="image_share_via">এর মাধ্যমে শেয়ার</string>
   <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
-  <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
+  <string name="menu_page_show_tabs">ট্যাব দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
-  <string name="menu_page_find_in_page" fuzzy="true">এই পাতায় অনুসন্ধান</string>
-  <string name="edit_section_find_in_page">পাতায় খুজুন</string>
+  <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
+  <string name="menu_page_add_to_watchlist">নজরতালিকায় যোগ করুন</string>
+  <string name="menu_page_view_talk">আলাপ পাতা দেখুন</string>
+  <string name="menu_page_view_edit_history">সম্পাদনার ইতিহাস দেখুন</string>
+  <string name="menu_page_remove_from_watchlist">নজরতালিকা থেকে সরান</string>
+  <string name="edit_section_find_in_page">পাতায় খুঁজুন</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="menu_page_add_to_default_list">সংরক্ষণ</string>
@@ -72,12 +77,13 @@
   <string name="feed_card_add_to_default_list">সংরক্ষণ</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
   <string name="menu_page_open_a_new_tab">নতুন ট্যাব খুলুন</string>
+  <string name="menu_page_new_tab">নতুন ট্যাব</string>
   <string name="menu_page_reading_lists">পড়ার তালিকা</string>
-  <string name="menu_page_recently_viewed">সম্প্রতি প্রদর্শিত</string>
+  <string name="menu_page_recently_viewed">সম্প্রতি পড়া</string>
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
-  <string name="menu_text_select_define">সংজ্ঞা</string>
+  <string name="menu_text_select_define">ব্যাখ্যা</string>
   <string name="on_this_day_page_share">শেয়ার করুন</string>
   <string name="reading_list_page_share">শেয়ার করুন</string>
   <string name="menu_text_select_edit_here">এখানে সম্পাদনা করুন</string>
@@ -199,6 +205,7 @@
   <string name="page_protected_can_not_edit">দুঃখিত, এই পাতাটি সম্পাদনা করার জন্য আপনার অ্যাকাউন্টে যথেষ্ট বিশেষাধিকার নেই।</string>
   <string name="page_protected_can_not_edit_anon">দুঃখিত, এই পৃষ্ঠাটি এই মুহুর্তে বেনামে সম্পাদনা করা যাবে না।</string>
   <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">নজরতালিকায় যোগ করুন</string>
   <string name="settings_item_preferences">সেটিংস</string>
   <string name="settings_activity_title">সেটিংস</string>
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
@@ -244,6 +251,9 @@
   <string name="edit_conflict_title">সম্পাদনা দ্বন্দ্ব</string>
   <string name="find_next">পরবর্তী খুঁজুন</string>
   <string name="find_previous">পূর্বেরটি খুঁজুন</string>
+  <string name="find_first_occurence">এটি প্রথম ঘটনা</string>
+  <string name="find_last_occurence">এটিই শেষ ঘটনা</string>
+  <string name="article_opened_in_background_tab">নিবন্ধটি একটি পটভূমি ট্যাবে খোলা হয়েছে।</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি প্রকাশ করতে চান?</string>
   <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা প্রকাশ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
   <string name="abusefilter_text_warn">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক হিসাবে চিহ্নিত করেছে। এতে নিম্নলিখিতগুলি এক বা একাধিক বার থাকতে পারে:&lt;br /&gt;&lt;br /&gt;· নিবন্ধ খালি করা বা স্প্যামিং করা&lt;br /&gt;· অপ্রাসঙ্গিক বাহ্যিক লিঙ্ক বা ছবি&lt;br /&gt;· অক্ষরের পুনরাবৃত্তি</string>
@@ -251,6 +261,7 @@
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
   <string name="search_did_you_mean">আপনি কি \"%s\" বুঝাচ্ছেন?</string>
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান:</string>
+  <string name="search_results_count_zero">ফলাফল নেই</string>
   <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধানগুলি মুছে ফেলুন</string>
   <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসন্ধান ইতিহাস মুছে ফেলতে চান?</string>
   <string name="clear_recent_searches_confirm_yes">হ্যাঁ</string>
@@ -282,6 +293,8 @@
   <string name="gallery_save_success">ফাইল সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন।</string>
+  <string name="gallery_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
+  <string name="gallery_add_image_caption_in_language_button">ছবির ক্যাপশন যোগ করুন (%s)</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
   <string name="cc_logo">ক্রিয়েটিভ কমন্স লাইসেন্স</string>
@@ -312,7 +325,7 @@
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
-  <string name="nav_item_donate" fuzzy="true">দান করুন</string>
+  <string name="nav_item_donate">দান করুন</string>
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ শনাক্তকরণ উপলব্ধ নয়।</string>
   <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
   <string name="enable_location_service">সক্রিয় করুন</string>
@@ -519,10 +532,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="description_edit_text_hint" fuzzy="true">শিরোনামের বিবরণ</string>
   <string name="description_edit_article_description_label">নিবন্ধ</string>
+  <string name="description_edit_add_caption_label">ছবির বিবরণ</string>
+  <string name="description_edit_add_caption_hint">ছবির ক্যাপশন</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_read">পড়ুন</string>
-  <string name="description_edit_add_description" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
-  <string name="description_edit_translate_description" fuzzy="true">বিবরণ অনুবাদ করুন</string>
+  <string name="description_edit_add_description">নিবন্ধের বিবরণ যোগ করুন</string>
+  <string name="description_edit_translate_description">নিবন্ধের বিবরণ অনুবাদ করুন</string>
   <string name="description_edit_edit_description" fuzzy="true">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title" fuzzy="true">সাহায্য: শিরোনামের বিবরণ</string>
@@ -556,6 +571,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
   <string name="suggested_edits_image_preview_dialog_image">ফাইল</string>
   <string name="suggested_edits_image_preview_dialog_date">তারিখ</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">আরও তথ্য</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>

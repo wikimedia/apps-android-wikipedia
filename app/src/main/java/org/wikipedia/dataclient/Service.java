@@ -83,7 +83,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
     @NonNull Observable<MwQueryResponse> getLangLinks(@NonNull @Query("titles") String title);
 
-    @GET(MW_API_PREFIX + "action=query&prop=description")
+    @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|imagelabels&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)

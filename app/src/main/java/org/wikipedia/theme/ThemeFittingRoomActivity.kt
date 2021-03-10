@@ -3,6 +3,7 @@ package org.wikipedia.theme
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import org.wikipedia.Constants
 import org.wikipedia.activity.SingleFragmentActivity
@@ -29,7 +30,7 @@ class ThemeFittingRoomActivity : SingleFragmentActivity<ThemeFittingRoomFragment
     }
 
     override fun onToggleDimImages() {
-        recreate()
+        ActivityCompat.recreate(this)
     }
 
     override fun onCancelThemeChooser() {
