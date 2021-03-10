@@ -63,7 +63,7 @@ class SearchResultsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchResultsBinding.inflate(inflater, container, false)
-        binding.searchResultsList.layoutManager = LinearLayoutManager(activity)
+        binding.searchResultsList.layoutManager = LinearLayoutManager(requireActivity())
         binding.searchResultsList.adapter = SearchResultAdapter()
         binding.searchErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.searchErrorView.retryClickListener = View.OnClickListener {
@@ -135,14 +135,14 @@ class SearchResultsFragment : Fragment() {
         val startTime = System.nanoTime()
         updateProgressBar(true)
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
-            Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode!!)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                    if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm!!) } else Observable.just(SearchResults()),
-                    if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(currentSearchTerm!!) } else Observable.just(SearchResults()),
-                    { searchResponse, readingListSearchResults: SearchResults?, historySearchResults: SearchResults ->
+            Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
+                    if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
+                    { searchResponse, readingListSearchResults, historySearchResults ->
                         val searchResults = if (searchResponse?.query()!!.pages() != null) {
                             // noinspection ConstantConditions
                             SearchResults(searchResponse.query()!!.pages()!!,
-                                    WikiSite.forLanguageCode(searchLanguageCode!!), searchResponse.continuation(),
+                                    WikiSite.forLanguageCode(searchLanguageCode), searchResponse.continuation(),
                                     searchResponse.suggestion())
                         } else {
                             // A prefix search query with no results will return the following:
@@ -181,17 +181,17 @@ class SearchResultsFragment : Fragment() {
     }
 
     private fun addSearchResultsFromTabs(resultList: MutableList<SearchResult>) {
-        if (currentSearchTerm!!.length < 2) {
-            return
-        }
-        val tabList = WikipediaApp.getInstance().tabList
-        for (tab in tabList) {
-            if (tab.backStackPositionTitle != null &&
-                    tab.backStackPositionTitle!!.displayText.toLowerCase(Locale.getDefault())
-                            .contains(currentSearchTerm!!.toLowerCase(Locale.getDefault()))) {
-                val searchResult = SearchResult(tab.backStackPositionTitle!!, SearchResult.SearchResultType.TAB_LIST)
-                resultList.add(searchResult)
+        currentSearchTerm?.let { term ->
+            if (term.length < 2) {
                 return
+            }
+            WikipediaApp.getInstance().tabList.forEach { tab ->
+                tab.backStackPositionTitle?.let {
+                    if (it.displayText.toLowerCase(Locale.getDefault()).contains(term.toLowerCase(Locale.getDefault()))) {
+                        resultList.add(SearchResult(it, SearchResult.SearchResultType.TAB_LIST))
+                        return
+                    }
+                }
             }
         }
     }
@@ -243,14 +243,14 @@ class SearchResultsFragment : Fragment() {
                                  clearOnSuccess: Boolean) {
         val startTime = System.nanoTime()
         updateProgressBar(true)
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode!!)).fullTextSearch(searchTerm, BATCH_SIZE,
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).fullTextSearch(searchTerm, BATCH_SIZE,
                 continueOffset?.get("continue"), continueOffset?.get("gsroffset"))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
                     if (response.query() != null) {
                         // noinspection ConstantConditions
-                        return@map SearchResults(response.query()!!.pages()!!, WikiSite.forLanguageCode(searchLanguageCode!!),
+                        return@map SearchResults(response.query()!!.pages()!!, WikiSite.forLanguageCode(searchLanguageCode),
                                 response.continuation(), null)
                     }
                     SearchResults()
@@ -362,7 +362,7 @@ class SearchResultsFragment : Fragment() {
         resultsCountList.clear()
         resultsCountList.addAll(list)
         binding.searchResultsContainer.visibility = View.VISIBLE
-        adapter?.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
     }
 
     private inner class SearchResultsFragmentLongPressHandler(private val lastPositionRequested: Int) : LongPressMenu.Callback {
@@ -467,7 +467,7 @@ class SearchResultsFragment : Fragment() {
 
             // highlight search term within the text
             boldenKeywordText(pageTitleText, pageTitle.displayText, currentSearchTerm)
-            searchResultItemImage.visibility = if (pageTitle.thumbUrl == null) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
+            searchResultItemImage.visibility = if (pageTitle.thumbUrl.isNullOrEmpty()) if (type === SearchResult.SearchResultType.SEARCH) View.GONE else View.INVISIBLE else View.VISIBLE
             loadImageWithRoundedCorners(searchResultItemImage, pageTitle.thumbUrl)
 
             // ...and lastly, if we've scrolled to the last item in the list, then
@@ -522,8 +522,8 @@ class SearchResultsFragment : Fragment() {
         return getCallback(this, Callback::class.java)
     }
 
-    private val searchLanguageCode: String
-        get() = (requireParentFragment() as SearchFragment).searchLanguageCode
+    private val searchLanguageCode get() =
+        if (isAdded) (requireParentFragment() as SearchFragment).searchLanguageCode else WikipediaApp.getInstance().language().appLanguageCode
 
     companion object {
         private const val VIEW_TYPE_ITEM = 0
