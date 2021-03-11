@@ -25,7 +25,6 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
 
     companion object {
         const val EXTRA_READING_LIST_ID = "readingListId"
-        @JvmStatic
         fun newIntent(context: Context, list: ReadingList): Intent {
             return Intent(context, ReadingListActivity::class.java)
                     .putExtra(EXTRA_READING_LIST_ID, list.id())
