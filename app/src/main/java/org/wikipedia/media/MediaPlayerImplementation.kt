@@ -8,9 +8,7 @@ import java.io.IOException
 
 class MediaPlayerImplementation {
     private val player = MediaPlayer()
-
-    val isPlaying: Boolean
-        get() = player.isPlaying
+    val isPlaying get() = player.isPlaying
 
     fun deinit() {
         player.release()
@@ -61,11 +59,11 @@ class MediaPlayerImplementation {
             callback.onSuccess()
         }
 
-        override fun onPrepared(mp: MediaPlayer?) {
+        override fun onPrepared(mp: MediaPlayer) {
             callback.onSuccess()
         }
 
-        override fun onError(mp: MediaPlayer?, what: Int, extra: Int): Boolean {
+        override fun onError(mp: MediaPlayer, what: Int, extra: Int): Boolean {
             callback.onError()
             return true
         }
