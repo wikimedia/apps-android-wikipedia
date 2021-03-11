@@ -34,13 +34,13 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private var controlNavTabInFragment = false
     private var showTabCountsAnimation = false
 
-    override val layout: Int
-        get() = R.layout.activity_main
+    override fun inflateAndSetContentView() {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         setShortcuts(this)
         setImageZoomHelper()
@@ -55,10 +55,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         }
         setNavigationBarColor(getThemedColor(this, R.attr.nav_tab_background_color))
         setSupportActionBar(binding.mainToolbar)
-        if (supportActionBar != null) {
-            supportActionBar!!.setTitle("")
-            supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-        }
+        supportActionBar?.title = ""
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.mainToolbar.navigationIcon = null
     }
 
