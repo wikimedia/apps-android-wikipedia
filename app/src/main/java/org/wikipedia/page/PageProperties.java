@@ -15,9 +15,7 @@ import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
 
-import java.text.ParseException;
 import java.util.Date;
 import java.util.Objects;
 
@@ -69,11 +67,7 @@ public class PageProperties implements Parcelable {
         leadImageHeight = pageSummary.getThumbnailHeight();
         String lastModifiedText = pageSummary.getTimestamp();
         if (lastModifiedText != null) {
-            try {
-                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
-            } catch (ParseException e) {
-                L.d("Failed to parse date: " + lastModifiedText);
-            }
+            lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
         }
         // assume formatversion=2 is used so we get real booleans from the API
 

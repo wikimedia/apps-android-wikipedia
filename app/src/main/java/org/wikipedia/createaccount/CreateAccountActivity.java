@@ -68,6 +68,7 @@ public class CreateAccountActivity extends BaseActivity {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @BindView(R.id.create_account_primary_container) View primaryContainer;
+    @BindView(R.id.captcha_container) View captchaContainer;
     @BindView(R.id.create_account_username) TextInputLayout usernameInput;
     @BindView(R.id.create_account_password_input) TextInputLayout passwordInput;
     @BindView(R.id.create_account_password_repeat) TextInputLayout passwordRepeatInput;
@@ -79,7 +80,6 @@ public class CreateAccountActivity extends BaseActivity {
     @BindView(R.id.view_progress_bar) ProgressBar progressBar;
 
     private CaptchaHandler captchaHandler;
-    private CreateAccountResult createAccountResult;
     private CreateAccountFunnel funnel;
     private WikiSite wiki;
     private UserNameTextWatcher userNameTextWatcher = new UserNameTextWatcher();
@@ -91,13 +91,13 @@ public class CreateAccountActivity extends BaseActivity {
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
 
-        errorView.setBackClickListener((v) -> onBackPressed());
-        errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
+        errorView.setBackClickListener(v -> onBackPressed());
+        errorView.setRetryClickListener(v -> errorView.setVisibility(View.GONE));
 
         wiki = WikipediaApp.getInstance().getWikiSite();
 
         captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getWikiSite(),
-                primaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button));
+                captchaContainer, primaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button));
 
         // Don't allow user to submit registration unless they've put in a username and password
         new NonEmptyValidator(createAccountButton, usernameInput, passwordInput);
@@ -115,10 +115,6 @@ public class CreateAccountActivity extends BaseActivity {
         });
 
         usernameInput.getEditText().addTextChangedListener(userNameTextWatcher);
-
-        if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
-            createAccountResult = savedInstanceState.getParcelable("result");
-        }
 
         funnel = new CreateAccountFunnel(WikipediaApp.getInstance(), getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
 
@@ -149,12 +145,6 @@ public class CreateAccountActivity extends BaseActivity {
     @OnClick(R.id.forgot_password_link) void onForgotPasswordClick() {
         PageTitle title = new PageTitle("Special:PasswordReset", WikipediaApp.getInstance().getWikiSite());
         visitInExternalBrowser(this, Uri.parse(title.getUri()));
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable("result", createAccountResult);
     }
 
     public void handleAccountCreationError(@NonNull String message) {
@@ -208,7 +198,7 @@ public class CreateAccountActivity extends BaseActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
                     if ("PASS".equals(response.status())) {
-                        finishWithUserResult(new CreateAccountSuccessResult(response.user()));
+                        finishWithUserResult(response.user());
                     } else {
                         throw new CreateAccountException(response.message());
                     }
@@ -299,8 +289,8 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     private void createAccount() {
-        if (captchaHandler.isActive() && captchaHandler.token() != null) {
-            doCreateAccount(captchaHandler.token());
+        if (captchaHandler.isActive() && captchaHandler.getToken() != null) {
+            doCreateAccount(captchaHandler.getToken());
         } else {
             getCreateAccountInfo();
         }
@@ -328,13 +318,12 @@ public class CreateAccountActivity extends BaseActivity {
         return StringUtils.defaultString(input.getEditText() != null && input.getEditText().getText() != null ? input.getEditText().getText().toString() : "");
     }
 
-    private void finishWithUserResult(@NonNull CreateAccountSuccessResult result) {
+    private void finishWithUserResult(@NonNull String userName) {
         Intent resultIntent = new Intent();
-        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_USERNAME, result.getUsername());
+        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_USERNAME, userName);
         resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, getText(passwordInput));
         setResult(RESULT_ACCOUNT_CREATED, resultIntent);
 
-        createAccountResult = result;
         showProgressBar(false);
         captchaHandler.cancelCaptcha();
         funnel.logSuccess();

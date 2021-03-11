@@ -18,25 +18,26 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
+import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.databinding.FragmentContributionsSuggestedEditsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.userprofile.ContributionsItemView.Callback
-import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_CONTRIBUTIONS
 import org.wikipedia.userprofile.ContributionsActivity.Companion.EXTRA_SOURCE_PAGEVIEWS
+import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -49,6 +50,8 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
+    private var _binding: FragmentContributionsSuggestedEditsBinding? = null
+    private val binding get() = _binding!!
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
 
     private var allContributions = ArrayList<Contribution>()
@@ -66,21 +69,21 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private val commentRegex = """/\*.*?\*/""".toRegex()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
 
         totalContributionCount = arguments?.getInt(EXTRA_SOURCE_CONTRIBUTIONS, 0)!!
         totalPageViews = arguments?.getLong(EXTRA_SOURCE_PAGEVIEWS, 0)!!
-
-        return inflater.inflate(R.layout.fragment_contributions_suggested_edits, container, false)
+        _binding = FragmentContributionsSuggestedEditsBinding.inflate(LayoutInflater.from(context), container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
-        contributionsRecyclerView.adapter = adapter
+        binding.contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.contributionsRecyclerView.adapter = adapter
 
-        contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val scrollY = recyclerView.computeVerticalScrollOffset()
                 val activity = requireActivity() as AppCompatActivity
@@ -92,23 +95,25 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             }
         })
 
-        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener {
+        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.swipeRefreshLayout.setOnRefreshListener {
             resetAndFetch()
         }
 
-        errorView.setBackClickListener {
+        binding.errorView.backClickListener = View.OnClickListener {
             resetAndFetch()
         }
 
         resetAndFetch()
 
         UserContributionFunnel.get().logOpen()
+        UserContributionEvent.logOpen()
     }
 
     override fun onDestroyView() {
-        contributionsRecyclerView.adapter = null
-        contributionsRecyclerView.clearOnScrollListeners()
+        binding.contributionsRecyclerView.adapter = null
+        binding.contributionsRecyclerView.clearOnScrollListeners()
+        _binding = null
         disposables.clear()
         UserContributionFunnel.reset()
         super.onDestroyView()
@@ -117,10 +122,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     override fun onTypeItemClick(editType: Int) {
         editFilterType = editType
         when (editFilterType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logFilterDescriptions()
-            EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logFilterCaptions()
-            EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logFilterTags()
-            else -> UserContributionFunnel.get().logFilterAll()
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                UserContributionFunnel.get().logFilterDescriptions()
+                UserContributionEvent.logFilterDescriptions()
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                UserContributionFunnel.get().logFilterCaptions()
+                UserContributionEvent.logFilterCaptions()
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                UserContributionFunnel.get().logFilterTags()
+                UserContributionEvent.logFilterTags()
+            }
+            else -> {
+                UserContributionFunnel.get().logFilterAll()
+                UserContributionEvent.logFilterAll()
+            }
         }
 
         createConsolidatedList()
@@ -129,7 +146,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun resetAndFetch() {
         allContributions.clear()
         displayedContributions.clear()
-        errorView.visibility = GONE
+        binding.errorView.visibility = GONE
         articleContributionsContinuation = null
         imageContributionsContinuation = null
         adapter.notifyDataSetChanged()
@@ -142,7 +159,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             return
         }
 
-        progressBar.visibility = VISIBLE
+        binding.progressBar.visibility = VISIBLE
         disposables.clear()
 
         if (allContributions.isEmpty()) {
@@ -154,7 +171,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         var totalContributionCount = 0
         disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
-        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
+        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     totalContributionCount += response.query()!!.userInfo()!!.editCount
@@ -210,7 +227,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             }
                 },
                 if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
-                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
                                 totalContributionCount += response.query()!!.userInfo()!!.editCount
@@ -270,8 +287,8 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    swipeRefreshLayout.isRefreshing = false
-                    progressBar.visibility = GONE
+                    binding.swipeRefreshLayout.isRefreshing = false
+                    binding.progressBar.visibility = GONE
                 }
                 .subscribe({
                     allContributions.addAll(it)
@@ -300,7 +317,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith{ o2, o1 -> (o1.date.compareTo(o2.date)) }
+        sortedContributions.sortWith { o2, o1 -> (o1.date.compareTo(o2.date)) }
 
         if (!sortedContributions.isNullOrEmpty()) {
             var currentDate = sortedContributions[0].date
@@ -316,7 +333,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             }
         }
         adapter.notifyDataSetChanged()
-        contributionsRecyclerView.visibility = VISIBLE
+        binding.contributionsRecyclerView.visibility = VISIBLE
     }
 
     private fun getCorrectDateString(date: Date): String {
@@ -332,7 +349,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun deCommentString(str: String): String {
         return if (str.length < 4) str else str.substring(2, str.length - 2).trim()
     }
-    
+
     @Suppress("SameParameterValue")
     private fun extractDescriptionFromComment(editComment: String, metaComment: String): String {
         var outStr = editComment.replace(metaComment, "")
@@ -356,13 +373,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     }
 
     private fun showError(t: Throwable) {
-        swipeRefreshLayout.isRefreshing = false
-        contributionsRecyclerView.visibility = GONE
-        errorView.setError(t)
-        errorView.visibility = VISIBLE
+        binding.swipeRefreshLayout.isRefreshing = false
+        binding.contributionsRecyclerView.visibility = GONE
+        binding.errorView.setError(t)
+        binding.errorView.visibility = VISIBLE
     }
 
-    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
+    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView>(itemView) {
         fun bindItem() {
             view.callback = this@ContributionsFragment
             view.updateFilterViewUI(editFilterType, totalContributionCount)
@@ -370,7 +387,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
+    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
             itemView.setPaddingRelative(itemView.paddingStart, 0, itemView.paddingEnd, 0)
             itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
@@ -382,7 +399,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
+    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
@@ -551,10 +568,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private class ItemCallback : Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             when (contribution.editType) {
-                EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logViewDescription()
-                EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logViewCaption()
-                EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logViewTag()
-                else -> UserContributionFunnel.get().logViewMisc()
+                EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                    UserContributionFunnel.get().logViewDescription()
+                    UserContributionEvent.logViewDescription()
+                }
+                EDIT_TYPE_IMAGE_CAPTION -> {
+                    UserContributionFunnel.get().logViewCaption()
+                    UserContributionEvent.logViewCaption()
+                }
+                EDIT_TYPE_IMAGE_TAG -> {
+                    UserContributionFunnel.get().logViewTag()
+                    UserContributionEvent.logViewTag()
+                }
+                else -> {
+                    UserContributionFunnel.get().logViewMisc()
+                    UserContributionEvent.logViewMisc()
+                }
             }
             context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
         }

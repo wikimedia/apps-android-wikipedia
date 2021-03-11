@@ -16,9 +16,11 @@ import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
+import org.wikipedia.util.DateUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -38,8 +40,8 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @SerializedName("recentchanges") @Nullable private List<RecentChange> recentChanges;
+    @Nullable private List<WatchlistItem> watchlist;
     @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
-    @SerializedName("watchlist") @Nullable private List<MwQueryPage> watchlistPages;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -60,7 +62,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return tokens != null ? tokens.csrf() : null;
     }
 
-    @Nullable public String getToken() {
+    @Nullable public String watchToken() {
         return  tokens != null ? tokens.watch() : null;
     }
 
@@ -137,8 +139,8 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return recentChanges != null ? recentChanges : Collections.emptyList();
     }
 
-    @NonNull public List<MwQueryPage> watchlist() {
-        return watchlistPages != null ? watchlistPages : Collections.emptyList();
+    @NonNull public List<WatchlistItem> getWatchlist() {
+        return watchlist != null ? watchlist : Collections.emptyList();
     }
 
     public boolean isEditProtected() {
@@ -342,5 +344,73 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     public static class OresItem {
         @SerializedName("true") private float trueProb;
         @SerializedName("false") private float falseProb;
+    }
+
+    public static class WatchlistItem {
+        private int pageid;
+        private long revid;
+        @SerializedName("old_revid") private long oldRevid;
+        private int ns;
+        @Nullable private String title;
+        @Nullable private String user;
+        @Nullable private String timestamp;
+        @Nullable private String comment;
+        @Nullable private String parsedcomment;
+        @Nullable private String logtype;
+        private boolean anon;
+        private boolean bot;
+        @SerializedName("new") private boolean isNew;
+        private boolean minor;
+        private int oldlen;
+        private int newlen;
+        private WikiSite wiki;
+
+        public int getNs() {
+            return ns;
+        }
+
+        @NonNull public String getTitle() {
+            return StringUtils.defaultString(title);
+        }
+
+        @NonNull public String getLogType() {
+            return StringUtils.defaultString(logtype);
+        }
+
+        @NonNull public Date getDate() {
+            return DateUtil.iso8601DateParse(StringUtils.defaultString(timestamp));
+        }
+
+        @NonNull public String getParsedComment() {
+            return StringUtils.defaultString(parsedcomment);
+        }
+
+        public void setWiki(WikiSite wiki) {
+            this.wiki = wiki;
+        }
+
+        public WikiSite getWiki() {
+            return wiki;
+        }
+
+        @NonNull public String getUser() {
+            return StringUtils.defaultString(user);
+        }
+
+        public int getOldlen() {
+            return oldlen;
+        }
+
+        public int getNewlen() {
+            return newlen;
+        }
+
+        public boolean isAnon() {
+            return anon;
+        }
+
+        public long getRevid() {
+            return revid;
+        }
     }
 }

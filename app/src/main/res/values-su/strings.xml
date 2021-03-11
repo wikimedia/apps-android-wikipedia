@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dipusparaga
 * Kandar
 * MuratTheTurkish
@@ -310,7 +309,6 @@
   <string name="text_size_increase">Gedéan ukuran téks</string>
   <string name="text_size_decrease">Leutikan ukuran téks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
-  <string name="nav_item_reading_lists">Daptar kami</string>
   <string name="reading_list_save_to">Simpen kana daptar bacaan</string>
   <string name="reading_list_create_new">Jieun anyar</string>
   <string name="reading_list_title_exists">Daptar bacaan \"%s\" geus aya.</string>

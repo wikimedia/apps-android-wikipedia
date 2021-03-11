@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Kareyac
 * ShockD
 * Spas.Z.Spasov
@@ -369,7 +368,6 @@
   <string name="text_size_decrease">Намаляване на размера на текста</string>
   <string name="text_size_percent_default">%s (по подразбиране)</string>
   <string name="text_style_title">Шрифт</string>
-  <string name="nav_item_reading_lists">Моите списъци</string>
   <string name="reading_list_save_to">Добавяне в списъка за четене</string>
   <string name="reading_list_move_to">Преместване в списък за четене</string>
   <string name="reading_list_create_new">Създаване на нов</string>
@@ -537,6 +535,7 @@
   <string name="notifications_view_archived_button_text">Преглеждане на архивирани известия</string>
   <string name="notification_preferences_title">Настройки на известията</string>
   <string name="notifications_mark_unread">Отбелязване като непрочетено</string>
+  <string name="watchlist_title">Списък за наблюдение</string>
   <string name="preference_title_notification_poll">Известия за анкети</string>
   <string name="preference_summary_notification_poll">Позволяване на приложението да използва данни за проверка на нови известия в заден план.</string>
   <string name="preference_category_notification_types">Видове известия в приложението</string>
@@ -830,8 +829,17 @@
   <string name="main_tooltip_text" fuzzy="true">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_text_v2">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_action_button">Започване</string>
+  <string name="main_tooltip_watchlist_title">Списък за наблюдение</string>
   <string name="custom_date_picker_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_cancel_button_text">Отказ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Отказ</string>
+  <string name="watchlist_details_watch_label">Наблюдение</string>
+  <string name="thank_label">Благодарност</string>
+  <string name="thank_dialog_negative_button_text">Отказ</string>
+  <string name="watchlist_expiry_dialog_one_week">1 седмица</string>
+  <string name="watchlist_expiry_dialog_one_month">1 месец</string>
+  <string name="watchlist_expiry_dialog_three_months">3 месеца</string>
+  <string name="watchlist_filter_talk">Беседа</string>
+  <string name="watchlist_filter_pages">Страници</string>
 </resources>

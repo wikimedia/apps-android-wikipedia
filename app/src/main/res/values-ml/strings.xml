@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Adithyak1997
 * Jameela P.
 * Jinoytommanjaly
@@ -284,7 +283,6 @@
   <string name="text_size_increase">അക്ഷരവലിപ്പം കൂട്ടുക</string>
   <string name="text_size_decrease">അക്ഷരവലിപ്പം കുറയ്ക്കുക</string>
   <string name="text_size_percent_default">%s (സ്വതേ)</string>
-  <string name="nav_item_reading_lists">എന്റെ പട്ടികകൾ</string>
   <string name="reading_list_save_to">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
   <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>

@@ -10,7 +10,9 @@ import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
+import org.wikipedia.dataclient.watch.WatchPostResponse;
 import org.wikipedia.dataclient.wikidata.Claims;
 import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
@@ -81,7 +83,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=langlinks&lllimit=500&redirects=&converttitles=")
     @NonNull Observable<MwQueryResponse> getLangLinks(@NonNull @Query("titles") String title);
 
-    @GET(MW_API_PREFIX + "action=query&prop=description")
+    @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|imagelabels&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
@@ -134,6 +136,8 @@ public interface Service {
     @NonNull Observable<MwPostResponse> postSetOptions(@NonNull @Field("change") String change,
                                                        @NonNull @Field("token") String token);
 
+    @GET(MW_API_PREFIX + "action=streamconfigs&format=json&constraints=destination_event_service=eventgate-analytics-external")
+    @NonNull Observable<MwStreamConfigsResponse> getStreamConfigs();
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -161,7 +165,6 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=login")
     @NonNull Observable<JsonElement> getLoginToken();
 
-    @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
     @NonNull Observable<LoginClient.LoginResponse> postLogIn(@Field("username") String user,
@@ -169,7 +172,6 @@ public interface Service {
                                                              @Field("logintoken") String token,
                                                              @Field("loginreturnurl") String url);
 
-    @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=clientlogin&rememberMe=")
     @NonNull Observable<LoginClient.LoginResponse> postLogIn(@Field("username") String user,
@@ -179,7 +181,6 @@ public interface Service {
                                                              @Field("logintoken") String token,
                                                              @Field("logincontinue") boolean loginContinue);
 
-    @Headers("Cache-Control: no-cache")
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=logout")
     @NonNull Observable<MwPostResponse> postLogout(@NonNull @Field("token") String token);
@@ -203,7 +204,6 @@ public interface Service {
                                               @Query("notcontinue") @Nullable String continueStr);
 
     @FormUrlEncoded
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=echomarkread")
     @NonNull Observable<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @Nullable String readList, @Field("unreadlist") @Nullable String unreadList);
 
@@ -216,13 +216,11 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getUnreadNotificationWikis();
 
     @FormUrlEncoded
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=create&provider=fcm")
     @NonNull Observable<MwQueryResponse> subscribePush(@Field("token") @NonNull String csrfToken,
                                                        @Field("providertoken") @NonNull String providerToken);
 
     @FormUrlEncoded
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=echopushsubscriptions&command=delete&provider=fcm")
     @NonNull Observable<MwQueryResponse> unsubscribePush(@Field("token") @NonNull String csrfToken,
                                                          @Field("providertoken") @NonNull String providerToken);
@@ -238,7 +236,6 @@ public interface Service {
                                                      @NonNull @Field("text") String text);
 
     @FormUrlEncoded
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=edit")
     @SuppressWarnings("checkstyle:parameternumber")
     @NonNull Observable<Edit> postEditSubmit(@NonNull @Field("title") String title,
@@ -292,7 +289,6 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
 
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
     Observable<MwPostResponse> postSetClaim(@NonNull @Field("claim") String claim,
@@ -300,7 +296,6 @@ public interface Service {
                                             @Nullable @Field("summary") String summary,
                                             @Nullable @Field("tags") String tags);
 
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
     @SuppressWarnings("checkstyle:parameternumber")
@@ -313,7 +308,6 @@ public interface Service {
                                                    @NonNull @Field("token") String token,
                                                    @Nullable @Field("assert") String user);
 
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
     @FormUrlEncoded
     @SuppressWarnings("checkstyle:parameternumber")
@@ -326,7 +320,6 @@ public interface Service {
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("assert") String user);
 
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
     @FormUrlEncoded
     Observable<EntityPostResponse> postEditEntity(@NonNull @Field("id") String id,
@@ -336,7 +329,6 @@ public interface Service {
                                               @Nullable @Field("tags") String tags);
 
 
-    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=reviewimagelabels")
     @FormUrlEncoded
     Observable<MwPostResponse> postReviewImageLabels(@NonNull @Field("filename") String fileName,
@@ -344,15 +336,31 @@ public interface Service {
                                                      @NonNull @Field("batch") String batchLabels);
     // ------- Watchlist -------
 
-    @GET(MW_API_PREFIX + "action=query&list=watchlist")
-    @NonNull Observable<MwQueryResponse> getWatchlist(@Nullable @Query("continue") String cont);
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&prop=info&converttitles=&redirects=&inprop=watched")
+    @NonNull Observable<MwQueryResponse> getWatchedInfo(@NonNull @Query("titles") String titles);
 
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=watch")
+    @GET(MW_API_PREFIX + "action=query&list=watchlist&wllimit=500&wlallrev=1&wlprop=ids|title|flags|comment|parsedcomment|timestamp|sizes|user|loginfo")
+
+    @NonNull Observable<MwQueryResponse> getWatchlist();
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=ids|timestamp|flags|comment|user&rvlimit=2&rvdir=newer")
+    @NonNull Observable<MwQueryResponse> getRevisionDetails(@Query("titles") @NonNull String titles,
+                                                            @Query("rvstartid") @NonNull Long revisionStartId);
+
+    @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
-    Observable<EntityPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,
-                                             @Field("pageids") String pageIds,
-                                             @NonNull @Field("token") String token);
+    Observable<EntityPostResponse> postThanksToRevision(@Field("rev") long revisionId,
+                                                        @NonNull @Field("token") String token);
+
+    @POST(MW_API_PREFIX + "action=watch&converttitles=&redirects=")
+    @FormUrlEncoded
+    Observable<WatchPostResponse> postWatch(@Nullable @Field("unwatch") Integer unwatch,
+                                            @Nullable @Field("pageids") String pageIds,
+                                            @Nullable @Field("titles") String titles,
+                                            @Nullable @Field("expiry") String expiry,
+                                            @NonNull @Field("token") String token);
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=tokens&type=watch")

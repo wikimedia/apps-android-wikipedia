@@ -1,13 +1,12 @@
 package org.wikipedia.feed.suggestededits
 
 import android.content.Context
-import android.view.View
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.view_suggested_edits_card.view.*
-import org.wikipedia.R
+import org.wikipedia.databinding.ViewSuggestedEditsCardBinding
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.view.CardFooterView
@@ -21,8 +20,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         fun onSeCardFooterClicked()
     }
 
+    private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
     private var card: SuggestedEditsCard? = null
-    private var view: View = inflate(getContext(), R.layout.view_suggested_edits_card, this)
 
     override fun setCard(card: SuggestedEditsCard) {
         if (card == getCard()) {
@@ -36,19 +35,19 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
         super.setCallback(callback)
-        headerView.setCallback(callback)
+        binding.headerView.setCallback(callback)
     }
 
     private fun updateContents() {
         setUpPagerWithSECards()
-        cardFooter.setFooterActionText(context.getString(R.string.suggested_card_more_edits))
-        cardFooter.callback = this
+        binding.cardFooter.setFooterActionText(card!!.footerActionText(), null)
+        binding.cardFooter.callback = this
     }
 
     private fun setUpPagerWithSECards() {
-        seCardsPager.adapter = SECardsPagerAdapter(view.context as AppCompatActivity, card)
-        seCardsPager.offscreenPageLimit = 3
-        TabLayoutMediator(seCardsIndicatorLayout, seCardsPager) { _: TabLayout.Tab, _: Int -> }.attach()
+        binding.seCardsPager.adapter = SECardsPagerAdapter(context as AppCompatActivity, card)
+        binding.seCardsPager.offscreenPageLimit = 3
+        TabLayoutMediator(binding.seCardsIndicatorLayout, binding.seCardsPager) { _: TabLayout.Tab, _: Int -> }.attach()
     }
 
     class SECardsPagerAdapter(activity: AppCompatActivity?, card: SuggestedEditsCard?) : PositionAwareFragmentStateAdapter(activity!!) {
@@ -72,7 +71,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun header(card: SuggestedEditsCard) {
-        headerView!!.setTitle(card.title())
+        binding.headerView.setTitle(card.title())
                 .setLangCode("")
                 .setCard(card)
                 .setCallback(callback)
@@ -83,8 +82,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     override fun onFooterClicked() {
-        if (callback != null) {
-            callback!!.onSeCardFooterClicked()
-        }
+        callback?.onSeCardFooterClicked()
     }
 }

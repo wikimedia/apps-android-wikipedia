@@ -1,5 +1,6 @@
 package org.wikipedia.analytics;
 
+import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 
 public class AppLanguageSettingsFunnel extends TimedFunnel {
@@ -10,9 +11,9 @@ public class AppLanguageSettingsFunnel extends TimedFunnel {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL);
     }
 
-    public void logLanguageSetting(String source, String initialLanguageList, String finalLanguageList, int interactionsCount, boolean searched) {
+    public void logLanguageSetting(Constants.InvokeSource source, String initialLanguageList, String finalLanguageList, int interactionsCount, boolean searched) {
         log(
-                "source", source,
+                "source", source.getName(),
                 "initial", initialLanguageList,
                 "final", finalLanguageList,
                 "interactions", interactionsCount,

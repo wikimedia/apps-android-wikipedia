@@ -10,9 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.log.L;
 
-import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -131,12 +129,7 @@ public class Notification {
         @SuppressWarnings("unused") @Nullable private String utciso8601;
 
         public Date date() {
-            try {
-                return DateUtil.iso8601DateParse(utciso8601);
-            } catch (ParseException e) {
-                L.e(e);
-                return new Date();
-            }
+            return DateUtil.iso8601DateParse(utciso8601);
         }
     }
 

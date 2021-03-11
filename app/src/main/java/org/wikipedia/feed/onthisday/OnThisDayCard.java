@@ -56,8 +56,9 @@ public class OnThisDayCard extends WikiSiteCard {
         return DateUtil.getFeedCardShortDateString(date);
     }
 
-    @NonNull String dayString() {
-        return DateUtil.getMonthOnlyDateString(date.getTime());
+    @NonNull
+    public String footerActionText() {
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.more_events_text);
     }
 
     @NonNull public CharSequence text() {
@@ -70,10 +71,6 @@ public class OnThisDayCard extends WikiSiteCard {
 
     @NonNull public Calendar date() {
         return date;
-    }
-
-    int nextYear() {
-        return nextYear;
     }
 
     @Nullable public List<PageSummary> pages() {

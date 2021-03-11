@@ -2,7 +2,6 @@
 <!-- Authors:
 * !Silent
 * AVrana
-* Abijeet Patro
 * Alvarenga
 * Anaclaudiaml
 * BarbaraAckles
@@ -13,6 +12,7 @@
 * Dianakc
 * EVinente
 * Eduardo Addad de Oliveira
+* Eduardoaddad
 * Envlh
 * Fasouzafreitas
 * Felipe L. Ewald
@@ -75,6 +75,10 @@
   <string name="menu_page_show_tabs">Mostrar guias</string>
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Encontre no artigo</string>
+  <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
+  <string name="menu_page_view_talk">Ver página de discussão</string>
+  <string name="menu_page_view_edit_history">Ver histórico de edições</string>
+  <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
   <string name="edit_section_find_in_page">Encontrar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -211,16 +215,18 @@
   <string name="page_protected_can_not_edit">Desculpe, a sua conta não tem os privilégios necessários para editar esta página neste momento.</string>
   <string name="page_protected_can_not_edit_anon">Desculpe, esta página não pode ser editada anonimamente neste momento.</string>
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adicionar às páginas vigiadas</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Acompanhe o que está acontecendo com os artigos de seu interesse. Toque no menu flutuante e selecione &lt;b&gt;Adicionar à lista de páginas vigiadas&lt;/b&gt; para ver as alterações em um artigo.</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
   <string name="privacy_policy_description">Política de privacidade</string>
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
@@ -260,6 +266,7 @@
   <string name="find_previous">Encontrar anterior</string>
   <string name="find_first_occurence">Esta é a primeira ocorrência</string>
   <string name="find_last_occurence">Esta é a última ocorrência</string>
+  <string name="article_opened_in_background_tab">O artigo foi aberto em uma guia em segundo plano.</string>
   <string name="abusefilter_title_warn">Isso pode ser uma edição não construtiva. Tem certeza de que deseja publicá-la?</string>
   <string name="abusefilter_title_disallow">Não pode publicar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou que esta edição contém possíveis erros. Ela pode conter uma ou mais das seguintes características:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de letras maiúsculas;&lt;br/&gt;· Entradas em branco ou com spam;&lt;br/&gt;· Imagens ou ligações externas irrelevantes; e&lt;br/&gt;· Repetição de caracteres.</string>
@@ -401,7 +408,7 @@
   <string name="text_size_decrease">Diminuir o tamanho do texto</string>
   <string name="text_size_percent_default">%s (Padrão)</string>
   <string name="text_style_title">Fonte</string>
-  <string name="nav_item_reading_lists">Minhas listas</string>
+  <string name="nav_item_saved">Salvado</string>
   <string name="reading_list_save_to">Salvar na lista de leitura</string>
   <string name="reading_list_move_to">Mover à lista de leitura</string>
   <string name="reading_list_create_new">Criar nova</string>
@@ -581,6 +588,7 @@
   <string name="notifications_view_archived_button_text">Ver notificações arquivadas</string>
   <string name="notification_preferences_title">Preferências de notificação</string>
   <string name="notifications_mark_unread">Marcar como não lida</string>
+  <string name="watchlist_title">Lista de páginas vigiadas</string>
   <string name="preference_title_notification_poll">Pesquisa sobre notificações</string>
   <string name="preference_summary_notification_poll">Permitir que o aplicativo use dados para verificar em segundo plano se existem novas notificações</string>
   <string name="preference_category_notification_types">Tipos de notificações no aplicativo</string>
@@ -814,8 +822,8 @@
     <item quantity="one">%d dia</item>
     <item quantity="other">%d dias</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">O que é edições sugeridas?</string>
-  <string name="suggested_edits_what_is_text">As edições sugeridas apresentam oportunidades para contribuições pequenas, mas vitais, para a Wikipédia.</string>
+  <string name="suggested_edits_what_is_title">O que são edições sugeridas?</string>
+  <string name="suggested_edits_what_is_text">As edições sugeridas apresentam oportunidades para contribuições pequenas, mas vitais para a Wikipédia.</string>
   <string name="suggested_edits_learn_more">Saiba mais</string>
   <string name="suggested_edits_paused_title">Pausado</string>
   <string name="suggested_edits_disabled_title">Desativado</string>
@@ -955,6 +963,8 @@
   <string name="main_tooltip_text">Olá %s, Você sabia que todos podem editar a Wikipédia?</string>
   <string name="main_tooltip_text_v2">Você sabia que todos podem editar a Wikipédia?</string>
   <string name="main_tooltip_action_button">Começar</string>
+  <string name="main_tooltip_watchlist_title">Lista de páginas vigiadas</string>
+  <string name="main_tooltip_watchlist_text">Encontre artigos e páginas que você adicionou anteriormente à sua lista de páginas vigiadas no menu Mais em &lt;b&gt;lista de páginas vigiadas&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Cancelar</string>
@@ -970,4 +980,38 @@
   <string name="talk_message_hint">Compor mensagem</string>
   <string name="talk_message_empty">A mensagem não pode estar vazia.</string>
   <string name="talk_subject_empty">O assunto não pode estar vazio.</string>
+  <string name="menu_option_share_edit">Compartilhar edição</string>
+  <string name="menu_option_user_profile">Perfil de %s</string>
+  <string name="menu_option_user_contributions">Contribuições de %s</string>
+  <string name="watchlist_details_watching_label">Vigiado</string>
+  <string name="watchlist_details_watch_label">Vigiar</string>
+  <string name="thank_label">Obrigado</string>
+  <string name="go_to_user_page">Vá para a página do usuário</string>
+  <string name="thank_dialog_title_text">Envie publicamente \"Obrigado\"</string>
+  <string name="thank_dialog_text">\'Obrigado\' é uma maneira fácil de mostrar apreço pelo trabalho de um editor na Wikipédia. \'Obrigado\' não pode ser desfeito e pode ser visto publicamente</string>
+  <string name="thank_dialog_positive_button_text">Enviar agradecimento</string>
+  <string name="thank_dialog_negative_button_text">Cancelar</string>
+  <string name="thank_success_message">O seu \'agradecimento\' foi enviado para %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s e sua página de discussão foi adicionada à sua lista de páginas vigiadas %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Mudar</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanentemente</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">por 1 semana</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">por 1 mês</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">Por 3 meses</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">Por 6 meses</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s e sua página de discussão foi removida de sua lista de páginas vigiadas.</string>
+  <string name="watchlist_expiry_dialog_title">Selecione o período da lista de páginas vigiadas</string>
+  <string name="watchlist_expiry_dialog_permanent">Permanente</string>
+  <string name="watchlist_expiry_dialog_one_week">1 semana</string>
+  <string name="watchlist_expiry_dialog_one_month">1 mês</string>
+  <string name="watchlist_expiry_dialog_three_months">3 meses</string>
+  <string name="watchlist_expiry_dialog_six_months">6 meses</string>
+  <string name="watchlist_empty">Você não tem nenhum artigo em sua lista de páginas vigiadas.</string>
+  <string name="watchlist_filter_all">Todos</string>
+  <string name="watchlist_filter_talk">Discussão</string>
+  <string name="watchlist_filter_pages">Páginas</string>
+  <string name="watchlist_filter_other">Outro</string>
+  <string name="watchlist_page_moved">Movido</string>
+  <string name="watchlist_page_protected">Protegido</string>
+  <string name="watchlist_page_deleted">Excluído</string>
 </resources>

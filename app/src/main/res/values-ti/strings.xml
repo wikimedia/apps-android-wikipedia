@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Joanmp17
 -->
 <resources>
@@ -71,7 +70,7 @@
   <string name="search_no_results_found">ውጺኢታት ኣይተረኸቡን</string>
   <string name="search_reading_list_no_results">ብ\"%s\" ውጺኢታት ኣይተረኸቡን</string>
   <string name="search_history_no_results">ብታሪኽ ውጺኢታት ኣይተረኸቡን</string>
-  <string name="title_captcha">ካፕቻ ኣእተው</string>
+  <string name="title_captcha">ካፕቻ ኣእትው</string>
   <string name="nav_item_login">ናብ ዊኪፐድያ ብመንነት እተው</string>
   <string name="login_username_hint">ሽም ተጠቃሚ</string>
   <string name="login_password_hint">መሕለፊ ቃል</string>
@@ -195,7 +194,6 @@
   <string name="preference_title_app_theme">ገጽታ መተግበሪ</string>
   <string name="text_size_percent_default">%s (ንቡር)</string>
   <string name="text_style_title">ቅርጺ ፊደል</string>
-  <string name="nav_item_reading_lists">ዝርዝራተይ</string>
   <string name="reading_list_create_new">ሓድሽ ፍጠር</string>
   <string name="reading_list_added_view_button">ዝርዝር ርኣይ</string>
   <string name="reading_list_add_to_list_button">ናብ ዝርዝር ወስኽ</string>

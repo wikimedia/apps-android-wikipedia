@@ -41,7 +41,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.TabUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -163,8 +163,13 @@ public class NewsFragment extends Fragment {
 
     private class Callback implements ListCardItemView.Callback {
         @Override
-        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+        public void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewBackgroundTab) {
+            if (openInNewBackgroundTab) {
+                TabUtil.openInNewBackgroundTab(entry);
+                FeedbackUtil.showMessage(requireActivity(), R.string.article_opened_in_background_tab);
+            } else {
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+            }
         }
 
         @Override
@@ -192,17 +197,6 @@ public class NewsFragment extends Fragment {
         public void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry) {
             bottomSheetPresenter.show(getChildFragmentManager(),
                     MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), NEWS_ACTIVITY));
-        }
-
-        @Override
-        public void onRemovePageFromList(@NonNull HistoryEntry entry) {
-            FeedbackUtil.showMessage(requireActivity(),
-                    getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-        }
-
-        @Override
-        public void onSharePage(@NonNull HistoryEntry entry) {
-            ShareUtil.shareText(requireActivity(), entry.getTitle());
         }
     }
 

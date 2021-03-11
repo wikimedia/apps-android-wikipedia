@@ -5,7 +5,6 @@ import android.net.Uri;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -55,8 +54,7 @@ public final class EventLoggingService {
             }
 
             if (dataURL.length() > MAX_URL_LEN) {
-                L.logRemoteErrorIfProd(new RemoteLogException("EventLogging max length exceeded")
-                        .put("length", String.valueOf(dataURL.length())));
+                L.logRemoteErrorIfProd(new RuntimeException("EventLogging max length exceeded"));
             }
 
             Request request = new Request.Builder().url(dataURL).post(EMPTY_REQ).build();

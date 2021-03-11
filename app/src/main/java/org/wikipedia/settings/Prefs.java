@@ -9,6 +9,7 @@ import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.analytics.eventplatform.StreamConfig;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -19,10 +20,10 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -271,6 +272,11 @@ public final class Prefs {
 
     public static boolean getMediaWikiBaseUriSupportsLangCode() {
         return getBoolean(R.string.preference_key_mediawiki_base_uri_supports_lang_code, true);
+    }
+
+    @Nullable
+    public static String getEventPlatformIntakeUriOverride() {
+        return getString(R.string.preference_key_event_platform_intake_base_uri, null);
     }
 
     public static long getLastRunTime(@NonNull String task) {
@@ -676,22 +682,6 @@ public final class Prefs {
         setString(R.string.preference_key_remote_notifications_seen_time, seenTime);
     }
 
-    public static boolean shouldShowBookmarkToolTip() {
-        return getBoolean(R.string.preference_key_show_bookmark_tooltip, true);
-    }
-
-    public static void shouldShowBookmarkToolTip(boolean showTooltip) {
-        setBoolean(R.string.preference_key_show_bookmark_tooltip, showTooltip);
-    }
-
-    public static int getOverflowReadingListsOptionClickCount() {
-        return getInt(R.string.preference_key_overflow_reading_lists_option_click_count, 0);
-    }
-
-    public static void setOverflowReadingListsOptionClickCount(int count) {
-        setInt(R.string.preference_key_overflow_reading_lists_option_click_count, count);
-    }
-
     public static boolean shouldShowHistoryOfflineArticlesToast() {
         return getBoolean(R.string.preference_key_history_offline_articles_toast, true);
     }
@@ -781,6 +771,23 @@ public final class Prefs {
         remove(R.string.preference_key_announcement_shown_dialogs);
     }
 
+    @NonNull public static Set<String> getWatchlistDisabledLanguages() {
+        Set<String> emptySet = new LinkedHashSet<>();
+        if (!contains(R.string.preference_key_watchlist_disabled_langs)) {
+            return emptySet;
+        }
+        //noinspection unchecked
+        Set<String> codes = GsonUnmarshaller.unmarshal(emptySet.getClass(),
+                getString(R.string.preference_key_watchlist_disabled_langs, null));
+        return codes != null ? codes : emptySet;
+    }
+
+    public static void setWatchlistDisabledLanguages(@NonNull Set<String> langCodes) {
+        Set<String> codes = getAnnouncementShownDialogs();
+        codes.addAll(langCodes);
+        setString(R.string.preference_key_watchlist_disabled_langs, GsonMarshaller.marshal(langCodes));
+    }
+
     public static boolean shouldMatchSystemTheme() {
         return getBoolean(R.string.preference_key_match_system_theme, true);
     }
@@ -791,12 +798,8 @@ public final class Prefs {
 
     public static Date getSuggestedEditsPauseDate() {
         Date date = new Date(0);
-        try {
-            if (contains(R.string.preference_key_suggested_edits_pause_date)) {
-                date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
-            }
-        } catch (ParseException e) {
-            // ignore
+        if (contains(R.string.preference_key_suggested_edits_pause_date)) {
+            date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
         }
         return date;
     }
@@ -933,6 +936,24 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
     }
 
+    public static String getEventPlatformSessionId() {
+        return getString(R.string.preference_key_event_platform_session_id, null);
+    }
+
+    public static void setEventPlatformSessionId(@Nullable String sessionId) {
+        setString(R.string.preference_key_event_platform_session_id, sessionId);
+    }
+
+    public static Map<String, StreamConfig> getStreamConfigs() {
+        TypeToken<HashMap<String, StreamConfig>> streamConfigMapType = new TypeToken<HashMap<String, StreamConfig>>() {};
+        String streamConfigJson = getString(R.string.preference_key_event_platform_stored_stream_configs, "{}");
+        return (HashMap<String, StreamConfig>) GsonUnmarshaller.unmarshal(streamConfigMapType, streamConfigJson);
+    }
+
+    public static void setStreamConfigs(@NonNull Map<String, StreamConfig> streamConfigs) {
+        setString(R.string.preference_key_event_platform_stored_stream_configs, GsonMarshaller.marshal(streamConfigs));
+    }
+
     public static void setLocalClassName(@Nullable String className) {
         setString(R.string.preference_key_crash_report_local_class_name, className);
     }
@@ -940,6 +961,23 @@ public final class Prefs {
     public static String getLocalClassName() {
         return getString(R.string.preference_key_crash_report_local_class_name, "");
     }
+
+    public static boolean isWatchlistPageOnboardingTooltipShown() {
+        return getBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, false);
+    }
+
+    public static void setWatchlistPageOnboardingTooltipShown(boolean enabled) {
+        setBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, enabled);
+    }
+
+    public static boolean isWatchlistMainOnboardingTooltipShown() {
+        return getBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, false);
+    }
+
+    public static void setWatchlistMainOnboardingTooltipShown(boolean enabled) {
+        setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled);
+    }
+
 
     private Prefs() { }
 }

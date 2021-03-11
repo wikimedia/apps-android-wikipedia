@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Arifin.wijaya
 * Diki Ananta
 * MuratTheTurkish
@@ -324,7 +323,6 @@
   <string name="text_size_increase">Undhakaké ukurané tulisan</string>
   <string name="text_size_decrease">Udhunaké ukurané tulisan</string>
   <string name="text_size_percent_default">%s (Gawan)</string>
-  <string name="nav_item_reading_lists">Pratélanku</string>
   <string name="reading_list_save_to">Simpen menyang pratélan wacan</string>
   <string name="reading_list_create_new">Gawé anyar</string>
   <string name="reading_list_title_exists">Pratélan wacan \"%s\" wis ana.</string>

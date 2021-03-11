@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
@@ -41,7 +40,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @NonNull
     public String footerActionText() {
-        return WikipediaApp.getInstance().getString(R.string.view_top_read_card_action);
+        return L10nUtil.getStringForArticleLanguage(wikiSite().languageCode(), R.string.view_top_read_card_action);
     }
 
     @NonNull

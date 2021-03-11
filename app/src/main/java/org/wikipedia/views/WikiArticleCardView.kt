@@ -2,13 +2,12 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.util.Pair
-import kotlinx.android.synthetic.main.view_wiki_article_card.view.*
-import org.wikipedia.R
+import org.wikipedia.databinding.ViewWikiArticleCardBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -17,47 +16,46 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
 
 class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
-    init {
-        View.inflate(context, R.layout.view_wiki_article_card, this)
-    }
+
+    val binding = ViewWikiArticleCardBinding.inflate(LayoutInflater.from(context), this)
 
     fun setTitle(title: String) {
-        articleTitle.text = StringUtil.fromHtml(title)
+        binding.articleTitle.text = StringUtil.fromHtml(title)
     }
 
     fun setDescription(description: String?) {
-        articleDescription.text = description
+        binding.articleDescription.text = description
     }
 
     fun getImageView(): FaceAndColorDetectImageView {
-        return articleImage
+        return binding.articleImage
     }
 
     fun setExtract(extract: String?, maxLines: Int) {
-        articleExtract.text = StringUtil.fromHtml(extract)
-        articleExtract.maxLines = maxLines
+        binding.articleExtract.text = StringUtil.fromHtml(extract)
+        binding.articleExtract.maxLines = maxLines
     }
 
     fun getSharedElements(): Array<Pair<View, String>> {
-        return TransitionUtil.getSharedElements(context, articleTitle, articleDescription, articleImage, articleDivider)
+        return TransitionUtil.getSharedElements(context, binding.articleTitle, binding.articleDescription, binding.articleImage)
     }
 
-    fun setImageUri(uri: Uri?) {
-        if (uri == null || DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) {
-            articleImageContainer.visibility = GONE
+    fun setImageUri(uri: Uri?, hideInLandscape: Boolean = true) {
+        if (uri == null || (DimenUtil.isLandscape(context) && hideInLandscape) || !Prefs.isImageDownloadEnabled()) {
+            binding.articleImageContainer.visibility = GONE
         } else {
-            articleImageContainer.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT,
+            binding.articleImageContainer.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT,
                     DimenUtil.leadImageHeightForDevice(context) - DimenUtil.getToolbarHeightPx(context))
-            articleImageContainer.visibility = VISIBLE
-            articleImage.loadImage(uri)
+            binding.articleImageContainer.visibility = VISIBLE
+            binding.articleImage.loadImage(uri)
         }
     }
 
     fun prepareForTransition(title: PageTitle) {
-        setImageUri(if (TextUtils.isEmpty(title.thumbUrl)) null else Uri.parse(title.thumbUrl))
-
+        setImageUri(if (title.thumbUrl.isNullOrEmpty()) null else Uri.parse(title.thumbUrl))
         setTitle(title.displayText)
         setDescription(title.description)
+        binding.articleDivider.visibility = View.GONE
         L10nUtil.setConditionalLayoutDirection(this, title.wikiSite.languageCode())
     }
 }

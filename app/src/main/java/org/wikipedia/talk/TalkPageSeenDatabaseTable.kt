@@ -17,8 +17,11 @@ private const val TABLE = "talkpageseen"
 private const val PATH = "talkpage/seen"
 private val URI = Uri.withAppendedPath(AppContentProviderContract.AUTHORITY_BASE, PATH)
 
-object TalkPageSeenDatabaseTable : DatabaseTable<String?>(TABLE, URI) {
+object TalkPageSeenDatabaseTable : DatabaseTable<String>(TABLE, URI) {
     private const val DB_VER_INTRODUCED = 21
+
+    override val dBVersionIntroducedAt: Int
+        get() = DB_VER_INTRODUCED
 
     private val ID = LongColumn(TABLE, BaseColumns._ID, "integer primary key")
     private val SHA = StrColumn(TABLE, "sha", "string")
@@ -28,14 +31,10 @@ object TalkPageSeenDatabaseTable : DatabaseTable<String?>(TABLE, URI) {
         return SHA.`val`(cursor)
     }
 
-    override fun toContentValues(obj: String?): ContentValues {
+    override fun toContentValues(obj: String): ContentValues {
         val contentValues = ContentValues()
         contentValues.put(SHA.name, obj)
         return contentValues
-    }
-
-    override fun getDBVersionIntroducedAt(): Int {
-        return DB_VER_INTRODUCED
     }
 
     override fun getColumnsAdded(version: Int): Array<Column<*>> {
@@ -49,7 +48,7 @@ object TalkPageSeenDatabaseTable : DatabaseTable<String?>(TABLE, URI) {
         return super.getPrimaryKeySelection(obj, SELECTION)
     }
 
-    override fun getUnfilteredPrimaryKeySelectionArgs(obj: String): Array<String> {
+    override fun getUnfilteredPrimaryKeySelectionArgs(obj: String): Array<String?> {
         return arrayOf(obj)
     }
 

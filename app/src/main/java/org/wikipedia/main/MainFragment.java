@@ -27,6 +27,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.analytics.WatchlistFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
@@ -70,8 +71,11 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.TabUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.watchlist.WatchlistActivity;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -114,6 +118,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
+        void updateTabCountsView();
         void updateToolbarElevation(boolean elevate);
     }
 
@@ -174,6 +179,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
+        maybeShowWatchlistTooltip();
     }
 
     @Override public void onDestroyView() {
@@ -282,8 +288,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+    @Override public void onFeedSelectPage(HistoryEntry entry, boolean openInNewBackgroundTab) {
+        if (openInNewBackgroundTab) {
+            TabUtil.openInNewBackgroundTab(entry);
+            callback().updateTabCountsView();
+        } else {
+            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
+        }
     }
 
     @Override public final void onFeedSelectPageWithAnimation(HistoryEntry entry, Pair<View, String>[] sharedElements) {
@@ -307,16 +318,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedMovePageToList(long sourceReadingListId, HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), FEED));
-    }
-
-    @Override
-    public void onFeedRemovePageFromList(@NonNull HistoryEntry entry) {
-        FeedbackUtil.showMessage(requireActivity(),
-                getString(R.string.reading_list_item_deleted, entry.getTitle().getDisplayText()));
-    }
-
-    @Override public void onFeedSharePage(HistoryEntry entry) {
-        ShareUtil.shareText(requireContext(), entry.getTitle());
     }
 
     @Override public void onFeedNewsItemSelected(@NonNull NewsCard newsCard, @NonNull NewsItemView view) {
@@ -447,7 +448,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (AccountUtil.isLoggedIn() && AccountUtil.getUserName() != null) {
             startActivity(TalkTopicsActivity.newIntent(requireActivity(),
                     new PageTitle(UserTalkAliasData.valueFor(WikipediaApp.getInstance().language().getAppLanguageCode()),
-                            AccountUtil.getUserName(), WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode()))));
+                            AccountUtil.getUserName(),
+                            WikiSite.forLanguageCode(WikipediaApp.getInstance().getAppOrSystemLanguageCode())),
+                    NAV_MENU));
         }
     }
 
@@ -461,6 +464,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void settingsClick() {
         startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
+    }
+
+    @Override
+    public void watchlistClick() {
+        if (AccountUtil.isLoggedIn()) {
+            new WatchlistFunnel().logViewWatchlist();
+            startActivity(WatchlistActivity.Companion.newIntent(requireActivity()));
+        }
     }
 
     public void setBottomNavVisible(boolean visible) {
@@ -546,10 +557,33 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void maybeShowEditsTooltip() {
         if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment) && Prefs.shouldShowSuggestedEditsTooltip()
                 && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
-            Prefs.setShouldShowSuggestedEditsTooltip(false);
-            FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
-                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                    : getString(R.string.main_tooltip_text_v2), true, false);
+            tabLayout.postDelayed(() -> {
+                if (!isAdded()) {
+                    return;
+                }
+                Prefs.setShouldShowSuggestedEditsTooltip(false);
+                FeedbackUtil.showTooltip(requireActivity(), tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
+                        ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                        : getString(R.string.main_tooltip_text_v2), true, false);
+            }, 500);
+        }
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowWatchlistTooltip() {
+        // TODO remove feature flag when ready
+        if (ReleaseUtil.isPreBetaRelease()
+                && Prefs.isWatchlistPageOnboardingTooltipShown()
+                && !Prefs.isWatchlistMainOnboardingTooltipShown()
+                && AccountUtil.isLoggedIn()) {
+            moreContainer.postDelayed(() -> {
+                if (!isAdded()) {
+                    return;
+                }
+                new WatchlistFunnel().logShowTooltipMore();
+                Prefs.setWatchlistMainOnboardingTooltipShown(true);
+                FeedbackUtil.showTooltip(requireActivity(), moreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, true, false);
+            }, 500);
         }
     }
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aram1985
 * Kareyac
 * MuratTheTurkish
@@ -126,6 +125,7 @@
   <string name="preferences_heading_experimental">Փորձնական</string>
   <string name="preferences_privacy_settings_heading">Գաղտնիություն</string>
   <string name="preference_title_eventlogging_opt_in">Ուղարկել օգտագործման մասին տեղեկություններ</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Ավելացնել հսկացանկին</string>
   <string name="settings_item_preferences">Կարգավորումներ</string>
   <string name="settings_activity_title">Կարգավորումներ</string>
   <string name="privacy_policy_description">Գաղտնիության քաղաքականություն</string>
@@ -174,12 +174,13 @@
   <string name="view_link_preview_error_button_dismiss">Փակել</string>
   <string name="reference_list_title">Ծանոթագրություններ</string>
   <string name="crash_report_quit">Ելք</string>
+  <string name="article_menu_bar_save_button">Հիշել</string>
   <string name="article_menu_bar_language_button">Լեզու</string>
+  <string name="article_menu_bar_search_button">Որոնել</string>
   <string name="article_header_edit_hint">Խմբագրել...</string>
   <string name="color_theme_dark">Մուք</string>
   <string name="color_theme_black">Սև</string>
   <string name="color_theme_sepia">Սեպիա</string>
-  <string name="nav_item_reading_lists">Իմ ցանկեր</string>
   <string name="reading_list_create_new">Ստեղծել նորը</string>
   <string name="reading_list_added_view_button">Դիտել ցանկը</string>
   <string name="reading_list_sort">Տեսակավորել</string>
@@ -212,6 +213,7 @@
   <string name="notifications_activity_title">Ծանուցումներ</string>
   <string name="notifications_poll_enable_positive">Միացնել</string>
   <string name="notifications_poll_enable_negative">Հիմա չէ</string>
+  <string name="watchlist_title">Հսկացանկ</string>
   <string name="preference_title_notification_system">Հհամակարգչային</string>
   <string name="preference_title_notification_milestone">Փուլ</string>
   <string name="preference_title_notification_thanks">Շնորհակալություն</string>
@@ -314,8 +316,17 @@
   <string name="wikitext_template">Կաղապար</string>
   <string name="wikitext_reference">Ծանոթագրություն</string>
   <string name="main_drawer_help">Օգնություն</string>
+  <string name="main_tooltip_watchlist_title">Հսկացանկ</string>
   <string name="custom_date_picker_dialog_ok_button_text">Լավ</string>
   <string name="text_input_dialog_ok_button_text">Լավ</string>
   <string name="text_input_dialog_cancel_button_text">Չեղարկել</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="watchlist_details_watch_label">Հսկել</string>
+  <string name="thank_dialog_positive_button_text">Շնորհակալություն հայտնել</string>
+  <string name="watchlist_expiry_dialog_one_week">1 շաբաթ</string>
+  <string name="watchlist_expiry_dialog_one_month">1 ամիս</string>
+  <string name="watchlist_expiry_dialog_three_months">3 ամիս</string>
+  <string name="watchlist_expiry_dialog_six_months">6 ամիս</string>
+  <string name="watchlist_filter_talk">Քննարկում</string>
+  <string name="watchlist_filter_pages">Էջեր</string>
 </resources>

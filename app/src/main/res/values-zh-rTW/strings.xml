@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * A2093064
-* Abijeet Patro
 * Cwlin0416
 * Dbrant
 * Eric850130
@@ -65,6 +64,10 @@
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">替換其它語言版本</string>
   <string name="menu_page_find_in_page">於條目尋找</string>
+  <string name="menu_page_add_to_watchlist">新增至監視清單</string>
+  <string name="menu_page_view_talk">檢視討論頁</string>
+  <string name="menu_page_view_edit_history">檢視編輯歷史</string>
+  <string name="menu_page_remove_from_watchlist">從監視清單中移除</string>
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與佈景主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
@@ -121,7 +124,7 @@
   <string name="login_password_hint">密碼</string>
   <string name="account_creation_password_hint">密碼</string>
   <string name="login_2fa_hint">雙重驗證代碼</string>
-  <string name="login_2fa_other_workflow_error_msg">需要雙因素驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
+  <string name="login_2fa_other_workflow_error_msg">需要雙重驗證！請返回主操作頁面並以您的 2FA 令牌登入後再重試。</string>
   <string name="onboarding_card_login">登入</string>
   <string name="page_editing_login">登入</string>
   <string name="reading_lists_sync_login">登入</string>
@@ -142,7 +145,7 @@
   <string name="logged_out_in_background_dialog">您已登出維基百科。您要重新登入嗎？</string>
   <string name="logged_out_in_background_login">登入</string>
   <string name="logged_out_in_background_cancel">取消</string>
-  <string name="history_empty_title">沒有近期檢視的頁面</string>
+  <string name="history_empty_title">沒有近期查看過的條目</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="history_offline_articles_toast">一些在歷史紀錄裡的條目可能無法在離線時閱覽。</string>
   <string name="search_empty_message">以您的語言來搜尋閱讀自由的百科全書</string>
@@ -201,6 +204,8 @@
   <string name="page_protected_can_not_edit">很抱歉，目前您的帳號沒有足夠權限來編輯此頁面。</string>
   <string name="page_protected_can_not_edit_anon">抱歉，該頁現在無法匿名編輯。</string>
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">新增至監視清單</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">持續追蹤您感興趣條目的最新狀況。請輕觸溢位選單，並選擇&lt;b&gt;新增至監視清單&lt;/b&gt;來查看條目的變動內容。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">關於維基百科應用程式</string>
@@ -250,6 +255,7 @@
   <string name="find_previous">尋找上一筆</string>
   <string name="find_first_occurence">這是首次出現</string>
   <string name="find_last_occurence">這是最後出現</string>
+  <string name="article_opened_in_background_tab">條目已開啟在背景分頁。</string>
   <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。確定要發布嗎？</string>
   <string name="abusefilter_title_disallow">不能發佈此編輯。請返回並修正。</string>
   <string name="abusefilter_text_warn">自動過濾器認為您的編輯缺乏建設性。 可能由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 空白的文章內容或含有垃圾訊息&lt;br /&gt;· 含有無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
@@ -321,7 +327,7 @@
   <string name="tool_tip_lang_button">您現在可以在應用程式裡搜尋及閱讀多個維基百科語言版本。\n\n\n輕觸圖標來添加更多語言。</string>
   <string name="error_response_malformed">來自伺服器的回應格式不正確。</string>
   <string name="error_unknown">發生不明錯誤。</string>
-  <string name="format_error_server_message">訊息： \"%s\"</string>
+  <string name="format_error_server_message">訊息：\"%s\"</string>
   <string name="address_copied">網址已複製至剪貼簿。</string>
   <string name="text_copied">文字已複製至剪貼簿。</string>
   <string name="button_continue_to_article">閱讀條目</string>
@@ -391,7 +397,7 @@
   <string name="text_size_decrease">增少文字大小</string>
   <string name="text_size_percent_default">%s（預設）</string>
   <string name="text_style_title">字型</string>
-  <string name="nav_item_reading_lists">我的清單</string>
+  <string name="nav_item_saved">已儲存</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_move_to">移動至閱讀清單</string>
   <string name="reading_list_create_new">建立新的</string>
@@ -571,6 +577,7 @@
   <string name="notifications_view_archived_button_text">檢視存檔通知</string>
   <string name="notification_preferences_title">通知偏好設定</string>
   <string name="notifications_mark_unread">標記為未讀</string>
+  <string name="watchlist_title">監視清單</string>
   <string name="preference_title_notification_poll">調查通知</string>
   <string name="preference_summary_notification_poll">允許應用程式在背景執行使用資料來檢查新的通知。</string>
   <string name="preference_category_notification_types">In-app 通知類型</string>
@@ -942,6 +949,8 @@
   <string name="main_tooltip_text">嗨 %s，您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="main_tooltip_text_v2">您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="main_tooltip_action_button">入門</string>
+  <string name="main_tooltip_watchlist_title">監視清單</string>
+  <string name="main_tooltip_watchlist_text">在&lt;b&gt;監視清單&lt;/b&gt;下的更多選單裡，尋找您之前新增到監視清單的條目與頁面。</string>
   <string name="custom_date_picker_dialog_ok_button_text">確認</string>
   <string name="text_input_dialog_ok_button_text">確認</string>
   <string name="text_input_dialog_cancel_button_text">取消</string>
@@ -957,5 +966,38 @@
   <string name="talk_message_hint">撰寫訊息</string>
   <string name="talk_message_empty">訊息不能為空。</string>
   <string name="talk_subject_empty">話題不能為空。</string>
+  <string name="menu_option_share_edit">分享編輯</string>
+  <string name="menu_option_user_profile">%s基本資料</string>
+  <string name="menu_option_user_contributions">%s的貢獻</string>
+  <string name="watchlist_details_watching_label">已監視</string>
+  <string name="watchlist_details_watch_label">監視</string>
+  <string name="thank_label">感謝</string>
   <string name="go_to_user_page">前往使用者頁面</string>
+  <string name="thank_dialog_title_text">公開發送感謝</string>
+  <string name="thank_dialog_text">「感謝」是在維基百科上向其他編者所修改出內容表達讚賞的簡易方式。請留意感謝無法撤回發送，並且是公開可見的</string>
+  <string name="thank_dialog_positive_button_text">發送感謝</string>
+  <string name="thank_dialog_negative_button_text">取消</string>
+  <string name="thank_success_message">您的感謝已發送給%s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s與該討論頁已新增到您的監視清單%2$s。</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 週</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 個月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 個月</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 個月</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s與該討論頁已從您的監視清單裡移除。</string>
+  <string name="watchlist_expiry_dialog_title">選擇監視清單時間週期</string>
+  <string name="watchlist_expiry_dialog_permanent">永久</string>
+  <string name="watchlist_expiry_dialog_one_week">1 週</string>
+  <string name="watchlist_expiry_dialog_one_month">1 個月</string>
+  <string name="watchlist_expiry_dialog_three_months">3 個月</string>
+  <string name="watchlist_expiry_dialog_six_months">6 個月</string>
+  <string name="watchlist_empty">在您的監視清單裡沒有任何條目。</string>
+  <string name="watchlist_filter_all">全部</string>
+  <string name="watchlist_filter_talk">討論</string>
+  <string name="watchlist_filter_pages">頁面</string>
+  <string name="watchlist_filter_other">其它</string>
+  <string name="watchlist_page_moved">已移動</string>
+  <string name="watchlist_page_protected">已保護</string>
+  <string name="watchlist_page_deleted">已刪除</string>
 </resources>

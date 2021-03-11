@@ -1,0 +1,22 @@
+{
+  "streams": {
+    "test.event": {
+      "stream": "test.event",
+      "schema_title": "test/event",
+      "canary_events_enabled": true,
+      "topic_prefixes": [
+        "eqiad.",
+        "codfw."
+      ],
+      "topics": [
+        "eqiad.test.event",
+        "codfw.test.event"
+      ],
+      "destination_event_service": "eventgate-analytics-external",
+      "sampling": {
+        "identifier": "device",
+        "rate": 0.5
+      }
+    }
+  }
+}

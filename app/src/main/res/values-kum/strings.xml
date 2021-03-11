@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Arsenekoumyk
 * ArslanX
 -->
@@ -159,7 +158,6 @@
   <string name="color_theme_black">Къара</string>
   <string name="color_theme_sepia">Сепия</string>
   <string name="color_theme_test_title">Метин уьлгю</string>
-  <string name="nav_item_reading_lists">Тизмелерим</string>
   <string name="reading_list_create_new">Янгыны этмек</string>
   <string name="reading_list_added_view_button">Тизмеге къарав</string>
   <string name="reading_list_menu_delete">Тизмени тайдырмакъ</string>

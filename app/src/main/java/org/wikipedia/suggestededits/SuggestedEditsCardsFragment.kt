@@ -14,26 +14,29 @@ import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFeedFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.databinding.FragmentSuggestedEditsCardsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
 class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
+    private var _binding: FragmentSuggestedEditsCardsBinding? = null
+    private val binding get() = _binding!!
+
     private val viewPagerListener = ViewPagerListener()
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
@@ -60,11 +63,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
 
     private fun topBaseChild(): SuggestedEditsItemFragment? {
-        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
+        return (binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(binding.cardsViewPager.currentItem) as SuggestedEditsItemFragment?
     }
 
     private fun topChild(): SuggestedEditsCardsItemFragment? {
-        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
+        return (binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(binding.cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,21 +81,22 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         SuggestedEditsFunnel.get().impression(action)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_suggested_edits_cards, container, false)
+        _binding = FragmentSuggestedEditsCardsBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setInitialUiState()
-        cardsViewPager.offscreenPageLimit = 2
-        cardsViewPager.registerOnPageChangeCallback(viewPagerListener)//   addOnPageChangeListener(viewPagerListener)
+        binding.cardsViewPager.offscreenPageLimit = 2
+        binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
 
         funnel?.start()
 
-        if (wikiLanguageDropdownContainer.visibility == VISIBLE) {
+        if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
                 // Fragment is created for the first time.
                 requestLanguagesAndBuildSpinner()
@@ -100,20 +104,20 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 // Fragment already exists, so just update the UI.
                 initLanguageSpinners()
             }
-            wikiFromLanguageSpinner.onItemSelectedListener = OnFromSpinnerItemSelectedListener()
-            wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
-            arrow.setOnClickListener { wikiFromLanguageSpinner.setSelection(wikiToLanguageSpinner.selectedItemPosition) }
+            binding.wikiFromLanguageSpinner.onItemSelectedListener = OnFromSpinnerItemSelectedListener()
+            binding.wikiToLanguageSpinner.onItemSelectedListener = OnToSpinnerItemSelectedListener()
+            binding.arrow.setOnClickListener { binding.wikiFromLanguageSpinner.setSelection(binding.wikiToLanguageSpinner.selectedItemPosition) }
         }
 
-        backButton.setOnClickListener { previousPage() }
-        nextButton.setOnClickListener {
-            if (nextButton.drawable is Animatable) {
-                (nextButton.drawable as Animatable).start()
+        binding.backButton.setOnClickListener { previousPage() }
+        binding.nextButton.setOnClickListener {
+            if (binding.nextButton.drawable is Animatable) {
+                (binding.nextButton.drawable as Animatable).start()
             }
             nextPage(null)
         }
         updateBackButton(0)
-        addContributionButton.setOnClickListener { onSelectPage() }
+        binding.addContributionButton.setOnClickListener { onSelectPage() }
         updateActionButton()
         maybeShowOnboarding()
     }
@@ -152,8 +156,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun updateBackButton(pagerPosition: Int) {
-        backButton.isClickable = pagerPosition != 0
-        backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
+        binding.backButton.isClickable = pagerPosition != 0
+        binding.backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
     override fun getLangCode(): String {
@@ -172,36 +176,36 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 isAddedContributionEmpty = child.addedContribution.isEmpty()
                 if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
             }
-            addContributionButton.setIconResource((if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-            addContributionButton.isEnabled = child.publishEnabled()
-            addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
+            binding.addContributionButton.setIconResource((if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
+            binding.addContributionButton.isEnabled = child.publishEnabled()
+            binding.addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
 
         if (action == VANDALISM_PATROL) {
-            if (addContributionButton.tag == "landscape") {
+            if (binding.addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
-                addContributionButton.text = null
-                addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
+                binding.addContributionButton.text = null
+                binding.addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
             } else {
-                addContributionButton.text = getString(R.string.suggested_edits_vandalism_patrol_skip)
-                addContributionButton.icon = null
+                binding.addContributionButton.text = getString(R.string.suggested_edits_vandalism_patrol_skip)
+                binding.addContributionButton.icon = null
             }
         } else if (action == ADD_IMAGE_TAGS) {
-            if (addContributionButton.tag == "landscape") {
+            if (binding.addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
-                addContributionButton.text = null
-                addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
+                binding.addContributionButton.text = null
+                binding.addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
             } else {
-                addContributionButton.text = getString(R.string.description_edit_save)
-                addContributionButton.icon = null
+                binding.addContributionButton.text = getString(R.string.description_edit_save)
+                binding.addContributionButton.icon = null
             }
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
-            addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
-        } else if (addContributionButton.tag == "portrait") {
+            binding.addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
+        } else if (binding.addContributionButton.tag == "portrait") {
             if (action == ADD_CAPTION) {
-                addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
+                binding.addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
             } else {
-                addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
+                binding.addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
             }
         }
     }
@@ -209,8 +213,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     override fun onDestroyView() {
         funnel?.stop()
         disposables.clear()
-        cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
-        cardsViewPager.adapter = null
+        binding.cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
+        binding.cardsViewPager.adapter = null
+        _binding = null
         super.onDestroyView()
     }
 
@@ -243,8 +248,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     private fun previousPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
-        if (cardsViewPager.currentItem > 0) {
-            cardsViewPager.setCurrentItem(cardsViewPager.currentItem - 1, true)
+        if (binding.cardsViewPager.currentItem > 0) {
+            binding.cardsViewPager.setCurrentItem(binding.cardsViewPager.currentItem - 1, true)
         }
         updateActionButton()
     }
@@ -252,7 +257,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     override fun nextPage(sourceFragment: Fragment?) {
         if (sourceFragment == topBaseChild() || sourceFragment == null) {
             viewPagerListener.setNextPageSelectedAutomatic()
-            cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
+            binding.cardsViewPager.setCurrentItem(binding.cardsViewPager.currentItem + 1, true)
             updateActionButton()
         }
     }
@@ -304,9 +309,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         if (!resettingViewPager) {
             resettingViewPager = true
             val postDelay: Long = 250
-            cardsViewPager.postDelayed({
+            binding.cardsViewPager.postDelayed({
                 if (isAdded) {
-                    cardsViewPager.adapter = ViewPagerAdapter(this)
+                    binding.cardsViewPager.adapter = ViewPagerAdapter(this)
                     resettingViewPager = false
                 }
             }, postDelay)
@@ -314,8 +319,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun setInitialUiState() {
-        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)) VISIBLE else GONE
+        binding.wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1 &&
+                (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)) VISIBLE else GONE
     }
 
     private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {
@@ -323,18 +328,18 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             swappingLanguageSpinners = true
             val preLangPosition = app.language().appLanguageCodes.indexOf(if (isFromLang) langFromCode else langToCode)
             if (isFromLang) {
-                wikiToLanguageSpinner.setSelection(preLangPosition)
+                binding.wikiToLanguageSpinner.setSelection(preLangPosition)
             } else {
-                wikiFromLanguageSpinner.setSelection(preLangPosition)
+                binding.wikiFromLanguageSpinner.setSelection(preLangPosition)
             }
             swappingLanguageSpinners = false
         }
     }
 
     private fun initLanguageSpinners() {
-        wikiFromLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
-        wikiToLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
-        wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
+        binding.wikiFromLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
+        binding.wikiToLanguageSpinner.adapter = ArrayAdapter(requireContext(), R.layout.item_language_spinner, languageList)
+        binding.wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
     }
 
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
@@ -406,9 +411,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             nextPageSelectedAutomatic = false
             prevPosition = position
 
-            val storedOffScreenPagesCount = cardsViewPager.offscreenPageLimit * 2 + 1
+            val storedOffScreenPagesCount = binding.cardsViewPager.offscreenPageLimit * 2 + 1
             if (position >= storedOffScreenPagesCount) {
-                (cardsViewPager.adapter as ViewPagerAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
+                (binding.cardsViewPager.adapter as ViewPagerAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
             }
         }
     }

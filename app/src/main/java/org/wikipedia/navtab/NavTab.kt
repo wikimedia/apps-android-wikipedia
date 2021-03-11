@@ -16,7 +16,7 @@ enum class NavTab constructor(private val text: Int, private val id: Int, privat
             return FeedFragment.newInstance()
         }
     },
-    READING_LISTS(R.string.nav_item_reading_lists, View.generateViewId(), R.drawable.ic_bookmark_white_24dp) {
+    READING_LISTS(R.string.nav_item_saved, View.generateViewId(), R.drawable.ic_bookmark_white_24dp) {
         override fun newInstance(): Fragment {
             return ReadingListsFragment.newInstance()
         }

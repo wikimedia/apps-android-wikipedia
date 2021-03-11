@@ -12,8 +12,8 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-open class WikiCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
-    : MaterialCardView(context, attrs, defStyleAttr) {
+open class WikiCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+        MaterialCardView(context, attrs, defStyleAttr) {
 
     init {
         var hasBorder = true

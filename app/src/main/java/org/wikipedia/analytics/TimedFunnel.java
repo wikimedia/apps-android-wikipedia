@@ -8,15 +8,15 @@ import org.wikipedia.dataclient.WikiSite;
 
 import java.util.concurrent.TimeUnit;
 
-/*package*/ abstract class TimedFunnel extends Funnel {
+public abstract class TimedFunnel extends Funnel {
     private long startTime;
     private long pauseTime;
 
-    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
+    public TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
         this(app, schemaName, revision, sampleRate, null);
     }
 
-    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate, WikiSite wiki) {
+    public TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate, WikiSite wiki) {
         super(app, schemaName, revision, sampleRate, wiki);
         startTime = System.currentTimeMillis();
     }

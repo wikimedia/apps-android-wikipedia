@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
+* Aboubacar.banamoridou.toure
 * Babamamadidianee
 * Dbrant
 * Lancine.kounfantoh.fofana
@@ -48,6 +48,8 @@
   <string name="menu_page_show_tabs">ߘߎ߲ߛߓߍ ߟߎ߬ ߦߌ߬ߘߊ߬</string>
   <string name="menu_page_other_languages">ߞߊ߲ ߡߊߝߊ߬ߟߋ߲߬</string>
   <string name="menu_page_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߎߡߘߊ ߘߐ߫</string>
+  <string name="menu_page_add_to_watchlist">ߊ߬ ߟߊߘߏ߲߬ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="menu_page_remove_from_watchlist">ߊ߬ ߛߋ߲߬ߓߐ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="edit_section_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
   <string name="menu_page_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="menu_page_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
@@ -174,6 +176,7 @@
   <string name="page_protected_can_not_edit">ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߘߐߥߛߊ߬ߣߍ߲߬ ߕߍ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߞߐߜߍ ߣߌ߲߬ ߡߊߦߟߍ߬ߡߊ߲߬.</string>
   <string name="page_protected_can_not_edit_anon">ߤߊߞߍ߬ߕߏ߫߸ ߞߐߜߍ ߣߌ߲߬ ߕߴߛߋ߫ ߡߊߦߟߍ߬ߡߊ߲߬ ߠߊ߫ ߕߐ߯ߒߕߊ߲ߧߊ ߘߐ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫.</string>
   <string name="page_protected_can_not_edit_title">ߞߐߜߍ ߣߌ߲߬ ߠߊߞߊ߲ߘߊߣߍ߲ ߠߋ߬.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ߊ߬ ߟߊߘߏ߲߬ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="settings_item_preferences">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ</string>
   <string name="settings_activity_title">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ</string>
   <string name="about_description">ߞߊ߬ ߓߍ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬</string>
@@ -210,6 +213,7 @@
   <string name="edit_redo">ߊ߬ ߞߍ߫ ߕߎ߲߯</string>
   <string name="edit_zoom_in">ߊ߬ ߟߊߞߎ߲߬ߓߊ߬ߦߊ߫</string>
   <string name="edit_zoom_out">ߊ߬ ߟߊߡߛߐ߫</string>
+  <string name="edit_summary_tag_typo">ߛߓߍߟߌ ߞߍߢߊ ߛߊߞߍߟߌ</string>
   <string name="edit_summary_tag_grammar">ߞߊ߲ߜߍ ߘߐߓߍ߲߬</string>
   <string name="edit_summary_tag_links">ߛߘߌ߬ߜߋ߲ ߠߊߘߏ߲߬</string>
   <string name="edit_summary_tag_other">ߘߏ߫ ߜߘߍ߫</string>
@@ -335,7 +339,6 @@
   <string name="text_size_decrease">ߛߓߍߟߌ ߢߊ߲ߞߊ߲ ߡߊߖߌ߰</string>
   <string name="text_size_percent_default">(ߓߐߛߎ߲) %s</string>
   <string name="text_style_title">ߞߟߏߜߍ</string>
-  <string name="nav_item_reading_lists">ߒ ߠߊ߫ ߛߙߍߘߍ</string>
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_move_to">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_create_new">ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</string>
@@ -478,6 +481,7 @@
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
+  <string name="watchlist_title">ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="preference_title_notification_system">ߞߊ߲ߞߋ</string>
   <string name="preference_summary_notification_system">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߊ߲ߞߋ ߟߊ߫</string>
   <string name="preference_title_notification_milestone">ߛߊ߯ߘߊ߫ ߣߝߊ߬ߡߊ</string>
@@ -535,6 +539,7 @@
   <string name="feed_item_type_featured_image">ߕߋ߬ߟߋ ߖߌ߬ߦߊ߬ߓߍ߬ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
   <string name="feed_item_type_main_page">ߥߞߌߔߋߘߌߦߊ ߕߋ߬ߟߋ ߞߣߐߘߐ߫ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬ ߓߏ߬ߟߏ߲߬ߘߊ ߞߐߜߍ.</string>
   <string name="feed_item_type_randomizer">ߓߍ߲߬ߛߋ߲߬ߡߊ߬ ߦߌߟߡߊ ߘߐߞߊ߬ߙߊ߲߬ߕߊ ߟߎ߬ ߟߊߞߊ߬ߝߏ߬ߣߍ߲</string>
+  <string name="feed_configure_onboarding_action">ߖߘߍ߬ߕߦߊ߬ߟߌ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ߘߐ߬ߛߊ߬ߟߌ</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
@@ -765,4 +770,5 @@
   <string name="talk_message_hint">ߗߋߛߓߍ ߛߏ߯ߙߏ߫</string>
   <string name="talk_message_empty">ߗߋߛߓߍ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
   <string name="talk_subject_empty">ߝߐߡߊ ߘߐߞߏߟߏ߲ ߕߴߛߋ߫ ߕߏ߫ ߟߊ߫.</string>
+  <string name="watchlist_page_protected">ߟߊߕߊ߲߬ߞߊ߬ߣߍ߲</string>
 </resources>

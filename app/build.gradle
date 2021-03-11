@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
@@ -38,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50337
+        versionCode 50345
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -47,6 +46,13 @@ android {
         signingConfig signingConfigs.debug
 
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
+        buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
+        buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
+        buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     sourceSets {
@@ -93,6 +99,9 @@ android {
         dev {
             versionName computeVersionName('dev')
             applicationIdSuffix '.dev'
+            buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
+            buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.beta.wmflabs.org"'
+            buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.beta.wmflabs.org"'
         }
         prod {
             versionName computeVersionName('r')
@@ -139,6 +148,7 @@ android {
 
 apply from: '../gradle/src/test.gradle'
 apply from: '../gradle/src/checkstyle.gradle'
+apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
 
@@ -150,7 +160,7 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
-    String mockitoCore = 'org.mockito:mockito-core:1.9.5'
+    String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.5'
     String kotlinCoroutinesVersion = '1.3.9'
     String firebaseMessagingVersion = '21.0.1'
@@ -160,10 +170,10 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 
-    implementation "com.google.android.material:material:1.2.1"
+    implementation "com.google.android.material:material:1.3.0"
     implementation "androidx.core:core-ktx:1.3.2"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation "androidx.fragment:fragment-ktx:1.2.5"
+    implementation "androidx.fragment:fragment-ktx:1.3.0"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.1.1"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
@@ -187,13 +197,12 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
-    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.12.0'
     implementation "com.jakewharton:butterknife:$butterknifeVersion"
     implementation 'com.microsoft.appcenter:appcenter-crashes:3.1.0'
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    implementation "com.github.skydoves:balloon:1.2.1"
+    implementation "com.github.skydoves:balloon:1.3.3"
 
     // For language detection during editing
     prodImplementation "com.google.mlkit:language-id:$mlKitVersion"
@@ -215,13 +224,13 @@ dependencies {
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
 
     testImplementation 'junit:junit:4.13'
-    testImplementation mockitoCore
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation "commons-io:commons-io:2.6"
+    testImplementation 'org.hamcrest:hamcrest:2.2'
 
-    androidTestImplementation mockitoCore
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
     androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
     androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
