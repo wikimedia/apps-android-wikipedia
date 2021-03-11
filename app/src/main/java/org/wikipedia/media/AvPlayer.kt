@@ -6,10 +6,8 @@ class AvPlayer {
         fun onError()
     }
 
-    val isPlaying: Boolean
-        get() = player.isPlaying
-
-    private val player: MediaPlayerImplementation = MediaPlayerImplementation()
+    private val player = MediaPlayerImplementation()
+    val isPlaying get() = player.isPlaying
 
     fun deinit() {
         player.deinit()
