@@ -20,11 +20,9 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
-import org.wikipedia.util.DimenUtil.dpToPx
-import org.wikipedia.util.DimenUtil.getDimension
-import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
-import org.wikipedia.util.FeedbackUtil.showTooltip
-import org.wikipedia.util.ResourceUtil.getThemedColor
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.TabCountsView
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
@@ -53,7 +51,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             // The ACTIVITY_REQUEST_INITIAL_ONBOARDING has not been used in any onActivityResult
             startActivityForResult(InitialOnboardingActivity.newIntent(this), Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING)
         }
-        setNavigationBarColor(getThemedColor(this, R.attr.nav_tab_background_color))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.nav_tab_background_color))
         setSupportActionBar(binding.mainToolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -62,7 +60,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onResume() {
         super.onResume()
-        supportInvalidateOptionsMenu()
+        invalidateOptionsMenu()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -91,7 +89,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             tabCountsView!!.contentDescription = getString(R.string.menu_page_show_tabs)
             tabsItem.actionView = tabCountsView
             tabsItem.expandActionView()
-            setButtonLongPressToast(tabCountsView!!)
+            FeedbackUtil.setButtonLongPressToast(tabCountsView!!)
             showTabCountsAnimation = false
         }
         return true
@@ -108,7 +106,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             controlNavTabInFragment = false
         } else {
             if (tab == NavTab.SEARCH && Prefs.shouldShowSearchTabTooltip()) {
-                showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
+                FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.setShowSearchTabTooltip(false)
             }
             binding.mainToolbarWordmark.visibility = View.GONE
@@ -120,7 +118,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun updateTabCountsView() {
         showTabCountsAnimation = true
-        supportInvalidateOptionsMenu()
+        invalidateOptionsMenu()
     }
 
     override fun onSupportActionModeStarted(mode: ActionMode) {
@@ -173,7 +171,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     private fun setToolbarElevationDefault() {
-        binding.mainToolbar.elevation = dpToPx(getDimension(R.dimen.toolbar_default_elevation))
+        binding.mainToolbar.elevation = DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation))
     }
 
     private fun clearToolbarElevation() {
