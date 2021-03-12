@@ -222,15 +222,16 @@
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
   <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy/de</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/de</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de#Bild-Schlagworte</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de#Train_image_algorithm</string>
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>
   <string name="about_contributors_heading">Mitwirkende</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Seite&lt;/a&gt;</string>
@@ -874,6 +875,16 @@
     <item quantity="one">Du hast %d Zeichen hinzugefügt</item>
     <item quantity="other">Du hast %d Zeichen hinzugefügt</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Bildalgorithmus trainieren</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Entscheide, ob ein vorgeschlagenes Bild einen Artikel verbessern wird.</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">Starten</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Toll, weiter so! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Tagesziel erreicht! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Du hast das Ziel erreicht</string>
+  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Eine neue Aufgabe „Vorgeschlagene Bearbeitungen“ ist jetzt verfügbar. Trainiere einen Algorithmus zum Zuordnen von Bildern zu nicht bebilderten Artikeln.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia-Artikel werden von Tausenden von Freiwilligen aus der ganzen Welt geschrieben und bearbeitet. Leider fehlen in vielen Artikeln Bilder, die dir mithilfe eines Algorithmus vorgeschlagen werden. Der Algorithmus zieht Bilder aus anderen Quellen und schlägt eine Übereinstimmung mit einem Artikel vor, der kein Bild hat. Da das Ziel dieser Aufgabe darin besteht, die vorgeschlagenen Bilder zu verbessern, werden die von dir gemachten Übereinstimmungen zu diesem Zeitpunkt nicht veröffentlicht.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Wir möchten dich für deine Beiträge zu dieser Arbeit würdigen. Möchtest du, dass dein Benutzername auf unserer Algorithmus-Trainingsseite angezeigt wird?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_consent">Ja, mein Benutzername darf auf der Algorithmus-Trainingsseite angezeigt werden</string>
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
@@ -949,6 +960,23 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Abbrechen</string>
   <string name="edit_type_all">Alle Beiträge</string>
   <string name="content_description_for_page_indicator">Schritt %1$d von %2$d</string>
+  <string name="image_recommendations_task_accept">Ja</string>
+  <string name="image_recommendations_task_reject">Nein</string>
+  <string name="image_recommendations_task_not_sure">Nicht sicher</string>
+  <string name="image_recommendations_task_processing">Verarbeite …</string>
+  <string name="image_recommendations_task_instruction">Würdest du dieses Bild in den Artikel einfügen?</string>
+  <string name="image_recommendations_task_choice_no">Warum hast du nein gewählt?</string>
+  <string name="image_recommendations_task_choice_unsure">Warum bist du dir bei diesem Bild nicht sicher?</string>
+  <string name="image_recommendations_task_choice_not_relevant">Nicht zutreffend</string>
+  <string name="image_recommendations_task_choice_low_quality">Niedrige Qualität</string>
+  <string name="image_recommendations_task_choice_noinfo">Nicht genügend Informationen</string>
+  <string name="image_recommendations_task_choice_nosubject">Kenne dieses Thema nicht</string>
+  <string name="image_recommendations_task_choice_offensive">Anstößig</string>
+  <string name="image_recommendations_task_choice_invisible">Kann das Bild nicht sehen</string>
+  <string name="image_recommendations_task_choice_understand">Verstehen die Aufgabe nicht</string>
+  <string name="image_recommendations_task_choice_other">Andere</string>
+  <string name="image_recommendations_task_choice_continue">Weiter</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Vorschlag Grund:&lt;/i&gt; %s</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>
