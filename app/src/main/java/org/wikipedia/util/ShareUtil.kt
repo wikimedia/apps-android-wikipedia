@@ -4,10 +4,12 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LabeledIntent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Parcelable
+import android.os.TransactionTooLargeException
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -32,11 +34,15 @@ object ShareUtil {
         shareIntent.putExtra(Intent.EXTRA_TEXT, text)
         shareIntent.type = "text/plain"
 
-        val chooserIntent = getIntentChooser(context, shareIntent, context.getString(R.string.share_via))
-        if (chooserIntent == null) {
-            showUnresolvableIntentMessage(context)
-        } else {
-            context.startActivity(chooserIntent)
+        try {
+            val chooserIntent = getIntentChooser(context, shareIntent, context.getString(R.string.share_via))
+            if (chooserIntent == null) {
+                showUnresolvableIntentMessage(context)
+            } else {
+                context.startActivity(chooserIntent)
+            }
+        } catch (e: TransactionTooLargeException) {
+            L.logRemoteErrorIfProd(RuntimeException("Transaction too large for share intent."))
         }
     }
 
@@ -153,7 +159,7 @@ object ShareUtil {
     }
 
     fun getIntentChooser(context: Context, intent: Intent, chooserTitle: CharSequence? = null): Intent? {
-        val infoList = context.packageManager.queryIntentActivities(intent, 0)
+        val infoList = context.packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
         val excludedComponents = HashSet<ComponentName>()
         infoList.forEach {
             val activityInfo = it.activityInfo
@@ -191,7 +197,7 @@ object ShareUtil {
     @JvmStatic
     fun canOpenUrlInApp(context: Context, url: String): Boolean {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        return context.packageManager.queryIntentActivities(intent, 0)
+        return context.packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
                 .any { it.activityInfo.packageName.matches(APP_PACKAGE_REGEX.toRegex()) }
     }
 

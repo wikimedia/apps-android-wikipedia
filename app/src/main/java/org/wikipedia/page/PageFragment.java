@@ -80,8 +80,6 @@ import org.wikipedia.json.GsonUtil;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.media.AvPlayer;
-import org.wikipedia.media.DefaultAvPlayer;
-import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
@@ -1147,15 +1145,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
-                avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
-                avPlayer.init();
+                avPlayer = new AvPlayer();
             }
             if (avCallback == null) {
                 avCallback = new AvCallback();
             }
             if (!avPlayer.isPlaying() && messagePayload.has("url")) {
                 updateProgressBar(true);
-                avPlayer.play(UriUtil.resolveProtocolRelativeUrl(messagePayload.get("url").getAsString()), avCallback, avCallback);
+                avPlayer.play(UriUtil.resolveProtocolRelativeUrl(messagePayload.get("url").getAsString()), avCallback);
             } else {
                 updateProgressBar(false);
                 avPlayer.stop();
@@ -1485,7 +1482,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private class AvCallback implements AvPlayer.Callback, AvPlayer.ErrorCallback {
+    private class AvCallback implements AvPlayer.Callback {
         @Override
         public void onSuccess() {
             if (avPlayer != null) {
