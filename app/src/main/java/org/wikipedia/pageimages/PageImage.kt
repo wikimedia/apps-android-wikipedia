@@ -4,7 +4,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 
-class PageImage(val title: PageTitle, val imageName: String) {
+data class PageImage(val title: PageTitle, val imageName: String) {
 
     companion object {
         @JvmField
