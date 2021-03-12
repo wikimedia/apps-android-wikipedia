@@ -922,6 +922,7 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Отмена</string>
   <string name="edit_type_all">Все вклады</string>
   <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
+  <string name="image_recommendations_task_accept">Да</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Ссылка</string>

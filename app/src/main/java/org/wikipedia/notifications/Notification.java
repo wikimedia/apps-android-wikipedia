@@ -10,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.UriUtil;
 
 import java.util.Date;
 import java.util.List;
@@ -141,7 +142,7 @@ public class Notification {
         @SuppressWarnings("unused") @Nullable private String icon;
 
         @NonNull public String getUrl() {
-            return StringUtils.defaultString(url);
+            return UriUtil.decodeURL(StringUtils.defaultString(url));
         }
 
         @NonNull public String getTooltip() {
@@ -187,7 +188,7 @@ public class Notification {
         }
 
         @NonNull public String getUrl() {
-            return StringUtils.defaultString(url);
+            return UriUtil.decodeURL(StringUtils.defaultString(url));
         }
 
         @NonNull public String getBase() {
@@ -216,7 +217,7 @@ public class Notification {
         }
 
         @NonNull public String getIconUrl() {
-            return StringUtils.defaultString(iconUrl);
+            return UriUtil.decodeURL(StringUtils.defaultString(iconUrl));
         }
 
         @Nullable public Links getLinks() {
