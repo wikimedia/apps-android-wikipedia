@@ -132,7 +132,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 true
             }
             R.id.menu_overflow_button -> {
-                ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).toolbar.findViewById(R.id.menu_overflow_button), overflowCallback)
+                ReadingListsOverflowView(requireContext()).show((requireActivity() as MainActivity).getToolbar().findViewById(R.id.menu_overflow_button), overflowCallback)
                 true
             }
             else -> super.onOptionsItemSelected(item)
