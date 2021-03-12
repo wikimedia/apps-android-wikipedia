@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
@@ -15,7 +14,6 @@ import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -25,14 +23,10 @@ import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.FeedbackUtil.makeSnackbar
-import org.wikipedia.util.FeedbackUtil.showMessage
-import org.wikipedia.util.FeedbackUtil.showPrivacyPolicy
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
@@ -55,27 +49,13 @@ class CreateAccountActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.viewCreateAccountError.backClickListener = View.OnClickListener { onBackPressed() }
-        binding.viewCreateAccountError.retryClickListener = View.OnClickListener { it.visibility = View.GONE }
         captchaHandler = CaptchaHandler(this, wiki, binding.captchaContainer.root, binding.createAccountPrimaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button))
-
         // Don't allow user to submit registration unless they've put in a username and password
         NonEmptyValidator(binding.createAccountSubmitButton, binding.createAccountUsername, binding.createAccountPasswordInput)
-
         // Don't allow user to continue when they're shown a captcha until they fill it in
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
-
-        // Add listener so that when the user taps enter, it submits the captcha
-        binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
-            if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_ENTER) {
-                validateThenCreateAccount()
-                return@setOnKeyListener true
-            }
-            false
-        }
-        binding.createAccountUsername.editText?.addTextChangedListener(userNameTextWatcher)
+        setClickListeners()
         funnel = CreateAccountFunnel(WikipediaApp.getInstance(), intent.getStringExtra(LOGIN_REQUEST_SOURCE))
-
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
             funnel.logStart(intent.getStringExtra(LOGIN_SESSION_TOKEN))
@@ -85,6 +65,8 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun setClickListeners() {
+        binding.viewCreateAccountError.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.viewCreateAccountError.retryClickListener = View.OnClickListener { it.visibility = View.GONE }
         binding.createAccountSubmitButton.setOnClickListener {
             validateThenCreateAccount()
         }
@@ -99,23 +81,32 @@ class CreateAccountActivity : BaseActivity() {
             finish()
         }
         binding.footerContainer.privacyPolicyLink.setOnClickListener {
-            showPrivacyPolicy(this)
+            FeedbackUtil.showPrivacyPolicy(this)
         }
         binding.footerContainer.forgotPasswordLink.setOnClickListener {
             visitInExternalBrowser(this, Uri.parse(PageTitle("Special:PasswordReset", wiki).uri))
         }
+        // Add listener so that when the user taps enter, it submits the captcha
+        binding.captchaContainer.captchaText.setOnKeyListener { _: View, keyCode: Int, event: KeyEvent ->
+            if (event.action == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_ENTER) {
+                validateThenCreateAccount()
+                return@setOnKeyListener true
+            }
+            false
+        }
+        binding.createAccountUsername.editText?.addTextChangedListener(userNameTextWatcher)
     }
 
     fun handleAccountCreationError(message: String) {
         if (message.contains("blocked")) {
-            makeSnackbar(this, getString(R.string.create_account_ip_block_message), FeedbackUtil.LENGTH_DEFAULT)
+            FeedbackUtil.makeSnackbar(this, getString(R.string.create_account_ip_block_message), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.create_account_ip_block_details) {
                         visitInExternalBrowser(this,
                                 Uri.parse(getString(R.string.create_account_ip_block_help_url)))
                     }
                     .show()
         } else {
-            showMessage(this, fromHtml(message))
+            FeedbackUtil.showMessage(this, StringUtil.fromHtml(message))
         }
         L.w("Account creation failed with result $message")
     }
@@ -141,7 +132,7 @@ class CreateAccountActivity : BaseActivity() {
                     })
         }
 
-    fun doCreateAccount(token: String) {
+    private fun doCreateAccount(token: String) {
         showProgressBar(true)
         var email: String? = null
         if (getText(binding.createAccountEmail).isNotEmpty()) {
@@ -178,7 +169,7 @@ class CreateAccountActivity : BaseActivity() {
             showProgressBar(false)
             return
         }
-        hideSoftKeyboard(this)
+        DeviceUtil.hideSoftKeyboard(this)
         super.onBackPressed()
     }
 
@@ -229,15 +220,13 @@ class CreateAccountActivity : BaseActivity() {
             ValidateResult.NO_EMAIL -> AlertDialog.Builder(this)
                     .setCancelable(false)
                     .setTitle(R.string.email_recommendation_dialog_title)
-                    .setMessage(fromHtml(resources.getString(R.string.email_recommendation_dialog_message)))
+                    .setMessage(StringUtil.fromHtml(resources.getString(R.string.email_recommendation_dialog_message)))
                     .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action
                     ) { _: DialogInterface, _: Int -> createAccount() }
                     .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action
                     ) { _: DialogInterface, _: Int -> binding.createAccountEmail.requestFocus() }
                     .show()
             ValidateResult.SUCCESS -> createAccount()
-            else -> {
-            }
         }
     }
 
@@ -250,7 +239,10 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun getText(input: TextInputLayout): String {
-        return StringUtils.defaultString(if (input.editText != null && input.editText!!.text != null) input.editText!!.text.toString() else "")
+        input.editText?.let {
+            return it.text.toString()
+        }
+        return ""
     }
 
     private fun finishWithUserResult(userName: String) {
@@ -261,7 +253,7 @@ class CreateAccountActivity : BaseActivity() {
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
         funnel.logSuccess()
-        hideSoftKeyboard(this@CreateAccountActivity)
+        DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
         finish()
     }
 
@@ -281,7 +273,7 @@ class CreateAccountActivity : BaseActivity() {
         override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
             binding.createAccountUsername.removeCallbacks(userNameVerifyRunnable)
             binding.createAccountUsername.isErrorEnabled = false
-            if (TextUtils.isEmpty(text.toString())) {
+            if (text.toString().isEmpty()) {
                 return
             }
             userNameVerifyRunnable.setUserName(text.toString())
@@ -298,16 +290,17 @@ class CreateAccountActivity : BaseActivity() {
         }
 
         override fun run() {
-            disposables.add(ServiceFactory.get(wiki!!).getUserList(userName!!)
+            disposables.add(ServiceFactory.get(wiki).getUserList(userName!!)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwQueryResponse ->
-                        val user = response.query()!!.getUserResponse(userName!!)
-                        binding.createAccountUsername.isErrorEnabled = false
-                        if (user!!.isBlocked) {
-                            handleAccountCreationError(user.error)
-                        } else if (!user.canCreate()) {
-                            binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
+                    .subscribe({ response ->
+                        response.query()!!.getUserResponse(userName!!)?.let {
+                            binding.createAccountUsername.isErrorEnabled = false
+                            if (it.isBlocked) {
+                                handleAccountCreationError(it.error)
+                            } else if (!it.canCreate()) {
+                                binding.createAccountUsername.error = getString(R.string.create_account_name_unavailable, userName)
+                            }
                         }
                     }) { obj -> L.e(obj) })
         }
@@ -335,9 +328,9 @@ class CreateAccountActivity : BaseActivity() {
                 return ValidateResult.INVALID_PASSWORD
             } else if (passwordRepeat.toString() != password.toString()) {
                 return ValidateResult.PASSWORD_MISMATCH
-            } else if (!TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            } else if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 return ValidateResult.INVALID_EMAIL
-            } else if (TextUtils.isEmpty(email)) {
+            } else if (email.isNotEmpty()) {
                 return ValidateResult.NO_EMAIL
             }
             return ValidateResult.SUCCESS

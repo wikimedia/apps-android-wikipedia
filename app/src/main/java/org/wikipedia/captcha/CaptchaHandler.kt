@@ -75,7 +75,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
         }
         hideSoftKeyboard(activity)
         if (!isReload) {
-            crossFade(primaryView, binding.captchaContainer)
+            crossFade(primaryView, binding.root)
         }
         // In case there was a captcha attempt before
         binding.captchaText.editText?.setText("")
@@ -84,7 +84,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
 
     fun hideCaptcha() {
         (activity as AppCompatActivity).supportActionBar!!.title = prevTitle
-        crossFade(binding.captchaContainer, primaryView)
+        crossFade(binding.root, primaryView)
     }
 
     fun cancelCaptcha() {
