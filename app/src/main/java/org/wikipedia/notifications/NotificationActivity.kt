@@ -30,24 +30,19 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.markRead
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.NotificationSettingsActivity
-import org.wikipedia.settings.NotificationSettingsActivity.Companion.promptEnablePollDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil.getFeedCardDateString
 import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.FeedbackUtil.makeSnackbar
-import org.wikipedia.util.ResourceUtil.getThemedAttributeId
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
-import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -75,16 +70,16 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding = ActivityNotificationsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setNavigationBarColor(getThemedColor(this, android.R.attr.windowBackground))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
         binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable))
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-                getThemedAttributeId(this, R.attr.chart_shade5),
+                ResourceUtil.getThemedAttributeId(this, R.attr.chart_shade5),
                 R.drawable.ic_archive_white_24dp,
-                getThemedAttributeId(this, R.attr.secondary_text_color))
+                ResourceUtil.getThemedAttributeId(this, R.attr.secondary_text_color))
 
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
@@ -98,7 +93,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsViewArchivedButton.setOnClickListener { onViewArchivedClick() }
 
         beginUpdateList()
-        promptEnablePollDialog(this)
+        NotificationSettingsActivity.promptEnablePollDialog(this)
     }
 
     public override fun onDestroy() {
@@ -289,9 +284,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
         for (wiki in notificationsPerWiki.keys) {
             if (markUnread) {
-                markRead(wiki, notificationsPerWiki[wiki]!!, true)
+                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, true)
             } else {
-                markRead(wiki, notificationsPerWiki[wiki]!!, false)
+                NotificationPollBroadcastReceiver.markRead(wiki, notificationsPerWiki[wiki]!!, false)
                 showDeleteItemsUndoSnackbar(items)
             }
         }
@@ -299,7 +294,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     private fun showDeleteItemsUndoSnackbar(items: List<NotificationListItemContainer>) {
-        val snackbar = makeSnackbar(this, resources.getQuantityString(R.plurals.notification_archive_message, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
+        val snackbar = FeedbackUtil.makeSnackbar(this, resources.getQuantityString(R.plurals.notification_archive_message, items.size, items.size), FeedbackUtil.LENGTH_DEFAULT)
         snackbar.setAction(R.string.notification_archive_undo) { deleteItems(items, true) }
         snackbar.show()
     }
@@ -312,7 +307,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         if (SearchActionModeCallback.`is`(actionMode)) {
             finishActionMode()
         }
-        if (!isTagType(actionMode)) {
+        if (!MultiSelectActionModeCallback.isTagType(actionMode)) {
             startSupportActionMode(multiSelectActionModeCallback)
         }
     }
@@ -426,9 +421,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             if (n.contents != null) {
                 description = n.contents!!.header
             }
-            titleView.text = fromHtml(description)
+            titleView.text = StringUtil.fromHtml(description)
             if (n.contents != null && (n.contents!!.body.trim { it <= ' ' }).isNotEmpty()) {
-                descriptionView.text = fromHtml(n.contents!!.body)
+                descriptionView.text = StringUtil.fromHtml(n.contents!!.body)
                 descriptionView.visibility = View.VISIBLE
             } else {
                 descriptionView.visibility = View.GONE
@@ -470,16 +465,16 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             if (container.selected) {
                 imageSelectedView.visibility = View.VISIBLE
                 imageContainerView.visibility = View.INVISIBLE
-                itemView.setBackgroundColor(getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
+                itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.multi_select_background_color))
             } else {
                 imageSelectedView.visibility = View.INVISIBLE
                 imageContainerView.visibility = View.VISIBLE
-                itemView.setBackgroundColor(getThemedColor(this@NotificationActivity, R.attr.paper_color))
+                itemView.setBackgroundColor(ResourceUtil.getThemedColor(this@NotificationActivity, R.attr.paper_color))
             }
         }
 
         override fun onClick(v: View) {
-            if (isTagType(actionMode)) {
+            if (MultiSelectActionModeCallback.isTagType(actionMode)) {
                 toggleSelectItem(container)
             } else {
                 bottomSheetPresenter.show(supportFragmentManager,

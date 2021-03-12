@@ -12,7 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.os.bundleOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.NotificationFunnel
 import org.wikipedia.databinding.ViewNotificationActionsBinding
 import org.wikipedia.dataclient.WikiSite
@@ -20,7 +20,7 @@ import org.wikipedia.json.GsonUtil
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
@@ -53,7 +53,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         notification = GsonUtil.getDefaultGson().fromJson(requireArguments().getString(ARG_NOTIFICATION), Notification::class.java)
         linkHandler = NotificationLinkHandler(requireContext())
         if (notification.contents != null) {
-            binding.notificationItemText.text = fromHtml(notification.contents!!.header).toString()
+            binding.notificationItemText.text = StringUtil.fromHtml(notification.contents!!.header).toString()
         }
         if (notification.contents != null && notification.contents!!.links != null && notification.contents!!.links!!.primary != null) {
             setUpViewForLink(binding.notificationActionPrimary, binding.notificationActionPrimaryIcon, binding.notificationActionPrimaryText, notification.contents!!.links!!.primary!!)
@@ -91,9 +91,9 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun setUpViewForLink(containerView: View?, iconView: AppCompatImageView?, labelView: TextView?, link: Notification.Link) {
         if (link.tooltip.isNotEmpty()) {
-            labelView!!.text = fromHtml(link.tooltip)
+            labelView!!.text = StringUtil.fromHtml(link.tooltip)
         } else {
-            labelView!!.text = fromHtml(link.label)
+            labelView!!.text = StringUtil.fromHtml(link.label)
         }
         if ("userAvatar" == link.icon) {
             iconView!!.setImageResource(R.drawable.ic_user_avatar)
@@ -137,7 +137,7 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun callback(): Callback? {
-        return getCallback(this, Callback::class.java)
+        return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
     companion object {
