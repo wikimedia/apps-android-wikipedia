@@ -212,7 +212,7 @@
   <string name="page_similar_titles">Zey cı peri</string>
   <string name="search_did_you_mean">To ker kı vacê %s?</string>
   <string name="search_recent_header">Cıgeyrışo peyên:</string>
-  <string name="search_results_count_zero">Netice çıno</string>
+  <string name="search_results_count_zero">Netice çıniyo</string>
   <plurals name="search_results_count">
     <item quantity="one">1 netice</item>
     <item quantity="other">%d neticeyi</item>
