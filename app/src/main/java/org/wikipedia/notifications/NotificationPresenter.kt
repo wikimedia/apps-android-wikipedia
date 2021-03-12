@@ -18,11 +18,10 @@ import androidx.core.content.ContextCompat
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver.Companion.getCancelNotificationPendingIntent
-import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
-import org.wikipedia.util.DimenUtil.roundedDpToPx
-import org.wikipedia.util.ResourceUtil.bitmapFromVectorDrawable
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 
 object NotificationPresenter {
     private const val CHANNEL_ID = "MEDIAWIKI_ECHO_CHANNEL"
@@ -32,7 +31,7 @@ object NotificationPresenter {
         @ColorRes var iconColor = R.color.accent50
 
         val builder = getDefaultBuilder(context, n.id(), n.type())
-        val title: String = fromHtml(if (n.contents != null) n.contents!!.header else "").toString()
+        val title: String = StringUtil.fromHtml(if (n.contents != null) n.contents!!.header else "").toString()
 
         if (n.contents != null && n.contents!!.links != null && n.contents!!.links!!.primary != null) {
             if (Notification.CATEGORY_EDIT_USER_TALK == n.category()) {
@@ -111,7 +110,7 @@ object NotificationPresenter {
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true)
-                .setDeleteIntent(getCancelNotificationPendingIntent(context, id, type))
+                .setDeleteIntent(NotificationPollBroadcastReceiver.getCancelNotificationPendingIntent(context, id, type))
     }
 
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
@@ -132,9 +131,9 @@ object NotificationPresenter {
         val pendingIntent = PendingIntent.getActivity(context, 0,
                 addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link!!.url)), n.id(), n.type()), 0)
         val labelStr: String = if (link.tooltip.isNotEmpty()) {
-            fromHtml(link.tooltip).toString()
+            StringUtil.fromHtml(link.tooltip).toString()
         } else {
-            fromHtml(link.label).toString()
+            StringUtil.fromHtml(link.label).toString()
         }
         builder.addAction(0, labelStr, pendingIntent)
     }
@@ -143,20 +142,20 @@ object NotificationPresenter {
         val wiki = WikiSite(link!!.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id(), n.type()), 0)
-        builder.addAction(0, fromHtml(link.label).toString(), pendingIntent)
+                addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id(), n.type()), 0)
+        builder.addAction(0, StringUtil.fromHtml(link.label).toString(), pendingIntent)
     }
 
     private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, drawIconCircle: Boolean): Bitmap {
-        val bitmapHalfSize = roundedDpToPx(20f)
-        val iconHalfSize = roundedDpToPx(12f)
+        val bitmapHalfSize = DimenUtil.roundedDpToPx(20f)
+        val iconHalfSize = DimenUtil.roundedDpToPx(12f)
         val bmp = Bitmap.createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bmp)
         val p = Paint()
         p.isAntiAlias = true
         p.color = ContextCompat.getColor(context, if (drawIconCircle) color else android.R.color.transparent)
         canvas.drawCircle(bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), p)
-        val iconBmp = bitmapFromVectorDrawable(context, icon, if (drawIconCircle) android.R.color.white else color)
+        val iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, if (drawIconCircle) android.R.color.white else color)
         canvas.drawBitmap(iconBmp, null, Rect(bitmapHalfSize - iconHalfSize, bitmapHalfSize - iconHalfSize,
                 bitmapHalfSize + iconHalfSize, bitmapHalfSize + iconHalfSize), null)
         iconBmp.recycle()

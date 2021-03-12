@@ -20,9 +20,8 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.main.MainActivity
-import org.wikipedia.push.WikipediaFirebaseMessagingService.Companion.isUsingPush
+import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil.getChannel
 import org.wikipedia.util.ReleaseUtil.isDevRelease
@@ -52,7 +51,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 }
 
                 // If push notifications are active, then don't actually do any polling.
-                if (isUsingPush()) {
+                if (WikipediaFirebaseMessagingService.isUsingPush()) {
                     return
                 }
                 LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications()
@@ -73,8 +72,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
-        private val DBNAME_WIKI_SITE_MAP: MutableMap<String, WikiSite> = HashMap()
-        private val DBNAME_WIKI_NAME_MAP: MutableMap<String, String> = HashMap()
+        private val DBNAME_WIKI_SITE_MAP = mutableMapOf<String, WikiSite>()
+        private val DBNAME_WIKI_NAME_MAP = mutableMapOf<String, String>()
         private var LOCALLY_KNOWN_NOTIFICATIONS = Prefs.getLocallyKnownNotifications()
 
         @JvmStatic
@@ -119,7 +118,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).lastUnreadNotification
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwQueryResponse ->
+                    .subscribe({ response ->
                         var lastNotificationTime = ""
                         if (response.query()!!.notifications()!!.list() != null &&
                                 response.query()!!.notifications()!!.list()!!.size > 0) {
@@ -135,7 +134,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                         }
                         Prefs.setRemoteNotificationsSeenTime(lastNotificationTime)
                         retrieveNotifications(context)
-                    }) { t: Throwable ->
+                    }) { t ->
                         if (t is MwException && t.error.title == "login-required") {
                             assertLoggedIn()
                         }
@@ -160,9 +159,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).unreadNotificationWikis
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwQueryResponse ->
+                    .subscribe({ response ->
                         val wikiMap = response.query()!!.unreadNotificationWikis()
-                        val wikis: MutableList<String?> = ArrayList()
+                        val wikis = mutableListOf<String>()
                         wikis.addAll(wikiMap!!.keys)
                         for (dbName in wikiMap.keys) {
                             if (wikiMap[dbName]!!.source != null) {
@@ -171,15 +170,14 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                             }
                         }
                         getFullNotifications(context, wikis)
-                    }) { t: Throwable -> L.e(t) }
+                    }) { t -> L.e(t) }
         }
 
-        @SuppressLint("CheckResult")
         private fun getFullNotifications(context: Context, foreignWikis: List<String?>) {
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwQueryResponse -> onNotificationsComplete(context, response.query()!!.notifications()!!.list()!!) }) { t: Throwable -> L.e(t) }
+                    .subscribe({ response -> onNotificationsComplete(context, response.query()!!.notifications()!!.list()!!) }) { t -> L.e(t) }
         }
 
         private fun onNotificationsComplete(context: Context, notifications: List<Notification>) {
@@ -187,8 +185,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 return
             }
             var locallyKnownModified = false
-            val knownNotifications: MutableList<Notification> = ArrayList()
-            val notificationsToDisplay: MutableList<Notification> = ArrayList()
+            val knownNotifications = mutableListOf<Notification>()
+            val notificationsToDisplay = mutableListOf<Notification>()
             for (n in notifications) {
                 knownNotifications.add(n)
                 if (LOCALLY_KNOWN_NOTIFICATIONS.contains(n.key())) {
@@ -227,11 +225,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun markItemsAsRead(items: List<Notification>) {
-            val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
+            val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
             for (item in items) {
                 val wiki = if (DBNAME_WIKI_SITE_MAP.containsKey(item.wiki())) DBNAME_WIKI_SITE_MAP[item.wiki()]!! else WikipediaApp.getInstance().wikiSite
                 if (!notificationsPerWiki.containsKey(wiki)) {
-                    notificationsPerWiki[wiki] = ArrayList()
+                    notificationsPerWiki[wiki] = mutableListOf()
                 }
                 notificationsPerWiki[wiki]!!.add(item)
             }
@@ -241,15 +239,14 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         @JvmStatic
-        fun markRead(wiki: WikiSite, notifications: List<Notification?>, unread: Boolean) {
+        fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
             val editTokenClient = CsrfTokenClient(wiki, WikipediaApp.getInstance().wikiSite)
             editTokenClient.request(object : CsrfTokenClient.DefaultCallback() {
-                @SuppressLint("CheckResult")
                 override fun success(token: String) {
                     ServiceFactory.get(wiki).markRead(token, if (unread) null else idListStr, if (unread) idListStr else null)
                             .subscribeOn(Schedulers.io())
-                            .subscribe({ }) { t: Throwable -> L.e(t) }
+                            .subscribe({ }) { t -> L.e(t) }
                 }
             })
         }
