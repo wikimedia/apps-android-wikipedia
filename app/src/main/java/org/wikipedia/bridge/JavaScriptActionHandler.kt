@@ -50,6 +50,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun toggleCollapsedForAll(): String {
+        return "pcs.c1.Page.toggleCollapsedForAll();"
+    }
+
+    @JvmStatic
     fun scrollToFooter(context: Context): String {
         return "window.scrollTo(0, document.getElementById('pcs-footer-container-menu').offsetTop - ${DimenUtil.getNavigationBarHeight(context)});"
     }
