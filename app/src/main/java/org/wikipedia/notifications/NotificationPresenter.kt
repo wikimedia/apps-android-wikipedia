@@ -33,19 +33,23 @@ object NotificationPresenter {
         val builder = getDefaultBuilder(context, n.id(), n.type())
         val title: String = StringUtil.fromHtml(if (n.contents != null) n.contents!!.header else "").toString()
 
-        if (n.contents != null && n.contents!!.links != null && n.contents!!.links!!.primary != null) {
-            if (Notification.CATEGORY_EDIT_USER_TALK == n.category()) {
-                addActionForTalkPage(context, builder, n.contents!!.links!!.primary, n)
-            } else {
-                addAction(context, builder, n.contents!!.links!!.primary, n)
+        n.contents?.links?.let {
+            it.primary?.let { primary ->
+                if (Notification.CATEGORY_EDIT_USER_TALK == n.category()) {
+                    addActionForTalkPage(context, builder, primary, n)
+                } else {
+                    addAction(context, builder, primary, n)
+                }
+            }
+            it.secondary?.let { secondary ->
+                if (secondary.size > 0) {
+                    addAction(context, builder, secondary[0], n)
+                } else if (secondary.size > 1) {
+                    addAction(context, builder, secondary[1], n)
+                }
             }
         }
-        if (n.contents != null && n.contents!!.links != null && n.contents!!.links!!.secondary != null && n.contents!!.links!!.secondary!!.size > 0) {
-            addAction(context, builder, n.contents!!.links!!.secondary!![0], n)
-        }
-        if (n.contents != null && n.contents!!.links != null && n.contents!!.links!!.secondary != null && n.contents!!.links!!.secondary!!.size > 1) {
-            addAction(context, builder, n.contents!!.links!!.secondary!![1], n)
-        }
+
         val activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id(), n.type())
         val s = n.category()
         when {
@@ -127,9 +131,9 @@ object NotificationPresenter {
         notificationManager.notify(id, builder.build())
     }
 
-    private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link?, n: Notification) {
+    private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
         val pendingIntent = PendingIntent.getActivity(context, 0,
-                addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link!!.url)), n.id(), n.type()), 0)
+                addIntentExtras(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)), n.id(), n.type()), 0)
         val labelStr: String = if (link.tooltip.isNotEmpty()) {
             StringUtil.fromHtml(link.tooltip).toString()
         } else {
@@ -138,8 +142,8 @@ object NotificationPresenter {
         builder.addAction(0, labelStr, pendingIntent)
     }
 
-    private fun addActionForTalkPage(context: Context, builder: NotificationCompat.Builder, link: Notification.Link?, n: Notification) {
-        val wiki = WikiSite(link!!.url)
+    private fun addActionForTalkPage(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {
+        val wiki = WikiSite(link.url)
         val title = wiki.titleForUri(Uri.parse(link.url))
         val pendingIntent = PendingIntent.getActivity(context, 0,
                 addIntentExtras(TalkTopicsActivity.newIntent(context, title.pageTitleForTalkPage(), Constants.InvokeSource.NOTIFICATION), n.id(), n.type()), 0)
