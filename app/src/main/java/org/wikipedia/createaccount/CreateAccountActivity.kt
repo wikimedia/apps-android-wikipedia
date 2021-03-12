@@ -42,7 +42,7 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var funnel: CreateAccountFunnel
     private val disposables = CompositeDisposable()
-    private var wiki  = WikipediaApp.getInstance().wikiSite
+    private var wiki = WikipediaApp.getInstance().wikiSite
     private val userNameTextWatcher = UserNameTextWatcher()
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -195,7 +195,7 @@ class CreateAccountActivity : BaseActivity() {
     private fun validateThenCreateAccount() {
         clearErrors()
         val result = validateInput(getText(binding.createAccountUsername), getText(binding.createAccountPasswordInput),
-                getText(binding.createAccountPasswordRepeat), getText(binding.createAccountUsername))
+                getText(binding.createAccountPasswordRepeat), getText(binding.createAccountEmail))
         when (result) {
             ValidateResult.INVALID_USERNAME -> {
                 binding.createAccountUsername.requestFocus()
@@ -307,6 +307,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     companion object {
+        private const val PASSWORD_MIN_LENGTH = 6
         const val RESULT_ACCOUNT_CREATED = 1
         const val RESULT_ACCOUNT_NOT_CREATED = 2
         const val RESULT_ACCOUNT_LOGIN = 3
@@ -314,9 +315,10 @@ class CreateAccountActivity : BaseActivity() {
         const val LOGIN_SESSION_TOKEN = "login_session_token"
         const val CREATE_ACCOUNT_RESULT_USERNAME = "username"
         const val CREATE_ACCOUNT_RESULT_PASSWORD = "password"
+
         @JvmField
         val USERNAME_PATTERN: Pattern = Pattern.compile("[^#<>\\[\\]|{}/@]*")
-        private const val PASSWORD_MIN_LENGTH = 6
+
         @JvmStatic
         fun validateInput(username: CharSequence,
                           password: CharSequence,
@@ -330,7 +332,7 @@ class CreateAccountActivity : BaseActivity() {
                 return ValidateResult.PASSWORD_MISMATCH
             } else if (email.isNotEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 return ValidateResult.INVALID_EMAIL
-            } else if (email.isNotEmpty()) {
+            } else if (email.isEmpty()) {
                 return ValidateResult.NO_EMAIL
             }
             return ValidateResult.SUCCESS
