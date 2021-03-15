@@ -98,6 +98,6 @@ abstract class DatabaseTable<T>(private val tableName: String, val baseContentUR
     }
 
     companion object {
-        protected const val INITIAL_DB_VERSION = 1
+        const val INITIAL_DB_VERSION = 1
     }
 }
