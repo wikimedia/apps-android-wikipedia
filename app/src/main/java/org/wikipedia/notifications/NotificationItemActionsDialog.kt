@@ -89,18 +89,18 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         super.onDestroyView()
     }
 
-    private fun setUpViewForLink(containerView: View?, iconView: AppCompatImageView?, labelView: TextView?, link: Notification.Link) {
+    private fun setUpViewForLink(containerView: View, iconView: AppCompatImageView, labelView: TextView, link: Notification.Link) {
         if (link.tooltip.isNotEmpty()) {
-            labelView!!.text = StringUtil.fromHtml(link.tooltip)
+            labelView.text = StringUtil.fromHtml(link.tooltip)
         } else {
-            labelView!!.text = StringUtil.fromHtml(link.label)
+            labelView.text = StringUtil.fromHtml(link.label)
         }
         if ("userAvatar" == link.icon) {
-            iconView!!.setImageResource(R.drawable.ic_user_avatar)
+            iconView.setImageResource(R.drawable.ic_user_avatar)
         } else {
-            iconView!!.setImageResource(R.drawable.ic_arrow_forward_black_24dp)
+            iconView.setImageResource(R.drawable.ic_arrow_forward_black_24dp)
         }
-        containerView!!.tag = link
+        containerView.tag = link
         containerView.visibility = View.VISIBLE
     }
 

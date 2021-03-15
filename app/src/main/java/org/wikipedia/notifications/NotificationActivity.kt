@@ -27,7 +27,6 @@ import org.wikipedia.databinding.ActivityNotificationsBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -168,7 +167,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).unreadNotificationWikis
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response: MwQueryResponse ->
+                .subscribe({ response ->
                     val wikiMap = response.query()!!.unreadNotificationWikis()
                     dbNameMap.clear()
                     for (key in wikiMap!!.keys) {
@@ -177,7 +176,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                         }
                     }
                     orContinueNotifications
-                }) { t: Throwable -> setErrorState(t) })
+                }) { t -> setErrorState(t) })
     }
 
     private val orContinueNotifications: Unit
@@ -186,10 +185,10 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getAllNotifications("*", if (displayArchived) "read" else "!read", currentContinueStr)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: MwQueryResponse ->
+                    .subscribe({ response ->
                         onNotificationsComplete(response.query()!!.notifications()!!.list()!!, !currentContinueStr.isNullOrEmpty())
                         currentContinueStr = response.query()!!.notifications()!!.getContinue()
-                    }) { t: Throwable -> setErrorState(t) })
+                    }) { t -> setErrorState(t) })
         }
 
     private fun setErrorState(t: Throwable) {
@@ -214,14 +213,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
         }
         for (n in notifications) {
-            var exists = false
-            for (nExisting in notificationList) {
-                if (nExisting.id() == n.id()) {
-                    exists = true
-                    break
-                }
-            }
-            if (!exists) {
+            if (notificationList.none { it.id() == n.id() }) {
                 notificationList.add(n)
             }
         }
@@ -323,16 +315,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
     }
 
-    private val selectedItemCount: Int
-        get() {
-            var selectedCount = 0
-            for (item in notificationContainerList) {
-                if (item.selected) {
-                    selectedCount++
-                }
-            }
-            return selectedCount
-        }
+    private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
     private fun unselectAllItems() {
         for (item in notificationContainerList) {
@@ -384,8 +367,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         fun bindItem(container: NotificationListItemContainer) {
             this.container = container
-            val n = container.notification
-            var description = n!!.category()
+            val n = container.notification!!
             var iconResId = R.drawable.ic_speech_bubbles
             var iconBackColor = R.color.accent50
             val s = n.category()
@@ -418,28 +400,27 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             imageView.setImageResource(iconResId)
             DrawableCompat.setTint(imageBackgroundView.drawable,
                     ContextCompat.getColor(this@NotificationActivity, iconBackColor))
-            if (n.contents != null) {
-                description = n.contents!!.header
-            }
-            titleView.text = StringUtil.fromHtml(description)
-            if (n.contents != null && (n.contents!!.body.trim { it <= ' ' }).isNotEmpty()) {
-                descriptionView.text = StringUtil.fromHtml(n.contents!!.body)
-                descriptionView.visibility = View.VISIBLE
-            } else {
-                descriptionView.visibility = View.GONE
-            }
-            if (n.contents != null && n.contents!!.links != null && n.contents!!.links!!.secondary != null && n.contents!!.links!!.secondary!!.size > 0) {
-                secondaryActionHintView.text = n.contents!!.links!!.secondary!![0].label
-                secondaryActionHintView.visibility = View.VISIBLE
-                if (n.contents!!.links!!.secondary!!.size > 1) {
-                    tertiaryActionHintView.text = n.contents!!.links!!.secondary!![1].label
-                    tertiaryActionHintView.visibility = View.VISIBLE
+            n.contents?.let {
+                titleView.text = StringUtil.fromHtml(it.header)
+                if (it.body.trim().isNotEmpty()) {
+                    descriptionView.text = StringUtil.fromHtml(it.body)
+                    descriptionView.visibility = View.VISIBLE
                 } else {
+                    descriptionView.visibility = View.GONE
+                }
+                if (it.links != null && it.links!!.secondary != null && it.links!!.secondary!!.size > 0) {
+                    secondaryActionHintView.text = it.links!!.secondary!![0].label
+                    secondaryActionHintView.visibility = View.VISIBLE
+                    if (it.links!!.secondary!!.size > 1) {
+                        tertiaryActionHintView.text = it.links!!.secondary!![1].label
+                        tertiaryActionHintView.visibility = View.VISIBLE
+                    } else {
+                        tertiaryActionHintView.visibility = View.GONE
+                    }
+                } else {
+                    secondaryActionHintView.visibility = View.GONE
                     tertiaryActionHintView.visibility = View.GONE
                 }
-            } else {
-                secondaryActionHintView.visibility = View.GONE
-                tertiaryActionHintView.visibility = View.GONE
             }
             val wikiCode = n.wiki()
             when {
@@ -560,7 +541,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         }
 
         override fun onQueryChange(s: String) {
-            currentSearchQuery = s.trim { it <= ' ' }
+            currentSearchQuery = s.trim()
             postprocessAndDisplay()
         }
 
@@ -635,7 +616,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     companion object {
-        @JvmStatic
         fun newIntent(context: Context): Intent {
             return Intent(context, NotificationActivity::class.java)
         }
