@@ -242,6 +242,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Algorithme_d’entrainement_par_image</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l’équipe&lt;/a&gt;</string>
@@ -622,8 +623,8 @@
   <string name="view_random_article_card_action">Davantage d’articles au hasard</string>
   <string name="view_top_read_card_title">Les plus lus</string>
   <string name="view_top_read_card_action">Davantage de plus lus</string>
-  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
-  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Charger un autre article au hasard</string>
   <string name="view_main_page_card_title">Aujourd’hui sur Wikipédia</string>
   <string name="view_main_page_card_action">Afficher la page principale</string>
@@ -885,6 +886,16 @@
     <item quantity="one">Vous avez ajouté %d caractère</item>
     <item quantity="other">Vous avez ajouté %d caractères</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Algorithme d’entrainement par image</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Décider si une image suggérée améliorera un article.</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">Démarrer</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Très bien, continuez ! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Objectif quotidien atteint ! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Vous avez atteint l’objectif</string>
+  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Une nouvelle tâche de modification suggérée est maintenant disponible. Entrainez un algorithme à faire correspondre des images avec des articles non illustrés.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text1">Les articles de Wikipédia sont écrits et modifiés par des milliers de bénévoles dans le monde entier. Malheureusement, de nombreux articles ne sont pas illustrés.\n\nLes images vous seront suggérées en utilisant un algorithme. L’algorithme récupérera des images depuis d’autres sources et suggérera une correspondance avec un article qui n’a aucune image.\n\nVotre avis nous aidera à améliorer les suggestions au cours du temps. Puisque le but de cette tâche est d’améliorer les images suggérées, les correspondances que vous réalisez ne seront pas publiées à l’heure actuelle.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Nous aimerions reconnaître vos contributions à cet effort. Aimeriez-vous voir votre nom affiché sur notre page d’entrainement de l’algorithme ?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_consent">Oui, mon nom d’utilisateur peut être affiché sur la page d’entrainement de l’algorithme</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
@@ -912,7 +923,7 @@
   <string name="onboarding_got_it">C’est bon !</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
-  <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n… dans plus de 300 langues</string>
+  <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n... dans plus de 300 langues</string>
   <string name="app_shortcuts_random">Aléatoire</string>
   <string name="app_shortcuts_continue_reading">Continuer à lire</string>
   <string name="app_shortcuts_search">Rechercher</string>
@@ -960,6 +971,24 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annuler</string>
   <string name="edit_type_all">Toutes les contributions</string>
   <string name="content_description_for_page_indicator">Page %1$d sur %2$d</string>
+  <string name="image_recommendations_task_accept">Oui</string>
+  <string name="image_recommendations_task_reject">Non</string>
+  <string name="image_recommendations_task_not_sure">Pas certain(e)</string>
+  <string name="image_recommendations_task_processing">Traitement en cours...</string>
+  <string name="image_recommendations_task_daily_amount">%d / %d</string>
+  <string name="image_recommendations_task_instruction">Voulez-vous ajouter cette image à l’article ?</string>
+  <string name="image_recommendations_task_choice_no">Pourquoi avez-vous sélectionné « non » ?</string>
+  <string name="image_recommendations_task_choice_unsure">Pourquoi n’êtes vous pas certain(e) concernant cette image ?</string>
+  <string name="image_recommendations_task_choice_not_relevant">Inappropriée</string>
+  <string name="image_recommendations_task_choice_low_quality">De basse qualité</string>
+  <string name="image_recommendations_task_choice_noinfo">Pas assez d’informations</string>
+  <string name="image_recommendations_task_choice_nosubject">Je ne connais pas ce sujet</string>
+  <string name="image_recommendations_task_choice_offensive">Offensante</string>
+  <string name="image_recommendations_task_choice_invisible">Je ne peux pas voir l’image</string>
+  <string name="image_recommendations_task_choice_understand">Je ne comprends pas la tâche</string>
+  <string name="image_recommendations_task_choice_other">Autre</string>
+  <string name="image_recommendations_task_choice_continue">Continuer</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Motif de la suggestion :&lt;/i&gt; %s</string>
   <string name="wikitext_bold">Gras</string>
   <string name="wikitext_italic">Italique</string>
   <string name="wikitext_link">Lien</string>
@@ -998,7 +1027,7 @@
   <string name="thank_label">Remercier</string>
   <string name="go_to_user_page">Aller à la page utilisateur</string>
   <string name="thank_dialog_title_text">Envoyer « merci » publiquement</string>
-  <string name="thank_dialog_text">\'Merci\' est une manière facile de montrer son appréciation du travail d’un éditeur sur Wikipédia. Les \'Merci\' ne peuvent être annulés et sont publiquement visibles.</string>
+  <string name="thank_dialog_text">Dire « Merci » est une manière facile de montrer son appréciation du travail d’un éditeur sur Wikipédia. Les « Merci » ne peuvent être annulés et sont publiquement visibles.</string>
   <string name="thank_dialog_positive_button_text">Envoyer des remerciements</string>
   <string name="thank_dialog_negative_button_text">Annuler</string>
   <string name="thank_success_message">Votre remerciement a été envoyé à %s 👍</string>
