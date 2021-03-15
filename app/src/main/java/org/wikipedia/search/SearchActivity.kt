@@ -16,9 +16,11 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 source = InvokeSource.INTENT_SHARE
             } else if (Intent.ACTION_PROCESS_TEXT == intent.action) {
                 source = InvokeSource.INTENT_PROCESS_TEXT
+            } else {
+                source = InvokeSource.INTENT_OTHERS
             }
         }
-        return SearchFragment.newInstance(source!!, intent.getStringExtra(QUERY_EXTRA))
+        return SearchFragment.newInstance(source, intent.getStringExtra(QUERY_EXTRA))
     }
 
     companion object {
