@@ -15,7 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.NotificationFunnel
-import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -23,8 +23,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.main.MainActivity
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.ReleaseUtil.getChannel
-import org.wikipedia.util.ReleaseUtil.isDevRelease
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -38,11 +37,11 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 // `adb shell am broadcast -a android.intent.action.BOOT_COMPLETED`
 
                 // Update our channel name, if needed.
-                L.d("channel=" + getChannel(context))
+                L.d("channel=" + ReleaseUtil.getChannel(context))
                 startPollTask(context)
             }
             ACTION_POLL == intent.action -> {
-                if (!isLoggedIn) {
+                if (!AccountUtil.isLoggedIn) {
                     return
                 }
                 maybeShowLocalNotificationForEditorReactivation(context)
@@ -83,7 +82,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                         SystemClock.elapsedRealtime(),
                         TimeUnit.MINUTES.toMillis((context.resources.getInteger(R.integer.notification_poll_interval_minutes) /
-                                if (Prefs.isSuggestedEditsReactivationTestEnabled() && !isDevRelease) 10 else 1).toLong()),
+                                if (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease) 10 else 1).toLong()),
                         getAlarmPendingIntent(context))
             } catch (e: Exception) {
                 // There seems to be a Samsung-specific issue where it doesn't update the existing
