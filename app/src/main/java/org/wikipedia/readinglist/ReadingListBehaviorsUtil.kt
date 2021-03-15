@@ -23,19 +23,19 @@ import java.util.*
 
 object ReadingListBehaviorsUtil {
 
-    interface SearchCallback {
+    fun interface SearchCallback {
         fun onCompleted(lists: MutableList<Any>)
     }
 
-    interface SnackbarCallback {
+    fun interface SnackbarCallback {
         fun onUndoDeleteClicked()
     }
 
-    interface AddToDefaultListCallback {
+    fun interface AddToDefaultListCallback {
         fun onMoveClicked(readingListId: Long)
     }
 
-    interface Callback {
+    fun interface Callback {
         fun onCompleted()
     }
 

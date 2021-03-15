@@ -48,20 +48,18 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private val binding get() = _binding!!
     private val disposables = CompositeDisposable()
     private var app = WikipediaApp.getInstance()
-    private lateinit var funnel: SearchFunnel
-    private lateinit var invokeSource: InvokeSource
-    var searchLanguageCode: String? = null
-        private set
     private var tempLangCodeHolder: String? = null
     private var langBtnClicked = false
-    private lateinit var initialLanguageList: String
-
     private var isSearchActive = false
-
     private var query: String? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private lateinit var recentSearchesFragment: RecentSearchesFragment
     private lateinit var searchResultsFragment: SearchResultsFragment
+    private lateinit var funnel: SearchFunnel
+    private lateinit var invokeSource: InvokeSource
+    private lateinit var initialLanguageList: String
+    lateinit var searchLanguageCode: String
+        private set
 
     private val searchCloseListener = SearchView.OnCloseListener {
         closeSearch()
@@ -219,12 +217,12 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setQuery(text, false)
     }
 
-    override fun navigateToTitle(title: PageTitle, inNewTab: Boolean, position: Int) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int) {
         if (!isAdded) {
             return
         }
         funnel.searchClick(position, searchLanguageCode)
-        val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
+        val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
         else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
         closeSearch()
@@ -371,7 +369,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             tempLangCodeHolder = null
         }
         searchLanguageCode = selectedLanguageCode
-        searchResultsFragment.setLayoutDirection(searchLanguageCode!!)
+        searchResultsFragment.setLayoutDirection(searchLanguageCode)
         startSearch(query, true)
     }
 
