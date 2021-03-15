@@ -56,24 +56,17 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
             binding.notificationItemText.text = StringUtil.fromHtml(it.header).toString()
             it.links?.primary?.let { primary ->
                 setUpViewForLink(binding.notificationActionPrimary, binding.notificationActionPrimaryIcon, binding.notificationActionPrimaryText, primary)
-            } ?: run {
-                binding.notificationActionPrimary.visibility = View.GONE
+                binding.notificationActionPrimary.visibility = View.VISIBLE
             }
             it.links?.secondary?.let { secondary ->
                 if (secondary.size > 0) {
                     setUpViewForLink(binding.notificationActionSecondary, binding.notificationActionSecondaryIcon, binding.notificationActionSecondaryText, secondary[0])
+                    binding.notificationActionSecondary.visibility = View.VISIBLE
                     if (secondary.size > 1) {
                         setUpViewForLink(binding.notificationActionTertiary, binding.notificationActionTertiaryIcon, binding.notificationActionTertiaryText, secondary[1])
-                    } else {
-                        binding.notificationActionTertiary.visibility = View.GONE
+                        binding.notificationActionTertiary.visibility = View.VISIBLE
                     }
-                } else {
-                    binding.notificationActionSecondary.visibility = View.GONE
-                    binding.notificationActionTertiary.visibility = View.GONE
                 }
-            } ?: run {
-                binding.notificationActionSecondary.visibility = View.GONE
-                binding.notificationActionTertiary.visibility = View.GONE
             }
         }
 

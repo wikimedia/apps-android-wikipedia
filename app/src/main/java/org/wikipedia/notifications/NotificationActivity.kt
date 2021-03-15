@@ -414,16 +414,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                         if (secondary.size > 1) {
                             tertiaryActionHintView.text = secondary[1].label
                             tertiaryActionHintView.visibility = View.VISIBLE
-                        } else {
-                            tertiaryActionHintView.visibility = View.GONE
                         }
-                    } else {
-                        secondaryActionHintView.visibility = View.GONE
-                        tertiaryActionHintView.visibility = View.GONE
                     }
-                } ?: run {
-                    secondaryActionHintView.visibility = View.GONE
-                    tertiaryActionHintView.visibility = View.GONE
                 }
             }
             val wikiCode = n.wiki()
