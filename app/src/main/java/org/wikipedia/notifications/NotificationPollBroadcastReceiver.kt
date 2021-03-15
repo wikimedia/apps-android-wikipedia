@@ -237,7 +237,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
         }
 
-        @JvmStatic
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
             val editTokenClient = CsrfTokenClient(wiki, WikipediaApp.getInstance().wikiSite)

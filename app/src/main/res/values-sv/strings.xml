@@ -177,7 +177,7 @@
   <string name="wikipedia_app_faq">Vanliga frågor om Wikipedia-appen</string>
   <string name="send_feedback">Skicka återkoppling om appen</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
-  <string name="preferences_heading_syncing">Synkroniserar</string>
+  <string name="preferences_heading_syncing">Synkronisering</string>
   <string name="preferences_heading_data_usage">Dataanvändning</string>
   <string name="preferences_heading_experimental">\nExperimentell</string>
   <string name="preference_title_sync_reading_lists_from_account">Synkronisering av läslistor</string>
