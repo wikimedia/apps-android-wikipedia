@@ -23,12 +23,10 @@ class NotificationSettingsActivity : SingleFragmentActivity<NotificationSettings
     }
 
     companion object {
-        @JvmStatic
         fun newIntent(ctx: Context): Intent {
             return Intent(ctx, NotificationSettingsActivity::class.java)
         }
 
-        @JvmStatic
         fun promptEnablePollDialog(activity: Activity) {
             if (!Prefs.notificationPollReminderEnabled() || Prefs.notificationPollEnabled()) {
                 return
