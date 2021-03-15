@@ -57,12 +57,11 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     private var actionMode: ActionMode? = null
     private val multiSelectActionModeCallback = MultiSelectCallback()
     private val searchActionModeCallback = SearchCallback()
-    var currentSearchQuery: String? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var displayArchived = false
+    var currentSearchQuery: String? = null
 
-    override val isShowingArchived
-        get() = displayArchived
+    override val isShowingArchived get() = displayArchived
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -408,16 +407,21 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 } else {
                     descriptionView.visibility = View.GONE
                 }
-                if (it.links != null && it.links!!.secondary != null && it.links!!.secondary!!.size > 0) {
-                    secondaryActionHintView.text = it.links!!.secondary!![0].label
-                    secondaryActionHintView.visibility = View.VISIBLE
-                    if (it.links!!.secondary!!.size > 1) {
-                        tertiaryActionHintView.text = it.links!!.secondary!![1].label
-                        tertiaryActionHintView.visibility = View.VISIBLE
+                it.links?.secondary?.let { secondary ->
+                    if (secondary.size > 0) {
+                        secondaryActionHintView.text = secondary[0].label
+                        secondaryActionHintView.visibility = View.VISIBLE
+                        if (secondary.size > 1) {
+                            tertiaryActionHintView.text = secondary[1].label
+                            tertiaryActionHintView.visibility = View.VISIBLE
+                        } else {
+                            tertiaryActionHintView.visibility = View.GONE
+                        }
                     } else {
+                        secondaryActionHintView.visibility = View.GONE
                         tertiaryActionHintView.visibility = View.GONE
                     }
-                } else {
+                } ?: run {
                     secondaryActionHintView.visibility = View.GONE
                     tertiaryActionHintView.visibility = View.GONE
                 }
