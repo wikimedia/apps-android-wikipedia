@@ -147,8 +147,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public void onBackPressed() {
-        if (getFragment().editView.showingReviewContent()) {
-            getFragment().editView.loadReviewContent(false);
+        if (getFragment().getBinding().fragmentDescriptionEditView.showingReviewContent()) {
+            getFragment().getBinding().fragmentDescriptionEditView.loadReviewContent(false);
         } else {
             hideSoftKeyboard(this);
             SuggestedEditsFunnel.get().cancel(action);
