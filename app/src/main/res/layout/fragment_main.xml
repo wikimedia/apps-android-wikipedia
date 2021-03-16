@@ -12,14 +12,14 @@
         android:layout_weight="1">
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/fragment_main_view_pager"
+            android:id="@+id/main_view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
-        android:id="@+id/fragment_main_nav_tab_container"
+        android:id="@+id/main_nav_tab_container"
         android:elevation="6dp"
         android:background="?attr/nav_tab_background_color"
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         android:orientation="horizontal">
 
         <org.wikipedia.navtab.NavTabLayout
-            android:id="@+id/fragment_main_nav_tab_layout"
+            android:id="@+id/main_nav_tab_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"

@@ -939,6 +939,9 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Peruuta</string>
   <string name="edit_type_all">Kaikki muokkaukset</string>
   <string name="content_description_for_page_indicator">Sivu %1$d/%2$d</string>
+  <string name="image_recommendations_task_accept">Kyllä</string>
+  <string name="image_recommendations_task_reject">Ei</string>
+  <string name="image_recommendations_task_choice_continue">Jatka</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>

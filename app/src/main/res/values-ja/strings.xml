@@ -236,6 +236,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#Train_image_algorithm</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
@@ -873,6 +874,9 @@
     <item quantity="one">%d文字追加しました</item>
     <item quantity="other">%d文字追加しました</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">始める</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">その調子です! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">あなたは目標を達成しました</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -948,6 +952,17 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">キャンセル</string>
   <string name="edit_type_all">すべての投稿記録</string>
   <string name="content_description_for_page_indicator">全%2$dページの%1$dページ目</string>
+  <string name="image_recommendations_task_accept">はい</string>
+  <string name="image_recommendations_task_reject">いいえ</string>
+  <string name="image_recommendations_task_not_sure">不確実</string>
+  <string name="image_recommendations_task_processing">処理中...</string>
+  <string name="image_recommendations_task_daily_amount">%d / %d</string>
+  <string name="image_recommendations_task_choice_low_quality">低クオリティ</string>
+  <string name="image_recommendations_task_choice_noinfo">情報が不足しています</string>
+  <string name="image_recommendations_task_choice_offensive">攻撃的</string>
+  <string name="image_recommendations_task_choice_invisible">画像が見れません</string>
+  <string name="image_recommendations_task_choice_other">その他</string>
+  <string name="image_recommendations_task_choice_continue">続行</string>
   <string name="wikitext_bold">太字</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">リンク</string>
@@ -978,10 +993,27 @@
   <string name="talk_message_hint">メッセージを組み立てる</string>
   <string name="talk_message_empty">メッセージを空にすることはできません。</string>
   <string name="talk_subject_empty">件名を空にすることはできません。</string>
+  <string name="menu_option_share_edit">編集をシェア</string>
+  <string name="menu_option_user_profile">%s のプロフィール</string>
+  <string name="menu_option_user_contributions">%s の投稿記録</string>
   <string name="watchlist_details_watch_label">ウォッチ</string>
   <string name="thank_label">感謝</string>
+  <string name="go_to_user_page">利用者ページに移動</string>
   <string name="thank_dialog_title_text">感謝を公に示す</string>
+  <string name="thank_dialog_text">\'感謝\' はウィキペディアを編集する編集者へ感謝を示す簡単な方法です。\'感謝\' は元に戻すことはできず、誰でも見ることができます。</string>
   <string name="thank_dialog_positive_button_text">感謝を示す</string>
   <string name="thank_dialog_negative_button_text">キャンセル</string>
   <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
+  <string name="watchlist_expiry_dialog_one_week">1週間</string>
+  <string name="watchlist_expiry_dialog_one_month">1ヵ月</string>
+  <string name="watchlist_expiry_dialog_three_months">3ヵ月</string>
+  <string name="watchlist_expiry_dialog_six_months">6ヵ月</string>
+  <string name="watchlist_filter_all">すべて</string>
+  <string name="watchlist_filter_talk">トーク</string>
+  <string name="watchlist_filter_pages">ページ</string>
+  <string name="watchlist_filter_other">その他</string>
+  <string name="watchlist_page_moved">移動</string>
+  <string name="watchlist_page_protected">保護</string>
+  <string name="watchlist_page_deleted">削除</string>
 </resources>
