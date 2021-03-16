@@ -58,7 +58,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private lateinit var funnel: SearchFunnel
     private lateinit var invokeSource: InvokeSource
     private lateinit var initialLanguageList: String
-    lateinit var searchLanguageCode: String
+    var searchLanguageCode = app.language().appLanguageCode
         private set
 
     private val searchCloseListener = SearchView.OnCloseListener {
@@ -160,7 +160,6 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     fun setUpLanguageScroll(position: Int) {
         var pos = position
-        searchLanguageCode = app.language().appLanguageCode
         if (app.language().appLanguageCodes.size > 1) {
             pos = if (app.language().appLanguageCodes.size > pos) pos else 0
             binding.searchLanguageScrollViewContainer.visibility = View.VISIBLE
