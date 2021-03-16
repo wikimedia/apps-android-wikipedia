@@ -52,26 +52,28 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
 
         notification = GsonUtil.getDefaultGson().fromJson(requireArguments().getString(ARG_NOTIFICATION), Notification::class.java)
         linkHandler = NotificationLinkHandler(requireContext())
-        if (notification.contents != null) {
-            binding.notificationItemText.text = StringUtil.fromHtml(notification.contents!!.header).toString()
+        notification.contents?.let {
+            binding.notificationItemText.text = StringUtil.fromHtml(it.header).toString()
+            it.links?.primary?.let { primary ->
+                setUpViewForLink(binding.notificationActionPrimary, binding.notificationActionPrimaryIcon, binding.notificationActionPrimaryText, primary)
+                binding.notificationActionPrimary.visibility = View.VISIBLE
+            }
+            it.links?.secondary?.let { secondary ->
+                if (secondary.size > 0) {
+                    setUpViewForLink(binding.notificationActionSecondary, binding.notificationActionSecondaryIcon, binding.notificationActionSecondaryText, secondary[0])
+                    binding.notificationActionSecondary.visibility = View.VISIBLE
+                    if (secondary.size > 1) {
+                        setUpViewForLink(binding.notificationActionTertiary, binding.notificationActionTertiaryIcon, binding.notificationActionTertiaryText, secondary[1])
+                        binding.notificationActionTertiary.visibility = View.VISIBLE
+                    }
+                }
+            }
         }
-        if (notification.contents != null && notification.contents!!.links != null && notification.contents!!.links!!.primary != null) {
-            setUpViewForLink(binding.notificationActionPrimary, binding.notificationActionPrimaryIcon, binding.notificationActionPrimaryText, notification.contents!!.links!!.primary!!)
-        } else {
-            binding.notificationActionPrimary.visibility = View.GONE
+
+        callback()?.let {
+            binding.notificationItemArchiveIcon.setImageResource(if (it.isShowingArchived) R.drawable.ic_unarchive_themed_24dp else R.drawable.ic_archive_themed_24dp)
+            binding.notificationItemArchiveText.setText(if (it.isShowingArchived) R.string.notifications_mark_unread else R.string.notifications_archive)
         }
-        if (notification.contents != null && notification.contents!!.links != null && notification.contents!!.links!!.secondary != null && notification.contents!!.links!!.secondary!!.size > 0) {
-            setUpViewForLink(binding.notificationActionSecondary, binding.notificationActionSecondaryIcon, binding.notificationActionSecondaryText, notification.contents!!.links!!.secondary!![0])
-        } else {
-            binding.notificationActionSecondary.visibility = View.GONE
-        }
-        if (notification.contents != null && notification.contents!!.links != null && notification.contents!!.links!!.secondary != null && notification.contents!!.links!!.secondary!!.size > 1) {
-            setUpViewForLink(binding.notificationActionTertiary, binding.notificationActionTertiaryIcon, binding.notificationActionTertiaryText, notification.contents!!.links!!.secondary!![1])
-        } else {
-            binding.notificationActionTertiary.visibility = View.GONE
-        }
-        binding.notificationItemArchiveIcon.setImageResource(if (callback()!!.isShowingArchived) R.drawable.ic_unarchive_themed_24dp else R.drawable.ic_archive_themed_24dp)
-        binding.notificationItemArchiveText.setText(if (callback()!!.isShowingArchived) R.string.notifications_mark_unread else R.string.notifications_archive)
 
         binding.notificationItemArchive.setOnClickListener {
             callback()?.onArchive(notification)
