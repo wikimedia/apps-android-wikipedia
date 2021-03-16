@@ -49,6 +49,8 @@
   <string name="menu_page_other_languages">ߞߊ߲ ߡߊߝߊ߬ߟߋ߲߬</string>
   <string name="menu_page_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߎߡߘߊ ߘߐ߫</string>
   <string name="menu_page_add_to_watchlist">ߊ߬ ߟߊߘߏ߲߬ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="menu_page_view_talk">ߞߎߡߊ߫ ߞߐߜߍ ߦߋ߫</string>
+  <string name="menu_page_view_edit_history">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߝߐ ߦߋ߫</string>
   <string name="menu_page_remove_from_watchlist">ߊ߬ ߛߋ߲߬ߓߐ߫ ߜߋ߬ߟߎ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="edit_section_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
   <string name="menu_page_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
@@ -339,6 +341,7 @@
   <string name="text_size_decrease">ߛߓߍߟߌ ߢߊ߲ߞߊ߲ ߡߊߖߌ߰</string>
   <string name="text_size_percent_default">(ߓߐߛߎ߲) %s</string>
   <string name="text_style_title">ߞߟߏߜߍ</string>
+  <string name="nav_item_saved">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_move_to">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_create_new">ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</string>
@@ -545,6 +548,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="feed_accessibility_card_load_more_button">ߘߏߜߘߍ߫ ߟߎ߫ ߟߊߢߎ߲߫</string>
+  <string name="top_read_activity_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߊ߲ߘߐߕߊ %s ߟߊ߫</string>
   <string name="description_edit_text_hint">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ</string>
   <string name="description_edit_article_description_label">ߞߎߡߘߊ</string>
   <string name="description_edit_translate_article_description_label_per_language">ߞߎߡߘߊ ߞߊ߲߬ߛߓߍ߬ߟߌ (%s)</string>
@@ -650,6 +654,13 @@
   <string name="suggested_edits_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ</string>
   <string name="suggested_edits_image_tags_publishing">ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ ߦߴߌ ߘߐ߫...</string>
   <string name="suggested_edits_image_tags_published">ߊ߬ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫</string>
+  <string name="suggested_edits_contributions_stat_tooltip">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߦߙߌߞߊ ߞߙߎߞߍ߬ߙߍ ߟߏ߲ ߣߌ߲߬ ߡߊ߬.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">ߊ߬ ߕߋ߬ߟߋ߫ ߖߋ߬ߟߌ߫ ߟߋ߬ ߦߋ߫ ߣߌ߲߬ ߌ ߓߘߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߛߌ߲ߘߌ߫. ߣߴߌ ߘߏ߲߬ ߣߐ߬ ߡߊ߫ ߞߍ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߞߍ߫ ߟߊ߫ ߥߊ߯ߕߌ ߏ߬ ߟߊ߫߸ ߊ߬ ߘߴߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߊ߲ ߕߎ߬ߡߊ߬ߘߊ ߦߌ߬ߘߊ߬.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">ߝߌ߬ߛߌ ߦߋߟߌ ߞߙߎߞߍ߬ߙߍ ߌ ߓߘߊ߫ ߓߟߏߡߊߜߍ߲ ߞߍ߫ ߡߍ߲ ߠߎ߬ ߘߐ߫ ߕߟߋ߬ ߃߀ ߕߊ߬ߡߌ߲߬ߣߍ߲ ߠߎ߬ ߞߘߐ߫.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">ߊ߬ ߓߌ߲ߓߌ߲ߣߍ߲߫ ߦߋ߫ ߡߍ߲ ߞߊ߲߬߸ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߘߏ߫ ߘߐ߫ ߞߋߟߋ߲߫ ߓߘߊ߫ ߟߊߕߊ߲߬ߞߌ߫ (ߘߐߛߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߊ߫ ߜߘߍ߫ ߓߟߏ߫) ߛߋ߲߬ߧߊ߬ ߦߙߌߞߊ ߡߍ߲ ߘߐ߫. ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߠߊߕߊ߲߬ߞߌ߲߬ߣߍ߲ ߠߎ߬: %d</string>
+  <string name="suggested_edits_paused_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߟߊߟߐ߬ߣߍ߲߫ ߝߏ߫ %1$s߸ %2$s ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߊ߲ ߘߏ߫ ߟߎ߫ ߓߘߊ߫ ߟߊߕߊ߲߬ߞߌ߫.</string>
+  <string name="suggested_edits_disabled_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߓߘߊ߫ ߓߴߊ߬ ߟߊ߫. %s ߤߊߞߍ߬ߕߏ߫߸ ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߥߙߍߓߊߓߊ ߟߎ߬ ߓߘߊ߫ ߟߊߕߊ߲߬ߞߌ߫.</string>
+  <string name="suggested_edits_ip_blocked_message">ߊ߬ ߞߍߣߍ߲߫ ߦߴߌ ߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ (ߥߟߊ߫ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߛߙߍߘߍ) ߓߊ߬ߟߌ߬ߣߍ߲߫ ߦߋ߫ ߥߊ߯ߕߌ ߣߌ߲߬ ߠߊ߫ ߞߊ߬ ߓߐ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߡߊ߬.</string>
   <string name="suggested_edits_views_label_text">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="suggested_edits_quality_label_text">ߛߎ߯ߦߊ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="suggested_edits_quality_perfect_text">ߝߍ߬ߒ߬ߕߊ߲</string>
@@ -661,12 +672,19 @@
   <string name="suggested_edits_quality_poor_text">ߊ߬ ߡߊ߫ ߘߝߊ߫</string>
   <string name="suggested_edits_quality_bad_text">ߊ߬ ߡߊߢߌ߲߬</string>
   <string name="suggested_edits_label">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
+  <string name="suggested_edits_what_is_title">ߡߎ߲߬ ߦߋ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߘߌ߫؟</string>
+  <string name="suggested_edits_what_is_text">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߦߋ߫ ߓߐߒߝߘߎߘߐ ߟߋ߬ ߘߌ߫ ߘߐ߰ߡߊ߲߬ߣߍ߲ ߠߎ߬ ߟߊ߫ ߞߏ߫ ߟߊ߫ ߞߏ߬ߣߌ߲߬ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߢߊ߬ߕߣߐ߬ߡߊ ߟߎ߬ ߟߋ߬ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬.</string>
   <string name="suggested_edits_learn_more">ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="suggested_edits_paused_title">ߊ߬ ߓߘߊ߫ ߟߊߟߐ߬</string>
   <string name="suggested_edits_disabled_title">ߊ߬ ߓߘߊ߫ ߓߐ߫ ߊ߬ ߟߊ߫.</string>
+  <string name="suggested_edits_ip_blocked_title">IP ߓߊ߬ߟߌ߬ߣߍ߲</string>
   <string name="suggested_edits_last_edited">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߓߊ߲</string>
   <string name="suggested_edits_last_edited_never">ߡߎ߰ߡߍ߫</string>
   <string name="suggested_edits_task_new">ߞߎߘߊ</string>
+  <string name="suggested_edits_cc0_notice">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, ߊ߬ ߣߴߌ ߣߡߌߛߓߊߟߌߦߊ߫ ߘߌߢߍߣߍ߲߫ ߦߴߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߌ߬ߟߊ ߡߊ߬ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߟߊߓߌ߬ߟߊ ߘߐ߫.</string>
+  <string name="suggested_edits_reactivation_notification_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">ߌ ߣߌ߫ ߗߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲ ߠߊ߫߹ ߡߎ߬ ߠߊ߫ ߌ ߡߴߊ߬ ߘߊߓߊ߲߫ ߌ ߣߵߊ߬ ߓߌ߬ߟߊ߬ ߟߊ߫ ߘߊߞߎ߲ ߡߍ߲ ߘߐ߫؟</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">ߡߌ߬ߛߍ߲߬ ߞߋߟߋ߲߫ ߦߴߌ ߓߟߏ߫ ߓߊ߬ ߞߊ߬ ߥߞߌߔߋߘߌߦߊ߫ ߟߊߢߊ߬ߟߌ ߘߊߓߊ߲߫؟ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߣߌ߲߬ ߘߐߜߍ߫߫ߓߊ߫.</string>
   <string name="suggested_edits_contributions_screen_title">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="suggested_edits_contribution_language_label">ߞߊ߲</string>
   <string name="suggested_edits_contribution_date_time_label">ߕߎ߬ߡߊ߬ߘߊ/ߕߎ߬ߡߊ߬ߟߊ߲</string>
@@ -675,11 +693,19 @@
   <string name="suggested_edits_contribution_article_label">ߞߎߡߘߊ</string>
   <string name="suggested_edits_contribution_views">%s ߦߋߟߌ</string>
   <string name="suggested_edits_contribution_seen_text">%s ߦߋߟߌ ߦߙߌߞߊ ߕߟߋ߬ ߃߀ ߕߊ߬ߡߌ߲߬ߣߍ߲ ߠߎ߬ ߞߘߐ߫.</string>
+  <string name="suggested_edits_contribution_type_title">%1$d߸ %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ߞߎߣߎ߲߬</string>
+  <string name="suggested_edits_encourage_account_creation_title">ߌ ߞߵߊ߬ ߟߐ߲߫ ߓߊ߬ ߞߏ߫ ߓߍ߯ ߘߌ߫ ߛߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫؟</string>
+  <string name="suggested_edits_encourage_account_creation_message">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߦߋ߫ ߛߌߟߊ߫ ߞߎߘߊ߫ ߟߋ߬ ߘߌ߫ ߞߊ߬ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߊ߲ߘߙߏߌߘ ߟߊ߫. ߊ߬ ߦߋ߫ ߘߍ߬ߡߍ߲߬ߠߌ߲ ߞߍ߫ ߘߐ߰ߡߊ߲߬ߣߍ߲ ߠߎ߬ ߟߋ߬ ߡߊ߬ ߞߏ߬ߣߌ߲߬ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߢߊ߬ߕߣߐ߬ߡߊ ߟߎ߬ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬. ߒ߬ ߠߊ߫ ߟߊ߬ߢߌߣߌ߲ ߦߋ߫ ߡߍ߲ ߘߌ߫ ߓߍ߯ ߟߊߘߍ߬ߣߍ߲ ߦߋ߫ ߛߋ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߞߍ߫ ߟߊ߫ ߣߐ߰ߦߊ߬ ߘߐ߫߸ ߊ߬ ߣߌ߫ ߞߵߊ߬ ߟߊߛߐ߬ߘߐ߲߬߹ ߌ ߜߊ߲߬ߞߎ߲߫ ߥߟߊ߫ ߥߞߌߔߋߘߌߦߊ߫ ߟߊߛߐ߬ߘߐ߲߬ ߞߵߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">ߌ ߜߊ߲߬ߞߎ߲߫\\ߥߞߌߔߋߘߌߦߊ߫ ߟߊߛߐ߬ߘߐ߲߬</string>
   <string name="suggested_edits_contribution_type_image_tag">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ</string>
-  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">ߕߋ߲߭ߕߋ߲߭ ߟߢߊ߬ߟߌ</string>
+  <string name="suggested_edits_contribution_current_revision_text">ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߦߋ߫ ߕߎ߬ߡߊ߬ߣߍ߲߬ ߘߌߡߊ߲ (live) ߠߋ߬ ߘߌ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬.</string>
   <string name="suggested_card_more_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߜߘߍ߫ ߟߎ߫ ߢߊߦߌ߬ߘߊ߬ߣߍ߲߫</string>
+  <string name="suggested_edits_image_recommendations_task_detail">ߊ߬ ߘߐߞߕߌ߫ ߓߊ߫ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ߫ ߢߊߦߌ߬ߘߊ߬ߣߍ߲ ߘߌ߫ ߞߎߡߘߊ ߟߊߢߊ߬.</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">ߊ߬ ߘߊߡߌ߬ߣߊ߬</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">ߔߊߞߌ߫߹ ߌ ߘߐߖߵߊ߬ ߞߊ߲߬ ߘߋ߬߹  👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">ߕߋ߬ߟߋ߲ ߟߊ߬ߢߌߣߌ߲ ߓߘߊ߫ ߞߎ߲߭ߝߊ߰߹ 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">ߌ ߓߘߊ߫ ߛߋ߫ ߟߊ߬ߢߌߣߌ߲ ߘߐ߫߹</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
@@ -744,6 +770,17 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
   <string name="edit_type_all">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬ ߓߍ߯</string>
   <string name="content_description_for_page_indicator">ߘߐߜߍ߫ %1$d %2$d ߘߐ߫</string>
+  <string name="image_recommendations_task_accept">ߊ߬ߥߐ߫</string>
+  <string name="image_recommendations_task_reject">ߍ߲߬ߍ߲߫</string>
+  <string name="image_recommendations_task_not_sure">ߒ ߡߊ߫ ߟߊ߫ ߏ߬ ߟߊ߫</string>
+  <string name="image_recommendations_task_daily_amount">%d / %d</string>
+  <string name="image_recommendations_task_instruction">ߌ ߘߌ߫ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߲߬ ߓߌ߬ߟߊ߬ ߞߎߡߘߊ ߟߊ߫ ߓߊ߬؟</string>
+  <string name="image_recommendations_task_choice_no">ߡߎ߲߬ߠߊ߫ ߌ ߞߊ߬ ߍ߲߬ߍ߲߫ ߓߊߕߐ߬ߡߐ߲߬؟</string>
+  <string name="image_recommendations_task_choice_unsure">ߡߎ߲߬ߠߊ߫ ߌ ߡߊ߫ ߟߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߲߬ ߠߊ߫؟</string>
+  <string name="image_recommendations_task_choice_low_quality">ߛߎ߯ߦߊ߫ ߡߊߖߌ߰ߣߍ߲</string>
+  <string name="image_recommendations_task_choice_noinfo">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߬ ߞߟߊ߬ߟߡߊ߬ ߕߴߊ߬ ߟߊ߫</string>
+  <string name="image_recommendations_task_choice_nosubject">ߒ ߡߊ߫ ߝߋ߲ ߣߌ߲߬ ߟߐ߲߫</string>
+  <string name="image_recommendations_task_choice_invisible">ߖߌ߬ߦߊ߬ߓߍ ߕߍ߫ ߦߋ߫ ߟߊ߫</string>
   <string name="wikitext_bold">ߞߟߏߞߎ߲ߓߊ</string>
   <string name="wikitext_italic">ߛߓߍߘߋ߲߫ ߡߊߖߍ߲߬ߞߍ߬ߣߍ߲</string>
   <string name="wikitext_link">ߛߘߌ߬ߜߋ߲</string>

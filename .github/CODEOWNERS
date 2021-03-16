@@ -1,0 +1,6 @@
+# These owners will be the default owners for everything in the repo.
+# Will be requested for review when someone opens a pull request.
+
+# For more information: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
+
+*           @cooltey @dbrant @sharvaniharan
