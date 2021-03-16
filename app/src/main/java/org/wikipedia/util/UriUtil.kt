@@ -3,6 +3,7 @@ package org.wikipedia.util
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.TransactionTooLargeException
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
 import org.wikipedia.WikipediaApp
@@ -49,10 +50,12 @@ object UriUtil {
 
     @JvmStatic
     fun visitInExternalBrowser(context: Context, uri: Uri) {
-        val chooserIntent = ShareUtil.getIntentChooser(context, Intent(Intent.ACTION_VIEW, uri))
         try {
+            val chooserIntent = ShareUtil.getIntentChooser(context, Intent(Intent.ACTION_VIEW, uri))
             chooserIntent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(chooserIntent)
+        } catch (e: TransactionTooLargeException) {
+            L.logRemoteErrorIfProd(RuntimeException("Transaction too large for external link intent."))
         } catch (e: Exception) {
             // This means that there was no way to handle this link.
             // We will just show a toast now. FIXME: Make this more visible?
