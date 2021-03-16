@@ -30,9 +30,9 @@ import java.util.*
 
 class LangLinksActivity : BaseActivity() {
     private lateinit var binding: ActivityLanglinksBinding
+    private lateinit var title: PageTitle
 
     private var languageEntries = mutableListOf<PageTitle>()
-    private lateinit var title: PageTitle
     private var app = WikipediaApp.getInstance()
     private val disposables = CompositeDisposable()
 
@@ -110,7 +110,7 @@ class LangLinksActivity : BaseActivity() {
         override fun onQueryChange(s: String) {
             currentSearchQuery = s.trim()
             langLinksAdapter.setFilterText(currentSearchQuery!!)
-            if (binding.langlinksRecycler.adapter!!.itemCount == 0) {
+            if (binding.langlinksRecycler.adapter?.itemCount == 0) {
                 binding.langlinkEmptyView.visibility = View.VISIBLE
             } else {
                 binding.langlinkEmptyView.visibility = View.GONE
@@ -296,9 +296,9 @@ class LangLinksActivity : BaseActivity() {
     }
 
     private inner class LangLinksItemViewHolder constructor(private val languageEntries: List<PageTitle>, itemView: View) : DefaultViewHolder(languageEntries, itemView), View.OnClickListener {
-        private val localizedLanguageNameTextView: TextView = itemView.findViewById(R.id.localized_language_name)
-        private val nonLocalizedLanguageNameTextView: TextView = itemView.findViewById(R.id.non_localized_language_name)
-        private val articleTitleTextView: TextView = itemView.findViewById(R.id.language_subtitle)
+        private val localizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
+        private val nonLocalizedLanguageNameTextView = itemView.findViewById<TextView>(R.id.non_localized_language_name)
+        private val articleTitleTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
         private var pos = 0
 
         override fun bindItem(position: Int) {
@@ -348,6 +348,7 @@ class LangLinksActivity : BaseActivity() {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
 
+        @JvmStatic
         fun addVariantEntriesIfNeeded(language: AppLanguageState, title: PageTitle, languageEntries: MutableList<PageTitle>) {
             val parentLanguageCode = language.getDefaultLanguageCode(title.wikiSite.languageCode())
             if (parentLanguageCode != null) {

@@ -27,12 +27,12 @@ import java.util.*
 
 class LanguagesListActivity : BaseActivity() {
     private lateinit var binding: ActivityLanguagesListBinding
-    private var app = WikipediaApp.getInstance()
-
-    private var currentSearchQuery: String? = null
-    private var actionMode: ActionMode? = null
     private lateinit var searchActionModeCallback: LanguageSearchCallback
     private lateinit var searchingFunnel: AppLanguageSearchingFunnel
+
+    private var app = WikipediaApp.getInstance()
+    private var currentSearchQuery: String? = null
+    private var actionMode: ActionMode? = null
     private var interactionsCount = 0
     private var isLanguageSearched = false
     private val disposables = CompositeDisposable()
@@ -100,7 +100,7 @@ class LanguagesListActivity : BaseActivity() {
         override fun onQueryChange(s: String) {
             currentSearchQuery = s.trim()
             languageAdapter.setFilterText(currentSearchQuery)
-            if (binding.languagesListRecycler.adapter!!.itemCount == 0) {
+            if (binding.languagesListRecycler.adapter?.itemCount == 0) {
                 binding.languagesListEmptyView.visibility = View.VISIBLE
             } else {
                 binding.languagesListEmptyView.visibility = View.GONE
@@ -177,8 +177,8 @@ class LanguagesListActivity : BaseActivity() {
         }
 
         fun shouldShowSectionHeader(position: Int): Boolean {
-            return (!isSearching && (position == 0 || (suggestedLanguageCodes.isNotEmpty() &&
-                            position == suggestedLanguageCodes.size + 1)))
+            return !isSearching && (position == 0 || (suggestedLanguageCodes.isNotEmpty() &&
+                            position == suggestedLanguageCodes.size + 1))
         }
 
         fun setFilterText(filterText: String?) {
@@ -228,8 +228,8 @@ class LanguagesListActivity : BaseActivity() {
     }
 
     private inner class LanguagesListItemHolder constructor(private val languageCodes: List<String>, itemView: View) : DefaultViewHolder(languageCodes, itemView) {
-        private val localizedNameTextView: TextView = itemView.findViewById(R.id.localized_language_name)
-        private val canonicalNameTextView: TextView = itemView.findViewById(R.id.language_subtitle)
+        private val localizedNameTextView = itemView.findViewById<TextView>(R.id.localized_language_name)
+        private val canonicalNameTextView = itemView.findViewById<TextView>(R.id.language_subtitle)
 
         override fun bindItem(position: Int) {
             val languageCode = languageCodes[position]
