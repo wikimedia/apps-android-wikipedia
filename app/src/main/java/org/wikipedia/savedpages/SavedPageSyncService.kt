@@ -37,7 +37,7 @@ import retrofit2.Response
 import java.io.IOException
 
 class SavedPageSyncService : JobIntentService() {
-    private val savedPageSyncNotification = SavedPageSyncNotification()
+    private val savedPageSyncNotification = SavedPageSyncNotification.instance
     val app: WikipediaApp = WikipediaApp.getInstance()
 
     override fun onHandleWork(intent: Intent) {
