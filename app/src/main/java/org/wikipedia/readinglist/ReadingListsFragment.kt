@@ -78,7 +78,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         disposables.add(WikipediaApp.getInstance().bus.subscribe(EventBusConsumer()))
         binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         binding.swipeRefreshLayout.setOnRefreshListener { refreshSync(this, binding.swipeRefreshLayout) }
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig) {
             binding.swipeRefreshLayout.isEnabled = false
         }
         binding.searchEmptyView.visibility = View.GONE
@@ -572,7 +572,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             return
         }
         if (AccountUtil.isLoggedIn && !Prefs.isReadingListSyncEnabled() &&
-                Prefs.isReadingListSyncReminderEnabled() && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
+                Prefs.isReadingListSyncReminderEnabled() && !ReadingListSyncAdapter.isDisabledByRemoteConfig) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_lists_sync_reminder_title))
             binding.onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString())
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)
@@ -582,7 +582,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 Prefs.setReadingListSyncReminderEnabled(false)
             }, false)
             binding.onboardingView.visibility = View.VISIBLE
-        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled() && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
+        } else if (!AccountUtil.isLoggedIn && Prefs.isReadingListLoginReminderEnabled() && !ReadingListSyncAdapter.isDisabledByRemoteConfig) {
             binding.onboardingView.setMessageTitle(getString(R.string.reading_list_login_reminder_title))
             binding.onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text))
             binding.onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true)

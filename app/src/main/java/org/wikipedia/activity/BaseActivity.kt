@@ -303,7 +303,7 @@ abstract class BaseActivity : AppCompatActivity() {
             } else if (event is LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog()
             } else if (event is ReadingListSyncEvent) {
-                if (event.showMessage() && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
                     FeedbackUtil.makeSnackbar(this@BaseActivity,
                             getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
                 }

@@ -23,7 +23,7 @@ import org.wikipedia.theme.ThemeFittingRoomActivity.Companion.newIntent
 internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : BasePreferenceLoader(fragment) {
     override fun loadPreferences() {
         loadPreferences(R.xml.preferences)
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig) {
             findPreference(R.string.preference_category_sync).isVisible = false
             findPreference(R.string.preference_key_sync_reading_lists).isVisible = false
         }

@@ -50,10 +50,10 @@ class ReadingListClient(private val wiki: WikiSite) {
             do {
                 val response = ServiceFactory.getRest(wiki).getReadingLists(continueStr).execute()
                 val lists = response.body()
-                if (lists == null || lists.lists == null) {
+                if (lists?.lists == null) {
                     throw IOException("Incorrect response format.")
                 }
-                totalLists.addAll(lists.lists!!)
+                totalLists.addAll(lists.lists)
                 continueStr = if (lists.continueStr.isNullOrEmpty()) null else lists.continueStr
                 saveLastDateHeader(response)
             } while (!continueStr.isNullOrEmpty() && totalCycles++ < MAX_CONTINUE_CYCLES)
@@ -82,18 +82,19 @@ class ReadingListClient(private val wiki: WikiSite) {
     }
 
     @Throws(Throwable::class)
+    @Suppress("unused")
     fun getListsContaining(entry: RemoteReadingListEntry): List<RemoteReadingList> {
         val totalLists: MutableList<RemoteReadingList> = ArrayList()
         var totalCycles = 0
         var continueStr: String? = null
         do {
             val response = ServiceFactory.getRest(wiki)
-                    .getReadingListsContaining(entry.project(), entry.title(), continueStr).execute()
+                    .getReadingListsContaining(entry.project, entry.title, continueStr).execute()
             val lists = response.body()
-            if (lists == null || lists.lists == null) {
+            if (lists?.lists == null) {
                 throw IOException("Incorrect response format.")
             }
-            totalLists.addAll(lists.lists!!)
+            totalLists.addAll(lists.lists)
             continueStr = if (lists.continueStr.isNullOrEmpty()) null else lists.continueStr
             saveLastDateHeader(response)
         } while (!continueStr.isNullOrEmpty() && totalCycles++ < MAX_CONTINUE_CYCLES)
@@ -108,10 +109,10 @@ class ReadingListClient(private val wiki: WikiSite) {
         do {
             val response = ServiceFactory.getRest(wiki).getReadingListEntries(listId, continueStr).execute()
             val body = response.body()
-            if (body == null || body.entries == null) {
+            if (body?.entries == null) {
                 throw IOException("Incorrect response format.")
             }
-            totalEntries.addAll(body.entries!!)
+            totalEntries.addAll(body.entries)
             continueStr = if (body.continueStr.isNullOrEmpty()) null else body.continueStr
             saveLastDateHeader(response)
         } while (!continueStr.isNullOrEmpty() && totalCycles++ < MAX_CONTINUE_CYCLES)
@@ -123,7 +124,7 @@ class ReadingListClient(private val wiki: WikiSite) {
         val response = ServiceFactory.getRest(wiki).createReadingList(csrfToken, list).execute()
         val idResponse = response.body() ?: throw IOException("Incorrect response format.")
         saveLastDateHeader(response)
-        return idResponse.id()
+        return idResponse.id
     }
 
     @Throws(Throwable::class)
@@ -141,7 +142,7 @@ class ReadingListClient(private val wiki: WikiSite) {
         val response = ServiceFactory.getRest(wiki).addEntryToReadingList(listId, csrfToken, entry).execute()
         val idResponse = response.body() ?: throw IOException("Incorrect response format.")
         saveLastDateHeader(response)
-        return idResponse.id()
+        return idResponse.id
     }
 
     @Throws(Throwable::class)
@@ -162,8 +163,8 @@ class ReadingListClient(private val wiki: WikiSite) {
                 val response = ServiceFactory.getRest(wiki).addEntriesToReadingList(listId, csrfToken, RemoteReadingListEntryBatch(currentBatch)).execute()
                 val idResponse = response.body() ?: throw IOException("Incorrect response format.")
                 saveLastDateHeader(response)
-                for (id in idResponse.batch()) {
-                    ids.add(id.id())
+                for (id in idResponse.batch) {
+                    ids.add(id.id)
                 }
             } catch (t: Throwable) {
                 if (isErrorType(t, "entry-limit")) {

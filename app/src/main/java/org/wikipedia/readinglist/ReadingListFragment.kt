@@ -213,7 +213,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     private fun setSwipeRefreshView() {
         binding.readingListSwipeRefresh.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig) {
             binding.readingListSwipeRefresh.isEnabled = false
         }
     }
