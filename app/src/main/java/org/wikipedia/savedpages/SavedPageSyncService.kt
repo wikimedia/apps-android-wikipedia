@@ -37,7 +37,7 @@ import retrofit2.Response
 import java.io.IOException
 
 class SavedPageSyncService : JobIntentService() {
-    private val savedPageSyncNotification = SavedPageSyncNotification()
+    private val savedPageSyncNotification = SavedPageSyncNotification.instance
     val app: WikipediaApp = WikipediaApp.getInstance()
 
     override fun onHandleWork(intent: Intent) {
@@ -181,7 +181,7 @@ class SavedPageSyncService : JobIntentService() {
                         }
                         if (Prefs.isImageDownloadEnabled()) {
                             // download thumbnail and lead image
-                            if (summaryRsp.body()!!.thumbnailUrl!!.isNotEmpty()) {
+                            if (!summaryRsp.body()!!.thumbnailUrl.isNullOrEmpty()) {
                                 page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite,
                                         summaryRsp.body()!!.thumbnailUrl!!))
                                 persistPageThumbnail(pageTitle, page.thumbUrl()!!)
