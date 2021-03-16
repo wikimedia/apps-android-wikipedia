@@ -181,7 +181,7 @@ class SavedPageSyncService : JobIntentService() {
                         }
                         if (Prefs.isImageDownloadEnabled()) {
                             // download thumbnail and lead image
-                            if (summaryRsp.body()!!.thumbnailUrl!!.isNotEmpty()) {
+                            if (!summaryRsp.body()!!.thumbnailUrl.isNullOrEmpty()) {
                                 page.thumbUrl(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite,
                                         summaryRsp.body()!!.thumbnailUrl!!))
                                 persistPageThumbnail(pageTitle, page.thumbUrl()!!)
