@@ -91,7 +91,7 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         when(props.getWikiBaseItem()).thenReturn("Q123");
         when(props.canEdit()).thenReturn(true);
         when(props.getDescriptionSource()).thenReturn("central");
-        Page page = new Page(new PageTitle("Test", wiki, null, null, props),
+        Page page = new Page(new PageTitle("Test", wiki),
                 Collections.emptyList(), props);
 
         assertThat(DescriptionEditUtil.isEditAllowed(page), is(true));
@@ -101,7 +101,7 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         WikiSite wiki = WikiSite.forLanguageCode("ru");
         PageProperties props = mock(PageProperties.class);
         when(props.getWikiBaseItem()).thenReturn(null);
-        Page page = new Page(new PageTitle("Test", wiki, null, null, props),
+        Page page = new Page(new PageTitle("Test", wiki),
                 Collections.emptyList(), props);
 
         assertThat(DescriptionEditUtil.isEditAllowed(page), is(false));
