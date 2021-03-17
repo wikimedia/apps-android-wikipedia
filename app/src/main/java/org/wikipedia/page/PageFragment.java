@@ -924,7 +924,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (!isAdded()) {
                 return;
             }
-			final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getWikiSite(),
+            final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getWikiSite(),
 					model.getPage() != null ? model.getPage().getPageProperties().getPageId() : -1);
 			final FindInWebPageActionProvider findInPageActionProvider
 					= new FindInWebPageActionProvider(this, funnel);
