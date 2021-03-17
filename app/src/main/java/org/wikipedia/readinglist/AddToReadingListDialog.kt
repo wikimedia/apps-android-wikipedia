@@ -95,7 +95,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                 if (it.pages().isNotEmpty()) {
                     isOnboarding = false
                     Prefs.setReadingListTutorialEnabled(false)
-                    return
+                    return@forEach
                 }
             }
         }
