@@ -51,6 +51,15 @@ android {
         buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
+
+        def TEST_LOGIN_USERNAME = System.getenv('TEST_LOGIN_USERNAME')
+        def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
+        if (TEST_LOGIN_USERNAME != null) {
+            buildConfigField "String", "TEST_LOGIN_USERNAME", "\"${TEST_LOGIN_USERNAME}\""
+        }
+        if (TEST_LOGIN_PASSWORD) {
+            buildConfigField "String", "TEST_LOGIN_PASSWORD", "\"${TEST_LOGIN_PASSWORD}\""
+        }
     }
 
     testOptions {
