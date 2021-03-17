@@ -24,8 +24,8 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
         constructor(name: String, description: String?) :
                 this(0, false, name, description, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), false)
 
-        fun name() : String = Normalizer.normalize(name, Normalizer.Form.NFC)
-        fun description() : String? = Normalizer.normalize(description.orEmpty(), Normalizer.Form.NFC)
+        fun name(): String = Normalizer.normalize(name, Normalizer.Form.NFC)
+        fun description(): String? = Normalizer.normalize(description.orEmpty(), Normalizer.Form.NFC)
     }
 
     data class RemoteReadingListEntry(val id: Long,
@@ -40,8 +40,8 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
         constructor(project: String, title: String) :
                 this(0, 0, project, title, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), null, false)
 
-        fun project() : String = Normalizer.normalize(project, Normalizer.Form.NFC)
-        fun title() : String = Normalizer.normalize(title, Normalizer.Form.NFC)
+        fun project(): String = Normalizer.normalize(project, Normalizer.Form.NFC)
+        fun title(): String = Normalizer.normalize(title, Normalizer.Form.NFC)
     }
 
     data class RemoteReadingListEntryBatch(val entries: List<RemoteReadingListEntry>) {
