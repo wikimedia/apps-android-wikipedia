@@ -9,8 +9,8 @@ import org.wikipedia.database.contract.SearchHistoryContract
 
 class RecentSearchDatabaseTable : DatabaseTable<RecentSearch>(SearchHistoryContract.TABLE, SearchHistoryContract.Query.URI) {
     override fun fromCursor(cursor: Cursor): RecentSearch {
-        val title = SearchHistoryContract.Col.TEXT.`val`(cursor)
-        val timestamp = SearchHistoryContract.Col.TIMESTAMP.`val`(cursor)
+        val title = SearchHistoryContract.Col.TEXT.value(cursor)
+        val timestamp = SearchHistoryContract.Col.TIMESTAMP.value(cursor)
         return RecentSearch(title, timestamp)
     }
 
