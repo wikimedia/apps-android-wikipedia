@@ -51,15 +51,6 @@ android {
         buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.org"'
         buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.org"'
-
-        def TEST_LOGIN_USERNAME = System.getenv('TEST_LOGIN_USERNAME')
-        def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
-        if (TEST_LOGIN_USERNAME != null) {
-            buildConfigField "String", "TEST_LOGIN_USERNAME", "\"${TEST_LOGIN_USERNAME}\""
-        }
-        if (TEST_LOGIN_PASSWORD) {
-            buildConfigField "String", "TEST_LOGIN_PASSWORD", "\"${TEST_LOGIN_PASSWORD}\""
-        }
     }
 
     testOptions {
@@ -117,6 +108,11 @@ android {
             buildConfigField "String", "META_WIKI_BASE_URI", '"https://meta.wikimedia.beta.wmflabs.org"'
             buildConfigField "String", "EVENTGATE_ANALYTICS_EXTERNAL_BASE_URI", '"https://intake-analytics.wikimedia.beta.wmflabs.org"'
             buildConfigField "String", "EVENTGATE_LOGGING_EXTERNAL_BASE_URI", '"https://intake-logging.wikimedia.beta.wmflabs.org"'
+
+            def TEST_LOGIN_USERNAME = System.getenv('TEST_LOGIN_USERNAME')
+            def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
+            buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
+            buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
         }
         prod {
             versionName computeVersionName('r')
@@ -166,9 +162,6 @@ apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
-
 
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
@@ -249,12 +242,9 @@ dependencies {
     testImplementation "commons-io:commons-io:2.6"
     testImplementation 'org.hamcrest:hamcrest:2.2'
 
-    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker:1.4'
-    androidTestImplementation 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
-    androidTestRuntimeOnly 'com.crittercism.dexmaker:dexmaker-dx:1.4'
-
-    androidTestImplementation 'androidx.test:rules:1.3.0' // JUnit Rules
-    androidTestImplementation "androidx.test:runner:1.3.0" // Android JUnit Runner
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestUtil 'androidx.test:orchestrator:1.3.0'
 }
 
