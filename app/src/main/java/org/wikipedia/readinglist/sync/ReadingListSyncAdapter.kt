@@ -143,7 +143,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                     if (list.remoteId() == remoteList.id) {
                         localList = list
                         break
-                    } else if (StringUtil.normalizedEquals(list.title(), remoteList.name)) {
+                    } else if (StringUtil.normalizedEquals(list.title(), remoteList.name())) {
                         localList = list
                         localList.remoteId(remoteList.id)
                         upsertNeeded = true
@@ -166,23 +166,23 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                 }
                 if (localList == null) {
                     // A new list needs to be created locally.
-                    L.d("Creating local list " + remoteList.name)
+                    L.d("Creating local list " + remoteList.name())
                     localList = if (remoteList.isDefault) {
                         L.logRemoteError(RuntimeException("Unexpected: local default list no longer matches remote."))
                         ReadingListDbHelper.instance().defaultList
                     } else {
-                        ReadingListDbHelper.instance().createList(remoteList.name, remoteList.description)
+                        ReadingListDbHelper.instance().createList(remoteList.name(), remoteList.description())
                     }
                     localList.remoteId(remoteList.id)
                     allLocalLists.add(localList)
                     upsertNeeded = true
                 } else {
-                    if (!localList.isDefault && !StringUtil.normalizedEquals(localList.title(), remoteList.name)) {
-                        localList.title(remoteList.name)
+                    if (!localList.isDefault && !StringUtil.normalizedEquals(localList.title(), remoteList.name())) {
+                        localList.title(remoteList.name())
                         upsertNeeded = true
                     }
-                    if (!localList.isDefault && !StringUtil.normalizedEquals(localList.description(), remoteList.description)) {
-                        localList.description(remoteList.description)
+                    if (!localList.isDefault && !StringUtil.normalizedEquals(localList.description(), remoteList.description())) {
+                        localList.description(remoteList.description())
                         upsertNeeded = true
                     }
                 }
@@ -193,7 +193,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                     shouldSendSyncEvent = true
                 }
                 if (syncEverything) {
-                    L.d("Fetching all pages in remote list " + remoteList.name)
+                    L.d("Fetching all pages in remote list " + remoteList.name())
                     client.getListEntries(remoteList.id).forEach {
                         // TODO: optimization opportunity -- create/update local pages in bulk.
                         createOrUpdatePage(localList, it)
@@ -267,13 +267,13 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                 if (localList.remoteId() > 0) {
                     if (!localList.isDefault && localList.dirty()) {
                         // Update remote metadata for this list.
-                        L.d("Updating info for remote list " + remoteList.name)
+                        L.d("Updating info for remote list " + remoteList.name())
                         client.updateList(getCsrfToken(wiki, csrfToken), localList.remoteId(), remoteList)
                         upsertNeeded = true
                     }
                 } else if (!localList.isDefault) {
                     // This list needs to be created remotely.
-                    L.d("Creating remote list " + remoteList.name)
+                    L.d("Creating remote list " + remoteList.name())
                     val id = client.createList(getCsrfToken(wiki, csrfToken), remoteList)
                     localList.remoteId(id)
                     upsertNeeded = true
@@ -465,7 +465,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
     }
 
     private fun pageTitleFromRemoteEntry(remoteEntry: RemoteReadingListEntry): PageTitle {
-        return PageTitle(remoteEntry.title, WikiSite(remoteEntry.project))
+        return PageTitle(remoteEntry.title(), WikiSite(remoteEntry.project()))
     }
 
     private fun remoteEntryFromLocalPage(localPage: ReadingListPage): RemoteReadingListEntry {

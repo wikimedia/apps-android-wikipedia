@@ -89,7 +89,7 @@ class ReadingListClient(private val wiki: WikiSite) {
         var continueStr: String? = null
         do {
             val response = ServiceFactory.getRest(wiki)
-                    .getReadingListsContaining(entry.project, entry.title, continueStr).execute()
+                    .getReadingListsContaining(entry.project(), entry.title(), continueStr).execute()
             val lists = response.body()
             if (lists?.lists == null) {
                 throw IOException("Incorrect response format.")

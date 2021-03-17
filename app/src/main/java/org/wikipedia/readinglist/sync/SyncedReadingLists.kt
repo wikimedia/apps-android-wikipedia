@@ -9,40 +9,39 @@ import java.util.*
 
 data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
                               val entries: List<RemoteReadingListEntry>?,
-                              @SerializedName("next") val continueStr: String? = null) {
+                              @SerializedName("next") val continueStr: String?) {
+
+    constructor(lists: List<RemoteReadingList>?, entries: List<RemoteReadingListEntry>?) : this(lists, entries, null)
 
     data class RemoteReadingList(@Required val id: Long,
                                  @SerializedName("default") val isDefault: Boolean,
-                                 @SerializedName("name") private val _name: String,
-                                 @SerializedName("description") private val _description: String?,
+                                 @Required private val name: String,
+                                 private val description: String?,
                                  @Required val created: String,
                                  @Required val updated: String,
                                  @SerializedName("deleted") val isDeleted: Boolean) {
 
-        constructor(_name: String, _description: String?) :
-                this(0, false, _name, _description, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), false)
+        constructor(name: String, description: String?) :
+                this(0, false, name, description, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), false)
 
-        @Required val name: String = Normalizer.normalize(_name, Normalizer.Form.NFC)
-        val description: String? = Normalizer.normalize(_description.orEmpty(), Normalizer.Form.NFC)
+        fun name() : String = Normalizer.normalize(name, Normalizer.Form.NFC)
+        fun description() : String? = Normalizer.normalize(description.orEmpty(), Normalizer.Form.NFC)
     }
 
     data class RemoteReadingListEntry(val id: Long,
                                       val listId: Long,
-                                      @SerializedName("project") private val _project: String,
-                                      @SerializedName("title") private val _title: String,
+                                      @Required private val project: String,
+                                      @Required private val title: String,
                                       @Required val created: String,
                                       @Required val updated: String,
                                       val summary: PageSummary?,
                                       @SerializedName("deleted") val isDeleted: Boolean) {
 
-        constructor(_project: String, _title: String) :
-                this(0, 0, _project, _title, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), null, false)
+        constructor(project: String, title: String) :
+                this(0, 0, project, title, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), null, false)
 
-        @Required
-        val project: String = Normalizer.normalize(_project, Normalizer.Form.NFC)
-
-        @Required
-        val title: String = Normalizer.normalize(_title, Normalizer.Form.NFC)
+        fun project() : String = Normalizer.normalize(project, Normalizer.Form.NFC)
+        fun title() : String = Normalizer.normalize(title, Normalizer.Form.NFC)
     }
 
     data class RemoteReadingListEntryBatch(val entries: List<RemoteReadingListEntry>) {
