@@ -922,12 +922,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         bridge.evaluate(JavaScriptActionHandler.toggleCollapsedForAll(), msg -> {
             if (!isAdded()) {
-                return;
-            }
+				return;
+			}
             final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getWikiSite(),
-					model.getPage() != null ? model.getPage().getPageProperties().getPageId() : -1);
-			final FindInWebPageActionProvider findInPageActionProvider
-					= new FindInWebPageActionProvider(this, funnel);
+                    model.getPage() != null ? model.getPage().getPageProperties().getPageId() : -1);
+            final FindInWebPageActionProvider findInPageActionProvider
+                    = new FindInWebPageActionProvider(this, funnel);
 
             startSupportActionMode(new ActionMode.Callback() {
                 @Override
