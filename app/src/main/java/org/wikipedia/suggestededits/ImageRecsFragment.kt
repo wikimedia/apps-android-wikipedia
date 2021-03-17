@@ -25,6 +25,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
@@ -101,6 +103,11 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.articleContentContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
             scrolled = true
         })
+
+        binding.readMoreButton.setOnClickListener {
+            val title = PageTitle(page!!.title, WikipediaApp.getInstance().wikiSite)
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
+        }
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
         binding.dailyProgressView.setMaximum(DAILY_COUNT_TARGET)
@@ -184,6 +191,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.cardItemErrorView.visibility = GONE
         binding.articleContentContainer.visibility = if (page != null) VISIBLE else GONE
         binding.imageSuggestionContainer.visibility = GONE
+        binding.readMoreButton.visibility = GONE
         binding.cardItemProgressBar.visibility = VISIBLE
         if (page == null || summary == null) {
             return
@@ -201,6 +209,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
                     binding.articleDescription.text = summary.description
                     binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
+                    binding.readMoreButton.visibility = VISIBLE
 
                     binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())

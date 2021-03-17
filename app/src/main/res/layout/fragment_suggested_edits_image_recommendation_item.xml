@@ -79,6 +79,15 @@
                 android:textColor="?attr/primary_text_color"
                 android:textSize="16sp"/>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/readMoreButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_marginBottom="16dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/read_more_section"/>
+
             <Space
                 android:id="@+id/articleScrollSpacer"
                 android:layout_width="match_parent"
