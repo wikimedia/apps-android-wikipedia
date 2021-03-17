@@ -135,7 +135,7 @@ class SmokeTests {
                 .check(matches(isDisplayed()))
     }
 
-    fun withGrandparent(grandparentMatcher: Matcher<View>): Matcher<View> {
+    private fun withGrandparent(grandparentMatcher: Matcher<View>): Matcher<View> {
         return WithGrandparentMatcher(grandparentMatcher)
     }
 
@@ -166,7 +166,7 @@ class SmokeTests {
                 }
 
                 override fun perform(uiController: UiController?, view: View?) {
-                    uiController?.loopMainThreadForAtLeast(millis);
+                    uiController?.loopMainThreadForAtLeast(millis)
                 }
             }
         }

@@ -9,15 +9,7 @@ jobs:
   instrumentation-tests:
     runs-on: macos-latest
     timeout-minutes: 30
-    strategy:
-      # Allow tests to continue on other devices if they fail on one device.
-      fail-fast: false
-      matrix:
-        api-level:
-          - 23
-          - 26
-          - 29
-          #- 30 <- broken for now
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -28,7 +20,7 @@ jobs:
     - name: Instrumentation Tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
-        api-level: ${{ matrix.api-level }}
+        api-level: 29
         script: ./gradlew connectedDevDebugAndroidTest --stacktrace
 
     - name: Upload results
