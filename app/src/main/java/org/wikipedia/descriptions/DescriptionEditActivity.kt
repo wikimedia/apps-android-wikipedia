@@ -15,10 +15,10 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.readinglist.AddToReadingListDialog.Companion.newInstance
+import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.ClipboardUtil
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.ImagePreviewDialog
@@ -64,7 +64,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
         bottomSheetPresenter.show(supportFragmentManager,
-                newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
+                AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
@@ -85,7 +85,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     public override fun createFragment(): DescriptionEditFragment {
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
+        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val title: PageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         SuggestedEditsFunnel.get().click(title.displayText, action)
@@ -94,14 +94,14 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                 intent.getStringExtra(EXTRA_SOURCE_SUMMARY),
                 intent.getStringExtra(EXTRA_TARGET_SUMMARY),
                 action,
-                invokeSource!!)
+                invokeSource)
     }
 
     override fun onBackPressed() {
         if (fragment.editView.showingReviewContent()) {
             fragment.editView.loadReviewContent(false)
         } else {
-            hideSoftKeyboard(this)
+            DeviceUtil.hideSoftKeyboard(this)
             SuggestedEditsFunnel.get().cancel(action)
             super.onBackPressed()
         }
