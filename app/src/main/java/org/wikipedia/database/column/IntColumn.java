@@ -10,7 +10,7 @@ public class IntColumn extends Column<Integer> {
     }
 
     @Override
-    public Integer val(@NonNull Cursor cursor) {
+    public Integer value(@NonNull Cursor cursor) {
         return getInt(cursor);
     }
 }
