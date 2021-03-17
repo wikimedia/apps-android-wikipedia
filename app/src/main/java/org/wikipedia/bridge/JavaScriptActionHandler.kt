@@ -50,8 +50,12 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun toggleCollapsedForAll(): String {
-        return "pcs.c1.Page.toggleCollapsedForAll();"
+    fun expandCollapsedTables(hide: Boolean): String {
+        return "pcs.c1.Page.toggleCollapsedForAll();" +
+                "var hideableSections = document.getElementsByClassName('pcs-section-hideable-header'); " +
+                "for (var i = 0; i < hideableSections.length; i++) { " +
+                "  pcs.c1.Sections.setHidden(hideableSections[i].parentElement.getAttribute('data-mw-section-id'), $hide);" +
+                "}"
     }
 
     @JvmStatic
