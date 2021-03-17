@@ -186,6 +186,23 @@ public class PageFragmentLoadState {
 
         app.getSessionFunnel().leadSectionFetchStart();
 
+        model.setPage(null);
+        boolean delayLoadHtml = model.getTitle().getPrefixedText().contains(":");
+
+        if (!delayLoadHtml) {
+            bridge.resetHtml(model.getTitle());
+        }
+
+        if (model.getTitle().namespace() == Namespace.SPECIAL) {
+            // Short-circuit the entire process of fetching the Summary, since Special: pages
+            // are not supported in RestBase.
+            bridge.resetHtml(model.getTitle());
+            leadImagesHandler.loadLeadImage();
+            fragment.requireActivity().invalidateOptionsMenu();
+            fragment.onPageMetadataLoaded();
+            return;
+        }
+
         disposables.add(Observable.zip(ServiceFactory.getRest(model.getTitle().getWikiSite())
                 .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.getCacheControl().toString(),
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
@@ -214,15 +231,16 @@ public class PageFragmentLoadState {
                         showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
                     }
 
+                    if (delayLoadHtml) {
+                        bridge.resetHtml(model.getTitle());
+                    }
+
                     fragment.onPageMetadataLoaded();
                 }, throwable -> {
                     L.e("Page details network response error: ", throwable);
                     commonSectionFetchOnCatch(throwable);
                 })
         );
-
-        // And finally, start blasting the HTML into the WebView.
-        bridge.resetHtml(model.getTitle());
     }
 
     private void showPageOfflineMessage(@Nullable String dateHeader) {
