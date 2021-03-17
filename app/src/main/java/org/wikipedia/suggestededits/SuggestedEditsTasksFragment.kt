@@ -430,7 +430,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.dailyProgressMax = ImageRecsFragment.DAILY_COUNT_TARGET
         imageRecommendationsTask.dailyProgress = Prefs.getImageRecsDailyCount()
 
-        displayedTasks.add(imageRecommendationsTask)
+        if (ImageRecsFragment.isFeatureEnabled()) {
+            displayedTasks.add(imageRecommendationsTask)
+        }
+
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
         displayedTasks.add(addImageTagsTask)

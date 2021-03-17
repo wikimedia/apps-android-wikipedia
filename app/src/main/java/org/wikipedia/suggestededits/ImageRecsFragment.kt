@@ -33,7 +33,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecommendationItemBinding? = null
@@ -251,9 +250,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
                 page!!.title, page!!.recommendation.image, response, reasons, detailsClicked, infoClicked, scrolled,
-                TimeUnit.MILLISECONDS.toSeconds(buttonClickedMillis - startMillis).toInt(),
-                TimeUnit.MILLISECONDS.toSeconds(SystemClock.uptimeMillis() - startMillis).toInt(),
-                if (Prefs.isImageRecsConsentEnabled()) AccountUtil.userName else null,
+                buttonClickedMillis - startMillis, SystemClock.uptimeMillis() - startMillis,
+                if (Prefs.isImageRecsConsentEnabled() && AccountUtil.isLoggedIn) AccountUtil.userName else null,
                 Prefs.isImageRecsTeacherMode())
 
         publishSuccess = true
@@ -337,6 +335,12 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     companion object {
         const val DAILY_COUNT_TARGET = 20
+        private val SUPPORTED_LANGUAGES = arrayOf("en", "de", "fr", "pt", "ru", "fa", "tr", "uk", "ar", "vi", "ceb", "he")
+
+        fun isFeatureEnabled(): Boolean {
+            return AccountUtil.isLoggedIn &&
+                    SUPPORTED_LANGUAGES.any { it in WikipediaApp.getInstance().language().appLanguageCodes }
+        }
 
         fun newInstance(): SuggestedEditsItemFragment {
             return ImageRecsFragment()

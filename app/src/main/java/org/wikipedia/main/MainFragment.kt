@@ -64,6 +64,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.ImageRecsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
@@ -169,7 +170,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
             // TODO: update this logic after user testing
             maybeShowImageRecsTooltip()
-
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -515,12 +515,12 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     private fun maybeShowImageRecsTooltip() {
         if (ReleaseUtil.isPreBetaRelease &&
-                isLoggedIn) {
+                ImageRecsFragment.isFeatureEnabled()) {
             binding.mainNavTabLayout.postDelayed({
                 if (!isAdded) {
                     return@postDelayed
                 }
-                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false);
+                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
             }, 500)
         }
     }

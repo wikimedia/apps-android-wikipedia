@@ -2,21 +2,15 @@ package org.wikipedia.analytics
 
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
-import org.wikipedia.auth.AccountUtil.isLoggedIn
 
 class ImageRecommendationsFunnel :
         Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
-
-    override fun preprocessData(eventData: JSONObject): JSONObject {
-        preprocessData(eventData, "anon", !isLoggedIn)
-        return super.preprocessData(eventData)
-    }
 
     override fun preprocessSessionToken(eventData: JSONObject) { }
 
     fun logSubmit(lang: String, pageTitle: String, imageTitle: String, response: Int, reasons: List<Int>,
                   detailsClicked: Boolean, infoClicked: Boolean, scrolled: Boolean,
-                  timeUntilClick: Int, timeUntilSubmit: Int, userName: String?, teacherMode: Boolean) {
+                  timeUntilClick: Long, timeUntilSubmit: Long, userName: String?, teacherMode: Boolean) {
         log("lang", lang,
                 "pageTitle", pageTitle,
                 "imageTitle", imageTitle,
