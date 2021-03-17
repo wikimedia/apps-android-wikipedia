@@ -249,7 +249,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressBar.visibility = VISIBLE
 
         funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
-                page!!.title, page!!.recommendation.image, response, reasons, detailsClicked, infoClicked, scrolled,
+                page!!.title, page!!.recommendation.image, /* TODO: when API is ready. */ "wikipedia", response, reasons, detailsClicked, infoClicked, scrolled,
                 buttonClickedMillis - startMillis, SystemClock.uptimeMillis() - startMillis,
                 if (Prefs.isImageRecsConsentEnabled() && AccountUtil.isLoggedIn) AccountUtil.userName else null,
                 Prefs.isImageRecsTeacherMode())
