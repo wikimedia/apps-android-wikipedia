@@ -41,7 +41,7 @@ public class UpdateHistoryTask implements Action {
                 entry.getTitle().getText()};
         Cursor cursor = client.select(selection, selectionArgs, null);
         if (cursor.moveToFirst()) {
-            timeSpent = PageHistoryContract.Col.TIME_SPENT.val(cursor);
+            timeSpent = PageHistoryContract.Col.TIME_SPENT.value(cursor);
         }
         cursor.close();
         return timeSpent;

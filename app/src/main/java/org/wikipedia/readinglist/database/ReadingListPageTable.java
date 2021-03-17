@@ -25,24 +25,24 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     }
 
     @Override public ReadingListPage fromCursor(@NonNull Cursor cursor) {
-        String lang = ReadingListPageContract.Col.LANG.val(cursor);
-        String site = ReadingListPageContract.Col.SITE.val(cursor);
+        String lang = ReadingListPageContract.Col.LANG.value(cursor);
+        String site = ReadingListPageContract.Col.SITE.value(cursor);
         ReadingListPage page = new ReadingListPage(lang == null ? new WikiSite(site) : new WikiSite(site, lang),
-                ReadingListPageContract.Col.NAMESPACE.val(cursor),
-                ReadingListPageContract.Col.DISPLAY_TITLE.val(cursor),
-                ReadingListPageContract.Col.API_TITLE.val(cursor),
-                ReadingListPageContract.Col.LISTID.val(cursor));
-        page.id(ReadingListPageContract.Col.ID.val(cursor));
-        page.description(ReadingListPageContract.Col.DESCRIPTION.val(cursor));
-        page.thumbUrl(ReadingListPageContract.Col.THUMBNAIL_URL.val(cursor));
-        page.atime(ReadingListPageContract.Col.ATIME.val(cursor));
-        page.mtime(ReadingListPageContract.Col.MTIME.val(cursor));
-        page.revId(ReadingListPageContract.Col.REVID.val(cursor));
-        page.offline(ReadingListPageContract.Col.OFFLINE.val(cursor) != 0);
-        page.status(ReadingListPageContract.Col.STATUS.val(cursor));
-        page.sizeBytes(ReadingListPageContract.Col.SIZEBYTES.val(cursor));
-        page.remoteId(ReadingListPageContract.Col.REMOTEID.val(cursor));
-        page.lang(ReadingListPageContract.Col.LANG.val(cursor));
+                ReadingListPageContract.Col.NAMESPACE.value(cursor),
+                ReadingListPageContract.Col.DISPLAY_TITLE.value(cursor),
+                ReadingListPageContract.Col.API_TITLE.value(cursor),
+                ReadingListPageContract.Col.LISTID.value(cursor));
+        page.id(ReadingListPageContract.Col.ID.value(cursor));
+        page.description(ReadingListPageContract.Col.DESCRIPTION.value(cursor));
+        page.thumbUrl(ReadingListPageContract.Col.THUMBNAIL_URL.value(cursor));
+        page.atime(ReadingListPageContract.Col.ATIME.value(cursor));
+        page.mtime(ReadingListPageContract.Col.MTIME.value(cursor));
+        page.revId(ReadingListPageContract.Col.REVID.value(cursor));
+        page.offline(ReadingListPageContract.Col.OFFLINE.value(cursor) != 0);
+        page.status(ReadingListPageContract.Col.STATUS.value(cursor));
+        page.sizeBytes(ReadingListPageContract.Col.SIZEBYTES.value(cursor));
+        page.remoteId(ReadingListPageContract.Col.REMOTEID.value(cursor));
+        page.lang(ReadingListPageContract.Col.LANG.value(cursor));
         return page;
     }
 

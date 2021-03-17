@@ -11,10 +11,10 @@ import org.wikipedia.page.PageTitle
 // todo: network caching preserves images. Remove this class and drop table?
 class PageImageDatabaseTable : DatabaseTable<PageImage>(PageImageHistoryContract.TABLE, PageImageHistoryContract.Image.URI) {
     override fun fromCursor(cursor: Cursor): PageImage {
-        val wiki = WikiSite(PageImageHistoryContract.Col.SITE.`val`(cursor), PageImageHistoryContract.Col.LANG.`val`(cursor))
-        val title = PageTitle(PageImageHistoryContract.Col.NAMESPACE.`val`(cursor), PageImageHistoryContract.Col.API_TITLE.`val`(cursor), wiki)
-        val imageName = PageImageHistoryContract.Col.IMAGE_NAME.`val`(cursor)
-        title.setDisplayText(PageImageHistoryContract.Col.DISPLAY_TITLE.`val`(cursor))
+        val wiki = WikiSite(PageImageHistoryContract.Col.SITE.value(cursor), PageImageHistoryContract.Col.LANG.value(cursor))
+        val title = PageTitle(PageImageHistoryContract.Col.NAMESPACE.value(cursor), PageImageHistoryContract.Col.API_TITLE.value(cursor), wiki)
+        val imageName = PageImageHistoryContract.Col.IMAGE_NAME.value(cursor)
+        title.setDisplayText(PageImageHistoryContract.Col.DISPLAY_TITLE.value(cursor))
         return PageImage(title, imageName)
     }
 

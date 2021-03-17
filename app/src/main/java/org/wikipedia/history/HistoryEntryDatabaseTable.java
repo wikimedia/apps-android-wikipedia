@@ -26,11 +26,11 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
 
     @Override
     public HistoryEntry fromCursor(Cursor cursor) {
-        WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
-        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.API_TITLE.val(cursor), wiki);
-        Date timestamp = Col.TIMESTAMP.val(cursor);
-        int source = Col.SOURCE.val(cursor);
-        title.setDisplayText(Col.DISPLAY_TITLE.val(cursor));
+        WikiSite wiki = new WikiSite(Col.SITE.value(cursor), Col.LANG.value(cursor));
+        PageTitle title = new PageTitle(Col.NAMESPACE.value(cursor), Col.API_TITLE.value(cursor), wiki);
+        Date timestamp = Col.TIMESTAMP.value(cursor);
+        int source = Col.SOURCE.value(cursor);
+        title.setDisplayText(Col.DISPLAY_TITLE.value(cursor));
         return new HistoryEntry(title, timestamp, source);
     }
 
