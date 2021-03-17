@@ -114,11 +114,8 @@ public class LeadImagesHandler {
 
     public void loadLeadImage() {
         String url = getLeadImageUrl();
-        if (getPage() == null) {
-            return;
-        }
         initDisplayDimensions();
-        if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
+        if (getPage() != null && !isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
             pageHeaderView.show();
             pageHeaderView.loadImage(url);
             updateCallToAction();
