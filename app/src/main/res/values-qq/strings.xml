@@ -464,12 +464,6 @@
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="saved_list_empty_title">Title message shown when there are no articles in saved list.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists, and the location of the button to add an article to a reading list.</string>
-  <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen, emphasizing that reading lists are available for offline access.</string>
-  <string name="reading_lists_onboarding_for_example">Label stating that the items below are examples of reading list titles.</string>
-  <string name="reading_lists_onboarding_example1">First example of a reading list title, in this case places to visit.</string>
-  <string name="reading_lists_onboarding_example2">Second example of a reading list title, in this case favorite animals.</string>
-  <string name="reading_lists_onboarding_example3">Third example of a reading list title, in this case space (as in outer space, cosmos).</string>
-  <string name="reading_lists_onboarding_got_it">Label for the button that dismisses an introductory dialog that tells the user about the new Reading Lists feature.</string>
   <string name="reading_list_empty">Message shown when a reading list does not contain any articles.</string>
   <string name="reading_list_article_offline">Label for a toggle switch to make a reading list article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>

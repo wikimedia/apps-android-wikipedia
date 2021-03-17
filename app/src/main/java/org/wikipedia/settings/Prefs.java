@@ -295,14 +295,6 @@ public final class Prefs {
         setLong(R.string.preference_key_page_last_shown, time);
     }
 
-    public static boolean isReadingListTutorialEnabled() {
-        return getBoolean(R.string.preference_key_reading_list_tutorial_enabled, true);
-    }
-
-    public static void setReadingListTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_reading_list_tutorial_enabled, enabled);
-    }
-
     public static boolean isImageDownloadEnabled() {
         return getBoolean(R.string.preference_key_show_images, true);
     }
