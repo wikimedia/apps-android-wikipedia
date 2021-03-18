@@ -14,7 +14,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -54,7 +53,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private var currentSearchQuery: String? = null
     private val disposables = CompositeDisposable()
     private val adapter = HistoryEntryItemAdapter()
-    private val itemCallback: ItemCallback = ItemCallback()
+    private val itemCallback = ItemCallback()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = HistorySearchCallback()
     private val selectedEntries = mutableSetOf<HistoryEntry>()
@@ -242,7 +241,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
-        var headerText: TextView = itemView.findViewById(R.id.section_header_text)
+        var headerText = itemView.findViewById<TextView>(R.id.section_header_text)!!
 
         fun bindItem(date: String) {
             headerText.text = date
@@ -274,12 +273,12 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         }
 
         init {
-            val searchCardView: WikiCardView = itemView.findViewById(R.id.search_card)
-            val voiceSearchButton: AppCompatImageView = itemView.findViewById(R.id.voice_search_button)
+            val searchCardView = itemView.findViewById<WikiCardView>(R.id.search_card)
+            val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
-            searchCardView.setOnClickListener { view -> (parentFragment as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, view) }
-            voiceSearchButton.setOnClickListener { (parentFragment as MainFragment).onFeedVoiceSearchRequested() }
+            searchCardView.setOnClickListener { view -> (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, view) }
+            voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
             historyFilterButton.setOnClickListener {
                 if (actionMode == null) {
                     actionMode = (requireActivity() as AppCompatActivity)
@@ -327,7 +326,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             return historyEntries.size
         }
 
-        val isEmpty: Boolean
+        val isEmpty
             get() = (itemCount == 0 || itemCount == 1 && historyEntries[0] is SearchBar)
 
         override fun getItemViewType(position: Int): Int {
