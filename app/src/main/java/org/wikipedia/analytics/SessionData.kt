@@ -64,8 +64,7 @@ class SessionData {
     }
 
     val totalPages: Int
-        get() = (pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal
-                + pagesFromExternal + pagesFromHistory + pagesFromReadingList
-                + pagesFromSuggestedEdits)
-
+        get() = (pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal +
+                pagesFromExternal + pagesFromHistory + pagesFromReadingList +
+                pagesFromSuggestedEdits)
 }
