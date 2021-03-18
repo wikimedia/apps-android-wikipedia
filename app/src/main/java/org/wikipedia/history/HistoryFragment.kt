@@ -112,9 +112,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     override fun onBackPressed(): Boolean {
-        if (actionMode != null) {
-            actionMode!!.finish()
-            return true
+        actionMode?.run {
+            finish()
+            return@onBackPressed true
         }
         if (selectedEntries.size > 0) {
             unselectAllPages()
@@ -134,8 +134,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun onPageClick(entry: HistoryEntry) {
-        val callback = callback()
-        callback?.onLoadPage(entry)
+        callback()?.onLoadPage(entry)
     }
 
     private fun onClearHistoryClick() {
@@ -167,8 +166,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val selectedCount = selectedEntries.size
         if (selectedCount == 0) {
             finishActionMode()
-        } else if (actionMode != null) {
-            actionMode!!.title = resources.getQuantityString(R.plurals.multi_items_selected, selectedCount, selectedCount)
+        } else {
+            actionMode?.title = resources.getQuantityString(R.plurals.multi_items_selected, selectedCount, selectedCount)
         }
         adapter.notifyDataSetChanged()
     }
@@ -277,8 +276,16 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
-            searchCardView.setOnClickListener { view -> (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, view) }
-            voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
+            searchCardView.setOnClickListener {
+                if (isAdded) {
+                    (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it)
+                }
+            }
+            voiceSearchButton.setOnClickListener {
+                if (isAdded) {
+                    (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested()
+                }
+            }
             historyFilterButton.setOnClickListener {
                 if (actionMode == null) {
                     actionMode = (requireActivity() as AppCompatActivity)
@@ -416,7 +423,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private inner class HistorySearchCallback : SearchActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             actionMode = mode
-            (parentFragment as MainFragment).setBottomNavVisible(false)
+            if (isAdded) {
+                (requireParentFragment() as MainFragment).setBottomNavVisible(false)
+            }
             (binding.historyList.adapter as HistoryEntryItemAdapter).hideHeader()
             return super.onCreateActionMode(mode, menu)
         }
@@ -431,7 +440,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             currentSearchQuery = ""
             reloadHistoryItems()
             actionMode = null
-            (parentFragment as MainFragment).setBottomNavVisible(true)
+            if (isAdded) {
+                (requireParentFragment() as MainFragment).setBottomNavVisible(true)
+            }
         }
 
         override fun getSearchHintString(): String {
