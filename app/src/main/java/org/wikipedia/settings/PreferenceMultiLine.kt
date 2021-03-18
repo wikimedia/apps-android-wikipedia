@@ -39,3 +39,4 @@ class PreferenceMultiLine : Preference {
         }
     }
 }
+
