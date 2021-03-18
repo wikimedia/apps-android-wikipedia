@@ -10,22 +10,23 @@ import androidx.preference.Preference.OnPreferenceClickListener
 import androidx.preference.PreferenceViewHolder
 import org.wikipedia.R
 
+@Suppress("unused")
 class PreferenceMultiLine : Preference {
-    constructor(ctx: Context?, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle)
-    constructor(ctx: Context?, attrs: AttributeSet?) : super(ctx, attrs)
-    constructor(ctx: Context?) : super(ctx)
+    constructor(ctx: Context, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle)
+    constructor(ctx: Context, attrs: AttributeSet?) : super(ctx, attrs)
+    constructor(ctx: Context) : super(ctx)
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
-        holder.itemView.findViewById<TextView>(android.R.id.title)?.also {
+        holder.itemView.findViewById<TextView>(android.R.id.title)?.let {
             it.isSingleLine = false
         }
 
         // Intercept the click listener for this preference, and if the preference has an intent,
         // launch the intent ourselves, so that we can catch the exception if the intent fails.
         // (but only do this if the preference doesn't already have a click listener)
-        if (this.onPreferenceClickListener == null) {
-            this.onPreferenceClickListener = OnPreferenceClickListener { preference ->
+        if (onPreferenceClickListener == null) {
+            onPreferenceClickListener = OnPreferenceClickListener { preference ->
                 if (preference.intent != null) {
                     try {
                         context.startActivity(preference.intent)
