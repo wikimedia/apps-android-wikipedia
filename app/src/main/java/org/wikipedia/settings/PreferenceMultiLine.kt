@@ -11,28 +11,28 @@ import androidx.preference.PreferenceViewHolder
 import org.wikipedia.R
 
 class PreferenceMultiLine : Preference {
-    constructor(ctx: Context?, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle) {}
-    constructor(ctx: Context?, attrs: AttributeSet?) : super(ctx, attrs) {}
-    constructor(ctx: Context?) : super(ctx) {}
+    constructor(ctx: Context?, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle)
+    constructor(ctx: Context?, attrs: AttributeSet?) : super(ctx, attrs)
+    constructor(ctx: Context?) : super(ctx)
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
-        val textView = holder.itemView.findViewById<TextView>(android.R.id.title)
-        if (textView != null) {
-            textView.isSingleLine = false
+        holder.itemView.findViewById<TextView>(android.R.id.title)?.also {
+            it.isSingleLine = false
         }
+
         // Intercept the click listener for this preference, and if the preference has an intent,
         // launch the intent ourselves, so that we can catch the exception if the intent fails.
         // (but only do this if the preference doesn't already have a click listener)
         if (this.onPreferenceClickListener == null) {
-            this.onPreferenceClickListener = OnPreferenceClickListener { preference: Preference ->
+            this.onPreferenceClickListener = OnPreferenceClickListener { preference ->
                 if (preference.intent != null) {
                     try {
                         context.startActivity(preference.intent)
                     } catch (e: ActivityNotFoundException) {
                         Toast.makeText(context, context.getString(R.string.error_browser_not_found), Toast.LENGTH_LONG).show()
                     }
-                    return@setOnPreferenceClickListener true
+                    return@OnPreferenceClickListener true
                 }
                 false
             }
