@@ -278,8 +278,8 @@
   <string name="error_response_malformed">Wotmołwa serwera njeje prawje formatěrowana.</string>
   <string name="error_unknown">Njeznaty zmylk je wustupił.</string>
   <string name="format_error_server_message">Zdźělenka: \"%s\"</string>
-  <string name="address_copied">Adresa je so do městoskłada kopěrowała.</string>
-  <string name="text_copied">Tekst je so do městoskłada kopěrował.</string>
+  <string name="address_copied">Adresa je so do mjezyskłada kopěrowała.</string>
+  <string name="text_copied">Tekst je so do mjezyskłada kopěrował.</string>
   <string name="button_continue_to_article">Zapisk čitać</string>
   <string name="button_continue_to_disambiguation">Podobne strony wobhladać</string>
   <string name="link_preview_disambiguation_description">Tutón titul pokazuje na wjacore strony:</string>
