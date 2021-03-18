@@ -1,10 +1,13 @@
 package org.wikipedia.pageimages
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 
-data class PageImage(val title: PageTitle, val imageName: String) {
+@Parcelize
+data class PageImage(val title: PageTitle, val imageName: String) : Parcelable {
 
     companion object {
         @JvmField

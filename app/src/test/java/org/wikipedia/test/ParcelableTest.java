@@ -7,6 +7,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.pageimages.PageImage;
 
 @RunWith(RobolectricTestRunner.class) public class ParcelableTest {
     @Test public void testPageTitle() throws Throwable {
@@ -33,5 +34,14 @@ import org.wikipedia.page.PageTitle;
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
 
         TestParcelUtil.test(historyEntry);
+    }
+
+    @Test
+    public void testPageImage() throws Throwable {
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageTitle title = new PageTitle("Talk", "India", wiki);
+        PageImage pageImage = new PageImage(title, "Testing image");
+
+        TestParcelUtil.test(pageImage);
     }
 }
