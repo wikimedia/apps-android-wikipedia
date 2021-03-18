@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.LinearLayoutTouchIntercept xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".main.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/single_fragment_toolbar"
+        android:id="@+id/main_toolbar"
         style="@style/ToolbarStyle"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -19,7 +18,7 @@
         app:titleMarginStart="28dp">
 
         <ImageView
-            android:id="@+id/single_fragment_toolbar_wordmark"
+            android:id="@+id/main_toolbar_wordmark"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -33,4 +32,4 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-</org.wikipedia.views.LinearLayoutTouchIntercept>
+</LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * BanKris
 * Bencemac
 * Bencoke
@@ -50,6 +49,7 @@
   <string name="history_item_delete_undo">Visszavonás</string>
   <string name="notification_archive_undo">Visszavonás</string>
   <string name="app_settings">Alkalmazásbeállítások</string>
+  <string name="search_tab_tooltip">Koppints az ikonra megint a kereséshez.</string>
   <string name="history_list_title">Előzmények</string>
   <string name="dialog_title_clear_history">Böngészési előzmények törlése</string>
   <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
@@ -60,7 +60,11 @@
   <string name="search_redirect_from">%s szócikkből átirányítva</string>
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
   <string name="menu_page_other_languages">Nyelvváltás</string>
-  <string name="menu_page_find_in_page">Keresés a lapon</string>
+  <string name="menu_page_find_in_page">Keresés a szócikkben</string>
+  <string name="menu_page_add_to_watchlist">Hozzáadás a figyelőlistához</string>
+  <string name="menu_page_view_talk">Vitalap megtekintése</string>
+  <string name="menu_page_view_edit_history">Laptörténet megtekintése</string>
+  <string name="menu_page_remove_from_watchlist">Eltávolítás a figyelőlistáról</string>
   <string name="edit_section_find_in_page">Keresés a lapon</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_add_to_list">Hozzáadás az olvasólistához</string>
@@ -69,6 +73,7 @@
   <string name="feed_card_add_to_default_list">Mentés</string>
   <string name="menu_page_share">Hivatkozás megosztása</string>
   <string name="menu_page_open_a_new_tab">Új lap megnyitása</string>
+  <string name="menu_page_new_tab">Új fül</string>
   <string name="menu_page_reading_lists">Olvasólisták</string>
   <string name="menu_page_recently_viewed">Mostanában olvasott</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
@@ -196,6 +201,7 @@
   <string name="page_protected_can_not_edit">Sajnáljuk, a fiókod jelenleg nem rendelkezik a lap szerkesztéséhez megfelelő jogosultságokkal.</string>
   <string name="page_protected_can_not_edit_anon">Sajnáljuk, ez a lap jelenleg nem szerkeszthető névtelenül.</string>
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Hozzáadás a figyelőlistához</string>
   <string name="settings_item_preferences">Beállítások</string>
   <string name="settings_activity_title">Beállítások</string>
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
@@ -245,6 +251,7 @@
   <string name="find_previous">Előző keresése</string>
   <string name="find_first_occurence">Ez az első találat</string>
   <string name="find_last_occurence">Ez az utolsó találat</string>
+  <string name="article_opened_in_background_tab">A szócikk megnyílt egy fülön a háttérben.</string>
   <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan közzé akarod tenni?</string>
   <string name="abusefilter_title_disallow">Nem teheted közzé ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
   <string name="abusefilter_text_warn">Egy automatikus szűrő potenciálisan nem konstruktívnak találta a szerkesztésedet. Az alábbiak közül egyet vagy többet tartalmazhat:&lt;br /&gt;&lt;br /&gt;· Csupa nagybetűs szöveg&lt;br /&gt;· A szócikk teljes tartalmának eltávolítása vagy spam&lt;br /&gt;· Irreleváns külső linkek vagy képek&lt;br /&gt;· Karakterismétlés</string>
@@ -386,7 +393,7 @@
   <string name="text_size_decrease">Betűméret csökkentése</string>
   <string name="text_size_percent_default">%s (alapértelmezett)</string>
   <string name="text_style_title">Betűtípus</string>
-  <string name="nav_item_reading_lists">Listáim</string>
+  <string name="nav_item_saved">Elmentve</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_move_to">Mozgatás olvasólistára</string>
   <string name="reading_list_create_new">Új létrehozása</string>
@@ -566,6 +573,7 @@
   <string name="notifications_view_archived_button_text">Archivált értesítések megtekintése</string>
   <string name="notification_preferences_title">Értesítések beállításai</string>
   <string name="notifications_mark_unread">Olvasatlannak jelölés</string>
+  <string name="watchlist_title">Figyelőlista</string>
   <string name="preference_title_notification_poll">Értesítések megjelenítése</string>
   <string name="preference_summary_notification_poll">Adatforgalom engedélyezése az alkalmazás számára, új értesítések háttérben történő kereséséhez.</string>
   <string name="preference_category_notification_types">Alkalmazáson belüli értesítéstípusok</string>
@@ -585,14 +593,18 @@
   <string name="preference_summary_notification_user_talk">Üzenetek vitalapokról</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
-  <string name="view_random_card_subtitle">Olvass találomra egy cikket a Wikipédiából.</string>
-  <string name="view_random_card_action">Kockadobás</string>
+  <string name="view_random_article_card_title">Szócikk találomra</string>
+  <string name="view_random_article_card_action">Több cikk találomra</string>
+  <string name="view_top_read_card_title">Legtöbbet megnézve</string>
+  <string name="view_top_read_card_action">További megnézettek</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Másik cikk betöltése találomra</string>
   <string name="view_main_page_card_title">Ma a Wikipédián</string>
-  <string name="view_main_page_card_subtitle">Kezdőlap ma – %s</string>
   <string name="view_main_page_card_action">Kezdőlap megtekintése</string>
   <string name="view_featured_image_card_title">A nap képe</string>
   <string name="view_featured_image_card_download">Letöltés</string>
+  <string name="view_featured_image_card_share">Megoszt</string>
   <string name="menu_feed_card_dismiss">Kártya elrejtése</string>
   <string name="menu_feed_card_dismissed">Kártya elrejtve.</string>
   <string name="menu_feed_card_edit_card_languages">A kártya nyelveinek szerkesztése</string>
@@ -600,7 +612,6 @@
   <string name="feed_featured_image_share_subject">Kiemelt kép a Wikimédia Commonsból</string>
   <string name="feed">Felfedezés</string>
   <string name="home">Kezdőlap</string>
-  <string name="most_read_list_card_title">Felkapott</string>
   <string name="view_static_card_icon_content_description">Kártyaikon</string>
   <string name="view_card_news_title">Hírek</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -612,9 +623,7 @@
   <string name="view_announcement_card_negative_action">Köszönöm, nem</string>
   <string name="view_offline_card_text">A tartalom nem tölthető be kapcsolat nélkül.</string>
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
-  <string name="view_featured_article_footer_save_button_label">Mentés</string>
   <string name="view_static_card_save_button_label">Mentés</string>
-  <string name="view_featured_article_footer_saved_button_label">Elmentve</string>
   <string name="feed_configure_activity_title">A hírcsatorna testreszabása</string>
   <string name="feed_configure_menu_reset">Alapértelmezett nézet visszaállítása</string>
   <string name="feed_configure_menu_select_all">Összes megjelenítése</string>
@@ -638,6 +647,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
   <string name="feed_accessibility_card_text">Elérted a hírfolyamod alját.</string>
   <string name="feed_accessibility_card_load_more_button">Továbbiak betöltése</string>
+  <string name="top_read_activity_title">Legtöbbet megnézve ekkor %s</string>
   <string name="description_edit_text_hint">Szócikk leírása</string>
   <string name="description_edit_article_description_label">Szócikk</string>
   <string name="description_edit_translate_article_description_label_per_language">Szócikkleírás (%s)</string>
@@ -673,7 +683,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Képaláírás közzétéve! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Képcímkék közzétéve!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Képcímkék közzétéve!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">Élvezted? Segíts nekünk még több hozzáadásával!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
@@ -685,6 +695,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
+  <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
+  <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
   <string name="suggested_edits_review_description">Szócikkleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>
@@ -752,9 +764,9 @@
   <string name="suggested_edits_image_tags_publishing">Közzététel…</string>
   <string name="suggested_edits_image_tags_published">Közzétéve</string>
   <string name="suggested_edits_image_tags_onboarding_title">A képek címkézése könnyebben megtalálhatóvá teszi őket.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">A képcímkék hozzáadásával segít könnyebben kereshetővé tenni a képeket a Commonsban, a szabad licencű képtárban, amit a Wikipédia a képekhez használ a cikkeiben.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">A képcímkék hozzáadásával segít könnyebben kereshetővé tenni a képeket a Commonsban, a szabad licencű képtárban, amit a Wikipédia a képekhez használ a cikkeiben.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Csak a kiválasztott címkék lesznek hozzáadva a képekhez.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Címkézd meg a képeket, hogy könnyebb legyen megtalálni őket. Válaszd ki a javasolt címkéket, vagy add hozzá a sajátjaidat.</string>
+  <string name="suggested_edits_image_tags_task_detail">Címkézd meg a képeket, hogy könnyebb legyen megtalálni őket. Válaszd ki a javasolt címkéket, vagy add hozzá a sajátjaidat.</string>
   <string name="suggested_edits_image_tags_choose">Passzoló címkék kiválasztása vagy hozzáadása</string>
   <string name="suggested_edits_image_tags_published_list">Közzétett címkék</string>
   <string name="suggested_edits_image_tags_search">Címkék keresése</string>
@@ -763,20 +775,20 @@
   <string name="suggested_edits_image_tags_add_tag">Címke hozzáadása</string>
   <string name="suggested_edits_image_zoom_tooltip">Csípj a kép nagyításához.</string>
   <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további lehetőségeket találsz, amelyekkel hozzájárulhatsz a Wikipédiához.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához. Jó szerkesztést!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">A képfeliratok segítenek az olvasóknak megérteni a képek jelentését és tartalmát.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">A szócikkleírás összefoglalja a cikk tartalmát, hogy az olvasók gyorsan megérthessék, miről szól.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb gyors és egyszerű módokat találsz, amivel közreműködhetsz a Wikipédia javításában. Jó szerkesztést!</string>
+  <string name="suggested_edits_image_captions_task_detail">A képfeliratok segítenek az olvasóknak megérteni a képek jelentését és tartalmát.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Foglald össze a szócikk tartalmát, hogy az olvasók gyorsan megérthessék, miről szól.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Szerkesztéseid száma.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Hány egymást követő nap volt alkalmad szerkeszteni? Ha egy ideje nem voltál aktív, akkor az utolsó közreműködés idejét mutatja.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Összes megtekintés száma azokon az oldalakon, melyeken az elmúlt 30 napban dolgozál.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Az alapján, hogy hányszor volt visszavonva a közreműködések (más szerkesztő által visszaállítva). Visszavont szerkesztések: %d.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Összes megtekintés száma azokon az oldalakon, melyeken az elmúlt 30 napban dolgoztál.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Az alapján, hogy hányszor volt visszavonva a közreműködésed (más szerkesztő által visszaállítva). Visszavont szerkesztések: %d.</string>
   <string name="suggested_edits_paused_message">A Javasolt szerkesztések felfüggesztésre került eddig: %1$s Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések letiltásra került.&lt;/b&gt; Bocsi %s, túl sok közreműködésed lett visszavonva mostanában.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Úgí tűni, hogy az IP-címed (vagy egy IP-cím tartomány) jelenleg el van tiltva a Wikipédia szerkesztésétől. Az alábbi hivatkozásra kattintva többet megtudhatsz arról, hogy az mit is jelent pontosan.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;A Javasolt szerkesztések ki lett kapcsolva.&lt;/b&gt; Elnézést %s, sok közreműködésed vissza lett vonva mostanában.</string>
+  <string name="suggested_edits_ip_blocked_message">Úgy tűnik, hogy az IP-címed (vagy az IP-cím tartományod) jelenleg el van tiltva a Wikipédia szerkesztésétől.</string>
   <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>
   <string name="suggested_edits_help_page_link_text">Javasolt szerkesztések súgó oldal</string>
   <string name="suggested_edits_edit_streak_label_text">Szerkesztési széria</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Megtekintések</string>
+  <string name="suggested_edits_views_label_text">Megtekintések</string>
   <string name="suggested_edits_quality_label_text">Szerkesztési minőség</string>
   <string name="suggested_edits_quality_perfect_text">Tökéletes</string>
   <string name="suggested_edits_quality_excellent_text">Kiváló</string>
@@ -796,6 +808,7 @@
     <item quantity="other">%d nap</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Mik a Javasolt szerkesztések?</string>
+  <string name="suggested_edits_what_is_text">A javasolt szerkesztéseid apró, de fontos részeivé válhatnak a Wikipédiának.</string>
   <string name="suggested_edits_learn_more">Tudj meg többet</string>
   <string name="suggested_edits_paused_title">Szüneteltetve</string>
   <string name="suggested_edits_disabled_title">Letiltva</string>
@@ -823,22 +836,33 @@
     <item quantity="one">Hozzáadtál %d címkét</item>
     <item quantity="other">Hozzáadtál %d címkét</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Tegnap</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">Eddig egyszer működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</item>
-    <item quantity="other">Eddig %d alkalommal működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">1 ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</item>
-    <item quantity="other">%d ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">Eddig %d alkalommal működtél közre a Wikipédián a Javasolt szerkesztésekkel. Köszönjük!</string>
-  <string name="suggested_edits_rewards_pageviews">%d ember látta a szerkesztéseidet az elmúlt 30 napban. Köszönjük, csak így tovább!</string>
-  <string name="suggested_edits_rewards_continue_button">Folytatás</string>
   <string name="suggested_edits_encourage_account_creation_title">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="suggested_edits_encourage_account_creation_message">A javasolt szerkesztések egy új módja a Wikipédia tartalmának fejlesztéséhez való hozzájárulásnak. Ez egy aprónak tűnő, de fontos rész. Célunk az, hogy a szerkesztés könnyebb legyen, és elérhetőbb mindenki számára! Jelentkezz be vagy regisztrálj a Wikipédián a kezdéshez.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Bejelentkezés/regisztrálás a Wikipédiába</string>
   <string name="suggested_edits_contribution_type_image_tag">Képcímke</string>
   <string name="suggested_edits_contribution_current_revision_text">A szerkesztésed jelenleg látható a Wikipédián</string>
+  <string name="suggested_card_more_edits">További ajánlott szerkesztés</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s tag</item>
+    <item quantity="other">%1$s tag</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s karakter</item>
+    <item quantity="other">%1$s karakter</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Eltávolítottál %d karaktert</item>
+    <item quantity="other">Eltávolítottál %d karaktert</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Hozzáadtál egy karaktert</item>
+    <item quantity="other">Hozzáadtál %d karaktert</item>
+  </plurals>
+  <string name="file_page_activity_title">Fájllap</string>
+  <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
+  <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
@@ -867,13 +891,10 @@
   <string name="app_shortcuts_random">Véletlen</string>
   <string name="app_shortcuts_continue_reading">Olvasás folytatása</string>
   <string name="app_shortcuts_search">Keresés</string>
-  <string name="more_trending_text">Több ilyen</string>
-  <string name="top_on_this_day">Felkapott ekkor: %1$s</string>
   <string name="on_this_day_card_title">Ezen a napon</string>
   <string name="more_events_text">Több ezen a napon</string>
   <string name="events_count_text">%1$s esemény %2$s és %3$d között</string>
   <string name="this_year">Ebben az évben</string>
-  <string name="back_to_top">Vissza a tetejére</string>
   <string name="on_this_day_dialog_next_month">Következő hónap</string>
   <string name="on_this_day_dialog_previous_month">Előző hónap</string>
   <string name="on_this_day_open_date_picker">Dátum választó megnyitása</string>
@@ -881,6 +902,8 @@
     <item quantity="one">Tavaly</item>
     <item quantity="other">%d éve</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Végigutaztál az időn 🚀</string>
+  <string name="on_this_day_back_to_future">Ugrás a lap tetejére</string>
   <string name="languages_list_activity_title">Nyelv megadása</string>
   <string name="languages_list_suggested_text">Ajánlott</string>
   <string name="languages_list_all_text">Minden nyelv</string>
@@ -910,6 +933,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Mégse</string>
+  <string name="edit_type_all">Minden közreműködés</string>
   <string name="content_description_for_page_indicator">%1$d. lap / %2$d</string>
   <string name="wikitext_bold">Félkövér</string>
   <string name="wikitext_italic">Dőlt</string>
@@ -921,10 +945,58 @@
   <string name="wikitext_preview_link">Link előnézete</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="main_tooltip_text">Helló %s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="main_tooltip_text_v2">Tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
   <string name="main_tooltip_action_button">Kezdés</string>
+  <string name="main_tooltip_watchlist_title">Figyelőlista</string>
+  <string name="main_tooltip_watchlist_text">A korábban figyelőlistádhoz adott szócikkeket és lapokat Több menü &lt;b&gt;Figyelőlista&lt;/b&gt; opciójával érheted el.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Mégse</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Mégse</string>
+  <string name="talk_title">Vitalap</string>
+  <string name="talk_user_title">Címzett: %s</string>
+  <string name="talk_new_topic">Új téma létrehozása</string>
+  <string name="talk_page_empty">Ez a vitalap üres.</string>
+  <string name="talk_add_reply">Válasz</string>
+  <string name="talk_no_subject">(Nincs tárgy)</string>
+  <string name="talk_reply_subject">Tárgy</string>
+  <string name="talk_reply_hint">Válasz megfogalmazása</string>
+  <string name="talk_message_hint">Üzenet megfogalmazása</string>
+  <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
+  <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
+  <string name="menu_option_share_edit">Szerkesztés megosztása</string>
+  <string name="menu_option_user_profile">%s profilja</string>
+  <string name="menu_option_user_contributions">%s közreműködései</string>
+  <string name="watchlist_details_watching_label">Figyelve</string>
+  <string name="watchlist_details_watch_label">Lap figyelése</string>
+  <string name="thank_label">Köszönet</string>
+  <string name="go_to_user_page">Ugrás a szerkesztői lapra</string>
+  <string name="thank_dialog_title_text">Nyilvános köszönetküldés</string>
+  <string name="thank_dialog_text">A köszönetküldés egy egyszerű mód arra, hogy jelezd egy szerkesztőnek, hogy örülsz a wikipédiás munkásságának. A köszöneteket nem lehet visszavonni, és nyilvánosan láthatóak.</string>
+  <string name="thank_dialog_positive_button_text">Köszönet elküldése</string>
+  <string name="thank_dialog_negative_button_text">Mégse</string>
+  <string name="thank_success_message">A köszöneted elküldve %s részére 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">A(z) „%1$s” lap és vitalapja %2$s hozzáadva a figyelőlistádhoz.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Módosítás</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">állandó jelleggel</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 hétre</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 hónapra</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 hónapra</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 hónapra</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">A(z) „%s” lap és vitalapja eltávolítva a figyelőlistádról.</string>
+  <string name="watchlist_expiry_dialog_title">Figyelés időtartamának kiválasztása</string>
+  <string name="watchlist_expiry_dialog_permanent">Állandó</string>
+  <string name="watchlist_expiry_dialog_one_week">1 hét</string>
+  <string name="watchlist_expiry_dialog_one_month">1 hónap</string>
+  <string name="watchlist_expiry_dialog_three_months">3 hónap</string>
+  <string name="watchlist_expiry_dialog_six_months">6 hónap</string>
+  <string name="watchlist_empty">Nincs szócikk a figyelőlistádon.</string>
+  <string name="watchlist_filter_all">Mind</string>
+  <string name="watchlist_filter_talk">Vita</string>
+  <string name="watchlist_filter_pages">Tartalmi lapok</string>
+  <string name="watchlist_filter_other">Egyéb</string>
+  <string name="watchlist_page_moved">Áthelyezve</string>
+  <string name="watchlist_page_protected">Védett</string>
+  <string name="watchlist_page_deleted">Törölve</string>
 </resources>

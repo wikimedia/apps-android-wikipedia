@@ -7,6 +7,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,13 +16,17 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.DefaultFeedCardView;
+import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.WikiCardView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> {
     public interface Callback {
@@ -29,10 +34,15 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         void onAnnouncementNegativeAction(@NonNull Card card);
     }
 
+    @BindView(R.id.view_announcement_container) WikiCardView container;
     @BindView(R.id.view_announcement_header_image) FaceAndColorDetectImageView headerImageView;
     @BindView(R.id.view_announcement_text) TextView textView;
     @BindView(R.id.view_announcement_action_positive) Button actionViewPositive;
     @BindView(R.id.view_announcement_action_negative) Button actionViewNegative;
+    @BindView(R.id.view_announcement_dialog_action_positive) Button dialogActionViewPositive;
+    @BindView(R.id.view_announcement_dialog_action_negative) Button dialogActionViewNegative;
+    @BindView(R.id.view_announcement_card_buttons_container) View actionViewContainer;
+    @BindView(R.id.view_announcement_card_dialog_buttons_container) View dialogActionViewContainer;
     @BindView(R.id.view_announcement_footer_text) TextView footerTextView;
     @BindView(R.id.view_announcement_footer_border) View footerBorderView;
     @Nullable private Callback callback;
@@ -42,7 +52,6 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         inflate(context, R.layout.view_card_announcement, this);
         ButterKnife.bind(this);
 
-        setNegativeActionVisible(true);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         footerTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
@@ -55,17 +64,18 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         }
 
         if (!card.hasAction()) {
-            actionViewPositive.setVisibility(GONE);
-            actionViewNegative.setVisibility(GONE);
+            actionViewContainer.setVisibility(GONE);
         } else {
-            actionViewPositive.setVisibility(VISIBLE);
-            actionViewNegative.setVisibility(VISIBLE);
+            actionViewContainer.setVisibility(VISIBLE);
             actionViewPositive.setText(card.actionTitle());
+            dialogActionViewPositive.setText(card.actionTitle());
         }
         if (!TextUtils.isEmpty(card.negativeText())) {
             actionViewNegative.setText(card.negativeText());
+            dialogActionViewNegative.setText(card.negativeText());
         } else {
             actionViewNegative.setVisibility(GONE);
+            dialogActionViewNegative.setVisibility(GONE);
         }
 
         if (card.hasImage()) {
@@ -83,18 +93,28 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
 
         if (card.hasFooterCaption()) {
             footerTextView.setText(StringUtil.fromHtml(card.footerCaption()));
+            RichTextUtil.removeUnderlinesFromLinks(footerTextView);
         } else {
             footerTextView.setVisibility(GONE);
             footerBorderView.setVisibility(GONE);
         }
 
         if (card.hasBorder()) {
-            setStrokeColor(getResources().getColor(R.color.red30));
-            setStrokeWidth(10);
+            container.setStrokeColor(getResources().getColor(R.color.red30));
+            container.setStrokeWidth(10);
+        } else {
+            container.setDefaultBorder();
+        }
+
+        if (card.isArticlePlacement()) {
+            actionViewContainer.setVisibility(GONE);
+            dialogActionViewContainer.setVisibility(VISIBLE);
+            container.setLayoutParams(new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
+            container.setRadius(0);
         }
     }
 
-    @OnClick(R.id.view_announcement_action_positive)
+    @OnClick({R.id.view_announcement_action_positive, R.id.view_announcement_dialog_action_positive})
     void onPositiveActionClick() {
         if (getCard() != null) {
             if (getCallback() != null) {
@@ -105,7 +125,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         }
     }
 
-    @OnClick(R.id.view_announcement_action_negative)
+    @OnClick({R.id.view_announcement_action_negative, R.id.view_announcement_dialog_action_negative})
     void onNegativeActionClick() {
         if (getCard() != null) {
             if (getCallback() != null) {
@@ -118,9 +138,5 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
 
     public void setCallback(@NonNull Callback callback) {
         this.callback = callback;
-    }
-
-    protected void setNegativeActionVisible(boolean visible) {
-        actionViewNegative.setVisibility(visible ? VISIBLE : GONE);
     }
 }

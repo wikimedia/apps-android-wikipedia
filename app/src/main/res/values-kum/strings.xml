@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Arsenekoumyk
 * ArslanX
 -->
@@ -34,7 +33,7 @@
   <string name="share_via">Пайлашмакъ</string>
   <string name="image_share_via">Пайлашмакъ</string>
   <string name="menu_page_other_languages">Тиллени алышдырмакъ</string>
-  <string name="menu_page_find_in_page">Сагьифада тапмакъ</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Сагьифада тапмакъ</string>
   <string name="edit_section_find_in_page">Сагьифада тапмакъ</string>
   <string name="menu_page_share">Байланывну пайлашмакъ</string>
   <string name="menu_long_press_open_page">Ачмакъ</string>
@@ -159,7 +158,6 @@
   <string name="color_theme_black">Къара</string>
   <string name="color_theme_sepia">Сепия</string>
   <string name="color_theme_test_title">Метин уьлгю</string>
-  <string name="nav_item_reading_lists">Тизмелерим</string>
   <string name="reading_list_create_new">Янгыны этмек</string>
   <string name="reading_list_added_view_button">Тизмеге къарав</string>
   <string name="reading_list_menu_delete">Тизмени тайдырмакъ</string>
@@ -188,9 +186,7 @@
   <string name="view_card_news_title">Янгылыкъларда</string>
   <string name="view_continue_reading_card_subtitle_today">бугюн</string>
   <string name="view_announcement_card_negative_action">Ёкъ савбол</string>
-  <string name="view_featured_article_footer_save_button_label">Сакъламакъ</string>
   <string name="view_static_card_save_button_label">Сакъламакъ</string>
-  <string name="view_featured_article_footer_saved_button_label">Сакълангъан</string>
   <string name="feed_configure_menu_select_all">Тюмюн гёрсетмек</string>
   <string name="feed_configure_menu_deselect_all">Тюмюн яшырмакъ</string>
   <string name="feed_configure_onboarding_action">Кюйлемек</string>
@@ -216,10 +212,8 @@
   <string name="onboarding_got_it">Англадым</string>
   <string name="app_shortcuts_continue_reading">Охувну давамламакъ</string>
   <string name="app_shortcuts_search">Излев</string>
-  <string name="more_trending_text">Дагъы да булайлар</string>
   <string name="on_this_day_card_title">Бу гюн</string>
   <string name="this_year">Бу йыл</string>
-  <string name="back_to_top">Оьрге къайтмакъ</string>
   <string name="languages_list_all_text">Тюм тиллер</string>
   <string name="wikipedia_languages_title">Википедия тиллер</string>
   <string name="wikipedia_languages_your_languages_text">Сени тиллеринг</string>

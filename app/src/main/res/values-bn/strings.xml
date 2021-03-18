@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Aftabuzzaman
 * Al Riaz Uddin Ripon
 * Bellayet
 * Bodhisattwa
 * Elias Ahmmad
+* Greatder
 * Masumrezarock100
 * Md. Golam Mukit Khan
+* MuratTheTurkish
 * Nasir8891
+* R4356th
 * Rasal Lia
 * Sandipan
 * Sayma Jahan
@@ -19,6 +21,7 @@
 * Titodutta
 * Wikisagnik
 * YahyA
+* Yahya
 * আজিজ
 * আফতাবুজ্জামান
 * ফাহাদ কাজমী
@@ -28,16 +31,16 @@
   <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="wikimedia">উইকিমিডিয়া</string>
-  <string name="nav_item_back">পিছনে যান</string>
-  <string name="page_tabs_back">পিছনে যান</string>
-  <string name="nav_item_forward">সামনে যান</string>
+  <string name="nav_item_back">পিছনে</string>
+  <string name="page_tabs_back">পিছনে</string>
+  <string name="nav_item_forward">সামনে</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
-  <string name="search_hint_voice_search">কণ্ঠ দ্বারা অনুসন্ধান</string>
-  <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
+  <string name="search_hint_voice_search">কথা দ্বারা অনুসন্ধান</string>
+  <string name="search_hint_search_languages">ভাষার জন্য অনুসন্ধান</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">আরও</string>
   <string name="nav_item_search">অনুসন্ধান</string>
-  <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
+  <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাচ্ছে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="card_offline_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="storage_access_error_retry">পুনঃচেষ্টা করুন</string>
@@ -53,16 +56,20 @@
   <string name="app_settings">অ্যাপ সেটিং</string>
   <string name="history_list_title">ইতিহাস</string>
   <string name="dialog_title_clear_history">ব্রাউজ করার ইতিহাস অপসারণ করবেন</string>
-  <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
+  <string name="dialog_message_clear_history">এটি আপনার ব্রাউজ করা সব ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="dialog_message_clear_history_yes">হ্যাঁ</string>
   <string name="dialog_message_clear_history_no">না</string>
   <string name="share_via">এর মাধ্যমে শেয়ার</string>
-  <string name="image_share_via">এর মাধ্যমে শেয়ার করুন</string>
+  <string name="image_share_via">এর মাধ্যমে শেয়ার</string>
   <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
-  <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
+  <string name="menu_page_show_tabs">ট্যাব দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
-  <string name="edit_section_find_in_page">পাতায় খুজুন</string>
+  <string name="menu_page_add_to_watchlist">নজরতালিকায় যোগ করুন</string>
+  <string name="menu_page_view_talk">আলাপ পাতা দেখুন</string>
+  <string name="menu_page_view_edit_history">সম্পাদনার ইতিহাস দেখুন</string>
+  <string name="menu_page_remove_from_watchlist">নজরতালিকা থেকে সরান</string>
+  <string name="edit_section_find_in_page">পাতায় খুঁজুন</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="menu_page_add_to_default_list">সংরক্ষণ</string>
@@ -70,12 +77,13 @@
   <string name="feed_card_add_to_default_list">সংরক্ষণ</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
   <string name="menu_page_open_a_new_tab">নতুন ট্যাব খুলুন</string>
+  <string name="menu_page_new_tab">নতুন ট্যাব</string>
   <string name="menu_page_reading_lists">পড়ার তালিকা</string>
-  <string name="menu_page_recently_viewed">সম্প্রতি প্রদর্শিত</string>
+  <string name="menu_page_recently_viewed">সম্প্রতি পড়া</string>
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
-  <string name="menu_text_select_define">সংজ্ঞা</string>
+  <string name="menu_text_select_define">ব্যাখ্যা</string>
   <string name="on_this_day_page_share">শেয়ার করুন</string>
   <string name="reading_list_page_share">শেয়ার করুন</string>
   <string name="menu_text_select_edit_here">এখানে সম্পাদনা করুন</string>
@@ -197,15 +205,16 @@
   <string name="page_protected_can_not_edit">দুঃখিত, এই পাতাটি সম্পাদনা করার জন্য আপনার অ্যাকাউন্টে যথেষ্ট বিশেষাধিকার নেই।</string>
   <string name="page_protected_can_not_edit_anon">দুঃখিত, এই পৃষ্ঠাটি এই মুহুর্তে বেনামে সম্পাদনা করা যাবে না।</string>
   <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">নজরতালিকায় যোগ করুন</string>
   <string name="settings_item_preferences">সেটিংস</string>
   <string name="settings_activity_title">সেটিংস</string>
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
-  <string name="about_wikipedia_url">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/bn</string>
+  <string name="about_wikipedia_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:অ্যাকাউন্টের_জন্য_অনুরোধ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.bn</string>
@@ -242,6 +251,9 @@
   <string name="edit_conflict_title">সম্পাদনা দ্বন্দ্ব</string>
   <string name="find_next">পরবর্তী খুঁজুন</string>
   <string name="find_previous">পূর্বেরটি খুঁজুন</string>
+  <string name="find_first_occurence">এটি প্রথম ঘটনা</string>
+  <string name="find_last_occurence">এটিই শেষ ঘটনা</string>
+  <string name="article_opened_in_background_tab">নিবন্ধটি একটি পটভূমি ট্যাবে খোলা হয়েছে।</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি প্রকাশ করতে চান?</string>
   <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা প্রকাশ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
   <string name="abusefilter_text_warn">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক হিসাবে চিহ্নিত করেছে। এতে নিম্নলিখিতগুলি এক বা একাধিক বার থাকতে পারে:&lt;br /&gt;&lt;br /&gt;· নিবন্ধ খালি করা বা স্প্যামিং করা&lt;br /&gt;· অপ্রাসঙ্গিক বাহ্যিক লিঙ্ক বা ছবি&lt;br /&gt;· অক্ষরের পুনরাবৃত্তি</string>
@@ -249,6 +261,7 @@
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
   <string name="search_did_you_mean">আপনি কি \"%s\" বুঝাচ্ছেন?</string>
   <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান:</string>
+  <string name="search_results_count_zero">ফলাফল নেই</string>
   <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধানগুলি মুছে ফেলুন</string>
   <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসন্ধান ইতিহাস মুছে ফেলতে চান?</string>
   <string name="clear_recent_searches_confirm_yes">হ্যাঁ</string>
@@ -280,6 +293,8 @@
   <string name="gallery_save_success">ফাইল সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন।</string>
+  <string name="gallery_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
+  <string name="gallery_add_image_caption_in_language_button">ছবির ক্যাপশন যোগ করুন (%s)</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
   <string name="cc_logo">ক্রিয়েটিভ কমন্স লাইসেন্স</string>
@@ -350,7 +365,7 @@
   <string name="text_size_increase">পাঠ্যের আকার বৃদ্ধি করুন</string>
   <string name="text_size_decrease">পাঠ্যের আকার হ্রাস করুন</string>
   <string name="text_size_percent_default">%s (পূর্বনির্ধারিত)</string>
-  <string name="nav_item_reading_lists">আমার তালিকা</string>
+  <string name="nav_item_saved">সংরক্ষিত</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
   <string name="reading_list_title_exists">পড়ার তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
@@ -474,11 +489,8 @@
   <string name="preference_title_notification_user_talk">আলাপ পাতা</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
   <string name="view_random_card_title">অজানা পাতা</string>
-  <string name="view_random_card_subtitle">উইকিপিডিয়া থেকে পড়ার জন্য অজানাক্রমে অনির্দিষ্ট প্রবন্ধগুলো উল্টান।</string>
-  <string name="view_random_card_action">ঘুঁটি ঘুরান</string>
   <string name="view_next_random_article">আরেকটি অজানা নিবন্ধ লোড করুন</string>
   <string name="view_main_page_card_title">উইকিপিডিয়ায় আজ</string>
-  <string name="view_main_page_card_subtitle">%s-এর প্রধান পাতাটি</string>
   <string name="view_main_page_card_action">প্রধান পাতা দেখুন</string>
   <string name="view_featured_image_card_title">আজকের নির্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনলোড করুন</string>
@@ -488,7 +500,6 @@
   <string name="feed_featured_image_share_subject">উইকিমিডিয়া কমন্স থেকে নির্বাচিত চিত্র</string>
   <string name="feed">অন্বেষণ</string>
   <string name="home">নীড়</string>
-  <string name="most_read_list_card_title">প্রবণতা</string>
   <string name="view_static_card_icon_content_description">কার্ড আইকন</string>
   <string name="view_card_news_title">সংবাদে</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -500,9 +511,7 @@
   <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="view_offline_card_text">অফলাইনে থাকা অবস্থায় সামগ্রী লোড করা যাবে না।</string>
   <string name="view_featured_article_card_title">নির্বাচিত নিবন্ধ</string>
-  <string name="view_featured_article_footer_save_button_label">সংরক্ষণ করুন</string>
   <string name="view_static_card_save_button_label">সংরক্ষণ করুন</string>
-  <string name="view_featured_article_footer_saved_button_label">সংরক্ষিত</string>
   <string name="feed_configure_activity_title">পছন্দমত ফিড তৈরি করুন</string>
   <string name="feed_configure_menu_reset">মূল দৃশ্যপট পুনঃস্থাপন</string>
   <string name="feed_configure_menu_select_all">সব দেখান</string>
@@ -523,10 +532,12 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">বাতিল</string>
   <string name="description_edit_text_hint" fuzzy="true">শিরোনামের বিবরণ</string>
   <string name="description_edit_article_description_label">নিবন্ধ</string>
+  <string name="description_edit_add_caption_label">ছবির বিবরণ</string>
+  <string name="description_edit_add_caption_hint">ছবির ক্যাপশন</string>
   <string name="description_edit_save">প্রকাশ করুন</string>
   <string name="description_edit_read">পড়ুন</string>
-  <string name="description_edit_add_description" fuzzy="true">শিরোনামের বিবরণ যোগ করুন</string>
-  <string name="description_edit_translate_description" fuzzy="true">বিবরণ অনুবাদ করুন</string>
+  <string name="description_edit_add_description">নিবন্ধের বিবরণ যোগ করুন</string>
+  <string name="description_edit_translate_description">নিবন্ধের বিবরণ অনুবাদ করুন</string>
   <string name="description_edit_edit_description" fuzzy="true">বিবরণ সম্পাদনা করুন</string>
   <string name="description_edit_cancel_hint">বাতিল</string>
   <string name="description_edit_help_title" fuzzy="true">সাহায্য: শিরোনামের বিবরণ</string>
@@ -560,6 +571,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
   <string name="suggested_edits_image_preview_dialog_image">ফাইল</string>
   <string name="suggested_edits_image_preview_dialog_date">তারিখ</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">আরও তথ্য</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
@@ -608,13 +620,10 @@
   <string name="app_shortcuts_random">অজানাভাবে</string>
   <string name="app_shortcuts_continue_reading">পড়া অব্যাহত রাখুন</string>
   <string name="app_shortcuts_search">অনুসন্ধান</string>
-  <string name="more_trending_text">এটির মত আরো</string>
-  <string name="top_on_this_day">%1$s-এর প্রবণতা</string>
   <string name="on_this_day_card_title">আজকের এই দিনে</string>
   <string name="more_events_text">এই দিনে আরো</string>
   <string name="events_count_text">%2$s হতে %3$d এর মধ্যে %1$sটি ঘটনা</string>
   <string name="this_year">এই বছর</string>
-  <string name="back_to_top">উপরে ফিরে যান</string>
   <string name="on_this_day_dialog_next_month">পরবর্তী মাস</string>
   <string name="on_this_day_dialog_previous_month">পূর্ববর্তী মাস</string>
   <plurals name="diff_years">
@@ -664,4 +673,5 @@
   <string name="talk_no_subject">(কোনো বিষয় নেই)</string>
   <string name="talk_reply_subject">বিষয়</string>
   <string name="talk_message_empty">বার্তাটি খালি হতে পারে না।</string>
+  <string name="watchlist_page_moved">স্থানান্তর করা হয়েছে</string>
 </resources>

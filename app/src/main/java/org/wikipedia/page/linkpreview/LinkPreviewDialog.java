@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,7 @@ import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.gallery.MediaList;
@@ -208,16 +210,28 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     private void loadContent() {
-        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getPrefixedText())
+        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getSummaryResponse(pageTitle.getPrefixedText(), null, null, null, null, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(summary -> {
+                .subscribe(response -> {
+                    PageSummary summary = response.body();
                     funnel.setPageId(summary.getPageId());
-                    pageTitle.setThumbUrl(summary.getThumbnailUrl());
                     revision = summary.getRevision();
+
+                    // Rebuild our PageTitle, since it may have been redirected or normalized.
+                    String oldFragment = pageTitle.getFragment();
+                    pageTitle = new PageTitle(summary.getApiTitle(), pageTitle.getWikiSite(), summary.getThumbnailUrl(),
+                            summary.getDescription(), summary.getDisplayTitle());
+
+                    // check if our URL was redirected, which might include a URL fragment that leads
+                    // to a specific section in the target article.
+                    if (!TextUtils.isEmpty(response.raw().request().url().fragment())) {
+                        pageTitle.setFragment(response.raw().request().url().fragment());
+                    } else if (!TextUtils.isEmpty(oldFragment)) {
+                        pageTitle.setFragment(oldFragment);
+                    }
+
                     titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                    // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);

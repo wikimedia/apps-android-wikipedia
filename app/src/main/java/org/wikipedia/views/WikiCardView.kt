@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
@@ -11,12 +12,55 @@ import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-open class WikiCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
-    : MaterialCardView(context, attrs, defStyleAttr) {
+open class WikiCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+        MaterialCardView(context, attrs, defStyleAttr) {
 
     init {
-        radius = DimenUtil.dpToPx(12f)
+        var hasBorder = true
+        var cardRadius = context.resources.getDimension(R.dimen.wiki_card_radius)
+        var elevation = DimenUtil.dpToPx(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) 8f else 2f)
+        if (attrs != null) {
+            val array = context.obtainStyledAttributes(attrs, R.styleable.WikiCardView)
+            hasBorder = array.getBoolean(R.styleable.WikiCardView_hasBorder, true)
+            cardRadius = array.getDimension(R.styleable.WikiCardView_radius, cardRadius)
+            elevation = array.getDimension(R.styleable.WikiCardView_elevation, elevation)
+            array.recycle()
+        }
 
+        setup(cardRadius, elevation, hasBorder)
+    }
+
+    private fun setup(cardRadius: Float, elevation: Float, hasBorder: Boolean) {
+        radius = cardRadius
+        if (hasBorder) {
+            setDefaultBorder()
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            when (WikipediaApp.getInstance().currentTheme) {
+                Theme.DARK -> {
+                    cardElevation = elevation
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base0)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base0)
+                }
+                Theme.BLACK -> {
+                    cardElevation = 0f
+                }
+                else -> {
+                    cardElevation = elevation
+                    outlineAmbientShadowColor = ContextCompat.getColor(context, R.color.base70)
+                    outlineSpotShadowColor = ContextCompat.getColor(context, R.color.base70)
+                }
+            }
+        } else {
+            cardElevation = elevation
+        }
+
+        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
+        rippleColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color))
+    }
+
+    fun setDefaultBorder() {
         strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
             Theme.DARK -> {
                 DimenUtil.roundedDpToPx(0f)
@@ -30,27 +74,5 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
                 DimenUtil.roundedDpToPx(0.5f)
             }
         }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            when (WikipediaApp.getInstance().currentTheme) {
-                Theme.DARK -> {
-                    cardElevation = DimenUtil.dpToPx(8f)
-                    outlineAmbientShadowColor = ContextCompat.getColor(getContext(), R.color.base0)
-                    outlineSpotShadowColor = ContextCompat.getColor(getContext(), R.color.base0)
-                }
-                Theme.BLACK -> {
-                    cardElevation = 0f
-                }
-                else -> {
-                    cardElevation = DimenUtil.dpToPx(8f)
-                    outlineAmbientShadowColor = ContextCompat.getColor(getContext(), R.color.base70)
-                    outlineSpotShadowColor = ContextCompat.getColor(getContext(), R.color.base70)
-                }
-            }
-        } else {
-            cardElevation = DimenUtil.dpToPx(2f)
-        }
-
-        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 }

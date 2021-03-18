@@ -45,16 +45,29 @@ public class PageSummary {
     @Nullable private String timestamp;
     @SerializedName("wikibase_item") @Nullable private String wikiBaseItem;
 
+    public PageSummary() { }
+
+    public PageSummary(@NonNull String displayTitle, @NonNull String prefixTitle, @Nullable String description,
+                       @Nullable String extract, @Nullable String thumbnail, @NonNull String lang) {
+        this.titles = new Titles(prefixTitle, displayTitle);
+        this.description = description;
+        this.extract = extract;
+        this.thumbnail = new Thumbnail(thumbnail, 0, 0);
+        this.lang = lang;
+    }
+
     public Page toPage(PageTitle title) {
         return new Page(adjustPageTitle(title), new PageProperties(this));
     }
 
     private PageTitle adjustPageTitle(PageTitle title) {
+        PageTitle newTitle = title;
         if (titles != null && titles.canonical != null) {
-            title = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
+            newTitle = new PageTitle(titles.canonical, title.getWikiSite(), title.getThumbUrl());
+            newTitle.setFragment(title.getFragment());
         }
-        title.setDescription(description);
-        return title;
+        newTitle.setDescription(description);
+        return newTitle;
     }
 
     @NonNull
@@ -93,6 +106,18 @@ public class PageSummary {
         return thumbnail == null ? null : thumbnail.getUrl();
     }
 
+    public int getThumbnailWidth() {
+        return thumbnail == null ? 0 : thumbnail.getWidth();
+    }
+
+    public int getThumbnailHeight() {
+        return thumbnail == null ? 0 : thumbnail.getHeight();
+    }
+
+    public void setDescription(@Nullable String description) {
+        this.description = description;
+    }
+
     @Nullable
     public String getDescription() {
         return description;
@@ -110,7 +135,7 @@ public class PageSummary {
 
     @NonNull
     public PageTitle getPageTitle(@NonNull WikiSite wiki) {
-        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription(), getDisplayTitle());
+        return new PageTitle(getApiTitle(), wiki, getThumbnailUrl(), getDescription(), getDisplayTitle(), getExtract());
     }
 
     public int getPageId() {
@@ -123,10 +148,26 @@ public class PageSummary {
     }
 
     private static class Thumbnail {
-        private String source;
+        private final String source;
+        private final int width;
+        private final int height;
+
+        Thumbnail(@Nullable String source, int width, int height) {
+            this.source = source;
+            this.width = width;
+            this.height = height;
+        }
 
         public String getUrl() {
             return source;
+        }
+
+        public int getWidth() {
+            return width;
+        }
+
+        public int getHeight() {
+            return height;
         }
     }
 
@@ -142,6 +183,11 @@ public class PageSummary {
     private static class Titles {
         @Nullable private String canonical;
         @Nullable private String display;
+
+        Titles(@Nullable String canonical, @Nullable String display) {
+            this.canonical = canonical;
+            this.display = display;
+        }
     }
 
     @Override @NonNull public String toString() {

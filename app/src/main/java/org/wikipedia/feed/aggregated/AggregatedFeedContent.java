@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.feed.mostread.MostReadArticles;
+import org.wikipedia.feed.mostread.MostRead;
 import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.feed.onthisday.OnThisDay;
 
@@ -15,7 +15,7 @@ import java.util.List;
 public class AggregatedFeedContent {
     @SuppressWarnings("unused") @Nullable private PageSummary tfa;
     @SuppressWarnings("unused") @Nullable private List<NewsItem> news;
-    @SuppressWarnings("unused") @SerializedName("mostread") @Nullable private MostReadArticles mostRead;
+    @SuppressWarnings("unused") @SerializedName("mostread") @Nullable private MostRead mostRead;
     @SuppressWarnings("unused") @Nullable private FeaturedImage image;
     @SuppressWarnings("unused") @Nullable private List<OnThisDay.Event> onthisday;
 
@@ -35,7 +35,7 @@ public class AggregatedFeedContent {
     }
 
     @Nullable
-    MostReadArticles mostRead() {
+    MostRead mostRead() {
         return mostRead;
     }
 

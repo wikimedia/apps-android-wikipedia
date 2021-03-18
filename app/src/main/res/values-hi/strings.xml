@@ -6,6 +6,7 @@
 * Bhatakati aatma
 * Kaartic
 * Mgaved
+* MuratTheTurkish
 * NehalDaveND
 * Nilesh shukla
 * Nitin1485
@@ -53,7 +54,7 @@
   <string name="search_redirect_from">%s से अनुप्रेषित</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
-  <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
+  <string name="menu_page_find_in_page" fuzzy="true">पृष्ठ में ढूंढें</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_add_to_list">पढ़ने वाली सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
@@ -164,7 +165,7 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://hi.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -268,7 +269,7 @@
   <string name="error_no_maps_app">दिशानिर्देश देने वाली किसी एप को नहीं पाया जा सका।</string>
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>
   <string name="preference_summary_show_link_previews">लिंक्स पर टैप करने पर लेख का छोटा प्रीव्यू दिखाएँ।</string>
-  <string name="nav_item_donate">विकिपीडिया का साथ दें</string>
+  <string name="nav_item_donate" fuzzy="true">विकिपीडिया का साथ दें</string>
   <string name="error_voice_search_not_available">क्षमा करें, आवाज की पहचान उपलब्ध नहीं है।</string>
   <string name="location_service_disabled">स्थिति सेवाएं बंद हैं।</string>
   <string name="enable_location_service">चालू करें</string>
@@ -301,7 +302,6 @@
   <string name="text_size_increase">टेक्स्ट साइज़ बढ़ाएं</string>
   <string name="text_size_decrease">टेक्स्ट साइज़ घटाएं</string>
   <string name="text_size_percent_default">%s (डिफ़ॉल्ट)</string>
-  <string name="nav_item_reading_lists">मेरी सूचियां</string>
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
   <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
@@ -375,11 +375,8 @@
   <string name="notification_syncing_description" fuzzy="true">%1$d लेख बचे</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
-  <string name="view_random_card_subtitle">विकिपीडिया से पढ़ने के लिए बेतरतीब लेख पलट के देखें</string>
-  <string name="view_random_card_action">पासे को पलटें</string>
   <string name="view_next_random_article">कोई दूसरा रैंडम लेख लोड करें</string>
   <string name="view_main_page_card_title">विकिपीडिया पर आज</string>
-  <string name="view_main_page_card_subtitle">%s पर मुख्य पृष्ठ</string>
   <string name="view_main_page_card_action">मुख्य पेज देखें</string>
   <string name="view_featured_image_card_title">आज का चित्र</string>
   <string name="view_featured_image_card_download">डाउनलोड</string>
@@ -388,7 +385,6 @@
   <string name="menu_feed_overflow_label">अधिक विकल्प</string>
   <string name="feed_featured_image_share_subject">विकिपीडिया कॉमन्स से निर्वाचित चित्र</string>
   <string name="feed">खोज करें</string>
-  <string name="most_read_list_card_title">रुझानों में</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकॉन</string>
   <string name="view_card_news_title">समाचारों में</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -399,8 +395,6 @@
   <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
   <string name="view_offline_card_text">ऑफलाइन रहते हुए कंटेंट को भरा नहीं जा सकता है।</string>
   <string name="view_featured_article_card_title">प्रधान लेख</string>
-  <string name="view_featured_article_footer_save_button_label">सहेजें</string>
-  <string name="view_featured_article_footer_saved_button_label">सहेजा गया</string>
   <string name="feed_configure_activity_title" fuzzy="true">एक्स्प्लोर कार्ड्स को कॉन्फ़िगर करें</string>
   <string name="feed_configure_menu_reset" fuzzy="true">डिफ़ॉल्ट पर रिसेट करें</string>
   <string name="description_edit_text_hint" fuzzy="true">शीर्षक विवरण</string>
@@ -430,6 +424,7 @@
   <string name="suggested_edits_reactivation_notification_title">सुझाए गए संपादन</string>
   <string name="suggested_edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">शुरू करें</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन समीक्षक में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
@@ -447,7 +442,6 @@
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>
-  <string name="top_on_this_day">%1$s पर ट्रेंडिंग</string>
   <string name="on_this_day_card_title">इस दिन</string>
   <string name="more_events_text" fuzzy="true">इस दिन पर अन्य ऐतिहासिक घटनाएं</string>
   <string name="events_count_text" fuzzy="true">%1$s घटनाक्रम %2$s से  - %3$d तक</string>
@@ -457,6 +451,7 @@
     <item quantity="other">%d साल पहले</item>
   </plurals>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">নাই, নালাগে দিয়ক</string>
+  <string name="image_recommendations_task_choice_other">अन्य</string>
   <string name="talk_title">वार्ता</string>
   <string name="talk_add_reply">जवाब दें</string>
 </resources>

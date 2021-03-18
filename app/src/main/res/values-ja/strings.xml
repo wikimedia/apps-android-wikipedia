@@ -2,7 +2,6 @@
 <!-- Authors:
 * 129femtoseconds
 * A2y4
-* Abijeet Patro
 * Aefgh39622
 * Afaz
 * Bonfire12
@@ -12,6 +11,7 @@
 * Hzy980512
 * Kanon und wikipedia
 * Kkairri
+* LaMagiaaa
 * Los688
 * Mirinano
 * Omotecho
@@ -79,6 +79,10 @@
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
+  <string name="menu_page_add_to_watchlist">ウォッチリストに追加</string>
+  <string name="menu_page_view_talk">ノートを表示</string>
+  <string name="menu_page_view_edit_history">編集履歴を表示</string>
+  <string name="menu_page_remove_from_watchlist">ウォッチリストから除去</string>
   <string name="edit_section_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
@@ -87,6 +91,7 @@
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">リンクを共有</string>
   <string name="menu_page_open_a_new_tab">新しいタブを開く</string>
+  <string name="menu_page_new_tab">新しいタブ</string>
   <string name="menu_page_reading_lists">あとで読むリスト</string>
   <string name="menu_page_recently_viewed">最近見たページ</string>
   <string name="menu_long_press_open_page">開く</string>
@@ -214,6 +219,8 @@
   <string name="page_protected_can_not_edit">残念ながら、あなたのアカウントにはこのページを編集する権限がありません。</string>
   <string name="page_protected_can_not_edit_anon">申し訳ありませんがこのページは現在匿名編集できません。</string>
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ウォッチリストに追加</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">興味のある記事について何が起こったか追跡します。右上のメニューをタップして、&lt;b&gt;ウォッチリストに追加&lt;/b&gt;を選び、記事の変更を追ってみましょう。</string>
   <string name="settings_item_preferences">設定</string>
   <string name="settings_activity_title">設定</string>
   <string name="about_description">ウィキペディアアプリについて</string>
@@ -229,6 +236,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#Train_image_algorithm</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
@@ -263,6 +271,7 @@
   <string name="find_previous">前を検索</string>
   <string name="find_first_occurence">これが1件目です</string>
   <string name="find_last_occurence">これが最後です</string>
+  <string name="article_opened_in_background_tab">バックグラウンドのタブで記事を開きました。</string>
   <string name="abusefilter_title_warn">これは建設的な編集ではないようです。それでも公開しますか?</string>
   <string name="abusefilter_title_disallow">この編集は公開できません。戻って修正してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;・すべて大文字で書かれている&lt;br /&gt;・記事が白紙化されている、もしくはスパムである&lt;br /&gt;・関係のない外部リンクや画像が挿入されている&lt;br /&gt;・一定の文字が繰り返されている</string>
@@ -353,7 +362,7 @@
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
   <string name="preference_title_collapse_tables">表を閉じる</string>
   <string name="preference_summary_collapse_tables">記事内の基本データ、参考文献、脚注などの表を自動的に閉じる</string>
-  <string name="nav_item_donate">ウィキペディアを支援する</string>
+  <string name="nav_item_donate">寄付</string>
   <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
   <string name="location_service_disabled">位置情報サービスが無効です。</string>
   <string name="enable_location_service">有効にする</string>
@@ -403,7 +412,7 @@
   <string name="text_size_decrease">テキストサイズを縮小します</string>
   <string name="text_size_percent_default">%s (既定)</string>
   <string name="text_style_title">フォント</string>
-  <string name="nav_item_reading_lists">マイリスト</string>
+  <string name="nav_item_saved">保存済み</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_move_to">あとで読むリストに保存</string>
   <string name="reading_list_create_new">新規作成</string>
@@ -583,6 +592,7 @@
   <string name="notifications_view_archived_button_text">アーカイブした通知を表示</string>
   <string name="notification_preferences_title">通知の設定</string>
   <string name="notifications_mark_unread">未読にする</string>
+  <string name="watchlist_title">ウォッチリスト</string>
   <string name="preference_title_notification_poll">通知に投票</string>
   <string name="preference_summary_notification_poll">バックグラウンドで新規通知をチェックするのにアプリがデータ通信するのを許可する</string>
   <string name="preference_category_notification_types">アプリ内通知の種類</string>
@@ -602,14 +612,17 @@
   <string name="preference_summary_notification_user_talk">トークページのメッセージ</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
-  <string name="view_random_card_subtitle">ウィキペディアから記事をランダムに表示して閲覧</string>
-  <string name="view_random_card_action">サイコロを転がす</string>
+  <string name="view_random_article_card_title">ランダム記事</string>
+  <string name="view_random_article_card_action">おまかせ表示をもっと見る</string>
+  <string name="view_top_read_card_title">よく読まれている記事</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d百</string>
   <string name="view_next_random_article">別のおまかせ記事を読む</string>
   <string name="view_main_page_card_title">今日の記事</string>
-  <string name="view_main_page_card_subtitle">%sのメインページ</string>
   <string name="view_main_page_card_action">メインページを表示</string>
   <string name="view_featured_image_card_title">今日の一枚</string>
   <string name="view_featured_image_card_download">ダウンロード</string>
+  <string name="view_featured_image_card_share">共有</string>
   <string name="menu_feed_card_dismiss">カードを隠す</string>
   <string name="menu_feed_card_dismissed">カードを隠しました。</string>
   <string name="menu_feed_card_edit_card_languages">カードの言語を編集</string>
@@ -617,7 +630,6 @@
   <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
   <string name="feed">探索</string>
   <string name="home">ホーム</string>
-  <string name="most_read_list_card_title">トレンド</string>
   <string name="view_static_card_icon_content_description">カードアイコン</string>
   <string name="view_card_news_title">新着情報</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -629,9 +641,7 @@
   <string name="view_announcement_card_negative_action">いいえ</string>
   <string name="view_offline_card_text">オフラインではコンテンツが読み込めません。</string>
   <string name="view_featured_article_card_title">秀逸な記事</string>
-  <string name="view_featured_article_footer_save_button_label">保存</string>
   <string name="view_static_card_save_button_label">保存</string>
-  <string name="view_featured_article_footer_saved_button_label">保存しました</string>
   <string name="feed_configure_activity_title">探索フィードをカスタマイズ</string>
   <string name="feed_configure_menu_reset">標準設定の表示を適用</string>
   <string name="feed_configure_menu_select_all">すべて表示</string>
@@ -842,23 +852,12 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨日</string>
-  <plurals name="suggested_edits_rewards_contributions">
-    <item quantity="one">あなたは提案された編集を使って1件の編集をしました。ありがとうございます!</item>
-    <item quantity="other">あなたは提案された編集を使って%d件の編集をしました。ありがとうございます!</item>
-  </plurals>
-  <plurals name="suggested_edits_rewards_page_views">
-    <item quantity="one">過去30日の間にあなたの編集が1人に見られています。これからもよろしくお願いします。</item>
-    <item quantity="other">過去30日の間にあなたの編集が%d人に見られています。これからもよろしくお願いします。</item>
-  </plurals>
-  <string name="suggested_edits_rewards_contribution">あなたは提案された編集を使って%d件の編集をしました。ありがとうございます!</string>
-  <string name="suggested_edits_rewards_edit_streak">%1$d日間編集し続けています。このまま頑張ってください、%2$sさん!</string>
-  <string name="suggested_edits_rewards_pageviews">あなたの編集は30日間に%d人に見られています。これからもよろしくお願いします!</string>
-  <string name="suggested_edits_rewards_continue_button">続行</string>
   <string name="suggested_edits_encourage_account_creation_title">誰でもウィキペディアを編集できることはご存知でしたか?</string>
   <string name="suggested_edits_encourage_account_creation_message">提案された編集は Android 上でウィキペディアを編集する新しい方法です。これは小さなことですがウィキペディアに不可欠なものです。私たちの目標は誰でも簡単に編集できるようにすることです。ログインをするかウィキペディアに参加して始めましょう。</string>
   <string name="suggested_edits_encourage_account_creation_login_button">ウィキペディアにログインまたは登録</string>
   <string name="suggested_edits_contribution_type_image_tag">画像タグ</string>
   <string name="suggested_edits_contribution_current_revision_text">あなたの編集をウィキペディアに公開しました</string>
+  <string name="suggested_card_more_edits">編集提案をもっと見る</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$sつのタグ</item>
     <item quantity="other">%1$sつのタグ</item>
@@ -875,6 +874,9 @@
     <item quantity="one">%d文字追加しました</item>
     <item quantity="other">%d文字追加しました</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">始める</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">その調子です! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">あなたは目標を達成しました</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -906,13 +908,10 @@
   <string name="app_shortcuts_random">おまかせ表示</string>
   <string name="app_shortcuts_continue_reading">続けて読む</string>
   <string name="app_shortcuts_search">検索</string>
-  <string name="more_trending_text">もっと見る</string>
-  <string name="top_on_this_day">%1$sに話題になった記事</string>
   <string name="on_this_day_card_title">今日は何の日</string>
   <string name="more_events_text">この日に起こったその他の出来事</string>
   <string name="events_count_text">%2$sから%3$dまでに起こった%1$s件の出来事</string>
   <string name="this_year">今年</string>
-  <string name="back_to_top">トップへ</string>
   <string name="on_this_day_dialog_next_month">次の月</string>
   <string name="on_this_day_dialog_previous_month">前の月</string>
   <string name="on_this_day_open_date_picker">日付ピッカーを開く</string>
@@ -920,6 +919,8 @@
     <item quantity="one">昨年</item>
     <item quantity="other">%d年前</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">タイムトラベルしましたね🚀</string>
+  <string name="on_this_day_back_to_future">未来に戻る</string>
   <string name="languages_list_activity_title">言語を追加</string>
   <string name="languages_list_suggested_text">こちらの記事もおすすめです</string>
   <string name="languages_list_all_text">すべての言語</string>
@@ -951,6 +952,17 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">キャンセル</string>
   <string name="edit_type_all">すべての投稿記録</string>
   <string name="content_description_for_page_indicator">全%2$dページの%1$dページ目</string>
+  <string name="image_recommendations_task_accept">はい</string>
+  <string name="image_recommendations_task_reject">いいえ</string>
+  <string name="image_recommendations_task_not_sure">不確実</string>
+  <string name="image_recommendations_task_processing">処理中...</string>
+  <string name="image_recommendations_task_daily_amount">%d / %d</string>
+  <string name="image_recommendations_task_choice_low_quality">低クオリティ</string>
+  <string name="image_recommendations_task_choice_noinfo">情報が不足しています</string>
+  <string name="image_recommendations_task_choice_offensive">攻撃的</string>
+  <string name="image_recommendations_task_choice_invisible">画像が見れません</string>
+  <string name="image_recommendations_task_choice_other">その他</string>
+  <string name="image_recommendations_task_choice_continue">続行</string>
   <string name="wikitext_bold">太字</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">リンク</string>
@@ -964,6 +976,8 @@
   <string name="main_tooltip_text">%sさん、ウィキペディアは誰でも編集できることをご存知でしたか?</string>
   <string name="main_tooltip_text_v2">ウィキペディアは誰もが編集できることをご存知ですか?</string>
   <string name="main_tooltip_action_button">始める</string>
+  <string name="main_tooltip_watchlist_title">ウォッチリスト</string>
+  <string name="main_tooltip_watchlist_text">以前ウォッチリストに追加した記事やページは、「もっと見る」メニューの&lt;b&gt;ウォッチリスト&lt;/b&gt;から探してみましょう。</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">キャンセル</string>
@@ -979,4 +993,27 @@
   <string name="talk_message_hint">メッセージを組み立てる</string>
   <string name="talk_message_empty">メッセージを空にすることはできません。</string>
   <string name="talk_subject_empty">件名を空にすることはできません。</string>
+  <string name="menu_option_share_edit">編集をシェア</string>
+  <string name="menu_option_user_profile">%s のプロフィール</string>
+  <string name="menu_option_user_contributions">%s の投稿記録</string>
+  <string name="watchlist_details_watch_label">ウォッチ</string>
+  <string name="thank_label">感謝</string>
+  <string name="go_to_user_page">利用者ページに移動</string>
+  <string name="thank_dialog_title_text">感謝を公に示す</string>
+  <string name="thank_dialog_text">\'感謝\' はウィキペディアを編集する編集者へ感謝を示す簡単な方法です。\'感謝\' は元に戻すことはできず、誰でも見ることができます。</string>
+  <string name="thank_dialog_positive_button_text">感謝を示す</string>
+  <string name="thank_dialog_negative_button_text">キャンセル</string>
+  <string name="thank_success_message">あなたの感謝は %s に送られました 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">変更</string>
+  <string name="watchlist_expiry_dialog_one_week">1週間</string>
+  <string name="watchlist_expiry_dialog_one_month">1ヵ月</string>
+  <string name="watchlist_expiry_dialog_three_months">3ヵ月</string>
+  <string name="watchlist_expiry_dialog_six_months">6ヵ月</string>
+  <string name="watchlist_filter_all">すべて</string>
+  <string name="watchlist_filter_talk">トーク</string>
+  <string name="watchlist_filter_pages">ページ</string>
+  <string name="watchlist_filter_other">その他</string>
+  <string name="watchlist_page_moved">移動</string>
+  <string name="watchlist_page_protected">保護</string>
+  <string name="watchlist_page_deleted">削除</string>
 </resources>

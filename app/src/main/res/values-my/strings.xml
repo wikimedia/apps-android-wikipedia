@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * Dr Lotus Black
 * July Amyutay
 * Khunnaingko
 * Lionslayer
+* MuratTheTurkish
 * NayiMuu
 * Ninjastrikers
 * Parabaik
@@ -55,6 +55,7 @@
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
   <string name="menu_page_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
+  <string name="menu_page_remove_from_watchlist">စောင့်ကြည့်စာရင်းမှ ဖယ်ရှားရန်</string>
   <string name="edit_section_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
   <string name="menu_page_add_to_list">စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
@@ -63,6 +64,7 @@
   <string name="feed_card_add_to_default_list">သိမ်းရန်</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
   <string name="menu_page_open_a_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
+  <string name="menu_page_new_tab">tab အသစ်</string>
   <string name="menu_page_reading_lists">စာရင်းများကို ဖတ်နေသည်</string>
   <string name="menu_page_recently_viewed">မကြာသေခင်က ကြည့်ခဲ့သော</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
@@ -78,6 +80,7 @@
   <string name="map_view_link_text">မြေပုံပေါ်တွင် ကြည့်ရန်</string>
   <string name="other_languages_indication_text">အခြား ဘာသာစကားဖြင့်ဖတ်ပါ။</string>
   <string name="language_count_link_text">အခြားဘာသာစကား %d ခုဖြင့် ရရှိနိုင်သည်</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>
   <string name="edit_save_action_license_anon">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။ တည်းဖြတ်မှုများအား သင်၏ အိုင်ပီလိပ်စာဖြင့်သိမ်းထားမည်ဖြစ်သည်။ သင် ဆိုဒ်သို့&lt;a href=\"https://#login\"&gt;ဝင်ရောက်ထားပါက&lt;/a&gt; လုံခြုံမှုပိုရှိမည်ဖြစ်သည်။</string>
   <string name="preference_title_language">ဝီကီပီးဒီးယား ဘာသာစကားများ</string>
@@ -189,6 +192,7 @@
   <string name="page_protected_can_not_edit">ယခုအချိန်၌ ဤစာမျက်နှာကို တည်းဖြတ်ရန် သင်၏အကောင့်တွင် လုံလောက်သောခွင့်ပြုချက် မရှိပါ</string>
   <string name="page_protected_can_not_edit_anon">ယခုအချိန်၌ ဤစာမျက်နှာအား အမည်မဖော်လိုသူအဖြစ် တည်းဖြတ်မရနိုင်ပါ</string>
   <string name="page_protected_can_not_edit_title">ဤစာမျက်နှာအား ကာကွယ်ထားသည်</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">စောင့်ကြည့်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
   <string name="settings_item_preferences">အပြင်အဆင်များ</string>
   <string name="settings_activity_title">အပြင်အဆင်များ</string>
   <string name="about_description">ဝီကီပီးဒီးယားအက်ပ် အကြောင်း</string>
@@ -199,7 +203,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/my</string>
-  <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/Wikipedia:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
+  <string name="android_app_request_an_account_url">https://my.wikipedia.org/wiki/ဝီကီပီးဒီးယား:အကောင့်တစ်ခု_တောင်းဆိုရန်</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/my</string>
@@ -245,6 +249,11 @@
   <string name="page_similar_titles">ဆင်တူစာမျက်နှာများ</string>
   <string name="search_did_you_mean">\"%s\" ဟု ဆိုလိုပါသလား?</string>
   <string name="search_recent_header">လတ်တလော ရှာဖွေမှုများ -</string>
+  <string name="search_results_count_zero">မည်သည့်ရလဒ်မှ မရှိပါ</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 ရလဒ်</item>
+    <item quantity="other">%d ရလဒ်များ</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">မကြာမီက ရှာဖွေမှုများကို ရှင်းရန်</string>
   <string name="clear_recent_searches_confirm">သင့်ရှာဖွေမှု ရာဇဝင်ကို ရှင်းလင်းမည်မှာ သေချာပါသလား?</string>
   <string name="clear_recent_searches_confirm_yes">လုပ်မည်</string>
@@ -308,6 +317,7 @@
   <string name="address_copied">လိပ်စာအား ကူးယူပြီး။</string>
   <string name="text_copied">စာသားအား ကူးယူပြီး။</string>
   <string name="button_continue_to_article">ဆောင်းပါး ဖတ်ရှုရန်</string>
+  <string name="button_continue_to_talk_page">ဆွေးနွေးချက်စာမျက်နှာကို ဖွင့်ရန်</string>
   <string name="button_continue_to_disambiguation">ဆင်တူစာမျက်နှာများကို ကြည့်ရန်</string>
   <string name="link_preview_disambiguation_description">ဤခေါင်းစဉ်သည် စာမျက်နှာတစ်ခုထက်ပို၍ ဆက်နွယ်သည်:</string>
   <string name="button_add_to_reading_list">ဖတ်ရှုစာရင်းသို့ ပေါင်းထည့်ရန်</string>
@@ -322,7 +332,7 @@
   <string name="preference_summary_show_link_previews">လင့်ခ်များအား နှိပ်ခြင်းဖြင့် ဆောင်းပါးနမူနာအား ပြသပါ။</string>
   <string name="preference_title_collapse_tables">ဇယားများ ချဲ့ရန်</string>
   <string name="preference_summary_collapse_tables">ဆောင်းပါးများရှိ infobox များ၊ အကိုးအကားများနှင့် မှတ်စုများကဲ့သို့သော ဇယားများကို အလိုအလျောက် ချဲ့ကားစေမည်</string>
-  <string name="nav_item_donate">ဝီကီပီးဒီးယားကို ကူညီထောက်ပံ့</string>
+  <string name="nav_item_donate">လှူဒါန်း​ရန်</string>
   <string name="error_voice_search_not_available">စိတ်မကောင်းပါ။ အသံမှတ်သားခိုင်းစေခြင်း မရရှိနိုင်ပါ။</string>
   <string name="location_service_disabled">တည်နေရာဝန်ဆောင်မှုများ ပိတ်ထားသည်။</string>
   <string name="enable_location_service">လုပ်ဆောင်ပါ</string>
@@ -351,6 +361,7 @@
   <string name="article_menu_bar_save_button">သိမ်းရန်</string>
   <string name="article_menu_bar_language_button">ဘာသာစကား</string>
   <string name="article_menu_bar_search_button">ရှာဖွေရန်</string>
+  <string name="article_menu_bar_theme_button">Theme</string>
   <string name="article_menu_bar_contents_button">မာတိကာများ</string>
   <string name="article_header_edit_hint">ပြင်ဆင်...</string>
   <string name="article_header_edit_description">ဆောင်းပါးဖော်ပြချက်ကို တည်းဖြတ်ရန်</string>
@@ -367,7 +378,8 @@
   <string name="text_size_increase">စာလုံးအရွယ်အစား ကြီးရန်။</string>
   <string name="text_size_decrease">စာလုံးအရွယ်အစား သေးရန်။</string>
   <string name="text_size_percent_default">%s (နဂိုအတိုင်း)</string>
-  <string name="nav_item_reading_lists">ကျွန်ုပ်၏ စာရင်းများ</string>
+  <string name="text_style_title">ဖောင့်</string>
+  <string name="nav_item_saved">သိမ်းဆည်းပြီး</string>
   <string name="reading_list_save_to">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>
   <string name="reading_list_move_to">ဖတ်ရှုနေသောစာရင်သို့ ရွှေ့ရန်</string>
   <string name="reading_list_create_new">အသစ်ဖန်တီးရန်</string>
@@ -534,6 +546,7 @@
   <string name="notifications_view_archived_button_text">မော်ကွန်း အသိပေးချက်များကို ကြည့်ရန်</string>
   <string name="notification_preferences_title">အသိပေးချက် ရွေးချယ်စရာများ</string>
   <string name="notifications_mark_unread">မဖတ်ရသေးကြောင်း မှတ်သားရန်</string>
+  <string name="watchlist_title">စောင့်ကြည့်စာရင်း</string>
   <string name="preference_title_notification_poll">အသိပေးချက်များကို မဲဆန္ဒပေးရန်</string>
   <string name="preference_summary_notification_poll">နောက်ခံမှ အသိပေးချက်အသစ်များကို စစ်ဆေးရန် ဒေတာသုံးစွဲခွင့်ကို app အား ခွင့်ပြုမည်။</string>
   <string name="preference_category_notification_types">app ထဲရှိ အသိပေးချက် အမျိူးအစားများ</string>
@@ -553,14 +566,16 @@
   <string name="preference_summary_notification_user_talk">ဆွေးနွေးချက်စာမျက်နှာများမှ မက်ဆေ့များ</string>
   <string name="view_because_you_read_card_title">သင်ဖတ်ရှုခဲ့သောကြောင့်</string>
   <string name="view_random_card_title">ကျပန်းစဉ်</string>
-  <string name="view_random_card_subtitle">ဝီကီပီးဒီးယားမှ ကျပန်းဆောင်းပါးတစ်ပုဒ်အား ဖတ်ရန် လှည့်ယမ်းပါ</string>
-  <string name="view_random_card_action">ကျပန်းစာမျက်နှာ</string>
+  <string name="view_random_article_card_title">ကျပန်း ဆောင်းပါး</string>
+  <string name="view_random_article_card_action">ပိုမိုသော ကျပန်းဆောင်းပါးများ</string>
+  <string name="view_top_read_card_title">ဖတ်ရှုမှု အများဆုံး</string>
+  <string name="view_top_read_card_action">ပိုမိုသော ဖတ်ရှုမှုအများဆုံး</string>
   <string name="view_next_random_article">အခြားသော ကျပန်းဆောင်းပါး</string>
   <string name="view_main_page_card_title">ယနေ့အတွက် ဝီကီပီးဒီးယား</string>
-  <string name="view_main_page_card_subtitle">%s အတွက် ဗဟိုစာမျက်နှာ</string>
   <string name="view_main_page_card_action">ပင်မစာမျက်နှာကို ကြည့်ရန်</string>
   <string name="view_featured_image_card_title">ယနေ့အတွက် ဓာတ်ပုံ</string>
   <string name="view_featured_image_card_download">ဒေါင်းလုဒ်</string>
+  <string name="view_featured_image_card_share">မျှဝေ</string>
   <string name="menu_feed_card_dismiss">ဤကဒ်ကို ဝှက်</string>
   <string name="menu_feed_card_dismissed">ကဒ် ဝှက်ပြီး။</string>
   <string name="menu_feed_card_edit_card_languages">ကဒ်ဘာသာစကားများ ပြင်ဆင်ရန်</string>
@@ -568,7 +583,6 @@
   <string name="feed_featured_image_share_subject">Wikimedia Commons မှ အထူးဓာတ်ပုံ</string>
   <string name="feed">ရှာဖွေစူးစမ်းပါ</string>
   <string name="home">ပင်မ</string>
-  <string name="most_read_list_card_title">ရေပန်းစားမှု</string>
   <string name="view_static_card_icon_content_description">ကဒ်ပုံ</string>
   <string name="view_card_news_title">သတင်းထဲတွင်</string>
   <plurals name="view_continue_reading_card_subtitle">
@@ -580,9 +594,7 @@
   <string name="view_announcement_card_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
   <string name="view_offline_card_text">အော့ဖ်လိုင်းဖြစ်ချိန် အကြာင်းအရာကို ဝန်မဆွဲတင်နိုင်ပါ။</string>
   <string name="view_featured_article_card_title">အထူးဆောင်းပါး</string>
-  <string name="view_featured_article_footer_save_button_label">သိမ်းရန်</string>
   <string name="view_static_card_save_button_label">သိမ်းရန်</string>
-  <string name="view_featured_article_footer_saved_button_label">သိမ်းဆည်းပြီး</string>
   <string name="feed_configure_activity_title">အခင်းအကျင်းအား စိတ်ကြိုက်ပြင်ဆင်ရန်</string>
   <string name="feed_configure_menu_reset">နဂိုမြင်ကွင်းအတိုင်း ပြန်ထားရန်</string>
   <string name="feed_configure_menu_select_all">အားလုံးပြရန်</string>
@@ -740,6 +752,7 @@
   <string name="suggested_edits_task_new">အသစ်</string>
   <string name="suggested_edits_cc0_notice">ထုတ်ဝေလိုက်ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား &lt;a href=\"%2$s\"&gt;CC0 လိုင်စင်&lt;/a&gt;ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သဘောတူပြီးဖြစ်ရမည်။</string>
   <string name="suggested_edits_reactivation_notification_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">ဝီကီပီးဒီယားမှာ တည်းဖြတ်ပေးလို့ ကျေးဇူးတင်ပါတယ်၊ သင် ချန်ထားတဲ့နေရာကနေ ဘာဖြစ်လို့ ပြန်မစရမှာလဲ?</string>
   <string name="suggested_edits_contributions_screen_title">%s ၏ ပံ့ပိုးမှုများ</string>
   <string name="suggested_edits_contribution_language_label">ဘာသာစကား</string>
   <string name="suggested_edits_contribution_date_time_label">ရက်စွဲ / အချိန်</string>
@@ -748,10 +761,10 @@
   <string name="suggested_edits_contribution_article_label">ဆောင်းပါး</string>
   <string name="suggested_edits_contribution_seen_text">လွန်ခဲ့သောရက် ၃၀ အတွင်း %s ကြိမ် မြင်ခဲ့သည်။</string>
   <string name="suggested_edits_contribution_date_yesterday_text">မနေ့</string>
-  <string name="suggested_edits_rewards_continue_button">ဆက်လက်</string>
   <string name="suggested_edits_encourage_account_creation_title">ဝီကီပီဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
   <string name="suggested_edits_encourage_account_creation_login_button">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
-  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">လက်ရှိဗားရှင်း</string>
+  <string name="suggested_edits_contribution_current_revision_text">လက်ရှိသင်၏တည်းဖြတ်မှုသည် ဝီကီပီဒီယားတွင် အချိန်နှင့်တပြေးညီရောက်ရှိနေပါသည်</string>
+  <string name="suggested_card_more_edits">ပိုမို၍ အကြံပြုထားသော တည်းဖြတ်မှုများ</string>
   <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
   <string name="file_page_activity_title">ဖိုင်စာမျက်နှာ</string>
   <string name="file_page_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
@@ -783,19 +796,18 @@
   <string name="app_shortcuts_random">ကျပန်း</string>
   <string name="app_shortcuts_continue_reading">ဆက်လက် ဖတ်ရှုရန်</string>
   <string name="app_shortcuts_search">ရှာဖွေရန်</string>
-  <string name="more_trending_text">ဤကဲ့သို့သော အရာများ</string>
-  <string name="top_on_this_day">%1$s တွင် ရေပန်းစားနေမှု</string>
   <string name="on_this_day_card_title">ယနေ့ဖြစ်ရပ်များ</string>
   <string name="more_events_text">ယနေ့အတွက် ထပ်မံ၍ ကြည့်ရှုရန်။</string>
   <string name="events_count_text">%2$s–%3$d မှ %1$s ဖြစ်ရပ်များ</string>
   <string name="this_year">ဤနှစ်</string>
-  <string name="back_to_top">ထိပ်ဆုံးသို့ ပြန်သွားရန်</string>
   <string name="on_this_day_dialog_next_month">နောက်လ</string>
   <string name="on_this_day_dialog_previous_month">ယခင်လ</string>
   <plurals name="diff_years">
     <item quantity="one">မနှစ်</item>
     <item quantity="other">%d နှစ်အကြာက</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">သင်သည် အချိန်ခရီးသွားခဲ့သည် 🚀</string>
+  <string name="on_this_day_back_to_future">အနာဂါတ်သို့ ပြန်သွားရန်</string>
   <string name="languages_list_activity_title">ဘာသာစကားတစ်ခု ထည့်သွင်းရန်</string>
   <string name="languages_list_suggested_text">အကြံပေးထားသော</string>
   <string name="languages_list_all_text">ဘာသာစကားများ အားလုံး</string>
@@ -836,6 +848,7 @@
   <string name="main_tooltip_text">ဟိုင်း %s၊ ဝီကီပီးဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
   <string name="main_tooltip_text_v2">ဝီကီပီဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
   <string name="main_tooltip_action_button">စတင်ပါ</string>
+  <string name="main_tooltip_watchlist_title">စောင့်ကြည့်စာရင်း</string>
   <string name="custom_date_picker_dialog_ok_button_text">အိုကေ</string>
   <string name="text_input_dialog_ok_button_text">အိုကေ</string>
   <string name="text_input_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
@@ -843,5 +856,16 @@
   <string name="talk_title">ဆွေးနွေး</string>
   <string name="talk_page_empty">ဤဆွေးနွေးချက်စာမျက်နှာမှာ ဗလာဖြစ်နေသည်။</string>
   <string name="talk_add_reply">အကြောင်းပြန်ရန်</string>
+  <string name="talk_no_subject">(အကြောင်းအရာ မရှိ)</string>
   <string name="talk_reply_subject">အကြောင်းအရာ</string>
+  <string name="talk_message_empty">စာတို ဗလာဖြစ်၍ မရပါ။</string>
+  <string name="talk_subject_empty">အကြောင်းအရာ ဗလာဖြစ်၍ မရပါ။</string>
+  <string name="watchlist_details_watch_label">စောင့်ကြည့်ရန်</string>
+  <string name="thank_label">ကျေးဇူးတင်</string>
+  <string name="thank_dialog_negative_button_text">မလုပ်တော့ပါ</string>
+  <string name="watchlist_filter_all">အားလုံး</string>
+  <string name="watchlist_filter_talk">ဆွေးနွေး</string>
+  <string name="watchlist_filter_pages">စာမျက်နှာများ</string>
+  <string name="watchlist_filter_other">အခြား</string>
+  <string name="watchlist_page_moved">ရွေ့ပြောင်းခဲ့</string>
 </resources>

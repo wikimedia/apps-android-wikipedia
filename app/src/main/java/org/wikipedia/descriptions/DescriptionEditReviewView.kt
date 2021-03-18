@@ -3,9 +3,9 @@ package org.wikipedia.descriptions
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import kotlinx.android.synthetic.main.view_description_edit_review.view.*
-import org.wikipedia.R
+import org.wikipedia.databinding.ViewDescriptionEditReviewBinding
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_ARTICLE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_DEFAULT
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_IMAGE_CAPTION
@@ -15,14 +15,10 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
 class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
-
-    init {
-        inflate(context, R.layout.view_description_edit_review, this)
-    }
+    private val binding = ViewDescriptionEditReviewBinding.inflate(LayoutInflater.from(context), this)
 
     val isShowing: Boolean
         get() = visibility == VISIBLE
-
 
     fun show() {
         visibility = VISIBLE
@@ -36,45 +32,44 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         L10nUtil.setConditionalLayoutDirection(this, summaryForEdit.lang)
         if (captionReview) {
             setGalleryReviewView(summaryForEdit, description)
-            licenseView.buildLicenseNotice(ARG_NOTICE_IMAGE_CAPTION)
+            binding.licenseView.buildLicenseNotice(ARG_NOTICE_IMAGE_CAPTION)
         } else {
             setDescriptionReviewView(summaryForEdit, description)
-            licenseView.buildLicenseNotice(if (summaryForEdit.description.isNullOrEmpty()) ARG_NOTICE_ARTICLE_DESCRIPTION else ARG_NOTICE_DEFAULT)
+            binding.licenseView.buildLicenseNotice(if (summaryForEdit.description.isNullOrEmpty()) ARG_NOTICE_ARTICLE_DESCRIPTION else ARG_NOTICE_DEFAULT)
         }
     }
 
     private fun setDescriptionReviewView(summaryForEdit: PageSummaryForEdit, description: String) {
-        galleryContainer.visibility = GONE
-        articleTitle!!.text = StringUtil.fromHtml(summaryForEdit.displayTitle)
-        articleSubtitle!!.text = description
-        articleExtract!!.text = StringUtil.fromHtml(summaryForEdit.extractHtml)
+        binding.galleryContainer.visibility = GONE
+        binding.articleTitle.text = StringUtil.fromHtml(summaryForEdit.displayTitle)
+        binding.articleSubtitle.text = description
+        binding.articleExtract.text = StringUtil.fromHtml(summaryForEdit.extractHtml)
 
         if (summaryForEdit.thumbnailUrl.isNullOrBlank()) {
-            articleImage.visibility = GONE
-            articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
+            binding.articleImage.visibility = GONE
+            binding.articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
-            articleImage.visibility = VISIBLE
-            articleImage.loadImage(Uri.parse(summaryForEdit.getPreferredSizeThumbnailUrl()))
-            articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
+            binding.articleImage.visibility = VISIBLE
+            binding.articleImage.loadImage(Uri.parse(summaryForEdit.getPreferredSizeThumbnailUrl()))
+            binding.articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
     private fun setGalleryReviewView(summaryForEdit: PageSummaryForEdit, description: String) {
-        articleContainer.visibility = GONE
-        indicatorDivider.visibility = GONE
-        galleryDescriptionText.text = StringUtil.fromHtml(description)
+        binding.articleContainer.visibility = GONE
+        binding.indicatorDivider.visibility = GONE
+        binding.galleryDescriptionText.text = StringUtil.fromHtml(description)
         if (summaryForEdit.thumbnailUrl.isNullOrBlank()) {
-            galleryImage.visibility = GONE
+            binding.galleryImage.visibility = GONE
         } else {
-            galleryImage.visibility = VISIBLE
-            ViewUtil.loadImageWithWhiteBackground(galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
+            binding.galleryImage.visibility = VISIBLE
+            ViewUtil.loadImage(binding.galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
         }
-        licenseView.darkLicenseView()
+        binding.licenseView.darkLicenseView()
     }
 
     companion object {
-        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 9
+        const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 5
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 15
     }
-
 }

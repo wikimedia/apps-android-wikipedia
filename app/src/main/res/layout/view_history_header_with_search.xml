@@ -5,23 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <org.wikipedia.views.WikiCardView
-        android:id="@+id/wiki_card_for_search"
+    <include
+        android:id="@+id/search_card"
+        layout="@layout/view_search_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginTop="8dp"
-        android:transitionName="@string/transition_search_bar">
-
-        <include
-            android:id="@+id/search_card"
-            layout="@layout/view_search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:visibility="visible" />
-    </org.wikipedia.views.WikiCardView>
+        android:visibility="visible" />
 
     <LinearLayout
         android:layout_width="match_parent"

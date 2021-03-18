@@ -9,9 +9,7 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Jalaki Wikipedia</string>
-  <string name="search_hint_search_history">Jalaki riwayat</string>
   <string name="search_hint_search_languages">Jalaki i saro</string>
-  <string name="nav_item_history">Riwayat</string>
   <string name="error_network_error">Inda bisa mamyambung tu internet</string>
   <string name="page_error_retry">Kajo mulak</string>
   <string name="page_error_back_to_main">Mulak</string>
@@ -28,7 +26,7 @@
   <string name="search_redirect_from">Ialihkon tingon %s</string>
   <string name="menu_page_show_tabs">Tampilkon tab</string>
   <string name="menu_page_other_languages">Uba saro</string>
-  <string name="menu_page_find_in_page">Jalaki i alaman</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Jalaki i alaman</string>
   <string name="menu_page_font_and_theme">Huruf dot tema</string>
   <string name="menu_page_add_to_list">Tambaon tu daftar bacaan</string>
   <string name="menu_page_share">Bagion tautan</string>
@@ -43,7 +41,7 @@
   <string name="map_view_link_text">Ligin i peta</string>
   <string name="other_languages_indication_text">Baca i saro nalain</string>
   <string name="language_count_link_text">Tarsadio i %d saro nalain</string>
-    <string name="edit_save_action_license_logged_in" fuzzy="true">Dohot manyimpan, amu mangoloi tu &lt;a href=\"%1$s\"&gt;Katontuan pamakean&lt;/a&gt;, dot palua naibaenmuyu itoru lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Dohot manyimpan, amu mangoloi tu &lt;a href=\"%1$s\"&gt;Katontuan pamakean&lt;/a&gt;, dot palua naibaenmuyu itoru lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Dohot manyimpan, Amu olo tu &lt;a href=\"%1$s\"&gt;Katontuan Panggunaan&lt;/a&gt;, dot palua kontribusi Muyu i toru lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan angkan isambungkon tu alamat IP perangkat. Molo Amu &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Amu nangkan puna lobi privasi.</string>
   <string name="preference_title_language">Saro-saro Wikipedia</string>
   <string name="langlinks_filter_hint">Jalaki</string>
@@ -52,7 +50,6 @@
   <string name="langlinks_activity_title">I saro nalain</string>
   <string name="langlinks_your_wikipedia_languages">Saro ni Wikipedia mu</string>
   <string name="menu_save_changes">Torbitkon parubaan</string>
-  <string name="dialog_saving_in_progress">Manorbitkon</string>
   <string name="edit_saved_successfully">Editan madung itorbitkon</string>
   <string name="dialog_message_edit_failed">Editan bangor!</string>
   <string name="dialog_message_edit_failed_retry">Kajo mulak</string>
@@ -75,9 +72,9 @@
   <string name="login_2fa_hint">Kode otentikasi dua faktor</string>
   <string name="login_2fa_other_workflow_error_msg">Otentikasi dua faktor iporluon! Kemamu mulak tu aktivitas utamo dot masuk log dohot token 2FA mu, dungni kajo mulak.</string>
   <string name="menu_login">Masuk log</string>
-  <string name="login_activity_title">Masuk tu Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Masuk tu Wikipedia</string>
   <string name="login_in_progress_dialog_message">Dompak masuk log</string>
-  <string name="login_success_toast">Marhasil masuk log</string>
+  <string name="login_success_toast" fuzzy="true">Marhasil masuk log</string>
   <string name="reset_password_title">Sitel sandimu</string>
   <string name="reset_password_description">Amu masuk dohot hata sandi sementara. Anso manyaloseon proses masuk sitel hata sandi muyu ison.</string>
   <string name="reset_password_hint">Sandi nabaru</string>
@@ -112,7 +109,6 @@
   <string name="create_account_ip_block_details">Singkop</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Parsapaan na dodas isapaan</string>
-  <string name="edit_preview_fetching_dialog_message">Mambuat pratayang</string>
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
   <string name="create_account_account_created_toast">Akun dibaen!</string>
   <string name="preferences_heading_syncing">Sinkronisasi</string>
@@ -127,9 +123,8 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan panggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkon Wikimedia get mangumpulkon informasi tontang songondia Amu mamake aplikasi anso mambaen aplikasi tu nadegesna</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan nasega</string>
-  <string name="preference_summary_auto_upload_crash_reports">Izinkon aplikasi tu mangirimkon laporan nasega tu HockeyApp / panyadio layanan pihak patolu sacara otomatis mambaen ami bisa mangida sega muyui dot pature kasalahan lobi cipat dot lobi momo.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkon aplikasi tu mangirimkon laporan nasega tu HockeyApp / panyadio layanan pihak patolu sacara otomatis mambaen ami bisa mangida sega muyui dot pature kasalahan lobi cipat dot lobi momo.</string>
   <string name="editing_error_spamblacklist">Pranala tu domain na iblokir (%s) tardeteksi. Apusma dot kajo mulak.</string>
-  <string name="history_search_list_hint">Jalaki riwayat</string>
   <string name="error_can_not_process_link">Inda bisa patidaon pranala on</string>
   <string name="page_protected_autoconfirmed">Alaman on madung ilarang deba</string>
   <string name="page_protected_sysop">Alaman on madung ilarang sude.</string>
@@ -142,7 +137,7 @@
   <string name="about_description">Tontang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kabijakan privasi</string>
   <string name="terms_of_use_description">Katontuan panggunaan</string>
-  <string name="about_wikipedia_url">https://id.m.wikipedia.org/wiki/Wikipedia:Parihal</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://id.m.wikipedia.org/wiki/Wikipedia:Parihal</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm#Baca_sacara_luring_dot_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.btm</string>

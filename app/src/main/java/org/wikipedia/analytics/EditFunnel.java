@@ -13,7 +13,7 @@ import org.wikipedia.page.PageTitle;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";
-    private static final int REV_ID = 19631190;
+    private static final int REV_ID = 20710930;
 
     private final PageTitle title;
 

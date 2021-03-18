@@ -6,4 +6,10 @@
         android:icon="@drawable/ic_translate_themed_24dp"
         android:title="@string/langlinks_activity_title"
         app:showAsAction="always" />
+    <item android:id="@+id/menu_view_user_page"
+        android:title="@string/go_to_user_page"
+        app:showAsAction="never" />
+    <item android:id="@+id/menu_view_in_browser"
+        android:title="@string/page_view_in_browser"
+        app:showAsAction="never" />
 </menu>

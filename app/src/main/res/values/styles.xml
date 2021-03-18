@@ -16,6 +16,9 @@
         <item name="actionBarStyle">@style/ToolbarStyle</item>
         <item name="popupTheme">@style/ToolbarPopupTheme</item>
         <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="snackbarStyle">@style/SnackbarStyle</item>
+        <item name="snackbarTextViewStyle">@style/SnackbarTextViewStyle</item>
+        <item name="snackbarButtonStyle">@style/SnackbarButtonStyle</item>
 
         <item name="searchViewStyle">@style/SearchViewStyle</item>
         <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
@@ -29,6 +32,12 @@
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
         <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:selectableItemBackground">@drawable/ripple_background</item>
+        <item name="android:selectableItemBackgroundBorderless">@drawable/ripple_background_borderless</item>
+
+        <!-- TODO: remove when the components can get correct custom ?attr/colorPrimary -->
+        <item name="colorPrimary">?attr/colorPrimary</item>
+        <item name="actionBarPopupTheme">@style/ToolbarPopupTheme</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -64,12 +73,10 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="AppTheme.FullScreen.TranslucentDark">
-        <item name="android:windowBackground">@color/black87</item>
+    <style name="AppTheme.FullScreen.Translucent">
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="colorAccent">@color/accent50</item>
     </style>
 
 
@@ -82,6 +89,10 @@
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/toolbar_icon_color</item>
+    </style>
+
+    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="colorControlNormal">?attr/material_theme_de_emphasised_color</item>
     </style>
 
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
@@ -154,9 +165,9 @@
     </style>
 
     <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/ic_close_main_themed_24dp</item>
-        <item name="searchIcon">@drawable/ic_search_main_themed_24dp</item>
-        <item name="searchHintIcon">@drawable/ic_search_main_themed_24dp</item>
+        <item name="closeIcon">@drawable/ic_close_themed_24dp</item>
+        <item name="searchIcon">@drawable/ic_search_themed_24dp</item>
+        <item name="searchHintIcon">@drawable/ic_search_themed_24dp</item>
     </style>
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
@@ -474,12 +485,31 @@
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?attr/color_group_63</item>
         <item name="android:textSize">10sp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingTop">8dp</item>
         <item name="drawableSize">24dp</item>
-        <item name="drawableTint">?attr/colorAccent</item>
+        <item name="drawableTint">?attr/color_group_63</item>
+    </style>
+
+    <style name="SnackbarStyle" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">4dp</item>
+    </style>
+
+    <style name="SnackbarTextViewStyle" parent="Widget.MaterialComponents.Snackbar.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <style name="SnackbarButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
+        <item name="android:paddingEnd">8dp</item>
     </style>
 </resources>

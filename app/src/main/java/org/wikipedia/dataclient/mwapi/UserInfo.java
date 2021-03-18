@@ -8,7 +8,6 @@ import androidx.collection.ArraySet;
 
 import org.wikipedia.util.DateUtil;
 
-import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -42,11 +41,7 @@ public class UserInfo {
     @NonNull public Date getLatestContrib() {
         Date date = new Date(0);
         if (!TextUtils.isEmpty(latestcontrib)) {
-            try {
-                date = DateUtil.iso8601DateParse(latestcontrib);
-            } catch (ParseException e) {
-                // ignore
-            }
+            date = DateUtil.iso8601DateParse(latestcontrib);
         }
         return date;
     }
@@ -55,15 +50,8 @@ public class UserInfo {
         if (TextUtils.isEmpty(blockexpiry)) {
             return false;
         }
-        try {
-            Date now = new Date();
-            Date expiry = DateUtil.iso8601DateParse(blockexpiry);
-            if (expiry.after(now)) {
-                return true;
-            }
-        } catch (ParseException e) {
-            // ignore
-        }
-        return false;
+        Date now = new Date();
+        Date expiry = DateUtil.iso8601DateParse(blockexpiry);
+        return expiry.after(now);
     }
 }

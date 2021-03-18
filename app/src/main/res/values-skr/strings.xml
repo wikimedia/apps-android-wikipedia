@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Saraiki
 -->
 <resources>
-  <string name="app_name_prod">ویکیپیڈیا</string>
-  <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
-  <string name="app_name_alpha">ویکیپیڈیا الفا</string>
+  <string name="app_name_prod">وکیپیڈیا</string>
+  <string name="app_name_beta">وکیپیڈیا آزمائشی</string>
+  <string name="app_name_alpha">وکیپیڈیا الفا</string>
   <string name="wikimedia">ویکیمیڈیا</string>
   <string name="nav_item_back">واپس</string>
   <string name="page_tabs_back">پچھوں</string>
   <string name="nav_item_forward">اڳوں تے بھیڄو</string>
   <string name="search_hint">وکی ڈیٹا وچ ڳولو</string>
   <string name="search_hint_search_languages">زبان دی ڳول</string>
+  <string name="filter_hint_filter_my_lists_and_articles">میݙیاں تندیراں چھاݨو</string>
+  <string name="nav_item_suggested_edits">تبدیلیاں</string>
   <string name="nav_item_more">ٻئے</string>
+  <string name="nav_item_search">ڳولو</string>
   <string name="error_network_error">انٹرنیٹ نال جوڑ نی تھی سڳا</string>
   <string name="page_error_retry">ولدا کوشش کرو</string>
   <string name="card_offline_error_retry">ولدا کوشش کرو</string>
@@ -32,16 +34,22 @@
   <string name="dialog_message_clear_history_yes">جیا</string>
   <string name="dialog_message_clear_history_no">کو</string>
   <string name="share_via">شیئر سانڄھا کرو بذریعہ</string>
+  <string name="image_share_via">شیئر کرو بذریعہ</string>
   <string name="search_redirect_from">%s کنوں ری ڈائرکٹ تھی ڳیا</string>
   <string name="menu_page_show_tabs">ٹیب ݙکھاؤ</string>
   <string name="menu_page_other_languages">زبان وٹاؤ</string>
-  <string name="menu_page_find_in_page">ورقے وچ ڳولو</string>
+  <string name="menu_page_find_in_page">مضمون وچ ڳولو</string>
+  <string name="menu_page_add_to_watchlist">دیداں ہیٹھ تندیر وچ شامل کرو</string>
+  <string name="edit_section_find_in_page">ورقے وچ لبھو</string>
   <string name="menu_page_font_and_theme">فانٹ  تے تھیم</string>
   <string name="menu_page_add_to_list">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="menu_page_add_to_default_list">بچاؤ</string>
+  <string name="feed_card_add_to_list">مطالعہ دی تندیر وچ شامل کرو</string>
   <string name="feed_card_add_to_default_list">بچاؤ</string>
   <string name="menu_page_share">لنک سانجھا کرو</string>
   <string name="menu_page_open_a_new_tab">نویں ٹیب کھولو</string>
+  <string name="menu_page_new_tab">نویں ٹیب</string>
+  <string name="menu_page_reading_lists">مطالعہ دیاں تندیراں</string>
   <string name="menu_long_press_open_page">کھولو</string>
   <string name="menu_long_press_open_in_new_tab">نویں ٹیب وچ کھولو</string>
   <string name="menu_long_press_copy_page">لنک دا پتہ نقل کرو</string>
@@ -82,7 +90,7 @@
   <string name="reading_lists_sync_login">لاگ ان تھیوو</string>
   <string name="create_account_login">لاگ ان تھیوو</string>
   <string name="menu_login">لاگ ان تھیوو</string>
-  <string name="login_activity_title" fuzzy="true">وکی پیڈیا وچ لاگ ان تھیوو</string>
+  <string name="login_activity_title">لاگ ان تھیوو</string>
   <string name="login_in_progress_dialog_message">لاگ ان  تھیندے پئے ہو۔۔۔</string>
   <string name="login_success_toast">لاگ ان تھی ڳیا!</string>
   <string name="reset_password_hint">نواں پاس ورڈ</string>
@@ -114,7 +122,7 @@
   <string name="create_account_button">کھاتہ کھولو</string>
   <string name="create_account_ip_block_details">تفصیلاں</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
+  <string name="wikipedia_app_faq">وکیپیڈیا ایپ عمومی سوالات</string>
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="page_protected_can_not_edit_title">ایہ ورقہ محفوظ ہے</string>
@@ -192,6 +200,7 @@
   <string name="reference_title">حوالے%s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">مدھم تصویر (تاریک پوشاک وچ)</string>
   <string name="preference_title_prefer_offline_content">آف لائن مواد کوں ترجیح ݙیوو</string>
+  <string name="empty_tab_title">نویں ٹیب</string>
   <string name="crash_report_relaunch">ول شروع کرو</string>
   <string name="crash_report_quit">نکلو</string>
   <string name="article_menu_bar_save_button">بچاؤ</string>
@@ -204,7 +213,7 @@
   <string name="color_theme_light">پھِکّا</string>
   <string name="color_theme_dark">گہرا</string>
   <string name="color_theme_black">کالا</string>
-  <string name="nav_item_reading_lists">میݙیاں لسٹاں</string>
+  <string name="text_style_title">فونٹ</string>
   <string name="reading_list_save_to">مطالعہ دی فہرست وچ شامل کرو</string>
   <string name="reading_list_create_new">نواں بݨاؤ</string>
   <string name="reading_list_added_view_button">فہرست ݙیکھو</string>
@@ -258,8 +267,6 @@
   <string name="feed">پھرولو</string>
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_announcement_card_negative_action">کو، شکریہ</string>
-  <string name="view_featured_article_footer_save_button_label">بچاؤ</string>
-  <string name="view_featured_article_footer_saved_button_label">محفوظ</string>
   <string name="feed_configure_menu_select_all">سب ݙکھاؤ</string>
   <string name="feed_configure_menu_deselect_all">سارے لُکاؤ</string>
   <string name="feed_configure_onboarding_action">مرضی مطابق بݨاؤ</string>
@@ -296,6 +303,7 @@
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
   <string name="suggested_edits_contribution_image_label" fuzzy="true">فائل</string>
   <string name="suggested_edits_contribution_article_label">مضمون</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">شروع</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
@@ -303,12 +311,11 @@
   <string name="onboarding_continue">جاری</string>
   <string name="onboarding_get_started">شروع کرو</string>
   <string name="onboarding_got_it">گھن گھندا</string>
-  <string name="app_shortcuts_random">پُٹھے سِدھے</string>
+  <string name="app_shortcuts_random">قݨے نال</string>
   <string name="app_shortcuts_continue_reading">پڑھݨ جاری رکھو</string>
   <string name="app_shortcuts_search">ڳولو</string>
   <string name="on_this_day_card_title">ایں ݙینہ کوں</string>
   <string name="this_year">ایں سال</string>
-  <string name="back_to_top">واپس اُتے ون٘ڄو</string>
   <string name="languages_list_activity_title">زبان شامل کرو</string>
   <string name="languages_list_all_text">ساریاں زباناں</string>
   <string name="wikipedia_languages_title">وکی میڈیا دی زباناں</string>
@@ -327,6 +334,9 @@
   <string name="edit_conflict_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="reverted_edit_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">منسوخ</string>
+  <string name="image_recommendations_task_accept">جیا</string>
+  <string name="image_recommendations_task_reject">کو</string>
+  <string name="image_recommendations_task_processing">عمل تھیندا پئے...</string>
   <string name="wikitext_bold">موٹا</string>
   <string name="wikitext_italic">ترچھا</string>
   <string name="wikitext_link">ربط</string>

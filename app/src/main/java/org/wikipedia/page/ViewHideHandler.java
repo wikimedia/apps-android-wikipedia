@@ -6,10 +6,12 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
-public abstract class ViewHideHandler
+public class ViewHideHandler
         implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnUpOrCancelMotionEventListener,
         ObservableWebView.OnDownMotionEventListener, ObservableWebView.OnClickListener {
@@ -22,7 +24,6 @@ public abstract class ViewHideHandler
         this.hideableView = hideableView;
         this.anchoredView = anchoredView;
         this.gravity = gravity;
-
     }
 
     /**
@@ -57,8 +58,6 @@ public abstract class ViewHideHandler
             return;
         }
 
-        onScrolled(oldScrollY, scrollY);
-
         int animMargin = 0;
         int scrollDelta = scrollY - oldScrollY;
         if (gravity == Gravity.BOTTOM) {
@@ -83,6 +82,11 @@ public abstract class ViewHideHandler
         hideableView.setTranslationY(animMargin);
         if (anchoredView != null) {
             anchoredView.setTranslationY(animMargin);
+        }
+
+        float elevation = scrollY == 0 && oldScrollY != 0 ? 0 : DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation));
+        if (elevation != hideableView.getElevation()) {
+            hideableView.setElevation(elevation);
         }
     }
 
@@ -115,8 +119,6 @@ public abstract class ViewHideHandler
         ensureDisplayed();
         return false;
     }
-
-    protected abstract void onScrolled(int oldScrollY, int scrollY);
 
     private void ensureDisplayed() {
         ViewAnimations.ensureTranslationY(hideableView, 0);

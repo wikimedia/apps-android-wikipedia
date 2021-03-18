@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:minWidth="200dp">
+
+    <ImageView
+        android:id="@+id/langCodeBackground"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/langCodeText"
+        app:layout_constraintEnd_toEndOf="@+id/langCodeText"
+        app:layout_constraintStart_toStartOf="@+id/langCodeText"
+        app:layout_constraintTop_toTopOf="@+id/langCodeText"
+        app:srcCompat="@drawable/lang_button_shape_border"
+        app:tint="?attr/material_theme_secondary_color" />
+
+    <TextView
+        android:id="@+id/langCodeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:fontFamily="monospace"
+        android:lineSpacingExtra="2sp"
+        android:padding="3dp"
+        android:textAllCaps="true"
+        android:textColor="?attr/material_theme_secondary_color"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        tools:text="zh-hant" />
+
+    <TextView
+        android:id="@+id/languageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/langCodeText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/languageCheckBox"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
+        android:textColor="?attr/material_theme_primary_color"
+        tools:text="English"/>
+
+    <CheckBox
+        android:id="@+id/languageCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dipusparaga
 * Kandar
+* MuratTheTurkish
 * Uchup19
 -->
 <resources>
@@ -38,7 +38,7 @@
   <string name="search_redirect_from">Dipindahkeun ti %s</string>
   <string name="menu_page_show_tabs">Témbongkeun tab</string>
   <string name="menu_page_other_languages">Robah basa</string>
-  <string name="menu_page_find_in_page">Panggihan dina kaca</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Panggihan dina kaca</string>
   <string name="edit_section_find_in_page">Panggihan dina kaca</string>
   <string name="menu_page_font_and_theme">Aksara jeung téma</string>
   <string name="menu_page_add_to_list">Tambahkeun kana daptar bacaan</string>
@@ -171,7 +171,7 @@
   <string name="about_description">Ngeunaan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Kawijakan privasi</string>
   <string name="terms_of_use_description">Katangtuan pamakéan</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://su.m.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
+  <string name="about_wikipedia_url">https://su.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.su</string>
@@ -276,7 +276,7 @@
   <string name="error_no_maps_app">Teu bisa manggihan aplikasi nu méré pituduh arah.</string>
   <string name="preference_title_show_link_previews">Témbongkeun pramidang tutumbu</string>
   <string name="preference_summary_show_link_previews">Pidangkeun pramidang singget artikel sanggeus neken tutumbu.</string>
-  <string name="nav_item_donate">Rojong Wikipédia</string>
+  <string name="nav_item_donate" fuzzy="true">Rojong Wikipédia</string>
   <string name="error_voice_search_not_available">Hampura, wawanohan sora teu sayaga.</string>
   <string name="location_service_disabled">Layanan lokasi dipaéhan.</string>
   <string name="enable_location_service">Hirupan</string>
@@ -309,7 +309,6 @@
   <string name="text_size_increase">Gedéan ukuran téks</string>
   <string name="text_size_decrease">Leutikan ukuran téks</string>
   <string name="text_size_percent_default">%s (Baku)</string>
-  <string name="nav_item_reading_lists">Daptar kami</string>
   <string name="reading_list_save_to">Simpen kana daptar bacaan</string>
   <string name="reading_list_create_new">Jieun anyar</string>
   <string name="reading_list_title_exists">Daptar bacaan \"%s\" geus aya.</string>
@@ -421,10 +420,8 @@
   <string name="preference_title_notification_thanks">Nuhun</string>
   <string name="view_because_you_read_card_title">Sabab anjeun maca</string>
   <string name="view_random_card_title">Kaca acak</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Baca kaca acak tina Wikipédia</string>
   <string name="view_next_random_article">Puat artikel acak lianna</string>
   <string name="view_main_page_card_title">Poé ieu na Wikipédia</string>
-  <string name="view_main_page_card_subtitle">Tepas na %s</string>
   <string name="view_main_page_card_action">Tempo tepas</string>
   <string name="view_featured_image_card_title">Gambar poé ieu</string>
   <string name="view_featured_image_card_download">Undeur</string>
@@ -433,7 +430,6 @@
   <string name="menu_feed_overflow_label">Pilihan lianna</string>
   <string name="feed_featured_image_share_subject">Gambar petingan tina Wikimedia Commons</string>
   <string name="feed">Langlang</string>
-  <string name="most_read_list_card_title">Keur ngetrén</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Dina warta</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -445,9 +441,7 @@
   <string name="view_announcement_card_negative_action">Teu kudu, nuhun</string>
   <string name="view_offline_card_text">Kontén teu bisa dipuat nalika oflén.</string>
   <string name="view_featured_article_card_title">Artikel petingan</string>
-  <string name="view_featured_article_footer_save_button_label">Simpen</string>
   <string name="view_static_card_save_button_label">Simpen</string>
-  <string name="view_featured_article_footer_saved_button_label">Kasimpen</string>
   <string name="feed_configure_activity_title">Luyukeun eupan</string>
   <string name="feed_configure_menu_reset">Balikkeun pidangan baku</string>
   <string name="feed_configure_menu_select_all">Témbongkeun kabéh</string>
@@ -502,7 +496,6 @@
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
   <string name="app_shortcuts_search">Paluruh</string>
-  <string name="top_on_this_day">Keur trén dina %1$s</string>
   <string name="on_this_day_card_title">Dina poé ieu</string>
   <string name="more_events_text" fuzzy="true">Kajadian sajarah lianna dina poé ieu</string>
   <string name="events_count_text" fuzzy="true">%1$s kajadian ti %2$s - %3$d</string>

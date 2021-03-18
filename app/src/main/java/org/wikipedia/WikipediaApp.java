@@ -20,6 +20,7 @@ import com.microsoft.appcenter.crashes.Crashes;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
@@ -47,7 +48,6 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ViewAnimations;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -161,7 +161,6 @@ public class WikipediaApp extends Application {
 
         bus = new RxBus();
 
-        ViewAnimations.init(getResources());
         currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
 
         appLanguageState = new AppLanguageState(this);
@@ -185,6 +184,7 @@ public class WikipediaApp extends Application {
         // For good measure, explicitly call our token subscription function, in case the
         // API failed in previous attempts.
         WikipediaFirebaseMessagingService.Companion.updateSubscription();
+        EventPlatformClient.setUpStreamConfigs();
     }
 
     public int getVersionCode() {

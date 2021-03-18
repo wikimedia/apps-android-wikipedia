@@ -11,7 +11,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.DimenUtil.getDensityScalar
+import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
 import java.util.*
@@ -76,7 +76,7 @@ object JavaScriptActionHandler {
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
         val leadImageHeight = if (isPreview) 0 else
-            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) 0 else (leadImageHeightForDevice(context) / getDensityScalar()).roundToInt() - topActionBarHeight)
+            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) 0 else (leadImageHeightForDevice(context) / densityScalar).roundToInt() - topActionBarHeight)
         val topMargin = topActionBarHeight + 16
 
         return String.format(Locale.ROOT, "{" +
@@ -96,7 +96,7 @@ object JavaScriptActionHandler {
                 "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled()}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}," +
-                "   \"userGroups\": \"${AccountUtil.getGroups()}\"" +
+                "   \"userGroups\": \"${AccountUtil.groups}\"" +
                 "}", topMargin, 16, 48, 16, leadImageHeight)
     }
 
@@ -132,7 +132,7 @@ object JavaScriptActionHandler {
                 "   }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: \"${baseURL}\"," +
+                "       baseURL: \"$baseURL\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
@@ -142,7 +142,7 @@ object JavaScriptActionHandler {
     fun mobileWebChromeShim(): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 80px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 48px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: 72px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }
@@ -150,7 +150,7 @@ object JavaScriptActionHandler {
     @JvmStatic
     fun getElementAtPosition(x: Int, y: Int): String {
         return "(function() {" +
-                "  let element = document.elementFromPoint(${x}, ${y});" +
+                "  let element = document.elementFromPoint($x, $y);" +
                 "  let result = {};" +
                 "  result.left = element.getBoundingClientRect().left;" +
                 "  result.top = element.getBoundingClientRect().top;" +

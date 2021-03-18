@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorAccent"
+            android:progressBackgroundTint="@color/accent30"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/errorView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/revisionDetailsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/articleTitleView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/watchButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04"
+                    android:text="@string/watchlist_details_watching_label"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_icon_star"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/color_group_68" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="?attr/color_group_60" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="-4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/editTimestamp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/olderIdButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="24dp"
+                    android:paddingBottom="12dp"
+                    android:scaleX="-1"
+                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                    app:tint="?attr/primary_text_color" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/newerIdButton"
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="32dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
+                    app:tint="?attr/primary_text_color" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/userDetailsFlowView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="usernameButton,thankButton,diffCharacterCountView"
+                    app:flow_horizontalBias="0"
+                    app:flow_horizontalGap="16dp"
+                    app:flow_horizontalStyle="packed"
+                    app:flow_wrapMode="chain"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/usernameButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_user_talk"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/colorAccent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/thankButton"
+                    style="@style/FlatButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04"
+                    android:text="@string/thank_label"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    app:icon="@drawable/ic_heart_24"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="?attr/colorAccent" />
+
+                <TextView
+                    android:id="@+id/diffCharacterCountView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:letterSpacing="0.04"
+                    android:lineSpacingExtra="2sp"
+                    android:textColor="?attr/action_mode_green_background"
+                    android:textSize="14sp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="?attr/color_group_60" />
+
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/editComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8sp"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/diffText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="12sp"
+                android:textColor="?attr/primary_text_color"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

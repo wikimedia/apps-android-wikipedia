@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
@@ -56,6 +58,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -63,7 +66,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class HistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onLoadPage(@NonNull HistoryEntry entry);
-        void onClearHistory();
     }
 
     private Unbinder unbinder;
@@ -183,11 +185,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private void onClearHistoryClick() {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onClearHistory();
-            reloadHistoryItems();
-        }
+        disposables.add(Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class).deleteAll())
+                .subscribeOn(Schedulers.io())
+                .doAfterTerminate(this::reloadHistoryItems)
+                .subscribe());
     }
 
     private void finishActionMode() {
@@ -318,18 +319,16 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private class SearchCardViewHolder extends DefaultViewHolder<View> {
-        private ImageView historyFilterButton;
-        private ImageView clearHistoryButton;
-        private WikiCardView searchWikiCardView;
+        private final ImageView historyFilterButton;
+        private final ImageView clearHistoryButton;
 
         SearchCardViewHolder(View itemView) {
             super(itemView);
-            searchWikiCardView = itemView.findViewById(R.id.wiki_card_for_search);
-            View searchCardView = itemView.findViewById(R.id.search_card);
+            WikiCardView searchCardView = itemView.findViewById(R.id.search_card);
             AppCompatImageView voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
             historyFilterButton = itemView.findViewById(R.id.history_filter);
             clearHistoryButton = itemView.findViewById(R.id.history_delete);
-            searchCardView.setOnClickListener(view -> ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, searchWikiCardView));
+            searchCardView.setOnClickListener(view -> ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, view));
             voiceSearchButton.setOnClickListener(view -> ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested());
             historyFilterButton.setOnClickListener(view -> {
                 if (actionMode == null) {
@@ -349,12 +348,29 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 }
             });
             FeedbackUtil.setButtonLongPressToast(historyFilterButton, clearHistoryButton);
-            searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
+            adjustSearchCardView(searchCardView);
         }
 
         public void bindItem() {
             clearHistoryButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
             historyFilterButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+        }
+
+        @SuppressWarnings("checkstyle:magicnumber")
+        private void adjustSearchCardView(@NonNull WikiCardView searchCardView) {
+            searchCardView.post(() -> {
+                if (!isAdded()) {
+                    return;
+                }
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) searchCardView.getLayoutParams();
+                int horizontalMargin = DimenUtil.isLandscape(requireContext())
+                        ? searchCardView.getWidth() / 6 + DimenUtil.roundedDpToPx(30f) : DimenUtil.roundedDpToPx(16f);
+                layoutParams.setMarginStart(horizontalMargin);
+                layoutParams.setMarginEnd(horizontalMargin);
+                layoutParams.setMargins(0, DimenUtil.roundedDpToPx(3f), 0, layoutParams.bottomMargin);
+                searchCardView.setLayoutParams(layoutParams);
+            });
+            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
         }
     }
 
@@ -493,9 +509,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
-        }
-        @Override
-        public void onSecondaryActionClick(@Nullable IndexedHistoryEntry entry, @NonNull View view) {
         }
 
         @Override

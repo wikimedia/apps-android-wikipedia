@@ -11,19 +11,26 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.util.Pair;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.mostread.MostReadArticles;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageAvailableOfflineHandler;
-import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.LongPressMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.TransitionUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.GraphView;
 import org.wikipedia.views.ViewUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,20 +40,23 @@ import butterknife.OnLongClick;
 public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
-        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
+        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, boolean openInNewBackgroundTab);
+        void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry, @NonNull Pair<View, String>[] sharedElements);
         void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
-        void onRemovePageFromList(@NonNull HistoryEntry entry);
-        void onSharePage(@NonNull HistoryEntry entry);
     }
 
+    @BindView(R.id.view_list_card_number) GradientCircleNumberView numberView;
     @BindView(R.id.view_list_card_item_image) ImageView imageView;
     @BindView(R.id.view_list_card_item_title) TextView titleView;
     @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
+    @BindView(R.id.view_list_card_item_pageviews) TextView pageViewsView;
+    @BindView(R.id.view_list_card_item_graph) GraphView graphView;
 
     @Nullable private Card card;
     @Nullable private Callback callback;
     @Nullable private HistoryEntry entry;
+    private static final int DEFAULT_VIEW_HISTORY_ITEMS = 5;
 
     public ListCardItemView(Context context) {
         super(context);
@@ -82,40 +92,40 @@ public class ListCardItemView extends ConstraintLayout {
 
     @OnClick void onClick(View view) {
         if (callback != null && entry != null && card != null) {
-            callback.onSelectPage(card, entry);
+            callback.onSelectPage(card, entry, TransitionUtil.getSharedElements(getContext(), imageView));
         }
     }
 
     @OnLongClick boolean onLongClick(View view) {
-        new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+        new LongPressMenu(view, true, new LongPressMenu.Callback() {
             @Override
-            public void onAddRequest(boolean addToDefault) {
-                if (getCallback() != null && entry != null) {
+            public void onOpenLink(@NonNull HistoryEntry entry) {
+                if (getCallback() != null && card != null) {
+                    getCallback().onSelectPage(card, entry, false);
+                }
+            }
+
+            @Override
+            public void onOpenInNewTab(@NonNull HistoryEntry entry) {
+                if (getCallback() != null && card != null) {
+                    getCallback().onSelectPage(card, entry, true);
+                }
+            }
+
+            @Override
+            public void onAddRequest(@NonNull HistoryEntry entry, boolean addToDefault) {
+                if (getCallback() != null) {
                     getCallback().onAddPageToList(entry, addToDefault);
                 }
             }
 
             @Override
-            public void onMoveRequest(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
+            public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
+                if (getCallback() != null) {
                     getCallback().onMovePageToList(page.listId(), entry);
                 }
             }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onRemovePageFromList(entry);
-                }
-            }
-
-            @Override
-            public void onShare() {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onSharePage(entry);
-                }
-            }
-        }).show(entry.getTitle());
+        }).show(entry);
         return false;
     }
 
@@ -132,7 +142,7 @@ public class ListCardItemView extends ConstraintLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            ViewUtil.loadImageWithRoundedCorners(imageView, url);
+            ViewUtil.loadImageWithRoundedCorners(imageView, url, true);
         }
     }
 
@@ -142,6 +152,42 @@ public class ListCardItemView extends ConstraintLayout {
 
     @VisibleForTesting void setSubtitle(@Nullable CharSequence text) {
         subtitleView.setText(text);
+    }
+
+    public void setNumber(int number) {
+        numberView.setVisibility(VISIBLE);
+        numberView.setNumber(number);
+    }
+
+    public void setPageViews(int pageViews) {
+        pageViewsView.setVisibility(VISIBLE);
+        pageViewsView.setText(getPageViewText(pageViews));
+    }
+
+    public void setGraphView(@NonNull List<MostReadArticles.ViewHistory> viewHistories) {
+        List<Float> dataSet = new ArrayList<>();
+
+        int i = viewHistories.size();
+        while (DEFAULT_VIEW_HISTORY_ITEMS > i++) {
+            dataSet.add(0f);
+        }
+
+        for (MostReadArticles.ViewHistory viewHistory : viewHistories) {
+            dataSet.add(viewHistory.getViews());
+        }
+        graphView.setVisibility(VISIBLE);
+        graphView.setData(dataSet);
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private String getPageViewText(int pageViews) {
+        if (pageViews < 1000) {
+            return String.valueOf(pageViews);
+        } else if (pageViews < 1000000) {
+            return getContext().getString(R.string.view_top_read_card_pageviews_k_suffix, Math.round(pageViews / 1000f));
+        } else {
+            return getContext().getString(R.string.view_top_read_card_pageviews_m_suffix, Math.round(pageViews / 1000000f));
+        }
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

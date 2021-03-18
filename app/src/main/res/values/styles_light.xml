@@ -59,7 +59,6 @@
         <item name="chart_shade7">@color/base100</item>
         <item name="green_highlight_color">@color/green30</item>
         <item name="randomizer_dice_icon_color">@android:color/white</item>
-        <item name="page_tab_counts_shape_border">@drawable/page_tab_counts_shape_border_light</item>
         <item name="thumb_off_color">@color/base90</item>
         <item name="track_off_color">@color/base0</item>
         <item name="toc_h1_h2_color">@color/base0</item>
@@ -79,15 +78,14 @@
         <item name="color_group_59">@color/base30</item>
         <item name="color_group_60">@color/base80</item>
         <item name="color_group_61">@color/black26</item>
+        <item name="color_group_63">@color/black54</item>
+        <item name="color_group_64">@color/base10</item>
+        <item name="color_group_65">@color/green90</item>
+        <item name="color_group_66">@color/base10</item>
+        <item name="color_group_67">@color/red90</item>
+        <item name="color_group_68">@color/yellow30</item>
         <item name="action_mode_green_background">@color/green50</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
-        <item name="reward_interstitial_calendar_drawable">@drawable/ic_illustration_calendar_light</item>
-        <item name="reward_interstitial_heart_drawable">@drawable/ic_illustration_heart_light</item>
-        <item name="reward_interstitial_view_drawable">@drawable/ic_illustration_views_light</item>
-        <item name="reward_interstitial_quality_perfect_drawable">@drawable/ic_illustration_quality_perfect_light</item>
-        <item name="reward_interstitial_quality_excellent_drawable">@drawable/ic_illustration_quality_excellent_light</item>
-        <item name="reward_interstitial_quality_very_good_drawable">@drawable/ic_illustration_quality_very_good_light</item>
-        <item name="reward_interstitial_quality_good_drawable">@drawable/ic_illustration_quality_good_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
 
         <!-- Background for cards, lists, and controls -->

@@ -198,7 +198,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditSuccessActivity"
-            android:theme="@style/AppTheme.FullScreen.TranslucentDark"
+            android:theme="@style/AppTheme.FullScreen.Translucent"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
@@ -241,6 +241,9 @@
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
+        <activity android:name=".watchlist.WatchlistActivity"
+            android:theme="@style/AppTheme.ActionBar"/>
+
         <activity
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
             android:theme="@style/AppTheme.ActionBar" />
@@ -262,10 +265,16 @@
 
         <activity
             android:name=".talk.TalkTopicsActivity"
+            android:label=""
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".talk.TalkTopicActivity" />
+
+        <activity
+            android:name=".diff.ArticleEditDetailsActivity"
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar"  />
 
         <provider
             android:authorities="${applicationId}"
@@ -358,7 +367,8 @@
 
         <service
             android:name=".push.WikipediaFirebaseMessagingService"
-            android:exported="false">
+            android:exported="false"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

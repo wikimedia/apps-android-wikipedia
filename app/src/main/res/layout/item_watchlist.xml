@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerView"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/langCodeText"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="?attr/material_theme_primary_color"
+            tools:text="Lorem ipsum"/>
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16sp"
+            android:textColor="?attr/material_theme_secondary_color"
+            tools:text="12:00"/>
+
+        <ImageView
+            android:id="@+id/langCodeBackground"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/langCodeText"
+            app:layout_constraintEnd_toEndOf="@+id/langCodeText"
+            app:layout_constraintStart_toStartOf="@+id/langCodeText"
+            app:layout_constraintTop_toTopOf="@+id/langCodeText"
+            app:srcCompat="@drawable/lang_button_shape_border"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            android:id="@+id/langCodeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/timeText"
+            app:layout_constraintBottom_toBottomOf="@id/timeText"
+            app:layout_constraintEnd_toStartOf="@id/timeText"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="2sp"
+            android:padding="3dp"
+            android:paddingEnd="4dp"
+            android:textAllCaps="true"
+            android:textColor="?attr/material_theme_secondary_color"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:text="zh-hant" />
+
+        <org.wikipedia.views.GoneIfEmptyTextView
+            android:id="@+id/summaryText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:textColor="?attr/material_theme_secondary_color"
+            android:textColorLink="?attr/material_theme_secondary_color"
+            tools:text="Lorem ipsum"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/diffText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/FlatButton.Small"
+            android:layout_marginTop="4dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/green50"
+            app:layout_constraintTop_toBottomOf="@id/summaryText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:iconSize="20dp"
+            app:iconPadding="8dp"
+            tools:text="+123"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/userNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/FlatButton.Small"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:textAllCaps="false"
+            android:textAlignment="viewStart"
+            android:textColor="?attr/material_theme_secondary_color"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@id/diffText"
+            app:layout_constraintStart_toEndOf="@id/diffText"
+            app:layout_constraintWidth_max="220dp"
+            app:icon="@drawable/ic_user_talk"
+            app:iconSize="20dp"
+            app:iconPadding="8dp"
+            app:iconTint="?attr/material_theme_secondary_color"
+            tools:text="Username"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</org.wikipedia.views.WikiCardView>

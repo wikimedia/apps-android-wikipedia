@@ -44,7 +44,7 @@ object UserContributionsStats {
     }
 
     fun getPageViewsObservable(): Observable<Long> {
-        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
@@ -69,12 +69,12 @@ object UserContributionsStats {
 
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                 .subscribeOn(Schedulers.io())
-                .flatMap {
-                    if (it.entities().isEmpty()) {
+                .flatMap { entities ->
+                    if (entities.entities().isEmpty()) {
                         return@flatMap Observable.just(0L)
                     }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
-                    it.entities().forEach { (entityKey, entity) ->
+                    entities.entities().forEach { (entityKey, entity) ->
                         for (qKey in qLangMap.keys) {
                             if (qKey == entityKey) {
                                 for (lang in qLangMap[qKey]!!) {
@@ -151,4 +151,3 @@ object UserContributionsStats {
         return pauseEndDate
     }
 }
-

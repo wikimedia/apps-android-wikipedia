@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:layout_width="match_parent"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/footerActionButton"
+        style="@style/TransparentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorAccent"
+        android:textSize="20sp"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="8sp"
+        android:letterSpacing="0"
+        android:paddingHorizontal="8dp"/>
+
+</merge>

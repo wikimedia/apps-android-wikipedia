@@ -21,6 +21,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/talkSubjectView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="?attr/primary_text_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/talkRecyclerView"
                     android:layout_width="match_parent"
@@ -78,18 +89,20 @@
             android:id="@+id/replyToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
             style="@style/ToolbarStyle">
 
             <ImageView
                 android:id="@+id/replySaveButton"
-                android:layout_width="48dp"
+                android:layout_width="56dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_save"
                 android:focusable="true"
-                android:padding="12dp"
+                android:padding="16dp"
                 app:srcCompat="@drawable/ic_check_circle_black_24dp"
                 app:tint="?attr/themed_icon_color"/>
 
@@ -118,7 +131,7 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             app:backgroundTint="?attr/colorAccent"
-            app:icon="@drawable/ic_add_gray_white_24dp"
+            app:icon="@drawable/ic_reply_24"
             app:iconTint="@android:color/white"
             android:textColor="@android:color/white"
             android:text="@string/talk_add_reply" />

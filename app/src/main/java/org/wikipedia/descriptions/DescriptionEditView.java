@@ -27,7 +27,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.mlkit.MlKitLanguageDetector;
@@ -80,10 +79,9 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     private boolean isTranslationEdit;
     private boolean isLanguageWrong;
     private boolean isTextValid;
-    private MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
+    private final MlKitLanguageDetector mlKitLanguageDetector = new MlKitLanguageDetector();
 
-    private Runnable textValidateRunnable = this::validateText;
-    private ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
+    private final Runnable textValidateRunnable = this::validateText;
 
     public interface Callback {
         void onSaveClick();
@@ -180,11 +178,9 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
         if (action == TRANSLATE_DESCRIPTION) {
             return getContext().getString(R.string.description_edit_translate_article_description_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (action == TRANSLATE_CAPTION) {
+        } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
             return getContext().getString(R.string.description_edit_translate_caption_hint_per_language,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang));
-        } else if (action == ADD_CAPTION) {
-            return getContext().getString(R.string.description_edit_add_caption_hint);
         } else {
             return getContext().getString(R.string.description_edit_text_hint);
         }
@@ -334,15 +330,9 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     @OnTextChanged(value = R.id.view_description_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
-        if (funnel.shouldSeeChecks()) {
-            enqueueValidateText();
-            isLanguageWrong = false;
-            mlKitLanguageDetector.detectLanguageFromText(pageDescriptionText.getText().toString());
-        } else {
-            isTextValid = true;
-            updateSaveButtonEnabled();
-            setError(null);
-        }
+        enqueueValidateText();
+        isLanguageWrong = false;
+        mlKitLanguageDetector.detectLanguageFromText(pageDescriptionText.getText().toString());
     }
 
     private void enqueueValidateText() {
@@ -351,9 +341,6 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
     }
 
     void validateText() {
-        if (!funnel.shouldSeeChecks()) {
-            return;
-        }
         isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase().trim();
 
@@ -454,7 +441,8 @@ public class DescriptionEditView extends LinearLayout implements MlKitLanguageDe
 
     @Override
     public void onLanguageDetectionSuccess(@NonNull String languageCode) {
-        if (!languageCode.equals(pageSummaryForEdit.getLang())) {
+        if (pageSummaryForEdit != null && !languageCode.equals(pageSummaryForEdit.getLang())
+                && !languageCode.equals(WikipediaApp.getInstance().language().getDefaultLanguageCode(pageSummaryForEdit.getLang()))) {
             isLanguageWrong = true;
             enqueueValidateText();
         }

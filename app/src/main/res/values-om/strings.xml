@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Authors:
+* Ahrada2016
+* Bsitzmann
+* Maammee
+* Oromoo
+* Tumsaa
+-->
 <resources>
   <string name="app_name_prod">Wiikippiidiyaa</string>
   <string name="app_name_beta">Wiikippiidiyaa Beetaa</string>
   <string name="app_name_alpha">Wiikippiidiyaa Aalfaa</string>
   <string name="search_hint">Wiikippiidiyaa keessa barbaadi</string>
-  <string name="nav_item_history">Seenaa</string>
   <string name="page_error_retry">Lammata yaali</string>
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
   <string name="menu_clear_all_history">Seenaa balleessi</string>
-    <string name="menu_page_share" fuzzy="true">Hiri</string>
-    <string name="langlinks_filter_hint">Barbaadi</string>
+  <string name="menu_page_add_to_default_list">ol kaa\'i</string>
+  <string name="feed_card_add_to_default_list">Ol kaa\'i</string>
+  <string name="menu_page_share" fuzzy="true">Hiri</string>
+  <string name="langlinks_filter_hint">Barbaadi</string>
   <string name="langlinks_activity_title">Afaan biraa</string>
-  <string name="menu_save_changes">Jijjiirama olkaayi</string>
-  <string name="dialog_saving_in_progress">Olkaawaa…</string>
-  <string name="edit_saved_successfully">Gulaalli olkaawwame</string>
+  <string name="menu_save_changes" fuzzy="true">Jijjiirama olkaayi</string>
+  <string name="edit_saved_successfully" fuzzy="true">Gulaalli olkaawwame</string>
   <string name="dialog_message_edit_failed">Gulaalli fashale.</string>
   <string name="dialog_message_edit_failed_retry">Lammata yaali</string>
   <string name="dialog_message_edit_failed_cancel">Dhiisi</string>
@@ -40,10 +47,8 @@
   <string name="create_account_generic_error">Eenyummeessa uumuu hindandeenye</string>
   <string name="create_account_next">Itti fufi</string>
   <string name="create_account_button">Eenyummeessa uumi</string>
-  <string name="edit_preview_fetching_dialog_message">Durargii fidaa jira…</string>
   <string name="create_account_account_created_toast">Eenyummeessi uummame!</string>
   <string name="preference_title_eventlogging_opt_in">Gabaasa fayyadamaa ergi</string>
-  <string name="history_search_list_hint" fuzzy="true">Barbaadi</string>
   <string name="error_can_not_process_link">Geessituu kana agarsiisuu hindandeenye</string>
   <string name="settings_activity_title" fuzzy="true">Qindaa\'ina</string>
   <string name="privacy_policy_description">Seera mateengaa</string>
@@ -51,14 +56,11 @@
   <string name="about_translators_heading" fuzzy="true">Afaan hiiktota</string>
   <string name="about_activity_title">Waa\'ee</string>
   <string name="edit_next">Itti fufi</string>
-  <string name="edit_done">Olkaayi</string>
+  <string name="edit_done" fuzzy="true">Olkaayi</string>
   <string name="edit_preview">Durargii</string>
   <string name="edit_summary_tag_other">Kan biraa</string>
   <string name="find_next">Kan itti aanu barbaadi</string>
   <string name="find_previous">Kan darbe barbaadi</string>
-  <string name="text_size_select">Guddina foontii</string>
-  <string name="color_theme_light">Ifaa</string>
-  <string name="color_theme_dark">Dukkanaa\'aa</string>
   <string name="page_similar_titles">Fuula walfakkaatu</string>
   <string name="search_did_you_mean">\"%s\" jechuu keetii?</string>
   <string name="table_other">Odeeffannoo dabalataa</string>
@@ -68,7 +70,18 @@
   <string name="read_more_section">Dabalata dubbisi</string>
   <string name="gallery_menu_share">Hiri</string>
   <string name="gallery_save_progress">Faayilii naqachaa jira…</string>
-  <string name="gallery_save_success">Faayiliin olkaawwame.</string>
+  <string name="gallery_save_success" fuzzy="true">Faayiliin olkaawwame.</string>
   <string name="err_cannot_save_file">Faayilii olkaawuu hindandeenye</string>
   <string name="gallery_uploader_unknown">Ol fe\'aan hin beekkamu.</string>
+  <string name="color_theme_light">Ifaa</string>
+  <string name="color_theme_dark">Dukkanaa\'aa</string>
+  <string name="nav_item_saved">Olkaa\'ameera</string>
+  <string name="reading_list_article_added_to_default_list">%s ol kayame. Tarreetti isa dabaluu feetaa?</string>
+  <string name="reading_list_add_to_list_button">Tarreetti dabali</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">Jalqabi</string>
+  <string name="image_recommendations_task_accept">Eyyee</string>
+  <string name="image_recommendations_task_reject">Lakki</string>
+  <string name="image_recommendations_task_choice_invisible">Suuraa arguu hin danda\'u</string>
+  <string name="image_recommendations_task_choice_other">Kan biraa</string>
+  <string name="image_recommendations_task_choice_continue">Itti fufi</string>
 </resources>

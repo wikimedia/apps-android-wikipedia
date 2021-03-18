@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -9,6 +10,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
+import kotlin.collections.ArrayList
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -44,10 +46,19 @@ object EditingSuggestionsProvider {
                 Observable.just(cachedTitle)
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithoutDescriptions(WikiSite.normalizeLanguageCode(wiki.languageCode()))
+                        .flatMap { pages ->
+                            val titleList = ArrayList<String>()
+                            pages.forEach { titleList.add(it.title()) }
+                            ServiceFactory.get(wiki).getDescription(titleList.joinToString("|")).subscribeOn(Schedulers.io())
+                        }
                         .map { pages ->
                             var title: String? = null
                             articlesWithMissingDescriptionCacheLang = wiki.languageCode()
-                            pages.forEach { articlesWithMissingDescriptionCache.push(it.title()) }
+                            pages.query()!!.pages()!!.forEach {
+                                if (it.description().isNullOrEmpty()) {
+                                    articlesWithMissingDescriptionCache.push(it.title())
+                                }
+                            }
                             if (!articlesWithMissingDescriptionCache.empty()) {
                                 title = articlesWithMissingDescriptionCache.pop()
                             }
@@ -66,8 +77,8 @@ object EditingSuggestionsProvider {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             val targetWiki = WikiSite.forLanguageCode(targetLang)
             var cachedPair: Pair<PageTitle, PageTitle>? = null
-            if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode()
-                    || articlesWithTranslatableDescriptionCacheToLang != targetLang) {
+            if (articlesWithTranslatableDescriptionCacheFromLang != sourceWiki.languageCode() ||
+                    articlesWithTranslatableDescriptionCacheToLang != targetLang) {
                 // evict the cache if the language has changed.
                 articlesWithTranslatableDescriptionCache.clear()
             }
@@ -80,40 +91,46 @@ object EditingSuggestionsProvider {
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode()), WikiSite.normalizeLanguageCode(targetLang))
                         .map { pages ->
-                            var sourceAndTargetPageTitles: Pair<PageTitle, PageTitle>? = null
+                            var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
                                 val entity = page.entity
-                                if (entity == null
-                                        || entity.descriptions().containsKey(targetLang)
-                                        || sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode())
-                                        || !entity.sitelinks().containsKey(sourceWiki.dbName())
-                                        || !entity.sitelinks().containsKey(targetWiki.dbName())) {
+                                if (entity == null ||
+                                        entity.descriptions().containsKey(targetLang) ||
+                                        sourceLangMustExist && !entity.descriptions().containsKey(sourceWiki.languageCode()) ||
+                                        !entity.sitelinks().containsKey(sourceWiki.dbName()) ||
+                                        !entity.sitelinks().containsKey(targetWiki.dbName())) {
                                     continue
                                 }
-                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki)
-                                        to PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki))
+                                val sourceTitle = PageTitle(entity.sitelinks()[sourceWiki.dbName()]!!.title, sourceWiki)
+                                sourceTitle.description = entity.descriptions()[sourceWiki.languageCode()]?.value()
+                                articlesWithTranslatableDescriptionCache.push(PageTitle(entity.sitelinks()[targetWiki.dbName()]!!.title, targetWiki) to sourceTitle)
                             }
                             if (!articlesWithTranslatableDescriptionCache.empty()) {
-                                sourceAndTargetPageTitles = articlesWithTranslatableDescriptionCache.pop()
+                                targetAndSourcePageTitles = articlesWithTranslatableDescriptionCache.pop()
                             }
-                            if (sourceAndTargetPageTitles == null) {
+                            if (targetAndSourcePageTitles == null) {
                                 throw ListEmptyException()
                             }
-                            sourceAndTargetPageTitles
+                            targetAndSourcePageTitles
                         }
                         .retry(retryLimit) { t: Throwable ->
                             t is ListEmptyException
                         }
             }
-        }.flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
+        }.flatMap { getSummary(it) }
                 .doFinally { mutex.release() }
     }
 
-    private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
-        return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
-                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText), { source, target -> Pair(source, target) })
+    private fun getSummary(targetAndSourcePageTitles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
+        return Observable.zip(ServiceFactory.getRest(targetAndSourcePageTitles.first.wikiSite).getSummary(null, targetAndSourcePageTitles.first.prefixedText),
+                ServiceFactory.getRest(targetAndSourcePageTitles.second.wikiSite).getSummary(null, targetAndSourcePageTitles.second.prefixedText), { target, source ->
+            if (target.description.isNullOrEmpty()) {
+                target.description = targetAndSourcePageTitles.first.description
+            }
+            Pair(source, target)
+        })
     }
 
     fun getNextImageWithMissingCaption(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<String> {
@@ -151,8 +168,8 @@ object EditingSuggestionsProvider {
     fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<Pair<String, String>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedPair: Pair<String, String>? = null
-            if (imagesWithTranslatableCaptionCacheFromLang != sourceLang
-                    || imagesWithTranslatableCaptionCacheToLang != targetLang) {
+            if (imagesWithTranslatableCaptionCacheFromLang != sourceLang ||
+                    imagesWithTranslatableCaptionCacheToLang != targetLang) {
                 // evict the cache if the language has changed.
                 imagesWithTranslatableCaptionCache.clear()
             }

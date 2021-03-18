@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
-* Abijeet Patro
 * Dbrant
 * J budissin
 * Michawiki
@@ -16,6 +15,7 @@
   <string name="search_hint">Wikipediju přepytać</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Namjetowane změny</string>
+  <string name="nav_item_more">Wjace</string>
   <string name="error_network_error">Njemóžu so z internetom zwjazać.</string>
   <string name="page_error_retry">Znowa spytać</string>
   <string name="card_offline_error_retry">Znowa spytać</string>
@@ -39,11 +39,13 @@
   <string name="search_redirect_from">sposrědkowane wot %s</string>
   <string name="menu_page_show_tabs">Rajtarki pokazać</string>
   <string name="menu_page_other_languages">Rěč změnić</string>
-  <string name="menu_page_find_in_page">Na stronje pytać</string>
+  <string name="menu_page_find_in_page" fuzzy="true">Na stronje pytać</string>
   <string name="edit_section_find_in_page">Na stronje pytać</string>
   <string name="menu_page_font_and_theme">Družinu pisma a barby</string>
   <string name="menu_page_add_to_list">K čitanskej lisćinje přidać</string>
+  <string name="menu_page_add_to_default_list">Składować</string>
   <string name="feed_card_add_to_list">K čitanskej lisćinje přidać</string>
+  <string name="feed_card_add_to_default_list">Składować</string>
   <string name="menu_page_share">Wotkaz dźělić</string>
   <string name="menu_page_open_a_new_tab">Nowy rajtark wočinić</string>
   <string name="menu_page_reading_lists">Čitanske lisćiny</string>
@@ -276,8 +278,8 @@
   <string name="error_response_malformed">Wotmołwa serwera njeje prawje formatěrowana.</string>
   <string name="error_unknown">Njeznaty zmylk je wustupił.</string>
   <string name="format_error_server_message">Zdźělenka: \"%s\"</string>
-  <string name="address_copied">Adresa je so do městoskłada kopěrowała.</string>
-  <string name="text_copied">Tekst je so do městoskłada kopěrował.</string>
+  <string name="address_copied">Adresa je so do mjezyskłada kopěrowała.</string>
+  <string name="text_copied">Tekst je so do mjezyskłada kopěrował.</string>
   <string name="button_continue_to_article">Zapisk čitać</string>
   <string name="button_continue_to_disambiguation">Podobne strony wobhladać</string>
   <string name="link_preview_disambiguation_description">Tutón titul pokazuje na wjacore strony:</string>
@@ -291,7 +293,7 @@
   <string name="preference_summary_show_link_previews">Pokazuje krótki přehlad zapiskow při tłóčenju na wotkazy.</string>
   <string name="preference_title_collapse_tables">Tabulki začinić</string>
   <string name="preference_summary_collapse_tables">Tabulki w zapiskach kaž infokašćiki, nóžki a přispomnjenja awtomatisce začinić.</string>
-  <string name="nav_item_donate">Wikipediju podpěrać</string>
+  <string name="nav_item_donate" fuzzy="true">Wikipediju podpěrać</string>
   <string name="error_voice_search_not_available">Bohužel njeje spóznawanje hłosa přistupne.</string>
   <string name="location_service_disabled">Stejišćowe słužby su njezmóžnjene.</string>
   <string name="enable_location_service">Zmóžnić</string>
@@ -324,7 +326,6 @@
   <string name="text_size_increase">Tekst powjetšić</string>
   <string name="text_size_decrease">Tekst pomjeńšić</string>
   <string name="text_size_percent_default">%s (standard)</string>
-  <string name="nav_item_reading_lists">Moje lisćiny</string>
   <string name="reading_list_save_to">K čitanskej lisćinje přidać</string>
   <string name="reading_list_create_new">Nowu wutworić</string>
   <string name="reading_list_title_exists">Čitanska lisćina „%s“ hižo eksistuje.</string>
@@ -438,11 +439,8 @@
   <string name="preference_summary_notification_thanks">Něchtó je so tebi dźakował za změnu</string>
   <string name="view_because_you_read_card_title">Přetož sy tole čitał(a)</string>
   <string name="view_random_card_title">Připad</string>
-  <string name="view_random_card_subtitle">Listować přez připadne zapiski z Wikipedije.</string>
-  <string name="view_random_card_action">Kóstkować</string>
   <string name="view_next_random_article">Druhi připadny zapisk pokazać</string>
   <string name="view_main_page_card_title">Dźensa we Wikipediji</string>
-  <string name="view_main_page_card_subtitle">Hłowna strona na %s</string>
   <string name="view_main_page_card_action">Hłownu stronu wobhladać</string>
   <string name="view_featured_image_card_title">Wobraz dnja</string>
   <string name="view_featured_image_card_download">Sćahnyć</string>
@@ -451,14 +449,11 @@
   <string name="menu_feed_card_edit_card_languages">Kartowe rěče wobdźěłać</string>
   <string name="menu_feed_overflow_label">Wjace opcijow</string>
   <string name="feed">Wotkrywać</string>
-  <string name="most_read_list_card_title">Woblubowane</string>
   <string name="view_static_card_icon_content_description">Kartowy symbol</string>
   <string name="view_card_news_title">W powěsćach</string>
   <string name="view_continue_reading_card_subtitle_today">dźensa</string>
   <string name="view_continue_reading_card_subtitle_read_date" fuzzy="true">Čitał(a) %s</string>
   <string name="view_announcement_card_negative_action">Ně, dźakuju</string>
-  <string name="view_featured_article_footer_save_button_label">Składować</string>
-  <string name="view_featured_article_footer_saved_button_label">Składowane</string>
   <string name="feed_configure_activity_title">Feed přiměrić</string>
   <string name="feed_configure_menu_reset">Standardny napohlad wobnowić</string>
   <string name="feed_configure_menu_select_all">Wšě pokazać</string>
@@ -479,6 +474,7 @@
   <string name="description_edit_success_done">Hotowo</string>
   <string name="description_edit_success_did_you_know">Hižo wědźał(a)?</string>
   <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Titulowe wopisy</string>
+  <string name="suggested_edits_quality_very_good_text">Jara derje</string>
   <string name="description_edit_revert_subtitle">Měj dźak za wobdźěłanje Wikipedije!</string>
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>
