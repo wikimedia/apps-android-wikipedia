@@ -167,11 +167,56 @@
   <string name="preferences_heading_experimental">Экспериментальни</string>
   <string name="preference_title_sync_reading_lists_from_account">Еша лаьрхӀа йолча оагӀоний мугӀамай синхронизаци</string>
   <string name="preference_title_download_reading_list_articles">Еша лаьрхӀа йолча оагӀоний мугӀамаш чура статьяш хьачуяха</string>
+  <string name="settings_item_preferences">Оттамаш</string>
+  <string name="settings_activity_title">Оттамаш</string>
+  <string name="about_description">«Википеди» приложенех лаьца</string>
+  <string name="privacy_policy_description">КъайлагӀарча хӀамай политика</string>
+  <string name="terms_of_use_description">Пайда эцара бехкамаш</string>
   <string name="about_wikipedia_url">https://inh.wikipedia.org/wiki/Википеди:Сурт_оттадар</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайн_дешар_а_дараш_а</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
+  <string name="about_libraries_heading">Пайда ийца библиотекаш</string>
+  <string name="about_contributors_heading">Автораш</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Тоабан оагӀув&lt;/a&gt;</string>
+  <string name="about_translators_heading">Таржамхой</string>
+  <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>
+  <string name="about_app_license">Юххьанцарча кóдá тӀакхача аьттув ба укхазеи → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; укхазеи → &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; укх лицензеца: &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце чударá тӀакхача аьттув ба &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; яхача лицензеца.</string>
+  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонд Викимедиан продукт&lt;/a&gt;</string>
   <string name="about_activity_title">Приложенех лаьца</string>
+  <string name="edit_abandon_confirm">ОагӀона тӀа хувцам баьб. Боккъонца лой хьона хувцам дӀа ца язбеш аравала?</string>
+  <string name="edit_abandon_confirm_yes">ХӀаъа</string>
+  <string name="edit_abandon_confirm_no">A</string>
+  <string name="user_blocked_from_editing_title">Блок техай</string>
+  <string name="user_logged_in_blocked_from_editing">Хьа аккаунта блок техай укх вики-проекта чу хувцамаш дергдоацаш.</string>
+  <string name="user_anon_blocked_from_editing">Хьа IP-цӀайца хувцамаш дергдоацаш блок техай.</string>
   <string name="edit_how_page_improved">МалагIа хувцам а баь тоаяьй оаш оагIув?</string>
+  <string name="edit_next">ДӀахо</string>
+  <string name="edit_done">ДӀаязде</string>
+  <string name="edit_preview">Хьалххе бӀаргтохар</string>
+  <string name="edit_undo">Юхадаккха</string>
+  <string name="edit_redo">Цхьаькхаза</string>
+  <string name="edit_zoom_in">Хьадоаккхаде</string>
+  <string name="edit_zoom_out">ДӀазӀамигаде</string>
   <string name="edit_summary_tag_typo">ГӀалат тоадаьд</string>
+  <string name="edit_summary_tag_grammar">Нийсаяздар тоадаьд</string>
+  <string name="edit_summary_tag_links">ТӀатовжамаш тӀатехад</string>
+  <string name="edit_summary_tag_other">Кхыдар</string>
+  <string name="edit_summary_tag_other_hint">ОагӀув тоаяр духьа кхыдола Ӏа хержá наькъаш</string>
+  <string name="edit_conflict_title">Хувцара вӀашдухьалъоттам.</string>
+  <string name="edit_conflict_message">Хувцара юкъе вӀашдухьалъоттам хилар, кхыча саго хьол кӀезига хьалхагӀа оагӀув хийцандаь. Ӏайха даьча хувцамех тарам а дий (шоллар де), юха а вахе, оагӀув кердаяккха, цул тӀехьагӀа юха хьай хувцамаш чакхадаха.</string>
+  <string name="find_next">Лаха дӀахо</string>
+  <string name="find_previous">Лаха хьалхагӀа хиннар</string>
+  <string name="find_first_occurence">Ер хьалхара нийсденнар да</string>
+  <string name="find_last_occurence">Ер тӀехьара нийсденнар да</string>
+  <string name="article_opened_in_background_tab">Ер статья фонацарча вкладка тӀа хьайийлай.</string>
+  <string name="abusefilter_title_warn">Ер деструктивни тоадар долчох тара да. Боккъонца лой хьона из кепатоха?</string>
   <string name="widget_title_featured_page">Таханара хержа оагIув</string>
   <string name="widget_name_search">Википеде чу лахар</string>
   <string name="about_article_section">Укх оагIонах лаьца</string>
