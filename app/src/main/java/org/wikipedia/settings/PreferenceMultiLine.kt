@@ -1,53 +1,41 @@
-package org.wikipedia.settings;
+package org.wikipedia.settings
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.util.AttributeSet
+import android.widget.TextView
+import android.widget.Toast
+import androidx.preference.Preference
+import androidx.preference.Preference.OnPreferenceClickListener
+import androidx.preference.PreferenceViewHolder
+import org.wikipedia.R
 
-import androidx.annotation.NonNull;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceViewHolder;
+class PreferenceMultiLine : Preference {
+    constructor(ctx: Context?, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle) {}
+    constructor(ctx: Context?, attrs: AttributeSet?) : super(ctx, attrs) {}
+    constructor(ctx: Context?) : super(ctx) {}
 
-import org.wikipedia.R;
-
-public class PreferenceMultiLine extends Preference {
-
-    public PreferenceMultiLine(Context ctx, AttributeSet attrs, int defStyle) {
-        super(ctx, attrs, defStyle);
-    }
-
-    public PreferenceMultiLine(Context ctx, AttributeSet attrs) {
-        super(ctx, attrs);
-    }
-
-    public PreferenceMultiLine(Context ctx) {
-        super(ctx);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
-        super.onBindViewHolder(holder);
-        TextView textView = holder.itemView.findViewById(android.R.id.title);
+    override fun onBindViewHolder(holder: PreferenceViewHolder) {
+        super.onBindViewHolder(holder)
+        val textView = holder.itemView.findViewById<TextView>(android.R.id.title)
         if (textView != null) {
-            textView.setSingleLine(false);
+            textView.isSingleLine = false
         }
         // Intercept the click listener for this preference, and if the preference has an intent,
         // launch the intent ourselves, so that we can catch the exception if the intent fails.
         // (but only do this if the preference doesn't already have a click listener)
-        if (this.getOnPreferenceClickListener() == null) {
-            this.setOnPreferenceClickListener((preference) -> {
-                if (preference.getIntent() != null) {
+        if (this.onPreferenceClickListener == null) {
+            this.onPreferenceClickListener = OnPreferenceClickListener { preference: Preference ->
+                if (preference.intent != null) {
                     try {
-                        getContext().startActivity(preference.getIntent());
-                    } catch (ActivityNotFoundException e) {
-                        Toast.makeText(getContext(), getContext().getString(R.string.error_browser_not_found), Toast.LENGTH_LONG).show();
+                        context.startActivity(preference.intent)
+                    } catch (e: ActivityNotFoundException) {
+                        Toast.makeText(context, context.getString(R.string.error_browser_not_found), Toast.LENGTH_LONG).show()
                     }
-                    return true;
+                    return@setOnPreferenceClickListener true
                 }
-                return false;
-            });
+                false
+            }
         }
     }
 }
