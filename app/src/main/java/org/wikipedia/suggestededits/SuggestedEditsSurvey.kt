@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import android.net.Uri
-import android.view.View
 import android.widget.TextView
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -15,12 +14,20 @@ object SuggestedEditsSurvey {
     private const val VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY = 3
     fun maybeRunSurvey(activity: Activity) {
         if (Prefs.shouldShowSuggestedEditsSurvey()) {
-            val snackbar = makeSnackbar(activity, activity.getString(R.string.suggested_edits_snackbar_survey_text), FeedbackUtil.LENGTH_MEDIUM)
-            val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
-            actionView.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_open_in_new_accent_24, 0)
-            actionView.compoundDrawablePadding = activity.resources.getDimensionPixelOffset(R.dimen.margin)
-            snackbar.setAction(activity.getString(R.string.suggested_edits_snackbar_survey_action_text)) { v: View? -> openSurveyInBrowser() }
-            snackbar.show()
+            makeSnackbar(activity,
+                    activity.getString(R.string.suggested_edits_snackbar_survey_text),
+                    FeedbackUtil.LENGTH_MEDIUM).apply {
+                view.findViewById<TextView>(R.id.snackbar_action).apply {
+                    setCompoundDrawablesWithIntrinsicBounds(0,
+                            0,
+                            R.drawable.ic_open_in_new_accent_24,
+                            0)
+                    compoundDrawablePadding =
+                            activity.resources.getDimensionPixelOffset(R.dimen.margin)
+                }
+                setAction(activity.getString(R.string.suggested_edits_snackbar_survey_action_text)) { openSurveyInBrowser() }
+                show()
+            }
             Prefs.setShouldShowSuggestedEditsSurvey(false)
         }
     }
@@ -28,7 +35,9 @@ object SuggestedEditsSurvey {
     @JvmStatic
     fun onEditSuccess() {
         Prefs.setSuggestedEditsCountForSurvey(Prefs.getSuggestedEditsCountForSurvey() + 1)
-        if (Prefs.getSuggestedEditsCountForSurvey() == 1 || Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY && !Prefs.wasSuggestedEditsSurveyClicked()) {
+        if (Prefs.getSuggestedEditsCountForSurvey() == 1 ||
+                Prefs.getSuggestedEditsCountForSurvey() == VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY &&
+                !Prefs.wasSuggestedEditsSurveyClicked()) {
             Prefs.setShouldShowSuggestedEditsSurvey(true)
         }
     }
@@ -38,5 +47,4 @@ object SuggestedEditsSurvey {
         visitInExternalBrowser(WikipediaApp.getInstance(),
                 Uri.parse(WikipediaApp.getInstance().getString(R.string.suggested_edits_survey_url)))
     }
-
 }
