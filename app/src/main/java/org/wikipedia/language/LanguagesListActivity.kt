@@ -130,7 +130,7 @@ class LanguagesListActivity : BaseActivity() {
 
         // To remove the already selected languages and suggested languages from all languages list
         private val nonDuplicateLanguageCodesList
-            get() = originalLanguageCodes.toMutableList().apply {
+            get() = originalLanguageCodes.apply {
                     removeAll(app.language().appLanguageCodes)
                     removeAll(suggestedLanguageCodes)
                 }
@@ -245,7 +245,7 @@ class LanguagesListActivity : BaseActivity() {
         disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { siteMatrix -> SiteMatrix.getSites(siteMatrix!!) }
+                .map { siteMatrix -> SiteMatrix.getSites(siteMatrix) }
                 .doAfterTerminate {
                     binding.languagesListLoadProgress.visibility = View.INVISIBLE
                     binding.languagesListRecycler.adapter?.notifyDataSetChanged()
