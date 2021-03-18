@@ -70,7 +70,8 @@ public class PageViewModel {
     }
 
     public boolean shouldLoadAsMobileWeb() {
-        return title != null && title.isMainPage();
+        return (title != null && title.namespace() == Namespace.SPECIAL)
+                || (page != null && page.getPageProperties().getNamespace() != Namespace.MAIN);
     }
 
     public void setWatched(boolean isWatched) {
