@@ -8,25 +8,15 @@ class SessionData {
     var startTime: Long
     var lastTouchTime: Long
     var pagesFromSearch = 0
-        private set
     var pagesFromRandom = 0
-        private set
     var pagesFromLangLink = 0
-        private set
     var pagesFromInternal = 0
-        private set
     var pagesFromExternal = 0
-        private set
     var pagesFromHistory = 0
-        private set
     var pagesFromReadingList = 0
-        private set
     var pagesFromBack = 0
-        private set
     var pagesWithNoDescription = 0
-        private set
     var pagesFromSuggestedEdits = 0
-        private set
 
     init {
         val now = System.currentTimeMillis()
@@ -64,7 +54,7 @@ class SessionData {
     }
 
     val totalPages: Int
-        get() = (pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal +
+        get() = pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal +
                 pagesFromExternal + pagesFromHistory + pagesFromReadingList +
-                pagesFromSuggestedEdits)
+                pagesFromSuggestedEdits
 }
