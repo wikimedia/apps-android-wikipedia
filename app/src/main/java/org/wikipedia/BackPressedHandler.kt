@@ -1,5 +1,5 @@
-package org.wikipedia;
+package org.wikipedia
 
-public interface BackPressedHandler {
-    boolean onBackPressed();
+interface BackPressedHandler {
+    fun onBackPressed(): Boolean
 }
