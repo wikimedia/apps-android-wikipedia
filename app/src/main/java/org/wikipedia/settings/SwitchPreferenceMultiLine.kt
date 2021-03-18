@@ -1,32 +1,22 @@
-package org.wikipedia.settings;
+package org.wikipedia.settings
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.TextView;
+import android.R
+import android.content.Context
+import android.util.AttributeSet
+import android.widget.TextView
+import androidx.preference.PreferenceViewHolder
+import androidx.preference.SwitchPreferenceCompat
 
-import androidx.annotation.NonNull;
-import androidx.preference.PreferenceViewHolder;
-import androidx.preference.SwitchPreferenceCompat;
+open class SwitchPreferenceMultiLine : SwitchPreferenceCompat {
+    constructor(ctx: Context?, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle) {}
+    constructor(ctx: Context?, attrs: AttributeSet?) : super(ctx, attrs) {}
+    constructor(ctx: Context?) : super(ctx) {}
 
-public class SwitchPreferenceMultiLine extends SwitchPreferenceCompat {
-    public SwitchPreferenceMultiLine(Context ctx, AttributeSet attrs, int defStyle) {
-        super(ctx, attrs, defStyle);
-    }
-
-    public SwitchPreferenceMultiLine(Context ctx, AttributeSet attrs) {
-        super(ctx, attrs);
-    }
-
-    public SwitchPreferenceMultiLine(Context ctx) {
-        super(ctx);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
-        super.onBindViewHolder(holder);
-        TextView textView = holder.itemView.findViewById(android.R.id.title);
+    override fun onBindViewHolder(holder: PreferenceViewHolder) {
+        super.onBindViewHolder(holder)
+        val textView = holder.itemView.findViewById<TextView>(R.id.title)
         if (textView != null) {
-            textView.setSingleLine(false);
+            textView.isSingleLine = false
         }
     }
 }
