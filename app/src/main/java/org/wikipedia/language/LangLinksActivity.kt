@@ -220,7 +220,7 @@ class LangLinksActivity : BaseActivity() {
         private var isSearching = false
 
         // To remove the already selected languages and suggested languages from all languages list
-        private val nonDuplicateEntries get() = originalLanguageEntries.apply { removeAll(appLanguageEntries) }
+        private val nonDuplicateEntries get() = originalLanguageEntries.toMutableList().apply { removeAll(appLanguageEntries) }
 
         init {
             reset()

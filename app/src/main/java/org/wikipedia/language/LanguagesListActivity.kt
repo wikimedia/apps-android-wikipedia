@@ -130,7 +130,7 @@ class LanguagesListActivity : BaseActivity() {
 
         // To remove the already selected languages and suggested languages from all languages list
         private val nonDuplicateLanguageCodesList
-            get() = originalLanguageCodes.apply {
+            get() = originalLanguageCodes.toMutableList().apply {
                     removeAll(app.language().appLanguageCodes)
                     removeAll(suggestedLanguageCodes)
                 }
