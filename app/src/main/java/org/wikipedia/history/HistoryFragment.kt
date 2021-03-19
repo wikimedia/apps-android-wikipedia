@@ -276,16 +276,8 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             val voiceSearchButton = itemView.findViewById<View>(R.id.voice_search_button)
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
-            searchCardView.setOnClickListener {
-                if (isAdded) {
-                    (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it)
-                }
-            }
-            voiceSearchButton.setOnClickListener {
-                if (isAdded) {
-                    (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested()
-                }
-            }
+            searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
+            voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
             historyFilterButton.setOnClickListener {
                 if (actionMode == null) {
                     actionMode = (requireActivity() as AppCompatActivity)
@@ -423,9 +415,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private inner class HistorySearchCallback : SearchActionModeCallback() {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             actionMode = mode
-            if (isAdded) {
-                (requireParentFragment() as MainFragment).setBottomNavVisible(false)
-            }
+            (requireParentFragment() as MainFragment).setBottomNavVisible(false)
             (binding.historyList.adapter as HistoryEntryItemAdapter).hideHeader()
             return super.onCreateActionMode(mode, menu)
         }
@@ -440,9 +430,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             currentSearchQuery = ""
             reloadHistoryItems()
             actionMode = null
-            if (isAdded) {
-                (requireParentFragment() as MainFragment).setBottomNavVisible(true)
-            }
+            (requireParentFragment() as MainFragment).setBottomNavVisible(true)
         }
 
         override fun getSearchHintString(): String {
