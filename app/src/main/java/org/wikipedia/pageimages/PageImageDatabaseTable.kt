@@ -52,12 +52,12 @@ class PageImageDatabaseTable : DatabaseTable<PageImage>(PageImageHistoryContract
         )
     }
 
+    override val dBVersionIntroducedAt
+        get() = INITIAL_DB_VERSION
+
     companion object {
         private const val DB_VER_NAMESPACE_ADDED = 7
         private const val DB_VER_LANG_ADDED = 10
         private const val DB_VER_DISPLAY_TITLE_ADDED = 19
     }
-
-    override val dBVersionIntroducedAt: Int
-        get() = INITIAL_DB_VERSION
 }
