@@ -7,9 +7,15 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.web.sugar.Web.onWebView
+import androidx.test.espresso.web.webdriver.DriverAtoms.findElement
+import androidx.test.espresso.web.webdriver.DriverAtoms.webClick
+import androidx.test.espresso.web.webdriver.Locator
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
 import org.junit.Rule
@@ -67,17 +73,90 @@ class SmokeTests {
         TestUtil.delay(2)
 
         onView(allOf(withId(R.id.search_src_text), isDisplayed()))
-                .perform(replaceText("barack obama"), closeSoftKeyboard())
+                .perform(replaceText("quantum teleportation"), closeSoftKeyboard())
 
         TestUtil.delay(5)
 
-        onView(allOf(withId(R.id.page_list_item_title), withText("Barack Obama"), isDisplayed()))
-                .check(matches(withText("Barack Obama")))
+        onView(allOf(withId(R.id.page_list_item_title), withText("Quantum teleportation"), isDisplayed()))
+                .check(matches(withText("Quantum teleportation")))
 
         onView(withId(R.id.search_results_list))
                 .perform(actionOnItemAtPosition<ViewHolder>(0, click()))
 
+        TestUtil.delay(3)
+
+
+
+
+        onWebView().forceJavascriptEnabled()
+
+        TestUtil.delay(1)
+
+
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
+                .perform(webClick())
+
+        TestUtil.delay(2)
+
+
+
+
+        onView(allOf(withId(R.id.title), withText("Edit introduction"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.menu_edit_zoom_in), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.menu_edit_zoom_out), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.edit_section_text)))
+                .perform(replaceText("abc"))
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed()))
+                .perform(click())
+
         TestUtil.delay(5)
+
+        onView(allOf(withText("Fixed typo")))
+                .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(android.R.id.button2), withText("No")))
+                .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(android.R.id.button1), withText("Yes")))
+                .perform(scrollTo(), click())
+
+
+        TestUtil.delay(2)
+
 
         onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
                 .perform(click())
