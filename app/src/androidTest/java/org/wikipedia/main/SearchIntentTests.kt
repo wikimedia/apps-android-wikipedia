@@ -64,7 +64,7 @@ class SearchIntentTests {
 
         TestUtil.delay(1)
 
-        onView(allOf(withId(R.id.search_lang_button_container), withContentDescription("Wikipedia languages"), isDisplayed()))
+        onView(allOf(withId(R.id.search_lang_button_container), isDisplayed()))
                 .perform(ViewActions.click())
 
         TestUtil.delay(1)

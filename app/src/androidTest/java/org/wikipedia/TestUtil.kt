@@ -1,5 +1,6 @@
 package org.wikipedia
 
+import android.graphics.Rect
 import android.view.View
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
@@ -18,6 +19,10 @@ object TestUtil {
 
     fun withGrandparent(grandparentMatcher: Matcher<View>): Matcher<View> {
         return WithGrandparentMatcher(grandparentMatcher)
+    }
+
+    fun isNotVisible(): Matcher<View> {
+        return IsNotVisibleMatcher()
     }
 
     fun waitOnId(millis: Long): ViewAction {
@@ -44,6 +49,16 @@ object TestUtil {
 
         public override fun matchesSafely(view: View): Boolean {
             return grandparentMatcher.matches(view.parent.parent)
+        }
+    }
+
+    internal class IsNotVisibleMatcher : TypeSafeMatcher<View>() {
+        override fun describeTo(description: Description) {
+            description.appendText("is not displayed on the screen to the user")
+        }
+
+        public override fun matchesSafely(view: View): Boolean {
+            return (view.visibility != View.VISIBLE)
         }
     }
 }
