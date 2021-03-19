@@ -239,7 +239,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
 
         @Override
-        public void onSearchTabSelected() {
+        public void onFindInPageTabSelected() {
             showFindInPage();
         }
 
