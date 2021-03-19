@@ -31,6 +31,29 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     private lateinit var action: Action
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
+    public override fun createFragment(): DescriptionEditFragment {
+        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
+        val title = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
+        SuggestedEditsFunnel.get().click(title.displayText, action)
+        return DescriptionEditFragment.newInstance(title,
+                intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
+                intent.getStringExtra(EXTRA_SOURCE_SUMMARY),
+                intent.getStringExtra(EXTRA_TARGET_SUMMARY),
+                action,
+                invokeSource)
+    }
+
+    override fun onBackPressed() {
+        if (fragment.editView.showingReviewContent()) {
+            fragment.editView.loadReviewContent(false)
+        } else {
+            DeviceUtil.hideSoftKeyboard(this)
+            SuggestedEditsFunnel.get().cancel(action)
+            super.onBackPressed()
+        }
+    }
+
     override fun onDescriptionEditSuccess() {
         setResult(DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS)
         finish()
@@ -59,7 +82,8 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
-        copyLink(title.uri)
+        ClipboardUtil.setPlainText(this, null, title.uri)
+        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
@@ -77,34 +101,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
 
     fun updateNavigationBarColor(@ColorInt color: Int) {
         setNavigationBarColor(color)
-    }
-
-    private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(this, null, url)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    public override fun createFragment(): DescriptionEditFragment {
-        val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val title: PageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
-        SuggestedEditsFunnel.get().click(title.displayText, action)
-        return DescriptionEditFragment.newInstance(title,
-                intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                intent.getStringExtra(EXTRA_SOURCE_SUMMARY),
-                intent.getStringExtra(EXTRA_TARGET_SUMMARY),
-                action,
-                invokeSource)
-    }
-
-    override fun onBackPressed() {
-        if (fragment.editView.showingReviewContent()) {
-            fragment.editView.loadReviewContent(false)
-        } else {
-            DeviceUtil.hideSoftKeyboard(this)
-            SuggestedEditsFunnel.get().cancel(action)
-            super.onBackPressed()
-        }
     }
 
     companion object {
