@@ -1,10 +1,10 @@
 package org.wikipedia.analytics
 
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.util.MathUtil.Averaged
+import org.wikipedia.util.MathUtil
 
 class SessionData {
-    private val leadLatency = Averaged<Long>()
+    private val leadLatency = MathUtil.Averaged<Long>()
     var startTime: Long
     var lastTouchTime: Long
     var pagesFromSearch = 0
