@@ -7,19 +7,19 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 
 @Parcelize
-data class PageImage(val title: PageTitle, val imageName: String) : Parcelable {
+data class PageImage(val title: PageTitle?, val imageName: String?) : Parcelable {
 
     companion object {
         @JvmField
         val DATABASE_TABLE = PageImageDatabaseTable()
 
         @JvmStatic
-        fun imageMapFromPages(wiki: WikiSite, titles: MutableList<PageTitle>, pages: MutableList<MwQueryPage>): Map<PageTitle?, PageImage> {
-            val pageImagesMap = mutableMapOf<PageTitle?, PageImage>()
+        fun imageMapFromPages(wiki: WikiSite, titles: MutableList<PageTitle>, pages: MutableList<MwQueryPage>): Map<PageTitle, PageImage> {
+            val pageImagesMap = mutableMapOf<PageTitle, PageImage>()
             // nominal case
             val titlesMap = mutableMapOf<String, PageTitle>()
-            titles.forEach { title ->
-                titlesMap[title.prefixedText] = title
+            titles.forEach {
+                titlesMap[it.prefixedText] = it
             }
             val thumbnailSourcesMap = mutableMapOf<String, String?>()
 
@@ -34,9 +34,9 @@ data class PageImage(val title: PageTitle, val imageName: String) : Parcelable {
                 }
             }
 
-            titlesMap.keys.forEach { key ->
-                if (thumbnailSourcesMap.containsKey(key)) {
-                    pageImagesMap[titlesMap[key]] = PageImage(titlesMap[key]!!, thumbnailSourcesMap[key]!!)
+            titlesMap.forEach {
+                if (thumbnailSourcesMap.containsKey(it.key)) {
+                    pageImagesMap[it.value] = PageImage(it.value, thumbnailSourcesMap[it.key])
                 }
             }
             return pageImagesMap
