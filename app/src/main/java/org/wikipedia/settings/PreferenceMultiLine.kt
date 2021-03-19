@@ -18,9 +18,7 @@ class PreferenceMultiLine : Preference {
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
-        holder.itemView.findViewById<TextView>(android.R.id.title)?.let {
-            it.isSingleLine = false
-        }
+        holder.itemView.findViewById<TextView>(android.R.id.title)?.isSingleLine = false
 
         // Intercept the click listener for this preference, and if the preference has an intent,
         // launch the intent ourselves, so that we can catch the exception if the intent fails.
@@ -31,7 +29,8 @@ class PreferenceMultiLine : Preference {
                     try {
                         context.startActivity(preference.intent)
                     } catch (e: ActivityNotFoundException) {
-                        Toast.makeText(context, context.getString(R.string.error_browser_not_found), Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, context.getString(R.string.error_browser_not_found),
+                                Toast.LENGTH_LONG).show()
                     }
                     return@OnPreferenceClickListener true
                 }
