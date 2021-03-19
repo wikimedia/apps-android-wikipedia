@@ -34,14 +34,13 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         override fun onListActionButtonClicked(view: OnboardingPageView) {}
     }
 
-    private val binding = ViewOnboardingPageBinding.inflate(LayoutInflater.from(context), this)
-    private val bindingLanguageList = binding.languageListContainer
     var callback: Callback? = null
+    private val binding = ViewOnboardingPageBinding.inflate(LayoutInflater.from(context), this)
     private var listDataType: String? = null
 
     init {
-        if (attrs != null) {
-            val array = context.obtainStyledAttributes(attrs, R.styleable.OnboardingPageView)
+        attrs?.let { attrSet ->
+            val array = context.obtainStyledAttributes(attrSet, R.styleable.OnboardingPageView)
             val centeredImage = AppCompatResources.getDrawable(context,
                     array.getResourceId(R.styleable.OnboardingPageView_centeredImage, -1))
             val primaryText = array.getString(R.styleable.OnboardingPageView_primaryText)
@@ -67,20 +66,14 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
             binding.switchView.text = switchText
             setUpLanguageListContainer(showListView, listDataType)
-            binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
-                if (callback != null) {
-                    callback!!.onLinkClick(this@OnboardingPageView, url)
-                }
+            binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url ->
+                callback?.onLinkClick(this@OnboardingPageView, url)
             }
-            bindingLanguageList.addLangContainer.setOnClickListener {
-                if (callback != null) {
-                    callback!!.onListActionButtonClicked(this)
-                }
+            binding.languageListContainer.addLangContainer.setOnClickListener {
+                callback?.onListActionButtonClicked(this)
             }
             binding.switchView.setOnCheckedChangeListener { _, checked ->
-                if (callback != null) {
-                    callback!!.onSwitchChange(this, checked)
-                }
+                callback?.onSwitchChange(this, checked)
             }
             array.recycle()
         }
@@ -95,13 +88,13 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             return
         }
         binding.tertiaryTextView.visibility = View.GONE
-        bindingLanguageList.root.visibility = View.VISIBLE
-        bindingLanguageList.languagesList.layoutManager = LinearLayoutManager(context)
-        bindingLanguageList.languagesList.adapter = LanguageListAdapter(getListData(dataType))
+        binding.languageListContainer.root.visibility = View.VISIBLE
+        binding.languageListContainer.languagesList.layoutManager = LinearLayoutManager(context)
+        binding.languageListContainer.languagesList.adapter = LanguageListAdapter(getListData(dataType))
     }
 
     private fun getListData(dataType: String?): List<String?> {
-        val items: MutableList<String?> = ArrayList()
+        val items = mutableListOf<String>()
         if (dataType != null && dataType == context.getString(R.string.language_data)) {
             for (code in WikipediaApp.getInstance().language().appLanguageCodes) {
                 items.add(StringUtils.capitalize(WikipediaApp.getInstance().language().getAppLanguageLocalizedName(code)))
@@ -120,18 +113,15 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             holder.optionLabelTextView.text = context.getString(R.string.onboarding_option_string, (position + 1).toString(), items[position])
         }
 
-        override fun getItemCount(): Int = items.size
+        override fun getItemCount() = items.size
 
         inner class OptionsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var optionLabelTextView: TextView = itemView.findViewById(R.id.option_label)
+            var optionLabelTextView = itemView.findViewById<TextView>(R.id.option_label)!!
         }
     }
 
     fun refreshLanguageList() {
-        if (bindingLanguageList.languagesList.adapter != null) {
-            bindingLanguageList.languagesList.adapter = null
-            bindingLanguageList.languagesList.adapter = LanguageListAdapter(getListData(listDataType))
-            bindingLanguageList.languagesList.adapter!!.notifyDataSetChanged()
-        }
+        binding.languageListContainer.languagesList.adapter = LanguageListAdapter(getListData(listDataType))
+        binding.languageListContainer.languagesList.adapter?.notifyDataSetChanged()
     }
 }
