@@ -1,11 +1,11 @@
 package org.wikipedia
 
-import android.graphics.Rect
 import android.view.View
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.action.*
+import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -23,6 +23,13 @@ object TestUtil {
 
     fun isNotVisible(): Matcher<View> {
         return IsNotVisibleMatcher()
+    }
+
+    fun swipeDownWebView(): ViewAction {
+        return ViewActions.actionWithAssertions(
+                GeneralSwipeAction(Swipe.FAST, TranslatedCoordinatesProvider(GeneralLocation.TOP_CENTER, 0f, 0.25f),
+                GeneralLocation.BOTTOM_CENTER,
+                Press.FINGER))
     }
 
     fun waitOnId(millis: Long): ViewAction {
@@ -59,6 +66,15 @@ object TestUtil {
 
         public override fun matchesSafely(view: View): Boolean {
             return (view.visibility != View.VISIBLE)
+        }
+    }
+
+    internal class TranslatedCoordinatesProvider(private val coordinatesProvider: CoordinatesProvider, val dx: Float, private val dy: Float) : CoordinatesProvider {
+        override fun calculateCoordinates(view: View): FloatArray {
+            val xy = coordinatesProvider.calculateCoordinates(view)
+            xy[0] += dx * view.width
+            xy[1] += dy * view.height
+            return xy
         }
     }
 }

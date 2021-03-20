@@ -71,6 +71,7 @@ class SmokeTests {
 
         TestUtil.delay(1)
 
+
         onView(allOf(withId(R.id.search_container), isDisplayed()))
                 .perform(click())
 
@@ -201,6 +202,15 @@ class SmokeTests {
         pressBack()
 
         TestUtil.delay(2)
+
+        onView(withId(R.id.page_contents_container))
+                .perform(TestUtil.swipeDownWebView())
+
+        TestUtil.delay(5)
+
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`("Quantum teleportation")))
+
     }
 
     @Test
