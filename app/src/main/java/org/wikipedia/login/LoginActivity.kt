@@ -80,7 +80,6 @@ class LoginActivity : BaseActivity() {
             val title = PageTitle("Special:PasswordReset", WikipediaApp.getInstance().wikiSite)
             visitInExternalBrowser(this, Uri.parse(title.uri))
         }
-
     }
 
     private fun getText(input: TextInputLayout): String {
@@ -161,8 +160,8 @@ class LoginActivity : BaseActivity() {
                     funnel!!.logCreateAccountFailure()
                 }
             }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_RESET_PASSWORD
-                && resultCode == ResetPasswordActivity.RESULT_PASSWORD_RESET_SUCCESS) {
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_RESET_PASSWORD &&
+                resultCode == ResetPasswordActivity.RESULT_PASSWORD_RESET_SUCCESS) {
             onLoginSuccess()
         }
     }
