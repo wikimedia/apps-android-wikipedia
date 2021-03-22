@@ -148,7 +148,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
         WikiSite wiki = WikipediaApp.getInstance().getWikiSite();
         ReadingListClient client = new ReadingListClient(wiki);
-        ReadingListSyncNotification readingListSyncNotification = ReadingListSyncNotification.getInstance();
+        ReadingListSyncNotification readingListSyncNotification = ReadingListSyncNotification.Companion.getInstance();
 
         String lastSyncTime = Prefs.getReadingListsLastSyncTime();
         boolean shouldSendSyncEvent = extras.containsKey(SYNC_EXTRAS_REFRESHING);
