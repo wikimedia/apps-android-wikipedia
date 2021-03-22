@@ -339,6 +339,10 @@ public class TabActivity extends BaseActivity {
             int tabIndex = app.getTabList().size() - index - 1;
             L.d("Tab selected: " + index);
 
+            if (tabIndex < 0) {
+                return;
+            }
+
             if (tabIndex < app.getTabList().size() - 1) {
                 org.wikipedia.page.tabs.Tab tab = app.getTabList().remove(tabIndex);
                 app.getTabList().add(tab);
@@ -367,6 +371,9 @@ public class TabActivity extends BaseActivity {
         @Override
         public void onTabRemoved(@NonNull TabSwitcher tabSwitcher, int index, @NonNull Tab tab, @NonNull Animation animation) {
             int tabIndex = app.getTabList().size() - index - 1;
+            if (tabIndex < 0) {
+                return;
+            }
             org.wikipedia.page.tabs.Tab appTab = app.getTabList().remove(tabIndex);
 
             funnel.logClose(app.getTabCount(), tabIndex);
