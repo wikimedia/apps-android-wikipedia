@@ -1,11 +1,15 @@
 package org.wikipedia
 
+import android.graphics.drawable.ColorDrawable
 import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.ColorInt
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.*
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
+import okhttp3.internal.toHexString
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -23,6 +27,10 @@ object TestUtil {
 
     fun isNotVisible(): Matcher<View> {
         return IsNotVisibleMatcher()
+    }
+
+    fun hasBackgroundColor(@ColorInt color: Int): Matcher<View> {
+        return BackgroundColorMatcher(color)
     }
 
     fun swipeDownWebView(): ViewAction {
@@ -48,6 +56,22 @@ object TestUtil {
         }
     }
 
+
+    fun childAtPosition(parentMatcher: Matcher<View>, position: Int): Matcher<View> {
+        return object : TypeSafeMatcher<View>() {
+            override fun describeTo(description: Description) {
+                description.appendText("Child at position $position in parent ")
+                parentMatcher.describeTo(description)
+            }
+
+            public override fun matchesSafely(view: View): Boolean {
+                val parent = view.parent
+                return parent is ViewGroup && parentMatcher.matches(parent)
+                        && view == parent.getChildAt(position)
+            }
+        }
+    }
+
     internal class WithGrandparentMatcher constructor(private val grandparentMatcher: Matcher<View>) : TypeSafeMatcher<View>() {
         override fun describeTo(description: Description) {
             description.appendText("has grandparent matching: ")
@@ -66,6 +90,16 @@ object TestUtil {
 
         public override fun matchesSafely(view: View): Boolean {
             return (view.visibility != View.VISIBLE)
+        }
+    }
+
+    internal class BackgroundColorMatcher(@ColorInt private val color: Int) : TypeSafeMatcher<View>() {
+        override fun describeTo(description: Description) {
+            description.appendText("has background color of " + color.toHexString())
+        }
+
+        public override fun matchesSafely(view: View): Boolean {
+            return view.background is ColorDrawable && (view.background as ColorDrawable).color == color
         }
     }
 

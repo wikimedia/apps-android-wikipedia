@@ -1,7 +1,5 @@
-package org.wikipedia.main
+package org.wikipedia.search
 
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
@@ -15,21 +13,17 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
-import org.hamcrest.Description
-import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.TestUtil
-import org.wikipedia.search.SearchActivity
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class SearchIntentTests {
+class SearchIntentTest {
 
     @Rule
     @JvmField
@@ -93,7 +87,7 @@ class SearchIntentTests {
 
         TestUtil.delay(1)
 
-        onView(allOf(childAtPosition(childAtPosition(withId(R.id.horizontal_scroll_languages), 0), 1), isDisplayed()))
+        onView(allOf(TestUtil.childAtPosition(TestUtil.childAtPosition(withId(R.id.horizontal_scroll_languages), 0), 1), isDisplayed()))
                 .perform(ViewActions.click())
 
         TestUtil.delay(5)
@@ -102,22 +96,5 @@ class SearchIntentTests {
                 .check(matches(withText("Обама, Барак")))
 
         TestUtil.delay(2)
-    }
-
-    private fun childAtPosition(
-            parentMatcher: Matcher<View>, position: Int): Matcher<View> {
-
-        return object : TypeSafeMatcher<View>() {
-            override fun describeTo(description: Description) {
-                description.appendText("Child at position $position in parent ")
-                parentMatcher.describeTo(description)
-            }
-
-            public override fun matchesSafely(view: View): Boolean {
-                val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position)
-            }
-        }
     }
 }

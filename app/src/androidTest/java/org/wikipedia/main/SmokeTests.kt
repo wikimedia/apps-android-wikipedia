@@ -1,5 +1,6 @@
 package org.wikipedia.main
 
+import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
@@ -132,6 +133,39 @@ class SmokeTests {
         TestUtil.delay(2)
 
 
+
+
+
+
+
+        onView(withId(R.id.article_menu_font_and_theme))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+        onView(withId(R.id.theme_chooser_match_system_theme_switch))
+                .perform(scrollTo(), click())
+
+        TestUtil.delay(1)
+
+        onView(withId(R.id.button_theme_black))
+                .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+
+        pressBack()
+
+        TestUtil.delay(1)
+
+        onView(withId(R.id.page_actions_tab_layout))
+                .check(matches(TestUtil.hasBackgroundColor(Color.WHITE)))
+
+
+
+
+
+
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[data-id='0'].pcs-edit-section-link"))
                 .perform(webClick())
 
@@ -211,50 +245,5 @@ class SmokeTests {
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
                 .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`("Quantum teleportation")))
 
-    }
-
-    @Test
-    fun mainActivityTest2() {
-
-        // Skip over onboarding screens
-        onView(allOf(withId(R.id.fragment_onboarding_skip_button), isDisplayed()))
-                .perform(click())
-
-        TestUtil.delay(2)
-
-        // Click the More menu
-        onView(allOf(withId(R.id.nav_more_container), isDisplayed()))
-                .perform(click())
-
-        TestUtil.delay(1)
-
-        // Click the Login menu item
-        onView(allOf(withId(R.id.main_drawer_login_button), isDisplayed()))
-                .perform(click())
-
-        TestUtil.delay(2)
-
-        // Click the login button
-        onView(allOf(withId(R.id.create_account_login_button), withText("Log in"), isDisplayed()))
-                .perform(click())
-
-        TestUtil.delay(2)
-
-        // Type in an incorrect username and password
-        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
-
-        onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
-
-        // Click the login button
-        onView(withId(R.id.login_button))
-                .perform(scrollTo(), click())
-
-        TestUtil.delay(5)
-
-        // Verify that a snackbar appears (because the login failed.)
-        onView(withId(R.id.snackbar_text))
-                .check(matches(isDisplayed()))
     }
 }
