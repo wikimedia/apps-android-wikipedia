@@ -95,7 +95,7 @@ object TestUtil {
 
     internal class BackgroundColorMatcher(@ColorInt private val color: Int) : TypeSafeMatcher<View>() {
         override fun describeTo(description: Description) {
-            description.appendText("has background color of " + color.toHexString())
+            description.appendText("has background color of $color")
         }
 
         public override fun matchesSafely(view: View): Boolean {

@@ -24,7 +24,6 @@ import org.hamcrest.Matchers.*
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import java.util.concurrent.TimeUnit
@@ -79,19 +78,19 @@ class SmokeTests {
         TestUtil.delay(1)
 
         onView(allOf(withId(R.id.search_src_text), isDisplayed()))
-                .perform(replaceText("quantum teleportation"), closeSoftKeyboard())
+                .perform(replaceText(SEARCH_TERM), closeSoftKeyboard())
 
         TestUtil.delay(5)
 
-        onView(allOf(withId(R.id.page_list_item_title), withText("Quantum teleportation"), isDisplayed()))
-                .check(matches(withText("Quantum teleportation")))
+        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
+                .check(matches(withText(ARTICLE_TITLE)))
 
         device.setOrientationRight()
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.page_list_item_title), withText("Quantum teleportation"), isDisplayed()))
-                .check(matches(withText("Quantum teleportation")))
+        onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
+                .check(matches(withText(ARTICLE_TITLE)))
 
         device.setOrientationNatural()
         device.unfreezeRotation()
@@ -109,23 +108,29 @@ class SmokeTests {
 
 
         onView(allOf(withId(R.id.page_header_view)))
-                .check(matches(TestUtil.isNotVisible()))
+                .check(matches(isDisplayed()))
 
 
 
         onWebView().forceJavascriptEnabled()
 
-
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`("Quantum teleportation")))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
 
 
         device.setOrientationRight()
 
         TestUtil.delay(2)
 
+
+
+        onView(allOf(withId(R.id.page_header_view)))
+                .check(matches(TestUtil.isNotVisible()))
+
+
+
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`("Quantum teleportation")))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
 
         device.setOrientationNatural()
         device.unfreezeRotation()
@@ -135,13 +140,10 @@ class SmokeTests {
 
 
 
-
-
-
         onView(withId(R.id.article_menu_font_and_theme))
                 .perform(click())
 
-        TestUtil.delay(2)
+        TestUtil.delay(1)
 
         onView(withId(R.id.theme_chooser_match_system_theme_switch))
                 .perform(scrollTo(), click())
@@ -159,10 +161,19 @@ class SmokeTests {
         TestUtil.delay(1)
 
         onView(withId(R.id.page_actions_tab_layout))
-                .check(matches(TestUtil.hasBackgroundColor(Color.WHITE)))
+                .check(matches(TestUtil.hasBackgroundColor(Color.BLACK)))
 
+        onView(withId(R.id.article_menu_font_and_theme))
+                .perform(click())
 
+        TestUtil.delay(1)
 
+        onView(withId(R.id.button_theme_light))
+                .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        pressBack()
 
 
 
@@ -243,7 +254,37 @@ class SmokeTests {
         TestUtil.delay(5)
 
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "h1"))
-                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`("Quantum teleportation")))
+                .check(WebViewAssertions.webMatches(DriverAtoms.getText(), `is`(ARTICLE_TITLE)))
 
+
+
+
+
+        onView(allOf(withId(R.id.page_web_view)))
+                .perform(swipeLeft())
+
+        onView(allOf(withId(R.id.page_toc_item_text), withText(ARTICLE_TITLE)))
+                .check(matches(isDisplayed()))
+
+        onView(allOf(withId(R.id.toc_list)))
+                .perform(swipeUp())
+
+        onView(allOf(withId(R.id.page_toc_item_text), withText("About this article")))
+                .perform(click())
+
+        TestUtil.delay(2)
+
+
+
+        onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='View talk page']"))
+                .perform(webClick())
+
+        TestUtil.delay(4)
+
+    }
+
+    companion object {
+        private val SEARCH_TERM = "hopf fibration"
+        private val ARTICLE_TITLE = "Hopf fibration"
     }
 }
