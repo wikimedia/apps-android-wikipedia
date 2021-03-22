@@ -298,11 +298,6 @@
   <string name="reading_list_item_delete_undo">Anuliuoti</string>
   <string name="reading_list_deleted">%s ištrintas</string>
   <string name="saved_list_empty_title">Dar nėra skaitymo sąrašų</string>
-  <string name="reading_lists_onboarding_for_example">Pavyzdžiui</string>
-  <string name="reading_lists_onboarding_example1">Lankytinos vietos</string>
-  <string name="reading_lists_onboarding_example2">Mėgstami gyvūnai</string>
-  <string name="reading_lists_onboarding_example3">Kosmoso tyrinėjimas</string>
-  <string name="reading_lists_onboarding_got_it">Supratau</string>
   <string name="reading_list_empty">Neturite pridėtų į sąrašą straipsnių.</string>
   <string name="reading_list_article_make_offline">Versti šį straipsnį būti prieinamam neprisijungus</string>
   <string name="reading_list_remove_from_list">Pašalinti iš %s</string>

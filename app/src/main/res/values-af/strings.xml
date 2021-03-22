@@ -281,12 +281,6 @@
   <string name="reading_list_deleted">%s geskrap</string>
   <string name="saved_list_empty_title">Nog geen leeslyste nie</string>
   <string name="reading_lists_empty_message" fuzzy="true">Bewaar artikels in die leeslys sodat u dit later kan lees, selfs wanneer u vanlyn is.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Skep ’n leeslys van artikels wat u later wil lees, selfs wanneer u vanlyn is!</string>
-  <string name="reading_lists_onboarding_for_example">Byvoorbeeld</string>
-  <string name="reading_lists_onboarding_example1">Plekke om te besoek</string>
-  <string name="reading_lists_onboarding_example2">Gunstelingdiere</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Ruimte!</string>
-  <string name="reading_lists_onboarding_got_it">Het dit</string>
   <string name="reading_list_empty">U het geen artikels tot hierdie lys toegevoeg nie.</string>
   <string name="reading_list_article_offline">Vanlyn beskikbaar</string>
   <string name="reading_list_article_make_offline">Maak hierdie artikel vanlyn beskikbaar</string>

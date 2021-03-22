@@ -316,11 +316,6 @@
   <string name="reading_list_item_delete_undo">გაუქმება</string>
   <string name="reading_list_deleted">%s წაიშალა</string>
   <string name="saved_list_empty_title">წასაკითხი სია ჯერ არაა.</string>
-  <string name="reading_lists_onboarding_for_example">მაგალითად</string>
-  <string name="reading_lists_onboarding_example1">მოსანახულებელი ადგილები</string>
-  <string name="reading_lists_onboarding_example2">საყვარელი ცხოველები</string>
-  <string name="reading_lists_onboarding_example3">კოსმოსის კვლევა</string>
-  <string name="reading_lists_onboarding_got_it">გასაგებია</string>
   <string name="reading_list_remove_from_list">%s-დან წაშლა</string>
   <string name="reading_list_remove_from_lists">საკითხავი სიიდან ამოღება</string>
   <string name="reading_lists_confirm_remote_delete_yes">დიახ</string>
