@@ -428,12 +428,6 @@
   <string name="reading_list_deleted">%s wiske</string>
   <string name="saved_list_empty_title">Noch gjin bewarre siden</string>
   <string name="reading_lists_empty_message">Set artikels op in list om letter te lêzen, sels sûnder netwurkferbining.</string>
-  <string name="reading_lists_onboarding_intro">Set artikels op in list om letter te lêzen, sels sûnder netwurkferbining!</string>
-  <string name="reading_lists_onboarding_for_example">Bygelyks</string>
-  <string name="reading_lists_onboarding_example1">Reisbestimmings</string>
-  <string name="reading_lists_onboarding_example2">Leaflingsbisten</string>
-  <string name="reading_lists_onboarding_example3">Romteûndersyk</string>
-  <string name="reading_lists_onboarding_got_it">Begrepen</string>
   <string name="reading_list_empty">Jo hawwe gjin artikels oan dizze list tafoege.</string>
   <string name="reading_list_article_offline">Ofline beskikber</string>
   <string name="reading_list_article_make_offline">Dit artikel ôfline beskikber meitsje</string>

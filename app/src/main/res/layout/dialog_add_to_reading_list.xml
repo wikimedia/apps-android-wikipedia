@@ -81,8 +81,4 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <include
-        android:id="@+id/onboarding_container"
-        layout="@layout/include_add_to_reading_list_onboarding" />
-
 </FrameLayout>

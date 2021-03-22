@@ -237,7 +237,7 @@
   <string name="clear_recent_searches_confirm_yes">ယွံ</string>
   <string name="clear_recent_searches_confirm_no">ဟအှ်ေ</string>
   <string name="error_browser_not_found">ပံက် မုက်လိက်ဝေပ်သာ် ဟွံဂွံ (ဗရောသာ app လဵု ဟွံမွဲ)၊၊</string>
-  <string name="table_infobox">တိတ်ထောအ်</string>
+  <string name="table_infobox">ပံက်</string>
   <string name="table_other">ဆက်ကဵု ပရိုင်တင်ဂၞင်</string>
   <string name="table_close">ကၟာတ်</string>
   <string name="widget_name_featured_page">မုက်လိက် တၟေင် ဝဳကဳပဳဒဳယာ</string>
@@ -412,12 +412,6 @@
   <string name="reading_list_deleted">%s ဇိုတ်ထောအ်</string>
   <string name="saved_list_empty_title">မုက်လိက် ဟွံဂွံ ဂိုင်သိပ် ဏီ</string>
   <string name="reading_lists_empty_message">စုတ် လိက်ပရေင် ပ္ဍဲ စရင် မွဲ သွက်ဂွံဗှ် ဗွဲကြဴ၊ ၜိုန်ရ မၞး မၞုံ မ္ၚးလာင်ကီုလေဝ်၊၊</string>
-  <string name="reading_lists_onboarding_intro">စုတ် လိက်ပရေင် ပ္ဍဲ စရင် မွဲ သွက်ဂွံဗှ် ဗွဲကြဴ၊ ၜိုန်ရ မၞး မၞုံ မ္ၚးလာင်ကီုလေဝ်!</string>
-  <string name="reading_lists_onboarding_for_example">ဥပမာ</string>
-  <string name="reading_lists_onboarding_example1">ဒၞာဲ သွက်ဂွံ အာဝေင်</string>
-  <string name="reading_lists_onboarding_example2">တိရစ္ဆာန် မဒးဂၞပ်စိုတ်</string>
-  <string name="reading_lists_onboarding_example3">ဂြိုဟ်အကာသ ဒၞာဲမိက်ဂွံအာလ္ၚတ်</string>
-  <string name="reading_lists_onboarding_got_it">ကလိဂွံ</string>
   <string name="reading_list_empty">မၞး ဟွံစုတ်လဝ် လိက်ပရေင် ပ္ဍဲ စရင်ဏအ်၊၊</string>
   <string name="reading_list_article_offline">မ္ၚးလာင် ဗှ်ဂွံ</string>
   <string name="reading_list_article_make_offline">ပ လိက်ပရေင်ဏအ် ညံင်ဂွံ ဗှ် မ္ၚးလာင် ဂွံ</string>
