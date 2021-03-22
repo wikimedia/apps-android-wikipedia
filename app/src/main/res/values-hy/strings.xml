@@ -188,8 +188,6 @@
   <string name="reading_list_menu_delete">Ջնջել ցանկ</string>
   <string name="reading_list_menu_rename">Խմբագրել անվանումը/նկարագրությունը</string>
   <string name="reading_list_item_delete_undo">Հետ շրջել</string>
-  <string name="reading_lists_onboarding_for_example">Օրինակ</string>
-  <string name="reading_lists_onboarding_got_it">Հասկանալի է</string>
   <string name="reading_list_select_item">Ընտրել</string>
   <string name="reading_lists_confirm_remote_delete_yes">Այո</string>
   <string name="reading_lists_confirm_remote_delete_no">Ոչ</string>
