@@ -228,10 +228,6 @@
   <string name="reading_list_description_hint">تفصیلاں(اختیاری)</string>
   <string name="reading_list_item_delete_undo">واپس</string>
   <string name="reading_list_deleted">%s مٹایا ہویا</string>
-  <string name="reading_lists_onboarding_for_example">مثال دے طور تے</string>
-  <string name="reading_lists_onboarding_example1">ݙیکھݨ کیتے جاہیں</string>
-  <string name="reading_lists_onboarding_example2">پسندیدہ جانور</string>
-  <string name="reading_lists_onboarding_got_it">گھن گھندا</string>
   <string name="reading_list_select_item">چݨو</string>
   <string name="reading_lists_confirm_remote_delete_yes">جیا</string>
   <string name="reading_lists_confirm_remote_delete_no">کو</string>

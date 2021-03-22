@@ -410,12 +410,6 @@
   <string name="reading_list_deleted">%s ڊاھيو ويو</string>
   <string name="saved_list_empty_title">اڃان ڪي بہ سانڍيل صفحا ڪونھن</string>
   <string name="reading_lists_empty_message">مضمونن کي بعد ۾ پڙھڻ جي لاءِ ڪنھن پڙھڻ جي فھرست ۾ وجھو تہ، ڀلي جڏھن توھان آف لائين ھجو.</string>
-  <string name="reading_lists_onboarding_intro">مضمونن کي بعد ۾ پڙھڻ لاءِ پڙھڻ جي ڪنھن فھرست ۾ وجھو، ڀلي جڏھن توھان آفلائين آھيو!</string>
-  <string name="reading_lists_onboarding_for_example">مثال طور</string>
-  <string name="reading_lists_onboarding_example1">گھمڻ جون جڳھون</string>
-  <string name="reading_lists_onboarding_example2">پسنديده جانور</string>
-  <string name="reading_lists_onboarding_example3">پولار کوجنا</string>
-  <string name="reading_lists_onboarding_got_it">سمجھي ويئو</string>
   <string name="reading_list_empty">ھن فھرست ۾ ڪي بہ مضمون وڌل ناھن.</string>
   <string name="reading_list_article_offline">آفلائين موجود</string>
   <string name="reading_list_article_make_offline">ھن مضمون کي آفلائين موجود ڪرايو</string>

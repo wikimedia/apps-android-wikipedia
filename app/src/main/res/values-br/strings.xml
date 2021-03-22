@@ -356,12 +356,6 @@
   <string name="reading_list_deleted">%s dilamet</string>
   <string name="saved_list_empty_title">Roll lenn ebet c\'hoazh.</string>
   <string name="reading_lists_empty_message">Enrollañ pennadoù en ur roll da lenn diwezhatoc\'h evit gallout lenn anezho, ezlinenn zoken.</string>
-  <string name="reading_lists_onboarding_intro">Krouiñ rolloù lenn evit ar pennadoù ho peus c\'hoant da lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn !</string>
-  <string name="reading_lists_onboarding_for_example">Da skouer</string>
-  <string name="reading_lists_onboarding_example1">Lec\'hioù da weladenniñ</string>
-  <string name="reading_lists_onboarding_example2">Loened karetañ</string>
-  <string name="reading_lists_onboarding_example3">Ergezhet an egor</string>
-  <string name="reading_lists_onboarding_got_it">Kaout anezhañ</string>
   <string name="reading_list_empty">N\'hoc\'h eus pennad ebet ouzhpennet d\'ar roll-mañ.</string>
   <string name="reading_list_article_offline">A c\'haller tizhout ezlinenn</string>
   <string name="reading_list_article_make_offline">Aotren gwelet ar pennad-mañ ezlinenn</string>
