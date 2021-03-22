@@ -376,12 +376,6 @@
   <string name="reading_list_deleted">%s forigita</string>
   <string name="saved_list_empty_title">Neniuj konservitaj paĝoj ankoraŭ</string>
   <string name="reading_lists_empty_message">Aldoni artikolon al listo de legotoj, por eksterreta legado.</string>
-  <string name="reading_lists_onboarding_intro">Aldoni artikolojn al listo de legotaĵoj, eĉ se vi estas malkonektita!</string>
-  <string name="reading_lists_onboarding_for_example">Ekzemple</string>
-  <string name="reading_lists_onboarding_example1">Vizitintaj lokoj</string>
-  <string name="reading_lists_onboarding_example2">Plej ŝatataj bestoj</string>
-  <string name="reading_lists_onboarding_example3">Kosma esplorado</string>
-  <string name="reading_lists_onboarding_got_it">Komprenite</string>
   <string name="reading_list_empty">Vi aldonis neniujn artikolojn al ĉi tiu listo.</string>
   <string name="reading_list_article_offline">Disponebla eksterrete</string>
   <string name="reading_list_article_make_offline">Disponebligi ĉi tiun artikolon eksterrete</string>

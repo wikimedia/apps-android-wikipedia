@@ -452,12 +452,6 @@
   <string name="reading_list_deleted">%s 已刪除</string>
   <string name="saved_list_empty_title">尚無儲存頁面</string>
   <string name="reading_lists_empty_message">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可使用。</string>
-  <string name="reading_lists_onboarding_intro">將條目增加至供日後閱讀用的清單，讓您即使在離線時也可閱讀！</string>
-  <string name="reading_lists_onboarding_for_example">舉例</string>
-  <string name="reading_lists_onboarding_example1">要瀏覽的地點</string>
-  <string name="reading_lists_onboarding_example2">喜愛動物</string>
-  <string name="reading_lists_onboarding_example3">太空探索！</string>
-  <string name="reading_lists_onboarding_got_it">知道了</string>
   <string name="reading_list_empty">您尚未添加條目至此清單。</string>
   <string name="reading_list_article_offline">可於離線時閱讀</string>
   <string name="reading_list_article_make_offline">讓此條目可於離線閱讀</string>

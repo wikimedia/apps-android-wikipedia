@@ -404,12 +404,6 @@
   <string name="reading_list_deleted">%s uklonjeno</string>
   <string name="saved_list_empty_title">Zasad nema spremljenih stranica</string>
   <string name="reading_lists_empty_message">Dodajte članke na popis za čitanje, čak i kada niste povezani na internet.</string>
-  <string name="reading_lists_onboarding_intro">Dodajte članke na popis za čitanje, čak i kada niste povezani na internet!</string>
-  <string name="reading_lists_onboarding_for_example">Na primjer</string>
-  <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
-  <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
-  <string name="reading_lists_onboarding_example3">Istraživanje svemira</string>
-  <string name="reading_lists_onboarding_got_it">U redu</string>
   <string name="reading_list_empty">Niste dodali članke na ovaj popis.</string>
   <string name="reading_list_article_offline">Dostupno izvan mreže</string>
   <string name="reading_list_article_make_offline">Neka ovaj članak bude dostupan izvan mreže</string>

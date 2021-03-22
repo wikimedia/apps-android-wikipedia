@@ -460,12 +460,6 @@
   <string name="reading_list_deleted">%s נמחק</string>
   <string name="saved_list_empty_title">אין עדיין רשימות קריאה</string>
   <string name="reading_lists_empty_message">הוסיפו ערכים לרשימה לקריאה מאוחר יותר כשאין לכם רשת.</string>
-  <string name="reading_lists_onboarding_intro">הוסיפו ערכים לרשימה לקריאה מאוחר יותר, גם לאל חיבור לרשת!</string>
-  <string name="reading_lists_onboarding_for_example">למשל</string>
-  <string name="reading_lists_onboarding_example1">מקומות לבקר בהם</string>
-  <string name="reading_lists_onboarding_example2">חיות אהובות</string>
-  <string name="reading_lists_onboarding_example3">חקר החלל</string>
-  <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="reading_list_empty">אין לך ערכים להוסיף לרשימה הזאת.</string>
   <string name="reading_list_article_offline">זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_make_offline">לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>

@@ -434,12 +434,6 @@
   <string name="reading_list_deleted">Binura na ang %s</string>
   <string name="saved_list_empty_title">Walang pang ni-save na pahina.</string>
   <string name="reading_lists_empty_message">Magdagdag ng mga artikulo sa isang listahan para mabása mamaya, kahit na offline ka.</string>
-  <string name="reading_lists_onboarding_intro">Magdagdag ng mga artikulo sa isang listahan para mabása mamaya, kahit na offline ka!</string>
-  <string name="reading_lists_onboarding_for_example">Halimbawa</string>
-  <string name="reading_lists_onboarding_example1">Mga pupuntahang lugar</string>
-  <string name="reading_lists_onboarding_example2">Mga paboritong hayop</string>
-  <string name="reading_lists_onboarding_example3">Paglalakbay sa kalawakan</string>
-  <string name="reading_lists_onboarding_got_it">Sige</string>
   <string name="reading_list_empty">Wala kang dinagdag na artikulo sa listahang ito.</string>
   <string name="reading_list_article_offline">Mababása offline</string>
   <string name="reading_list_article_make_offline">Gawing mababása offline ang artikulong ito</string>
