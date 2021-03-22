@@ -39,6 +39,9 @@ class SmokeTests {
     @Test
     fun mainActivityTest() {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        val screenWidth = device.displayWidth
+        val screenHeight = device.displayHeight
+
         IdlingPolicies.setMasterPolicyTimeout(20, TimeUnit.SECONDS)
 
         TestUtil.delay(1)
@@ -244,9 +247,25 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        pressBack()
+
+
+        onView(allOf(withContentDescription("New tab"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(5)
+
+
+        onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
+                .perform(click())
 
         TestUtil.delay(2)
+
+
+        device.click(screenWidth / 2, screenHeight * 20 / 100)
+
+        TestUtil.delay(2)
+
+
 
         onView(withId(R.id.page_contents_container))
                 .perform(TestUtil.swipeDownWebView())
