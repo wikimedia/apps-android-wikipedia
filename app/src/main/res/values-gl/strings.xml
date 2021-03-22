@@ -407,12 +407,6 @@
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="saved_list_empty_title">Aínda non hai listas de lectura</string>
   <string name="reading_lists_empty_message">Engade os artigos a unha lista para poder velos despois, incluso cando non estea conectado.</string>
-  <string name="reading_lists_onboarding_intro">Engade os artigos a unha lista para poder velos despois, incluso cando non estea conectado.</string>
-  <string name="reading_lists_onboarding_for_example">Por exemplo</string>
-  <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
-  <string name="reading_lists_onboarding_example2">Animais favoritos</string>
-  <string name="reading_lists_onboarding_example3">Exploración espacial</string>
-  <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_empty">Non ten artigos engadidos nesta lista.</string>
   <string name="reading_list_article_offline">Dispoñible sen conexión</string>
   <string name="reading_list_article_make_offline">Facer que este artigo estea dispoñible sen conexión</string>

@@ -274,12 +274,6 @@
   <string name="reading_list_deleted">%s वगळले</string>
   <string name="saved_list_empty_title" fuzzy="true">येथे वाचन याद्या नाहीत.</string>
   <string name="reading_lists_empty_message" fuzzy="true">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या खालच्या बाजूस असणाऱ्या बुकमार्क साधनपट्टीवर थपकवा.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">जरी आपण विनाजाल असाल तरीही,आपणास नंतर वाचावयाच्या लेखांची वाचनयादी तयार करा!</string>
-  <string name="reading_lists_onboarding_for_example">उदाहरणार्थ</string>
-  <string name="reading_lists_onboarding_example1">भेट द्यावयाची स्थाने</string>
-  <string name="reading_lists_onboarding_example2">आवडते पशू</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">अंतराळ!</string>
-  <string name="reading_lists_onboarding_got_it">समजले</string>
   <string name="reading_lists_confirm_remote_delete_yes">होय</string>
   <string name="reading_lists_confirm_remote_delete_no">नाही</string>
   <string name="reading_list_delete_confirm">आपणास खात्री आहे काय कि आपणास %s वगळायचे आहे?</string>
