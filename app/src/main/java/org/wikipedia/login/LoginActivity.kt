@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import com.google.android.material.textfield.TextInputLayout
@@ -30,20 +29,23 @@ import org.wikipedia.util.FeedbackUtil.showError
 import org.wikipedia.util.FeedbackUtil.showMessage
 import org.wikipedia.util.FeedbackUtil.showPrivacyPolicy
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
-import org.wikipedia.util.log.L.w
+import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
 
 class LoginActivity : BaseActivity() {
     private var firstStepToken: String? = null
-    private var funnel: LoginFunnel? = null
-    private var loginSource: String? = null
+    private var funnel: LoginFunnel = LoginFunnel(WikipediaApp.getInstance())
+    private lateinit var loginSource: String
     private val loginClient = LoginClient()
     private val loginCallback: LoginCallback = LoginCallback()
     private var shouldLogLogin = true
     private lateinit var binding: ActivityLoginBinding
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         binding.viewLoginError.backClickListener = View.OnClickListener { onBackPressed() }
         binding.viewLoginError.retryClickListener = View.OnClickListener { binding.viewLoginError.visibility = View.GONE }
 
@@ -56,9 +58,8 @@ class LoginActivity : BaseActivity() {
             }
             false
         }
-        funnel = LoginFunnel(WikipediaApp.getInstance())
-        loginSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE)
-        if (!TextUtils.isEmpty(loginSource) && loginSource == LoginFunnel.SOURCE_SUGGESTED_EDITS) {
+        loginSource = intent.getStringExtra(LOGIN_REQUEST_SOURCE)!!
+        if (loginSource.isNotEmpty() && loginSource == LoginFunnel.SOURCE_SUGGESTED_EDITS) {
             Prefs.setSuggestedEditsHighestPriorityEnabled(true)
         }
 
@@ -102,29 +103,29 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun logLoginStart() {
-        if (shouldLogLogin && !TextUtils.isEmpty(loginSource)) {
+        if (shouldLogLogin && loginSource.isNotEmpty()) {
             if (loginSource == LoginFunnel.SOURCE_EDIT) {
-                funnel!!.logStart(
+                funnel.logStart(
                         LoginFunnel.SOURCE_EDIT,
                         intent.getStringExtra(EDIT_SESSION_TOKEN)
                 )
             } else {
-                funnel!!.logStart(loginSource)
+                funnel.logStart(loginSource)
             }
             shouldLogLogin = false
         }
     }
 
     private fun startCreateAccountActivity() {
-        funnel!!.logCreateAccountAttempt()
+        funnel.logCreateAccountAttempt()
         val intent = Intent(this, CreateAccountActivity::class.java)
-        intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel!!.sessionToken)
+        intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.sessionToken)
         intent.putExtra(CreateAccountActivity.LOGIN_REQUEST_SOURCE, loginSource)
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT)
     }
 
     private fun onLoginSuccess() {
-        funnel!!.logSuccess()
+        funnel.logSuccess()
         hideSoftKeyboard(this@LoginActivity)
         setResult(RESULT_LOGIN_SUCCESS)
 
@@ -148,7 +149,7 @@ class LoginActivity : BaseActivity() {
                 CreateAccountActivity.RESULT_ACCOUNT_CREATED -> {
                     binding.loginUsernameText.editText?.setText(data!!.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME))
                     binding.loginPasswordInput.editText?.setText(data?.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD))
-                    funnel!!.logCreateAccountSuccess()
+                    funnel.logCreateAccountSuccess()
                     showMessage(this,
                             R.string.create_account_account_created_toast)
                     doLogin()
@@ -157,7 +158,7 @@ class LoginActivity : BaseActivity() {
                     finish()
                 }
                 else -> {
-                    funnel!!.logCreateAccountFailure()
+                    funnel.logCreateAccountFailure()
                 }
             }
         } else if (requestCode == Constants.ACTIVITY_REQUEST_RESET_PASSWORD &&
@@ -171,7 +172,7 @@ class LoginActivity : BaseActivity() {
         val password = getText(binding.loginPasswordInput)
         val twoFactorCode = getText(binding.login2faText)
         showProgressBar(true)
-        if (!TextUtils.isEmpty(twoFactorCode) && !TextUtils.isEmpty(firstStepToken)) {
+        if (twoFactorCode.isNotEmpty() && firstStepToken?.isNotEmpty() == true) {
             loginClient.login(WikipediaApp.getInstance().wikiSite, username, password,
                     null, twoFactorCode, firstStepToken!!, loginCallback)
         } else {
@@ -191,8 +192,8 @@ class LoginActivity : BaseActivity() {
             } else if (result.fail()) {
                 val message = result.message
                 showMessage(this@LoginActivity, message!!)
-                funnel!!.logError(message)
-                w("Login failed with result $message")
+                funnel.logError(message)
+                L.w("Login failed with result $message")
             }
         }
 
