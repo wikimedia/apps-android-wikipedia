@@ -449,12 +449,6 @@
   <string name="reading_list_deleted">Đã xóa %s</string>
   <string name="saved_list_empty_title">Chưa có danh sách đọc</string>
   <string name="reading_lists_empty_message">Thêm các bài viết vào danh sách để bạn có thể đọc sau, ngay cả khi bạn đang ngoại tuyến!</string>
-  <string name="reading_lists_onboarding_intro">Thêm các bài viết vào danh sách để bạn có thể đọc sau, ngay cả khi bạn đang ngoại tuyến!</string>
-  <string name="reading_lists_onboarding_for_example">Ví dụ</string>
-  <string name="reading_lists_onboarding_example1">Các địa điểm để tham quan</string>
-  <string name="reading_lists_onboarding_example2">Loài vật ưa thích</string>
-  <string name="reading_lists_onboarding_example3">Thám hiểm vũ trụ</string>
-  <string name="reading_lists_onboarding_got_it">Được rồi</string>
   <string name="reading_list_empty">Bạn chưa có bài viết nào được thêm vào danh sách này.</string>
   <string name="reading_list_article_offline">Khả dụng ngoại tuyến</string>
   <string name="reading_list_article_make_offline">Làm bài viết này khả dụng ngoại tuyến</string>

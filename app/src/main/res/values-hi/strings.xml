@@ -332,12 +332,6 @@
   <string name="reading_list_deleted">%s मिटा दिया गया</string>
   <string name="saved_list_empty_title">अभी तक कोई पढ़ने वाली सूची नहीं</string>
   <string name="reading_lists_empty_message" fuzzy="true">पढ़ने वाली सूची में लेख सहेजें ताकि आप उन्हें बाद में देख सकें, आपके ऑफलाइन होने पर भी।</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">जिन लेखों को आप बाद में, ऑफ़लाइन होने पर भी पढ़ना चाहते हैं, उनकी पठन सूचियाँ बनायें!</string>
-  <string name="reading_lists_onboarding_for_example">उदाहरण के लिए</string>
-  <string name="reading_lists_onboarding_example1">जाने के स्थान</string>
-  <string name="reading_lists_onboarding_example2">पसंदीदा पशु</string>
-  <string name="reading_lists_onboarding_example3">ब्रह्माण्ड अन्वेषण</string>
-  <string name="reading_lists_onboarding_got_it">समझ गया</string>
   <string name="reading_list_empty">आपके पास इस सूची में कोई लेख नहीं जुड़े हुए हैं।</string>
   <string name="reading_list_article_offline">ऑफलाइन उपलब्ध</string>
   <string name="reading_list_article_make_offline">इस लेख को ऑफलाइन उपलब्ध कराएं</string>

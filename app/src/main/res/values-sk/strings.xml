@@ -16,21 +16,24 @@
 * TWatz
 * TomášPolonec
 * Vegetator
+* Yardom78
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
   <string name="app_name_alpha">Wikipédia Alfa</string>
-  <string name="wikimedia">Wikimedia</string>
+  <string name="wikimedia">Wikimédia</string>
   <string name="nav_item_back">Späť</string>
   <string name="page_tabs_back">Späť</string>
   <string name="nav_item_forward">Dopredu</string>
-  <string name="search_hint">Hľadať</string>
+  <string name="search_hint">Hľadať na Wikipédii</string>
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Navrhované úpravy</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrovať môj zoznam</string>
+  <string name="nav_item_suggested_edits">Úpravy</string>
   <string name="nav_item_more">Viac</string>
-  <string name="error_network_error">Nie ste pripojení na internet.</string>
+  <string name="nav_item_search">Hľadať</string>
+  <string name="error_network_error">Nedá sa pripojiť na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
   <string name="storage_access_error_retry">Zopakovať</string>
@@ -40,12 +43,14 @@
   <string name="error_back">Späť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="history_item_deleted">Článok %s bol odstránený z histórie</string>
-  <string name="history_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
+  <string name="history_items_deleted">Počet odstránených článkov z histórie %d</string>
   <string name="history_item_delete_undo">Vrátiť</string>
   <string name="notification_archive_undo">Vrátiť</string>
   <string name="app_settings">Nastavenia aplikácie</string>
+  <string name="search_tab_tooltip">Pre zadanie hľadaného výrazu stlačte toto tlačítko.</string>
+  <string name="history_list_title">História</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
-  <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
+  <string name="dialog_message_clear_history">Toto odstráni celú Vašu históriu prehliadania a zavrie všetky otvorené karty. Pokračovať?</string>
   <string name="dialog_message_clear_history_yes">Áno</string>
   <string name="dialog_message_clear_history_no">Nie</string>
   <string name="share_via">Zdieľať cez</string>
@@ -397,12 +402,6 @@
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
   <string name="saved_list_empty_title">Zatiaľ nemáte žiadne zoznamy na prečítanie</string>
   <string name="reading_lists_empty_message">Pridajte si články do zoznamov na prečítanie, aby ste si ich mohli pozrieť aj neskôr (dokonca aj offline).</string>
-  <string name="reading_lists_onboarding_intro">Články, ktoré si chcete prečítať neskôr si môžete pridať do zoznamov na prečítanie!</string>
-  <string name="reading_lists_onboarding_for_example">Napríklad</string>
-  <string name="reading_lists_onboarding_example1">Miesta, ktoré chcem navštíviť</string>
-  <string name="reading_lists_onboarding_example2">Obľúbené zvieratá</string>
-  <string name="reading_lists_onboarding_example3">Objavovanie vesmíru</string>
-  <string name="reading_lists_onboarding_got_it">Rozumiem</string>
   <string name="reading_list_empty">V tomto zozname nemáte žiadne články.</string>
   <string name="reading_list_article_offline">Dostupné offline</string>
   <string name="reading_list_article_make_offline">Urobiť dostupným offline</string>

@@ -393,7 +393,7 @@
   <string name="reading_list_article_added_to_default_list">Αποθηκεύτηκε %s. Θέλεις να το προσθέσεις σε μια λίστα;</string>
   <string name="reading_list_article_moved_to_named">Μετακινήθηκε το %1$s στη %2$s</string>
   <string name="reading_list_article_already_exists_message">Όλα καλά! Η %1$s περιέχει ήδη το %2$s</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">Όλα καλά! Η %s περιέχει ήδη όλα τα λήμματα.</string>
+  <string name="reading_list_articles_already_exist_message">Όλα καλά! Η %s περιέχει ήδη όλα τα λήμματα.</string>
   <string name="reading_list_added_view_button">Προβολή λίστας.</string>
   <string name="reading_list_add_to_list_button">Προσθήκη σε λίστα</string>
   <string name="format_reading_list_statistical_summary_singular">1 λήμμα, %1$.2f MB</string>
@@ -426,12 +426,6 @@
   <string name="reading_list_deleted">Διεγράφη η %s</string>
   <string name="saved_list_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες ακόμα</string>
   <string name="reading_lists_empty_message">Προσθέτει λήμματα σε μια λίστα για να τα διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης.</string>
-  <string name="reading_lists_onboarding_intro">Προσθέτει λήμματα σε μια λίστα για να τα διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης!</string>
-  <string name="reading_lists_onboarding_for_example">Παραδείγματος χάριν</string>
-  <string name="reading_lists_onboarding_example1">Μέρη για επίσκεψη</string>
-  <string name="reading_lists_onboarding_example2">Αγαπημένα ζώα</string>
-  <string name="reading_lists_onboarding_example3">Εξερεύνηση του διαστήματος</string>
-  <string name="reading_lists_onboarding_got_it">Κατάλαβα</string>
   <string name="reading_list_empty">Δεν έχετε προσθέσει λήμματα σε αυτή τη λίστα</string>
   <string name="reading_list_article_offline">Διαθέσιμο εκτός σύνδεσης</string>
   <string name="reading_list_article_make_offline">Κάνετε αυτό το λήμμα διαθέσιμο εκτός σύνδεσης</string>
