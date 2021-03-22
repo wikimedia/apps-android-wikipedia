@@ -458,12 +458,6 @@
   <string name="reading_list_deleted">%s видалено</string>
   <string name="saved_list_empty_title">Ще немає збережених сторінок</string>
   <string name="reading_lists_empty_message">Додавайте статті до списку для пізнішого прочитання, навіть коли перебуваєте офлайн.</string>
-  <string name="reading_lists_onboarding_intro">Додавайте статті до списку для пізнішого прочитання, навіть коли перебуваєте офлайн!</string>
-  <string name="reading_lists_onboarding_for_example">Наприклад</string>
-  <string name="reading_lists_onboarding_example1">Місця для відвідування</string>
-  <string name="reading_lists_onboarding_example2">Улюблені тварини</string>
-  <string name="reading_lists_onboarding_example3">Дослідження космосу</string>
-  <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
   <string name="reading_list_empty">У Вас немає статей, доданих до цього списку</string>
   <string name="reading_list_article_offline">Доступна автономно</string>
   <string name="reading_list_article_make_offline">Зробити цю статтю доступною офлайн</string>

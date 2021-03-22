@@ -199,9 +199,6 @@
   <string name="reading_list_create_new">שאפֿן ניי</string>
   <string name="reading_list_sort">סארטירן</string>
   <string name="reading_list_menu_delete">אויסמעקן רשימה</string>
-  <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
-  <string name="reading_lists_onboarding_example3">קאסמאס אויספֿארשונג</string>
-  <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
   <string name="reading_lists_confirm_remote_delete_yes">יא</string>
   <string name="reading_lists_confirm_remote_delete_no">ניין</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">אַנולירן</string>

@@ -436,12 +436,6 @@
   <string name="reading_list_deleted">%s oʻchirildi</string>
   <string name="saved_list_empty_title">Saqlangan sahifalar mavjud emas</string>
   <string name="reading_lists_empty_message">Keyinchalik, hatto oflaynda ham oʻqish uchun maqolalarni roʻyxatga qoʻshing.</string>
-  <string name="reading_lists_onboarding_intro">Keyinchalik, hatto oflaynda ham oʻqish uchun maqolalarni roʻyxatiga qoʻshing!</string>
-  <string name="reading_lists_onboarding_for_example">Masalan</string>
-  <string name="reading_lists_onboarding_example1">Boriladigan joylar</string>
-  <string name="reading_lists_onboarding_example2">Yoqtirgan hayvonlar</string>
-  <string name="reading_lists_onboarding_example3">Fazoni tadqiq etish</string>
-  <string name="reading_lists_onboarding_got_it">Tushunarli</string>
   <string name="reading_list_empty">Siz hali roʻyxatga maqola qoʻshmagansiz.</string>
   <string name="reading_list_article_offline">Oflayn maqola</string>
   <string name="reading_list_article_make_offline">Ushbu maqolani oflayn tarzida saqlamoq</string>

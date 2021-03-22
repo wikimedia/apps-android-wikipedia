@@ -126,9 +126,6 @@
   <string name="reading_list_sort_by_name_desc">آدینا گؤره دۆزولموش (ترس)</string>
   <string name="reading_list_sort_by_recent" fuzzy="true">ان سوْنونا گؤره دۆزولموش</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">ان سوْنونا گؤره دۆزولموش (ترس)</string>
-  <string name="reading_lists_onboarding_for_example">میثال اۆچون</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">فضا!</string>
-  <string name="reading_lists_onboarding_got_it">آنلادیم</string>
   <string name="user_option_sync_label">ترجیحلر</string>
   <string name="view_featured_article_card_title">سئچیلمیش مقاله</string>
 </resources>
