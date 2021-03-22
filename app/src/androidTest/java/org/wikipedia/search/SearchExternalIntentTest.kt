@@ -36,7 +36,7 @@ class SearchIntentTests {
     )
 
     @Test
-    fun searchActivityTest() {
+    fun testSearchActivityFromSendIntent() {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
         TestUtil.delay(5)

@@ -31,7 +31,7 @@ class SearchIntentTest {
             Constants.InvokeSource.INTENT_SHARE, "barack obama"))
 
     @Test
-    fun searchActivityTest() {
+    fun testSearchActivityWithQuery() {
         val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
         TestUtil.delay(5)
