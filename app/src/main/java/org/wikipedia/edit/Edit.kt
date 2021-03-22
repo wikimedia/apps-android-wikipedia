@@ -1,79 +1,74 @@
-package org.wikipedia.edit;
+package org.wikipedia.edit
 
-import androidx.annotation.Nullable;
+import org.wikipedia.dataclient.mwapi.MwPostResponse
 
-import org.wikipedia.dataclient.mwapi.MwPostResponse;
-
-public class Edit extends MwPostResponse {
-    @SuppressWarnings("unused,") @Nullable private Result edit;
-
-    @Nullable public Result edit() {
-        return edit;
+class Edit : MwPostResponse() {
+    private val edit: Result? = null
+    fun edit(): Result? {
+        return edit
     }
 
-    public boolean hasEditResult() {
-        return edit != null;
+    fun hasEditResult(): Boolean {
+        return edit != null
     }
 
-    public static class Result {
-        @SuppressWarnings("unused") @Nullable private String result;
-        @SuppressWarnings("unused") private long newrevid;
-        @SuppressWarnings("unused") @Nullable private Captcha captcha;
-        @SuppressWarnings("unused") @Nullable private String code;
-        @SuppressWarnings("unused") @Nullable private String info;
-        @SuppressWarnings("unused") @Nullable private String warning;
-        @SuppressWarnings("unused") @Nullable private String spamblacklist;
-
-        @Nullable public String status() {
-            return result;
+    class Result {
+        private val result: String? = null
+        private val newrevid: Long = 0
+        private val captcha: Captcha? = null
+        private val code: String? = null
+        private val info: String? = null
+        private val warning: String? = null
+        private val spamblacklist: String? = null
+        fun status(): String? {
+            return result
         }
 
-        public long newRevId() {
-            return newrevid;
+        fun newRevId(): Long {
+            return newrevid
         }
 
-        public boolean editSucceeded() {
-            return "Success".equals(result);
+        fun editSucceeded(): Boolean {
+            return "Success" == result
         }
 
-        @Nullable public String captchaId() {
-            return captcha == null ? null : captcha.id();
+        fun captchaId(): String? {
+            return captcha?.id()
         }
 
-        public boolean hasEditErrorCode() {
-            return code != null;
+        fun hasEditErrorCode(): Boolean {
+            return code != null
         }
 
-        public boolean hasCaptchaResponse() {
-            return captcha != null;
+        fun hasCaptchaResponse(): Boolean {
+            return captcha != null
         }
 
-        @Nullable public String code() {
-            return code;
+        fun code(): String? {
+            return code
         }
 
-        @Nullable public String info() {
-            return info;
+        fun info(): String? {
+            return info
         }
 
-        @Nullable public String warning() {
-            return warning;
+        fun warning(): String? {
+            return warning
         }
 
-        @Nullable public String spamblacklist() {
-            return spamblacklist;
+        fun spamblacklist(): String? {
+            return spamblacklist
         }
 
-        public boolean hasSpamBlacklistResponse() {
-            return spamblacklist != null;
+        fun hasSpamBlacklistResponse(): Boolean {
+            return spamblacklist != null
         }
     }
 
-    private static class Captcha {
-        @SuppressWarnings("unused") @Nullable private String id;
-
-        @Nullable public String id() {
-            return id;
+    private class Captcha {
+        private val id: String? = null
+        fun id(): String? {
+            return id
         }
     }
 }
