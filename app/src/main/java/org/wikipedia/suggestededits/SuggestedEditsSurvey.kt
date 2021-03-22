@@ -8,7 +8,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FeedbackUtil.makeSnackbar
-import org.wikipedia.util.UriUtil.visitInExternalBrowser
+import org.wikipedia.util.UriUtil
 
 object SuggestedEditsSurvey {
     private const val VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY = 3
@@ -18,10 +18,8 @@ object SuggestedEditsSurvey {
                     activity.getString(R.string.suggested_edits_snackbar_survey_text),
                     FeedbackUtil.LENGTH_MEDIUM).apply {
                 view.findViewById<TextView>(R.id.snackbar_action).apply {
-                    setCompoundDrawablesWithIntrinsicBounds(0,
-                            0,
-                            R.drawable.ic_open_in_new_accent_24,
-                            0)
+                    setCompoundDrawablesWithIntrinsicBounds(0, 0,
+                            R.drawable.ic_open_in_new_accent_24, 0)
                     compoundDrawablePadding =
                             activity.resources.getDimensionPixelOffset(R.dimen.margin)
                 }
@@ -44,7 +42,7 @@ object SuggestedEditsSurvey {
 
     private fun openSurveyInBrowser() {
         Prefs.setSuggestedEditsSurveyClicked(true)
-        visitInExternalBrowser(WikipediaApp.getInstance(),
+        UriUtil.visitInExternalBrowser(WikipediaApp.getInstance(),
                 Uri.parse(WikipediaApp.getInstance().getString(R.string.suggested_edits_survey_url)))
     }
 }
