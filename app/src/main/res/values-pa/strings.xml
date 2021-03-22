@@ -288,11 +288,6 @@
   <string name="reading_list_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_list_empty_title">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>
-  <string name="reading_lists_onboarding_for_example">ਮਿਸਾਲ ਦੇ ਤੌਰ \'ਤੇ</string>
-  <string name="reading_lists_onboarding_example1">ਦੌਰਾ ਕਰਨ ਲਈ ਸਥਾਨ</string>
-  <string name="reading_lists_onboarding_example2">ਪਸੰਦੀਦਾ ਜਾਨਵਰ</string>
-  <string name="reading_lists_onboarding_example3">ਸਪੇਸ ਖੋਜ</string>
-  <string name="reading_lists_onboarding_got_it">ਸਮਝ ਗਿਆ</string>
   <string name="reading_lists_confirm_remote_delete_yes">ਹਾਂ</string>
   <string name="reading_lists_confirm_remote_delete_no">ਨਹੀਂ</string>
   <string name="reading_list_delete_confirm" fuzzy="true">ਕੀ ਤੁਸੀਂ ਇਹ ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ %s?</string>

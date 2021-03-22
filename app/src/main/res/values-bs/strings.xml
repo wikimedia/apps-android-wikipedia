@@ -330,12 +330,6 @@
   <string name="reading_list_deleted">Spisak \"%s\" obrisan</string>
   <string name="saved_list_empty_title">Zasad nema spiskova za čitanje</string>
   <string name="reading_lists_empty_message">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži.</string>
-  <string name="reading_lists_onboarding_intro">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži!</string>
-  <string name="reading_lists_onboarding_for_example">Naprimjer</string>
-  <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
-  <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
-  <string name="reading_lists_onboarding_example3">Istraživanje svemira</string>
-  <string name="reading_lists_onboarding_got_it">Razumijem</string>
   <string name="reading_list_empty">Niste dodali nijedan članak na ovaj spisak.</string>
   <string name="reading_list_article_offline">Dostupno van mreže</string>
   <string name="reading_list_article_make_offline">Učini članak dostupnim van mreže</string>

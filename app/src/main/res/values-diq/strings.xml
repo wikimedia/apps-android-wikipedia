@@ -363,12 +363,6 @@
   <string name="reading_list_item_delete_undo">Peyser bıgê</string>
   <string name="reading_list_deleted">%s esteriya</string>
   <string name="saved_list_empty_title">Hewna qeyd bıyaye pela çıniya</string>
-  <string name="reading_lists_onboarding_intro">Wexto ke şıma offline be zi seba bahdo wanayışi rê şıma şenê maddey liste tede kerê</string>
-  <string name="reading_lists_onboarding_for_example">Mesela</string>
-  <string name="reading_lists_onboarding_example1">Cayê şıyayışi</string>
-  <string name="reading_lists_onboarding_example2">Heywanê favori</string>
-  <string name="reading_lists_onboarding_example3">Keşfê asmêni</string>
-  <string name="reading_lists_onboarding_got_it">Fahm kerd</string>
   <string name="reading_list_empty">Na lista rê hewna şıma meqale cı nêkerdo</string>
   <string name="reading_list_article_offline">Resayışê offline</string>
   <string name="reading_list_remove_from_list">%s ra wedarne</string>

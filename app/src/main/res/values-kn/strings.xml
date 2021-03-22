@@ -8,6 +8,7 @@
 * VASANTH S.N.
 * Vikashegde
 * రహ్మానుద్దీన్
+* ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ
 -->
 <resources>
   <string name="app_name_prod">ವಿಕಿಪೀಡಿಯ</string>
@@ -113,6 +114,5 @@
   <string name="article_menu_bar_contents_button">ಪರಿವಿಡಿ</string>
   <string name="reading_list_sort">ವಿಂಗಡಿಸು</string>
   <string name="reading_list_item_delete_undo">ಕಳಚು</string>
-  <string name="reading_lists_onboarding_got_it">ಗೊತ್ತಾಯಿತು</string>
   <string name="user_option_sync_label">ಪ್ರಾಶಸ್ತ್ಯಗಳು</string>
 </resources>

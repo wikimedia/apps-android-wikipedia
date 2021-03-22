@@ -458,12 +458,6 @@
   <string name="reading_list_deleted">فهرست %s حذف شد</string>
   <string name="saved_list_empty_title">هنوز صفحهٔ ذخیره‌شده‌ای وجود ندارد</string>
   <string name="reading_lists_empty_message">برای مطالعهٔ مقاله‌ها در زمانی دیگر، حتی در زمانی که آفلاین هستید، آن‌ها را به یک فهرست بیفزایید.</string>
-  <string name="reading_lists_onboarding_intro">برای مطالعهٔ مقاله‌ها در زمانی دیگر، حتی در زمانی که آفلاین هستید، آن‌ها را به یک فهرست بیفزایید!</string>
-  <string name="reading_lists_onboarding_for_example">برای مثال</string>
-  <string name="reading_lists_onboarding_example1">مکان‌هایی برای بازدید</string>
-  <string name="reading_lists_onboarding_example2">حیوانات مورد علاقه</string>
-  <string name="reading_lists_onboarding_example3">کاوش فضا</string>
-  <string name="reading_lists_onboarding_got_it">فهمیدم</string>
   <string name="reading_list_empty">مقاله‌ای به این فهرست اضافه نکرده‌اید.</string>
   <string name="reading_list_article_offline">در حالت آفلاین در دسترس است</string>
   <string name="reading_list_article_make_offline">این مقاله را در حالت آفلاین در دسترس قرار بده</string>

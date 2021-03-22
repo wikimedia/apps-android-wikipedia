@@ -397,12 +397,6 @@
   <string name="reading_list_deleted">%s yettwakkes</string>
   <string name="saved_list_empty_title">Ulac yakan tabdart n tɣuri</string>
   <string name="reading_lists_empty_message">Sekles imagraden deg tebdarin n tɣuri akken ad tizmireḍ ad ten-twaliḍ ticki, ɣas s war tuqqna.</string>
-  <string name="reading_lists_onboarding_intro">Rnu tibdarin n tɣuri n yimagraden ara teɣreḍ ticki, ɣas s war tuqqna!</string>
-  <string name="reading_lists_onboarding_for_example">Amedya</string>
-  <string name="reading_lists_onboarding_example1">Imeḍqan ar terzuḍ</string>
-  <string name="reading_lists_onboarding_example2">Iɣeṛsiwen tḥemleḍ</string>
-  <string name="reading_lists_onboarding_example3">Asnirem n tallunt</string>
-  <string name="reading_lists_onboarding_got_it">Awi-t</string>
   <string name="reading_list_empty">UR ɣur-k ara imagraden yettwarnan ar tebdart-agi.</string>
   <string name="reading_list_article_offline">Yella s war tuqqna</string>
   <string name="reading_list_article_make_offline">ECred afaris-agi yella di war tuqqna</string>

@@ -452,12 +452,6 @@
   <string name="reading_list_deleted">%s poistettu</string>
   <string name="saved_list_empty_title">Tallennettuja sivuja ei vielä ole</string>
   <string name="reading_lists_empty_message">Lisää artikkelit listaan, jotta voit tarkastella niitä myöhemmin. Voit lukea lukulistassa olevia artikkeleja myös ilman verkkoyhteyttä.</string>
-  <string name="reading_lists_onboarding_intro">Lisää artikkeleita listaan, joita haluat lukea myöhemmin. Voit lukea niitä jopa ilman verkkoyhteyttä!</string>
-  <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
-  <string name="reading_lists_onboarding_example1">Vierailemisen arvoiset paikat</string>
-  <string name="reading_lists_onboarding_example2">Suosikkieläimet</string>
-  <string name="reading_lists_onboarding_example3">Avaruustutkimus</string>
-  <string name="reading_lists_onboarding_got_it">Selvä</string>
   <string name="reading_list_empty">Tässä lukulistassa ei ole artikkeleita.</string>
   <string name="reading_list_article_offline">Saatavilla ilman verkkoyhteyttä</string>
   <string name="reading_list_article_make_offline">Tee tämä artikkeli käytettäväksi offline-tilassa</string>

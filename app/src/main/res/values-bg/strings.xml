@@ -410,12 +410,6 @@
   <string name="reading_list_deleted">%s е изтрит</string>
   <string name="saved_list_empty_title">Все още няма списъци за четене</string>
   <string name="reading_lists_empty_message">Добавяйте статии в списъци за четене по-късно, дори когато нямате мрежа.</string>
-  <string name="reading_lists_onboarding_intro">Добавяйте статии към списък за четене по-късно, дори когато нямате Интернет!</string>
-  <string name="reading_lists_onboarding_for_example">Например</string>
-  <string name="reading_lists_onboarding_example1">Места за посещение</string>
-  <string name="reading_lists_onboarding_example2">Любими животни</string>
-  <string name="reading_lists_onboarding_example3">Проучване на Космоса</string>
-  <string name="reading_lists_onboarding_got_it">Разбрах</string>
   <string name="reading_list_empty">Нямате добавени статии в списъка.</string>
   <string name="reading_list_article_offline">Наличен офлайн</string>
   <string name="reading_list_article_make_offline">Правене на статията достъпна офлайн</string>
