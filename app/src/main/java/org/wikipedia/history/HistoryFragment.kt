@@ -237,7 +237,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     class IndexedHistoryEntry(cursor: Cursor) {
         val entry: HistoryEntry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor)
-        val imageUrl: String? = PageHistoryContract.PageWithImage.IMAGE_NAME.`val`(cursor)
+        val imageUrl: String? = PageHistoryContract.PageWithImage.IMAGE_NAME.value(cursor)
     }
 
     private class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
