@@ -403,12 +403,6 @@
   <string name="reading_list_deleted">Листа „%s” је избрисана</string>
   <string name="saved_list_empty_title">Још увек нема сачуваних страница</string>
   <string name="reading_lists_empty_message">Додајте чланке на листу за читање касније, чак и када сте офлајн.</string>
-  <string name="reading_lists_onboarding_intro">Додајте чланке на листу за читање касније, чак и када сте офлајн.</string>
-  <string name="reading_lists_onboarding_for_example">На пример</string>
-  <string name="reading_lists_onboarding_example1">Места за посету</string>
-  <string name="reading_lists_onboarding_example2">Омиљене животиње</string>
-  <string name="reading_lists_onboarding_example3">Истраживање свемира</string>
-  <string name="reading_lists_onboarding_got_it">Разумем</string>
   <string name="reading_list_empty">На овој листи нема додатих чланака.</string>
   <string name="reading_list_article_offline">Доступно офлајн</string>
   <string name="reading_list_article_make_offline">Учини овај чланак доступним офлајн</string>
