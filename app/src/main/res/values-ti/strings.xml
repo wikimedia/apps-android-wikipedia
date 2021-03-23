@@ -209,8 +209,6 @@
   <string name="reading_list_menu_delete">ዝርዝር ሰርዝ</string>
   <string name="reading_list_description_hint">መግለጺ (ኣማራጽያዊ)</string>
   <string name="reading_list_item_delete_undo">ምለስ</string>
-  <string name="reading_lists_onboarding_for_example">ንኣብነት</string>
-  <string name="reading_lists_onboarding_got_it">ተረዲኡኒ</string>
   <string name="reading_list_remove_from_list">ካብ %s ኣልግስ</string>
   <string name="reading_list_select_item">ምረጽ</string>
   <string name="reading_lists_login_button">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>

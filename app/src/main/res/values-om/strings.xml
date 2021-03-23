@@ -7,28 +7,28 @@
 * Tumsaa
 -->
 <resources>
-  <string name="app_name_prod">Wiikippiidiyaa</string>
-  <string name="app_name_beta">Wiikippiidiyaa Beetaa</string>
-  <string name="app_name_alpha">Wiikippiidiyaa Aalfaa</string>
-  <string name="search_hint">Wiikippiidiyaa keessa barbaadi</string>
-  <string name="page_error_retry">Lammata yaali</string>
+  <string name="app_name_prod">Wikipiidiyaa</string>
+  <string name="app_name_beta">Wikipiidiyaa Beta</string>
+  <string name="app_name_alpha">Wikipiidiyaa Aalfaa</string>
+  <string name="search_hint">Wikipiidiyaa keessa barbaadi</string>
+  <string name="page_error_retry">Irra deebi\'ii yaali</string>
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
-  <string name="menu_clear_all_history">Seenaa balleessi</string>
-  <string name="menu_page_add_to_default_list">ol kaa\'i</string>
+  <string name="menu_clear_all_history">Seenaa qulqulleessi</string>
+  <string name="menu_page_add_to_default_list">Ol kaa\'i</string>
   <string name="feed_card_add_to_default_list">Ol kaa\'i</string>
   <string name="menu_page_share" fuzzy="true">Hiri</string>
   <string name="langlinks_filter_hint">Barbaadi</string>
-  <string name="langlinks_activity_title">Afaan biraa</string>
+  <string name="langlinks_activity_title">Afaanota biroo</string>
   <string name="menu_save_changes" fuzzy="true">Jijjiirama olkaayi</string>
   <string name="edit_saved_successfully" fuzzy="true">Gulaalli olkaawwame</string>
-  <string name="dialog_message_edit_failed">Gulaalli fashale.</string>
-  <string name="dialog_message_edit_failed_retry">Lammata yaali</string>
+  <string name="dialog_message_edit_failed">Gulaalli fashale!</string>
+  <string name="dialog_message_edit_failed_retry">Irra deebi\'ii yaali</string>
   <string name="dialog_message_edit_failed_cancel">Dhiisi</string>
   <string name="dialog_message_leaving_edit_leave">Deemi</string>
   <string name="dialog_message_leaving_edit_stay">Turi</string>
   <string name="menu_show_toc">Gabatee Qabiyyee</string>
   <string name="search_no_results_found">Homtuu hin argamane</string>
-  <string name="title_captcha">Kaapchaa galchi</string>
+  <string name="title_captcha">CAPTCHA galchi</string>
   <string name="nav_item_login" fuzzy="true">Seeni</string>
   <string name="login_username_hint">Maqaa fayyadamaa</string>
   <string name="login_password_hint">Iggitaa</string>
