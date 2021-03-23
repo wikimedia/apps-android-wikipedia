@@ -6,10 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -23,7 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.DescriptionEditFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
-import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
 import org.wikipedia.dataclient.Service
@@ -31,9 +31,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
-import org.wikipedia.edit.Edit
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginClient.LoginFailedException
@@ -57,21 +55,25 @@ class DescriptionEditFragment : Fragment() {
         fun onBottomBarContainerClicked(action: DescriptionEditActivity.Action)
     }
 
+    private lateinit var funnel: DescriptionEditFunnel
+    private lateinit var action: DescriptionEditActivity.Action
+    private lateinit var invokeSource: InvokeSource
     private var _binding: FragmentDescriptionEditBinding? = null
-     val binding get() = _binding!!
+    val binding get() = _binding!!
     private var pageTitle: PageTitle? = null
     private var sourceSummary: PageSummaryForEdit? = null
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null
     private var csrfClient: CsrfTokenClient? = null
-    private lateinit var funnel: DescriptionEditFunnel
-    private lateinit var action: DescriptionEditActivity.Action
-    private lateinit var invokeSource: InvokeSource
+
     private val disposables = CompositeDisposable()
     private val templateParsePattern = Pattern.compile(TEMPLATE_PARSE_REGEX)
 
     private val successRunnable = Runnable {
-        if (!isLoggedIn) {
+        if (!isAdded) {
+            return@Runnable
+        }
+        if (!AccountUtil.isLoggedIn) {
             Prefs.incrementTotalAnonDescriptionsEdited()
         }
         if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
@@ -80,9 +82,6 @@ class DescriptionEditFragment : Fragment() {
         Prefs.setLastDescriptionEditTime(Date().time)
         Prefs.setSuggestedEditsReactivationPassStageOne(false)
         SuggestedEditsFunnel.get().success(action)
-        if (activity == null) {
-            return@Runnable
-        }
         binding.fragmentDescriptionEditView.setSaveState(false)
         if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == InvokeSource.PAGE_ACTIVITY) {
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
@@ -111,7 +110,7 @@ class DescriptionEditFragment : Fragment() {
                     requireArguments().getString(ARG_SOURCE_SUMMARY)!!)
         }
         requireArguments().getString(ARG_TARGET_SUMMARY)?.let {
-            GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java,
+            targetSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java,
                     requireArguments().getString(ARG_TARGET_SUMMARY)!!)
         }
         funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle!!, type, invokeSource)
@@ -163,12 +162,12 @@ class DescriptionEditFragment : Fragment() {
 
     private fun loadPageSummaryIfNeeded(savedInstanceState: Bundle?) {
         binding.fragmentDescriptionEditView.showProgressBar(true)
-        if (invokeSource == InvokeSource.PAGE_ACTIVITY && TextUtils.isEmpty(sourceSummary!!.extractHtml)) {
+        if (invokeSource == InvokeSource.PAGE_ACTIVITY && sourceSummary!!.extractHtml!!.isEmpty()) {
             disposables.add(ServiceFactory.getRest(pageTitle!!.wikiSite).getSummary(null, pageTitle!!.prefixedText)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { setUpEditView(savedInstanceState) }
-                    .subscribe({ summary: PageSummary -> sourceSummary!!.extractHtml = summary.extractHtml },
+                    .subscribe({ summary -> sourceSummary!!.extractHtml = summary.extractHtml },
                             { L.e(it) }))
         } else {
             setUpEditView(savedInstanceState)
@@ -260,12 +259,12 @@ class DescriptionEditFragment : Fragment() {
                                     DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
                                     else -> ""
                                 },
-                                if (isLoggedIn) "user"
+                                if (AccountUtil.isLoggedIn) "user"
                                 else null, text, null, baseRevId, editToken, null, null)
                                 .subscribeOn(Schedulers.io())
                     }
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ result: Edit ->
+                    .subscribe({ result ->
                         if (result.hasEditResult() && result.edit() != null) {
                             when {
                                 result.edit()!!.editSucceeded() -> {
@@ -294,12 +293,12 @@ class DescriptionEditFragment : Fragment() {
                         } else {
                             editFailed(IOException("An unknown error occurred."), true)
                         }
-                    }) { caught: Throwable -> editFailed(caught, true) })
+                    }) { caught -> editFailed(caught, true) })
         }
 
         private fun postDescriptionToWikidata(editToken: String) {
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle!!.wikiSite.languageCode())).siteInfo
-                    .flatMap { response: MwQueryResponse ->
+                    .flatMap { response ->
                         val languageCode = if (response.query()!!.siteInfo() != null && response.query()!!.siteInfo()!!.lang != null &&
                                 response.query()!!.siteInfo()!!.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query()!!.siteInfo()!!.lang
                         else pageTitle!!.wikiSite.languageCode()
@@ -314,7 +313,7 @@ class DescriptionEditFragment : Fragment() {
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                         }
-                    }) { caught: Throwable ->
+                    }) { caught ->
                         if (caught is MwException) {
                             val error = caught.error
                             if (error.badLoginState() || error.badToken()) {
@@ -350,7 +349,7 @@ class DescriptionEditFragment : Fragment() {
                 }
                 ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
                         pageTitle!!.prefixedText, binding.fragmentDescriptionEditView.description,
-                        comment, editToken, if (isLoggedIn) "user" else null)
+                        comment, editToken, if (AccountUtil.isLoggedIn) "user" else null)
             } else {
                 if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
                     comment = when (action) {
@@ -361,7 +360,7 @@ class DescriptionEditFragment : Fragment() {
                 }
                 ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle!!.wikiSite.dbName(),
                         pageTitle!!.prefixedText, binding.fragmentDescriptionEditView.description, comment, editToken,
-                        if (isLoggedIn) "user" else null)
+                        if (AccountUtil.isLoggedIn) "user" else null)
             }
         }
 
@@ -376,20 +375,20 @@ class DescriptionEditFragment : Fragment() {
         }
 
         override fun onHelpClick() {
-           FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
         override fun onCancelClick() {
             if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
             } else {
-               DeviceUtil.hideSoftKeyboard(requireActivity())
+                DeviceUtil.hideSoftKeyboard(requireActivity())
                 requireActivity().onBackPressed()
             }
         }
 
         override fun onBottomBarClick() {
-            callback()!!.onBottomBarContainerClicked(action)
+            callback()?.onBottomBarContainerClicked(action)
         }
 
         override fun onVoiceInputClick() {
@@ -409,15 +408,12 @@ class DescriptionEditFragment : Fragment() {
             articleText.replaceFirst(TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
         } else {
             // add new description template
-            """
-     {{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}
-     $articleText
-     """.trimIndent()
+            """{{${DESCRIPTION_TEMPLATES[0]}|$newDescription}}$articleText""".trimIndent()
         }
     }
 
     companion object {
-        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})"
+        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*}})"
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         private const val ARG_TITLE = "title"
         private const val ARG_REVIEWING = "inReviewing"
@@ -426,6 +422,7 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_ACTION = "action"
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
+
         @JvmStatic
         fun newInstance(title: PageTitle,
                         highlightText: String?,
@@ -433,16 +430,14 @@ class DescriptionEditFragment : Fragment() {
                         targetSummary: String?,
                         action: DescriptionEditActivity.Action,
                         source: InvokeSource): DescriptionEditFragment {
-            val instance = DescriptionEditFragment()
-            val args = Bundle()
-            args.putParcelable(ARG_TITLE, title)
-            args.putString(ARG_HIGHLIGHT_TEXT, highlightText)
-            args.putString(ARG_SOURCE_SUMMARY, sourceSummary)
-            args.putString(ARG_TARGET_SUMMARY, targetSummary)
-            args.putSerializable(ARG_ACTION, action)
-            args.putSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE, source)
-            instance.arguments = args
-            return instance
+            return DescriptionEditFragment().apply {
+                arguments = bundleOf(ARG_TITLE to title,
+                        ARG_HIGHLIGHT_TEXT to highlightText,
+                        ARG_SOURCE_SUMMARY to sourceSummary,
+                        ARG_TARGET_SUMMARY to targetSummary,
+                        ARG_ACTION to action,
+                        Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
+            }
         }
     }
 }
