@@ -440,12 +440,11 @@
     <string name="reading_list_name_sample">My reading list</string>
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
-    <string name="reading_list_item_deleted">%s removed from list</string>
+    <string name="reading_list_item_deleted">%1$s removed from %2$s</string>
     <plurals name="reading_list_articles_deleted">
-        <item quantity="one">%d article removed from list</item>
-        <item quantity="other">%d articles removed from list</item>
+        <item quantity="one">%d article removed from %s</item>
+        <item quantity="other">%d articles removed from %s</item>
     </plurals>
-    <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>

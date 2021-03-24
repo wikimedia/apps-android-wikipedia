@@ -88,7 +88,8 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
             RemoveFromReadingListsDialog(list).deleteOrShowDialog(anchorView.context) { _: List<ReadingList?>?, _: ReadingListPage? ->
                 entry?.let {
                     if (anchorView.isAttachedToWindow) {
-                        showMessage((anchorView.context as AppCompatActivity), anchorView.context.getString(R.string.reading_list_item_deleted, it.title.displayText))
+                        showMessage((anchorView.context as AppCompatActivity), anchorView.context.getString(R.string.reading_list_item_deleted,
+                                it.title.displayText, list[anchorView.verticalScrollbarPosition].title()))
                     }
                 }
             }
