@@ -44,12 +44,9 @@ class PageImageDatabaseTable : DatabaseTable<PageImage>(PageImageHistoryContract
     }
 
     override fun getUnfilteredPrimaryKeySelectionArgs(obj: PageImage): Array<String?> {
-        return arrayOf(
-                obj.title!!.wikiSite.authority(),
-                obj.title.wikiSite.languageCode(),
-                obj.title.namespace,
-                obj.title.text
-        )
+        return obj.title?.run {
+            arrayOf(wikiSite.authority(), wikiSite.languageCode(), namespace, text)
+        } ?: emptyArray()
     }
 
     override val dBVersionIntroducedAt
