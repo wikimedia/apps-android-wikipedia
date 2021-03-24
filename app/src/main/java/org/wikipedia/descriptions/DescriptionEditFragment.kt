@@ -62,7 +62,7 @@ class DescriptionEditFragment : Fragment() {
     private var pageTitle: PageTitle? = null
     private var sourceSummary: PageSummaryForEdit? = null
     private var targetSummary: PageSummaryForEdit? = null
-    private var highlightText: String? = null
+    private lateinit var highlightText: String
     private var csrfClient: CsrfTokenClient? = null
 
     private val disposables = CompositeDisposable()
@@ -101,7 +101,7 @@ class DescriptionEditFragment : Fragment() {
         super.onCreate(savedInstanceState)
         pageTitle = requireArguments().getParcelable(ARG_TITLE)!!
         val type = if (pageTitle!!.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
-        highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
+        highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)!!
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         requireArguments().getString(ARG_SOURCE_SUMMARY)?.let {
@@ -222,7 +222,7 @@ class DescriptionEditFragment : Fragment() {
             if (csrfClient == null) {
                 return
             }
-            csrfClient!!.request(forceLogin, object : CsrfTokenClient.Callback {
+            csrfClient?.request(forceLogin, object : CsrfTokenClient.Callback {
                 override fun success(token: String) {
                     if (shouldWriteToLocalWiki()) {
                         // If the description is being applied to an article on English Wikipedia, it
@@ -424,7 +424,7 @@ class DescriptionEditFragment : Fragment() {
 
         @JvmStatic
         fun newInstance(title: PageTitle,
-                        highlightText: String?,
+                        highlightText: String,
                         sourceSummary: String?,
                         targetSummary: String?,
                         action: DescriptionEditActivity.Action,
