@@ -401,12 +401,6 @@
   <string name="reading_list_name_sample">စရင် လိက်သွက်ဂွံဗှ် အဲ</string>
   <string name="reading_list_name_hint">ယၟု စရင်</string>
   <string name="reading_list_description_hint">ပရူ (ပၟိက်စိုတ်)</string>
-  <string name="reading_list_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">လိက်ပရေင် %d ပ္တိတ် နူကဵု စရင်</item>
-    <item quantity="other"> လိက်ပရေင် %d ပ္တိတ် နူ စရင်</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d လိက်ပရေင် ပတိတ်ထောအ် နူစရင်</string>
   <string name="reading_lists_item_deleted">%s ပတိတ်ထောအ် နူ စရင်</string>
   <string name="reading_list_item_delete_undo">ဟွံပ</string>
   <string name="reading_list_deleted">%s ဇိုတ်ထောအ်</string>

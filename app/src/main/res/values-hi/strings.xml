@@ -326,8 +326,6 @@
   <string name="reading_list_name_sample">मेरी पढ़ने वाली सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
-  <string name="reading_list_items_deleted">%d लेख सूची से हटाये गए</string>
   <string name="reading_list_item_delete_undo">पूर्ववत करें</string>
   <string name="reading_list_deleted">%s मिटा दिया गया</string>
   <string name="saved_list_empty_title">अभी तक कोई पढ़ने वाली सूची नहीं</string>

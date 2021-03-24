@@ -246,7 +246,6 @@
   <string name="reading_list_name_sample">Ma lista de lectura</string>
   <string name="reading_list_name_hint">Nom d\'aquesta lista</string>
   <string name="reading_list_description_hint">Descripcion (facultatiu)</string>
-  <string name="reading_list_item_deleted">%s suprimit de la lista</string>
   <string name="reading_list_item_delete_undo">Anullar</string>
   <string name="reading_list_deleted">%s suprimit</string>
   <string name="saved_list_empty_title">Encara i a pas cap de lista de lectura.</string>

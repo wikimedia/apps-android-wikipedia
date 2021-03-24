@@ -428,12 +428,6 @@
   <string name="reading_list_name_sample">Min læseliste</string>
   <string name="reading_list_name_hint">Navn på denne liste</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
-  <string name="reading_list_item_deleted">%s fjernet fra listen</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d artikel fjernet fra listen</item>
-    <item quantity="other">%d artikler fjernet fra listen</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d artikler fjernet fra liste</string>
   <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Fortryd</string>
   <string name="reading_list_deleted">%s slettet</string>

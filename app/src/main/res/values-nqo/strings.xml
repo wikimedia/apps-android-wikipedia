@@ -376,8 +376,6 @@
   <string name="reading_list_name_sample">ߒ ߠߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="reading_list_name_hint">ߛߙߍߘߍ ߣߌ߲߬ ߕߐ߮</string>
   <string name="reading_list_description_hint">ߞߊ߲߬ߛߓߍߟߌ (ߢߣߊߕߊߟߞߊ)</string>
-  <string name="reading_list_item_deleted">%s ߛߋ߲߬ߓߐ߫ ߛߙߍߘߍ ߘߐ߫</string>
-  <string name="reading_list_items_deleted">%d ߦߌߟߡߊ ߟߎ߬ ߓߘߊ߫ ߛߋ߲߬ߓߐ߫ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_lists_item_deleted">%s ߛߋ߲߬ߓߐ߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
   <string name="reading_list_deleted">%s ߓߘߊ߫ ߖߏ߬ߛߌ߬</string>

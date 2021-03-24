@@ -269,7 +269,6 @@
   <string name="reading_list_name_sample">माझी वाचन यादी</string>
   <string name="reading_list_name_hint">या यादीचे नाव</string>
   <string name="reading_list_description_hint">वर्णन (ऐच्छिक)</string>
-  <string name="reading_list_item_deleted">%s यादीतून काढले</string>
   <string name="reading_list_item_delete_undo">उलटवा</string>
   <string name="reading_list_deleted">%s वगळले</string>
   <string name="saved_list_empty_title" fuzzy="true">येथे वाचन याद्या नाहीत.</string>

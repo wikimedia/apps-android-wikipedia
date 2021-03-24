@@ -413,8 +413,6 @@
   <string name="reading_list_name_sample">پێڕستی خوێندنەوەکەم</string>
   <string name="reading_list_name_hint">ناوی ئەم پێڕستە</string>
   <string name="reading_list_description_hint">وەسف (ئارەزوومەندانە)</string>
-  <string name="reading_list_item_deleted">%s سڕایەوە لە پێڕست</string>
-  <string name="reading_list_items_deleted">%d وتار سڕایەوە لە پێڕست</string>
   <string name="reading_lists_item_deleted">%s سڕایەوە لە پێڕست</string>
   <string name="reading_list_item_delete_undo">پووچەڵکردنەوە</string>
   <string name="reading_list_deleted">%s سڕدرایەوە</string>

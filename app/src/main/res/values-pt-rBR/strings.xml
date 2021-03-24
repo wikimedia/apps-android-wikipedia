@@ -452,12 +452,6 @@
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome da lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
-  <string name="reading_list_item_deleted">%s removido da lista</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d artigo removido da lista</item>
-    <item quantity="other">%d artigos removidos da lista</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_lists_item_deleted">%s removido das listas</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s apagada</string>

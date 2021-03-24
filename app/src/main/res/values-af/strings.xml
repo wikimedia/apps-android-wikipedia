@@ -275,8 +275,6 @@
   <string name="reading_list_name_sample">My leeslys</string>
   <string name="reading_list_name_hint">Naam van hierdie lys</string>
   <string name="reading_list_description_hint">Beskrywing (opsioneel)</string>
-  <string name="reading_list_item_deleted">%s uit lys verwyder</string>
-  <string name="reading_list_items_deleted">%d artikels uit lys verwyder</string>
   <string name="reading_list_item_delete_undo">Ontdaan</string>
   <string name="reading_list_deleted">%s geskrap</string>
   <string name="saved_list_empty_title">Nog geen leeslyste nie</string>

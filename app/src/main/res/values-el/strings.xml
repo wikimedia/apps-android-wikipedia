@@ -419,8 +419,6 @@
   <string name="reading_list_name_sample">Η λίστα ανάγνωσής μου</string>
   <string name="reading_list_name_hint">Όνομα της λίστας</string>
   <string name="reading_list_description_hint">Περιγραφή (προαιρετική)</string>
-  <string name="reading_list_item_deleted">το %s έχει αφαιρεθεί από τη λίστα</string>
-  <string name="reading_list_items_deleted">τα %d λήμματα αφαιρέθηκαν από τη λίστα</string>
   <string name="reading_lists_item_deleted">Το %s αφαιρέθηκε από τις λίστες</string>
   <string name="reading_list_item_delete_undo">Αναίρεση</string>
   <string name="reading_list_deleted">Διεγράφη η %s</string>

@@ -407,8 +407,6 @@
   <string name="reading_list_name_sample">میری فہرست مطالعہ</string>
   <string name="reading_list_name_hint">اس فہرست کا نام</string>
   <string name="reading_list_description_hint">تفصیلات (اختیاری)</string>
-  <string name="reading_list_item_deleted">%s فہرست سے ہٹا دیا گیا ہے</string>
-  <string name="reading_list_items_deleted">%d مضامین فہرست سے ہٹا دیے گئے</string>
   <string name="reading_list_item_delete_undo">ترمیم رد کریں</string>
   <string name="reading_list_deleted">%s حذف شدہ</string>
   <string name="saved_list_empty_title">یہاں اب تک کوئی فہرست مطالعہ موجود نہیں ہے۔</string>

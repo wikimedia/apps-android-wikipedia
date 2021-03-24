@@ -384,8 +384,6 @@
   <string name="reading_list_name_sample">Min leseliste</string>
   <string name="reading_list_name_hint">Navn på listen</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfritt)</string>
-  <string name="reading_list_item_deleted">%s ble fjernet fra listen</string>
-  <string name="reading_list_items_deleted">%d artikler ble fjernet fra lista</string>
   <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Angre</string>
   <string name="reading_list_deleted">%s ble slettet</string>

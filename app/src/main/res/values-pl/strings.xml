@@ -432,8 +432,6 @@
   <string name="reading_list_name_sample">Moja lista</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
-  <string name="reading_list_item_deleted">Usunięto %s z historii</string>
-  <string name="reading_list_items_deleted">%d artykułów usunięto z listy</string>
   <string name="reading_lists_item_deleted">Usunięto %s z listy</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
   <string name="reading_list_deleted">%s został usunięty</string>

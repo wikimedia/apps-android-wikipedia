@@ -417,12 +417,6 @@
   <string name="reading_list_name_sample">Myn lêslist</string>
   <string name="reading_list_name_hint">Namme fan dizze list</string>
   <string name="reading_list_description_hint">Beskriuwing (hoecht net)</string>
-  <string name="reading_list_item_deleted">%s fan \'e list ôfhelle</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d artikel fan \'e list ôfhelle</item>
-    <item quantity="other">%d artikels fan \'e list ôfhelle</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d artikels fan \'e list ôfhelle</string>
   <string name="reading_lists_item_deleted">%s fan \'e listen ôfhelle</string>
   <string name="reading_list_item_delete_undo">Weromsette</string>
   <string name="reading_list_deleted">%s wiske</string>

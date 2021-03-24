@@ -451,11 +451,6 @@
   <string name="reading_list_name_sample">我的阅读列表</string>
   <string name="reading_list_name_hint">此列表的名称</string>
   <string name="reading_list_description_hint">描述（可选）</string>
-  <string name="reading_list_item_deleted">%s已从列表中移除</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="other">从列表中移除了 %d 篇文章</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d个条目已从列表中移除</string>
   <string name="reading_lists_item_deleted">%s已从列表中移除</string>
   <string name="reading_list_item_delete_undo">撤销</string>
   <string name="reading_list_deleted">%s已删除</string>

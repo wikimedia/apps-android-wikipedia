@@ -445,12 +445,6 @@
   <string name="reading_list_name_sample">내 읽기 목록</string>
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
-  <string name="reading_list_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">목록에서 제거된 문서 %d개</item>
-    <item quantity="other">목록에서 제거된 문서 %d개</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d개의 문서가 목록에서 제거됨</string>
   <string name="reading_lists_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>

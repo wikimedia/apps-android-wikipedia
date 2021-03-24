@@ -350,8 +350,6 @@
   <string name="reading_list_name_sample">Ma roll lenn</string>
   <string name="reading_list_name_hint">Anv ar roll-mañ</string>
   <string name="reading_list_description_hint">Deskrivadur (diret)</string>
-  <string name="reading_list_item_deleted">%s dilamet eus ar roll</string>
-  <string name="reading_list_items_deleted">%d pennad lamet a-ziwar ar roll</string>
   <string name="reading_list_item_delete_undo">Dizober</string>
   <string name="reading_list_deleted">%s dilamet</string>
   <string name="saved_list_empty_title">Roll lenn ebet c\'hoazh.</string>

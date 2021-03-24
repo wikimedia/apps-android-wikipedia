@@ -436,12 +436,6 @@
   <string name="reading_list_name_sample">Saját olvasólista</string>
   <string name="reading_list_name_hint">A lista neve</string>
   <string name="reading_list_description_hint">Leírás (opcionális)</string>
-  <string name="reading_list_item_deleted">%s eltávolítva a listáról</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d szócikk eltávolítva a listáról</item>
-    <item quantity="other">%d szócikk eltávolítva a listáról</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d szócikk eltávolítva a listáról</string>
   <string name="reading_lists_item_deleted">%s eltávolítva a listákról</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>

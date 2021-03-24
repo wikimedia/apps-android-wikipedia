@@ -442,9 +442,6 @@
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
-  <string name="reading_list_item_deleted">%s dihapus dari daftar</string>
-  <string name="reading_list_articles_deleted">%d artikel dihapus dari daftar</string>
-  <string name="reading_list_items_deleted">%d artikel dihapus dari daftar</string>
   <string name="reading_lists_item_deleted">%s dihapus dari daftar</string>
   <string name="reading_list_item_delete_undo">Urungkan</string>
   <string name="reading_list_deleted">%s terhapus</string>

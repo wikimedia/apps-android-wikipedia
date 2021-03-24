@@ -399,7 +399,6 @@
   <string name="reading_list_name_sample">Moj popis za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog popisa</string>
   <string name="reading_list_description_hint">Opis (nije obavezno)</string>
-  <string name="reading_list_item_deleted">%s uklonjen s popisa</string>
   <string name="reading_list_item_delete_undo">Poništi</string>
   <string name="reading_list_deleted">%s uklonjeno</string>
   <string name="saved_list_empty_title">Zasad nema spremljenih stranica</string>

@@ -337,8 +337,6 @@
   <string name="reading_list_name_sample">मेरो अध्ययन सूची</string>
   <string name="reading_list_name_hint">यो सूचीको नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_item_deleted">%s लाई सूचीबाट हटाइयो</string>
-  <string name="reading_list_items_deleted">%d वटा लेखहरूलाई सूचीबाट हटाइयो</string>
   <string name="reading_list_item_delete_undo">अन्डू गर्नुहोस्</string>
   <string name="reading_list_deleted">%s मेटियो</string>
   <string name="saved_list_empty_title">हालसम्म कुनै पनि अध्ययन सूची छैन</string>

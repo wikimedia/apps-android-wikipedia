@@ -390,8 +390,6 @@
   <string name="reading_list_name_sample">Senarai bacaan saya</string>
   <string name="reading_list_name_hint">Nama senarai ini</string>
   <string name="reading_list_description_hint">Keterangan (tidak wajib)</string>
-  <string name="reading_list_item_deleted">%s dihapus dari senarai</string>
-  <string name="reading_list_items_deleted">%d rencana dipadamkan dari senarai</string>
   <string name="reading_lists_item_deleted">%s dihapus dari senarai</string>
   <string name="reading_list_item_delete_undo">Nyahbuat</string>
   <string name="reading_list_deleted">%s dipadamkan</string>

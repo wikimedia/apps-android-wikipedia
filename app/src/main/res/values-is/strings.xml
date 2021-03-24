@@ -376,8 +376,6 @@
   <string name="reading_list_name_sample">Leslistinn minn</string>
   <string name="reading_list_name_hint">Heiti á þessum lista</string>
   <string name="reading_list_description_hint">Lýsing (valfrjáls)</string>
-  <string name="reading_list_item_deleted">%s fjarlægt af lista</string>
-  <string name="reading_list_items_deleted">%d greinar fjarlægðar af lista</string>
   <string name="reading_lists_item_deleted">%s fjarlægt af listum</string>
   <string name="reading_list_item_delete_undo">Afturkalla</string>
   <string name="reading_list_deleted">%s eytt</string>

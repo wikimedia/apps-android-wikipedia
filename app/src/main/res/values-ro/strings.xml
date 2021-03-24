@@ -411,8 +411,6 @@
   <string name="reading_list_name_sample">Lista mea de lecturi</string>
   <string name="reading_list_name_hint">Numele listei</string>
   <string name="reading_list_description_hint">Descriere (opțională)</string>
-  <string name="reading_list_item_deleted">%s a fost eliminat din listă</string>
-  <string name="reading_list_items_deleted">%d articole eliminate din listă</string>
   <string name="reading_lists_item_deleted">%s eliminat din liste</string>
   <string name="reading_list_item_delete_undo">Anulează</string>
   <string name="reading_list_deleted">%s a fost ștearsă</string>

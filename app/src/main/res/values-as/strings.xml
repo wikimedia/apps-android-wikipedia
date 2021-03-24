@@ -404,8 +404,6 @@
   <string name="reading_list_name_sample">মোৰ পঢ়া তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকাৰ নাম</string>
   <string name="reading_list_description_hint">বিৱৰণ (বৈকল্পিক)</string>
-  <string name="reading_list_item_deleted">তালিকাৰ পৰা %s আঁতৰোৱা হ\'ল</string>
-  <string name="reading_list_items_deleted">তালিকাৰ পৰা %dটা প্ৰবন্ধ আঁতৰোৱা হ\'ল</string>
   <string name="reading_lists_item_deleted">তালিকাৰ পৰা %s আঁতৰোৱা হ\'ল</string>
   <string name="reading_list_item_delete_undo">পূৰ্ববত কৰক</string>
   <string name="reading_list_deleted">%s বিলোপ কৰা হ\'ল</string>

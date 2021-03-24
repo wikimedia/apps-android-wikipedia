@@ -461,8 +461,6 @@
   <string name="reading_list_name_sample">Мой список для чтения</string>
   <string name="reading_list_name_hint">Название этого списка</string>
   <string name="reading_list_description_hint">Описание (необязательно)</string>
-  <string name="reading_list_item_deleted">%s удалено из списка</string>
-  <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_lists_item_deleted">%s удалено из списков</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>

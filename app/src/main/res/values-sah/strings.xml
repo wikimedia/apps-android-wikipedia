@@ -369,8 +369,6 @@
   <string name="reading_list_name_sample">Мин тиһилигим</string>
   <string name="reading_list_name_hint">Тиһилик аата</string>
   <string name="reading_list_description_hint">Тиһилик туһунан (булгуччута суох)</string>
-  <string name="reading_list_item_deleted">%s сотулунна</string>
-  <string name="reading_list_items_deleted">%d ыстатыйа испииһэктэн сотулунна</string>
   <string name="reading_lists_item_deleted">%s испииһэктэртэн сотулунна</string>
   <string name="reading_list_item_delete_undo">Төннөр</string>
   <string name="reading_list_deleted">%s сотуллубут</string>

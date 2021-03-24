@@ -257,8 +257,6 @@
   <string name="reading_list_name_sample">បញ្ជីអំណានរបស់ខ្ញុំ</string>
   <string name="reading_list_name_hint">ឈ្មោះរបស់បញ្ជីនេះ</string>
   <string name="reading_list_description_hint">ពណ៌នា(សរសេរក៏បានមិនសរសេរក៏បាន)</string>
-  <string name="reading_list_item_deleted">%s ត្រូវបានដកចេញពីបញ្ជី</string>
-  <string name="reading_list_items_deleted">អត្ថបទចំនួន %d ត្រូវបានដកចេញពីបញ្ជី</string>
   <string name="reading_list_item_delete_undo">មិន​ធ្វើ​វិញ</string>
   <string name="reading_list_deleted">%s ត្រូវបានលុបចោលហើយ</string>
   <string name="saved_list_empty_title">មិនទាន់មានទំព័ររក្សាទុកនៅឡើយទេ</string>

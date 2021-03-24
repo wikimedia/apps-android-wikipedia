@@ -454,12 +454,6 @@
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
-  <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d voce rimossa dall\'elenco</item>
-    <item quantity="other">%d voci rimosse dall\'elenco</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d voci rimosse dagli elenchi</string>
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>

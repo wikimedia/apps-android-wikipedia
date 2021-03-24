@@ -369,8 +369,6 @@
   <string name="reading_list_name_sample">Mo liosta léitheoireachta</string>
   <string name="reading_list_name_hint">Ainm an liosta seo</string>
   <string name="reading_list_description_hint">Sainchuntas (roghnach)</string>
-  <string name="reading_list_item_deleted">Baineadh %s ón liosta</string>
-  <string name="reading_list_items_deleted">Baineadh %d alt ón liosta</string>
   <string name="reading_list_item_delete_undo">Cealaigh</string>
   <string name="reading_list_deleted">Scriosadh %s</string>
   <string name="saved_list_empty_title">Níor sábháladh aon leathanach fós</string>

@@ -423,12 +423,6 @@
   <string name="reading_list_name_sample">Listahan Ko</string>
   <string name="reading_list_name_hint">Pangalan ng listahan</string>
   <string name="reading_list_description_hint">Paglalarawan (opsyonal)</string>
-  <string name="reading_list_item_deleted">Tinanggal na ang %s sa listahan</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">Tinanggal ang %d artikulo sa listahan</item>
-    <item quantity="other">Tinanggal ang %d (na) artikulo sa listahan</item>
-  </plurals>
-  <string name="reading_list_items_deleted">Tinanggal ang %d (na) artikulo sa listahan</string>
   <string name="reading_lists_item_deleted">Tinanggal na ang %s mula sa mga listahan</string>
   <string name="reading_list_item_delete_undo">I-undo</string>
   <string name="reading_list_deleted">Binura na ang %s</string>

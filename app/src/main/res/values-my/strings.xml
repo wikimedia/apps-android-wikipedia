@@ -413,8 +413,6 @@
   <string name="reading_list_name_sample">ကျွန်ုပ်၏ စာဖတ်စာရင်း</string>
   <string name="reading_list_name_hint">ဤစာရင်း၏ အမည်</string>
   <string name="reading_list_description_hint">ဖော်ပြချက် (မထည့်လည်းရသည်)</string>
-  <string name="reading_list_item_deleted">%s ကို စာရင်းမှ ဖယ်ရှားပြီး</string>
-  <string name="reading_list_items_deleted">ဆောင်းပါး %d ခုကို စာရင်းမှ ဖယ်ရှားခဲ့။</string>
   <string name="reading_lists_item_deleted">စာရင်းများမှ %s ကို ဖယ်ရှားပြီး</string>
   <string name="reading_list_item_delete_undo">နောက်ပြန် ပြန်ပြင်ရန်</string>
   <string name="reading_list_deleted">%s ကို ဖျက်ပြီး</string>

@@ -399,12 +399,6 @@
   <string name="reading_list_name_sample">منھنجي پڙھڻ جي فھرست</string>
   <string name="reading_list_name_hint">فھرست جو نالو</string>
   <string name="reading_list_description_hint">وضاحت (آپشنل)</string>
-  <string name="reading_list_item_deleted">%s کي فھرست مان ھٽايو ويو</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d مضمون فھرست کان ختم ڪيو ويو</item>
-    <item quantity="other">%d مضمونَ فھرست کان ختم ڪيا ويا</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d مضمون فھرست مان ڪڍيل</string>
   <string name="reading_lists_item_deleted">%s فھرستن مان ھٽايو ويو</string>
   <string name="reading_list_item_delete_undo">اڻڪريو</string>
   <string name="reading_list_deleted">%s ڊاھيو ويو</string>

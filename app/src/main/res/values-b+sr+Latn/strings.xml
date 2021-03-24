@@ -361,8 +361,6 @@
   <string name="reading_list_name_sample">Moja lista za čitanje</string>
   <string name="reading_list_name_hint">Ime ove liste</string>
   <string name="reading_list_description_hint">Opis (opcionalno)</string>
-  <string name="reading_list_item_deleted">Članak „%s” je uklonjen sa liste</string>
-  <string name="reading_list_items_deleted">Članaka uklonjeno sa liste: %d</string>
   <string name="reading_lists_item_deleted">%s uklonjeno sa spiskova</string>
   <string name="reading_list_item_delete_undo">Opozovi</string>
   <string name="reading_list_deleted">Lista „%s” je izbrisana</string>

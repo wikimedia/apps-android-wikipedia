@@ -441,12 +441,6 @@
   <string name="reading_list_name_sample">Oma lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
-  <string name="reading_list_item_deleted">%s poistettu listasta</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d artikkeli poistettu listalta</item>
-    <item quantity="other">%d artikkelia poistettu listalta</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
   <string name="reading_lists_item_deleted">%s poistettu listoista</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>

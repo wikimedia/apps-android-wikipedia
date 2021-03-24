@@ -376,8 +376,6 @@
   <string name="reading_list_name_sample">La mio llista de llectura</string>
   <string name="reading_list_name_hint">Nome d\'esta llista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>
-  <string name="reading_list_item_deleted">%s desaniciáu de la llista</string>
-  <string name="reading_list_items_deleted">%d artículos desaniciaos de la llista</string>
   <string name="reading_lists_item_deleted">%s desaniciáu de les llistes</string>
   <string name="reading_list_item_delete_undo">Desfacer</string>
   <string name="reading_list_deleted">%s desaniciada</string>

@@ -466,16 +466,6 @@
   <string name="reading_list_name_sample">قائمة قراءاتي</string>
   <string name="reading_list_name_hint">اسم قائمة القراءة</string>
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
-  <string name="reading_list_item_deleted">أزيلت %s من القائمة</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="zero">...</item>
-    <item quantity="one">%d مقالة أزيلت من القائمة</item>
-    <item quantity="two">...</item>
-    <item quantity="few">...</item>
-    <item quantity="many">...</item>
-    <item quantity="other">%d مقالة أزيلة من القائمة</item>
-  </plurals>
-  <string name="reading_list_items_deleted">أزيلت %d مقالة من القائمة</string>
   <string name="reading_lists_item_deleted">تمت إزالة %s من القوائم</string>
   <string name="reading_list_item_delete_undo">تراجع</string>
   <string name="reading_list_deleted">أزيلت %s</string>

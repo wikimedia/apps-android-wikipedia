@@ -293,8 +293,6 @@
   <string name="reading_list_name_sample">Mano skaitymo sąrašas</string>
   <string name="reading_list_name_hint">Sąrašo pavadinimas</string>
   <string name="reading_list_description_hint">Aprašymas (neprivalomas)</string>
-  <string name="reading_list_item_deleted">%s pašalintas iš sąrašo</string>
-  <string name="reading_list_items_deleted">%d straipsnių pašalinta iš sąrašo</string>
   <string name="reading_list_item_delete_undo">Anuliuoti</string>
   <string name="reading_list_deleted">%s ištrintas</string>
   <string name="saved_list_empty_title">Dar nėra skaitymo sąrašų</string>

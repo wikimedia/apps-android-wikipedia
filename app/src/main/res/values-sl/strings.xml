@@ -427,14 +427,6 @@
   <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Naslov seznama</string>
   <string name="reading_list_description_hint">Opis (neobvezno)</string>
-  <string name="reading_list_item_deleted">Članek %s je odstranjen s seznama</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">%d članek odstranjen s seznama</item>
-    <item quantity="two">%d članka odstranjena s seznama</item>
-    <item quantity="few">%d članki odstranjeni s seznama</item>
-    <item quantity="other">%d člankov odstranjenih s seznama</item>
-  </plurals>
-  <string name="reading_list_items_deleted">%d člankov odstranjenih s seznama</string>
   <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
   <string name="reading_list_deleted">Seznam %s izbrisan</string>

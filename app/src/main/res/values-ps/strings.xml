@@ -143,7 +143,6 @@
   <string name="reading_list_name_sample">زما لوست لړليک</string>
   <string name="reading_list_name_hint">د دې لړليک نوم</string>
   <string name="reading_list_description_hint">څرگندونه (اختياري)</string>
-  <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
   <string name="user_option_sync_label">غوره توبونه</string>

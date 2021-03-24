@@ -395,8 +395,6 @@
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>
   <string name="reading_list_name_hint">Názov zoznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>
-  <string name="reading_list_item_deleted">Článok %s bol odstránený zo zoznamu na prečítanie</string>
-  <string name="reading_list_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="reading_lists_item_deleted">%s bol odstránený zo zoznamov</string>
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>

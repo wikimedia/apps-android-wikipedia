@@ -411,8 +411,6 @@
   <string name="reading_list_name_sample">รายการอ่านของฉัน</string>
   <string name="reading_list_name_hint">ชื่อรายการนี้</string>
   <string name="reading_list_description_hint">คำอธิบาย (ไม่ระบุก็ได้)</string>
-  <string name="reading_list_item_deleted">ลบ %s ออกจากรายการแล้ว</string>
-  <string name="reading_list_items_deleted">ลบ %d บทความออกจากรายการแล้ว</string>
   <string name="reading_lists_item_deleted">เอา %s ออกจากรายการแล้ว</string>
   <string name="reading_list_item_delete_undo">เลิกทำ</string>
   <string name="reading_list_deleted">ลบ %s แล้ว</string>
