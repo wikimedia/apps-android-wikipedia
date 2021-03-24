@@ -135,6 +135,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             it.callback = null
             overlayView = null
         }
+        _binding = null
         super.onDestroyView()
     }
 
