@@ -453,11 +453,6 @@
   <string name="reading_list_name_sample">Default name for a new reading list.</string>
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
-  <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%1$s\" symbol is replaced with the name of the article.The \"%2$s\" symbol is replaced with the name of the list.</string>
-  <plurals name="reading_list_articles_deleted">
-    <item quantity="one">Message shown when one article is removed from a reading list.The \"%s\" symbol is replaced with the reading list name.</item>
-    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
-  </plurals>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.\n{{Identical|Undo}}</string>
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
@@ -1031,4 +1026,9 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="reading_list_item_deleted_from_list">Message shown when an article is removed from a reading list. The \"%1$s\" symbol is replaced with the name of the article.The \"%2$s\" symbol is replaced with the name of the list.</string>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
+  </plurals>
 </resources>

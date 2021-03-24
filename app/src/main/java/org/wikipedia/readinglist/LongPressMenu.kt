@@ -92,7 +92,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                         readingLists!!.forEach { readingList ->
                             readingListNames.add(readingList!!.title())
                         }
-                        showMessage((anchorView.context as AppCompatActivity), anchorView.context.getString(R.string.reading_list_item_deleted,
+                        showMessage((anchorView.context as AppCompatActivity), anchorView.context.getString(R.string.reading_list_item_deleted_from_list,
                                 it.title.displayText, readingListNames.joinToString(separator = ", ")))
                     }
                 }
