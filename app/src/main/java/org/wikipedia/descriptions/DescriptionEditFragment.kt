@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -249,7 +248,7 @@ class DescriptionEditFragment : Fragment() {
             val wikiSite = WikiSite.forLanguageCode(pageTitle!!.wikiSite.languageCode())
             disposables.add(ServiceFactory.get(wikiSite).getWikiTextForSection(pageTitle!!.prefixedText, 0)
                     .subscribeOn(Schedulers.io())
-                    .flatMap { mwQueryResponse: MwQueryResponse ->
+                    .flatMap { mwQueryResponse ->
                         var text = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].content()
                         val baseRevId = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description)
@@ -306,7 +305,7 @@ class DescriptionEditFragment : Fragment() {
                     }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response: EntityPostResponse ->
+                    .subscribe({ response ->
                         if (response.successVal > 0) {
                             Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
                             funnel.logSaved(if (response.entity != null) response.entity!!.lastRevId else 0)
