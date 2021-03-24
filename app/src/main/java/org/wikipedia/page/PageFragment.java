@@ -920,7 +920,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
 
-        bridge.evaluate(JavaScriptActionHandler.expandCollapsedTables(false), msg -> {
+        bridge.evaluate(JavaScriptActionHandler.expandCollapsedTables(true), msg -> {
             if (!isAdded()) {
                 return;
             }
@@ -960,7 +960,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     webView.clearMatches();
                     hideSoftKeyboard();
                     setToolbarElevationEnabled(true);
-                    bridge.execute(JavaScriptActionHandler.expandCollapsedTables(true));
+                    bridge.execute(JavaScriptActionHandler.expandCollapsedTables(false));
                 }
             });
         });
