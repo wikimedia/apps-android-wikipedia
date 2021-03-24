@@ -465,12 +465,6 @@
   <string name="reading_list_deleted">%s cancellato</string>
   <string name="saved_list_empty_title">Nessun elenco di lettura ancora</string>
   <string name="reading_lists_empty_message">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline.</string>
-  <string name="reading_lists_onboarding_intro">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline!</string>
-  <string name="reading_lists_onboarding_for_example">Per esempio</string>
-  <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
-  <string name="reading_lists_onboarding_example2">Animali preferiti</string>
-  <string name="reading_lists_onboarding_example3">Esplorazione spaziale</string>
-  <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
   <string name="reading_list_article_offline">Disponibile in assenza di connessione</string>
   <string name="reading_list_article_make_offline">Rendi questa voce disponibile non in linea</string>
