@@ -463,12 +463,6 @@
   <string name="reading_list_deleted">%s apagada</string>
   <string name="saved_list_empty_title">Nenhuma página salva ainda</string>
   <string name="reading_lists_empty_message">Adicione itens à lista para ler, mesmo quando você está desconectado.</string>
-  <string name="reading_lists_onboarding_intro">Adicione artigos a uma lista para ler mais tarde, mesmo quando você está desconectado!</string>
-  <string name="reading_lists_onboarding_for_example">Por exemplo</string>
-  <string name="reading_lists_onboarding_example1">Lugares para visitar</string>
-  <string name="reading_lists_onboarding_example2">Animais favoritos</string>
-  <string name="reading_lists_onboarding_example3">Exploração espacial</string>
-  <string name="reading_lists_onboarding_got_it">Entendi</string>
   <string name="reading_list_empty">Você não tem artigos adicionados a esta lista.</string>
   <string name="reading_list_article_offline">Disponível offline</string>
   <string name="reading_list_article_make_offline">Disponibilizar este artigo offline</string>

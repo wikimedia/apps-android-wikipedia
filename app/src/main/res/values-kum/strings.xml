@@ -165,9 +165,6 @@
   <string name="reading_list_item_delete_undo">Гери алмакъ</string>
   <string name="reading_list_deleted">%s тайгъан</string>
   <string name="saved_list_empty_title">Охумагъа тизмелер ёкъ гьали де</string>
-  <string name="reading_lists_onboarding_for_example">Масала</string>
-  <string name="reading_lists_onboarding_example1">Зиярат этмек учун ерлер</string>
-  <string name="reading_lists_onboarding_got_it">Англадым</string>
   <string name="reading_lists_confirm_remote_delete_yes">Дюр</string>
   <string name="reading_lists_confirm_remote_delete_no">Ёкъ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Гери алмакъ</string>

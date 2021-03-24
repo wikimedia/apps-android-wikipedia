@@ -356,12 +356,6 @@
   <string name="reading_list_deleted">%s dibusak</string>
   <string name="saved_list_empty_title">Durung ana kaca kang kasimpen</string>
   <string name="reading_lists_empty_message">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'.</string>
-  <string name="reading_lists_onboarding_intro">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'!</string>
-  <string name="reading_lists_onboarding_for_example">Tuladhané</string>
-  <string name="reading_lists_onboarding_example1">Papan-papan supaya ditekani</string>
-  <string name="reading_lists_onboarding_example2">Kéwan kalangenan</string>
-  <string name="reading_lists_onboarding_example3">Dlajahan antariksa</string>
-  <string name="reading_lists_onboarding_got_it">Mudheng</string>
   <string name="reading_list_empty">Panjenengan ora duwé artikel ing pratélan iki.</string>
   <string name="reading_list_article_offline">Cumepak ing njaban jaringan</string>
   <string name="reading_list_article_make_offline">Gawé artikel iki supaya ana nalika ing njaban jaringan</string>

@@ -301,11 +301,6 @@
   <string name="reading_list_description_hint">വിവരണം (ഐച്ഛികം)</string>
   <string name="reading_list_item_delete_undo">തിരസ്ക്കരിക്കുക</string>
   <string name="reading_list_deleted">%s ഒഴിവാക്കി</string>
-  <string name="reading_lists_onboarding_for_example">ഉദാഹരണത്തിന്</string>
-  <string name="reading_lists_onboarding_example1">സന്ദർശിക്കേണ്ട സ്ഥലങ്ങൾ</string>
-  <string name="reading_lists_onboarding_example2">ഇഷ്ടപെട്ട മൃഗങ്ങൾ</string>
-  <string name="reading_lists_onboarding_example3">ബഹിരാകാശ പര്യവേക്ഷണം</string>
-  <string name="reading_lists_onboarding_got_it">മനസ്സിലായി</string>
   <string name="reading_list_empty">ഈ പട്ടികയിലേക്ക് ഒരു ലേഖനവും താങ്കൾ ചേർത്തിട്ടില്ല.</string>
   <string name="reading_list_add_to_other_list">മറ്റൊരു വായനാ പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_remove_from_list">%sൽ നിന്നും ഒഴിവാക്കി</string>

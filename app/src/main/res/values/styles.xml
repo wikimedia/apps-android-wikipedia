@@ -100,6 +100,7 @@
         <item name="colorControlActivated">?attr/toolbar_icon_color</item>
         <item name="colorControlHighlight">?attr/toolbar_icon_color</item>
         <item name="navigationIcon">@drawable/ic_add_gray_themed_24dp</item>
+        <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">

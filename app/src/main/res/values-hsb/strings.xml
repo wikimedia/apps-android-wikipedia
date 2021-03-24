@@ -278,8 +278,8 @@
   <string name="error_response_malformed">Wotmołwa serwera njeje prawje formatěrowana.</string>
   <string name="error_unknown">Njeznaty zmylk je wustupił.</string>
   <string name="format_error_server_message">Zdźělenka: \"%s\"</string>
-  <string name="address_copied">Adresa je so do městoskłada kopěrowała.</string>
-  <string name="text_copied">Tekst je so do městoskłada kopěrował.</string>
+  <string name="address_copied">Adresa je so do mjezyskłada kopěrowała.</string>
+  <string name="text_copied">Tekst je so do mjezyskłada kopěrował.</string>
   <string name="button_continue_to_article">Zapisk čitać</string>
   <string name="button_continue_to_disambiguation">Podobne strony wobhladać</string>
   <string name="link_preview_disambiguation_description">Tutón titul pokazuje na wjacore strony:</string>
@@ -359,12 +359,6 @@
   <string name="reading_list_deleted">%s zhašene</string>
   <string name="saved_list_empty_title">Hišće njejsu składowane zapiski</string>
   <string name="reading_lists_empty_message">Składuj nastawki na lisćinje, zo by je pozdźišo čitał(a), samo hdyž sy offline.</string>
-  <string name="reading_lists_onboarding_intro">Składuj nastawki na lisćinje, zo by je pozdźišo čitał(a), samo hdyž sy offline!</string>
-  <string name="reading_lists_onboarding_for_example">Na přikład</string>
-  <string name="reading_lists_onboarding_example1">Zajimawe městna</string>
-  <string name="reading_lists_onboarding_example2">Najlubše zwěrjata</string>
-  <string name="reading_lists_onboarding_example3">Swětnišćowe slědźenje</string>
-  <string name="reading_lists_onboarding_got_it">Zrozumjene</string>
   <string name="reading_list_empty">Njejsy žane zapiski k tutej lisćinje přidał(a).</string>
   <string name="reading_list_article_offline">Offline přistupny</string>
   <string name="reading_list_article_make_offline">Tutón zapisk offline spřistupnić</string>
