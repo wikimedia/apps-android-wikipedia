@@ -448,12 +448,6 @@
   <string name="reading_list_deleted">%s raderades</string>
   <string name="saved_list_empty_title">Inga sparade sidor ännu</string>
   <string name="reading_lists_empty_message">Lägg till artiklar i en lista för att läsa senare, även när du saknar uppkoppling.</string>
-  <string name="reading_lists_onboarding_intro">Lägg till artiklar i en lista för att läsa senare, även när du saknar uppkoppling!</string>
-  <string name="reading_lists_onboarding_for_example">Till exempel</string>
-  <string name="reading_lists_onboarding_example1">Platser att besöka</string>
-  <string name="reading_lists_onboarding_example2">Favoritdjur</string>
-  <string name="reading_lists_onboarding_example3">Rymdutforskning</string>
-  <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="reading_list_empty">Du har inte lagt till några artiklar i denna lista.</string>
   <string name="reading_list_article_offline">Tillgänglig offline</string>
   <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>

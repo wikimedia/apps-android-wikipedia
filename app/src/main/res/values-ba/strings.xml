@@ -354,11 +354,6 @@
   <string name="reading_list_deleted">%s юйылды</string>
   <string name="saved_list_empty_title" fuzzy="true">Уҡыу исемлектәре юҡ әле.</string>
   <string name="reading_lists_empty_message" fuzzy="true">Әле ҡараған мәҡәләләрҙе уҡыу өсөн теҙмәгә туплағыҙ! Уҡыу теҙмәһенә индереү өсөн, уҡыу барышында мәҡәләнең өҫкө өлөшөндәге закладка тамғаһына баҫығыҙ.</string>
-  <string name="reading_lists_onboarding_for_example">Мәҫәлән</string>
-  <string name="reading_lists_onboarding_example1">Барыу урындары</string>
-  <string name="reading_lists_onboarding_example2">Яратҡан хайуандар</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Йыһан!</string>
-  <string name="reading_lists_onboarding_got_it">Аңланым</string>
   <string name="reading_list_delete_confirm" fuzzy="true">Был уҡыу теҙмәһен ысынлап юйырға теләйһегеҙме %s?</string>
   <string name="user_option_sync_label">Көйләүҙәр</string>
 </resources>

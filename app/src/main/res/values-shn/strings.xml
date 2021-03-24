@@ -361,12 +361,6 @@
   <string name="reading_list_deleted">မွတ်ႇပႅတ်ႈ %s ယဝ်ႉယဝ်ႈ။</string>
   <string name="saved_list_empty_title">ဢမ်ႇပႆႇမီး သဵၼ်ႈမၢႆလူ</string>
   <string name="reading_lists_empty_message">ထႅမ်ပွင်ႈလိၵ်ႈၸိူဝ်းၼႆႉ ၸူးတီႈၼႂ်း သဵၼ်ႈမၢႆ တွၼ်ႈတႃႇဝႆႉလူဝၢႆးလူင်၊ ႁူမ်ႈဝႃႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးၼႅင်ႈ။</string>
-  <string name="reading_lists_onboarding_intro">ထႅမ်ပွင်ႈလိၵ်ႈၸိူဝ်းၼႆႉ ၸူးတီႈၼႂ်း သဵၼ်ႈမၢႆ တွၼ်ႈတႃႇဝႆႉလူဝၢႆးလူင်၊ ႁူမ်ႈဝႃႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးၼႅင်ႈ!</string>
-  <string name="reading_lists_onboarding_for_example">တူဝ်ယၢင်ႇ</string>
-  <string name="reading_lists_onboarding_example1">ဢွင်ႈတီႈ တႃႇ ၶဝ်ႈတူၺ်း</string>
-  <string name="reading_lists_onboarding_example2">တူဝ်သတ်း ၸိူဝ်းလႆႈၸႂ်</string>
-  <string name="reading_lists_onboarding_example3">သွၵ်ႈႁႃဢွင်ႈတီႈ</string>
-  <string name="reading_lists_onboarding_got_it">လႆႈယဝ်ႉ။</string>
   <string name="reading_list_empty">ၸဝ်ႈၵဝ်ႇ ဢမ်ႇမီးပွင်ႈလိၵ်ႈ တွၼ်ႈတႃႇထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆဢၼ်ၼႆႉ။</string>
   <string name="reading_list_article_offline">ဢမ်ႇမီးၼႅင်ႈၵေႃႈၸႂ်ႉလႆႈ</string>
   <string name="reading_list_article_make_offline">ႁဵတ်းႁႂ်ႈ ပွင်ႈလိၵ်ႈၼႆႉ လူလႆႈ ၽွင်ႈဢမ်ႇမီးၼႅင်ႈ</string>

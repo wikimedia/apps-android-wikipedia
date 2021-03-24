@@ -435,12 +435,6 @@
   <string name="reading_list_deleted">%s е избришана</string>
   <string name="saved_list_empty_title">Засега нема списоци за читање</string>
   <string name="reading_lists_empty_message">Додај статии во список за читање подоцна, дури и кога немате линија.</string>
-  <string name="reading_lists_onboarding_intro">Додај статии во список за читање подоцна, дури и кога не сте на линија.</string>
-  <string name="reading_lists_onboarding_for_example">На пример</string>
-  <string name="reading_lists_onboarding_example1">Места за посета</string>
-  <string name="reading_lists_onboarding_example2">Омилени животни</string>
-  <string name="reading_lists_onboarding_example3">Истражување на вселената</string>
-  <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="reading_list_empty">Немате ставено статии во списоков.</string>
   <string name="reading_list_article_offline">Достапно вонмрежно</string>
   <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>
