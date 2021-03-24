@@ -79,12 +79,12 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         disposables.add(ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN)).getDefinition(StringUtil.addUnderscores(selectedText))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { usages: Map<String, Array<Usage>> -> RbDefinition(usages) }
-                .subscribe({ definition: RbDefinition ->
+                .map { usages -> RbDefinition(usages) }
+                .subscribe({ definition ->
                     binding.dialogWiktionaryProgress.visibility = View.GONE
                     currentDefinition = definition
                     layOutDefinitionsByUsage()
-                }) { throwable: Throwable ->
+                }) { throwable ->
                     displayNoDefinitionsFound()
                     L.e(throwable)
                 })
@@ -96,13 +96,14 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun layOutDefinitionsByUsage() {
-        val usageList = currentDefinition!!.getUsagesForLang("en")
-        if (usageList.isNullOrEmpty()) {
-            displayNoDefinitionsFound()
-            return
-        }
-        usageList.forEach {
-            binding.wiktionaryDefinitionsByPartOfSpeech.addView(layOutUsage(it))
+        currentDefinition?.getUsagesForLang("en").let { usageList ->
+            if (usageList.isNullOrEmpty()) {
+                displayNoDefinitionsFound()
+                return
+            }
+            usageList.forEach {
+                binding.wiktionaryDefinitionsByPartOfSpeech.addView(layOutUsage(it))
+            }
         }
     }
 
@@ -120,10 +121,8 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         val definitionWithCount = "$count. ${currentDefinition.definition}"
         definitionBinding.wiktionaryDefinition.text = StringUtil.fromHtml(definitionWithCount)
         definitionBinding.wiktionaryDefinition.movementMethod = linkMovementMethod
-        if (currentDefinition.examples != null) {
-            currentDefinition.examples!!.forEach {
-                definitionBinding.wiktionaryExamples.addView(layoutExamples(it))
-            }
+        currentDefinition.examples?.forEach {
+            definitionBinding.wiktionaryExamples.addView(layoutExamples(it))
         }
         return definitionBinding.root
     }
