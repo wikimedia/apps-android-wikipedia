@@ -66,12 +66,12 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         var newLinkText = linkText
         val isLowercase = newLinkText.contains("lower")
         if (newLinkText.contains("alpha ")) {
-            val strings = newLinkText.split(" ".toRegex())
+            val strings = newLinkText.split(" ")
             var alphaReference = StringUtil.getBase26String(strings[strings.size - 1].replace("]", "").toInt())
             alphaReference = if (isLowercase) alphaReference.toLowerCase(Locale.getDefault()) else alphaReference
             newLinkText = alphaReference
         }
-        return newLinkText.replace("[", "").replace("]", "") + "."
+        return newLinkText.replace("[\\[\\]]".toRegex(), "") + "."
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
