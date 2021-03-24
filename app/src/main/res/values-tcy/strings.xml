@@ -250,11 +250,6 @@
   <string name="reading_list_item_delete_undo">ದುಂಬುದಲೆಕೊ</string>
   <string name="reading_list_deleted">%s ದೆತ್ತುಂಡು</string>
   <string name="saved_list_empty_title">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
-  <string name="reading_lists_onboarding_for_example">ಉದಾಹರಣೆಗ್</string>
-  <string name="reading_lists_onboarding_example1">ಪೊವಾಡಯಿನಾ ಜಾಗೆಲು</string>
-  <string name="reading_lists_onboarding_example2">ಇಸ್ಟೊದಾ ಮೃಗೋಕುಲು</string>
-  <string name="reading_lists_onboarding_example3">ಒಂತೆ ಜಾಗೆ ಕೊರ್ಲೆ.</string>
-  <string name="reading_lists_onboarding_got_it">ಗೊತ್ತಂಡು</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">This article will now be available offline.</item>
     <item quantity="other">These articles will now be available offline.</item>

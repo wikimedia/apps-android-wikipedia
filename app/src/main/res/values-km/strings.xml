@@ -262,11 +262,6 @@
   <string name="reading_list_item_delete_undo">មិន​ធ្វើ​វិញ</string>
   <string name="reading_list_deleted">%s ត្រូវបានលុបចោលហើយ</string>
   <string name="saved_list_empty_title">មិនទាន់មានទំព័ររក្សាទុកនៅឡើយទេ</string>
-  <string name="reading_lists_onboarding_for_example">ជាឧទាហរណ៍</string>
-  <string name="reading_lists_onboarding_example1">កន្លែងចង់ទៅលេង</string>
-  <string name="reading_lists_onboarding_example2">សត្វចូលចិត្ត</string>
-  <string name="reading_lists_onboarding_example3">ការរុករកក្នុងអវកាស</string>
-  <string name="reading_lists_onboarding_got_it">យល់ហើយ</string>
   <string name="reading_list_empty">អ្នកមិនទាន់មានអត្ថបទបន្ថែមទៅក្នុងបញ្ជីនេះនៅឡើយទេ។</string>
   <string name="reading_list_article_offline">អាចអានបានពេលនៅក្រៅបណ្ដាញ</string>
   <string name="reading_list_article_make_offline">ធ្វើអោយអត្ថបទនេះអានបាននៅក្រៅបណ្ដាញ</string>

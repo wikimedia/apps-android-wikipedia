@@ -375,12 +375,6 @@
   <string name="reading_list_deleted">Scriosadh %s</string>
   <string name="saved_list_empty_title">Níor sábháladh aon leathanach fós</string>
   <string name="reading_lists_empty_message">Cuir ailt ar liosta faoi choinne iad a léamh níos déanaí, fiú nuair a bheidh tú as líne.</string>
-  <string name="reading_lists_onboarding_intro">Cuir ailt ar liosta faoi choinne iad a léamh níos déanaí, fiú nuair a bheidh tú as líne!</string>
-  <string name="reading_lists_onboarding_for_example">Mar shampla</string>
-  <string name="reading_lists_onboarding_example1">Áiteanna le cuairt a thabhairt orthu</string>
-  <string name="reading_lists_onboarding_example2">Ainmhithe is fearr leat</string>
-  <string name="reading_lists_onboarding_example3">Spástaiscéalaíocht</string>
-  <string name="reading_lists_onboarding_got_it">Tuigim</string>
   <string name="reading_list_empty">Níl aon alt curtha ar an liosta seo agat.</string>
   <string name="reading_list_article_offline">Ar fáil as líne</string>
   <string name="reading_list_article_make_offline">Cuir an t-alt seo ar fáil as líne</string>
@@ -521,6 +515,7 @@
   <string name="menu_feed_overflow_label">Tuilleadh roghanna</string>
   <string name="feed_featured_image_share_subject">Íomhá roghnaithe ó Cómhaoin Wikimedia</string>
   <string name="feed">Taiscéal</string>
+  <string name="home">Baile</string>
   <string name="view_static_card_icon_content_description">Deilbhín cárta</string>
   <string name="view_card_news_title">Sa nuacht</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
@@ -588,10 +583,20 @@
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
+  <string name="suggested_edits_image_preview_dialog_tags">Clibeanna</string>
   <string name="suggested_edits_image_preview_dialog_date">Dáta</string>
   <string name="suggested_edits_image_preview_dialog_source">Foinse/Grianghrafadóir</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Ceadúnú</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Tuilleadh Eolais</string>
   <string name="suggested_edits_task_action_text_translate">Aistrigh</string>
+  <string name="suggested_edits_quality_perfect_text">Foirfe</string>
+  <string name="suggested_edits_quality_excellent_text">Thar barr</string>
+  <string name="suggested_edits_quality_very_good_text">Go han-mhaith</string>
+  <string name="suggested_edits_quality_good_text">Go maith</string>
+  <string name="suggested_edits_quality_okay_text">Ceart go leor</string>
+  <string name="suggested_edits_quality_sufficient_text">Sásúil</string>
+  <string name="suggested_edits_quality_poor_text">Go holc</string>
+  <string name="suggested_edits_quality_bad_text">Go dona</string>
   <string name="suggested_edits_task_new">nua</string>
   <string name="suggested_edits_contributions_screen_title">Dréachtaí le %s</string>
   <string name="suggested_edits_contribution_language_label">Teanga</string>
@@ -601,6 +606,9 @@
   <string name="suggested_edits_contribution_article_label">Alt</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Inné</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Logáil isteach / cláraigh le Vicipéid</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Togha, lean ar aghaidh! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Bhain tú sprioc an lae amach!👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Bhain tú an sprioc amach</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>
