@@ -141,6 +141,13 @@ public final class EventPlatformClient {
     }
 
     /**
+     * Send all scheduled-and-waiting events in case of app being suspended.
+     */
+    public static void flushCachedEvents() {
+        OutputBuffer.sendAllScheduled();
+    }
+
+    /**
      * OutputBuffer: buffers events in a queue prior to transmission
      *
      * Transmissions are not sent at a uniform offset but are shaped into
