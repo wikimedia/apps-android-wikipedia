@@ -2,7 +2,7 @@ package org.wikipedia.page.references
 
 import com.google.gson.annotations.SerializedName
 
-data class PageReferences(val selectedIndex: Int? = 0,
+data class PageReferences(val selectedIndex: Int = 0,
                           val tid: String?,
                           val referencesGroup: List<Reference>? = emptyList()) {
 
