@@ -1,6 +1,7 @@
 package org.wikipedia.main
 
 import android.graphics.Color
+import android.os.Build
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
@@ -148,10 +149,16 @@ class SmokeTests {
 
         TestUtil.delay(1)
 
-        onView(withId(R.id.theme_chooser_match_system_theme_switch))
-                .perform(scrollTo(), click())
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            onView(withId(R.id.theme_chooser_match_system_theme_switch))
+                    .check(matches(TestUtil.isNotVisible()))
 
-        TestUtil.delay(1)
+        } else {
+            onView(withId(R.id.theme_chooser_match_system_theme_switch))
+                    .perform(scrollTo(), click())
+
+            TestUtil.delay(1)
+        }
 
         onView(withId(R.id.button_theme_black))
                 .perform(scrollTo(), click())

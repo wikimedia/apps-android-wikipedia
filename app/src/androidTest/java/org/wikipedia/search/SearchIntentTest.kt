@@ -53,6 +53,10 @@ class SearchIntentTest {
 
         TestUtil.delay(2)
 
+        TestUtil.setAirplaneMode(true)
+
+        TestUtil.delay(2)
+
         onView(allOf(withId(R.id.search_lang_button), isDisplayed()))
                 .check(matches(withText("EN")))
 
@@ -89,6 +93,13 @@ class SearchIntentTest {
 
         onView(allOf(TestUtil.childAtPosition(TestUtil.childAtPosition(withId(R.id.horizontal_scroll_languages), 0), 1), isDisplayed()))
                 .perform(ViewActions.click())
+
+        TestUtil.delay(1)
+
+        onView(allOf(withText("Retry"), isDisplayed()))
+                .check(matches(isDisplayed()))
+
+        TestUtil.setAirplaneMode(false, 5)
 
         TestUtil.delay(5)
 

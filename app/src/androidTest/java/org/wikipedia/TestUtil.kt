@@ -9,6 +9,9 @@ import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.*
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.By
+import androidx.test.uiautomator.UiDevice
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -55,7 +58,6 @@ object TestUtil {
         }
     }
 
-
     fun childAtPosition(parentMatcher: Matcher<View>, position: Int): Matcher<View> {
         return object : TypeSafeMatcher<View>() {
             override fun describeTo(description: Description) {
@@ -69,6 +71,45 @@ object TestUtil {
                         && view == parent.getChildAt(position)
             }
         }
+    }
+
+    fun setAirplaneMode(enabled: Boolean, delaySecAfter: Long = 1) {
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        /*
+        The least hacky way, but no longer works since API 24:
+
+        device.executeShellCommand("su 0 settings put global airplane_mode_on " + if (enabled) "1" else "0")
+        device.executeShellCommand("su 0 am broadcast -a android.intent.action.AIRPLANE_MODE")
+        */
+        /*
+        Extremely hacky:
+
+        device.openNotification()
+        Thread.sleep(2000)
+        device.click(device.displayWidth * 90 / 100, device.displayHeight * 15 / 100)
+        Thread.sleep(2000)
+        device.pressBack()
+        Thread.sleep(delaySecAfter * 1000)
+        */
+
+        // Slightly less hacky:
+        device.executeShellCommand("am start -a android.settings.AIRPLANE_MODE_SETTINGS")
+        Thread.sleep(2000)
+
+        val obj = device.findObject(By.text("Airplane mode"))
+        // get the parent container that is actually clickable
+        var parent = obj
+        while (!parent.isClickable) {
+            parent = parent.parent
+        }
+        // look for the switch component and ascertain its state
+        val switch = parent.findObject(By.checkable(true))
+        if ((switch.isChecked && !enabled) || (!switch.isChecked && enabled)) {
+            parent.click()
+        }
+
+        Thread.sleep(delaySecAfter * 1000)
+        device.pressBack()
     }
 
     internal class WithGrandparentMatcher constructor(private val grandparentMatcher: Matcher<View>) : TypeSafeMatcher<View>() {
