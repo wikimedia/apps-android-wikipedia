@@ -376,12 +376,6 @@
   <string name="reading_list_deleted">%s сотуллубут</string>
   <string name="saved_list_empty_title">Испииһэк оҥоһулла илик эбит</string>
   <string name="reading_lists_empty_message">Ыстатыйаларгын ааҕыы испииһэгэр хойут, ситимэ да суох олорон, киллэриэххин сөп.</string>
-  <string name="reading_lists_onboarding_intro">Ыстатыйаларгын ааҕыы испииһэгэр хойут, ситимэ да суох олорон, киллэриэххин сөп!</string>
-  <string name="reading_lists_onboarding_for_example">Холобур</string>
-  <string name="reading_lists_onboarding_example1">Сылдьыллыахтаах сирдэр</string>
-  <string name="reading_lists_onboarding_example2">Сөбүлүүр кыылларым</string>
-  <string name="reading_lists_onboarding_example3">Куйаары чинчийии</string>
-  <string name="reading_lists_onboarding_got_it">Бу өйдөнөр</string>
   <string name="reading_list_empty">Испииһэккэ эбиллибит ыстатыйа суох эбит.</string>
   <string name="reading_list_article_offline">Ситимэ суох ааҕыахха сөп</string>
   <string name="reading_list_article_make_offline">Бу ыстатыйаны ситимэ суох ааҕыллар гын</string>

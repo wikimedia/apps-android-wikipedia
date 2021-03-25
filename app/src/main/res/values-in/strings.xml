@@ -450,12 +450,6 @@
   <string name="reading_list_deleted">%s terhapus</string>
   <string name="saved_list_empty_title">Tidak ada daftar bacaan lagi</string>
   <string name="reading_lists_empty_message">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring.</string>
-  <string name="reading_lists_onboarding_intro">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring!</string>
-  <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
-  <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
-  <string name="reading_lists_onboarding_example2">Hewan kesukaan</string>
-  <string name="reading_lists_onboarding_example3">Penjelajahan luar angkasa</string>
-  <string name="reading_lists_onboarding_got_it">Mengerti</string>
   <string name="reading_list_empty">Anda tidak memiliki artikel yang ditambahkan ke daftar ini.</string>
   <string name="reading_list_article_offline">Tersedia secara luring</string>
   <string name="reading_list_article_make_offline">Jadikan artikel ini tersedia secara luring</string>

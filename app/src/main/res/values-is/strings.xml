@@ -383,12 +383,6 @@
   <string name="reading_list_deleted">%s eytt</string>
   <string name="saved_list_empty_title">Engir leslistar ennþá</string>
   <string name="reading_lists_empty_message">Bættu greinum á lista til að lesa þær síðar, jafnvel án nettengingar.</string>
-  <string name="reading_lists_onboarding_intro">Bættu greinum á lista til að lesa þær síðar, jafnvel án nettengingar!</string>
-  <string name="reading_lists_onboarding_for_example">Til dæmis</string>
-  <string name="reading_lists_onboarding_example1">Staðir til að heimsækja</string>
-  <string name="reading_lists_onboarding_example2">Uppáhaldsdýr</string>
-  <string name="reading_lists_onboarding_example3">Könnun geimsins</string>
-  <string name="reading_lists_onboarding_got_it">Náði því</string>
   <string name="reading_list_empty">Þú hefur ekki bætt neinum greinum á þennan lista.</string>
   <string name="reading_list_article_offline">Tiltækt án nettengingar</string>
   <string name="reading_list_article_make_offline">Gera þessa grein tiltæka án nettengingar</string>

@@ -468,12 +468,6 @@
   <string name="reading_list_deleted">%s удалено</string>
   <string name="saved_list_empty_title">Ещё нет списков для чтения</string>
   <string name="reading_lists_empty_message">Добавьте статьи в список для чтения позже, даже если вы офлайн.</string>
-  <string name="reading_lists_onboarding_intro">Добавьте статьи в список для чтения позже, даже если вы офлайн!</string>
-  <string name="reading_lists_onboarding_for_example">Например</string>
-  <string name="reading_lists_onboarding_example1">Места для посещения</string>
-  <string name="reading_lists_onboarding_example2">Любимые животные</string>
-  <string name="reading_lists_onboarding_example3">Исследование космоса</string>
-  <string name="reading_lists_onboarding_got_it">Понятно</string>
   <string name="reading_list_empty">В этом списке нет добавленных статей.</string>
   <string name="reading_list_article_offline">Доступно без подключения к Интернету</string>
   <string name="reading_list_article_make_offline">Сделать эта статью доступной в офлайн-режиме</string>

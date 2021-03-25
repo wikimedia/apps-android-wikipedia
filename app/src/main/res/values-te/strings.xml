@@ -213,11 +213,6 @@
   <string name="color_theme_black">నలుపు</string>
   <string name="color_theme_test_title">నమూనా పాఠ్యం</string>
   <string name="text_size_percent_default">%s (అప్రమేయం)</string>
-  <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
-  <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>
-  <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">అంతరిక్షం!</string>
-  <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">రద్దుచేయి</string>
   <string name="reading_list_turned_sync_off_dialog_ok">సరే</string>
   <string name="reading_list_turned_sync_off_dialog_settings">అమరికలు</string>

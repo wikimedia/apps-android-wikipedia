@@ -439,12 +439,6 @@
   <string name="reading_list_deleted">%s slettet</string>
   <string name="saved_list_empty_title">Ingen læselister endnu</string>
   <string name="reading_lists_empty_message">Gem artikler til læselister, så du kan læse dem senere, selv når du er uden internetforbindelse.</string>
-  <string name="reading_lists_onboarding_intro">Tilføj artikler til en læseliste for senere brug, selv uden internetforbindelse!</string>
-  <string name="reading_lists_onboarding_for_example">For eksempel</string>
-  <string name="reading_lists_onboarding_example1">Steder at besøge</string>
-  <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>
-  <string name="reading_lists_onboarding_example3">Udforskning af rummet</string>
-  <string name="reading_lists_onboarding_got_it">Forstået</string>
   <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
   <string name="reading_list_article_offline">Tilgængelig offline</string>
   <string name="reading_list_article_make_offline">Gør denne artikel tilgængelig offline</string>
