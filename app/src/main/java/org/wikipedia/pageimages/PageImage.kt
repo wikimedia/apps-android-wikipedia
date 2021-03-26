@@ -7,7 +7,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 
 @Parcelize
-data class PageImage(val title: PageTitle?, val imageName: String?) : Parcelable {
+data class PageImage(val title: PageTitle, val imageName: String) : Parcelable {
 
     companion object {
         @JvmField
@@ -36,7 +36,7 @@ data class PageImage(val title: PageTitle?, val imageName: String?) : Parcelable
 
             titlesMap.forEach {
                 if (thumbnailSourcesMap.containsKey(it.key)) {
-                    pageImagesMap[it.value] = PageImage(it.value, thumbnailSourcesMap[it.key])
+                    pageImagesMap[it.value] = PageImage(it.value, thumbnailSourcesMap[it.key].orEmpty())
                 }
             }
             return pageImagesMap
