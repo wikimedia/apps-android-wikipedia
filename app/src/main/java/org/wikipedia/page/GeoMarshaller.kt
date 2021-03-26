@@ -5,7 +5,6 @@ import org.json.JSONException
 import org.json.JSONObject
 
 object GeoMarshaller {
-    @JvmStatic
     fun marshal(obj: Location?): String? {
         return obj?.let {
             JSONObject().runCatching {

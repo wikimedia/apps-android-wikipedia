@@ -17,6 +17,7 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.UriUtil;
 
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -190,7 +191,7 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(revisionId);
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
-        parcel.writeString(GeoMarshaller.marshal(geo));
+        parcel.writeParcelable(geo, Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
@@ -208,7 +209,7 @@ public class PageProperties implements Parcelable {
         revisionId = in.readLong();
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
-        geo = GeoUnmarshaller.unmarshal(in.readString());
+        geo = Location.CREATOR.createFromParcel(in);
         editProtectionStatus = in.readString();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
