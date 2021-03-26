@@ -5,11 +5,14 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.app.Activity
 import android.graphics.Color
+import android.graphics.Point
 import android.graphics.Rect
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.graphics.contains
+import androidx.core.view.forEach
 import java.lang.ref.WeakReference
 import java.util.*
 import kotlin.math.pow
@@ -268,24 +271,21 @@ class ImageZoomHelper(activity: Activity) {
      */
     private fun findZoomableView(event: MotionEvent, view: View): View? {
         if (view is ViewGroup) {
-            val childCount = view.childCount
             val pointerCoords1 = MotionEvent.PointerCoords()
             event.getPointerCoords(0, pointerCoords1)
             val pointerCoords2 = MotionEvent.PointerCoords()
             event.getPointerCoords(1, pointerCoords2)
-            for (i in 0 until childCount) {
-                val child = view.getChildAt(i)
-                if (getIntTag(child) and FLAG_UNZOOMABLE == 0) {
-                    val visibleRect = Rect()
+
+            val point1 = Point(pointerCoords1.x.toInt(), pointerCoords1.y.toInt())
+            val point2 = Point(pointerCoords2.x.toInt(), pointerCoords2.y.toInt())
+
+            view.forEach {
+                if (getIntTag(it) and FLAG_UNZOOMABLE == 0) {
                     val location = IntArray(2)
-                    child.getLocationOnScreen(location)
-                    visibleRect.left = location[0]
-                    visibleRect.top = location[1]
-                    visibleRect.right = visibleRect.left + child.width
-                    visibleRect.bottom = visibleRect.top + child.height
-                    if (visibleRect.contains(pointerCoords1.x.toInt(), pointerCoords1.y.toInt()) &&
-                            visibleRect.contains(pointerCoords2.x.toInt(), pointerCoords2.y.toInt())) {
-                        return if (getIntTag(child) and FLAG_ZOOMABLE != 0) child else findZoomableView(event, child)
+                    it.getLocationOnScreen(location)
+                    val visibleRect = Rect(location[0], location[1], location[0] + it.width, location[1] + it.height)
+                    if (point1 in visibleRect && point2 in visibleRect) {
+                        return if (getIntTag(it) and FLAG_ZOOMABLE != 0) it else findZoomableView(event, it)
                     }
                 }
             }

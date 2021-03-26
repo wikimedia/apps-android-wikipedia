@@ -245,7 +245,7 @@ class LanguagesListActivity : BaseActivity() {
         disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { siteMatrix -> SiteMatrix.getSites(siteMatrix!!) }
+                .map { siteMatrix -> SiteMatrix.getSites(siteMatrix) }
                 .doAfterTerminate {
                     binding.languagesListLoadProgress.visibility = View.INVISIBLE
                     binding.languagesListRecycler.adapter?.notifyDataSetChanged()
