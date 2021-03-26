@@ -39,6 +39,7 @@ class ImageRecsDialog : DialogFragment() {
         binding.checkBox4.setOnCheckedChangeListener(checkBoxChangedHandler)
         binding.checkBox5.setOnCheckedChangeListener(checkBoxChangedHandler)
         binding.checkBox6.setOnCheckedChangeListener(checkBoxChangedHandler)
+        binding.checkBox7.setOnCheckedChangeListener(checkBoxChangedHandler)
 
         binding.cancelButton.setOnClickListener {
             dismiss()
@@ -52,6 +53,7 @@ class ImageRecsDialog : DialogFragment() {
             if (binding.checkBox4.isChecked) { itemList.add(3) }
             if (binding.checkBox5.isChecked) { itemList.add(4) }
             if (binding.checkBox6.isChecked) { itemList.add(5) }
+            if (binding.checkBox7.isChecked) { itemList.add(5) }
 
             callback()?.onDialogSubmit(responseCode, itemList)
             dismiss()
@@ -64,16 +66,18 @@ class ImageRecsDialog : DialogFragment() {
             binding.checkBox3.text = getString(R.string.image_recommendations_task_choice_offensive)
             binding.checkBox4.text = getString(R.string.image_recommendations_task_choice_low_quality)
             binding.checkBox5.text = getString(R.string.image_recommendations_task_choice_nosubject)
-            binding.checkBox6.text = getString(R.string.image_recommendations_task_choice_other)
-            binding.checkBox6.visibility = View.VISIBLE
+            binding.checkBox6.text = getString(R.string.image_recommendations_task_choice_language)
+            binding.checkBox7.text = getString(R.string.image_recommendations_task_choice_other)
+            binding.checkBox7.visibility = View.VISIBLE
         } else if (responseCode == ImageRecommendationsFunnel.RESPONSE_NOT_SURE) {
             binding.instructionText.text = getString(R.string.image_recommendations_task_choice_unsure)
             binding.checkBox1.text = getString(R.string.image_recommendations_task_choice_noinfo)
             binding.checkBox2.text = getString(R.string.image_recommendations_task_choice_invisible)
             binding.checkBox3.text = getString(R.string.image_recommendations_task_choice_nosubject)
             binding.checkBox4.text = getString(R.string.image_recommendations_task_choice_understand)
-            binding.checkBox5.text = getString(R.string.image_recommendations_task_choice_other)
-            binding.checkBox6.visibility = View.GONE
+            binding.checkBox5.text = getString(R.string.image_recommendations_task_choice_language)
+            binding.checkBox6.text = getString(R.string.image_recommendations_task_choice_other)
+            binding.checkBox7.visibility = View.GONE
         }
 
         updateSubmitState()
@@ -92,7 +96,8 @@ class ImageRecsDialog : DialogFragment() {
 
     private fun updateSubmitState() {
         val enabled = (binding.checkBox1.isChecked || binding.checkBox2.isChecked || binding.checkBox3.isChecked ||
-                binding.checkBox4.isChecked || binding.checkBox5.isChecked || binding.checkBox6.isChecked)
+                binding.checkBox4.isChecked || binding.checkBox5.isChecked || binding.checkBox6.isChecked ||
+                binding.checkBox7.isChecked)
         binding.continueButton.isEnabled = enabled
         binding.continueButton.alpha = if (enabled) 1f else 0.5f
     }
