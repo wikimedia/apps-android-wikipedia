@@ -10,7 +10,7 @@ public class StrColumn extends Column<String> {
     }
 
     @Override
-    public String val(@NonNull Cursor cursor) {
+    public String value(@NonNull Cursor cursor) {
         return getString(cursor);
     }
 }
