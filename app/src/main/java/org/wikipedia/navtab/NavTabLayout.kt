@@ -6,6 +6,9 @@ import android.util.AttributeSet
 import android.view.Menu
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.forEach
+import androidx.core.view.isNotEmpty
+import androidx.core.view.updatePadding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.wikipedia.R
 
@@ -20,20 +23,14 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
     }
 
     private fun fixTextStyle() {
-        if (childCount > 0) {
-            val menuView = getChildAt(0)
-            if ((menuView as ViewGroup).childCount > 0) {
-                for (i in 0..menuView.childCount) {
-                    val menuItemView = menuView.getChildAt(i)
-                    if (menuItemView != null) {
-                        val largeLabel = menuItemView.findViewById<TextView>(R.id.largeLabel)
-                        largeLabel.ellipsize = TextUtils.TruncateAt.END
-                        largeLabel.setPadding(0, paddingTop, 0, paddingBottom)
-                        val smallLabel = menuItemView.findViewById<TextView>(R.id.smallLabel)
-                        smallLabel.ellipsize = TextUtils.TruncateAt.END
-                        smallLabel.setPadding(0, paddingTop, 0, paddingBottom)
-                    }
-                }
+        if (isNotEmpty()) {
+            (getChildAt(0) as ViewGroup).forEach {
+                val largeLabel = it.findViewById<TextView>(R.id.largeLabel)
+                largeLabel.ellipsize = TextUtils.TruncateAt.END
+                largeLabel.updatePadding(left = 0, right = 0)
+                val smallLabel = it.findViewById<TextView>(R.id.smallLabel)
+                smallLabel.ellipsize = TextUtils.TruncateAt.END
+                smallLabel.updatePadding(left = 0, right = 0)
             }
         }
     }

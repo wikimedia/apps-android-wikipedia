@@ -3,7 +3,7 @@ package org.wikipedia.page
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.core.view.children
+import androidx.core.view.forEach
 import org.wikipedia.databinding.ViewArticleTabLayoutBinding
 import org.wikipedia.page.action.PageActionTab
 import org.wikipedia.views.ConfigurableTabLayout
@@ -15,7 +15,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
     }
 
     fun setPageActionTabsCallback(pageActionTabsCallback: PageActionTab.Callback) {
-        children.iterator().forEach {
+        forEach {
             it.tag?.let { tag ->
                 val tabPosition = tag.toString().toInt()
                 it.isFocusable = true
