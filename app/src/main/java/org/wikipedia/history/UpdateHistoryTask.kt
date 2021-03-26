@@ -26,7 +26,7 @@ class UpdateHistoryTask(private val entry: HistoryEntry) : Action {
                 entry.title.wikiSite.languageCode(), entry.title.text)
         val cursor = client.select(selection, selectionArgs, null)
         if (cursor.moveToFirst()) {
-            timeSpent = PageHistoryContract.Col.TIME_SPENT.`val`(cursor)
+            timeSpent = PageHistoryContract.Col.TIME_SPENT.value(cursor)
         }
         cursor.close()
         return timeSpent

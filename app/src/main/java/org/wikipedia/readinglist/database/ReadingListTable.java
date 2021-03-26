@@ -20,14 +20,14 @@ public class ReadingListTable extends DatabaseTable<ReadingList> {
     }
 
     @Override public ReadingList fromCursor(@NonNull Cursor cursor) {
-        ReadingList list = new ReadingList(ReadingListContract.Col.TITLE.val(cursor),
-                ReadingListContract.Col.DESCRIPTION.val(cursor));
-        list.id(ReadingListContract.Col.ID.val(cursor));
-        list.atime(ReadingListContract.Col.ATIME.val(cursor));
-        list.mtime(ReadingListContract.Col.MTIME.val(cursor));
-        list.sizeBytes(ReadingListContract.Col.SIZEBYTES.val(cursor));
-        list.dirty(ReadingListContract.Col.DIRTY.val(cursor) != 0);
-        list.remoteId(ReadingListContract.Col.REMOTEID.val(cursor));
+        ReadingList list = new ReadingList(ReadingListContract.Col.TITLE.value(cursor),
+                ReadingListContract.Col.DESCRIPTION.value(cursor));
+        list.id(ReadingListContract.Col.ID.value(cursor));
+        list.atime(ReadingListContract.Col.ATIME.value(cursor));
+        list.mtime(ReadingListContract.Col.MTIME.value(cursor));
+        list.sizeBytes(ReadingListContract.Col.SIZEBYTES.value(cursor));
+        list.dirty(ReadingListContract.Col.DIRTY.value(cursor) != 0);
+        list.remoteId(ReadingListContract.Col.REMOTEID.value(cursor));
         return list;
     }
 
