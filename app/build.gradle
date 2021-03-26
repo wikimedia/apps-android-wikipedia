@@ -29,6 +29,10 @@ android {
         targetCompatibility = JAVA_VERSION
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     dexOptions {
         preDexLibraries = true
         jumboMode = true
