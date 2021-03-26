@@ -890,7 +890,7 @@
     <string name="suggested_edits_image_recommendations_task_goal_surpassed">You\'ve reached the goal</string>
     <string name="suggested_edits_image_recommendations_onboarding_tooltip">A new Suggested Edits task is now available. Train an algorithm to match images with unillustrated articles.</string>
     <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia articles are written and edited by thousands of volunteers from around the world. Unfortunately, many articles lack images.\n\nImages will be suggested to you using an algorithm. The algorithm will pull images from other sources and suggest a match with an article that does not have an image.\n\nYour feedback will help us improve the suggestions over time. Because the goal of this task is to improve the suggested images, the matches you make will not be published at this time.</string>
-    <string name="suggested_edits_image_recommendations_onboarding_text2">We would you like to recognize your contributions to this effort. Would you like your username displayed on our algorithm training page?</string>
+    <string name="suggested_edits_image_recommendations_onboarding_text2">We would like to recognize your contributions to this effort. Would you like your username displayed on our algorithm training page?</string>
     <string name="suggested_edits_image_recommendations_onboarding_consent">Yes, my username can be displayed on the algorithm training page</string>
     <!-- /Suggested edits -->
 
