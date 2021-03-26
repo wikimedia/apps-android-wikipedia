@@ -36,7 +36,8 @@ import org.wikipedia.pageimages.PageImage;
         TestParcelUtil.test(historyEntry);
     }
 
-    @Test public void testPageImage() throws Throwable {
+    @Test
+    public void testPageImage() throws Throwable {
         WikiSite wiki = WikiSite.forLanguageCode("en");
         PageTitle title = new PageTitle("Talk", "India", wiki);
         PageImage pageImage = new PageImage(title, "Testing image");

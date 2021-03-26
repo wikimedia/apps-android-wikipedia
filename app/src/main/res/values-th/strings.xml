@@ -418,12 +418,6 @@
   <string name="reading_list_deleted">ลบ %s แล้ว</string>
   <string name="saved_list_empty_title">ยังไม่มีรายการอ่าน</string>
   <string name="reading_lists_empty_message">เพิ่มบทความลงในรายการสำหรับอ่านภายหลังได้แม้กระทั่งตอนที่คุณออฟไลน์</string>
-  <string name="reading_lists_onboarding_intro">เพิ่มบทความลงในรายการสำหรับอ่านภายหลังได้แม้กระทั่งตอนที่คุณออฟไลน์!</string>
-  <string name="reading_lists_onboarding_for_example">ตัวอย่าง</string>
-  <string name="reading_lists_onboarding_example1">สถานที่ที่อยากไป</string>
-  <string name="reading_lists_onboarding_example2">สัตว์ที่ชื่นชอบ</string>
-  <string name="reading_lists_onboarding_example3">สำรวจอวกาศ</string>
-  <string name="reading_lists_onboarding_got_it">เข้าใจแล้ว</string>
   <string name="reading_list_empty">คุณไม่ได้เพิ่มบทความใด ๆ ลงในรายการนี้</string>
   <string name="reading_list_article_offline">ใช้ได้ขณะออฟไลน์</string>
   <string name="reading_list_article_make_offline">ทำให้บทความนี้ใช้ได้ขณะออฟไลน์</string>

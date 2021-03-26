@@ -473,12 +473,6 @@
   <string name="reading_list_deleted">%s supprimé</string>
   <string name="saved_list_empty_title">Encore aucune page enregistrée</string>
   <string name="reading_lists_empty_message">Ajouter des articles à une liste pour les lire plus tard, même quand vous serez hors connexion.</string>
-  <string name="reading_lists_onboarding_intro">Ajouter des articles à une liste pour les lire plus tard, même quand vous serez hors connexion !</string>
-  <string name="reading_lists_onboarding_for_example">Par exemple</string>
-  <string name="reading_lists_onboarding_example1">Endroits à visiter</string>
-  <string name="reading_lists_onboarding_example2">Animaux favoris</string>
-  <string name="reading_lists_onboarding_example3">Exploration spatiale </string>
-  <string name="reading_lists_onboarding_got_it">Compris !</string>
   <string name="reading_list_empty">Vous n’avez aucun article ajouté à cette liste.</string>
   <string name="reading_list_article_offline">Disponible hors connexion</string>
   <string name="reading_list_article_make_offline">Marquer cet article comme disponible hors connexion</string>

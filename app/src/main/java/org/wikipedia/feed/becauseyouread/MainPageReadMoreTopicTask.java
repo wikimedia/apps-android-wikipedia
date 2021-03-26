@@ -31,7 +31,7 @@ public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
         try (Cursor c = getInterestedHistoryEntry()) {
             if (c.moveToPosition(age)) {
                 HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
-                entry.getTitle().setThumbUrl(PageImageHistoryContract.Col.IMAGE_NAME.val(c));
+                entry.getTitle().setThumbUrl(PageImageHistoryContract.Col.IMAGE_NAME.value(c));
                 return entry.getTitle().isMainPage() ? null : entry;
             }
             return null;

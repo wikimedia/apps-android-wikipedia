@@ -23,11 +23,11 @@ public final class OfflineObjectTable extends DatabaseTable<OfflineObject> {
     }
 
     @Override public OfflineObject fromCursor(@NonNull Cursor cursor) {
-        OfflineObject obj = new OfflineObject(OfflineObjectContract.Col.URL.val(cursor),
-                OfflineObjectContract.Col.LANG.val(cursor),
-                OfflineObjectContract.Col.PATH.val(cursor),
-                OfflineObjectContract.Col.STATUS.val(cursor));
-        String usedByStr = OfflineObjectContract.Col.USEDBY.val(cursor);
+        OfflineObject obj = new OfflineObject(OfflineObjectContract.Col.URL.value(cursor),
+                OfflineObjectContract.Col.LANG.value(cursor),
+                OfflineObjectContract.Col.PATH.value(cursor),
+                OfflineObjectContract.Col.STATUS.value(cursor));
+        String usedByStr = OfflineObjectContract.Col.USEDBY.value(cursor);
         if (!TextUtils.isEmpty(usedByStr)) {
             String[] usedBy = usedByStr.split("\\|");
             for (String s : usedBy) {
