@@ -446,12 +446,6 @@
   <string name="reading_list_deleted">%s verwijderd</string>
   <string name="saved_list_empty_title">Nog geen opgeslagen pagina\'s</string>
   <string name="reading_lists_empty_message">Voeg pagina\'s aan een lijst toe om ze later te lezen, zelfs als u offline bent.</string>
-  <string name="reading_lists_onboarding_intro">Voeg pagina\'s aan een lijst toe om ze later te lezen,, zelfs als u offline bent!</string>
-  <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
-  <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>
-  <string name="reading_lists_onboarding_example2">Favoriete dieren</string>
-  <string name="reading_lists_onboarding_example3">Ruimteonderzoek</string>
-  <string name="reading_lists_onboarding_got_it">Begrepen</string>
   <string name="reading_list_empty">U heeft nog geen pagina\'s aan deze lijst toegevoegd.</string>
   <string name="reading_list_article_offline">Offline beschikbaar</string>
   <string name="reading_list_article_make_offline">Maak deze pagina offline beschikbaar</string>

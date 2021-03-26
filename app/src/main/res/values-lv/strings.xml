@@ -224,10 +224,6 @@
   <string name="reading_list_item_deleted">%s izņemts no saraksta</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>
   <string name="reading_list_deleted">%s izdzēsts</string>
-  <string name="reading_lists_onboarding_for_example">Piemēram</string>
-  <string name="reading_lists_onboarding_example2">Mīļākie dzīvnieki</string>
-  <string name="reading_lists_onboarding_example3">Kosmosa izpēte</string>
-  <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="reading_list_article_offline">Pieejams bezsaistē</string>
   <string name="reading_list_article_make_offline">Padarīt rakstu pieejamu bezsaistē</string>
   <string name="reading_list_remove_from_list">Noņemt no %s</string>

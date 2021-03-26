@@ -355,12 +355,6 @@
   <string name="reading_list_deleted">%s efacita</string>
   <string name="saved_list_empty_title">Nula pagino konservita til nun</string>
   <string name="reading_lists_empty_message">Adjuntez artikli a listo por posa lektado, mem se tu divenos \'\'offline\'\'.</string>
-  <string name="reading_lists_onboarding_intro">Adjuntez artikli a listo por posa lektado, mem se tu divenos \'\'offline\'\'!</string>
-  <string name="reading_lists_onboarding_for_example">Exemple</string>
-  <string name="reading_lists_onboarding_example1">Loki videnda</string>
-  <string name="reading_lists_onboarding_example2">Preferata animali</string>
-  <string name="reading_lists_onboarding_example3">Kosmala explorado</string>
-  <string name="reading_lists_onboarding_got_it">Me komprenas</string>
   <string name="reading_list_empty">Vu adjuntis nul artikli a ca listo.</string>
   <string name="reading_list_article_offline">Disponebla \'\'offline\'\'</string>
   <string name="reading_list_article_make_offline">Disponez ca artiklo \'\'offline\'\'</string>

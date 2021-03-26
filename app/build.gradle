@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
 
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
@@ -20,12 +21,17 @@ def computeVersionName(label) {
 }
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
+
 android {
     compileSdkVersion 30
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
+    }
+
+    kotlinOptions {
+        jvmTarget = JAVA_VERSION
     }
 
     dexOptions {
@@ -37,7 +43,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50347
+        versionCode 50348
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true

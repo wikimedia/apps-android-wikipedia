@@ -63,6 +63,10 @@
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar língua</string>
   <string name="menu_page_find_in_page">Localizar na página</string>
+  <string name="menu_page_add_to_watchlist">Adicionar às páginas vigiadas</string>
+  <string name="menu_page_view_talk">Ver página de discussão</string>
+  <string name="menu_page_view_edit_history">Ver historial de edições</string>
+  <string name="menu_page_remove_from_watchlist">Remover das páginas vigiadas</string>
   <string name="edit_section_find_in_page">Localizar na página</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
@@ -199,6 +203,8 @@
   <string name="page_protected_can_not_edit">Desculpe, a sua conta não tem os privilégios necessários para editar esta página neste momento.</string>
   <string name="page_protected_can_not_edit_anon">Desculpe, esta página não pode ser editada anonimamente neste momento.</string>
   <string name="page_protected_can_not_edit_title">Esta página está protegida</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adicionar às páginas vigiadas</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Acompanhe o que está a acontecer a artigos do seu interesse. Toque no menu flutuante e selecione &lt;b&gt;Adicionar à lista de páginas vigiadas&lt;/b&gt; para ver as alterações de um artigo.</string>
   <string name="settings_item_preferences">Configurações</string>
   <string name="settings_activity_title">Configurações</string>
   <string name="about_description">Sobre a aplicação Wikipédia</string>
@@ -442,12 +448,6 @@
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="saved_list_empty_title">Ainda não existem páginas guardadas</string>
   <string name="reading_lists_empty_message">Acrescente artigos a uma lista para lê-los mais tarde, mesmo quando estiver sem acesso à Internet.</string>
-  <string name="reading_lists_onboarding_intro">Acrescente artigos a uma lista para lê-los mais tarde, mesmo quando estiver sem acesso à Internet!</string>
-  <string name="reading_lists_onboarding_for_example">Por exemplo</string>
-  <string name="reading_lists_onboarding_example1">Lugares a visitar</string>
-  <string name="reading_lists_onboarding_example2">Animais preferidos</string>
-  <string name="reading_lists_onboarding_example3">Exploração espacial</string>
-  <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_empty">Não tem nenhum artigo adicionado a esta lista.</string>
   <string name="reading_list_article_offline">Disponível offline</string>
   <string name="reading_list_article_make_offline">Disponibilizar este artigo offline</string>

@@ -418,12 +418,6 @@
   <string name="reading_list_deleted">%s a fost ștearsă</string>
   <string name="saved_list_empty_title">Nici o pagină salvată încă</string>
   <string name="reading_lists_empty_message">Adăugați articole într-o listă pentru a le citi mai târziu, chiar și atunci când sunteți offline.</string>
-  <string name="reading_lists_onboarding_intro">Adăugați articole într-o listă pentru a le citi mai târziu, chiar și atunci când sunteți offline!</string>
-  <string name="reading_lists_onboarding_for_example">De exemplu</string>
-  <string name="reading_lists_onboarding_example1">Locuri de vizitat</string>
-  <string name="reading_lists_onboarding_example2">Animale preferate</string>
-  <string name="reading_lists_onboarding_example3">Explorarea spațiului</string>
-  <string name="reading_lists_onboarding_got_it">Am înțeles</string>
   <string name="reading_list_empty">Nu aveți articole adăugate la această listă.</string>
   <string name="reading_list_article_offline">Disponibil offline</string>
   <string name="reading_list_article_make_offline">Faceți acest articol disponibil offline</string>
