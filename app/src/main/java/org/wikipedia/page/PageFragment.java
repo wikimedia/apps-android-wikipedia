@@ -960,7 +960,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     webView.clearMatches();
                     hideSoftKeyboard();
                     setToolbarElevationEnabled(true);
-                    bridge.execute(JavaScriptActionHandler.expandCollapsedTables(false));
                 }
             });
         });
