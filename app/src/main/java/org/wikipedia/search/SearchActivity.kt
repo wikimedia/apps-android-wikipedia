@@ -7,6 +7,8 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.IntentFunnel
+import org.wikipedia.util.log.L
+import java.lang.RuntimeException
 
 class SearchActivity : SingleFragmentActivity<SearchFragment>() {
     public override fun createFragment(): SearchFragment {
@@ -18,6 +20,7 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
                 source = InvokeSource.INTENT_PROCESS_TEXT
             } else {
                 source = InvokeSource.INTENT_OTHERS
+                L.logRemoteErrorIfProd(RuntimeException("Unknown intent when launching SearchActivity: " + intent.action.orEmpty()))
             }
         }
         return SearchFragment.newInstance(source, intent.getStringExtra(QUERY_EXTRA))
