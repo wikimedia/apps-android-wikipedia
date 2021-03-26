@@ -140,9 +140,6 @@ public final class EventPlatformClient {
         event.setAppInstallId(Prefs.getAppInstallId());
     }
 
-    /**
-     * Send all scheduled-and-waiting events in case of app being suspended.
-     */
     public static void flushCachedEvents() {
         OutputBuffer.sendAllScheduled();
     }

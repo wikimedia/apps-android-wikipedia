@@ -91,8 +91,8 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     }
 
     @Override
-    public void onTrimMemory(int i) {
-        if (i == ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
+    public void onTrimMemory(int trimMemoryType) {
+        if (trimMemoryType == ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
             EventPlatformClient.flushCachedEvents();
         }
     }
