@@ -28,7 +28,7 @@ object TalkPageSeenDatabaseTable : DatabaseTable<String>(TABLE, URI) {
     private val SELECTION = DbUtil.qualifiedNames(SHA)
 
     override fun fromCursor(cursor: Cursor): String {
-        return SHA.`val`(cursor)
+        return SHA.value(cursor)
     }
 
     override fun toContentValues(obj: String): ContentValues {

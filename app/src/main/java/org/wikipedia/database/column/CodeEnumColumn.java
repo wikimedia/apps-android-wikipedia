@@ -14,7 +14,7 @@ public class CodeEnumColumn<T> extends Column<T> {
         this.codeEnum = codeEnum;
     }
 
-    @Override public T val(@NonNull Cursor cursor) {
+    @Override public T value(@NonNull Cursor cursor) {
         return codeEnum.enumeration(getInt(cursor));
     }
 }
