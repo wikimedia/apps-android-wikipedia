@@ -343,7 +343,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     }
 
     companion object {
-        const val DAILY_COUNT_TARGET = 20
+        const val DAILY_COUNT_TARGET = 10
         private val SUPPORTED_LANGUAGES = arrayOf("en", "de", "fr", "pt", "ru", "fa", "tr", "uk", "ar", "vi", "ceb", "he")
 
         fun isFeatureEnabled(): Boolean {
