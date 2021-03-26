@@ -429,7 +429,8 @@
   <string name="reading_list_name_hint">Navn på denne liste</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
   <string name="reading_list_item_deleted">%s fjernet fra listen</string>
-  <string name="reading_list_items_deleted">%d artikler fjernet fra liste</string>  <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
+  <string name="reading_list_items_deleted">%d artikler fjernet fra liste</string>
+  <string name="reading_lists_item_deleted">%s fjernet fra lister</string>
   <string name="reading_list_item_delete_undo">Fortryd</string>
   <string name="reading_list_deleted">%s slettet</string>
   <string name="saved_list_empty_title">Ingen læselister endnu</string>
