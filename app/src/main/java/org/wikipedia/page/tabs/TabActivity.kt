@@ -230,7 +230,7 @@ class TabActivity : BaseActivity() {
         override fun onSwitcherShown(tabSwitcher: TabSwitcher) {}
         override fun onSwitcherHidden(tabSwitcher: TabSwitcher) {}
         override fun onSelectionChanged(tabSwitcher: TabSwitcher, index: Int, selectedTab: de.mrapp.android.tabswitcher.Tab?) {
-            if (app.tabList.isNotEmpty()) {
+            if (app.tabList.isNotEmpty() && index < app.tabList.size) {
                 val tabIndex = app.tabList.size - index - 1
                 L.d("Tab selected: $index")
                 if (tabIndex < app.tabList.size - 1) {
@@ -258,7 +258,7 @@ class TabActivity : BaseActivity() {
         }
 
         override fun onTabRemoved(tabSwitcher: TabSwitcher, index: Int, tab: de.mrapp.android.tabswitcher.Tab, animation: Animation) {
-            if (app.tabList.isNotEmpty()) {
+            if (app.tabList.isNotEmpty() && index < app.tabList.size) {
                 val tabIndex = app.tabList.size - index - 1
                 val appTab = app.tabList.removeAt(tabIndex)
                 funnel.logClose(app.tabCount, tabIndex)
