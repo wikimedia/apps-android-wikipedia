@@ -51,7 +51,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
     }
 
     private fun showMenu() {
-        if (!existsInAnyList) {
+        if (!existsInAnyList && listsContainingPage.isNullOrEmpty()) {
             return
         }
         listsContainingPage?.let {

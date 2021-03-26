@@ -9,8 +9,6 @@ import org.wikipedia.staticdata.MainPageNameData;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricTestRunner.class) public class PageTitleTest {
     @Test public void testEquals() {
@@ -107,10 +105,7 @@ import static org.mockito.Mockito.when;
     @Test public void testIsMainPageNoTitleNoProps() {
         final String text = null;
         WikiSite wiki = WikiSite.forLanguageCode("test");
-        final String thumbUrl = null;
-        final String desc = null;
-        final PageProperties props = null;
-        PageTitle subject = new PageTitle(text, wiki, thumbUrl, desc, props);
+        PageTitle subject = new PageTitle(text, wiki);
 
         assertThat(subject.isMainPage(), is(true));
     }
@@ -118,24 +113,9 @@ import static org.mockito.Mockito.when;
     @Test public void testIsMainPageTitleNoProps() {
         String text = "text";
         WikiSite wiki = WikiSite.forLanguageCode("test");
-        final String thumbUrl = null;
-        final String desc = null;
-        final PageProperties props = null;
-        PageTitle subject = new PageTitle(text, wiki, thumbUrl, desc, props);
+        PageTitle subject = new PageTitle(text, wiki);
 
         assertThat(subject.isMainPage(), is(false));
-    }
-
-    @Test public void testIsMainPageProps() {
-        String text = "text";
-        WikiSite wiki = WikiSite.forLanguageCode("test");
-        final String thumbUrl = null;
-        final String desc = null;
-        PageProperties props = mock(PageProperties.class);
-        when(props.isMainPage()).thenReturn(true);
-        PageTitle subject = new PageTitle(text, wiki, thumbUrl, desc, props);
-
-        assertThat(subject.isMainPage(), is(true));
     }
 
     /** https://bugzilla.wikimedia.org/66151 */

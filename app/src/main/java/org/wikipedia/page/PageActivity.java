@@ -366,13 +366,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 historyEntry.setReferrer(intent.getExtras().get(Intent.EXTRA_REFERRER).toString());
             }
             // Special cases:
-            // If the app was launched from an external deeplink to a "Special:" page, or if the
-            // link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
+            // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
             // after having donated), then bounce it out to an external browser, since we don't have
             // the same cookie state as the browser does.
             String language = wiki.languageCode().toLowerCase();
             boolean isDonationRelated = language.equals("donate") || language.equals("thankyou");
-            if (title.isSpecial() || isDonationRelated) {
+            if (isDonationRelated) {
                 visitInExternalBrowser(this, uri);
                 finish();
                 return;
@@ -494,11 +493,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private boolean loadNonArticlePageIfNeeded(@Nullable PageTitle title) {
         if (title != null) {
-            if (title.isSpecial()) {
-                visitInExternalBrowser(this, Uri.parse(title.getUri()));
-                finish();
-                return true;
-            } else if (title.isFilePage()) {
+            if (title.isFilePage()) {
                 startActivity(FilePageActivity.newIntent(this, title));
                 finish();
                 return true;
@@ -679,7 +674,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void showOverflowMenu(@NonNull View anchor) {
         PageActionOverflowView overflowView = new PageActionOverflowView(this);
-        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(),
+        overflowView.show(anchor, overflowCallback, pageFragment.getCurrentTab(), pageFragment.getModel().shouldLoadAsMobileWeb(),
                 pageFragment.getModel().isWatched(), pageFragment.getModel().hasWatchlistExpiry());
     }
 

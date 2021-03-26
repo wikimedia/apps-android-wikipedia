@@ -400,12 +400,6 @@
   <string name="reading_list_deleted">%s ezabatua</string>
   <string name="saved_list_empty_title">Irakurketa zerrendarik oraindik ez</string>
   <string name="reading_lists_empty_message">Gorde artikuluak irakurketa zerrenda beranduago ikus dezazun, nahiz eta offline egon.</string>
-  <string name="reading_lists_onboarding_intro">Gehitu artikuluak zerrendara geroago irakur ditzazun, baita konexiorik gabe zaudenean ere!</string>
-  <string name="reading_lists_onboarding_for_example">Adibidez</string>
-  <string name="reading_lists_onboarding_example1">Bisitatu beharreko lekuak</string>
-  <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
-  <string name="reading_lists_onboarding_example3">Espazioaren esplorazioa</string>
-  <string name="reading_lists_onboarding_got_it">Ulertu dut</string>
   <string name="reading_list_empty">Zerrenda honetan ez duzu artikulurik gehitu.</string>
   <string name="reading_list_article_offline">Erabilgarri lineaz kanpo</string>
   <string name="reading_list_article_make_offline">Egin ezazu artikulu hau erabilgarri, konexiorik gabe ere</string>

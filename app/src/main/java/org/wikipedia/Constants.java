@@ -88,6 +88,7 @@ public final class Constants {
         WIDGET("widget"),
         INTENT_SHARE("intentShare"),
         INTENT_PROCESS_TEXT("intentProcessText"),
+        INTENT_UNKNOWN("intentUnknown"),
         FEED_BAR("feedBar"),
         VOICE("voice"),
         ON_THIS_DAY_CARD_BODY("onThisDayCard"),

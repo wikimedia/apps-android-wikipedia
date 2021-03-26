@@ -135,7 +135,7 @@
   <string name="onboarding_card_login">Masuk log</string>
   <string name="page_editing_login">Masuk log</string>
   <string name="reading_lists_sync_login">Masuk log</string>
-  <string name="create_account_login">Masuk</string>
+  <string name="create_account_login">Masuk log</string>
   <string name="menu_login">Masuk log</string>
   <string name="login_activity_title">Masuk log</string>
   <string name="login_in_progress_dialog_message">Sedang masuk log…</string>
@@ -203,7 +203,7 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
-  <string name="history_filter_list_hint">Pilih riwayat</string>
+  <string name="history_filter_list_hint">Saring riwayat</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi sebagian.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
@@ -261,8 +261,8 @@
   <string name="edit_conflict_message">Halaman telah dimodifikasi oleh pengguna yang berbeda, dan bertentangan dengan suntingan Anda. Harap salin suntingan Anda, kembali dan segarkan halaman, lalu coba untuk menyunting lagi.</string>
   <string name="find_next">Cari berikutnya</string>
   <string name="find_previous">Cari sebelumnya</string>
-  <string name="find_first_occurence">Ini adalah kejadian pertama</string>
-  <string name="find_last_occurence">Ini adalah kejadian terakhir</string>
+  <string name="find_first_occurence">Ini adalah hasil pertama</string>
+  <string name="find_last_occurence">Ini adalah hasil terakhir</string>
   <string name="article_opened_in_background_tab">Artikel telah dibuka di tab latar belakang.</string>
   <string name="abusefilter_title_warn">Ini mungkin suntingan yang tidak konstruktif. Apakah Anda yakin ingin menerbitkannya?</string>
   <string name="abusefilter_title_disallow">Anda tidak dapat menerbitkan suntingan ini. Silakan kembali dan mengubahnya.</string>
@@ -450,12 +450,6 @@
   <string name="reading_list_deleted">%s terhapus</string>
   <string name="saved_list_empty_title">Tidak ada daftar bacaan lagi</string>
   <string name="reading_lists_empty_message">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring.</string>
-  <string name="reading_lists_onboarding_intro">Tambahkan artikel ke daftar untuk dibaca nanti, bahkan saat Anda sedang luring!</string>
-  <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
-  <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
-  <string name="reading_lists_onboarding_example2">Hewan kesukaan</string>
-  <string name="reading_lists_onboarding_example3">Penjelajahan luar angkasa</string>
-  <string name="reading_lists_onboarding_got_it">Mengerti</string>
   <string name="reading_list_empty">Anda tidak memiliki artikel yang ditambahkan ke daftar ini.</string>
   <string name="reading_list_article_offline">Tersedia secara luring</string>
   <string name="reading_list_article_make_offline">Jadikan artikel ini tersedia secara luring</string>

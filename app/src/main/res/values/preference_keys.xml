@@ -12,7 +12,6 @@
     <string name="preference_key_app_channel">channel</string>
     <string name="preference_key_language_mru">languageMru</string>
     <string name="preference_key_language_app">languageApp</string>
-    <string name="preference_key_reading_list_tutorial_enabled">readingListTutorialEnabled</string>
     <string name="preference_key_multilingual_search_tutorial_enabled">multilingualSearchTutorialEnabled</string>
     <string name="preference_key_show_images">showImages</string>
     <string name="preference_key_announcement_country_override">announcementCountryOverride</string>
