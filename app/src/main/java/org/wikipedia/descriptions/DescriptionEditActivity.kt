@@ -37,7 +37,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val title = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
         SuggestedEditsFunnel.get().click(title.displayText, action)
         return DescriptionEditFragment.newInstance(title,
-                intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)!!,
+                intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 intent.getStringExtra(EXTRA_SOURCE_SUMMARY),
                 intent.getStringExtra(EXTRA_TARGET_SUMMARY),
                 action,
