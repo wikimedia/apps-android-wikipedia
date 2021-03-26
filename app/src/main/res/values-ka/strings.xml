@@ -312,6 +312,7 @@
   <string name="reading_list_name_sample">ჩემი წასაკითხთა სია</string>
   <string name="reading_list_name_hint">ამ სიის სახელი</string>
   <string name="reading_list_description_hint">აღწერა</string>
+  <string name="reading_list_item_deleted">%s წაიშალა სიიდან</string>
   <string name="reading_list_item_delete_undo">გაუქმება</string>
   <string name="reading_list_deleted">%s წაიშალა</string>
   <string name="saved_list_empty_title">წასაკითხი სია ჯერ არაა.</string>

@@ -439,6 +439,8 @@
   <string name="reading_list_name_sample">Mijn leeslijst</string>
   <string name="reading_list_name_hint">Naam van deze lijst</string>
   <string name="reading_list_description_hint">Beschrijving (optioneel)</string>
+  <string name="reading_list_item_deleted">%s verwijderd uit lijst</string>
+  <string name="reading_list_items_deleted">%d pagina\'s uit lijst verwijderd</string>
   <string name="reading_lists_item_deleted">%s verwijderd uit lijsten</string>
   <string name="reading_list_item_delete_undo">Ongedaan maken</string>
   <string name="reading_list_deleted">%s verwijderd</string>

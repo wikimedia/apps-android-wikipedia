@@ -246,6 +246,7 @@
   <string name="reading_list_action_menu_save_for_offline">offlin ಡ್ ಒರಿಪಾಲೆ</string>
   <string name="reading_list_name_sample">ಎನ್ನ ಓದುನಾ ಲಿಸ್ಟ್</string>
   <string name="reading_list_name_hint">ಈ ಲಿಸ್ಟ್ ದ ಪುದರ್</string>
+  <string name="reading_list_item_deleted">%s ಪಟ್ಟಿದ್ ದೆತುಂಡು</string>
   <string name="reading_list_item_delete_undo">ದುಂಬುದಲೆಕೊ</string>
   <string name="reading_list_deleted">%s ದೆತ್ತುಂಡು</string>
   <string name="saved_list_empty_title">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>

@@ -349,6 +349,7 @@
   <string name="reading_list_name_sample">Уҡыу исемлегем</string>
   <string name="reading_list_name_hint">Был исемлек атамаһы</string>
   <string name="reading_list_description_hint">Тасуирлама (мотлаҡ түгел)</string>
+  <string name="reading_list_item_deleted">%s исемлектән юйылған</string>
   <string name="reading_list_item_delete_undo">Кире алырға</string>
   <string name="reading_list_deleted">%s юйылды</string>
   <string name="saved_list_empty_title" fuzzy="true">Уҡыу исемлектәре юҡ әле.</string>

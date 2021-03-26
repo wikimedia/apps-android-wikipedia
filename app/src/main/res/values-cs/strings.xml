@@ -434,6 +434,8 @@
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>
   <string name="reading_list_name_hint">Název seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
+  <string name="reading_list_item_deleted">Článek %s odebrán ze seznamu</string>
+  <string name="reading_list_items_deleted">%d článků odebráno ze seznamu</string>
   <string name="reading_lists_item_deleted">Článek %s odebrán ze seznamů</string>
   <string name="reading_list_item_delete_undo">Zpět</string>
   <string name="reading_list_deleted">Seznam %s byl smazán</string>

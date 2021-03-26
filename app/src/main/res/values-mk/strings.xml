@@ -424,6 +424,8 @@
   <string name="reading_list_name_sample">Мој список за читање</string>
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
+  <string name="reading_list_item_deleted">%s е отстранета од списокот</string>
+  <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_lists_item_deleted">%s е отстранета од списоците</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
   <string name="reading_list_deleted">%s е избришана</string>

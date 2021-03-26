@@ -369,6 +369,8 @@
   <string name="reading_list_name_sample">Mia legolisto</string>
   <string name="reading_list_name_hint">Nomo de ĉi tiu listo</string>
   <string name="reading_list_description_hint">Priskribo (nedeviga)</string>
+  <string name="reading_list_item_deleted">%s estas forigita de ĉi tiu listo</string>
+  <string name="reading_list_items_deleted">%d artikoloj estis forigitaj de ĉi tiu listo</string>
   <string name="reading_lists_item_deleted">%s forigita el listoj</string>
   <string name="reading_list_item_delete_undo">Malfari</string>
   <string name="reading_list_deleted">%s forigita</string>

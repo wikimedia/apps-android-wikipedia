@@ -167,6 +167,7 @@
   <string name="reading_list_menu_delete" fuzzy="true">Schmiiß heh di Leß zom Lässe fott</string>
   <string name="reading_list_name_sample">Ming Leß zom Lässe</string>
   <string name="reading_list_name_hint">Der Nahme vun heh dä Leß</string>
+  <string name="reading_list_item_deleted">%s es uß dä Leß jenumme</string>
   <string name="reading_list_item_delete_undo">Retuhr nämme</string>
   <string name="reading_list_deleted">%s es fott jeschmeßße</string>
   <string name="saved_list_empty_title" fuzzy="true">keijn Leß zom Lässe heh.</string>

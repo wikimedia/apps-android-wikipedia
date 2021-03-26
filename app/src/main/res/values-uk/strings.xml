@@ -445,6 +445,8 @@
   <string name="reading_list_name_sample">Мій читальний список</string>
   <string name="reading_list_name_hint">Назва цього списку</string>
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
+  <string name="reading_list_item_deleted">%s вилучено зі списку</string>
+  <string name="reading_list_items_deleted">%d статей вилучено зі списку</string>
   <string name="reading_lists_item_deleted">%s видалено зі списків</string>
   <string name="reading_list_item_delete_undo">Скасувати</string>
   <string name="reading_list_deleted">%s видалено</string>

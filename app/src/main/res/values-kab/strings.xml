@@ -390,6 +390,8 @@
   <string name="reading_list_name_sample">Tabdart-iw n tɣuri</string>
   <string name="reading_list_name_hint">Isem n tebdart-agi</string>
   <string name="reading_list_description_hint">Aglam (afrayan)</string>
+  <string name="reading_list_item_deleted">%s yettwakkes seg tebdart</string>
+  <string name="reading_list_items_deleted">%d n imagraden ttwakksen seg tebdart</string>
   <string name="reading_lists_item_deleted">%s yettwakkes seg wumuɣen</string>
   <string name="reading_list_item_delete_undo">Err-d</string>
   <string name="reading_list_deleted">%s yettwakkes</string>

@@ -394,6 +394,8 @@
   <string name="reading_list_name_sample">Nire irakurketa zerrenda</string>
   <string name="reading_list_name_hint">Zerrenda honen izena</string>
   <string name="reading_list_description_hint">Deskribapena (aukerakoa)</string>
+  <string name="reading_list_item_deleted">«%s» kendu da zerrendatik</string>
+  <string name="reading_list_items_deleted">%d artikulu ezabatu dira zerrendatik</string>
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_deleted">%s ezabatua</string>
   <string name="saved_list_empty_title">Irakurketa zerrendarik oraindik ez</string>

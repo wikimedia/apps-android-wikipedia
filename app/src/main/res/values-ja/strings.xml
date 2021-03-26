@@ -455,6 +455,8 @@
   <string name="reading_list_name_sample">あなたのあとで読むリスト</string>
   <string name="reading_list_name_hint">このリストの名前</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
+  <string name="reading_list_item_deleted">%s はリストから削除されました</string>
+  <string name="reading_list_items_deleted">リストから%d件の記事を削除しました</string>
   <string name="reading_lists_item_deleted">リストから%sを削除しました</string>
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>

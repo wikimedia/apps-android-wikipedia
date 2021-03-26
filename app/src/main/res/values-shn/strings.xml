@@ -354,6 +354,8 @@
   <string name="reading_list_name_sample">သဵၼ်ႈမၢႆလူ ၵဝ်ၶႃႈ</string>
   <string name="reading_list_name_hint">ၸိုဝ်ႈသဵၼ်ႈမၢႆဢၼ်ၼႆႉ</string>
   <string name="reading_list_description_hint">ၶေႃႈသပ်းလႅင်း (မီးသုၼ်ႇလိူၵ်ႈ)</string>
+  <string name="reading_list_item_deleted">%s ၼႆႉ ထုၵ်ႇထွၼ်ပႅတ်ႈ ၵႃႈတီႈ သဵၼ်ႈမၢႆ</string>
+  <string name="reading_list_items_deleted">ပွင်ႈလိၵ်ႈ %d ၼႆႉ ထုၵ်ႇထွၼ်ပႅတ်ႈ ၵႃႈတီႈ သဵၼ်ႈမၢႆ</string>
   <string name="reading_lists_item_deleted">%sၼႆႉ ထွၼ်ပႅတ်ႈယဝ်ႉ ၵႃႈတီႈ သဵၼ်ႈမၢႆ</string>
   <string name="reading_list_item_delete_undo">ၶိုၼ်ၶိုၼ်း</string>
   <string name="reading_list_deleted">မွတ်ႇပႅတ်ႈ %s ယဝ်ႉယဝ်ႈ။</string>

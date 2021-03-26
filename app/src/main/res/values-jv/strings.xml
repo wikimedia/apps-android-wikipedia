@@ -349,6 +349,8 @@
   <string name="reading_list_name_sample">Pratélan wacanku</string>
   <string name="reading_list_name_hint">Jenengé pratélan iki</string>
   <string name="reading_list_description_hint">Katerangan (manasuka)</string>
+  <string name="reading_list_item_deleted">%s dibusak saka pratélan</string>
+  <string name="reading_list_items_deleted">%d artikel dibusak saka pratélan</string>
   <string name="reading_lists_item_deleted">%s kabusek saka pratélan</string>
   <string name="reading_list_item_delete_undo">Balèkaké</string>
   <string name="reading_list_deleted">%s dibusak</string>

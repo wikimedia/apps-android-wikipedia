@@ -397,6 +397,8 @@
   <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকার নাম</string>
   <string name="reading_list_description_hint">বিবরণ (ঐচ্ছিক)</string>
+  <string name="reading_list_item_deleted">তালিকা থেকে %s সরানো হয়েছে</string>
+  <string name="reading_list_items_deleted">তালিকা থেকে %dটি নিবন্ধ সরানো হয়েছে</string>
   <string name="reading_lists_item_deleted">তালিকা থেকে %s সরানো হয়েছে</string>
   <string name="reading_list_item_delete_undo">পূর্বাবস্থা</string>
   <string name="reading_list_deleted">%s অপসারিত হয়েছে</string>

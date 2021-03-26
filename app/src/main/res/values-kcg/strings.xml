@@ -347,7 +347,8 @@
   <string name="reading_list_name_sample">Lis fang nung hu</string>
   <string name="reading_list_name_hint">A̱lyoot lis huni</string>
   <string name="reading_list_description_hint">Wa̱i (cat fwuo hwa)</string>
-  <string name="reading_lists_item_deleted">Á̱ turung %s di̱ lís</string>
+  <string name="reading_list_item_deleted">Á̱ turung %s di̱ lis</string>
+  <string name="reading_list_items_deleted">Á̱ turung a̱yaati̱kut %d di̱ lis</string>  <string name="reading_lists_item_deleted">Á̱ turung %s di̱ lís</string>
   <string name="reading_list_item_delete_undo">Bwuok ma̱ng</string>
   <string name="reading_list_deleted">Á̱ ti̱n %s</string>
   <string name="saved_list_empty_title">Pejí nang á̱ sak a̱ni ku nshyia̱ bah</string>

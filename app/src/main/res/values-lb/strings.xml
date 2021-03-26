@@ -353,6 +353,8 @@
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
   <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>
+  <string name="reading_list_item_deleted">%s vun der Lëscht erofhehuoll</string>
+  <string name="reading_list_items_deleted">%d Artikele vun der Lëscht erofgeholl</string>
   <string name="reading_lists_item_deleted">%s vun de Lëschten erofgeholl</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>

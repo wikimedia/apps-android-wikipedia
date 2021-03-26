@@ -357,6 +357,8 @@
   <string name="reading_list_name_sample">Lista mına wendışi</string>
   <string name="reading_list_name_hint">Namey na lista</string>
   <string name="reading_list_description_hint">Şınasnayış (opsiyonel)</string>
+  <string name="reading_list_item_deleted">%s liste ra wedariyê</string>
+  <string name="reading_list_items_deleted">Meqaley %d liste ra wedariya</string>
   <string name="reading_lists_item_deleted">%s listan ra dariya we</string>
   <string name="reading_list_item_delete_undo">Peyser bıgê</string>
   <string name="reading_list_deleted">%s esteriya</string>

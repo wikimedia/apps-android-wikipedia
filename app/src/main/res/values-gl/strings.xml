@@ -400,6 +400,8 @@
   <string name="reading_list_name_sample">A miña lista de lectura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrición (opcional)</string>
+  <string name="reading_list_item_deleted">%s eliminado da lista</string>
+  <string name="reading_list_items_deleted">%d artigos eliminados da lista</string>
   <string name="reading_lists_item_deleted">%s eliminado das listas</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>

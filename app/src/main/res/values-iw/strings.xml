@@ -447,6 +447,8 @@
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
+  <string name="reading_list_item_deleted">%s הוסר מהרשימה</string>
+  <string name="reading_list_items_deleted">%d ערכים הוסרו מהרשימה</string>
   <string name="reading_lists_item_deleted">%s הוסר מהרשימות</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
   <string name="reading_list_deleted">%s נמחק</string>

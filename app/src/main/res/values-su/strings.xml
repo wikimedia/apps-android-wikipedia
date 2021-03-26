@@ -334,6 +334,8 @@
   <string name="reading_list_name_sample">Daptar bacaan kami</string>
   <string name="reading_list_name_hint">Ngaran ieu daptar</string>
   <string name="reading_list_description_hint">Pedaran (teu wajib)</string>
+  <string name="reading_list_item_deleted">%s dipupus tina daptar</string>
+  <string name="reading_list_items_deleted">%d artikel dipupus tina daptar</string>
   <string name="reading_list_item_delete_undo">Teu tulus</string>
   <string name="reading_list_deleted">%s dipupus</string>
   <string name="saved_list_empty_title">Can aya daptar bacaan deui</string>

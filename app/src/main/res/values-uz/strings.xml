@@ -425,6 +425,8 @@
   <string name="reading_list_name_sample">Roʻyxatim</string>
   <string name="reading_list_name_hint">Roʻyxat nomi</string>
   <string name="reading_list_description_hint">Taʼrifi (ixtiyoriy)</string>
+  <string name="reading_list_item_deleted">%s roʻyxatdan oʻchirildi.</string>
+  <string name="reading_list_items_deleted">%d ta maqola roʻyxatdan oʻchirildi</string>
   <string name="reading_lists_item_deleted">%s roʻyxatdan oʻchirildi</string>
   <string name="reading_list_item_delete_undo">Bekor qilmoq</string>
   <string name="reading_list_deleted">%s oʻchirildi</string>

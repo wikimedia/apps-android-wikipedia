@@ -451,6 +451,8 @@
   <string name="reading_list_name_sample">Meine Leseliste</string>
   <string name="reading_list_name_hint">Name dieser Liste</string>
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
+  <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
+  <string name="reading_list_items_deleted">%d Artikel aus der Liste entfernt</string>
   <string name="reading_lists_item_deleted">%s von den Listen entfernt</string>
   <string name="reading_list_item_delete_undo">Rückgängig</string>
   <string name="reading_list_deleted">%s gelöscht</string>

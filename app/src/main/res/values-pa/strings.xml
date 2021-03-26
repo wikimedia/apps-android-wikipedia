@@ -284,6 +284,7 @@
   <string name="reading_list_name_sample">ਮੇਰੀ ਪੜ੍ਹਤ ਸੂਚੀ</string>
   <string name="reading_list_name_hint">ਸੂਚੀ ਦਾ ਨਾਂ</string>
   <string name="reading_list_description_hint">ਵੇਰਵਾ (ਚੋਣਵਾਂ)</string>
+  <string name="reading_list_item_deleted">%s ਨੂੰ ਸੂਚੀ \'ਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="reading_list_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_list_empty_title">ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ</string>

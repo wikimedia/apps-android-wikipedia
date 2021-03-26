@@ -441,6 +441,8 @@
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述（可選）</string>
+  <string name="reading_list_item_deleted">%s已從清單之中移除</string>
+  <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_item_delete_undo">還原</string>
   <string name="reading_list_deleted">%s 已刪除</string>

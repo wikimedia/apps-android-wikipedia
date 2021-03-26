@@ -349,6 +349,8 @@
   <string name="reading_list_name_sample">என் படிப்பு பட்டியல்</string>
   <string name="reading_list_name_hint">இப்பட்டியலின் பெயர்</string>
   <string name="reading_list_description_hint">விவரம் (விருப்புரிமை)</string>
+  <string name="reading_list_item_deleted">%s பட்டியலில் இருந்து நீக்கப்பட்டது</string>
+  <string name="reading_list_items_deleted">%d கட்டுரைகள் பட்டியலில் இருந்து நீக்கப்பட்டது</string>
   <string name="reading_list_item_delete_undo">மீளமை</string>
   <string name="reading_list_deleted">%s நீக்கப்பட்டுவிட்டது</string>
   <string name="saved_list_empty_title">இதுவரை எந்த பக்கமும் சேமிக்கப்படவில்லை</string>

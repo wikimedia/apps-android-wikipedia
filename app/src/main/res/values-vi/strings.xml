@@ -438,6 +438,8 @@
   <string name="reading_list_name_sample">Danh sách đọc của tôi</string>
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
+  <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
+  <string name="reading_list_items_deleted">%d bài viết đã được xóa khỏi danh sách</string>
   <string name="reading_lists_item_deleted">Đã loại bỏ %s khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>

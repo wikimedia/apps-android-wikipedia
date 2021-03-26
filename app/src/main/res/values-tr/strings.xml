@@ -458,6 +458,8 @@
   <string name="reading_list_name_sample">Okuma listem</string>
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
+  <string name="reading_list_item_deleted">%s listeden çıkarıldı</string>
+  <string name="reading_list_items_deleted">%d maddesi listeden silindi</string>
   <string name="reading_lists_item_deleted">%s, listelerden çıkarıldı</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
   <string name="reading_list_deleted">%s silindi</string>

@@ -427,6 +427,8 @@
   <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Naslov seznama</string>
   <string name="reading_list_description_hint">Opis (neobvezno)</string>
+  <string name="reading_list_item_deleted">Članek %s je odstranjen s seznama</string>
+  <string name="reading_list_items_deleted">%d člankov odstranjenih s seznama</string>
   <string name="reading_lists_item_deleted">%s odstranjen s seznamov</string>
   <string name="reading_list_item_delete_undo">Razveljavi</string>
   <string name="reading_list_deleted">Seznam %s izbrisan</string>

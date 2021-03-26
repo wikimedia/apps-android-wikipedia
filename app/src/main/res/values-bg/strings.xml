@@ -403,6 +403,8 @@
   <string name="reading_list_name_sample">Моят списък за четене</string>
   <string name="reading_list_name_hint">Име на този списък</string>
   <string name="reading_list_description_hint">Описание (незадължително)</string>
+  <string name="reading_list_item_deleted">статията %s е премахната от списъка</string>
+  <string name="reading_list_items_deleted">%d статии са премахнати от списъка</string>
   <string name="reading_lists_item_deleted">%s е премахната от списъците</string>
   <string name="reading_list_item_delete_undo">Отмяна</string>
   <string name="reading_list_deleted">%s е изтрит</string>

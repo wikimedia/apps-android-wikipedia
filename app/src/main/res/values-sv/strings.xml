@@ -437,6 +437,8 @@
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
+  <string name="reading_list_item_deleted">%s togs bort från listan</string>
+  <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_lists_item_deleted">%s togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>

@@ -352,6 +352,8 @@
   <string name="reading_list_name_sample">Moja čitanska lisćina</string>
   <string name="reading_list_name_hint">Mjeno tuteje lisćiny</string>
   <string name="reading_list_description_hint">Wopis (opcionalne)</string>
+  <string name="reading_list_item_deleted">%s je so z lisćiny wotstroniło</string>
+  <string name="reading_list_items_deleted">%d zapiski z lisćiny wotstronjene</string>
   <string name="reading_lists_item_deleted">%s z lisćinow wotstronjene</string>
   <string name="reading_list_item_delete_undo">Cofnyć</string>
   <string name="reading_list_deleted">%s zhašene</string>
