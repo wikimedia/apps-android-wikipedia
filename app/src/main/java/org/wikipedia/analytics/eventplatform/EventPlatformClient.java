@@ -140,6 +140,10 @@ public final class EventPlatformClient {
         event.setAppInstallId(Prefs.getAppInstallId());
     }
 
+    public static void flushCachedEvents() {
+        OutputBuffer.sendAllScheduled();
+    }
+
     /**
      * OutputBuffer: buffers events in a queue prior to transmission
      *
