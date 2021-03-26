@@ -21,7 +21,7 @@ abstract class OnboardingFragment : Fragment(), BackPressedHandler {
 
     private var _binding: FragmentOnboardingPagerBinding? = null
     private val binding get() = _binding!!
-    private val pageChangeCallback: PageChangeCallback = PageChangeCallback()
+    private val pageChangeCallback = PageChangeCallback()
 
     private val forwardClickListener = View.OnClickListener {
         if (atLastPage()) {
@@ -36,7 +36,7 @@ abstract class OnboardingFragment : Fragment(), BackPressedHandler {
     @get:StringRes
     protected abstract val doneButtonText: Int
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentOnboardingPagerBinding.inflate(inflater, container, false)
 

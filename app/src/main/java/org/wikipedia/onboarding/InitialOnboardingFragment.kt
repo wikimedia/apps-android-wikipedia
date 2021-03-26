@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.Constants
@@ -97,15 +98,12 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
 
         companion object {
             fun newInstance(position: Int): ItemFragment {
-                val instance = ItemFragment()
-                val args = Bundle()
-                args.putInt("position", position)
-                instance.arguments = args
-                return instance
+                return ItemFragment().apply { arguments = bundleOf("position" to position) }
             }
         }
     }
 
+    @Suppress("unused")
     internal enum class OnboardingPage(@LayoutRes val layout: Int) : EnumCode {
         PAGE_WELCOME(R.layout.inflate_initial_onboarding_page_zero),
         PAGE_EXPLORE(R.layout.inflate_initial_onboarding_page_one),
