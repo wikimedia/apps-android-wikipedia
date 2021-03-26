@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -78,12 +79,12 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         disposables.add(ServiceFactory.getRest(WikiSite(pageTitle.wikiSite.subdomain() + WIKTIONARY_DOMAIN)).getDefinition(StringUtil.addUnderscores(selectedText))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { usages: Map<String, Array<Usage>> -> RbDefinition(usages) }
-                .subscribe({ definition: RbDefinition ->
+                .map { usages -> RbDefinition(usages) }
+                .subscribe({ definition ->
                     binding.dialogWiktionaryProgress.visibility = View.GONE
                     currentDefinition = definition
                     layOutDefinitionsByUsage()
-                }) { throwable: Throwable ->
+                }) { throwable ->
                     displayNoDefinitionsFound()
                     L.e(throwable)
                 })
@@ -95,13 +96,14 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun layOutDefinitionsByUsage() {
-        val usageList = currentDefinition!!.getUsagesForLang("en")
-        if (usageList.isNullOrEmpty()) {
-            displayNoDefinitionsFound()
-            return
-        }
-        usageList.forEach {
-            binding.wiktionaryDefinitionsByPartOfSpeech.addView(layOutUsage(it))
+        currentDefinition?.getUsagesForLang("en").let { usageList ->
+            if (usageList.isNullOrEmpty()) {
+                displayNoDefinitionsFound()
+                return
+            }
+            usageList.forEach {
+                binding.wiktionaryDefinitionsByPartOfSpeech.addView(layOutUsage(it))
+            }
         }
     }
 
@@ -119,10 +121,8 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         val definitionWithCount = "$count. ${currentDefinition.definition}"
         definitionBinding.wiktionaryDefinition.text = StringUtil.fromHtml(definitionWithCount)
         definitionBinding.wiktionaryDefinition.movementMethod = linkMovementMethod
-        if (currentDefinition.examples != null) {
-            currentDefinition.examples!!.forEach {
-                definitionBinding.wiktionaryExamples.addView(layoutExamples(it))
-            }
+        currentDefinition.examples?.forEach {
+            definitionBinding.wiktionaryExamples.addView(layoutExamples(it))
         }
         return definitionBinding.root
     }
@@ -172,19 +172,12 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
         // Try to get the correct definition from glossary terms: https://en.wiktionary.org/wiki/Appendix:Glossary
         private const val GLOSSARY_OF_TERMS = ":Glossary"
 
-        @JvmStatic
-        val enabledLanguages = arrayOf(
-                "en" // English
-        )
+        val enabledLanguages = listOf("en")
 
-        @JvmStatic
         fun newInstance(title: PageTitle, selectedText: String): WiktionaryDialog {
-            val dialog = WiktionaryDialog()
-            val args = Bundle()
-            args.putParcelable(TITLE, title)
-            args.putString(SELECTED_TEXT, selectedText)
-            dialog.arguments = args
-            return dialog
+            return WiktionaryDialog().apply {
+                arguments = bundleOf(TITLE to title, SELECTED_TEXT to selectedText)
+            }
         }
     }
 }

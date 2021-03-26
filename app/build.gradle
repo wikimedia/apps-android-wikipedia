@@ -21,12 +21,17 @@ def computeVersionName(label) {
 }
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
+
 android {
     compileSdkVersion 30
 
     compileOptions {
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
+    }
+
+    kotlinOptions {
+        jvmTarget = JAVA_VERSION
     }
 
     dexOptions {

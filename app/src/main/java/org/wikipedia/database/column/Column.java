@@ -34,7 +34,7 @@ public abstract class Column<T> {
     }
 
     // TODO: add ContentValues marshalling method and hide getName().
-    public abstract T val(@NonNull Cursor cursor);
+    public abstract T value(@NonNull Cursor cursor);
 
     // TODO: it would be more convenient in more places to just return the qualified name. It's
     //       easy to accidentally implicitly convert a Column to a String with `+ ""` and it's only

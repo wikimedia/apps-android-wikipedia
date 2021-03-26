@@ -4,15 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
+import androidx.core.view.forEach
 
 open class ConfigurableTabLayout constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
-    private fun enableTab(index: Int) {
-        val tab = getChildAt(index)
-        if (tab != null) {
-            setEnabled(tab, true)
-        }
-    }
-
     fun disableTab(index: Int) {
         val tab = getChildAt(index)
         if (tab != null) {
@@ -21,9 +15,7 @@ open class ConfigurableTabLayout constructor(context: Context, attrs: AttributeS
     }
 
     fun enableAllTabs() {
-        for (i in 0 until childCount) {
-            enableTab(i)
-        }
+        forEach { setEnabled(it, true) }
     }
 
     fun isEnabled(tab: View): Boolean {
