@@ -148,7 +148,7 @@ class LangLinksActivity : BaseActivity() {
             disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .map { siteMatrix -> SiteMatrix.getSites(siteMatrix!!) }
+                    .map { siteMatrix -> SiteMatrix.getSites(siteMatrix) }
                     .doAfterTerminate {
                         binding.langlinksLoadProgress.visibility = View.INVISIBLE
                         binding.langlinksRecycler.adapter?.notifyDataSetChanged()
@@ -206,7 +206,7 @@ class LangLinksActivity : BaseActivity() {
         for (language in app.language().mruLanguageCodes) {
             for (i in entries.indices) {
                 if (entries[i].wikiSite.languageCode() == language) {
-                    val entry: PageTitle = entries.removeAt(i)
+                    val entry = entries.removeAt(i)
                     entries.add(addIndex++, entry)
                     break
                 }
@@ -220,8 +220,7 @@ class LangLinksActivity : BaseActivity() {
         private var isSearching = false
 
         // To remove the already selected languages and suggested languages from all languages list
-        private val nonDuplicateEntries
-            get() = originalLanguageEntries.toMutableList().apply { removeAll(appLanguageEntries) }
+        private val nonDuplicateEntries get() = originalLanguageEntries.toMutableList().apply { removeAll(appLanguageEntries) }
 
         init {
             reset()
@@ -252,8 +251,7 @@ class LangLinksActivity : BaseActivity() {
         }
 
         fun shouldShowSectionHeader(position: Int): Boolean {
-            return (!isSearching && (position == 0 || (appLanguageEntries.isNotEmpty() &&
-                    position == appLanguageEntries.size + 1)))
+            return !isSearching && (position == 0 || (appLanguageEntries.isNotEmpty() && position == appLanguageEntries.size + 1))
         }
 
         fun setFilterText(filterText: String) {
@@ -355,7 +353,7 @@ class LangLinksActivity : BaseActivity() {
                 val languageVariants = language.getLanguageVariants(parentLanguageCode)
                 if (languageVariants != null) {
                     for (languageCode in languageVariants) {
-                        if (!title.wikiSite.languageCode().contains(languageCode!!)) {
+                        if (!title.wikiSite.languageCode().contains(languageCode)) {
                             val pageTitle = PageTitle(if (title.isMainPage) SiteInfoClient.getMainPageForLang(languageCode) else title.displayText, WikiSite.forLanguageCode(languageCode))
                             pageTitle.text = StringUtil.removeNamespace(title.prefixedText)
                             languageEntries.add(pageTitle)

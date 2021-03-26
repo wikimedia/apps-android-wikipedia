@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.forEach
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -51,12 +52,11 @@ class AboutActivity : BaseActivity() {
     }
 
     private fun makeEverythingClickable(vg: ViewGroup) {
-        for (i in 0 until vg.childCount) {
-            if (vg.getChildAt(i) is ViewGroup) {
-                makeEverythingClickable(vg.getChildAt(i) as ViewGroup)
-            } else if (vg.getChildAt(i) is TextView) {
-                val tv = vg.getChildAt(i) as TextView
-                tv.movementMethod = LinkMovementMethod.getInstance()
+        vg.forEach {
+            if (it is ViewGroup) {
+                makeEverythingClickable(it)
+            } else if (it is TextView) {
+                it.movementMethod = LinkMovementMethod.getInstance()
             }
         }
     }
