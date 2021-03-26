@@ -2,17 +2,19 @@ package org.wikipedia;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.ComponentCallbacks2;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import org.wikipedia.analytics.eventplatform.EventPlatformClient;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
 
-public class ActivityLifecycleHandler implements Application.ActivityLifecycleCallbacks {
+public class ActivityLifecycleHandler implements Application.ActivityLifecycleCallbacks, ComponentCallbacks2 {
     private boolean haveMainActivity;
     private boolean anyActivityResumed;
 
@@ -77,6 +79,21 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     public void onActivityDestroyed(@NonNull Activity activity) {
         if (activity instanceof MainActivity) {
             haveMainActivity = false;
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration configuration) {
+    }
+
+    @Override
+    public void onLowMemory() {
+    }
+
+    @Override
+    public void onTrimMemory(int trimMemoryType) {
+        if (trimMemoryType == ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
+            EventPlatformClient.flushCachedEvents();
         }
     }
 }

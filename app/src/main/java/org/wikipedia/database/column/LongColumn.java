@@ -10,7 +10,7 @@ public class LongColumn extends Column<Long> {
     }
 
     @Override
-    public Long val(@NonNull Cursor cursor) {
+    public Long value(@NonNull Cursor cursor) {
         return getLong(cursor);
     }
 }
