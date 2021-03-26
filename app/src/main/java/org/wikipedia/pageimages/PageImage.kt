@@ -7,7 +7,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.page.PageTitle
 
 @Parcelize
-data class PageImage(val title: PageTitle, val imageName: String) : Parcelable {
+data class PageImage(val title: PageTitle, val imageName: String?) : Parcelable {
 
     companion object {
         @JvmField
