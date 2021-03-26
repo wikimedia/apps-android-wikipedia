@@ -17,7 +17,6 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.UriUtil;
 
 import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
