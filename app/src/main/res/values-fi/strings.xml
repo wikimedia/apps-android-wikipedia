@@ -9,6 +9,7 @@
 * ElmA
 * Envlh
 * Jack Phoenix
+* Joquliina
 * Laurianttila
 * Maantietäjä
 * McSalama
@@ -858,6 +859,9 @@
     <item quantity="one">Lisäsit %d merkin</item>
     <item quantity="other">Lisäsit %d merkkiä</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">Aloita</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Päivittäinen tavoite saavutettu! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Olet saavuttanut tavoitteen</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
@@ -935,6 +939,14 @@
   <string name="content_description_for_page_indicator">Sivu %1$d/%2$d</string>
   <string name="image_recommendations_task_accept">Kyllä</string>
   <string name="image_recommendations_task_reject">Ei</string>
+  <string name="image_recommendations_task_not_sure">Epävarma</string>
+  <string name="image_recommendations_task_processing">Käsitellään...</string>
+  <string name="image_recommendations_task_instruction">Lisäisitkö tämän kuvan artikkeliin?</string>
+  <string name="image_recommendations_task_choice_no">Miksi valitsit ei?</string>
+  <string name="image_recommendations_task_choice_nosubject">En tiedä tästä aiheesta</string>
+  <string name="image_recommendations_task_choice_invisible">En näe kuvaa</string>
+  <string name="image_recommendations_task_choice_understand">En ymmärrä tehtävää</string>
+  <string name="image_recommendations_task_choice_other">Muu</string>
   <string name="image_recommendations_task_choice_continue">Jatka</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
