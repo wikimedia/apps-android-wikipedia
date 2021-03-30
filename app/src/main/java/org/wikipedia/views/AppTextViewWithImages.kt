@@ -13,7 +13,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.graphics.drawable.updateBounds
 import androidx.core.text.set
 import androidx.core.text.toSpannable
 import kotlin.math.roundToInt
@@ -66,10 +66,10 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
 
     @VisibleForTesting
     fun getFormattedDrawable(@DrawableRes drawableId: Int, size: Float, @ColorInt color: Int): Drawable {
-        val drawable = AppCompatResources.getDrawable(context, drawableId)
-        DrawableCompat.setTint(drawable!!, color)
+        val drawable = AppCompatResources.getDrawable(context, drawableId)!!
+        drawable.setTint(color)
         val ratio = drawable.intrinsicWidth / drawable.intrinsicHeight.toFloat()
-        drawable.setBounds(0, 0, size.roundToInt(), (size * ratio).roundToInt())
+        drawable.updateBounds(right = size.roundToInt(), bottom = (size * ratio).roundToInt())
         return drawable
     }
 
