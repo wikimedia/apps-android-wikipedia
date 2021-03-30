@@ -3,6 +3,7 @@ package org.wikipedia.views
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 abstract class PositionAwareFragmentStateAdapter : FragmentStateAdapter {
@@ -18,9 +19,6 @@ abstract class PositionAwareFragmentStateAdapter : FragmentStateAdapter {
 
     // TODO: remove until the TransactionTooLargeException when swiping too many pages is resolved.
     fun removeFragmentAt(position: Int) {
-        val fragment = getFragmentAt(position)
-        if (fragment != null) {
-            fragmentManager.beginTransaction().remove(fragment).commit()
-        }
+        getFragmentAt(position)?.let { fragmentManager.commit { remove(it) } }
     }
 }
