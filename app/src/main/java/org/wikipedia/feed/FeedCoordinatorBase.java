@@ -22,9 +22,9 @@ import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.feed.progress.ProgressCard;
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
+import org.wikipedia.ktx.ThrowableUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
-import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;

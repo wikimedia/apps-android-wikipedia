@@ -10,9 +10,9 @@ import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikiErrorBinding
 import org.wikipedia.dataclient.mwapi.MwException
-import org.wikipedia.util.ThrowableUtil.is404
-import org.wikipedia.util.ThrowableUtil.isOffline
-import org.wikipedia.util.ThrowableUtil.isTimeout
+import org.wikipedia.ktx.is404
+import org.wikipedia.ktx.isOffline
+import org.wikipedia.ktx.isTimeout
 
 class WikiErrorView : LinearLayout {
 
@@ -53,15 +53,9 @@ class WikiErrorView : LinearLayout {
     private fun getErrorType(caught: Throwable?): ErrorType {
         caught?.let {
             when {
-                is404(it) -> {
-                    return ErrorType.PAGE_MISSING
-                }
-                isTimeout(it) -> {
-                    return ErrorType.TIMEOUT
-                }
-                isOffline(it) -> {
-                    return ErrorType.OFFLINE
-                }
+                it.is404 -> return ErrorType.PAGE_MISSING
+                it.isTimeout -> return ErrorType.TIMEOUT
+                it.isOffline -> return ErrorType.OFFLINE
                 else -> { }
             }
         }

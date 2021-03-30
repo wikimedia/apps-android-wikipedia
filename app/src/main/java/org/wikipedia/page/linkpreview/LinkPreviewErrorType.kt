@@ -3,7 +3,9 @@ package org.wikipedia.page.linkpreview
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import org.wikipedia.R
-import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.ktx.is404
+import org.wikipedia.ktx.isOffline
+import org.wikipedia.ktx.isTimeout
 
 enum class LinkPreviewErrorType(@DrawableRes val icon: Int,
                                 @StringRes val text: Int,
@@ -30,9 +32,9 @@ enum class LinkPreviewErrorType(@DrawableRes val icon: Int,
     companion object {
         @JvmStatic
         operator fun get(caught: Throwable?): LinkPreviewErrorType {
-            return if (caught != null && ThrowableUtil.is404(caught)) {
+            return if (caught.is404) {
                 PAGE_MISSING
-            } else if (caught != null && (ThrowableUtil.isOffline(caught) || ThrowableUtil.isTimeout(caught))) {
+            } else if (caught.isOffline || caught.isTimeout) {
                 OFFLINE
             } else {
                 GENERIC

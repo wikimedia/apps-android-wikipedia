@@ -44,7 +44,7 @@ class CaptchaHandler(private val activity: Activity, private val wiki: WikiSite,
                     .subscribe({ response: Captcha ->
                         captchaResult = CaptchaResult(response.captchaId())
                         handleCaptcha(true)
-                    }) { caught: Throwable? ->
+                    }) { caught ->
                         cancelCaptcha()
                         showError(activity, caught)
                     })

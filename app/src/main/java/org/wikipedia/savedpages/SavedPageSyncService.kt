@@ -21,6 +21,10 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.gallery.MediaList
+import org.wikipedia.ktx.is404
+import org.wikipedia.ktx.isNetworkError
+import org.wikipedia.ktx.isOffline
+import org.wikipedia.ktx.isTimeout
 import org.wikipedia.offline.OfflineObjectDbHelper
 import org.wikipedia.page.PageTitle
 import org.wikipedia.pageimages.PageImage
@@ -129,7 +133,7 @@ class SavedPageSyncService : JobIntentService() {
 
                 // If we're offline, or if there's a transient network error, then don't do
                 // anything.  Otherwise...
-                if (!ThrowableUtil.isOffline(e) && !ThrowableUtil.isTimeout(e) && !ThrowableUtil.isNetworkError(e)) {
+                if (!e.isOffline && !e.isTimeout && !e.isNetworkError) {
                     // If it's not a transient network error (e.g. a 404 status response), it implies
                     // that there's no way to fetch the page next time, or ever, therefore let's mark
                     // it as "successful" so that it won't be retried again.
@@ -310,7 +314,7 @@ class SavedPageSyncService : JobIntentService() {
         // Errors that do *not* qualify for retrying include:
         // - IllegalArgumentException (thrown for any kind of malformed URL)
         // - HTTP 404 status (for nonexistent media)
-        return !(t is IllegalArgumentException || ThrowableUtil.is404(t))
+        return !(t is IllegalArgumentException || t.is404)
     }
 
     companion object {

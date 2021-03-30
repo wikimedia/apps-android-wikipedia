@@ -22,6 +22,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.ktx.getAppError
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -46,8 +47,8 @@ object FeedbackUtil {
     }
 
     @JvmStatic
-    fun showError(activity: Activity, e: Throwable?) {
-        val error = ThrowableUtil.getAppError(activity, e!!)
+    fun showError(activity: Activity, e: Throwable) {
+        val error = activity.getAppError(e)
         makeSnackbar(activity, error.error, LENGTH_DEFAULT).show()
     }
 
