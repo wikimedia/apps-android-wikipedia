@@ -11,6 +11,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -598,10 +599,8 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         fun newInstance(contributions: Int, pageViews: Long): ContributionsFragment {
             val fragment = ContributionsFragment()
-            val args = Bundle()
-            args.putInt(EXTRA_SOURCE_CONTRIBUTIONS, contributions)
-            args.putLong(EXTRA_SOURCE_PAGEVIEWS, pageViews)
-            fragment.arguments = args
+            fragment.arguments = bundleOf(EXTRA_SOURCE_CONTRIBUTIONS to contributions,
+                    EXTRA_SOURCE_PAGEVIEWS to pageViews)
             return fragment
         }
     }
