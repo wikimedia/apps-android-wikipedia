@@ -473,4 +473,6 @@
   <string name="description_edit_revert_reason2">twój přinošk wupadaše kaž eksperiment abo wandalizm.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">trajnje</string>
+  <string name="watchlist_expiry_dialog_permanent">Trajnje</string>
 </resources>
