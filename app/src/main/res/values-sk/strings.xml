@@ -264,7 +264,7 @@
     <item quantity="one">1 výsledok</item>
     <item quantity="few">%d výsledky</item>
     <item quantity="many">%d výsledkov</item>
-    <item quantity="other"/>
+    <item quantity="other">%d výsledkov</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Vymazať nedávno hľadané výrazy</string>
   <string name="clear_recent_searches_confirm">Naozaj chcete vymazať vašu históriu vyhľadávania?</string>
@@ -354,8 +354,8 @@
   <plurals name="multi_items_selected">
     <item quantity="one">%d vybraná</item>
     <item quantity="few">%d vybrané</item>
-    <item quantity="many">%d vybraných </item>
-    <item quantity="other"/>
+    <item quantity="many">%d vybraných</item>
+    <item quantity="other">%d vybraných</item>
   </plurals>
   <string name="multi_select_items_selected">Vybraných: %d</string>
   <string name="error_message_generic">Nastala chyba</string>
@@ -413,13 +413,13 @@
     <item quantity="one">1 článok, %2$.2f MB</item>
     <item quantity="few">%1$d články, %2$.2f MB</item>
     <item quantity="many">%1$d článkov,%2$.2f MB</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d článkov,%2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d z 1 článku je dostupné offline, %3$.2f MB</item>
     <item quantity="few">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
     <item quantity="many">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d z %2$d článkov je dostupných offline, %3$.2f MB</item>
   </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MB</string>
@@ -449,7 +449,7 @@
     <item quantity="one">%d článok odstránený zo zoznamu</item>
     <item quantity="few">%d články odstránené zo zoznamu</item>
     <item quantity="many">%d článkov odstránených zo zoznamu</item>
-    <item quantity="other"/>
+    <item quantity="other">%d článkov odstránených zo zoznamu</item>
   </plurals>
   <string name="reading_list_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="reading_lists_item_deleted">%s bol odstránený zo zoznamov</string>
@@ -542,37 +542,37 @@
     <item quantity="one">Sťahovanie článku</item>
     <item quantity="few">Sťahovanie článkov</item>
     <item quantity="many">Sťahovanie článkov</item>
-    <item quantity="other"/>
+    <item quantity="other">Sťahovanie článkov</item>
   </plurals>
   <plurals name="notification_syncing_title">
     <item quantity="one">Sťahovanie %1$d článku…</item>
     <item quantity="few">Sťahovanie %1$d článkov</item>
-    <item quantity="many">Sťahovanie %1$d článkov..</item>
-    <item quantity="other"/>
+    <item quantity="many">Sťahovanie %1$d článkov…</item>
+    <item quantity="other">Sťahovanie %1$d článkov…</item>
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">Ostáva %1$d článok</item>
     <item quantity="few">Ostávajú %1$d články</item>
     <item quantity="many">Ostáva %1$d článkov</item>
-    <item quantity="other"/>
+    <item quantity="other">Ostáva %1$d článkov</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Synchronizácia zoznamu na prečítanie</item>
     <item quantity="few">Synchronizácia zoznamov na prečítanie</item>
     <item quantity="many">Synchronizácia zoznamov na prečítanie</item>
-    <item quantity="other"/>
+    <item quantity="other">Synchronizácia zoznamov na prečítanie</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_title">
-    <item quantity="one">Synchronizácia %1$d zoznamu...</item>
-    <item quantity="few">Synchronizácia %1$d zoznamov...</item>
-    <item quantity="many">Synchronizácia %1$d zoznamov...</item>
-    <item quantity="other"/>
+    <item quantity="one">Synchronizácia %1$d zoznamu…</item>
+    <item quantity="few">Synchronizácia %1$d zoznamov…</item>
+    <item quantity="many">Synchronizácia %1$d zoznamov…</item>
+    <item quantity="other">Synchronizácia %1$d zoznamov…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">ostáva %1$d zoznam</item>
     <item quantity="few">ostáva %1$d zoznamov</item>
     <item quantity="many">ostáva %1$d zoznamov</item>
-    <item quantity="other"/>
+    <item quantity="other">ostáva %1$d zoznamov</item>
   </plurals>
   <string name="notification_echo_channel_description">Notifikácie z Wikipédie</string>
   <string name="notifications_activity_title">Upozornenia</string>
@@ -586,7 +586,7 @@
     <item quantity="one">Notifikácia bola archivovaná</item>
     <item quantity="few">%d notifikácie boli archivované</item>
     <item quantity="many">%d notifikácií bolo archivovaných</item>
-    <item quantity="other"/>
+    <item quantity="other">%d notifikácií bolo archivovaných</item>
   </plurals>
   <string name="notifications_poll_enable_title">Povoliť upozornenia</string>
   <string name="notifications_poll_enable_positive">Povoliť</string>
@@ -640,7 +640,7 @@
     <item quantity="one">včera</item>
     <item quantity="few">pred %d dňami</item>
     <item quantity="many">pred %d dňami</item>
-    <item quantity="other"/>
+    <item quantity="other">pred %d dňami</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">dnes</string>
   <string name="view_continue_reading_card_subtitle_read_date">Prečítané %s</string>
@@ -756,7 +756,7 @@
     <item quantity="one">1 príspevok</item>
     <item quantity="few">%d príspevky</item>
     <item quantity="many">%d príspevkov</item>
-    <item quantity="other"/>
+    <item quantity="other">%d príspevkov</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Navrhované úpravy</string>
   <string name="suggested_edits_feed_card_add_description_button">Pridať popis článku</string>
@@ -828,13 +828,13 @@
     <item quantity="one">Príspevok</item>
     <item quantity="few">Príspevky</item>
     <item quantity="many">Príspevkov</item>
-    <item quantity="other"/>
+    <item quantity="other">Príspevkov</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d deň</item>
     <item quantity="few">%d dni</item>
     <item quantity="many">%d dní</item>
-    <item quantity="other"/>
+    <item quantity="other">%d dní</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Čo sú to navrhované úpravy?</string>
   <string name="suggested_edits_what_is_text">Navrhované úpravy sú príležitosti pre malé, ale dôležité príspevky do Wikipédie.</string>
@@ -860,14 +860,14 @@
     <item quantity="one">Videné jeden krát za posledných 30 dní.</item>
     <item quantity="few">Videné %s krát za posledných 30 dní.</item>
     <item quantity="many">Videné %s krát za posledných 30 dní.</item>
-    <item quantity="other"/>
+    <item quantity="other">Videné %s krát za posledných 30 dní.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">Videné %s-krát za posledných 30 dní.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Pridali ste %d štítok.</item>
     <item quantity="few">Pridali ste %d štítky.</item>
     <item quantity="many">Pridali ste %d štítkov.</item>
-    <item quantity="other"/>
+    <item quantity="other">Pridali ste %d štítkov.</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
@@ -881,25 +881,25 @@
     <item quantity="one">%1$s štítok</item>
     <item quantity="few">%1$s štítky</item>
     <item quantity="many">%1$s štítkov</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$s štítkov</item>
   </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s znak</item>
     <item quantity="few">%1$s znaky</item>
     <item quantity="many">%1$s znakov</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$s znakov</item>
   </plurals>
   <plurals name="suggested_edits_removed_contribution_label">
     <item quantity="one">Odstránili ste %d znak</item>
     <item quantity="few">Odstránili ste %d znaky</item>
     <item quantity="many">Odstránili ste %d znakov</item>
-    <item quantity="other"/>
+    <item quantity="other">Odstránili ste %d znakov</item>
   </plurals>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Pridali ste %d znak</item>
     <item quantity="few">Pridali ste %d znaky</item>
     <item quantity="many">Pridali ste %d znakov</item>
-    <item quantity="other"/>
+    <item quantity="other">Pridali ste %d znakov</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Trénovať obrázkový algoritmus</string>
   <string name="suggested_edits_image_recommendations_task_detail">Rozhodnúť či odporúčaný obrázok zlepší článok.</string>
@@ -953,7 +953,7 @@
     <item quantity="one">Minulý rok</item>
     <item quantity="few">Pred %d rokmi</item>
     <item quantity="many">Pred %d rokmi</item>
-    <item quantity="other"/>
+    <item quantity="other">Pred %d rokmi</item>
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Cestovali ste časom 🚀</string>
   <string name="on_this_day_back_to_future">Naspäť do budúcnosti</string>
@@ -969,7 +969,7 @@
     <item quantity="one">Odstrániť vybraný jazyk?</item>
     <item quantity="few">Odstrániť vybrané jazyky?</item>
     <item quantity="many">Odstrániť vybrané jazyky?</item>
-    <item quantity="other"/>
+    <item quantity="other">Odstrániť vybrané jazyky?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Zobrazí sa iba obsah na filtroch Objaviť a filtre rýchleho vyhľadávania pre zostávajúce jazyky Wikipédie.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Nemôžete odstrániť všetky jazyky</string>
