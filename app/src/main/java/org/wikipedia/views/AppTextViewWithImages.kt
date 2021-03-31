@@ -14,7 +14,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
-import java.util.*
+import androidx.core.text.set
+import androidx.core.text.toSpannable
 import kotlin.math.roundToInt
 
 // Credit: https://stackoverflow.com/a/38977396
@@ -33,12 +34,7 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
     }
 
     private fun getImageSpans(@DrawableRes vararg drawableIds: Int): List<Spanned> {
-        val result: MutableList<Spanned> = ArrayList()
-        for (id in drawableIds) {
-            val span: Spanned = makeImageSpan(id, textSize, currentTextColor)
-            result.add(span)
-        }
-        return result
+        return drawableIds.map { makeImageSpan(it, textSize, currentTextColor) }
     }
 
     private fun setText(text: CharSequence, spans: List<Spanned>) {
@@ -62,10 +58,9 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
      */
     @VisibleForTesting
     fun makeImageSpan(@DrawableRes drawableId: Int, size: Float, @ColorInt color: Int): Spannable {
-        val result = Spannable.Factory.getInstance().newSpannable(" ")
+        val result = " ".toSpannable()
         val drawable = getFormattedDrawable(drawableId, size, color)
-        result.setSpan(BaselineAlignedYTranslationImageSpan(drawable, lineSpacingMultiplier),
-                0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+        result[0, 1] = BaselineAlignedYTranslationImageSpan(drawable, lineSpacingMultiplier)
         return result
     }
 

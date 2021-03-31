@@ -4,7 +4,7 @@ import android.accounts.Account
 import android.accounts.AccountAuthenticatorResponse
 import android.accounts.AccountManager
 import android.os.Build
-import android.os.Bundle
+import androidx.core.os.bundleOf
 import com.google.gson.reflect.TypeToken
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -20,12 +20,8 @@ object AccountUtil {
     @JvmStatic
     fun updateAccount(response: AccountAuthenticatorResponse?, result: LoginResult) {
         if (createAccount(result.userName!!, result.password!!)) {
-            if (response != null) {
-                val bundle = Bundle()
-                bundle.putString(AccountManager.KEY_ACCOUNT_NAME, result.userName)
-                bundle.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType())
-                response.onResult(bundle)
-            }
+            response?.onResult(bundleOf(AccountManager.KEY_ACCOUNT_NAME to result.userName,
+                    AccountManager.KEY_ACCOUNT_TYPE to accountType()))
         } else {
             response?.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "")
             d("account creation failure")
