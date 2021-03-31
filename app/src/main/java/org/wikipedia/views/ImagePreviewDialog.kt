@@ -7,6 +7,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -135,10 +136,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
         fun newInstance(pageSummaryForEdit: PageSummaryForEdit, action: Action): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
-            val args = Bundle()
-            args.putString(ARG_SUMMARY, GsonMarshaller.marshal(pageSummaryForEdit))
-            args.putSerializable(ARG_ACTION, action)
-            dialog.arguments = args
+            dialog.arguments = bundleOf(ARG_SUMMARY to GsonMarshaller.marshal(pageSummaryForEdit),
+                    ARG_ACTION to action)
             return dialog
         }
     }
