@@ -4,6 +4,7 @@ import android.accounts.*
 import android.content.ContentResolver
 import android.content.Context
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel
@@ -45,9 +46,7 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
 
     override fun hasFeatures(response: AccountAuthenticatorResponse,
                              account: Account, features: Array<String>): Bundle {
-        val bundle = Bundle()
-        bundle.putBoolean(AccountManager.KEY_BOOLEAN_RESULT, false)
-        return bundle
+        return bundleOf(AccountManager.KEY_BOOLEAN_RESULT to false)
     }
 
     private fun supportedAccountType(type: String?): Boolean {
@@ -57,18 +56,12 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
     private fun addAccount(response: AccountAuthenticatorResponse): Bundle {
         val intent = LoginActivity.newIntent(context, LoginFunnel.SOURCE_SYSTEM)
         intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response)
-        val bundle = Bundle()
-        bundle.putParcelable(AccountManager.KEY_INTENT, intent)
-        return bundle
+        return bundleOf(AccountManager.KEY_INTENT to intent)
     }
 
     private fun unsupportedOperation(): Bundle {
-        val bundle = Bundle()
-        bundle.putInt(AccountManager.KEY_ERROR_CODE, AccountManager.ERROR_CODE_UNSUPPORTED_OPERATION)
-
-        // HACK: the docs indicate that this is a required key bit it's not displayed to the user.
-        bundle.putString(AccountManager.KEY_ERROR_MESSAGE, "")
-        return bundle
+        return bundleOf(AccountManager.KEY_ERROR_CODE to AccountManager.ERROR_CODE_UNSUPPORTED_OPERATION,
+                AccountManager.KEY_ERROR_MESSAGE to "") // HACK: the docs indicate that this is a required key bit it's not displayed to the user.
     }
 
     override fun getAccountRemovalAllowed(response: AccountAuthenticatorResponse, account: Account): Bundle {
