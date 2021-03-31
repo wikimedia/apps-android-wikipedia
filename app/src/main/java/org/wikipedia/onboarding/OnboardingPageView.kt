@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.withStyledAttributes
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,42 +41,42 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
 
     init {
         attrs?.let { attrSet ->
-            val array = context.obtainStyledAttributes(attrSet, R.styleable.OnboardingPageView)
-            val centeredImage = AppCompatResources.getDrawable(context,
-                    array.getResourceId(R.styleable.OnboardingPageView_centeredImage, -1))
-            val primaryText = array.getString(R.styleable.OnboardingPageView_primaryText)
-            val secondaryText = array.getString(R.styleable.OnboardingPageView_secondaryText)
-            val tertiaryText = array.getString(R.styleable.OnboardingPageView_tertiaryText)
-            val switchText = array.getString(R.styleable.OnboardingPageView_switchText)
-            listDataType = array.getString(R.styleable.OnboardingPageView_dataType)
-            val showListView = array.getBoolean(R.styleable.OnboardingPageView_showListView, false)
-            val background = array.getDrawable(R.styleable.OnboardingPageView_background)
-            val imageSize = array.getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
-            background?.let { setBackground(it) }
-            binding.imageViewCentered.setImageDrawable(centeredImage)
-            if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
-                val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
-                val params = binding.imageViewCentered.layoutParams
-                params.width = imageSize.toInt()
-                params.height = (imageSize / aspect).toInt()
-                binding.imageViewCentered.layoutParams = params
+            context.withStyledAttributes(attrSet, R.styleable.OnboardingPageView) {
+                val centeredImage = AppCompatResources.getDrawable(context,
+                        getResourceId(R.styleable.OnboardingPageView_centeredImage, -1))
+                val primaryText = getString(R.styleable.OnboardingPageView_primaryText)
+                val secondaryText = getString(R.styleable.OnboardingPageView_secondaryText)
+                val tertiaryText = getString(R.styleable.OnboardingPageView_tertiaryText)
+                val switchText = getString(R.styleable.OnboardingPageView_switchText)
+                listDataType = getString(R.styleable.OnboardingPageView_dataType)
+                val showListView = getBoolean(R.styleable.OnboardingPageView_showListView, false)
+                val background = getDrawable(R.styleable.OnboardingPageView_background)
+                val imageSize = getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
+                background?.let { setBackground(it) }
+                binding.imageViewCentered.setImageDrawable(centeredImage)
+                if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
+                    val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
+                    val params = binding.imageViewCentered.layoutParams
+                    params.width = imageSize.toInt()
+                    params.height = (imageSize / aspect).toInt()
+                    binding.imageViewCentered.layoutParams = params
+                }
+                binding.primaryTextView.text = primaryText
+                binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
+                binding.tertiaryTextView.text = tertiaryText
+                binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
+                binding.switchView.text = switchText
+                setUpLanguageListContainer(showListView, listDataType)
+                binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
+                    callback?.onLinkClick(this@OnboardingPageView, url)
+                }
+                binding.languageListContainer.addLangContainer.setOnClickListener {
+                    callback?.onListActionButtonClicked(this@OnboardingPageView)
+                }
+                binding.switchView.setOnCheckedChangeListener { _, checked ->
+                    callback?.onSwitchChange(this@OnboardingPageView, checked)
+                }
             }
-            binding.primaryTextView.text = primaryText
-            binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
-            binding.tertiaryTextView.text = tertiaryText
-            binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
-            binding.switchView.text = switchText
-            setUpLanguageListContainer(showListView, listDataType)
-            binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url ->
-                callback?.onLinkClick(this@OnboardingPageView, url)
-            }
-            binding.languageListContainer.addLangContainer.setOnClickListener {
-                callback?.onListActionButtonClicked(this)
-            }
-            binding.switchView.setOnCheckedChangeListener { _, checked ->
-                callback?.onSwitchChange(this, checked)
-            }
-            array.recycle()
         }
     }
 

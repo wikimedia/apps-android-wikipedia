@@ -9,6 +9,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -452,10 +453,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         @JvmStatic
         fun newInstance(age: Int, cardType: Action) =
                 SuggestedEditsCardItemFragment().apply {
-                    arguments = Bundle().apply {
-                        putInt(AGE, age)
-                        putSerializable(CARD_TYPE, cardType)
-                    }
+                    arguments = bundleOf(AGE to age, CARD_TYPE to cardType)
                 }
     }
 }
