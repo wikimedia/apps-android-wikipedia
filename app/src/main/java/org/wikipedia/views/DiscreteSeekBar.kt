@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatSeekBar
+import androidx.core.content.withStyledAttributes
 import org.wikipedia.R
 
 class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
@@ -23,18 +24,18 @@ class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: Attribu
 
     init {
         if (attrs != null) {
-            val array = context.obtainStyledAttributes(attrs, R.styleable.DiscreteSeekBar)
-            minNumber = array.getInteger(R.styleable.DiscreteSeekBar_min, 0)
-            max -= minNumber
-            val id = array.getResourceId(R.styleable.DiscreteSeekBar_tickDrawable, 0)
-            if (id != 0) {
-                tickDrawable = AppCompatResources.getDrawable(context, id)
+            context.withStyledAttributes(attrs, R.styleable.DiscreteSeekBar) {
+                minNumber = getInteger(R.styleable.DiscreteSeekBar_min, 0)
+                max -= minNumber
+                val id = getResourceId(R.styleable.DiscreteSeekBar_tickDrawable, 0)
+                if (id != 0) {
+                    tickDrawable = AppCompatResources.getDrawable(context, id)
+                }
+                val id2 = getResourceId(R.styleable.DiscreteSeekBar_centerDrawable, 0)
+                if (id2 != 0) {
+                    centerDrawable = AppCompatResources.getDrawable(context, id2)
+                }
             }
-            val id2 = array.getResourceId(R.styleable.DiscreteSeekBar_centerDrawable, 0)
-            if (id2 != 0) {
-                centerDrawable = AppCompatResources.getDrawable(context, id2)
-            }
-            array.recycle()
         }
         isRtl = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
 

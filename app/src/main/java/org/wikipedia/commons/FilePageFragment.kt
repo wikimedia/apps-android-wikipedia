@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -167,9 +168,7 @@ class FilePageFragment : Fragment() {
 
         fun newInstance(pageTitle: PageTitle): FilePageFragment {
             val fragment = FilePageFragment()
-            val args = Bundle()
-            args.putParcelable(ARG_PAGE_TITLE, pageTitle)
-            fragment.arguments = args
+            fragment.arguments = bundleOf(ARG_PAGE_TITLE to pageTitle)
             return fragment
         }
     }

@@ -16,6 +16,7 @@ import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
@@ -490,11 +491,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         fun newInstance(articleTitle: String, revisionId: Long, languageCode: String): ArticleEditDetailsFragment {
             val articleEditDetailsFragment = ArticleEditDetailsFragment()
-            val args = Bundle()
-            args.putString(EXTRA_ARTICLE_TITLE, articleTitle)
-            args.putLong(EXTRA_EDIT_REVISION_ID, revisionId)
-            args.putString(EXTRA_EDIT_LANGUAGE_CODE, languageCode)
-            articleEditDetailsFragment.arguments = args
+            articleEditDetailsFragment.arguments = bundleOf(EXTRA_ARTICLE_TITLE to articleTitle,
+                    EXTRA_EDIT_REVISION_ID to revisionId, EXTRA_EDIT_LANGUAGE_CODE to languageCode)
             return articleEditDetailsFragment
         }
     }

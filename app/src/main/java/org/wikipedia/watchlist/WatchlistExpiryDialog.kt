@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
@@ -92,9 +93,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
         @JvmStatic
         fun newInstance(expiry: WatchlistExpiry): WatchlistExpiryDialog {
             val dialog = WatchlistExpiryDialog()
-            val args = Bundle()
-            args.putSerializable(ARG_EXPIRY, expiry)
-            dialog.arguments = args
+            dialog.arguments = bundleOf(ARG_EXPIRY to expiry)
             return dialog
         }
     }
