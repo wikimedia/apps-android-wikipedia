@@ -192,7 +192,7 @@
     <string name="page_protected_can_not_edit_anon">Sorry, this page cannot be edited anonymously at this time.</string>
     <string name="page_protected_can_not_edit_title">This page is protected</string>
     <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Add to Watchlist</string>
-    <string name="page_watchlist_overflow_menu_onboarding_tooltip_text"><![CDATA[Keep track of what\'s happening to articles you are interested in. Tap the overflow menu and select <b>Add to Watchlist</b> to see changes to an article.]]></string>
+    <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Keep track of what\'s happening to articles you are interested in. Tap the overflow menu and select <b>Add to Watchlist</b> to see changes to an article.</string>
     <string name="settings_item_preferences">Settings</string>
     <string name="settings_activity_title">Settings</string>
     <string name="about_description">About the Wikipedia app</string>
@@ -1030,7 +1030,7 @@
     <string name="main_tooltip_text_v2">Did you know that everyone can edit Wikipedia?</string>
     <string name="main_tooltip_action_button">Get started</string>
     <string name="main_tooltip_watchlist_title">Watchlist</string>
-    <string name="main_tooltip_watchlist_text"><![CDATA[Find articles and pages you previously added to your watchlist in the More menu under <b>Watchlist</b>.]]></string>
+    <string name="main_tooltip_watchlist_text">Find articles and pages you previously added to your watchlist in the More menu under <b>Watchlist</b>.</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>

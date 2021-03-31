@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <com.google.android.material.textview.MaterialTextView
+    <com.skydoves.balloon.vectortext.VectorTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
@@ -17,16 +17,16 @@
         android:layout_marginBottom="4dp"
         android:gravity="center_vertical"
         android:drawablePadding="8dp"
-        app:drawableStartCompat="@drawable/ic_star_24"
+        app:drawableStart="@drawable/ic_star_24"
         app:drawableTint="@android:color/white"/>
 
-    <org.wikipedia.views.AppTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:lineSpacingExtra="7sp"
-        app:html="@string/main_tooltip_watchlist_text"/>
+        android:text="@string/main_tooltip_watchlist_text"/>
 
 </LinearLayout>
 

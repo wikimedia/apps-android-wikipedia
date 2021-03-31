@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <com.google.android.material.textview.MaterialTextView
+    <com.skydoves.balloon.vectortext.VectorTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
@@ -17,15 +17,15 @@
         android:layout_marginBottom="4dp"
         android:gravity="center_vertical"
         android:drawablePadding="8dp"
-        app:drawableStartCompat="@drawable/ic_baseline_star_outline_24"
+        app:drawableStart="@drawable/ic_baseline_star_outline_24"
         app:drawableTint="@android:color/white"/>
 
-    <org.wikipedia.views.AppTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:lineSpacingExtra="7sp"
-        app:html="@string/page_watchlist_overflow_menu_onboarding_tooltip_text"/>
+        android:text="@string/page_watchlist_overflow_menu_onboarding_tooltip_text"/>
 
 </LinearLayout>
