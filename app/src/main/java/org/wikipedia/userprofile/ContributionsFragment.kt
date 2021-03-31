@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.updatePaddingRelative
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -390,7 +391,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
     private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
-            itemView.setPaddingRelative(itemView.paddingStart, 0, itemView.paddingEnd, 0)
+            itemView.updatePaddingRelative(top = 0, bottom = 0)
             itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
         }
 
