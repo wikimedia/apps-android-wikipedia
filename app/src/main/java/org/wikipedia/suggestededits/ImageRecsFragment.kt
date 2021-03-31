@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.postDelayed
+import androidx.core.view.updateLayoutParams
 import androidx.core.widget.NestedScrollView
 import androidx.palette.graphics.Palette
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -269,17 +270,17 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                                 val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, arrayOf(color1, color2).toIntArray())
                                 binding.imageViewContainer.background = gradientDrawable
 
-                                val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
-                                val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
-                                val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
+                                binding.imageInfoButton.updateLayoutParams<FrameLayout.LayoutParams> {
+                                    val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
+                                    val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
 
-                                if (bmpAspect > containerAspect) {
-                                    params.marginEnd = DimenUtil.roundedDpToPx(8f)
-                                } else {
-                                    val width = binding.imageViewContainer.height.toFloat() * bmpAspect
-                                    params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
+                                    marginEnd = if (bmpAspect > containerAspect) {
+                                        DimenUtil.roundedDpToPx(8f)
+                                    } else {
+                                        val width = binding.imageViewContainer.height.toFloat() * bmpAspect
+                                        DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
+                                    }
                                 }
-                                binding.imageInfoButton.layoutParams = params
                             }
                         }
 

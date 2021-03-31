@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.webkit.ValueCallback
 import android.widget.*
 import android.widget.AdapterView.OnItemClickListener
+import androidx.core.view.updateLayoutParams
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.FixedDrawerLayout
 import org.json.JSONException
@@ -89,9 +90,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
             rtl = L10nUtil.isLangRTL(wiki.languageCode())
             tocList.rtl = rtl
             L10nUtil.setConditionalLayoutDirection(containerView, wiki.languageCode())
-            val params = containerView.layoutParams as DrawerLayout.LayoutParams
-            params.gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
-            containerView.layoutParams = params
+            containerView.updateLayoutParams<DrawerLayout.LayoutParams> { gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT }
             log()
             funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), wiki, it.pageProperties.pageId, adapter.count)
         }
@@ -214,9 +213,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
                 else -> sectionHeading.typeface = Typeface.SANS_SERIF
             }
             sectionHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-            val params = sectionBullet.layoutParams as LinearLayout.LayoutParams
-            params.topMargin = DimenUtil.roundedDpToPx(textSize / 2)
-            sectionBullet.layoutParams = params
+            sectionBullet.updateLayoutParams<LinearLayout.LayoutParams> { topMargin = DimenUtil.roundedDpToPx(textSize / 2) }
             if (highlightedSection == position) {
                 sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.colorAccent))
             } else {

@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -261,12 +262,12 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                 if (!isAdded) {
                     return@post
                 }
-                val layoutParams = searchCardView.layoutParams as LinearLayout.LayoutParams
-                val horizontalMargin = if (DimenUtil.isLandscape(requireContext())) searchCardView.width / 6 + DimenUtil.roundedDpToPx(30f) else DimenUtil.roundedDpToPx(16f)
-                layoutParams.marginStart = horizontalMargin
-                layoutParams.marginEnd = horizontalMargin
-                layoutParams.setMargins(0, DimenUtil.roundedDpToPx(3f), 0, layoutParams.bottomMargin)
-                searchCardView.layoutParams = layoutParams
+                searchCardView.updateLayoutParams<LinearLayout.LayoutParams> {
+                    val horizontalMargin = if (DimenUtil.isLandscape(requireContext())) searchCardView.width / 6 + DimenUtil.roundedDpToPx(30f) else DimenUtil.roundedDpToPx(16f)
+                    marginStart = horizontalMargin
+                    marginEnd = horizontalMargin
+                    setMargins(0, DimenUtil.roundedDpToPx(3f), 0, bottomMargin)
+                }
             }
             searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
         }

@@ -3,6 +3,7 @@ package org.wikipedia.feed.view
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import org.wikipedia.feed.FeedCoordinatorBase
@@ -95,14 +96,14 @@ class FeedAdapter<T : View>(private val coordinator: FeedCoordinatorBase, privat
     }
 
     private fun adjustSearchView(view: SearchCardView) {
-        val layoutParams = view.layoutParams as StaggeredGridLayoutManager.LayoutParams
-        layoutParams.isFullSpan = true
-        layoutParams.bottomMargin = DimenUtil.roundedDpToPx(8F)
-        if (DimenUtil.isLandscape(view.context)) {
-            layoutParams.leftMargin = (view.parent as View).width / 6
-            layoutParams.rightMargin = layoutParams.leftMargin
+        view.updateLayoutParams<StaggeredGridLayoutManager.LayoutParams> {
+            isFullSpan = true
+            bottomMargin = DimenUtil.roundedDpToPx(8F)
+            if (DimenUtil.isLandscape(view.context)) {
+                leftMargin = (view.parent as View).width / 6
+                rightMargin = leftMargin
+            }
         }
-        view.layoutParams = layoutParams
     }
 
     private fun adjustDayHeaderView(view: DayHeaderCardView) {
