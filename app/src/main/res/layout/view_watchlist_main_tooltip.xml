@@ -8,6 +8,7 @@
     <com.skydoves.balloon.vectortext.VectorTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="24dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/main_tooltip_watchlist_title"
         android:textAllCaps="true"
@@ -20,13 +21,13 @@
         app:drawableStart="@drawable/ic_star_24"
         app:drawableTint="@android:color/white"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <org.wikipedia.views.AppTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:lineSpacingExtra="7sp"
-        android:text="@string/main_tooltip_watchlist_text"/>
+        app:html="@string/main_tooltip_watchlist_text"/>
 
 </LinearLayout>
 

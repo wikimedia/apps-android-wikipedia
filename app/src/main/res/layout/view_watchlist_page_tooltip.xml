@@ -8,6 +8,7 @@
     <com.skydoves.balloon.vectortext.VectorTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="24dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/page_watchlist_overflow_menu_onboarding_tooltip_title"
         android:textAllCaps="true"
@@ -20,12 +21,12 @@
         app:drawableStart="@drawable/ic_baseline_star_outline_24"
         app:drawableTint="@android:color/white"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <org.wikipedia.views.AppTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textColor="@android:color/white"
         android:lineSpacingExtra="7sp"
-        android:text="@string/page_watchlist_overflow_menu_onboarding_tooltip_text"/>
+        app:html="@string/page_watchlist_overflow_menu_onboarding_tooltip_text"/>
 
 </LinearLayout>
