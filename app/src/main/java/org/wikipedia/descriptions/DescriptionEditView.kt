@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.postDelayed
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import org.wikipedia.R
@@ -39,7 +40,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private lateinit var action: DescriptionEditActivity.Action
     private val binding = ViewDescriptionEditBinding.inflate(LayoutInflater.from(context), this)
     private val mlKitLanguageDetector = MlKitLanguageDetector()
-    private val textValidateRunnable = Runnable { validateText() }
+    private var textValidateRunnable: Runnable? = null
     private var originalDescription: String? = null
     private var isTranslationEdit = false
     private var isLanguageWrong = false
@@ -265,8 +266,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     private fun enqueueValidateText() {
-        removeCallbacks(textValidateRunnable)
-        postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS)
+        textValidateRunnable?.let { removeCallbacks(it) }
+        textValidateRunnable = postDelayed(TEXT_VALIDATE_DELAY_MILLIS) { validateText() }
     }
 
     private fun validateText() {
@@ -299,7 +300,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setHighlightText(text: String?) {
         if (text != null && originalDescription != null) {
-            postDelayed({ StringUtil.highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text) }, 500)
+            postDelayed(500) { StringUtil.highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text) }
         }
     }
 

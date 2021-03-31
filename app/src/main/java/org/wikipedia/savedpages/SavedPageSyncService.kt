@@ -2,6 +2,7 @@ package org.wikipedia.savedpages
 
 import android.content.Intent
 import androidx.core.app.JobIntentService
+import androidx.core.os.postDelayed
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -321,18 +322,20 @@ class SavedPageSyncService : JobIntentService() {
         const val MOBILE_HTML_SECTION_PROGRESS = 20
         const val MEDIA_LIST_PROGRESS = 30
 
-        private val ENQUEUE_RUNNABLE = Runnable {
-            enqueueWork(WikipediaApp.getInstance(),
-                    SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.getInstance(), SavedPageSyncService::class.java))
-        }
+        private var enqueueRunnable: Runnable? = null
 
         @JvmStatic
         fun enqueue() {
             if (ReadingListSyncAdapter.inProgress()) {
                 return
             }
-            WikipediaApp.getInstance().mainThreadHandler.removeCallbacks(ENQUEUE_RUNNABLE)
-            WikipediaApp.getInstance().mainThreadHandler.postDelayed(ENQUEUE_RUNNABLE, ENQUEUE_DELAY_MILLIS.toLong())
+            val mainThreadHandler = WikipediaApp.getInstance().mainThreadHandler
+            enqueueRunnable?.let { mainThreadHandler.removeCallbacks(it) }
+            enqueueRunnable = mainThreadHandler.postDelayed(ENQUEUE_DELAY_MILLIS.toLong()) {
+                enqueueWork(WikipediaApp.getInstance(),
+                    SavedPageSyncService::class.java, JOB_ID, Intent(WikipediaApp.getInstance(),
+                        SavedPageSyncService::class.java))
+            }
         }
 
         @JvmStatic

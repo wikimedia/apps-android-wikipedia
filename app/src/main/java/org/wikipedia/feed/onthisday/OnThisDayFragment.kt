@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -81,12 +82,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private fun setUpTransitionAnimation(savedInstanceState: Bundle?, age: Int) {
         val animDelay = if (requireActivity().window.sharedElementEnterTransition != null &&
             savedInstanceState == null) 500L else 0L
-        binding.onThisDayTitleView.postDelayed({
+        binding.onThisDayTitleView.postDelayed(animDelay) {
             if (!isAdded) {
                 return@postDelayed
             }
             updateContents(age)
-        }, animDelay)
+        }
     }
 
     private fun updateContents(age: Int) {
@@ -107,11 +108,11 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                     return@doAfterTerminate
                 }
                 binding.progressBar.visibility = View.GONE
-                binding.eventsRecycler.postDelayed({
+                binding.eventsRecycler.postDelayed(500) {
                     if (positionToScrollTo != -1 && yearOnCardView != -1) {
                         binding.eventsRecycler.scrollToPosition(positionToScrollTo)
                     }
-                }, 500)
+                }
             }
             .subscribe({ response ->
                 onThisDay = response

@@ -20,6 +20,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.postDelayed
 import androidx.core.widget.NestedScrollView
 import androidx.palette.graphics.Palette
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -385,15 +386,15 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                                 .alpha(1f)
                                 .withEndAction {
                                     if (newCount >= DAILY_COUNT_TARGET) {
-                                        binding.publishProgressCheck.postDelayed({
+                                        binding.publishProgressCheck.postDelayed(checkDelayMillis) {
                                             if (isAdded) {
                                                 binding.publishProgressBar.visibility = INVISIBLE
                                                 binding.publishProgressCheck.visibility = GONE
                                                 binding.publishBoltView.visibility = VISIBLE
                                             }
-                                        }, checkDelayMillis)
+                                        }
                                     }
-                                    binding.publishProgressBar.postDelayed({
+                                    binding.publishProgressBar.postDelayed(waitUntilNextMillis + checkDelayMillis) {
                                         if (isAdded) {
                                             showConfetti(false)
                                             updateNavBarColor(false)
@@ -401,7 +402,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                                             callback().nextPage(this@ImageRecsFragment)
                                             callback().logSuccess()
                                         }
-                                    }, waitUntilNextMillis + checkDelayMillis)
+                                    }
                                 }
                                 .duration = checkAnimationDuration
                     } else {

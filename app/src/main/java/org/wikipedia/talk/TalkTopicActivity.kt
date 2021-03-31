@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -93,12 +94,12 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.licenseText.visibility = View.VISIBLE
             DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
             editFunnel.logStart()
-            binding.talkScrollContainer.postDelayed({
+            binding.talkScrollContainer.postDelayed(500) {
                 if (!isDestroyed) {
                     binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
                     binding.replyTextLayout.requestFocus()
                 }
-            }, 500)
+            }
             binding.talkReplyButton.hide()
         }
 

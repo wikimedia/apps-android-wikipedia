@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -546,13 +547,13 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             return
         }
         exclusiveTooltipRunnable = runnable
-        binding.mainNavTabLayout.postDelayed({
+        binding.mainNavTabLayout.postDelayed(500) {
             exclusiveTooltipRunnable = null
             if (!isAdded) {
                 return@postDelayed
             }
             runnable.run()
-        }, 500)
+        }
     }
 
     private fun callback(): Callback? {

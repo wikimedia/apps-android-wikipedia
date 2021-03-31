@@ -14,6 +14,7 @@ import android.view.*
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
+import androidx.core.view.postDelayed
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -49,12 +50,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     private val textWatcher = SearchTextWatcher()
     private val adapter = ResultListAdapter(Collections.emptyList())
     private val disposables = CompositeDisposable()
-
-    private val searchRunnable = Runnable {
-        if (isAdded) {
-            requestResults(currentSearchTerm)
-        }
-    }
+    private var searchRunnable: Runnable? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImageTagSelectBinding.inflate(inflater, container, false)
@@ -116,7 +112,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding.imageTagsSearchText.removeTextChangedListener(textWatcher)
-        binding.imageTagsSearchText.removeCallbacks(searchRunnable)
+        searchRunnable?.let { binding.imageTagsSearchText.removeCallbacks(it) }
         disposables.clear()
         _binding = null
     }
@@ -126,8 +122,12 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
         override fun onTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {
             currentSearchTerm = text.toString()
-            binding.imageTagsSearchText.removeCallbacks(searchRunnable)
-            binding.imageTagsSearchText.postDelayed(searchRunnable, 500)
+            searchRunnable?.let { binding.imageTagsSearchText.removeCallbacks(it) }
+            searchRunnable = binding.imageTagsSearchText.postDelayed(500) {
+                if (isAdded) {
+                    requestResults(currentSearchTerm)
+                }
+            }
         }
 
         override fun afterTextChanged(editable: Editable) {}

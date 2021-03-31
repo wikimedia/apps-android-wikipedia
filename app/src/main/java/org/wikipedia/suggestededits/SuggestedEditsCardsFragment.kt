@@ -12,6 +12,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.view.postDelayed
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -346,13 +347,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     private fun resetViewPagerItemAdapter() {
         if (!resettingViewPager) {
             resettingViewPager = true
-            val postDelay: Long = 250
-            binding.cardsViewPager.postDelayed({
+            binding.cardsViewPager.postDelayed(250) {
                 if (isAdded) {
                     binding.cardsViewPager.adapter = ViewPagerAdapter(this)
                     resettingViewPager = false
                 }
-            }, postDelay)
+            }
         }
     }
 

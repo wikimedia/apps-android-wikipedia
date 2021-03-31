@@ -319,6 +319,7 @@ public class WikipediaApp extends Application {
         crashListener.logCrashManually(throwable);
     }
 
+    @NonNull
     public Handler getMainThreadHandler() {
         if (mainThreadHandler == null) {
             mainThreadHandler = new Handler(getMainLooper());
