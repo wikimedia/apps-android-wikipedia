@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
+import androidx.core.content.withStyledAttributes
 import com.google.android.material.card.MaterialCardView
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -20,11 +21,11 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
         var cardRadius = context.resources.getDimension(R.dimen.wiki_card_radius)
         var elevation = DimenUtil.dpToPx(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) 8f else 2f)
         if (attrs != null) {
-            val array = context.obtainStyledAttributes(attrs, R.styleable.WikiCardView)
-            hasBorder = array.getBoolean(R.styleable.WikiCardView_hasBorder, true)
-            cardRadius = array.getDimension(R.styleable.WikiCardView_radius, cardRadius)
-            elevation = array.getDimension(R.styleable.WikiCardView_elevation, elevation)
-            array.recycle()
+            context.withStyledAttributes(attrs, R.styleable.WikiCardView) {
+                hasBorder = getBoolean(R.styleable.WikiCardView_hasBorder, true)
+                cardRadius = getDimension(R.styleable.WikiCardView_radius, cardRadius)
+                elevation = getDimension(R.styleable.WikiCardView_elevation, elevation)
+            }
         }
 
         setup(cardRadius, elevation, hasBorder)

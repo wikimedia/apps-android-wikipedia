@@ -1,9 +1,10 @@
 package org.wikipedia.talk
 
-import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.provider.BaseColumns
+import androidx.core.content.contentValuesOf
+import androidx.core.database.sqlite.transaction
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.DbUtil
@@ -31,11 +32,7 @@ object TalkPageSeenDatabaseTable : DatabaseTable<String>(TABLE, URI) {
         return SHA.value(cursor)
     }
 
-    override fun toContentValues(obj: String): ContentValues {
-        val contentValues = ContentValues()
-        contentValues.put(SHA.name, obj)
-        return contentValues
-    }
+    override fun toContentValues(obj: String) = contentValuesOf(SHA.name to obj)
 
     override fun getColumnsAdded(version: Int): Array<Column<*>> {
         return when (version) {
@@ -64,24 +61,14 @@ object TalkPageSeenDatabaseTable : DatabaseTable<String>(TABLE, URI) {
     }
 
     fun setTalkTopicSeen(topic: Topic) {
-        val db = WikipediaApp.getInstance().database.writableDatabase
-        db.beginTransaction()
-        try {
-            db.insertOrThrow(TABLE, null, toContentValues(topic.getIndicatorSha()))
-            db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
+        WikipediaApp.getInstance().database.writableDatabase.transaction {
+            insertOrThrow(TABLE, null, toContentValues(topic.getIndicatorSha()))
         }
     }
 
     fun resetAllUnseen() {
-        val db = WikipediaApp.getInstance().database.writableDatabase
-        db.beginTransaction()
-        try {
-            db.execSQL("DELETE FROM $TABLE")
-            db.setTransactionSuccessful()
-        } finally {
-            db.endTransaction()
+        WikipediaApp.getInstance().database.writableDatabase.transaction {
+            execSQL("DELETE FROM $TABLE")
         }
     }
 }
