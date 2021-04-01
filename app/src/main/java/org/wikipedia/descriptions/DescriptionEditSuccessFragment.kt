@@ -18,7 +18,7 @@ class DescriptionEditSuccessFragment : Fragment(), DescriptionEditSuccessView.Ca
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentDescriptionEditSuccessBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentDescriptionEditSuccessBinding.inflate(inflater, container, false)
         binding.fragmentDescriptionEditSuccessView.callback = this
         return binding.root
     }
