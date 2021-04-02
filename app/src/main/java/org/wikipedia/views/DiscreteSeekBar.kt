@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.core.content.withStyledAttributes
+import androidx.core.graphics.withSave
 import org.wikipedia.R
 
 class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
@@ -57,31 +58,31 @@ class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: Attribu
 
     private fun drawTickMarks(canvas: Canvas, drawCenter: Boolean, drawOther: Boolean) {
         val maxNumber = max + minNumber
-        if (tickDrawable != null) {
-            val halfW = if (tickDrawable!!.intrinsicWidth >= 0) tickDrawable!!.intrinsicWidth / 2 else 1
-            val halfH = if (tickDrawable!!.intrinsicHeight >= 0) tickDrawable!!.intrinsicHeight / 2 else 1
-            tickDrawable!!.setBounds(-halfW, -halfH, halfW, halfH)
+        tickDrawable?.let {
+            val halfW = if (it.intrinsicWidth >= 0) it.intrinsicWidth / 2 else 1
+            val halfH = if (it.intrinsicHeight >= 0) it.intrinsicHeight / 2 else 1
+            it.setBounds(-halfW, -halfH, halfW, halfH)
         }
-        if (centerDrawable != null) {
-            val halfW = if (centerDrawable!!.intrinsicWidth >= 0) centerDrawable!!.intrinsicWidth / 2 else 1
-            val halfH = if (centerDrawable!!.intrinsicHeight >= 0) centerDrawable!!.intrinsicHeight / 2 else 1
-            centerDrawable!!.setBounds(-halfW, -halfH, halfW, halfH)
+        centerDrawable?.let {
+            val halfW = if (it.intrinsicWidth >= 0) it.intrinsicWidth / 2 else 1
+            val halfH = if (it.intrinsicHeight >= 0) it.intrinsicHeight / 2 else 1
+            it.setBounds(-halfW, -halfH, halfW, halfH)
         }
         val tickSpacing = (width - paddingLeft - paddingRight).toFloat() / (maxNumber - minNumber).toFloat()
-        canvas.save()
-        if (isRtl) {
-            canvas.scale(-1f, 1f, (width / 2).toFloat(), (height / 2).toFloat())
-        }
-        canvas.translate(paddingLeft.toFloat(), (height / 2).toFloat())
-        for (i in minNumber..maxNumber) {
-            if (drawOther && tickDrawable != null && i > value) {
-                tickDrawable!!.draw(canvas)
+        canvas.withSave {
+            if (isRtl) {
+                scale(-1f, 1f, (width / 2).toFloat(), (height / 2).toFloat())
             }
-            if (drawCenter && i == 0 && centerDrawable != null) {
-                centerDrawable!!.draw(canvas)
+            translate(paddingLeft.toFloat(), (height / 2).toFloat())
+            for (i in minNumber..maxNumber) {
+                if (drawOther && i > value) {
+                    tickDrawable?.draw(this)
+                }
+                if (drawCenter && i == 0) {
+                    centerDrawable?.draw(this)
+                }
+                translate(tickSpacing, 0.0f)
             }
-            canvas.translate(tickSpacing, 0.0f)
         }
-        canvas.restore()
     }
 }
