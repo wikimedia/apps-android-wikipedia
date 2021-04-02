@@ -139,7 +139,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS ) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS) {
             callback()?.onDescriptionEditSuccess()
         } else if (requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH &&
                 resultCode == Activity.RESULT_OK && data != null &&
