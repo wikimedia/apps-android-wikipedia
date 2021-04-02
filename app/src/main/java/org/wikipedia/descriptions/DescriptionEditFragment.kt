@@ -122,7 +122,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        binding.fragmentDescriptionEditView.setCallback(null)
+        binding.fragmentDescriptionEditView.callback = null
         _binding = null
         super.onDestroyView()
     }
@@ -145,7 +145,7 @@ class DescriptionEditFragment : Fragment() {
                 resultCode == Activity.RESULT_OK && data != null &&
                 data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             val text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)!![0]
-            binding.fragmentDescriptionEditView.setDescription(text)
+            binding.fragmentDescriptionEditView.description = text
         }
     }
 
@@ -173,10 +173,10 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setAction(action)
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
-        binding.fragmentDescriptionEditView.setCallback(EditViewCallback())
-        sourceSummary?.let { binding.fragmentDescriptionEditView.setSummaries(requireActivity(), sourceSummary!!, targetSummary) }
+        binding.fragmentDescriptionEditView.callback = EditViewCallback()
+        sourceSummary?.let { binding.fragmentDescriptionEditView.setSummaries(sourceSummary!!, targetSummary) }
         if (savedInstanceState != null) {
-            binding.fragmentDescriptionEditView.setDescription(savedInstanceState.getString(ARG_DESCRIPTION))
+            binding.fragmentDescriptionEditView.description = savedInstanceState.getString(ARG_DESCRIPTION)
             binding.fragmentDescriptionEditView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING))
         }
         binding.fragmentDescriptionEditView.showProgressBar(false)
@@ -244,7 +244,7 @@ class DescriptionEditFragment : Fragment() {
                     .flatMap { mwQueryResponse ->
                         var text = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].content()
                         val baseRevId = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].revId
-                        text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description)
+                        text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description!!)
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
                                 when (action) {
                                     DescriptionEditActivity.Action.ADD_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
@@ -342,7 +342,7 @@ class DescriptionEditFragment : Fragment() {
                     }
                 }
                 ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description,
+                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description!!,
                         comment, editToken, if (AccountUtil.isLoggedIn) "user" else null)
             } else {
                 if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
@@ -353,7 +353,7 @@ class DescriptionEditFragment : Fragment() {
                     }
                 }
                 ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description, comment, editToken,
+                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description!!, comment, editToken,
                         if (AccountUtil.isLoggedIn) "user" else null)
             }
         }
