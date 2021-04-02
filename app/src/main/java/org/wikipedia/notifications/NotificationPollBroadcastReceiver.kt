@@ -9,7 +9,6 @@ import android.content.Intent
 import android.os.SystemClock
 import androidx.annotation.StringRes
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -144,10 +143,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun assertLoggedIn() {
             // Attempt to get a dummy CSRF token, which should automatically re-log us in explicitly,
             // and should automatically log us out if the credentials are no longer valid.
-            Completable.fromAction {
-                CsrfTokenClient(WikipediaApp.getInstance().wikiSite, WikipediaApp.getInstance().wikiSite)
-                        .tokenBlocking
-            }.subscribeOn(Schedulers.io())
+            CsrfTokenClient(WikipediaApp.getInstance().wikiSite, WikipediaApp.getInstance().wikiSite).token
+                    .subscribeOn(Schedulers.io())
                     .subscribe()
         }
 
@@ -239,14 +236,13 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
 
         fun markRead(wiki: WikiSite, notifications: List<Notification>, unread: Boolean) {
             val idListStr = notifications.joinToString("|")
-            val editTokenClient = CsrfTokenClient(wiki, WikipediaApp.getInstance().wikiSite)
-            editTokenClient.request(object : CsrfTokenClient.DefaultCallback() {
-                override fun success(token: String) {
-                    ServiceFactory.get(wiki).markRead(token, if (unread) null else idListStr, if (unread) idListStr else null)
-                            .subscribeOn(Schedulers.io())
-                            .subscribe({ }) { t -> L.e(t) }
-                }
-            })
+            CsrfTokenClient(wiki, WikipediaApp.getInstance().wikiSite).token
+                    .subscribeOn(Schedulers.io())
+                    .flatMap {
+                        ServiceFactory.get(wiki).markRead(it, if (unread) null else idListStr, if (unread) idListStr else null)
+                                .subscribeOn(Schedulers.io())
+                    }
+                    .subscribe({ }, { L.e(it) })
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {

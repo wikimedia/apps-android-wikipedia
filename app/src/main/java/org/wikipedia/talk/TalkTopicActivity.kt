@@ -27,7 +27,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -48,7 +47,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private var replyActive = false
     private val textWatcher = ReplyTextWatcher()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    private var csrfClient: CsrfTokenClient? = null
     private var currentRevision: Long = 0
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler.onUrlClick(url, null, "")
@@ -297,20 +295,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         talkFunnel.logEditSubmit()
 
-        csrfClient = CsrfTokenClient(pageTitle.wikiSite, pageTitle.wikiSite)
-        csrfClient?.request(false, object : CsrfTokenClient.Callback {
-            override fun success(token: String) {
-                doSave(token, subject, body)
-            }
-
-            override fun failure(caught: Throwable) {
-                onSaveError(caught)
-            }
-
-            override fun twoFactorPrompt() {
-                onSaveError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
-            }
-        })
+        disposables.add(CsrfTokenClient(pageTitle.wikiSite).token
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    doSave(it, subject, body)
+                }, {
+                    onSaveError(it)
+                }))
     }
 
     private fun doSave(token: String, subject: String, body: String) {

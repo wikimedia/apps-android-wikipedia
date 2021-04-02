@@ -553,7 +553,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private String getCsrfToken(@NonNull WikiSite wiki, @NonNull List<String> tokenList) throws Throwable {
         if (tokenList.size() == 0) {
-            tokenList.add(new CsrfTokenClient(wiki, wiki).getTokenBlocking());
+            tokenList.add(new CsrfTokenClient(wiki, wiki).getToken().blockingSingle());
         }
         return tokenList.get(0);
     }

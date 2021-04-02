@@ -32,7 +32,6 @@ import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.login.LoginClient.LoginFailedException;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
@@ -95,7 +94,6 @@ public class DescriptionEditFragment extends Fragment {
     private PageSummaryForEdit sourceSummary;
     private PageSummaryForEdit targetSummary;
     @Nullable private String highlightText;
-    @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
     private Action action;
     private InvokeSource invokeSource;
@@ -226,10 +224,6 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     private void cancelCalls() {
-        if (csrfClient != null) {
-            csrfClient.cancel();
-            csrfClient = null;
-        }
         disposables.clear();
     }
 
@@ -281,13 +275,7 @@ public class DescriptionEditFragment extends Fragment {
                 editView.setSaveState(true);
 
                 cancelCalls();
-
-                if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
-                    csrfClient = new CsrfTokenClient(wikiCommons);
-                } else {
-                    csrfClient = new CsrfTokenClient(shouldWriteToLocalWiki() ? pageTitle.getWikiSite() : wikiData, pageTitle.getWikiSite());
-                }
-                getEditTokenThenSave(false);
+                getEditTokenThenSave();
 
                 if (funnel != null) {
                     funnel.logSaveAttempt();
@@ -295,33 +283,23 @@ public class DescriptionEditFragment extends Fragment {
             }
         }
 
-        private void getEditTokenThenSave(boolean forceLogin) {
-            if (csrfClient == null) {
-                return;
-            }
-            csrfClient.request(forceLogin, new CsrfTokenClient.Callback() {
-                @Override
-                public void success(@NonNull String token) {
-                    if (shouldWriteToLocalWiki()) {
-                        // If the description is being applied to an article on English Wikipedia, it
-                        // should be written directly to the article instead of Wikidata.
-                        postDescriptionToArticle(token);
-                    } else {
-                        postDescriptionToWikidata(token);
-                    }
-                }
+        private void getEditTokenThenSave() {
+            CsrfTokenClient csrfClient = (action == ADD_CAPTION || action == TRANSLATE_CAPTION)
+                    ? new CsrfTokenClient(wikiCommons)
+                    : new CsrfTokenClient(shouldWriteToLocalWiki() ? pageTitle.getWikiSite() : wikiData, pageTitle.getWikiSite());
 
-                @Override
-                public void failure(@NonNull Throwable caught) {
-                    editFailed(caught, false);
-                }
-
-                @Override
-                public void twoFactorPrompt() {
-                    editFailed(new LoginFailedException(getResources()
-                            .getString(R.string.login_2fa_other_workflow_error_msg)), false);
-                }
-            });
+            disposables.add(csrfClient.getToken()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(token -> {
+                        if (shouldWriteToLocalWiki()) {
+                            // If the description is being applied to an article on English Wikipedia, it
+                            // should be written directly to the article instead of Wikidata.
+                            postDescriptionToArticle(token);
+                        } else {
+                            postDescriptionToWikidata(token);
+                        }
+                    }, t -> editFailed(t, false)));
         }
 
         @SuppressWarnings("checkstyle:magicnumber")
@@ -399,9 +377,7 @@ public class DescriptionEditFragment extends Fragment {
                     }, caught -> {
                         if (caught instanceof MwException) {
                             MwServiceError error = ((MwException) caught).getError();
-                            if (error.badLoginState() || error.badToken()) {
-                                getEditTokenThenSave(true);
-                            } else if (error.hasMessageName(ABUSEFILTER_DISALLOWED) || error.hasMessageName(ABUSEFILTER_WARNING)) {
+                            if (error.hasMessageName(ABUSEFILTER_DISALLOWED) || error.hasMessageName(ABUSEFILTER_WARNING)) {
                                 String code = error.hasMessageName(ABUSEFILTER_DISALLOWED) ? ABUSEFILTER_DISALLOWED : ABUSEFILTER_WARNING;
                                 String info = error.getMessageHtml(code);
                                 editView.setSaveState(false);

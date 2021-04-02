@@ -92,7 +92,6 @@ public class LoginClient {
     public Observable<LoginResponse> loginBlocking(@NonNull final WikiSite wiki, @NonNull final String userName,
                               @NonNull final String password, @Nullable final String twoFactorCode) {
         return getLoginToken(wiki)
-                .observeOn(AndroidSchedulers.mainThread())
                 .flatMap(loginToken -> getLoginResponse(wiki, userName, password, null, twoFactorCode, loginToken))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
