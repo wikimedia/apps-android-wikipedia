@@ -29,8 +29,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
         return OnboardingPagerAdapter(this)
     }
 
-    override val doneButtonText
-        get() = R.string.onboarding_get_started
+    override val doneButtonText = R.string.onboarding_get_started
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
