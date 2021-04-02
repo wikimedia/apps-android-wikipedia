@@ -45,6 +45,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -1079,8 +1080,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 startGalleryActivity(title.getPrefixedText());
             }
 
-            @Override public WikiSite getWikiSite() {
+            @Override
+            @NonNull
+            public WikiSite getWikiSite() {
                 return model.getTitle().getWikiSite();
+            }
+
+            @Override
+            public void setWikiSite(@NotNull WikiSite wikiSite) {
+                // ignore
             }
         };
         bridge.addListener("link", linkHandler);

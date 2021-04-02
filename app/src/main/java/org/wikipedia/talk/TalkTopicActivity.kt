@@ -39,6 +39,9 @@ import java.util.concurrent.TimeUnit
 class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var pageTitle: PageTitle
+    private lateinit var talkFunnel: TalkFunnel
+    private lateinit var editFunnel: EditFunnel
+    private lateinit var linkHandler: TalkLinkHandler
     private val disposables = CompositeDisposable()
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
@@ -47,12 +50,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var csrfClient: CsrfTokenClient? = null
     private var currentRevision: Long = 0
-    private lateinit var talkFunnel: TalkFunnel
-    private lateinit var editFunnel: EditFunnel
-
-    private var linkHandler: TalkLinkHandler? = null
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
-        linkHandler?.onUrlClick(url, null, "")
+        linkHandler.onUrlClick(url, null, "")
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,9 +61,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-        linkHandler = TalkLinkHandler(this)
-
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
+        linkHandler = TalkLinkHandler(this)
+        linkHandler.wikiSite = pageTitle.wikiSite
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRefreshView, pageTitle.wikiSite.languageCode())
@@ -241,13 +240,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
-        override fun getWikiSite(): WikiSite {
-            return this@TalkTopicActivity.pageTitle.wikiSite
-        }
-
         override fun onMediaLinkClicked(title: PageTitle) {
             // TODO
         }
+
+        override lateinit var wikiSite: WikiSite
 
         override fun onPageLinkClicked(anchor: String, linkText: String) {
             // TODO
@@ -397,7 +394,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         private const val EXTRA_TOPIC = "topicId"
         const val RESULT_EDIT_SUCCESS = 1
 
-        @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle, topicId: Int, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)

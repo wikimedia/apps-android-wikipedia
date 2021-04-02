@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.gson.JsonObject;
 
+import org.jetbrains.annotations.NotNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
@@ -378,8 +379,14 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         }
 
         @Override
+        @NonNull
         public WikiSite getWikiSite() {
             return model.getTitle().getWikiSite();
+        }
+
+        @Override
+        public void setWikiSite(@NotNull WikiSite wikiSite) {
+            // ignore
         }
     }
 }
