@@ -33,7 +33,7 @@ class FilePageFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
-    private var allowEdit: Boolean = true
+    private var allowEdit = true
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
