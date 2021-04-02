@@ -1,9 +1,39 @@
 Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire. Aplicația a fost rescrisă din temelii și este mai bună ca oricând.
 
-Codul este în întregime cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, creați-vă propria versiune! https://github.com/wikimedia/apps-android-wikipedia
+Caracteristici:
+
+Fluxul de explorare - Noul "flux de explorare" oferă conținut recomandat și actualizat în mod constant de Wikipedia chiar pe ecranul de pornire, inclusiv articole în tendințe, evenimente curente, sugestii de lectură și multe altele.
+
+Căutare integrată prin voce - Găsiți cu ușurință ceea ce căutați cu o bară de căutare proeminentă în partea de sus a aplicației, inclusiv căutarea prin voce pe dispozitiv.
 
 Din apropiere - Învață ce se află in jurul tău prin selectarea punctelor pe o hartă interactivă, pentru a vedea articole ce au legatură cu locația ta actuală.
 
+Suport lingvistic - Treceți fără probleme la citirea oricărei limbi acceptate de Wikipedia, fie prin schimbarea limbii articolului curent, fie prin schimbarea limbii de căutare preferate în timpul căutării.
+
+Previzualizare a linkurilor - Atingeți un articol pentru a-l previzualiza, fără a pierde locul în ceea ce citiți în acel moment. Țineți apăsat un link pentru a-l deschide într-o filă nouă, ceea ce vă permite să continuați să citiți articolul curent fără să vă pierdeți locul și să treceți la noua filă atunci când sunteți pregătit.
+
+Cuprins - glisați spre stânga pe orice articol pentru a afișa cuprinsul, care vă permite să treceți cu ușurință la secțiunile articolului.
+
+Liste de lectură - Organizați articolele pe care le parcurgeți în liste de lectură, pe care le puteți accesa chiar și atunci când sunteți offline. Creați oricâte liste doriți, dați-le nume și descrieri personalizate și completați-le cu articole din orice limbă wiki.
+
+Galerie de imagini - Atingeți o imagine pentru a o vizualiza pe tot ecranul la rezoluție înaltă, cu opțiuni de glisare pentru a răsfoi imagini suplimentare.
+
+Definiții din Wikționar - Atingeți și țineți apăsat pentru a evidenția un cuvânt, apoi atingeți butonul "Define" pentru a vedea o definiție a cuvântului din Wikționar.
+
+Wikipedia Zero - Accesați Wikipedia pentru Android fără taxe de date pentru operatorii de telefonie mobilă participanți. (link către operatorii participanți).
+
+Trimiteți-ne comentariile dumneavoastră despre aplicație! În meniu, apăsați "Setări", apoi "Despre aplicația Wikipedia", apoi "Trimiteți feedback despre aplicație".
+
+Codul este 100% open source. Dacă aveți experiență cu Java și Android SDK, așteptăm cu nerăbdare contribuțiile dumneavoastră! https://github.com/wikimedia/apps-android-wikipedia
+
+Prin utilizarea acestei aplicații, sunteți de acord cu transmiterea automată a rapoartelor de accident către un furnizor de servicii terț. Dacă doriți să dezactivați această funcție, apăsați "Settings" (Setări), apoi dezactivați "Send crash reports" (Trimitere rapoarte de accident) în secțiunea Privacy (Confidențialitate). Explicarea permisiunilor de care are nevoie aplicația: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+
+Politica de confidențialitate: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Politica de confidențialitate a furnizorului de servicii terță parte al raportului de accident: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+
+Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
 Despre Wikimedia Foundation
 
-Wikimedia Foundation este o Organizație Non-Profit care susține Wikipedia si alte proiecte Wikimedia. Wikimedia Foundation este o organizație de caritate finanțată in principal din donații. Pemtru mai multe informații, poți vizita website-ul nostru: https://wikimediafoundation.org/wiki/Home.
+Fundația Wikimedia este o organizație non-profit care sprijină Wikipedia și celelalte proiecte Wikimedia. Fundația Wikimedia este o organizație caritabilă finanțată în principal prin donații. Pentru mai multe informații, vă rugăm să vizitați site-ul nostru: https://wikimediafoundation.org/wiki/Home.
