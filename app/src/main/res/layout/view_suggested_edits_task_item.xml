@@ -48,6 +48,7 @@
             android:textSize="14sp"
             android:textColor="@color/green50"
             android:textStyle="bold"
+            android:textAllCaps="true"
             android:text="@string/suggested_edits_task_new"/>
 
         <TextView
@@ -74,10 +75,10 @@
             app:flow_horizontalStyle="packed"
             app:flow_horizontalBias="0"
             app:flow_wrapMode="chain"
-            app:constraint_referenced_ids="addButton,translateButton"/>
+            app:constraint_referenced_ids="primaryButton,secondaryButton"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/addButton"
+            android:id="@+id/primaryButton"
             style="@style/FlatButton.Small"
             android:text="@string/suggested_edits_task_action_text_add"
             app:icon="@drawable/ic_add_gray_white_24dp"
@@ -85,7 +86,7 @@
             app:iconTint="?attr/colorAccent"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/translateButton"
+            android:id="@+id/secondaryButton"
             style="@style/FlatButton.Small"
             android:text="@string/suggested_edits_task_action_text_translate"
             app:icon="@drawable/ic_translate_white_24dp"

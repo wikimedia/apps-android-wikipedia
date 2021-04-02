@@ -14,7 +14,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.FragmentOnboardingPagerBinding
 
-abstract class OnboardingFragment : Fragment(), BackPressedHandler {
+abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), BackPressedHandler {
     interface Callback {
         fun onComplete()
     }
@@ -107,7 +107,7 @@ abstract class OnboardingFragment : Fragment(), BackPressedHandler {
             binding.fragmentOnboardingForwardButton.visibility = View.GONE
             binding.fragmentOnboardingDoneButton.visibility = View.VISIBLE
         } else {
-            binding.fragmentOnboardingSkipButton.visibility = View.VISIBLE
+            binding.fragmentOnboardingSkipButton.visibility = if (enableSkip) View.VISIBLE else View.GONE
             binding.fragmentOnboardingForwardButton.visibility = View.VISIBLE
             binding.fragmentOnboardingDoneButton.visibility = View.GONE
         }

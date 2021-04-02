@@ -33,11 +33,13 @@ class FilePageFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
+    private var allowEdit: Boolean = true
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = arguments?.getParcelable(ARG_PAGE_TITLE)!!
+        pageTitle = requireArguments().getParcelable(FilePageActivity.INTENT_EXTRA_PAGE_TITLE)!!
+        allowEdit = requireArguments().getBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT)
         retainInstance = true
     }
 
@@ -150,7 +152,7 @@ class FilePageFragment : Fragment() {
                             thumbnailHeight,
                             imageFromCommons = isFromCommons,
                             showFilename = true,
-                            showEditButton = isFromCommons && !isEditProtected
+                            showEditButton = allowEdit && isFromCommons && !isEditProtected
                     )
                 }
                 .subscribe({
@@ -162,14 +164,14 @@ class FilePageFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_PAGE_TITLE = "pageTitle"
         const val ACTIVITY_REQUEST_ADD_IMAGE_CAPTION = 1
         const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 2
 
-        fun newInstance(pageTitle: PageTitle): FilePageFragment {
-            val fragment = FilePageFragment()
-            fragment.arguments = bundleOf(ARG_PAGE_TITLE to pageTitle)
-            return fragment
+        fun newInstance(pageTitle: PageTitle, allowEdit: Boolean): FilePageFragment {
+            return FilePageFragment().apply {
+                arguments = bundleOf(FilePageActivity.INTENT_EXTRA_PAGE_TITLE to pageTitle,
+                        FilePageActivity.INTENT_EXTRA_ALLOW_EDIT to allowEdit)
+            }
         }
     }
 }
