@@ -26,9 +26,7 @@ class ImageRecsOnboardingFragment : OnboardingFragment(false), OnboardingPageVie
         return OnboardingPagerAdapter(this)
     }
 
-    override fun getDoneButtonText(): Int {
-        return R.string.onboarding_get_started
-    }
+    override val doneButtonText = R.string.onboarding_get_started
 
     override fun onSwitchChange(view: OnboardingPageView, checked: Boolean) {
         if (OnboardingPage.of(view.tag as Int) == OnboardingPage.PAGE_CONSENT) {

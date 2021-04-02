@@ -2,6 +2,7 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.core.content.withStyledAttributes
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
@@ -22,10 +23,9 @@ open class AutoFitRecyclerView constructor(context: Context, attrs: AttributeSet
 
     init {
         if (attrs != null) {
-            val array = context.obtainStyledAttributes(attrs,
-                    R.styleable.AutoFitRecyclerView, defStyleAttr, 0)
-            minColumnWidth = array.getDimensionPixelSize(R.styleable.AutoFitRecyclerView_minColumnWidth, 0)
-            array.recycle()
+            context.withStyledAttributes(attrs, R.styleable.AutoFitRecyclerView, defStyleAttr) {
+                minColumnWidth = getDimensionPixelSize(R.styleable.AutoFitRecyclerView_minColumnWidth, 0)
+            }
         }
     }
 

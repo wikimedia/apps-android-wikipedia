@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
 import android.view.MotionEvent
+import androidx.core.content.withStyledAttributes
 import org.wikipedia.R
 import org.wikipedia.util.StringUtil
 
@@ -11,12 +12,12 @@ import org.wikipedia.util.StringUtil
 open class AppTextView constructor(context: Context, attrs: AttributeSet? = null) : ConfigurableTextView(context, attrs) {
     init {
         if (attrs != null) {
-            val array = context.obtainStyledAttributes(attrs, R.styleable.AppTextView)
-            val htmlText = array.getString(R.styleable.AppTextView_html)
-            if (htmlText != null) {
-                text = StringUtil.fromHtml(htmlText)
+            context.withStyledAttributes(attrs, R.styleable.AppTextView) {
+                val htmlText = getString(R.styleable.AppTextView_html)
+                if (htmlText != null) {
+                    text = StringUtil.fromHtml(htmlText)
+                }
             }
-            array.recycle()
         }
     }
 
