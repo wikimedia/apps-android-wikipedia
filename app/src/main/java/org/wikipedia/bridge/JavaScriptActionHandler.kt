@@ -50,6 +50,15 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun expandCollapsedTables(expand: Boolean): String {
+        return "pcs.c1.Page.expandOrCollapseTables($expand);" +
+                "var hideableSections = document.getElementsByClassName('pcs-section-hideable-header'); " +
+                "for (var i = 0; i < hideableSections.length; i++) { " +
+                "  pcs.c1.Sections.setHidden(hideableSections[i].parentElement.getAttribute('data-mw-section-id'), ${!expand});" +
+                "}"
+    }
+
+    @JvmStatic
     fun scrollToFooter(context: Context): String {
         return "window.scrollTo(0, document.getElementById('pcs-footer-container-menu').offsetTop - ${DimenUtil.getNavigationBarHeight(context)});"
     }

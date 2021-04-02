@@ -1,0 +1,53 @@
+{
+  "type": "standard",
+  "title": "Moscow",
+  "displaytitle": "Moscow",
+  "namespace": {
+    "id": 0,
+    "text": ""
+  },
+  "wikibase_item": "Q649",
+  "titles": {
+    "canonical": "Moscow",
+    "normalized": "Moscow",
+    "display": "Moscow"
+  },
+  "pageid": 19004,
+  "thumbnail": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Spasskaya_Tower_and_the_St._Basil%27s_Cathedral.jpg/320px-Spasskaya_Tower_and_the_St._Basil%27s_Cathedral.jpg",
+    "width": 320,
+    "height": 242
+  },
+  "originalimage": {
+    "source": "https://upload.wikimedia.org/wikipedia/commons/2/23/Spasskaya_Tower_and_the_St._Basil%27s_Cathedral.jpg",
+    "width": 4550,
+    "height": 3437
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "revision": "1015030565",
+  "tid": "09d67a70-9134-11eb-a803-158f284cb2ea",
+  "timestamp": "2021-03-30T08:43:22Z",
+  "description": "Capital and largest city of Russia",
+  "description_source": "local",
+  "coordinates": {
+    "lat": 55.75583333,
+    "lon": 37.61722222
+  },
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikipedia.org/wiki/Moscow",
+      "revisions": "https://en.wikipedia.org/wiki/Moscow?action=history",
+      "edit": "https://en.wikipedia.org/wiki/Moscow?action=edit",
+      "talk": "https://en.wikipedia.org/wiki/Talk:Moscow"
+    },
+    "mobile": {
+      "page": "https://en.m.wikipedia.org/wiki/Moscow",
+      "revisions": "https://en.m.wikipedia.org/wiki/Special:History/Moscow",
+      "edit": "https://en.m.wikipedia.org/wiki/Moscow?action=edit",
+      "talk": "https://en.m.wikipedia.org/wiki/Talk:Moscow"
+    }
+  },
+  "extract": "Moscow is the capital and largest city of Russia. The city stands on the Moskva River in Central Russia, with a population estimated at 12.4 million residents within the city limits, while over 17 million residents in the urban area, and over 20 million residents in the Moscow Metropolitan Area. The city covers an area of 2,511 square kilometres (970 sq mi), while the urban area covers 5,891 square kilometres (2,275 sq mi), and the metropolitan area covers over 26,000 square kilometres (10,000 sq mi). Moscow is among the world's largest cities, being the largest city entirely in Europe, the largest urban area in Europe, the largest metropolitan area in Europe, and the largest city by land area on the European continent.",
+  "extract_html": "<p><b>Moscow</b> is the capital and largest city of Russia. The city stands on the Moskva River in Central Russia, with a population estimated at 12.4 million residents within the city limits, while over 17 million residents in the urban area, and over 20 million residents in the Moscow Metropolitan Area. The city covers an area of 2,511 square kilometres (970 sq mi), while the urban area covers 5,891 square kilometres (2,275 sq mi), and the metropolitan area covers over 26,000 square kilometres (10,000 sq mi). Moscow is among the world's largest cities, being the largest city entirely in Europe, the largest urban area in Europe, the largest metropolitan area in Europe, and the largest city by land area on the European continent.</p>"
+}
