@@ -45,7 +45,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -1087,7 +1086,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
 
             @Override
-            public void setWikiSite(@NotNull WikiSite wikiSite) {
+            public void setWikiSite(@NonNull WikiSite wikiSite) {
                 // ignore
             }
         };
