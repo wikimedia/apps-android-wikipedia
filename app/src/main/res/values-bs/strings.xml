@@ -156,7 +156,7 @@
   <string name="settings_item_preferences">Postavke</string>
   <string name="settings_activity_title">Postavke</string>
   <string name="about_description">O aplikaciji Wikipedia</string>
-  <string name="privacy_policy_description">Politika privatnosti</string>
+  <string name="privacy_policy_description">Pravila o privatnosti</string>
   <string name="terms_of_use_description">Uslovi korištenja</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>

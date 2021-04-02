@@ -255,6 +255,7 @@
   <string name="suggested_edits_image_preview_dialog_image">Назва файла</string>
   <string name="suggested_edits_image_preview_dialog_tags">Тэгі</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
+  <string name="more_language_options">болей</string>
   <string name="main_tooltip_watchlist_title">Спіс назірання</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">на 1 месяц</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">на 3 месяца</string>
