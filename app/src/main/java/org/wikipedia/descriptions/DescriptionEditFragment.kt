@@ -53,11 +53,11 @@ class DescriptionEditFragment : Fragment() {
         fun onBottomBarContainerClicked(action: DescriptionEditActivity.Action)
     }
 
+    private var _binding: FragmentDescriptionEditBinding? = null
+    val binding get() = _binding!!
     private lateinit var funnel: DescriptionEditFunnel
     private lateinit var action: DescriptionEditActivity.Action
     private lateinit var invokeSource: InvokeSource
-    private var _binding: FragmentDescriptionEditBinding? = null
-    val binding get() = _binding!!
     private lateinit var pageTitle: PageTitle
     private var sourceSummary: PageSummaryForEdit? = null
     private var targetSummary: PageSummaryForEdit? = null
@@ -99,7 +99,6 @@ class DescriptionEditFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pageTitle = requireArguments().getParcelable(ARG_TITLE)!!
-        val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
@@ -109,13 +108,14 @@ class DescriptionEditFragment : Fragment() {
         requireArguments().getString(ARG_TARGET_SUMMARY)?.let {
             targetSummary = GsonUnmarshaller.unmarshal(PageSummaryForEdit::class.java, it)
         }
+        val type = if (pageTitle.description == null) DescriptionEditFunnel.Type.NEW else DescriptionEditFunnel.Type.EXISTING
         funnel = DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource)
         funnel.logStart()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentDescriptionEditBinding.inflate(LayoutInflater.from(context), container, false)
+        _binding = FragmentDescriptionEditBinding.inflate(inflater, container, false)
         loadPageSummaryIfNeeded(savedInstanceState)
         funnel.logReady()
         return binding.root
@@ -139,7 +139,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS && activity != null) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS ) {
             callback()?.onDescriptionEditSuccess()
         } else if (requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH &&
                 resultCode == Activity.RESULT_OK && data != null &&
@@ -157,12 +157,12 @@ class DescriptionEditFragment : Fragment() {
 
     private fun loadPageSummaryIfNeeded(savedInstanceState: Bundle?) {
         binding.fragmentDescriptionEditView.showProgressBar(true)
-        if (invokeSource == InvokeSource.PAGE_ACTIVITY && sourceSummary!!.extractHtml!!.isEmpty()) {
+        if (invokeSource == InvokeSource.PAGE_ACTIVITY && sourceSummary?.extractHtml.isNullOrEmpty()) {
             disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getSummary(null, pageTitle.prefixedText)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { setUpEditView(savedInstanceState) }
-                    .subscribe({ summary -> sourceSummary!!.extractHtml = summary.extractHtml },
+                    .subscribe({ summary -> sourceSummary?.extractHtml = summary.extractHtml },
                             { L.e(it) }))
         } else {
             setUpEditView(savedInstanceState)
@@ -174,7 +174,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
         binding.fragmentDescriptionEditView.setCallback(EditViewCallback())
-        binding.fragmentDescriptionEditView.setSummaries(requireActivity(), sourceSummary!!, targetSummary)
+        sourceSummary?.let { binding.fragmentDescriptionEditView.setSummaries(requireActivity(), sourceSummary!!, targetSummary) }
         if (savedInstanceState != null) {
             binding.fragmentDescriptionEditView.setDescription(savedInstanceState.getString(ARG_DESCRIPTION))
             binding.fragmentDescriptionEditView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING))
@@ -215,9 +215,6 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getEditTokenThenSave(forceLogin: Boolean) {
-            if (csrfClient == null) {
-                return
-            }
             csrfClient?.request(forceLogin, object : CsrfTokenClient.Callback {
                 override fun success(token: String) {
                     if (shouldWriteToLocalWiki()) {
@@ -261,28 +258,30 @@ class DescriptionEditFragment : Fragment() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->
                         if (result.hasEditResult() && result.edit() != null) {
-                            when {
-                                result.edit()!!.editSucceeded() -> {
-                                    requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                                    funnel.logSaved(result.edit()!!.newRevId())
-                                }
-                                result.edit()!!.hasEditErrorCode() -> {
+                            result.edit()?.run {
+                                when {
+                                    editSucceeded() -> {
+                                        requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
+                                        funnel.logSaved(newRevId())
+                                    }
+                                    hasEditErrorCode() -> {
 
-                                    // TODO: handle AbuseFilter messages
-                                    // new EditAbuseFilterResult(result.edit().code(), result.edit().info(), result.edit().warning());
-                                    editFailed(IOException(StringUtils.defaultString(result.edit()!!.warning())), false)
-                                }
-                                result.edit()!!.hasCaptchaResponse() -> {
+                                        // TODO: handle AbuseFilter messages
+                                        // new EditAbuseFilterResult(result.edit().code(), result.edit().info(), result.edit().warning());
+                                        editFailed(IOException(StringUtils.defaultString(warning())), false)
+                                    }
+                                    hasCaptchaResponse() -> {
 
-                                    // TODO: handle captcha.
-                                    // new CaptchaResult(result.edit().captchaId());
-                                    funnel.logCaptchaShown()
-                                }
-                                result.edit()!!.hasSpamBlacklistResponse() -> {
-                                    editFailed(IOException(getString(R.string.editing_error_spamblacklist)), false)
-                                }
-                                else -> {
-                                    editFailed(IOException("Received unrecognized edit response"), true)
+                                        // TODO: handle captcha.
+                                        // new CaptchaResult(result.edit().captchaId());
+                                        funnel.logCaptchaShown()
+                                    }
+                                    hasSpamBlacklistResponse() -> {
+                                        editFailed(IOException(getString(R.string.editing_error_spamblacklist)), false)
+                                    }
+                                    else -> {
+                                        editFailed(IOException("Received unrecognized edit response"), true)
+                                    }
                                 }
                             }
                         } else {
@@ -361,7 +360,7 @@ class DescriptionEditFragment : Fragment() {
 
         private fun editFailed(caught: Throwable, logError: Boolean) {
             binding.fragmentDescriptionEditView.setSaveState(false)
-            FeedbackUtil.showError(activity!!, caught)
+            FeedbackUtil.showError(requireActivity(), caught)
             L.e(caught)
             if (logError) {
                 funnel.logError(caught.message)
@@ -408,7 +407,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     companion object {
-        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})"
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         private const val ARG_TITLE = "title"
         private const val ARG_REVIEWING = "inReviewing"
@@ -417,8 +415,8 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_ACTION = "action"
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
+        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*}})"
 
-        @JvmStatic
         fun newInstance(title: PageTitle,
                         highlightText: String?,
                         sourceSummary: String?,
