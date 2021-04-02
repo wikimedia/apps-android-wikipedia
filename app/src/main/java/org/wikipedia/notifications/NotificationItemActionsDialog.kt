@@ -107,10 +107,6 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private inner class NotificationLinkHandler constructor(context: Context) : LinkHandler(context) {
-        private var wikiSite: WikiSite? = null
-        fun setWikiSite(wikiSite: WikiSite) {
-            this.wikiSite = wikiSite
-        }
 
         override fun onPageLinkClicked(anchor: String, linkText: String) {
             // ignore
@@ -120,8 +116,10 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
             // ignore
         }
 
+        override lateinit var wikiSite: WikiSite
+
         override fun onInternalLinkClicked(title: PageTitle) {
-            callback()!!.onActionPageTitle(title)
+            callback()?.onActionPageTitle(title)
         }
 
         override fun onExternalLinkClicked(uri: Uri) {
@@ -131,10 +129,6 @@ class NotificationItemActionsDialog : ExtendedBottomSheetDialogFragment() {
             } catch (e: Exception) {
                 L.e(e)
             }
-        }
-
-        override fun getWikiSite(): WikiSite {
-            return wikiSite!!
         }
     }
 

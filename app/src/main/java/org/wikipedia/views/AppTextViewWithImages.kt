@@ -13,7 +13,8 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.graphics.drawable.updateBounds
+import androidx.core.graphics.withTranslation
 import androidx.core.text.set
 import androidx.core.text.toSpannable
 import kotlin.math.roundToInt
@@ -66,10 +67,10 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
 
     @VisibleForTesting
     fun getFormattedDrawable(@DrawableRes drawableId: Int, size: Float, @ColorInt color: Int): Drawable {
-        val drawable = AppCompatResources.getDrawable(context, drawableId)
-        DrawableCompat.setTint(drawable!!, color)
+        val drawable = AppCompatResources.getDrawable(context, drawableId)!!
+        drawable.setTint(color)
         val ratio = drawable.intrinsicWidth / drawable.intrinsicHeight.toFloat()
-        drawable.setBounds(0, 0, size.roundToInt(), (size * ratio).roundToInt())
+        drawable.updateBounds(right = size.roundToInt(), bottom = (size * ratio).roundToInt())
         return drawable
     }
 
@@ -93,12 +94,11 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
         override fun draw(canvas: Canvas, text: CharSequence, start: Int, end: Int, x: Float, top: Int,
                           y: Int, bottom: Int, paint: Paint) {
             val drawable = drawable
-            canvas.save()
             var transY = bottom - drawable.bounds.bottom
             transY -= paint.fontMetricsInt.descent * lineSpacingMultiplier.toInt()
-            canvas.translate(x, transY.toFloat())
-            drawable.draw(canvas)
-            canvas.restore()
+            canvas.withTranslation(x = x, y = transY.toFloat()) {
+                drawable.draw(this)
+            }
         }
     }
 }

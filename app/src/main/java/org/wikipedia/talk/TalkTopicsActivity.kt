@@ -41,10 +41,10 @@ import kotlin.collections.ArrayList
 class TalkTopicsActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicsBinding
     private lateinit var pageTitle: PageTitle
-    private val disposables = CompositeDisposable()
-    private val topics = ArrayList<TalkPage.Topic>()
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var funnel: TalkFunnel
+    private val disposables = CompositeDisposable()
+    private val topics = ArrayList<TalkPage.Topic>()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1079,8 +1079,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 startGalleryActivity(title.getPrefixedText());
             }
 
-            @Override public WikiSite getWikiSite() {
+            @Override
+            @NonNull
+            public WikiSite getWikiSite() {
                 return model.getTitle().getWikiSite();
+            }
+
+            @Override
+            public void setWikiSite(@NonNull WikiSite wikiSite) {
+                // ignore
             }
         };
         bridge.addListener("link", linkHandler);
