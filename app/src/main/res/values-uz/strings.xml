@@ -206,6 +206,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
   <string name="about_contributors_heading">Ilova mualliflari:</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
@@ -838,6 +839,10 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">Ishga tushirish</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Zoʻr, shunday davom eting! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Kundalik maqsadga erishdingiz! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Siz maqsadga erishdingiz</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
@@ -913,6 +918,18 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Bekor qilmoq</string>
   <string name="edit_type_all">Barcha hissalar</string>
   <string name="content_description_for_page_indicator">%1$d / %2$d sahifa</string>
+  <string name="image_recommendations_task_accept">Ha</string>
+  <string name="image_recommendations_task_reject">Yoʻq</string>
+  <string name="image_recommendations_task_not_sure">Aniq emas</string>
+  <string name="image_recommendations_task_processing">Qayta ishlanmoqda…</string>
+  <string name="image_recommendations_task_daily_amount">%d / %d</string>
+  <string name="image_recommendations_task_choice_not_relevant">Tegishli emas</string>
+  <string name="image_recommendations_task_choice_low_quality">Past sifatli</string>
+  <string name="image_recommendations_task_choice_noinfo">Maʼlumot yetarli emas</string>
+  <string name="image_recommendations_task_choice_offensive">Haqoratli</string>
+  <string name="image_recommendations_task_choice_other">Boshqa</string>
+  <string name="image_recommendations_task_choice_continue">Davom etish</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Taklif sababi:&lt;/i&gt; %s</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
   <string name="wikitext_link">Havola</string>
@@ -964,7 +981,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 oyga</string>
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s 1 va uning munozara sahifasi sizning kuzatuvlaringiz roʻyxatidan oʻchirildi.</string>
   <string name="watchlist_expiry_dialog_title">Kuzatuv roʻyxati vaqtini tanlang</string>
-  <string name="watchlist_expiry_dialog_permanent">Vaqtinchalik</string>
+  <string name="watchlist_expiry_dialog_permanent">Doimiy</string>
   <string name="watchlist_expiry_dialog_one_week">1 hafta</string>
   <string name="watchlist_expiry_dialog_one_month">1 oy</string>
   <string name="watchlist_expiry_dialog_three_months">3 oy</string>

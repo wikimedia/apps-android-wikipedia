@@ -851,6 +851,10 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
   <string name="edit_type_all">Alle bidrag</string>
   <string name="content_description_for_page_indicator">Side %1$d af %2$d</string>
+  <string name="image_recommendations_task_accept">Ja</string>
+  <string name="image_recommendations_task_reject">Nej</string>
+  <string name="image_recommendations_task_not_sure">Ikke sikker</string>
+  <string name="image_recommendations_task_choice_no">Hvorfor valgte du nej?</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>
