@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.graphics.*
+import androidx.core.graphics.applyCanvas
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils
@@ -42,12 +43,13 @@ class WhiteBackgroundTransformation : BitmapTransformation() {
     fun applyMatrixWithBackground(inBitmap: Bitmap, targetBitmap: Bitmap, matrix: Matrix) {
         TransformationUtils.getBitmapDrawableLock().lock()
         try {
-            val canvas = Canvas(targetBitmap)
-            canvas.drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_WHITE)
-            canvas.drawBitmap(inBitmap, matrix, DEFAULT_PAINT)
-            if (WikipediaApp.getInstance().currentTheme.isDark && Prefs.shouldDimDarkModeImages()) {
-                // "dim" images by drawing a translucent black rectangle over them.
-                canvas.drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_DARK_OVERLAY)
+            targetBitmap.applyCanvas {
+                drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_WHITE)
+                drawBitmap(inBitmap, matrix, DEFAULT_PAINT)
+                if (WikipediaApp.getInstance().currentTheme.isDark && Prefs.shouldDimDarkModeImages()) {
+                    // "dim" images by drawing a translucent black rectangle over them.
+                    drawRect(0f, 0f, targetBitmap.width.toFloat(), targetBitmap.height.toFloat(), PAINT_DARK_OVERLAY)
+                }
             }
         } finally {
             TransformationUtils.getBitmapDrawableLock().unlock()

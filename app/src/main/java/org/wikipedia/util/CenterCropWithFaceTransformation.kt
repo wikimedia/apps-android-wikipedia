@@ -2,6 +2,7 @@ package org.wikipedia.util
 
 import android.graphics.*
 import android.media.FaceDetector
+import androidx.core.graphics.applyCanvas
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils
@@ -97,13 +98,13 @@ class CenterCropWithFaceTransformation : BitmapTransformation() {
 
     private fun new565ScaledBitmap(pool: BitmapPool, src: Bitmap): Bitmap {
         val copy = pool.getDirty(BITMAP_COPY_WIDTH, src.height * BITMAP_COPY_WIDTH / src.width, Bitmap.Config.RGB_565)
-        val canvas = Canvas(copy)
-        val srcRect = Rect(0, 0, src.width, src.height)
-        val destRect = Rect(0, 0, BITMAP_COPY_WIDTH, copy.height)
-        val paint = Paint()
-        paint.color = Color.BLACK
-        canvas.drawBitmap(src, srcRect, destRect, paint)
-        return copy
+        return copy.applyCanvas {
+            val srcRect = Rect(0, 0, src.width, src.height)
+            val destRect = Rect(0, 0, BITMAP_COPY_WIDTH, copy.height)
+            val paint = Paint()
+            paint.color = Color.BLACK
+            drawBitmap(src, srcRect, destRect, paint)
+        }
     }
 
     private fun isBitmapEligibleForImageProcessing(bitmap: Bitmap): Boolean {

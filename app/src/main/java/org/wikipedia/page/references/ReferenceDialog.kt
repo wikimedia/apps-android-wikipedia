@@ -24,7 +24,7 @@ import java.util.*
 class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
         val linkHandler: LinkHandler
-        val referencesGroup: List<PageReferences.Reference>
+        val referencesGroup: List<PageReferences.Reference>?
         val selectedReferenceIndex: Int
     }
 
@@ -34,12 +34,14 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentReferencesPagerBinding.inflate(inflater, container, false)
         callback()?.let {
-            binding.referenceTitleText.text = requireContext().getString(R.string.reference_title, "")
-            binding.referencePager.offscreenPageLimit = 2
-            binding.referencePager.adapter = ReferencesAdapter(it.referencesGroup)
-            TabLayoutMediator(binding.pageIndicatorView, binding.referencePager) { _, _ -> }.attach()
-            binding.referencePager.setCurrentItem(it.selectedReferenceIndex, true)
-            L10nUtil.setConditionalLayoutDirection(binding.root, it.linkHandler.wikiSite.languageCode())
+            it.referencesGroup?.run {
+                binding.referenceTitleText.text = requireContext().getString(R.string.reference_title, "")
+                binding.referencePager.offscreenPageLimit = 2
+                binding.referencePager.adapter = ReferencesAdapter(this)
+                TabLayoutMediator(binding.pageIndicatorView, binding.referencePager) { _, _ -> }.attach()
+                binding.referencePager.setCurrentItem(it.selectedReferenceIndex, true)
+                L10nUtil.setConditionalLayoutDirection(binding.root, it.linkHandler.wikiSite.languageCode())
+            } ?: return@let null
         } ?: run {
             dismiss()
         }
@@ -88,7 +90,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
 
     private inner class ViewHolder constructor(val binding: ViewReferencePagerItemBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.referenceText.movementMethod = LinkMovementMethodExt(callback()!!.linkHandler)
+            binding.referenceText.movementMethod = LinkMovementMethodExt(callback()?.linkHandler)
         }
 
         fun bindItem(idText: CharSequence?, contents: CharSequence?) {
@@ -112,7 +114,7 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
         }
     }
 
-    fun callback(): Callback? {
+    private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
     }
 }

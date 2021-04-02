@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * AtonX
+* Dbrant
 * EditorPO
 * Hromoslav
 * KuboF
@@ -69,7 +70,7 @@
   <string name="menu_page_add_to_default_list">Uložiť</string>
   <string name="feed_card_add_to_list">Pridať do zoznamu na prečítanie</string>
   <string name="feed_card_add_to_default_list">Uložiť</string>
-  <string name="menu_page_share">Zdieľať</string>
+  <string name="menu_page_share">Zdieľať odkaz</string>
   <string name="menu_page_open_a_new_tab">Otvoriť novú kartu</string>
   <string name="menu_page_new_tab">Nová karta</string>
   <string name="menu_page_reading_lists">Zoznamy na prečítanie</string>
@@ -113,7 +114,7 @@
   <string name="edit_section_captcha_request_an_account_message">Nevidíte obrázok? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Požiadajte o účet&lt;/a&gt; (anglicky)</string>
   <string name="edit_section_captcha_hint">Zadajte text z obrázku vyššie</string>
   <string name="title_captcha">Zadajte text</string>
-  <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
+  <string name="edit_section_captcha_reload">Ťuknutím načítate text znovu</string>
   <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
@@ -180,7 +181,7 @@
   <string name="preferences_heading_data_usage">Spotreba dát</string>
   <string name="preferences_heading_experimental">Experimentálne</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronizácia zoznamov na prečítanie</string>
-  <string name="preference_title_download_reading_list_articles">Preberat články v zoznamoch na prečítanie</string>
+  <string name="preference_title_download_reading_list_articles">Stiahnuť články v zoznamoch na prečítanie</string>
   <string name="preference_summary_sync_reading_lists">Synchronizovať zoznamy na prečítanie naprieč rôznymi zariadeniami ich uložením do vášho účtu na Wikipédii.</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovať zoznamy na prečítanie naprieč rôznymi zariadeniami pomocou ich uloženia do vášho účtu „%s“ na Wikipédii.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Chcete odstrániť synchronizované zoznamy na prečítanie z účtu „%s“?</string>
@@ -193,7 +194,7 @@
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
   <string name="history_filter_list_hint">Filtrovať históriu</string>
   <string name="error_can_not_process_link">Nie je možné zobraziť tento odkaz</string>
-  <string name="page_protected_autoconfirmed">Táto stránka je polozamknutá.</string>
+  <string name="page_protected_autoconfirmed">Táto stránka je čiastočne zamknutá.</string>
   <string name="page_protected_sysop">Táto stránka je zamknutá.</string>
   <string name="page_protected_other">Táto stránka je zamknutá do nasledovných úrovní: %s</string>
   <string name="page_protected_can_not_edit">Mrzí nás to, no váš účet v súčasnosti nemá dostatočné práva na úpravu tohto článku.</string>
@@ -285,7 +286,7 @@
   <string name="preference_summary_show_images">Zapnite alebo vypnite načítavanie obrázkov na stránkach. Toto nastavenie zaškrtnite, ak je vaše internetové pripojenie pomalé alebo máte obmedzený dátový program.</string>
   <string name="preference_title_download_only_over_wifi">Preberať len cez Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Chcete potvrdiť prevzatie pomocou mobilných dát?</string>
-  <string name="dialog_text_download_only_over_wifi">Máte zapnutú funkciu „Preberať len cez Wi-Fi“ v Nastaveniach. Chcete povoliť používaniemobilných dát iba pre toto preberanie?</string>
+  <string name="dialog_text_download_only_over_wifi">Máte zapnutú funkciu „Preberať len cez Wi-Fi“ v Nastaveniach. Chcete povoliť používanie mobilných dát iba pre toto preberanie?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Povoliť</string>
   <string name="read_more_section">Prečítajte si viac</string>
   <string name="about_article_section">O tomto článku</string>
@@ -305,8 +306,8 @@
   <string name="cc_logo">Licencia Creative Commons</string>
   <string name="captcha_image">Captcha obrázok</string>
   <string name="gallery_fair_use_license">Férové použitie</string>
-  <string name="gallery_uploader_unknown">Uploader neznámy</string>
-  <string name="gallery_not_available_offline_snackbar">Zobrazenie galérie nie je dostupné offline.</string>
+  <string name="gallery_uploader_unknown">Pôvodca neznámy</string>
+  <string name="gallery_not_available_offline_snackbar">Zobrazenie galérie nie je dostupné bez pripojenia.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Zavrieť</string>
   <string name="menu_new_tab">Nová karta</string>
   <string name="menu_close_all_tabs">Zavrie všetky karty</string>
@@ -335,7 +336,7 @@
   <string name="button_add_to_reading_list">Pridať do zoznamu na prečítanie</string>
   <string name="page_offline_notice_cannot_load_while_offline">Článok nemôže byť načítaný pokiaľ nie ste pripojený k internetu.</string>
   <string name="page_offline_notice_add_to_reading_list">Tip: Pridajte článok do zoznamu na prečítanie a hneď, ako budete opäť pripojený, sa stiahne.</string>
-  <string name="page_offline_notice_last_date">Čítate offline verziu tohto článku, ktorá bola uložená %s.</string>
+  <string name="page_offline_notice_last_date">Čítate bez pripojenia verziu tohto článku, ktorá bola uložená %s.</string>
   <string name="button_get_directions">Nájsť trasu</string>
   <string name="error_no_maps_app">Nenašli sme žiadne aplikácie poskytujúce navigáciu.</string>
   <string name="preference_title_customize_explore_feed">Denná dávka prieskumu</string>
@@ -343,8 +344,8 @@
   <string name="preference_summary_customize_explore_feed">Prispôsobiť dennú dávku prieskumu</string>
   <string name="preference_summary_show_link_previews">Po kliknutí na odkaz zobraziť rýchly náhľad článkov.</string>
   <string name="preference_title_collapse_tables">Zbaliť tabuľky</string>
-  <string name="preference_summary_collapse_tables">Automaticky zbalí tabuľky v článkoch, ako sú infoboxy, referencie a poznámky.</string>
-  <string name="nav_item_donate">Prispieť</string>
+  <string name="preference_summary_collapse_tables">Automaticky zbalí tabuľky v článkoch, ako sú informačné boxy, referencie a poznámky.</string>
+  <string name="nav_item_donate">Darovať</string>
   <string name="error_voice_search_not_available">Ospravedlňujeme sa, rozpoznávanie hlasu nie je k dispozícii.</string>
   <string name="location_service_disabled">Služby určovania polohy sú zakázané.</string>
   <string name="enable_location_service">Povoliť</string>
@@ -366,8 +367,8 @@
   <string name="reference_title">Referencia %s</string>
   <string name="reference_list_title">Referencie</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Stmavenie obrázkov (v tmavej téme)</string>
-  <string name="preference_title_prefer_offline_content">Preferovať offline obsah</string>
-  <string name="preference_summary_prefer_offline_content">Ušetriť využitie dát tým, že aplikácia načíta články, ktoré sú k dispozícii offline a nebude načítavať najnovšiu verziu článku.</string>
+  <string name="preference_title_prefer_offline_content">Preferovať obsah bez pripojenia</string>
+  <string name="preference_summary_prefer_offline_content">Ušetriť využitie dát tým, že aplikácia načíta články, ktoré sú k dispozícii bez pripojenia a nebude načítavať najnovšiu verziu článku.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prispôsobiť vzhľadu systému</string>
   <string name="page_footer_license_text">Obsah je dostupný pod $1, pokiaľ nie je uvedené inak</string>
   <string name="empty_tab_title">Nová karta</string>
