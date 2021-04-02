@@ -5,32 +5,24 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources.NotFoundException
 import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.net.Uri
 import android.util.TypedValue
 import android.view.MenuItem
 import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.MenuItemCompat
 import kotlin.jvm.Throws
 
 object ResourceUtil {
-
     @JvmStatic
     fun bitmapFromVectorDrawable(context: Context, @DrawableRes id: Int, @ColorRes tintColor: Int?): Bitmap {
-        val vectorDrawable = AppCompatResources.getDrawable(context, id)
-        val width = vectorDrawable!!.intrinsicWidth
-        val height = vectorDrawable.intrinsicHeight
-        vectorDrawable.setBounds(0, 0, width, height)
+        val vectorDrawable = AppCompatResources.getDrawable(context, id)!!.mutate()
         if (tintColor != null) {
-            DrawableCompat.setTint(vectorDrawable, ContextCompat.getColor(context, tintColor))
+            vectorDrawable.setTint(ContextCompat.getColor(context, tintColor))
         }
-        val bm = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bm)
-        vectorDrawable.draw(canvas)
-        return bm
+        return vectorDrawable.toBitmap()
     }
 
     private fun getThemedAttribute(context: Context, @AttrRes id: Int): TypedValue? {
