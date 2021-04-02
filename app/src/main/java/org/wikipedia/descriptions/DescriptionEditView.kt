@@ -18,15 +18,7 @@ import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
-import org.wikipedia.util.DeviceUtil.updateStatusBarTheme
-import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
-import org.wikipedia.util.ResourceUtil.getThemedAttributeId
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.StringUtil.highlightEditText
-import org.wikipedia.util.StringUtil.removeHTMLTags
-import org.wikipedia.util.StringUtil.strip
+import org.wikipedia.util.*
 import java.util.*
 
 class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
@@ -38,21 +30,21 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         fun onVoiceInputClick()
     }
 
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    var callback: Callback? = null
-    private val binding = ViewDescriptionEditBinding.inflate(LayoutInflater.from(context), this)
-    private var originalDescription: String? = null
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
     private lateinit var action: DescriptionEditActivity.Action
+    private val binding = ViewDescriptionEditBinding.inflate(LayoutInflater.from(context), this)
+    private val mlKitLanguageDetector = MlKitLanguageDetector()
+    private val textValidateRunnable = Runnable { validateText() }
+    private var originalDescription: String? = null
     private var isTranslationEdit = false
     private var isLanguageWrong = false
     private var isTextValid = false
-    private val mlKitLanguageDetector = MlKitLanguageDetector()
-    private val textValidateRunnable = Runnable { validateText() }
+    var callback: Callback? = null
 
     var description: String?
         get() = binding.viewDescriptionEditText.text.toString().trim()
@@ -61,7 +53,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
 
     init {
-        setButtonLongPressToast(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton, binding.viewDescriptionEditHelpButton)
+        FeedbackUtil.setButtonLongPressToast(binding.viewDescriptionEditSaveButton, binding.viewDescriptionEditCancelButton, binding.viewDescriptionEditHelpButton)
         orientation = VERTICAL
         mlKitLanguageDetector.callback = this
 
@@ -131,10 +123,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
         return if (originalDescription.isNullOrEmpty()) {
             when (action) {
-                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> { R.string.description_edit_translate_description }
-                DescriptionEditActivity.Action.ADD_CAPTION -> { R.string.description_edit_add_image_caption }
-                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> { R.string.description_edit_translate_image_caption }
-                else -> { R.string.description_edit_add_description }
+                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> R.string.description_edit_translate_description
+                DescriptionEditActivity.Action.ADD_CAPTION -> R.string.description_edit_add_image_caption
+                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> R.string.description_edit_translate_image_caption
+                else -> R.string.description_edit_add_description
             }
         } else {
             if (action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
@@ -155,10 +147,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 context.getString(R.string.description_edit_translate_caption_label_per_language,
                         WikipediaApp.getInstance().language().getAppLanguageLocalizedName(lang))
             }
-            DescriptionEditActivity.Action.ADD_CAPTION -> {
-                context.getString(R.string.description_edit_add_caption_label)
-            }
-            else -> { context.getString(R.string.description_edit_article_description_label) }
+            DescriptionEditActivity.Action.ADD_CAPTION -> context.getString(R.string.description_edit_add_caption_label)
+            else -> context.getString(R.string.description_edit_article_description_label)
         }
     }
 
@@ -182,13 +172,13 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         if (context is DescriptionEditActivity &&
                 (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_CAPTION)) {
-            binding.viewDescriptionEditToolbarContainer.setBackgroundResource(if (enabled) android.R.color.black else getThemedAttributeId(context, R.attr.paper_color))
-            binding.viewDescriptionEditSaveButton.setColorFilter(if (enabled) Color.WHITE else getThemedColor(context, R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN)
-            binding.viewDescriptionEditCancelButton.setColorFilter(if (enabled) Color.WHITE else getThemedColor(context, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
-            binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else getThemedColor(context, R.attr.material_theme_primary_color))
-            (context as DescriptionEditActivity).updateStatusBarColor(if (enabled) Color.BLACK else getThemedColor(context, R.attr.paper_color))
-            updateStatusBarTheme(context as DescriptionEditActivity, null, enabled)
-            (context as DescriptionEditActivity).updateNavigationBarColor(if (enabled) Color.BLACK else getThemedColor(context, R.attr.paper_color))
+            binding.viewDescriptionEditToolbarContainer.setBackgroundResource(if (enabled) android.R.color.black else ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
+            binding.viewDescriptionEditSaveButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN)
+            binding.viewDescriptionEditCancelButton.setColorFilter(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN)
+            binding.viewDescriptionEditHeader.setTextColor(if (enabled) Color.WHITE else ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
+            (context as DescriptionEditActivity).updateStatusBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
+            DeviceUtil.updateStatusBarTheme(context as DescriptionEditActivity, null, enabled)
+            (context as DescriptionEditActivity).updateNavigationBarColor(if (enabled) Color.BLACK else ResourceUtil.getThemedColor(context, R.attr.paper_color))
         }
     }
 
@@ -197,12 +187,12 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         pageSummaryForEdit = if (isTranslationEdit) targetSummary!! else sourceSummary
         binding.viewDescriptionEditPageSummaryContainer.visibility = VISIBLE
         binding.viewDescriptionEditPageSummaryLabel.text = getLabelText(sourceSummary.lang)
-        binding.viewDescriptionEditPageSummary.text = strip(removeHTMLTags(if (isTranslationEdit || action == DescriptionEditActivity.Action.ADD_CAPTION) sourceSummary.description else sourceSummary.extractHtml))
+        binding.viewDescriptionEditPageSummary.text = StringUtil.strip(StringUtil.removeHTMLTags(if (isTranslationEdit || action == DescriptionEditActivity.Action.ADD_CAPTION) sourceSummary.description else sourceSummary.extractHtml))
         if (binding.viewDescriptionEditPageSummary.text.toString().isEmpty() || action == DescriptionEditActivity.Action.ADD_CAPTION &&
                 !sourceSummary.pageTitle.description.isNullOrEmpty()) {
             binding.viewDescriptionEditPageSummaryContainer.visibility = GONE
         }
-        setConditionalLayoutDirection(this, if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalLayoutDirection(this, if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode())
 
         binding.viewDescriptionEditReadArticleBarContainer.setSummary(pageSummaryForEdit)
         binding.viewDescriptionEditReadArticleBarContainer.setOnClickListener { performReadArticleClick() }
@@ -219,12 +209,12 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun loadReviewContent(enabled: Boolean) {
         if (enabled) {
-            binding.viewDescriptionEditReviewContainer.setSummary(pageSummaryForEdit, description!!, action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION)
+            binding.viewDescriptionEditReviewContainer.setSummary(pageSummaryForEdit, description.orEmpty(), action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION)
             binding.viewDescriptionEditReviewContainer.show()
             binding.viewDescriptionEditReadArticleBarContainer.hide()
             binding.viewDescriptionEditContainer.visibility = GONE
             binding.viewDescriptionEditHelpButton.visibility = GONE
-            hideSoftKeyboard(binding.viewDescriptionEditReviewContainer)
+            DeviceUtil.hideSoftKeyboard(binding.viewDescriptionEditReviewContainer)
         } else {
             binding.viewDescriptionEditReviewContainer.hide()
             binding.viewDescriptionEditReadArticleBarContainer.show()
@@ -241,7 +231,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setError(text: CharSequence?) {
         binding.viewDescriptionEditTextLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp)
-        val colorStateList = ColorStateList.valueOf(getThemedColor(context, R.attr.colorError))
+        val colorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.colorError))
         binding.viewDescriptionEditTextLayout.setErrorIconTintList(colorStateList)
         binding.viewDescriptionEditTextLayout.setErrorTextColor(colorStateList)
         binding.viewDescriptionEditTextLayout.boxStrokeErrorColor = colorStateList
@@ -276,7 +266,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     private fun enqueueValidateText() {
         removeCallbacks(textValidateRunnable)
-        postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS.toLong())
+        postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS)
     }
 
     private fun validateText() {
@@ -309,8 +299,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
 
     fun setHighlightText(text: String?) {
         if (text != null && originalDescription != null) {
-            val scrollDelayMs = 500
-            postDelayed({ highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text) }, scrollDelayMs.toLong())
+            postDelayed({ StringUtil.highlightEditText(binding.viewDescriptionEditText, originalDescription!!, text) }, 500)
         }
     }
 
@@ -327,18 +316,18 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     private fun enableSaveButton(enabled: Boolean, saveInProgress: Boolean) {
         if (saveInProgress) {
             binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(getThemedColor(context, R.attr.themed_icon_color)))
+            ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
             binding.viewDescriptionEditSaveButton.isEnabled = false
             binding.viewDescriptionEditSaveButton.alpha = 1 / 2f
         } else {
             binding.viewDescriptionEditSaveButton.alpha = 1f
             if (enabled) {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_circle_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(getThemedColor(context, R.attr.themed_icon_color)))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color)))
                 binding.viewDescriptionEditSaveButton.isEnabled = true
             } else {
                 binding.viewDescriptionEditSaveButton.setImageResource(R.drawable.ic_check_black_24dp)
-                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(getThemedColor(context, R.attr.material_theme_de_emphasised_color)))
+                ImageViewCompat.setImageTintList(binding.viewDescriptionEditSaveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)))
                 binding.viewDescriptionEditSaveButton.isEnabled = false
             }
         }
@@ -366,6 +355,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     companion object {
-        private const val TEXT_VALIDATE_DELAY_MILLIS = 1000
+        private const val TEXT_VALIDATE_DELAY_MILLIS = 1000L
     }
 }
