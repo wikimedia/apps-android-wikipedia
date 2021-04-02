@@ -101,7 +101,6 @@
         android:id="@+id/imageSuggestionContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:paddingBottom="4dp"
         android:background="?attr/paper_color"
         android:elevation="12dp"
@@ -148,13 +147,15 @@
 
         <TextView
             android:id="@+id/instructionText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/robotIcon"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constrainedWidth="true"
             android:layout_marginStart="17dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_8dp_accent90_fill"
             android:padding="10dp"
             android:textSize="16sp"
