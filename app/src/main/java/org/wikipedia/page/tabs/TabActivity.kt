@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.graphics.scale
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
@@ -316,7 +317,7 @@ class TabActivity : BaseActivity() {
                         height = MAX_CACHED_BMP_SIZE
                         width = height * cacheBmp.width / cacheBmp.height
                     }
-                    bmp = Bitmap.createScaledBitmap(cacheBmp, width, height, true)
+                    bmp = cacheBmp.scale(width, height)
                 }
                 if (!wasCacheEnabled) {
                     view.isDrawingCacheEnabled = false

@@ -107,7 +107,7 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
             binding.fragmentOnboardingForwardButton.visibility = View.GONE
             binding.fragmentOnboardingDoneButton.visibility = View.VISIBLE
         } else {
-            binding.fragmentOnboardingSkipButton.visibility = View.VISIBLE
+            binding.fragmentOnboardingSkipButton.visibility = if (enableSkip) View.VISIBLE else View.GONE
             binding.fragmentOnboardingForwardButton.visibility = View.VISIBLE
             binding.fragmentOnboardingDoneButton.visibility = View.GONE
         }
