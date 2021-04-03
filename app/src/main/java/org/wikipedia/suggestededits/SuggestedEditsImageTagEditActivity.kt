@@ -18,7 +18,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
+class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsItemFragment.Callback {
 
     private lateinit var binding: ActivitySuggestedEditsFeedCardImageTagsBinding
     private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null

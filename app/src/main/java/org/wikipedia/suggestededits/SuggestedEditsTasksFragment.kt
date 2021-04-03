@@ -104,7 +104,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
-        setUpTasks()
         binding.tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
@@ -125,6 +124,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        setUpTasks()
         refreshContents()
         SuggestedEditsFunnel.get().resume()
     }
@@ -397,17 +397,21 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
-        addImageTagsTask.translatable = false
+        addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
 
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
+        addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
+        addImageCaptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
+        addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
+        addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
@@ -415,15 +419,15 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
-        override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
+        override fun onViewClick(task: SuggestedEditsTask, secondary: Boolean) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && secondary) {
                 startActivityForResult(WikipediaLanguagesActivity.newIntent(requireActivity(), InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_ADD_A_LANGUAGE)
                 return
             }
             if (task == addDescriptionsTask) {
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION, InvokeSource.SUGGESTED_EDITS))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION, InvokeSource.SUGGESTED_EDITS))
             } else if (task == addImageCaptionsTask) {
-                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION, InvokeSource.SUGGESTED_EDITS))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION, InvokeSource.SUGGESTED_EDITS))
             } else if (task == addImageTagsTask) {
                 if (Prefs.shouldShowImageTagsOnboarding()) {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
