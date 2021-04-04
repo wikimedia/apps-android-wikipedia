@@ -4,7 +4,8 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -42,10 +43,10 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
             binding.primaryButton.iconPadding = DimenUtil.roundedDpToPx(8f)
         }
         binding.taskIcon.setImageResource(task.imageDrawable)
-        binding.taskTitleNewLabel.visibility = if (task.new) VISIBLE else GONE
-        binding.taskDailyProgress?.visibility = if (!task.new && task.dailyProgressMax > 0) VISIBLE else GONE
+        binding.taskTitleNewLabel.isVisible = task.new
+        binding.taskDailyProgress.isVisible = !task.new && task.dailyProgressMax > 0
         if (task.dailyProgressMax > 0) {
-            binding.taskDailyProgress?.update(task.dailyProgress, task.dailyProgressMax)
+            binding.taskDailyProgress.update(task.dailyProgress, task.dailyProgressMax)
         }
 
         setOnClickListener {
@@ -63,7 +64,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
                 callback?.onViewClick(task, true)
             }
         }
-        binding.secondaryButton.visibility = if (task.secondaryAction.isNullOrEmpty()) View.GONE else VISIBLE
+        binding.secondaryButton.isGone = task.secondaryAction.isNullOrEmpty()
         binding.secondaryButton.text = task.secondaryAction
     }
 

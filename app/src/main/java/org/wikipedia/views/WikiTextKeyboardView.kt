@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.FrameLayout
+import androidx.core.view.isVisible
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 
 class WikiTextKeyboardView : FrameLayout {
@@ -22,9 +23,9 @@ class WikiTextKeyboardView : FrameLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
-        binding.wikitextButtonUndo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
-        binding.wikitextButtonRedo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
-        binding.wikitextUndoRedoSeparator.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
+        binding.wikitextButtonUndo.isVisible = Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP
+        binding.wikitextButtonRedo.isVisible = Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP
+        binding.wikitextUndoRedoSeparator.isVisible = Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP
 
         binding.wikitextButtonLink.setOnClickListener {
             editText?.inputConnection?.let {

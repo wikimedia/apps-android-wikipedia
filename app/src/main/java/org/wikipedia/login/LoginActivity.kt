@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.isVisible
 import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -229,7 +230,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun showProgressBar(enable: Boolean) {
-        binding.viewProgressBar.visibility = if (enable) View.VISIBLE else View.GONE
+        binding.viewProgressBar.isVisible = enable
         binding.loginButton.isEnabled = !enable
         binding.loginButton.setText(if (enable) R.string.login_in_progress_dialog_message else R.string.menu_login)
     }

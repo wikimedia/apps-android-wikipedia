@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.R
@@ -45,7 +46,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     private val summaryTags = mutableListOf<EditSummaryTag>()
     private val disposables = CompositeDisposable()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
-    val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
+    val isActive get() = binding.editPreviewContainer.isVisible
 
     override lateinit var linkHandler: LinkHandler
     override val model = PageViewModel()

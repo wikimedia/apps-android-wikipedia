@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.core.view.isGone
 import org.wikipedia.databinding.ViewReadingListPageActionsBinding
 import org.wikipedia.util.StringUtil
 
@@ -56,7 +57,7 @@ class ReadingListItemActionsView : LinearLayout {
         binding.readingListItemOfflineSwitch.isChecked = offline
         binding.readingListItemTitle.text = StringUtil.fromHtml(pageTitle)
         binding.readingListItemRemoveText.text = removeFromListText
-        binding.readingListItemSelect.visibility = if (hasActionMode) GONE else VISIBLE
-        binding.readingListItemMoveToOther.visibility = if (hasActionMode) GONE else VISIBLE
+        binding.readingListItemSelect.isGone = hasActionMode
+        binding.readingListItemMoveToOther.isGone = hasActionMode
     }
 }

@@ -10,6 +10,7 @@ import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -256,7 +257,7 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun showProgressBar(enable: Boolean) {
-        binding.viewProgressBar.visibility = if (enable) View.VISIBLE else View.GONE
+        binding.viewProgressBar.isVisible = enable
         binding.captchaContainer.captchaSubmitButton.isEnabled = !enable
         binding.captchaContainer.captchaSubmitButton.setText(if (enable) R.string.dialog_create_account_checking_progress else R.string.create_account_button)
     }

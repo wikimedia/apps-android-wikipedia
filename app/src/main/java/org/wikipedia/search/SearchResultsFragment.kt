@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.collection.LruCache
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -96,7 +98,7 @@ class SearchResultsFragment : Fragment() {
         binding.searchResultsDisplay.visibility = View.GONE
     }
 
-    val isShowing get() = binding.searchResultsDisplay.visibility == View.VISIBLE
+    val isShowing get() = binding.searchResultsDisplay.isVisible
 
     fun setLayoutDirection(langCode: String) {
         setConditionalLayoutDirection(binding.searchResultsList, langCode)
@@ -423,7 +425,7 @@ class SearchResultsFragment : Fragment() {
             val languageCodeText = view.findViewById<TextView>(R.id.language_code)
             resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            languageCodeText.visibility = if (resultsCountList.size == 1) View.GONE else View.VISIBLE
+            languageCodeText.isGone = resultsCountList.size == 1
             languageCodeText.text = langCode
             languageCodeText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             languageCodeText.backgroundTintList = if (resultsCount == 0) secondaryColorStateList else accentColorStateList

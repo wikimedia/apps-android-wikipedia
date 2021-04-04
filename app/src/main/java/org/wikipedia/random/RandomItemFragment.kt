@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -114,11 +116,9 @@ class RandomItemFragment : Fragment() {
     private fun updateContents() {
         binding.randomItemErrorView.visibility = View.GONE
 
-        binding.randomItemWikiArticleCardView.visibility =
-                if (summary == null) View.GONE else View.VISIBLE
+        binding.randomItemWikiArticleCardView.isGone = summary == null
 
-        binding.randomItemProgress.visibility =
-                if (summary == null) View.VISIBLE else View.GONE
+        binding.randomItemProgress.isVisible = summary == null
 
         val summary = summary ?: return
 

@@ -10,6 +10,8 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemReadingListBinding
@@ -94,16 +96,14 @@ class ReadingListItemView : ConstraintLayout {
         val text: CharSequence = if (isDetailView) buildStatisticalDetailText(readingList) else buildStatisticalSummaryText(readingList)
         binding.itemReadingListStatisticalDescription.text = text
         updateDetails()
-        if (binding.itemImage1.visibility == VISIBLE) {
+        if (binding.itemImage1.isVisible) {
             updateThumbnails()
         }
     }
 
     fun setThumbnailVisible(visible: Boolean) {
-        imageViews.forEach {
-            it.visibility = if (visible) VISIBLE else GONE
-        }
-        binding.defaultListEmptyImage.visibility = if (visible) VISIBLE else GONE
+        imageViews.forEach { it.isVisible = visible }
+        binding.defaultListEmptyImage.isVisible = visible
     }
 
     fun setTitleTextAppearance(@StyleRes id: Int) {
@@ -121,14 +121,14 @@ class ReadingListItemView : ConstraintLayout {
 
     private fun updateDetails() {
         readingList?.let {
-            binding.defaultListEmptyImage.visibility = if (it.isDefault && it.pages.size == 0 && binding.itemImage1.visibility == VISIBLE) VISIBLE else GONE
+            binding.defaultListEmptyImage.isVisible = it.isDefault && it.pages.size == 0 && binding.itemImage1.isVisible
             binding.itemTitle.text = it.title
             if (it.isDefault) {
                 binding.itemDescription.text = context.getString(R.string.default_reading_list_description)
                 binding.itemDescription.visibility = VISIBLE
             } else {
                 binding.itemDescription.text = it.description
-                binding.itemDescription.visibility = if (it.description.isNullOrEmpty()) GONE else VISIBLE
+                binding.itemDescription.isGone = it.description.isNullOrEmpty()
             }
         }
     }

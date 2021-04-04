@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.MediaController
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -106,7 +107,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun updateProgressBar(visible: Boolean) {
-        binding.progressBar.visibility = if (visible) View.VISIBLE else View.GONE
+        binding.progressBar.isVisible = visible
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {

@@ -17,6 +17,7 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
@@ -230,7 +231,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun maybeHideThankButton() {
-        binding.thankButton.visibility = if (AccountUtil.userName.equals(currentRevision?.user)) GONE else VISIBLE
+        binding.thankButton.isGone = AccountUtil.userName.equals(currentRevision?.user)
     }
 
     private fun setEnableDisableTint(view: AppCompatImageView, isDisabled: Boolean) {

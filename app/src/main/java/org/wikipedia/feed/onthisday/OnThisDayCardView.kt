@@ -2,11 +2,13 @@ package org.wikipedia.feed.onthisday
 
 import android.app.Activity
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -105,15 +107,13 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
             binding.eventLayout.page.root.visibility = VISIBLE
             val chosenPage = pages.find { it.thumbnailUrl != null }
             chosenPage?.let { page ->
-                if (page.thumbnailUrl.isNullOrEmpty()) {
-                    binding.eventLayout.page.image.visibility = GONE
-                } else {
-                    binding.eventLayout.page.image.visibility = VISIBLE
-                    binding.eventLayout.page.image.loadImage(Uri.parse(page.thumbnailUrl))
+                val thumbUrl = page.thumbnailUrl
+                binding.eventLayout.page.image.isVisible = !thumbUrl.isNullOrEmpty()
+                if (!thumbUrl.isNullOrEmpty()) {
+                    binding.eventLayout.page.image.loadImage(thumbUrl.toUri())
                 }
                 binding.eventLayout.page.description.text = page.description
-                binding.eventLayout.page.description.visibility =
-                    if (page.description.isNullOrEmpty()) GONE else VISIBLE
+                binding.eventLayout.page.description.isGone = page.description.isNullOrEmpty()
                 binding.eventLayout.page.title.maxLines =
                     if (page.description.isNullOrEmpty()) 2 else 1
                 binding.eventLayout.page.title.text = StringUtil.fromHtml(page.displayTitle)

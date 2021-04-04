@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -247,7 +248,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     override fun onSearchProgressBar(enabled: Boolean) {
-        binding.searchProgressBar.visibility = if (enabled) View.VISIBLE else View.GONE
+        binding.searchProgressBar.isVisible = enabled
     }
 
     private fun onSearchContainerClick() {

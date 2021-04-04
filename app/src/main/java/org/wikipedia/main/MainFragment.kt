@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -410,7 +411,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     fun setBottomNavVisible(visible: Boolean) {
-        binding.mainNavTabContainer.visibility = if (visible) View.VISIBLE else View.GONE
+        binding.mainNavTabContainer.isVisible = visible
     }
 
     fun onGoOffline() {

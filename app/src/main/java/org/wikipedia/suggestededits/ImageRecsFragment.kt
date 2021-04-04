@@ -20,6 +20,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.core.view.updateLayoutParams
 import androidx.core.widget.NestedScrollView
@@ -224,7 +225,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     private fun updateContents(summary: PageSummary?) {
         binding.cardItemErrorView.visibility = GONE
-        binding.articleContentContainer.visibility = if (recommendation != null) VISIBLE else GONE
+        binding.articleContentContainer.isVisible = recommendation != null
         binding.imageSuggestionContainer.visibility = GONE
         binding.readMoreButton.visibility = GONE
         binding.cardItemProgressBar.visibility = VISIBLE
@@ -416,7 +417,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     }
 
     private fun showConfetti(enable: Boolean) {
-        binding.successConfettiImage.visibility = if (enable) VISIBLE else GONE
+        binding.successConfettiImage.isVisible = enable
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Change statusBar and actionBar color
             requireActivity().window.statusBarColor = if (enable) ResourceUtil.getThemedColor(requireContext(),
@@ -425,9 +426,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_70)) else null)
         }
         // Update actionbar menu items
-        requireActivity().window.decorView.findViewById<TextView>(R.id.menu_help).apply {
-            visibility = if (enable) GONE else VISIBLE
-        }
+        requireActivity().window.decorView.findViewById<TextView>(R.id.menu_help).isVisible = enable
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(!enable)
     }
 

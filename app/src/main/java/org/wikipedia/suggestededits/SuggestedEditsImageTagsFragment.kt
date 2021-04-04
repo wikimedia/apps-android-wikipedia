@@ -13,6 +13,8 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.view.children
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -146,8 +148,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun updateContents() {
         binding.cardItemErrorView.visibility = GONE
-        binding.contentContainer.visibility = if (page != null) VISIBLE else GONE
-        binding.cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
+        binding.contentContainer.isVisible = page != null
+        binding.cardItemProgressBar.isGone = page != null
         if (page == null) {
             return
         }

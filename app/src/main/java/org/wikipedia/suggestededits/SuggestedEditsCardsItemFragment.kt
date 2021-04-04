@@ -7,6 +7,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
@@ -248,8 +249,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     private fun updateContents() {
         val sourceAvailable = sourceSummaryForEdit != null
         binding.cardItemErrorView.visibility = GONE
-        binding.cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
-        binding.cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
+        binding.cardItemContainer.isVisible = sourceAvailable
+        binding.cardItemProgressBar.isVisible = sourceAvailable
         if (!sourceAvailable) {
             return
         }

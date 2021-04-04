@@ -9,6 +9,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import com.google.android.material.chip.Chip
 import org.wikipedia.R
@@ -80,7 +82,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
             binding.pageListItemImage.visibility = GONE
             setBackgroundColor(getThemedColor(context, R.attr.multi_select_background_color))
         } else {
-            binding.pageListItemImage.visibility = if (imageUrl.isNullOrEmpty()) GONE else VISIBLE
+            binding.pageListItemImage.isGone = imageUrl.isNullOrEmpty()
             ViewUtil.loadImageWithRoundedCorners(binding.pageListItemImage, imageUrl)
             binding.pageListItemSelectedImage.visibility = GONE
             setBackground(AppCompatResources.getDrawable(context, getThemedAttributeId(context, R.attr.selectableItemBackground)))
@@ -118,8 +120,8 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
 
     fun setSecondaryActionIcon(@DrawableRes id: Int, show: Boolean) {
         binding.pageListItemAction.setImageResource(id)
-        binding.pageListItemAction.visibility = if (show) VISIBLE else GONE
-        binding.pageListItemActionContainer.visibility = if (show) VISIBLE else GONE
+        binding.pageListItemAction.isVisible = show
+        binding.pageListItemActionContainer.isVisible = show
     }
 
     fun setProgress(progress: Int) {
@@ -127,7 +129,7 @@ class PageItemView<T>(context: Context) : ConstraintLayout(context) {
     }
 
     fun setCircularProgressVisibility(visible: Boolean) {
-        binding.pageListItemCircularProgressBar.visibility = if (visible) VISIBLE else GONE
+        binding.pageListItemCircularProgressBar.isVisible = visible
     }
 
     fun setActionHint(@StringRes id: Int) {

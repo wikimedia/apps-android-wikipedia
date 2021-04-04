@@ -6,6 +6,7 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardAnnouncementBinding
@@ -40,10 +41,8 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                 if (!it.extract().isNullOrEmpty()) {
                     binding.viewAnnouncementText.text = StringUtil.fromHtml(it.extract())
                 }
-                if (!it.hasAction()) {
-                    binding.viewAnnouncementCardButtonsContainer.visibility = GONE
-                } else {
-                    binding.viewAnnouncementCardButtonsContainer.visibility = VISIBLE
+                binding.viewAnnouncementCardButtonsContainer.isVisible = it.hasAction()
+                if (it.hasAction()) {
                     binding.viewAnnouncementActionPositive.text = it.actionTitle()
                     binding.viewAnnouncementDialogActionPositive.text = it.actionTitle()
                 }
@@ -54,11 +53,9 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                     binding.viewAnnouncementActionNegative.visibility = GONE
                     binding.viewAnnouncementDialogActionNegative.visibility = GONE
                 }
+                binding.viewAnnouncementHeaderImage.isVisible = it.hasImage()
                 if (it.hasImage()) {
-                    binding.viewAnnouncementHeaderImage.visibility = VISIBLE
                     binding.viewAnnouncementHeaderImage.loadImage(it.image())
-                } else {
-                    binding.viewAnnouncementHeaderImage.visibility = GONE
                 }
                 if (it.imageHeight() > 0) {
                     binding.viewAnnouncementHeaderImage.updateLayoutParams<MarginLayoutParams> {

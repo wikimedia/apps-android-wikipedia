@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -157,9 +158,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     }
 
     private fun maybeHideDateIndicator() {
-        binding.indicatorLayout.visibility =
-            if (date[Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] &&
-                date[Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]) View.GONE else View.VISIBLE
+        binding.indicatorLayout.isGone = date[Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] &&
+                date[Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]
         binding.indicatorDate.text = String.format(Locale.getDefault(), "%d", Calendar.getInstance()[Calendar.DATE])
     }
 
@@ -252,7 +252,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
         fun setFields(event: OnThisDay.Event) {
             descTextView.text = event.text()
-            descTextView.visibility = if (event.text().isEmpty()) View.GONE else View.VISIBLE
+            descTextView.isGone = event.text().isEmpty()
             yearTextView.text = DateUtil.yearToStringWithEra(event.year())
             yearsInfoTextView.text = DateUtil.getYearDifferenceString(event.year())
             setPagesViewPager(event)
@@ -265,7 +265,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                 pagesViewPager.offscreenPageLimit = 2
                 TabLayoutMediator(pagesIndicator, pagesViewPager) { _, _ -> }.attach()
                 pagesViewPager.visibility = View.VISIBLE
-                pagesIndicator.visibility = if (it.size == 1) View.GONE else View.VISIBLE
+                pagesIndicator.isGone = it.size == 1
             } ?: run {
                 pagesViewPager.visibility = View.GONE
                 pagesIndicator.visibility = View.GONE

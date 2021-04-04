@@ -6,12 +6,12 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.view.*
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
@@ -109,7 +109,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             binding.cardsViewPager.isUserInputEnabled = false
         }
 
-        if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
+        if (binding.wikiLanguageDropdownContainer.isVisible) {
             if (languageList.isEmpty()) {
                 // Fragment is created for the first time.
                 requestLanguagesAndBuildSpinner()
@@ -221,11 +221,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             binding.addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
 
-        if (action == IMAGE_RECOMMENDATION) {
-            binding.bottomButtonContainer.visibility = GONE
-        } else {
-            binding.bottomButtonContainer.visibility = VISIBLE
-        }
+        binding.bottomButtonContainer.isGone = action == IMAGE_RECOMMENDATION
 
         if (action == ADD_IMAGE_TAGS) {
             if (binding.addContributionButton.tag == "landscape") {
@@ -357,8 +353,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     }
 
     private fun setInitialUiState() {
-        binding.wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1 &&
-                (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)) VISIBLE else GONE
+        binding.wikiLanguageDropdownContainer.isVisible = app.language().appLanguageCodes.size > 1 &&
+                (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
     }
 
     private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {

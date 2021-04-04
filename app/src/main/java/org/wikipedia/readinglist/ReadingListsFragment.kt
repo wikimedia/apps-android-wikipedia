@@ -7,6 +7,8 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -291,9 +293,9 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         if (searchQuery.isNullOrEmpty()) {
             binding.searchEmptyView.visibility = View.GONE
             setUpEmptyContainer()
-            setEmptyContainerVisibility(displayedLists.isEmpty() && binding.onboardingView.visibility == View.GONE)
+            setEmptyContainerVisibility(displayedLists.isEmpty() && binding.onboardingView.isGone)
         } else {
-            binding.searchEmptyView.visibility = if (displayedLists.isEmpty()) View.VISIBLE else View.GONE
+            binding.searchEmptyView.isVisible = displayedLists.isEmpty()
             setEmptyContainerVisibility(false)
         }
     }

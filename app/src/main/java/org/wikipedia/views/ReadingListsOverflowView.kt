@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.view.isGone
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
@@ -59,7 +60,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
         }
 
         Prefs.getReadingListsLastSyncTime().let {
-            binding.readingListsOverflowLastSync.visibility = if (it.isNullOrEmpty()) GONE else VISIBLE
+            binding.readingListsOverflowLastSync.isGone = it.isNullOrEmpty()
             if (!it.isNullOrEmpty()) {
                 try {
                     binding.readingListsOverflowLastSync.text = context.getString(R.string.reading_list_menu_last_sync,

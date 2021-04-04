@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
@@ -186,13 +188,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     fun setSummaries(sourceSummary: PageSummaryForEdit, targetSummary: PageSummaryForEdit?) {
         // the summary data that will bring to the review screen
         pageSummaryForEdit = if (isTranslationEdit) targetSummary!! else sourceSummary
-        binding.viewDescriptionEditPageSummaryContainer.visibility = VISIBLE
         binding.viewDescriptionEditPageSummaryLabel.text = getLabelText(sourceSummary.lang)
         binding.viewDescriptionEditPageSummary.text = StringUtil.strip(StringUtil.removeHTMLTags(if (isTranslationEdit || action == DescriptionEditActivity.Action.ADD_CAPTION) sourceSummary.description else sourceSummary.extractHtml))
-        if (binding.viewDescriptionEditPageSummary.text.toString().isEmpty() || action == DescriptionEditActivity.Action.ADD_CAPTION &&
-                !sourceSummary.pageTitle.description.isNullOrEmpty()) {
-            binding.viewDescriptionEditPageSummaryContainer.visibility = GONE
-        }
+        binding.viewDescriptionEditPageSummaryContainer.isGone = binding.viewDescriptionEditPageSummary.text.toString().isEmpty() ||
+                action == DescriptionEditActivity.Action.ADD_CAPTION &&
+                !sourceSummary.pageTitle.description.isNullOrEmpty()
         L10nUtil.setConditionalLayoutDirection(this, if (isTranslationEdit) sourceSummary.lang else pageTitle.wikiSite.languageCode())
 
         binding.viewDescriptionEditReadArticleBarContainer.setSummary(pageSummaryForEdit)
@@ -209,18 +209,16 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     fun loadReviewContent(enabled: Boolean) {
+        binding.viewDescriptionEditContainer.isGone = enabled
+        binding.viewDescriptionEditHelpButton.isGone = enabled
         if (enabled) {
             binding.viewDescriptionEditReviewContainer.setSummary(pageSummaryForEdit, description.orEmpty(), action == DescriptionEditActivity.Action.ADD_CAPTION || action == DescriptionEditActivity.Action.TRANSLATE_CAPTION)
             binding.viewDescriptionEditReviewContainer.show()
             binding.viewDescriptionEditReadArticleBarContainer.hide()
-            binding.viewDescriptionEditContainer.visibility = GONE
-            binding.viewDescriptionEditHelpButton.visibility = GONE
             DeviceUtil.hideSoftKeyboard(binding.viewDescriptionEditReviewContainer)
         } else {
             binding.viewDescriptionEditReviewContainer.hide()
             binding.viewDescriptionEditReadArticleBarContainer.show()
-            binding.viewDescriptionEditContainer.visibility = VISIBLE
-            binding.viewDescriptionEditHelpButton.visibility = VISIBLE
         }
         setReviewHeaderText(enabled)
         setDarkReviewScreen(enabled)
@@ -335,7 +333,7 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     }
 
     fun showProgressBar(show: Boolean) {
-        binding.viewDescriptionEditProgressBar.visibility = if (show) VISIBLE else GONE
+        binding.viewDescriptionEditProgressBar.isVisible = show
     }
 
     fun setAction(action: DescriptionEditActivity.Action) {

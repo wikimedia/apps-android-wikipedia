@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isInvisible
 import androidx.cursoradapter.widget.CursorAdapter
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
@@ -93,23 +94,20 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         }
         adapter.swapCursor(cursorLoader)
         val searchesEmpty = binding.recentSearchesList.count == 0
-        binding.searchEmptyContainer.visibility = if (searchesEmpty) View.VISIBLE else View.INVISIBLE
+        binding.searchEmptyContainer.isInvisible = searchesEmpty
         updateSearchEmptyView(searchesEmpty)
-        binding.recentSearches.visibility = if (!searchesEmpty) View.VISIBLE else View.INVISIBLE
+        binding.recentSearches.isInvisible = searchesEmpty
     }
 
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {
-        if (searchesEmpty) {
-            binding.searchEmptyContainer.visibility = View.VISIBLE
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size == 1) {
-                binding.addLanguagesButton.visibility = View.VISIBLE
-                binding.searchEmptyMessage.text = getString(R.string.search_empty_message_multilingual_upgrade)
-            } else {
-                binding.addLanguagesButton.visibility = View.GONE
-                binding.searchEmptyMessage.text = getString(R.string.search_empty_message)
-            }
+        binding.searchEmptyContainer.isInvisible = !searchesEmpty
+        binding.searchEmptyContainer.visibility = View.VISIBLE
+        if (WikipediaApp.getInstance().language().appLanguageCodes.size == 1) {
+            binding.addLanguagesButton.visibility = View.VISIBLE
+            binding.searchEmptyMessage.text = getString(R.string.search_empty_message_multilingual_upgrade)
         } else {
-            binding.searchEmptyContainer.visibility = View.INVISIBLE
+            binding.addLanguagesButton.visibility = View.GONE
+            binding.searchEmptyMessage.text = getString(R.string.search_empty_message)
         }
     }
 

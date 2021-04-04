@@ -12,6 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -222,7 +224,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
     private fun update(readingList: ReadingList? = this.readingList) {
         readingList?.let {
-            binding.readingListEmptyText.visibility = if (it.pages.isEmpty()) View.VISIBLE else View.GONE
+            binding.readingListEmptyText.isVisible = it.pages.isEmpty()
             headerView.setReadingList(it, ReadingListItemView.Description.DETAIL)
             binding.readingListHeader.setReadingList(it)
             ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC))
@@ -284,10 +286,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         if (searchQuery.isNullOrEmpty()) {
             binding.searchEmptyView.visibility = View.GONE
             binding.readingListRecyclerView.visibility = View.VISIBLE
-            binding.readingListEmptyText.visibility = if (displayedLists.isEmpty()) View.VISIBLE else View.GONE
+            binding.readingListEmptyText.isVisible = displayedLists.isEmpty()
         } else {
-            binding.readingListRecyclerView.visibility = if (displayedLists.isEmpty()) View.GONE else View.VISIBLE
-            binding.searchEmptyView.visibility = if (displayedLists.isEmpty()) View.VISIBLE else View.GONE
+            binding.readingListRecyclerView.isGone = displayedLists.isEmpty()
+            binding.searchEmptyView.isVisible = displayedLists.isEmpty()
             binding.readingListEmptyText.visibility = View.GONE
         }
     }

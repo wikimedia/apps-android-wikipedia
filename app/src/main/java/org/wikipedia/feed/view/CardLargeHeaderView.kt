@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
 import androidx.palette.graphics.Palette
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -37,7 +38,7 @@ class CardLargeHeaderView : ConstraintLayout {
     }
 
     fun setImage(uri: Uri?): CardLargeHeaderView {
-        binding.viewCardHeaderLargeImage.visibility = if (uri == null) GONE else VISIBLE
+        binding.viewCardHeaderLargeImage.isGone = uri == null
         binding.viewCardHeaderLargeImage.loadImage(uri, roundedCorners = true, cropped = true, listener = ImageLoadListener())
         return this
     }

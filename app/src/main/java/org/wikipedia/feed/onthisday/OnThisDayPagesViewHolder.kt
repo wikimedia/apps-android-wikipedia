@@ -1,10 +1,12 @@
 package org.wikipedia.feed.onthisday
 
 import android.app.Activity
-import android.net.Uri
 import android.view.View
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.net.toUri
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -47,7 +49,7 @@ class OnThisDayPagesViewHolder(
 
         selectedPage = page
         description.text = page.description
-        description.visibility = if (page.description.isNullOrEmpty()) View.GONE else View.VISIBLE
+        description.isGone = page.description.isNullOrEmpty()
         title.maxLines = if (page.description.isNullOrEmpty()) 2 else 1
         title.text = StringUtil.fromHtml(page.displayTitle)
         setImage(page.thumbnailUrl)
@@ -55,11 +57,9 @@ class OnThisDayPagesViewHolder(
 
     private fun setImage(url: String?) {
         image?.let {
-            if (url == null) {
-                it.visibility = View.GONE
-            } else {
-                it.visibility = View.VISIBLE
-                it.loadImage(Uri.parse(url))
+            it.isVisible = url != null
+            if (url != null) {
+                it.loadImage(url.toUri())
             }
         }
     }

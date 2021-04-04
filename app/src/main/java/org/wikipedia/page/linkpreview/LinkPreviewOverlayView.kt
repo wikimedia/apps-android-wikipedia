@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.core.view.isVisible
 import org.wikipedia.databinding.ViewLinkPreviewOverlayBinding
 
 class LinkPreviewOverlayView : FrameLayout {
@@ -37,7 +38,7 @@ class LinkPreviewOverlayView : FrameLayout {
     }
 
     fun showSecondaryButton(show: Boolean) {
-        binding.linkPreviewSecondaryButton.visibility = if (show) VISIBLE else GONE
+        binding.linkPreviewSecondaryButton.isVisible = show
     }
 
     fun setSecondaryButtonText(text: CharSequence?) {
@@ -45,6 +46,6 @@ class LinkPreviewOverlayView : FrameLayout {
     }
 
     fun showTertiaryButton(show: Boolean) {
-        binding.linkPreviewTertiaryButton.visibility = if (show) VISIBLE else GONE
+        binding.linkPreviewTertiaryButton.isVisible = show
     }
 }

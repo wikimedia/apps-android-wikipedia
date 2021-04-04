@@ -4,6 +4,7 @@ import android.content.Context
 import android.speech.SpeechRecognizer
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewSearchBarBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
@@ -23,6 +24,6 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
 
         binding.searchContainer.setOnClickListener { callback?.onSearchRequested(it) }
         binding.voiceSearchButton.setOnClickListener { callback?.onVoiceSearchRequested() }
-        binding.voiceSearchButton.visibility = if (SpeechRecognizer.isRecognitionAvailable(context)) VISIBLE else GONE
+        binding.voiceSearchButton.isVisible = SpeechRecognizer.isRecognitionAvailable(context)
     }
 }

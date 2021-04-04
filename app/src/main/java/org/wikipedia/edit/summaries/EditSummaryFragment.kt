@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.edit.EditSectionActivity
@@ -25,7 +26,7 @@ class EditSummaryFragment : Fragment() {
      * @return Custom summary of the edit.
      */
     val summary get() = binding.editSummaryEdit.text.toString()
-    val isActive get() = binding.root.visibility == View.VISIBLE
+    val isActive get() = binding.root.isVisible
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewSummaryBinding.inflate(layoutInflater, container, false)

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
@@ -72,7 +73,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun updateOptionView(view: View, enabled: Boolean) {
         view.findViewWithTag<TextView>("text").typeface = if (enabled) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
-        view.findViewWithTag<ImageView>("check").visibility = if (enabled) View.VISIBLE else View.GONE
+        view.findViewWithTag<ImageView>("check").isVisible = enabled
     }
 
     private fun callback(): Callback? {

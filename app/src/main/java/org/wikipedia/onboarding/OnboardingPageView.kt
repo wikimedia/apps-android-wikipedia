@@ -1,7 +1,6 @@
 package org.wikipedia.onboarding
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -13,6 +12,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.ViewCompat
+import androidx.core.view.isGone
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -65,11 +65,11 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                         height = (imageSize / aspect).toInt()
                     }
                 }
-                binding.primaryTextView.visibility = if (primaryText.isNullOrEmpty()) GONE else VISIBLE
+                binding.primaryTextView.isGone = primaryText.isNullOrEmpty()
                 binding.primaryTextView.text = primaryText
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
                 binding.tertiaryTextView.text = tertiaryText
-                binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
+                binding.switchContainer.isGone = switchText.isNullOrEmpty()
                 binding.switchView.text = switchText
                 setUpLanguageListContainer(showListView, listDataType)
                 binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->

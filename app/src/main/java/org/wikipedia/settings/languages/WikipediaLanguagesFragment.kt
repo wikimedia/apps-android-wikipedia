@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -191,7 +192,7 @@ class WikipediaLanguagesFragment : Fragment(), WikipediaLanguagesItemView.Callba
                 }
                 holder.view.callback = this@WikipediaLanguagesFragment
             } else if (holder is FooterViewHolder) {
-                holder.view.visibility = if (checkboxEnabled) View.GONE else View.VISIBLE
+                holder.view.isGone = checkboxEnabled
                 holder.view.setOnClickListener {
                     Intent(requireActivity(), LanguagesListActivity::class.java).let {
                         it.putExtra(SESSION_TOKEN, funnel.sessionToken)

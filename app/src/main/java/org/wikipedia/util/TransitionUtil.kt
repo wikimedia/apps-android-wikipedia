@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.util.Pair
+import androidx.core.view.isVisible
 import org.wikipedia.settings.Prefs
 
 object TransitionUtil {
@@ -16,10 +17,8 @@ object TransitionUtil {
             if (it is TextView && it.text.isNotEmpty()) {
                 shareElements.add(Pair(it, it.transitionName))
             }
-            if (it is ImageView && it.visibility == View.VISIBLE &&
-                    (it.parent as View).visibility == View.VISIBLE &&
-                    !DimenUtil.isLandscape(context) &&
-                    Prefs.isImageDownloadEnabled()) {
+            if (it is ImageView && it.isVisible && (it.parent as View).isVisible &&
+                    !DimenUtil.isLandscape(context) && Prefs.isImageDownloadEnabled()) {
                 shareElements.add(Pair(it, it.transitionName))
             }
         }

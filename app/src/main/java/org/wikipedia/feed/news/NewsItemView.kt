@@ -7,6 +7,7 @@ import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 import org.wikipedia.databinding.ViewHorizontalScrollListItemCardBinding
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.richtext.RichTextUtil
@@ -47,11 +48,11 @@ class NewsItemView(context: Context) : WikiCardView(context) {
         this.newsItem = newsItem
         binding.horizontalScrollListItemText.text = removeImageCaption(StringUtil.fromHtml(newsItem.story()))
         RichTextUtil.removeUnderlinesFromLinksAndMakeBold(binding.horizontalScrollListItemText)
-        newsItem.thumb()?.let {
-            binding.horizontalScrollListItemImage.visibility = VISIBLE
-            binding.horizontalScrollListItemImage.loadImage(it)
-        } ?: run {
-            binding.horizontalScrollListItemImage.visibility = GONE
+        val thumb = newsItem.thumb()
+        binding.horizontalScrollListItemImage.isVisible = thumb != null
+        if (thumb != null) {
+            binding.horizontalScrollListItemImage.loadImage(thumb)
+        } else {
             binding.horizontalScrollListItemText.maxLines = 10
         }
     }

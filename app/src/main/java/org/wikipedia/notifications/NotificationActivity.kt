@@ -13,6 +13,8 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -249,11 +251,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             }
         }
         binding.notificationsRecyclerView.adapter!!.notifyDataSetChanged()
+        binding.notificationsEmptyContainer.isVisible = notificationContainerList.isEmpty()
         if (notificationContainerList.isEmpty()) {
-            binding.notificationsEmptyContainer.visibility = View.VISIBLE
-            binding.notificationsViewArchivedButton.visibility = if (displayArchived) View.GONE else View.VISIBLE
-        } else {
-            binding.notificationsEmptyContainer.visibility = View.GONE
+            binding.notificationsViewArchivedButton.isGone = displayArchived
         }
     }
 

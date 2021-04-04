@@ -17,6 +17,8 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -364,7 +366,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun updateProgressBar(visible: Boolean) {
         binding.progressBar.isIndeterminate = true
-        binding.progressBar.visibility = if (visible) View.VISIBLE else View.GONE
+        binding.progressBar.isVisible = visible
     }
 
     override fun onBackPressed() {
@@ -388,7 +390,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun hideTransitionReceiver(delay: Boolean) {
-        if (binding.transitionReceiver.visibility == View.GONE) {
+        if (binding.transitionReceiver.isGone) {
             return
         }
         if (delay) {
@@ -570,18 +572,16 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
         var captionEditable = AccountUtil.isLoggedIn && item.mediaInfo!!.thumbUrl.contains(Service.URL_FRAGMENT_FROM_COMMONS)
-        binding.captionEditButton.visibility = if (captionEditable) View.VISIBLE else View.GONE
+        binding.captionEditButton.isVisible = captionEditable
         binding.captionEditButton.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.captionEditButton.tag = isProtected
         if (isProtected) {
             binding.captionEditButton.setImageResource(R.drawable.ic_edit_pencil_locked)
             captionEditable = false
         }
+        binding.ctaContainer.isVisible = captionEditable
         if (captionEditable) {
-            binding.ctaContainer.visibility = View.VISIBLE
             decideImageEditType(item, tagsCount)
-        } else {
-            binding.ctaContainer.visibility = View.GONE
         }
         setLicenseInfo(item)
     }
@@ -613,7 +613,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 }
             }
         }
-        binding.ctaContainer.visibility = if (imageEditType == null) View.GONE else View.VISIBLE
+        binding.ctaContainer.isGone = imageEditType == null
     }
 
     private fun displayApplicableDescription(item: GalleryItemFragment) {

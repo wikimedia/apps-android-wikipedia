@@ -10,6 +10,8 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemWikipediaLanguageBinding
 import org.wikipedia.search.SearchFragment
@@ -68,8 +70,8 @@ class WikipediaLanguagesItemView : LinearLayout {
     }
 
     fun setCheckBoxEnabled(enabled: Boolean) {
-        binding.wikiLanguageOrder.visibility = if (enabled) GONE else VISIBLE
-        binding.wikiLanguageCheckbox.visibility = if (enabled) VISIBLE else GONE
+        binding.wikiLanguageOrder.isGone = enabled
+        binding.wikiLanguageCheckbox.isVisible = enabled
         if (!enabled) {
             binding.wikiLanguageCheckbox.isChecked = false
             setBackgroundColor(getThemedColor(context, R.attr.paper_color))
@@ -82,7 +84,7 @@ class WikipediaLanguagesItemView : LinearLayout {
     }
 
     fun setDragHandleEnabled(enabled: Boolean) {
-        binding.wikiLanguageDragHandle.visibility = if (enabled) VISIBLE else GONE
+        binding.wikiLanguageDragHandle.isVisible = enabled
     }
 
     @SuppressLint("ClickableViewAccessibility")

@@ -16,6 +16,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.os.postDelayed
 import androidx.core.view.ViewCompat
 import androidx.core.view.forEach
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.preference.PreferenceManager
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -134,7 +136,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
         // WikiArticleCard setup
         hasTransitionAnimation = intent.getBooleanExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, false)
-        binding.wikiArticleCardView.visibility = if (hasTransitionAnimation) View.VISIBLE else View.GONE
+        binding.wikiArticleCardView.isVisible = hasTransitionAnimation
 
         val languageChanged = savedInstanceState?.let {
             app.appOrSystemLanguageCode != savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY).orEmpty()
@@ -279,10 +281,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
         // If user enter PageActivity in portrait and leave in landscape,
         // we should hide the transition animation view to prevent bad animation.
-        if (DimenUtil.isLandscape(this) || !hasTransitionAnimation) {
-            binding.wikiArticleCardView.visibility = View.GONE
-        } else {
-            binding.wikiArticleCardView.visibility = View.VISIBLE
+        binding.wikiArticleCardView.isGone = DimenUtil.isLandscape(this) || !hasTransitionAnimation
+        if (!(DimenUtil.isLandscape(this) || !hasTransitionAnimation)) {
             binding.pageFragment.visibility = View.GONE
         }
         super.onBackPressed()
@@ -538,7 +538,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun updateProgressBar(visible: Boolean) {
-        binding.pageProgressBar.visibility = if (visible) View.VISIBLE else View.GONE
+        binding.pageProgressBar.isVisible = visible
     }
 
     private fun hideLinkPreview() {
@@ -555,10 +555,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun removeTransitionAnimState() {
-        if (binding.pageFragment.visibility != View.VISIBLE) {
+        if (!binding.pageFragment.isVisible) {
             binding.pageFragment.visibility = View.VISIBLE
         }
-        if (binding.wikiArticleCardView.visibility != View.GONE) {
+        if (!binding.wikiArticleCardView.isGone) {
             binding.wikiArticleCardView.postDelayed(250) {
                 binding.wikiArticleCardView.visibility = View.GONE
             }

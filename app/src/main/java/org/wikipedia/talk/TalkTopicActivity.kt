@@ -9,6 +9,8 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -247,8 +249,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
-            indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
-            bottomSpace.visibility = if (!isLast || replyActive || shouldHideReplyButton()) View.GONE else View.VISIBLE
+            indentArrow.isVisible = reply.depth > 0
+            bottomSpace.isGone = !isLast || replyActive || shouldHideReplyButton()
         }
     }
 

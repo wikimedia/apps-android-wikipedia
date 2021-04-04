@@ -5,9 +5,9 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.graphics.ColorUtils
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -69,7 +69,7 @@ class ContributionDetailsFragment : Fragment() {
     private fun setUpContributionDetails() {
         updateTopGradient()
         binding.contributionContainer.setOnClickListener { startTypeSpecificActivity() }
-        binding.revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
+        binding.revisionLayout.isVisible = contribution.top
         binding.contributionTitle.text = StringUtil.removeNamespace(contribution.displayTitle)
         binding.contributionDiffDetailText.text = contribution.description
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") {

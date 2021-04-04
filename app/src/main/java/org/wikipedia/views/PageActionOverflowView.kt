@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
@@ -48,10 +49,10 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
             PopupWindowCompat.setOverlapAnchor(it, true)
             PopupWindowCompat.showAsDropDown(it, anchorView, 0, 0, Gravity.END)
         }
-        binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
+        binding.overflowForward.isVisible = currentTab.canGoForward()
         binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
         binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
-        binding.overflowWatchlist.visibility = if (!isMobileWeb && AccountUtil.isLoggedIn) VISIBLE else GONE
+        binding.overflowWatchlist.isVisible = !isMobileWeb && AccountUtil.isLoggedIn
     }
 
     @DrawableRes
