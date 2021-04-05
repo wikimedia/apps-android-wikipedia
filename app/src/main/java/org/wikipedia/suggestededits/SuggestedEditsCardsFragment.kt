@@ -34,7 +34,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
+class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callback {
     private var _binding: FragmentSuggestedEditsCardsBinding? = null
     private val binding get() = _binding!!
 
