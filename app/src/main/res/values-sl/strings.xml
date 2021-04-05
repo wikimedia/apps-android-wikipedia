@@ -561,7 +561,7 @@
   <string name="notifications_activity_title">Obvestila</string>
   <string name="notifications_activity_title_archived">Obvestila (arhivirano)</string>
   <string name="notifications_search">Išči v obvestilih</string>
-  <string name="notifications_view_unread">Prikaži neprebrano</string>
+  <string name="notifications_view_unread">Ogled neprebranih</string>
   <string name="notifications_view_archived">Prikaži arhivirano</string>
   <string name="notifications_prefs">Nastavitve obveščanja</string>
   <string name="notifications_archive">Označi kot prebrano in arhiviraj</string>

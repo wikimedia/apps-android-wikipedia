@@ -13,6 +13,7 @@
 * Laurianttila
 * Maantietäjä
 * McSalama
+* Mediawikitranslator
 * Nike
 * Olimar
 * Pahkiqaz
@@ -78,7 +79,7 @@
   <string name="feed_card_add_to_list">Lisää lukulistaan</string>
   <string name="feed_card_add_to_default_list">Tallenna</string>
   <string name="menu_page_share">Jaa linkki</string>
-  <string name="menu_page_open_a_new_tab">Avaa uudessa välilehdessä</string>
+  <string name="menu_page_open_a_new_tab">Avaa uusi välilehti</string>
   <string name="menu_page_new_tab">Uusi välilehti</string>
   <string name="menu_page_reading_lists">Lukulistat</string>
   <string name="menu_page_recently_viewed">Äskettäin katsotut</string>
@@ -92,7 +93,7 @@
   <string name="last_updated_text">Päivitetty viimeksi %s</string>
   <string name="talk_page_link_text">Keskustelusivu</string>
   <string name="edit_history_link_text">Näytä muokkaushistoria</string>
-  <string name="map_view_link_text">Tarkastele kartalla</string>
+  <string name="map_view_link_text">Näytä kartalla</string>
   <string name="other_languages_indication_text">Lue toisella kielellä</string>
   <string name="language_count_link_text">Saatavilla %d muulla kielellä</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
@@ -135,7 +136,7 @@
   <string name="menu_login">Kirjaudu sisään</string>
   <string name="login_activity_title">Kirjaudu</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
-  <string name="login_success_toast">Kirjautuminen onnistui!</string>
+  <string name="login_success_toast">Kirjauduttu sisään!</string>
   <string name="reset_password_title">Aseta salasanasi</string>
   <string name="reset_password_description">Kirjauduit sisään väliaikaisella salasanalla. Viimeistelläksesi kirjautumisen, aseta uusi salasanasi tässä.</string>
   <string name="reset_password_hint">Uusi salasana</string>
@@ -859,6 +860,7 @@
     <item quantity="one">Lisäsit %d merkin</item>
     <item quantity="other">Lisäsit %d merkkiä</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Opeta kuva-algoritmia</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Aloita</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Päivittäinen tavoite saavutettu! 👏</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">Olet saavuttanut tavoitteen</string>
@@ -943,6 +945,7 @@
   <string name="image_recommendations_task_processing">Käsitellään...</string>
   <string name="image_recommendations_task_instruction">Lisäisitkö tämän kuvan artikkeliin?</string>
   <string name="image_recommendations_task_choice_no">Miksi valitsit ei?</string>
+  <string name="image_recommendations_task_choice_low_quality">Matala laatu</string>
   <string name="image_recommendations_task_choice_nosubject">En tiedä tästä aiheesta</string>
   <string name="image_recommendations_task_choice_invisible">En näe kuvaa</string>
   <string name="image_recommendations_task_choice_understand">En ymmärrä tehtävää</string>

@@ -290,7 +290,7 @@
   <string name="dialog_title_download_only_over_wifi">לאשר הורדה בנתונים ניידים?</string>
   <string name="dialog_text_download_only_over_wifi">הפעלת את האפשרות \"להוריד רק בווייפיי\". האם לאפשר את השימוש בנתונים ניידים רק עבור ההורדה הזאת?</string>
   <string name="dialog_title_download_only_over_wifi_allow">לאפשר</string>
-  <string name="read_more_section">לקרוא עוד</string>
+  <string name="read_more_section">מידע נוסף</string>
   <string name="about_article_section">מידע על הערך הזה</string>
   <string name="menu_gallery_visit_image_page">ללכת לדף הקובץ</string>
   <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
