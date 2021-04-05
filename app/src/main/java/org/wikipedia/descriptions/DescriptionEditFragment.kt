@@ -14,7 +14,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -268,7 +267,7 @@ class DescriptionEditFragment : Fragment() {
 
                                         // TODO: handle AbuseFilter messages
                                         // new EditAbuseFilterResult(result.edit().code(), result.edit().info(), result.edit().warning());
-                                        editFailed(IOException(StringUtils.defaultString(warning())), false)
+                                        editFailed(IOException(warning().orEmpty()), false)
                                     }
                                     hasCaptchaResponse() -> {
 
