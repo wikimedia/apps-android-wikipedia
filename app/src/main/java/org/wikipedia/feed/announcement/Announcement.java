@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.model.BaseModel;
 import org.wikipedia.util.DateUtil;
 
 import java.util.Collections;
@@ -18,7 +17,7 @@ import java.util.List;
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
 @SuppressWarnings("unused")
-public class Announcement extends BaseModel {
+public class Announcement {
     public static final String SURVEY = "survey";
     public static final String FUNDRAISING = "fundraising";
     public static final String PLACEMENT_FEED = "feed";

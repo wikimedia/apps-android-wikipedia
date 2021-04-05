@@ -1,10 +1,9 @@
 package org.wikipedia.page.tabs
 
-import org.wikipedia.model.BaseModel
 import org.wikipedia.page.PageBackStackItem
 import org.wikipedia.page.PageTitle
 
-class Tab : BaseModel() {
+class Tab {
     val backStack = mutableListOf<PageBackStackItem>()
 
     var backStackPosition: Int = -1
