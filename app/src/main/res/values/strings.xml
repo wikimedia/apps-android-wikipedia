@@ -767,6 +767,7 @@
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
     <string name="suggested_edits_image_preview_dialog_image">Image</string>
+    <string name="suggested_edits_image_preview_dialog_file_commons">File from Wikimedia Commons</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
     <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
     <string name="suggested_edits_image_preview_dialog_date">Date</string>
