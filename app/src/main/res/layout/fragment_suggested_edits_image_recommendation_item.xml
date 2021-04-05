@@ -75,18 +75,25 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.3"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="16sp"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/readMoreButton"
-                style="@style/FlatButton"
                 android:layout_width="wrap_content"
-                android:layout_height="52dp"
+                android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/read_more_section"/>
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:textAllCaps="false"
+                android:text="@string/read_more_section"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="?attr/colorAccent"
+                android:letterSpacing="0.0"
+                android:drawableEnd="@drawable/ic_baseline_arrow_right_alt_24px"
+                app:drawableTint="?attr/colorAccent"/>
 
             <Space
                 android:id="@+id/articleScrollSpacer"
