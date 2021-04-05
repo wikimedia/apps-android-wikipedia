@@ -30,7 +30,6 @@ import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
-import org.wikipedia.util.DimenUtil.isLandscape
 import org.wikipedia.util.DimenUtil.roundedDpToPx
 import java.util.concurrent.TimeUnit
 
@@ -228,7 +227,8 @@ object FeedbackUtil {
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(layoutRes)
-            setWidthRatio(if (isLandscape(context)) 0.4f else 0.8f)
+            setWidth(BalloonSizeSpec.WRAP)
+            setHeight(BalloonSizeSpec.WRAP)
             setArrowAlignAnchorPadding(arrowAnchorPadding)
         }
     }
