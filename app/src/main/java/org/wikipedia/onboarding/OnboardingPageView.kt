@@ -61,6 +61,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                     params.height = (imageSize / aspect).toInt()
                     binding.imageViewCentered.layoutParams = params
                 }
+                binding.primaryTextView.visibility = if (primaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.primaryTextView.text = primaryText
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
                 binding.tertiaryTextView.text = tertiaryText
