@@ -394,24 +394,17 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setUpTasks() {
         displayedTasks.clear()
 
-        vandalismPatrolTask = SuggestedEditsTask()
-        vandalismPatrolTask.title = getString(R.string.suggested_edits_vandalism_patrol)
-        vandalismPatrolTask.description = "Review recent edits on Wikipedia and determine if they are helpful or unhelpful."
-        vandalismPatrolTask.primaryActionText = "Review"
-        vandalismPatrolTask.imageDrawable = R.drawable.ic_report_black_24dp
-        vandalismPatrolTask.translatable = false
-
         addImageTagsTask = SuggestedEditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
-        addImageTagsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
+        addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
 
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
-        addImageCaptionsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
+        addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
         addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
@@ -419,10 +412,16 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
-        addDescriptionsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
+        addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
+
+        vandalismPatrolTask = SuggestedEditsTask()
+        vandalismPatrolTask.title = getString(R.string.suggested_edits_vandalism_patrol)
+        vandalismPatrolTask.description = "Review recent edits on Wikipedia and determine if they are helpful or unhelpful."
+        vandalismPatrolTask.primaryAction = "Review"
+        vandalismPatrolTask.imageDrawable = R.drawable.ic_report_black_24dp
 
         displayedTasks.add(vandalismPatrolTask)
         displayedTasks.add(addDescriptionsTask)

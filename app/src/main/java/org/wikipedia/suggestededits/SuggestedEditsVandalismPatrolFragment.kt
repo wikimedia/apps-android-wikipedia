@@ -15,9 +15,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
@@ -34,12 +32,11 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
 
     var publishing: Boolean = false
     private var publishSuccess: Boolean = false
-    private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
 
     private var candidate: MwQueryResult.RecentChange? = null
     private var diff: DiffResponse? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsVandalismItemBinding.inflate(inflater, container, false)
         return binding.root
@@ -88,10 +85,10 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
                     .setPositiveButton(android.R.string.ok, null)
                     .show()
 
-            //val title = PageTitle(candidate!!.title, WikiSite.forLanguageCode(parent().langFromCode))
-            //UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(title.getUriForAction("history")))
+            // val title = PageTitle(candidate!!.title, WikiSite.forLanguageCode(parent().langFromCode))
+            // UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(title.getUriForAction("history")))
 
-            //parent().nextPage()
+            // parent().nextPage()
         }
     }
 
@@ -120,7 +117,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
                 .subscribe({ response ->
                     diff = response
                     updateContents()
-                }, { this.setErrorState(it) })!!)
+                }, { this.setErrorState(it) }))
     }
 
     private fun setErrorState(t: Throwable) {
@@ -139,10 +136,8 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
             return
         }
 
-
         val colorAdd = Color.rgb(220, 255, 220)
         val colorDelete = Color.rgb(255, 220, 220)
-
 
         if (candidate!!.ores != null) {
             binding.oresScoreView.text = (candidate!!.ores!!.damagingProb * 100).toInt().toString() + "%"
@@ -207,12 +202,6 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         parent().updateActionButton()
     }
 
-    companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsVandalismPatrolFragment()
-        }
-    }
-
     override fun publish() {
         if (publishing || publishSuccess) {
             return
@@ -273,5 +262,11 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
 
     override fun publishEnabled(): Boolean {
         return !publishSuccess
+    }
+
+    companion object {
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsVandalismPatrolFragment()
+        }
     }
 }

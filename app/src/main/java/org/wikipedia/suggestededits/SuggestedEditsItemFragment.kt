@@ -18,7 +18,7 @@ abstract class SuggestedEditsItemFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //retainInstance = true
+        retainInstance = true
     }
 
     override fun onDestroy() {
