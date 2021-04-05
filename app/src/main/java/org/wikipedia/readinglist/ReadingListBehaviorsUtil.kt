@@ -2,6 +2,8 @@ package org.wikipedia.readinglist
 
 import android.app.Activity
 import android.content.DialogInterface
+import android.icu.text.ListFormatter
+import android.os.Build
 import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
 import kotlinx.coroutines.*
@@ -146,14 +148,17 @@ object ReadingListBehaviorsUtil {
         if (lists == null) {
             return
         }
-        FeedbackUtil
-                .makeSnackbar(activity,
-                        activity.getString(
-                                if (lists.size == 1) R.string.reading_list_item_deleted_from_list else R.string.reading_lists_item_deleted, page.title()),
-                        FeedbackUtil.LENGTH_DEFAULT)
+        val readingListNames = mutableListOf<String>()
+        lists.forEach { readingList ->
+            readingListNames.add(readingList.title())
+        }
+        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_item_deleted_from_list, page.title(),
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(readingListNames)
+                else readingListNames.joinToString(separator = ", ")), FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     ReadingListDbHelper.instance().addPageToLists(lists, page, true)
-                    callback.onUndoDeleteClicked() }
+                    callback.onUndoDeleteClicked()
+                }
                 .show()
     }
 
