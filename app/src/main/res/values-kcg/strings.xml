@@ -358,12 +358,6 @@
   <string name="reading_list_deleted">Á̱ ti̱n %s</string>
   <string name="saved_list_empty_title">Pejí nang á̱ sak a̱ni ku nshyia̱ bah</string>
   <string name="reading_lists_empty_message">Mbeang a̱yaati̱kut mi̱ lis mat fang jenjini̱shi, ku nang a shyia̱ ma̱ntalang wa.</string>
-  <string name="reading_lists_onboarding_intro">Mbeang a̱yaati̱kut mi̱ lis mat fang jenjini̱shi, ku nang a shyia̱ ma̱ntalang wa!</string>
-  <string name="reading_lists_onboarding_for_example">Kidee</string>
-  <string name="reading_lists_onboarding_example1">Tityan cong</string>
-  <string name="reading_lists_onboarding_example2">Nyám lan-cat</string>
-  <string name="reading_lists_onboarding_example3">A̱cyet a̱wat</string>
-  <string name="reading_lists_onboarding_got_it">N fi̱k</string>
   <string name="reading_list_empty">A sang a̱yaati̱kut nang á̱ mbeang a̱ni mi̱ lis huni.</string>
   <string name="reading_list_article_offline">A̱ nshyia̱ ma̱ntalang</string>
   <string name="reading_list_article_make_offline">Tyia̱ a̱ti̱kut wuni a̱ shyia̱ a̱ma̱ntalang</string>

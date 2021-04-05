@@ -101,6 +101,8 @@
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>
   <string name="menu_page_add_to_watchlist">Añadir a lista de seguimiento</string>
+  <string name="menu_page_view_talk">Ver página de discusión</string>
+  <string name="menu_page_view_edit_history">Ver historial de ediciones</string>
   <string name="menu_page_remove_from_watchlist">Quitar de lista de seguimiento</string>
   <string name="edit_section_find_in_page">Buscar en la página</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
@@ -485,12 +487,6 @@
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="saved_list_empty_title">No hay listas de lectura aún</string>
   <string name="reading_lists_empty_message">Añade artículos a una lista para leer más tarde, incluso si no tienes conexión.</string>
-  <string name="reading_lists_onboarding_intro">Añade artículos a una lista para leer más tarde, incluso si no tienes conexión.</string>
-  <string name="reading_lists_onboarding_for_example">Por ejemplo</string>
-  <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
-  <string name="reading_lists_onboarding_example2">Animales favoritos</string>
-  <string name="reading_lists_onboarding_example3">Exploración espacial</string>
-  <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_list_empty">No tienes artículos añadidos a esta lista.</string>
   <string name="reading_list_article_offline">Disponible sin conexión</string>
   <string name="reading_list_article_make_offline">Permitir que este artículo esté disponible sin conexión.</string>
@@ -898,6 +894,8 @@
     <item quantity="one">Añadiste %d carácter</item>
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">Empezar</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">¡Genial, sigue así! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">Has alcanzado el objetivo</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Los artículos de Wikipedia son escritos y editados por cientos de voluntarios en todo el mundo. Desafortunadamente, a muchos artículos les hacen faltan imágenes.\n\nSe te sugerirán imágenes utilizando un algoritmo. El algoritmo tomará imágenes de otras fuentes y sugerirá como coincidencia con un artículo que no tenga una imagen.\n\nTu retroalimentación nos ayudará a mejorar las sugerencias con el tiempo. Siendo que la meta de esta tarea es el mejorar las imágenes sugeridas, las combinaciones que hagas no serán publicadas aún.</string>
   <string name="file_page_activity_title">Página de archivo</string>
@@ -975,9 +973,23 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="edit_type_all">Todas las contribuciones</string>
   <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
+  <string name="image_recommendations_task_accept">Sí</string>
+  <string name="image_recommendations_task_reject">No</string>
   <string name="image_recommendations_task_not_sure">No se</string>
+  <string name="image_recommendations_task_processing">Procesando…</string>
+  <string name="image_recommendations_task_instruction">¿Añadirías esta imagen al artículo?</string>
+  <string name="image_recommendations_task_choice_no">¿Porqué seleccionaste que no?</string>
+  <string name="image_recommendations_task_choice_unsure">¿Porqué no estás seguro sobre esta imagen?</string>
+  <string name="image_recommendations_task_choice_not_relevant">No es relevante</string>
+  <string name="image_recommendations_task_choice_low_quality">Baja calidad</string>
   <string name="image_recommendations_task_choice_noinfo">No hay información suficiente</string>
+  <string name="image_recommendations_task_choice_nosubject">No sé sobre este asunto</string>
   <string name="image_recommendations_task_choice_offensive">Ofensivo</string>
+  <string name="image_recommendations_task_choice_invisible">No puedo ver la imagen</string>
+  <string name="image_recommendations_task_choice_understand">No entiendo la tarea</string>
+  <string name="image_recommendations_task_choice_other">Otra</string>
+  <string name="image_recommendations_task_choice_continue">Continuar</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Sugerencia de razón:&lt;/i&gt; %s</string>
   <string name="wikitext_bold">Negrita</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enlace</string>

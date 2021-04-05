@@ -26,6 +26,7 @@
 * Qiyue2001
 * Shizhao
 * Shuiwater
+* Si109
 * SinonJZH
 * SomeyaMako
 * TianyinLee
@@ -461,12 +462,6 @@
   <string name="reading_list_deleted">%s已删除</string>
   <string name="saved_list_empty_title">目前尚无保存的页面</string>
   <string name="reading_lists_empty_message">添加条目到列表中以便日后阅读，即便当您离线时。</string>
-  <string name="reading_lists_onboarding_intro">添加条目到列表中以便日后阅读，即便当您离线时！</string>
-  <string name="reading_lists_onboarding_for_example">例如</string>
-  <string name="reading_lists_onboarding_example1">要访问的地点</string>
-  <string name="reading_lists_onboarding_example2">喜爱的动物</string>
-  <string name="reading_lists_onboarding_example3">太空探索</string>
-  <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="reading_list_empty">您没有添加至此列表的条目。</string>
   <string name="reading_list_article_offline">离线可用</string>
   <string name="reading_list_article_make_offline">使该条目离线时可用</string>
@@ -854,6 +849,7 @@
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="other">您添加了 %d 个字符</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">开始</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图片说明</string>
   <string name="file_page_add_image_tags_button">添加图片标签</string>
@@ -927,6 +923,11 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
   <string name="edit_type_all">所有贡献</string>
   <string name="content_description_for_page_indicator">第%1$d页，共%2$d页</string>
+  <string name="image_recommendations_task_accept">是</string>
+  <string name="image_recommendations_task_reject">否</string>
+  <string name="image_recommendations_task_processing">进行中。。。</string>
+  <string name="image_recommendations_task_choice_other">其他</string>
+  <string name="image_recommendations_task_choice_continue">继续</string>
   <string name="wikitext_bold">粗体</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">链接</string>

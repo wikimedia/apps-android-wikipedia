@@ -11,7 +11,7 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.core.view.children
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -44,13 +44,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
-    interface Callback {
-        fun getLangCode(): String
-        fun getSinglePage(): MwQueryPage?
-        fun updateActionButton()
-        fun nextPage(sourceFragment: Fragment?)
-        fun logSuccess()
-    }
 
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
@@ -464,26 +457,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun atLeastOneTagChecked(): Boolean {
-        var atLeastOneChecked = false
-        for (i in 0 until binding.tagsChipGroup.childCount) {
-            val chip = binding.tagsChipGroup.getChildAt(i) as Chip
-            if (chip.isChecked) {
-                atLeastOneChecked = true
-                break
-            }
-        }
-        return atLeastOneChecked
+        return binding.tagsChipGroup.children.filterIsInstance<Chip>().any { it.isChecked }
     }
 
     override fun publishEnabled(): Boolean {
-        var acceptedCount = 0
-        for (i in 0 until binding.tagsChipGroup.childCount) {
-            val chip = binding.tagsChipGroup.getChildAt(i) as Chip
-            if (chip.isChecked) {
-                acceptedCount++
-            }
-        }
-        return !publishSuccess && acceptedCount > 0
+        return !publishSuccess && atLeastOneTagChecked()
     }
 
     override fun publishOutlined(): Boolean {

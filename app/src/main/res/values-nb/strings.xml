@@ -391,12 +391,6 @@
   <string name="reading_list_deleted">%s ble slettet</string>
   <string name="saved_list_empty_title">Ingen leselister enda.</string>
   <string name="reading_lists_empty_message">Legg til artikler i en liste for å kunne lese dem senere, selv når du er uten nettilgang.</string>
-  <string name="reading_lists_onboarding_intro">Legg til artikler i en liste for å kunne lese dem senere, selv når du er uten nettilgang.</string>
-  <string name="reading_lists_onboarding_for_example">For eksempel</string>
-  <string name="reading_lists_onboarding_example1">Steder å besøke</string>
-  <string name="reading_lists_onboarding_example2">Favorittdyr</string>
-  <string name="reading_lists_onboarding_example3">Utforskning av verdensrommet</string>
-  <string name="reading_lists_onboarding_got_it">Forstått</string>
   <string name="reading_list_empty">Du har ikke noen artikler i denne lista enda.</string>
   <string name="reading_list_article_offline">Tilgjengelig offline</string>
   <string name="reading_list_article_make_offline">Gjør denne artikkelen tilgjengelig offline</string>

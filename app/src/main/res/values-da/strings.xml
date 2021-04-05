@@ -439,12 +439,6 @@
   <string name="reading_list_deleted">%s slettet</string>
   <string name="saved_list_empty_title">Ingen læselister endnu</string>
   <string name="reading_lists_empty_message">Gem artikler til læselister, så du kan læse dem senere, selv når du er uden internetforbindelse.</string>
-  <string name="reading_lists_onboarding_intro">Tilføj artikler til en læseliste for senere brug, selv uden internetforbindelse!</string>
-  <string name="reading_lists_onboarding_for_example">For eksempel</string>
-  <string name="reading_lists_onboarding_example1">Steder at besøge</string>
-  <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>
-  <string name="reading_lists_onboarding_example3">Udforskning af rummet</string>
-  <string name="reading_lists_onboarding_got_it">Forstået</string>
   <string name="reading_list_empty">Du har ingen artikler, der er tilføjet til denne liste.</string>
   <string name="reading_list_article_offline">Tilgængelig offline</string>
   <string name="reading_list_article_make_offline">Gør denne artikel tilgængelig offline</string>
@@ -861,6 +855,10 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
   <string name="edit_type_all">Alle bidrag</string>
   <string name="content_description_for_page_indicator">Side %1$d af %2$d</string>
+  <string name="image_recommendations_task_accept">Ja</string>
+  <string name="image_recommendations_task_reject">Nej</string>
+  <string name="image_recommendations_task_not_sure">Ikke sikker</string>
+  <string name="image_recommendations_task_choice_no">Hvorfor valgte du nej?</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>

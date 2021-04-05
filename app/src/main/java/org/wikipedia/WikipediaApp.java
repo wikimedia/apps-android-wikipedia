@@ -175,6 +175,7 @@ public class WikipediaApp extends Application {
         enableWebViewDebugging();
 
         registerActivityLifecycleCallbacks(activityLifecycleHandler);
+        registerComponentCallbacks(activityLifecycleHandler);
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);

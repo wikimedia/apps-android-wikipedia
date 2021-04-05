@@ -411,12 +411,6 @@
   <string name="reading_list_deleted">%s বিলোপ কৰা হ\'ল</string>
   <string name="saved_list_empty_title">কোনো পঢ়া তালিকা নাই</string>
   <string name="reading_lists_empty_message">প্ৰবন্ধবোৰ এক পাঠ্য তালিকাত যোগ কৰে যাতে আপুনি অফলাইন থাকিলেও পাছত সেইবোৰ পুনৰ পঢ়িব পাৰে।</string>
-  <string name="reading_lists_onboarding_intro">প্ৰবন্ধবোৰ এক পাঠ্য তালিকাত যোগ কৰক যাতে আপুনি অফলাইন থাকিলেও পাছত সেইবোৰ পুনৰ পঢ়িব পাৰে!</string>
-  <string name="reading_lists_onboarding_for_example">যেনে</string>
-  <string name="reading_lists_onboarding_example1">চাবলগীয়া ঠাই</string>
-  <string name="reading_lists_onboarding_example2">পছন্দৰ জীৱ-জন্তু</string>
-  <string name="reading_lists_onboarding_example3">মহাকাশ অনুসন্ধান</string>
-  <string name="reading_lists_onboarding_got_it">বুজিছোঁ</string>
   <string name="reading_list_empty">এই তালিকাত আপুনি কোনো প্ৰবন্ধ যোগ কৰা নাই।</string>
   <string name="reading_list_article_offline">অফলাইন উপলব্ধ</string>
   <string name="reading_list_article_make_offline">এই প্ৰবন্ধটো অফলাইন উপলব্ধ কৰাওক</string>

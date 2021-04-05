@@ -3,14 +3,15 @@ package org.wikipedia.search
 import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import androidx.core.content.contentValuesOf
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.column.Column
 import org.wikipedia.database.contract.SearchHistoryContract
 
 class RecentSearchDatabaseTable : DatabaseTable<RecentSearch>(SearchHistoryContract.TABLE, SearchHistoryContract.Query.URI) {
     override fun fromCursor(cursor: Cursor): RecentSearch {
-        val title = SearchHistoryContract.Col.TEXT.`val`(cursor)
-        val timestamp = SearchHistoryContract.Col.TIMESTAMP.`val`(cursor)
+        val title = SearchHistoryContract.Col.TEXT.value(cursor)
+        val timestamp = SearchHistoryContract.Col.TIMESTAMP.value(cursor)
         return RecentSearch(title, timestamp)
     }
 
@@ -25,10 +26,8 @@ class RecentSearchDatabaseTable : DatabaseTable<RecentSearch>(SearchHistoryContr
         get() = DB_VER_INTRODUCED
 
     override fun toContentValues(obj: RecentSearch): ContentValues {
-        val contentValues = ContentValues()
-        contentValues.put(SearchHistoryContract.Col.TEXT.name, obj.text)
-        contentValues.put(SearchHistoryContract.Col.TIMESTAMP.name, obj.timestamp.time)
-        return contentValues
+        return contentValuesOf(SearchHistoryContract.Col.TEXT.name to obj.text,
+                SearchHistoryContract.Col.TIMESTAMP.name to obj.timestamp.time)
     }
 
     override fun getUnfilteredPrimaryKeySelectionArgs(obj: RecentSearch): Array<String?> {

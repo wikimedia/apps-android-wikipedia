@@ -38,7 +38,8 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         setButtonsListener()
     }
 
-    fun show(anchorView: View, callback: Callback?, currentTab: Tab, isWatched: Boolean, hasWatchlistExpiry: Boolean) {
+    fun show(anchorView: View, callback: Callback?, currentTab: Tab, isMobileWeb: Boolean,
+             isWatched: Boolean, hasWatchlistExpiry: Boolean) {
         this.callback = callback
         this.isWatched = isWatched
         popupWindowHost = PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -51,7 +52,7 @@ class PageActionOverflowView(context: Context) : FrameLayout(context) {
         binding.overflowForward.visibility = if (currentTab.canGoForward()) VISIBLE else GONE
         binding.overflowWatchlist.setText(if (isWatched) R.string.menu_page_remove_from_watchlist else R.string.menu_page_add_to_watchlist)
         binding.overflowWatchlist.setCompoundDrawablesWithIntrinsicBounds(getWatchlistIcon(isWatched, hasWatchlistExpiry), 0, 0, 0)
-        binding.overflowWatchlist.visibility = if (AccountUtil.isLoggedIn) VISIBLE else GONE
+        binding.overflowWatchlist.visibility = if (!isMobileWeb && AccountUtil.isLoggedIn) VISIBLE else GONE
     }
 
     @DrawableRes

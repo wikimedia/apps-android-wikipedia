@@ -171,11 +171,6 @@
   <string name="reading_list_item_delete_undo">Retuhr nämme</string>
   <string name="reading_list_deleted">%s es fott jeschmeßße</string>
   <string name="saved_list_empty_title" fuzzy="true">keijn Leß zom Lässe heh.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Määt Leßte vun Atikelle, di mer schpääder lässe well, sällfs wam_mer off-laijn es.</string>
-  <string name="reading_lists_onboarding_for_example">För e Beijschpell</string>
-  <string name="reading_lists_onboarding_example1">Pläz zom Besöhke</string>
-  <string name="reading_lists_onboarding_example2">Diere</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">Plaz!</string>
   <string name="user_option_sync_label">Enschtällonge</string>
   <string name="view_because_you_read_card_title">Weijl De jelässe häs</string>
   <string name="view_random_card_title">Zoffälleje Sigg</string>

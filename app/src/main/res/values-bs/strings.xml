@@ -37,7 +37,7 @@
   <string name="search_redirect_from">Preusmjereno sa %s</string>
   <string name="menu_page_show_tabs">Prikaži kartice</string>
   <string name="menu_page_other_languages">Promijeni jezik</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Pronađi na stranici</string>
+  <string name="menu_page_find_in_page">Pronađi u članku</string>
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
@@ -156,7 +156,7 @@
   <string name="settings_item_preferences">Postavke</string>
   <string name="settings_activity_title">Postavke</string>
   <string name="about_description">O aplikaciji Wikipedia</string>
-  <string name="privacy_policy_description">Politika privatnosti</string>
+  <string name="privacy_policy_description">Pravila o privatnosti</string>
   <string name="terms_of_use_description">Uslovi korištenja</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -261,7 +261,7 @@
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
   <string name="preference_title_show_link_previews">Prikaži preglede linkova</string>
   <string name="preference_summary_show_link_previews">Omogućite brz pregled članaka kad dodirnete linkove.</string>
-  <string name="nav_item_donate" fuzzy="true">Podržite Wikipediju</string>
+  <string name="nav_item_donate">Donirajte</string>
   <string name="error_voice_search_not_available">Izvinjavamo se, prepoznavanje govora nije dostupno.</string>
   <string name="location_service_disabled">Lokacijske usluge su isključene.</string>
   <string name="enable_location_service">Uključi</string>
@@ -330,12 +330,6 @@
   <string name="reading_list_deleted">Spisak \"%s\" obrisan</string>
   <string name="saved_list_empty_title">Zasad nema spiskova za čitanje</string>
   <string name="reading_lists_empty_message">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži.</string>
-  <string name="reading_lists_onboarding_intro">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži!</string>
-  <string name="reading_lists_onboarding_for_example">Naprimjer</string>
-  <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
-  <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
-  <string name="reading_lists_onboarding_example3">Istraživanje svemira</string>
-  <string name="reading_lists_onboarding_got_it">Razumijem</string>
   <string name="reading_list_empty">Niste dodali nijedan članak na ovaj spisak.</string>
   <string name="reading_list_article_offline">Dostupno van mreže</string>
   <string name="reading_list_article_make_offline">Učini članak dostupnim van mreže</string>
@@ -463,7 +457,7 @@
   <string name="description_edit_help_about_wikidata">O Wikipodacima</string>
   <string name="description_edit_help_wikidata_guide">Vodič o pisanju opisa na Wikipodacima</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit" fuzzy="true">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
+  <string name="description_edit_anon_limit">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa članaka! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
   <string name="description_edit_license_notice" fuzzy="true">Mijenjanjem opisa naslova prihvatam &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažem da svoj doprinos objavim pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_success_saved">Opis članka je objavljen!</string>
   <string name="description_edit_success_encouragement">Upravo ste svima poboljšali Wikipediju</string>

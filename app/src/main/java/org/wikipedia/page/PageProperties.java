@@ -17,7 +17,6 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.UriUtil;
 
 import java.util.Date;
-import java.util.Objects;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DateUtil.iso8601DateParse;
@@ -190,7 +189,7 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(revisionId);
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
-        parcel.writeString(GeoMarshaller.marshal(geo));
+        parcel.writeValue(geo);
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
@@ -208,7 +207,7 @@ public class PageProperties implements Parcelable {
         revisionId = in.readLong();
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
-        geo = GeoUnmarshaller.unmarshal(in.readString());
+        geo = (Location) in.readValue(Location.class.getClassLoader());
         editProtectionStatus = in.readString();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
@@ -249,7 +248,7 @@ public class PageProperties implements Parcelable {
                 && revisionId == that.revisionId
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
-                && Objects.equals(geo, that.geo)
+                && ((geo == null || that.geo == null) || (geo.getLatitude() == that.geo.getLatitude() && geo.getLongitude() == that.geo.getLongitude()))
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)

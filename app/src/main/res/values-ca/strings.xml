@@ -220,6 +220,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca#Algorisme_formació_imatge</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
@@ -450,12 +451,6 @@
   <string name="reading_list_deleted">%s eliminada</string>
   <string name="saved_list_empty_title">Encara no hi ha cap llista de lectura.</string>
   <string name="reading_lists_empty_message">Afegeix articles a una llista per llegir més endavant, fins i tot quan estigueu fora de línia.</string>
-  <string name="reading_lists_onboarding_intro">Afegeix articles a una llista per llegir més endavant, fins i tot quan estigueu fora de línia!</string>
-  <string name="reading_lists_onboarding_for_example">Per exemple</string>
-  <string name="reading_lists_onboarding_example1">Llocs per visitar</string>
-  <string name="reading_lists_onboarding_example2">Animals preferits</string>
-  <string name="reading_lists_onboarding_example3">Exploració espacial</string>
-  <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="reading_list_empty">No teniu articles afegits a la llista.</string>
   <string name="reading_list_article_offline">Disponible fora de línia</string>
   <string name="reading_list_article_make_offline">Fes aquest article disponible fora de línia</string>

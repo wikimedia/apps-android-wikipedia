@@ -102,6 +102,8 @@
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти в статье</string>
   <string name="menu_page_add_to_watchlist">Добавить в список наблюдения</string>
+  <string name="menu_page_view_talk">Смотреть страницу обсуждения</string>
+  <string name="menu_page_view_edit_history">Смотреть историю изменений</string>
   <string name="menu_page_remove_from_watchlist">Удалить из списка наблюдения</string>
   <string name="edit_section_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Шрифт и тема оформления</string>
@@ -255,6 +257,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru#Тренировка_алгоритма_изображений</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница команды&lt;/a&gt;</string>
@@ -435,7 +438,7 @@
   <string name="reading_list_create_new">Создать новый</string>
   <string name="reading_list_title_exists">Список для чтения «%s» уже существует.</string>
   <string name="reading_list_article_already_exists_message">Всё хорошо! %1$s уже содержит %2$s.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">Всё хорошо! %s уже содержит все статьи.</string>
+  <string name="reading_list_articles_already_exist_message">Всё хорошо! %s уже содержит все статьи.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
   <string name="reading_list_add_to_list_button">Добавить в список</string>
   <string name="format_reading_list_statistical_summary_singular">1 статья, %1$.2f МБ</string>
@@ -468,12 +471,6 @@
   <string name="reading_list_deleted">%s удалено</string>
   <string name="saved_list_empty_title">Ещё нет списков для чтения</string>
   <string name="reading_lists_empty_message">Добавьте статьи в список для чтения позже, даже если вы офлайн.</string>
-  <string name="reading_lists_onboarding_intro">Добавьте статьи в список для чтения позже, даже если вы офлайн!</string>
-  <string name="reading_lists_onboarding_for_example">Например</string>
-  <string name="reading_lists_onboarding_example1">Места для посещения</string>
-  <string name="reading_lists_onboarding_example2">Любимые животные</string>
-  <string name="reading_lists_onboarding_example3">Исследование космоса</string>
-  <string name="reading_lists_onboarding_got_it">Понятно</string>
   <string name="reading_list_empty">В этом списке нет добавленных статей.</string>
   <string name="reading_list_article_offline">Доступно без подключения к Интернету</string>
   <string name="reading_list_article_make_offline">Сделать эта статью доступной в офлайн-режиме</string>
@@ -707,6 +704,7 @@
   <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обычно начинается с маленькой буквы</string>
   <string name="description_edit_voice_input_description">Голосовой ввод</string>
+  <string name="description_too_short">Этот текст слишком короткий.</string>
   <string name="description_edit_success_saved">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
@@ -793,9 +791,10 @@
   <string name="suggested_edits_image_tags_publishing">Публикация</string>
   <string name="suggested_edits_image_tags_published">Опубликовано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Тегирование изображений позволяет их легче найти.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Добавляя теги к изображению, вы поможете находить изображения в Commons, репозитории свободных к распространению изображений, который Википедия использует для изображений в своих статьях.\n\nМы автоматически предложили несколько тегов. Вы также можете добавить свои теги.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Помечайте изображения, чтобы их было легче найти. Выберите из предложенных тегов или добавьте свой собственный.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Добавляя теги к изображению, вы поможете находить изображения на Викискладе, репозитории свободных к распространению изображений, который Википедия использует для изображений в своих статьях.</string>
+  <string name="suggested_edits_image_tags_task_detail">Добавьте собственные теги к изображению, чтобы его было легче найти.</string>
   <string name="suggested_edits_image_tags_choose">Добавить или выбрать подходящие теги</string>
+  <string name="suggested_edits_image_tags_published_list">Опубликованные теги</string>
   <string name="suggested_edits_image_tags_search">Искать метки</string>
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
   <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали, будут отклонены. Вы уверены, что хотите отклонить все теги?</string>
@@ -846,6 +845,10 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Войти в Википедию</string>
   <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Текущая версия</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">Начать</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Великолепно, продолжайте в том же духе! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Ежедневная цель достигнута! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Вы достигли цели</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
@@ -923,6 +926,10 @@
   <string name="edit_type_all">Все вклады</string>
   <string name="content_description_for_page_indicator">Шаг %1$d из %2$d</string>
   <string name="image_recommendations_task_accept">Да</string>
+  <string name="image_recommendations_task_reject">Нет</string>
+  <string name="image_recommendations_task_not_sure">Затрудняюсь ответить</string>
+  <string name="image_recommendations_task_processing">Обработка…</string>
+  <string name="image_recommendations_task_choice_continue">Продолжить</string>
   <string name="wikitext_bold">Полужирный</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Ссылка</string>
@@ -947,6 +954,11 @@
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_add_reply">Ответить</string>
   <string name="talk_reply_subject">Тема</string>
+  <string name="talk_reply_hint">Написать ответ</string>
+  <string name="talk_message_hint">Написать сообщение</string>
+  <string name="talk_message_empty">Сообщение не может быть пустым.</string>
+  <string name="talk_subject_empty">Тема не может быть пустой.</string>
+  <string name="menu_option_share_edit">Поделиться правкой</string>
   <string name="menu_option_user_profile">Профиль %s</string>
   <string name="menu_option_user_contributions">Вклад участника %s</string>
   <string name="watchlist_details_watching_label">Слежу</string>
