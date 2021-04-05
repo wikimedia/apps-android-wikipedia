@@ -4,6 +4,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.LoggedOutInBackgroundEvent
@@ -13,8 +14,10 @@ import org.wikipedia.util.log.L
 import java.io.IOException
 import java.util.concurrent.Semaphore
 
-class CsrfTokenClient(private val csrfWikiSite: WikiSite, private val loginWikiSite: WikiSite) {
+class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetries: Int,
+                      private val csrfService: Service) {
     constructor(site: WikiSite) : this(site, site)
+    constructor(csrfWikiSite: WikiSite, loginWikiSite: WikiSite) : this(loginWikiSite, MAX_RETRIES, ServiceFactory.get(csrfWikiSite))
 
     val token: Observable<String>
         get() {
@@ -25,8 +28,7 @@ class CsrfTokenClient(private val csrfWikiSite: WikiSite, private val loginWikiS
                     if (emitter.isDisposed) {
                         return@create
                     }
-                    val service = ServiceFactory.get(csrfWikiSite)
-                    for (retry in 0 until MAX_RETRIES) {
+                    for (retry in 0 until numRetries) {
                         if (retry > 0) {
                             // Log in explicitly
                             LoginClient().loginBlocking(loginWikiSite, AccountUtil.userName!!, AccountUtil.password!!, "")
@@ -37,7 +39,7 @@ class CsrfTokenClient(private val csrfWikiSite: WikiSite, private val loginWikiS
                             return@create
                         }
 
-                        service.csrfToken
+                        csrfService.csrfToken
                                 .subscribeOn(Schedulers.io())
                                 .blockingSubscribe({
                                     token = it.query()!!.csrfToken().orEmpty()
@@ -80,6 +82,6 @@ class CsrfTokenClient(private val csrfWikiSite: WikiSite, private val loginWikiS
     companion object {
         private val MUTEX: Semaphore = Semaphore(1)
         private const val ANON_TOKEN = "+\\"
-        private const val MAX_RETRIES = 2
+        private const val MAX_RETRIES = 3
     }
 }
