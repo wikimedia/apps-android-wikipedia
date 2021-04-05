@@ -751,6 +751,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_image_preview_dialog_image">Label for image file name on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Label for a file that originates from Wikimedia Commons.</string>
   <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_tags">Label for image tags detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
