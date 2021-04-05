@@ -186,12 +186,27 @@
                 android:id="@+id/imageViewContainer"
                 android:layout_width="match_parent"
                 android:layout_height="180dp">
+
                 <org.wikipedia.views.FaceAndColorDetectImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:contentDescription="@null"/>
+
+                <ImageView
+                    android:id="@+id/imageInfoButton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:padding="4dp"
+                    android:background="@drawable/rounded_4dp_fill"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_crop_free_24"
+                    app:tint="@android:color/white" />
+
             </FrameLayout>
 
             <LinearLayout
@@ -201,38 +216,21 @@
                 android:orientation="vertical"
                 android:layout_marginTop="180dp">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/imageFileNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="12dp"
                     android:paddingEnd="6dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/imageFileNameText"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:ellipsize="middle"
-                        android:singleLine="true"
-                        android:paddingTop="4dp"
-                        android:lineSpacingMultiplier="1.1"
-                        android:textColor="?attr/colorAccent"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif-medium"
-                        tools:text="Lorem ipsum"/>
-
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_gravity="center_vertical"
-                        app:srcCompat="@drawable/ic_chevron_forward_gray"
-                        app:tint="?attr/colorAccent"
-                        android:contentDescription="@null"/>
-
-                </LinearLayout>
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    tools:text="Lorem ipsum"/>
 
                 <TextView
                     android:id="@+id/imageCaptionText"
