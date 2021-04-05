@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.view.*
@@ -9,7 +10,9 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -29,6 +32,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -137,6 +141,20 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         if (action == ADD_IMAGE_TAGS || action == IMAGE_RECOMMENDATION) {
             inflater.inflate(R.menu.menu_suggested_edits, menu)
             ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+
+            if (action == IMAGE_RECOMMENDATION) {
+                requireView().post {
+                    if (isAdded) {
+                        requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
+                            TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(it, 0, 0, R.drawable.ic_info_outline_themed_24dp, 0)
+                            TextViewCompat.setCompoundDrawableTintList(it, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+                            it.compoundDrawablePadding = DimenUtil.roundedDpToPx(4f)
+                            it.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+                            it.text = getString(R.string.image_recommendations_faq)
+                        }
+                    }
+                }
+            }
         }
     }
 
