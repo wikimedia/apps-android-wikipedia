@@ -2,13 +2,13 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.content.DialogInterface
-import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.WindowManager
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogTextInputBinding
 
@@ -20,8 +20,8 @@ class TextInputDialog constructor(context: Context) : AlertDialog(context) {
         fun onCancel()
     }
 
+    private lateinit var watcher: TextWatcher
     private var binding = DialogTextInputBinding.inflate(LayoutInflater.from(context))
-    private val watcher = TextInputWatcher()
     var callback: Callback? = null
 
     init {
@@ -73,20 +73,13 @@ class TextInputDialog constructor(context: Context) : AlertDialog(context) {
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        binding.textInput.addTextChangedListener(watcher)
+        watcher = binding.textInput.doOnTextChanged { text, _, _, _ ->
+            callback?.onTextChanged(text ?: "", this@TextInputDialog)
+        }
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         binding.textInput.removeTextChangedListener(watcher)
-    }
-
-    private inner class TextInputWatcher : TextWatcher {
-        override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-        override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-            callback?.onTextChanged(charSequence, this@TextInputDialog)
-        }
-
-        override fun afterTextChanged(editable: Editable) {}
     }
 }

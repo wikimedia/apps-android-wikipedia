@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.view.postDelayed
+import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -48,11 +48,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private lateinit var talkFunnel: TalkFunnel
     private lateinit var editFunnel: EditFunnel
     private lateinit var linkHandler: TalkLinkHandler
+    private lateinit var textWatcher: TextWatcher
     private val disposables = CompositeDisposable()
     private var topicId: Int = -1
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
-    private val textWatcher = ReplyTextWatcher()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var currentRevision: Long = 0
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
@@ -105,7 +105,10 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.talkReplyButton.hide()
         }
 
-        binding.replySubjectText.addTextChangedListener(textWatcher)
+        textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
+            binding.replySubjectLayout.error = null
+            binding.replyTextLayout.error = null
+        }
         binding.replyEditText.addTextChangedListener(textWatcher)
         binding.replySaveButton.setOnClickListener {
             onSaveClicked()
@@ -281,20 +284,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         override fun onInternalLinkClicked(title: PageTitle) {
            showLinkPreviewOrNavigate(title)
-        }
-    }
-
-    @Suppress("RedundantInnerClassModifier")
-    internal inner class ReplyTextWatcher : TextWatcher {
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        }
-
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            binding.replySubjectLayout.error = null
-            binding.replyTextLayout.error = null
-        }
-
-        override fun afterTextChanged(p0: Editable?) {
         }
     }
 

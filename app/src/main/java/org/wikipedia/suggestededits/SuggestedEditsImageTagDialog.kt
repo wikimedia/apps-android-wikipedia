@@ -8,13 +8,13 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.InsetDrawable
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.postDelayed
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,10 +44,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         fun onSearchDismiss(searchTerm: String)
     }
 
+    private lateinit var textWatcher: TextWatcher
+
     private var _binding: DialogImageTagSelectBinding? = null
     private val binding get() = _binding!!
     private var currentSearchTerm: String = ""
-    private val textWatcher = SearchTextWatcher()
     private val adapter = ResultListAdapter(Collections.emptyList())
     private val disposables = CompositeDisposable()
     private var searchRunnable: Runnable? = null
@@ -60,8 +61,16 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.imageTagsRecycler.layoutManager = LinearLayoutManager(activity)
         binding.imageTagsRecycler.adapter = adapter
-        binding.imageTagsSearchText.addTextChangedListener(textWatcher)
-        applyResults(Collections.emptyList())
+        textWatcher = binding.imageTagsSearchText.doOnTextChanged { text, _, _, _ ->
+            currentSearchTerm = text?.toString() ?: ""
+            searchRunnable?.let { binding.imageTagsSearchText.removeCallbacks(it) }
+            searchRunnable = binding.imageTagsSearchText.postDelayed(500) {
+                if (isAdded) {
+                    requestResults(currentSearchTerm)
+                }
+            }
+        }
+        applyResults(emptyList())
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -115,22 +124,6 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         searchRunnable?.let { binding.imageTagsSearchText.removeCallbacks(it) }
         disposables.clear()
         _binding = null
-    }
-
-    private inner class SearchTextWatcher : TextWatcher {
-        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {}
-
-        override fun onTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {
-            currentSearchTerm = text.toString()
-            searchRunnable?.let { binding.imageTagsSearchText.removeCallbacks(it) }
-            searchRunnable = binding.imageTagsSearchText.postDelayed(500) {
-                if (isAdded) {
-                    requestResults(currentSearchTerm)
-                }
-            }
-        }
-
-        override fun afterTextChanged(editable: Editable) {}
     }
 
     private fun requestResults(searchTerm: String) {

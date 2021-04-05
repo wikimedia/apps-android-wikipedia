@@ -1,8 +1,7 @@
 package org.wikipedia.views
 
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Button
+import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputLayout
 
 /**
@@ -13,16 +12,7 @@ class NonEmptyValidator(private val actionButton: Button, private vararg val tex
     private var lastIsValidValue = false
 
     init {
-        val triggerWatcher: TextWatcher = object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {}
-            override fun afterTextChanged(editable: Editable) {
-                revalidate()
-            }
-        }
-        textInputs.forEach {
-            it.editText!!.addTextChangedListener(triggerWatcher)
-        }
+        textInputs.forEach { it.editText?.doAfterTextChanged { revalidate() } }
     }
 
     private fun revalidate() {

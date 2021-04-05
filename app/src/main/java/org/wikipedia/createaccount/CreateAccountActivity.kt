@@ -4,13 +4,13 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -44,8 +44,9 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var funnel: CreateAccountFunnel
     private val disposables = CompositeDisposable()
     private var wiki = WikipediaApp.getInstance().wikiSite
-    private val userNameTextWatcher = UserNameTextWatcher()
+    private var userNameTextWatcher: TextWatcher? = null
     private val userNameVerifyRunnable = UserNameVerifyRunnable()
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
@@ -97,7 +98,15 @@ class CreateAccountActivity : BaseActivity() {
             }
             false
         }
-        binding.createAccountUsername.editText?.addTextChangedListener(userNameTextWatcher)
+        userNameTextWatcher = binding.createAccountUsername.editText?.doOnTextChanged { text, _, _, _ ->
+            binding.createAccountUsername.removeCallbacks(userNameVerifyRunnable)
+            binding.createAccountUsername.isErrorEnabled = false
+            if (text.isNullOrEmpty()) {
+                return@doOnTextChanged
+            }
+            userNameVerifyRunnable.setUserName(text.toString())
+            binding.createAccountUsername.postDelayed(userNameVerifyRunnable, TimeUnit.SECONDS.toMillis(1))
+        }
     }
 
     fun handleAccountCreationError(message: String) {
@@ -180,7 +189,7 @@ class CreateAccountActivity : BaseActivity() {
     public override fun onDestroy() {
         disposables.clear()
         captchaHandler.dispose()
-        binding.createAccountUsername.editText?.removeTextChangedListener(userNameTextWatcher)
+        userNameTextWatcher?.let { binding.createAccountUsername.editText?.removeTextChangedListener(it) }
         super.onDestroy()
     }
 
@@ -265,21 +274,6 @@ class CreateAccountActivity : BaseActivity() {
     private fun showError(caught: Throwable) {
         binding.viewCreateAccountError.setError(caught)
         binding.viewCreateAccountError.visibility = View.VISIBLE
-    }
-
-    private inner class UserNameTextWatcher : TextWatcher {
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-        override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
-            binding.createAccountUsername.removeCallbacks(userNameVerifyRunnable)
-            binding.createAccountUsername.isErrorEnabled = false
-            if (text.toString().isEmpty()) {
-                return
-            }
-            userNameVerifyRunnable.setUserName(text.toString())
-            binding.createAccountUsername.postDelayed(userNameVerifyRunnable, TimeUnit.SECONDS.toMillis(1))
-        }
-
-        override fun afterTextChanged(s: Editable) {}
     }
 
     private inner class UserNameVerifyRunnable : Runnable {
