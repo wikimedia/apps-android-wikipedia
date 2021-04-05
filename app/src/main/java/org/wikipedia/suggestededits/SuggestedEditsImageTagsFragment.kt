@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.view.children
-import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -45,13 +44,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
-    interface Callback {
-        fun getLangCode(): String
-        fun getSinglePage(): MwQueryPage?
-        fun updateActionButton()
-        fun nextPage(sourceFragment: Fragment?)
-        fun logSuccess()
-    }
 
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
