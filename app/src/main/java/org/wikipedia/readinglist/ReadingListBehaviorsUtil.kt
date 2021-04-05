@@ -148,13 +148,15 @@ object ReadingListBehaviorsUtil {
         if (lists == null) {
             return
         }
-        val readingListNames = mutableListOf<String>()
-        lists.forEach { readingList ->
-            readingListNames.add(readingList.title())
+        val readingListNames = lists.map { it.title() }.run {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                ListFormatter.getInstance().format(this)
+            } else {
+                joinToString(separator = ", ")
+            }
         }
-        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_item_deleted_from_list, page.title(),
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(readingListNames)
-                else readingListNames.joinToString(separator = ", ")), FeedbackUtil.LENGTH_DEFAULT)
+        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_item_deleted_from_list,
+                page.title(), readingListNames), FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     ReadingListDbHelper.instance().addPageToLists(lists, page, true)
                     callback.onUndoDeleteClicked()
