@@ -10,6 +10,7 @@
 * Druesenfieber
 * Elliot
 * Envlh
+* FF-11
 * FF11
 * Gnom
 * HajFunk
@@ -462,12 +463,6 @@
   <string name="reading_list_deleted">%s gelöscht</string>
   <string name="saved_list_empty_title">Es sind noch keine Leselisten vorhanden.</string>
   <string name="reading_lists_empty_message">Füge Artikel einer Liste zum späteren Lesen hinzu, auch wenn du offline bist.</string>
-  <string name="reading_lists_onboarding_intro">Füge Artikel einer Liste zum späteren Lesen hinzu, auch wenn du offline bist!</string>
-  <string name="reading_lists_onboarding_for_example">Zum Beispiel</string>
-  <string name="reading_lists_onboarding_example1">Zu besuchende Orte</string>
-  <string name="reading_lists_onboarding_example2">Lieblingstiere</string>
-  <string name="reading_lists_onboarding_example3">Weltraumforschung</string>
-  <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
   <string name="reading_list_article_offline">Offline verfügbar</string>
   <string name="reading_list_article_make_offline">Diesen Artikel offline verfügbar machen</string>

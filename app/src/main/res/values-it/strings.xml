@@ -465,12 +465,6 @@
   <string name="reading_list_deleted">%s cancellato</string>
   <string name="saved_list_empty_title">Nessun elenco di lettura ancora</string>
   <string name="reading_lists_empty_message">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline.</string>
-  <string name="reading_lists_onboarding_intro">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline!</string>
-  <string name="reading_lists_onboarding_for_example">Per esempio</string>
-  <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
-  <string name="reading_lists_onboarding_example2">Animali preferiti</string>
-  <string name="reading_lists_onboarding_example3">Esplorazione spaziale</string>
-  <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
   <string name="reading_list_article_offline">Disponibile in assenza di connessione</string>
   <string name="reading_list_article_make_offline">Rendi questa voce disponibile non in linea</string>
@@ -878,6 +872,10 @@
     <item quantity="one">Hai aggiunto %d carattere</item>
     <item quantity="other">Hai aggiunto %d caratteri</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">Inizia</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Ottimo, continua così! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Obiettivo quotidiano raggiunto! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Hai raggiunto l\'obbiettivo</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
@@ -956,6 +954,16 @@
   <string name="image_recommendations_task_accept">Sì</string>
   <string name="image_recommendations_task_reject">No</string>
   <string name="image_recommendations_task_not_sure">Non sono sicuro</string>
+  <string name="image_recommendations_task_processing">Elaborazione in corso…</string>
+  <string name="image_recommendations_task_choice_no">Perché hai selezionato no?</string>
+  <string name="image_recommendations_task_choice_unsure">Perché non sei sicuro di questa immagine?</string>
+  <string name="image_recommendations_task_choice_not_relevant">Non rilevante</string>
+  <string name="image_recommendations_task_choice_low_quality">Bassa qualità</string>
+  <string name="image_recommendations_task_choice_noinfo">Informazioni insufficienti</string>
+  <string name="image_recommendations_task_choice_nosubject">Non conosco questo argomento</string>
+  <string name="image_recommendations_task_choice_offensive">Offensivo</string>
+  <string name="image_recommendations_task_choice_invisible">Non riesco a vedere l\'immagine</string>
+  <string name="image_recommendations_task_choice_other">Altro</string>
   <string name="image_recommendations_task_choice_continue">Continua</string>
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>

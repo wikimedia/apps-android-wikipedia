@@ -5,10 +5,16 @@ import androidx.annotation.DrawableRes
 class SuggestedEditsTask {
     var title: String? = null
     var description: String? = null
-    var primaryActionText: String? = null
+    var primaryAction: String? = null
+    @DrawableRes
+    var primaryActionIcon: Int = 0
+    var secondaryAction: String? = null
     var disabled: Boolean = false
+
     var new: Boolean = false
-    var translatable: Boolean = true
+    var dailyProgress: Int = 0
+    var dailyProgressMax: Int = 0
+
     @DrawableRes
     var imageDrawable: Int = 0
 }

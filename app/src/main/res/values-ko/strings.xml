@@ -456,12 +456,6 @@
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
   <string name="saved_list_empty_title">아직 읽기 목록이 없습니다</string>
   <string name="reading_lists_empty_message">나중에 오프라인 상태이더라도 읽을 수 있도록 글들을 목록에 추가합니다.</string>
-  <string name="reading_lists_onboarding_intro">나중에 오프라인 상태이더라도 읽을 수 있도록, 글들을 목록에 추가해보세요!</string>
-  <string name="reading_lists_onboarding_for_example">예를 들어</string>
-  <string name="reading_lists_onboarding_example1">방문할 장소</string>
-  <string name="reading_lists_onboarding_example2">좋아하는 동물</string>
-  <string name="reading_lists_onboarding_example3">우주 탐험</string>
-  <string name="reading_lists_onboarding_got_it">알겠습니다</string>
   <string name="reading_list_empty">이 목록에 추가한 글이 없습니다.</string>
   <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>
   <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>

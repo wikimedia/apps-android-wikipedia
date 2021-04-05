@@ -65,8 +65,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
         // Log a click event, but only the first time the dialog is shown.
         logClick(savedInstanceState)
-        binding.onboardingContainer.root.visibility = View.GONE
-        binding.listsContainer.visibility = View.GONE
         updateLists()
         return binding.root
     }
@@ -87,30 +85,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         dismissListener?.onDismiss(null)
     }
 
-    private fun checkAndShowOnboarding() {
-        var isOnboarding = Prefs.isReadingListTutorialEnabled()
-        if (isOnboarding) {
-            // Don't show onboarding message if the user already has items in lists (i.e. from syncing).
-            readingLists.forEach {
-                if (it.pages().isNotEmpty()) {
-                    isOnboarding = false
-                    Prefs.setReadingListTutorialEnabled(false)
-                    return
-                }
-            }
-        }
-        binding.onboardingContainer.onboardingButton.setOnClickListener {
-            binding.onboardingContainer.root.visibility = View.GONE
-            binding.listsContainer.visibility = View.VISIBLE
-            Prefs.setReadingListTutorialEnabled(false)
-            if (displayedLists.isEmpty()) {
-                showCreateListDialog()
-            }
-        }
-        binding.listsContainer.visibility = if (isOnboarding) View.GONE else View.VISIBLE
-        binding.onboardingContainer.root.visibility = if (isOnboarding) View.VISIBLE else View.GONE
-    }
-
     private fun updateLists() {
         disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().allLists }
                 .subscribeOn(Schedulers.io())
@@ -124,7 +98,9 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
                     }
                     ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
                     adapter.notifyDataSetChanged()
-                    checkAndShowOnboarding()
+                    if (displayedLists.isEmpty()) {
+                        showCreateListDialog()
+                    }
                 }) { obj -> L.w(obj) })
     }
 

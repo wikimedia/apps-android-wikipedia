@@ -6,7 +6,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 import android.net.Uri
@@ -15,6 +14,8 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.applyCanvas
+import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
@@ -153,16 +154,15 @@ object NotificationPresenter {
     private fun drawNotificationBitmap(context: Context, @ColorRes color: Int, @DrawableRes icon: Int, drawIconCircle: Boolean): Bitmap {
         val bitmapHalfSize = DimenUtil.roundedDpToPx(20f)
         val iconHalfSize = DimenUtil.roundedDpToPx(12f)
-        val bmp = Bitmap.createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bmp)
-        val p = Paint()
-        p.isAntiAlias = true
-        p.color = ContextCompat.getColor(context, if (drawIconCircle) color else android.R.color.transparent)
-        canvas.drawCircle(bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), p)
-        val iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, if (drawIconCircle) android.R.color.white else color)
-        canvas.drawBitmap(iconBmp, null, Rect(bitmapHalfSize - iconHalfSize, bitmapHalfSize - iconHalfSize,
-                bitmapHalfSize + iconHalfSize, bitmapHalfSize + iconHalfSize), null)
-        iconBmp.recycle()
-        return bmp
+        return createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2).applyCanvas {
+            val p = Paint()
+            p.isAntiAlias = true
+            p.color = ContextCompat.getColor(context, if (drawIconCircle) color else android.R.color.transparent)
+            drawCircle(bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), bitmapHalfSize.toFloat(), p)
+            val iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, if (drawIconCircle) android.R.color.white else color)
+            drawBitmap(iconBmp, null, Rect(bitmapHalfSize - iconHalfSize, bitmapHalfSize - iconHalfSize,
+                    bitmapHalfSize + iconHalfSize, bitmapHalfSize + iconHalfSize), null)
+            iconBmp.recycle()
+        }
     }
 }

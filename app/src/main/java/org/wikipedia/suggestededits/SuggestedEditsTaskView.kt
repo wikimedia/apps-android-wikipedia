@@ -27,37 +27,43 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     private fun updateTranslateActionUI() {
         val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
             R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
-        binding.translateButton.iconTint = ColorStateList.valueOf(color)
-        binding.translateButton.setTextColor(color)
+        binding.secondaryButton.iconTint = ColorStateList.valueOf(color)
+        binding.secondaryButton.setTextColor(color)
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
         updateTranslateActionUI()
         binding.taskTitle.text = task.title
         binding.taskDescription.text = task.description
-        binding.addButton.text = task.primaryActionText
+        binding.primaryButton.text = task.primaryAction
+        if (task.primaryActionIcon != 0) {
+            binding.primaryButton.setIconResource(task.primaryActionIcon)
+            binding.primaryButton.iconSize = DimenUtil.roundedDpToPx(16f)
+            binding.primaryButton.iconPadding = DimenUtil.roundedDpToPx(8f)
+        }
         binding.taskIcon.setImageResource(task.imageDrawable)
-        binding.taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
+        binding.taskTitleNewLabel.visibility = if (task.new) VISIBLE else GONE
 
         setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }
         }
-        binding.addButton.setOnClickListener {
+        binding.primaryButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }
         }
-        binding.translateButton.setOnClickListener {
+        binding.secondaryButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, true)
             }
         }
-        binding.translateButton.visibility = if (task.translatable) View.VISIBLE else GONE
+        binding.secondaryButton.visibility = if (task.secondaryAction.isNullOrEmpty()) View.GONE else VISIBLE
+        binding.secondaryButton.text = task.secondaryAction
     }
 
     interface Callback {
-        fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean)
+        fun onViewClick(task: SuggestedEditsTask, secondary: Boolean)
     }
 }

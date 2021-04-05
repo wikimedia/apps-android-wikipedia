@@ -1,11 +1,11 @@
 package org.wikipedia.util
 
 import android.text.Spanned
-import android.text.SpannedString
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.IntRange
-import androidx.core.text.HtmlCompat
+import androidx.core.text.parseAsHtml
+import androidx.core.text.toSpanned
 import com.google.gson.Gson
 import okio.ByteString.Companion.encodeUtf8
 import okio.utf8Size
@@ -99,16 +99,16 @@ object StringUtil {
 
     @JvmStatic
     fun fromHtml(source: String?): Spanned {
-        var sourceStr = source ?: return SpannedString("")
-        if (!sourceStr.contains("<") && !sourceStr.contains("&")) {
+        var sourceStr = source ?: return "".toSpanned()
+        if ("<" !in sourceStr && "&" !in sourceStr) {
             // If the string doesn't contain any hints of HTML entities, then skip the expensive
             // processing that fromHtml() performs.
-            return SpannedString(sourceStr)
+            return sourceStr.toSpanned()
         }
         sourceStr = sourceStr.replace("&#8206;".toRegex(), "\u200E")
                 .replace("&#8207;".toRegex(), "\u200F")
                 .replace("&amp;".toRegex(), "&")
-        return HtmlCompat.fromHtml(sourceStr, HtmlCompat.FROM_HTML_MODE_LEGACY)
+        return sourceStr.parseAsHtml()
     }
 
     @JvmStatic

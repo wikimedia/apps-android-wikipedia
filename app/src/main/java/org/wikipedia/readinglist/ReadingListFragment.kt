@@ -213,7 +213,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     private fun setSwipeRefreshView() {
         binding.readingListSwipeRefresh.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         binding.readingListSwipeRefresh.setOnRefreshListener { ReadingListsFragment.refreshSync(this, binding.readingListSwipeRefresh) }
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
+        if (ReadingListSyncAdapter.isDisabledByRemoteConfig) {
             binding.readingListSwipeRefresh.isEnabled = false
         }
     }
@@ -356,6 +356,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
     }
 
+    /**
+     * CAUTION: This returns the selected pages AND automatically marks them as unselected.
+     * Make sure to call this getter once, and operate only on the returned list.
+     */
     private val selectedPages: List<ReadingListPage>
         get() {
             val result = mutableListOf<ReadingListPage>()
@@ -372,19 +376,21 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
     private fun deleteSelectedPages() {
         readingList?.let {
-            if (selectedPages.isNotEmpty()) {
-                ReadingListDbHelper.instance().markPagesForDeletion(it, selectedPages)
-                it.pages().removeAll(selectedPages)
+            val pages = selectedPages
+            if (pages.isNotEmpty()) {
+                ReadingListDbHelper.instance().markPagesForDeletion(it, pages)
+                it.pages().removeAll(pages)
                 funnel.logDeleteItem(it, 0)
-                ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, selectedPages) { updateReadingListData() }
+                ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
                 update()
             }
         }
     }
 
     private fun addSelectedPagesToList() {
-        if (selectedPages.isNotEmpty()) {
-            val titles = selectedPages.map { ReadingListPage.toPageTitle(it) }
+        val pages = selectedPages
+        if (pages.isNotEmpty()) {
+            val titles = pages.map { ReadingListPage.toPageTitle(it) }
             bottomSheetPresenter.show(childFragmentManager,
                     AddToReadingListDialog.newInstance(titles, InvokeSource.READING_LIST_ACTIVITY))
             update()
@@ -392,8 +398,9 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun moveSelectedPagesToList() {
-        if (selectedPages.isNotEmpty()) {
-            val titles = selectedPages.map { ReadingListPage.toPageTitle(it) }
+        val pages = selectedPages
+        if (pages.isNotEmpty()) {
+            val titles = pages.map { ReadingListPage.toPageTitle(it) }
             bottomSheetPresenter.show(childFragmentManager,
                     MoveToReadingListDialog.newInstance(readingListId, titles, InvokeSource.READING_LIST_ACTIVITY))
             update()

@@ -420,12 +420,6 @@
   <string name="reading_list_deleted">%s سڕدرایەوە</string>
   <string name="saved_list_empty_title">ھێشتا پەڕەکان پاشەکەوت نەکراون</string>
   <string name="reading_lists_empty_message">وتارەکان زیاد بکە بۆ پێڕستەکانی خوێندنەوە، کە دەتوانیت دواتر بیان بینیت، تەنانەت کاتێک دەرھێڵیش بیت.</string>
-  <string name="reading_lists_onboarding_intro">زیادکردنی وتارەکان لە پێڕستێک بۆ خوێندنەوە، تەنانەت کاتێک دەرھێڵیش بیت!</string>
-  <string name="reading_lists_onboarding_for_example">بۆ نموونە</string>
-  <string name="reading_lists_onboarding_example1">شوێنەکان بۆ سەردانکردن</string>
-  <string name="reading_lists_onboarding_example2">ئاژەڵە دڵخوازەکان</string>
-  <string name="reading_lists_onboarding_example3">بۆشایی گەڕان</string>
-  <string name="reading_lists_onboarding_got_it">زانیم</string>
   <string name="reading_list_empty">ھیچ وتارێکت لەم پێڕستە دانەناوە.</string>
   <string name="reading_list_article_offline">بەبێ ئینتەرنێت بەردەستە</string>
   <string name="reading_list_article_make_offline">ئەم وتارە بەبێ ئینتەرنێت بەردەست بکە</string>

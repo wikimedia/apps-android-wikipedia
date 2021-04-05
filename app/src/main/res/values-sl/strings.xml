@@ -440,12 +440,6 @@
   <string name="reading_list_deleted">Seznam %s izbrisan</string>
   <string name="saved_list_empty_title">Nimate še prenesenih strani</string>
   <string name="reading_lists_empty_message">Dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave.</string>
-  <string name="reading_lists_onboarding_intro">dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave!</string>
-  <string name="reading_lists_onboarding_for_example">Na primer</string>
-  <string name="reading_lists_onboarding_example1">Kraji za obisk</string>
-  <string name="reading_lists_onboarding_example2">Najljubše živali</string>
-  <string name="reading_lists_onboarding_example3">Raziskovanje vesolja</string>
-  <string name="reading_lists_onboarding_got_it">Razumem</string>
   <string name="reading_list_empty">Na tem seznamu nimate člankov.</string>
   <string name="reading_list_article_offline">Na voljo brez povezave</string>
   <string name="reading_list_article_make_offline">Članek naj bo na voljo brez povezave</string>

@@ -226,7 +226,7 @@
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Vikipedi uygulaması hakkında</string>
-  <string name="privacy_policy_description">Gizlilik politikası</string>
+  <string name="privacy_policy_description">Gizlilik ilkesi</string>
   <string name="terms_of_use_description">Kullanım şartları</string>
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
@@ -469,12 +469,6 @@
   <string name="reading_list_deleted">%s silindi</string>
   <string name="saved_list_empty_title">Henüz kaydedilmiş sayfa yok</string>
   <string name="reading_lists_empty_message">Çevrimdışı olsanız bile daha sonra okumak için listenize maddeler ekleyin.</string>
-  <string name="reading_lists_onboarding_intro">Çevrimdışı olduğunuzda bile daha sonra okumak için bir listeye madde ekleyin!</string>
-  <string name="reading_lists_onboarding_for_example">Örneğin</string>
-  <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>
-  <string name="reading_lists_onboarding_example2">En sevilen hayvanlar</string>
-  <string name="reading_lists_onboarding_example3">Uzayın keşfi</string>
-  <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="reading_list_empty">Bu listeye henüz bir madde eklemediniz.</string>
   <string name="reading_list_article_offline">Çevrimdışı olarak erişilebilir</string>
   <string name="reading_list_article_make_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yap</string>

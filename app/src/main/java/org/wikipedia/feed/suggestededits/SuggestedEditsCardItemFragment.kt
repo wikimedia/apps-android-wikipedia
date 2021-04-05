@@ -1,5 +1,6 @@
 package org.wikipedia.feed.suggestededits
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -31,7 +33,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.descriptions.DescriptionEditActivity.RESULT_OK
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
 import org.wikipedia.feed.model.CardType
@@ -452,10 +453,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         @JvmStatic
         fun newInstance(age: Int, cardType: Action) =
                 SuggestedEditsCardItemFragment().apply {
-                    arguments = Bundle().apply {
-                        putInt(AGE, age)
-                        putSerializable(CARD_TYPE, cardType)
-                    }
+                    arguments = bundleOf(AGE to age, CARD_TYPE to cardType)
                 }
     }
 }

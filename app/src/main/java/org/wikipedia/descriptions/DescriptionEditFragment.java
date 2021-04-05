@@ -251,7 +251,7 @@ public class DescriptionEditFragment extends Fragment {
         editView.setPageTitle(pageTitle);
         editView.setHighlightText(highlightText);
         editView.setCallback(new EditViewCallback());
-        editView.setSummaries(requireActivity(), sourceSummary, targetSummary);
+        editView.setSummaries(sourceSummary, targetSummary);
         if (savedInstanceState != null) {
             editView.setDescription(savedInstanceState.getString(ARG_DESCRIPTION));
             editView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING));

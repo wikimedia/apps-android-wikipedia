@@ -439,12 +439,6 @@
   <string name="reading_list_deleted">%s został usunięty</string>
   <string name="saved_list_empty_title">Nie zapisano jeszcze żadnych stron</string>
   <string name="reading_lists_empty_message">Dodawaj artykuły do listy do czytania później, nawet gdy jesteś offline.</string>
-  <string name="reading_lists_onboarding_intro">Dodaj artykuły do listy stron, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
-  <string name="reading_lists_onboarding_for_example">Na przykład</string>
-  <string name="reading_lists_onboarding_example1">Miejsca do odwiedzenia</string>
-  <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
-  <string name="reading_lists_onboarding_example3">Eksploracja kosmosu</string>
-  <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="reading_list_empty">Na tej liście nie ma dodanych artykułów.</string>
   <string name="reading_list_article_offline">Dostępne offline</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>

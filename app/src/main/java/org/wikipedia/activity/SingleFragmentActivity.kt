@@ -2,6 +2,7 @@ package org.wikipedia.activity
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import org.wikipedia.R
 
 /**
@@ -19,7 +20,7 @@ abstract class SingleFragmentActivity<T : Fragment> : BaseActivity() {
             fragment = currentFragment
         } else {
             fragment = createFragment()
-            supportFragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit()
+            supportFragmentManager.commit { add(R.id.fragment_container, fragment) }
         }
     }
 

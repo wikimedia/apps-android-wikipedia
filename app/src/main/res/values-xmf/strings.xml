@@ -142,6 +142,12 @@
   <string name="reading_lists_ignore_button">ასე ვარი</string>
   <string name="watchlist_title">კონტროლიშ ერკებული</string>
   <string name="suggested_edits_contribution_image_label">სურათი</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">დოჭყაფა</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">დღაშ ღანკი მეჭირინაფილი რე!👏</string>
+  <string name="image_recommendations_task_accept">ქო</string>
+  <string name="image_recommendations_task_reject">ვარი</string>
+  <string name="image_recommendations_task_processing">იმუშებუ...</string>
+  <string name="image_recommendations_task_choice_invisible">სურათის ვავორწყექ</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
   <string name="menu_option_user_profile">%s-შ მუნაჩემეფი</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>

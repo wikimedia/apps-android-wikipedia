@@ -71,7 +71,6 @@ public class PageTitle implements Parcelable {
     @Nullable private String thumbUrl;
     @SerializedName("site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
-    @Nullable private final PageProperties properties;
     // TODO: remove after the restbase endpoint supports ZH variants.
     @Nullable private String displayText;
     @Nullable private String extract;
@@ -88,11 +87,11 @@ public class PageTitle implements Parcelable {
     public static PageTitle withSeparateFragment(@NonNull String prefixedText,
                                                  @Nullable String fragment, @NonNull WikiSite wiki) {
         if (TextUtils.isEmpty(fragment)) {
-            return new PageTitle(prefixedText, wiki, null, (PageProperties) null);
+            return new PageTitle(prefixedText, wiki, null);
         } else {
             // TODO: this class needs some refactoring to allow passing in a fragment
             // without having to do string manipulations.
-            return new PageTitle(prefixedText + "#" + fragment, wiki, null, (PageProperties) null);
+            return new PageTitle(prefixedText + "#" + fragment, wiki, null);
         }
     }
 
@@ -102,12 +101,6 @@ public class PageTitle implements Parcelable {
         this.fragment = fragment;
         this.wiki = wiki;
         this.thumbUrl = thumbUrl;
-        properties = null;
-    }
-
-    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable PageProperties properties) {
-        this(text, wiki, thumbUrl, properties);
-        this.description = description;
     }
 
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable String displayText) {
@@ -125,16 +118,11 @@ public class PageTitle implements Parcelable {
         this(namespace, text, null, null, wiki);
     }
 
-    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl) {
-        this(text, wiki, thumbUrl, (PageProperties) null);
-    }
-
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki) {
         this(text, wiki, null);
     }
 
-    private PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl,
-                      @Nullable PageProperties properties) {
+    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
@@ -174,7 +162,6 @@ public class PageTitle implements Parcelable {
         }
 
         this.thumbUrl = thumbUrl;
-        this.properties = properties;
     }
 
     @Nullable
@@ -183,11 +170,6 @@ public class PageTitle implements Parcelable {
     }
 
     @NonNull public Namespace namespace() {
-        if (properties != null) {
-            return properties.getNamespace();
-        }
-
-        // Properties has the accurate namespace but it doesn't exist. Guess based on title.
         return Namespace.fromLegacyString(wiki, StringUtil.removeUnderscores(namespace));
     }
 
@@ -241,14 +223,7 @@ public class PageTitle implements Parcelable {
         this.displayText = displayText;
     }
 
-    @Nullable public PageProperties getProperties() {
-        return properties;
-    }
-
     public boolean isMainPage() {
-        if (properties != null) {
-            return properties.isMainPage();
-        }
         String mainPageTitle = SiteInfoClient.getMainPageForLang(getWikiSite().languageCode());
         return mainPageTitle.equals(getDisplayText());
     }
@@ -314,7 +289,6 @@ public class PageTitle implements Parcelable {
         parcel.writeString(text);
         parcel.writeString(fragment);
         parcel.writeParcelable(wiki, flags);
-        parcel.writeParcelable(properties, flags);
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
         parcel.writeString(displayText);
@@ -361,7 +335,6 @@ public class PageTitle implements Parcelable {
         text = in.readString();
         fragment = in.readString();
         wiki = in.readParcelable(WikiSite.class.getClassLoader());
-        properties = in.readParcelable(PageProperties.class.getClassLoader());
         thumbUrl = in.readString();
         description = in.readString();
         displayText = in.readString();
