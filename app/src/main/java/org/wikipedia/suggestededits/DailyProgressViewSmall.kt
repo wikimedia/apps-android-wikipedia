@@ -16,7 +16,5 @@ class DailyProgressViewSmall : ConstraintLayout {
 
     fun update(newProgress: Int, max: Int) {
         binding.percentText.text = context.getString(R.string.image_recommendations_task_daily_amount, newProgress, max)
-        binding.progressBar.max = max * 100
-        binding.progressBar.progress = (newProgress * 100).coerceAtMost(binding.progressBar.max)
     }
 }

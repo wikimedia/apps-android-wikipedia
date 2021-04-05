@@ -15,19 +15,6 @@
         android:textSize="16sp"
         android:textStyle="bold|italic"
         android:textColor="@color/green50"
-        tools:text="6 / 8"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:indeterminate="false"
-        android:max="100"
-        android:progress="50"
-        android:progressDrawable="@drawable/progress_bar_thin"
-        app:layout_constraintEnd_toEndOf="@id/percentText"
-        app:layout_constraintStart_toStartOf="@id/percentText"
-        app:layout_constraintTop_toBottomOf="@id/percentText" />
+        tools:text="6/10"/>
 
 </merge>
