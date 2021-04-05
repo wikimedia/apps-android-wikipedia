@@ -80,21 +80,6 @@
             app:drawableStartCompat="@drawable/ic_globe"
             app:drawableTint="?attr/material_theme_secondary_color" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:background="?attr/paper_color">
-
-            <TextView
-                android:id="@+id/page_action_overflow_categories"
-                style="@style/OverflowMenuItem"
-                android:text="Categories"/>
-
-        </LinearLayout>
-
     </LinearLayout>
 
 </org.wikipedia.views.WikiCardView>

@@ -52,7 +52,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private static final float TOC_SECTION_TOP_OFFSET_ADJUST = 70f;
 
     private static final int MAX_LEVELS = 3;
-    private static final int CATEGORIES_SECTION_ID = -100;
     private static final int ABOUT_SECTION_ID = -1;
 
     private final SwipeableListView tocList;
@@ -221,8 +220,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
                     sections.add(s);
                 }
             }
-            // add a fake section at the end to represent Categories.
-            sections.add(new Section(CATEGORIES_SECTION_ID, 1, "Categories", "Categories", ""));
             // add a fake section at the end to represent the "about this article" contents at the bottom:
             sections.add(new Section(ABOUT_SECTION_ID, 1,
                     getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), getStringForArticleLanguage(page.getTitle(), R.string.about_article_section), ""));

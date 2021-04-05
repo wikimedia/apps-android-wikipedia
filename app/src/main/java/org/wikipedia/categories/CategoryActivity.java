@@ -26,7 +26,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -59,6 +58,7 @@ public class CategoryActivity extends BaseActivity implements LinkPreviewDialog.
 
     private PageTitle categoryTitle;
     private List<PageTitle> unsortedTitleList = new ArrayList<>();
+    private List<PageTitle> unsortedSubcategoryList = new ArrayList<>();
     private List<PageTitle> titleList = new ArrayList<>();
     private ItemCallback itemCallback = new ItemCallback();
     private boolean showSubcategories;
@@ -157,9 +157,12 @@ public class CategoryActivity extends BaseActivity implements LinkPreviewDialog.
                 .subscribe(response -> {
                     unsortedTitleList.clear();
                     for (MwQueryPage page : response.query().categoryMembers()) {
-                        PageTitle title = new PageTitle(page.title(), categoryTitle.getWikiSite(), null, null,
-                                new PageProperties(page.title(), page.namespace(), false));
-                        unsortedTitleList.add(title);
+                        PageTitle title = new PageTitle(page.title(), categoryTitle.getWikiSite());
+                        if (page.namespace() == Namespace.CATEGORY) {
+                            unsortedSubcategoryList.add(title);
+                        } else {
+                            unsortedTitleList.add(title);
+                        }
                     }
                     layOutTitles();
                 }, throwable -> {
@@ -171,13 +174,7 @@ public class CategoryActivity extends BaseActivity implements LinkPreviewDialog.
 
     private void layOutTitles() {
         titleList.clear();
-        for (PageTitle title : unsortedTitleList) {
-            if ((showSubcategories && title.namespace() != Namespace.CATEGORY)
-                    || (!showSubcategories && title.namespace() == Namespace.CATEGORY)) {
-                continue;
-            }
-            titleList.add(title);
-        }
+        titleList.addAll(showSubcategories ? unsortedSubcategoryList : unsortedTitleList);
 
         if (titleList.isEmpty()) {
             categoryRecycler.setVisibility(View.GONE);
