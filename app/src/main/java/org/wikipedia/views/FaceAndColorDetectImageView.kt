@@ -63,7 +63,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
                 }
             })
         }
-        if (scaleType == ScaleType.FIT_CENTER) {
+        if (scaleType == ScaleType.FIT_START) {
             builder = builder.transform(WhiteBackgroundTransformation())
         } else {
             builder = if (shouldDetectFace(uri)) {
