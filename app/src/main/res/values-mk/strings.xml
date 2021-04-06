@@ -944,7 +944,7 @@
   <string name="image_recommendations_task_choice_understand">Не ја разбирам задачата</string>
   <string name="image_recommendations_task_choice_other">Друго</string>
   <string name="image_recommendations_task_choice_continue">Продолжи</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Причина за предлагање:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Причина за предлагање:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
   <string name="wikitext_link">Врска</string>

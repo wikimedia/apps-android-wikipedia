@@ -1007,7 +1007,7 @@
   <string name="image_recommendations_task_choice_understand">Nerozumiem úlohe</string>
   <string name="image_recommendations_task_choice_other">Iné</string>
   <string name="image_recommendations_task_choice_continue">Pokračovať</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Dôvod návrhu:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Dôvod návrhu:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>

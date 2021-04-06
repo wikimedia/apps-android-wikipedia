@@ -975,7 +975,7 @@
   <string name="image_recommendations_task_choice_understand">Görevi anlamadım</string>
   <string name="image_recommendations_task_choice_other">Diğer</string>
   <string name="image_recommendations_task_choice_continue">Devam et</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Öneri gerekçesi:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Öneri gerekçesi:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Kalın</string>
   <string name="wikitext_italic">Eğik</string>
   <string name="wikitext_link">Bağlantı</string>

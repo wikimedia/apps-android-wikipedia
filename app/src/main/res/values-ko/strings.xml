@@ -946,7 +946,7 @@
   <string name="image_recommendations_task_choice_understand">작업을 이해하지 못함</string>
   <string name="image_recommendations_task_choice_other">기타</string>
   <string name="image_recommendations_task_choice_continue">계속</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;제안 이유:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;제안 이유:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
   <string name="wikitext_link">링크</string>
