@@ -5,11 +5,9 @@ import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.util.Pair
 import androidx.palette.graphics.Palette
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -31,8 +29,7 @@ class CardLargeHeaderView : ConstraintLayout {
         resetBackgroundColor()
     }
 
-    val sharedElements: Array<Pair<View, String>>
-        get() = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
+    val sharedElements = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
 
     fun setLanguageCode(langCode: String): CardLargeHeaderView {
         L10nUtil.setConditionalLayoutDirection(this, langCode)
@@ -41,7 +38,7 @@ class CardLargeHeaderView : ConstraintLayout {
 
     fun setImage(uri: Uri?): CardLargeHeaderView {
         binding.viewCardHeaderLargeImage.visibility = if (uri == null) GONE else VISIBLE
-        binding.viewCardHeaderLargeImage.loadImage(uri, true, ImageLoadListener())
+        binding.viewCardHeaderLargeImage.loadImage(uri, roundedCorners = true, cropped = true, listener = ImageLoadListener())
         return this
     }
 
