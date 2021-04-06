@@ -108,7 +108,6 @@
         android:id="@+id/imageSuggestionContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:paddingBottom="4dp"
         android:background="?attr/paper_color"
         android:elevation="12dp"
@@ -319,15 +318,14 @@
         android:elevation="14dp"
         tools:visibility="gone">
 
-        <View
-            android:id="@+id/publishBackgroundBaseView"
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/red30"
+            app:layout_constraintBottom_toTopOf="@+id/dailyProgressView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/dailyProgressView"
-            app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
-            android:background="?paper_color"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/publishBackgroundView"
