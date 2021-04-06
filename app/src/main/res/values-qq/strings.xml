@@ -1035,4 +1035,9 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
+  <string name="reading_list_item_deleted_from_list">Message shown when an article is removed from a reading list. The \"%1$s\" symbol is replaced with the name of the article.The \"%2$s\" symbol is replaced with the name of the list.</string>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+  </plurals>
 </resources>
