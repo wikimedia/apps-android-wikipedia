@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.SystemClock
@@ -8,8 +9,11 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
+import androidx.palette.graphics.Palette
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -32,6 +36,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
+import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
 import java.util.*
@@ -212,7 +217,30 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
                     binding.readMoreButton.visibility = VISIBLE
 
-                    binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+                    binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)), false, object : FaceAndColorDetectImageView.OnImageLoadListener {
+                        override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+                            if (isAdded) {
+                                val color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.base70))
+                                val color2 = palette.getLightMutedColor(ContextCompat.getColor(requireContext(), R.color.base30))
+                                val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, arrayOf(color1, color2).toIntArray())
+                                binding.imageViewContainer.background = gradientDrawable
+
+                                val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
+                                val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
+                                val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
+
+                                if (bmpAspect > containerAspect) {
+                                    params.marginEnd = DimenUtil.roundedDpToPx(8f)
+                                } else {
+                                    val width = binding.imageViewContainer.height.toFloat() * bmpAspect
+                                    params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
+                                }
+                                binding.imageInfoButton.layoutParams = params
+                            }
+                        }
+
+                        override fun onImageFailed() {}
+                    })
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
 
                     binding.articleScrollSpacer.post {

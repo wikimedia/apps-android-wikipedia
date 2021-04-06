@@ -91,7 +91,7 @@ public class CardLargeHeaderView extends ConstraintLayout {
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
         @Override
-        public void onImageLoaded(@NonNull Palette palette) {
+        public void onImageLoaded(@NonNull Palette palette, int bmpWidth, int bmpHeight) {
             int color1 = palette.getLightVibrantColor(ContextCompat.getColor(getContext(), R.color.base70));
             int color2 = palette.getLightMutedColor(ContextCompat.getColor(getContext(), R.color.base30));
             if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
