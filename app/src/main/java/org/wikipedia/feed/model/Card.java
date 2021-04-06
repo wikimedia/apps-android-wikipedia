@@ -5,9 +5,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.model.BaseModel;
-
-public abstract class Card extends BaseModel {
+public abstract class Card {
     @NonNull public String title() {
         return "";
     }
@@ -38,5 +36,10 @@ public abstract class Card extends BaseModel {
 
     protected int dismissHashCode() {
         return hashCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * type().code() + title().hashCode();
     }
 }
