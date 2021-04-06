@@ -217,7 +217,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
                     binding.readMoreButton.visibility = VISIBLE
 
-                    binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)), false, object : FaceAndColorDetectImageView.OnImageLoadListener {
+                    binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
+                            roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                         override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                             if (isAdded) {
                                 val color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.base70))
