@@ -147,12 +147,13 @@
 
         <TextView
             android:id="@+id/instructionText"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/robotIcon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constrainedWidth="true"
+            app:layout_constraintHorizontal_bias="0"
             android:layout_marginStart="17dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
