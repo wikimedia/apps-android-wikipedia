@@ -5,11 +5,9 @@ import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.util.Pair
 import androidx.palette.graphics.Palette
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
