@@ -41,7 +41,7 @@ class CardLargeHeaderView : ConstraintLayout {
 
     fun setImage(uri: Uri?): CardLargeHeaderView {
         binding.viewCardHeaderLargeImage.visibility = if (uri == null) GONE else VISIBLE
-        binding.viewCardHeaderLargeImage.loadImage(uri, true, ImageLoadListener())
+        binding.viewCardHeaderLargeImage.loadImage(uri, roundedCorners = true, cropped = true, listener = ImageLoadListener())
         return this
     }
 

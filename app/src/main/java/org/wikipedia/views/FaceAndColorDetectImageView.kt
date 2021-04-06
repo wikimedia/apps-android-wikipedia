@@ -35,7 +35,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
     }
 
     @JvmOverloads
-    fun loadImage(uri: Uri?, roundedCorners: Boolean = false, listener: OnImageLoadListener? = null) {
+    fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, listener: OnImageLoadListener? = null) {
         val placeholder = ViewUtil.getPlaceholderDrawable(context)
         if (!Prefs.isImageDownloadEnabled() || uri == null) {
             setImageDrawable(placeholder)
@@ -63,14 +63,14 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
                 }
             })
         }
-        if (scaleType == ScaleType.FIT_START) {
-            builder = builder.transform(WhiteBackgroundTransformation())
-        } else {
-            builder = if (shouldDetectFace(uri)) {
+        builder = if (cropped) {
+            if (shouldDetectFace(uri)) {
                 builder.transform(if (roundedCorners) FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS else FACE_DETECT_TRANSFORM)
             } else {
                 builder.transform(if (roundedCorners) ViewUtil.CENTER_CROP_LARGE_ROUNDED_CORNERS else CENTER_CROP_WHITE_BACKGROUND)
             }
+        } else {
+            builder.transform(WhiteBackgroundTransformation())
         }
         builder.into(this)
     }
