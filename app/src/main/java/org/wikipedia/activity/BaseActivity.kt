@@ -32,6 +32,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.crash.CrashReportActivity
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -298,7 +299,7 @@ abstract class BaseActivity : AppCompatActivity() {
                         .show()
             } else if (event is ReadingListsNoLongerSyncedEvent) {
                 ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(this@BaseActivity)
-            } else if (event is ReadingListsEnableDialogEvent) {
+            } else if (event is ReadingListsEnableDialogEvent && this@BaseActivity is MainActivity) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(this@BaseActivity)
             } else if (event is LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog()
