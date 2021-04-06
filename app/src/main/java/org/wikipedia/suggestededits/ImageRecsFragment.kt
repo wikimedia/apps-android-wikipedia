@@ -71,6 +71,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
+        binding.publishBackgroundView.alpha = if (WikipediaApp.getInstance().currentTheme.isDark) 0.3f else 0.1f
 
         binding.imageCard.elevation = 0f
         binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_border_color)
