@@ -31,8 +31,7 @@ class CardLargeHeaderView : ConstraintLayout {
         resetBackgroundColor()
     }
 
-    val sharedElements: Array<Pair<View, String>>
-        get() = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
+    val sharedElements = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
 
     fun setLanguageCode(langCode: String): CardLargeHeaderView {
         L10nUtil.setConditionalLayoutDirection(this, langCode)
