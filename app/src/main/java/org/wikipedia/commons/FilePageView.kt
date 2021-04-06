@@ -57,7 +57,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
         if (showFilename) {
             binding.filenameView.visibility = View.VISIBLE
-            binding.filenameView.binding.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_image)
+            binding.filenameView.binding.titleText.text = context.getString(if (imageFromCommons) R.string.suggested_edits_image_preview_dialog_file_commons else R.string.suggested_edits_image_preview_dialog_image)
             binding.filenameView.binding.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             binding.filenameView.binding.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle!!)
             binding.filenameView.binding.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
