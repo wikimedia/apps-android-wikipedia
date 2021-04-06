@@ -90,13 +90,16 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
             RemoveFromReadingListsDialog(list).deleteOrShowDialog(anchorView.context) { readingLists, _ ->
                 entry?.let {
                     if (anchorView.isAttachedToWindow) {
-                        val readingListNames = mutableListOf<String>()
-                        readingLists.forEach { readingList ->
-                            readingListNames.add(readingList.title())
+                        val readingListNames = readingLists.map { readingList -> readingList.title() }.run {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                ListFormatter.getInstance().format(this)
+                            } else {
+                                joinToString(separator = ", ")
+                            }
                         }
-                        showMessage((anchorView.context as AppCompatActivity), anchorView.context.getString(R.string.reading_list_item_deleted_from_list,
-                                it.title.displayText, if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(readingListNames)
-                        else readingListNames.joinToString(separator = ", ")))
+                        showMessage((anchorView.context as AppCompatActivity),
+                                anchorView.context.getString(R.string.reading_list_item_deleted_from_list,
+                                        it.title.displayText, readingListNames))
                     }
                 }
             }
