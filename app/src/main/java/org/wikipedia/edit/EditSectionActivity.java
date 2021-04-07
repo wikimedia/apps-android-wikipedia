@@ -42,7 +42,6 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.login.LoginClient;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
@@ -92,8 +91,6 @@ public class EditSectionActivity extends BaseActivity {
     @BindView(R.id.edit_section_abusefilter_text) TextView abusefilterText;
     @BindView(R.id.captcha_container) View captchaInnerContainer;
     @BindView(R.id.edit_section_captcha_container) View captchaContainer;
-
-    private CsrfTokenClient csrfClient;
 
     private PageTitle title;
     private int sectionID;
@@ -260,37 +257,19 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     private void cancelCalls() {
-        if (csrfClient != null) {
-            csrfClient.cancel();
-            csrfClient = null;
-        }
         disposables.clear();
     }
 
-    private void getEditTokenThenSave(boolean forceLogin) {
+    private void getEditTokenThenSave() {
         cancelCalls();
         captchaContainer.setVisibility(View.GONE);
         captchaHandler.hideCaptcha();
         editSummaryFragment.saveSummary();
 
-        csrfClient = new CsrfTokenClient(title.getWikiSite(), title.getWikiSite());
-        csrfClient.request(forceLogin, new CsrfTokenClient.Callback() {
-            @Override
-            public void success(@NonNull String token) {
-                doSave(token);
-            }
-
-            @Override
-            public void failure(@NonNull Throwable caught) {
-                showError(caught);
-            }
-
-            @Override
-            public void twoFactorPrompt() {
-                showError(new LoginClient.LoginFailedException(getResources()
-                        .getString(R.string.login_2fa_other_workflow_error_msg)));
-            }
-        });
+        disposables.add(new CsrfTokenClient(title.getWikiSite()).getToken()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::doSave, this::showError));
     }
 
     private void doSave(@NonNull String token) {
@@ -380,7 +359,7 @@ public class EditSectionActivity extends BaseActivity {
                 .setTitle(R.string.dialog_message_edit_failed)
                 .setMessage(t.getLocalizedMessage())
                 .setPositiveButton(R.string.dialog_message_edit_failed_retry, (dialog, which) -> {
-                    getEditTokenThenSave(false);
+                    getEditTokenThenSave();
                     dialog.dismiss();
                 })
                 .setNegativeButton(R.string.dialog_message_edit_failed_cancel, (dialog, which) -> {
@@ -395,10 +374,6 @@ public class EditSectionActivity extends BaseActivity {
      */
     private void handleEditingException(@NonNull MwException caught) {
         String code = caught.getTitle();
-        if (AccountUtil.isLoggedIn() && ("badtoken".equals(code) || "assertuserfailed".equals(code))) {
-            getEditTokenThenSave(true);
-            return;
-        }
 
         if (StringUtils.defaultString(code).contains("abusefilter")) {
             abusefilterEditResult = new EditAbuseFilterResult(code, caught.getMessage(), caught.getMessage());
@@ -481,7 +456,7 @@ public class EditSectionActivity extends BaseActivity {
                 //if the user was already shown an AbuseFilter warning, and they're ignoring it:
                 funnel.logAbuseFilterWarningIgnore(abusefilterEditResult.getCode());
             }
-            getEditTokenThenSave(false);
+            getEditTokenThenSave();
             funnel.logSaveAttempt();
         } else {
             //we must be showing the editing window, so show the Preview.
