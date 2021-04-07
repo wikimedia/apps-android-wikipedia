@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.R
@@ -58,7 +59,7 @@ class ImageRecsOnboardingFragment : OnboardingFragment(false), OnboardingPageVie
     class ItemFragment : Fragment() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
-            val position = requireArguments().getInt("position", 0)
+            val position = requireArguments().getInt(ARG_POSITION, 0)
             val view = inflater.inflate(OnboardingPage.of(position).layout, container, false) as OnboardingPageView
             if (OnboardingPage.PAGE_CONSENT.code() == position) {
                 view.setSwitchChecked(Prefs.isImageRecsConsentEnabled())
@@ -68,20 +69,20 @@ class ImageRecsOnboardingFragment : OnboardingFragment(false), OnboardingPageVie
             return view
         }
 
-        private val callback: OnboardingPageView.Callback?
-            get() = getCallback(this, OnboardingPageView.Callback::class.java)
+        private val callback = getCallback(this, OnboardingPageView.Callback::class.java)
 
         companion object {
+            const val ARG_POSITION = "position"
+
             fun newInstance(position: Int): ItemFragment {
-                val instance = ItemFragment()
-                val args = Bundle()
-                args.putInt("position", position)
-                instance.arguments = args
-                return instance
+                return ItemFragment().apply {
+                    arguments = bundleOf(ARG_POSITION to position)
+                }
             }
         }
     }
 
+    @Suppress("unused")
     internal enum class OnboardingPage(@LayoutRes val layout: Int) : EnumCode {
         PAGE_WELCOME(R.layout.inflate_image_recs_onboarding_page_one),
         PAGE_CONSENT(R.layout.inflate_image_recs_onboarding_page_two);
