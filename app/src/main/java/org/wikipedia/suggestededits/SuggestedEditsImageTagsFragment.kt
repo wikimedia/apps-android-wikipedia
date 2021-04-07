@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
-import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -50,7 +49,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     var publishing: Boolean = false
     var publishSuccess: Boolean = false
-    private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
     private var page: MwQueryPage? = null
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
@@ -334,60 +332,54 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         val commonsSite = WikiSite(Service.COMMONS_URL)
 
-        csrfClient.request(false, object : CsrfTokenClient.Callback {
-            override fun success(token: String) {
-
-                val mId = "M" + page!!.pageId()
-                var claimStr = "{\"claims\":["
-                var commentStr = "/* add-depicts: "
-                var first = true
-                for (label in acceptedLabels) {
-                    if (!first) {
-                        claimStr += ","
-                    }
-                    if (!first) {
-                        commentStr += ","
-                    }
-                    first = false
-                    claimStr += "{\"mainsnak\":" +
-                            "{\"snaktype\":\"value\",\"property\":\"P180\"," +
-                            "\"datavalue\":{\"value\":" +
-                            "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
-                            "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
-                            "\"type\":\"statement\"," +
-                            "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
-                            "\"rank\":\"normal\"}"
-                    commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
-                }
-                claimStr += "]}"
-                commentStr += " */"
-
-                disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doAfterTerminate {
-                            publishing = false
+        disposables.add(CsrfTokenClient(WikiSite(Service.COMMONS_URL)).token
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ token ->
+                    val mId = "M" + page!!.pageId()
+                    var claimStr = "{\"claims\":["
+                    var commentStr = "/* add-depicts: "
+                    var first = true
+                    for (label in acceptedLabels) {
+                        if (!first) {
+                            claimStr += ","
                         }
-                        .subscribe({
-                            if (it.entity != null) {
-                                funnel?.logSaved(it.entity!!.lastRevId, invokeSource.getName())
+                        if (!first) {
+                            commentStr += ","
+                        }
+                        first = false
+                        claimStr += "{\"mainsnak\":" +
+                                "{\"snaktype\":\"value\",\"property\":\"P180\"," +
+                                "\"datavalue\":{\"value\":" +
+                                "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
+                                "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
+                                "\"type\":\"statement\"," +
+                                "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
+                                "\"rank\":\"normal\"}"
+                        commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
+                    }
+                    claimStr += "]}"
+                    commentStr += " */"
+
+                    disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doAfterTerminate {
+                                publishing = false
                             }
-                            publishSuccess = true
-                            onSuccess()
-                        }, { caught ->
-                            onError(caught)
-                        })
-                )
-            }
-
-            override fun failure(caught: Throwable) {
-                onError(caught)
-            }
-
-            override fun twoFactorPrompt() {
-                onError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
-            }
-        })
+                            .subscribe({
+                                if (it.entity != null) {
+                                    funnel?.logSaved(it.entity!!.lastRevId, invokeSource.getName())
+                                }
+                                publishSuccess = true
+                                onSuccess()
+                            }, { caught ->
+                                onError(caught)
+                            })
+                    )
+                }, {
+                    onError(it)
+                }))
     }
 
     private fun onSuccess() {

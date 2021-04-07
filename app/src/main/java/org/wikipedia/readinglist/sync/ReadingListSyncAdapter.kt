@@ -408,7 +408,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
     @Throws(Throwable::class)
     private fun getCsrfToken(wiki: WikiSite, tokenList: MutableList<String>): String {
         if (tokenList.size == 0) {
-            tokenList.add(CsrfTokenClient(wiki, wiki).tokenBlocking)
+            tokenList.add(CsrfTokenClient(wiki).token.blockingSingle())
         }
         return tokenList[0]
     }
