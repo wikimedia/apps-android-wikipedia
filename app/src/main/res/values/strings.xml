@@ -1019,7 +1019,7 @@
     <string name="image_recommendations_task_choice_understand">Don\'t understand the task</string>
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
-    <string name="image_recommendations_task_suggestion_reason"><![CDATA[<i>Suggestion reason:</i> %s]]></string>
+    <string name="image_recommendations_task_suggestion_reason"><![CDATA[<b>Suggestion reason:</b> %s]]></string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
