@@ -971,7 +971,7 @@
   <string name="image_recommendations_task_choice_understand">Verstehen die Aufgabe nicht</string>
   <string name="image_recommendations_task_choice_other">Andere</string>
   <string name="image_recommendations_task_choice_continue">Weiter</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Vorschlag Grund:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Vorschlag Grund:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

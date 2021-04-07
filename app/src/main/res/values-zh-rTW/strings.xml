@@ -961,7 +961,7 @@
   <string name="image_recommendations_task_choice_understand">任務不了解</string>
   <string name="image_recommendations_task_choice_other">其它</string>
   <string name="image_recommendations_task_choice_continue">繼續</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;建議原因：&lt;/i&gt;%s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建議原因：&lt;/b&gt;%s</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
   <string name="wikitext_link">連結</string>
