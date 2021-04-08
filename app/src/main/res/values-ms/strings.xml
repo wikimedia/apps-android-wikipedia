@@ -3,6 +3,7 @@
 * Anakmalaysia
 * Arifin.wijaya
 * Aviator
+* Cooltey
 * CyberTroopers
 * Dbrant
 * Envlh
@@ -721,7 +722,7 @@
   <string name="image_recommendations_task_choice_invisible">Tidak dapat lihat imej</string>
   <string name="image_recommendations_task_choice_understand">Tidak faham tugas tersebut</string>
   <string name="image_recommendations_task_choice_continue">Teruskan</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Sebab cadangan:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Sebab cadangan:&lt;/b&gt; %s</string>
   <string name="wikitext_link">Pautan</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>

@@ -367,6 +367,11 @@
   <string name="reading_list_name_hint">Укх мугӀама цӀи</string>
   <string name="reading_list_description_hint">МугӀамах лаьцар (фараз дац)</string>
   <string name="reading_list_item_deleted">%s дӀаяьккхай мугӀама чура</string>
+  <string name="reading_lists_login_button">Чувалар</string>
+  <string name="reading_lists_ignore_button">ХӀанзехьа эшац</string>
+  <string name="reading_lists_confirm_remote_delete_yes">ХӀаъа</string>
+  <string name="reading_lists_confirm_remote_delete_no">A</string>
+  <string name="reading_list_article_save_in_progress">ОагӀув хьачуйоаккхаш латт. Из хьачуяькхха йистеяьлча офлайн еша аьттув хургба.</string>
   <string name="notifications_poll_enable_positive">Хьалсага</string>
   <string name="view_because_you_read_card_title">Хьалха дийшачунга хьажжá</string>
   <string name="view_random_card_title">Рандомизатор</string>

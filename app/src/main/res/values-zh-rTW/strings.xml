@@ -442,9 +442,14 @@
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述（可選）</string>
   <string name="reading_list_item_deleted">%s已從清單之中移除</string>
+  <string name="reading_list_item_deleted_from_list">已從%2$s移除%1$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">從清單移除 %d 個條目</item>
     <item quantity="other">從清單移除 %d 個條目</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">已從%s移除 %d 個條目</item>
+    <item quantity="other">已從%s移除 %d 個條目</item>
   </plurals>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
@@ -739,6 +744,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
   <string name="suggested_edits_image_preview_dialog_image">圖片</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">來自維基共享資源的檔案</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
   <string name="suggested_edits_image_preview_dialog_tags">標籤</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>
@@ -961,7 +967,7 @@
   <string name="image_recommendations_task_choice_understand">任務不了解</string>
   <string name="image_recommendations_task_choice_other">其它</string>
   <string name="image_recommendations_task_choice_continue">繼續</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建議原因：&lt;/b&gt;%s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;i&gt;建議原因：&lt;/i&gt;%s</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
   <string name="wikitext_link">連結</string>

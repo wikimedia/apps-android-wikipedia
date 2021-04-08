@@ -5,6 +5,7 @@
 * Alidemirtas
 * BaRaN6161 TURK
 * Bulgu
+* Cooltey
 * Dbrant
 * Envlh
 * Fitoschido
@@ -459,9 +460,14 @@
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
   <string name="reading_list_item_deleted">%s listeden çıkarıldı</string>
+  <string name="reading_list_item_deleted_from_list">%1$s, %2$s listesinden çıkarıldı</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d madde listeden kaldırıldı</item>
     <item quantity="other">%d madde listeden kaldırıldı</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d sayfa %s listesinden çıkarıldı</item>
+    <item quantity="other">%d sayfa %s listesinden çıkarıldı</item>
   </plurals>
   <string name="reading_list_items_deleted">%d maddesi listeden silindi</string>
   <string name="reading_lists_item_deleted">%s, listelerden çıkarıldı</string>
@@ -756,6 +762,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Resim yazısı (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Resim açıklaması (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Dosya</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Wikimedia Commons\'tan dosya</string>
   <string name="suggested_edits_image_preview_dialog_artist">Sanatçı</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiketler</string>
   <string name="suggested_edits_image_preview_dialog_date">Tarih</string>
@@ -975,7 +982,7 @@
   <string name="image_recommendations_task_choice_understand">Görevi anlamadım</string>
   <string name="image_recommendations_task_choice_other">Diğer</string>
   <string name="image_recommendations_task_choice_continue">Devam et</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Öneri gerekçesi:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Öneri gerekçesi:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Kalın</string>
   <string name="wikitext_italic">Eğik</string>
   <string name="wikitext_link">Bağlantı</string>

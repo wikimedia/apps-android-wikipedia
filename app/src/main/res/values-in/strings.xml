@@ -9,6 +9,7 @@
 * Beeyan
 * Bennylin
 * Bramadiarya
+* Cooltey
 * Daud I.F. Argana
 * Gombang
 * Hanif Al Husaini
@@ -937,7 +938,7 @@
   <string name="image_recommendations_task_choice_understand">Tidak paham tugas tersebut</string>
   <string name="image_recommendations_task_choice_other">Lainnya</string>
   <string name="image_recommendations_task_choice_continue">Lanjutkan</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Alasan saran:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Alasan saran:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Cetak miring</string>
   <string name="wikitext_link">Pranala</string>

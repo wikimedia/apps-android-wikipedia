@@ -7,6 +7,7 @@
 * BarbaraAckles
 * Cainamarques
 * Caçador de Palavras
+* Cooltey
 * Dbrant
 * Deskana
 * Dianakc
@@ -18,6 +19,7 @@
 * Felipe L. Ewald
 * Fitoschido
 * Fúlvio
+* Gustavo.moraes
 * HenriqueCrang
 * Iohanen
 * Lowvy
@@ -453,9 +455,13 @@
   <string name="reading_list_name_hint">Nome da lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
   <string name="reading_list_item_deleted">%s removido da lista</string>
+  <string name="reading_list_item_deleted_from_list">%1$s removido de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artigo removido da lista</item>
     <item quantity="other">%d artigos removidos da lista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="other">um=%d artigo removido de %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_lists_item_deleted">%s removido das listas</string>
@@ -750,6 +756,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Imagem</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Arquivo do Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -972,7 +979,7 @@
   <string name="image_recommendations_task_choice_understand">Não entendo a tarefa</string>
   <string name="image_recommendations_task_choice_other">Outro</string>
   <string name="image_recommendations_task_choice_continue">Continuar</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivo da sugestão:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Motivo da sugestão:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Link</string>
