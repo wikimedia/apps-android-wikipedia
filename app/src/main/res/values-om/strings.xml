@@ -2,13 +2,14 @@
 <!-- Authors:
 * Ahrada2016
 * Bsitzmann
+* Lalise2021
 * Maammee
 * Oromoo
 * Tumsaa
 -->
 <resources>
   <string name="app_name_prod">Wikipiidiyaa</string>
-  <string name="app_name_beta">Wikipiidiyaa Beta</string>
+  <string name="app_name_beta">Beta Wikipiidiyaa</string>
   <string name="app_name_alpha">Wikipiidiyaa Aalfaa</string>
   <string name="search_hint">Wikipiidiyaa keessa barbaadi</string>
   <string name="page_error_retry">Irra deebi\'ii yaali</string>
@@ -16,11 +17,11 @@
   <string name="menu_clear_all_history">Seenaa qulqulleessi</string>
   <string name="menu_page_add_to_default_list">Ol kaa\'i</string>
   <string name="feed_card_add_to_default_list">Ol kaa\'i</string>
-  <string name="menu_page_share" fuzzy="true">Hiri</string>
+  <string name="menu_page_share">Hidhaa hiri</string>
   <string name="langlinks_filter_hint">Barbaadi</string>
   <string name="langlinks_activity_title">Afaanota biroo</string>
-  <string name="menu_save_changes" fuzzy="true">Jijjiirama olkaayi</string>
-  <string name="edit_saved_successfully" fuzzy="true">Gulaalli olkaawwame</string>
+  <string name="menu_save_changes">Jijjiirama Banaa</string>
+  <string name="edit_saved_successfully">Uummataawaa gulaali</string>
   <string name="dialog_message_edit_failed">Gulaalli fashale!</string>
   <string name="dialog_message_edit_failed_retry">Irra deebi\'ii yaali</string>
   <string name="dialog_message_edit_failed_cancel">Dhiisi</string>
@@ -29,20 +30,20 @@
   <string name="menu_show_toc">Gabatee Qabiyyee</string>
   <string name="search_no_results_found">Homtuu hin argamane</string>
   <string name="title_captcha">CAPTCHA galchi</string>
-  <string name="nav_item_login" fuzzy="true">Seeni</string>
+  <string name="nav_item_login">Wikippiidiyaatti Seeni</string>
   <string name="login_username_hint">Maqaa fayyadamaa</string>
-  <string name="login_password_hint">Iggitaa</string>
+  <string name="login_password_hint">Jechdarbii</string>
   <string name="menu_login">Seeni</string>
-  <string name="login_activity_title" fuzzy="true">Wiikippidiyaa seeni</string>
-  <string name="login_success_toast" fuzzy="true">Seenun milkaa\'e</string>
+  <string name="login_activity_title">seeni</string>
+  <string name="login_success_toast">Seenameera</string>
   <string name="preference_title_logout">Ba\'i</string>
   <string name="toast_logout_complete">Baatee jirta</string>
   <string name="create_account_username_hint">Maqaa fayyadamaa</string>
   <string name="create_account_activity_title">Eenyummeessa uumi</string>
   <string name="dialog_create_account_checking_progress">Mirkaneessaa jira…</string>
   <string name="create_account_email_hint">Imeelii (dirqalee)</string>
-  <string name="create_account_password_repeat_hint">Iggitarra deebi\'i</string>
-  <string name="create_account_passwords_mismatch_error">Iggitni wal hinfakkaatu</string>
+  <string name="create_account_password_repeat_hint">Jechdarbiirra deebi\'i</string>
+  <string name="create_account_passwords_mismatch_error">Jichidarbii wal hinfakkaatu</string>
   <string name="create_account_email_error">Teessoo imeelii fashalaa</string>
   <string name="create_account_generic_error">Eenyummeessa uumuu hindandeenye</string>
   <string name="create_account_next">Itti fufi</string>
@@ -50,13 +51,13 @@
   <string name="create_account_account_created_toast">Eenyummeessi uummame!</string>
   <string name="preference_title_eventlogging_opt_in">Gabaasa fayyadamaa ergi</string>
   <string name="error_can_not_process_link">Geessituu kana agarsiisuu hindandeenye</string>
-  <string name="settings_activity_title" fuzzy="true">Qindaa\'ina</string>
+  <string name="settings_activity_title">Sirrannoo</string>
   <string name="privacy_policy_description">Seera mateengaa</string>
   <string name="terms_of_use_description">Waliigaltee fayyadamaa</string>
-  <string name="about_translators_heading" fuzzy="true">Afaan hiiktota</string>
+  <string name="about_translators_heading">Afaaniiktota</string>
   <string name="about_activity_title">Waa\'ee</string>
   <string name="edit_next">Itti fufi</string>
-  <string name="edit_done" fuzzy="true">Olkaayi</string>
+  <string name="edit_done">Uummateessi</string>
   <string name="edit_preview">Durargii</string>
   <string name="edit_summary_tag_other">Kan biraa</string>
   <string name="find_next">Kan itti aanu barbaadi</string>
