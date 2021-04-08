@@ -21,6 +21,7 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.PageActivity
@@ -196,6 +197,8 @@ object FeedbackUtil {
     }
 
     fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean): Balloon {
+        val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
+        binding.textView.text = text
         return createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
@@ -205,11 +208,9 @@ object FeedbackUtil {
             setMarginRight(8)
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
-            setText(text)
-            setTextSize(14f)
-            setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
-            setTextColor(Color.WHITE)
-            setPadding(16)
+            setLayout(binding.root)
+            setWidth(BalloonSizeSpec.WRAP)
+            setHeight(BalloonSizeSpec.WRAP)
         }
     }
 
