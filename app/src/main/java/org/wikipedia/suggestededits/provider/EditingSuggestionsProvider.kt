@@ -16,6 +16,7 @@ import java.io.InputStreamReader
 import java.util.*
 import java.util.concurrent.Semaphore
 import kotlin.collections.ArrayList
+import kotlin.random.Random
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -254,11 +255,20 @@ object EditingSuggestionsProvider {
                 // evict the cache if the language has changed.
                 articlesWithMissingImagesCache.clear()
             }
+            val installIdMod = 1000
+            val installId = Prefs.getAppInstallId().orEmpty()
+            // Initialize the random number generator based on the user's install ID, modulo the
+            // total size of the expected test group.
+            val random = Random(installId.substring(installId.length - 4).toInt(16) % installIdMod)
+            var seqOffset = 0
+            // and seek to the appropriate position in the random sequence.
+            for (i in 0..sequence) {
+                seqOffset = random.nextInt(Int.MAX_VALUE)
+            }
+
             articlesWithMissingImagesCacheLang = lang
             if (articlesWithMissingImagesCache.isNotEmpty()) {
-                cachedItem = buildImageRecommendation(articlesWithMissingImagesCache[sequence % articlesWithMissingImagesCache.size])
-                // cachedItem = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
-                // cachedItem = articlesWithMissingImagesCache.pop()
+                cachedItem = buildImageRecommendation(articlesWithMissingImagesCache[seqOffset % articlesWithMissingImagesCache.size])
             }
 
             if (cachedItem != null) {
@@ -276,9 +286,7 @@ object EditingSuggestionsProvider {
 
                 var item: ImageRecommendationResponse? = null
                 if (articlesWithMissingImagesCache.isNotEmpty()) {
-                    item = buildImageRecommendation(articlesWithMissingImagesCache[sequence % articlesWithMissingImagesCache.size])
-                    // item = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
-                    // item = articlesWithMissingImagesCache.pop()
+                    item = buildImageRecommendation(articlesWithMissingImagesCache[seqOffset % articlesWithMissingImagesCache.size])
                 }
                 Observable.just(item!!)
             }

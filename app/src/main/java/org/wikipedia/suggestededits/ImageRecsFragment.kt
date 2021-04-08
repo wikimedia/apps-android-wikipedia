@@ -220,7 +220,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
                     val imageInfo = response.query()!!.firstPage()!!.imageInfo()!!
 
-                    binding.articleTitle.text = recommendationSequence.toString() + " <<< " + StringUtil.fromHtml(summary.displayTitle)
+                    binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
                     binding.articleDescription.text = summary.description
                     binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
                     binding.readMoreButton.visibility = VISIBLE
