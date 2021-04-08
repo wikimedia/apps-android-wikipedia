@@ -975,9 +975,19 @@ public final class Prefs {
     }
 
     public static int getImageRecsItemSequence() {
-        int seq = getInt(R.string.preference_key_image_recs_item_sequence, 0);
-        setInt(R.string.preference_key_image_recs_item_sequence, seq + 1);
-        return seq;
+        return getInt(R.string.preference_key_image_recs_item_sequence, 0);
+    }
+
+    public static void setImageRecsItemSequence(int seq) {
+        setInt(R.string.preference_key_image_recs_item_sequence, seq);
+    }
+
+    public static int getImageRecsItemSequenceSuccess() {
+        return getInt(R.string.preference_key_image_recs_item_sequence_success, 0);
+    }
+
+    public static void setImageRecsItemSequenceSuccess(int seq) {
+        setInt(R.string.preference_key_image_recs_item_sequence_success, seq);
     }
 
     public static int getImageRecsDailyCount() {

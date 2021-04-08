@@ -361,6 +361,11 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
+            android:key="@string/preference_key_image_recs_item_sequence_success"
+            android:title="@string/preference_key_image_recs_item_sequence_success" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
             android:key="@string/preference_key_image_recs_daily_progress"
             android:title="@string/preference_key_image_recs_daily_progress" />
 

@@ -48,6 +48,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     var publishing: Boolean = false
     private var publishSuccess: Boolean = false
     private var recommendation: ImageRecommendationResponse? = null
+    private var recommendationSequence: Int = 0
 
     private val funnel = ImageRecommendationsFunnel()
     private var startMillis: Long = 0
@@ -64,6 +65,9 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        recommendationSequence = Prefs.getImageRecsItemSequence()
+        Prefs.setImageRecsItemSequence(recommendationSequence + 1)
 
         binding.cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.cardItemErrorView.retryClickListener = View.OnClickListener {
@@ -170,7 +174,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         if (recommendation != null) {
             return
         }
-        disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingImage(WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingImage(WikipediaApp.getInstance().appOrSystemLanguageCode, recommendationSequence)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     recommendation = it
@@ -216,7 +220,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
                     val imageInfo = response.query()!!.firstPage()!!.imageInfo()!!
 
-                    binding.articleTitle.text = StringUtil.fromHtml(summary.displayTitle)
+                    binding.articleTitle.text = recommendationSequence.toString() + " <<< " + StringUtil.fromHtml(summary.displayTitle)
                     binding.articleDescription.text = summary.description
                     binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
                     binding.readMoreButton.visibility = VISIBLE
@@ -312,6 +316,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         }
         val newCount = oldCount + 1
         Prefs.setImageRecsDailyCount(newCount)
+        Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
         val durationBoost = when (newCount) {
             DAILY_COUNT_TARGET -> 5

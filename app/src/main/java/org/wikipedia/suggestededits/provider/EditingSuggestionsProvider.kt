@@ -247,7 +247,7 @@ object EditingSuggestionsProvider {
         }.doFinally { mutex.release() }
     }
 
-    fun getNextArticleWithMissingImage(lang: String): Observable<ImageRecommendationResponse> {
+    fun getNextArticleWithMissingImage(lang: String, sequence: Int): Observable<ImageRecommendationResponse> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: ImageRecommendationResponse? = null
             if (articlesWithMissingImagesCacheLang != lang) {
@@ -256,7 +256,7 @@ object EditingSuggestionsProvider {
             }
             articlesWithMissingImagesCacheLang = lang
             if (articlesWithMissingImagesCache.isNotEmpty()) {
-                cachedItem = buildImageRecommendation(articlesWithMissingImagesCache[Prefs.getImageRecsItemSequence() % articlesWithMissingImagesCache.size])
+                cachedItem = buildImageRecommendation(articlesWithMissingImagesCache[sequence % articlesWithMissingImagesCache.size])
                 // cachedItem = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
                 // cachedItem = articlesWithMissingImagesCache.pop()
             }
@@ -276,7 +276,7 @@ object EditingSuggestionsProvider {
 
                 var item: ImageRecommendationResponse? = null
                 if (articlesWithMissingImagesCache.isNotEmpty()) {
-                    item = buildImageRecommendation(articlesWithMissingImagesCache[Prefs.getImageRecsItemSequence() % articlesWithMissingImagesCache.size])
+                    item = buildImageRecommendation(articlesWithMissingImagesCache[sequence % articlesWithMissingImagesCache.size])
                     // item = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
                     // item = articlesWithMissingImagesCache.pop()
                 }
