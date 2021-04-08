@@ -2,7 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="10dp">
 
     <org.wikipedia.views.AppTextView
         android:id="@+id/textView"
