@@ -154,7 +154,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                             // binding.imageSuggestionContainer.visibility = VISIBLE
                             // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, 0)
 
-                            FeedbackUtil.showTooltip(requireActivity(), binding.instructionText, "Inspect the image and its associated information.", aboveOrBelow = true, autoDismiss = true)
+                            FeedbackUtil.showTooltip(requireActivity(), binding.instructionText, "Inspect the image and its associated information.", aboveOrBelow = false, autoDismiss = true)
                                     .setOnBalloonDismissListener {
                                         FeedbackUtil.showTooltip(requireActivity(), binding.acceptButton, "Decide if the image will help readers better understand this topic.", aboveOrBelow = true, autoDismiss = true)
                                     }
