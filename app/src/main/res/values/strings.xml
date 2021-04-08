@@ -1017,9 +1017,14 @@
     <string name="image_recommendations_task_choice_offensive">Offensive</string>
     <string name="image_recommendations_task_choice_invisible">Can\'t see image</string>
     <string name="image_recommendations_task_choice_understand">Don\'t understand the task</string>
+    <string name="image_recommendations_task_choice_language">Cannot read the language</string>
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
     <string name="image_recommendations_task_suggestion_reason"><![CDATA[<b>Suggestion reason:</b> %s]]></string>
+    <string name="image_recommendations_faq">FAQ</string>
+    <string name="image_recommendations_tooltip1">Review this article to understand its topic.</string>
+    <string name="image_recommendations_tooltip2">Inspect the image and its associated information.</string>
+    <string name="image_recommendations_tooltip3">Decide if the image will help readers better understand this topic.</string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
