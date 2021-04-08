@@ -2,8 +2,6 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
 import android.net.Uri
 import android.text.TextUtils
 import android.text.method.LinkMovementMethod
