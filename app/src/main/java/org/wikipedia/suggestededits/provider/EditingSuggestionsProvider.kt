@@ -1,6 +1,5 @@
 package org.wikipedia.suggestededits.provider
 
-import com.google.gson.reflect.TypeToken
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
@@ -10,7 +9,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
-import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
@@ -263,8 +261,6 @@ object EditingSuggestionsProvider {
             } else {
                 val stream = WikipediaApp.getInstance().assets.open(lang + "wiki_wd_image_candidates.tsv")
                 val reader = BufferedReader(InputStreamReader(stream))
-                // skip over column headers
-                reader.readLine()
                 while (true) {
                     val line = reader.readLine()
                     if (line.isNullOrEmpty()) {
@@ -272,8 +268,7 @@ object EditingSuggestionsProvider {
                     }
                     val arr = line.split('\t')
                     try {
-                        val list = GsonUnmarshaller.unmarshal(object : TypeToken<List<ImageRecommendationResponse.ImageRecommendation>>() {}, arr[4])
-                        articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[3], list[0]))
+                        articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[0].toInt(), arr[1], arr[2].split(",").toList()))
                     } catch (e: Exception) {
                         L.e(e)
                     }
