@@ -11,7 +11,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.log.L
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.*
@@ -35,7 +34,8 @@ object EditingSuggestionsProvider {
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
 
-    private val articlesWithMissingImagesCache: Stack<ImageRecommendationResponse> = Stack()
+    private val articlesWithMissingImagesCache = mutableListOf<String>()
+    private var articlesWithMissingImagesCacheLang: String = ""
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
@@ -250,8 +250,13 @@ object EditingSuggestionsProvider {
     fun getNextArticleWithMissingImage(lang: String): Observable<ImageRecommendationResponse> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: ImageRecommendationResponse? = null
-            if (!articlesWithMissingImagesCache.empty()) {
-                cachedItem = articlesWithMissingImagesCache[Prefs.getImageRecsItemSequence() % articlesWithMissingImagesCache.size]
+            if (articlesWithMissingImagesCacheLang != lang) {
+                // evict the cache if the language has changed.
+                articlesWithMissingImagesCache.clear()
+            }
+            articlesWithMissingImagesCacheLang = lang
+            if (articlesWithMissingImagesCache.isNotEmpty()) {
+                cachedItem = buildImageRecommendation(articlesWithMissingImagesCache[Prefs.getImageRecsItemSequence() % articlesWithMissingImagesCache.size])
                 // cachedItem = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
                 // cachedItem = articlesWithMissingImagesCache.pop()
             }
@@ -266,26 +271,23 @@ object EditingSuggestionsProvider {
                     if (line.isNullOrEmpty()) {
                         break
                     }
-                    val arr = line.split('\t')
-                    try {
-                        articlesWithMissingImagesCache.push(ImageRecommendationResponse(arr[0].toInt(), arr[1], arr[2].split(",").toList()))
-                    } catch (e: Exception) {
-                        L.e(e)
-                    }
-                    if (articlesWithMissingImagesCache.size > 1000) {
-                        break
-                    }
+                    articlesWithMissingImagesCache.add(line)
                 }
 
                 var item: ImageRecommendationResponse? = null
-                if (!articlesWithMissingImagesCache.empty()) {
-                    item = articlesWithMissingImagesCache[Prefs.getImageRecsItemSequence() % articlesWithMissingImagesCache.size]
+                if (articlesWithMissingImagesCache.isNotEmpty()) {
+                    item = buildImageRecommendation(articlesWithMissingImagesCache[Prefs.getImageRecsItemSequence() % articlesWithMissingImagesCache.size])
                     // item = articlesWithMissingImagesCache[Random().nextInt(articlesWithMissingImagesCache.size)]
                     // item = articlesWithMissingImagesCache.pop()
                 }
                 Observable.just(item!!)
             }
         }.doFinally { mutex.release() }
+    }
+
+    private fun buildImageRecommendation(str: String): ImageRecommendationResponse {
+        val arr = str.split('\t')
+        return ImageRecommendationResponse(arr[0].toInt(), arr[1], arr[2].split(",").toList())
     }
 
     class ListEmptyException : RuntimeException()
