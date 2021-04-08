@@ -31,6 +31,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
         tools:text="75%"/>
 
     <ProgressBar

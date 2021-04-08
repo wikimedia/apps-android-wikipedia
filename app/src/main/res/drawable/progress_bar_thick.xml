@@ -6,11 +6,7 @@
         </shape>
     </item>
 
-    <item android:id="@android:id/progress"
-        android:top="1dp"
-        android:bottom="1dp"
-        android:left="1dp"
-        android:right="1dp">
+    <item android:id="@android:id/progress">
 
         <scale android:scaleWidth="100%">
             <shape>

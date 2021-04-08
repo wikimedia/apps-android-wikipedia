@@ -340,12 +340,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressBarComplete.visibility = VISIBLE
         binding.publishProgressBarComplete.animate()
                 .alpha(1f)
-                .duration = duration / 2
-
-        binding.publishProgressCheck.alpha = 0f
-        binding.publishProgressCheck.visibility = VISIBLE
-        binding.publishProgressCheck.animate()
-                .alpha(1f)
                 .withEndAction {
                     binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
                     if (newCount >= DAILY_COUNT_TARGET) {
@@ -354,6 +348,12 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                         binding.publishBoltView.visibility = VISIBLE
                     }
                 }
+                .duration = duration / 2
+
+        binding.publishProgressCheck.alpha = 0f
+        binding.publishProgressCheck.visibility = VISIBLE
+        binding.publishProgressCheck.animate()
+                .alpha(1f)
                 .duration = duration
 
         binding.publishProgressBar.postDelayed({
