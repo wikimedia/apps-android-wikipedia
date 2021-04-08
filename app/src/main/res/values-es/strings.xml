@@ -989,7 +989,7 @@
   <string name="image_recommendations_task_choice_understand">No entiendo la tarea</string>
   <string name="image_recommendations_task_choice_other">Otra</string>
   <string name="image_recommendations_task_choice_continue">Continuar</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Sugerencia de razón:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Sugerencia de razón:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Negrita</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enlace</string>

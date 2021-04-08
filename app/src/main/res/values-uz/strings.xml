@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Cooltey
 * Malikxan
 * Ochilov
 * Patriccck
@@ -933,7 +934,7 @@
   <string name="image_recommendations_task_choice_offensive">Haqoratli</string>
   <string name="image_recommendations_task_choice_other">Boshqa</string>
   <string name="image_recommendations_task_choice_continue">Davom etish</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Taklif sababi:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Taklif sababi:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
   <string name="wikitext_link">Havola</string>

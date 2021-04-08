@@ -463,9 +463,14 @@
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultative)</string>
   <string name="reading_list_item_deleted">%s supprimé de la liste</string>
+  <string name="reading_list_item_deleted_from_list">%1$s a été supprimé de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d article supprimé de la liste</item>
     <item quantity="other">%d articles supprimés de la liste</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d article supprimé de %s</item>
+    <item quantity="other">%d articles supprimés de %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d articles supprimés de la liste</string>
   <string name="reading_lists_item_deleted">%s supprimé des listes</string>
@@ -760,6 +765,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Légende de l’image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Description de l’image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Image</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Fichier provenant de Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiste</string>
   <string name="suggested_edits_image_preview_dialog_tags">Balises</string>
   <string name="suggested_edits_image_preview_dialog_date">Date</string>
@@ -982,7 +988,7 @@
   <string name="image_recommendations_task_choice_understand">Je ne comprends pas la tâche</string>
   <string name="image_recommendations_task_choice_other">Autre</string>
   <string name="image_recommendations_task_choice_continue">Continuer</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Motif de la suggestion :&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;i&gt;Motif de la suggestion :&lt;/i&gt; %s</string>
   <string name="wikitext_bold">Gras</string>
   <string name="wikitext_italic">Italique</string>
   <string name="wikitext_link">Lien</string>
