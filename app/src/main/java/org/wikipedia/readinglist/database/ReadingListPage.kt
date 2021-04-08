@@ -1,22 +1,20 @@
 package org.wikipedia.readinglist.database
 
-import android.text.TextUtils
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import java.io.Serializable
 import java.util.*
 
-data class ReadingListPage(var listId: Long = -1,
-                           val wiki: WikiSite,
+data class ReadingListPage(val wiki: WikiSite,
                            val namespace: Namespace,
                            var displayTitle: String,
-                           val apiTitle: String,
+                           var apiTitle: String,
                            var description: String? = null,
                            var thumbUrl: String? = null,
+                           var listId: Long = -1,
                            var id: Long = 0,
                            var mtime: Long = 0,
                            var atime: Long = 0,
@@ -27,11 +25,8 @@ data class ReadingListPage(var listId: Long = -1,
                            var revId: Long = 0,
                            var remoteId: Long = 0) : Serializable {
 
-    constructor(wiki: WikiSite, namespace: Namespace, displayTitle: String, apiTitle: String, listId: Long) :
-            this(listId, wiki, namespace, displayTitle, if (apiTitle.isEmpty()) displayTitle else apiTitle)
-
     constructor(title: PageTitle) :
-            this( -1, title.wikiSite, title.namespace(), title.displayText, title.prefixedText, title.description, title.thumbUrl) {
+            this(title.wikiSite, title.namespace(), title.displayText, title.prefixedText, title.description, title.thumbUrl) {
         val now = System.currentTimeMillis()
         mtime = now
         atime = now

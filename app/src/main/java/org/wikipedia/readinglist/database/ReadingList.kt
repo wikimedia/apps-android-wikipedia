@@ -1,41 +1,42 @@
 package org.wikipedia.readinglist.database
 
-import android.text.TextUtils
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.Namespace
 import java.io.Serializable
 import java.util.*
 
 class ReadingList(var description: String?,
-                  val pages: MutableList<ReadingListPage>,
+                  var mtime: Long = 0,
+                  var atime: Long = 0,
                   var id: Long = 0,
-                  var mtime: Long,
-                  var atime: Long,
-                  var sizeBytes: Long,
+                  val pages: MutableList<ReadingListPage> = mutableListOf(),
+                  var sizeBytes: Long = 0,
                   var dirty: Boolean = true,
                   var remoteId: Long = 0) : Serializable {
+
+    constructor(title: String, description: String?) : this(description) {
+        this.title = title
+        val now = System.currentTimeMillis()
+        mtime = now
+        atime = now
+    }
 
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
     fun numPagesOffline(): Int {
-        var count = 0
-        for (page in pages) {
-            if (page.offline() && page.status() == ReadingListPage.STATUS_SAVED) {
-                count++
-            }
-        }
-        return count
+        return pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
     }
 
-    var title: String? = null
+    var title: String = ""
         get() = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else field
 
-    val isDefault = title.isNullOrEmpty()
+    val isDefault = title.isEmpty()
 
-    val dbTitle = title.orEmpty()
+    val dbTitle = title
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
@@ -52,7 +53,7 @@ class ReadingList(var description: String?,
         get() {
             var bytes: Long = 0
             for (page in pages) {
-                bytes += if (page.offline()) page.sizeBytes() else 0
+                bytes += if (page.offline) page.sizeBytes else 0
             }
             return bytes
         }
@@ -74,8 +75,8 @@ class ReadingList(var description: String?,
             when (sortMode) {
                 SORT_BY_NAME_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()) }
                 SORT_BY_NAME_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime().compareTo(rhs.mtime()) }
-                SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime().compareTo(lhs.mtime()) }
+                SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
+                SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
                 else -> {
                 }
             }
