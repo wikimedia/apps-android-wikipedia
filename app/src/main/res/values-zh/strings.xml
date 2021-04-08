@@ -37,6 +37,7 @@
 * XinuGod
 * Xiplus
 * Xxoopiggy
+* Xzonn
 * Yfdyh000
 * Ywang
 * Zjzengdongyang
@@ -738,6 +739,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">图片说明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">图片描述（%s）</string>
   <string name="suggested_edits_image_preview_dialog_image">文件</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">来自维基共享资源的文件</string>
   <string name="suggested_edits_image_preview_dialog_artist">艺术家</string>
   <string name="suggested_edits_image_preview_dialog_tags">标签</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>

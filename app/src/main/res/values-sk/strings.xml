@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * AtonX
+* Cooltey
 * Dbrant
 * EditorPO
 * Hromoslav
@@ -446,11 +447,18 @@
   <string name="reading_list_name_hint">Názov zoznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>
   <string name="reading_list_item_deleted">Článok %s bol odstránený zo zoznamu na prečítanie</string>
+  <string name="reading_list_item_deleted_from_list">%1$s odstránený z %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d článok odstránený zo zoznamu</item>
     <item quantity="few">%d články odstránené zo zoznamu</item>
     <item quantity="many">%d článkov odstránených zo zoznamu</item>
     <item quantity="other">%d článkov odstránených zo zoznamu</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d článok odstránený zv%s</item>
+    <item quantity="few">%d články odstránené z %s</item>
+    <item quantity="many">%d článkov odstránených z %s</item>
+    <item quantity="other">%d článkov odstránených z %s</item>
   </plurals>
   <string name="reading_list_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="reading_lists_item_deleted">%s bol odstránený zo zoznamov</string>
@@ -766,6 +774,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_image">Súbor</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Súbor z Wikimédia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umelec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>

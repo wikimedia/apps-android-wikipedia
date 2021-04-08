@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Bjankuloski06
+* Cooltey
 * Dbrant
 * Violetova
 * Vlad5250
@@ -425,9 +426,14 @@
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
   <string name="reading_list_item_deleted">%s е отстранета од списокот</string>
+  <string name="reading_list_item_deleted_from_list">%1$s е отстранета од %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">Отстранета %d статија од списокот</item>
     <item quantity="other">Отстранети %d статии од списокот</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">Отстранета %d статија од %s</item>
+    <item quantity="other">Отстранети %d статии од %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_lists_item_deleted">%s е отстранета од списоците</string>
@@ -722,6 +728,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Слика</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Податотека од Ризницата</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаки</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
