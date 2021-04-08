@@ -319,23 +319,35 @@
         tools:visibility="gone">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/successConfettiImage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/red30"
             app:layout_constraintBottom_toTopOf="@+id/dailyProgressView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_confetti" />
+
+        <View
+            android:id="@+id/publishBackgroundBaseView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?paper_color"
+            app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dailyProgressView" />
 
         <View
             android:id="@+id/publishBackgroundView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/dailyProgressView"
+            android:background="@color/green50"
             app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
-            android:background="@color/green50"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dailyProgressView" />
 
         <org.wikipedia.suggestededits.DailyProgressView
             android:id="@+id/dailyProgressView"
