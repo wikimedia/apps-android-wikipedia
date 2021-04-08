@@ -456,12 +456,6 @@
     <item quantity="many">%d ערכים הוסרו מהרשימה</item>
     <item quantity="other">%d ערכים הוסרו מהרשימה</item>
   </plurals>
-  <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="one">ערך אחד הוסר מהרשימה %s</item>
-    <item quantity="two">שני ערכים הוסרו מהרשימה</item>
-    <item quantity="many">%d ערכים הוסרו מהרשימה</item>
-    <item quantity="other">%d ערכים הוסרו מהרשימה</item>
-  </plurals>
   <string name="reading_list_items_deleted">%d ערכים הוסרו מהרשימה</string>
   <string name="reading_lists_item_deleted">%s הוסר מהרשימות</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
