@@ -59,8 +59,8 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             binding.filenameView.visibility = View.VISIBLE
             binding.filenameView.binding.titleText.text = context.getString(if (imageFromCommons) R.string.suggested_edits_image_preview_dialog_file_commons else R.string.suggested_edits_image_preview_dialog_image)
             binding.filenameView.binding.contentText.setTextIsSelectable(false)
-            binding.filenameView.binding.contentText.isSingleLine = true
-            binding.filenameView.binding.contentText.ellipsize = TextUtils.TruncateAt.MIDDLE
+            binding.filenameView.binding.contentText.maxLines = 3
+            binding.filenameView.binding.contentText.ellipsize = TextUtils.TruncateAt.END
             binding.filenameView.binding.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle.orEmpty())
             binding.filenameView.binding.divider.visibility = View.GONE
         }
