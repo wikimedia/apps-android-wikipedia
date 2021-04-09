@@ -177,10 +177,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable(), { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
-                        //
-                        // TODO: reinstate when user tests are complete:
-                        //
-                        // isIpBlocked = true
+                        isIpBlocked = true
                     }
 
                     totalContributions += wikidataResponse.query()!!.userInfo()!!.editCount

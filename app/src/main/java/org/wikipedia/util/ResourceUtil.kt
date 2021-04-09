@@ -5,12 +5,14 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources.NotFoundException
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.Uri
 import android.util.TypedValue
 import android.view.MenuItem
 import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.MenuItemCompat
 import kotlin.jvm.Throws
@@ -61,5 +63,15 @@ object ResourceUtil {
 
     fun setMenuItemTint(context: Context, item: MenuItem, @AttrRes colorAttr: Int) {
         MenuItemCompat.setIconTintList(item, ColorStateList.valueOf(getThemedColor(context, colorAttr)))
+    }
+
+    @ColorInt
+    fun lightenColor(@ColorInt color: Int): Int {
+        return ColorUtils.blendARGB(color, Color.WHITE, 0.3f)
+    }
+
+    @ColorInt
+    fun darkenColor(@ColorInt color: Int): Int {
+        return ColorUtils.blendARGB(color, Color.BLACK, 0.3f)
     }
 }

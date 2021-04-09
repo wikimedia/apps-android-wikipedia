@@ -4,6 +4,7 @@
 * Bergrübe
 * Bxalber
 * Chronist
+* Cooltey
 * DVrandecic (WMF)
 * Dbrant
 * DraconicDark
@@ -453,9 +454,14 @@
   <string name="reading_list_name_hint">Name dieser Liste</string>
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
   <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
+  <string name="reading_list_item_deleted_from_list">%1$s entfernt von %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d Artikel aus Liste entfernt</item>
     <item quantity="other">%d Artikel aus Liste entfernt</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d Artikel entfernt von %s</item>
+    <item quantity="other">%d Artikel entfernt von %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d Artikel aus der Liste entfernt</string>
   <string name="reading_lists_item_deleted">%s von den Listen entfernt</string>
@@ -750,6 +756,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildunterschrift (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeschreibung (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Bild</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Datei von Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Künstler</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
@@ -971,7 +978,7 @@
   <string name="image_recommendations_task_choice_understand">Verstehen die Aufgabe nicht</string>
   <string name="image_recommendations_task_choice_other">Andere</string>
   <string name="image_recommendations_task_choice_continue">Weiter</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Vorschlag Grund:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Vorschlag Grund:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

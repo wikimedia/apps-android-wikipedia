@@ -82,6 +82,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
         funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
 
+        // Reset image recommendations sequence to the last successful one
+        Prefs.setImageRecsItemSequence(Prefs.getImageRecsItemSequenceSuccess())
+
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
         SuggestedEditsFunnel.get().impression(action)
     }
@@ -102,8 +105,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         funnel?.start()
 
         if (action == IMAGE_RECOMMENDATION) {
-            // TODO: when ready to require the user to respond
-            // binding.cardsViewPager.isUserInputEnabled = false
+            binding.cardsViewPager.isUserInputEnabled = false
         }
 
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {

@@ -454,9 +454,14 @@
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
+  <string name="reading_list_item_deleted_from_list">Message shown when an article is removed from a reading list. The \"%1$s\" symbol is replaced with the name of the article.The \"%2$s\" symbol is replaced with the name of the list.</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">Message shown when one article is removed from a reading list.</item>
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
   </plurals>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
@@ -971,6 +976,9 @@
   <string name="image_recommendations_task_choice_continue">Button label for continuing with the current selection(s).</string>
   <string name="image_recommendations_task_suggestion_reason">Label that shows the reason that this image is being suggested for the current article. The %s is replaced with the reason.</string>
   <string name="image_recommendations_faq">Menu item label for navigating to the FAQ page for this feature.</string>
+  <string name="image_recommendations_tooltip1">Tooltip that instructs the user to skim some of the article content before evaluating the image recommendation.</string>
+  <string name="image_recommendations_tooltip2">Tooltip that instructs the user to look at the recommended image for the article.</string>
+  <string name="image_recommendations_tooltip3">Tooltip that instructs the user to make a decision whether the recommended image is appropriate for the article.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>

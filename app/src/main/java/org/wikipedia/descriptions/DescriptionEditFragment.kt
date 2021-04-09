@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -61,7 +60,6 @@ class DescriptionEditFragment : Fragment() {
     private var sourceSummary: PageSummaryForEdit? = null
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null
-    private var csrfClient: CsrfTokenClient? = null
 
     private val disposables = CompositeDisposable()
     private val templateParsePattern = Pattern.compile(TEMPLATE_PARSE_REGEX)
@@ -149,8 +147,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private fun cancelCalls() {
-        csrfClient?.cancel()
-        csrfClient = null
         disposables.clear()
     }
 
@@ -202,38 +198,30 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setError(null)
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
-                csrfClient = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
-                        action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                    CsrfTokenClient(wikiCommons)
-                } else {
-                    CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData, pageTitle.wikiSite)
-                }
                 getEditTokenThenSave(false)
                 funnel.logSaveAttempt()
             }
         }
 
         private fun getEditTokenThenSave(forceLogin: Boolean) {
-            csrfClient?.request(forceLogin, object : CsrfTokenClient.Callback {
-                override fun success(token: String) {
-                    if (shouldWriteToLocalWiki()) {
-                        // If the description is being applied to an article on English Wikipedia, it
-                        // should be written directly to the article instead of Wikidata.
-                        postDescriptionToArticle(token)
-                    } else {
-                        postDescriptionToWikidata(token)
-                    }
-                }
+            val csrfClient = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
+                    action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+                CsrfTokenClient(wikiCommons)
+            } else {
+                CsrfTokenClient(if (shouldWriteToLocalWiki()) pageTitle.wikiSite else wikiData, pageTitle.wikiSite)
+            }
 
-                override fun failure(caught: Throwable) {
-                    editFailed(caught, false)
+            disposables.add(csrfClient.token.subscribe({ token ->
+                if (shouldWriteToLocalWiki()) {
+                    // If the description is being applied to an article on English Wikipedia, it
+                    // should be written directly to the article instead of Wikidata.
+                    postDescriptionToArticle(token)
+                } else {
+                    postDescriptionToWikidata(token)
                 }
-
-                override fun twoFactorPrompt() {
-                    editFailed(LoginFailedException(resources
-                            .getString(R.string.login_2fa_other_workflow_error_msg)), false)
-                }
-            })
+            }, {
+                editFailed(it, false)
+            }))
         }
 
         private fun postDescriptionToArticle(editToken: String) {

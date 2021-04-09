@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.SystemClock
@@ -8,8 +9,11 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
+import androidx.palette.graphics.Palette
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -32,6 +36,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
+import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
 import java.util.*
@@ -42,7 +47,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     var publishing: Boolean = false
     private var publishSuccess: Boolean = false
-    private var page: ImageRecommendationResponse? = null
+    private var recommendation: ImageRecommendationResponse? = null
+    private var recommendationSequence: Int = 0
 
     private val funnel = ImageRecommendationsFunnel()
     private var startMillis: Long = 0
@@ -60,6 +66,9 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recommendationSequence = Prefs.getImageRecsItemSequence()
+        Prefs.setImageRecsItemSequence(recommendationSequence + 1)
+
         binding.cardItemErrorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.cardItemErrorView.retryClickListener = View.OnClickListener {
             binding.cardItemProgressBar.visibility = VISIBLE
@@ -71,6 +80,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
+        binding.publishBackgroundView.alpha = if (WikipediaApp.getInstance().currentTheme.isDark) 0.3f else 0.1f
 
         binding.imageCard.elevation = 0f
         binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_border_color)
@@ -94,8 +104,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         }
 
         binding.imageCard.setOnClickListener {
-            if (page != null) {
-                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + page!!.recommendation.image, WikiSite(Service.COMMONS_URL)), false))
+            if (recommendation != null) {
+                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + recommendation!!.image, WikiSite(Service.COMMONS_URL)), false))
                 detailsClicked = true
             }
         }
@@ -105,7 +115,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         })
 
         binding.readMoreButton.setOnClickListener {
-            val title = PageTitle(page!!.title, WikipediaApp.getInstance().wikiSite)
+            val title = PageTitle(recommendation!!.pageTitle, WikipediaApp.getInstance().wikiSite)
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
         }
 
@@ -161,14 +171,18 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     }
 
     private fun getNextItem() {
-        if (page != null) {
+        if (recommendation != null) {
             return
         }
-        disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingImage(WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingImage(WikipediaApp.getInstance().appOrSystemLanguageCode, recommendationSequence)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    this.page = it
-                    ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, it.title).subscribeOn(Schedulers.io())
+                    recommendation = it
+                    ServiceFactory.get(WikipediaApp.getInstance().wikiSite).getInfoByPageId(recommendation!!.pageId.toString())
+                }
+                .flatMap {
+                    recommendation!!.pageTitle = it.query()!!.firstPage()!!.displayTitle(WikipediaApp.getInstance().appOrSystemLanguageCode)
+                    ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, recommendation!!.pageTitle).subscribeOn(Schedulers.io())
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry(10)
@@ -179,7 +193,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     private fun setErrorState(t: Throwable) {
         L.e(t)
-        page = null
+        recommendation = null
         binding.cardItemErrorView.setError(t)
         binding.cardItemErrorView.visibility = VISIBLE
         binding.cardItemProgressBar.visibility = GONE
@@ -189,15 +203,15 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     private fun updateContents(summary: PageSummary?) {
         binding.cardItemErrorView.visibility = GONE
-        binding.articleContentContainer.visibility = if (page != null) VISIBLE else GONE
+        binding.articleContentContainer.visibility = if (recommendation != null) VISIBLE else GONE
         binding.imageSuggestionContainer.visibility = GONE
         binding.readMoreButton.visibility = GONE
         binding.cardItemProgressBar.visibility = VISIBLE
-        if (page == null || summary == null) {
+        if (recommendation == null || summary == null) {
             return
         }
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + page!!.recommendation.image, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + recommendation!!.image, WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry(5)
@@ -211,7 +225,31 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     binding.articleExtract.text = StringUtil.fromHtml(summary.extractHtml).trim()
                     binding.readMoreButton.visibility = VISIBLE
 
-                    binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+                    binding.imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)),
+                            roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
+                        override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
+                            if (isAdded) {
+                                val color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.base70))
+                                val color2 = palette.getLightMutedColor(ContextCompat.getColor(requireContext(), R.color.base30))
+                                val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, arrayOf(color1, color2).toIntArray())
+                                binding.imageViewContainer.background = gradientDrawable
+
+                                val params = binding.imageInfoButton.layoutParams as FrameLayout.LayoutParams
+                                val containerAspect = binding.imageViewContainer.width.toFloat() / binding.imageViewContainer.height.toFloat()
+                                val bmpAspect = bmpWidth.toFloat() / bmpHeight.toFloat()
+
+                                if (bmpAspect > containerAspect) {
+                                    params.marginEnd = DimenUtil.roundedDpToPx(8f)
+                                } else {
+                                    val width = binding.imageViewContainer.height.toFloat() * bmpAspect
+                                    params.marginEnd = DimenUtil.roundedDpToPx(8f) + (binding.imageViewContainer.width / 2 - width.toInt() / 2)
+                                }
+                                binding.imageInfoButton.layoutParams = params
+                            }
+                        }
+
+                        override fun onImageFailed() {}
+                    })
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
 
                     binding.articleScrollSpacer.post {
@@ -222,7 +260,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
-                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, page!!.recommendation.note))
+                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, recommendation!!.foundOnWikis.joinToString(", ")))
 
                     ViewAnimations.fadeIn(binding.imageSuggestionContainer)
 
@@ -242,7 +280,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     }
 
     private fun doPublish(response: Int, reasons: List<Int>) {
-        if (publishing || publishSuccess || page == null) {
+        if (publishing || publishSuccess || recommendation == null) {
             return
         }
 
@@ -258,7 +296,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressBar.visibility = VISIBLE
 
         funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
-                page!!.title, page!!.recommendation.image, /* TODO: when API is ready. */ "wikipedia", response, reasons, detailsClicked, infoClicked, scrolled,
+                recommendation!!.pageTitle, recommendation!!.image, /* TODO: when API is ready. */ "wikipedia", response, reasons, detailsClicked, infoClicked, scrolled,
                 buttonClickedMillis - startMillis, SystemClock.uptimeMillis() - startMillis,
                 if (Prefs.isImageRecsConsentEnabled() && AccountUtil.isLoggedIn) AccountUtil.userName else null,
                 Prefs.isImageRecsTeacherMode())
@@ -278,6 +316,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         }
         val newCount = oldCount + 1
         Prefs.setImageRecsDailyCount(newCount)
+        Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
         val durationBoost = when (newCount) {
             DAILY_COUNT_TARGET -> 5

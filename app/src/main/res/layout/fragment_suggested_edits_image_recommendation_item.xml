@@ -108,7 +108,6 @@
         android:id="@+id/imageSuggestionContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:paddingBottom="4dp"
         android:background="?attr/paper_color"
         android:elevation="12dp"
@@ -159,9 +158,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/robotIcon"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constrainedWidth="true"
+            app:layout_constraintHorizontal_bias="0"
             android:layout_marginStart="17dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_8dp_accent90_fill"
             android:padding="10dp"
             android:textSize="16sp"
@@ -191,7 +193,7 @@
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     android:contentDescription="@null"/>
 
                 <ImageView
@@ -320,6 +322,16 @@
         tools:visibility="gone">
 
         <View
+            android:id="@+id/publishBackgroundBaseView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dailyProgressView"
+            app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
+            android:background="?paper_color"/>
+
+        <View
             android:id="@+id/publishBackgroundView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -327,7 +339,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/dailyProgressView"
             app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
-            android:background="@color/green90"/>
+            android:background="@color/green50"/>
 
         <org.wikipedia.suggestededits.DailyProgressView
             android:id="@+id/dailyProgressView"

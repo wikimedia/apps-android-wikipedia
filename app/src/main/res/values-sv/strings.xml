@@ -957,7 +957,7 @@
   <string name="image_recommendations_task_choice_understand">Förstår inte uppgiften</string>
   <string name="image_recommendations_task_choice_other">Övrigt</string>
   <string name="image_recommendations_task_choice_continue">Fortsätt</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Förslagsorsak:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;i&gt;Förslagsorsak:&lt;/i&gt; %s</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Länk</string>
