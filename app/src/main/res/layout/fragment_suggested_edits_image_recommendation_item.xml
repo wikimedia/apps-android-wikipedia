@@ -385,7 +385,7 @@
             app:layout_constraintBottom_toBottomOf="@id/publishProgressBar"
             android:contentDescription="@null"
             app:tint="@color/green50"
-            app:srcCompat="@drawable/ic_check_borderless" />
+            app:srcCompat="@drawable/ic_check_black_24dp" />
 
         <ImageView
             android:id="@+id/publishBoltView"
