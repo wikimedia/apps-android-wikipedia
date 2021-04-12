@@ -11,8 +11,17 @@
   <string name="app_name_prod">Wikipiidiyaa</string>
   <string name="app_name_beta">Beta Wikipiidiyaa</string>
   <string name="app_name_alpha">Wikipiidiyaa Aalfaa</string>
-  <string name="search_hint">Wikipiidiyaa keessa barbaadi</string>
+  <string name="search_hint">Wikipiidiyaa barbaadi</string>
+  <string name="search_hint_voice_search">Sagalee galchuun barbaadi</string>
+  <string name="search_hint_search_languages">Qooda barbaadi</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Tarreewwan koo calali</string>
+  <string name="nav_item_suggested_edits">Gulaalawwan</string>
+  <string name="nav_item_more">Dabalata</string>
+  <string name="nav_item_search">Barbaadi</string>
+  <string name="error_network_error">Internetiin qunnamuu hin dandeenye</string>
   <string name="page_error_retry">Irra deebi\'ii yaali</string>
+  <string name="card_offline_error_retry">Irra deebiin yaali</string>
+  <string name="storage_access_error_retry">Ammasyaali</string>
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
   <string name="menu_clear_all_history">Seenaa qulqulleessi</string>
   <string name="menu_page_add_to_default_list">Ol kaa\'i</string>
@@ -71,7 +80,7 @@
   <string name="read_more_section">Dabalata dubbisi</string>
   <string name="gallery_menu_share">Hiri</string>
   <string name="gallery_save_progress">Faayilii naqachaa jira…</string>
-  <string name="gallery_save_success" fuzzy="true">Faayiliin olkaawwame.</string>
+  <string name="gallery_save_success">Harshamni olkaa\'ameera.</string>
   <string name="err_cannot_save_file">Faayilii olkaawuu hindandeenye</string>
   <string name="gallery_uploader_unknown">Ol fe\'aan hin beekkamu.</string>
   <string name="color_theme_light">Ifaa</string>

@@ -980,9 +980,14 @@
   <string name="image_recommendations_task_choice_offensive">Saldırgan</string>
   <string name="image_recommendations_task_choice_invisible">Görüntüyü göremiyorum</string>
   <string name="image_recommendations_task_choice_understand">Görevi anlamadım</string>
+  <string name="image_recommendations_task_choice_language">Dili bilmiyorum</string>
   <string name="image_recommendations_task_choice_other">Diğer</string>
   <string name="image_recommendations_task_choice_continue">Devam et</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Öneri gerekçesi:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Öneri gerekçesi:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">SSS</string>
+  <string name="image_recommendations_tooltip1">Konusunu anlamak için bu maddeyi gözden geçirin.</string>
+  <string name="image_recommendations_tooltip2">Resmi ve ilişkili bilgiyi inceleyin.</string>
+  <string name="image_recommendations_tooltip3">Resmin, okuyucuların bu konuyu daha iyi anlamalarına yardımcı olup olmayacağına karar verin.</string>
   <string name="wikitext_bold">Kalın</string>
   <string name="wikitext_italic">Eğik</string>
   <string name="wikitext_link">Bağlantı</string>
