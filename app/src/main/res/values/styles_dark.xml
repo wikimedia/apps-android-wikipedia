@@ -77,6 +77,7 @@
         <item name="paper_color">@color/base14</item>
         <item name="suggestions_background_color">@color/base12</item>
         <item name="color_group_22">@color/base18</item>
+        <item name="color_group_43">@color/green50</item>
         <item name="color_group_52">@color/accent75</item>
         <item name="color_group_53">@color/accent30</item>
         <item name="color_group_54">@color/base14</item>

@@ -40,6 +40,7 @@
     <attr name="chip_text_color" format="color"/>
     <attr name="suggestions_background_color" format="color"/>
     <attr name="color_group_22" format="reference"/>
+    <attr name="color_group_43" format="color"/>
     <attr name="color_group_52" format="color"/>
     <attr name="color_group_53" format="color"/>
     <attr name="color_group_54" format="color"/>
