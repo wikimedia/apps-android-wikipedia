@@ -170,7 +170,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     }
                     return
                 }
-                if (imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION) {
+                if (imageEditType == ImageEditType.ADD_CAPTION ||
+                        imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION) {
                     callToActionSourceSummary?.let { source ->
                         if (callToActionIsTranslation) {
                             callToActionTargetSummary?.let { target ->
