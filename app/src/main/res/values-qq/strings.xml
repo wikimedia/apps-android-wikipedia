@@ -693,6 +693,7 @@
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
   <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
   <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
+  <string name="description_starts_with_lowercase">Warning text shown when a description starts with a lowercase character.</string>
   <string name="description_is_in_different_language">Warning message shown to users when their editing language is different form their keyboard language.%s represents the expected language.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
