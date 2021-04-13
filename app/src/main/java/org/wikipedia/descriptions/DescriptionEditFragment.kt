@@ -233,11 +233,7 @@ class DescriptionEditFragment : Fragment() {
                         val baseRevId = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description!!)
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
-                                when (action) {
-                                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
-                                    else -> ""
-                                },
+                                getEditComment().orEmpty(),
                                 if (AccountUtil.isLoggedIn) "user"
                                 else null, text, null, baseRevId, editToken, null, null)
                                 .subscribeOn(Schedulers.io())
@@ -318,31 +314,29 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getPostObservable(editToken: String, languageCode: String): Observable<EntityPostResponse> {
-            var comment: String? = null
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
-                    comment = when (action) {
-                        DescriptionEditActivity.Action.ADD_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                        DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
-                        else -> null
-                    }
-                }
                 ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
                         pageTitle.prefixedText, binding.fragmentDescriptionEditView.description!!,
-                        comment, editToken, if (AccountUtil.isLoggedIn) "user" else null)
+                        getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
             } else {
-                if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
-                    comment = when (action) {
-                        DescriptionEditActivity.Action.ADD_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
-                        DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
-                        else -> null
-                    }
-                }
                 ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description!!, comment, editToken,
+                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description!!, getEditComment(), editToken,
                         if (AccountUtil.isLoggedIn) "user" else null)
             }
+        }
+
+        private fun getEditComment(): String? {
+            if (invokeSource == InvokeSource.SUGGESTED_EDITS || invokeSource == InvokeSource.FEED) {
+                return when (action) {
+                    DescriptionEditActivity.Action.ADD_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                    DescriptionEditActivity.Action.ADD_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                    DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
+                    DescriptionEditActivity.Action.TRANSLATE_CAPTION -> SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT
+                    else -> null
+                }
+            }
+            return null
         }
 
         private fun editFailed(caught: Throwable, logError: Boolean) {
