@@ -108,7 +108,7 @@
   <string name="title_captcha">Pakipasok ang CAPTCHA</string>
   <string name="edit_section_captcha_reload">Pindutin ang CAPTCHA upang maisariwa.</string>
   <string name="nav_item_login">Mag-login sa Wikipedia</string>
-  <string name="login_username_hint">Username</string>
+  <string name="login_username_hint">Tagagamit</string>
   <string name="login_password_hint">Password</string>
   <string name="account_creation_password_hint">Password</string>
   <string name="login_2fa_hint">Pandalawahang Kodigong Pamberipika</string>
@@ -140,7 +140,7 @@
   <string name="search_empty_message_multilingual_upgrade">Maghanap sa Wikipedia sa ibang wika</string>
   <string name="delete_selected_items">Burahin ang mga piniling aytem</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Username</string>
+  <string name="create_account_username_hint">Tagagamit</string>
   <string name="login_dont_have_account">Walang account?</string>
   <string name="login_join_wikipedia">Sumali sa Wikipedia</string>
   <string name="login_forgot_password">Nakalimutan mo password mo?</string>
@@ -151,7 +151,7 @@
   <string name="create_account_password_repeat_hint">Ulitin ang password</string>
   <string name="create_account_passwords_mismatch_error">Hindi tugma ang dalawang password</string>
   <string name="create_account_email_error">Di-totoong adres pang-email</string>
-  <string name="create_account_username_error">May nakitang bawal na karakter sa username</string>
+  <string name="create_account_username_error">May nakitang bawal na karakter sa pangalan</string>
   <string name="create_account_password_error">Bawal ang password na binigay</string>
   <string name="create_account_generic_error">Di magawa ang account</string>
   <string name="create_account_next">Sunod</string>
@@ -161,7 +161,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Magpatuloy nang walang email</string>
   <string name="email_recommendation_dialog_create_with_email_action">Magdagdag ng adres pang-email</string>
   <string name="create_account_button">Gumawa ng account</string>
-  <string name="create_account_name_unavailable">Di magagamit ang username na \"%s.\" Mangyaring pumili ng ibang pangalan.</string>
+  <string name="create_account_name_unavailable">Di magagamit ang pangalang \"%s.\" Mangyaring pumili ng ibang pangalan.</string>
   <string name="create_account_ip_block_message">Paumanhin, ngunit kasalukuyang hinaharangan ang adres ng IP mo sa paggawa ng mga bagong account.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Mga detalye</string>
@@ -174,8 +174,8 @@
   <string name="preferences_heading_experimental">Eksperimento</string>
   <string name="preference_title_sync_reading_lists_from_account">Pagsabay (pag-sync) ng mga listahan</string>
   <string name="preference_title_download_reading_list_articles">I-download ang mga artikulong babasáhin</string>
-  <string name="preference_summary_sync_reading_lists">Pagsabayin (i-sync) ang mga listahan mo sa iba\'t ibang mga device sa pamamagitan ng pag-save sa kanila sa iyong account sa Wikipedia</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Pagsabayin ang babasáhin mo sa iba\'t ibang mga device sa pamamagitan ng pag-save sa kanila sa iyong account sa Wikipedia na \"%s\"</string>
+  <string name="preference_summary_sync_reading_lists">Pagsabayin (i-sync) ang mga listahan mo sa iba\'t ibang mga device sa pamamagitan ng pagse-save sa kanila sa iyong account sa Wikipedia</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Pagsabayin ang babasáhin mo sa iba\'t ibang mga device sa pamamagitan ng pagse-save sa kanila sa iyong account sa Wikipedia na \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Tanggalin ang mga naisabay na listahan sa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Buburahin nito nang buong-buo ang lahat ng mga naisabay mong mga listahan mula sa remote storage. Buburahin mo ba talaga ang mga naisabay mong listahang nasa account mo na \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Pagkapribado</string>
@@ -284,9 +284,9 @@
   <string name="gallery_menu_share">Ibahagi</string>
   <string name="gallery_share_error">Di magawang maibahagi ang larawan: %s</string>
   <string name="gallery_save_progress">Dina-download ang file...</string>
-  <string name="gallery_save_success">Nai-save na ang file.</string>
+  <string name="gallery_save_success">Na-save na ang file.</string>
   <string name="gallery_error_video_failed">Di magawang mai-play ang bidyo.</string>
-  <string name="gallery_save_image_write_permission_rationale">Kinakailangang pahintulutang makapagsulat sa imbakan ng device mo para mai-save ang larawan.</string>
+  <string name="gallery_save_image_write_permission_rationale">Kinakailangang pahintulutang makapagsulat sa imbakan ng device mo para ma-save ang larawan.</string>
   <string name="gallery_add_image_caption_button">Magdagdag ng paglalarawan</string>
   <string name="gallery_add_image_caption_in_language_button">Magdagdadag ng paglalarawan (%s)</string>
   <string name="err_cannot_save_file">Di magawang ma-save ang file</string>
@@ -857,8 +857,8 @@
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">Narating mo na ang target</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">May bagong gawain sa mga Alok na Edit. Magsanay ng algoritmo para magpares ng larawan sa mga artikulong wala pang larawan.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Sinulat at in-edit ng libo-libong tao ang mga artikulo sa Wikipedia. Gayumpaman, marami sa mga ito ay walang larawan.\n\nMagmumungkahi ang algoritmo sa\'yo ng mga larawan. Kukuha ang algoritmo ng mga larawan mula sa ibang mapagkukuhanan at magmumungkahi ng pares para sa isang artikulong wala pang larawan.\n\nMalaki ang tulong ng mga sagot mo sa pagpapahusay sa mga mungkahi sa paglipas ng panahon  Dahil ang tunguhin ng gawaing ito ay para mapahusay ang pagmumungkahi ng mga larawan, hindi ilalathala ang mga pares na ginawa mo.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Gusto naming kilalanin ang iyong ambag sa pagsisikap na ito. Gusto mo bang maipakita ang iyong username sa pahina ng pagsasanay sa algoritmo?</string>
-  <string name="suggested_edits_image_recommendations_onboarding_consent">Sige, pwedeng ipakita ang username ko sa pahina ng pagsasanay</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Gusto naming kilalanin ang iyong ambag sa pagsisikap na ito. Gusto mo bang maipakita ang iyong pangalan sa pahina ng pagsasanay sa algoritmo?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_consent">Sige, pwedeng ipakita ang pangalan ko sa pahina ng pagsasanay</string>
   <string name="file_page_activity_title">Pahina ng file</string>
   <string name="file_page_add_image_caption_button">Magdagdag ng kapsyón</string>
   <string name="file_page_add_image_tags_button">Magdagdag ng tag</string>
@@ -948,9 +948,14 @@
   <string name="image_recommendations_task_choice_offensive">Bastos</string>
   <string name="image_recommendations_task_choice_invisible">Di makita ang larawan</string>
   <string name="image_recommendations_task_choice_understand">Di maintindihan ang gawain</string>
+  <string name="image_recommendations_task_choice_language">Di mabasa ang wika</string>
   <string name="image_recommendations_task_choice_other">Iba pa</string>
   <string name="image_recommendations_task_choice_continue">Magpatuloy</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;i&gt;Dahilan ng pagmungkahi:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Dahilan ng pagmungkahi:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">Madalas Itanong</string>
+  <string name="image_recommendations_tooltip1">Rebyuhin ang artikulo para maintindihan ito.</string>
+  <string name="image_recommendations_tooltip2">Tingnan ang larawan at ang kaugnay na impormasyon nito.</string>
+  <string name="image_recommendations_tooltip3">Magdesisyon kung makatutulong ang larawan sa mga mambabasa na maintindihan ang paksang ito.</string>
   <string name="wikitext_bold">Kapalin</string>
   <string name="wikitext_italic">Pahilisin</string>
   <string name="wikitext_link">I-link</string>
