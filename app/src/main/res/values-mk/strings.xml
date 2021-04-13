@@ -949,9 +949,14 @@
   <string name="image_recommendations_task_choice_offensive">Неумесна е</string>
   <string name="image_recommendations_task_choice_invisible">Не можам да ја видам сликата</string>
   <string name="image_recommendations_task_choice_understand">Не ја разбирам задачата</string>
+  <string name="image_recommendations_task_choice_language">Не го познавам јазикот</string>
   <string name="image_recommendations_task_choice_other">Друго</string>
   <string name="image_recommendations_task_choice_continue">Продолжи</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Причина за предлагање:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Причина за предлагање:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">ЧПП</string>
+  <string name="image_recommendations_tooltip1">Прегледајте ја статијата за да ја разберете темата</string>
+  <string name="image_recommendations_tooltip2">Прегледајте ја сликата и нејзините придружни информации.</string>
+  <string name="image_recommendations_tooltip3">Одлучете дали сликата им помага на читателите подобро да ја разберат темата.</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
   <string name="wikitext_link">Врска</string>
