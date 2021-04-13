@@ -329,6 +329,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             else -> getString(R.string.suggested_edits_image_recommendations_task_goal_surpassed)
         }
         binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
+        binding.successConfettiImage.visibility = if (newCount == DAILY_COUNT_TARGET) VISIBLE else GONE
 
         val duration = 1000L
         binding.publishProgressBar.alpha = 1f
