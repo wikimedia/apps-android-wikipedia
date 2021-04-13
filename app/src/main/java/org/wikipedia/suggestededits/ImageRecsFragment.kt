@@ -21,6 +21,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.ImageRecommendationsFunnel
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationItemBinding
@@ -300,7 +301,11 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 buttonClickedMillis - startMillis, SystemClock.uptimeMillis() - startMillis,
                 if (Prefs.isImageRecsConsentEnabled() && AccountUtil.isLoggedIn) AccountUtil.userName else null,
                 Prefs.isImageRecsTeacherMode())
-
+        ImageRecommendationsEvent.logImageRecommendationInteraction(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
+                page!!.title, page!!.recommendation.image, /* TODO: when API is ready. */ "wikipedia", response, reasons, detailsClicked, infoClicked, scrolled,
+                buttonClickedMillis - startMillis, SystemClock.uptimeMillis() - startMillis,
+                if (Prefs.isImageRecsConsentEnabled() && AccountUtil.isLoggedIn) AccountUtil.userName else null,
+                Prefs.isImageRecsTeacherMode())
         publishSuccess = true
         onSuccess()
     }
