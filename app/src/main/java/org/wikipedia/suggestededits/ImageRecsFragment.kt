@@ -152,15 +152,15 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 // binding.imageSuggestionContainer.visibility = GONE
                 // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, binding.imageSuggestionContainer.height)
 
-                FeedbackUtil.showTooltip(requireActivity(), binding.articleTitlePlaceholder, "Review this article to understand its topic.", aboveOrBelow = false, autoDismiss = true)
+                FeedbackUtil.showTooltip(requireActivity(), binding.articleTitlePlaceholder, getString(R.string.image_recommendations_tooltip1), aboveOrBelow = false, autoDismiss = true)
                         .setOnBalloonDismissListener {
 
                             // binding.imageSuggestionContainer.visibility = VISIBLE
                             // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, 0)
 
-                            FeedbackUtil.showTooltip(requireActivity(), binding.instructionText, "Inspect the image and its associated information.", aboveOrBelow = true, autoDismiss = true)
+                            FeedbackUtil.showTooltip(requireActivity(), binding.instructionText, getString(R.string.image_recommendations_tooltip2), aboveOrBelow = false, autoDismiss = true)
                                     .setOnBalloonDismissListener {
-                                        FeedbackUtil.showTooltip(requireActivity(), binding.acceptButton, "Decide if the image will help readers better understand this topic.", aboveOrBelow = true, autoDismiss = true)
+                                        FeedbackUtil.showTooltip(requireActivity(), binding.acceptButton, getString(R.string.image_recommendations_tooltip3), aboveOrBelow = true, autoDismiss = true)
                                     }
                         }
             } else {
