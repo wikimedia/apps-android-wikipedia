@@ -1021,6 +1021,9 @@
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
     <string name="image_recommendations_task_suggestion_reason"><![CDATA[<b>Suggestion reason:</b> %s]]></string>
+    <string name="image_recommendations_task_suggestion_reason_wikilist">image was found in other language versions of Wikipedia (%s)</string>
+    <string name="image_recommendations_task_suggestion_reason_wikidata">image was found on Wikidata, Wikipedia\'s source of open data</string>
+    <string name="image_recommendations_task_suggestion_reason_commons">image was found on Wikimedia Commons, Wikipedia\'s source of freely usable images</string>
     <string name="image_recommendations_faq">FAQ</string>
     <string name="image_recommendations_tooltip1">Review this article to understand its topic.</string>
     <string name="image_recommendations_tooltip2">Inspect the image and its associated information.</string>

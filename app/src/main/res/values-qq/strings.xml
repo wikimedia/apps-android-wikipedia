@@ -975,6 +975,9 @@
   <string name="image_recommendations_task_choice_other">Checkbox label selected if the user cannot evaluate the current image recommendation for another reason.</string>
   <string name="image_recommendations_task_choice_continue">Button label for continuing with the current selection(s).</string>
   <string name="image_recommendations_task_suggestion_reason">Label that shows the reason that this image is being suggested for the current article. The %s is replaced with the reason.</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">Text mentioning that this image was found on other language Wikis. The %s symbol will be replaced with the list of languages.</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">Text mentioning that this image was found on Wikidata.</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">Text mentioning that this image was found on Commons.</string>
   <string name="image_recommendations_faq">Menu item label for navigating to the FAQ page for this feature.</string>
   <string name="image_recommendations_tooltip1">Tooltip that instructs the user to skim some of the article content before evaluating the image recommendation.</string>
   <string name="image_recommendations_tooltip2">Tooltip that instructs the user to look at the recommended image for the article.</string>

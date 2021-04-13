@@ -1,7 +1,9 @@
 package org.wikipedia.suggestededits
 
 import android.graphics.drawable.GradientDrawable
+import android.icu.text.ListFormatter
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -15,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.palette.graphics.Palette
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -28,6 +31,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationItemBi
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.history.HistoryEntry
@@ -212,8 +216,18 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             return
         }
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + recommendation!!.image, WikipediaApp.getInstance().appOrSystemLanguageCode)
-                .subscribeOn(Schedulers.io())
+        disposables.add((if (siteInfoList == null)
+            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).siteMatrix
+                    .subscribeOn(Schedulers.io())
+                    .map {
+                        siteInfoList = SiteMatrix.getSites(it)
+                        siteInfoList!!
+                    }
+        else Observable.just(siteInfoList!!))
+                .flatMap {
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo("File:" + recommendation!!.image, WikipediaApp.getInstance().appOrSystemLanguageCode)
+                            .subscribeOn(Schedulers.io())
+                }
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry(5)
                 .subscribe({ response ->
@@ -261,7 +275,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
-                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, recommendation!!.foundOnWikis.joinToString(", ")))
+                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getSuggestionReason())
 
                     ViewAnimations.fadeIn(binding.imageSuggestionContainer)
 
@@ -297,12 +311,12 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressBar.visibility = VISIBLE
 
         funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
-                recommendation!!.pageTitle, recommendation!!.image, /* TODO: when API is ready. */ "wikipedia", response, reasons, detailsClicked, infoClicked, scrolled,
+                recommendation!!.pageTitle, recommendation!!.image, getFunnelReason(), response, reasons, detailsClicked, infoClicked, scrolled,
                 buttonClickedMillis - startMillis, SystemClock.uptimeMillis() - startMillis,
                 if (Prefs.isImageRecsConsentEnabled() && AccountUtil.isLoggedIn) AccountUtil.userName else null,
                 Prefs.isImageRecsTeacherMode())
         ImageRecommendationsEvent.logImageRecommendationInteraction(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
-                page!!.title, page!!.recommendation.image, /* TODO: when API is ready. */ "wikipedia", response, reasons, detailsClicked, infoClicked, scrolled,
+                recommendation!!.pageTitle, recommendation!!.image, getFunnelReason(), response, reasons, detailsClicked, infoClicked, scrolled,
                 buttonClickedMillis - startMillis, SystemClock.uptimeMillis() - startMillis,
                 if (Prefs.isImageRecsConsentEnabled() && AccountUtil.isLoggedIn) AccountUtil.userName else null,
                 Prefs.isImageRecsTeacherMode())
@@ -383,6 +397,51 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         infoClicked = true
     }
 
+    private fun getSuggestionReason(): String {
+        val hasWikidata = recommendation!!.foundOnWikis.contains("wd")
+        val langWikis = recommendation!!.foundOnWikis.filter { it != "wd" && it != "com" }
+                .sortedBy { WikipediaApp.getInstance().language().getLanguageCodeIndex(it) }
+                .take(3)
+                .map { getCanonicalName(it) }
+
+        if (langWikis.isNotEmpty()) {
+            return getString(R.string.image_recommendations_task_suggestion_reason,
+                    getString(R.string.image_recommendations_task_suggestion_reason_wikilist,
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                ListFormatter.getInstance().format(langWikis)
+                            } else {
+                                langWikis.joinToString(separator = ", ")
+                            }))
+        } else if (hasWikidata) {
+            return getString(R.string.image_recommendations_task_suggestion_reason,
+                    getString(R.string.image_recommendations_task_suggestion_reason_wikidata))
+        }
+        return getString(R.string.image_recommendations_task_suggestion_reason,
+                getString(R.string.image_recommendations_task_suggestion_reason_commons))
+    }
+
+    private fun getFunnelReason(): String {
+        val hasWikidata = recommendation!!.foundOnWikis.contains("wd")
+        val langWikis = recommendation!!.foundOnWikis.filter { it != "wd" && it != "com" }
+        return when {
+            langWikis.isNotEmpty() -> {
+                "wikipedia"
+            }
+            hasWikidata -> {
+                "wikidata"
+            }
+            else -> "commons"
+        }
+    }
+
+    private fun getCanonicalName(code: String): String? {
+        var canonicalName = siteInfoList?.find { it.code() == code }?.localName()
+        if (canonicalName.isNullOrEmpty()) {
+            canonicalName = WikipediaApp.getInstance().language().getAppLanguageCanonicalName(code)
+        }
+        return canonicalName
+    }
+
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
     }
@@ -390,6 +449,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     companion object {
         const val DAILY_COUNT_TARGET = 10
         private val SUPPORTED_LANGUAGES = arrayOf("en", "de", "fr", "pt", "ru", "fa", "tr", "uk", "ar", "vi", "ceb", "he")
+        private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
 
         fun isFeatureEnabled(): Boolean {
             return AccountUtil.isLoggedIn &&
