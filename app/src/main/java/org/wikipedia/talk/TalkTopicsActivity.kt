@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -30,6 +31,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -45,6 +47,7 @@ class TalkTopicsActivity : BaseActivity() {
     private lateinit var funnel: TalkFunnel
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
+    private val unreadTypeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -208,7 +211,6 @@ class TalkTopicsActivity : BaseActivity() {
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         private val title: TextView = view.findViewById(R.id.topicTitleText)
         private val subtitle: TextView = view.findViewById(R.id.topicSubtitleText)
-        private val readDot: View = view.findViewById(R.id.topicReadDot)
         private var id: Int = 0
 
         fun bindItem(topic: TalkPage.Topic) {
@@ -218,7 +220,9 @@ class TalkTopicsActivity : BaseActivity() {
             title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
             title.visibility = View.VISIBLE
             subtitle.visibility = View.GONE
-            readDot.visibility = if (seen) View.GONE else View.VISIBLE
+            title.typeface = if (seen) Typeface.SANS_SERIF else unreadTypeface
+            title.setTextColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity,
+                    if (seen) android.R.attr.textColorTertiary else R.attr.material_theme_primary_color))
             itemView.setOnClickListener(this)
         }
 
