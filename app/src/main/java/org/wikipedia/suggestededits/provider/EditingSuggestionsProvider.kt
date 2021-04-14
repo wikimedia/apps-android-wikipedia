@@ -99,11 +99,25 @@ object EditingSuggestionsProvider {
                 Observable.just(cachedPair)
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode()), WikiSite.normalizeLanguageCode(targetLang))
-                        .map { pages ->
+                        .flatMap({ pages ->
+                            if (pages.isEmpty()) {
+                                throw ListEmptyException()
+                            }
+                            val titleList = ArrayList<String>()
+                            pages.forEach { titleList.add(it.title()) }
+                            ServiceFactory.get(WikiSite.forLanguageCode(targetLang)).getDescription(titleList.joinToString("|"))
+                        }, { pages, response -> Pair(pages, response) })
+                        .map { pair ->
+                            val pages = pair.first
+                            val mwPages = pair.second.query()!!.pages()!!
                             var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
+                                val mwPage = mwPages.find { it.title() == page.title() }
+                                if (mwPage != null && !mwPage.description().isNullOrEmpty()) {
+                                    continue
+                                }
                                 val entity = page.entity
                                 if (entity == null ||
                                         entity.descriptions().containsKey(targetLang) ||

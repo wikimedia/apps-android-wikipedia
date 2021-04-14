@@ -12,12 +12,14 @@ open class LongPreference @JvmOverloads constructor(context: Context,
         EditTextAutoSummarizePreference(context, attrs, defStyleAttr, defStyleRes) {
 
     private var radix = DEFAULT_RADIX
-    var summaryFormat: String? = DEFAULT_SUMMARY_FORMAT
+    var summaryFormat: String = DEFAULT_SUMMARY_FORMAT
 
     init {
         context.withStyledAttributes(attrs, R.styleable.LongPreference) {
             radix = getInteger(R.styleable.LongPreference_radix, DEFAULT_RADIX)
-            summaryFormat = getString(R.styleable.LongPreference_summaryFormat).toString().ifEmpty { DEFAULT_SUMMARY_FORMAT }
+            summaryFormat = getString(R.styleable.LongPreference_summaryFormat).let {
+                if (it.isNullOrEmpty()) DEFAULT_SUMMARY_FORMAT else it
+            }
         }
     }
 
@@ -48,7 +50,7 @@ open class LongPreference @JvmOverloads constructor(context: Context,
     }
 
     private fun longToSummary(value: Long): String {
-        return String.format(summaryFormat.orEmpty(), value)
+        return String.format(summaryFormat, value)
     }
 
     companion object {
