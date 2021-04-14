@@ -23,7 +23,7 @@
   <string name="nav_item_suggested_edits">ಸಂಪಾದನೆಗಳು</string>
   <string name="nav_item_more">ಇನ್ನಷ್ಟು</string>
   <string name="nav_item_search">ಹುಡುಕು</string>
-  <string name="error_network_error" fuzzy="true">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>
+  <string name="error_network_error">ಅಂತರ್ಜಾಲಕ್ಕೆ ಸಂಪರ್ಕಿಸಲು ಆಗುತ್ತಿಲ್ಲ.</string>
   <string name="page_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="card_offline_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="storage_access_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
@@ -37,7 +37,7 @@
   <string name="history_item_delete_undo">ರದ್ದುಗೊಳಿಸಿ</string>
   <string name="notification_archive_undo">ರದ್ದುಗೊಳಿಸಿ</string>
   <string name="history_list_title">ಇತಿಹಾಸ</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
+  <string name="dialog_title_clear_history">ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="dialog_message_clear_history_yes">ಹೌದು</string>
   <string name="dialog_message_clear_history_no">ಇಲ್ಲ</string>
   <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
@@ -83,7 +83,7 @@
   <string name="edit_saved_successfully">ಸಂಪಾದನೆಯನ್ನು ಪ್ರಕಟಿಸಲಾಗಿದೆ!</string>
   <string name="dialog_message_edit_failed">ಸಂಪಾದನೆಯನ್ನು ಉಳಿಸಲಾಗಿಲ್ಲ!</string>
   <string name="dialog_message_edit_failed_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
-  <string name="dialog_message_edit_failed_cancel">ರದ್ದುಮಾಡು</string>
+  <string name="dialog_message_edit_failed_cancel">ರದ್ದುಮಾಡಿ</string>
   <string name="dialog_message_leaving_edit">ನಿಮ್ಮ ಬದಲಾವಣೆಗಳನ್ನು ಇನ್ನೂ ಉಳಿಸಲಾಗಿಲ್ಲ. ಈ ಪುಟದಿಂದ ನಿರ್ಗಮಿಸಲು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?</string>
   <string name="dialog_message_leaving_edit_leave">ಬಿಡು</string>
   <string name="dialog_message_leaving_edit_stay">ಇರು</string>

@@ -946,9 +946,12 @@
   <string name="image_recommendations_task_choice_offensive">불쾌함</string>
   <string name="image_recommendations_task_choice_invisible">이미지를 볼 수 없음</string>
   <string name="image_recommendations_task_choice_understand">작업을 이해하지 못함</string>
+  <string name="image_recommendations_task_choice_language">언어를 읽을 수 없습니다</string>
   <string name="image_recommendations_task_choice_other">기타</string>
   <string name="image_recommendations_task_choice_continue">계속</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;제안 이유:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;제안 이유:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">FAQ</string>
+  <string name="image_recommendations_tooltip1">주제 이해를 위해 이 문서를 검토합니다.</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
   <string name="wikitext_link">링크</string>

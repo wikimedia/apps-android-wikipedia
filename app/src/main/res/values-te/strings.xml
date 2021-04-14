@@ -36,7 +36,7 @@
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
-  <string name="menu_page_find_in_page" fuzzy="true">పుటలో వెతకండి</string>
+  <string name="menu_page_find_in_page">వ్యాసంలో వెతకండి</string>
   <string name="menu_page_font_and_theme">ఖతి, అలంకారం</string>
   <string name="menu_page_add_to_default_list">భద్రపరుచు</string>
   <string name="feed_card_add_to_default_list">భద్రపరుచు</string>
@@ -214,7 +214,7 @@
   <string name="button_continue_to_disambiguation">ఇటువంటి పేజీలను చూడండి</string>
   <string name="link_preview_disambiguation_description">ఈ శీర్షిక ఒకటికంటే ఎక్కువ పేజీలకు చెందుతుంది:</string>
   <string name="button_get_directions">నిర్దేశాలను పొందండి</string>
-  <string name="nav_item_donate" fuzzy="true">వికీపీడియాకి తోడ్పడండి</string>
+  <string name="nav_item_donate">విరాళమివ్వండి</string>
   <string name="multi_select_items_selected">%d ఎంచుకున్నారు</string>
   <string name="empty_tab_title">కొత్త ట్యాబు</string>
   <string name="article_menu_bar_save_button">భద్రపరుచు</string>
@@ -271,10 +271,10 @@
   <string name="description_edit_article_description_label">వ్యాసం</string>
   <string name="description_edit_add_caption_label">బొమ్మ వివరణ</string>
   <string name="description_edit_save">ప్రచురించు</string>
-  <string name="description_edit_edit_description" fuzzy="true">వివరణను మార్చు</string>
+  <string name="description_edit_edit_description">వ్యాస వివరణను మార్చు</string>
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>
   <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
-  <string name="description_edit_success_saved" fuzzy="true">వివరణ భద్రమయ్యింది!</string>
+  <string name="description_edit_success_saved">వ్యాస వివరణ ప్రచురితమయ్యింది!</string>
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
   <string name="description_edit_tutorial_title_descriptions">వ్యాస వివరణలు</string>

@@ -695,6 +695,7 @@
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
     <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
+    <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
     <!-- /Description editing -->
 
@@ -1021,6 +1022,9 @@
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
     <string name="image_recommendations_task_suggestion_reason"><![CDATA[<b>Suggestion reason:</b> %s]]></string>
+    <string name="image_recommendations_task_suggestion_reason_wikilist">image was found in other language versions of Wikipedia (%s)</string>
+    <string name="image_recommendations_task_suggestion_reason_wikidata">image was found on Wikidata, Wikipedia\'s source of open data</string>
+    <string name="image_recommendations_task_suggestion_reason_commons">image was found on Wikimedia Commons, Wikipedia\'s source of freely usable images</string>
     <string name="image_recommendations_faq">FAQ</string>
     <string name="image_recommendations_tooltip1">Review this article to understand its topic.</string>
     <string name="image_recommendations_tooltip2">Inspect the image and its associated information.</string>

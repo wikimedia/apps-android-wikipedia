@@ -11,6 +11,7 @@
 * Jack Phoenix
 * Joquliina
 * Laurianttila
+* MITO
 * Maantietäjä
 * McSalama
 * Mediawikitranslator
@@ -740,6 +741,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kuvateksti (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Kuvan kuvaus (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Tiedosto</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Tiedosto Wikimedia Commonsista</string>
   <string name="suggested_edits_image_preview_dialog_artist">Taiteilija</string>
   <string name="suggested_edits_image_preview_dialog_tags">Merkinnät</string>
   <string name="suggested_edits_image_preview_dialog_date">Päiväys</string>
@@ -951,6 +953,7 @@
   <string name="image_recommendations_task_choice_understand">En ymmärrä tehtävää</string>
   <string name="image_recommendations_task_choice_other">Muu</string>
   <string name="image_recommendations_task_choice_continue">Jatka</string>
+  <string name="image_recommendations_faq">UKK</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>
