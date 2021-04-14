@@ -201,7 +201,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun updateOnSuccess() {
         binding.talkProgressBar.visibility = View.GONE
         binding.talkErrorView.visibility = View.GONE
-        if (replyActive) {
+        if (replyActive || shouldHideReplyButton()) {
             binding.talkReplyButton.hide()
         } else {
             binding.talkReplyButton.show()
@@ -232,6 +232,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun isNewTopic(): Boolean {
+        return topicId == TalkTopicsActivity.NEW_TOPIC_ID
+    }
+
+    // TODO: remove when the API fixes it
+    private fun shouldHideReplyButton(): Boolean {
         return topicId == -1
     }
 
@@ -243,7 +248,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
             indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
-            bottomSpace.visibility = if (!isLast || replyActive) View.GONE else View.VISIBLE
+            bottomSpace.visibility = if (!isLast || replyActive || shouldHideReplyButton()) View.GONE else View.VISIBLE
         }
     }
 

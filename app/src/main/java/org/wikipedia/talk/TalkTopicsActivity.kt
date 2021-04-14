@@ -69,7 +69,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         binding.talkNewTopicButton.setOnClickListener {
             funnel.logNewTopicClick()
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, -1, invokeSource))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, pageTitle, NEW_TOPIC_ID, invokeSource))
         }
 
         binding.talkRefreshView.setOnRefreshListener {
@@ -247,6 +247,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     companion object {
         private const val EXTRA_PAGE_TITLE = "pageTitle"
+        const val NEW_TOPIC_ID = -2
 
         @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
