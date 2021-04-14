@@ -330,7 +330,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_confetti" />
+            app:srcCompat="?attr/image_recs_confetti" />
 
         <View
             android:id="@+id/divider"

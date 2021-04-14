@@ -88,6 +88,7 @@
         <item name="action_mode_green_background">@color/green50</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
+        <item name="image_recs_confetti">@drawable/ic_confetti_light</item>
         <item name="image_recs_onboardingimage_page_one">@drawable/ic_illustration_image_recs_01_light</item>
         <item name="image_recs_onboardingimage_page_two">@drawable/ic_illustration_image_recs_02_light</item>
 
