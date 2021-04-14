@@ -976,9 +976,14 @@
   <string name="image_recommendations_task_choice_offensive">Anstößig</string>
   <string name="image_recommendations_task_choice_invisible">Kann das Bild nicht sehen</string>
   <string name="image_recommendations_task_choice_understand">Verstehen die Aufgabe nicht</string>
+  <string name="image_recommendations_task_choice_language">Kann die Sprache nicht lesen</string>
   <string name="image_recommendations_task_choice_other">Andere</string>
   <string name="image_recommendations_task_choice_continue">Weiter</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Vorschlag Grund:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Vorschlag Grund:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">FAQ</string>
+  <string name="image_recommendations_tooltip1">Lies diesen Artikel, um sein Thema zu verstehen.</string>
+  <string name="image_recommendations_tooltip2">Prüfe das Bild und die zugehörigen Informationen.</string>
+  <string name="image_recommendations_tooltip3">Entscheide, ob das Bild den Lesern helfen wird, das Thema besser zu verstehen.</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

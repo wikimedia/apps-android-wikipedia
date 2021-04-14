@@ -343,6 +343,8 @@
   <string name="reading_list_save_to">Éша дIаяхкача оагIонашта тIатоха</string>
   <string name="reading_list_move_to">Éша дIаяхкача оагIонашта юкъеяккха</string>
   <string name="reading_list_create_new">Керда мугӀам хьабе</string>
+  <string name="reading_list_added_view_button">МугӀамага хьажар</string>
+  <string name="reading_list_add_to_list_button">МугӀамá тӀатоха</string>
   <string name="format_reading_list_statistical_summary_singular">Цхьа статья, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статья, %2$.2f МБ</string>
   <string name="format_reading_list_statistical_detail_singular">Цхьан статья чура %1$d тӀакхоачача я дуненмазаца хоттам а боацаш, %2$.2f МБ</string>
@@ -372,6 +374,15 @@
   <string name="reading_lists_confirm_remote_delete_yes">ХӀаъа</string>
   <string name="reading_lists_confirm_remote_delete_no">A</string>
   <string name="reading_list_article_save_in_progress">ОагӀув хьачуйоаккхаш латт. Из хьачуяькхха йистеяьлча офлайн еша аьттув хургба.</string>
+  <string name="reading_list_menu_last_sync">ТӀехьара синхронизаци хинна таьрахь: %s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ХӀАЪА</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ХӀАЪА</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Эшац</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Эшац</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Эшац</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Эшац</string>
+  <string name="reading_list_split_dialog_ok_button_text">ХӀАЪА</string>
+  <string name="user_option_sync_label">Оттамаш</string>
   <string name="notifications_poll_enable_positive">Хьалсага</string>
   <string name="view_because_you_read_card_title">Хьалха дийшачунга хьажжá</string>
   <string name="view_random_card_title">Рандомизатор</string>
@@ -477,6 +488,58 @@
   <string name="suggested_edits_image_tags_published">Кепатехай</string>
   <string name="suggested_edits_image_tags_onboarding_title">Сурташта фосташ тӀатехача уж сихагӀа корадоагӀ</string>
   <string name="suggested_edits_image_tags_onboarding_text">Сурташта фосташ тӀатохарца, Ӏа гӀо ду Викиларма чу уж лохаш а, Википеде чу статьяш чу лелаеш йола дӀа-хьа доаржаде мукъа долча суртий репозитореш лохаш а.</string>
+  <string name="suggested_edits_contribution_language_label">Мотт</string>
+  <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
+  <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
+  <string name="suggested_edits_contribution_image_label">Сурт</string>
+  <string name="suggested_edits_contribution_article_label">Статьяш</string>
+  <string name="suggested_edits_contribution_views">%s хьажар</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">ТӀехьарча 30 дийнахьа цкъа хьежаб</item>
+    <item quantity="other">ТӀехьарча 30 дийнахьа %s-зза хьежаб</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">ТӀехьарча 30 дийнахьа %s-зза хьежаб</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Ӏа %d фост тӀатехай</item>
+    <item quantity="other">Ӏа %d фост тӀатехай</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Селхан</string>
+  <string name="suggested_edits_encourage_account_creation_title">Хой хьона моллагӀа саг Википеди тоае йиш йолаш волга?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Оаха хьога де мегаргда аьнна дӀагойташ дола тоадар — Википеди Androida тӀа тоаяра керда наькъаш да. Цу тайпара тоадарца Википедена чӀоагӀа эшаш бола болх бу Ӏа. Тхо кхача гӀертар да — Википеди тоаяр массанена атта хилар. Чувала е регистраци е Википеде чу, болх дӀаболабергболаш.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Чувала Википеде чу</string>
+  <string name="suggested_edits_contribution_type_image_tag">Сурта фосташ</string>
+  <string name="suggested_edits_contribution_current_revision_text">Ӏа тоадаьр кепатехар Википеде чу</string>
+  <string name="suggested_card_more_edits">Кхыдола дича бакъахьа дола тоадар</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s фост</item>
+    <item quantity="other">%1$s фост</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s фискал</item>
+    <item quantity="other">%1$s фискал</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">%d фискал дӀаяьккхай Ӏа</item>
+    <item quantity="other">%d фискал дӀаяьккхай Ӏа</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">%d фискал тӀатехай Ӏа</item>
+    <item quantity="other">%d фискал тӀатехай Ӏа</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Сурташ гойтара алгоритм</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Жоп ле хьайга, цу сурто дикагӀа хулийтаргья е яц статья.</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">Хе́ца</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">ТӀехдика да хьона, ишта дӀахо дӀабахийта Ӏа болх! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Ден-денна хьаде лаьрхӀа хиннар кхоачашдаьд! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Хьаде лаьрхӀа хиннар кхоачашдаьд Ӏа</string>
+  <string name="onboarding_skip">Теркал ма де</string>
+  <string name="onboarding_continue">ДӀахо</string>
+  <string name="onboarding_get_started">ДӀадоладе</string>
+  <string name="onboarding_maybe_later">ТӀехьагӀа мег</string>
+  <string name="onboarding_explore_title">Тахкара керда наькъаш</string>
+  <string name="onboarding_explore_text">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
+  <string name="onboarding_reading_list_sync_title">Дешара мугӀамаш синхронизацеца</string>
   <string name="app_shortcuts_random">Ца ховш нийсъеннар</string>
   <string name="app_shortcuts_continue_reading">Дешар дӀахо дӀадахийта</string>
   <string name="app_shortcuts_search">Лахаp</string>
@@ -507,7 +570,16 @@
   <string name="text_input_dialog_ok_button_text">ХIаа</string>
   <string name="text_input_dialog_cancel_button_text">Эшац</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Юхадаккха</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">Доакъашхо %1$s а цун къамаьл-оагӀув а юкъеяьхай хьа дешара мугӀама чу → %2$s.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">Хувца</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">даим</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">цхьан кӀирá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">цхьан беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">кхаь беттá</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">ялх беттá</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s яха оагӀув а цун къамаьл-оагӀув а дӀаяьккхай хьа дешара мугӀама чура.</string>
   <string name="watchlist_expiry_dialog_title">Зем бара ха хьахаржа</string>
+  <string name="watchlist_expiry_dialog_permanent">Даим</string>
   <string name="watchlist_expiry_dialog_one_week">1 кӀира</string>
   <string name="watchlist_expiry_dialog_one_month">1 бутт</string>
   <string name="watchlist_expiry_dialog_three_months">3 бутт</string>
@@ -517,4 +589,7 @@
   <string name="watchlist_filter_talk">Къамаьл</string>
   <string name="watchlist_filter_pages">ОагӀонаш</string>
   <string name="watchlist_filter_other">Кхыдар</string>
+  <string name="watchlist_page_moved">ЦӀи хийцай</string>
+  <string name="watchlist_page_protected">Лораеш я</string>
+  <string name="watchlist_page_deleted">ДӀаяьккхай</string>
 </resources>

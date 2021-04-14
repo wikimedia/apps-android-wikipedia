@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:centeredImage="@drawable/illustration_image_recs_onboard1"
+    app:centeredImage="?attr/image_recs_onboardingimage_page_one"
     app:imageSize="360dp"
     app:secondaryText="@string/suggested_edits_image_recommendations_onboarding_text1" />

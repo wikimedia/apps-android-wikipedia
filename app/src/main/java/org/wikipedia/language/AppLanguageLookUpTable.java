@@ -160,7 +160,7 @@ public class AppLanguageLookUpTable {
      *             language is null.
      * @return The index of the language code or -1 if the code is not supported.
      */
-    private int indexOfCode(@Nullable String code) {
+    public int indexOfCode(@Nullable String code) {
         return getCodes().indexOf(code);
     }
 
