@@ -58,6 +58,7 @@
     <attr name="color_group_67" format="color"/>
     <attr name="color_group_68" format="color"/>
     <attr name="action_mode_green_background" format="color"/>
+    <attr name="image_recs_confetti" format="reference" />
     <attr name="image_recs_onboardingimage_page_one" format="reference" />
     <attr name="image_recs_onboardingimage_page_two" format="reference" />
 
