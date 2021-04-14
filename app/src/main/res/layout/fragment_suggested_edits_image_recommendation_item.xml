@@ -377,8 +377,8 @@
 
         <ImageView
             android:id="@+id/publishProgressCheck"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             app:layout_constraintStart_toStartOf="@id/publishProgressBar"
             app:layout_constraintEnd_toEndOf="@id/publishProgressBar"
             app:layout_constraintTop_toTopOf="@id/publishProgressBar"
