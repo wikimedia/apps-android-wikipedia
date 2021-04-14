@@ -1,143 +1,149 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/imageRecommendationDialogContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/shape_border_1dp_color_group_22"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="8dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/instructionText"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imageRecommendationDialogContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/image_recommendations_task_choice_no"
-        android:textColor="?attr/material_theme_primary_color"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:background="@drawable/shape_border_1dp_color_group_22"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp">
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/instructionText"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_12dp_corner_base90_fill"
-        android:text="@string/image_recommendations_task_choice_not_relevant"
-        android:textColor="?attr/material_theme_primary_color"
-        android:fontFamily="sans-serif-medium"
-        app:buttonTint="?attr/colorAccent" />
+        <TextView
+            android:id="@+id/instructionText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/image_recommendations_task_choice_no"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/checkBox1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:text="@string/image_recommendations_task_choice_low_quality"
-        android:textColor="?attr/material_theme_primary_color"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_corner_base90_fill"
-        app:buttonTint="?attr/colorAccent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/instructionText"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/rounded_12dp_corner_base90_fill"
+            android:text="@string/image_recommendations_task_choice_not_relevant"
+            android:textColor="?attr/material_theme_primary_color"
+            android:fontFamily="sans-serif-medium"
+            app:buttonTint="?attr/colorAccent" />
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/checkBox2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:text="@string/image_recommendations_task_choice_noinfo"
-        android:textColor="?attr/material_theme_primary_color"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_corner_base90_fill"
-        app:buttonTint="?attr/colorAccent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/checkBox1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/image_recommendations_task_choice_low_quality"
+            android:textColor="?attr/material_theme_primary_color"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_12dp_corner_base90_fill"
+            app:buttonTint="?attr/colorAccent" />
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/checkBox3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:text="@string/image_recommendations_task_choice_nosubject"
-        android:textColor="?attr/material_theme_primary_color"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_corner_base90_fill"
-        app:buttonTint="?attr/colorAccent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/checkBox2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/image_recommendations_task_choice_noinfo"
+            android:textColor="?attr/material_theme_primary_color"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_12dp_corner_base90_fill"
+            app:buttonTint="?attr/colorAccent" />
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/checkBox4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:text="@string/image_recommendations_task_choice_offensive"
-        android:textColor="?attr/material_theme_primary_color"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_corner_base90_fill"
-        app:buttonTint="?attr/colorAccent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/checkBox3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/image_recommendations_task_choice_nosubject"
+            android:textColor="?attr/material_theme_primary_color"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_12dp_corner_base90_fill"
+            app:buttonTint="?attr/colorAccent" />
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/checkBox5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:text="@string/image_recommendations_task_choice_other"
-        android:textColor="?attr/material_theme_primary_color"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_corner_base90_fill"
-        app:buttonTint="?attr/colorAccent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/checkBox4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/image_recommendations_task_choice_offensive"
+            android:textColor="?attr/material_theme_primary_color"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_12dp_corner_base90_fill"
+            app:buttonTint="?attr/colorAccent" />
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/checkBox6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:text="@string/image_recommendations_task_choice_other"
-        android:textColor="?attr/material_theme_primary_color"
-        android:fontFamily="sans-serif-medium"
-        android:background="@drawable/rounded_12dp_corner_base90_fill"
-        app:buttonTint="?attr/colorAccent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/checkBox5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/image_recommendations_task_choice_other"
+            android:textColor="?attr/material_theme_primary_color"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_12dp_corner_base90_fill"
+            app:buttonTint="?attr/colorAccent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/continueButton"
-        style="@style/App.Button.Blue"
-        android:layout_width="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/checkBox7"
-        android:layout_height="48dp"
-        android:text="@string/image_recommendations_task_choice_continue"
-        android:layout_marginTop="8dp"/>
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/checkBox6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:text="@string/image_recommendations_task_choice_other"
+            android:textColor="?attr/material_theme_primary_color"
+            android:fontFamily="sans-serif-medium"
+            android:background="@drawable/rounded_12dp_corner_base90_fill"
+            app:buttonTint="?attr/colorAccent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/cancelButton"
-        style="@style/TransparentButton"
-        android:layout_width="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/continueButton"
-        app:layout_constraintTop_toTopOf="@id/continueButton"
-        android:layout_marginEnd="16dp"
-        android:layout_height="48dp"
-        android:textColor="?attr/material_theme_de_emphasised_color"
-        android:text="@android:string/cancel"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueButton"
+            style="@style/App.Button.Blue"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkBox7"
+            android:layout_height="48dp"
+            android:text="@string/image_recommendations_task_choice_continue"
+            android:layout_marginTop="8dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelButton"
+            style="@style/TransparentButton"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/continueButton"
+            app:layout_constraintTop_toTopOf="@id/continueButton"
+            android:layout_marginEnd="16dp"
+            android:layout_height="48dp"
+            android:textColor="?attr/material_theme_de_emphasised_color"
+            android:text="@android:string/cancel"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
