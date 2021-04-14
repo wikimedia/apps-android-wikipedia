@@ -422,7 +422,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     private fun getFunnelReason(): String {
         val hasWikidata = recommendation!!.foundOnWikis.contains("wd")
-        val langWikis = recommendation!!.foundOnWikis.filter { it != "wd" && it != "com" }
+        val langWikis = recommendation!!.foundOnWikis.filter { it != "wd" && it != "com" && it != "species" }
         return when {
             langWikis.isNotEmpty() -> {
                 "wikipedia"
