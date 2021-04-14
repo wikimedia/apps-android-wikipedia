@@ -70,7 +70,7 @@ class ImageRecsDialog : DialogFragment() {
             binding.checkBox7.text = getString(R.string.image_recommendations_task_choice_other)
             binding.checkBox7.visibility = View.VISIBLE
         } else if (responseCode == ImageRecommendationsFunnel.RESPONSE_NOT_SURE) {
-            binding.instructionText.text = getString(R.string.image_recommendations_task_choice_unsure)
+            binding.instructionText.text = getString(R.string.image_recommendations_task_choice_not_sure)
             binding.checkBox1.text = getString(R.string.image_recommendations_task_choice_noinfo)
             binding.checkBox2.text = getString(R.string.image_recommendations_task_choice_invisible)
             binding.checkBox3.text = getString(R.string.image_recommendations_task_choice_nosubject)
