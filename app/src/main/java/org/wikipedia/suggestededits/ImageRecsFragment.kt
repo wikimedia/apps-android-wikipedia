@@ -399,10 +399,10 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     private fun getSuggestionReason(): String {
         val hasWikidata = recommendation!!.foundOnWikis.contains("wd")
-        val langWikis = recommendation!!.foundOnWikis.filter { it != "wd" && it != "com" }
+        val langWikis = recommendation!!.foundOnWikis
                 .sortedBy { WikipediaApp.getInstance().language().getLanguageCodeIndex(it) }
                 .take(3)
-                .map { getCanonicalName(it) }
+                .mapNotNull { getCanonicalName(it) }
 
         if (langWikis.isNotEmpty()) {
             return getString(R.string.image_recommendations_task_suggestion_reason,
