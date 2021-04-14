@@ -905,6 +905,7 @@
     <string name="file_page_activity_title">File page</string>
     <string name="file_page_add_image_caption_button">Add image caption</string>
     <string name="file_page_add_image_tags_button">Add image tags</string>
+    <string name="file_page_suggestion_reason">Suggestion reason</string>
     <!-- /File page -->
 
     <!-- Description editing revert help -->

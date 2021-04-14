@@ -51,6 +51,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
               imageFromCommons: Boolean,
               showFilename: Boolean,
               showEditButton: Boolean,
+              suggestionReason: String? = null,
               action: DescriptionEditActivity.Action? = null) {
 
         loadImage(summaryForEdit, containerWidth, thumbWidth, thumbHeight)
@@ -79,6 +80,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),
                     if (summaryForEdit.pageTitle.description.isNullOrEmpty()) summaryForEdit.description
                     else summaryForEdit.pageTitle.description, if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
+        }
+
+        if (!suggestionReason.isNullOrEmpty()) {
+            addDetail(context.getString(R.string.file_page_suggestion_reason), suggestionReason.capitalize(Locale.getDefault()))
         }
 
         if ((imageTags.isNullOrEmpty() || !imageTags.containsKey(getProperLanguageCode(summaryForEdit, imageFromCommons))) && showEditButton) {
