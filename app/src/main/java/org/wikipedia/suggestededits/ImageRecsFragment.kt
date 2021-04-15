@@ -110,7 +110,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.imageCard.setOnClickListener {
             if (recommendation != null) {
-                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + recommendation!!.image, WikiSite(Service.COMMONS_URL)), false))
+                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + recommendation!!.image, WikiSite(Service.COMMONS_URL)), false, getSuggestionReason()))
                 detailsClicked = true
             }
         }
@@ -275,7 +275,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
-                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getSuggestionReason())
+                    binding.imageSuggestionReason.text = StringUtil.fromHtml(getString(R.string.image_recommendations_task_suggestion_reason, getSuggestionReason()))
 
                     ViewAnimations.fadeIn(binding.imageSuggestionContainer)
 
@@ -405,19 +405,16 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 .mapNotNull { getCanonicalName(it) }
 
         if (langWikis.isNotEmpty()) {
-            return getString(R.string.image_recommendations_task_suggestion_reason,
-                    getString(R.string.image_recommendations_task_suggestion_reason_wikilist,
+            return getString(R.string.image_recommendations_task_suggestion_reason_wikilist,
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 ListFormatter.getInstance().format(langWikis)
                             } else {
                                 langWikis.joinToString(separator = ", ")
-                            }))
+                            })
         } else if (hasWikidata) {
-            return getString(R.string.image_recommendations_task_suggestion_reason,
-                    getString(R.string.image_recommendations_task_suggestion_reason_wikidata))
+            return getString(R.string.image_recommendations_task_suggestion_reason_wikidata)
         }
-        return getString(R.string.image_recommendations_task_suggestion_reason,
-                getString(R.string.image_recommendations_task_suggestion_reason_commons))
+        return getString(R.string.image_recommendations_task_suggestion_reason_commons)
     }
 
     private fun getFunnelReason(): String {
