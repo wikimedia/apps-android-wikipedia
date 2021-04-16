@@ -244,8 +244,13 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                             roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
                         override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
                             if (isAdded) {
-                                val color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.base70))
-                                val color2 = palette.getLightMutedColor(ContextCompat.getColor(requireContext(), R.color.base30))
+                                var color1 = palette.getLightVibrantColor(ContextCompat.getColor(requireContext(), R.color.base70))
+                                var color2 = palette.getLightMutedColor(ContextCompat.getColor(requireContext(), R.color.base30))
+                                if (WikipediaApp.getInstance().currentTheme.isDark) {
+                                    color1 = ResourceUtil.darkenColor(color1)
+                                    color2 = ResourceUtil.darkenColor(color2)
+                                }
+
                                 val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, arrayOf(color1, color2).toIntArray())
                                 binding.imageViewContainer.background = gradientDrawable
 
