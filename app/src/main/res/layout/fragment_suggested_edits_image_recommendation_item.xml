@@ -25,7 +25,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/articleContentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical">
 
         <LinearLayout
@@ -94,11 +94,6 @@
                 android:letterSpacing="0.0"
                 android:drawableEnd="@drawable/ic_baseline_arrow_right_alt_24px"
                 app:drawableTint="?attr/colorAccent"/>
-
-            <Space
-                android:id="@+id/articleScrollSpacer"
-                android:layout_width="match_parent"
-                android:layout_height="0dp" />
 
         </LinearLayout>
 

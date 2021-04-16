@@ -12,7 +12,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.palette.graphics.Palette
@@ -270,12 +269,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                         override fun onImageFailed() {}
                     })
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
-
-                    binding.articleScrollSpacer.post {
-                        if (isAdded) {
-                            binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.imageSuggestionContainer.height)
-                        }
-                    }
 
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
