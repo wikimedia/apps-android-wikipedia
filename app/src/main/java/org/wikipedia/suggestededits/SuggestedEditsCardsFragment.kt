@@ -148,8 +148,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
                 requireView().post {
                     if (isAdded) {
                         requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
-                            TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(it, 0, 0, R.drawable.ic_info_outline_themed_24dp, 0)
+                            TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(it, 0, 0, R.drawable.ic_open_in_new_black_24px, 0)
                             TextViewCompat.setCompoundDrawableTintList(it, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+                            it.letterSpacing = binding.addContributionButton.letterSpacing
                             it.compoundDrawablePadding = DimenUtil.roundedDpToPx(4f)
                             it.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
                             it.text = getString(R.string.image_recommendations_faq)
