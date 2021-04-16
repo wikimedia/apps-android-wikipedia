@@ -693,6 +693,7 @@
   <string name="description_ends_with_punctuation">Der Text darf nicht mit einem Satzzeichen enden.</string>
   <string name="description_starts_with_article">Vermeide Beschreibungen, die mit einem Artikel („Der…“/„Eine…“) beginnen.</string>
   <string name="description_starts_with_uppercase">Beginne mit einem Kleinbuchstaben, es sei denn, das erste Wort ist ein Eigenname.</string>
+  <string name="description_starts_with_lowercase">Vermeide es, mit einem Kleinbuchstaben zu beginnen.</string>
   <string name="description_is_in_different_language">Der Text scheint in einer unerwarteten Sprache zu sein. Die Sprache sollte %s sein.</string>
   <string name="description_edit_success_saved">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschreibung veröffentlicht!</string>

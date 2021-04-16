@@ -681,6 +681,7 @@
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
   <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
+  <string name="description_starts_with_lowercase">避免以小寫字母作為開頭。</string>
   <string name="description_is_in_different_language">文字似乎使用了非預期的語言。語言應為%s。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
@@ -970,6 +971,9 @@
   <string name="image_recommendations_task_choice_continue">繼續</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建議原因：&lt;/b&gt;%s</string>
   <string name="image_recommendations_faq">常見問題</string>
+  <string name="image_recommendations_tooltip1">檢閱此條目來了解主題。</string>
+  <string name="image_recommendations_tooltip2">檢查圖片與其相關資訊。</string>
+  <string name="image_recommendations_tooltip3">確認該圖片是否有幫助到讀者能更了解主題。</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
   <string name="wikitext_link">連結</string>
