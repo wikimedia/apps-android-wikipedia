@@ -103,7 +103,7 @@
         android:id="@+id/bottomSheetCoordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:behavior_hideable="true"
+        app:behavior_hideable="false"
         app:behavior_peekHeight="24dp"
         app:layout_behavior="@string/bottom_sheet_behavior">
 

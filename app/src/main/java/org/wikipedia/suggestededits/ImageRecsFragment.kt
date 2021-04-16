@@ -128,7 +128,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.dailyProgressView.setMaximum(DAILY_COUNT_TARGET)
 
         BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
-            isHideable = false
             state = BottomSheetBehavior.STATE_EXPANDED
         }
 
