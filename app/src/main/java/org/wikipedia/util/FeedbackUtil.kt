@@ -194,10 +194,14 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean): Balloon {
+    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, showDismissButton: Boolean = false): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
-        return createBalloon(context) {
+        if (showDismissButton) {
+            binding.buttonView.visibility = View.VISIBLE
+        }
+
+        val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
@@ -210,6 +214,12 @@ object FeedbackUtil {
             setWidth(BalloonSizeSpec.WRAP)
             setHeight(BalloonSizeSpec.WRAP)
         }
+
+        binding.buttonView.setOnClickListener {
+            balloon.dismiss()
+        }
+
+        return balloon
     }
 
     private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, arrowAnchorPadding: Int,

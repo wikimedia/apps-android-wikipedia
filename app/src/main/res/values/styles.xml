@@ -296,6 +296,13 @@
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
+    <style name="FlatButton.Small.Tooltip">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:backgroundTint">@color/white15</item>
+        <item name="backgroundTint">@color/white15</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+    </style>
+
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
