@@ -1,6 +1,8 @@
 package org.wikipedia.suggestededits
 
 import android.content.pm.ActivityInfo
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.icu.text.ListFormatter
 import android.net.Uri
@@ -14,6 +16,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.palette.graphics.Palette
@@ -23,6 +27,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.ImageRecommendationsFunnel
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
@@ -333,7 +338,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             Prefs.setImageRecsDayId(day)
             oldCount = 0
         }
-        val newCount = oldCount + 1
+        val newCount = 10
         Prefs.setImageRecsDailyCount(newCount)
         Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
@@ -350,6 +355,17 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
         binding.successConfettiImage.visibility = if (newCount == DAILY_COUNT_TARGET) VISIBLE else GONE
 
+        if (newCount == DAILY_COUNT_TARGET) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requireActivity().window.statusBarColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)
+                (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)))
+            }
+            requireActivity().window.navigationBarColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)
+            requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
+                it.visibility = GONE
+            }
+            (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        }
         val duration = 1000L
         binding.publishProgressBar.alpha = 1f
         binding.publishProgressBar.animate()
@@ -381,6 +397,16 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 binding.publishOverlayContainer.visibility = GONE
                 callback().nextPage(this)
                 callback().logSuccess()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requireActivity().window.statusBarColor = Color.TRANSPARENT
+                    (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(null)
+                }
+                requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
+                    it.visibility = VISIBLE
+                }
+                (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+                requireActivity().window.navigationBarColor =Color.TRANSPARENT
+
             }
         }, duration * durationBoost)
     }
