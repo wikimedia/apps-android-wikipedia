@@ -13,6 +13,8 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.LinearLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.palette.graphics.Palette
@@ -62,6 +64,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     private var infoClicked: Boolean = false
     private var detailsClicked: Boolean = false
     private var scrolled: Boolean = false
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -129,9 +132,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         ImageZoomHelper.setViewZoomable(binding.imageView)
         binding.dailyProgressView.setMaximum(DAILY_COUNT_TARGET)
 
-        BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
-            state = BottomSheetBehavior.STATE_EXPANDED
-        }
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout)
 
         getNextItem()
         updateContents(null)
@@ -270,6 +271,12 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                         override fun onImageFailed() {}
                     })
                     binding.imageCaptionText.text = if (imageInfo.metadata == null) null else StringUtil.removeHTMLTags(imageInfo.metadata!!.imageDescription())
+
+                    binding.articleScrollSpacer.post {
+                        if (isAdded) {
+                            binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetBehavior.peekHeight)
+                        }
+                    }
 
                     val arr = imageInfo.commonsUrl.split('/')
                     binding.imageFileNameText.text = StringUtil.removeUnderscores(UriUtil.decodeURL(arr[arr.size - 1]))
