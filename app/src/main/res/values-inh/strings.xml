@@ -315,7 +315,9 @@
   <string name="enable_location_service">Хьалсага</string>
   <string name="location_permissions_enable_prompt">Хье вола моттиг малагӀа я хар могаде, хьона гаьна доаццаш йола моттигаш гургйолаш.</string>
   <string name="location_permissions_enable_action">Хьалсага</string>
+  <string name="multi_select_items_selected">Белгалдаьккхад: %d</string>
   <string name="empty_tab_title">Керда вкладка</string>
+  <string name="menu_save_all_tabs">Еррига вкладкаш дӀаяхка</string>
   <string name="crash_report_relaunch">Юха хеца</string>
   <string name="crash_report_quit">Áравáла</string>
   <string name="article_menu_bar_save_button">ДӀайила</string>
@@ -369,6 +371,9 @@
   <string name="reading_list_name_hint">Укх мугӀама цӀи</string>
   <string name="reading_list_description_hint">МугӀамах лаьцар (фараз дац)</string>
   <string name="reading_list_item_deleted">%s дӀаяьккхай мугӀама чура</string>
+  <string name="reading_lists_item_deleted">%s дӀаяьккхай мугӀамаш чура</string>
+  <string name="reading_list_item_delete_undo">Юхадаккха</string>
+  <string name="reading_list_deleted">%s яха мугӀам дӀабаьккхаб</string>
   <string name="reading_lists_login_button">Чувалар</string>
   <string name="reading_lists_ignore_button">ХӀанзехьа эшац</string>
   <string name="reading_lists_confirm_remote_delete_yes">ХӀаъа</string>
@@ -570,6 +575,9 @@
   <string name="suggested_edits_image_tags_published">Кепатехай</string>
   <string name="suggested_edits_image_tags_onboarding_title">Сурташта фосташ тӀатехача уж сихагӀа корадоагӀ</string>
   <string name="suggested_edits_image_tags_onboarding_text">Сурташта фосташ тӀатохарца, Ӏа гӀо ду Викиларма чу уж лохаш а, Википеде чу статьяш чу лелаеш йола дӀа-хьа доаржаде мукъа долча суртий репозитореш лохаш а.</string>
+  <string name="suggested_edits_image_tags_add_tag">Фост тӀатоха</string>
+  <string name="suggested_edits_image_zoom_tooltip">Хьадоккхаде йиш я сурт</string>
+  <string name="suggested_edits_editing_tips_link_text">Тоа мишта де деза дувца хьехамаш</string>
   <string name="suggested_edits_contribution_language_label">Мотт</string>
   <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
   <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
@@ -615,6 +623,8 @@
   <string name="suggested_edits_image_recommendations_task_goal_progress">ТӀехдика да хьона, ишта дӀахо дӀабахийта Ӏа болх! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Ден-денна хьаде лаьрхӀа хиннар кхоачашдаьд! 👏</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">Хьаде лаьрхӀа хиннар кхоачашдаьд Ӏа</string>
+  <string name="size_gb">%.2f ГБ</string>
+  <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_skip">Теркал ма де</string>
   <string name="onboarding_continue">ДӀахо</string>
   <string name="onboarding_get_started">ДӀадоладе</string>
@@ -622,6 +632,13 @@
   <string name="onboarding_explore_title">Тахкара керда наькъаш</string>
   <string name="onboarding_explore_text">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
   <string name="onboarding_reading_list_sync_title">Дешара мугӀамаш синхронизацеца</string>
+  <string name="onboarding_analytics_title">Пайда эцарах отчеташ дӀаахийта</string>
+  <string name="onboarding_analytics_offline_text">Ер приложени толашагӀа хилийта гӀо де тхона, оашош цох пайда мишта эца хьа а аьнна. Хьагулбаь бола хоам къайла хургба. &lt;a href=\"#privacy\"&gt;Хá ма дарра&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Пайда эцарах отчёташ дӀаахийта</string>
+  <string name="onboarding_got_it">Кхет</string>
+  <string name="onboarding_multilingual_secondary_text">Ераш метташ корадаьд тхона хьа устройства тӀа:</string>
+  <string name="onboarding_multilingual_add_language_text">Мотт тӀатоха е дӀабаккха</string>
+  <string name="onboarding_welcome_title_v2">ЛоӀаме энциклопеди я\n…300 совгӀа меттала таржам даь</string>
   <string name="app_shortcuts_random">Ца ховш нийсъеннар</string>
   <string name="app_shortcuts_continue_reading">Дешар дӀахо дӀадахийта</string>
   <string name="app_shortcuts_search">Лахаp</string>
