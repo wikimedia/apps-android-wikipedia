@@ -27,7 +27,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.ImageRecommendationsFunnel
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
@@ -405,7 +404,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     it.visibility = VISIBLE
                 }
                 (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-                requireActivity().window.navigationBarColor =Color.TRANSPARENT
+                requireActivity().window.navigationBarColor = Color.TRANSPARENT
 
             }
         }, duration * durationBoost)
