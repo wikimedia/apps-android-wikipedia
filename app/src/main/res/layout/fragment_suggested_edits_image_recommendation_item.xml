@@ -108,9 +108,8 @@
         android:id="@+id/bottomSheetCoordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="60dp"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="180dp"
+        app:behavior_peekHeight="120dp"
         app:layout_behavior="@string/bottom_sheet_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -276,58 +275,50 @@
 
             </org.wikipedia.views.WikiCardView>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/acceptButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                app:layout_constraintTop_toBottomOf="@id/imageCard"
+                app:layout_constraintEnd_toStartOf="@id/rejectButton"
+                android:text="@string/image_recommendations_task_accept"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:icon="@drawable/ic_check_black_24dp"
+                app:iconSize="20dp"
+                app:iconPadding="8dp"
+                app:iconTint="@color/green50"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rejectButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                app:layout_constraintTop_toBottomOf="@id/imageCard"
+                app:layout_constraintEnd_toStartOf="@id/notSureButton"
+                android:text="@string/image_recommendations_task_reject"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:icon="@drawable/ic_close_black_24dp"
+                app:iconSize="20dp"
+                app:iconPadding="8dp"
+                app:iconTint="@color/red50"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/notSureButton"
+                style="@style/FlatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                app:layout_constraintTop_toBottomOf="@id/imageCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/image_recommendations_task_not_sure"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        android:background="?paper_color">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/acceptButton"
-            style="@style/FlatButton"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/rejectButton"
-            android:text="@string/image_recommendations_task_accept"
-            android:layout_marginEnd="16dp"
-            app:icon="@drawable/ic_check_black_24dp"
-            app:iconSize="20dp"
-            app:iconPadding="8dp"
-            app:iconTint="@color/green50"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/rejectButton"
-            style="@style/FlatButton"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/notSureButton"
-            android:text="@string/image_recommendations_task_reject"
-            android:layout_marginEnd="16dp"
-            app:icon="@drawable/ic_close_black_24dp"
-            app:iconSize="20dp"
-            app:iconPadding="8dp"
-            app:iconTint="@color/red50"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/notSureButton"
-            style="@style/FlatButton"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/image_recommendations_task_not_sure"
-            android:layout_marginEnd="16dp"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/publishOverlayContainer"

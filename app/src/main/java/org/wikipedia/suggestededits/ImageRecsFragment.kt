@@ -132,7 +132,9 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         ImageZoomHelper.setViewZoomable(binding.imageView)
         binding.dailyProgressView.setMaximum(DAILY_COUNT_TARGET)
 
-        bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout)
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
+            state = BottomSheetBehavior.STATE_EXPANDED
+        }
 
         getNextItem()
         updateContents(null)
@@ -275,6 +277,12 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     binding.articleScrollSpacer.post {
                         if (isAdded) {
                             binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetBehavior.peekHeight)
+                            // Collapse bottom sheet if the article title is not visible when loaded
+                            binding.suggestedEditsItemRootView.doViewsOverlap(binding.articleTitle, binding.bottomSheetCoordinatorLayout).run {
+                                if (this) {
+                                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                                }
+                            }
                         }
                     }
 
