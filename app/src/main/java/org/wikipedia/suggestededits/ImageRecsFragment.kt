@@ -403,7 +403,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             requireActivity().window.navigationBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
                     R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
         }
-        //  Update actionbar menu items
+        // Update actionbar menu items
         requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
             it.visibility = if (shouldShowConfetti) GONE else VISIBLE
         }
