@@ -29,26 +29,26 @@
             android:id="@+id/instructionSubText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/instructionText"
-            app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/image_recommendations_prompt_to_choose_reasons"
             android:textColor="?attr/material_theme_primary_color"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/instructionText" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/instructionText"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/rounded_12dp_corner_base90_fill"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/image_recommendations_task_choice_not_relevant"
             android:textColor="?attr/material_theme_primary_color"
-            android:fontFamily="sans-serif-medium"
-            app:buttonTint="?attr/colorAccent" />
+            app:buttonTint="?attr/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/instructionSubText" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/checkBox2"
