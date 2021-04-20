@@ -337,7 +337,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             Prefs.setImageRecsDayId(day)
             oldCount = 0
         }
-        val newCount = 10
+        val newCount = oldCount + 1
         Prefs.setImageRecsDailyCount(newCount)
         Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
@@ -352,19 +352,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             else -> getString(R.string.suggested_edits_image_recommendations_task_goal_surpassed)
         }
         binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
-        binding.successConfettiImage.visibility = if (newCount == DAILY_COUNT_TARGET) VISIBLE else GONE
-
-        if (newCount == DAILY_COUNT_TARGET) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requireActivity().window.statusBarColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)
-                (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)))
-            }
-            requireActivity().window.navigationBarColor = ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57)
-            requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
-                it.visibility = GONE
-            }
-            (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-        }
+        showConfetti(newCount == DAILY_COUNT_TARGET)
         val duration = 1000L
         binding.publishProgressBar.alpha = 1f
         binding.publishProgressBar.animate()
@@ -393,21 +381,33 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.publishProgressBar.postDelayed({
             if (isAdded) {
+                showConfetti(false)
                 binding.publishOverlayContainer.visibility = GONE
                 callback().nextPage(this)
                 callback().logSuccess()
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    requireActivity().window.statusBarColor = Color.TRANSPARENT
-                    (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(null)
-                }
-                requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
-                    it.visibility = VISIBLE
-                }
-                (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-                requireActivity().window.navigationBarColor = Color.TRANSPARENT
-
             }
         }, duration * durationBoost)
+    }
+
+    private fun showConfetti(shouldShowConfetti: Boolean) {
+        binding.successConfettiImage.visibility = if (shouldShowConfetti) VISIBLE else GONE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //Change statusBar abd actionBar color
+            requireActivity().window.statusBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
+                    R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
+            (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (shouldShowConfetti)
+                ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.image_recs_confetti_background_color)) else null)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //Change navigationBar color
+            requireActivity().window.navigationBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
+                    R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
+        }
+        //Update actionbar menu items
+        requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
+            it.visibility = if (shouldShowConfetti) GONE else VISIBLE
+        }
+        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(!shouldShowConfetti)
     }
 
     override fun publishEnabled(): Boolean {
