@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.content.pm.ActivityInfo
 import android.graphics.drawable.GradientDrawable
 import android.icu.text.ListFormatter
 import android.net.Uri
@@ -70,6 +71,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         recommendationSequence = Prefs.getImageRecsItemSequence()
         Prefs.setImageRecsItemSequence(recommendationSequence + 1)
