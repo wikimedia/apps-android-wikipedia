@@ -301,6 +301,7 @@
         <item name="android:backgroundTint">@color/white15</item>
         <item name="backgroundTint">@color/white15</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:layout_marginBottom">-3dp</item>
     </style>
 
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">

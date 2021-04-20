@@ -18,9 +18,11 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.palette.graphics.Palette
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -66,6 +68,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     private var infoClicked: Boolean = false
     private var detailsClicked: Boolean = false
     private var scrolled: Boolean = false
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -132,6 +135,10 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
         binding.dailyProgressView.setMaximum(DAILY_COUNT_TARGET)
+
+        bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetCoordinatorLayout).apply {
+            state = BottomSheetBehavior.STATE_EXPANDED
+        }
 
         getNextItem()
         updateContents(null)
@@ -273,7 +280,13 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
                     binding.articleScrollSpacer.post {
                         if (isAdded) {
-                            binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, binding.imageSuggestionContainer.height)
+                            binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetBehavior.peekHeight)
+                            // Collapse bottom sheet if the article title is not visible when loaded
+                            binding.suggestedEditsItemRootView.doViewsOverlap(binding.articleTitle, binding.bottomSheetCoordinatorLayout).run {
+                                if (this) {
+                                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                                }
+                            }
                         }
                     }
 
