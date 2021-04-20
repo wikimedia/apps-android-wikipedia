@@ -493,11 +493,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     }
 
     private fun maybeShowWatchlistTooltip() {
-        // TODO remove feature flag when ready
-        if (ReleaseUtil.isPreBetaRelease &&
-                Prefs.isWatchlistPageOnboardingTooltipShown() &&
-                !Prefs.isWatchlistMainOnboardingTooltipShown() &&
-                isLoggedIn) {
+        if (Prefs.isWatchlistPageOnboardingTooltipShown()
+                && !Prefs.isWatchlistMainOnboardingTooltipShown() && isLoggedIn) {
             binding.navMoreContainer.postDelayed({
                 if (!isAdded) {
                     return@postDelayed
