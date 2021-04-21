@@ -709,6 +709,7 @@
   <string name="description_too_short">Text je príliš krátky.</string>
   <string name="description_ends_with_punctuation">Text nesmie končiť bodkou.</string>
   <string name="description_starts_with_uppercase">Začnite malým písmenom pokiaľ slovo nie je meno.</string>
+  <string name="description_starts_with_lowercase">Vyhnite sa začatiu malým písmenom.</string>
   <string name="description_is_in_different_language">Zdá sa, že text je v neočakávanom jazyku. Jazyk by mal byť %s.</string>
   <string name="description_edit_success_saved">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku bol uverejnený!</string>

@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -18,8 +19,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.EditFunnel
+import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -27,10 +30,12 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
+import org.wikipedia.util.UriUtil.handleExternalLink
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
@@ -86,8 +91,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
             binding.replySaveButton.visibility = View.VISIBLE
             binding.replyTextLayout.visibility = View.VISIBLE
-            binding.replyTextLayout.requestFocus()
-            onStartComposition()
+            binding.licenseText.visibility = View.VISIBLE
+            DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
+            editFunnel.logStart()
+            binding.talkScrollContainer.postDelayed({
+                if (!isDestroyed) {
+                    binding.talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+                    binding.replyTextLayout.requestFocus()
+                }
+            }, 500)
             binding.talkReplyButton.hide()
         }
 
@@ -109,6 +121,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkFunnel.logOpenTopic()
 
         editFunnel = EditFunnel(WikipediaApp.getInstance(), pageTitle)
+        updateEditLicenseText()
+
         onInitialLoad()
     }
 
@@ -117,6 +131,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyEditText.removeTextChangedListener(textWatcher)
         super.onDestroy()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN) {
+            if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+                updateEditLicenseText()
+                editFunnel.logLoginSuccess()
+                FeedbackUtil.showMessage(this, R.string.login_success_toast)
+            } else {
+                editFunnel.logLoginFailure()
+            }
+        }
     }
 
     private fun onInitialLoad() {
@@ -130,8 +157,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySubjectLayout.visibility = View.VISIBLE
             binding.replyTextLayout.hint = getString(R.string.talk_message_hint)
             binding.replyTextLayout.visibility = View.VISIBLE
+            binding.licenseText.visibility = View.VISIBLE
             binding.replySubjectLayout.requestFocus()
-            onStartComposition()
+            editFunnel.logStart()
         } else {
             replyActive = false
             binding.replyEditText.setText("")
@@ -139,13 +167,9 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySubjectLayout.visibility = View.GONE
             binding.replyTextLayout.visibility = View.GONE
             binding.replyTextLayout.hint = getString(R.string.talk_reply_hint)
+            binding.licenseText.visibility = View.GONE
             loadTopic()
         }
-    }
-
-    private fun onStartComposition() {
-        editFunnel.logStart()
-        DeviceUtil.showSoftKeyboard(binding.replySubjectLayout)
     }
 
     private fun loadTopic() {
@@ -177,7 +201,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun updateOnSuccess() {
         binding.talkProgressBar.visibility = View.GONE
         binding.talkErrorView.visibility = View.GONE
-        if (replyActive) {
+        if (replyActive || shouldHideReplyButton()) {
             binding.talkReplyButton.hide()
         } else {
             binding.talkReplyButton.show()
@@ -208,6 +232,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun isNewTopic(): Boolean {
+        return topicId == TalkTopicsActivity.NEW_TOPIC_ID
+    }
+
+    // TODO: remove when the API fixes it
+    private fun shouldHideReplyButton(): Boolean {
         return topicId == -1
     }
 
@@ -219,7 +248,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
             indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
-            bottomSpace.visibility = if (!isLast || replyActive) View.GONE else View.VISIBLE
+            bottomSpace.visibility = if (!isLast || replyActive || shouldHideReplyButton()) View.GONE else View.VISIBLE
         }
     }
 
@@ -360,6 +389,21 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         editFunnel.logError(t.message)
         binding.talkProgressBar.visibility = View.GONE
         FeedbackUtil.showError(this, t)
+    }
+
+    private fun updateEditLicenseText() {
+        binding.licenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+                getString(R.string.terms_of_use_url),
+                getString(R.string.cc_by_sa_3_url)))
+        binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
+            if (url == "https://#login") {
+                val loginIntent = LoginActivity.newIntent(this,
+                        LoginFunnel.SOURCE_EDIT, editFunnel.sessionToken)
+                startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN)
+            } else {
+                handleExternalLink(this, Uri.parse(url))
+            }
+        }
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {

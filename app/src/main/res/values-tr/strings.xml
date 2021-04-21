@@ -699,6 +699,7 @@
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
   <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
+  <string name="description_starts_with_lowercase">Küçük harfle başlamaktan kaçının.</string>
   <string name="description_is_in_different_language">Metin beklenmedik bir dilde görünüyor. Dil %s olmalıdır.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>

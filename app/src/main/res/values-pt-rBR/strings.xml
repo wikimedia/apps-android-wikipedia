@@ -693,6 +693,7 @@
   <string name="description_ends_with_punctuation">O texto não deve terminar com pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos como \"a\", \"o\" \"as\" ou \"os\".</string>
   <string name="description_starts_with_uppercase">Comece com uma letra minúscula, a menos que a primeira palavra seja um nome próprio.</string>
+  <string name="description_starts_with_lowercase">Evitar começar com uma letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar em um idioma inesperado. O idioma deve ser %s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>

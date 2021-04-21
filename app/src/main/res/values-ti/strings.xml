@@ -343,6 +343,7 @@
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ናይ ምስሊ መግለጺ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ምስሊ</string>
   <string name="suggested_edits_image_preview_dialog_artist">ስነ ጥበባዊ</string>
+  <string name="suggested_edits_image_preview_dialog_tags">መፈለጥታታት</string>
   <string name="suggested_edits_image_preview_dialog_date">ዕለት</string>
   <string name="suggested_edits_image_preview_dialog_licensing">ፍቓድ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">ተወሳኺ ሓበሬታ</string>
