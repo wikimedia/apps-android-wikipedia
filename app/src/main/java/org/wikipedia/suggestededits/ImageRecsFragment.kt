@@ -405,7 +405,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     private fun showConfetti(shouldShowConfetti: Boolean) {
         binding.successConfettiImage.visibility = if (shouldShowConfetti) VISIBLE else GONE
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // Change statusBar abd actionBar color
+            // Change statusBar and actionBar color
             requireActivity().window.statusBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
                     R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
             (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (shouldShowConfetti)
@@ -417,8 +417,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
         }
         // Update actionbar menu items
-        requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
-            it.visibility = if (shouldShowConfetti) GONE else VISIBLE
+        requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).apply {
+            visibility = if (shouldShowConfetti) GONE else VISIBLE
         }
         (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(!shouldShowConfetti)
     }
