@@ -10,7 +10,6 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
