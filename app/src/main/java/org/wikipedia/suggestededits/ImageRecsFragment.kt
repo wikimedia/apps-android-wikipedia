@@ -407,14 +407,14 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Change statusBar and actionBar color
             requireActivity().window.statusBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
-                    R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
+                    R.attr.color_group_70) else Color.TRANSPARENT
             (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (shouldShowConfetti)
-                ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.image_recs_confetti_background_color)) else null)
+                ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_70)) else null)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Change navigationBar color
             requireActivity().window.navigationBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
-                    R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
+                    R.attr.color_group_69) else Color.TRANSPARENT
         }
         // Update actionbar menu items
         requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).apply {

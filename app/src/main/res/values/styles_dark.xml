@@ -71,7 +71,6 @@
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
         <item name="image_recs_confetti">@drawable/ic_confetti_dark</item>
-        <item name="image_recs_confetti_background_color">@color/green20</item>
         <item name="image_recs_onboardingimage_page_one">@drawable/ic_illustration_image_recs_01_dark</item>
         <item name="image_recs_onboardingimage_page_two">@drawable/ic_illustration_image_recs_02_dark</item>
 
@@ -96,6 +95,8 @@
         <item name="color_group_66">@color/red75</item>
         <item name="color_group_67">@android:color/transparent</item>
         <item name="color_group_68">@color/osage</item>
+        <item name="color_group_69">@color/green50_10d</item>
+        <item name="color_group_70">@color/green20</item>
     </style>
 
     <style name="DialogDark" parent="Theme.MaterialComponents.Dialog">
