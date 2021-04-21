@@ -10,6 +10,8 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MostReadItemCard extends Card {
@@ -40,7 +42,7 @@ public class MostReadItemCard extends Card {
 
     @NonNull
     public List<MostReadArticles.ViewHistory> getViewHistory() {
-        return page.getViewHistory();
+        return page.getViewHistory() != null ? page.getViewHistory() : Collections.emptyList();
     }
 
     @NonNull @Override public CardType type() {
