@@ -8,6 +8,7 @@ import android.icu.text.ListFormatter
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
@@ -324,7 +325,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressCheck.visibility = GONE
         binding.publishOverlayContainer.visibility = VISIBLE
         binding.publishBoltView.visibility = GONE
-        binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
         funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
@@ -366,40 +366,30 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         }
         binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
         showConfetti(newCount == DAILY_COUNT_TARGET)
-        val duration = 1000L
-        binding.publishProgressBar.alpha = 1f
-        binding.publishProgressBar.animate()
-                .alpha(0f)
-                .duration = duration / 2
 
-        binding.publishProgressBarComplete.alpha = 0f
-        binding.publishProgressBarComplete.visibility = VISIBLE
-        binding.publishProgressBarComplete.animate()
-                .alpha(1f)
-                .withEndAction {
-                    binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
-                    if (newCount >= DAILY_COUNT_TARGET) {
-                        binding.publishProgressBarComplete.visibility = GONE
-                        binding.publishProgressCheck.visibility = GONE
-                        binding.publishBoltView.visibility = VISIBLE
+        val delayMillis = 1L
+        var progressCount = 0
+        binding.publishProgressBar.postDelayed(object : Runnable {
+            override fun run() {
+                if (isAdded) {
+                    binding.publishProgressBar.progress = progressCount * 10
+                    progressCount++
+                    binding.publishProgressBar.postDelayed(this, delayMillis)
+                    if (progressCount == 100) {
+                        binding.publishProgressCheck.visibility = VISIBLE
+                        binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
+                        if (newCount >= DAILY_COUNT_TARGET) {
+                            binding.publishProgressCheck.visibility = GONE
+                            binding.publishBoltView.visibility = VISIBLE
+                        }
+                        showConfetti(false)
+                        binding.publishOverlayContainer.visibility = GONE
+                        callback().nextPage(this@ImageRecsFragment)
+                        callback().logSuccess()
                     }
                 }
-                .duration = duration / 2
-
-        binding.publishProgressCheck.alpha = 0f
-        binding.publishProgressCheck.visibility = VISIBLE
-        binding.publishProgressCheck.animate()
-                .alpha(1f)
-                .duration = duration
-
-        binding.publishProgressBar.postDelayed({
-            if (isAdded) {
-                showConfetti(false)
-                binding.publishOverlayContainer.visibility = GONE
-                callback().nextPage(this)
-                callback().logSuccess()
             }
-        }, duration * durationBoost)
+        }, delayMillis)
     }
 
     private fun showConfetti(shouldShowConfetti: Boolean) {

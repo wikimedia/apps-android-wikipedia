@@ -381,28 +381,18 @@
 
         <ProgressBar
             android:id="@+id/publishProgressBar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:indeterminateTint="@color/green50"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/dailyProgressView"
-            app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
-            android:layout_marginStart="16dp"/>
-
-        <ProgressBar
-            android:id="@+id/publishProgressBarComplete"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:layout_constraintStart_toStartOf="@id/publishProgressBar"
-            app:layout_constraintEnd_toEndOf="@id/publishProgressBar"
-            app:layout_constraintTop_toTopOf="@id/publishProgressBar"
-            app:layout_constraintBottom_toBottomOf="@id/publishProgressBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dailyProgressView"
+            app:layout_constraintBottom_toBottomOf="@id/dailyProgressView"
+            android:layout_marginStart="16dp"
             android:progressTint="@color/green50"
             android:indeterminate="false"
             android:max="100"
             android:progressDrawable="@drawable/circular_progress"
-            android:secondaryProgress="100" />
+            android:secondaryProgress="0" />
 
         <ImageView
             android:id="@+id/publishProgressCheck"
