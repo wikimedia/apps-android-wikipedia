@@ -136,6 +136,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     }
 
     private fun finalizeCallToAction() {
+        if (imageEditType == null) {
+            return
+        }
         when (imageEditType) {
             ImageEditType.ADD_TAGS -> pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_tags))
             ImageEditType.ADD_CAPTION_TRANSLATION -> {
