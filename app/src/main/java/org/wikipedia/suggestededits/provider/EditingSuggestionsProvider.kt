@@ -269,7 +269,7 @@ object EditingSuggestionsProvider {
                 // evict the cache if the language has changed.
                 articlesWithMissingImagesCache.clear()
             }
-            val installIdMod = 1000
+            val installIdMod = 500
             val installId = Prefs.getAppInstallId().orEmpty()
             // Initialize the random number generator based on the user's install ID, modulo the
             // total size of the expected test group.
