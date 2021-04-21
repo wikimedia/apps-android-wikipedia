@@ -1,6 +1,7 @@
 package org.wikipedia.feed.mostread;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -19,6 +20,7 @@ public final class MostReadArticles extends PageSummary {
         return views;
     }
 
+    @Nullable
     public List<ViewHistory> getViewHistory() {
         return viewHistory;
     }
