@@ -29,8 +29,10 @@
 
     <!-- Supplementary -->
     <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
+    <color name="green20">#0E725A</color> <!-- W AA: -->
     <color name="green30">#14866d</color> <!-- W AA: -->
     <color name="green75">#b2e7db</color>
+    <color name="green80">#CEEFE8</color>
     <color name="green90">#d5fdf4</color> <!-- W AA: -->
     <color name="yellow90">#fef6e7</color>
     <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
