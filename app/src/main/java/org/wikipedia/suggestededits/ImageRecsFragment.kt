@@ -374,6 +374,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
         showConfetti(newCount == DAILY_COUNT_TARGET)
+        updateNavBarColor(true)
 
         val checkAnimationDuration = 200L
         var progressCount = 0
@@ -382,7 +383,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 if (isAdded) {
                     if (binding.publishProgressBar.progress == 100) {
                         binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
-
                         binding.publishProgressCheck.alpha = 0f
                         binding.publishProgressCheck.visibility = VISIBLE
                         binding.publishProgressCheck.animate()
@@ -396,6 +396,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                                     binding.publishProgressBar.postDelayed({
                                         if (isAdded) {
                                             showConfetti(false)
+                                            updateNavBarColor(false)
                                             binding.publishOverlayContainer.visibility = GONE
                                             callback().nextPage(this@ImageRecsFragment)
                                             callback().logSuccess()
@@ -412,25 +413,28 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         })
     }
 
-    private fun showConfetti(shouldShowConfetti: Boolean) {
-        binding.successConfettiImage.visibility = if (shouldShowConfetti) VISIBLE else GONE
+    private fun showConfetti(enable: Boolean) {
+        binding.successConfettiImage.visibility = if (enable) VISIBLE else GONE
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Change statusBar and actionBar color
-            requireActivity().window.statusBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
+            requireActivity().window.statusBarColor = if (enable) ResourceUtil.getThemedColor(requireContext(),
                     R.attr.color_group_70) else Color.TRANSPARENT
-            (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (shouldShowConfetti)
+            (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (enable)
                 ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_70)) else null)
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Change navigationBar color
-            requireActivity().window.navigationBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
-                    R.attr.color_group_69) else Color.TRANSPARENT
         }
         // Update actionbar menu items
         requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).apply {
-            visibility = if (shouldShowConfetti) GONE else VISIBLE
+            visibility = if (enable) GONE else VISIBLE
         }
-        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(!shouldShowConfetti)
+        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(!enable)
+    }
+
+    private fun updateNavBarColor(enable: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Change navigationBar color
+            requireActivity().window.navigationBarColor = if (enable) ResourceUtil.getThemedColor(requireContext(),
+                    R.attr.color_group_69) else Color.TRANSPARENT
+        }
     }
 
     override fun publishEnabled(): Boolean {
