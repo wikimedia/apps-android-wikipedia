@@ -961,7 +961,7 @@
   <string name="image_recommendations_task_reject">Button label for rejecting the recommended image.</string>
   <string name="image_recommendations_task_not_sure">Button label for being unsure about the current image recommendation.</string>
   <string name="image_recommendations_task_processing">Label shown when the current recommendation is being processed.</string>
-  <string name="image_recommendations_task_daily_amount">Label that shows the number of tasks that the user completed (the first %d symbol)), out of a total amount (the second %d symbol).</string>
+  <string name="image_recommendations_task_daily_amount">{{Optional}}\n\nLabel that shows the number of tasks that the user completed (the first %d symbol)), out of a total amount (the second %d symbol).</string>
   <string name="image_recommendations_task_instruction">Question asked for the user to evaluate the current image recommendation.</string>
   <string name="image_recommendations_task_choice_no">Follow-up question asked when the user rejects the recommendation.</string>
   <string name="image_recommendations_task_choice_unsure">Follow-up question asked when the user is unsure about the recommendation.</string>
