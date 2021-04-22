@@ -408,15 +408,14 @@
 
         <ImageView
             android:id="@+id/publishBoltView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             app:layout_constraintStart_toStartOf="@id/publishProgressBar"
             app:layout_constraintEnd_toEndOf="@id/publishProgressBar"
             app:layout_constraintTop_toTopOf="@id/publishProgressBar"
             app:layout_constraintBottom_toBottomOf="@id/publishProgressBar"
             android:contentDescription="@null"
-            app:tint="@color/green50"
-            app:srcCompat="@drawable/ic_bolt_24" />
+            app:srcCompat="@drawable/ic_bolt_green" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
