@@ -8,7 +8,6 @@ import android.icu.text.ListFormatter
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
