@@ -950,7 +950,7 @@
   <string name="image_recommendations_task_reject">Nej</string>
   <string name="image_recommendations_task_not_sure">Osäker</string>
   <string name="image_recommendations_task_processing">Bearbetar...</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
+  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">Skulle du lägga till den här bilden i artikeln?</string>
   <string name="image_recommendations_task_choice_no">Varför valde du nej?</string>
   <string name="image_recommendations_task_choice_unsure">Varför är du osäker på den här bilden?</string>
