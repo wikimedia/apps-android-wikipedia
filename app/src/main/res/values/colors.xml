@@ -28,9 +28,13 @@
     <color name="red30">#b32424</color>
 
     <!-- Supplementary -->
-    <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
     <color name="green20">#0E725A</color> <!-- W AA: -->
     <color name="green30">#14866d</color> <!-- W AA: -->
+    <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
+    <color name="green50_10l">#E6F7F3</color> <!-- A blend of paper_color and green50 for light mode -->
+    <color name="green50_10s">#E0EADA</color> <!-- A blend of paper_color and green50 for sepia mode -->
+    <color name="green50_10d">#20564F</color> <!-- A blend of paper_color and green50 for dark mode -->
+    <color name="green50_10b">#003429</color> <!-- A blend of paper_color and green50 for black mode -->
     <color name="green75">#b2e7db</color>
     <color name="green80">#CEEFE8</color>
     <color name="green90">#d5fdf4</color> <!-- W AA: -->
