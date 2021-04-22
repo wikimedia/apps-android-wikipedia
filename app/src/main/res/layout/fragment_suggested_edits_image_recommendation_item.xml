@@ -408,8 +408,8 @@
 
         <ImageView
             android:id="@+id/publishBoltView"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             app:layout_constraintStart_toStartOf="@id/publishProgressBar"
             app:layout_constraintEnd_toEndOf="@id/publishProgressBar"
             app:layout_constraintTop_toTopOf="@id/publishProgressBar"
