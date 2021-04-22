@@ -362,8 +362,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
         val waitUntilNextMillis = when (newCount) {
-            DAILY_COUNT_TARGET -> 1000L
-            else -> 600L
+            DAILY_COUNT_TARGET -> 1500L
+            else -> 1000L
         }
 
         val progressText = when {
@@ -376,12 +376,12 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         showConfetti(newCount == DAILY_COUNT_TARGET)
         updateNavBarColor(true)
 
-        val checkAnimationDuration = 200L
+        val checkAnimationDuration = 300L
         var progressCount = 0
         binding.publishProgressBar.post(object : Runnable {
             override fun run() {
                 if (isAdded) {
-                    if (binding.publishProgressBar.progress == 100) {
+                    if (binding.publishProgressBar.progress >= 100) {
                         binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
                         binding.publishProgressCheck.alpha = 0f
                         binding.publishProgressCheck.visibility = VISIBLE
@@ -405,7 +405,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                                 }
                                 .duration = checkAnimationDuration
                     } else {
-                        binding.publishProgressBar.progress = ++progressCount * 4
+                        binding.publishProgressBar.progress = ++progressCount * 3
                         binding.publishProgressBar.post(this)
                     }
                 }
