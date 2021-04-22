@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
@@ -121,6 +122,14 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + recommendation!!.image, WikiSite(Service.COMMONS_URL)), false, getSuggestionReason()))
                 detailsClicked = true
             }
+        }
+
+        binding.imageCard.setOnLongClickListener {
+            if (ImageZoomHelper.isZooming) {
+                // Dispatch a fake CANCEL event to the container view, so that the long-press ripple is cancelled.
+                binding.imageCard.dispatchTouchEvent(MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0))
+            }
+            false
         }
 
         binding.articleContentContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
@@ -408,14 +417,14 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Change statusBar and actionBar color
             requireActivity().window.statusBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
-                    R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
+                    R.attr.color_group_70) else Color.TRANSPARENT
             (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (shouldShowConfetti)
-                ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.image_recs_confetti_background_color)) else null)
+                ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_70)) else null)
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Change navigationBar color
             requireActivity().window.navigationBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
-                    R.attr.image_recs_confetti_background_color) else Color.TRANSPARENT
+                    R.attr.color_group_69) else Color.TRANSPARENT
         }
         // Update actionbar menu items
         requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).apply {
