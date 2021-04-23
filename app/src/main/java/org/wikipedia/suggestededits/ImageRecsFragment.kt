@@ -362,8 +362,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
         val waitUntilNextMillis = when (newCount) {
-            DAILY_COUNT_TARGET -> 2000L
-            else -> 1000L
+            DAILY_COUNT_TARGET -> 2500L
+            else -> 1500L
         }
 
         val checkDelayMillis = 700L
