@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AJBot2
 * Ahdan
 * Akmaie Ajam
 * Andikbuyung
@@ -925,7 +926,6 @@
   <string name="image_recommendations_task_reject">Tidak</string>
   <string name="image_recommendations_task_not_sure">Tidak yakin</string>
   <string name="image_recommendations_task_processing">Memproses...</string>
-  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">Maukah Anda tambahkan gambar ini ke dalam artikel?</string>
   <string name="image_recommendations_task_choice_no">Mengapa memilih tidak?</string>
   <string name="image_recommendations_task_choice_unsure">Mengapa Anda tidak yakin dengan gambar ini?</string>
@@ -938,7 +938,7 @@
   <string name="image_recommendations_task_choice_understand">Tidak paham tugas tersebut</string>
   <string name="image_recommendations_task_choice_other">Lainnya</string>
   <string name="image_recommendations_task_choice_continue">Lanjutkan</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Alasan saran:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Saran alasan:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Cetak miring</string>
   <string name="wikitext_link">Pranala</string>

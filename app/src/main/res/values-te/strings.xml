@@ -324,6 +324,7 @@
   <string name="edit_conflict_dialog_ok_button_text">సరే</string>
   <string name="reverted_edit_dialog_ok_button_text">సరే</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;సూచన కారణం:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">బొద్దు</string>
   <string name="wikitext_italic">వాలు</string>
   <string name="wikitext_link">లంకెచేయి</string>

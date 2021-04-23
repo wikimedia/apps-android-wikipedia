@@ -955,7 +955,6 @@
   <string name="image_recommendations_task_reject">No</string>
   <string name="image_recommendations_task_not_sure">No n\'estic segur</string>
   <string name="image_recommendations_task_processing">S\'està processant…</string>
-  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">Voleu afegir la imatge a l\'article?</string>
   <string name="image_recommendations_task_choice_no">Per què heu seleccionat «no»?</string>
   <string name="image_recommendations_task_choice_unsure">Per què no n\'esteu segur de la imatge?</string>

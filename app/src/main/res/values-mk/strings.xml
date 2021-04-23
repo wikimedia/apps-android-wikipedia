@@ -939,7 +939,6 @@
   <string name="image_recommendations_task_reject">Не</string>
   <string name="image_recommendations_task_not_sure">Не знам</string>
   <string name="image_recommendations_task_processing">Обработувам…</string>
-  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">Дали би ја ставиле сликава во статијата?</string>
   <string name="image_recommendations_task_choice_no">Зошто избравте да не ја ставите?</string>
   <string name="image_recommendations_task_choice_unsure">Зошто не знаете дали да ја ставите?</string>
