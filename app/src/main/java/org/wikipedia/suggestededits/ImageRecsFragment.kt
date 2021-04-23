@@ -39,6 +39,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsImageRecommendationItemBi
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
@@ -52,6 +53,8 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 import java.util.*
 
 class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback {
@@ -202,13 +205,23 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 }
                 .flatMap {
                     recommendation!!.pageTitle = it.query()!!.firstPage()!!.displayTitle(WikipediaApp.getInstance().appOrSystemLanguageCode)
+                    if (recommendation!!.pageTitle.isEmpty()) {
+                        // TODO: use proper exception later, but now it is an easier way of making the WikiErrorView show the "retry" button
+                        throw UnknownHostException()
+                    }
                     ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getSummary(null, recommendation!!.pageTitle).subscribeOn(Schedulers.io())
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry(10)
                 .subscribe({ summary ->
                     updateContents(summary)
-                }, { this.setErrorState(it) })!!)
+                }, {
+                    if (it is UnknownHostException) {
+                        // TODO: use proper exception later, but now it is an easier way of making the WikiErrorView show the "retry" button
+                        recommendationSequence++
+                    }
+                    this.setErrorState(it)
+                }))
     }
 
     private fun setErrorState(t: Throwable) {
