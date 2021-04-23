@@ -52,7 +52,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewAnimations
-import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.*
 
