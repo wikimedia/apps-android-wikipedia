@@ -1,38 +1,38 @@
-A app ocicial da wikipedia é projetada para ajudá-lo a encontrar, descobrir e explorar o conhecimento na Wikipedia. Faça uma aposta com um amigo, a fazer uma pesquisa rápida através da app ou mergulhar em artigos em destaque, imagens, artigos recomendados e mais usando o feed explorador. Com mais de 39 milhões artigos em quase 300 idiomas, a sua enciclopédia online livre favorito está agora na ponta dos dedos.
+A aplicação oficial da Wikipédia é projetada para ajudá-lo a encontrar, descobrir e explorar o conhecimento na Wikipédia. Faça uma aposta com um amigo, a fazer uma pesquisa rápida através da aplicação ou mergulhar em artigos em destaque, imagens, artigos recomendados e mais usando o feed explorador. Com mais de 39 milhões artigos em quase 300 idiomas, a sua enciclopédia favorita online livre está agora na ponta dos dedos.
 
 Funcionalidades:
 
-Explore feed - o novo "Explore feed" oferece conteúdo da Wikipedia recomendado e constantemente atualizando direito no ecrã inicial, incluindo artigos de tendências, eventos atuais, leitura sugerida e muito mais.
+Explore feed - o novo "Explore feed" oferece conteúdo da Wikipédia recomendado e constantemente atualizando direito no ecrã inicial, incluindo artigos de tendências, eventos atuais, leitura sugerida e muito mais.
 
 Pesquisa integrada por voz - encontre facilmente o que está procurando com uma barra de pesquisa proeminente na parte superior da aplicação, incluindo a pesquisa ativada por voz no seu aparelho.
 
 Perto - saiba mais sobre o que está ao seu redor selecionando pontos num mapa interativo para ver artigos relacionados ao seu local atual e próximo.
 
-Suporte a idiomas - alternar facilmente para ler Wikipedia em qualquer idioma suportado, seja alterando o idioma do artigo atual ou alterando o idioma de pesquisa preferencial enquanto procura.
+Suporte a idiomas - alternar facilmente para ler a Wikipédia em qualquer idioma suportado, seja alterando o idioma do artigo atual ou alterando o idioma de pesquisa preferencial enquanto procura.
 
 Visualizações de ligações - toque num artigo para visualizá-lo, sem perder a posição onde está atualmente lendo. Pressione e segure uma ligação para abri-la numa nova guia, permitindo que continue lendo o artigo atual sem perder a posição e mudar para a nova guia quando está pronto.
 
-Índice - deslize para a esquerda em qualquer artigo para abrir o índice, que o deixa saltar facilmente às seções do artigo.
+Índice - deslize para a esquerda em qualquer artigo para abrir o índice, que o deixa saltar facilmente às secções do artigo.
 
 Listas de leitura - Organize os artigos em que navega nas listas de leitura, que pode acessar mesmo quando estiver offline. Crie quantas listas quiser, dê-lhes nomes e descrições personalizadas e preencha-os com artigos de qualquer wiki de idioma.
 
 Galeria de imagens - toque numa imagem para ver a imagem em ecrã cheio em alta resolução, com opções de deslizar para navegar por imagens adicionais.
 
-Definições do Wiktionary - toque e segure para realçar uma palavra e, em seguida, toque no botão "definir" para ver uma definição da palavra do Wiktionary.
+Definições do Wikcionário - toque e segure para realçar uma palavra e, em seguida, toque no botão "definir" para ver uma definição da palavra do Wikcionário.
 
-Wikipedia Zero - acesso à Wikipedia para Android livre de encargos de dados para as operadoras móveis participantes. (ligação aos operadores participantes).
+Wikipédia Zero - acesso à Wikipédia para Android livre de encargos de dados para as operadoras móveis participantes. (ligação aos operadores participantes).
 
-Envie-nos seus comentários sobre a app! No menu, pressione em "Configurações", em seguida em "Sobre a app da Wikipédia" e depois em "Enviar feedback app".
+Envie-nos seus comentários sobre a aplicação! No menu, pressione em "Configurações", em seguida em "Sobre a app da Wikipédia" e depois em "Enviar feedback app".
 
 O código é 100% fonte aberta. Se tem experiência com Java e Android SDK, estamos ansiosos pelas suas contribuições! https://github.com/wikimedia/apps-android-wikipedia
 
-Ao usar esta app, concorda com a transmissão automática de relatórios de falha para um provedor de serviços terceirizado. Se gostaria de desativar esse recurso, por favor pressione em "Configurações", e desative "Enviar relatórios de falha" na secção privacidade. Explicação das permissões necessárias para pela app: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+Ao usar esta aplicação, concorda com a transmissão automática de relatórios de falha para um fornecedor de serviços terceiro. Se gostaria de desativar esse recurso, por favor aceda às "Configurações" e desative "Enviar relatórios de falha" na secção privacidade. Explicação das permissões necessárias pela aplicação: https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
-Política de privacidade: https://m.wikimediafoundation.org/wiki/privacy_policy
+Política de privacidade: https://wikimediafoundation.org/privacy-policy/
 
-Política de privacidade do provedor de serviços de terceiros para relatórios de falha: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
+Política de privacidade do fornecedor de serviços de terceiros para relatórios de falhas: https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
-Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+Termos de uso: https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br
 
 Sobre a Wikimedia Foundation
 
