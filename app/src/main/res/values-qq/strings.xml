@@ -58,6 +58,7 @@
   <string name="offline_load_error_retry">Text for button that retries when there is an error because of lack of internet connection.\n{{Identical|Retry}}</string>
   <string name="page_error_back_to_main">Text for the back button that goes to the last page visited when tapped.\n{{Identical|Go back}}</string>
   <string name="error_back">Text for suggesting to go back to the previous screen in case of error.\n{{Identical|Go back}}</string>
+  <string name="error_next">Text for suggesting to go to the next item in case of error.\n{{Identical|Next}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.\n{{Identical|Clear history}}</string>
   <string name="history_item_deleted">Message shown when an article is removed from the browsing history. The \"%s\" symbol is replaced with the name of the article.</string>
   <string name="history_items_deleted">Message shown when multiple articles are removed from the browsing history. The \"%d\" symbol is replaced with the number of articles removed.</string>
