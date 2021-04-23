@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* 3Johnny
 * 4shadoww
 * AinScept
 * Alluk.
@@ -260,6 +261,7 @@
   <string name="find_previous">Etsi edellinen</string>
   <string name="find_first_occurence">Tämä on ensimmäinen esiintyminen</string>
   <string name="find_last_occurence">Tämä on viimeinen esiintyminen</string>
+  <string name="article_opened_in_background_tab">Artikkeli avattiin taustavälilehteen.</string>
   <string name="abusefilter_title_warn">Tämä muokkaus on tunnistettu mahdollisesti haitalliseksi. Haluatko varmasti julkaista sen?</string>
   <string name="abusefilter_title_disallow">Et voi julkaista tätä muokkausta. Palaa takaisin ja muuta sitä.</string>
   <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>
@@ -678,6 +680,7 @@
   <string name="description_too_short">Teksti on liian lyhyt.</string>
   <string name="description_ends_with_punctuation">Teksti ei saa päättyä välimerkkeihin.</string>
   <string name="description_starts_with_uppercase">Aloita pienellä kirjaimella, ellei ensimmäinen sana ole erisnimi.</string>
+  <string name="description_starts_with_lowercase">Vältä aloittamasta pienellä alkukirjaimella.</string>
   <string name="description_is_in_different_language">Teksti näyttää olevan odottamattomalla kielellä.  Kielen tulee olla %s.</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
@@ -863,9 +866,12 @@
     <item quantity="other">Lisäsit %d merkkiä</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Opeta kuva-algoritmia</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Päätä, jos ehdotettu kuva parantaisi artikkelia.</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Aloita</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Hienoa, jatka samaan tahtiin! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Päivittäinen tavoite saavutettu! 👏</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">Olet saavuttanut tavoitteen</string>
+  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Uusi Ehdotetut muutokset -tehtävä on nyt tarjolla. Opeta algoritmi yhdistämään kuvia kuvittamattomiin artikkeleihin.</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="file_page_add_image_tags_button">Lisää kuvamerkintöjä</string>
@@ -947,13 +953,19 @@
   <string name="image_recommendations_task_processing">Käsitellään...</string>
   <string name="image_recommendations_task_instruction">Lisäisitkö tämän kuvan artikkeliin?</string>
   <string name="image_recommendations_task_choice_no">Miksi valitsit ei?</string>
+  <string name="image_recommendations_task_choice_unsure">Miksi et ole varma tästä kuvasta?</string>
+  <string name="image_recommendations_task_choice_not_relevant">Ei asiaankuuluva</string>
   <string name="image_recommendations_task_choice_low_quality">Matala laatu</string>
+  <string name="image_recommendations_task_choice_noinfo">Ei tarpeeksi tietoa</string>
   <string name="image_recommendations_task_choice_nosubject">En tiedä tästä aiheesta</string>
+  <string name="image_recommendations_task_choice_offensive">Loukkaava</string>
   <string name="image_recommendations_task_choice_invisible">En näe kuvaa</string>
   <string name="image_recommendations_task_choice_understand">En ymmärrä tehtävää</string>
+  <string name="image_recommendations_task_choice_language">En ymmärrä kieltä</string>
   <string name="image_recommendations_task_choice_other">Muu</string>
   <string name="image_recommendations_task_choice_continue">Jatka</string>
   <string name="image_recommendations_faq">UKK</string>
+  <string name="image_recommendations_tooltip1">Tutki tätä artikkelia ymmärtääksesi sen aihetta.</string>
   <string name="wikitext_bold">Lihavoi</string>
   <string name="wikitext_italic">Kursivoi</string>
   <string name="wikitext_link">Linkki</string>
