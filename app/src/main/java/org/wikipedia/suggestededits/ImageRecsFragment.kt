@@ -362,9 +362,12 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
         val waitUntilNextMillis = when (newCount) {
-            DAILY_COUNT_TARGET -> 1500L
+            DAILY_COUNT_TARGET -> 2000L
             else -> 1000L
         }
+
+        val checkDelayMillis = 700L
+        val checkAnimationDuration = 300L
 
         val progressText = when {
             newCount < DAILY_COUNT_TARGET -> getString(R.string.suggested_edits_image_recommendations_task_goal_progress)
@@ -376,7 +379,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         showConfetti(newCount == DAILY_COUNT_TARGET)
         updateNavBarColor(true)
 
-        val checkAnimationDuration = 300L
         var progressCount = 0
         binding.publishProgressBar.post(object : Runnable {
             override fun run() {
@@ -389,9 +391,13 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                                 .alpha(1f)
                                 .withEndAction {
                                     if (newCount >= DAILY_COUNT_TARGET) {
-                                        binding.publishProgressBar.visibility = INVISIBLE
-                                        binding.publishProgressCheck.visibility = GONE
-                                        binding.publishBoltView.visibility = VISIBLE
+                                        binding.publishProgressCheck.postDelayed({
+                                            if (isAdded) {
+                                                binding.publishProgressBar.visibility = INVISIBLE
+                                                binding.publishProgressCheck.visibility = GONE
+                                                binding.publishBoltView.visibility = VISIBLE
+                                            }
+                                        }, checkDelayMillis)
                                     }
                                     binding.publishProgressBar.postDelayed({
                                         if (isAdded) {
@@ -401,7 +407,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                                             callback().nextPage(this@ImageRecsFragment)
                                             callback().logSuccess()
                                         }
-                                    }, waitUntilNextMillis)
+                                    }, waitUntilNextMillis + checkDelayMillis)
                                 }
                                 .duration = checkAnimationDuration
                     } else {
