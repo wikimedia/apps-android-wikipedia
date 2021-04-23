@@ -83,7 +83,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         }
     }
 
-    fun removeMAinTextLayoutGravity() {
+    fun removeMainTextLayoutGravity() {
         val params = FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT

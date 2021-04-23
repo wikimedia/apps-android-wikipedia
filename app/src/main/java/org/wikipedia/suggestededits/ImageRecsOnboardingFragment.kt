@@ -67,7 +67,7 @@ class ImageRecsOnboardingFragment : OnboardingFragment(false), OnboardingPageVie
             }
             if (DimenUtil.displayHeightPx < 1200) {
                 // Remove layout gravity of the text below on small screens to make centered image visible
-                view.removeMAinTextLayoutGravity()
+                view.removeMainTextLayoutGravity()
             }
             view.tag = position
             view.callback = callback
