@@ -16,6 +16,7 @@ import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil.showAboutWikipedia
 import org.wikipedia.util.FeedbackUtil.showOfflineReadingAndData
 import org.wikipedia.util.FeedbackUtil.showPrivacyPolicy
@@ -63,6 +64,10 @@ class ImageRecsOnboardingFragment : OnboardingFragment(false), OnboardingPageVie
             val view = inflater.inflate(OnboardingPage.of(position).layout, container, false) as OnboardingPageView
             if (OnboardingPage.PAGE_CONSENT.code() == position) {
                 view.setSwitchChecked(Prefs.isImageRecsConsentEnabled())
+            }
+            if (DimenUtil.displayHeightPx < 1200) {
+                // Remove layout gravity of the text below on small screens to make centered image visible
+                view.removeMAinTextLayoutGravity()
             }
             view.tag = position
             view.callback = callback

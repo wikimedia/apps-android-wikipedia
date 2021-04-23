@@ -3,9 +3,11 @@ package org.wikipedia.onboarding
 import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -79,6 +81,15 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 }
             }
         }
+    }
+
+    fun removeMAinTextLayoutGravity() {
+        val params = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT
+        )
+        params.gravity = Gravity.NO_GRAVITY
+        binding.mainTextLayout?.layoutParams = params
     }
 
     fun setSwitchChecked(checked: Boolean) {
