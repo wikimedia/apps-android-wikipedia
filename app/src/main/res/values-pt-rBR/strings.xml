@@ -967,7 +967,6 @@
   <string name="image_recommendations_task_reject">Não</string>
   <string name="image_recommendations_task_not_sure">Talvez</string>
   <string name="image_recommendations_task_processing">Processando...</string>
-  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">Você adicionaria esta imagem ao artigo?</string>
   <string name="image_recommendations_task_choice_no">Por que você selecionou não?</string>
   <string name="image_recommendations_task_choice_unsure">Por que você não tem certeza sobre esta imagem?</string>

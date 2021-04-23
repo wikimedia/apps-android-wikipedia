@@ -927,7 +927,6 @@
   <string name="image_recommendations_task_reject">Yoʻq</string>
   <string name="image_recommendations_task_not_sure">Aniq emas</string>
   <string name="image_recommendations_task_processing">Qayta ishlanmoqda…</string>
-  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_choice_not_relevant">Tegishli emas</string>
   <string name="image_recommendations_task_choice_low_quality">Past sifatli</string>
   <string name="image_recommendations_task_choice_noinfo">Maʼlumot yetarli emas</string>
