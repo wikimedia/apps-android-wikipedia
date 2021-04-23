@@ -12,8 +12,7 @@ import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
@@ -333,7 +332,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         binding.publishProgressCheck.visibility = GONE
         binding.publishOverlayContainer.visibility = VISIBLE
         binding.publishBoltView.visibility = GONE
-        binding.publishProgressBarComplete.visibility = GONE
         binding.publishProgressBar.visibility = VISIBLE
 
         funnel.logSubmit(WikipediaApp.getInstance().language().appLanguageCodes.joinToString(","),
@@ -363,73 +361,86 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         Prefs.setImageRecsDailyCount(newCount)
         Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
 
-        val durationBoost = when (newCount) {
-            DAILY_COUNT_TARGET -> 5
-            else -> 3
+        val waitUntilNextMillis = when (newCount) {
+            DAILY_COUNT_TARGET -> 2500L
+            else -> 1500L
         }
+
+        val checkDelayMillis = 700L
+        val checkAnimationDuration = 300L
 
         val progressText = when {
             newCount < DAILY_COUNT_TARGET -> getString(R.string.suggested_edits_image_recommendations_task_goal_progress)
             newCount == DAILY_COUNT_TARGET -> getString(R.string.suggested_edits_image_recommendations_task_goal_complete)
             else -> getString(R.string.suggested_edits_image_recommendations_task_goal_surpassed)
         }
+
         binding.dailyProgressView.update(oldCount, oldCount, DAILY_COUNT_TARGET, getString(R.string.image_recommendations_task_processing))
         showConfetti(newCount == DAILY_COUNT_TARGET)
-        val duration = 1000L
-        binding.publishProgressBar.alpha = 1f
-        binding.publishProgressBar.animate()
-                .alpha(0f)
-                .duration = duration / 2
+        updateNavBarColor(true)
 
-        binding.publishProgressBarComplete.alpha = 0f
-        binding.publishProgressBarComplete.visibility = VISIBLE
-        binding.publishProgressBarComplete.animate()
-                .alpha(1f)
-                .withEndAction {
-                    binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
-                    if (newCount >= DAILY_COUNT_TARGET) {
-                        binding.publishProgressBarComplete.visibility = GONE
-                        binding.publishProgressCheck.visibility = GONE
-                        binding.publishBoltView.visibility = VISIBLE
+        var progressCount = 0
+        binding.publishProgressBar.post(object : Runnable {
+            override fun run() {
+                if (isAdded) {
+                    if (binding.publishProgressBar.progress >= 100) {
+                        binding.dailyProgressView.update(oldCount, newCount, DAILY_COUNT_TARGET, progressText)
+                        binding.publishProgressCheck.alpha = 0f
+                        binding.publishProgressCheck.visibility = VISIBLE
+                        binding.publishProgressCheck.animate()
+                                .alpha(1f)
+                                .withEndAction {
+                                    if (newCount >= DAILY_COUNT_TARGET) {
+                                        binding.publishProgressCheck.postDelayed({
+                                            if (isAdded) {
+                                                binding.publishProgressBar.visibility = INVISIBLE
+                                                binding.publishProgressCheck.visibility = GONE
+                                                binding.publishBoltView.visibility = VISIBLE
+                                            }
+                                        }, checkDelayMillis)
+                                    }
+                                    binding.publishProgressBar.postDelayed({
+                                        if (isAdded) {
+                                            showConfetti(false)
+                                            updateNavBarColor(false)
+                                            binding.publishOverlayContainer.visibility = GONE
+                                            callback().nextPage(this@ImageRecsFragment)
+                                            callback().logSuccess()
+                                        }
+                                    }, waitUntilNextMillis + checkDelayMillis)
+                                }
+                                .duration = checkAnimationDuration
+                    } else {
+                        binding.publishProgressBar.progress = ++progressCount * 3
+                        binding.publishProgressBar.post(this)
                     }
                 }
-                .duration = duration / 2
-
-        binding.publishProgressCheck.alpha = 0f
-        binding.publishProgressCheck.visibility = VISIBLE
-        binding.publishProgressCheck.animate()
-                .alpha(1f)
-                .duration = duration
-
-        binding.publishProgressBar.postDelayed({
-            if (isAdded) {
-                showConfetti(false)
-                binding.publishOverlayContainer.visibility = GONE
-                callback().nextPage(this)
-                callback().logSuccess()
             }
-        }, duration * durationBoost)
+        })
     }
 
-    private fun showConfetti(shouldShowConfetti: Boolean) {
-        binding.successConfettiImage.visibility = if (shouldShowConfetti) VISIBLE else GONE
+    private fun showConfetti(enable: Boolean) {
+        binding.successConfettiImage.visibility = if (enable) VISIBLE else GONE
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Change statusBar and actionBar color
-            requireActivity().window.statusBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
+            requireActivity().window.statusBarColor = if (enable) ResourceUtil.getThemedColor(requireContext(),
                     R.attr.color_group_70) else Color.TRANSPARENT
-            (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (shouldShowConfetti)
+            (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (enable)
                 ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_70)) else null)
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Change navigationBar color
-            requireActivity().window.navigationBarColor = if (shouldShowConfetti) ResourceUtil.getThemedColor(requireContext(),
-                    R.attr.color_group_69) else Color.TRANSPARENT
         }
         // Update actionbar menu items
         requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).apply {
-            visibility = if (shouldShowConfetti) GONE else VISIBLE
+            visibility = if (enable) GONE else VISIBLE
         }
-        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(!shouldShowConfetti)
+        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(!enable)
+    }
+
+    private fun updateNavBarColor(enable: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Change navigationBar color
+            requireActivity().window.navigationBarColor = if (enable) ResourceUtil.getThemedColor(requireContext(),
+                    R.attr.color_group_69) else Color.TRANSPARENT
+        }
     }
 
     override fun publishEnabled(): Boolean {
