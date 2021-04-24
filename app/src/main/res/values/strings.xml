@@ -24,6 +24,7 @@
     <string name="offline_load_error_retry">Retry</string>
     <string name="page_error_back_to_main">Go back</string>
     <string name="error_back">Go back</string>
+    <string name="error_next">Next</string>
     <string name="menu_clear_all_history">Clear history</string>
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
