@@ -98,7 +98,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
 
     private fun removeScrollViewContainerGravity() {
         val params = FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.MATCH_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT
         )
         params.gravity = Gravity.NO_GRAVITY
