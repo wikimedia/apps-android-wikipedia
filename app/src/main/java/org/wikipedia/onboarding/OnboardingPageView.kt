@@ -150,8 +150,4 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         binding.languageListContainer.languagesList.adapter = LanguageListAdapter(getListData(listDataType))
         binding.languageListContainer.languagesList.adapter?.notifyDataSetChanged()
     }
-
-    companion object {
-        const val SMALL_SCREEN_HEIGHT_PX = 1200
-    }
 }
