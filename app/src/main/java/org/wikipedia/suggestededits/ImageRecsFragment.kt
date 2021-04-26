@@ -57,17 +57,18 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
     private var _binding: FragmentSuggestedEditsImageRecommendationItemBinding? = null
     private val binding get() = _binding!!
 
-    var publishing: Boolean = false
-    private var publishSuccess: Boolean = false
+    private var publishing = false
+    private var publishSuccess = false
     private var recommendation: ImageRecommendationResponse? = null
-    private var recommendationSequence: Int = 0
+    private var recommendationSequence = 0
 
     private val funnel = ImageRecommendationsFunnel()
-    private var startMillis: Long = 0
-    private var buttonClickedMillis: Long = 0
-    private var infoClicked: Boolean = false
-    private var detailsClicked: Boolean = false
-    private var scrolled: Boolean = false
+    private var startMillis = 0L
+    private var buttonClickedMillis = 0L
+    private var infoClicked = false
+    private var detailsClicked = false
+    private var scrolled = false
+
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -119,8 +120,8 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         }
 
         binding.imageCard.setOnClickListener {
-            if (recommendation != null) {
-                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + recommendation!!.image, WikiSite(Service.COMMONS_URL)), false, getSuggestionReason()))
+            recommendation?.let {
+                startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + it.image, WikiSite(Service.COMMONS_URL)), false, getSuggestionReason()))
                 detailsClicked = true
             }
         }
@@ -138,8 +139,10 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         })
 
         binding.readMoreButton.setOnClickListener {
-            val title = PageTitle(recommendation!!.pageTitle, WikipediaApp.getInstance().wikiSite)
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
+            recommendation?.let {
+                val title = PageTitle(it.pageTitle, WikipediaApp.getInstance().wikiSite)
+                startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
+            }
         }
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
@@ -423,14 +426,14 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             // Change statusBar and actionBar color
             requireActivity().window.statusBarColor = if (enable) ResourceUtil.getThemedColor(requireContext(),
                     R.attr.color_group_70) else Color.TRANSPARENT
-            (requireActivity() as AppCompatActivity).supportActionBar!!.setBackgroundDrawable(if (enable)
+            (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(if (enable)
                 ColorDrawable(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_70)) else null)
         }
         // Update actionbar menu items
-        requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).apply {
+        requireActivity().window.decorView.findViewById<TextView>(R.id.menu_help).apply {
             visibility = if (enable) GONE else VISIBLE
         }
-        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(!enable)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(!enable)
     }
 
     private fun updateNavBarColor(enable: Boolean) {
@@ -447,10 +450,6 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     override fun publishOutlined(): Boolean {
         return false
-    }
-
-    fun onInfoClicked() {
-        infoClicked = true
     }
 
     private fun getSuggestionReason(): String {
@@ -499,10 +498,14 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
         return FragmentUtil.getCallback(this, Callback::class.java)!!
     }
 
+    fun onInfoClicked() {
+        infoClicked = true
+    }
+
     companion object {
-        const val DAILY_COUNT_TARGET = 10
         private val SUPPORTED_LANGUAGES = arrayOf("en", "de", "fr", "pt", "ru", "fa", "tr", "uk", "ar", "vi", "ceb", "he")
         private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
+        const val DAILY_COUNT_TARGET = 10
 
         fun isFeatureEnabled(): Boolean {
             return AccountUtil.isLoggedIn &&
