@@ -9,26 +9,13 @@
     android:focusable="true"
     android:background="?attr/selectableItemBackground">
 
-    <ImageView
-        android:id="@+id/topicReadDot"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginEnd="12dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/topicTitleText"
-        app:srcCompat="@drawable/shape_circle"
-        app:tint="?attr/colorAccent"
-        android:contentDescription="@null"/>
-
     <TextView
         android:id="@+id/topicTitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/topicReadDot"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="16sp"
@@ -43,7 +30,7 @@
         android:layout_marginStart="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/topicReadDot"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="?attr/material_theme_primary_color"
         android:lineSpacingExtra="6sp"

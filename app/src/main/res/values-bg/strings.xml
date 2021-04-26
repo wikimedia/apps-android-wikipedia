@@ -810,6 +810,7 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Отказ</string>
   <string name="edit_type_all">Всички приноси</string>
   <string name="content_description_for_page_indicator">Страница %1$d от %2$d</string>
+  <string name="image_recommendations_faq">ЧЗВ</string>
   <string name="wikitext_bold">Получер</string>
   <string name="wikitext_italic">Курсив</string>
   <string name="wikitext_link">Препратка</string>

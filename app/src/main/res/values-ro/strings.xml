@@ -47,6 +47,7 @@
   <string name="history_item_delete_undo">Anulează</string>
   <string name="notification_archive_undo">Anulare</string>
   <string name="app_settings">Setările din aplicație</string>
+  <string name="search_tab_tooltip">Apăsați pictograma din nou pentru a începe direct să scrieți un termen de căutare.</string>
   <string name="history_list_title">Istoric</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
@@ -58,6 +59,7 @@
   <string name="menu_page_show_tabs">Arată filele</string>
   <string name="menu_page_other_languages">Schimbă limba</string>
   <string name="menu_page_find_in_page">Găsește în articol</string>
+  <string name="menu_page_add_to_watchlist">Adaugă la urmărite</string>
   <string name="menu_page_view_talk">\nVezi pagina de discuții</string>
   <string name="menu_page_view_edit_history">Vezi istoricul editărilor</string>
   <string name="menu_page_remove_from_watchlist">Scoate de la urmărite</string>
@@ -198,6 +200,7 @@
   <string name="page_protected_can_not_edit_anon">Ne pare rău, această pagină nu poate fi editată anonim în acest moment.</string>
   <string name="page_protected_can_not_edit_title">Această pagină este protejată</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Adaugă la urmărite</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Urmăriți ce se întâmplă cu articolele de care sunteți interesat(ă). Apăsați meniul de revărsare și selectați &lt;b&gt;Adaugă la urmărite&lt;/b&gt; pentru a vedea shimbări asupra unui articol.</string>
   <string name="settings_item_preferences">Setări</string>
   <string name="settings_activity_title">Setări</string>
   <string name="about_description">Despre aplicația Wikipedia</string>
@@ -247,6 +250,7 @@
   <string name="find_previous">Găsește precedentul</string>
   <string name="find_first_occurence">Aceasta este prima întâmplare</string>
   <string name="find_last_occurence">Aceasta este ultima întâmplare</string>
+  <string name="article_opened_in_background_tab">Articolul a fost deschis într-o filă din fundal.</string>
   <string name="abusefilter_title_warn">Această modificare poate fi neconstructivă. Sigur doriți s-o salvați?</string>
   <string name="abusefilter_title_disallow">Nu puteți salva această modificare. Mergeți înapoi și schimbați-o.</string>
   <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>
@@ -388,6 +392,7 @@
   <string name="reading_list_article_already_exists_message">Toate bune! %1$s conține deja %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Toate bune! %s conține deja toate articolele.</string>
   <string name="reading_list_added_view_button">Vezi lista</string>
+  <string name="reading_list_add_to_list_button">Adaugă la listă</string>
   <string name="format_reading_list_statistical_summary_singular">1 articol, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articole, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d din 1 articole disponibile offline, %2$.2f MB</string>
@@ -412,6 +417,7 @@
   <string name="reading_list_name_hint">Numele listei</string>
   <string name="reading_list_description_hint">Descriere (opțională)</string>
   <string name="reading_list_item_deleted">%s a fost eliminat din listă</string>
+  <string name="reading_list_item_deleted_from_list">%1$s eliminat din %2$s</string>
   <string name="reading_list_items_deleted">%d articole eliminate din listă</string>
   <string name="reading_lists_item_deleted">%s eliminat din liste</string>
   <string name="reading_list_item_delete_undo">Anulează</string>
@@ -572,6 +578,7 @@
   <string name="view_top_read_card_title">Cele mai citite</string>
   <string name="view_top_read_card_action">Mai multe cele mai citite</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
   <string name="view_next_random_article">Încarcă un alt articol aleatoriu</string>
   <string name="view_main_page_card_title">Astăzi la Wikipedia</string>
   <string name="view_main_page_card_action">Vezi pagina principală</string>
@@ -647,6 +654,9 @@
   <string name="description_edit_helper_text_lowercase_warning">începe de obicei cu o literă mică</string>
   <string name="description_too_short">Textul este prea scurt.</string>
   <string name="description_ends_with_punctuation">Textul nu trebuie să se termine cu punctuație</string>
+  <string name="description_starts_with_uppercase">Începeți cu o literă mică exceptând cazul în care primul cuvânt este un substantiv propriu.</string>
+  <string name="description_starts_with_lowercase">Evitați începerea cu o literă mică.</string>
+  <string name="description_is_in_different_language">Textul pare a fi într-o limbă neașteptată. Limba ar trebui să fie %s.</string>
   <string name="description_edit_success_saved">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_snackbar">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
@@ -710,6 +720,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Descrierea imaginii (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrierea imaginii (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fișier</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Fișier de la Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etichete</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -807,12 +818,26 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
+  <string name="suggested_edits_encourage_account_creation_title">Știați că toată lumea poate edita Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Editările sugerate sunt un nou mod de a edita Wikipedia pe Android. Vă ajută să faceți contribuții mici, dar vitale la Wikipedia.\nȚelul nostru este să facem procesul de editare și mai accesibil pentru toată lumea! Autentificați-vă sau alăturați-vă Wikipediei pentru a începe.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Autentificare / alăturare Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etichetă imagine</string>
   <string name="suggested_edits_contribution_current_revision_text">Editarea dvs. este în prezent activă pe Wikipedia</string>
   <string name="suggested_card_more_edits">Mai multe editări sugerate</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Ai adăugat %d caractere</string>
+  <string name="suggested_edits_image_recommendations_task_title">Antrenați algoritmul pentru imagini</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Grozav, continuați! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Ținta zilnică atinsă! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ați atins ținta</string>
+  <string name="suggested_edits_image_recommendations_onboarding_tooltip">O nouă sarcină de la Editările Sugerate este acum disponibilă. Antrenați un algoritm pentru a potrivi imagini cu articole neilustrate.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text1">Articolele Wikipedia sunt scrise de mii de voluntari din jurul lumii. Din păcate, multor articole le lipsesc imaginile.\n\nImaginile vă vor fi sugerate utilizând un algoritm. Algoritmul va extrage imagini din alte surse și va sugera o potrivire cu un articol care nu are o imagine.\n\nFeedback-ul dvs. ne va ajuta să îmbunătățim sugestiile de-a lungul timpului. Deoarece țelul acestei sarcini este să îmbunătățire imaginilor sugerate, potrivirile pe care le faceți nu vor fi publicate în acest moment.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Ne-ar plăcea să vă recunoaștem contribuțiile la acest efort. V-ar plăcea ca numele dvs. de utilizator să fie afișat pe pagina noastră de antrenare a algoritmului?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_consent">Da, numele meu de utilizator poate fi afișat pe pagina de antrenare a algoritmului</string>
   <string name="file_page_activity_title">Pagina fișer</string>
+  <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
+  <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
   <string name="description_edit_revert_subtitle">Mulțumim pentru editarea Wikipedia!</string>
   <string name="description_edit_revert_intro">Știm că ai încercat tot posibilul, dar unul dintre recenzori avea o îndoială. Posibilele motive pentru care modificarea dvs. a fost anulată includ:</string>
   <string name="description_edit_revert_reason1">contribuția dvs. nu a respectat una dintre &lt;a href=\"%1$s\"&gt;politici&lt;/a&gt;.</string>
@@ -887,6 +912,28 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Anulează</string>
   <string name="edit_type_all">Toate contribuțiile</string>
   <string name="content_description_for_page_indicator">Pagina %1$d din %2$d</string>
+  <string name="image_recommendations_task_accept">Da</string>
+  <string name="image_recommendations_task_reject">Nu</string>
+  <string name="image_recommendations_task_not_sure">Nesigur(ă)</string>
+  <string name="image_recommendations_task_processing">Se procesează...</string>
+  <string name="image_recommendations_task_instruction">Ați adăuga această imagine articolului?</string>
+  <string name="image_recommendations_task_choice_no">De ce ați selectat nu?</string>
+  <string name="image_recommendations_task_choice_unsure">De ce nu sunteți sigur(ă) în legătură cu această imagine?</string>
+  <string name="image_recommendations_task_choice_not_relevant">Irelevantă</string>
+  <string name="image_recommendations_task_choice_low_quality">Calitate joasă</string>
+  <string name="image_recommendations_task_choice_noinfo">Insuficientă informație</string>
+  <string name="image_recommendations_task_choice_nosubject">Nu cunosc acest subiect</string>
+  <string name="image_recommendations_task_choice_offensive">Ofensivă</string>
+  <string name="image_recommendations_task_choice_invisible">Nu pot vedea imaginea</string>
+  <string name="image_recommendations_task_choice_understand">Nu înțeleg sarcina</string>
+  <string name="image_recommendations_task_choice_language">Nu pot citi limba</string>
+  <string name="image_recommendations_task_choice_other">Altceva</string>
+  <string name="image_recommendations_task_choice_continue">Continuare</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivul sugerării:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">FAQ</string>
+  <string name="image_recommendations_tooltip1">Revizuiți acest articol pentru a îi înțelege subiectul.</string>
+  <string name="image_recommendations_tooltip2">Inspectați imaginea și informațiile asociate ei.</string>
+  <string name="image_recommendations_tooltip3">Decideți dacă imaginea va ajuta cititorii să înțeleagă mai bine acest subiect.</string>
   <string name="wikitext_bold">Aldin</string>
   <string name="wikitext_italic">Cursiv</string>
   <string name="wikitext_link">Legătură</string>
@@ -901,6 +948,7 @@
   <string name="main_tooltip_text_v2">Știați că toată lumea poate edita Wikipedia?</string>
   <string name="main_tooltip_action_button">Începe</string>
   <string name="main_tooltip_watchlist_title">Pagini urmărite</string>
+  <string name="main_tooltip_watchlist_text">Găsiți articole și pagini pe care le-ați adăugat anterior la lista de urmărire a dvs. în meniul Mai mult de sub &lt;b&gt;Pagini urmărite&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Anulează</string>
@@ -917,6 +965,9 @@
   <string name="talk_message_empty">Mesajul nu poate fi gol.</string>
   <string name="talk_subject_empty">Subiectul nu poate fi gol.</string>
   <string name="menu_option_share_edit">Distribuie editul</string>
+  <string name="menu_option_user_profile">Profilul lui %s</string>
+  <string name="menu_option_user_contributions">Contribuțiile lui %s</string>
+  <string name="watchlist_details_watching_label">Urmărire</string>
   <string name="watchlist_details_watch_label">Urmăriți</string>
   <string name="thank_label">Mulțumiți</string>
   <string name="go_to_user_page">Du-te la pagina de utilizator</string>
@@ -924,12 +975,15 @@
   <string name="thank_dialog_text">„Mulțumirile” sunt o modalitate ușoară de a arăta aprecieri pentru munca unui editor pe Wikipedia. „Mulțumirile” nu pot fi anulate și pot fi vizualizate public.</string>
   <string name="thank_dialog_positive_button_text">Trimite mulțumesc</string>
   <string name="thank_dialog_negative_button_text">Anulează</string>
+  <string name="thank_success_message">Mulțumirea dvs. a fost trimisă către %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s și pagina de discuție a sa au fost adăugate la lista de urmărire a dvs. %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Schimbă</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">pentru 1 săptămână</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pentru 1 lună</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pentru 3 luni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pentru 6 luni</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar" fuzzy="true">%s și pagina de discuție a sa au fost eliminate din lista de urmărire a dvs.</string>
   <string name="watchlist_expiry_dialog_title">Selectați perioada pentru lista de urmărire</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 săptămână</string>

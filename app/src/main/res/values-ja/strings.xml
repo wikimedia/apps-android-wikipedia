@@ -950,7 +950,6 @@
   <string name="image_recommendations_task_reject">いいえ</string>
   <string name="image_recommendations_task_not_sure">不確実</string>
   <string name="image_recommendations_task_processing">処理中...</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_choice_low_quality">低クオリティ</string>
   <string name="image_recommendations_task_choice_noinfo">情報が不足しています</string>
   <string name="image_recommendations_task_choice_offensive">攻撃的</string>
