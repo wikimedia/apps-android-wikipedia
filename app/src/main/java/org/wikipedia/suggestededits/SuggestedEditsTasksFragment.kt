@@ -417,6 +417,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
+        ImageRecsFragment.updateDailyCount()
         imageRecommendationsTask = SuggestedEditsTask()
         imageRecommendationsTask.title = getString(R.string.suggested_edits_image_recommendations_task_title)
         imageRecommendationsTask.description = getString(R.string.suggested_edits_image_recommendations_task_detail)
