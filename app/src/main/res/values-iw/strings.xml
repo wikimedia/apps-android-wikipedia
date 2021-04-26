@@ -19,6 +19,7 @@
 * Strayblues
 * YaronSh
 * בנימין
+* דגש
 * דגש חזק
 * המקיסט
 -->
@@ -1007,7 +1008,7 @@
   <string name="image_recommendations_task_reject">לא</string>
   <string name="image_recommendations_task_not_sure">לא בטוח</string>
   <string name="image_recommendations_task_processing">עיבוד...</string>
-  <string name="image_recommendations_task_daily_amount">%d מתוך %d</string>
+  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">האם להוסיף את התמונה הזאת לערך?</string>
   <string name="image_recommendations_task_choice_no">למה בחרת לא?</string>
   <string name="image_recommendations_task_choice_unsure">מה לא בטוח בקשר לתמונה הזאת?</string>

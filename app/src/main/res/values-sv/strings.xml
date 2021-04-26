@@ -677,6 +677,7 @@
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
   <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
+  <string name="description_starts_with_lowercase">Undvik att börja med en liten bokstav.</string>
   <string name="description_is_in_different_language">Texten verkar vara på ett oväntat språk. Språket bör vara %s.</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
@@ -950,7 +951,6 @@
   <string name="image_recommendations_task_reject">Nej</string>
   <string name="image_recommendations_task_not_sure">Osäker</string>
   <string name="image_recommendations_task_processing">Bearbetar...</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">Skulle du lägga till den här bilden i artikeln?</string>
   <string name="image_recommendations_task_choice_no">Varför valde du nej?</string>
   <string name="image_recommendations_task_choice_unsure">Varför är du osäker på den här bilden?</string>

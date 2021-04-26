@@ -128,8 +128,8 @@ import static org.hamcrest.Matchers.nullValue;
 
     @Test public void testColonChar() {
         PageTitle pageTitle = new PageTitle(":", WikiSite.forLanguageCode("en"));
-        assertThat(pageTitle.getNamespace(), is(""));
-        assertThat(pageTitle.getText(), is(""));
+        assertThat(pageTitle.getNamespace(), nullValue());
+        assertThat(pageTitle.getText(), is(":"));
         assertThat(pageTitle.getFragment(), nullValue());
     }
 }
