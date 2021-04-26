@@ -273,14 +273,9 @@ public class PageTitle implements Parcelable {
     public PageTitle pageTitleForTalkPage() {
         String talkNamespace = namespace().user() || namespace().userTalk()
                 ? UserTalkAliasData.valueFor(wiki.languageCode()) : TalkAliasData.valueFor(wiki.languageCode());
-
         PageTitle pageTitle = new PageTitle(talkNamespace, (namespace().userTalk() || namespace().user())
-                ? StringUtil.removeNamespace(getPrefixedText()) : getPrefixedText(), wiki);
-        if (namespace().userTalk() || namespace().user()) {
-            pageTitle.setDisplayText(StringUtil.removeUnderscores(talkNamespace) + ":" + StringUtil.removeNamespace(getDisplayText()));
-        } else {
-            pageTitle.setDisplayText(talkNamespace + ":" + getDisplayText());
-        }
+                ? StringUtil.removeNamespace(getPrefixedText()) : getText(), wiki);
+        pageTitle.setDisplayText(talkNamespace + ":" + StringUtil.removeNamespace(getDisplayText()));
         return pageTitle;
     }
 
