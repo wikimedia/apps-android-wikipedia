@@ -151,7 +151,7 @@ public class PageTitle implements Parcelable {
                 this.namespace = null;
                 this.wiki = new WikiSite(wiki.authority(), namespaceOrLanguage);
                 this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
-            } else if (parts[1].length() > 0 && !Character.isWhitespace(parts[1].charAt(0)) && (parts[1].charAt(0) != '_')) {
+            } else if (parts[1].length() > 0 && !Character.isWhitespace(parts[1].charAt(0)) && parts[1].charAt(0) != '_') {
                 this.wiki = wiki;
                 this.namespace = namespaceOrLanguage;
                 this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
