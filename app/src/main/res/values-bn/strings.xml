@@ -38,6 +38,7 @@
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_voice_search">কথা দ্বারা অনুসন্ধান</string>
   <string name="search_hint_search_languages">ভাষার জন্য অনুসন্ধান</string>
+  <string name="filter_hint_filter_my_lists_and_articles">আমার তালিকা ছাঁকুন</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">আরও</string>
   <string name="nav_item_search">অনুসন্ধান</string>
@@ -55,6 +56,7 @@
   <string name="history_item_delete_undo">পূর্বাবস্থা</string>
   <string name="notification_archive_undo">পূর্বাবস্থায় ফেরান</string>
   <string name="app_settings">অ্যাপ সেটিং</string>
+  <string name="search_tab_tooltip">সরাসরি অনুসন্ধানের শব্দ টাইপ করা শুরু করতে আইকনটিতে আবার টিপ দিন।</string>
   <string name="history_list_title">ইতিহাস</string>
   <string name="dialog_title_clear_history">ব্রাউজ করার ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার ব্রাউজ করা সব ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
@@ -328,8 +330,11 @@
   <string name="page_offline_notice_add_to_reading_list">ইঙ্গিত: নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
+  <string name="preference_title_customize_explore_feed">অন্বেষণ ফিড</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
+  <string name="preference_summary_customize_explore_feed">অন্বেষণ ফিড স্বনির্ধারণ করুন</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
+  <string name="preference_title_collapse_tables">টেবিল সংকোচন</string>
   <string name="nav_item_donate">দান করুন</string>
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ শনাক্তকরণ উপলব্ধ নয়।</string>
   <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
@@ -529,6 +534,7 @@
   <string name="feed_item_type_featured_image">উইকিমিডিয়া কমন্স থেকে প্রতিদিনের নির্বাচিত চিত্র</string>
   <string name="feed_item_type_main_page">দৈনিক নির্বাচিত বিষয়বস্তুসহ উইকিপিডিয়ার প্রধান পাতা</string>
   <string name="feed_item_type_randomizer">পড়ার জন্য অনির্ধারিত প্রবন্ধ বের করুন</string>
+  <string name="feed_empty_message">আপনার অন্বেষণ ফিডে আর কিছু নেই</string>
   <string name="feed_configure_onboarding_action">পছন্দকরণ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ঠিক আছে</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">বাতিল</string>
