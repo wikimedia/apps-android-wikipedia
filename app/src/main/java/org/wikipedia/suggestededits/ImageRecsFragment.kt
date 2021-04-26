@@ -139,7 +139,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         binding.readMoreButton.setOnClickListener {
             val title = PageTitle(recommendation!!.pageTitle, WikipediaApp.getInstance().wikiSite)
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title))
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
         }
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
