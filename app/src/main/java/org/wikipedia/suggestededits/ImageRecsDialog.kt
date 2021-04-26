@@ -53,7 +53,7 @@ class ImageRecsDialog : DialogFragment() {
             if (binding.checkBox4.isChecked) { itemList.add(3) }
             if (binding.checkBox5.isChecked) { itemList.add(4) }
             if (binding.checkBox6.isChecked) { itemList.add(5) }
-            if (binding.checkBox7.isChecked) { itemList.add(5) }
+            if (binding.checkBox7.isChecked) { itemList.add(6) }
 
             callback()?.onDialogSubmit(responseCode, itemList)
             dismiss()
