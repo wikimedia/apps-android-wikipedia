@@ -983,7 +983,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pentru 1 lună</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pentru 3 luni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pentru 6 luni</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar" fuzzy="true">%1$s și pagina de discuție a sa au fost eliminate din lista de urmărire a dvs.</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar" fuzzy="true">%s și pagina de discuție a sa au fost eliminate din lista de urmărire a dvs.</string>
   <string name="watchlist_expiry_dialog_title">Selectați perioada pentru lista de urmărire</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 săptămână</string>
