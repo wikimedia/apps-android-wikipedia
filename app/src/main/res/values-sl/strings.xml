@@ -1030,7 +1030,7 @@
   <string name="watchlist_details_watching_label">Spremlja</string>
   <string name="watchlist_details_watch_label">Spremljaj</string>
   <string name="thank_label">Zahvali se</string>
-  <string name="go_to_user_page">Pojdite na uporabniško stran</string>
+  <string name="go_to_user_page">Pojdi na uporabniško stran</string>
   <string name="thank_dialog_title_text">Javno se zahvalite</string>
   <string name="thank_dialog_text">Zahvale so preprost način za izražanje priznanja za delo urejevalca v Wikipediji. Zahval ni mogoče razveljaviti in so javno razvidne.</string>
   <string name="thank_dialog_positive_button_text">Pošlji zahvalo</string>
