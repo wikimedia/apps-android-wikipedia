@@ -447,9 +447,14 @@
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
   <string name="reading_list_item_deleted">%s poistettu listasta</string>
+  <string name="reading_list_item_deleted_from_list">%1$s poistettu listasta %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artikkeli poistettu listalta</item>
     <item quantity="other">%d artikkelia poistettu listalta</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d artikkeli poistettu lukulistalta %s</item>
+    <item quantity="other">%d artikkelia poistettu lukulistalta %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artikkelia poistettu listasta</string>
   <string name="reading_lists_item_deleted">%s poistettu listoista</string>
@@ -999,6 +1004,7 @@
   <string name="menu_option_share_edit">Jaa muokkaus</string>
   <string name="menu_option_user_profile">Käyttäjän %s profiili</string>
   <string name="menu_option_user_contributions">Käyttäjän %s muokkaukset</string>
+  <string name="watchlist_details_watching_label">Tarkkailemassa</string>
   <string name="watchlist_details_watch_label">Tarkkaile</string>
   <string name="thank_label">Kiitä</string>
   <string name="go_to_user_page">Siirry käyttäjäsivulle</string>
