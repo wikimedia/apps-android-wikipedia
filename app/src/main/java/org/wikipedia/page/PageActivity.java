@@ -196,7 +196,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         tabsButton.setColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_de_emphasised_color));
         FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
         tabsButton.updateTabCount(false);
-        maybeShowWatchlistTooltip();
 
         toolbarHideHandler = new ViewHideHandler(toolbarContainerView, null, Gravity.TOP);
 
@@ -521,6 +520,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageLoadComplete() {
         removeTransitionAnimState();
+        maybeShowWatchlistTooltip();
     }
 
     private void removeTransitionAnimState() {
@@ -878,8 +878,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowWatchlistTooltip() {
-        // TODO remove feature flag when ready
-        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()) {
+        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn()
+                && pageFragment.getHistoryEntry() != null
+                && pageFragment.getHistoryEntry().getSource() != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
             overflowButton.postDelayed(() -> {
                 if (isDestroyed()) {
                     return;
