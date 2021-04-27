@@ -10,6 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikiErrorBinding
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
@@ -29,7 +30,7 @@ class WikiErrorView : LinearLayout {
         val errorType = getErrorType(caught)
         binding.viewWikiErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
         if (caught is MwException) {
-            binding.viewWikiErrorText.text = caught.message
+            binding.viewWikiErrorText.text = StringUtil.fromHtml(caught.message)
         } else {
             binding.viewWikiErrorText.text = resources.getString(errorType.text)
         }

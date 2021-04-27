@@ -14,6 +14,7 @@ import java.util.List;
 public class MwServiceError implements ServiceError {
     @SuppressWarnings("unused") @Nullable private String code;
     @SuppressWarnings("unused") @Nullable private String text;
+    @SuppressWarnings("unused") @Nullable private String html;
     @SuppressWarnings("unused") @Nullable private Data data;
 
     @Override @NonNull public String getTitle() {
@@ -21,7 +22,7 @@ public class MwServiceError implements ServiceError {
     }
 
     @Override @NonNull public String getDetails() {
-        return StringUtils.defaultString(text);
+        return StringUtils.defaultString(html);
     }
 
     public boolean badToken() {
