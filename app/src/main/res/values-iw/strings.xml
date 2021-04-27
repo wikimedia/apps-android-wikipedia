@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Amire80
+* Cooltey
 * Dbrant
 * Deborahjay
 * Envlh
@@ -18,6 +19,7 @@
 * Strayblues
 * YaronSh
 * בנימין
+* דגש
 * דגש חזק
 * המקיסט
 -->
@@ -290,7 +292,7 @@
   <string name="dialog_title_download_only_over_wifi">לאשר הורדה בנתונים ניידים?</string>
   <string name="dialog_text_download_only_over_wifi">הפעלת את האפשרות \"להוריד רק בווייפיי\". האם לאפשר את השימוש בנתונים ניידים רק עבור ההורדה הזאת?</string>
   <string name="dialog_title_download_only_over_wifi_allow">לאפשר</string>
-  <string name="read_more_section">לקרוא עוד</string>
+  <string name="read_more_section">מידע נוסף</string>
   <string name="about_article_section">מידע על הערך הזה</string>
   <string name="menu_gallery_visit_image_page">ללכת לדף הקובץ</string>
   <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
@@ -448,11 +450,18 @@
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
   <string name="reading_list_item_deleted">%s הוסר מהרשימה</string>
+  <string name="reading_list_item_deleted_from_list">הערך %1$s הוסר מהרשימה %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">ערך אחד הוסר מהרשימה</item>
     <item quantity="two">%d ערכים הוסרו מהרשימה</item>
     <item quantity="many">%d ערכים הוסרו מהרשימה</item>
     <item quantity="other">%d ערכים הוסרו מהרשימה</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">ערך אחד הוסר מהרשימה %s</item>
+    <item quantity="two">שני ערכים הוסרו מהרשימה %s</item>
+    <item quantity="many">%d ערכים הוסרו מהרשימה %s</item>
+    <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d ערכים הוסרו מהרשימה</string>
   <string name="reading_lists_item_deleted">%s הוסר מהרשימות</string>
@@ -703,6 +712,7 @@
   <string name="description_too_short">הטקסט קצר מדי.</string>
   <string name="description_ends_with_punctuation">הטקסט לא צריך להסתיים בסימן פיסוק</string>
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
+  <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
   <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי צפויה. השפה אמורה להיות %s.</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
@@ -768,6 +778,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">כיתוב התמונה (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">תיאור התמונה (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">קובץ</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">קובץ מוויקישיתוף</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
   <string name="suggested_edits_image_preview_dialog_tags">תגיות</string>
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
@@ -997,7 +1008,7 @@
   <string name="image_recommendations_task_reject">לא</string>
   <string name="image_recommendations_task_not_sure">לא בטוח</string>
   <string name="image_recommendations_task_processing">עיבוד...</string>
-  <string name="image_recommendations_task_daily_amount">%d מתוך %d</string>
+  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">האם להוסיף את התמונה הזאת לערך?</string>
   <string name="image_recommendations_task_choice_no">למה בחרת לא?</string>
   <string name="image_recommendations_task_choice_unsure">מה לא בטוח בקשר לתמונה הזאת?</string>
@@ -1008,9 +1019,14 @@
   <string name="image_recommendations_task_choice_offensive">פוגענית</string>
   <string name="image_recommendations_task_choice_invisible">לא יכולתי לראות את התמונה</string>
   <string name="image_recommendations_task_choice_understand">לא הבנתי את המשימה</string>
+  <string name="image_recommendations_task_choice_language">לא הצלחתי לקרוא בשפה הזאת</string>
   <string name="image_recommendations_task_choice_other">משהו אחר</string>
   <string name="image_recommendations_task_choice_continue">למהשיך</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;סיבת ההצעה:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;סיבת ההצעה:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">שו\"ת</string>
+  <string name="image_recommendations_tooltip1">לקרוא את הערך הזה כדי להבין את הנושא שלו.</string>
+  <string name="image_recommendations_tooltip2">להסתכל על התמונה ועל המידע שקשור אליה.</string>
+  <string name="image_recommendations_tooltip3">להחליט אם התמונה תעזור לקוראים להבין את הנושא טוב יותר.</string>
   <string name="wikitext_bold">בולט</string>
   <string name="wikitext_italic">נטוי</string>
   <string name="wikitext_link">קישור</string>

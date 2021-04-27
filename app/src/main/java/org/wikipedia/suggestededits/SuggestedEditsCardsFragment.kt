@@ -9,6 +9,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -33,7 +34,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
+class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callback {
     private var _binding: FragmentSuggestedEditsCardsBinding? = null
     private val binding get() = _binding!!
 
@@ -410,10 +411,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     companion object {
         fun newInstance(action: DescriptionEditActivity.Action, invokeSource: InvokeSource): SuggestedEditsCardsFragment {
             val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
-            val args = Bundle()
-            args.putSerializable(INTENT_EXTRA_ACTION, action)
-            args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-            addTitleDescriptionsFragment.arguments = args
+            addTitleDescriptionsFragment.arguments = bundleOf(INTENT_EXTRA_ACTION to action,
+                    INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             return addTitleDescriptionsFragment
         }
     }

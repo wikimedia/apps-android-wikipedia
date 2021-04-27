@@ -378,8 +378,14 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         }
 
         @Override
+        @NonNull
         public WikiSite getWikiSite() {
             return model.getTitle().getWikiSite();
+        }
+
+        @Override
+        public void setWikiSite(@NonNull WikiSite wikiSite) {
+            // ignore
         }
     }
 }

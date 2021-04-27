@@ -26,6 +26,7 @@
 * Qiyue2001
 * Shizhao
 * Shuiwater
+* Si109
 * SinonJZH
 * SomeyaMako
 * TianyinLee
@@ -36,6 +37,7 @@
 * XinuGod
 * Xiplus
 * Xxoopiggy
+* Xzonn
 * Yfdyh000
 * Ywang
 * Zjzengdongyang
@@ -737,6 +739,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">图片说明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">图片描述（%s）</string>
   <string name="suggested_edits_image_preview_dialog_image">文件</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">来自维基共享资源的文件</string>
   <string name="suggested_edits_image_preview_dialog_artist">艺术家</string>
   <string name="suggested_edits_image_preview_dialog_tags">标签</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>
@@ -848,6 +851,7 @@
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="other">您添加了 %d 个字符</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_get_started">开始</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图片说明</string>
   <string name="file_page_add_image_tags_button">添加图片标签</string>
@@ -921,6 +925,11 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
   <string name="edit_type_all">所有贡献</string>
   <string name="content_description_for_page_indicator">第%1$d页，共%2$d页</string>
+  <string name="image_recommendations_task_accept">是</string>
+  <string name="image_recommendations_task_reject">否</string>
+  <string name="image_recommendations_task_processing">进行中。。。</string>
+  <string name="image_recommendations_task_choice_other">其他</string>
+  <string name="image_recommendations_task_choice_continue">继续</string>
   <string name="wikitext_bold">粗体</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">链接</string>

@@ -3,6 +3,7 @@
 * Alex00728
 * Bluemersen
 * Codenstory
+* Cooltey
 * Dbrant
 * Doyoon1995
 * Eduardo Addad de Oliveira
@@ -736,6 +737,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">파일</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">위키미디어 공용의 파일</string>
   <string name="suggested_edits_image_preview_dialog_artist">아티스트</string>
   <string name="suggested_edits_image_preview_dialog_tags">태그</string>
   <string name="suggested_edits_image_preview_dialog_date">날짜</string>
@@ -933,7 +935,6 @@
   <string name="image_recommendations_task_reject">아니오</string>
   <string name="image_recommendations_task_not_sure">확실치 않음</string>
   <string name="image_recommendations_task_processing">처리 중...</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">이 이미지를 문서에 추가하시겠습니까?</string>
   <string name="image_recommendations_task_choice_no">왜 아니오를 선택하셨습니까?</string>
   <string name="image_recommendations_task_choice_unsure">이 이미지가 왜 확실치 않으십니까?</string>
@@ -944,9 +945,12 @@
   <string name="image_recommendations_task_choice_offensive">불쾌함</string>
   <string name="image_recommendations_task_choice_invisible">이미지를 볼 수 없음</string>
   <string name="image_recommendations_task_choice_understand">작업을 이해하지 못함</string>
+  <string name="image_recommendations_task_choice_language">언어를 읽을 수 없습니다</string>
   <string name="image_recommendations_task_choice_other">기타</string>
   <string name="image_recommendations_task_choice_continue">계속</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;제안 이유:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;제안 이유:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">FAQ</string>
+  <string name="image_recommendations_tooltip1">주제 이해를 위해 이 문서를 검토합니다.</string>
   <string name="wikitext_bold">굵게</string>
   <string name="wikitext_italic">기울임꼴</string>
   <string name="wikitext_link">링크</string>

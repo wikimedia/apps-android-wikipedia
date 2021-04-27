@@ -438,9 +438,14 @@
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
   <string name="reading_list_item_deleted">%s togs bort från listan</string>
+  <string name="reading_list_item_deleted_from_list">%1$s togs bort från %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artikel togs bort från listan</item>
     <item quantity="other">%d artiklar togs bort från listan</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d artikel togs bort från %s</item>
+    <item quantity="other">%d artiklar togs bort från %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_lists_item_deleted">%s togs bort från listan</string>
@@ -672,6 +677,7 @@
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
   <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
+  <string name="description_starts_with_lowercase">Undvik att börja med en liten bokstav.</string>
   <string name="description_is_in_different_language">Texten verkar vara på ett oväntat språk. Språket bör vara %s.</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
@@ -735,6 +741,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeskrivning (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Fil från Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Konstnär</string>
   <string name="suggested_edits_image_preview_dialog_tags">Taggar</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
@@ -944,7 +951,6 @@
   <string name="image_recommendations_task_reject">Nej</string>
   <string name="image_recommendations_task_not_sure">Osäker</string>
   <string name="image_recommendations_task_processing">Bearbetar...</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">Skulle du lägga till den här bilden i artikeln?</string>
   <string name="image_recommendations_task_choice_no">Varför valde du nej?</string>
   <string name="image_recommendations_task_choice_unsure">Varför är du osäker på den här bilden?</string>
@@ -955,9 +961,14 @@
   <string name="image_recommendations_task_choice_offensive">Stötande</string>
   <string name="image_recommendations_task_choice_invisible">Kan inte se bilden</string>
   <string name="image_recommendations_task_choice_understand">Förstår inte uppgiften</string>
+  <string name="image_recommendations_task_choice_language">Kan inte läsa språket</string>
   <string name="image_recommendations_task_choice_other">Övrigt</string>
   <string name="image_recommendations_task_choice_continue">Fortsätt</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Förslagsorsak:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Förslagsorsak:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">Vanliga frågor</string>
+  <string name="image_recommendations_tooltip1">Granska denna artikel för att förstå dess ämne.</string>
+  <string name="image_recommendations_tooltip2">Inspektera bilden och dess associerade information.</string>
+  <string name="image_recommendations_tooltip3">Avgör om bilden kommer hjälpa läsarna att förstå detta ämne bättre.</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Länk</string>

@@ -2,6 +2,7 @@ package org.wikipedia.settings
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.core.content.withStyledAttributes
 import org.wikipedia.R
 
 open class LongPreference @JvmOverloads constructor(context: Context,
@@ -11,13 +12,15 @@ open class LongPreference @JvmOverloads constructor(context: Context,
         EditTextAutoSummarizePreference(context, attrs, defStyleAttr, defStyleRes) {
 
     private var radix = DEFAULT_RADIX
-    var summaryFormat: String? = DEFAULT_SUMMARY_FORMAT
+    var summaryFormat: String = DEFAULT_SUMMARY_FORMAT
 
     init {
-        val array = context.obtainStyledAttributes(attrs, R.styleable.LongPreference)
-        radix = array.getInteger(R.styleable.LongPreference_radix, DEFAULT_RADIX)
-        summaryFormat = array.getString(R.styleable.LongPreference_summaryFormat).toString().ifEmpty { DEFAULT_SUMMARY_FORMAT }
-        array.recycle()
+        context.withStyledAttributes(attrs, R.styleable.LongPreference) {
+            radix = getInteger(R.styleable.LongPreference_radix, DEFAULT_RADIX)
+            summaryFormat = getString(R.styleable.LongPreference_summaryFormat).let {
+                if (it.isNullOrEmpty()) DEFAULT_SUMMARY_FORMAT else it
+            }
+        }
     }
 
     override fun getPersistedString(defaultRadixValue: String?): String {
@@ -47,7 +50,7 @@ open class LongPreference @JvmOverloads constructor(context: Context,
     }
 
     private fun longToSummary(value: Long): String {
-        return String.format(summaryFormat.orEmpty(), value)
+        return String.format(summaryFormat, value)
     }
 
     companion object {

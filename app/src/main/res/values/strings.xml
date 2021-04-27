@@ -441,9 +441,14 @@
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
+    <string name="reading_list_item_deleted_from_list">%1$s removed from %2$s</string>
     <plurals name="reading_list_articles_deleted">
         <item quantity="one">%d article removed from list</item>
         <item quantity="other">%d articles removed from list</item>
+    </plurals>
+    <plurals name="reading_list_articles_deleted_from_list">
+        <item quantity="one">%d article removed from %s</item>
+        <item quantity="other">%d articles removed from %s</item>
     </plurals>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
@@ -690,6 +695,7 @@
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
     <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
+    <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
     <!-- /Description editing -->
 
@@ -762,6 +768,7 @@
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
     <string name="suggested_edits_image_preview_dialog_image">Image</string>
+    <string name="suggested_edits_image_preview_dialog_file_commons">File from Wikimedia Commons</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
     <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
     <string name="suggested_edits_image_preview_dialog_date">Date</string>
@@ -1000,7 +1007,7 @@
     <string name="image_recommendations_task_reject">No</string>
     <string name="image_recommendations_task_not_sure">Not sure</string>
     <string name="image_recommendations_task_processing">Processing…</string>
-    <string name="image_recommendations_task_daily_amount">%d / %d</string>
+    <string name="image_recommendations_task_daily_amount">%d/%d</string>
     <string name="image_recommendations_task_instruction">Would you add this image to the article?</string>
     <string name="image_recommendations_task_choice_no">Why did you select no?</string>
     <string name="image_recommendations_task_choice_unsure">Why are you not sure about this image?</string>
@@ -1011,9 +1018,14 @@
     <string name="image_recommendations_task_choice_offensive">Offensive</string>
     <string name="image_recommendations_task_choice_invisible">Can\'t see image</string>
     <string name="image_recommendations_task_choice_understand">Don\'t understand the task</string>
+    <string name="image_recommendations_task_choice_language">Cannot read the language</string>
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
-    <string name="image_recommendations_task_suggestion_reason"><![CDATA[<i>Suggestion reason:</i> %s]]></string>
+    <string name="image_recommendations_task_suggestion_reason"><![CDATA[<b>Suggestion reason:</b> %s]]></string>
+    <string name="image_recommendations_faq">FAQ</string>
+    <string name="image_recommendations_tooltip1">Review this article to understand its topic.</string>
+    <string name="image_recommendations_tooltip2">Inspect the image and its associated information.</string>
+    <string name="image_recommendations_tooltip3">Decide if the image will help readers better understand this topic.</string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>

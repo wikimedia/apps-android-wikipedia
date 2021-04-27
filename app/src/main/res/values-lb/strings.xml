@@ -668,6 +668,7 @@
   <string name="image_recommendations_task_choice_low_quality">Schlecht Qualitéit</string>
   <string name="image_recommendations_task_choice_noinfo">Net genuch Informatiounen</string>
   <string name="image_recommendations_task_choice_offensive">Offensiv</string>
+  <string name="image_recommendations_task_choice_language">Kann d\'Sprooch net liesen</string>
   <string name="image_recommendations_task_choice_other">Anerer</string>
   <string name="image_recommendations_task_choice_continue">Virufueren</string>
   <string name="wikitext_bold">Fett</string>

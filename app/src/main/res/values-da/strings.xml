@@ -60,6 +60,7 @@
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Find i artiklen</string>
+  <string name="menu_page_add_to_watchlist">Tilføj til overvågningsliste</string>
   <string name="edit_section_find_in_page">Søg på siden</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
   <string name="menu_page_add_to_list">Tilføj til læseliste</string>
@@ -196,6 +197,7 @@
   <string name="page_protected_can_not_edit">Beklager, din konto har ikke tilstrækkelige rettigheder til at redigere denne side på dette tidspunkt.</string>
   <string name="page_protected_can_not_edit_anon">Beklager, denne side kan ikke redigeres anonymt på dette tidspunkt.</string>
   <string name="page_protected_can_not_edit_title">Denne side er beskyttet</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tilføj til overvågningsliste</string>
   <string name="settings_item_preferences">Indstillinger</string>
   <string name="settings_activity_title">Indstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -211,6 +213,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
@@ -386,6 +389,7 @@
   <string name="text_size_decrease">Sænk tekststørrelse</string>
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="text_style_title">Skrifttype</string>
+  <string name="nav_item_saved">Gemt</string>
   <string name="reading_list_save_to">Gem til læseliste</string>
   <string name="reading_list_move_to">Flyt til læseliste</string>
   <string name="reading_list_create_new">Opret ny</string>
@@ -429,6 +433,7 @@
   <string name="reading_list_name_hint">Navn på denne liste</string>
   <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
   <string name="reading_list_item_deleted">%s fjernet fra listen</string>
+  <string name="reading_list_item_deleted_from_list">%1$s fjernet fra %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artikel fjernet fra listen</item>
     <item quantity="other">%d artikler fjernet fra listen</item>
@@ -725,6 +730,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Billedtekst (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Billedebeskrivelse (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Fil fra Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Kunstner</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
@@ -777,6 +783,7 @@
   <string name="suggested_edits_contribution_image_label">Billede</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_seen_text">Set %s gange de sidste 30 dage.</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
   <string name="suggested_edits_encourage_account_creation_title">Vidste du at gud og hver mand kan redigere Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log på / registrer dig på Wikipedia</string>
@@ -824,6 +831,7 @@
     <item quantity="one">Sidste år</item>
     <item quantity="other">%d år siden</item>
   </plurals>
+  <string name="on_this_day_back_to_future">Tilbage til fremtiden</string>
   <string name="languages_list_activity_title">Tilføj et sprog</string>
   <string name="languages_list_suggested_text">Anbefalet</string>
   <string name="languages_list_all_text">Alle sprog</string>
@@ -855,6 +863,19 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
   <string name="edit_type_all">Alle bidrag</string>
   <string name="content_description_for_page_indicator">Side %1$d af %2$d</string>
+  <string name="image_recommendations_task_accept">Ja</string>
+  <string name="image_recommendations_task_reject">Nej</string>
+  <string name="image_recommendations_task_not_sure">Ikke sikker</string>
+  <string name="image_recommendations_task_choice_no">Hvorfor valgte du nej?</string>
+  <string name="image_recommendations_task_choice_not_relevant">Ikke relevant</string>
+  <string name="image_recommendations_task_choice_low_quality">Lav kvalitet</string>
+  <string name="image_recommendations_task_choice_nosubject">Kender ikke til stoffet</string>
+  <string name="image_recommendations_task_choice_offensive">Stødende</string>
+  <string name="image_recommendations_task_choice_invisible">Kan ikke se billedet</string>
+  <string name="image_recommendations_task_choice_understand">Forstår ikke opgaven</string>
+  <string name="image_recommendations_task_choice_language">Kan ikke læse sproget</string>
+  <string name="image_recommendations_task_choice_other">Andet</string>
+  <string name="image_recommendations_task_choice_continue">Fortsæt</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>
@@ -868,6 +889,7 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annullér</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Annullér</string>
+  <string name="talk_title">Diskussion</string>
   <string name="talk_new_topic">Nyt emne</string>
   <string name="talk_page_empty">Diskussionssiden er tom.</string>
   <string name="talk_add_reply">Svar</string>
@@ -876,6 +898,7 @@
   <string name="menu_option_share_edit">Del redigering</string>
   <string name="thank_label">Tak</string>
   <string name="go_to_user_page">Gå til brugerside</string>
+  <string name="thank_dialog_positive_button_text">Send tak</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 uge</string>

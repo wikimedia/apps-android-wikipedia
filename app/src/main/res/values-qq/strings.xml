@@ -454,9 +454,14 @@
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
+  <string name="reading_list_item_deleted_from_list">Message shown when an article is removed from a reading list. The \"%1$s\" symbol is replaced with the name of the article.The \"%2$s\" symbol is replaced with the name of the list.</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">Message shown when one article is removed from a reading list.</item>
     <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">Message shown when one article is removed from a reading list.The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.The \"%s\" symbol is replaced with the reading list name.</item>
   </plurals>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
@@ -688,6 +693,7 @@
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
   <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
   <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
+  <string name="description_starts_with_lowercase">Warning text shown when a description starts with a lowercase character.</string>
   <string name="description_is_in_different_language">Warning message shown to users when their editing language is different form their keyboard language.%s represents the expected language.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
@@ -751,6 +757,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_image_preview_dialog_image">Label for image file name on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Label for a file that originates from Wikimedia Commons.</string>
   <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_tags">Label for image tags detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
@@ -954,7 +961,7 @@
   <string name="image_recommendations_task_reject">Button label for rejecting the recommended image.</string>
   <string name="image_recommendations_task_not_sure">Button label for being unsure about the current image recommendation.</string>
   <string name="image_recommendations_task_processing">Label shown when the current recommendation is being processed.</string>
-  <string name="image_recommendations_task_daily_amount">Label that shows the number of tasks that the user completed (the first %d symbol)), out of a total amount (the second %d symbol).</string>
+  <string name="image_recommendations_task_daily_amount">{{Optional}}\n\nLabel that shows the number of tasks that the user completed (the first %d symbol)), out of a total amount (the second %d symbol). This message must have no spaces.</string>
   <string name="image_recommendations_task_instruction">Question asked for the user to evaluate the current image recommendation.</string>
   <string name="image_recommendations_task_choice_no">Follow-up question asked when the user rejects the recommendation.</string>
   <string name="image_recommendations_task_choice_unsure">Follow-up question asked when the user is unsure about the recommendation.</string>
@@ -965,9 +972,14 @@
   <string name="image_recommendations_task_choice_offensive">Checkbox label selected if the current image recommendation is offensive.</string>
   <string name="image_recommendations_task_choice_invisible">Checkbox label selected if the user is unable to see the current image recommendation.</string>
   <string name="image_recommendations_task_choice_understand">Checkbox label selected if the user does not understand the task itself.</string>
+  <string name="image_recommendations_task_choice_language">Checkbox label selected if the user cannot read the language in which the image recommendation is presented.</string>
   <string name="image_recommendations_task_choice_other">Checkbox label selected if the user cannot evaluate the current image recommendation for another reason.</string>
   <string name="image_recommendations_task_choice_continue">Button label for continuing with the current selection(s).</string>
   <string name="image_recommendations_task_suggestion_reason">Label that shows the reason that this image is being suggested for the current article. The %s is replaced with the reason.</string>
+  <string name="image_recommendations_faq">Menu item label for navigating to the FAQ page for this feature.</string>
+  <string name="image_recommendations_tooltip1">Tooltip that instructs the user to skim some of the article content before evaluating the image recommendation.</string>
+  <string name="image_recommendations_tooltip2">Tooltip that instructs the user to look at the recommended image for the article.</string>
+  <string name="image_recommendations_tooltip3">Tooltip that instructs the user to make a decision whether the recommended image is appropriate for the article.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>

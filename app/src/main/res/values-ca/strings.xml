@@ -5,6 +5,7 @@
 * Alan Mena
 * Alvaro Vidal-Abarca
 * Annamerida
+* Cooltey
 * Dbrant
 * F3RaN
 * Fitoschido
@@ -441,9 +442,14 @@
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
   <string name="reading_list_item_deleted">%s suprimit de la llista</string>
+  <string name="reading_list_item_deleted_from_list">%1$s ha estat suprimit de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d article suprimit de la llista</item>
     <item quantity="other">%d articles suprimits de la llista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d article suprimit de %s</item>
+    <item quantity="other">%d articles suprimits de %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d articles esborrats de la llista</string>
   <string name="reading_lists_item_deleted">%s suprimit de les llistes</string>
@@ -675,6 +681,7 @@
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
   <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
+  <string name="description_starts_with_lowercase">Evita començar per una lletra en minúscula.</string>
   <string name="description_is_in_different_language">El text sembla que estigui en una llengua no esperada. Caldria que fos en %s.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
@@ -738,6 +745,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Llegenda de la imatge (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripció de la imatge (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fitxer</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Fitxer de Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetes</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -947,7 +955,6 @@
   <string name="image_recommendations_task_reject">No</string>
   <string name="image_recommendations_task_not_sure">No n\'estic segur</string>
   <string name="image_recommendations_task_processing">S\'està processant…</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">Voleu afegir la imatge a l\'article?</string>
   <string name="image_recommendations_task_choice_no">Per què heu seleccionat «no»?</string>
   <string name="image_recommendations_task_choice_unsure">Per què no n\'esteu segur de la imatge?</string>
@@ -958,9 +965,14 @@
   <string name="image_recommendations_task_choice_offensive">Ofensiva</string>
   <string name="image_recommendations_task_choice_invisible">No puc veure la imatge</string>
   <string name="image_recommendations_task_choice_understand">No entenc la tasca</string>
+  <string name="image_recommendations_task_choice_language">No es pot llegir la llengua</string>
   <string name="image_recommendations_task_choice_other">Altre</string>
   <string name="image_recommendations_task_choice_continue">Continua</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Motiu suggerit:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motiu suggerit:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">PMF</string>
+  <string name="image_recommendations_tooltip1">Reviseu l\'article per a entendre\'n el tema.</string>
+  <string name="image_recommendations_tooltip2">Inspecciona la imatge i la informació associada.</string>
+  <string name="image_recommendations_tooltip3">Decidiu si la imatge ajudarà als lectors a entendre millor el tema.</string>
   <string name="wikitext_bold">Negreta</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enllaç</string>

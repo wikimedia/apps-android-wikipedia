@@ -442,9 +442,14 @@
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述（可選）</string>
   <string name="reading_list_item_deleted">%s已從清單之中移除</string>
+  <string name="reading_list_item_deleted_from_list">已從%2$s移除%1$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">從清單移除 %d 個條目</item>
     <item quantity="other">從清單移除 %d 個條目</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">已從%s移除 %d 個條目</item>
+    <item quantity="other">已從%s移除 %d 個條目</item>
   </plurals>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
@@ -676,6 +681,7 @@
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
   <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
+  <string name="description_starts_with_lowercase">避免以小寫字母作為開頭。</string>
   <string name="description_is_in_different_language">文字似乎使用了非預期的語言。語言應為%s。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
@@ -739,6 +745,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
   <string name="suggested_edits_image_preview_dialog_image">圖片</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">來自維基共享資源的檔案</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
   <string name="suggested_edits_image_preview_dialog_tags">標籤</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>
@@ -948,7 +955,6 @@
   <string name="image_recommendations_task_reject">否</string>
   <string name="image_recommendations_task_not_sure">不確定</string>
   <string name="image_recommendations_task_processing">處理中…</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">您要添加這個圖片到條目裡嗎？</string>
   <string name="image_recommendations_task_choice_no">您為什麼沒有選擇呢？</string>
   <string name="image_recommendations_task_choice_unsure">您為什麼不確定這張圖片？</string>
@@ -959,9 +965,14 @@
   <string name="image_recommendations_task_choice_offensive">令人唐突</string>
   <string name="image_recommendations_task_choice_invisible">看不到圖片</string>
   <string name="image_recommendations_task_choice_understand">任務不了解</string>
+  <string name="image_recommendations_task_choice_language">無法讀取語言</string>
   <string name="image_recommendations_task_choice_other">其它</string>
   <string name="image_recommendations_task_choice_continue">繼續</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;建議原因：&lt;/i&gt;%s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建議原因：&lt;/b&gt;%s</string>
+  <string name="image_recommendations_faq">常見問題</string>
+  <string name="image_recommendations_tooltip1">檢閱此條目來了解主題。</string>
+  <string name="image_recommendations_tooltip2">檢查圖片與其相關資訊。</string>
+  <string name="image_recommendations_tooltip3">確認該圖片是否有幫助到讀者能更了解主題。</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
   <string name="wikitext_link">連結</string>

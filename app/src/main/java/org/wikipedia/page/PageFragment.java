@@ -919,43 +919,49 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (model.getTitle() == null) {
             return;
         }
-        final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getWikiSite(),
-                model.getPage() != null ? model.getPage().getPageProperties().getPageId() : -1);
-        final FindInWebPageActionProvider findInPageActionProvider
-                = new FindInWebPageActionProvider(this, funnel);
 
-        startSupportActionMode(new ActionMode.Callback() {
-            @Override
-            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
-                menuItem.setActionProvider(findInPageActionProvider);
-                menuItem.expandActionView();
-                setToolbarElevationEnabled(false);
-                return true;
+        bridge.evaluate(JavaScriptActionHandler.expandCollapsedTables(true), msg -> {
+            if (!isAdded()) {
+                return;
             }
+            final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getWikiSite(),
+                    model.getPage() != null ? model.getPage().getPageProperties().getPageId() : -1);
+            final FindInWebPageActionProvider findInPageActionProvider
+                    = new FindInWebPageActionProvider(this, funnel);
 
-            @Override
-            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                mode.setTag("actionModeFindInPage");
-                return false;
-            }
-
-            @Override
-            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                return false;
-            }
-
-            @Override
-            public void onDestroyActionMode(ActionMode mode) {
-                if (webView == null || !isAdded()) {
-                    return;
+            startSupportActionMode(new ActionMode.Callback() {
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
+                    menuItem.setActionProvider(findInPageActionProvider);
+                    menuItem.expandActionView();
+                    setToolbarElevationEnabled(false);
+                    return true;
                 }
-                funnel.setPageHeight(webView.getContentHeight());
-                funnel.logDone();
-                webView.clearMatches();
-                hideSoftKeyboard();
-                setToolbarElevationEnabled(true);
-            }
+
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    mode.setTag("actionModeFindInPage");
+                    return false;
+                }
+
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    return false;
+                }
+
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                    if (webView == null || !isAdded()) {
+                        return;
+                    }
+                    funnel.setPageHeight(webView.getContentHeight());
+                    funnel.logDone();
+                    webView.clearMatches();
+                    hideSoftKeyboard();
+                    setToolbarElevationEnabled(true);
+                }
+            });
         });
     }
 
@@ -1073,8 +1079,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 startGalleryActivity(title.getPrefixedText());
             }
 
-            @Override public WikiSite getWikiSite() {
+            @Override
+            @NonNull
+            public WikiSite getWikiSite() {
                 return model.getTitle().getWikiSite();
+            }
+
+            @Override
+            public void setWikiSite(@NonNull WikiSite wikiSite) {
+                // ignore
             }
         };
         bridge.addListener("link", linkHandler);
@@ -1325,6 +1338,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
+    @Nullable
     public List<PageReferences.Reference> getReferencesGroup() {
         return references != null ? references.getReferencesGroup() : null;
     }
