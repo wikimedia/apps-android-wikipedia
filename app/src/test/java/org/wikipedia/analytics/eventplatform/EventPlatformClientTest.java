@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform;
 import com.google.gson.Gson;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockedStatic;
@@ -75,6 +76,7 @@ public class EventPlatformClientTest {
         assertThat(serialized.contains("app_install_id"), is(true));
     }
 
+    @Ignore("Disabled for testing: https://phabricator.wikimedia.org/T281001")
     @Test
     public void testOutputBufferEnqueuesEventOnSubmit() {
         Event event = new Event("test", "test");

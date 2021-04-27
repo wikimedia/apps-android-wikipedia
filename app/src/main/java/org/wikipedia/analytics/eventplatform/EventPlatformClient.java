@@ -9,6 +9,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,11 +72,22 @@ public final class EventPlatformClient {
      * @param event event
      */
     public static synchronized void submit(Event event) {
+        StreamConfig streamConfig = STREAM_CONFIGS.get(event.getStream());
+        if (streamConfig == null) {
+            return;
+        }
         if (!SamplingController.isInSample(event)) {
             return;
         }
         addEventMetadata(event);
-        OutputBuffer.schedule(event);
+        //
+        // Temporarily send events immediately in order to investigate discrepancies in
+        // the numbers of events submitted in this system vs. legacy eventlogging.
+        //
+        // https://phabricator.wikimedia.org/T281001
+        //
+        // OutputBuffer.schedule(event);
+        OutputBuffer.sendEventsForStream(streamConfig, Collections.singletonList(event));
     }
 
     /**
