@@ -178,17 +178,10 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
             }
             if (Prefs.shouldShowImageRecsOnboarding()) {
                 Prefs.setShowImageRecsOnboarding(false)
-
-                // binding.imageSuggestionContainer.visibility = GONE
-                // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, binding.imageSuggestionContainer.height)
-
                 val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendations_tooltip1), autoDismiss = true, showDismissButton = true)
                 balloon.showAlignBottom(binding.articleTitlePlaceholder)
                 balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendations_tooltip2), autoDismiss = true, showDismissButton = true), binding.instructionText)
                         .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendations_tooltip3), autoDismiss = true, showDismissButton = true), binding.acceptButton)
-            } else {
-                // binding.imageSuggestionContainer.visibility = VISIBLE
-                // ViewAnimations.ensureTranslationY(binding.imageSuggestionContainer, 0)
             }
         }
     }
