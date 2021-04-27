@@ -1,5 +1,7 @@
 package org.wikipedia.readinglist
 
+import android.icu.text.ListFormatter
+import android.os.Build
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -85,10 +87,19 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
 
     private fun deleteOrShowDialog() {
         listsContainingPage?.let { list ->
-            RemoveFromReadingListsDialog(list).deleteOrShowDialog(anchorView.context) { _: List<ReadingList?>?, _: ReadingListPage? ->
+            RemoveFromReadingListsDialog(list).deleteOrShowDialog(anchorView.context) { readingLists, _ ->
                 entry?.let {
                     if (anchorView.isAttachedToWindow) {
-                        showMessage((anchorView.context as AppCompatActivity), anchorView.context.getString(R.string.reading_list_item_deleted, it.title.displayText))
+                        val readingListNames = readingLists.map { readingList -> readingList.title() }.run {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                ListFormatter.getInstance().format(this)
+                            } else {
+                                joinToString(separator = ", ")
+                            }
+                        }
+                        showMessage((anchorView.context as AppCompatActivity),
+                                anchorView.context.getString(R.string.reading_list_item_deleted_from_list,
+                                        it.title.displayText, readingListNames))
                     }
                 }
             }

@@ -68,6 +68,7 @@
         <item name="chip_background_color">@color/base80</item>
         <item name="chip_text_color">@color/base20</item>
         <item name="color_group_22">@color/base90</item>
+        <item name="color_group_43">@color/green50</item>
         <item name="color_group_52">@color/accent75</item>
         <item name="color_group_53">@color/accent90</item>
         <item name="color_group_54">@color/accent90</item>
@@ -84,9 +85,14 @@
         <item name="color_group_66">@color/base10</item>
         <item name="color_group_67">@color/red90</item>
         <item name="color_group_68">@color/yellow30</item>
+        <item name="color_group_69">@color/green50_10l</item>
+        <item name="color_group_70">@color/green80</item>
         <item name="action_mode_green_background">@color/green50</item>
         <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_light</item>
         <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_light</item>
+        <item name="image_recs_confetti">@drawable/ic_confetti_light</item>
+        <item name="image_recs_onboardingimage_page_one">@drawable/ic_illustration_image_recs_01_light</item>
+        <item name="image_recs_onboardingimage_page_two">@drawable/ic_illustration_image_recs_02_light</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base100</item>

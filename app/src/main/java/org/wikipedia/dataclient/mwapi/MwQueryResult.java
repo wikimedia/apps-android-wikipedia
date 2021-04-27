@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.json.PostProcessingTypeAdapter;
-import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
@@ -25,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("unused")
-public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapter.PostProcessable {
+public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable {
     @Nullable private List<MwQueryPage> pages;
     @Nullable private List<Redirect> redirects;
     @Nullable private List<ConvertedTitle> converted;

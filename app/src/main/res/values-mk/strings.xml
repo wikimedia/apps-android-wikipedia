@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Bjankuloski06
+* Cooltey
 * Dbrant
 * Violetova
 * Vlad5250
@@ -425,9 +426,14 @@
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
   <string name="reading_list_item_deleted">%s е отстранета од списокот</string>
+  <string name="reading_list_item_deleted_from_list">%1$s е отстранета од %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">Отстранета %d статија од списокот</item>
     <item quantity="other">Отстранети %d статии од списокот</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">Отстранета %d статија од %s</item>
+    <item quantity="other">Отстранети %d статии од %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_lists_item_deleted">%s е отстранета од списоците</string>
@@ -659,6 +665,7 @@
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
   <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
+  <string name="description_starts_with_lowercase">Избегнувајте да почнувате со мала буква.</string>
   <string name="description_is_in_different_language">Се чини дека текстот е напишан на неочекуван јазик. Јазикот треба да биде %s.</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
@@ -722,6 +729,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Слика</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Податотека од Ризницата</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаки</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
@@ -931,7 +939,6 @@
   <string name="image_recommendations_task_reject">Не</string>
   <string name="image_recommendations_task_not_sure">Не знам</string>
   <string name="image_recommendations_task_processing">Обработувам…</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">Дали би ја ставиле сликава во статијата?</string>
   <string name="image_recommendations_task_choice_no">Зошто избравте да не ја ставите?</string>
   <string name="image_recommendations_task_choice_unsure">Зошто не знаете дали да ја ставите?</string>
@@ -942,9 +949,14 @@
   <string name="image_recommendations_task_choice_offensive">Неумесна е</string>
   <string name="image_recommendations_task_choice_invisible">Не можам да ја видам сликата</string>
   <string name="image_recommendations_task_choice_understand">Не ја разбирам задачата</string>
+  <string name="image_recommendations_task_choice_language">Не го познавам јазикот</string>
   <string name="image_recommendations_task_choice_other">Друго</string>
   <string name="image_recommendations_task_choice_continue">Продолжи</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Причина за предлагање:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Причина за предлагање:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">ЧПП</string>
+  <string name="image_recommendations_tooltip1">Прегледајте ја статијата за да ја разберете темата</string>
+  <string name="image_recommendations_tooltip2">Прегледајте ја сликата и нејзините придружни информации.</string>
+  <string name="image_recommendations_tooltip3">Одлучете дали сликата им помага на читателите подобро да ја разберат темата.</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
   <string name="wikitext_link">Врска</string>

@@ -25,7 +25,7 @@ import org.wikipedia.views.ImagePreviewDialog
 
 class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback, LinkPreviewDialog.Callback {
     enum class Action {
-        ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS, VANDALISM_PATROL
+        ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS, IMAGE_RECOMMENDATION, VANDALISM_PATROL
     }
 
     private lateinit var action: Action
@@ -45,8 +45,8 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onBackPressed() {
-        if (fragment.editView.showingReviewContent()) {
-            fragment.editView.loadReviewContent(false)
+        if (fragment.binding.fragmentDescriptionEditView.showingReviewContent()) {
+            fragment.binding.fragmentDescriptionEditView.loadReviewContent(false)
         } else {
             DeviceUtil.hideSoftKeyboard(this)
             SuggestedEditsFunnel.get().cancel(action)

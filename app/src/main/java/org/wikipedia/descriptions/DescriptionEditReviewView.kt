@@ -35,7 +35,8 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
             binding.licenseView.buildLicenseNotice(ARG_NOTICE_IMAGE_CAPTION)
         } else {
             setDescriptionReviewView(summaryForEdit, description)
-            binding.licenseView.buildLicenseNotice(if (summaryForEdit.description.isNullOrEmpty()) ARG_NOTICE_ARTICLE_DESCRIPTION else ARG_NOTICE_DEFAULT)
+            binding.licenseView.buildLicenseNotice(if (summaryForEdit.description.isNullOrEmpty()) ARG_NOTICE_ARTICLE_DESCRIPTION else ARG_NOTICE_DEFAULT,
+                    summaryForEdit.lang)
         }
     }
 
