@@ -60,6 +60,7 @@ class ReadingListDbHelper {
         }
 
     fun createList(title: String, description: String?): ReadingList {
+        L.d("DbHelper createList " + title)
         if (title.isEmpty()) {
             L.w("Attempted to create list with empty title (default).")
             return defaultList

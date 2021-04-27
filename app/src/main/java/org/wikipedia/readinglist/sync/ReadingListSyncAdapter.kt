@@ -178,7 +178,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                     upsertNeeded = true
                 } else {
                     if (!localList.isDefault && !StringUtil.normalizedEquals(localList.title, remoteList.name())) {
-                        localList.title = remoteList.name()
+                        localList.dbTitle = remoteList.name()
                         upsertNeeded = true
                     }
                     if (!localList.isDefault && !StringUtil.normalizedEquals(localList.description, remoteList.description())) {

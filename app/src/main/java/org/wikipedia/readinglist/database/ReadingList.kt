@@ -3,38 +3,27 @@ package org.wikipedia.readinglist.database
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.page.Namespace
 import java.io.Serializable
 import java.util.*
 
-class ReadingList(var description: String?,
-                  var mtime: Long = 0,
-                  var atime: Long = 0,
+class ReadingList(var dbTitle: String,
+                  var description: String?,
+                  var mtime: Long = System.currentTimeMillis(),
+                  var atime: Long = mtime,
                   var id: Long = 0,
                   val pages: MutableList<ReadingListPage> = mutableListOf(),
                   var sizeBytes: Long = 0,
                   var dirty: Boolean = true,
                   var remoteId: Long = 0) : Serializable {
 
-    constructor(title: String, description: String?) : this(description) {
-        this.title = title
-        val now = System.currentTimeMillis()
-        mtime = now
-        atime = now
-    }
-
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
     val numPagesOffline = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
 
-    var title: String = ""
-        get() = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else field
+    val isDefault = dbTitle.isEmpty()
 
-    val isDefault = title.isEmpty()
-
-    val dbTitle = title
+    val title = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else dbTitle
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
@@ -55,12 +44,6 @@ class ReadingList(var description: String?,
             }
             return bytes
         }
-
-    init {
-        val now = System.currentTimeMillis()
-        mtime = now
-        atime = now
-    }
 
     companion object {
         const val SORT_BY_NAME_ASC = 0

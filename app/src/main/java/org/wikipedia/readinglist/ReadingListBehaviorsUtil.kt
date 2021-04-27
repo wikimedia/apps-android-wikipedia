@@ -136,7 +136,7 @@ object ReadingListBehaviorsUtil {
         existingTitles.remove(readingList.title)
 
         ReadingListTitleDialog.readingListTitleDialog(activity, readingList.title, readingList.description, existingTitles) { text, description ->
-            readingList.title = text
+            readingList.dbTitle = text
             readingList.description = description
             readingList.dirty = true
             ReadingListDbHelper.instance().updateList(readingList, true)
