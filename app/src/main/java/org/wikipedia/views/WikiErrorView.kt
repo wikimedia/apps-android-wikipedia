@@ -12,6 +12,7 @@ import org.wikipedia.databinding.ViewWikiErrorBinding
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
+import org.wikipedia.util.ThrowableUtil.isEmptyException
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
 
@@ -20,6 +21,7 @@ class WikiErrorView : LinearLayout {
     var binding = ViewWikiErrorBinding.inflate(LayoutInflater.from(context), this)
     var retryClickListener: OnClickListener? = null
     var backClickListener: OnClickListener? = null
+    var nextClickListener: OnClickListener? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -63,6 +65,9 @@ class WikiErrorView : LinearLayout {
                 isOffline(it) -> {
                     return ErrorType.OFFLINE
                 }
+                isEmptyException(it) -> {
+                    return ErrorType.EMPTY
+                }
                 else -> { }
             }
         }
@@ -90,6 +95,12 @@ class WikiErrorView : LinearLayout {
                 R.string.offline_load_error_retry) {
             override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
                 return errorView.retryClickListener
+            }
+        },
+        EMPTY(R.drawable.ic_error_black_24dp, R.string.error_message_generic,
+                R.string.error_next) {
+            override fun buttonClickListener(errorView: WikiErrorView): OnClickListener? {
+                return errorView.nextClickListener
             }
         },
         GENERIC(R.drawable.ic_error_black_24dp, R.string.error_message_generic,

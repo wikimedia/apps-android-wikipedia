@@ -20,6 +20,7 @@
         <item name="color_group_53">@color/accent20</item>
         <item name="color_group_54">@color/base10</item>
         <item name="color_group_60">@color/base18</item>
+        <item name="color_group_69">@color/green50_10b</item>
 
     </style>
 

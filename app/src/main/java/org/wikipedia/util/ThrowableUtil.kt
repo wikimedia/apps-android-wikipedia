@@ -7,6 +7,7 @@ import org.wikipedia.createaccount.CreateAccountException
 import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.login.LoginClient.LoginFailedException
+import java.lang.Exception
 import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -75,11 +76,17 @@ object ThrowableUtil {
     }
 
     @JvmStatic
+    fun isEmptyException(caught: Throwable): Boolean {
+        return caught is EmptyException
+    }
+
+    @JvmStatic
     fun isNetworkError(e: Throwable): Boolean {
         return throwableContainsException(e, UnknownHostException::class.java) ||
                 throwableContainsException(e, TimeoutException::class.java) ||
                 throwableContainsException(e, SSLException::class.java)
     }
 
+    class EmptyException : Exception()
     class AppError(val error: String, val detail: String?)
 }
