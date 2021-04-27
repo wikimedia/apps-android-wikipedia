@@ -29,6 +29,7 @@ public final class Constants {
     public static final int ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT = 64;
     public static final int ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING = 65;
     public static final int ACTIVITY_REQUEST_IMAGE_TAGS_EDIT = 66;
+    public static final int ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING = 67;
 
     public static final String INTENT_RETURN_TO_MAIN = "returnToMain";
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
@@ -87,6 +88,7 @@ public final class Constants {
         WIDGET("widget"),
         INTENT_SHARE("intentShare"),
         INTENT_PROCESS_TEXT("intentProcessText"),
+        INTENT_UNKNOWN("intentUnknown"),
         FEED_BAR("feedBar"),
         VOICE("voice"),
         ON_THIS_DAY_CARD_BODY("onThisDayCard"),

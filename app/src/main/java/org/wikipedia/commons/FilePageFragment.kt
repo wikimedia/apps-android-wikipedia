@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -32,11 +33,15 @@ class FilePageFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
+    private var suggestionReason: String? = null
+    private var allowEdit = true
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = arguments?.getParcelable(ARG_PAGE_TITLE)!!
+        pageTitle = requireArguments().getParcelable(FilePageActivity.INTENT_EXTRA_PAGE_TITLE)!!
+        allowEdit = requireArguments().getBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT)
+        suggestionReason = requireArguments().getString(FilePageActivity.INTENT_EXTRA_SUGGESTION_REASON)
         retainInstance = true
     }
 
@@ -149,7 +154,8 @@ class FilePageFragment : Fragment() {
                             thumbnailHeight,
                             imageFromCommons = isFromCommons,
                             showFilename = true,
-                            showEditButton = isFromCommons && !isEditProtected
+                            showEditButton = allowEdit && isFromCommons && !isEditProtected,
+                            suggestionReason = suggestionReason
                     )
                 }
                 .subscribe({
@@ -161,16 +167,15 @@ class FilePageFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_PAGE_TITLE = "pageTitle"
         const val ACTIVITY_REQUEST_ADD_IMAGE_CAPTION = 1
         const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 2
 
-        fun newInstance(pageTitle: PageTitle): FilePageFragment {
-            val fragment = FilePageFragment()
-            val args = Bundle()
-            args.putParcelable(ARG_PAGE_TITLE, pageTitle)
-            fragment.arguments = args
-            return fragment
+        fun newInstance(pageTitle: PageTitle, allowEdit: Boolean, suggestionReason: String?): FilePageFragment {
+            return FilePageFragment().apply {
+                arguments = bundleOf(FilePageActivity.INTENT_EXTRA_PAGE_TITLE to pageTitle,
+                        FilePageActivity.INTENT_EXTRA_ALLOW_EDIT to allowEdit,
+                        FilePageActivity.INTENT_EXTRA_SUGGESTION_REASON to suggestionReason)
+            }
         }
     }
 }

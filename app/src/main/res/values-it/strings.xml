@@ -6,6 +6,7 @@
 * Bsitzmann
 * Dbrant
 * Elitre
+* Emmanuel Fernandess
 * FRacco
 * Federico Mugnaini
 * Ferdi2005
@@ -455,9 +456,14 @@
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
   <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
+  <string name="reading_list_item_deleted_from_list">%1$s rimosso da %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d voce rimossa dall\'elenco</item>
     <item quantity="other">%d voci rimosse dall\'elenco</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d voce rimossa da %s</item>
+    <item quantity="other">%d voci rimosse da %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d voci rimosse dagli elenchi</string>
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
@@ -465,12 +471,6 @@
   <string name="reading_list_deleted">%s cancellato</string>
   <string name="saved_list_empty_title">Nessun elenco di lettura ancora</string>
   <string name="reading_lists_empty_message">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline.</string>
-  <string name="reading_lists_onboarding_intro">Aggiungi voci ad un elenco per leggerle più tardi, anche quando sei offline!</string>
-  <string name="reading_lists_onboarding_for_example">Per esempio</string>
-  <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
-  <string name="reading_lists_onboarding_example2">Animali preferiti</string>
-  <string name="reading_lists_onboarding_example3">Esplorazione spaziale</string>
-  <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="reading_list_empty">Non hai aggiunto alcuna voce a questo elenco.</string>
   <string name="reading_list_article_offline">Disponibile in assenza di connessione</string>
   <string name="reading_list_article_make_offline">Rendi questa voce disponibile non in linea</string>
@@ -758,6 +758,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">File</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">File da Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etichette</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -910,7 +911,7 @@
   <string name="onboarding_multilingual_secondary_text">Abbiamo trovato quanto segue sul tuo dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Aggiungi o modifica lingue</string>
   <string name="onboarding_welcome_title_v2">L\'enciclopedia libera\n…in più di 300 lingue</string>
-  <string name="app_shortcuts_random">Una pagina a caso</string>
+  <string name="app_shortcuts_random">Casuale</string>
   <string name="app_shortcuts_continue_reading">Continua a leggere</string>
   <string name="app_shortcuts_search">Cerca</string>
   <string name="on_this_day_card_title">In questo giorno</string>
@@ -971,6 +972,7 @@
   <string name="image_recommendations_task_choice_invisible">Non riesco a vedere l\'immagine</string>
   <string name="image_recommendations_task_choice_other">Altro</string>
   <string name="image_recommendations_task_choice_continue">Continua</string>
+  <string name="image_recommendations_faq">Domande frequenti</string>
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>
   <string name="wikitext_link">Collegamento</string>

@@ -481,12 +481,6 @@
   <string name="reading_list_deleted">أزيلت %s</string>
   <string name="saved_list_empty_title">لا توجد قوائم قراءة بعد</string>
   <string name="reading_lists_empty_message">احفظ المقالات التي تتصفحها في شكل قوائم قراءة حتى تتطلع عليهم لاحقا، حتى وإن كنت غير متصل بالشبكة.</string>
-  <string name="reading_lists_onboarding_intro">أضف مقالات إلى قائمة للقراءة لاحقا، حتى عندما تكون غير متصل بالإنترنت!</string>
-  <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
-  <string name="reading_lists_onboarding_example1">أماكن للزيارة</string>
-  <string name="reading_lists_onboarding_example2">الحيوانات المفضلة</string>
-  <string name="reading_lists_onboarding_example3">استكشاف الفضاء</string>
-  <string name="reading_lists_onboarding_got_it">حسنا</string>
   <string name="reading_list_empty">ليس لديك مقالات مضافة في هذه القائمة.</string>
   <string name="reading_list_article_offline">متاح في وضع عدم الاتصال</string>
   <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
@@ -939,7 +933,6 @@
   <string name="image_recommendations_task_accept">نعم</string>
   <string name="image_recommendations_task_reject">لا</string>
   <string name="image_recommendations_task_not_sure">لستُ متأكداً</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_choice_continue">استمر</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>

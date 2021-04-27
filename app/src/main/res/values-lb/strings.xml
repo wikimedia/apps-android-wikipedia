@@ -360,12 +360,6 @@
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="saved_list_empty_title">Nach keng Lieslëschten!</string>
   <string name="reading_lists_empty_message">Setzt Artikelen op eng Lëscht derbäi fir se spéider ze liesen, esouguer da wann Dir offline sidd.</string>
-  <string name="reading_lists_onboarding_intro">Setzt Artikelen op eng Lëscht derbäi fir spéider ze liesen, esouguer wann Dir offline sidd!</string>
-  <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
-  <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>
-  <string name="reading_lists_onboarding_example2">Lieblingsdéieren</string>
-  <string name="reading_lists_onboarding_example3">Erfuerschung vum Weltraum</string>
-  <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="reading_list_empty">Dir hutt keng Artikelen op dës Lëscht dobäigesat.</string>
   <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
@@ -674,6 +668,7 @@
   <string name="image_recommendations_task_choice_low_quality">Schlecht Qualitéit</string>
   <string name="image_recommendations_task_choice_noinfo">Net genuch Informatiounen</string>
   <string name="image_recommendations_task_choice_offensive">Offensiv</string>
+  <string name="image_recommendations_task_choice_language">Kann d\'Sprooch net liesen</string>
   <string name="image_recommendations_task_choice_other">Anerer</string>
   <string name="image_recommendations_task_choice_continue">Virufueren</string>
   <string name="wikitext_bold">Fett</string>

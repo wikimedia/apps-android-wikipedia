@@ -340,12 +340,6 @@
   <string name="reading_list_deleted">%s dipupus</string>
   <string name="saved_list_empty_title">Can aya daptar bacaan deui</string>
   <string name="reading_lists_empty_message" fuzzy="true">Simpen artikel kana daptar bacaan hambéh engké anjeun bisa nempona deui, malah mah mun anjeun  keur oflén.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Jieun daptar bacaan tina artikel anu rék dibaca ku anjeun engké, malah nalika anjeun keur oflén!</string>
-  <string name="reading_lists_onboarding_for_example">Pikeun conto</string>
-  <string name="reading_lists_onboarding_example1">Tempat sorangkeuneun</string>
-  <string name="reading_lists_onboarding_example2">Sato karesep</string>
-  <string name="reading_lists_onboarding_example3">Langlangan jomantara</string>
-  <string name="reading_lists_onboarding_got_it">Ngarti</string>
   <string name="reading_list_empty">Anjeun teu mibanda artikel nu ditambahkeun ka ieu daptar.</string>
   <string name="reading_list_article_offline">Sayaga kalawan oflén</string>
   <string name="reading_list_article_make_offline">Jieun ieu artikel sangkan sayaga na oflén</string>

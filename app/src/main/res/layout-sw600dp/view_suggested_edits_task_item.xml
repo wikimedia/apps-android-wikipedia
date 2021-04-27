@@ -51,6 +51,13 @@
             android:textStyle="bold"
             android:text="@string/suggested_edits_task_new"/>
 
+        <org.wikipedia.suggestededits.DailyProgressViewSmall
+            android:id="@+id/taskDailyProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/taskTitle" />
+
         <TextView
             android:id="@+id/taskDescription"
             android:layout_width="0dp"
@@ -65,7 +72,7 @@
             tools:text="Lorem ipsum"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/addButton"
+            android:id="@+id/primaryButton"
             style="@style/FlatButton.Small"
             android:text="@string/suggested_edits_task_action_text_add"
             app:layout_constraintTop_toBottomOf="@id/taskDescription"
@@ -76,12 +83,12 @@
             app:iconTint="?attr/colorAccent"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/translateButton"
+            android:id="@+id/secondaryButton"
             style="@style/FlatButton.Small"
             android:text="@string/suggested_edits_task_action_text_translate"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="@id/addButton"
-            app:layout_constraintStart_toEndOf="@id/addButton"
+            app:layout_constraintTop_toTopOf="@id/primaryButton"
+            app:layout_constraintStart_toEndOf="@id/primaryButton"
             app:icon="@drawable/ic_translate_white_24dp"
             app:iconSize="20dp"
             app:iconTint="?attr/colorAccent"/>

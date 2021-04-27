@@ -413,12 +413,6 @@
   <string name="reading_list_deleted">%s حذف شدہ</string>
   <string name="saved_list_empty_title">یہاں اب تک کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
   <string name="reading_lists_empty_message">مضامین کو مطالعہ کی فہرست میں شامل کریں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں۔</string>
-  <string name="reading_lists_onboarding_intro">مضامین کو مطالعہ کی فہرست میں شامل کریں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں!</string>
-  <string name="reading_lists_onboarding_for_example">مثلاً</string>
-  <string name="reading_lists_onboarding_example1">دیکھنے کے مقامات</string>
-  <string name="reading_lists_onboarding_example2">پسندیدہ جانور</string>
-  <string name="reading_lists_onboarding_example3">فضائے بسیط کی کھوج</string>
-  <string name="reading_lists_onboarding_got_it">سمجھ گیا</string>
   <string name="reading_list_empty">اس فہرست میں کوئی مضمون شامل نہیں کیا گیا۔</string>
   <string name="reading_list_article_offline">آف لائن دستیاب</string>
   <string name="reading_list_article_make_offline">اس مضمون کو آف لائن دستیاب کرائیں</string>

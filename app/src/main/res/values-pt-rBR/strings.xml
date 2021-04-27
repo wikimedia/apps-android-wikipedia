@@ -7,6 +7,7 @@
 * BarbaraAckles
 * Cainamarques
 * Caçador de Palavras
+* Cooltey
 * Dbrant
 * Deskana
 * Dianakc
@@ -18,6 +19,7 @@
 * Felipe L. Ewald
 * Fitoschido
 * Fúlvio
+* Gustavo.moraes
 * HenriqueCrang
 * Iohanen
 * Lowvy
@@ -453,9 +455,13 @@
   <string name="reading_list_name_hint">Nome da lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
   <string name="reading_list_item_deleted">%s removido da lista</string>
+  <string name="reading_list_item_deleted_from_list">%1$s removido de %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artigo removido da lista</item>
     <item quantity="other">%d artigos removidos da lista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="other">um=%d artigo removido de %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artigos removidos da lista</string>
   <string name="reading_lists_item_deleted">%s removido das listas</string>
@@ -463,12 +469,6 @@
   <string name="reading_list_deleted">%s apagada</string>
   <string name="saved_list_empty_title">Nenhuma página salva ainda</string>
   <string name="reading_lists_empty_message">Adicione itens à lista para ler, mesmo quando você está desconectado.</string>
-  <string name="reading_lists_onboarding_intro">Adicione artigos a uma lista para ler mais tarde, mesmo quando você está desconectado!</string>
-  <string name="reading_lists_onboarding_for_example">Por exemplo</string>
-  <string name="reading_lists_onboarding_example1">Lugares para visitar</string>
-  <string name="reading_lists_onboarding_example2">Animais favoritos</string>
-  <string name="reading_lists_onboarding_example3">Exploração espacial</string>
-  <string name="reading_lists_onboarding_got_it">Entendi</string>
   <string name="reading_list_empty">Você não tem artigos adicionados a esta lista.</string>
   <string name="reading_list_article_offline">Disponível offline</string>
   <string name="reading_list_article_make_offline">Disponibilizar este artigo offline</string>
@@ -693,6 +693,7 @@
   <string name="description_ends_with_punctuation">O texto não deve terminar com pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos como \"a\", \"o\" \"as\" ou \"os\".</string>
   <string name="description_starts_with_uppercase">Comece com uma letra minúscula, a menos que a primeira palavra seja um nome próprio.</string>
+  <string name="description_starts_with_lowercase">Evitar começar com uma letra minúscula.</string>
   <string name="description_is_in_different_language">O texto parece estar em um idioma inesperado. O idioma deve ser %s.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
@@ -756,6 +757,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Imagem</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Arquivo do Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -965,7 +967,6 @@
   <string name="image_recommendations_task_reject">Não</string>
   <string name="image_recommendations_task_not_sure">Talvez</string>
   <string name="image_recommendations_task_processing">Processando...</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">Você adicionaria esta imagem ao artigo?</string>
   <string name="image_recommendations_task_choice_no">Por que você selecionou não?</string>
   <string name="image_recommendations_task_choice_unsure">Por que você não tem certeza sobre esta imagem?</string>
@@ -976,9 +977,14 @@
   <string name="image_recommendations_task_choice_offensive">Ofensiva</string>
   <string name="image_recommendations_task_choice_invisible">Não consigo ver a imagem</string>
   <string name="image_recommendations_task_choice_understand">Não entendo a tarefa</string>
+  <string name="image_recommendations_task_choice_language">Não consigo ler o idioma</string>
   <string name="image_recommendations_task_choice_other">Outro</string>
   <string name="image_recommendations_task_choice_continue">Continuar</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Motivo da sugestão:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivo da sugestão:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">FAQ</string>
+  <string name="image_recommendations_tooltip1">Revise este artigo para entender seu tópico.</string>
+  <string name="image_recommendations_tooltip2">Inspecione a imagem e suas informações associadas.</string>
+  <string name="image_recommendations_tooltip3">Decida se a imagem ajudará os leitores a entender melhor este tópico.</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Link</string>

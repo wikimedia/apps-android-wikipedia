@@ -32,6 +32,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.crash.CrashReportActivity
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
@@ -298,12 +299,12 @@ abstract class BaseActivity : AppCompatActivity() {
                         .show()
             } else if (event is ReadingListsNoLongerSyncedEvent) {
                 ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(this@BaseActivity)
-            } else if (event is ReadingListsEnableDialogEvent) {
+            } else if (event is ReadingListsEnableDialogEvent && this@BaseActivity is MainActivity) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(this@BaseActivity)
             } else if (event is LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog()
             } else if (event is ReadingListSyncEvent) {
-                if (event.showMessage() && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                if (event.showMessage && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
                     FeedbackUtil.makeSnackbar(this@BaseActivity,
                             getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show()
                 }

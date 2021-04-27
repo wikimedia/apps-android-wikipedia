@@ -7,6 +7,7 @@
 * Dvorapa
 * Evica
 * Frettie
+* Georg101
 * Ilimanaq29
 * Jan Myšák
 * Juandev
@@ -441,12 +442,6 @@
   <string name="reading_list_deleted">Seznam %s byl smazán</string>
   <string name="saved_list_empty_title">Žádné uložené stránky</string>
   <string name="reading_lists_empty_message">Přidávejte články do seznamů k přečtení později, abyste si je mohli přečíst, i když nebudete připojeni k internetu.</string>
-  <string name="reading_lists_onboarding_intro">Přidávejte články do seznamů k přečtení později, abyste si je mohli přecíst, i když nebudete připojeni!</string>
-  <string name="reading_lists_onboarding_for_example">Například</string>
-  <string name="reading_lists_onboarding_example1">Místa k navštívení</string>
-  <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>
-  <string name="reading_lists_onboarding_example3">Objevování vesmíru</string>
-  <string name="reading_lists_onboarding_got_it">Rozumím</string>
   <string name="reading_list_empty">V tomto seznamu nemáte žádné články.</string>
   <string name="reading_list_article_offline">Dostupné offline</string>
   <string name="reading_list_article_make_offline">Uložit článek do offline režimu</string>

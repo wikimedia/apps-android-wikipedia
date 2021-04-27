@@ -11,7 +11,7 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.core.view.children
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -30,7 +30,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
-import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -44,20 +43,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
-    interface Callback {
-        fun getLangCode(): String
-        fun getSinglePage(): MwQueryPage?
-        fun updateActionButton()
-        fun nextPage(sourceFragment: Fragment?)
-        fun logSuccess()
-    }
 
     private var _binding: FragmentSuggestedEditsImageTagsItemBinding? = null
     private val binding get() = _binding!!
 
     var publishing: Boolean = false
     var publishSuccess: Boolean = false
-    private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
     private var page: MwQueryPage? = null
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
@@ -341,60 +332,54 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         val commonsSite = WikiSite(Service.COMMONS_URL)
 
-        csrfClient.request(false, object : CsrfTokenClient.Callback {
-            override fun success(token: String) {
-
-                val mId = "M" + page!!.pageId()
-                var claimStr = "{\"claims\":["
-                var commentStr = "/* add-depicts: "
-                var first = true
-                for (label in acceptedLabels) {
-                    if (!first) {
-                        claimStr += ","
-                    }
-                    if (!first) {
-                        commentStr += ","
-                    }
-                    first = false
-                    claimStr += "{\"mainsnak\":" +
-                            "{\"snaktype\":\"value\",\"property\":\"P180\"," +
-                            "\"datavalue\":{\"value\":" +
-                            "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
-                            "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
-                            "\"type\":\"statement\"," +
-                            "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
-                            "\"rank\":\"normal\"}"
-                    commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
-                }
-                claimStr += "]}"
-                commentStr += " */"
-
-                disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doAfterTerminate {
-                            publishing = false
+        disposables.add(CsrfTokenClient(WikiSite(Service.COMMONS_URL)).token
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ token ->
+                    val mId = "M" + page!!.pageId()
+                    var claimStr = "{\"claims\":["
+                    var commentStr = "/* add-depicts: "
+                    var first = true
+                    for (label in acceptedLabels) {
+                        if (!first) {
+                            claimStr += ","
                         }
-                        .subscribe({
-                            if (it.entity != null) {
-                                funnel?.logSaved(it.entity!!.lastRevId, invokeSource.getName())
+                        if (!first) {
+                            commentStr += ","
+                        }
+                        first = false
+                        claimStr += "{\"mainsnak\":" +
+                                "{\"snaktype\":\"value\",\"property\":\"P180\"," +
+                                "\"datavalue\":{\"value\":" +
+                                "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
+                                "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
+                                "\"type\":\"statement\"," +
+                                "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
+                                "\"rank\":\"normal\"}"
+                        commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
+                    }
+                    claimStr += "]}"
+                    commentStr += " */"
+
+                    disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doAfterTerminate {
+                                publishing = false
                             }
-                            publishSuccess = true
-                            onSuccess()
-                        }, { caught ->
-                            onError(caught)
-                        })
-                )
-            }
-
-            override fun failure(caught: Throwable) {
-                onError(caught)
-            }
-
-            override fun twoFactorPrompt() {
-                onError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
-            }
-        })
+                            .subscribe({
+                                if (it.entity != null) {
+                                    funnel?.logSaved(it.entity!!.lastRevId, invokeSource.getName())
+                                }
+                                publishSuccess = true
+                                onSuccess()
+                            }, { caught ->
+                                onError(caught)
+                            })
+                    )
+                }, {
+                    onError(it)
+                }))
     }
 
     private fun onSuccess() {
@@ -464,26 +449,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun atLeastOneTagChecked(): Boolean {
-        var atLeastOneChecked = false
-        for (i in 0 until binding.tagsChipGroup.childCount) {
-            val chip = binding.tagsChipGroup.getChildAt(i) as Chip
-            if (chip.isChecked) {
-                atLeastOneChecked = true
-                break
-            }
-        }
-        return atLeastOneChecked
+        return binding.tagsChipGroup.children.filterIsInstance<Chip>().any { it.isChecked }
     }
 
     override fun publishEnabled(): Boolean {
-        var acceptedCount = 0
-        for (i in 0 until binding.tagsChipGroup.childCount) {
-            val chip = binding.tagsChipGroup.getChildAt(i) as Chip
-            if (chip.isChecked) {
-                acceptedCount++
-            }
-        }
-        return !publishSuccess && acceptedCount > 0
+        return !publishSuccess && atLeastOneTagChecked()
     }
 
     override fun publishOutlined(): Boolean {

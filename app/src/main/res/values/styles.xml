@@ -100,6 +100,7 @@
         <item name="colorControlActivated">?attr/toolbar_icon_color</item>
         <item name="colorControlHighlight">?attr/toolbar_icon_color</item>
         <item name="navigationIcon">@drawable/ic_add_gray_themed_24dp</item>
+        <item name="navigationContentDescription">@string/menu_new_tab</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
@@ -295,6 +296,14 @@
         <item name="android:foreground">?android:selectableItemBackground</item>
     </style>
 
+    <style name="FlatButton.Small.Tooltip">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:backgroundTint">@color/white15</item>
+        <item name="backgroundTint">@color/white15</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:layout_marginBottom">-3dp</item>
+    </style>
+
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
@@ -466,6 +475,7 @@
         <item name="android:windowTitleStyle">@style/DialogTitleAppearance</item>
         <item name="android:textAppearanceMedium">@style/DialogTitleTextAppearance</item>
         <item name="buttonBarButtonStyle">@style/AlertDialogButtonStyle</item>
+        <item name="textColorAlertDialogListItem">?attr/material_theme_secondary_color</item>
         <item name="android:lineSpacingExtra">@dimen/dialog_line_spacing_extra</item>
     </style>
 

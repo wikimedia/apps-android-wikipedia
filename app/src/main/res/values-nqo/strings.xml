@@ -383,12 +383,6 @@
   <string name="reading_list_deleted">%s ߓߘߊ߫ ߖߏ߬ߛߌ߬</string>
   <string name="saved_list_empty_title">ߞߐߜߍ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬</string>
   <string name="reading_lists_empty_message">ߞߎߡߘߊ ߟߊߘߏ߲߬ ߞߐߝߍ߫ ߘߐߘߊߙߊ߲ߠߌ߲ ߛߙߍߘߍ ߘߐ߫߸ ߤߊߟߌ߬ ߣߴߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߬ ߕߍ߫.</string>
-  <string name="reading_lists_onboarding_intro">ߞߎߡߘߊ ߟߊߘߏ߲߬ ߞߐߝߍ߫ ߘߐߘߊߙߊ߲ߠߌ߲ ߛߙߍߘߍ ߘߐ߫߸ ߤߊߟߌ߬ ߣߴߊ߬ ߜߊ߲߬ߞߎ߲߬ߣߍ߲߬ ߕߍ߫߹</string>
-  <string name="reading_lists_onboarding_for_example">ߟߊߒߡߊ߫ ߘߐ߫</string>
-  <string name="reading_lists_onboarding_example1">ߓߐߒߡߊߟߌ߫ ߦߙߐ</string>
-  <string name="reading_lists_onboarding_example2">ߓߌߦߊ߲߫ ߠߊ߫ ߞߏߘߐߣߐ߰ߦߊ߬ߣߍ߲ ߠߎ߬.</string>
-  <string name="reading_lists_onboarding_example3">ߞߣߍ ߛߏ߲߯ߓߊߟߌ</string>
-  <string name="reading_lists_onboarding_got_it">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬</string>
   <string name="reading_list_empty">ߦߌߟߡߊ߫ ߛߌ߫ ߟߊߘߏ߲߬ߣߍ߲߬ ߕߴߌ ߓߟߏ߫ ߛߙߍߘߍ ߣߌ߲߬ ߘߐ߫.</string>
   <string name="reading_list_article_offline">ߡߍ߲ ߠߎ߬ ߦߋ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߬</string>
   <string name="reading_list_article_make_offline">ߦߌߟߡߊ ߣߌ߲߬ ߞߍ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲ߕߊ ߘߏ߫ ߘߌ߫.</string>
@@ -773,7 +767,6 @@
   <string name="image_recommendations_task_accept">ߊ߬ߥߐ߫</string>
   <string name="image_recommendations_task_reject">ߍ߲߬ߍ߲߫</string>
   <string name="image_recommendations_task_not_sure">ߒ ߡߊ߫ ߟߊ߫ ߏ߬ ߟߊ߫</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">ߌ ߘߌ߫ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߲߬ ߓߌ߬ߟߊ߬ ߞߎߡߘߊ ߟߊ߫ ߓߊ߬؟</string>
   <string name="image_recommendations_task_choice_no">ߡߎ߲߬ߠߊ߫ ߌ ߞߊ߬ ߍ߲߬ߍ߲߫ ߓߊߕߐ߬ߡߐ߲߬؟</string>
   <string name="image_recommendations_task_choice_unsure">ߡߎ߲߬ߠߊ߫ ߌ ߡߊ߫ ߟߊ߫ ߖߌ߬ߦߊ߬ߓߍ ߣߌ߲߬ ߠߊ߫؟</string>

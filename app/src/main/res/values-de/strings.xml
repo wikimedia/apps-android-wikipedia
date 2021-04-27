@@ -4,12 +4,14 @@
 * Bergrübe
 * Bxalber
 * Chronist
+* Cooltey
 * DVrandecic (WMF)
 * Dbrant
 * DraconicDark
 * Druesenfieber
 * Elliot
 * Envlh
+* FF-11
 * FF11
 * Gnom
 * HajFunk
@@ -452,9 +454,14 @@
   <string name="reading_list_name_hint">Name dieser Liste</string>
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
   <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
+  <string name="reading_list_item_deleted_from_list">%1$s entfernt von %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d Artikel aus Liste entfernt</item>
     <item quantity="other">%d Artikel aus Liste entfernt</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d Artikel entfernt von %s</item>
+    <item quantity="other">%d Artikel entfernt von %s</item>
   </plurals>
   <string name="reading_list_items_deleted">%d Artikel aus der Liste entfernt</string>
   <string name="reading_lists_item_deleted">%s von den Listen entfernt</string>
@@ -462,12 +469,6 @@
   <string name="reading_list_deleted">%s gelöscht</string>
   <string name="saved_list_empty_title">Es sind noch keine Leselisten vorhanden.</string>
   <string name="reading_lists_empty_message">Füge Artikel einer Liste zum späteren Lesen hinzu, auch wenn du offline bist.</string>
-  <string name="reading_lists_onboarding_intro">Füge Artikel einer Liste zum späteren Lesen hinzu, auch wenn du offline bist!</string>
-  <string name="reading_lists_onboarding_for_example">Zum Beispiel</string>
-  <string name="reading_lists_onboarding_example1">Zu besuchende Orte</string>
-  <string name="reading_lists_onboarding_example2">Lieblingstiere</string>
-  <string name="reading_lists_onboarding_example3">Weltraumforschung</string>
-  <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_list_empty">Du hast keine Artikel zu dieser Liste hinzugefügt.</string>
   <string name="reading_list_article_offline">Offline verfügbar</string>
   <string name="reading_list_article_make_offline">Diesen Artikel offline verfügbar machen</string>
@@ -692,6 +693,7 @@
   <string name="description_ends_with_punctuation">Der Text darf nicht mit einem Satzzeichen enden.</string>
   <string name="description_starts_with_article">Vermeide Beschreibungen, die mit einem Artikel („Der…“/„Eine…“) beginnen.</string>
   <string name="description_starts_with_uppercase">Beginne mit einem Kleinbuchstaben, es sei denn, das erste Wort ist ein Eigenname.</string>
+  <string name="description_starts_with_lowercase">Vermeide es, mit einem Kleinbuchstaben zu beginnen.</string>
   <string name="description_is_in_different_language">Der Text scheint in einer unerwarteten Sprache zu sein. Die Sprache sollte %s sein.</string>
   <string name="description_edit_success_saved">Artikelbeschreibung veröffentlicht!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeschreibung veröffentlicht!</string>
@@ -755,6 +757,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildunterschrift (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeschreibung (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Bild</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Datei von Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Künstler</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
@@ -974,9 +977,14 @@
   <string name="image_recommendations_task_choice_offensive">Anstößig</string>
   <string name="image_recommendations_task_choice_invisible">Kann das Bild nicht sehen</string>
   <string name="image_recommendations_task_choice_understand">Verstehen die Aufgabe nicht</string>
+  <string name="image_recommendations_task_choice_language">Kann die Sprache nicht lesen</string>
   <string name="image_recommendations_task_choice_other">Andere</string>
   <string name="image_recommendations_task_choice_continue">Weiter</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Vorschlag Grund:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Vorschlag Grund:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">FAQ</string>
+  <string name="image_recommendations_tooltip1">Lies diesen Artikel, um sein Thema zu verstehen.</string>
+  <string name="image_recommendations_tooltip2">Prüfe das Bild und die zugehörigen Informationen.</string>
+  <string name="image_recommendations_tooltip3">Entscheide, ob das Bild den Lesern helfen wird, das Thema besser zu verstehen.</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

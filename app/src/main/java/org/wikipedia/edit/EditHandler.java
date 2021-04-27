@@ -25,7 +25,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;
 
     private final PageFragment fragment;
-    private Page currentPage;
+    @Nullable private Page currentPage;
 
     public EditHandler(PageFragment fragment, CommunicationBridge bridge) {
         this.fragment = fragment;
@@ -76,7 +76,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
 
     @Override
     public void onMessage(String messageType, JsonObject messagePayload) {
-        if (!fragment.isAdded()) {
+        if (!fragment.isAdded() || currentPage == null) {
             return;
         }
         if (messageType.equals("edit_section")) {

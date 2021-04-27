@@ -49,6 +49,8 @@
   <string name="menu_page_other_languages">Spremeni jezik</string>
   <string name="menu_page_find_in_page">Poišči na strani</string>
   <string name="menu_page_add_to_watchlist">Dodaj na spisek nadzorov</string>
+  <string name="menu_page_view_talk">Ogled pogovorne strani</string>
+  <string name="menu_page_view_edit_history">Ogled zgodovine urejanja</string>
   <string name="menu_page_remove_from_watchlist">Odstrani s spiska nadzorov</string>
   <string name="edit_section_find_in_page">Poišči na strani</string>
   <string name="menu_page_font_and_theme">Pisava in tema</string>
@@ -70,7 +72,7 @@
   <string name="menu_text_select_edit_here">Uredi tukaj</string>
   <string name="last_updated_text">Zadnja posodobitev: %s</string>
   <string name="talk_page_link_text">Ogled pogovorne strani</string>
-  <string name="edit_history_link_text">Prikaži zgodovino urejanj</string>
+  <string name="edit_history_link_text">Ogled zgodovine urejanja</string>
   <string name="map_view_link_text">Prikaži na karti</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d drugih jezikih</string>
@@ -183,7 +185,7 @@
   <string name="page_protected_autoconfirmed">Ta stran je delno zaščitena.</string>
   <string name="page_protected_sysop">Ta stran je zaščitena v celoti.</string>
   <string name="page_protected_other">Ta stran je zaščitena na naslednjih ravneh: %s</string>
-  <string name="page_protected_can_not_edit">Žal vaš račun trenutno nima zadostnih pravic urejanja te strani.</string>
+  <string name="page_protected_can_not_edit">Vaš račun trenutno žal nima zadostnih pravic za urejanje te strani.</string>
   <string name="page_protected_can_not_edit_anon">Žal te strani trenutno ni mogoče urejati anonimno.</string>
   <string name="page_protected_can_not_edit_title">Stran je zaščitena</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na spisek nadzorov</string>
@@ -201,6 +203,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Uporabljene knjižnice</string>
   <string name="about_contributors_heading">Prispevajoči</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Stran ekipe&lt;/a&gt;</string>
@@ -299,7 +302,7 @@
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Zapri zavihek</string>
   <string name="unnamed_tab_closed">Zavihek zaprt.</string>
-  <string name="tab_item_closed">%s zaprt.</string>
+  <string name="tab_item_closed">%s zaprto.</string>
   <string name="all_tab_items_closed">Vsi zavihki zaprti.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na bralni seznam</string>
   <string name="tool_tip_bookmark_icon_text">Da shranite članek na bralni seznam, tapnite ikono za zaznamek.</string>
@@ -381,9 +384,10 @@
   <string name="text_size_decrease">Zmanjšaj velikost besedila</string>
   <string name="text_size_percent_default">%s (privzeto)</string>
   <string name="text_style_title">Pisava</string>
+  <string name="nav_item_saved">Shranjeno</string>
   <string name="reading_list_save_to">Shrani na bralni seznam</string>
-  <string name="reading_list_move_to">Premakni na bralni seznam</string>
-  <string name="reading_list_create_new">Ustvari novo</string>
+  <string name="reading_list_move_to">Prestavi na bralni seznam</string>
+  <string name="reading_list_create_new">Ustvari nov seznam</string>
   <string name="reading_list_title_exists">Bralni seznam »%s« že obstaja.</string>
   <string name="reading_list_article_added_to_named">%1$s dodano na %2$s.</string>
   <string name="reading_list_article_added_to_default_list">Članek %s je shranjen. Ali ga želite dodati na seznam?</string>
@@ -427,7 +431,8 @@
   <string name="reading_list_name_sample">Moj bralni seznam</string>
   <string name="reading_list_name_hint">Naslov seznama</string>
   <string name="reading_list_description_hint">Opis (neobvezno)</string>
-  <string name="reading_list_item_deleted">Članek %s je odstranjen s seznama</string>
+  <string name="reading_list_item_deleted">Članek %s je odstranjen s seznama.</string>
+  <string name="reading_list_item_deleted_from_list">%1$s odstranjen s seznama %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d članek odstranjen s seznama</item>
     <item quantity="two">%d članka odstranjena s seznama</item>
@@ -440,12 +445,6 @@
   <string name="reading_list_deleted">Seznam %s izbrisan</string>
   <string name="saved_list_empty_title">Nimate še prenesenih strani</string>
   <string name="reading_lists_empty_message">Dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave.</string>
-  <string name="reading_lists_onboarding_intro">dodajte članke na seznam za poznejše branje, tudi ko ste brez povezave!</string>
-  <string name="reading_lists_onboarding_for_example">Na primer</string>
-  <string name="reading_lists_onboarding_example1">Kraji za obisk</string>
-  <string name="reading_lists_onboarding_example2">Najljubše živali</string>
-  <string name="reading_lists_onboarding_example3">Raziskovanje vesolja</string>
-  <string name="reading_lists_onboarding_got_it">Razumem</string>
   <string name="reading_list_empty">Na tem seznamu nimate člankov.</string>
   <string name="reading_list_article_offline">Na voljo brez povezave</string>
   <string name="reading_list_article_make_offline">Članek naj bo na voljo brez povezave</string>
@@ -567,7 +566,7 @@
   <string name="notifications_activity_title">Obvestila</string>
   <string name="notifications_activity_title_archived">Obvestila (arhivirano)</string>
   <string name="notifications_search">Išči v obvestilih</string>
-  <string name="notifications_view_unread">Prikaži neprebrano</string>
+  <string name="notifications_view_unread">Ogled neprebranih</string>
   <string name="notifications_view_archived">Prikaži arhivirano</string>
   <string name="notifications_prefs">Nastavitve obveščanja</string>
   <string name="notifications_archive">Označi kot prebrano in arhiviraj</string>
@@ -688,6 +687,7 @@
   <string name="description_too_short">Besedilo je prekratko.</string>
   <string name="description_ends_with_punctuation">Besedilo se ne sme končati z ločilom.</string>
   <string name="description_starts_with_uppercase">Začnite z malo črko, razen če je prva beseda lastno ime.</string>
+  <string name="description_starts_with_lowercase">Izogibajte se začetku z malo začetnico.</string>
   <string name="description_is_in_different_language">Besedilo je v nepričakovanem jeziku. Jezik mora biti %s.</string>
   <string name="description_edit_success_saved">Opis članka objavljen!</string>
   <string name="description_edit_success_saved_snackbar">Opis članka objavljen!</string>
@@ -747,12 +747,13 @@
     <item quantity="other">%d prispevkov</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Predlagana urejanja</string>
-  <string name="suggested_edits_feed_card_add_description_button">Dodajte opis članka</string>
+  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začni</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Napis k sliki (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Slika</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Datoteka iz Wikimedijine zbirke</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umetnik/izdelovalec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Oznake</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
@@ -762,7 +763,7 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stran datoteke v Wikimedijini zbirki</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stran datoteke v Wikipediji</string>
   <string name="suggested_edits_article_cta_image_tags">Dodajte sliki oznake</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodajte napis k sliki</string>
+  <string name="suggested_edits_article_cta_image_caption">Dodaj napis k sliki</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj napis k sliki (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodajte napis k sliki</string>
@@ -800,9 +801,9 @@
   <string name="suggested_edits_ip_blocked_message">Zdi se, da je urejanje z vašega IP-naslova (ali razpona IP-naslovov) trenutno preprečeno.</string>
   <string name="suggested_edits_editing_tips_link_text">Nasveti in triki za urejanje</string>
   <string name="suggested_edits_help_page_link_text">Stran za pomoč za predlagana urejanja</string>
-  <string name="suggested_edits_edit_streak_label_text">Niz urejanja</string>
-  <string name="suggested_edits_views_label_text">Ogledi</string>
-  <string name="suggested_edits_quality_label_text">Kakovost urejanja</string>
+  <string name="suggested_edits_edit_streak_label_text">Niz urejanj</string>
+  <string name="suggested_edits_views_label_text">Ogledov</string>
+  <string name="suggested_edits_quality_label_text">Kakovost urejanj</string>
   <string name="suggested_edits_quality_perfect_text">Popolna</string>
   <string name="suggested_edits_quality_excellent_text">Odlična</string>
   <string name="suggested_edits_quality_very_good_text">Zelo dobra</string>
@@ -889,6 +890,12 @@
     <item quantity="few">Dodali ste %d znake</item>
     <item quantity="other">Dodali ste %d znakov</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Trening algoritma za slike</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Presodite, ali bo predlagana slika izboljšala članek.</string>
+  <string name="suggested_edits_image_recommendations_task_get_started">Začni</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">Odlično, kar tako naprej! 👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">Dnevni cilj dosežen! 👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Dosegli ste cilj</string>
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
   <string name="file_page_add_image_tags_button">Dodajte sliki oznake</string>
@@ -968,6 +975,25 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Prekliči</string>
   <string name="edit_type_all">Vsi prispevki</string>
   <string name="content_description_for_page_indicator">Stran %1$d od %2$d</string>
+  <string name="image_recommendations_task_accept">Da</string>
+  <string name="image_recommendations_task_reject">Ne</string>
+  <string name="image_recommendations_task_not_sure">Nisem prepričan/a</string>
+  <string name="image_recommendations_task_instruction">Ali želite to sliko dodati v članek?</string>
+  <string name="image_recommendations_task_choice_no">Zakaj ste izbrali ne?</string>
+  <string name="image_recommendations_task_choice_unsure">Zakaj niste prepričani o tej sliki?</string>
+  <string name="image_recommendations_task_choice_not_relevant">Ni relevantna</string>
+  <string name="image_recommendations_task_choice_low_quality">Slaba kakovost</string>
+  <string name="image_recommendations_task_choice_noinfo">Ni dovolj informacij</string>
+  <string name="image_recommendations_task_choice_nosubject">Ne poznam teme</string>
+  <string name="image_recommendations_task_choice_offensive">Žaljivo</string>
+  <string name="image_recommendations_task_choice_invisible">Slike ne morem videti</string>
+  <string name="image_recommendations_task_choice_understand">Ne razumem naloge</string>
+  <string name="image_recommendations_task_choice_language">Ne razumem jezika</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Utemeljitev predloga:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">PPV</string>
+  <string name="image_recommendations_tooltip1">Preglejte članek, ds boste razumeli temo.</string>
+  <string name="image_recommendations_tooltip2">Oglejte si sliko in povezane informacije.</string>
+  <string name="image_recommendations_tooltip3">Presodite, ali bo slika bralcem pomagala bolje razumeti temo.</string>
   <string name="wikitext_bold">Krepko</string>
   <string name="wikitext_italic">Ležeče</string>
   <string name="wikitext_link">Povezava</string>
@@ -1004,7 +1030,7 @@
   <string name="watchlist_details_watching_label">Spremlja</string>
   <string name="watchlist_details_watch_label">Spremljaj</string>
   <string name="thank_label">Zahvali se</string>
-  <string name="go_to_user_page">Pojdite na uporabniško stran</string>
+  <string name="go_to_user_page">Pojdi na uporabniško stran</string>
   <string name="thank_dialog_title_text">Javno se zahvalite</string>
   <string name="thank_dialog_text">Zahvale so preprost način za izražanje priznanja za delo urejevalca v Wikipediji. Zahval ni mogoče razveljaviti in so javno razvidne.</string>
   <string name="thank_dialog_positive_button_text">Pošlji zahvalo</string>
@@ -1025,7 +1051,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 mesece</string>
   <string name="watchlist_expiry_dialog_six_months">6 mesecev</string>
   <string name="watchlist_empty">Na spisku nadzorov nimate nobenega članka.</string>
-  <string name="watchlist_filter_all">Vsi</string>
+  <string name="watchlist_filter_all">Vse</string>
   <string name="watchlist_filter_talk">Pogovor</string>
   <string name="watchlist_filter_pages">Strani</string>
   <string name="watchlist_filter_other">Drugo</string>

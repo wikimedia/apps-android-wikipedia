@@ -356,12 +356,6 @@
   <string name="reading_list_deleted">%s dibusak</string>
   <string name="saved_list_empty_title">Durung ana kaca kang kasimpen</string>
   <string name="reading_lists_empty_message">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'.</string>
-  <string name="reading_lists_onboarding_intro">Wuwuh artikel ing pratélan saperlu kawaca mengko, kapara nalika \'\'offline\'\'!</string>
-  <string name="reading_lists_onboarding_for_example">Tuladhané</string>
-  <string name="reading_lists_onboarding_example1">Papan-papan supaya ditekani</string>
-  <string name="reading_lists_onboarding_example2">Kéwan kalangenan</string>
-  <string name="reading_lists_onboarding_example3">Dlajahan antariksa</string>
-  <string name="reading_lists_onboarding_got_it">Mudheng</string>
   <string name="reading_list_empty">Panjenengan ora duwé artikel ing pratélan iki.</string>
   <string name="reading_list_article_offline">Cumepak ing njaban jaringan</string>
   <string name="reading_list_article_make_offline">Gawé artikel iki supaya ana nalika ing njaban jaringan</string>
@@ -490,7 +484,7 @@
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_next_random_article">Mot sembarang artikel siji liyané</string>
   <string name="view_main_page_card_title">Dina iki ing Wikipédia</string>
-  <string name="view_main_page_card_action">Deleng tepas</string>
+  <string name="view_main_page_card_action">Deleng pendhapa</string>
   <string name="view_featured_image_card_title">Gambar dina iki</string>
   <string name="view_featured_image_card_download">Undhuh</string>
   <string name="menu_feed_card_dismiss">Dhelikaké kertu iki</string>
@@ -521,7 +515,7 @@
   <string name="feed_item_type_featured_article">Artikel pinilih padinan ing Wikipédia</string>
   <string name="feed_item_type_trending">Artikel sing sok kawaca padinan</string>
   <string name="feed_item_type_featured_image">Gambar pinilih padinan saka Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Tepas Wikipédia mawa isèn-isèn pinilih padinan</string>
+  <string name="feed_item_type_main_page">Pendhapaning Wikipédia mawa isèn-isèn pinilih padinan</string>
   <string name="feed_item_type_randomizer">Asilaké sembarang artikel saperlu kawaca</string>
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="customize_lang_selection_dialog_ok_button_text">YA</string>

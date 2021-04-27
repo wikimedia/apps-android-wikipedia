@@ -6,6 +6,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -62,6 +63,7 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
         const val MESSAGE_TYPE_CHECK_ECHO = "checkEchoV1"
         private const val SUBSCRIBE_RETRY_COUNT = 5
         private const val UNSUBSCRIBE_RETRY_COUNT = 3
+        private var csrfDisposable: Disposable? = null
 
         fun isUsingPush(): Boolean {
             return GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(WikipediaApp.getInstance()) == ConnectionResult.SUCCESS &&
@@ -75,20 +77,16 @@ class WikipediaFirebaseMessagingService : FirebaseMessagingService() {
                 return
             }
 
-            CsrfTokenClient(WikipediaApp.getInstance().wikiSite).request(false, object : CsrfTokenClient.Callback {
-                override fun success(token: String) {
-                    subscribeWithCsrf(token)
-                    setNotificationOptions(token)
-                }
-
-                override fun failure(t: Throwable) {
-                    L.e(t)
-                }
-
-                override fun twoFactorPrompt() {
-                    // ignore
-                }
-            })
+            csrfDisposable?.dispose()
+            csrfDisposable = CsrfTokenClient(WikipediaApp.getInstance().wikiSite).token
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        subscribeWithCsrf(it)
+                        setNotificationOptions(it)
+                    }, {
+                        L.e(it)
+                    })
         }
 
         private fun subscribeWithCsrf(csrfToken: String) {

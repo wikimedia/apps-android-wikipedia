@@ -156,7 +156,7 @@
   <string name="settings_item_preferences">Postavke</string>
   <string name="settings_activity_title">Postavke</string>
   <string name="about_description">O aplikaciji Wikipedia</string>
-  <string name="privacy_policy_description">Politika privatnosti</string>
+  <string name="privacy_policy_description">Pravila o privatnosti</string>
   <string name="terms_of_use_description">Uslovi korištenja</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -330,12 +330,6 @@
   <string name="reading_list_deleted">Spisak \"%s\" obrisan</string>
   <string name="saved_list_empty_title">Zasad nema spiskova za čitanje</string>
   <string name="reading_lists_empty_message">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži.</string>
-  <string name="reading_lists_onboarding_intro">Dodajte članke u spisak za čitanje kasnije, čak i kad niste na mreži!</string>
-  <string name="reading_lists_onboarding_for_example">Naprimjer</string>
-  <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
-  <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
-  <string name="reading_lists_onboarding_example3">Istraživanje svemira</string>
-  <string name="reading_lists_onboarding_got_it">Razumijem</string>
   <string name="reading_list_empty">Niste dodali nijedan članak na ovaj spisak.</string>
   <string name="reading_list_article_offline">Dostupno van mreže</string>
   <string name="reading_list_article_make_offline">Učini članak dostupnim van mreže</string>

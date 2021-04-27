@@ -19,13 +19,16 @@
   <string name="page_tabs_back">వెనుకకు</string>
   <string name="nav_item_forward">ముందుకు</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
+  <string name="nav_item_suggested_edits">దిద్దుబాట్లు</string>
   <string name="nav_item_more">మరిన్ని</string>
+  <string name="nav_item_search">వెతుకులాట</string>
   <string name="error_network_error">అంతర్జాలానికి అనుసంధానం కాలేకపోయాం.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="card_offline_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="page_error_back_to_main">వెనక్కి వెళ్ళు</string>
   <string name="error_back">వెనుకకు వెళ్ళు</string>
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
+  <string name="history_list_title">చరిత్ర</string>
   <string name="dialog_title_clear_history">విహరణ చరిత్రను తుడిచివేయి</string>
   <string name="dialog_message_clear_history" fuzzy="true">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
   <string name="dialog_message_clear_history_yes">అవును</string>
@@ -33,7 +36,7 @@
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
   <string name="menu_page_other_languages">భాషను మార్చు</string>
-  <string name="menu_page_find_in_page" fuzzy="true">పుటలో వెతకండి</string>
+  <string name="menu_page_find_in_page">వ్యాసంలో వెతకండి</string>
   <string name="menu_page_font_and_theme">ఖతి, అలంకారం</string>
   <string name="menu_page_add_to_default_list">భద్రపరుచు</string>
   <string name="feed_card_add_to_default_list">భద్రపరుచు</string>
@@ -156,6 +159,11 @@
   <string name="page_similar_titles">పోలిన పేజీలు</string>
   <string name="search_did_you_mean">ఇదేనా మీరంటున్నది \"%s\"?</string>
   <string name="search_recent_header">ఇటీవల వెతికినవి:</string>
+  <string name="search_results_count_zero">ఫలితాలేమీ లేవు</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 ఫలితం</item>
+    <item quantity="other">%d ఫలితాలు</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">ఇటీవలి వెతుకులాటలను తుడిచివేయి</string>
   <string name="clear_recent_searches_confirm">మీ వెతుకులాట చరిత్రను ఖచ్ఛితంగా తుడిచివేయాలనుకుంటున్నారా?</string>
   <string name="clear_recent_searches_confirm_yes">అవును</string>
@@ -181,7 +189,7 @@
   <string name="license_title" fuzzy="true">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>
   <string name="gallery_share_error">చిత్రాన్ని భాగ్యపరచలేకపోయాము : %s</string>
-  <string name="gallery_save_success" fuzzy="true">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
+  <string name="gallery_save_success">ఫైలు భద్రమయ్యింది.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
   <string name="expand_refs">పెద్దది చేసేందుకు ట్యాప్ చెయ్యి</string>
@@ -189,6 +197,7 @@
   <string name="captcha_image">కాప్చా బొమ్మ</string>
   <string name="gallery_fair_use_license">సముచితోపయోగం</string>
   <string name="gallery_uploader_unknown">ఎక్కించినవారెవరో తెలీదు</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">విస్మరించు</string>
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="menu_close_all_tabs">అన్ని ట్యాబులను మూసివేయి</string>
   <string name="close_all_tabs_confirm">మీరు నిజంగానే అన్ని ట్యాబులను మూసివేయాలనుకుంటున్నారా?</string>
@@ -205,19 +214,23 @@
   <string name="button_continue_to_disambiguation">ఇటువంటి పేజీలను చూడండి</string>
   <string name="link_preview_disambiguation_description">ఈ శీర్షిక ఒకటికంటే ఎక్కువ పేజీలకు చెందుతుంది:</string>
   <string name="button_get_directions">నిర్దేశాలను పొందండి</string>
-  <string name="nav_item_donate" fuzzy="true">వికీపీడియాకి తోడ్పడండి</string>
+  <string name="nav_item_donate">విరాళమివ్వండి</string>
+  <string name="multi_select_items_selected">%d ఎంచుకున్నారు</string>
   <string name="empty_tab_title">కొత్త ట్యాబు</string>
+  <string name="article_menu_bar_save_button">భద్రపరుచు</string>
+  <string name="article_menu_bar_language_button">భాష</string>
+  <string name="article_menu_bar_search_button">వెతుకు</string>
+  <string name="article_menu_bar_theme_button">అలంకారం</string>
+  <string name="article_menu_bar_contents_button">విషయాలు</string>
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
   <string name="color_theme_dark">చీకటి</string>
   <string name="color_theme_black">నలుపు</string>
   <string name="color_theme_test_title">నమూనా పాఠ్యం</string>
   <string name="text_size_percent_default">%s (అప్రమేయం)</string>
-  <string name="reading_lists_onboarding_for_example">ఉదాహరణకు</string>
-  <string name="reading_lists_onboarding_example1">చూడాల్సిన ప్రదేశాలు</string>
-  <string name="reading_lists_onboarding_example2">అభిమాన జంతువులు</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">అంతరిక్షం!</string>
-  <string name="reading_lists_onboarding_got_it">అర్థమైంది</string>
+  <string name="reading_lists_ignore_button">ఇప్పుడు కాదు</string>
+  <string name="reading_lists_confirm_remote_delete_yes">అవును</string>
+  <string name="reading_lists_confirm_remote_delete_no">కాదు</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">రద్దుచేయి</string>
   <string name="reading_list_turned_sync_off_dialog_ok">సరే</string>
   <string name="reading_list_turned_sync_off_dialog_settings">అమరికలు</string>
@@ -236,7 +249,11 @@
   <string name="notifications_poll_enable_negative">ఇప్పుడు కాదు</string>
   <string name="preference_title_notification_milestone">మైలురాయి</string>
   <string name="preference_title_notification_thanks">కృతజ్ఞతలు</string>
+  <string name="view_main_page_card_title">వికీపీడియాలో నేడు</string>
+  <string name="view_featured_image_card_download">దింపుకోలు</string>
+  <string name="view_featured_image_card_share">పంచుకోండి</string>
   <string name="menu_feed_overflow_label">మరిన్ని ఎంపికలు</string>
+  <string name="home">ముంగిలి</string>
   <string name="view_card_news_title">వార్తల్లో</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">నిన్న</item>
@@ -254,10 +271,10 @@
   <string name="description_edit_article_description_label">వ్యాసం</string>
   <string name="description_edit_add_caption_label">బొమ్మ వివరణ</string>
   <string name="description_edit_save">ప్రచురించు</string>
-  <string name="description_edit_edit_description" fuzzy="true">వివరణను మార్చు</string>
+  <string name="description_edit_edit_description">వ్యాస వివరణను మార్చు</string>
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>
   <string name="description_edit_help_about_wikidata">వికీడేటా గురించి</string>
-  <string name="description_edit_success_saved" fuzzy="true">వివరణ భద్రమయ్యింది!</string>
+  <string name="description_edit_success_saved">వ్యాస వివరణ ప్రచురితమయ్యింది!</string>
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
   <string name="description_edit_tutorial_title_descriptions">వ్యాస వివరణలు</string>
@@ -268,6 +285,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">మరింత సమాచారం</string>
+  <string name="suggested_edits_quality_okay_text">పర్లేదు</string>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d రోజు</item>
     <item quantity="other">%d రోజులు</item>
@@ -306,6 +324,7 @@
   <string name="edit_conflict_dialog_ok_button_text">సరే</string>
   <string name="reverted_edit_dialog_ok_button_text">సరే</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;సూచన కారణం:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">బొద్దు</string>
   <string name="wikitext_italic">వాలు</string>
   <string name="wikitext_link">లంకెచేయి</string>
@@ -317,4 +336,16 @@
   <string name="text_input_dialog_ok_button_text">సరే</string>
   <string name="text_input_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="custom_date_picker_dialog_cancel_button_text">రద్దుచేయి</string>
+  <string name="talk_title">చర్చ</string>
+  <string name="talk_user_title">చర్చ: %s</string>
+  <string name="talk_new_topic">కొత్త విషయం</string>
+  <string name="talk_page_empty">ఈ చర్చా పేజీ ఖాళీగా ఉంది.</string>
+  <string name="talk_no_subject">(విషయం లేదు)</string>
+  <string name="thank_dialog_negative_button_text">రద్దుచేయి</string>
+  <string name="watchlist_expiry_dialog_one_week">1 వారం</string>
+  <string name="watchlist_expiry_dialog_one_month">1 నెల</string>
+  <string name="watchlist_expiry_dialog_three_months">3 నెలలు</string>
+  <string name="watchlist_expiry_dialog_six_months">6 నెలలు</string>
+  <string name="watchlist_filter_pages">పేజీలు</string>
+  <string name="watchlist_filter_other">ఇతరాలు</string>
 </resources>
