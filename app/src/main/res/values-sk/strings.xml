@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * AtonX
+* Cooltey
 * Dbrant
 * EditorPO
 * Hromoslav
@@ -370,7 +371,7 @@
   <string name="preference_title_prefer_offline_content">Preferovať obsah bez pripojenia</string>
   <string name="preference_summary_prefer_offline_content">Ušetriť využitie dát tým, že aplikácia načíta články, ktoré sú k dispozícii bez pripojenia a nebude načítavať najnovšiu verziu článku.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prispôsobiť vzhľadu systému</string>
-  <string name="page_footer_license_text">Obsah je dostupný pod $1, pokiaľ nie je uvedené inak</string>
+  <string name="page_footer_license_text">Obsah je dostupný pod licenciou $1, pokiaľ nie je uvedené inak</string>
   <string name="empty_tab_title">Nová karta</string>
   <string name="menu_save_all_tabs">Uložiť všetky záložky</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
@@ -446,11 +447,18 @@
   <string name="reading_list_name_hint">Názov zoznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>
   <string name="reading_list_item_deleted">Článok %s bol odstránený zo zoznamu na prečítanie</string>
+  <string name="reading_list_item_deleted_from_list">%1$s odstránený z %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d článok odstránený zo zoznamu</item>
     <item quantity="few">%d články odstránené zo zoznamu</item>
     <item quantity="many">%d článkov odstránených zo zoznamu</item>
     <item quantity="other">%d článkov odstránených zo zoznamu</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d článok odstránený zv%s</item>
+    <item quantity="few">%d články odstránené z %s</item>
+    <item quantity="many">%d článkov odstránených z %s</item>
+    <item quantity="other">%d článkov odstránených z %s</item>
   </plurals>
   <string name="reading_list_items_deleted">Zo zoznamu na prečítanie bolo odstránených %d článkov</string>
   <string name="reading_lists_item_deleted">%s bol odstránený zo zoznamov</string>
@@ -701,6 +709,7 @@
   <string name="description_too_short">Text je príliš krátky.</string>
   <string name="description_ends_with_punctuation">Text nesmie končiť bodkou.</string>
   <string name="description_starts_with_uppercase">Začnite malým písmenom pokiaľ slovo nie je meno.</string>
+  <string name="description_starts_with_lowercase">Vyhnite sa začatiu malým písmenom.</string>
   <string name="description_is_in_different_language">Zdá sa, že text je v neočakávanom jazyku. Jazyk by mal byť %s.</string>
   <string name="description_edit_success_saved">Popis článku bol uverejnený!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku bol uverejnený!</string>
@@ -766,6 +775,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_image">Súbor</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Súbor z Wikimédia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umelec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>
@@ -1005,9 +1015,14 @@
   <string name="image_recommendations_task_choice_offensive">Urážlivý</string>
   <string name="image_recommendations_task_choice_invisible">Nevidím obrázok</string>
   <string name="image_recommendations_task_choice_understand">Nerozumiem úlohe</string>
+  <string name="image_recommendations_task_choice_language">Nedá sa prečítať jazyk</string>
   <string name="image_recommendations_task_choice_other">Iné</string>
   <string name="image_recommendations_task_choice_continue">Pokračovať</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Dôvod návrhu:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Dôvod návrhu:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_faq">Často kladené otázky</string>
+  <string name="image_recommendations_tooltip1">Preskúmať tento článok pre pochopenie jeho témy.</string>
+  <string name="image_recommendations_tooltip2">Preskúmať obrázok a s ním súvisiace informácie.</string>
+  <string name="image_recommendations_tooltip3">Rozhodnúť či obrázok čitateľom pomáha lepšie porozumieť téme.</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>

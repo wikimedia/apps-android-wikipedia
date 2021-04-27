@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Cooltey
 * Malikxan
 * Ochilov
 * Patriccck
@@ -926,14 +927,13 @@
   <string name="image_recommendations_task_reject">Yoʻq</string>
   <string name="image_recommendations_task_not_sure">Aniq emas</string>
   <string name="image_recommendations_task_processing">Qayta ishlanmoqda…</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_choice_not_relevant">Tegishli emas</string>
   <string name="image_recommendations_task_choice_low_quality">Past sifatli</string>
   <string name="image_recommendations_task_choice_noinfo">Maʼlumot yetarli emas</string>
   <string name="image_recommendations_task_choice_offensive">Haqoratli</string>
   <string name="image_recommendations_task_choice_other">Boshqa</string>
   <string name="image_recommendations_task_choice_continue">Davom etish</string>
-  <string name="image_recommendations_task_suggestion_reason">&lt;i&gt;Taklif sababi:&lt;/i&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Taklif sababi:&lt;/b&gt; %s</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
   <string name="wikitext_link">Havola</string>

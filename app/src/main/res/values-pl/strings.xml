@@ -272,6 +272,7 @@
   <string name="page_similar_titles">Podobne strony</string>
   <string name="search_did_you_mean">Czy chodziło Ci o \"%s\"?</string>
   <string name="search_recent_header">Ostatnie wyszukiwania:</string>
+  <string name="search_results_count_zero">Brak wyników</string>
   <string name="button_clear_all_recent_searches">Wyczyść listę ostatnich wyszukiwań</string>
   <string name="clear_recent_searches_confirm">Czy na pewno chcesz usunąć swoją historię wyszukiwania?</string>
   <string name="clear_recent_searches_confirm_yes">Tak</string>
@@ -861,6 +862,8 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Anuluj</string>
   <string name="edit_type_all">Wszystkie edycje</string>
   <string name="content_description_for_page_indicator">Strona %1$d z %2$d</string>
+  <string name="image_recommendations_task_accept">Tak</string>
+  <string name="image_recommendations_task_reject">Nie</string>
   <string name="wikitext_bold">Pogrubienie</string>
   <string name="wikitext_italic">Kursywa</string>
   <string name="wikitext_link">Link</string>

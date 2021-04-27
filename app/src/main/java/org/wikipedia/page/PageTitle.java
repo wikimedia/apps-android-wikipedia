@@ -150,15 +150,20 @@ public class PageTitle implements Parcelable {
             if (Arrays.asList(Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
                 this.namespace = null;
                 this.wiki = new WikiSite(wiki.authority(), namespaceOrLanguage);
-            } else {
+                this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
+            } else if (parts[1].length() > 0 && !Character.isWhitespace(parts[1].charAt(0)) && parts[1].charAt(0) != '_') {
                 this.wiki = wiki;
                 this.namespace = namespaceOrLanguage;
+                this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
+            } else {
+                this.wiki = wiki;
+                this.namespace = null;
+                this.text = text;
             }
-            this.text = TextUtils.join(":", Arrays.copyOfRange(parts, 1, parts.length));
         } else {
             this.wiki = wiki;
             this.namespace = null;
-            this.text = parts[0];
+            this.text = text;
         }
 
         this.thumbUrl = thumbUrl;
@@ -273,14 +278,9 @@ public class PageTitle implements Parcelable {
     public PageTitle pageTitleForTalkPage() {
         String talkNamespace = namespace().user() || namespace().userTalk()
                 ? UserTalkAliasData.valueFor(wiki.languageCode()) : TalkAliasData.valueFor(wiki.languageCode());
-
-        PageTitle pageTitle = new PageTitle(talkNamespace, (namespace().userTalk() || namespace().user())
-                ? StringUtil.removeNamespace(getPrefixedText()) : getPrefixedText(), wiki);
-        if (namespace().userTalk() || namespace().user()) {
-            pageTitle.setDisplayText(StringUtil.removeUnderscores(talkNamespace) + ":" + StringUtil.removeNamespace(getDisplayText()));
-        } else {
-            pageTitle.setDisplayText(talkNamespace + ":" + getDisplayText());
-        }
+        PageTitle pageTitle = new PageTitle(talkNamespace, getText(), wiki);
+        pageTitle.setDisplayText(talkNamespace + ":" + (!TextUtils.isEmpty(getNamespace()) && getDisplayText().startsWith(getNamespace())
+                ? StringUtil.removeNamespace(getDisplayText()) : getDisplayText()));
         return pageTitle;
     }
 

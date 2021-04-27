@@ -136,6 +136,9 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     }
 
     private fun finalizeCallToAction() {
+        if (imageEditType == null) {
+            return
+        }
         when (imageEditType) {
             ImageEditType.ADD_TAGS -> pageHeaderView.setUpCallToAction(parentFragment.getString(R.string.suggested_edits_article_cta_image_tags))
             ImageEditType.ADD_CAPTION_TRANSLATION -> {
@@ -170,7 +173,8 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
                     }
                     return
                 }
-                if (imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION) {
+                if (imageEditType == ImageEditType.ADD_CAPTION ||
+                        imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION) {
                     callToActionSourceSummary?.let { source ->
                         if (callToActionIsTranslation) {
                             callToActionTargetSummary?.let { target ->

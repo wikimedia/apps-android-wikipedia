@@ -24,7 +24,7 @@ import java.util.*
 class FaceAndColorDetectImageView constructor(context: Context, attrs: AttributeSet? = null) : AppCompatImageView(context, attrs) {
 
     interface OnImageLoadListener {
-        fun onImageLoaded(palette: Palette)
+        fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int)
         fun onImageFailed()
     }
 
@@ -35,7 +35,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
     }
 
     @JvmOverloads
-    fun loadImage(uri: Uri?, roundedCorners: Boolean = false, listener: OnImageLoadListener? = null) {
+    fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, listener: OnImageLoadListener? = null) {
         val placeholder = ViewUtil.getPlaceholderDrawable(context)
         if (!Prefs.isImageDownloadEnabled() || uri == null) {
             setImageDrawable(placeholder)
@@ -55,7 +55,7 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
 
                 override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
                     if (resource is BitmapDrawable && resource.bitmap != null) {
-                        listener.onImageLoaded(Palette.from(resource.bitmap).generate())
+                        listener.onImageLoaded(Palette.from(resource.bitmap).generate(), resource.bitmap.width, resource.bitmap.height)
                     } else {
                         listener.onImageFailed()
                     }
@@ -63,10 +63,14 @@ class FaceAndColorDetectImageView constructor(context: Context, attrs: Attribute
                 }
             })
         }
-        builder = if (shouldDetectFace(uri)) {
-            builder.transform(if (roundedCorners) FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS else FACE_DETECT_TRANSFORM)
+        builder = if (cropped) {
+            if (shouldDetectFace(uri)) {
+                builder.transform(if (roundedCorners) FACE_DETECT_TRANSFORM_AND_ROUNDED_CORNERS else FACE_DETECT_TRANSFORM)
+            } else {
+                builder.transform(if (roundedCorners) ViewUtil.CENTER_CROP_LARGE_ROUNDED_CORNERS else CENTER_CROP_WHITE_BACKGROUND)
+            }
         } else {
-            builder.transform(if (roundedCorners) ViewUtil.CENTER_CROP_LARGE_ROUNDED_CORNERS else CENTER_CROP_WHITE_BACKGROUND)
+            builder.transform(WhiteBackgroundTransformation())
         }
         builder.into(this)
     }

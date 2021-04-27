@@ -253,6 +253,10 @@
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
+            android:name=".suggestededits.ImageRecsOnboardingActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
             android:name=".userprofile.ContributionsActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:label=""

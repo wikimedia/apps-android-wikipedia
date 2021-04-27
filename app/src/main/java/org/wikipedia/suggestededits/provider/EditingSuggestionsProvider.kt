@@ -2,15 +2,21 @@ package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
 import java.util.concurrent.Semaphore
 import kotlin.collections.ArrayList
+import kotlin.random.Random
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -28,6 +34,9 @@ object EditingSuggestionsProvider {
     private var imagesWithTranslatableCaptionCacheToLang: String = ""
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
+
+    private val articlesWithMissingImagesCache = mutableListOf<String>()
+    private var articlesWithMissingImagesCacheLang: String = ""
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
@@ -90,11 +99,25 @@ object EditingSuggestionsProvider {
                 Observable.just(cachedPair)
             } else {
                 ServiceFactory.getRest(WikiSite(Service.WIKIDATA_URL)).getArticlesWithTranslatableDescriptions(WikiSite.normalizeLanguageCode(sourceWiki.languageCode()), WikiSite.normalizeLanguageCode(targetLang))
-                        .map { pages ->
+                        .flatMap({ pages ->
+                            if (pages.isEmpty()) {
+                                throw ListEmptyException()
+                            }
+                            val titleList = ArrayList<String>()
+                            pages.forEach { titleList.add(it.title()) }
+                            ServiceFactory.get(WikiSite.forLanguageCode(targetLang)).getDescription(titleList.joinToString("|"))
+                        }, { pages, response -> Pair(pages, response) })
+                        .map { pair ->
+                            val pages = pair.first
+                            val mwPages = pair.second.query()!!.pages()!!
                             var targetAndSourcePageTitles: Pair<PageTitle, PageTitle>? = null
                             articlesWithTranslatableDescriptionCacheFromLang = sourceWiki.languageCode()
                             articlesWithTranslatableDescriptionCacheToLang = targetLang
                             for (page in pages) {
+                                val mwPage = mwPages.find { it.title() == page.title() }
+                                if (mwPage != null && !mwPage.description().isNullOrEmpty()) {
+                                    continue
+                                }
                                 val entity = page.entity
                                 if (entity == null ||
                                         entity.descriptions().containsKey(targetLang) ||
@@ -237,6 +260,56 @@ object EditingSuggestionsProvider {
                         .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
             }
         }.doFinally { mutex.release() }
+    }
+
+    fun getNextArticleWithMissingImage(lang: String, sequence: Int): Observable<ImageRecommendationResponse> {
+        return Observable.fromCallable { mutex.acquire() }.flatMap {
+            var cachedItem: ImageRecommendationResponse? = null
+            if (articlesWithMissingImagesCacheLang != lang) {
+                // evict the cache if the language has changed.
+                articlesWithMissingImagesCache.clear()
+            }
+            val installIdMod = 500
+            val installId = Prefs.getAppInstallId().orEmpty()
+            // Initialize the random number generator based on the user's install ID, modulo the
+            // total size of the expected test group.
+            val random = Random(installId.substring(installId.length - 4).toInt(16) % installIdMod)
+            var seqOffset = 0
+            // and seek to the appropriate position in the random sequence.
+            for (i in 0..sequence) {
+                seqOffset = random.nextInt(Int.MAX_VALUE)
+            }
+
+            articlesWithMissingImagesCacheLang = lang
+            if (articlesWithMissingImagesCache.isNotEmpty()) {
+                cachedItem = buildImageRecommendation(articlesWithMissingImagesCache[seqOffset % articlesWithMissingImagesCache.size])
+            }
+
+            if (cachedItem != null) {
+                Observable.just(cachedItem)
+            } else {
+                val stream = WikipediaApp.getInstance().assets.open("imagerecs/" + lang + "wiki_image_candidates.tsv")
+                val reader = BufferedReader(InputStreamReader(stream))
+                while (true) {
+                    val line = reader.readLine()
+                    if (line.isNullOrEmpty()) {
+                        break
+                    }
+                    articlesWithMissingImagesCache.add(line)
+                }
+
+                var item: ImageRecommendationResponse? = null
+                if (articlesWithMissingImagesCache.isNotEmpty()) {
+                    item = buildImageRecommendation(articlesWithMissingImagesCache[seqOffset % articlesWithMissingImagesCache.size])
+                }
+                Observable.just(item!!)
+            }
+        }.doFinally { mutex.release() }
+    }
+
+    private fun buildImageRecommendation(str: String): ImageRecommendationResponse {
+        val arr = str.split('\t')
+        return ImageRecommendationResponse(arr[0].toInt(), arr[1], arr[2].split(",").toList())
     }
 
     class ListEmptyException : RuntimeException()
