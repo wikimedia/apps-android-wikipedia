@@ -158,7 +158,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn) {
-            showAccountCreationOrIPBlocked()
+            setRequiredLoginStatus()
             return
         }
 
@@ -210,22 +210,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                         binding.pageViewStatsView.setTitle(it.toString())
                         totalPageviews = it
                         setFinalUIState()
-                    }
-                }, { t ->
-                    L.e(t)
-                    showError(t)
-                }))
-    }
-
-    private fun showAccountCreationOrIPBlocked() {
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    if (response.query()!!.userInfo()!!.isBlocked) {
-                        setIPBlockedStatus()
-                    } else {
-                        setRequiredLoginStatus()
                     }
                 }, { t ->
                     L.e(t)
