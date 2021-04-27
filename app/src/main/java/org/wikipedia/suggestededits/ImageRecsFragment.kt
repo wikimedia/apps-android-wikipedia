@@ -506,7 +506,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
         fun isFeatureEnabled(): Boolean {
             return AccountUtil.isLoggedIn &&
-                    SUPPORTED_LANGUAGES.any { it in WikipediaApp.getInstance().language().appLanguageCodes }
+                    SUPPORTED_LANGUAGES.any { it == WikipediaApp.getInstance().appOrSystemLanguageCode }
         }
 
         fun updateDailyCount(increaseCount: Int = 0): Pair<Int, Int> {
