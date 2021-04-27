@@ -288,7 +288,7 @@ object EditingSuggestionsProvider {
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                val stream = WikipediaApp.getInstance().assets.open(lang + "wiki_wd_image_candidates.tsv")
+                val stream = WikipediaApp.getInstance().assets.open("imagerecs/" + lang + "wiki_image_candidates.tsv")
                 val reader = BufferedReader(InputStreamReader(stream))
                 while (true) {
                     val line = reader.readLine()
