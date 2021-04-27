@@ -22,7 +22,7 @@ class ImageRecsDialog : DialogFragment() {
     private var _binding: FragmentSuggestedEditsImageRecommendationDialogBinding? = null
     private val binding get() = _binding!!
 
-    private var responseCode: Int = -1
+    private var responseCode = -1
 
     private val checkBoxChangedHandler = CompoundButton.OnCheckedChangeListener { view, isChecked ->
         view.setBackgroundResource(if (isChecked) R.drawable.rounded_12dp_accent90_fill else R.drawable.rounded_12dp_corner_base90_fill)
