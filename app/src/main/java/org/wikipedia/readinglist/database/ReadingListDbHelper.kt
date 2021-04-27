@@ -731,16 +731,17 @@ class ReadingListDbHelper {
         return null
     }
 
-    private val readableDatabase = WikipediaApp.getInstance().database.readableDatabase
-    private val writableDatabase = WikipediaApp.getInstance().database.writableDatabase
-
     companion object {
+        private lateinit var readableDatabase: SQLiteDatabase
+        private lateinit var writableDatabase: SQLiteDatabase
         private var INSTANCE: ReadingListDbHelper? = null
 
         @JvmStatic
         fun instance(): ReadingListDbHelper {
             if (INSTANCE == null) {
                 INSTANCE = ReadingListDbHelper()
+                readableDatabase = WikipediaApp.getInstance().database.readableDatabase
+                writableDatabase = WikipediaApp.getInstance().database.writableDatabase
             }
             return INSTANCE as ReadingListDbHelper
         }

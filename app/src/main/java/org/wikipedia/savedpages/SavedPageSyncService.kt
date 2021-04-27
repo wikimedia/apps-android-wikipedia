@@ -110,7 +110,7 @@ class SavedPageSyncService : JobIntentService() {
             } else if (savedPageSyncNotification.isSyncCanceled()) {
                 // Mark remaining pages as online-only!
                 queue.add(page)
-                ReadingListDbHelper.instance().markPagesForOffline(queue, false, false)
+                ReadingListDbHelper.instance().markPagesForOffline(queue, offline = false, forcedSave = false)
                 break
             }
             savedPageSyncNotification.setNotificationProgress(applicationContext, itemsTotal, itemsSaved)

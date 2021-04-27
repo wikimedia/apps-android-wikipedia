@@ -166,7 +166,7 @@ class ReadingListItemView : ConstraintLayout {
     }
 
     private fun statsTextListSize(readingList: ReadingList): Float {
-        return readingList.sizeBytes / 1.coerceAtLeast(resources.getInteger(R.integer.reading_list_item_size_bytes_per_unit)).toFloat()
+        return readingList.sizeBytesFromPages / 1.coerceAtLeast(resources.getInteger(R.integer.reading_list_item_size_bytes_per_unit)).toFloat()
     }
 
     private inner class OverflowMenuClickListener constructor(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
