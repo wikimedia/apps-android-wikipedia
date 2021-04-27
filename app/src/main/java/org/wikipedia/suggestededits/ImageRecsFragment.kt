@@ -354,7 +354,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     private fun onSuccess() {
 
-        val pair = updateDailyCount()
+        val pair = updateDailyCount(1)
         val oldCount = pair.first
         val newCount = pair.second
         Prefs.setImageRecsItemSequenceSuccess(recommendationSequence + 1)
@@ -509,7 +509,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                     SUPPORTED_LANGUAGES.any { it in WikipediaApp.getInstance().language().appLanguageCodes }
         }
 
-        fun updateDailyCount(): Pair<Int, Int> {
+        fun updateDailyCount(increaseCount: Int = 0): Pair<Int, Int> {
             val day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
             var oldCount = Prefs.getImageRecsDailyCount()
             if (day != Prefs.getImageRecsDayId()) {
@@ -517,7 +517,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
                 Prefs.setImageRecsDayId(day)
                 oldCount = 0
             }
-            val newCount = oldCount + 1
+            val newCount = oldCount + increaseCount
             Prefs.setImageRecsDailyCount(newCount)
             return oldCount to newCount
         }
