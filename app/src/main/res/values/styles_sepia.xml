@@ -30,6 +30,7 @@
         <item name="color_group_65">@android:color/transparent</item>
         <item name="color_group_66">@color/red30</item>
         <item name="color_group_67">@android:color/transparent</item>
+        <item name="color_group_69">@color/green50_10s</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/parchment</item>
