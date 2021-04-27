@@ -484,7 +484,7 @@
   <string name="view_random_card_title">Artikel sembarang</string>
   <string name="view_next_random_article">Mot sembarang artikel siji liyané</string>
   <string name="view_main_page_card_title">Dina iki ing Wikipédia</string>
-  <string name="view_main_page_card_action">Deleng tepas</string>
+  <string name="view_main_page_card_action">Deleng pendhapa</string>
   <string name="view_featured_image_card_title">Gambar dina iki</string>
   <string name="view_featured_image_card_download">Undhuh</string>
   <string name="menu_feed_card_dismiss">Dhelikaké kertu iki</string>
@@ -515,7 +515,7 @@
   <string name="feed_item_type_featured_article">Artikel pinilih padinan ing Wikipédia</string>
   <string name="feed_item_type_trending">Artikel sing sok kawaca padinan</string>
   <string name="feed_item_type_featured_image">Gambar pinilih padinan saka Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Tepas Wikipédia mawa isèn-isèn pinilih padinan</string>
+  <string name="feed_item_type_main_page">Pendhapaning Wikipédia mawa isèn-isèn pinilih padinan</string>
   <string name="feed_item_type_randomizer">Asilaké sembarang artikel saperlu kawaca</string>
   <string name="feed_configure_onboarding_action">Larasaké</string>
   <string name="customize_lang_selection_dialog_ok_button_text">YA</string>

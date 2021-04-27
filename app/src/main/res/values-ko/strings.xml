@@ -935,7 +935,6 @@
   <string name="image_recommendations_task_reject">아니오</string>
   <string name="image_recommendations_task_not_sure">확실치 않음</string>
   <string name="image_recommendations_task_processing">처리 중...</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_instruction">이 이미지를 문서에 추가하시겠습니까?</string>
   <string name="image_recommendations_task_choice_no">왜 아니오를 선택하셨습니까?</string>
   <string name="image_recommendations_task_choice_unsure">이 이미지가 왜 확실치 않으십니까?</string>

@@ -1,0 +1,52 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_width="match_parent"
+    tools:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/percentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/green30"
+        tools:text="10/10"/>
+
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/percentText"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        android:textColor="?attr/material_theme_primary_color"
+        android:fontFamily="sans-serif-medium"
+        tools:text="75%"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        app:layout_constraintTop_toBottomOf="@id/instructionText"
+        app:layout_constraintStart_toStartOf="@id/instructionText"
+        app:layout_constraintEnd_toEndOf="@id/instructionText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:indeterminate="false"
+        android:progress="50"
+        android:progressDrawable="@drawable/progress_bar_thick"
+        android:max="100" />
+
+</merge>

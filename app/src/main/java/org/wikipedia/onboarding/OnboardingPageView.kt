@@ -3,9 +3,11 @@ package org.wikipedia.onboarding
 import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -38,6 +40,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     var callback: Callback? = null
     private val binding = ViewOnboardingPageBinding.inflate(LayoutInflater.from(context), this)
     private var listDataType: String? = null
+    private var viewHeightDetected: Boolean = false
 
     init {
         attrs?.let { attrSet ->
@@ -79,6 +82,27 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 }
             }
         }
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+        if (!viewHeightDetected) {
+            if (binding.scrollView != null && binding.scrollViewContainer != null &&
+                    binding.scrollView.height <= binding.scrollViewContainer.height) {
+                // Remove layout gravity of the text below on small screens to make centered image visible
+                removeScrollViewContainerGravity()
+            }
+            viewHeightDetected = true
+        }
+    }
+
+    private fun removeScrollViewContainerGravity() {
+        val params = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT
+        )
+        params.gravity = Gravity.NO_GRAVITY
+        binding.scrollViewContainer?.layoutParams = params
     }
 
     fun setSwitchChecked(checked: Boolean) {

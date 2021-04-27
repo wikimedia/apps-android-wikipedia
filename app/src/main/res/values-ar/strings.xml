@@ -933,7 +933,6 @@
   <string name="image_recommendations_task_accept">نعم</string>
   <string name="image_recommendations_task_reject">لا</string>
   <string name="image_recommendations_task_not_sure">لستُ متأكداً</string>
-  <string name="image_recommendations_task_daily_amount">%d / %d</string>
   <string name="image_recommendations_task_choice_continue">استمر</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>

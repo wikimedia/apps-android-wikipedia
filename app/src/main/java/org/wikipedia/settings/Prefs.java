@@ -970,6 +970,57 @@ public final class Prefs {
         setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled);
     }
 
+    public static boolean isImageRecsTeacherMode() {
+        return getBoolean(R.string.preference_key_image_recs_teacher_mode, false);
+    }
+
+    public static int getImageRecsItemSequence() {
+        return getInt(R.string.preference_key_image_recs_item_sequence, 0);
+    }
+
+    public static void setImageRecsItemSequence(int seq) {
+        setInt(R.string.preference_key_image_recs_item_sequence, seq);
+    }
+
+    public static int getImageRecsItemSequenceSuccess() {
+        return getInt(R.string.preference_key_image_recs_item_sequence_success, 0);
+    }
+
+    public static void setImageRecsItemSequenceSuccess(int seq) {
+        setInt(R.string.preference_key_image_recs_item_sequence_success, seq);
+    }
+
+    public static int getImageRecsDailyCount() {
+        return getInt(R.string.preference_key_image_recs_daily_progress, 0);
+    }
+
+    public static void setImageRecsDailyCount(int count) {
+        setInt(R.string.preference_key_image_recs_daily_progress, count);
+    }
+
+    public static int getImageRecsDayId() {
+        return getInt(R.string.preference_key_image_recs_day_id, -1);
+    }
+
+    public static void setImageRecsDayId(int day) {
+        setInt(R.string.preference_key_image_recs_day_id, day);
+    }
+
+    public static boolean shouldShowImageRecsOnboarding() {
+        return getBoolean(R.string.preference_key_image_recs_show_onboarding, true);
+    }
+
+    public static void setShowImageRecsOnboarding(boolean enabled) {
+        setBoolean(R.string.preference_key_image_recs_show_onboarding, enabled);
+    }
+
+    public static boolean isImageRecsConsentEnabled() {
+        return getBoolean(R.string.preference_key_image_recs_consent, true);
+    }
+
+    public static void setImageRecsConsentEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_image_recs_consent, enabled);
+    }
 
     private Prefs() { }
 }

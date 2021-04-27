@@ -24,6 +24,7 @@
     <string name="offline_load_error_retry">Retry</string>
     <string name="page_error_back_to_main">Go back</string>
     <string name="error_back">Go back</string>
+    <string name="error_next">Next</string>
     <string name="menu_clear_all_history">Clear history</string>
     <string name="history_item_deleted">%s removed from history</string>
     <string name="history_items_deleted">%d articles removed from history</string>
@@ -894,10 +895,10 @@
     <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
     <string name="suggested_edits_image_recommendations_task_goal_progress">Great, keep going! 👍</string>
     <string name="suggested_edits_image_recommendations_task_goal_complete">Daily goal achieved! 👏</string>
-    <string name="suggested_edits_image_recommendations_task_goal_surpassed">You\'ve reached the goal</string>
+    <string name="suggested_edits_image_recommendations_task_goal_surpassed">You reached the daily goal</string>
     <string name="suggested_edits_image_recommendations_onboarding_tooltip">A new Suggested Edits task is now available. Train an algorithm to match images with unillustrated articles.</string>
     <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia articles are written and edited by thousands of volunteers from around the world. Unfortunately, many articles lack images.\n\nImages will be suggested to you using an algorithm. The algorithm will pull images from other sources and suggest a match with an article that does not have an image.\n\nYour feedback will help us improve the suggestions over time. Because the goal of this task is to improve the suggested images, the matches you make will not be published at this time.</string>
-    <string name="suggested_edits_image_recommendations_onboarding_text2">We would you like to recognize your contributions to this effort. Would you like your username displayed on our algorithm training page?</string>
+    <string name="suggested_edits_image_recommendations_onboarding_text2">We would like to recognize your contributions to this effort. Would you like your username displayed on our algorithm training page?</string>
     <string name="suggested_edits_image_recommendations_onboarding_consent">Yes, my username can be displayed on the algorithm training page</string>
     <!-- /Suggested edits -->
 
@@ -905,6 +906,7 @@
     <string name="file_page_activity_title">File page</string>
     <string name="file_page_add_image_caption_button">Add image caption</string>
     <string name="file_page_add_image_tags_button">Add image tags</string>
+    <string name="file_page_suggestion_reason">Suggestion reason</string>
     <!-- /File page -->
 
     <!-- Description editing revert help -->
@@ -1007,9 +1009,11 @@
     <string name="image_recommendations_task_reject">No</string>
     <string name="image_recommendations_task_not_sure">Not sure</string>
     <string name="image_recommendations_task_processing">Processing…</string>
-    <string name="image_recommendations_task_daily_amount">%d / %d</string>
+    <string name="image_recommendations_task_daily_amount">%d/%d</string>
     <string name="image_recommendations_task_instruction">Would you add this image to the article?</string>
     <string name="image_recommendations_task_choice_no">Why did you select no?</string>
+    <string name="image_recommendations_task_choice_not_sure">Why did you select not sure?</string>
+    <string name="image_recommendations_prompt_to_choose_reasons">Choose one or multiple reasons.</string>
     <string name="image_recommendations_task_choice_unsure">Why are you not sure about this image?</string>
     <string name="image_recommendations_task_choice_not_relevant">Not relevant</string>
     <string name="image_recommendations_task_choice_low_quality">Low quality</string>
@@ -1022,6 +1026,9 @@
     <string name="image_recommendations_task_choice_other">Other</string>
     <string name="image_recommendations_task_choice_continue">Continue</string>
     <string name="image_recommendations_task_suggestion_reason"><![CDATA[<b>Suggestion reason:</b> %s]]></string>
+    <string name="image_recommendations_task_suggestion_reason_wikilist">image was found in other language versions of Wikipedia (%s)</string>
+    <string name="image_recommendations_task_suggestion_reason_wikidata">image was found on Wikidata, Wikipedia\'s source of open data</string>
+    <string name="image_recommendations_task_suggestion_reason_commons">image was found on Wikimedia Commons, Wikipedia\'s source of freely usable images</string>
     <string name="image_recommendations_faq">FAQ</string>
     <string name="image_recommendations_tooltip1">Review this article to understand its topic.</string>
     <string name="image_recommendations_tooltip2">Inspect the image and its associated information.</string>
