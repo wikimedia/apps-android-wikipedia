@@ -2,8 +2,6 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
 import android.net.Uri
 import android.text.TextUtils
 import android.text.method.LinkMovementMethod
@@ -21,6 +19,7 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.PageActivity
@@ -195,8 +194,14 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean): Balloon {
-        return createBalloon(context) {
+    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, showDismissButton: Boolean = false): Balloon {
+        val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
+        binding.textView.text = text
+        if (showDismissButton) {
+            binding.buttonView.visibility = View.VISIBLE
+        }
+
+        val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
@@ -205,12 +210,16 @@ object FeedbackUtil {
             setMarginRight(8)
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
-            setText(text)
-            setTextSize(14f)
-            setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
-            setTextColor(Color.WHITE)
-            setPadding(16)
+            setLayout(binding.root)
+            setWidth(BalloonSizeSpec.WRAP)
+            setHeight(BalloonSizeSpec.WRAP)
         }
+
+        binding.buttonView.setOnClickListener {
+            balloon.dismiss()
+        }
+
+        return balloon
     }
 
     private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, arrowAnchorPadding: Int,

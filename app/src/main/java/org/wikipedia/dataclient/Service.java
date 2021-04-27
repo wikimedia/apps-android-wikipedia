@@ -86,6 +86,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
+    @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles&redirects=1")
+    @NonNull Observable<MwQueryResponse> getInfoByPageId(@NonNull @Query("pageids") String pageIds);
+
     @GET(MW_API_PREFIX + "action=query&prop=imageinfo|imagelabels&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImageInfo(@NonNull @Query("titles") String titles,
                                                       @NonNull @Query("iiextmetadatalanguage") String lang);
