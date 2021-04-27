@@ -501,7 +501,7 @@ class ImageRecsFragment : SuggestedEditsItemFragment(), ImageRecsDialog.Callback
 
     companion object {
         const val DAILY_COUNT_TARGET = 10
-        private val SUPPORTED_LANGUAGES = arrayOf("en", "de", "fr", "pt", "ru", "fa", "tr", "uk", "ar", "vi", "ceb", "he")
+        private val SUPPORTED_LANGUAGES = arrayOf("ar", "arz", "bn", "cs", "de", "en", "es", "eu", "fa", "fr", "he", "hu", "hy", "it", "ko", "pl", "pt", "ru", "sr", "sv", "tr", "uk", "vi")
         private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
 
         fun isFeatureEnabled(): Boolean {
