@@ -184,7 +184,7 @@ class DescriptionEditFragment : Fragment() {
     private fun shouldWriteToLocalWiki(): Boolean {
         return (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
                 action == DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) &&
-                pageTitle.wikiSite.languageCode() == "en"
+                wikiUsesLocalDescriptions(pageTitle.wikiSite.languageCode())
     }
 
     private inner class EditViewCallback : DescriptionEditView.Callback {
@@ -412,6 +412,10 @@ class DescriptionEditFragment : Fragment() {
                         ARG_ACTION to action,
                         Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
             }
+        }
+
+        fun wikiUsesLocalDescriptions(lang: String): Boolean {
+            return lang == "en"
         }
     }
 }
