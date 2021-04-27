@@ -67,7 +67,7 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
         }
     }
 
-    override fun toContentValues(obj: ReadingListPage): ContentValues {
+    public override fun toContentValues(obj: ReadingListPage): ContentValues {
         val contentValues = ContentValues()
         contentValues.put(ReadingListPageContract.Col.LISTID.name, obj.listId)
         contentValues.put(ReadingListPageContract.Col.SITE.name, obj.wiki.authority())
@@ -87,8 +87,7 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
         return contentValues
     }
 
-    override fun getPrimaryKeySelection(obj: ReadingListPage,
-                                                  selectionArgs: Array<String>): String {
+    override fun getPrimaryKeySelection(obj: ReadingListPage, selectionArgs: Array<String>): String {
         return super.getPrimaryKeySelection(obj, ReadingListPageContract.Col.SELECTION)
     }
 
@@ -103,14 +102,18 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
                 return
             }
         }
-        currentLists.add(ReadingListDbHelper.instance().createDefaultList(db))
+        ReadingListDbHelper.instance()?.run {
+            currentLists.add(createDefaultList(db))
+        }
     }
 
     private fun renameListsWithIdenticalNameAsDefault(db: SQLiteDatabase, lists: List<ReadingList>) {
-        for (list in lists) {
-            if (list.dbTitle.equals(WikipediaApp.getInstance().getString(R.string.default_reading_list_name), true)) {
-                list.title = WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename, list.dbTitle)
-                ReadingListDbHelper.instance().updateList(db, list, false)
+        ReadingListDbHelper.instance()?.run {
+            for (list in lists) {
+                if (list.dbTitle.equals(WikipediaApp.getInstance().getString(R.string.default_reading_list_name), true)) {
+                    list.title = WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename, list.dbTitle)
+                    updateList(db, list, false)
+                }
             }
         }
     }

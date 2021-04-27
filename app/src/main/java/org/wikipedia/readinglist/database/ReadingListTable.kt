@@ -5,7 +5,6 @@ import android.database.Cursor
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.column.Column
 import org.wikipedia.database.contract.ReadingListContract
-import java.util.*
 
 class ReadingListTable : DatabaseTable<ReadingList>(ReadingListContract.TABLE, ReadingListContract.URI) {
     override fun fromCursor(cursor: Cursor): ReadingList {
@@ -35,7 +34,7 @@ class ReadingListTable : DatabaseTable<ReadingList>(ReadingListContract.TABLE, R
         }
     }
 
-    override fun toContentValues(obj: ReadingList): ContentValues {
+    public override fun toContentValues(obj: ReadingList): ContentValues {
         val contentValues = ContentValues()
         contentValues.put(ReadingListContract.Col.TITLE.name, obj.dbTitle)
         contentValues.put(ReadingListContract.Col.MTIME.name, obj.mtime)
