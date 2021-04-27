@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.Constants
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -50,6 +51,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
+    private lateinit var imageRecommendationsTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -67,11 +69,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!isAdded) {
             return@Runnable
         }
-        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, true)
+        val balloon = FeedbackUtil.getTooltip(requireContext(), binding.contributionsStatsView.tooltipText, autoDismiss = true, showDismissButton = true)
         balloon.showAlignBottom(binding.contributionsStatsView.getDescriptionView())
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, true), binding.editStreakStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, true), binding.pageViewStatsView.getDescriptionView())
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, true), binding.editQualityStatsView.getDescriptionView())
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editStreakStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editStreakStatsView.getDescriptionView())
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.pageViewStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.pageViewStatsView.getDescriptionView())
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
@@ -141,6 +143,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
+        } else if (requestCode == ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING && resultCode == Activity.RESULT_OK) {
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, InvokeSource.SUGGESTED_EDITS))
         } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
         }
@@ -400,6 +404,21 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
+        ImageRecsFragment.updateDailyCount()
+        imageRecommendationsTask = SuggestedEditsTask()
+        imageRecommendationsTask.title = getString(R.string.suggested_edits_image_recommendations_task_title)
+        imageRecommendationsTask.description = getString(R.string.suggested_edits_image_recommendations_task_detail)
+        imageRecommendationsTask.imageDrawable = R.drawable.ic_article_images
+        imageRecommendationsTask.primaryAction = getString(R.string.suggested_edits_image_recommendations_task_get_started)
+        imageRecommendationsTask.primaryActionIcon = R.drawable.ic_robot_24
+        imageRecommendationsTask.new = Prefs.shouldShowImageRecsOnboarding()
+        imageRecommendationsTask.dailyProgressMax = ImageRecsFragment.DAILY_COUNT_TARGET
+        imageRecommendationsTask.dailyProgress = Prefs.getImageRecsDailyCount()
+
+        if (ImageRecsFragment.isFeatureEnabled()) {
+            displayedTasks.add(imageRecommendationsTask)
+        }
+
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
         displayedTasks.add(addImageTagsTask)
@@ -420,6 +439,12 @@ class SuggestedEditsTasksFragment : Fragment() {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, InvokeSource.SUGGESTED_EDITS))
+                }
+            } else if (task == imageRecommendationsTask) {
+                if (Prefs.shouldShowImageRecsOnboarding()) {
+                    startActivityForResult(ImageRecsOnboardingActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_IMAGE_RECS_ONBOARDING)
+                } else {
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATION, InvokeSource.SUGGESTED_EDITS))
                 }
             }
         }

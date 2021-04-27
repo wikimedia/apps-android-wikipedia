@@ -33,6 +33,7 @@ class FilePageFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var pageTitle: PageTitle
     private lateinit var pageSummaryForEdit: PageSummaryForEdit
+    private var suggestionReason: String? = null
     private var allowEdit = true
     private val disposables = CompositeDisposable()
 
@@ -40,6 +41,7 @@ class FilePageFragment : Fragment() {
         super.onCreate(savedInstanceState)
         pageTitle = requireArguments().getParcelable(FilePageActivity.INTENT_EXTRA_PAGE_TITLE)!!
         allowEdit = requireArguments().getBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT)
+        suggestionReason = requireArguments().getString(FilePageActivity.INTENT_EXTRA_SUGGESTION_REASON)
         retainInstance = true
     }
 
@@ -152,7 +154,8 @@ class FilePageFragment : Fragment() {
                             thumbnailHeight,
                             imageFromCommons = isFromCommons,
                             showFilename = true,
-                            showEditButton = allowEdit && isFromCommons && !isEditProtected
+                            showEditButton = allowEdit && isFromCommons && !isEditProtected,
+                            suggestionReason = suggestionReason
                     )
                 }
                 .subscribe({
@@ -167,10 +170,11 @@ class FilePageFragment : Fragment() {
         const val ACTIVITY_REQUEST_ADD_IMAGE_CAPTION = 1
         const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 2
 
-        fun newInstance(pageTitle: PageTitle, allowEdit: Boolean): FilePageFragment {
+        fun newInstance(pageTitle: PageTitle, allowEdit: Boolean, suggestionReason: String?): FilePageFragment {
             return FilePageFragment().apply {
                 arguments = bundleOf(FilePageActivity.INTENT_EXTRA_PAGE_TITLE to pageTitle,
-                        FilePageActivity.INTENT_EXTRA_ALLOW_EDIT to allowEdit)
+                        FilePageActivity.INTENT_EXTRA_ALLOW_EDIT to allowEdit,
+                        FilePageActivity.INTENT_EXTRA_SUGGESTION_REASON to suggestionReason)
             }
         }
     }

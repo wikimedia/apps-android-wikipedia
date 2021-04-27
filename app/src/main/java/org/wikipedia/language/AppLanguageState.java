@@ -163,4 +163,8 @@ public class AppLanguageState {
     public String getDefaultLanguageCode(@Nullable String code) {
         return appLanguageLookUpTable.getDefaultLanguageCodeFromVariant(code);
     }
+
+    public int getLanguageCodeIndex(@Nullable String code) {
+        return appLanguageLookUpTable.indexOfCode(code);
+    }
 }
