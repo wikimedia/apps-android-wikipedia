@@ -9,7 +9,13 @@ import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikiErrorBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
@@ -22,10 +28,19 @@ class WikiErrorView : LinearLayout {
     var retryClickListener: OnClickListener? = null
     var backClickListener: OnClickListener? = null
     var nextClickListener: OnClickListener? = null
+    private val linkHandler = ErrorLinkHandler(context)
+    private var movementMethod = LinkMovementMethodExt { url: String ->
+        linkHandler.onUrlClick(url, null, "")
+    }
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+
+    init {
+        binding.viewWikiErrorText.movementMethod = movementMethod
+        binding.viewWikiErrorFooterText.movementMethod = movementMethod
+    }
 
     fun setError(caught: Throwable?) {
         val resources = context.resources
@@ -43,9 +58,9 @@ class WikiErrorView : LinearLayout {
                 binding.viewWikiErrorFooterLayout.visibility = VISIBLE
                 binding.viewWikiErrorFooterText.text = resources.getString(errorType.footerText)
             }
-            caught != null -> {
+            caught != null && caught !is MwException -> {
                 binding.viewWikiErrorFooterLayout.visibility = VISIBLE
-                binding.viewWikiErrorFooterText.text = caught.message
+                binding.viewWikiErrorFooterText.text = StringUtil.fromHtml(caught.message)
             }
             else -> {
                 binding.viewWikiErrorFooterLayout.visibility = GONE
@@ -116,5 +131,14 @@ class WikiErrorView : LinearLayout {
             }
 
         abstract fun buttonClickListener(errorView: WikiErrorView): OnClickListener?
+    }
+
+    internal inner class ErrorLinkHandler internal constructor(context: Context) : LinkHandler(context) {
+        override lateinit var wikiSite: WikiSite
+        override fun onMediaLinkClicked(title: PageTitle) {}
+        override fun onPageLinkClicked(anchor: String, linkText: String) {}
+        override fun onInternalLinkClicked(title: PageTitle) {
+            context.startActivity(PageActivity.newIntentForNewTab(context, HistoryEntry(title, HistoryEntry.SOURCE_ERROR), title))
+        }
     }
 }

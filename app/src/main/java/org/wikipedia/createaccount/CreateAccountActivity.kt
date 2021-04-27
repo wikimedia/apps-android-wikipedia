@@ -65,8 +65,11 @@ class CreateAccountActivity : BaseActivity() {
     }
 
     private fun setClickListeners() {
-        binding.viewCreateAccountError.backClickListener = View.OnClickListener { onBackPressed() }
-        binding.viewCreateAccountError.retryClickListener = View.OnClickListener { it.visibility = View.GONE }
+        binding.viewCreateAccountError.backClickListener = View.OnClickListener {
+            binding.viewCreateAccountError.visibility = View.GONE
+            onBackPressed()
+        }
+        binding.viewCreateAccountError.retryClickListener = View.OnClickListener { binding.viewCreateAccountError.visibility = View.GONE }
         binding.createAccountSubmitButton.setOnClickListener {
             validateThenCreateAccount()
         }
@@ -155,11 +158,7 @@ class CreateAccountActivity : BaseActivity() {
                 }) { caught ->
                     L.e(caught.toString())
                     showProgressBar(false)
-                    if (caught is CreateAccountException) {
-                        handleAccountCreationError(caught.message!!)
-                    } else {
-                        showError(caught)
-                    }
+                    showError(caught)
                 })
     }
 
