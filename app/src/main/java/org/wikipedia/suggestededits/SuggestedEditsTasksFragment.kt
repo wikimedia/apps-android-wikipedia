@@ -169,10 +169,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         binding.progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
+        disposables.add(Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo.subscribeOn(Schedulers.io()),
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
-                UserContributionsStats.getEditCountsObservable(), { commonsResponse, wikidataResponse, _ ->
-                    if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
+                UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
+                    if (wikidataResponse.query()!!.userInfo()!!.isBlocked ||
+                            commonsResponse.query()!!.userInfo()!!.isBlocked ||
+                            homeSiteResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
                     }
 
