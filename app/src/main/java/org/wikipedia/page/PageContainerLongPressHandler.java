@@ -34,7 +34,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.WebViewMe
 
     @Override
     public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-        fragment.moveToReadingList(page.listId(), entry.getTitle(), Constants.InvokeSource.CONTEXT_MENU, true);
+        fragment.moveToReadingList(page.getListId(), entry.getTitle(), Constants.InvokeSource.CONTEXT_MENU, true);
     }
 
     @NonNull
