@@ -37,7 +37,7 @@ data class ReadingListPage(val wiki: WikiSite,
     var downloadProgress = 0
 
     @Transient
-    private var selected = false
+    var selected = false
 
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
@@ -54,9 +54,7 @@ data class ReadingListPage(val wiki: WikiSite,
         atime = System.currentTimeMillis()
     }
 
-    fun saving(): Boolean {
-        return offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
-    }
+    val saving = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
 
     companion object {
         const val STATUS_QUEUE_FOR_SAVE = 0L

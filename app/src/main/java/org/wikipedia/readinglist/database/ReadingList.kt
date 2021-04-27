@@ -27,9 +27,7 @@ class ReadingList(var description: String?,
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
-    fun numPagesOffline(): Int {
-        return pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
-    }
+    val numPagesOffline = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
 
     var title: String = ""
         get() = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else field

@@ -21,7 +21,7 @@ import org.wikipedia.util.log.L
 import java.util.*
 
 class ReadingListDbHelper {
-    val allLists: List<ReadingList>
+    val allLists: MutableList<ReadingList>
         get() {
             val lists = mutableListOf<ReadingList>()
             val db = readableDatabase
@@ -37,7 +37,7 @@ class ReadingListDbHelper {
             return lists
         }
 
-    val allListsWithoutContents: List<ReadingList>
+    val allListsWithoutContents: MutableList<ReadingList>
         get() {
             val lists = mutableListOf<ReadingList>()
             val db = readableDatabase
@@ -49,7 +49,7 @@ class ReadingListDbHelper {
             }
             return lists
         }
-    val allListsWithUnsyncedPages: List<ReadingList>
+    val allListsWithUnsyncedPages: MutableList<ReadingList>
         get() {
             val lists = allListsWithoutContents
             val pages = allPagesToBeSynced
@@ -571,7 +571,7 @@ class ReadingListDbHelper {
             return createDefaultList(writableDatabase)
         }
 
-    val allPagesToBeSaved: List<ReadingListPage>
+    val allPagesToBeSaved: MutableList<ReadingListPage>
         get() {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
@@ -586,7 +586,7 @@ class ReadingListDbHelper {
             return pages
         }
 
-    val allPagesToBeForcedSave: List<ReadingListPage>
+    val allPagesToBeForcedSave: MutableList<ReadingListPage>
         get() {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
@@ -601,7 +601,7 @@ class ReadingListDbHelper {
             return pages
         }
 
-    val allPagesToBeUnsaved: List<ReadingListPage>
+    val allPagesToBeUnsaved: MutableList<ReadingListPage>
         get() {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
@@ -616,7 +616,7 @@ class ReadingListDbHelper {
             return pages
         }
 
-    val allPagesToBeDeleted: List<ReadingListPage>
+    val allPagesToBeDeleted: MutableList<ReadingListPage>
         get() {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
@@ -630,7 +630,7 @@ class ReadingListDbHelper {
             return pages
         }
 
-    private val allPagesToBeSynced: List<ReadingListPage>
+    private val allPagesToBeSynced: MutableList<ReadingListPage>
         get() {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
@@ -738,11 +738,11 @@ class ReadingListDbHelper {
         private var INSTANCE: ReadingListDbHelper? = null
 
         @JvmStatic
-        fun instance(): ReadingListDbHelper? {
+        fun instance(): ReadingListDbHelper {
             if (INSTANCE == null) {
                 INSTANCE = ReadingListDbHelper()
             }
-            return INSTANCE
+            return INSTANCE as ReadingListDbHelper
         }
     }
 }

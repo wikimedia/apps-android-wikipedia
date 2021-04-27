@@ -380,7 +380,7 @@ class SearchResultsFragment : Fragment() {
 
         override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
             page.let {
-                callback()?.onSearchMovePageToList(page!!.listId(), entry)
+                callback()?.onSearchMovePageToList(page!!.listId, entry)
             }
         }
     }

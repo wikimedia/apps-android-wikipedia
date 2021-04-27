@@ -151,7 +151,7 @@ class RandomFragment : Fragment() {
                 }
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    onMovePageToList(page!!.listId(), title)
+                    onMovePageToList(page!!.listId, title)
                 }
             }).show(HistoryEntry(title, HistoryEntry.SOURCE_RANDOM))
         } else {
@@ -284,7 +284,7 @@ class RandomFragment : Fragment() {
                     return
                 }
                 for (page in event.pages) {
-                    if (page.apiTitle() == topTitle?.prefixedText && page.wiki().languageCode() == topTitle?.wikiSite?.languageCode()) {
+                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode() == topTitle?.wikiSite?.languageCode()) {
                         updateSaveShareButton(topTitle)
                     }
                 }
