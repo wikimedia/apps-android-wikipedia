@@ -381,27 +381,6 @@ public class EditSectionActivity extends BaseActivity {
             if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
                 editPreviewFragment.hide();
             }
-        } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
-            // User is blocked, locally or globally
-            // If they were anon, canedit does not catch this, so we can't show them the locked pencil
-            // If they not anon, this means they were blocked in the interim between opening the edit
-            // window and clicking save. Less common, but might as well handle it
-            AlertDialog.Builder builder = new AlertDialog.Builder(EditSectionActivity.this);
-            builder.setTitle(R.string.user_blocked_from_editing_title);
-            if (AccountUtil.isLoggedIn()) {
-                builder.setMessage(R.string.user_logged_in_blocked_from_editing);
-                builder.setPositiveButton(R.string.account_editing_blocked_dialog_ok_button_text, (dialog, i) -> dialog.dismiss());
-            } else {
-                builder.setMessage(R.string.user_anon_blocked_from_editing);
-                builder.setPositiveButton(R.string.nav_item_login, (dialog, i) -> {
-                    dialog.dismiss();
-                    Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
-                            LoginFunnel.SOURCE_BLOCKED);
-                    startActivity(loginIntent);
-                });
-                builder.setNegativeButton(R.string.account_editing_blocked_dialog_cancel_button_text, (dialog, i) -> dialog.dismiss());
-            }
-            builder.show();
         } else if ("editconflict".equals(code)) {
             new AlertDialog.Builder(EditSectionActivity.this)
                     .setTitle(R.string.edit_conflict_title)
