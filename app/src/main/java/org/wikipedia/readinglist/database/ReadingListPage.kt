@@ -5,6 +5,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import java.io.Serializable
 import java.util.*
 
@@ -18,8 +19,8 @@ data class ReadingListPage(val wiki: WikiSite,
                            var id: Long = 0,
                            var mtime: Long = 0,
                            var atime: Long = 0,
-                           var offline: Boolean = false,
-                           var status: Long = 0,
+                           var offline: Boolean = Prefs.isDownloadingReadingListArticlesEnabled(),
+                           var status: Long = STATUS_QUEUE_FOR_SAVE,
                            var sizeBytes: Long = 0,
                            var lang: String = "en",
                            var revId: Long = 0,
@@ -30,7 +31,6 @@ data class ReadingListPage(val wiki: WikiSite,
         val now = System.currentTimeMillis()
         mtime = now
         atime = now
-        status = STATUS_QUEUE_FOR_SAVE
     }
 
     @Transient

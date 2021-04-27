@@ -40,7 +40,7 @@ class ReadingListTable : DatabaseTable<ReadingList>(ReadingListContract.TABLE, R
         contentValues.put(ReadingListContract.Col.MTIME.name, obj.mtime)
         contentValues.put(ReadingListContract.Col.ATIME.name, obj.atime)
         contentValues.put(ReadingListContract.Col.DESCRIPTION.name, obj.description)
-        contentValues.put(ReadingListContract.Col.SIZEBYTES.name, obj.sizeBytes)
+        contentValues.put(ReadingListContract.Col.SIZEBYTES.name, obj.sizeBytesFromPages)
         contentValues.put(ReadingListContract.Col.DIRTY.name, if (obj.dirty) 1 else 0)
         contentValues.put(ReadingListContract.Col.REMOTEID.name, obj.remoteId)
         return contentValues

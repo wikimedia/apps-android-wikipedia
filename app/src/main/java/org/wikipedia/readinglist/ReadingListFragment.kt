@@ -47,6 +47,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient.maxPagesPerReadingList
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.*
 import org.wikipedia.views.MultiSelectActionModeCallback.Companion.isTagType
 
