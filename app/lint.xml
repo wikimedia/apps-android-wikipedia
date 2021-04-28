@@ -9,8 +9,6 @@
     <!-- Ignore the IconLocation issue in the given files -->
     <issue id="IconLocation">
         <!-- big images we don't want to duplicate multiple times: -->
-        <ignore path="res/drawable/lead_default.png" />
-        <ignore path="res/drawable/lead_default_dark.png" />
         <ignore path="res/drawable/wp_wordmark.png" />
     </issue>
 
