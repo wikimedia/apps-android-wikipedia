@@ -347,6 +347,10 @@
             android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_two"/>
 
         <SwitchPreferenceCompat
+            android:key="@string/preference_key_image_recs_show_tooltip"
+            android:title="@string/preference_key_image_recs_show_tooltip" />
+
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_image_recs_show_onboarding"
             android:title="@string/preference_key_image_recs_show_onboarding" />
 
