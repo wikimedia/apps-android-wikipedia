@@ -451,6 +451,7 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     public void showError(@Nullable Throwable caught) {
+        hideSoftKeyboard(this);
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
     }
