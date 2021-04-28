@@ -737,8 +737,9 @@ class ReadingListDbHelper {
         private var INSTANCE: ReadingListDbHelper? = null
 
         @JvmStatic
-        fun instance(): ReadingListDbHelper {
-            if (INSTANCE == null) {
+        @JvmOverloads
+        fun instance(newInstance: Boolean = false): ReadingListDbHelper {
+            if (INSTANCE == null || newInstance) {
                 INSTANCE = ReadingListDbHelper()
                 readableDatabase = WikipediaApp.getInstance().database.readableDatabase
                 writableDatabase = WikipediaApp.getInstance().database.writableDatabase

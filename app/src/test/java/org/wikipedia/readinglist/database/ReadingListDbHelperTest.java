@@ -22,7 +22,7 @@ public class ReadingListDbHelperTest {
 
     @Before
     public void setup() {
-        readingListDbHelper = ReadingListDbHelper.instance();
+        readingListDbHelper = ReadingListDbHelper.instance(true);
     }
 
     @Test
