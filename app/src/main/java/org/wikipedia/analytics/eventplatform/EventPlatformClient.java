@@ -45,54 +45,6 @@ public final class EventPlatformClient {
      */
     private static boolean ENABLED = WikipediaApp.getInstance().isOnline();
 
-    /**
-     * A regular expression to match JavaScript regular expression literals. (How meta!)
-     * This is not as strict as it could be in that it allows individual flags to be specified more
-     * than once, but it doesn't really matter because we don't expect flags and ignore them if
-     * present.
-     */
-    static String JS_REGEXP_PATTERN = "^/.*/[gimsuy]{0,6}$";
-
-    /**
-     * Get the stream config for a given stream name.
-     *
-     * Stream configuration keys can take the form of either a string literal or a (JavaScript)
-     * regular expression pattern. To take advantage of the performance strengths of HashMaps, we'll
-     * first attempt to retrieve the stream config as a literal key name. If no match is found,
-     * we'll then iterate over the keys to search for a regular expression matching the provided
-     * stream name.
-     *
-     * Regex-formatted keys use JavaScript regular expression literal syntax, e.g.: '/foo/'.
-     * We don't expect any flags, and ignore them if present.
-     *
-     * N.B. Since stream config keys can be given as regular expressions, it is technically
-     * possible that more than one key could match the provided stream name. In this event that more
-     * than one match is present, we'll return the config corresponding to the first match found.
-     *
-     * @param streamName stream name
-     * @return the first matching stream config, or null if no match is found
-     */
-    static StreamConfig getStreamConfig(String streamName) {
-        if (STREAM_CONFIGS.containsKey(streamName)) {
-            return STREAM_CONFIGS.get(streamName);
-        }
-
-        for (String key : STREAM_CONFIGS.keySet()) {
-            if (key.matches(JS_REGEXP_PATTERN)) {
-                // Note: After splitting on the slash character ("/"), element [0] of the resulting
-                // array will contain the empty string (""), and element [1] will contain the
-                // regular expression pattern.
-                // If any flags are specified, they will be present in element [2], but will be
-                // ignored here.
-                if (streamName.matches(key.split("/")[1])) {
-                    return STREAM_CONFIGS.get(key);
-                }
-            }
-        }
-
-        return null;
-    }
-
     static void setStreamConfig(StreamConfig streamConfig) {
         STREAM_CONFIGS.put(streamConfig.getStreamName(), streamConfig);
     }
@@ -213,7 +165,7 @@ public final class EventPlatformClient {
             }
             for (String stream : eventsByStream.keySet()) {
                 if (isEventLoggingEnabled()) {
-                    sendEventsForStream(getStreamConfig(stream), eventsByStream.get(stream));
+                    sendEventsForStream(STREAM_CONFIGS.get(stream), eventsByStream.get(stream));
                 }
             }
         }
@@ -350,7 +302,7 @@ public final class EventPlatformClient {
                 return SAMPLING_CACHE.get(stream);
             }
 
-            StreamConfig streamConfig = getStreamConfig(stream);
+            StreamConfig streamConfig = STREAM_CONFIGS.get(stream);
 
             if (streamConfig == null) {
                 return false;
