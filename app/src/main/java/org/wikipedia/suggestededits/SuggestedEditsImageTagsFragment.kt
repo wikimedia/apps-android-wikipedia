@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +31,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
-import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
@@ -88,7 +88,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         binding.tagsLicenseText.text = StringUtil.fromHtml(getString(R.string.suggested_edits_cc0_notice,
                 getString(R.string.terms_of_use_url), getString(R.string.cc_0_url)))
-        binding.tagsLicenseText.movementMethod = LinkMovementMethodExt.getInstance()
+        binding.tagsLicenseText.movementMethod = LinkMovementMethod.getInstance()
 
         binding.imageView.setOnClickListener {
             if (Prefs.shouldShowImageZoomTooltip()) {
