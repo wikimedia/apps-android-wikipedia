@@ -17,6 +17,14 @@ public class MwServiceError implements ServiceError {
     @SuppressWarnings("unused") @Nullable private String html;
     @SuppressWarnings("unused") @Nullable private Data data;
 
+    public MwServiceError() {
+    }
+
+    public MwServiceError(@Nullable String code, @Nullable String html) {
+        this.code = code;
+        this.html = html;
+    }
+
     @Override @NonNull public String getTitle() {
         return StringUtils.defaultString(code);
     }
