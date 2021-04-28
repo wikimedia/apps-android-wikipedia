@@ -35,7 +35,6 @@
         <!-- Overrides of our own custom style attributes -->
         <item name="edit_improve_tag_selected_drawable">@drawable/edit_improve_tag_selected_light</item>
         <item name="edit_improve_tag_unselected_drawable">@drawable/edit_improve_tag_unselected_light</item>
-        <item name="lead_image_drawable">@drawable/lead_default</item>
         <item name="list_separator_drawable">@drawable/divider_light</item>
         <item name="list_separator_drawable_bottom_content">@drawable/divider_bottom_content_light</item>
 
