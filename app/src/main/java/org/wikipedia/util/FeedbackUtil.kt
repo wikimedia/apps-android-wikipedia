@@ -47,7 +47,15 @@ object FeedbackUtil {
     @JvmStatic
     fun showError(activity: Activity, e: Throwable?) {
         val error = ThrowableUtil.getAppError(activity, e!!)
-        makeSnackbar(activity, error.error, LENGTH_DEFAULT).show()
+        makeSnackbar(activity, error.error, LENGTH_DEFAULT).also {
+            if (error.error.length > 200) {
+                it.duration = Snackbar.LENGTH_INDEFINITE
+                it.setAction(android.R.string.ok) { _ ->
+                    it.dismiss()
+                }
+            }
+            it.show()
+        }
     }
 
     @JvmStatic
