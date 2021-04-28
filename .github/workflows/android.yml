@@ -15,6 +15,8 @@ jobs:
         java-version: 1.8
     - name: Check for missing qq strings
       run: ./scripts/missing-qq.py
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
     - name: Build, test, and lint
       run: ./gradlew clean checkstyle ktlint assembleAlphaRelease lintAlphaRelease testAlphaRelease
     - name: List
