@@ -114,7 +114,6 @@ public class PageProperties implements Parcelable {
         return lastModified;
     }
 
-    @NonNull
     public String getDisplayTitle() {
         return displayTitleText;
     }
