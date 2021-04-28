@@ -130,6 +130,7 @@
     <string name="preference_key_image_recs_item_sequence">imageRecsItemSequence</string>
     <string name="preference_key_image_recs_item_sequence_success">imageRecsItemSequenceSuccess</string>
     <string name="preference_key_image_recs_day_id">imageRecsDayId</string>
+    <string name="preference_key_image_recs_show_tooltip">imageRecsShowTooltip</string>
     <string name="preference_key_image_recs_show_onboarding">imageRecsShowOnboarding</string>
     <string name="preference_key_image_recs_consent">imageRecsConsent</string>
 </resources>
