@@ -40,7 +40,7 @@ public class ReadingListDbHelperTest {
         List<ReadingList> lists = readingListDbHelper.getAllListsWithoutContents();
         boolean isEmpty = true;
         for (ReadingList list : lists) {
-            if (list.pages().size() > 0) {
+            if (list.getPages().size() > 0) {
                 isEmpty = false;
             }
         }
@@ -59,7 +59,7 @@ public class ReadingListDbHelperTest {
     @Test
     public void testUpdateListForFieldUpdate() {
         ReadingList list = readingListDbHelper.createList("Test2", "TestDesc");
-        list.title("testTitle");
+        list.setDbTitle("testTitle");
         readingListDbHelper.updateList(list, false);
         List<ReadingList> lists = readingListDbHelper.getAllLists();
         assertThat(hasTitle(lists, "testTitle"), is(true));
@@ -97,7 +97,7 @@ public class ReadingListDbHelperTest {
     public void testGetAllPagesToBeSavedForRetrievingPages() {
         PageTitle page = new PageTitle("1", WikipediaApp.getInstance().getWikiSite());
         ReadingListPage readingListPage = new ReadingListPage(page);
-        readingListPage.status(ReadingListPage.STATUS_QUEUE_FOR_SAVE);
+        readingListPage.setStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE);
         List<ReadingListPage> pagesListToBeAdded = new ArrayList<>();
         pagesListToBeAdded.add(readingListPage);
         ReadingList list = readingListDbHelper.createList("Test6", "TestDesc");
@@ -114,7 +114,7 @@ public class ReadingListDbHelperTest {
     public void testGetAllPagesToBeDeletedForRetrievingPages() {
         PageTitle page = new PageTitle("2", WikipediaApp.getInstance().getWikiSite());
         ReadingListPage readingListPage = new ReadingListPage(page);
-        readingListPage.status(ReadingListPage.STATUS_QUEUE_FOR_DELETE);
+        readingListPage.setStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE);
         List<ReadingListPage> pagesListToBeAdded = new ArrayList<>();
         pagesListToBeAdded.add(readingListPage);
         ReadingList list = readingListDbHelper.createList("Test7", "TestDesc");
@@ -206,7 +206,7 @@ public class ReadingListDbHelperTest {
     public boolean hasTitle(List<ReadingList> lists, String title) {
         List<String> titles = new ArrayList<>();
         for (ReadingList readingList : lists) {
-            titles.add(readingList.title());
+            titles.add(readingList.getTitle());
         }
         return titles.contains(title);
     }
