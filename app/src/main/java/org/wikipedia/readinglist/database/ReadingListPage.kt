@@ -34,14 +34,15 @@ data class ReadingListPage(val wiki: WikiSite,
     }
 
     @Transient
+    private var accentAndCaseInvariantTitle: String? = null
+
+    @Transient
     var downloadProgress = 0
 
     @Transient
     var selected = false
 
-    @Transient
-    private var accentAndCaseInvariantTitle: String? = null
-
+    val saving = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
@@ -53,8 +54,6 @@ data class ReadingListPage(val wiki: WikiSite,
     fun touch() {
         atime = System.currentTimeMillis()
     }
-
-    val saving = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
 
     companion object {
         const val STATUS_QUEUE_FOR_SAVE = 0L
@@ -70,7 +69,6 @@ data class ReadingListPage(val wiki: WikiSite,
             return PageSummary(page.displayTitle, page.apiTitle, page.description, page.description, page.thumbUrl, page.lang)
         }
 
-        @JvmStatic
         fun toPageTitle(page: ReadingListPage): PageTitle {
             return PageTitle(page.apiTitle, page.wiki, page.thumbUrl, page.description, page.displayTitle)
         }

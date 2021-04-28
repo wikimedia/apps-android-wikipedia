@@ -60,7 +60,6 @@ class ReadingListDbHelper {
         }
 
     fun createList(title: String, description: String?): ReadingList {
-        L.d("DbHelper createList " + title)
         if (title.isEmpty()) {
             L.w("Attempted to create list with empty title (default).")
             return defaultList
@@ -222,7 +221,7 @@ class ReadingListDbHelper {
     fun movePagesToListAndDeleteSourcePages(sourceList: ReadingList, destList: ReadingList, titles: List<PageTitle>): List<String> {
         val db = writableDatabase
         db.beginTransaction()
-        val movedTitles  = mutableListOf<String>()
+        val movedTitles = mutableListOf<String>()
         try {
             for (title in titles) {
                 movePageToList(db, sourceList, destList, title)
@@ -371,9 +370,9 @@ class ReadingListDbHelper {
             contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.name, thumbUrl)
             contentValues.put(ReadingListPageContract.Col.DESCRIPTION.name, description)
             val result = db.update(ReadingListPageContract.TABLE, contentValues,
-                    ReadingListPageContract.Col.API_TITLE.name + " = ? AND "
-                            + ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? AND "
-                            + ReadingListPageContract.Col.LANG.name + " = ?", arrayOf(pageProto.apiTitle, pageProto.displayTitle, pageProto.lang))
+                    ReadingListPageContract.Col.API_TITLE.name + " = ? AND " +
+                            ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? AND " +
+                            ReadingListPageContract.Col.LANG.name + " = ?", arrayOf(pageProto.apiTitle, pageProto.displayTitle, pageProto.lang))
             if (result != 1) {
                 L.w("Failed to update db entry for page " + pageProto.displayTitle)
             }
@@ -460,12 +459,12 @@ class ReadingListDbHelper {
     fun findPageInAnyList(title: PageTitle): ReadingListPage? {
         val db = readableDatabase
         db.query(ReadingListPageContract.TABLE, null,
-                ReadingListPageContract.Col.SITE.name + " = ? AND "
-                        + ReadingListPageContract.Col.LANG.name + " = ? AND "
-                        + ReadingListPageContract.Col.NAMESPACE.name + " = ? AND "
-                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR "
-                        + ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND "
-                        + ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
+                ReadingListPageContract.Col.SITE.name + " = ? AND " +
+                        ReadingListPageContract.Col.LANG.name + " = ? AND " +
+                        ReadingListPageContract.Col.NAMESPACE.name + " = ? AND " + "( " +
+                        ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR " +
+                        ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND " +
+                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
                 title.namespace().code().toString(), title.displayText, title.prefixedText,
                 ReadingListPage.STATUS_QUEUE_FOR_DELETE.toInt().toString()),
                 null, null, null).use { cursor ->
@@ -515,12 +514,12 @@ class ReadingListDbHelper {
         val pages = mutableListOf<ReadingListPage>()
         val db = readableDatabase
         db.query(ReadingListPageContract.TABLE, null,
-                ReadingListPageContract.Col.SITE.name + " = ? AND "
-                        + ReadingListPageContract.Col.LANG.name + " = ? AND "
-                        + ReadingListPageContract.Col.NAMESPACE.name + " = ? AND "
-                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR "
-                        + ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND "
-                        + ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
+                ReadingListPageContract.Col.SITE.name + " = ? AND " +
+                        ReadingListPageContract.Col.LANG.name + " = ? AND " +
+                        ReadingListPageContract.Col.NAMESPACE.name + " = ? AND " + "( " +
+                        ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR " +
+                        ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND " +
+                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
                 title.namespace().code().toString(), title.displayText, title.prefixedText,
                 ReadingListPage.STATUS_QUEUE_FOR_DELETE.toInt().toString()),
                 null, null, null).use { cursor ->
@@ -577,8 +576,8 @@ class ReadingListDbHelper {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
             db.query(ReadingListPageContract.TABLE, null,
-                    ReadingListPageContract.Col.STATUS.name + " = ? AND "
-                            + ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_QUEUE_FOR_SAVE.toString(), "1"),
+                    ReadingListPageContract.Col.STATUS.name + " = ? AND " +
+                            ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_QUEUE_FOR_SAVE.toString(), "1"),
                     null, null, null).use { cursor ->
                 while (cursor.moveToNext()) {
                     pages.add(ReadingListPage.DATABASE_TABLE.fromCursor(cursor))
@@ -592,8 +591,8 @@ class ReadingListDbHelper {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
             db.query(ReadingListPageContract.TABLE, null,
-                    ReadingListPageContract.Col.STATUS.name + " = ? AND "
-                            + ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE.toString(), "1"),
+                    ReadingListPageContract.Col.STATUS.name + " = ? AND " +
+                            ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE.toString(), "1"),
                     null, null, null).use { cursor ->
                 while (cursor.moveToNext()) {
                     pages.add(ReadingListPage.DATABASE_TABLE.fromCursor(cursor))
@@ -607,8 +606,8 @@ class ReadingListDbHelper {
             val pages = mutableListOf<ReadingListPage>()
             val db = readableDatabase
             db.query(ReadingListPageContract.TABLE, null,
-                    ReadingListPageContract.Col.STATUS.name + " = ? AND "
-                            + ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_SAVED.toString(), "0"),
+                    ReadingListPageContract.Col.STATUS.name + " = ? AND " +
+                            ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_SAVED.toString(), "0"),
                     null, null, null).use { cursor ->
                 while (cursor.moveToNext()) {
                     pages.add(ReadingListPage.DATABASE_TABLE.fromCursor(cursor))
@@ -652,8 +651,8 @@ class ReadingListDbHelper {
             val contentValues = ContentValues()
             contentValues.put(ReadingListPageContract.Col.STATUS.name, ReadingListPage.STATUS_QUEUE_FOR_SAVE)
             val result = db.update(ReadingListPageContract.TABLE, contentValues,
-                    ReadingListPageContract.Col.STATUS.name + " = ? AND "
-                            + ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_SAVED.toString(), "0"))
+                    ReadingListPageContract.Col.STATUS.name + " = ? AND " +
+                            ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_SAVED.toString(), "0"))
             L.d("Updated $result pages in db.")
             db.setTransactionSuccessful()
         } finally {
@@ -714,13 +713,13 @@ class ReadingListDbHelper {
 
     private fun getPageByTitle(db: SQLiteDatabase, list: ReadingList, title: PageTitle): ReadingListPage? {
         db.query(ReadingListPageContract.TABLE, null,
-                ReadingListPageContract.Col.SITE.name + " = ? AND "
-                        + ReadingListPageContract.Col.LANG.name + " = ? AND "
-                        + ReadingListPageContract.Col.NAMESPACE.name + " = ? AND "
-                        + "( " + ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR "
-                        + ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND "
-                        + ReadingListPageContract.Col.LISTID.name + " = ? AND "
-                        + ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
+                ReadingListPageContract.Col.SITE.name + " = ? AND " +
+                        ReadingListPageContract.Col.LANG.name + " = ? AND " +
+                        ReadingListPageContract.Col.NAMESPACE.name + " = ? AND " + "( " +
+                        ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? OR " +
+                        ReadingListPageContract.Col.API_TITLE.name + " = ? ) AND " +
+                        ReadingListPageContract.Col.LISTID.name + " = ? AND " +
+                        ReadingListPageContract.Col.STATUS.name + " != ?", arrayOf(title.wikiSite.authority(), title.wikiSite.languageCode(),
                 title.namespace().code().toString(), title.displayText, title.prefixedText,
                 list.id.toString(),
                 ReadingListPage.STATUS_QUEUE_FOR_DELETE.toString()),

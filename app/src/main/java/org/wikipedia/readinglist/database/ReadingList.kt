@@ -19,11 +19,29 @@ class ReadingList(var dbTitle: String,
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
-    val numPagesOffline = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
-
     val isDefault = dbTitle.isEmpty()
 
     val title = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else dbTitle
+
+    val numPagesOffline: Int
+        get() {
+            var count = 0
+            for (page in pages) {
+                if (page.offline && page.status == ReadingListPage.STATUS_SAVED) {
+                    count++
+                }
+            }
+            return count
+        }
+
+    val sizeBytesFromPages: Long
+        get() {
+            var bytes = 0L
+            pages.forEach {
+                bytes += if (it.offline) it.sizeBytes else 0
+            }
+            return bytes
+        }
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
@@ -36,20 +54,12 @@ class ReadingList(var dbTitle: String,
         atime = System.currentTimeMillis()
     }
 
-    val sizeBytesFromPages: Long
-        get() {
-            var bytes: Long = 0
-            for (page in pages) {
-                bytes += if (page.offline) page.sizeBytes else 0
-            }
-            return bytes
-        }
-
     companion object {
         const val SORT_BY_NAME_ASC = 0
         const val SORT_BY_NAME_DESC = 1
         const val SORT_BY_RECENT_ASC = 2
         const val SORT_BY_RECENT_DESC = 3
+
         @JvmField
         val DATABASE_TABLE = ReadingListTable()
         fun sort(list: ReadingList, sortMode: Int) {
@@ -73,16 +83,9 @@ class ReadingList(var dbTitle: String,
                 }
             }
             // make the Default list sticky on top, regardless of sorting.
-            var defaultList: ReadingList? = null
-            for (list in lists) {
-                if (list.isDefault) {
-                    defaultList = list
-                    break
-                }
-            }
-            if (defaultList != null) {
-                lists.remove(defaultList)
-                lists.add(0, defaultList)
+            lists.firstOrNull { it.isDefault }?.let {
+                lists.remove(it)
+                lists.add(0, it)
             }
         }
 
@@ -116,20 +119,13 @@ class ReadingList(var dbTitle: String,
                         0
                     }
                 }
-                else -> {
-                }
+                else -> { }
             }
+
             // make the Default list sticky on top, regardless of sorting.
-            var defaultList: ReadingList? = null
-            for (list in lists) {
-                if (list is ReadingList && list.isDefault) {
-                    defaultList = list
-                    break
-                }
-            }
-            if (defaultList != null) {
-                lists.remove(defaultList)
-                lists.add(0, defaultList)
+            lists.firstOrNull { it is ReadingList && it.isDefault }?.let {
+                lists.remove(it)
+                lists.add(0, it)
             }
         }
     }
