@@ -486,37 +486,38 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     private fun maybeShowEditsTooltip() {
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.shouldShowSuggestedEditsTooltip() &&
-                Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
-            enqueueTooltip({
+                Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
+            enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), if (isLoggedIn) getString(R.string.main_tooltip_text, userName) else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {
                             Prefs.setShouldShowSuggestedEditsTooltip(false)
                         }
-            })
+            }
         }
     }
 
     private fun maybeShowWatchlistTooltip() {
         if (Prefs.isWatchlistPageOnboardingTooltipShown() &&
                 !Prefs.isWatchlistMainOnboardingTooltipShown() && isLoggedIn) {
-            enqueueTooltip({
+            enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {
                             WatchlistFunnel().logShowTooltipMore()
                             Prefs.setWatchlistMainOnboardingTooltipShown(true)
                         }
-            })
+            }
         }
     }
 
     private fun maybeShowImageRecsTooltip() {
-        if (ImageRecsFragment.isFeatureEnabled() && Prefs.shouldShowImageRecsTooltip()) {
-            enqueueTooltip({
+        if (ImageRecsFragment.isFeatureEnabled() && Prefs.shouldShowImageRecsTooltip() &&
+                Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
+            enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
                         .setOnBalloonDismissListener {
                             Prefs.setShowImageRecsTooltip(false)
                         }
-            })
+            }
         }
     }
 
