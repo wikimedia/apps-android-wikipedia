@@ -15,7 +15,7 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         preprocessData(eventData, "anon", !isLoggedIn)
         preprocessData(eventData, "pageNS", if (!title.namespace.isNullOrEmpty())
             title.namespace!!.toLowerCase(Locale.ROOT).capitalize(Locale.ROOT) else title.namespace)
-        return super.preprocessData(eventData)
+        return super.preprocessData(eventData)!!
     }
 
     fun logOpenTalk() {

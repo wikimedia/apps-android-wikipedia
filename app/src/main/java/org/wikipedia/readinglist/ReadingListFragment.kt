@@ -307,7 +307,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     private fun rename() {
         ReadingListBehaviorsUtil.renameReadingList(requireActivity(), readingList) {
             update()
-            funnel.logModifyList(readingList, 0)
+            funnel.logModifyList(readingList!!, 0)
         }
     }
 

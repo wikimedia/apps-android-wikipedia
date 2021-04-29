@@ -95,7 +95,7 @@ class RandomFragment : Fragment() {
         }
 
         funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
-                arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)
+                (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
 
         return view
     }

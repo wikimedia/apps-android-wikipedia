@@ -122,7 +122,7 @@ object FeedbackUtil {
     @JvmStatic
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
-        SuggestedEditsFunnel.get().helpOpened()
+        SuggestedEditsFunnel.get()!!.helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
