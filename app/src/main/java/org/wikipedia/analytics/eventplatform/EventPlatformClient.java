@@ -213,7 +213,7 @@ public final class EventPlatformClient {
                                 );
                                 break;
                         }
-                    });
+                    }, L::w);
         }
 
     }

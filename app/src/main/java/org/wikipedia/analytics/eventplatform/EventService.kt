@@ -17,5 +17,5 @@ import retrofit2.http.POST
  */
 interface EventService {
     @POST("/v1/events?hasty=true")
-    fun postEvents(@Body events: @JvmSuppressWildcards Any): Observable<Response<EventServiceResponse?>?>?
+    fun postEvents(@Body events: @JvmSuppressWildcards Any): Observable<Response<Unit>>
 }
