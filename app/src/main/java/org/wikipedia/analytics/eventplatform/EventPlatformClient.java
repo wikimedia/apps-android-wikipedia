@@ -183,7 +183,7 @@ public final class EventPlatformClient {
         }
 
         private static void sendEventsForStream(@NonNull StreamConfig streamConfig, @NonNull List<Event> events) {
-            ServiceFactory.getAnalyticsRest(streamConfig).postEvents(events)
+            ServiceFactory.getAnalyticsRest(streamConfig).postEventsHasty(events)
                     .subscribeOn(Schedulers.io())
                     .subscribe(response -> {
                         switch (response.code()) {
