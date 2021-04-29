@@ -43,6 +43,10 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         }
         binding.taskIcon.setImageResource(task.imageDrawable)
         binding.taskTitleNewLabel.visibility = if (task.new) VISIBLE else GONE
+        binding.taskDailyProgress?.visibility = if (!task.new && task.dailyProgressMax > 0) VISIBLE else GONE
+        if (task.dailyProgressMax > 0) {
+            binding.taskDailyProgress?.update(task.dailyProgress, task.dailyProgressMax)
+        }
 
         setOnClickListener {
             if (!task.disabled) {

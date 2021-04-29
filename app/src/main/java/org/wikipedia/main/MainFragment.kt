@@ -64,6 +64,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.ImageRecsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
@@ -87,6 +88,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
     private val downloadReceiverCallback = MediaDownloadReceiverCallback()
     private val pageChangeCallback = PageChangeCallback()
     private val disposables = CompositeDisposable()
+    private var exclusiveTooltipRunnable: Runnable? = null
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -122,6 +124,8 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
 
         maybeShowEditsTooltip()
+        maybeShowImageRecsTooltip()
+
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
         }
@@ -166,6 +170,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             if (!Prefs.shouldShowSuggestedEditsTooltip()) {
                 FeedbackUtil.showMessage(this, R.string.login_success_toast)
             }
+            maybeShowImageRecsTooltip()
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -481,28 +486,38 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     private fun maybeShowEditsTooltip() {
         if (currentFragment !is SuggestedEditsTasksFragment && Prefs.shouldShowSuggestedEditsTooltip() &&
-                Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
-            binding.mainNavTabLayout.postDelayed({
-                if (!isAdded) {
-                    return@postDelayed
-                }
-                Prefs.setShouldShowSuggestedEditsTooltip(false)
+                Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
+            enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), if (isLoggedIn) getString(R.string.main_tooltip_text, userName) else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false)
-            }, 500)
+                        .setOnBalloonDismissListener {
+                            Prefs.setShouldShowSuggestedEditsTooltip(false)
+                        }
+            }
         }
     }
 
     private fun maybeShowWatchlistTooltip() {
         if (Prefs.isWatchlistPageOnboardingTooltipShown() &&
                 !Prefs.isWatchlistMainOnboardingTooltipShown() && isLoggedIn) {
-            binding.navMoreContainer.postDelayed({
-                if (!isAdded) {
-                    return@postDelayed
-                }
-                WatchlistFunnel().logShowTooltipMore()
-                Prefs.setWatchlistMainOnboardingTooltipShown(true)
+            enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
-            }, 500)
+                        .setOnBalloonDismissListener {
+                            WatchlistFunnel().logShowTooltipMore()
+                            Prefs.setWatchlistMainOnboardingTooltipShown(true)
+                        }
+            }
+        }
+    }
+
+    private fun maybeShowImageRecsTooltip() {
+        if (ImageRecsFragment.isFeatureEnabled() && Prefs.shouldShowImageRecsTooltip() &&
+                Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
+            enqueueTooltip {
+                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
+                        .setOnBalloonDismissListener {
+                            Prefs.setShowImageRecsTooltip(false)
+                        }
+            }
         }
     }
 
@@ -524,6 +539,20 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                 refreshContents()
             }
         }
+    }
+
+    private fun enqueueTooltip(runnable: Runnable) {
+        if (exclusiveTooltipRunnable != null) {
+            return
+        }
+        exclusiveTooltipRunnable = runnable
+        binding.mainNavTabLayout.postDelayed({
+            exclusiveTooltipRunnable = null
+            if (!isAdded) {
+                return@postDelayed
+            }
+            runnable.run()
+        }, 500)
     }
 
     private fun callback(): Callback? {
