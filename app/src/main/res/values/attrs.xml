@@ -4,7 +4,6 @@
     <attr name="themed_icon_color" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />
     <attr name="edit_improve_tag_unselected_drawable" format="reference" />
-    <attr name="lead_image_drawable" format="reference"/>
     <attr name="list_separator_drawable" format="reference"/>
     <attr name="list_separator_drawable_bottom_content" format="reference"/>
     <attr name="nav_tab_background_color" format="reference" />
