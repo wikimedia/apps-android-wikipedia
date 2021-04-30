@@ -30,6 +30,7 @@
   <string name="offline_load_error_retry">Пробај пак</string>
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
+  <string name="error_next">Следно</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="history_item_deleted">%s е отстранета од историјата</string>
   <string name="history_items_deleted">%d статии се отстранети од историјата</string>
@@ -855,7 +856,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Почни</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Одлично, само така! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Дневната цел е постигната! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ја постигнавте целта</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ја постигнавте дневната цел</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Достапна е нова задача од Предложени уредувања. Извежбајте алгоритам за да наоѓа соодветни слики за неилустрирани статии.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Статиите на Википедија ги пишуваат и уредуваат илјадници доброволци ширум светот. За жал, многу статии немаат слики.\n\nСликите ќе ви ги предлага алгоритам. Алгоритамот ќе ги извлекува од други извори и ќе предлага складност со статија која нема слика.\n\nСо време вашите предлози ќе ни помогнат да ги подобриме предлозите. Бидејќи целта на оваа задача е да ги подобриме предложените слики, совпаѓањата што ќе ги посочите нема да бида објавени.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text2">Сакме да ви оддадеме признание за вашите напори. Дали би сакале да ви се прикажува вашето корисничко име на страницата за вежбање на алгоритми?</string>
@@ -863,6 +864,7 @@
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
+  <string name="file_page_suggestion_reason">Причина за предлагање</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
@@ -941,6 +943,8 @@
   <string name="image_recommendations_task_processing">Обработувам…</string>
   <string name="image_recommendations_task_instruction">Дали би ја ставиле сликава во статијата?</string>
   <string name="image_recommendations_task_choice_no">Зошто избравте да не ја ставите?</string>
+  <string name="image_recommendations_task_choice_not_sure">Зошто избравте „не знам“?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Изберете една или повеќе причини.</string>
   <string name="image_recommendations_task_choice_unsure">Зошто не знаете дали да ја ставите?</string>
   <string name="image_recommendations_task_choice_not_relevant">Нерелевантна е</string>
   <string name="image_recommendations_task_choice_low_quality">Слаб квалитет</string>
@@ -953,6 +957,9 @@
   <string name="image_recommendations_task_choice_other">Друго</string>
   <string name="image_recommendations_task_choice_continue">Продолжи</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Причина за предлагање:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">сликата е најдена на други јазични изданија на Википедија (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">сликата е најдена на Википодатоците — Википедииниот извор на отворени податоци</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">Сликата е најдена на Ризницата — Википедииниот извор на слободно достапни слики</string>
   <string name="image_recommendations_faq">ЧПП</string>
   <string name="image_recommendations_tooltip1">Прегледајте ја статијата за да ја разберете темата</string>
   <string name="image_recommendations_tooltip2">Прегледајте ја сликата и нејзините придружни информации.</string>

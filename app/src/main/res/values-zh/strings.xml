@@ -9,6 +9,7 @@
 * Deathkon
 * Ff98sha
 * GoForceX
+* Grace03
 * Huanqiu
 * Hudafu
 * Hydra
@@ -73,6 +74,7 @@
   <string name="offline_load_error_retry">重试</string>
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
+  <string name="error_next">下一个</string>
   <string name="menu_clear_all_history">清除历史</string>
   <string name="history_item_deleted">%s的历史记录已删除</string>
   <string name="history_items_deleted">%d个条目的历史记录已删除</string>
@@ -852,9 +854,12 @@
     <item quantity="other">您添加了 %d 个字符</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_get_started">开始</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">你已达到每日目标</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">我们想认证你所提供的贡献。请问你想要你的用户名称被显示在我们的算法训练网页？</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图片说明</string>
   <string name="file_page_add_image_tags_button">添加图片标签</string>
+  <string name="file_page_suggestion_reason">推荐原因</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -928,8 +933,13 @@
   <string name="image_recommendations_task_accept">是</string>
   <string name="image_recommendations_task_reject">否</string>
   <string name="image_recommendations_task_processing">进行中。。。</string>
+  <string name="image_recommendations_task_choice_not_sure">为什么你选择不确定?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">选择一个或者更多原因</string>
   <string name="image_recommendations_task_choice_other">其他</string>
   <string name="image_recommendations_task_choice_continue">继续</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">图片可以在别的语言版本的维基百科上得到（%s）</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">图片在维基数据上搜索的，维基百科关于公开数据的资源</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">图片是在’Wikimedia Commons\'上得到的，维基百科来源于免费用处的照片</string>
   <string name="wikitext_bold">粗体</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">链接</string>

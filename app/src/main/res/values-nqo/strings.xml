@@ -699,7 +699,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">ߊ߬ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">ߔߊߞߌ߫߹ ߌ ߘߐߖߵߊ߬ ߞߊ߲߬ ߘߋ߬߹  👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">ߕߋ߬ߟߋ߲ ߟߊ߬ߢߌߣߌ߲ ߓߘߊ߫ ߞߎ߲߭ߝߊ߰߹ 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">ߌ ߓߘߊ߫ ߛߋ߫ ߟߊ߬ߢߌߣߌ߲ ߘߐ߫߹</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">ߌ ߓߘߊ߫ ߛߋ߫ ߟߊ߬ߢߌߣߌ߲ ߘߐ߫߹</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
