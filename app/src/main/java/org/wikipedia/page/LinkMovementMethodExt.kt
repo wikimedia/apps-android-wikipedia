@@ -9,7 +9,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
 class LinkMovementMethodExt : LinkMovementMethod {
-    
+
     fun interface UrlHandler {
         fun onUrlClick(url: String)
     }
