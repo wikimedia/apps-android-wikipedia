@@ -870,7 +870,7 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_get_started">始める</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">その調子です! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">あなたは目標を達成しました</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">あなたは目標を達成しました</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>

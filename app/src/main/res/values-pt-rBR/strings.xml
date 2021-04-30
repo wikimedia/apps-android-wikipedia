@@ -59,6 +59,7 @@
   <string name="offline_load_error_retry">Tentar novamente</string>
   <string name="page_error_back_to_main">Voltar</string>
   <string name="error_back">Voltar</string>
+  <string name="error_next">Próximo</string>
   <string name="menu_clear_all_history">Apagar histórico</string>
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
@@ -883,7 +884,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Iniciar</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Ótimo, continue! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Objetivo diário alcançado! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Você alcançou a meta</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Você alcançou a meta diária</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Uma nova tarefa de edições sugeridas agora está disponível. Treine um algoritmo para combinar imagens com artigos não ilustrados.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Os artigos da Wikipédia são escritos e editados por milhares de voluntários de todo o mundo. Infelizmente, muitos artigos não têm imagens.\n\nAs imagens serão sugeridas a você usando um algoritmo. O algoritmo irá extrair imagens de outras fontes e sugerir uma correspondência com um artigo que não possui uma imagem.\n\nSeu feedback nos ajudará a melhorar as sugestões ao longo do tempo. Como o objetivo desta tarefa é melhorar as imagens sugeridas, as correspondências que você fizer não serão publicadas neste momento.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text2">Gostaríamos de agradecer suas contribuições para esse esforço. Você gostaria que seu nome de usuário fosse exibido em nossa página de treinamento de algoritmo?</string>
@@ -891,6 +892,7 @@
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
+  <string name="file_page_suggestion_reason">Motivo de sugestão</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
   <string name="description_edit_revert_reason1">Sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
@@ -969,6 +971,8 @@
   <string name="image_recommendations_task_processing">Processando...</string>
   <string name="image_recommendations_task_instruction">Você adicionaria esta imagem ao artigo?</string>
   <string name="image_recommendations_task_choice_no">Por que você selecionou não?</string>
+  <string name="image_recommendations_task_choice_not_sure">Por que você selecionou não tem certeza?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Escolha uma ou vários motivos.</string>
   <string name="image_recommendations_task_choice_unsure">Por que você não tem certeza sobre esta imagem?</string>
   <string name="image_recommendations_task_choice_not_relevant">Não é relevante</string>
   <string name="image_recommendations_task_choice_low_quality">Baixa qualidade</string>
@@ -981,6 +985,9 @@
   <string name="image_recommendations_task_choice_other">Outro</string>
   <string name="image_recommendations_task_choice_continue">Continuar</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivo da sugestão:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">imagem foi encontrada em outras versões linguísticas da Wikipedia (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">A imagem foi encontrada na WikiData, a fonte de dados abertos da Wikipédia</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">A imagem foi encontrada no Wikimedia Commons, a fonte da Wikipédia de imagens livremente utilizáveis</string>
   <string name="image_recommendations_faq">FAQ</string>
   <string name="image_recommendations_tooltip1">Revise este artigo para entender seu tópico.</string>
   <string name="image_recommendations_tooltip2">Inspecione a imagem e suas informações associadas.</string>
