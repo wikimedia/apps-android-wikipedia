@@ -8,6 +8,7 @@ import org.wikipedia.theme.Theme
 
 class AppearanceChangeFunnel(app: WikipediaApp?, wiki: WikiSite?, private val source: InvokeSource) :
         Funnel(app, SCHEMA_NAME, REV_ID, wiki) {
+
     fun logFontSizeChange(currentFontSize: Float, newFontSize: Float) {
         log(
                 "action", "fontSizeChange",
@@ -32,6 +33,7 @@ class AppearanceChangeFunnel(app: WikipediaApp?, wiki: WikiSite?, private val so
     }
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
+
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "invoke_source", source.ordinal)
         return super.preprocessData(eventData)

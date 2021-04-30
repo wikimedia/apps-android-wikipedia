@@ -7,6 +7,7 @@ import java.util.*
 
 class ABTestFunnel internal constructor(private val abTestName: String, private val abTestGroupCount: Int) :
         Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+
     // initialize the group if it hasn't been yet.
     val aBTestGroup: Int
         get() {
@@ -18,7 +19,8 @@ class ABTestFunnel internal constructor(private val abTestName: String, private 
             }
             return group % abTestGroupCount
         }
-    private val isEnrolled: Boolean
+
+    private val isEnrolled
         get() = PrefsIoUtil.contains(AB_TEST_KEY_PREFIX + abTestName)
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
