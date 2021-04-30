@@ -608,7 +608,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Logáil isteach / cláraigh le Vicipéid</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Togha, lean ar aghaidh! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Bhain tú sprioc an lae amach!👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Bhain tú an sprioc amach</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Bhain tú an sprioc amach</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>

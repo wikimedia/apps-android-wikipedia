@@ -895,7 +895,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Začni</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Odlično, kar tako naprej! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Dnevni cilj dosežen! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Dosegli ste cilj</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Dosegli ste cilj</string>
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
   <string name="file_page_add_image_tags_button">Dodajte sliki oznake</string>

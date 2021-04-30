@@ -374,7 +374,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">ನಿನ್ನೆ</string>
   <string name="suggested_card_more_edits">ಇನ್ನಷ್ಟು ಸೂಚಿಸಲ್ಪಟ್ಟ ಸಂಪಾದನೆಗಳು</string>
   <string name="suggested_edits_image_recommendations_task_get_started">ಆರಂಭಿಸಿ</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">ನೀವು ಗುರಿ ತಲುಪಿದ್ದೀರಿ</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">ನೀವು ಗುರಿ ತಲುಪಿದ್ದೀರಿ</string>
   <string name="description_edit_revert_subtitle">ವಿಕಿಪೀಡಿಯ ಸಂಪಾದಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು!</string>
   <string name="description_edit_login_cancel_button_text">ರದ್ದುಮಾಡಿ</string>
   <string name="size_gb">%.2f GB</string>

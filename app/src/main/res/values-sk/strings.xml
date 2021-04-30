@@ -917,10 +917,10 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Začať</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Super, len tak ďalej!👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Denný cieľ je splnený!👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Splnili ste cieľ</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Splnili ste cieľ</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Nová úloha s odporúčanými úpravami je teraz dostupná. Trénujte algoritmus pre spárovanie obrázkov s článkami, ktorým obrázok chýba.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Články na Wikipédii sú písané a upravované tisíckami dobrovoľníkov po celom svete. Bohužiaľ, mnohým článkom chýbajú obrázky.\n\nObrázky Vám budú odporúčané na základe algoritmu. Obrázok bude prevzatý z iného zdroja a ponúknutý na spárovanie s článkom, ktorému obrázok chýba.\n\nVaša spätná väzba nám pomôže tento proces vylepšiť. Pretože cieľom tejto úlohy je vylepšiť algoritmus ponúkaných obrázkov, obrázky ktoré vyberiete na spárovanie nebudú tento krát zverejnené.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Radi by sme uznali Vašu zásluhu na tomto úsilí. Chceli by ste, aby bolo Vaše používateľské meno zobrazené na našej stránke tréningu algoritmu?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Radi by sme uznali Vašu zásluhu na tomto úsilí. Chceli by ste, aby bolo Vaše používateľské meno zobrazené na našej stránke tréningu algoritmu?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Áno, moje používateľské meno môže byť zobrazené na stránke tréningu algoritmu</string>
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>

@@ -847,7 +847,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Ishga tushirish</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Zoʻr, shunday davom eting! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Kundalik maqsadga erishdingiz! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Siz maqsadga erishdingiz</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Siz maqsadga erishdingiz</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
