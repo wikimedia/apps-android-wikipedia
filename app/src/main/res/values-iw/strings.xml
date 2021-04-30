@@ -46,6 +46,7 @@
   <string name="offline_load_error_retry">ניסיון חוזר</string>
   <string name="page_error_back_to_main">חזרה</string>
   <string name="error_back">לחזור</string>
+  <string name="error_next">הבא</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
   <string name="history_item_deleted">הערך %s הוסר מההיסטוריה</string>
   <string name="history_items_deleted">%d ערכים הוסרו מההיסטוריה</string>
@@ -212,10 +213,10 @@
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/ויקיפדיה:אודות</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
@@ -920,14 +921,15 @@
   <string name="suggested_edits_image_recommendations_task_get_started">התחלה</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">טוב מאוד, תמשיך! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">היעד היומי הושג! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">השגתם את היעד</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">השגתם את היעד היומי</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">זמינה עכשיו משימה חדשה של עריכות מוצעות. אמנו אלגוריתם להתאמת תמונות עם ערכים לא מאוירים.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">ערכי ויקיפדיה נכתבים ונערכים על־ידי אלפי מתנדבים מסביב לעולם. למרבה הצער, בערכים רבים חסרות תמונות.\n\nתמונות יוצעו לך באמצעות אלגוריתם. האלגוריתם לשאב תמונות ממקורות אחרים ויציע התאמה לערך שאין בו תמונה.\n\nהמשוב שלך יעזור לנו לשפר את ההצעות לאורך זמן. מכיוון שהמטרה של המשימה הזאת היא לשפר את התמונות המוצעות, ההתאמות שתעשה לא תפורסמנה לעת־עתה.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">אנחנו רוצים להכיר בתרומתך למאמת הזה. האם ברצונך להציג את שם המשתמש שלך בדך אימון האלגוריתם שלנו?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">אנחנו רוצים להכיר בתרומתך למאמץ הזה. האם ברצונך להציג את שם המשתמש שלך בדף אימון האלגוריתם שלנו?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">כן, שם המשתמש שלי יכול להיות מוצג בדף אימון האלגוריתם</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
+  <string name="file_page_suggestion_reason">הסיבה להצעה</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -1008,9 +1010,10 @@
   <string name="image_recommendations_task_reject">לא</string>
   <string name="image_recommendations_task_not_sure">לא בטוח</string>
   <string name="image_recommendations_task_processing">עיבוד...</string>
-  <string name="image_recommendations_task_daily_amount">%d/%d</string>
   <string name="image_recommendations_task_instruction">האם להוסיף את התמונה הזאת לערך?</string>
   <string name="image_recommendations_task_choice_no">למה בחרת לא?</string>
+  <string name="image_recommendations_task_choice_not_sure">למה בחרת \"לא בטוח\"?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">אפשר לבחור סיבה אחת או יותר.</string>
   <string name="image_recommendations_task_choice_unsure">מה לא בטוח בקשר לתמונה הזאת?</string>
   <string name="image_recommendations_task_choice_not_relevant">לא רלוונטית</string>
   <string name="image_recommendations_task_choice_low_quality">איכות נמוכה</string>
@@ -1023,6 +1026,9 @@
   <string name="image_recommendations_task_choice_other">משהו אחר</string>
   <string name="image_recommendations_task_choice_continue">למהשיך</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;סיבת ההצעה:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">התמונה נמצאה בגרסאות של ויקיפדיה בשפות אחרות (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">התמונה נמצאה בוויקינתונים, המקור של ויקיפדיה לנתונים פתוחים</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">התמונה נמצאה בוויקישיתוף, המקור של ויקיפדיה לתמונות חופשיות לשימוש חוזר</string>
   <string name="image_recommendations_faq">שו\"ת</string>
   <string name="image_recommendations_tooltip1">לקרוא את הערך הזה כדי להבין את הנושא שלו.</string>
   <string name="image_recommendations_tooltip2">להסתכל על התמונה ועל המידע שקשור אליה.</string>

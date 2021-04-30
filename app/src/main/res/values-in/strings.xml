@@ -842,10 +842,10 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Mulai</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Bagus, lanjutkan! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Tujuan harian tercapai! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Anda telah mencapai tujuan</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Anda telah mencapai tujuan</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Sebuah tugas baru Penyuntingan yang Disarankan tersedia. Latih algoritma untuk mencocokkan gambar dengan artikel tanpa gambar.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Artikel Wikipedia ditulis dan disunting oleh ribuan sukarelawan dari seluruh dunia. Sayangnya, banyak artikel yang kekurangan gambar.\n\nGambar-gambar akan menyarankan Anda untuk menggunakan sebuah algoritma. Algoritma ini akan menarik gambar dari sumber lain dan menyarankan yang cocok dengan artikel yang tidak memiliki gambar.\n\nUmpan balik Anda akan membantu kami untuk meningkatkan saran-saran tersebut sepanjang waktu. Karena tujuan tugas ini untuk meningkatkan gambar-gambar yang disarankan, pencocokan yang Anda buat tidak akan dipublikasikan saat ini.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Kami ingin Anda untuk menerima kontribusi Anda untuk usaha ini. Maukah Anda jika nama pengguna Anda ditampilkan di halaman pelatihan algoritma kami?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Kami ingin Anda untuk menerima kontribusi Anda untuk usaha ini. Maukah Anda jika nama pengguna Anda ditampilkan di halaman pelatihan algoritma kami?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Ya, nama pengguna saya boleh ditampilkan di halaman pelatihan algoritma</string>
   <string name="file_page_activity_title">Halaman berkas</string>
   <string name="file_page_add_image_caption_button">Tambahkan takarir gambar</string>

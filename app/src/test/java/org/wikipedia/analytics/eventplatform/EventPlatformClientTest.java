@@ -1,7 +1,5 @@
 package org.wikipedia.analytics.eventplatform;
 
-import com.google.gson.Gson;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,6 +10,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.test.TestFileUtil;
 
@@ -35,14 +34,12 @@ import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStrea
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
-import static org.wikipedia.json.GsonUtil.getDefaultGson;
 
 @SuppressWarnings("checkstyle:magicnumber")
 @RunWith(RobolectricTestRunner.class)
 public class EventPlatformClientTest {
 
     private static final String STREAM_CONFIGS_RESPONSE = "streamconfigs_response.json";
-    private static final Gson GSON = getDefaultGson();
 
     @Before
     public void reset() {
@@ -173,13 +170,11 @@ public class EventPlatformClientTest {
 
     @Test
     public void testStreamConfigMapSerializationDeserialization() throws IOException {
-        String json = TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE);
-        MwStreamConfigsResponse response = GSON.fromJson(json, MwStreamConfigsResponse.class);
-        Map<String, StreamConfig> originalStreamConfigs = response.getStreamConfigs();
+        Map<String, StreamConfig> originalStreamConfigs = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse.class,
+                TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE)).getStreamConfigs();
 
         Prefs.setStreamConfigs(originalStreamConfigs);
         Map<String, StreamConfig> restoredStreamConfigs = Prefs.getStreamConfigs();
         assertThat(GsonMarshaller.marshal(restoredStreamConfigs), is(GsonMarshaller.marshal(originalStreamConfigs)));
     }
-
 }

@@ -875,7 +875,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Aloita</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Hienoa, jatka samaan tahtiin! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Päivittäinen tavoite saavutettu! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Olet saavuttanut tavoitteen</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Olet saavuttanut tavoitteen</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Uusi Ehdotetut muutokset -tehtävä on nyt tarjolla. Opeta algoritmi yhdistämään kuvia kuvittamattomiin artikkeleihin.</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
