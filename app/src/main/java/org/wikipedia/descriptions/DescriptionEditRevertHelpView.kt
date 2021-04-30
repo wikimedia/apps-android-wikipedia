@@ -18,7 +18,6 @@ import org.wikipedia.util.StringUtil
 
 class DescriptionEditRevertHelpView constructor(context: Context, attrs: AttributeSet? = null) : ScrollView(context, attrs) {
 
-    private val binding = ViewDescriptionEditRevertHelpBinding.inflate(LayoutInflater.from(context), this)
     private var qNumber: String = ""
 
     constructor(context: Context, qNumber: String) : this(context, null) {
@@ -26,6 +25,7 @@ class DescriptionEditRevertHelpView constructor(context: Context, attrs: Attribu
     }
 
     init {
+        val binding = ViewDescriptionEditRevertHelpBinding.inflate(LayoutInflater.from(context), this)
         binding.helpText.movementMethod = LinkMovementMethod()
         val helpStr = StringUtil.fromHtml(context.getString(R.string.description_edit_revert_help_body)
                 .replace(":revertSubtitle".toRegex(), context.getString(R.string.description_edit_revert_subtitle))
