@@ -830,10 +830,10 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Grozav, continuați! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Ținta zilnică atinsă! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ați atins ținta</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Ați atins ținta</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">O nouă sarcină de la Editările Sugerate este acum disponibilă. Antrenați un algoritm pentru a potrivi imagini cu articole neilustrate.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Articolele Wikipedia sunt scrise de mii de voluntari din jurul lumii. Din păcate, multor articole le lipsesc imaginile.\n\nImaginile vă vor fi sugerate utilizând un algoritm. Algoritmul va extrage imagini din alte surse și va sugera o potrivire cu un articol care nu are o imagine.\n\nFeedback-ul dvs. ne va ajuta să îmbunătățim sugestiile de-a lungul timpului. Deoarece țelul acestei sarcini este să îmbunătățire imaginilor sugerate, potrivirile pe care le faceți nu vor fi publicate în acest moment.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Ne-ar plăcea să vă recunoaștem contribuțiile la acest efort. V-ar plăcea ca numele dvs. de utilizator să fie afișat pe pagina noastră de antrenare a algoritmului?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Ne-ar plăcea să vă recunoaștem contribuțiile la acest efort. V-ar plăcea ca numele dvs. de utilizator să fie afișat pe pagina noastră de antrenare a algoritmului?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Da, numele meu de utilizator poate fi afișat pe pagina de antrenare a algoritmului</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
@@ -983,7 +983,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">pentru 1 lună</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">pentru 3 luni</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">pentru 6 luni</string>
-  <string name="watchlist_page_removed_from_watchlist_snackbar" fuzzy="true">%s și pagina de discuție a sa au fost eliminate din lista de urmărire a dvs.</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s și pagina de discuție a sa au fost eliminate din lista de urmărire a dvs.</string>
   <string name="watchlist_expiry_dialog_title">Selectați perioada pentru lista de urmărire</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 săptămână</string>
