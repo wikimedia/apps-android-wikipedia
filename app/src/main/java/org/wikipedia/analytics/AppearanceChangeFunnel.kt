@@ -6,7 +6,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.theme.Theme
 
-class AppearanceChangeFunnel(app: WikipediaApp?, wiki: WikiSite?, private val source: InvokeSource) :
+class AppearanceChangeFunnel(app: WikipediaApp, wiki: WikiSite, private val source: InvokeSource) :
         Funnel(app, SCHEMA_NAME, REV_ID, wiki) {
 
     fun logFontSizeChange(currentFontSize: Float, newFontSize: Float) {
