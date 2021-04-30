@@ -134,9 +134,9 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
          */
         @kotlin.jvm.JvmStatic
         @VisibleForTesting
-        fun isUserInSamplingGroup(appInstallID: String, sampleRate: Int): Boolean {
+        fun isUserInSamplingGroup(appInstallID: String?, sampleRate: Int): Boolean {
             return try {
-                val lastFourDigits = appInstallID.substring(appInstallID.length - 4).toInt(16)
+                val lastFourDigits = appInstallID!!.substring(appInstallID.length - 4).toInt(16)
                 lastFourDigits % sampleRate == 0
             } catch (e: Exception) {
                 // Should never happen, but don't crash just in case.
