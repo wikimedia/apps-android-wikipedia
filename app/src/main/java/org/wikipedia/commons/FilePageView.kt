@@ -169,7 +169,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                 view.binding.contentText.setTextIsSelectable(false)
                 view.binding.externalLink.visibility = View.VISIBLE
                 view.binding.contentContainer.setOnClickListener {
-                    UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
+                    UriUtil.visitInExternalBrowser(context, Uri.parse(UriUtil.resolveProtocolRelativeUrl(externalLink)))
                 }
             } else {
                 view.binding.contentText.movementMethod = movementMethod

@@ -238,6 +238,8 @@
   <string name="article_opened_in_background_tab">Ер статья фонацарча вкладка тӀа хьайийлай.</string>
   <string name="abusefilter_title_warn">Ер деструктивни тоадар долчох тара да. Боккъонца лой хьона из кепатоха?</string>
   <string name="abusefilter_title_disallow">ВӀаштехьа дац из тоадар дӀаязде. Юха а вахе(-яхе) хувца из.</string>
+  <string name="abusefilter_text_warn">Ши-шегӀа болх беш йолча луттарго белгалдаьд ер тоадар потенциально конструктивни дац аьнна. Акхарех цаӀ е массехк хӀама хила мег цу чу:&lt;br /&gt;&lt;br /&gt;· Доккхача алапашца яздар&lt;br&gt;· Дуккха статьяш цхьана чуяхар е спам&lt;br /&gt;· Мегаш доаца арахьара тӀатовжамаш е сурташ&lt;br /&gt;· Юха а юха а нийслуш йола фискалаш</string>
+  <string name="abusefilter_text_disallow">Ши-шегӀа болх беш йолча луттарго белгалдаьд ер тоадар потенциально конструктивни дац аьнна е потенциально вандализм я аьнна.&lt;br /&gt;&lt;br /&gt;Википеди — энциклопеди да, укхазара чулоацам нейтральнии лоаддам болаши хила беза.</string>
   <string name="page_similar_titles">Тара йола оагӀонаш</string>
   <string name="search_did_you_mean">«%s» лаха лаьрхӀа хургда Ӏа?</string>
   <string name="search_recent_header">ТӀеххьара лийха хиннар:</string>
@@ -267,6 +269,7 @@
   <string name="preference_summary_show_images">ОагӀонаш тӀа сурташ гуш хилар хьалсага е дӀадоаде. ДӀадоаде, нагахьа санна Дуненмазаца хоттам мела бале е хьай тарифни плана тӀа трафик кхоачалуш яле.</string>
   <string name="preference_title_download_only_over_wifi">Алхха Wi-Fi-ца хьачудаха</string>
   <string name="dialog_title_download_only_over_wifi">Мобильни мазаца хьачу мел доаккхача хана юха а юха бакъде дезаш хила дезий?</string>
+  <string name="dialog_text_download_only_over_wifi">Оттамашка «Алхха Wi-Fi гӀолла хьачудаккхар» аьнна оттадаьд Ӏа. Амма хӀанз укх юкъá мобильни мáзага гӀолла хьачудаккха безам бий хьа?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Могаде</string>
   <string name="read_more_section">Укхунца ювзаенна йола статьяш</string>
   <string name="about_article_section">Укх оагIонах лаьца</string>
@@ -287,6 +290,7 @@
   <string name="captcha_image">CAPTCHA-СУРТ</string>
   <string name="gallery_fair_use_license">Дикача уйлаца пайда эцар</string>
   <string name="gallery_uploader_unknown">Хоам чубаьккхар вовзаш вац</string>
+  <string name="gallery_not_available_offline_snackbar">Дунен мазаца хоттам боацаш суртага галерея чу хьажа вӀаштехьа дац.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">ДӀакъовла</string>
   <string name="menu_new_tab">Керда вкладка</string>
   <string name="menu_close_all_tabs">ДӀакъовла еррига вкладкаш</string>
@@ -330,9 +334,28 @@
   <string name="enable_location_service">Хьалсага</string>
   <string name="location_permissions_enable_prompt">Хье вола моттиг малагӀа я хар могаде, хьона гаьна доаццаш йола моттигаш гургйолаш.</string>
   <string name="location_permissions_enable_action">Хьалсага</string>
+  <string name="error_webview_updating">Android System WebView хӀанз укх юкъа кердайоаллаш латт. КӀеззига тӀехьагӀа кхы цхьаькхаза хьажа.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d хержад</item>
+    <item quantity="other">%d хержад</item>
+  </plurals>
   <string name="multi_select_items_selected">Белгалдаьккхад: %d</string>
+  <string name="error_message_generic">ГӀалат нийсделар</string>
+  <string name="view_link_preview_error_button_dismiss">ДӀакъовла</string>
+  <string name="error_page_does_not_exist">Из оагӀув хӀанзехьа яц</string>
+  <string name="view_wiki_error_message_offline">Дунен мазах дӀахоттадала аьттув балац</string>
+  <string name="view_wiki_error_message_timeout">Википедех дӀахоттадала аьттув балац. Дунен мазаца хоттам миштаб тахка а тахке, цхьаькхаза хоттавала хьажа кӀезига тӀехьагӀа.</string>
+  <string name="reference_title">Белгалдар %s</string>
+  <string name="reference_list_title">Белгалдаккхар</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Сурташ баьддерзадар</string>
+  <string name="preference_title_prefer_offline_content">Офлайн-хоам тол</string>
+  <string name="preference_summary_prefer_offline_content">ОагӀона чу эггара тӀехьагӀа (керда) Ӏочудаьккхачун когаметта хьалхагӀа офлайн дӀаяздаьр хьа а хьувкхаш трафик кхóю</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Ража тéманна нийсса я</string>
+  <string name="page_footer_license_text">Чулоацамá тIакхоачилга $1 яхача лицензе бокъоношца да, нагахьа санна кхыдар белгалдаь деце.</string>
   <string name="empty_tab_title">Керда вкладка</string>
   <string name="menu_save_all_tabs">Еррига вкладкаш дӀаяхка</string>
+  <string name="crash_report_activity_title">Приложенен гӀалат</string>
+  <string name="crash_report_relaunch_or_quit">Бехк ма баккхалахь, Википеден приложене чу гӀалат нийсделар, из бахьан долаш дӀакъовлаялар из.\n\nЮха хьаелла безам ба хьа из е аравала?</string>
   <string name="crash_report_relaunch">Юха хеца</string>
   <string name="crash_report_quit">Áравáла</string>
   <string name="article_menu_bar_save_button">ДӀайила</string>
@@ -360,8 +383,22 @@
   <string name="reading_list_save_to">Éша дIаяхкача оагIонашта тIатоха</string>
   <string name="reading_list_move_to">Éша дIаяхкача оагIонашта юкъеяккха</string>
   <string name="reading_list_create_new">Керда мугӀам хьабе</string>
+  <string name="reading_list_title_exists">«%s» яха цӀи йола дешара мугӀа тхьовре хьабаь болаш ба.</string>
+  <string name="reading_list_article_added_to_named">%1$s → %2$s чу.</string>
+  <string name="reading_list_article_added_to_default_list">ДӀаязъяьй %s яхар. Безам бий хьона из дешара мугӀама чу дехьаяккха?</string>
+  <string name="reading_list_article_moved_to_named">%1$s дехьаяьккхай %2$s чу.</string>
+  <string name="reading_list_article_already_exists_message">Эшац хьона! %1$s яха оагӀув йолаш я %2$s яхача мугӀама чу.</string>
+  <string name="reading_list_articles_already_exist_message">Эшац хьона! %s яха чу йолаш я хьона еррига статьяш.</string>
   <string name="reading_list_added_view_button">МугӀамага хьажар</string>
   <string name="reading_list_add_to_list_button">МугӀамá тӀатоха</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 статья, %2$.2f MB</item>
+    <item quantity="other">%1$d статья, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">1 статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
+    <item quantity="other">%2$d статьяй %1$d оагӀув офлайне я, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">Цхьа статья, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статья, %2$.2f МБ</string>
   <string name="format_reading_list_statistical_detail_singular">Цхьан статья чура %1$d тӀакхоачача я дуненмазаца хоттам а боацаш, %2$.2f МБ</string>
@@ -386,9 +423,20 @@
   <string name="reading_list_name_hint">Укх мугӀама цӀи</string>
   <string name="reading_list_description_hint">МугӀамах лаьцар (фараз дац)</string>
   <string name="reading_list_item_deleted">%s дӀаяьккхай мугӀама чура</string>
+  <string name="reading_list_item_deleted_from_list">%1$s яхар дӀаяьккхай %2$s яха чура</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d статья дӀаяьккхай мугӀама чура</item>
+    <item quantity="other">%d статья дӀаяьккхай мугӀама чура</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d статья дӀаяьккхай %s яха чура</item>
+    <item quantity="other">%d статья дӀаяьккхай %s яха чура</item>
+  </plurals>
+  <string name="reading_list_items_deleted">%d статья дӀаяьккхай мугӀама чура</string>
   <string name="reading_lists_item_deleted">%s дӀаяьккхай мугӀамаш чура</string>
   <string name="reading_list_item_delete_undo">Юхадаккха</string>
   <string name="reading_list_deleted">%s яха мугӀам дӀабаьккхаб</string>
+  <string name="saved_list_empty_title">Дешара мугӀамаш хӀанзехьа дац</string>
   <string name="reading_lists_login_button">Чувалар</string>
   <string name="reading_lists_ignore_button">ХӀанзехьа эшац</string>
   <string name="reading_lists_confirm_remote_delete_yes">ХӀаъа</string>
@@ -652,7 +700,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Хе́ца</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">ТӀехдика да хьона, ишта дӀахо дӀабахийта Ӏа болх! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Ден-денна хьаде лаьрхӀа хиннар кхоачашдаьд! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Хьаде лаьрхӀа хиннар кхоачашдаьд Ӏа</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Хьаде лаьрхӀа хиннар кхоачашдаьд Ӏа</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_skip">Теркал ма де</string>

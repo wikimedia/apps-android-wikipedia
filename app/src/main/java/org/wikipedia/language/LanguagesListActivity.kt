@@ -50,7 +50,7 @@ class LanguagesListActivity : BaseActivity() {
         binding.languagesListLoadProgress.visibility = View.VISIBLE
         searchActionModeCallback = LanguageSearchCallback()
 
-        searchingFunnel = AppLanguageSearchingFunnel(intent.getStringExtra(WikipediaLanguagesFragment.SESSION_TOKEN))
+        searchingFunnel = AppLanguageSearchingFunnel(intent.getStringExtra(WikipediaLanguagesFragment.SESSION_TOKEN)!!)
         requestLanguages()
     }
 
