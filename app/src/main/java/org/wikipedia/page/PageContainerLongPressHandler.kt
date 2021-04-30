@@ -6,7 +6,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingListPage
 
 class PageContainerLongPressHandler(private val fragment: PageFragment) : WebViewMenuCallback {
-    
+
     override fun onOpenLink(entry: HistoryEntry) {
         fragment.loadPage(entry.title, entry)
     }
