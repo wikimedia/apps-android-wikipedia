@@ -854,10 +854,10 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Magsimula</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Magaling, tuloy lang! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Narating na ang target ngayong araw! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Narating mo na ang target</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Narating mo na ang target</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">May bagong gawain sa mga Alok na Edit. Magsanay ng algoritmo para magpares ng larawan sa mga artikulong wala pang larawan.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Sinulat at in-edit ng libo-libong tao ang mga artikulo sa Wikipedia. Gayumpaman, marami sa mga ito ay walang larawan.\n\nMagmumungkahi ang algoritmo sa\'yo ng mga larawan. Kukuha ang algoritmo ng mga larawan mula sa ibang mapagkukuhanan at magmumungkahi ng pares para sa isang artikulong wala pang larawan.\n\nMalaki ang tulong ng mga sagot mo sa pagpapahusay sa mga mungkahi sa paglipas ng panahon  Dahil ang tunguhin ng gawaing ito ay para mapahusay ang pagmumungkahi ng mga larawan, hindi ilalathala ang mga pares na ginawa mo.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Gusto naming kilalanin ang iyong ambag sa pagsisikap na ito. Gusto mo bang maipakita ang iyong pangalan sa pahina ng pagsasanay sa algoritmo?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Gusto naming kilalanin ang iyong ambag sa pagsisikap na ito. Gusto mo bang maipakita ang iyong pangalan sa pahina ng pagsasanay sa algoritmo?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Sige, pwedeng ipakita ang pangalan ko sa pahina ng pagsasanay</string>
   <string name="file_page_activity_title">Pahina ng file</string>
   <string name="file_page_add_image_caption_button">Magdagdag ng kapsyón</string>
