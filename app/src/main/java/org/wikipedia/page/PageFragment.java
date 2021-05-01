@@ -329,7 +329,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) requireActivity().getApplicationContext();
         model = new PageViewModel();
-        pageFragmentLoadState = new PageFragmentLoadState();
     }
 
     @Override
@@ -430,7 +429,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
-        pageFragmentLoadState.setUp(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
+        pageFragmentLoadState = new PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
 
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
