@@ -59,6 +59,7 @@
             android:lineSpacingExtra="8sp"
             android:textColor="?attr/primary_text_color"
             android:textSize="20sp"
+            android:textIsSelectable="true"
             tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
 
         <ImageView

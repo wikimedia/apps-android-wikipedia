@@ -32,9 +32,9 @@
                     <org.wikipedia.views.PlainPasteEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:autofillHints="username"
                         android:imeOptions="flagNoExtractUi"
                         android:inputType="textNoSuggestions"
-                        android:autofillHints="username"
                         android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,9 +50,9 @@
                     <org.wikipedia.views.PlainPasteEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:autofillHints="password"
                         android:imeOptions="flagNoExtractUi"
                         android:inputType="textPassword"
-                        android:autofillHints="password"
                         android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,8 +78,8 @@
                     android:layout_width="match_parent"
                     android:layout_marginStart="0dp"
                     android:layout_marginEnd="0dp"
-                    android:enabled="false"
                     android:alpha="0.5"
+                    android:enabled="false"
                     android:text="@string/menu_login" />
 
                 <View
@@ -112,7 +112,9 @@
 
                 </LinearLayout>
 
-                <include layout="@layout/inflate_login_and_account_creation_footer" />
+                <include
+                    android:id="@+id/inflate_login_and_account"
+                    layout="@layout/inflate_login_and_account_creation_footer" />
 
             </LinearLayout>
 
@@ -134,11 +136,11 @@
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-6dp"
         android:indeterminate="true"
         android:indeterminateTint="?attr/colorAccent"
         android:progressBackgroundTint="@color/accent30"
         android:visibility="gone"
-        android:layout_marginTop="-6dp"
         tools:visibility="visible" />
 
 </FrameLayout>
