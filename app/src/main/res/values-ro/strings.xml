@@ -41,6 +41,7 @@
   <string name="offline_load_error_retry">Reîncercare</string>
   <string name="page_error_back_to_main">Înapoi</string>
   <string name="error_back">Înapoi</string>
+  <string name="error_next">Următorul</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
   <string name="history_item_deleted">%s îndepărtate din istoric</string>
   <string name="history_items_deleted">%d articole îndepărtate din istoric</string>
@@ -388,6 +389,7 @@
   <string name="reading_list_create_new">Creează una nouă</string>
   <string name="reading_list_title_exists">Lista de citire „%s” există deja.</string>
   <string name="reading_list_article_added_to_named">S-au adăuga %1$s la %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Salvat %s. Doriți să-l adăugați unei liste?</string>
   <string name="reading_list_article_moved_to_named">Mutat %1$s la %2$s.</string>
   <string name="reading_list_article_already_exists_message">Toate bune! %1$s conține deja %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Toate bune! %s conține deja toate articolele.</string>
@@ -662,7 +664,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Subtitrare imagine publicată!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Subtitrare imagine publicată! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Etichete de imagine publicate!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Etichet(ă/e) de imagine publicat(ă/e)!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">V-a plăcut? Ajutați-ne să adăugăm mai mult.</string>
   <string name="description_edit_success_encouragement">Tocmai ai făcut Wikipedia mai bună pentru toată lumea</string>
   <string name="description_edit_success_done">Realizat</string>
@@ -830,10 +832,10 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Grozav, continuați! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Ținta zilnică atinsă! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Ați atins ținta</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ați atins ținta zilnică!</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">O nouă sarcină de la Editările Sugerate este acum disponibilă. Antrenați un algoritm pentru a potrivi imagini cu articole neilustrate.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Articolele Wikipedia sunt scrise de mii de voluntari din jurul lumii. Din păcate, multor articole le lipsesc imaginile.\n\nImaginile vă vor fi sugerate utilizând un algoritm. Algoritmul va extrage imagini din alte surse și va sugera o potrivire cu un articol care nu are o imagine.\n\nFeedback-ul dvs. ne va ajuta să îmbunătățim sugestiile de-a lungul timpului. Deoarece țelul acestei sarcini este să îmbunătățire imaginilor sugerate, potrivirile pe care le faceți nu vor fi publicate în acest moment.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Ne-ar plăcea să vă recunoaștem contribuțiile la acest efort. V-ar plăcea ca numele dvs. de utilizator să fie afișat pe pagina noastră de antrenare a algoritmului?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Ne-ar plăcea să vă recunoaștem contribuțiile la acest efort. V-ar plăcea ca numele dvs. de utilizator să fie afișat pe pagina noastră de antrenare a algoritmului?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Da, numele meu de utilizator poate fi afișat pe pagina de antrenare a algoritmului</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
@@ -918,6 +920,8 @@
   <string name="image_recommendations_task_processing">Se procesează...</string>
   <string name="image_recommendations_task_instruction">Ați adăuga această imagine articolului?</string>
   <string name="image_recommendations_task_choice_no">De ce ați selectat nu?</string>
+  <string name="image_recommendations_task_choice_not_sure">De ce ați selectat nesigur(ă)?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Alegeți unul sau mai multe motive.</string>
   <string name="image_recommendations_task_choice_unsure">De ce nu sunteți sigur(ă) în legătură cu această imagine?</string>
   <string name="image_recommendations_task_choice_not_relevant">Irelevantă</string>
   <string name="image_recommendations_task_choice_low_quality">Calitate joasă</string>
@@ -930,6 +934,9 @@
   <string name="image_recommendations_task_choice_other">Altceva</string>
   <string name="image_recommendations_task_choice_continue">Continuare</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Motivul sugerării:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">imaginea a fost găsită în versiuni în alte limbi ale Wikipediei (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">imaginea a fost găsită la Wikidata, sursa de date deschise a Wikipediei</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">imaginea a fost găsită la Wikimedia Commons, sursa de imagini liber-utilizabile a Wikipediei</string>
   <string name="image_recommendations_faq">FAQ</string>
   <string name="image_recommendations_tooltip1">Revizuiți acest articol pentru a îi înțelege subiectul.</string>
   <string name="image_recommendations_tooltip2">Inspectați imaginea și informațiile asociate ei.</string>
