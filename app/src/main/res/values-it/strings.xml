@@ -882,7 +882,7 @@
     <item quantity="other">Hai aggiunto %d caratteri</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Addestra l\'algoritmo dell\'immagine</string>
-  <string name="suggested_edits_image_recommendations_task_detail">Decidi se un\'immagine suggerita migliorerà un articolo.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Decidi se un\'immagine suggerita migliorerà una voce.</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Inizia</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Ottimo, continua così! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Obiettivo quotidiano raggiunto! 👏</string>
@@ -982,7 +982,7 @@
   <string name="image_recommendations_task_choice_nosubject">Non conosco questo argomento</string>
   <string name="image_recommendations_task_choice_offensive">Offensivo</string>
   <string name="image_recommendations_task_choice_invisible">Non riesco a vedere l\'immagine</string>
-  <string name="image_recommendations_task_choice_understand">Non capisco il compito</string>
+  <string name="image_recommendations_task_choice_understand">Non capisco l\'attività</string>
   <string name="image_recommendations_task_choice_language">Impossibile leggere la lingua</string>
   <string name="image_recommendations_task_choice_other">Altro</string>
   <string name="image_recommendations_task_choice_continue">Continua</string>
