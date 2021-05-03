@@ -26,6 +26,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
@@ -47,7 +48,15 @@ object FeedbackUtil {
     @JvmStatic
     fun showError(activity: Activity, e: Throwable?) {
         val error = ThrowableUtil.getAppError(activity, e!!)
-        makeSnackbar(activity, error.error, LENGTH_DEFAULT).show()
+        makeSnackbar(activity, error.error, LENGTH_DEFAULT).also {
+            if (error.error.length > 200) {
+                it.duration = Snackbar.LENGTH_INDEFINITE
+                it.setAction(android.R.string.ok) { _ ->
+                    it.dismiss()
+                }
+            }
+            it.show()
+        }
     }
 
     @JvmStatic
@@ -151,7 +160,9 @@ object FeedbackUtil {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
+        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         textView.movementMethod = LinkMovementMethod.getInstance()
+        RichTextUtil.removeUnderlinesFromLinks(textView)
         val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
         actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         return snackbar
