@@ -98,6 +98,7 @@ public class EditSectionActivity extends BaseActivity {
 
     private boolean sectionTextModified = false;
     private boolean sectionTextFirstLoad = true;
+    private boolean editingAllowed = false;
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
     private long currentRevision;
@@ -423,7 +424,7 @@ public class EditSectionActivity extends BaseActivity {
         menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
         item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
-        if (progressBar.getVisibility() == View.GONE) {
+        if (editingAllowed && progressBar.getVisibility() == View.GONE) {
             item.setEnabled(sectionTextModified);
         } else {
             item.setEnabled(false);
@@ -522,8 +523,9 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     private void fetchSectionText() {
+        editingAllowed = false;
         if (sectionWikitext == null) {
-            disposables.add(ServiceFactory.get(title.getWikiSite()).getWikiTextForSection(title.getPrefixedText(), sectionID)
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getWikiTextForSectionWithInfo(title.getPrefixedText(), sectionID)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
@@ -531,6 +533,14 @@ public class EditSectionActivity extends BaseActivity {
                         title = new PageTitle(response.query().firstPage().title(), title.getWikiSite());
                         sectionWikitext = rev.content();
                         currentRevision = rev.getRevId();
+
+                        if (response.query().firstPage().getErrorForAction("edit").isEmpty()) {
+                            editingAllowed = true;
+                        } else {
+                            MwServiceError error = response.query().firstPage().getErrorForAction("edit").get(0);
+                            FeedbackUtil.showError(this, new MwException(error));
+                        }
+
                         displaySectionText();
                     }, throwable -> {
                         showProgressBar(false);
@@ -546,10 +556,7 @@ public class EditSectionActivity extends BaseActivity {
         sectionText.setText(sectionWikitext);
         ViewAnimations.crossFade(progressBar, sectionContainer);
         scrollToHighlight(textToHighlight);
-
-        if (pageProps != null) {
-            FeedbackUtil.showProtectionStatusMessage(this, pageProps.getEditProtectionStatus());
-        }
+        sectionText.setEnabled(editingAllowed);
     }
 
     private void scrollToHighlight(@Nullable final String highlightText) {

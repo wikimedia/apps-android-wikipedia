@@ -1201,7 +1201,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void verifyBeforeEditingDescription(@Nullable String text) {
-        if (getPage() != null && getPage().getPageProperties().canEdit()) {
+        if (getPage() != null) {
             if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= getResources().getInteger(R.integer.description_max_anon_edits)) {
                 new AlertDialog.Builder(requireActivity())
                         .setMessage(R.string.description_edit_anon_limit)
@@ -1212,8 +1212,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             } else {
                 startDescriptionEditActivity(text);
             }
-        } else {
-            getEditHandler().showUneditableDialog();
         }
     }
 
