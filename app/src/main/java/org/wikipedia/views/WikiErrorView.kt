@@ -140,8 +140,9 @@ class WikiErrorView : LinearLayout {
         override fun onMediaLinkClicked(title: PageTitle) {}
         override fun onPageLinkClicked(anchor: String, linkText: String) {}
         override fun onInternalLinkClicked(title: PageTitle) {
+            // Explicitly send everything to an external browser, since the error might be shown in
+            // a child activity of PageActivity, and we don't want to lose our place.
             UriUtil.visitInExternalBrowser(context, Uri.parse(title.mobileUri))
-            // context.startActivity(PageActivity.newIntentForNewTab(context, HistoryEntry(title, HistoryEntry.SOURCE_ERROR), title))
         }
     }
 }

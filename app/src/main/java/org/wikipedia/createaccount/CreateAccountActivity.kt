@@ -67,7 +67,6 @@ class CreateAccountActivity : BaseActivity() {
     private fun setClickListeners() {
         binding.viewCreateAccountError.backClickListener = View.OnClickListener {
             binding.viewCreateAccountError.visibility = View.GONE
-            onBackPressed()
         }
         binding.viewCreateAccountError.retryClickListener = View.OnClickListener { binding.viewCreateAccountError.visibility = View.GONE }
         binding.createAccountSubmitButton.setOnClickListener {
