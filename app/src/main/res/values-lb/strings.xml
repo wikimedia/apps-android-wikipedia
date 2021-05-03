@@ -27,6 +27,7 @@
   <string name="offline_load_error_retry">Nach eng Kéier probéieren</string>
   <string name="page_error_back_to_main">Zréck goen</string>
   <string name="error_back">Zréck goen</string>
+  <string name="error_next">Weider</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="history_item_deleted">%s aus der Lëscht vun de Versioune geläscht</string>
   <string name="history_items_deleted">%d Artikelen aus dem Verlaf vum Browser erausgeholl</string>
@@ -601,6 +602,7 @@
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Ufank</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Dir hutt d\'Dageszil erreecht</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -671,6 +673,7 @@
   <string name="image_recommendations_task_choice_language">Kann d\'Sprooch net liesen</string>
   <string name="image_recommendations_task_choice_other">Anerer</string>
   <string name="image_recommendations_task_choice_continue">Virufueren</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">Bild gouf op Wikidata fonnt, Wikipedia\'s Quell vun open data</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_link">Link</string>

@@ -780,7 +780,7 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hej, %s.&lt;/b&gt; Nedan kan du hitta några snabba och enkla sätt att förbättra Wikipedia. Du kommer se skillnaden du gör så fort du kommer igång. Lycka till med redigeringen!</string>
   <string name="suggested_edits_image_captions_task_detail">Beskriv en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Sammanfatta en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Ditt hittills totala antal bidrag med redigeringsförslag.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Ditt totala antal bidrag med redigeringsförslag så här långt.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Antal dagar i rad du har bidragit. Om du inte har bidragit på ett tag kommer datumet för ditt senaste bidrag visas.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt till vilka du har bidragit till de senaste 30 dagarna.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baserat på hur många gånger ett av dina bidrag har återställts (blivit ogjord av en annan redigerare). Återställda redigeringar: %d.</string>
@@ -867,10 +867,10 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Starta</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Utmärkt, fortsätt så! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Dagligt mål uppnått! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Du har nått målsättningen</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Du har nått målsättningen</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Det finns nya föreslagna redigeringar. Träna en algoritm för att para bilder med ännu inte illustrerade artiklar.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipediaartiklar skrivs och redigeras av tusentals frivilliga över hela världen. Tyvärr saknas med bilder i många artiklar.\n\nBilder föreslås för dig enligt en algoritm. Algoritmen tar bilder från andra källor och förslår en matchningar med en artikel som saknar bild.\n\nDin återkoppling hjälper oss förbättra förslagen över tid. Målet med uppgiften är att föreslå bilder, matchningarna du skickar in kommer för tillfället inte att publiceras.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Vi skulle vilja erkänna ditt bidrag i arbetet. Vill du att vi visar ditt användarnamn på vår algoritmträningssida?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipediaartiklar skrivs och redigeras av tusentals frivilliga över hela världen. Tyvärr saknas bilder i många artiklar.\n\nBilder föreslås för dig enligt en algoritm. Algoritmen tar bilder från andra källor och förslår en matchningar med en artikel som saknar bild.\n\nDin återkoppling hjälper oss förbättra förslagen över tid. Målet med uppgiften är att föreslå bilder, matchningarna du skickar in kommer för tillfället inte att publiceras.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Vi skulle vilja erkänna ditt bidrag i arbetet. Vill du att vi visar ditt användarnamn på vår algoritmträningssida?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Ja, mitt användarnamn kan visas på bildalgoritmens träningssida</string>
   <string name="file_page_activity_title">Filsida</string>
   <string name="file_page_add_image_caption_button">Lägg till bildtext</string>

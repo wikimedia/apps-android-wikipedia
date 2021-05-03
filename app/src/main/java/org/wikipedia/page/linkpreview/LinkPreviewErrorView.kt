@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
-import butterknife.ButterKnife
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewLinkPreviewErrorBinding
 
@@ -24,13 +23,8 @@ class LinkPreviewErrorView : LinearLayout {
     val addToListCallback = OverlayViewAddToListCallback()
     val dismissCallback = OverlayViewDismissCallback()
 
-    init {
-        inflate(context, R.layout.view_link_preview_error, this)
-        ButterKnife.bind(this)
-    }
-
     fun setError(caught: Throwable?) {
-        val errorType = LinkPreviewErrorType.get(caught)
+        val errorType = LinkPreviewErrorType[caught]
         binding.viewLinkPreviewErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
 
         if (errorType === LinkPreviewErrorType.OFFLINE) {

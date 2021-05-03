@@ -274,7 +274,7 @@
   <string name="dialog_title_download_only_over_wifi">Potrdim prenos z mobilnimi podatki?</string>
   <string name="dialog_text_download_only_over_wifi">V nastavitvah ste vklopili možnost »Prenašaj samo prek Wi-Fi-ja«. Ali želite omogočiti mobilni prenos podatkov samo za ta prenos?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Dovoli</string>
-  <string name="read_more_section">Preberite še kaj</string>
+  <string name="read_more_section">Preberi še kaj</string>
   <string name="about_article_section">O članku</string>
   <string name="menu_gallery_visit_image_page">Pojdi na stran s sliko</string>
   <string name="gallery_error_draw_failed">Slike ni mogoče narisati.</string>
@@ -766,7 +766,7 @@
   <string name="suggested_edits_article_cta_image_caption">Dodaj napis k sliki</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj napis k sliki (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodajte napis k sliki</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Dodaj napis k sliki</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj napis k sliki (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Dodajte sliki oznake</string>
   <string name="suggested_edits_snackbar_survey_text">Kako je potekalo urejanje? Prosimo, vzemite si trenutek in odgovorite na anketo o urejanju z aplikacijo.</string>
@@ -895,7 +895,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Začni</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Odlično, kar tako naprej! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Dnevni cilj dosežen! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Dosegli ste cilj</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Dosegli ste cilj</string>
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
   <string name="file_page_add_image_tags_button">Dodajte sliki oznake</string>
