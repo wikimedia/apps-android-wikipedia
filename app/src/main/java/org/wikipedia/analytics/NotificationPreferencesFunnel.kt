@@ -9,7 +9,9 @@ import org.wikipedia.settings.Prefs
 import java.util.*
 
 class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
+
     override fun preprocessSessionToken(eventData: JSONObject) {}
+
     fun done() {
         val toggleMap: MutableMap<String, Boolean> = HashMap()
         toggleMap[Notification.CATEGORY_SYSTEM_NO_EMAIL] = Prefs.notificationWelcomeEnabled()
@@ -17,7 +19,9 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
         toggleMap[Notification.CATEGORY_THANK_YOU_EDIT] = Prefs.notificationMilestoneEnabled()
         log(
                 "type_toggles", GsonMarshaller.marshal(toggleMap),
-                "background_fetch", if (Prefs.notificationPollEnabled()) Integer.toString(app.resources.getInteger(R.integer.notification_poll_interval_minutes)) else "disabled"
+                "background_fetch",
+                if (Prefs.notificationPollEnabled()) app.resources.getInteger(R.integer.notification_poll_interval_minutes).toString()
+                else "disabled"
         )
     }
 

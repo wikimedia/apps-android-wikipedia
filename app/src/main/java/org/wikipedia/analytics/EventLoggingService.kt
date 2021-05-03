@@ -8,7 +8,7 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
@@ -37,7 +37,7 @@ class EventLoggingService private constructor() {
                 L.logRemoteErrorIfProd(RuntimeException("EventLogging max length exceeded"))
             }
             val request: Request = Request.Builder().url(dataURL).post(EMPTY_REQ).build()
-            client.newCall(request).execute().close()
+            OkHttpConnectionFactory.client.newCall(request).execute().close()
         }.subscribeOn(Schedulers.io())
                 .subscribe({}
                 ) { throwable: Throwable? -> L.d("Lost EL data: " + event.toString(), throwable) }

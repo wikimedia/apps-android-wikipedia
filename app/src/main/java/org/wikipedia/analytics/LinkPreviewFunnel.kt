@@ -4,8 +4,10 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 
-class LinkPreviewFunnel(app: WikipediaApp, private val source: Int) : TimedFunnel(app, SCHEMA_NAME, REV_ID, Funnel.Companion.SAMPLE_LOG_ALL) {
+class LinkPreviewFunnel(app: WikipediaApp, private val source: Int) : TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+
     private var pageId = 0
+
     override fun preprocessData(eventData: JSONObject): JSONObject? {
         preprocessData(eventData, "version", PROD_LINK_PREVIEW_VERSION)
         preprocessData(eventData, "source", source)
@@ -18,21 +20,15 @@ class LinkPreviewFunnel(app: WikipediaApp, private val source: Int) : TimedFunne
     }
 
     fun logLinkClick() {
-        log(
-                "action", "linkclick"
-        )
+        log("action", "linkclick")
     }
 
     fun logNavigate() {
-        log(
-                "action", if (Prefs.isLinkPreviewEnabled()) "navigate" else "disabled"
-        )
+        log("action", if (Prefs.isLinkPreviewEnabled()) "navigate" else "disabled")
     }
 
     fun logCancel() {
-        log(
-                "action", "cancel"
-        )
+        log("action", "cancel")
     }
 
     companion object {

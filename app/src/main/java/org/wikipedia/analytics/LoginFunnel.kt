@@ -2,48 +2,31 @@ package org.wikipedia.analytics
 
 import org.wikipedia.WikipediaApp
 
-/**
- * Schema: https://meta.wikimedia.org/wiki/Schema:MobileWikiAppLogin
- */
 class LoginFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
+
     @JvmOverloads
     fun logStart(source: String?, editSessionToken: String? = null) {
-        log(
-                "action", "start",
-                "source", source,
-                "edit_session_token", editSessionToken
-        )
+        log("action", "start", "source", source, "edit_session_token", editSessionToken)
     }
 
     fun logCreateAccountAttempt() {
-        log(
-                "action", "createAccountAttempt"
-        )
+        log("action", "createAccountAttempt")
     }
 
     fun logCreateAccountFailure() {
-        log(
-                "action", "createAccountFailure"
-        )
+        log("action", "createAccountFailure")
     }
 
     fun logCreateAccountSuccess() {
-        log(
-                "action", "createAccountSuccess"
-        )
+        log("action", "createAccountSuccess")
     }
 
     fun logError(code: String?) {
-        log(
-                "action", "error",
-                "error_text", code
-        )
+        log("action", "error", "error_text", code)
     }
 
     fun logSuccess() {
-        log(
-                "action", "success"
-        )
+        log("action", "success")
     }
 
     companion object {

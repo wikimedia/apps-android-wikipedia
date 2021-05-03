@@ -3,14 +3,15 @@ package org.wikipedia.analytics
 import org.json.JSONObject
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
-import org.wikipedia.util.StringUtil.listToJsonArrayString
+import org.wikipedia.util.StringUtil
 
 class SearchFunnel(app: WikipediaApp, private val source: InvokeSource) :
         Funnel(app, SCHEMA_NAME, REVISION, SAMPLE_LOG_100) {
+
     fun searchStart() {
         log(
                 "action", "start",
-                "language", listToJsonArrayString(app.language().appLanguageCodes)
+                "language", StringUtil.listToJsonArrayString(app.language().appLanguageCodes)
         )
     }
 

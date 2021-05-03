@@ -4,6 +4,7 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 
 class CreateAccountFunnel(app: WikipediaApp?, private val requestSource: String) : Funnel(app!!, SCHEMA_NAME, REVISION) {
+
     fun logStart(loginSessionToken: String?) {
         log(
                 "action", "start",

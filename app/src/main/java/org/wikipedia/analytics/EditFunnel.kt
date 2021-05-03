@@ -11,6 +11,7 @@ import java.util.*
 
 open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         Funnel(app, SCHEMA_NAME, REV_ID, title.wikiSite) {
+
     open fun logStart() {
         log(
                 "action", "start"

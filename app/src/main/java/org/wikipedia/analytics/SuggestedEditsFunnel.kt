@@ -15,11 +15,17 @@ import java.util.*
 
 class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val invokeSource: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+
     private val parentSessionToken: String?
     private var helpOpenedCount = 0
     private var contributionsOpenedCount = 0
     private val statsCollection = SuggestedEditStatsCollection()
     private val uniqueTitles: MutableList<String> = ArrayList()
+
+    init {
+        parentSessionToken = app.sessionFunnel.sessionToken
+    }
+
     override fun preprocessSessionToken(eventData: JSONObject) {
         preprocessData(eventData, "session_token", parentSessionToken)
     }
@@ -187,6 +193,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
         const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION
         const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto " + SUGGESTED_EDITS_UI_VERSION
         const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom " + SUGGESTED_EDITS_UI_VERSION
+
         operator fun get(invokeSource: InvokeSource): SuggestedEditsFunnel? {
             if (INSTANCE == null) {
                 INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
@@ -206,9 +213,5 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
         fun reset() {
             INSTANCE = null
         }
-    }
-
-    init {
-        parentSessionToken = app.sessionFunnel.sessionToken
     }
 }

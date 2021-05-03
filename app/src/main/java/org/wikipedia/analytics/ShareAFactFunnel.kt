@@ -4,10 +4,11 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.page.PageTitle
 
-// https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
 class ShareAFactFunnel(app: WikipediaApp, pageTitle: PageTitle, private val pageId: Int, private val revisionId: Long) :
         Funnel(app, SCHEMA_NAME, REV_ID, pageTitle.wikiSite) {
+
     private val pageTitle: String = pageTitle.displayText
+
     override fun preprocessData(eventData: JSONObject): JSONObject? {
         preprocessData(eventData, "tutorial_feature_enabled", true)
         preprocessData(eventData, "tutorial_shown", 0)
@@ -52,7 +53,7 @@ class ShareAFactFunnel(app: WikipediaApp, pageTitle: PageTitle, private val page
     }
 
     enum class ShareMode {
-        image, text
+        IMAGE, TEXT
     }
 
     companion object {

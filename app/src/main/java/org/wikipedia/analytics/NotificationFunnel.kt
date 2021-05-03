@@ -9,7 +9,8 @@ import org.wikipedia.notifications.Notification
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 
 class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wiki: String, private val type: String?) : Funnel(app, SCHEMA_NAME, REV_ID) {
-    constructor(app: WikipediaApp, notification: Notification) : this(app, notification.id(), notification.wiki(), notification.type()) {}
+
+    constructor(app: WikipediaApp, notification: Notification) : this(app, notification.id(), notification.wiki(), notification.type())
 
     override fun preprocessData(eventData: JSONObject): JSONObject? {
         preprocessData(eventData, "notification_id", id)
@@ -19,30 +20,21 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
     }
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
+
     fun logMarkRead(selectionToken: Long?) {
-        log(
-                "action_rank", 0,
-                "selection_token", selectionToken
-        )
+        log("action_rank", 0, "selection_token", selectionToken)
     }
 
     fun logAction(index: Int, link: Notification.Link) {
-        log(
-                "action_rank", index + 1,
-                "action_icon", link.icon
-        )
+        log("action_rank", index + 1, "action_icon", link.icon)
     }
 
     fun logClicked() {
-        log(
-                "action_rank", ACTION_CLICKED
-        )
+        log("action_rank", ACTION_CLICKED)
     }
 
     fun logDismissed() {
-        log(
-                "action_rank", ACTION_DISMISSED
-        )
+        log("action_rank", ACTION_DISMISSED)
     }
 
     companion object {
@@ -50,6 +42,7 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
         private const val REV_ID = 18325732
         private const val ACTION_CLICKED = 10
         private const val ACTION_DISMISSED = 11
+
         fun processIntent(intent: Intent) {
             if (!intent.hasExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID)) {
                 return

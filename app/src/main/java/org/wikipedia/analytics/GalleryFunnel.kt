@@ -7,6 +7,7 @@ import org.wikipedia.page.PageTitle
 
 class GalleryFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: Int) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_100, wiki) {
+
     override fun preprocessData(eventData: JSONObject): JSONObject? {
         preprocessData(eventData, "source", source)
         return super.preprocessData(eventData)

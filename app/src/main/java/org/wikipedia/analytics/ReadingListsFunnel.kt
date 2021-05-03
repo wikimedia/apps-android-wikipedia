@@ -6,13 +6,10 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.settings.Prefs
 
-class ReadingListsFunnel() : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID) {
+class ReadingListsFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID) {
 
     fun logAddClick(source: InvokeSource) {
-        log(
-                "action", "addclick",
-                "addsource", source.ordinal
-        )
+        log("action", "addclick", "addsource", source.ordinal)
     }
 
     fun logAddToList(list: ReadingList, listCount: Int,
@@ -26,10 +23,7 @@ class ReadingListsFunnel() : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV
     }
 
     fun logMoveClick(source: InvokeSource) {
-        log(
-                "action", "moveclick",
-                "addsource", source.ordinal
-        )
+        log("action", "moveclick", "addsource", source.ordinal)
     }
 
     fun logMoveToList(list: ReadingList, listCount: Int,
@@ -43,27 +37,15 @@ class ReadingListsFunnel() : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV
     }
 
     fun logModifyList(list: ReadingList, listCount: Int) {
-        log(
-                "action", "modifylist",
-                "itemcount", list.pages().size,
-                "listcount", listCount
-        )
+        log("action", "modifylist", "itemcount", list.pages().size, "listcount", listCount)
     }
 
     fun logDeleteList(list: ReadingList, listCount: Int) {
-        log(
-                "action", "deletelist",
-                "itemcount", list.pages().size,
-                "listcount", listCount
-        )
+        log("action", "deletelist", "itemcount", list.pages().size, "listcount", listCount)
     }
 
     fun logDeleteItem(list: ReadingList, listCount: Int) {
-        log(
-                "action", "deleteitem",
-                "itemcount", list.pages().size,
-                "listcount", listCount
-        )
+        log("action", "deleteitem", "itemcount", list.pages().size, "listcount", listCount)
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject? {

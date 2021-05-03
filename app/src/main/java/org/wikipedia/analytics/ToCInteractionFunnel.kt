@@ -7,10 +7,12 @@ import java.util.concurrent.TimeUnit
 
 class ToCInteractionFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: Int, private val numSections: Int) :
         Funnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
+
     private var numOpens = 0
     private var numSectionClicks = 0
     private var lastScrollStartMillis: Long = 0
     private var totalOpenedSec = 0
+
     override fun preprocessData(eventData: JSONObject): JSONObject? {
         preprocessData(eventData, "page_id", pageId)
         preprocessData(eventData, "num_sections", numSections)
@@ -18,6 +20,7 @@ class ToCInteractionFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageI
     }
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
+
     fun scrollStart() {
         numOpens++
         lastScrollStartMillis = System.currentTimeMillis()

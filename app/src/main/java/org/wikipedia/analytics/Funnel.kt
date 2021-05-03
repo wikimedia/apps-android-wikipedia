@@ -6,7 +6,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.util.DateUtil.iso8601LocalDateFormat
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.*
@@ -17,32 +17,21 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
                                                          private val revision: Int, private val sampleRate: Int = SAMPLE_LOG_ALL,
         // todo: remove @SerializedName if not pickled
                                                          @field:SerializedName("site") private val wiki: WikiSite? = null) {
+
     private val sampleRateRemoteParamName: String = schemaName + "_rate"
 
-    /** @return The session identifier used by [.preprocessSessionToken].
-     */
     val sessionToken = UUID.randomUUID().toString()
 
-    /*package*/
     internal constructor(app: WikipediaApp, schemaName: String, revision: Int, wiki: WikiSite?) :
-            this(app, schemaName, revision, SAMPLE_LOG_ALL, wiki) {
-    }
+            this(app, schemaName, revision, SAMPLE_LOG_ALL, wiki)
 
-    /**
-     * Optionally pre-process the event data before sending to EL.
-     *
-     * @param eventData Event Data so far collected
-     * @return Event Data to be sent to server
-     */
     protected open fun preprocessData(eventData: JSONObject): JSONObject? {
-        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, iso8601LocalDateFormat(Date()))
+        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(Date()))
         preprocessData(eventData, DEFAULT_APP_INSTALL_ID_KEY, app.appInstallID)
         preprocessSessionToken(eventData)
         return eventData
     }
 
-    /** Invokes [JSONObject.put] on `data` and throws a [RuntimeException] on
-     * failure.  */
     protected fun <T> preprocessData(eventData: JSONObject, key: String, `val`: T) {
         try {
             eventData.put(key, `val`)
@@ -51,7 +40,6 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
         }
     }
 
-    /** Invoked by [.preprocessData].  */
     protected open fun preprocessSessionToken(eventData: JSONObject) {
         preprocessData<String?>(eventData, DEFAULT_SESSION_TOKEN_KEY, sessionToken)
     }

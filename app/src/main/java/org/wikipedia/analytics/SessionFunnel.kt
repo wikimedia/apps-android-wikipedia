@@ -4,11 +4,22 @@ import android.text.format.DateUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.StringUtil.listToJsonArrayString
+import org.wikipedia.util.StringUtil
 
 class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
+
     private var sessionData: SessionData
     private var leadSectionStartTime: Long = 0
+
+    init {
+        sessionData = Prefs.getSessionData()
+        if (sessionData.startTime == 0L || sessionData.lastTouchTime == 0L) {
+            // session was serialized/deserialized incorrectly, so reset it.
+            sessionData = SessionData()
+            persistSession()
+        }
+        touchSession()
+    }
 
     /**
      * Save the state of the current session. To be called when the main Activity is stopped,
@@ -77,7 +88,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
                 "fromSuggestedEdits", sessionData.pagesFromSuggestedEdits,
                 "totalPages", sessionData.totalPages,
                 "pageLoadLatency", sessionData.getLeadLatency(),
-                "languages", listToJsonArrayString(app.language().appLanguageCodes),
+                "languages", StringUtil.listToJsonArrayString(app.language().appLanguageCodes),
                 "apiMode", 1
         )
     }
@@ -91,15 +102,5 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
         const val MIN_SESSION_TIMEOUT = 1
         private const val SCHEMA_NAME = "MobileWikiAppSessions"
         private const val REVISION = 19851683
-    }
-
-    init {
-        sessionData = Prefs.getSessionData()
-        if (sessionData.startTime == 0L || sessionData.lastTouchTime == 0L) {
-            // session was serialized/deserialized incorrectly, so reset it.
-            sessionData = SessionData()
-            persistSession()
-        }
-        touchSession()
     }
 }

@@ -4,6 +4,7 @@ import org.wikipedia.WikipediaApp
 import java.util.*
 
 class TabFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, SCHEMA_REVISION, SAMPLE_LOG_100) {
+
     fun logOpenInNew(size: Int) {
         log("openInNew", size)
     }

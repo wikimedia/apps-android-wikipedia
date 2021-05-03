@@ -10,18 +10,10 @@ import org.json.JSONObject
  * to call from everywhere without having to duplicate param info at all places.
  * Updating schemas / revisions is also easier this way.
  */
-class EventLoggingEvent(schema: String?, revID: Int, wiki: String?, eventData: JSONObject?) {
+class EventLoggingEvent(schema: String, revID: Int, wiki: String, eventData: JSONObject?) {
+
     val data: JSONObject = JSONObject()
 
-    /**
-     * Create an EventLoggingEvent that logs to a given revision of a given schema with
-     * the gven data payload.
-     *
-     * @param schema Schema name (as specified on meta.wikimedia.org)
-     * @param revID Revision of the schema to log to
-     * @param wiki DBName (enwiki, dewiki, etc) of the wiki in which we are operating
-     * @param eventData Data for the actual event payload. Considered to be
-     */
     init {
         try {
             data.put("schema", schema)

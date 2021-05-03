@@ -3,6 +3,7 @@ package org.wikipedia.analytics
 import org.wikipedia.WikipediaApp
 
 class UserContributionFunnel private constructor() : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+
     fun logOpen() {
         log("action", "open_hist")
     }
@@ -71,6 +72,7 @@ class UserContributionFunnel private constructor() : Funnel(WikipediaApp.getInst
         private var INSTANCE: UserContributionFunnel? = null
         private const val SCHEMA_NAME = "MobileWikiAppUserContribution"
         private const val REV_ID = 20217330
+
         fun get(): UserContributionFunnel? {
             if (INSTANCE == null) {
                 INSTANCE = UserContributionFunnel()

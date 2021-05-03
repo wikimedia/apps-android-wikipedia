@@ -4,6 +4,7 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 
 class InstallReferrerFunnel internal constructor(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REV_ID) {
+
     fun logInstall(referrerUrl: String?, utfMedium: String?,
                    utfCampaign: String?, utfSource: String?) {
         log(

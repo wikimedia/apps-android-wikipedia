@@ -24,7 +24,9 @@ import org.wikipedia.util.log.L
  *
  */
 class InstallReferrerListener : InstallReferrerStateListener {
+
     private var referrerClient: InstallReferrerClient? = null
+
     private fun queryReferrer(context: Context) {
         try {
             referrerClient = InstallReferrerClient.newBuilder(context).build()

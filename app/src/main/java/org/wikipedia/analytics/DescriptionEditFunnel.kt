@@ -5,7 +5,9 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.WikipediaApp
 import org.wikipedia.page.PageTitle
 
-class DescriptionEditFunnel(app: WikipediaApp, title: PageTitle, private val type: Type, private val source: InvokeSource) : EditFunnel(app, title) {
+class DescriptionEditFunnel(app: WikipediaApp, title: PageTitle, private val type: Type,
+                            private val source: InvokeSource) : EditFunnel(app, title) {
+
     enum class Type(private val logString: String) {
         NEW("new"), EXISTING("existing");
 

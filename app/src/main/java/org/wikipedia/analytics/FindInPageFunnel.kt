@@ -5,11 +5,14 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 
 class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: Int) : TimedFunnel(app, SCHEMA_NAME, REV_ID, Funnel.Companion.SAMPLE_LOG_ALL, wiki) {
+
     private var pageHeight = 0
     private var numFindNext = 0
     private var numFindPrev = 0
     private var findText: String? = null
+
     override fun preprocessSessionToken(eventData: JSONObject) {}
+
     fun setPageHeight(height: Int) {
         pageHeight = height
     }

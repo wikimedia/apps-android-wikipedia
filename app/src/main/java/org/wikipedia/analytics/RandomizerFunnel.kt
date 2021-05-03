@@ -7,11 +7,14 @@ import org.wikipedia.dataclient.WikiSite
 
 class RandomizerFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
+
     private var numSwipesForward = 0
     private var numSwipesBack = 0
     private var numClicksForward = 0
     private var numClicksBack = 0
+
     override fun preprocessSessionToken(eventData: JSONObject) {}
+
     fun swipedForward() {
         numSwipesForward++
     }

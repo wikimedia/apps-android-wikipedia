@@ -2,10 +2,11 @@ package org.wikipedia.analytics
 
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.CardType
-import java.util.*
 
-class FeedFunnel(app: WikipediaApp) : TimedFunnel(app, SCHEMA_NAME, REVISION, Funnel.Companion.SAMPLE_LOG_100) {
+class FeedFunnel(app: WikipediaApp) : TimedFunnel(app, SCHEMA_NAME, REVISION, SAMPLE_LOG_100) {
+
     private var entered = false
+
     fun enter() {
         if (!entered) {
             entered = true
@@ -72,6 +73,6 @@ class FeedFunnel(app: WikipediaApp) : TimedFunnel(app, SCHEMA_NAME, REVISION, Fu
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppFeed"
         private const val REVISION = 18115458
-        private val EXCLUDED_CARDS = Arrays.asList(CardType.SEARCH_BAR, CardType.PROGRESS)
+        private val EXCLUDED_CARDS = mutableListOf(CardType.SEARCH_BAR, CardType.PROGRESS)
     }
 }
