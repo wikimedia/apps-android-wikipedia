@@ -26,6 +26,7 @@
 * Tereza
 * Vojtěch Dostál
 * Walter Klosse
+* Want
 -->
 <resources>
   <string name="app_name_prod">Wikipedie</string>
@@ -50,6 +51,7 @@
   <string name="offline_load_error_retry">Znovu</string>
   <string name="page_error_back_to_main">Vrátit se</string>
   <string name="error_back">Vrátit se</string>
+  <string name="error_next">Další</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
   <string name="history_item_deleted">Článek %s odebrán z historie</string>
   <string name="history_items_deleted">%d článků odebráno z historie</string>
@@ -916,6 +918,7 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušit</string>
   <string name="edit_type_all">Všechny přípěvky</string>
   <string name="content_description_for_page_indicator">Článek %1$d z %2$d</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">obrázek byl nalezen na Wikidatech, zdroji otevřených dat Wikipedie</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
   <string name="wikitext_link">Odkaz</string>
