@@ -45,6 +45,7 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_TALK_TOPIC = 31;
     public static final int SOURCE_WATCHLIST = 32;
     public static final int SOURCE_EDIT_DIFF_DETAILS = 33;
+    public static final int SOURCE_ERROR = 34;
 
     @NonNull private final PageTitle title;
     @NonNull private final Date timestamp;
