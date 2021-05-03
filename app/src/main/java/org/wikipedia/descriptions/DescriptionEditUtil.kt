@@ -3,6 +3,7 @@ package org.wikipedia.descriptions
 import org.wikipedia.page.Page
 
 object DescriptionEditUtil {
+
     private const val DESCRIPTION_SOURCE_LOCAL = "local"
     private const val DESCRIPTION_SOURCE_WIKIDATA = "central"
     const val ABUSEFILTER_DISALLOWED = "abusefilter-disallowed"
