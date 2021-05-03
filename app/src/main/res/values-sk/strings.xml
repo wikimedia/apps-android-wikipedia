@@ -43,6 +43,7 @@
   <string name="offline_load_error_retry">Zopakovať</string>
   <string name="page_error_back_to_main">Späť</string>
   <string name="error_back">Späť</string>
+  <string name="error_next">Ďalej</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="history_item_deleted">Článok %s bol odstránený z histórie</string>
   <string name="history_items_deleted">Počet odstránených článkov z histórie %d</string>
@@ -281,13 +282,13 @@
   <string name="widget_name_search">Hľadať vo Wikipédii</string>
   <string name="wiktionary_no_definitions_found">Neboli nájdené žiadne definície.</string>
   <string name="alpha_update_notification_title">K dispozícii je nová alfa verzia.</string>
-  <string name="alpha_update_notification_text">Ťuknutím ju stiahnete.</string>
+  <string name="alpha_update_notification_text">Ťuknutím ju stiahnete</string>
   <string name="dialog_close_description">Zatvoriť</string>
   <string name="preference_title_show_images">Zobrazovať obrázky</string>
   <string name="preference_summary_show_images">Zapnite alebo vypnite načítavanie obrázkov na stránkach. Toto nastavenie zaškrtnite, ak je vaše internetové pripojenie pomalé alebo máte obmedzený dátový program.</string>
-  <string name="preference_title_download_only_over_wifi">Preberať len cez Wi-Fi</string>
-  <string name="dialog_title_download_only_over_wifi">Chcete potvrdiť prevzatie pomocou mobilných dát?</string>
-  <string name="dialog_text_download_only_over_wifi">Máte zapnutú funkciu „Preberať len cez Wi-Fi“ v Nastaveniach. Chcete povoliť používanie mobilných dát iba pre toto preberanie?</string>
+  <string name="preference_title_download_only_over_wifi">Sťahovať len cez Wi-Fi</string>
+  <string name="dialog_title_download_only_over_wifi">Chcete potvrdiť stiahnutie pomocou mobilných dát?</string>
+  <string name="dialog_text_download_only_over_wifi">V nastaveniam máte zapnutú funkciu „Sťahovať len cez Wi-Fi“. Chcete povoliť používanie mobilných dát iba pre toto sťahovanie?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Povoliť</string>
   <string name="read_more_section">Prečítajte si viac</string>
   <string name="about_article_section">O tomto článku</string>
@@ -296,7 +297,7 @@
   <string name="license_title">Licencia pre %s</string>
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
-  <string name="gallery_save_progress">Preberanie súboru…</string>
+  <string name="gallery_save_progress">Sťahovanie súboru…</string>
   <string name="gallery_save_success">Súbor bol uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="gallery_save_image_write_permission_rationale">Na uloženie obrázkov je nutné povolenie na zápis údajov do zariadenia.</string>
@@ -488,7 +489,7 @@
   <string name="reading_lists_ignore_button">Teraz nie</string>
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
-  <string name="reading_list_article_save_in_progress">Článok sa preberá. Keď sa preberanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
+  <string name="reading_list_article_save_in_progress">Článok sa sťahuje. Keď sa sťahovanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
   <string name="reading_list_articles_added_to_named">%1$d článkov pridané do %2$s</string>
   <string name="reading_list_articles_moved_to_named">%1$d článkov presunutých do %2$s</string>
   <string name="reading_list_delete_confirm">Naozaj chcete odstrániť zoznam %s?</string>
@@ -541,7 +542,7 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="notification_reverted_title">Vaša úprava bol vrátená</string>
-  <string name="notification_channel_description">Stav preberania</string>
+  <string name="notification_channel_description">Stav sťahovania</string>
   <string name="notification_syncing_pause_button">Pozastaviť</string>
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
@@ -634,7 +635,7 @@
   <string name="view_main_page_card_title">Dnes na Wikipédii</string>
   <string name="view_main_page_card_action">Zobraziť hlavnú stránku</string>
   <string name="view_featured_image_card_title">Obrázok dňa</string>
-  <string name="view_featured_image_card_download">Prevziať</string>
+  <string name="view_featured_image_card_download">Stiahnuť</string>
   <string name="view_featured_image_card_share">Zdieľať</string>
   <string name="menu_feed_card_dismiss">Skryť túto kartu</string>
   <string name="menu_feed_card_dismissed">Karta bola skrytá.</string>
@@ -917,14 +918,15 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Začať</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Super, len tak ďalej!👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Denný cieľ je splnený!👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Splnili ste cieľ</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Splnili ste denný cieľ</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Nová úloha s odporúčanými úpravami je teraz dostupná. Trénujte algoritmus pre spárovanie obrázkov s článkami, ktorým obrázok chýba.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Články na Wikipédii sú písané a upravované tisíckami dobrovoľníkov po celom svete. Bohužiaľ, mnohým článkom chýbajú obrázky.\n\nObrázky Vám budú odporúčané na základe algoritmu. Obrázok bude prevzatý z iného zdroja a ponúknutý na spárovanie s článkom, ktorému obrázok chýba.\n\nVaša spätná väzba nám pomôže tento proces vylepšiť. Pretože cieľom tejto úlohy je vylepšiť algoritmus ponúkaných obrázkov, obrázky ktoré vyberiete na spárovanie nebudú tento krát zverejnené.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Radi by sme uznali Vašu zásluhu na tomto úsilí. Chceli by ste, aby bolo Vaše používateľské meno zobrazené na našej stránke tréningu algoritmu?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Radi by sme uznali Vašu zásluhu na tomto úsilí. Chceli by ste, aby bolo Vaše používateľské meno zobrazené na našej stránke tréningu algoritmu?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Áno, moje používateľské meno môže byť zobrazené na stránke tréningu algoritmu</string>
   <string name="file_page_activity_title">Stránka súboru</string>
   <string name="file_page_add_image_caption_button">Pridať obrázkové titulky</string>
   <string name="file_page_add_image_tags_button">Pridať obrázkové štítky</string>
+  <string name="file_page_suggestion_reason">Dôvody návrhu</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>
@@ -1007,6 +1009,8 @@
   <string name="image_recommendations_task_processing">Spracováva sa...</string>
   <string name="image_recommendations_task_instruction">Chceli by ste pridať k článku tento obrázok?</string>
   <string name="image_recommendations_task_choice_no">Prečo ste vybrali nie?</string>
+  <string name="image_recommendations_task_choice_not_sure">Prečo ste vybrali nie som si istý/á?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Vyberte jeden, alebo viac dôvodov.</string>
   <string name="image_recommendations_task_choice_unsure">Prečo si nie ste istý/á týmto obrázkom?</string>
   <string name="image_recommendations_task_choice_not_relevant">Nie je relevantný (súvisiaci)</string>
   <string name="image_recommendations_task_choice_low_quality">Nízka kvalita</string>
@@ -1019,6 +1023,9 @@
   <string name="image_recommendations_task_choice_other">Iné</string>
   <string name="image_recommendations_task_choice_continue">Pokračovať</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Dôvod návrhu:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">obrázok sa nenašiel v iných jazykových verziách Wikipédie (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">obrázok sa našiel na Wikidáta, zdroj otvorených údajov Wikipédie</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">obrázok sa našiel na Wikimédia Commons, zdroji voľne použiteľných obrázkov Wikipédie</string>
   <string name="image_recommendations_faq">Často kladené otázky</string>
   <string name="image_recommendations_tooltip1">Preskúmať tento článok pre pochopenie jeho témy.</string>
   <string name="image_recommendations_tooltip2">Preskúmať obrázok a s ním súvisiace informácie.</string>

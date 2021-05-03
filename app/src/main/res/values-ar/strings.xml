@@ -430,14 +430,14 @@
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="zero">...</item>
     <item quantity="one">مقالة واحدة، %2$.2f ميغابايت</item>
-    <item quantity="two">...</item>
+    <item quantity="two">مقالتان</item>
     <item quantity="few">...</item>
     <item quantity="many">...</item>
     <item quantity="other">%1$d مقالات، %2$.2f ميغابايت</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="zero">...</item>
-    <item quantity="one">%1$d من 1 مقالة متاحة بلا اتصال، %3$.2f ميغابايت</item>
+    <item quantity="one">%1$d من ١ مقالة متاحة بلا اتصال، %3$.2f ميغابايت</item>
     <item quantity="two">...</item>
     <item quantity="few">...</item>
     <item quantity="many">...</item>
