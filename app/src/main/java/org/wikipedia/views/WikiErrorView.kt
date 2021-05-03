@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.net.Uri
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
@@ -8,12 +9,19 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewWikiErrorBinding
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil.is404
 import org.wikipedia.util.ThrowableUtil.isEmptyException
 import org.wikipedia.util.ThrowableUtil.isOffline
 import org.wikipedia.util.ThrowableUtil.isTimeout
+import org.wikipedia.util.UriUtil
 
 class WikiErrorView : LinearLayout {
 
@@ -21,17 +29,27 @@ class WikiErrorView : LinearLayout {
     var retryClickListener: OnClickListener? = null
     var backClickListener: OnClickListener? = null
     var nextClickListener: OnClickListener? = null
+    private val linkHandler = ErrorLinkHandler(context)
+    private var movementMethod = LinkMovementMethodExt { url: String ->
+        linkHandler.onUrlClick(url, null, "")
+    }
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+
+    init {
+        binding.viewWikiErrorText.movementMethod = movementMethod
+        binding.viewWikiErrorFooterText.movementMethod = movementMethod
+        linkHandler.wikiSite = WikipediaApp.getInstance().wikiSite
+    }
 
     fun setError(caught: Throwable?) {
         val resources = context.resources
         val errorType = getErrorType(caught)
         binding.viewWikiErrorIcon.setImageDrawable(AppCompatResources.getDrawable(context, errorType.icon))
         if (caught is MwException) {
-            binding.viewWikiErrorText.text = caught.message
+            binding.viewWikiErrorText.text = StringUtil.fromHtml(caught.message)
         } else {
             binding.viewWikiErrorText.text = resources.getString(errorType.text)
         }
@@ -42,9 +60,9 @@ class WikiErrorView : LinearLayout {
                 binding.viewWikiErrorFooterLayout.visibility = VISIBLE
                 binding.viewWikiErrorFooterText.text = resources.getString(errorType.footerText)
             }
-            caught != null -> {
+            caught != null && caught !is MwException -> {
                 binding.viewWikiErrorFooterLayout.visibility = VISIBLE
-                binding.viewWikiErrorFooterText.text = caught.message
+                binding.viewWikiErrorFooterText.text = StringUtil.fromHtml(caught.message)
             }
             else -> {
                 binding.viewWikiErrorFooterLayout.visibility = GONE
@@ -115,5 +133,16 @@ class WikiErrorView : LinearLayout {
             }
 
         abstract fun buttonClickListener(errorView: WikiErrorView): OnClickListener?
+    }
+
+    internal inner class ErrorLinkHandler internal constructor(context: Context) : LinkHandler(context) {
+        override lateinit var wikiSite: WikiSite
+        override fun onMediaLinkClicked(title: PageTitle) {}
+        override fun onPageLinkClicked(anchor: String, linkText: String) {}
+        override fun onInternalLinkClicked(title: PageTitle) {
+            // Explicitly send everything to an external browser, since the error might be shown in
+            // a child activity of PageActivity, and we don't want to lose our place.
+            UriUtil.visitInExternalBrowser(context, Uri.parse(title.mobileUri))
+        }
     }
 }
