@@ -59,7 +59,7 @@
         android:id="@+id/articleDivider"
         android:layout_width="@dimen/divider_width_for_article"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="13dp"
         android:layout_marginBottom="5dp"
         android:background="?attr/material_theme_border_color"
         android:transitionName="@string/transition_article_divider"
