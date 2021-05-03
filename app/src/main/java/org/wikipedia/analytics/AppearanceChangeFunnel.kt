@@ -36,7 +36,7 @@ class AppearanceChangeFunnel(app: WikipediaApp, wiki: WikiSite, private val sour
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "invoke_source", source.ordinal)
-        return super.preprocessData(eventData)
+        return super.preprocessData(eventData)!!
     }
 
     companion object {
