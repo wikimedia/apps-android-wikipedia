@@ -94,52 +94,6 @@
 
     </ScrollView>
 
-    <ScrollView
-        android:id="@+id/edit_section_abusefilter_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?android:windowBackground"
-        android:visibility="gone"
-        tools:visibility="visible">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?android:windowBackground"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/edit_section_abusefilter_image"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="24dp"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_abusefilter_warn" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/edit_section_abusefilter_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="@string/abusefilter_title_warn"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <TextView
-                android:id="@+id/edit_section_abusefilter_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="@string/abusefilter_text_warn" />
-        </LinearLayout>
-    </ScrollView>
-
     <org.wikipedia.views.WikiErrorView
         android:id="@+id/view_edit_section_error"
         android:layout_width="match_parent"
