@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -21,9 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.content.res.AppCompatResources;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -37,6 +34,7 @@ import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.edit.preview.EditPreviewFragment;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.edit.summaries.EditSummaryFragment;
@@ -85,10 +83,6 @@ public class EditSectionActivity extends BaseActivity {
     @BindView(R.id.edit_keyboard_overlay) WikiTextKeyboardView wikiTextKeyboardView;
     @BindView(R.id.view_edit_section_error) WikiErrorView errorView;
     @BindView(R.id.view_progress_bar) ProgressBar progressBar;
-    @BindView(R.id.edit_section_abusefilter_container) View abusefilterContainer;
-    @BindView(R.id.edit_section_abusefilter_image) ImageView abuseFilterImage;
-    @BindView(R.id.edit_section_abusefilter_title) TextView abusefilterTitle;
-    @BindView(R.id.edit_section_abusefilter_text) TextView abusefilterText;
     @BindView(R.id.captcha_container) View captchaInnerContainer;
     @BindView(R.id.edit_section_captcha_container) View captchaContainer;
 
@@ -104,11 +98,11 @@ public class EditSectionActivity extends BaseActivity {
 
     private boolean sectionTextModified = false;
     private boolean sectionTextFirstLoad = true;
+    private boolean editingAllowed = false;
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
     private long currentRevision;
 
-    private EditAbuseFilterResult abusefilterEditResult;
     private CaptchaHandler captchaHandler;
 
     private EditPreviewFragment editPreviewFragment;
@@ -291,12 +285,12 @@ public class EditSectionActivity extends BaseActivity {
                     if (result.hasEditResult() && result.edit() != null) {
                         if (result.edit().editSucceeded()) {
                             onEditSuccess(new EditSuccessResult(result.edit().newRevId()));
-                        } else if (result.edit().hasEditErrorCode()) {
-                            onEditSuccess(new EditAbuseFilterResult(result.edit().code(), result.edit().info(), result.edit().warning()));
-                        } else if (result.edit().hasSpamBlacklistResponse()) {
-                            onEditSuccess(new EditSpamBlacklistResult(result.edit().spamblacklist()));
                         } else if (result.edit().hasCaptchaResponse()) {
                             onEditSuccess(new CaptchaResult(result.edit().captchaId()));
+                        } else if (result.edit().hasSpamBlacklistResponse()) {
+                            onEditFailure(new MwException(new MwServiceError(result.edit().code(), result.edit().spamblacklist())));
+                        } else if (result.edit().hasEditErrorCode()) {
+                            onEditFailure(new MwException(new MwServiceError(result.edit().code(), result.edit().info())));
                         } else {
                             onEditFailure(new IOException("Received unrecognized edit response"));
                         }
@@ -327,16 +321,6 @@ public class EditSectionActivity extends BaseActivity {
             captchaContainer.setVisibility(View.VISIBLE);
             captchaHandler.handleCaptcha(null, (CaptchaResult) result);
             funnel.logCaptchaShown();
-        } else if (result instanceof EditAbuseFilterResult) {
-            abusefilterEditResult = (EditAbuseFilterResult) result;
-            handleAbuseFilter();
-            if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
-                editPreviewFragment.hide();
-            }
-        } else if (result instanceof EditSpamBlacklistResult) {
-            FeedbackUtil.showMessage(EditSectionActivity.this,
-                    R.string.editing_error_spamblacklist);
-            editPreviewFragment.hide();
         } else {
             funnel.logError(result.getResult());
             // Expand to do everything.
@@ -375,34 +359,7 @@ public class EditSectionActivity extends BaseActivity {
     private void handleEditingException(@NonNull MwException caught) {
         String code = caught.getTitle();
 
-        if (StringUtils.defaultString(code).contains("abusefilter")) {
-            abusefilterEditResult = new EditAbuseFilterResult(code, caught.getMessage(), caught.getMessage());
-            handleAbuseFilter();
-            if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
-                editPreviewFragment.hide();
-            }
-        } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
-            // User is blocked, locally or globally
-            // If they were anon, canedit does not catch this, so we can't show them the locked pencil
-            // If they not anon, this means they were blocked in the interim between opening the edit
-            // window and clicking save. Less common, but might as well handle it
-            AlertDialog.Builder builder = new AlertDialog.Builder(EditSectionActivity.this);
-            builder.setTitle(R.string.user_blocked_from_editing_title);
-            if (AccountUtil.isLoggedIn()) {
-                builder.setMessage(R.string.user_logged_in_blocked_from_editing);
-                builder.setPositiveButton(R.string.account_editing_blocked_dialog_ok_button_text, (dialog, i) -> dialog.dismiss());
-            } else {
-                builder.setMessage(R.string.user_anon_blocked_from_editing);
-                builder.setPositiveButton(R.string.nav_item_login, (dialog, i) -> {
-                    dialog.dismiss();
-                    Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
-                            LoginFunnel.SOURCE_BLOCKED);
-                    startActivity(loginIntent);
-                });
-                builder.setNegativeButton(R.string.account_editing_blocked_dialog_cancel_button_text, (dialog, i) -> dialog.dismiss());
-            }
-            builder.show();
-        } else if ("editconflict".equals(code)) {
+        if ("editconflict".equals(code)) {
             new AlertDialog.Builder(EditSectionActivity.this)
                     .setTitle(R.string.edit_conflict_title)
                     .setMessage(R.string.edit_conflict_message)
@@ -412,32 +369,6 @@ public class EditSectionActivity extends BaseActivity {
         } else {
             showError(caught);
         }
-    }
-
-    private void handleAbuseFilter() {
-        if (abusefilterEditResult == null) {
-            return;
-        }
-        if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
-            funnel.logAbuseFilterError(abusefilterEditResult.getCode());
-            abuseFilterImage.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_abusefilter_disallow));
-            abusefilterTitle.setText(getString(R.string.abusefilter_title_disallow));
-            abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_disallow)));
-        } else {
-            funnel.logAbuseFilterWarning(abusefilterEditResult.getCode());
-            abuseFilterImage.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_abusefilter_warn));
-            abusefilterTitle.setText(getString(R.string.abusefilter_title_warn));
-            abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_warn)));
-        }
-
-        hideSoftKeyboard(this);
-        ViewAnimations.fadeIn(abusefilterContainer, this::supportInvalidateOptionsMenu);
-    }
-
-
-    private void cancelAbuseFilter() {
-        abusefilterEditResult = null;
-        ViewAnimations.fadeOut(abusefilterContainer, this::supportInvalidateOptionsMenu);
     }
 
     /**
@@ -452,10 +383,6 @@ public class EditSectionActivity extends BaseActivity {
             editPreviewFragment.setCustomSummary(editSummaryFragment.getSummary());
         } else if (editPreviewFragment.isActive()) {
             //we're showing the Preview window, which means that the next step is to save it!
-            if (abusefilterEditResult != null) {
-                //if the user was already shown an AbuseFilter warning, and they're ignoring it:
-                funnel.logAbuseFilterWarningIgnore(abusefilterEditResult.getCode());
-            }
             getEditTokenThenSave();
             funnel.logSaveAttempt();
         } else {
@@ -497,12 +424,8 @@ public class EditSectionActivity extends BaseActivity {
         menu.findItem(R.id.menu_find_in_editor).setVisible(!editPreviewFragment.isActive());
 
         item.setTitle(getString(editPreviewFragment.isActive() ? R.string.edit_done : R.string.edit_next));
-        if (progressBar.getVisibility() == View.GONE) {
-            if (abusefilterEditResult != null) {
-                item.setEnabled(abusefilterEditResult.getType() != EditAbuseFilterResult.TYPE_ERROR);
-            } else {
-                item.setEnabled(sectionTextModified);
-            }
+        if (editingAllowed && progressBar.getVisibility() == View.GONE) {
+            item.setEnabled(sectionTextModified);
         } else {
             item.setEnabled(false);
         }
@@ -529,6 +452,7 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     public void showError(@Nullable Throwable caught) {
+        hideSoftKeyboard(this);
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
     }
@@ -599,8 +523,9 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     private void fetchSectionText() {
+        editingAllowed = false;
         if (sectionWikitext == null) {
-            disposables.add(ServiceFactory.get(title.getWikiSite()).getWikiTextForSection(title.getPrefixedText(), sectionID)
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getWikiTextForSectionWithInfo(title.getPrefixedText(), sectionID)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
@@ -608,6 +533,14 @@ public class EditSectionActivity extends BaseActivity {
                         title = new PageTitle(response.query().firstPage().title(), title.getWikiSite());
                         sectionWikitext = rev.content();
                         currentRevision = rev.getRevId();
+
+                        if (response.query().firstPage().getErrorForAction("edit").isEmpty()) {
+                            editingAllowed = true;
+                        } else {
+                            MwServiceError error = response.query().firstPage().getErrorForAction("edit").get(0);
+                            FeedbackUtil.showError(this, new MwException(error));
+                        }
+
                         displaySectionText();
                     }, throwable -> {
                         showProgressBar(false);
@@ -624,9 +557,8 @@ public class EditSectionActivity extends BaseActivity {
         ViewAnimations.crossFade(progressBar, sectionContainer);
         scrollToHighlight(textToHighlight);
 
-        if (pageProps != null) {
-            FeedbackUtil.showProtectionStatusMessage(this, pageProps.getEditProtectionStatus());
-        }
+        sectionText.setEnabled(editingAllowed);
+        wikiTextKeyboardView.setVisibility(editingAllowed ? View.VISIBLE : View.GONE);
     }
 
     private void scrollToHighlight(@Nullable final String highlightText) {
@@ -663,13 +595,6 @@ public class EditSectionActivity extends BaseActivity {
         if (captchaHandler.isActive()) {
             captchaHandler.cancelCaptcha();
             captchaContainer.setVisibility(View.GONE);
-        }
-        if (abusefilterEditResult != null) {
-            if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_WARNING) {
-                funnel.logAbuseFilterWarningBack(abusefilterEditResult.getCode());
-            }
-            cancelAbuseFilter();
-            return;
         }
         if (errorView.getVisibility() == View.VISIBLE) {
             errorView.setVisibility(View.GONE);

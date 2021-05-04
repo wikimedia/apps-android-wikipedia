@@ -4,8 +4,8 @@ import android.content.Context
 import android.icu.text.ListFormatter
 import android.net.Uri
 import android.os.Build
+import android.text.TextUtils
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
@@ -51,6 +51,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
               imageFromCommons: Boolean,
               showFilename: Boolean,
               showEditButton: Boolean,
+              suggestionReason: String? = null,
               action: DescriptionEditActivity.Action? = null) {
 
         loadImage(summaryForEdit, containerWidth, thumbWidth, thumbHeight)
@@ -58,9 +59,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         if (showFilename) {
             binding.filenameView.visibility = View.VISIBLE
             binding.filenameView.binding.titleText.text = context.getString(if (imageFromCommons) R.string.suggested_edits_image_preview_dialog_file_commons else R.string.suggested_edits_image_preview_dialog_image)
-            binding.filenameView.binding.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
-            binding.filenameView.binding.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle!!)
-            binding.filenameView.binding.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
+            binding.filenameView.binding.contentText.setTextIsSelectable(false)
+            binding.filenameView.binding.contentText.maxLines = 3
+            binding.filenameView.binding.contentText.ellipsize = TextUtils.TruncateAt.END
+            binding.filenameView.binding.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle.orEmpty())
             binding.filenameView.binding.divider.visibility = View.GONE
         }
 
@@ -78,6 +80,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),
                     if (summaryForEdit.pageTitle.description.isNullOrEmpty()) summaryForEdit.description
                     else summaryForEdit.pageTitle.description, if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
+        }
+
+        if (!suggestionReason.isNullOrEmpty()) {
+            addDetail(context.getString(R.string.file_page_suggestion_reason), suggestionReason.capitalize(Locale.getDefault()))
         }
 
         if ((imageTags.isNullOrEmpty() || !imageTags.containsKey(getProperLanguageCode(summaryForEdit, imageFromCommons))) && showEditButton) {
@@ -163,7 +169,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                 view.binding.contentText.setTextIsSelectable(false)
                 view.binding.externalLink.visibility = View.VISIBLE
                 view.binding.contentContainer.setOnClickListener {
-                    UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
+                    UriUtil.visitInExternalBrowser(context, Uri.parse(UriUtil.resolveProtocolRelativeUrl(externalLink)))
                 }
             } else {
                 view.binding.contentText.movementMethod = movementMethod

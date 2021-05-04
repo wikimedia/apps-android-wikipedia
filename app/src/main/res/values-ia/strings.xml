@@ -23,7 +23,7 @@
   <string name="share_via">Divider via</string>
   <string name="menu_page_show_tabs">Monstrar schedas</string>
   <string name="menu_page_other_languages">Cambiar de lingua</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Cercar in pagina</string>
+  <string name="menu_page_find_in_page">Cercar in articulo</string>
   <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
   <string name="menu_page_add_to_list">Adder al lista de lectura</string>
   <string name="menu_page_share">Divider ligamine</string>
@@ -36,19 +36,19 @@
   <string name="menu_text_select_define">Definir</string>
   <string name="menu_text_select_edit_here">Modificar hic</string>
   <string name="last_updated_text">Ultime actualisation %s</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
-  <string name="preference_title_language" fuzzy="true">Lingua de Wikipedia</string>
+  <string name="edit_save_action_license_logged_in">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus confidentialitate.</string>
+  <string name="preference_title_language">Linguas de Wikipedia</string>
   <string name="langlinks_filter_hint">Cercar</string>
   <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
-  <string name="langlinks_no_match" fuzzy="true">Nulle lingua trovate que corresponde a tu recerca.</string>
+  <string name="langlinks_no_match">Nulle lingua trovate</string>
   <string name="langlinks_activity_title">Altere linguas</string>
-  <string name="menu_save_changes" fuzzy="true">Salveguardar modificationes</string>
-  <string name="edit_saved_successfully" fuzzy="true">Modification salveguardate!</string>
+  <string name="menu_save_changes">Publicar cambiamentos</string>
+  <string name="edit_saved_successfully">Modification publicate!</string>
   <string name="dialog_message_edit_failed">Modification fallite!</string>
   <string name="dialog_message_edit_failed_retry">Reprobar</string>
   <string name="dialog_message_edit_failed_cancel">Cancellar</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Tu modificationes non ha ancora essite salveguardate. Es tu secur de voler quitar iste pagina?</string>
+  <string name="dialog_message_leaving_edit">Tu cambiamentos non ha ancora essite publicate. Es tu secur de voler quitar iste pagina?</string>
   <string name="dialog_message_leaving_edit_leave">Quitar</string>
   <string name="dialog_message_leaving_edit_stay">Restar</string>
   <string name="menu_show_toc">Tabula de contento</string>
@@ -61,7 +61,7 @@
   <string name="login_username_hint">Nomine de usator</string>
   <string name="login_password_hint">Contrasigno</string>
   <string name="menu_login">Aperir session</string>
-  <string name="login_activity_title" fuzzy="true">Aperir session in Wikipedia</string>
+  <string name="login_activity_title">Aperir session</string>
   <string name="login_in_progress_dialog_message">Accesso in curso…</string>
   <string name="login_success_toast">Session aperte!</string>
   <string name="preference_title_logout">Clauder session</string>
@@ -70,8 +70,8 @@
   <string name="logged_out_in_background_dialog">Tu session de Wikipedia ha essite claudite. Vole tu reaperir session?</string>
   <string name="logged_out_in_background_login">Aperir session</string>
   <string name="logged_out_in_background_cancel">Cancellar</string>
-  <string name="history_empty_title" fuzzy="true">Il non ha paginas recente.</string>
-  <string name="history_empty_message" fuzzy="true">Tu ha probabilemente delite totes. Le sequente vice que tu accede a un pagina, tu potera retrovar lo hic.</string>
+  <string name="history_empty_title">Il non ha paginas recentemente visitate</string>
+  <string name="history_empty_message">Tracia hic le paginas que tu ha legite.</string>
   <string name="create_account_username_hint">Nomine de usator</string>
   <string name="create_account_activity_title">Crear un conto</string>
   <string name="dialog_create_account_checking_progress">Verification in curso</string>
@@ -97,7 +97,7 @@
   <string name="user_blocked_from_editing_title">Blocate</string>
   <string name="edit_how_page_improved">Como ha tu ameliorate le pagina?</string>
   <string name="edit_next">Sequente</string>
-  <string name="edit_done" fuzzy="true">Salveguardar</string>
+  <string name="edit_done">Publicar</string>
   <string name="edit_preview">Previsualisation</string>
   <string name="edit_summary_tag_typo">Error dactylographic corrigite</string>
   <string name="edit_summary_tag_grammar">Grammatica corrigite</string>
@@ -106,8 +106,8 @@
   <string name="edit_summary_tag_other_hint">Altere manieras del quales tu ha meliorate iste pagina</string>
   <string name="find_next">Cercar sequente</string>
   <string name="find_previous">Cargar precedente</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Iste pote esser un modification non constructive. Es tu secur de voler salveguardar lo?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Tu non pote salveguardar iste modification. Per favor retorna e cambia lo.</string>
+  <string name="abusefilter_title_warn">Iste pote esser un modification non constructive. Es tu secur de voler publicar lo?</string>
+  <string name="abusefilter_title_disallow">Tu non pote publicar iste modification. Per favor retorna e cambia lo.</string>
   <string name="page_similar_titles">Paginas simile</string>
   <string name="search_did_you_mean">Forsan cercava tu: \"%s\"?</string>
   <string name="search_recent_header">Recercas recente:</string>
@@ -172,19 +172,19 @@
   <string name="suggested_edits_edit_translation_button">Modificar traduction</string>
   <string name="suggested_edits_article_cta_image_caption">Adder legenda al imagine</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Adder legenda al imagine (%s)</string>
-  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Adder etiquetta…</string>
+  <string name="suggested_edits_image_tags_add_tag">Adder etiquetta</string>
   <string name="suggested_edits_encouragement_message">%s, gratias pro tu modificationes. Ecce plus manieras de contribuer a Wikipedia.</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Le legenda describe un imagine pro adjutar le lectores a comprender su significato e contexto.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Le descriptiones summarisa un articulo pro adjutar le lectores a comprender rapidemente le subjecto.</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">Le numero total de tu contributiones facite con Modificationes suggerite.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">Le numero de dies durante que tu ha contribuite sin interruption usante Modificationes suggerite. Si tu non ha contribuite desde alcun tempore, illo monstra le data de tu ultime contribution.</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">Total de visitas de lo que tu ha contribuite in le ultime 30 dies con Modificationes suggerite.</string>
+  <string name="suggested_edits_image_captions_task_detail">Describe un imagine pro adjutar le lectores a comprender su significato e contexto.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Summarisa un articulo pro adjutar le lectores a comprender rapidemente le subjecto.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Le numero total de tu contributiones usque al presente.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Le numero de dies consecutive durante que tu ha contribuite. Si tu non ha contribuite desde alcun tempore, illo monstra le data de tu ultime contribution.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Total de visitas de paginas al quales tu ha contribuite in le ultime 30 dies.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basate sur le numero de vices que un de tu contributiones ha essite revertite (i.e. disfacite per un altere editor). Modificationes revertite: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Le modificationes suggerite es pausate usque al %1$s.&lt;/b&gt; Perdono, %2$s, ma alcunes de tu contributiones recente ha essite revertite.\n\nLege como meliorar tu habilitates de modification sur Wikipedia al ligamine sequente.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Le modificationes suggerite ha essite disactivate.&lt;/b&gt; Perdono, %s, ma troppo de tu contributiones recente ha essite revertite.\n\nApprende lo que isto significa con le ligamine sequente.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Le adresse IP (o gamma de adresses IP) que tu usa pare esser actualmente blocate de modificar Wikipedia. Lege plus sur lo que isto significa visitante le ligamine sequente.</string>
+  <string name="suggested_edits_paused_message">Le modificationes suggerite es pausate usque al %1$s. Perdono, %2$s, ma alcunes de tu contributiones recente ha essite revertite.</string>
+  <string name="suggested_edits_disabled_message">Le modificationes suggerite ha essite disactivate. Perdono, %s, ma troppo de tu contributiones recente ha essite revertite.</string>
+  <string name="suggested_edits_ip_blocked_message">Le adresse IP (o gamma de adresses IP) que tu usa pare esser actualmente blocate de modificar Wikipedia.</string>
   <string name="more_events_text">Plus sur iste die</string>
   <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, sapeva tu que omnes pote modificar Wikipedia?</string>
+  <string name="main_tooltip_text">Salute %s, sapeva tu que omnes pote modificar Wikipedia?</string>
   <string name="main_tooltip_action_button">Comenciar</string>
 </resources>

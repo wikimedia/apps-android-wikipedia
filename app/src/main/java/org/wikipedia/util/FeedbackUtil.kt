@@ -2,10 +2,7 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
 import android.net.Uri
-import android.text.TextUtils
 import android.text.method.LinkMovementMethod
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -21,12 +18,14 @@ import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.staticdata.SpecialAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.suggestededits.SuggestionsActivity
@@ -48,7 +47,15 @@ object FeedbackUtil {
     @JvmStatic
     fun showError(activity: Activity, e: Throwable?) {
         val error = ThrowableUtil.getAppError(activity, e!!)
-        makeSnackbar(activity, error.error, LENGTH_DEFAULT).show()
+        makeSnackbar(activity, error.error, LENGTH_DEFAULT).also {
+            if (error.error.length > 200) {
+                it.duration = Snackbar.LENGTH_INDEFINITE
+                it.setAction(android.R.string.ok) { _ ->
+                    it.dismiss()
+                }
+            }
+            it.show()
+        }
     }
 
     @JvmStatic
@@ -128,19 +135,6 @@ object FeedbackUtil {
     }
 
     @JvmStatic
-    fun showProtectionStatusMessage(activity: Activity, status: String?) {
-        if (TextUtils.isEmpty(status)) {
-            return
-        }
-        val message: String = when (status) {
-            "sysop" -> activity.getString(R.string.page_protected_sysop)
-            "autoconfirmed" -> activity.getString(R.string.page_protected_autoconfirmed)
-            else -> activity.getString(R.string.page_protected_other, status)
-        }
-        showMessage(activity, message)
-    }
-
-    @JvmStatic
     fun setButtonLongPressToast(vararg views: View) {
         for (v in views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER)
@@ -152,7 +146,9 @@ object FeedbackUtil {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
+        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         textView.movementMethod = LinkMovementMethod.getInstance()
+        RichTextUtil.removeUnderlinesFromLinks(textView)
         val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
         actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         return snackbar
@@ -195,8 +191,14 @@ object FeedbackUtil {
         return balloon
     }
 
-    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean): Balloon {
-        return createBalloon(context) {
+    fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, showDismissButton: Boolean = false): Balloon {
+        val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
+        binding.textView.text = text
+        if (showDismissButton) {
+            binding.buttonView.visibility = View.VISIBLE
+        }
+
+        val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
             setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
             setArrowOrientationRules(ArrowOrientationRules.ALIGN_ANCHOR)
@@ -205,12 +207,16 @@ object FeedbackUtil {
             setMarginRight(8)
             setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
             setDismissWhenTouchOutside(autoDismiss)
-            setText(text)
-            setTextSize(14f)
-            setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
-            setTextColor(Color.WHITE)
-            setPadding(16)
+            setLayout(binding.root)
+            setWidth(BalloonSizeSpec.WRAP)
+            setHeight(BalloonSizeSpec.WRAP)
         }
+
+        binding.buttonView.setOnClickListener {
+            balloon.dismiss()
+        }
+
+        return balloon
     }
 
     private fun getTooltip(context: Context, @LayoutRes layoutRes: Int, arrowAnchorPadding: Int,

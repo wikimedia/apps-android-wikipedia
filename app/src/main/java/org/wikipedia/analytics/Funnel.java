@@ -19,7 +19,7 @@ import java.util.UUID;
 
 /** Schemas for this abstract funnel are expected to have appInstallID and sessionToken fields. When
  * these fields are not present or differently named, preprocess* or get*Field should be overridden. */
-abstract class Funnel {
+public abstract class Funnel {
     protected static final int SAMPLE_LOG_1K = 1000;
     protected static final int SAMPLE_LOG_100 = 100;
     protected static final int SAMPLE_LOG_10 = 10;

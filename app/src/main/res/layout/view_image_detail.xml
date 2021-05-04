@@ -54,13 +54,12 @@
             android:id="@+id/contentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-medium"
             android:layout_gravity="center_vertical"
             android:lineSpacingExtra="8sp"
             android:textColor="?attr/primary_text_color"
             android:textSize="20sp"
             android:textIsSelectable="true"
-            android:textStyle="bold"
             tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
 
         <ImageView

@@ -329,7 +329,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) requireActivity().getApplicationContext();
         model = new PageViewModel();
-        pageFragmentLoadState = new PageFragmentLoadState();
     }
 
     @Override
@@ -430,7 +429,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
-        pageFragmentLoadState.setUp(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
+        pageFragmentLoadState = new PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
 
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
@@ -1201,7 +1200,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void verifyBeforeEditingDescription(@Nullable String text) {
-        if (getPage() != null && getPage().getPageProperties().canEdit()) {
+        if (getPage() != null) {
             if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= getResources().getInteger(R.integer.description_max_anon_edits)) {
                 new AlertDialog.Builder(requireActivity())
                         .setMessage(R.string.description_edit_anon_limit)
@@ -1212,8 +1211,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             } else {
                 startDescriptionEditActivity(text);
             }
-        } else {
-            getEditHandler().showUneditableDialog();
         }
     }
 

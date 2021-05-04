@@ -71,7 +71,8 @@ public class PageViewModel {
 
     public boolean shouldLoadAsMobileWeb() {
         return (title != null && (title.namespace() == Namespace.SPECIAL || title.isMainPage()))
-                || (page != null && (page.getPageProperties().getNamespace() != Namespace.MAIN || page.isMainPage()));
+                || (page != null && ((page.getPageProperties().getNamespace() != Namespace.MAIN
+                && page.getPageProperties().getNamespace() != Namespace.USER) || page.isMainPage()));
     }
 
     public void setWatched(boolean isWatched) {
