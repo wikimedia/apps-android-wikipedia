@@ -556,7 +556,9 @@ public class EditSectionActivity extends BaseActivity {
         sectionText.setText(sectionWikitext);
         ViewAnimations.crossFade(progressBar, sectionContainer);
         scrollToHighlight(textToHighlight);
+
         sectionText.setEnabled(editingAllowed);
+        wikiTextKeyboardView.setVisibility(editingAllowed ? View.VISIBLE : View.GONE);
     }
 
     private void scrollToHighlight(@Nullable final String highlightText) {
