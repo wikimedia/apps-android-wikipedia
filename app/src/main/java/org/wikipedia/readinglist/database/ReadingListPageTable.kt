@@ -110,8 +110,8 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
     private fun renameListsWithIdenticalNameAsDefault(db: SQLiteDatabase, lists: List<ReadingList>) {
         ReadingListDbHelper.instance().run {
             for (list in lists) {
-                if (list.dbTitle.equals(WikipediaApp.getInstance().getString(R.string.default_reading_list_name), true)) {
-                    list.dbTitle = WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename, list.dbTitle)
+                if (list.title.equals(WikipediaApp.getInstance().getString(R.string.default_reading_list_name), true)) {
+                    list.title = WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename, list.title)
                     updateList(db, list, false)
                 }
             }
