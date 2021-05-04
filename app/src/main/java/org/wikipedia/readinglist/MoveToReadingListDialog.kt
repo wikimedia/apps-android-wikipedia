@@ -47,7 +47,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ movedTitlesList ->
                     ReadingListsFunnel().logMoveToList(readingList, readingLists.size, invokeSource)
-                    showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title()) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title()))
+                    showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title))
                     dismiss()
                 }) { obj -> L.w(obj) })
     }

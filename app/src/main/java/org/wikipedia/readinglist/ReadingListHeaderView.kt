@@ -33,7 +33,7 @@ class ReadingListHeaderView : FrameLayout {
 
     fun setReadingList(readingList: ReadingList) {
         this.readingList = readingList
-        if (readingList.pages().isEmpty()) {
+        if (readingList.pages.isEmpty()) {
             binding.readingListHeaderImageContainer.visibility = GONE
             binding.readingListHeaderEmptyImage.visibility = VISIBLE
         } else {
@@ -54,9 +54,9 @@ class ReadingListHeaderView : FrameLayout {
             clearThumbnails()
             val thumbUrls = arrayOfNulls<String>(imageViews.size)
             var thumbUrlsIndex = 0
-            it.pages().forEach { page ->
-                if (!page.thumbUrl().isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
-                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl()
+            it.pages.forEach { page ->
+                if (!page.thumbUrl.isNullOrEmpty() && thumbUrlsIndex < imageViews.size) {
+                    thumbUrls[thumbUrlsIndex++] = page.thumbUrl
                 }
             }
             thumbUrls.forEachIndexed { i, url ->

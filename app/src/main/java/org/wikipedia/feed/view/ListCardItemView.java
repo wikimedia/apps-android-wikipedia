@@ -122,7 +122,7 @@ public class ListCardItemView extends ConstraintLayout {
             @Override
             public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                 if (getCallback() != null) {
-                    getCallback().onMovePageToList(page.listId(), entry);
+                    getCallback().onMovePageToList(page.getListId(), entry);
                 }
             }
         }).show(entry);
