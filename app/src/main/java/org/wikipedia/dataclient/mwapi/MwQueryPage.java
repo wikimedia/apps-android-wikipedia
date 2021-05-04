@@ -172,7 +172,7 @@ public class MwQueryPage {
         return lastrevid;
     }
 
-    @Nullable public List<MwServiceError> getErrorForAction(String actionName) {
+    @NonNull public List<MwServiceError> getErrorForAction(String actionName) {
         return (actions != null && actions.containsKey(actionName)) ? actions.get(actionName) : Collections.emptyList();
     }
 
