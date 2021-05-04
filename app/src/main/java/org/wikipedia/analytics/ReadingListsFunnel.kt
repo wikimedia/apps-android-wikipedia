@@ -15,9 +15,9 @@ class ReadingListsFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_I
     fun logAddToList(list: ReadingList, listCount: Int,
                      source: InvokeSource) {
         log(
-                "action", if (list.pages().isEmpty()) "addtonew" else "addtoexisting",
+                "action", if (list.pages.isEmpty()) "addtonew" else "addtoexisting",
                 "addsource", source.ordinal,
-                "itemcount", list.pages().size,
+                "itemcount", list.pages.size,
                 "listcount", listCount
         )
     }
@@ -29,23 +29,23 @@ class ReadingListsFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_I
     fun logMoveToList(list: ReadingList, listCount: Int,
                       source: InvokeSource) {
         log(
-                "action", if (list.pages().isEmpty()) "movetonew" else "movetoexisting",
+                "action", if (list.pages.isEmpty()) "movetonew" else "movetoexisting",
                 "addsource", source.ordinal,
-                "itemcount", list.pages().size,
+                "itemcount", list.pages.size,
                 "listcount", listCount
         )
     }
 
     fun logModifyList(list: ReadingList, listCount: Int) {
-        log("action", "modifylist", "itemcount", list.pages().size, "listcount", listCount)
+        log("action", "modifylist", "itemcount", list.pages.size, "listcount", listCount)
     }
 
     fun logDeleteList(list: ReadingList, listCount: Int) {
-        log("action", "deletelist", "itemcount", list.pages().size, "listcount", listCount)
+        log("action", "deletelist", "itemcount", list.pages.size, "listcount", listCount)
     }
 
     fun logDeleteItem(list: ReadingList, listCount: Int) {
-        log("action", "deleteitem", "itemcount", list.pages().size, "listcount", listCount)
+        log("action", "deleteitem", "itemcount", list.pages.size, "listcount", listCount)
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
