@@ -6,20 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/edit_section_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:visibility="gone"
         tools:visibility="visible">
 
         <ScrollView
             android:id="@+id/edit_section_scroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:paddingStart="@dimen/activity_horizontal_margin"
-            android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:paddingBottom="48dp">
+            android:paddingEnd="@dimen/activity_horizontal_margin">
 
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/edit_section_text"
@@ -38,7 +39,6 @@
             android:id="@+id/edit_keyboard_overlay_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:background="?android:attr/colorBackground"
             android:elevation="12dp"
             android:paddingStart="4dp"
@@ -51,7 +51,7 @@
 
         </HorizontalScrollView>
 
-    </FrameLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

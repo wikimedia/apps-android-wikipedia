@@ -230,6 +230,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp|ids&rvlimit=1&converttitles=")
     @NonNull Observable<MwQueryResponse> getWikiTextForSection(@NonNull @Query("titles") String title, @Query("rvsection") int section);
 
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
+    @NonNull Observable<MwQueryResponse> getWikiTextForSectionWithInfo(@NonNull @Query("titles") String title, @Query("rvsection") int section);
+
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=parse&prop=text&sectionpreview=&pst=&mobileformat=")
     @NonNull Observable<EditPreview> postEditPreview(@NonNull @Field("title") String title,
