@@ -183,7 +183,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
                         @Override
                         public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                             bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
-                                    MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_CARD_BODY));
+                                    MoveToReadingListDialog.newInstance(page.getListId(), entry.getTitle(), ON_THIS_DAY_CARD_BODY));
                         }
                     }).show(entry);
 

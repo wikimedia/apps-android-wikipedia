@@ -96,7 +96,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 @Override
                 public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                     if (getCallback() != null) {
-                        getCallback().onMovePageToList(page.listId(), entry);
+                        getCallback().onMovePageToList(page.getListId(), entry);
                     }
                 }
             }).show(getCard().historyEntry());

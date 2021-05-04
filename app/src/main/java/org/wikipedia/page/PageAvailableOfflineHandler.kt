@@ -13,7 +13,7 @@ object PageAvailableOfflineHandler {
     }
 
     fun check(page: ReadingListPage, callback: Callback) {
-        callback.onFinish(WikipediaApp.getInstance().isOnline || (page.offline() && !page.saving()))
+        callback.onFinish(WikipediaApp.getInstance().isOnline || (page.offline && !page.saving))
     }
 
     @SuppressLint("CheckResult")
@@ -29,7 +29,7 @@ object PageAvailableOfflineHandler {
             }
         }) {
             val readingListPage = withContext(Dispatchers.IO) { ReadingListDbHelper.instance().findPageInAnyList(pageTitle) }
-            callback.onFinish(readingListPage != null && readingListPage.offline() && !readingListPage.saving())
+            callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
         }
     }
 }

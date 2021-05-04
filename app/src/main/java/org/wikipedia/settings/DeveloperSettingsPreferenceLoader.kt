@@ -165,8 +165,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private fun createTestReadingList(listName: String, numOfLists: Int, numOfArticles: Int) {
         var index = 0
         ReadingListDbHelper.instance().allListsWithoutContents.asReversed().forEach {
-            if (it.title().contains(listName)) {
-                val trimmedListTitle = it.title().substring(listName.length).trim()
+            if (it.title.contains(listName)) {
+                val trimmedListTitle = it.title.substring(listName.length).trim()
                 index = if (trimmedListTitle.isEmpty()) index else trimmedListTitle.toInt().coerceAtLeast(index)
                 return
             }
@@ -186,7 +186,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
     private fun deleteTestReadingList(listName: String, numOfLists: Int) {
         var remainingNumOfLists = numOfLists
         ReadingListDbHelper.instance().allLists.forEach {
-            if (it.title().contains(listName) && remainingNumOfLists > 0) {
+            if (it.title.contains(listName) && remainingNumOfLists > 0) {
                 ReadingListDbHelper.instance().deleteList(it)
                 remainingNumOfLists--
             }
