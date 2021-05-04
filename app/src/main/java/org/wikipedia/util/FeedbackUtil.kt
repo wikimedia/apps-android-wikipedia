@@ -3,7 +3,6 @@ package org.wikipedia.util
 import android.app.Activity
 import android.content.Context
 import android.net.Uri
-import android.text.TextUtils
 import android.text.method.LinkMovementMethod
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -133,19 +132,6 @@ object FeedbackUtil {
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
         SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
-    }
-
-    @JvmStatic
-    fun showProtectionStatusMessage(activity: Activity, status: String?) {
-        if (TextUtils.isEmpty(status)) {
-            return
-        }
-        val message: String = when (status) {
-            "sysop" -> activity.getString(R.string.page_protected_sysop)
-            "autoconfirmed" -> activity.getString(R.string.page_protected_autoconfirmed)
-            else -> activity.getString(R.string.page_protected_other, status)
-        }
-        showMessage(activity, message)
     }
 
     @JvmStatic
