@@ -905,8 +905,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     return;
                 }
                 for (ReadingListPage page : ((ArticleSavedOrDeletedEvent) event).getPages()) {
-                    if (page.apiTitle().equals(pageFragment.getTitle().getPrefixedText())
-                            && page.wiki().languageCode().equals(pageFragment.getTitle().getWikiSite().languageCode())) {
+                    if (page.getApiTitle().equals(pageFragment.getTitle().getPrefixedText())
+                            && page.getWiki().languageCode().equals(pageFragment.getTitle().getWikiSite().languageCode())) {
                         pageFragment.updateBookmarkAndMenuOptionsFromDao();
                     }
                 }

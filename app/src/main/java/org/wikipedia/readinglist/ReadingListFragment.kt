@@ -166,7 +166,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             }
             R.id.menu_reading_list_save_all_offline -> {
                 readingList?.let {
-                    ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), it.pages()) {
+                    ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), it.pages) {
                         adapter.notifyDataSetChanged()
                         update()
                     }
@@ -175,7 +175,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             }
             R.id.menu_reading_list_remove_all_offline -> {
                 readingList?.let {
-                    ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), it.pages()) {
+                    ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), it.pages) {
                         adapter.notifyDataSetChanged()
                         update()
                     }
@@ -222,16 +222,16 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
     private fun update(readingList: ReadingList? = this.readingList) {
         readingList?.let {
-            binding.readingListEmptyText.visibility = if (it.pages().isEmpty()) View.VISIBLE else View.GONE
+            binding.readingListEmptyText.visibility = if (it.pages.isEmpty()) View.VISIBLE else View.GONE
             headerView.setReadingList(it, ReadingListItemView.Description.DETAIL)
             binding.readingListHeader.setReadingList(it)
             ReadingList.sort(readingList, Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC))
             setSearchQuery()
             if (!toolbarExpanded) {
-                binding.readingListToolbarContainer.title = it.title()
+                binding.readingListToolbarContainer.title = it.title
             }
-            if (!articleLimitMessageShown && it.pages().size >= maxPagesPerReadingList) {
-                val message = getString(R.string.reading_list_article_limit_message, readingList.title(), maxPagesPerReadingList)
+            if (!articleLimitMessageShown && it.pages.size >= maxPagesPerReadingList) {
+                val message = getString(R.string.reading_list_article_limit_message, readingList.title, maxPagesPerReadingList)
                 FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
                 articleLimitMessageShown = true
             }
@@ -246,7 +246,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                     binding.readingListSwipeRefresh.isRefreshing = false
                     readingList = list
                     readingList?.let {
-                        binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title()))
+                        binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                     }
                     update()
                 }) {
@@ -266,7 +266,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             currentSearchQuery = query
             if (query.isNullOrEmpty()) {
                 displayedLists.clear()
-                displayedLists.addAll(it.pages())
+                displayedLists.addAll(it.pages)
                 adapter.notifyDataSetChanged()
                 updateEmptyState(query)
             } else {
@@ -326,7 +326,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
     private fun toggleSelectPage(page: ReadingListPage?) {
         page?.let {
-            it.selected(!it.selected())
+            it.selected = !it.selected
             if (selectedPageCount == 0) {
                 finishActionMode()
             } else {
@@ -340,7 +340,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         get() {
             var selectedCount = 0
             displayedLists.forEach {
-                if (it is ReadingListPage && it.selected()) {
+                if (it is ReadingListPage && it.selected) {
                     selectedCount++
                 }
             }
@@ -349,8 +349,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
     private fun unselectAllPages() {
         readingList?.let {
-            it.pages().forEach { page ->
-                page.selected(false)
+            it.pages.forEach { page ->
+                page.selected = false
             }
             adapter.notifyDataSetChanged()
         }
@@ -365,9 +365,9 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             val result = mutableListOf<ReadingListPage>()
             readingList?.let {
                 displayedLists.forEach { list ->
-                    if (list is ReadingListPage && list.selected()) {
+                    if (list is ReadingListPage && list.selected) {
                         result.add(list)
-                        list.selected(false)
+                        list.selected = false
                     }
                 }
             }
@@ -379,7 +379,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             val pages = selectedPages
             if (pages.isNotEmpty()) {
                 ReadingListDbHelper.instance().markPagesForDeletion(it, pages)
-                it.pages().removeAll(pages)
+                it.pages.removeAll(pages)
                 funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
                 update()
@@ -410,7 +410,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     private fun delete() {
         readingList?.let {
             ReadingListBehaviorsUtil.deleteReadingList(requireActivity(), it, true) {
-                startActivity(MainActivity.newIntent(requireActivity()).putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, it.title()))
+                startActivity(MainActivity.newIntent(requireActivity()).putExtra(Constants.INTENT_EXTRA_DELETE_READING_LIST, it.title))
                 requireActivity().finish()
             }
         }
@@ -462,7 +462,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun getPageById(id: Long): ReadingListPage? {
-        return readingList?.pages()?.firstOrNull { it.id() == id }
+        return readingList?.pages?.firstOrNull { it.id == id }
     }
 
     private inner class AppBarListener : OnOffsetChangedListener {
@@ -474,7 +474,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 toolbarExpanded = true
             } else if (verticalOffset <= -appBarLayout.totalScrollRange && !showOverflowMenu) {
                 showOverflowMenu = true
-                binding.readingListToolbarContainer.title = readingList?.title()
+                binding.readingListToolbarContainer.title = readingList?.title
                 appCompatActivity.invalidateOptionsMenu()
                 toolbarExpanded = false
             }
@@ -500,14 +500,14 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         fun bindItem(page: ReadingListPage) {
             this.page = page
             view.item = page
-            view.setTitle(page.title())
-            view.setDescription(page.description())
-            view.setImageUrl(page.thumbUrl())
-            view.isSelected = page.selected()
-            view.setSecondaryActionIcon(if (page.saving()) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
-                    !page.offline() || page.saving())
-            view.setCircularProgressVisibility(page.downloadProgress() > 0 && page.downloadProgress() < CircularProgressBar.MAX_PROGRESS)
-            view.setProgress(if (page.downloadProgress() == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress())
+            view.setTitle(page.displayTitle)
+            view.setDescription(page.description)
+            view.setImageUrl(page.thumbUrl)
+            view.isSelected = page.selected
+            view.setSecondaryActionIcon(if (page.saving) R.drawable.ic_download_in_progress else R.drawable.ic_download_circle_gray_24dp,
+                    !page.offline || page.saving)
+            view.setCircularProgressVisibility(page.downloadProgress > 0 && page.downloadProgress < CircularProgressBar.MAX_PROGRESS)
+            view.setProgress(if (page.downloadProgress == CircularProgressBar.MAX_PROGRESS) 0 else page.downloadProgress)
             view.setActionHint(R.string.reading_list_article_make_offline)
             view.setSearchQuery(currentSearchQuery)
             view.setListItemImageDimensions(imageDimension, imageDimension)
@@ -611,14 +611,14 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages()) {
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) {
                 adapter.notifyDataSetChanged()
                 update()
             }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages()) {
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) {
                 adapter.notifyDataSetChanged()
                 update()
             }
@@ -643,11 +643,11 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
 
         override fun onSaveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages()) { setSearchQuery() }
+            ReadingListBehaviorsUtil.savePagesForOffline(requireActivity(), readingList.pages) { setSearchQuery() }
         }
 
         override fun onRemoveAllOffline(readingList: ReadingList) {
-            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages()) { setSearchQuery() }
+            ReadingListBehaviorsUtil.removePagesFromOffline(requireActivity(), readingList.pages) { setSearchQuery() }
         }
     }
 
@@ -671,7 +671,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             item?.let {
                 bottomSheetPresenter.show(childFragmentManager,
                         ReadingListItemActionsDialog.newInstance(if (currentSearchQuery.isNullOrEmpty()) listOf(readingList!!)
-                        else ReadingListBehaviorsUtil.getListsContainPage(it), it.id(), actionMode != null))
+                        else ReadingListBehaviorsUtil.getListsContainPage(it), it.id, actionMode != null))
                 return true
             }
             return false
@@ -683,10 +683,10 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
         override fun onActionClick(item: ReadingListPage?, view: View) {
             item?.let {
-                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() && it.status() == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
-                    it.offline(false)
+                if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi() && it.status == ReadingListPage.STATUS_QUEUE_FOR_SAVE) {
+                    it.offline = false
                 }
-                if (it.saving()) {
+                if (it.saving) {
                     Toast.makeText(context, R.string.reading_list_article_save_in_progress, Toast.LENGTH_LONG).show()
                 } else {
                     ReadingListBehaviorsUtil.toggleOffline(requireActivity(), item) {
@@ -802,7 +802,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
             } else if (event is PageDownloadEvent) {
                 val pagePosition = getPagePositionInList(event.page)
                 if (pagePosition != -1 && displayedLists[pagePosition] is ReadingListPage) {
-                    (displayedLists[pagePosition] as ReadingListPage).downloadProgress(event.page.downloadProgress())
+                    (displayedLists[pagePosition] as ReadingListPage).downloadProgress = event.page.downloadProgress
                     adapter.notifyItemChanged(pagePosition + 1)
                 }
             }
@@ -811,7 +811,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
 
     private fun getPagePositionInList(page: ReadingListPage): Int {
         displayedLists.forEach {
-            if (it is ReadingListPage && it.id() == page.id()) {
+            if (it is ReadingListPage && it.id == page.id) {
                 return displayedLists.indexOf(it)
             }
         }
