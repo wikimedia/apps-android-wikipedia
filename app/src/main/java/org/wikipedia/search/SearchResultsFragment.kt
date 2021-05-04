@@ -136,7 +136,7 @@ class SearchResultsFragment : Fragment() {
         updateProgressBar(true)
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
             Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                    if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
                     if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
                         val searchResults = if (searchResponse?.query()!!.pages() != null) {

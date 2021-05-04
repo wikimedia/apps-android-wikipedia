@@ -530,7 +530,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             disposables.add(Completable.fromAction(() -> {
                 if (!TextUtils.equals(page.getThumbUrl(), title.getThumbUrl())
                         || !TextUtils.equals(page.getDescription(), title.getDescription())) {
-                    ReadingListDbHelper.instance().updateMetadataByTitle(page,
+                    ReadingListDbHelper.INSTANCE.updateMetadataByTitle(page,
                             title.getDescription(), title.getThumbUrl());
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
@@ -847,7 +847,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void updateBookmarkAndMenuOptionsFromDao() {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.INSTANCE.findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
