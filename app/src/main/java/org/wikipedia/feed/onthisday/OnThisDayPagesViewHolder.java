@@ -124,7 +124,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
                 bottomSheetPresenter.show(fragmentManager,
-                        MoveToReadingListDialog.newInstance(page.listId(), entry.getTitle(), ON_THIS_DAY_ACTIVITY));
+                        MoveToReadingListDialog.newInstance(page.getListId(), entry.getTitle(), ON_THIS_DAY_ACTIVITY));
             }
         }).show(entry);
 

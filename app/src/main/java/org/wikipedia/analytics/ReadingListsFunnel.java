@@ -31,9 +31,9 @@ public class ReadingListsFunnel extends Funnel {
     public void logAddToList(ReadingList list, int listCount,
                              InvokeSource source) {
         log(
-                "action", list.pages().isEmpty() ? "addtonew" : "addtoexisting",
+                "action", list.getPages().isEmpty() ? "addtonew" : "addtoexisting",
                 "addsource", source.ordinal(),
-                "itemcount", list.pages().size(),
+                "itemcount", list.getPages().size(),
                 "listcount", listCount
         );
     }
@@ -48,9 +48,9 @@ public class ReadingListsFunnel extends Funnel {
     public void logMoveToList(ReadingList list, int listCount,
                               InvokeSource source) {
         log(
-                "action", list.pages().isEmpty() ? "movetonew" : "movetoexisting",
+                "action", list.getPages().isEmpty() ? "movetonew" : "movetoexisting",
                 "addsource", source.ordinal(),
-                "itemcount", list.pages().size(),
+                "itemcount", list.getPages().size(),
                 "listcount", listCount
         );
     }
@@ -58,7 +58,7 @@ public class ReadingListsFunnel extends Funnel {
     public void logModifyList(ReadingList list, int listCount) {
         log(
                 "action", "modifylist",
-                "itemcount", list.pages().size(),
+                "itemcount", list.getPages().size(),
                 "listcount", listCount
         );
     }
@@ -66,7 +66,7 @@ public class ReadingListsFunnel extends Funnel {
     public void logDeleteList(ReadingList list, int listCount) {
         log(
                 "action", "deletelist",
-                "itemcount", list.pages().size(),
+                "itemcount", list.getPages().size(),
                 "listcount", listCount
         );
     }
@@ -74,7 +74,7 @@ public class ReadingListsFunnel extends Funnel {
     public void logDeleteItem(ReadingList list, int listCount) {
         log(
                 "action", "deleteitem",
-                "itemcount", list.pages().size(),
+                "itemcount", list.getPages().size(),
                 "listcount", listCount
         );
     }
