@@ -4,8 +4,8 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 
-class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: Int)
-    : TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
+class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: Int) :
+        TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
 
     private var numFindNext = 0
     private var numFindPrev = 0

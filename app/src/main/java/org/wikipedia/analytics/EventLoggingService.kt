@@ -1,6 +1,5 @@
 package org.wikipedia.analytics
 
-import android.annotation.SuppressLint
 import android.net.Uri
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -41,6 +40,7 @@ class EventLoggingService private constructor() {
     companion object {
         private const val EVENTLOG_URL_PROD = "https://meta.wikimedia.org/beacon/event"
         private const val EVENTLOG_URL_DEV = "https://deployment.wikimedia.beta.wmflabs.org/beacon/event"
+
         // https://github.com/wikimedia/mediawiki-extensions-EventLogging/blob/8b3cb1b/modules/ext.eventLogging.core.js#L57
         private const val MAX_URL_LEN = 2000
         private val EMPTY_REQ = RequestBody.create(null, ByteArray(0))
