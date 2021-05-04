@@ -6,8 +6,6 @@ object DescriptionEditUtil {
 
     private const val DESCRIPTION_SOURCE_LOCAL = "local"
     private const val DESCRIPTION_SOURCE_WIKIDATA = "central"
-    const val ABUSEFILTER_DISALLOWED = "abusefilter-disallowed"
-    const val ABUSEFILTER_WARNING = "abusefilter-warning"
 
     @JvmStatic
     fun isEditAllowed(page: Page): Boolean {
