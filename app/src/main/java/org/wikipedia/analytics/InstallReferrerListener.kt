@@ -146,7 +146,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
     companion object {
         private var INSTANCE: InstallReferrerListener? = null
 
-        @kotlin.jvm.JvmStatic
+        @JvmStatic
         fun newInstance(context: Context) {
             val attempts = Prefs.getInstallReferrerAttempts()
             if (attempts > 2) {

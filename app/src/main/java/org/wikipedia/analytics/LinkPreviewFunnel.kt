@@ -8,7 +8,7 @@ class LinkPreviewFunnel(app: WikipediaApp, private val source: Int) : TimedFunne
 
     private var pageId = 0
 
-    override fun preprocessData(eventData: JSONObject): JSONObject? {
+    override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "version", PROD_LINK_PREVIEW_VERSION)
         preprocessData(eventData, "source", source)
         preprocessData(eventData, "page_id", pageId)

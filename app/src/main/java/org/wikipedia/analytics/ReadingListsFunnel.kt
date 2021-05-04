@@ -48,7 +48,7 @@ class ReadingListsFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_I
         log("action", "deleteitem", "itemcount", list.pages().size, "listcount", listCount)
     }
 
-    override fun preprocessData(eventData: JSONObject): JSONObject? {
+    override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "synced", Prefs.isReadingListSyncEnabled())
         return super.preprocessData(eventData)
     }

@@ -69,15 +69,15 @@ class UserContributionFunnel private constructor() : Funnel(WikipediaApp.getInst
     }
 
     companion object {
-        private var INSTANCE: UserContributionFunnel? = null
         private const val SCHEMA_NAME = "MobileWikiAppUserContribution"
         private const val REV_ID = 20217330
+        private var INSTANCE: UserContributionFunnel? = null
 
-        fun get(): UserContributionFunnel? {
+        fun get(): UserContributionFunnel {
             if (INSTANCE == null) {
                 INSTANCE = UserContributionFunnel()
             }
-            return INSTANCE
+            return INSTANCE!!
         }
 
         fun reset() {

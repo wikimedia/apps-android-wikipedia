@@ -10,9 +10,9 @@ import org.json.JSONObject
  * to call from everywhere without having to duplicate param info at all places.
  * Updating schemas / revisions is also easier this way.
  */
-class EventLoggingEvent(schema: String, revID: Int, wiki: String, eventData: JSONObject?) {
+class EventLoggingEvent(schema: String, revID: Int, wiki: String, eventData: JSONObject) {
 
-    val data: JSONObject = JSONObject()
+    val data = JSONObject()
 
     init {
         try {

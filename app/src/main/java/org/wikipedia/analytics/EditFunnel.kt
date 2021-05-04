@@ -1,6 +1,5 @@
 package org.wikipedia.analytics
 
-import android.text.TextUtils
 import org.apache.commons.lang3.StringUtils
 import org.json.JSONObject
 import org.wikipedia.R
@@ -126,9 +125,9 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
-        preprocessData(eventData, "pageNS", if (!TextUtils.isEmpty(title.namespace))
+        preprocessData(eventData, "pageNS", if (!title.namespace.isNullOrEmpty())
             StringUtils.capitalize(title.namespace!!.toLowerCase(Locale.getDefault())) else title.namespace)
-        return super.preprocessData(eventData)!!
+        return super.preprocessData(eventData)
     }
 
     companion object {

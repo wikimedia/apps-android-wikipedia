@@ -14,12 +14,7 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 
 class EventLoggingService private constructor() {
-    /**
-     * Log the current event.
-     *
-     * Returns immediately after queueing the network request in the background.
-     */
-    @SuppressLint("CheckResult")
+
     fun log(event: JSONObject?) {
         if (!Prefs.isEventLoggingEnabled() || !WikipediaApp.getInstance().isOnline) {
             // Do not send events if the user opted out of EventLogging or the device is offline.
@@ -38,19 +33,18 @@ class EventLoggingService private constructor() {
             }
             val request: Request = Request.Builder().url(dataURL).post(EMPTY_REQ).build()
             OkHttpConnectionFactory.client.newCall(request).execute().close()
-        }.subscribeOn(Schedulers.io())
-                .subscribe({}
-                ) { throwable: Throwable? -> L.d("Lost EL data: " + event.toString(), throwable) }
+        }
+                .subscribeOn(Schedulers.io())
+                .subscribe({}) { throwable -> L.d("Lost EL data: " + event.toString(), throwable) }
     }
 
     companion object {
-        private val EMPTY_REQ = RequestBody.create(null, ByteArray(0))
         private const val EVENTLOG_URL_PROD = "https://meta.wikimedia.org/beacon/event"
         private const val EVENTLOG_URL_DEV = "https://deployment.wikimedia.beta.wmflabs.org/beacon/event"
-        private val EVENTLOG_URL = if (ReleaseUtil.isDevRelease) EVENTLOG_URL_DEV else EVENTLOG_URL_PROD
-
         // https://github.com/wikimedia/mediawiki-extensions-EventLogging/blob/8b3cb1b/modules/ext.eventLogging.core.js#L57
         private const val MAX_URL_LEN = 2000
+        private val EMPTY_REQ = RequestBody.create(null, ByteArray(0))
+        private val EVENTLOG_URL = if (ReleaseUtil.isDevRelease) EVENTLOG_URL_DEV else EVENTLOG_URL_PROD
         val instance = EventLoggingService()
     }
 }

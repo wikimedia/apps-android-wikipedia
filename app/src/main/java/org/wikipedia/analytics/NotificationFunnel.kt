@@ -1,7 +1,6 @@
 package org.wikipedia.analytics
 
 import android.content.Intent
-import android.text.TextUtils
 import org.json.JSONObject
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -12,7 +11,7 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
 
     constructor(app: WikipediaApp, notification: Notification) : this(app, notification.id(), notification.wiki(), notification.type())
 
-    override fun preprocessData(eventData: JSONObject): JSONObject? {
+    override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "notification_id", id)
         preprocessData(eventData, "notification_wiki", wiki)
         preprocessData(eventData, "notification_type", type)
@@ -51,7 +50,7 @@ class NotificationFunnel(app: WikipediaApp, private val id: Long, private val wi
                     intent.getLongExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, 0),
                     WikipediaApp.getInstance().wikiSite.dbName(),
                     intent.getStringExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE))
-            if (TextUtils.equals(NotificationPollBroadcastReceiver.ACTION_CANCEL, intent.action)) {
+            if (NotificationPollBroadcastReceiver.ACTION_CANCEL == intent.action) {
                 funnel.logDismissed()
             } else {
                 funnel.logClicked()

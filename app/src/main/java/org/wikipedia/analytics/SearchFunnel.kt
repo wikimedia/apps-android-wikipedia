@@ -65,7 +65,7 @@ class SearchFunnel(app: WikipediaApp, private val source: InvokeSource) :
         }
     }
 
-    override fun preprocessData(eventData: JSONObject): JSONObject? {
+    override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "invoke_source", source.ordinal)
         return super.preprocessData(eventData)
     }

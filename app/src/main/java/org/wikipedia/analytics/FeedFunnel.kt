@@ -73,6 +73,6 @@ class FeedFunnel(app: WikipediaApp) : TimedFunnel(app, SCHEMA_NAME, REVISION, SA
     companion object {
         private const val SCHEMA_NAME = "MobileWikiAppFeed"
         private const val REVISION = 18115458
-        private val EXCLUDED_CARDS = mutableListOf(CardType.SEARCH_BAR, CardType.PROGRESS)
+        private val EXCLUDED_CARDS = listOf(CardType.SEARCH_BAR, CardType.PROGRESS)
     }
 }

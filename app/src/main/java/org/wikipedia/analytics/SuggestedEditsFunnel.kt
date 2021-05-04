@@ -11,7 +11,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.GsonUtil
 import java.lang.reflect.Type
-import java.util.*
 
 class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val invokeSource: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
@@ -20,7 +19,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
     private var helpOpenedCount = 0
     private var contributionsOpenedCount = 0
     private val statsCollection = SuggestedEditStatsCollection()
-    private val uniqueTitles: MutableList<String> = ArrayList()
+    private val uniqueTitles = mutableListOf<String>()
 
     init {
         parentSessionToken = app.sessionFunnel.sessionToken
@@ -64,9 +63,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
             action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
                 statsCollection.translateCaptionStats
             }
-            else -> {
-                return
-            }
+            else -> return
         }
         stats.clicks++
         if (!uniqueTitles.contains(title)) {
@@ -179,12 +176,11 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
 
         @SerializedName("fl")
         var failures = 0
-        val isEmpty: Boolean
-            get() = impressions == 0 && clicks == 0 && suggestionsClicked == 0 && cancels == 0 && successes == 0 && failures == 0
+        val isEmpty = impressions == 0 && clicks == 0 && suggestionsClicked == 0 && cancels == 0 &&
+                successes == 0 && failures == 0
     }
 
     companion object {
-        private var INSTANCE: SuggestedEditsFunnel? = null
         private const val SCHEMA_NAME = "MobileWikiAppSuggestedEdits"
         private const val REV_ID = 18949003
         private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
@@ -193,20 +189,21 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
         const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION
         const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto " + SUGGESTED_EDITS_UI_VERSION
         const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom " + SUGGESTED_EDITS_UI_VERSION
+        private var INSTANCE: SuggestedEditsFunnel? = null
 
-        operator fun get(invokeSource: InvokeSource): SuggestedEditsFunnel? {
+        operator fun get(invokeSource: InvokeSource): SuggestedEditsFunnel {
             if (INSTANCE == null) {
                 INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
             } else if (INSTANCE!!.invokeSource != invokeSource) {
                 INSTANCE!!.log()
                 INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
             }
-            return INSTANCE
+            return INSTANCE!!
         }
 
-        fun get(): SuggestedEditsFunnel? {
+        fun get(): SuggestedEditsFunnel {
             return if (INSTANCE != null && INSTANCE!!.invokeSource != InvokeSource.SUGGESTED_EDITS) {
-                INSTANCE
+                INSTANCE!!
             } else Companion[InvokeSource.SUGGESTED_EDITS]
         }
 

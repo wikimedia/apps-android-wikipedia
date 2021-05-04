@@ -8,7 +8,7 @@ import org.wikipedia.page.PageTitle
 class GalleryFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: Int) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_100, wiki) {
 
-    override fun preprocessData(eventData: JSONObject): JSONObject? {
+    override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "source", source)
         return super.preprocessData(eventData)
     }
@@ -46,11 +46,11 @@ class GalleryFunnel(app: WikipediaApp, wiki: WikiSite?, private val source: Int)
     }
 
     companion object {
+        private const val SCHEMA_NAME = "MobileWikiAppMediaGallery"
+        private const val REV_ID = 18115560
         const val SOURCE_LEAD_IMAGE = 0
         const val SOURCE_NON_LEAD_IMAGE = 1
         const val SOURCE_LINK_PREVIEW = 2
         const val SOURCE_FEED_FEATURED_IMAGE = 3
-        private const val SCHEMA_NAME = "MobileWikiAppMediaGallery"
-        private const val REV_ID = 18115560
     }
 }

@@ -1,7 +1,6 @@
 package org.wikipedia.analytics
 
 import org.wikipedia.WikipediaApp
-import java.util.*
 
 class TabFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, SCHEMA_REVISION, SAMPLE_LOG_100) {
 
@@ -30,7 +29,7 @@ class TabFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, SCHEMA_REVISIO
     }
 
     private fun log(action: String, size: Int, index: Int? = null) {
-        val params: MutableList<Any> = ArrayList()
+        val params = mutableListOf<Any>()
         params.add("action")
         params.add(action)
         params.add("tabCount")

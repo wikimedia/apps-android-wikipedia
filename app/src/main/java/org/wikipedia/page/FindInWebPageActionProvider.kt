@@ -57,7 +57,7 @@ class FindInWebPageActionProvider(private val fragment: PageFragment, private va
     }
 
     override fun onSearchTextChanged(text: String?) {
-        funnel.setFindText(text)
+        funnel.findText = text
         if (!text.isNullOrEmpty()) {
             searchQuery = text
             findInPage(text)

@@ -27,7 +27,7 @@ class CreateAccountFunnel(app: WikipediaApp?, private val requestSource: String)
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "source", requestSource)
-        return super.preprocessData(eventData)!!
+        return super.preprocessData(eventData)
     }
 
     companion object {

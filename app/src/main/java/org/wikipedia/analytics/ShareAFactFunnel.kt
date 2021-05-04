@@ -7,19 +7,16 @@ import org.wikipedia.page.PageTitle
 class ShareAFactFunnel(app: WikipediaApp, pageTitle: PageTitle, private val pageId: Int, private val revisionId: Long) :
         Funnel(app, SCHEMA_NAME, REV_ID, pageTitle.wikiSite) {
 
-    private val pageTitle: String = pageTitle.displayText
+    private val pageTitle = pageTitle.displayText
 
-    override fun preprocessData(eventData: JSONObject): JSONObject? {
+    override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "tutorial_feature_enabled", true)
         preprocessData(eventData, "tutorial_shown", 0)
         return super.preprocessData(eventData)
     }
 
-    private fun logAction(action: String, text: String, shareMode: ShareMode? = null) {
-        var textStr: String? = text
-        if (textStr != null) {
-            textStr = textStr.substring(0, MAX_LENGTH.coerceAtMost(textStr.length))
-        }
+    private fun logAction(action: String, text: String?, shareMode: ShareMode? = null) {
+        val textStr = text.orEmpty().substring(0, MAX_LENGTH.coerceAtMost(text.orEmpty().length))
         log(
                 "action", action,
                 "article", pageTitle,

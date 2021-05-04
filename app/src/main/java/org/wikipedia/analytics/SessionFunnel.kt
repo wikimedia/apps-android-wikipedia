@@ -94,13 +94,14 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     }
 
     companion object {
+        private const val SCHEMA_NAME = "MobileWikiAppSessions"
+        private const val REVISION = 19851683
+
         /**
          * Definition of a "session timeout", as agreed upon by the Apps and Analytics teams.
          * (currently 30 minutes)
          */
         const val DEFAULT_SESSION_TIMEOUT = 30
         const val MIN_SESSION_TIMEOUT = 1
-        private const val SCHEMA_NAME = "MobileWikiAppSessions"
-        private const val REVISION = 19851683
     }
 }

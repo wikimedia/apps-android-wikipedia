@@ -4,18 +4,15 @@ import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 
-class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: Int) : TimedFunnel(app, SCHEMA_NAME, REV_ID, Funnel.Companion.SAMPLE_LOG_ALL, wiki) {
+class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: Int)
+    : TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
 
-    private var pageHeight = 0
     private var numFindNext = 0
     private var numFindPrev = 0
-    private var findText: String? = null
+    var pageHeight = 0
+    var findText: String? = null
 
     override fun preprocessSessionToken(eventData: JSONObject) {}
-
-    fun setPageHeight(height: Int) {
-        pageHeight = height
-    }
 
     fun addFindNext() {
         numFindNext++
@@ -23,10 +20,6 @@ class FindInPageFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageId: I
 
     fun addFindPrev() {
         numFindPrev++
-    }
-
-    fun setFindText(text: String?) {
-        findText = text
     }
 
     fun logDone() {

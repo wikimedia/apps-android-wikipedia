@@ -15,8 +15,8 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
 
     fun done(orderedContentTypes: List<FeedContentType>) {
         var enabledList: MutableList<Int>
-        val orderedList: MutableList<Int> = ArrayList()
-        val enabledMap: MutableMap<String, List<Int>> = HashMap()
+        val orderedList = ArrayList<Int>()
+        val enabledMap = HashMap<String, List<Int>>()
         for (language in app.language().appLanguageCodes) {
             enabledList = ArrayList()
             for (type in FeedContentType.values()) {

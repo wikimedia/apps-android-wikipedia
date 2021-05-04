@@ -15,33 +15,33 @@ import java.util.*
  * these fields are not present or differently named, preprocess* or get*Field should be overridden.  */
 abstract class Funnel @JvmOverloads internal constructor(protected val app: WikipediaApp, private val schemaName: String,
                                                          private val revision: Int, private val sampleRate: Int = SAMPLE_LOG_ALL,
-        // todo: remove @SerializedName if not pickled
+                                                         // todo: remove @SerializedName if not pickled
                                                          @field:SerializedName("site") private val wiki: WikiSite? = null) {
 
-    private val sampleRateRemoteParamName: String = schemaName + "_rate"
+    private val sampleRateRemoteParamName = schemaName + "_rate"
 
     val sessionToken = UUID.randomUUID().toString()
 
     internal constructor(app: WikipediaApp, schemaName: String, revision: Int, wiki: WikiSite?) :
             this(app, schemaName, revision, SAMPLE_LOG_ALL, wiki)
 
-    protected open fun preprocessData(eventData: JSONObject): JSONObject? {
+    protected open fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(Date()))
         preprocessData(eventData, DEFAULT_APP_INSTALL_ID_KEY, app.appInstallID)
         preprocessSessionToken(eventData)
         return eventData
     }
 
-    protected fun <T> preprocessData(eventData: JSONObject, key: String, `val`: T) {
+    protected fun <T> preprocessData(eventData: JSONObject, key: String, value: T) {
         try {
-            eventData.put(key, `val`)
+            eventData.put(key, value)
         } catch (e: JSONException) {
-            throw RuntimeException("key=$key val=$`val`", e)
+            throw RuntimeException("key=$key val=$value", e)
         }
     }
 
     protected open fun preprocessSessionToken(eventData: JSONObject) {
-        preprocessData<String?>(eventData, DEFAULT_SESSION_TOKEN_KEY, sessionToken)
+        preprocessData(eventData, DEFAULT_SESSION_TOKEN_KEY, sessionToken)
     }
 
     protected fun log(vararg params: Any?) {
@@ -102,13 +102,13 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
     }
 
     companion object {
+        private const val DEFAULT_TIMESTAMP_KEY = "client_dt"
+        private const val DEFAULT_APP_INSTALL_ID_KEY = "app_install_id"
+        private const val DEFAULT_SESSION_TOKEN_KEY = "session_token"
         const val SAMPLE_LOG_1K = 1000
         const val SAMPLE_LOG_100 = 100
         const val SAMPLE_LOG_10 = 10
         const val SAMPLE_LOG_ALL = 1
-        private const val DEFAULT_TIMESTAMP_KEY = "client_dt"
-        private const val DEFAULT_APP_INSTALL_ID_KEY = "app_install_id"
-        private const val DEFAULT_SESSION_TOKEN_KEY = "session_token"
 
         /**
          * Determines whether the current user belongs in a particular sampling bucket. This is
@@ -120,7 +120,7 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
          * biases which would invalidate the test.
          * @return Whether the current user is part of the requested sampling rate bucket.
          */
-        @kotlin.jvm.JvmStatic
+        @JvmStatic
         @VisibleForTesting
         fun isUserInSamplingGroup(appInstallID: String?, sampleRate: Int): Boolean {
             return try {

@@ -10,8 +10,7 @@ import java.util.concurrent.TimeUnit
 
 class DailyStatsFunnel(app: WikipediaApp?) : Funnel(app!!, SCHEMA_NAME, SCHEMA_REVISION, SAMPLE_LOG_ALL) {
 
-    private val absoluteTime: Long
-        get() = System.currentTimeMillis()
+    private val absoluteTime = System.currentTimeMillis()
 
     fun log(context: Context) {
         log("appInstallAgeDays", getInstallAgeDays(context),

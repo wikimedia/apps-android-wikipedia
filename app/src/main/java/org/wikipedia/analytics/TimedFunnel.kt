@@ -8,24 +8,17 @@ import java.util.concurrent.TimeUnit
 abstract class TimedFunnel @JvmOverloads constructor(app: WikipediaApp, schemaName: String, revision: Int, sampleRate: Int, wiki: WikiSite? = null) :
         Funnel(app, schemaName, revision, sampleRate, wiki) {
 
-    private var startTime: Long
+    private var startTime = System.currentTimeMillis()
     private var pauseTime: Long = 0
 
-    init {
-        startTime = System.currentTimeMillis()
-    }
-
     /** Override me for deviant implementations.  */
-    private val durationFieldName: String
-        get() = "time_spent"
+    private val durationFieldName = "time_spent"
 
-    private val duration: Long
-        get() = System.currentTimeMillis() - startTime
+    val duration = System.currentTimeMillis() - startTime
 
-    private val durationSeconds: Long
-        get() = TimeUnit.MILLISECONDS.toSeconds(duration)
+    private val durationSeconds = TimeUnit.MILLISECONDS.toSeconds(duration)
 
-    override fun preprocessData(eventData: JSONObject): JSONObject? {
+    override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, durationFieldName, durationSeconds)
         return super.preprocessData(eventData)
     }

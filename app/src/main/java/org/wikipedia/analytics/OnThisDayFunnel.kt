@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.WikiSite
 class OnThisDayFunnel(app: WikipediaApp, wiki: WikiSite?, source: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL, wiki) {
 
-    private val source: Int = source.ordinal
+    private val source = source.ordinal
     private var maxScrolledPosition = 0
 
     override fun preprocessSessionToken(eventData: JSONObject) {}

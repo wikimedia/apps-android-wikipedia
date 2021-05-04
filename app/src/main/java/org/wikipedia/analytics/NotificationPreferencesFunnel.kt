@@ -13,7 +13,7 @@ class NotificationPreferencesFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     fun done() {
-        val toggleMap: MutableMap<String, Boolean> = HashMap()
+        val toggleMap = HashMap<String, Boolean>()
         toggleMap[Notification.CATEGORY_SYSTEM_NO_EMAIL] = Prefs.notificationWelcomeEnabled()
         toggleMap[Notification.CATEGORY_EDIT_THANK] = Prefs.notificationThanksEnabled()
         toggleMap[Notification.CATEGORY_THANK_YOU_EDIT] = Prefs.notificationMilestoneEnabled()
