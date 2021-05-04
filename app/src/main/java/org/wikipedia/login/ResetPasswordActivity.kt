@@ -105,7 +105,7 @@ class ResetPasswordActivity : BaseActivity() {
                 val response = extras?.getParcelable<AccountAuthenticatorResponse>(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)
                 updateAccount(response, result)
                 DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
-                setResult(RESULT_PASSWORD_RESET_SUCCESS)
+                setResult(RESULT_OK)
                 finish()
             } else if (result.fail()) {
                 val message = result.message
@@ -148,7 +148,6 @@ class ResetPasswordActivity : BaseActivity() {
     }
 
     companion object {
-        const val RESULT_PASSWORD_RESET_SUCCESS = 1
         const val LOGIN_USER_NAME = "userName"
         const val LOGIN_TOKEN = "token"
 

@@ -88,8 +88,7 @@ class LoginActivity : BaseActivity() {
                 CreateAccountActivity.RESULT_ACCOUNT_NOT_CREATED -> finish()
                 else -> funnel.logCreateAccountFailure()
             }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_RESET_PASSWORD &&
-                resultCode == ResetPasswordActivity.RESULT_PASSWORD_RESET_SUCCESS) {
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_RESET_PASSWORD && resultCode == RESULT_OK) {
             onLoginSuccess()
         }
     }
