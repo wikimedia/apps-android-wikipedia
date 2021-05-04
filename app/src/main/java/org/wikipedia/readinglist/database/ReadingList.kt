@@ -19,7 +19,7 @@ class ReadingList(title: String,
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
-    val isDefault: Boolean = title.isEmpty()
+    val isDefault = title.isEmpty()
 
     var title = title
         get() = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else field
@@ -27,7 +27,7 @@ class ReadingList(title: String,
     val numPagesOffline
         get() = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
 
-    val sizeBytesFromPages: Long
+    val sizeBytesFromPages
         get() = pages.sumOf { if (it.offline) it.sizeBytes else 0 }
 
     fun accentAndCaseInvariantTitle(): String {
