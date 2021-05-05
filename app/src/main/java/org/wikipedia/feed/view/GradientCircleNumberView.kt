@@ -13,7 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ViewGradientCircleNumberBinding
 import org.wikipedia.util.ResourceUtil
 
-internal class GradientCircleNumberView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
+class GradientCircleNumberView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     private val binding = ViewGradientCircleNumberBinding.inflate(LayoutInflater.from(context), this)
 
     private val gradientColor1 = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
