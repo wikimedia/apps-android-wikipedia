@@ -313,7 +313,7 @@ public class OfflineCacheInterceptor implements Interceptor {
                 + File.separator + OfflineObjectDbHelper.OFFLINE_PATH;
         new File(cachePath).mkdirs();
 
-        String filePath = cachePath + File.separator + getObjectFileName(url, page.lang(), mimeType);
+        String filePath = cachePath + File.separator + getObjectFileName(url, page.getLang(), mimeType);
 
         File metadataFile = new File(filePath + ".0");
         File contentsFile = new File(filePath + ".1");
@@ -345,7 +345,7 @@ public class OfflineCacheInterceptor implements Interceptor {
             return;
         }
 
-        OfflineObjectDbHelper.instance().addObject(url, page.lang(), filePath, page.apiTitle());
+        OfflineObjectDbHelper.instance().addObject(url, page.getLang(), filePath, page.getApiTitle());
     }
 
 }

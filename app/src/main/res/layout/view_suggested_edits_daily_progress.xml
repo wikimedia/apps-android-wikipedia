@@ -14,7 +14,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:textSize="36sp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:textColor="@color/green30"
         tools:text="10/10"/>
 
