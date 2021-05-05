@@ -61,6 +61,10 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
         return this
     }
 
+    fun getTitleView(): View {
+        return binding.viewCardHeaderTitle
+    }
+
     fun setLangCode(langCode: String?): CardHeaderView {
         if (langCode.isNullOrEmpty() || WikipediaApp.getInstance().language().appLanguageCodes.size < 2) {
             binding.viewListCardHeaderLangBackground.visibility = View.GONE

@@ -27,21 +27,21 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {
-        headerView().setTitle(card.title())
+        getHeaderView().setTitle(card.title())
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
 
-        largeHeaderView().setTitle(card.pageTitle())
+        getLargeHeaderView().setTitle(card.pageTitle())
                 .setLanguageCode(card.wikiSite().languageCode())
                 .setImage(card.image())
                 .setSubtitle(card.extract());
 
-        largeHeaderContainer().setVisibility(VISIBLE);
-        largeHeaderContainer().setOnClickListener(view -> {
+        getLargeHeaderContainer().setVisibility(VISIBLE);
+        getLargeHeaderContainer().setOnClickListener(view -> {
             if (getCallback() != null) {
                 getCallback().onSelectPage(card, new HistoryEntry(card.getPageTitle(),
-                        HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), largeHeaderView().getSharedElements());
+                        HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ), getLargeHeaderView().getSharedElements());
             }
         });
     }
@@ -59,8 +59,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
         public void onBindViewHolder(@NonNull DefaultViewHolder<ListCardItemView> holder, int i) {
             BecauseYouReadItemCard card = item(i);
             holder.getView().setCard(card)
-                    .setHistoryEntry(new HistoryEntry(card.pageTitle(),
-                            HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
+                    .setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
         }
     }
 }

@@ -7,8 +7,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.Card
 import org.wikipedia.util.L10nUtil.isLangRTL
 
-abstract class DefaultFeedCardView<T : Card?>(context: Context?) : LinearLayout(context),
-    FeedCardView<T> {
+abstract class DefaultFeedCardView<T : Card?>(context: Context?) : LinearLayout(context), FeedCardView<T> {
     private var card: T? = null
     private var callback: FeedAdapter.Callback? = null
     override fun setCard(card: T) {

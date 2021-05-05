@@ -33,16 +33,16 @@ public class MostReadCardView extends ListCardView<MostReadListCard> {
         if (getCard() == null) {
             return;
         }
-        footerView().setVisibility(View.VISIBLE);
-        footerView().setCallback(getFooterCallback(getCard()));
-        footerView().setFooterActionText(getCard().footerActionText(), getCard().wikiSite().languageCode());
+        getFooterView().setVisibility(View.VISIBLE);
+        getFooterView().setCallback(getFooterCallback(getCard()));
+        getFooterView().setFooterActionText(getCard().footerActionText(), getCard().wikiSite().languageCode());
     }
 
     private void header() {
         if (getCard() == null) {
             return;
         }
-        headerView().setTitle(getCard().title())
+        getHeaderView().setTitle(getCard().title())
                 .setLangCode(getCard().wikiSite().languageCode())
                 .setCard(getCard())
                 .setCallback(getCallback());

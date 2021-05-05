@@ -74,7 +74,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         binding.headerView.setTitle(card.title())
                 .setLangCode("")
                 .setCard(card)
-                .setCallback(callback)
+                .setCallback(getCallback())
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {
@@ -82,6 +82,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     override fun onFooterClicked() {
-        callback?.onSeCardFooterClicked()
+        getCallback()?.onSeCardFooterClicked()
     }
 }

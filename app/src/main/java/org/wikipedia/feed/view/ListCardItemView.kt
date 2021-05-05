@@ -25,7 +25,7 @@ import org.wikipedia.util.TransitionUtil
 import org.wikipedia.views.ViewUtil
 import kotlin.math.roundToInt
 
-class ListCardItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class ListCardItemView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onSelectPage(card: Card, entry: HistoryEntry, openInNewBackgroundTab: Boolean)
         fun onSelectPage(card: Card, entry: HistoryEntry, sharedElements: Array<Pair<View, String>>)
@@ -38,9 +38,11 @@ class ListCardItemView constructor(context: Context, attrs: AttributeSet? = null
 
     @get:VisibleForTesting
     var callback: Callback? = null
+        private set
 
     @get:VisibleForTesting
     var historyEntry: HistoryEntry? = null
+        private set
 
     init {
         isFocusable = true
