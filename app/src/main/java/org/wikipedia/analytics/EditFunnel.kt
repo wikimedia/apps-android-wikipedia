@@ -11,7 +11,7 @@ import java.util.*
 open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         Funnel(app, SCHEMA_NAME, REV_ID, title.wikiSite) {
 
-    fun logStart() {
+    open fun logStart() {
         log(
                 "action", "start"
         )
@@ -31,7 +31,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    fun logSaved(revID: Long) {
+    open fun logSaved(revID: Long) {
         log(
                 "action", "saved",
                 "revID", revID
@@ -68,7 +68,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    fun logAbuseFilterWarning(code: String?) {
+    open fun logAbuseFilterWarning(code: String?) {
         log(
                 "action", "abuseFilterWarning",
                 "abuseFilterName", code
@@ -96,7 +96,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    fun logError(code: String?) {
+    open fun logError(code: String?) {
         log(
                 "action", "error",
                 "errorText", code
@@ -117,7 +117,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    fun logSaveAttempt() {
+    open fun logSaveAttempt() {
         log(
                 "action", "saveAttempt"
         )
