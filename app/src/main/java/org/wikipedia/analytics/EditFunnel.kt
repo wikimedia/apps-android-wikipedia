@@ -125,8 +125,8 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
-        preprocessData(eventData, "pageNS", if (!title.namespace.isNullOrEmpty())
-            StringUtils.capitalize(title.namespace!!.toLowerCase(Locale.getDefault())) else title.namespace)
+        StringUtils.capitalize(title.namespace.orEmpty().toLowerCase(Locale.getDefault()))
+        preprocessData(eventData, "pageNS", title.namespace.orEmpty().toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault()))
         return super.preprocessData(eventData)
     }
 

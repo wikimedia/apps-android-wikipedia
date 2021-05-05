@@ -16,7 +16,7 @@ import java.util.*
 abstract class Funnel @JvmOverloads internal constructor(protected val app: WikipediaApp, private val schemaName: String,
                                                          private val revision: Int, private val sampleRate: Int = SAMPLE_LOG_ALL,
                                                          // todo: remove @SerializedName if not pickled
-                                                         @field:SerializedName("site") private val wiki: WikiSite? = null) {
+                                                         @SerializedName("site") private val wiki: WikiSite? = null) {
 
     private val sampleRateRemoteParamName = schemaName + "_rate"
 
