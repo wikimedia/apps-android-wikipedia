@@ -10,6 +10,7 @@ import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.FeedCardView
 
 class AccessibilityCardView(context: Context?) : LinearLayout(context), FeedCardView<Card?> {
+
     private var _binding: ViewCardAccessibilityBinding? = null
     private val binding get() = _binding!!
 
@@ -21,7 +22,7 @@ class AccessibilityCardView(context: Context?) : LinearLayout(context), FeedCard
         binding.loadMore.setOnClickListener { onLoadMoreClick() }
     }
 
-    fun onLoadMoreClick() {
+    private fun onLoadMoreClick() {
         if (callback != null) {
             callback!!.onRequestMore()
         }
@@ -38,7 +39,7 @@ class AccessibilityCardView(context: Context?) : LinearLayout(context), FeedCard
     }
 
     override fun removeView(view: View?) {
-        super.removeView(view)
         _binding = null
+        super.removeView(view)
     }
 }

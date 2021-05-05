@@ -14,6 +14,7 @@ import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
 import org.wikipedia.util.L10nUtil.getStringForArticleLanguage
 
 class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard?>(context) {
+
     private var _binding: ViewStaticCardBinding? = null
     private val binding get() = _binding!!
 
