@@ -19,19 +19,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ToCInteractionFunnel
 import org.wikipedia.bridge.CommunicationBridge
-import org.wikipedia.bridge.JavaScriptActionHandler.getOffsets
-import org.wikipedia.bridge.JavaScriptActionHandler.prepareToScrollTo
-import org.wikipedia.bridge.JavaScriptActionHandler.scrollToFooter
+import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.util.DimenUtil.densityScalar
-import org.wikipedia.util.DimenUtil.getToolbarHeightPx
-import org.wikipedia.util.DimenUtil.roundedDpToPx
-import org.wikipedia.util.DimenUtil.roundedPxToDp
-import org.wikipedia.util.L10nUtil.getStringForArticleLanguage
-import org.wikipedia.util.L10nUtil.isLangRTL
-import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.StringUtil.fromHtml
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ObservableWebView.OnContentHeightChangedListener
 import org.wikipedia.views.PageScrollerView
@@ -39,16 +32,21 @@ import org.wikipedia.views.SwipeableListView
 import org.wikipedia.views.SwipeableListView.OnSwipeOutListener
 import java.util.*
 
-class ToCHandler internal constructor(private val fragment: PageFragment, private val drawerLayout: FixedDrawerLayout, private val scrollerView: PageScrollerView,
-                                      private val bridge: CommunicationBridge) : ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
+class ToCHandler internal constructor(private val fragment: PageFragment,
+                                      private val drawerLayout: FixedDrawerLayout,
+                                      private val scrollerView: PageScrollerView,
+                                      private val bridge: CommunicationBridge) :
+        ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
+
     private val tocList = drawerLayout.findViewById<SwipeableListView>(R.id.toc_list)
-    private val scrollerViewParams = FrameLayout.LayoutParams(roundedDpToPx(SCROLLER_BUTTON_SIZE), roundedDpToPx(SCROLLER_BUTTON_SIZE))
+    private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE),DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val containerView = drawerLayout.findViewById<FrameLayout>(R.id.toc_container)
     private val webView = fragment.webView
     private val adapter = ToCAdapter()
-    private var funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite, 0, 0)
     private var rtl = false
     private var currentItemSelected = 0
+    private var funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().wikiSite, 0, 0)
+
     private val sectionOffsetsCallback: ValueCallback<String> = ValueCallback { value ->
         if (!fragment.isAdded) {
             return@ValueCallback
@@ -65,6 +63,8 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
             // ignore
         }
     }
+
+    val isVisible get() = drawerLayout.isDrawerOpen(containerView)
 
     init {
         tocList.adapter = adapter
@@ -86,13 +86,13 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
     fun setupToC(page: Page?, wiki: WikiSite) {
         page?.let {
             adapter.setPage(it)
-            rtl = isLangRTL(wiki.languageCode())
+            rtl = L10nUtil.isLangRTL(wiki.languageCode())
             tocList.rtl = rtl
-            setConditionalLayoutDirection(containerView, wiki.languageCode())
+            L10nUtil.setConditionalLayoutDirection(containerView, wiki.languageCode())
             val params = containerView.layoutParams as DrawerLayout.LayoutParams
             params.gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
             containerView.layoutParams = params
-            funnel.log()
+            log()
             funnel = ToCInteractionFunnel(WikipediaApp.getInstance(), wiki, it.pageProperties.pageId, adapter.count)
         }
     }
@@ -101,8 +101,8 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
         section?.let {
             when {
                 it.isLead -> webView.scrollY = 0
-                it.id == ABOUT_SECTION_ID -> bridge.execute(scrollToFooter(webView.context))
-                else -> bridge.execute(prepareToScrollTo(it.anchor, false))
+                it.id == ABOUT_SECTION_ID -> bridge.execute(JavaScriptActionHandler.scrollToFooter(webView.context))
+                else -> bridge.execute(JavaScriptActionHandler.prepareToScrollTo(it.anchor, false))
             }
         }
     }
@@ -119,7 +119,9 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
         funnel.scrollStop()
     }
 
-    val isVisible get() = drawerLayout.isDrawerOpen(containerView)
+    fun log() {
+        funnel.log()
+    }
 
     fun setEnabled(enabled: Boolean) {
         if (enabled) {
@@ -146,7 +148,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
         if (fragment.isLoading) {
             return
         }
-        bridge.evaluate(getOffsets(), sectionOffsetsCallback)
+        bridge.evaluate(JavaScriptActionHandler.getOffsets(), sectionOffsetsCallback)
     }
 
     inner class ToCAdapter : BaseAdapter() {
@@ -156,14 +158,11 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
         fun setPage(page: Page) {
             sections.clear()
             sectionYOffsets.clear()
-            for (s in page.sections) {
-                if (s.level < MAX_LEVELS) {
-                    sections.add(s)
-                }
-            }
+            sections.addAll(page.sections.filter { it.level < MAX_LEVELS })
             // add a fake section at the end to represent the "about this article" contents at the bottom:
             sections.add(Section(ABOUT_SECTION_ID, 1,
-                    getStringForArticleLanguage(page.title, R.string.about_article_section), getStringForArticleLanguage(page.title, R.string.about_article_section), ""))
+                    L10nUtil.getStringForArticleLanguage(page.title, R.string.about_article_section),
+                    L10nUtil.getStringForArticleLanguage(page.title, R.string.about_article_section), ""))
             highlightedSection = 0
             notifyDataSetChanged()
         }
@@ -201,30 +200,32 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
             val section = getItem(position)
             val sectionHeading = newConvertView!!.findViewById<TextView>(R.id.page_toc_item_text)
             val sectionBullet = newConvertView.findViewById<View>(R.id.page_toc_item_bullet)
-            sectionHeading.text = fromHtml(section.heading)
+            sectionHeading.text = StringUtil.fromHtml(section.heading)
             var textSize = TOC_SUBSECTION_TEXT_SIZE
-            if (section.isLead) {
-                textSize = TOC_LEAD_TEXT_SIZE
-                sectionHeading.typeface = Typeface.SERIF
-            } else if (section.level == 1) {
-                textSize = TOC_SECTION_TEXT_SIZE
-                sectionHeading.typeface = Typeface.SERIF
-            } else {
-                sectionHeading.typeface = Typeface.SANS_SERIF
+            when {
+                section.isLead -> {
+                    textSize = TOC_LEAD_TEXT_SIZE
+                    sectionHeading.typeface = Typeface.SERIF
+                }
+                section.level == 1 -> {
+                    textSize = TOC_SECTION_TEXT_SIZE
+                    sectionHeading.typeface = Typeface.SERIF
+                }
+                else -> sectionHeading.typeface = Typeface.SANS_SERIF
             }
             sectionHeading.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
             val params = sectionBullet.layoutParams as LinearLayout.LayoutParams
-            params.topMargin = roundedDpToPx(textSize / 2)
+            params.topMargin = DimenUtil.roundedDpToPx(textSize / 2)
             sectionBullet.layoutParams = params
             if (highlightedSection == position) {
-                sectionHeading.setTextColor(getThemedColor(fragment.requireContext(), R.attr.colorAccent))
+                sectionHeading.setTextColor(ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.colorAccent))
             } else {
                 if (section.level > 1) {
                     sectionHeading.setTextColor(
-                            getThemedColor(fragment.requireContext(), R.attr.primary_text_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.primary_text_color))
                 } else {
                     sectionHeading.setTextColor(
-                            getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2_color))
+                            ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.toc_h1_h2_color))
                 }
             }
             return newConvertView
@@ -234,11 +235,11 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
     @SuppressLint("RtlHardcoded")
     private fun setScrollerPosition() {
         scrollerViewParams.gravity = if (rtl) Gravity.LEFT else Gravity.RIGHT
-        scrollerViewParams.leftMargin = if (rtl) roundedDpToPx(SCROLLER_BUTTON_REVEAL_MARGIN) else 0
-        scrollerViewParams.rightMargin = if (rtl) 0 else roundedDpToPx(SCROLLER_BUTTON_REVEAL_MARGIN)
-        val toolbarHeight = getToolbarHeightPx(fragment.requireContext())
+        scrollerViewParams.leftMargin = if (rtl) DimenUtil.roundedDpToPx(SCROLLER_BUTTON_REVEAL_MARGIN) else 0
+        scrollerViewParams.rightMargin = if (rtl) 0 else DimenUtil.roundedDpToPx(SCROLLER_BUTTON_REVEAL_MARGIN)
+        val toolbarHeight = DimenUtil.getToolbarHeightPx(fragment.requireContext())
         scrollerViewParams.topMargin = (toolbarHeight + (webView.height - 2 * toolbarHeight) *
-                (webView.scrollY.toFloat() / webView.contentHeight.toFloat() / densityScalar)).toInt()
+                (webView.scrollY.toFloat() / webView.contentHeight.toFloat() / DimenUtil.densityScalar)).toInt()
         if (scrollerViewParams.topMargin < toolbarHeight) {
             scrollerViewParams.topMargin = toolbarHeight
         }
@@ -247,7 +248,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
 
     private fun scrollToListSectionByOffset(yOffset: Int) {
         var newYOffset = yOffset
-        newYOffset = roundedPxToDp(newYOffset.toFloat())
+        newYOffset = DimenUtil.roundedPxToDp(newYOffset.toFloat())
         var itemToSelect = 0
         for (i in 1 until adapter.count) {
             val section = adapter.getItem(i)
@@ -262,15 +263,15 @@ class ToCHandler internal constructor(private val fragment: PageFragment, privat
             currentItemSelected = itemToSelect
         }
         tocList.smoothScrollToPositionFromTop(currentItemSelected,
-                scrollerViewParams.topMargin - roundedDpToPx(TOC_SECTION_TOP_OFFSET_ADJUST), 0)
+                scrollerViewParams.topMargin - DimenUtil.roundedDpToPx(TOC_SECTION_TOP_OFFSET_ADJUST), 0)
     }
 
     private fun onScrollerMoved(dy: Float, scrollWebView: Boolean) {
         val webViewScrollY = webView.scrollY
         val webViewHeight = webView.height
-        val webViewContentHeight = webView.contentHeight * densityScalar
+        val webViewContentHeight = webView.contentHeight * DimenUtil.densityScalar
         var scrollY = webViewScrollY.toFloat()
-        scrollY += dy * webViewContentHeight / (webViewHeight - 2 * getToolbarHeightPx(fragment.requireContext())).toFloat()
+        scrollY += dy * webViewContentHeight / (webViewHeight - 2 * DimenUtil.getToolbarHeightPx(fragment.requireContext())).toFloat()
         if (scrollY < 0) {
             scrollY = 0f
         } else if (scrollY > webViewContentHeight - webViewHeight) {
