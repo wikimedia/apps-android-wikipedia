@@ -28,7 +28,7 @@ object PageAvailableOfflineHandler {
                 L.w(exception)
             }
         }) {
-            val readingListPage = withContext(Dispatchers.IO) { ReadingListDbHelper.instance().findPageInAnyList(pageTitle) }
+            val readingListPage = withContext(Dispatchers.IO) { ReadingListDbHelper.findPageInAnyList(pageTitle) }
             callback.onFinish(readingListPage != null && readingListPage.offline && !readingListPage.saving)
         }
     }

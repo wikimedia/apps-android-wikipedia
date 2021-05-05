@@ -86,7 +86,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateLists() {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().allLists }
+        disposables.add(Observable.fromCallable { ReadingListDbHelper.allLists }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ lists ->
@@ -118,7 +118,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun showCreateListDialog() {
         readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }) { text, description ->
-            addAndDismiss(ReadingListDbHelper.instance().createList(text, description), titles)
+            addAndDismiss(ReadingListDbHelper.createList(text, description), titles)
         }.show()
     }
 
@@ -139,7 +139,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles) }
+        disposables.add(Observable.fromCallable { ReadingListDbHelper.addPagesToListIfNotExist(readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ addedTitlesList ->

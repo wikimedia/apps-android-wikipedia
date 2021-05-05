@@ -25,7 +25,7 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
             return
         }
         if (listsContainingPage.size == 1 && listsContainingPage[0].pages.isNotEmpty()) {
-            ReadingListDbHelper.instance().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
+            ReadingListDbHelper.markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
             callback?.onDeleted(listsContainingPage, listsContainingPage[0].pages[0])
             return
         }
@@ -47,7 +47,7 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
                         for (i in listNames.indices) {
                             if (selected[i]) {
                                 atLeastOneSelected = true
-                                ReadingListDbHelper.instance().markPagesForDeletion(it[i], listOf(it[i].pages[0]))
+                                ReadingListDbHelper.markPagesForDeletion(it[i], listOf(it[i].pages[0]))
                                 newLists.add(it[i])
                             }
                         }
