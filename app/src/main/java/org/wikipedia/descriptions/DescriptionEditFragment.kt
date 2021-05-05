@@ -76,7 +76,7 @@ class DescriptionEditFragment : Fragment() {
         }
         Prefs.setLastDescriptionEditTime(Date().time)
         Prefs.setSuggestedEditsReactivationPassStageOne(false)
-        SuggestedEditsFunnel.get().success(action)
+        SuggestedEditsFunnel.get()!!.success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
         if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == InvokeSource.PAGE_ACTIVITY) {
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
@@ -343,9 +343,9 @@ class DescriptionEditFragment : Fragment() {
             FeedbackUtil.showError(requireActivity(), caught)
             L.e(caught)
             if (logError) {
-                funnel.logError(caught.message)
+                funnel.logError(caught.message!!)
             }
-            SuggestedEditsFunnel.get().failure(action)
+            SuggestedEditsFunnel.get()!!.failure(action)
         }
 
         override fun onHelpClick() {

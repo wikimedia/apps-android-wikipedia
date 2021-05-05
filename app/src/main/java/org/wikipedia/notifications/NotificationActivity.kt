@@ -270,7 +270,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 notificationList.add(item.notification!!)
             } else {
                 notificationList.remove(item.notification)
-                NotificationFunnel(WikipediaApp.getInstance(), item.notification).logMarkRead(selectionKey)
+                NotificationFunnel(WikipediaApp.getInstance(), item.notification!!).logMarkRead(selectionKey)
             }
         }
         for (wiki in notificationsPerWiki.keys) {
