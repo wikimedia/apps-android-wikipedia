@@ -74,7 +74,7 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
      * The subclass methods should take more explicit parameters
      * depending on what they are logging.
      */
-    protected fun log(wiki: WikiSite?, vararg params: Any) {
+    protected fun log(wiki: WikiSite?, vararg params: Any?) {
         if (ReleaseUtil.isDevRelease || isUserInSamplingGroup(app.appInstallID, getSampleRate())) {
             val eventData = JSONObject()
             var i = 0
