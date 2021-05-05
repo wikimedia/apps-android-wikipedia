@@ -45,13 +45,13 @@ class SavedPageSyncService : JobIntentService() {
             // Reading list sync was started in the meantime, so bail.
             return
         }
-        val pagesToSave = ReadingListDbHelper.instance().allPagesToBeForcedSave
+        val pagesToSave = ReadingListDbHelper.allPagesToBeForcedSave
         if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) &&
                 Prefs.isDownloadingReadingListArticlesEnabled()) {
-            pagesToSave.addAll(ReadingListDbHelper.instance().allPagesToBeSaved)
+            pagesToSave.addAll(ReadingListDbHelper.allPagesToBeSaved)
         }
-        val pagesToUnSave = ReadingListDbHelper.instance().allPagesToBeUnsaved
-        val pagesToDelete = ReadingListDbHelper.instance().allPagesToBeDeleted
+        val pagesToUnSave = ReadingListDbHelper.allPagesToBeUnsaved
+        val pagesToDelete = ReadingListDbHelper.allPagesToBeDeleted
         var shouldSendSyncEvent = false
         try {
             for (page in pagesToDelete) {
@@ -64,11 +64,11 @@ class SavedPageSyncService : JobIntentService() {
             L.e("Error while deleting page: " + e.message)
         } finally {
             if (pagesToDelete.isNotEmpty()) {
-                ReadingListDbHelper.instance().purgeDeletedPages()
+                ReadingListDbHelper.purgeDeletedPages()
                 shouldSendSyncEvent = true
             }
             if (pagesToUnSave.isNotEmpty()) {
-                ReadingListDbHelper.instance().resetUnsavedPageStatus()
+                ReadingListDbHelper.resetUnsavedPageStatus()
                 shouldSendSyncEvent = true
             }
         }
@@ -110,7 +110,7 @@ class SavedPageSyncService : JobIntentService() {
             } else if (savedPageSyncNotification.isSyncCanceled()) {
                 // Mark remaining pages as online-only!
                 queue.add(page)
-                ReadingListDbHelper.instance().markPagesForOffline(queue, offline = false, forcedSave = false)
+                ReadingListDbHelper.markPagesForOffline(queue, offline = false, forcedSave = false)
                 break
             }
             savedPageSyncNotification.setNotificationProgress(applicationContext, itemsTotal, itemsSaved)
@@ -147,7 +147,7 @@ class SavedPageSyncService : JobIntentService() {
             if (success) {
                 page.status = ReadingListPage.STATUS_SAVED
                 page.sizeBytes = totalSize
-                ReadingListDbHelper.instance().updatePage(page)
+                ReadingListDbHelper.updatePage(page)
                 itemsSaved++
                 sendSyncEvent()
             }

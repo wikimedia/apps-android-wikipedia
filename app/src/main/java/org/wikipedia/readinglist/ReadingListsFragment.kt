@@ -189,7 +189,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles) { text, description ->
-                ReadingListDbHelper.instance().createList(text, description)
+                ReadingListDbHelper.createList(text, description)
                 updateLists()
             }.show()
         }
@@ -445,8 +445,8 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 it.touch()
                 Completable.fromAction {
-                    ReadingListDbHelper.instance().updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
-                    ReadingListDbHelper.instance().updatePage(it)
+                    ReadingListDbHelper.updateLists(ReadingListBehaviorsUtil.getListsContainPage(it), false)
+                    ReadingListDbHelper.updatePage(it)
                 }.subscribeOn(Schedulers.io()).subscribe()
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }
