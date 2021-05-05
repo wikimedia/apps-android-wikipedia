@@ -239,7 +239,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private fun updateReadingListData() {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().getListById(readingListId, true) }
+        disposables.add(Observable.fromCallable { ReadingListDbHelper.getListById(readingListId, true) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ list ->
@@ -378,7 +378,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         readingList?.let {
             val pages = selectedPages
             if (pages.isNotEmpty()) {
-                ReadingListDbHelper.instance().markPagesForDeletion(it, pages)
+                ReadingListDbHelper.markPagesForDeletion(it, pages)
                 it.pages.removeAll(pages)
                 funnel.logDeleteItem(it, 0)
                 ReadingListBehaviorsUtil.showDeletePagesUndoSnackbar(requireActivity(), it, pages) { updateReadingListData() }
@@ -660,8 +660,8 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
                 val entry = HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST)
                 item.touch()
                 Completable.fromAction {
-                    ReadingListDbHelper.instance().updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
-                    ReadingListDbHelper.instance().updatePage(item)
+                    ReadingListDbHelper.updateLists(ReadingListBehaviorsUtil.getListsContainPage(item), false)
+                    ReadingListDbHelper.updatePage(item)
                 }.subscribeOn(Schedulers.io()).subscribe()
                 startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
             }

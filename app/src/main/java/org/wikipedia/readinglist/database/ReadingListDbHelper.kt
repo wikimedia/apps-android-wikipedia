@@ -20,7 +20,11 @@ import org.wikipedia.search.SearchResults
 import org.wikipedia.util.log.L
 import java.util.*
 
-class ReadingListDbHelper {
+object ReadingListDbHelper {
+
+    private val readableDatabase get() = WikipediaApp.getInstance().database.readableDatabase
+    private val writableDatabase get() = WikipediaApp.getInstance().database.writableDatabase
+
     val allLists: MutableList<ReadingList>
         get() {
             val lists = mutableListOf<ReadingList>()
@@ -729,22 +733,5 @@ class ReadingListDbHelper {
             }
         }
         return null
-    }
-
-    companion object {
-        private lateinit var readableDatabase: SQLiteDatabase
-        private lateinit var writableDatabase: SQLiteDatabase
-        private var INSTANCE: ReadingListDbHelper? = null
-
-        @JvmStatic
-        @JvmOverloads
-        fun instance(newInstance: Boolean = false): ReadingListDbHelper {
-            if (INSTANCE == null || newInstance) {
-                INSTANCE = ReadingListDbHelper()
-                readableDatabase = WikipediaApp.getInstance().database.readableDatabase
-                writableDatabase = WikipediaApp.getInstance().database.writableDatabase
-            }
-            return INSTANCE as ReadingListDbHelper
-        }
     }
 }
