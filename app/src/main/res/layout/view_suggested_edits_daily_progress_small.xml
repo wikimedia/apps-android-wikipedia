@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="16sp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:textColor="@color/green50"
         tools:text="6/10"/>
 
