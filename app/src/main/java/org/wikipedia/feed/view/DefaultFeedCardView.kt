@@ -23,7 +23,7 @@ abstract class DefaultFeedCardView<T : Card?>(context: Context?) : LinearLayout(
         this.callback = callback
     }
 
-    protected fun getCallback(): FeedAdapter.Callback? {
+    fun getCallback(): FeedAdapter.Callback? {
         return callback
     }
 
