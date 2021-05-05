@@ -39,7 +39,7 @@ class ToCHandler internal constructor(private val fragment: PageFragment,
         ObservableWebView.OnClickListener, ObservableWebView.OnScrollChangeListener, OnContentHeightChangedListener {
 
     private val tocList = drawerLayout.findViewById<SwipeableListView>(R.id.toc_list)
-    private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE),DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
+    private val scrollerViewParams = FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE))
     private val containerView = drawerLayout.findViewById<FrameLayout>(R.id.toc_container)
     private val webView = fragment.webView
     private val adapter = ToCAdapter()
