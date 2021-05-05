@@ -84,7 +84,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
             if (cardActionType == ADD_CAPTION && !targetLanguage.equals(appLanguages[0]))
                 cardActionType = TRANSLATE_CAPTION
         }
-        SuggestedEditsFunnel.get(FEED).impression(cardActionType)
+        SuggestedEditsFunnel[FEED]!!.impression(cardActionType!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -104,7 +104,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 return
             previousImageTagPage = imageTagPage
             previousSourceSummaryForEdit = sourceSummaryForEdit
-            SuggestedEditsFunnel.get().log()
+            SuggestedEditsFunnel.get()!!.log()
             SuggestedEditsFunnel.reset()
 
             if (cardActionType != null) {
