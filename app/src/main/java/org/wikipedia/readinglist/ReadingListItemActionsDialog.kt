@@ -32,7 +32,7 @@ class ReadingListItemActionsDialog : ExtendedBottomSheetDialogFragment() {
         actionsView.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         actionsView.callback = ItemActionsCallback()
 
-        ReadingListDbHelper.instance().getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
+        ReadingListDbHelper.getPageById(requireArguments().getLong(ARG_READING_LIST_PAGE))?.let {
             readingListPage = it
             val removeFromListText = if (requireArguments().getInt(ARG_READING_LIST_SIZE) == 1) getString(R.string.reading_list_remove_from_list, requireArguments().getString(ARG_READING_LIST_NAME)) else getString(R.string.reading_list_remove_from_lists)
             actionsView.setState(it.displayTitle, removeFromListText, it.offline, requireArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE))
