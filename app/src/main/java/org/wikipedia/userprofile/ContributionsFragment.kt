@@ -107,7 +107,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
         resetAndFetch()
 
-        UserContributionFunnel.get()!!.logOpen()
+        UserContributionFunnel.get().logOpen()
         UserContributionEvent.logOpen()
     }
 
@@ -124,19 +124,19 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         editFilterType = editType
         when (editFilterType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                UserContributionFunnel.get()!!.logFilterDescriptions()
+                UserContributionFunnel.get().logFilterDescriptions()
                 UserContributionEvent.logFilterDescriptions()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                UserContributionFunnel.get()!!.logFilterCaptions()
+                UserContributionFunnel.get().logFilterCaptions()
                 UserContributionEvent.logFilterCaptions()
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                UserContributionFunnel.get()!!.logFilterTags()
+                UserContributionFunnel.get().logFilterTags()
                 UserContributionEvent.logFilterTags()
             }
             else -> {
-                UserContributionFunnel.get()!!.logFilterAll()
+                UserContributionFunnel.get().logFilterAll()
                 UserContributionEvent.logFilterAll()
             }
         }
@@ -570,19 +570,19 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             when (contribution.editType) {
                 EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                    UserContributionFunnel.get()!!.logViewDescription()
+                    UserContributionFunnel.get().logViewDescription()
                     UserContributionEvent.logViewDescription()
                 }
                 EDIT_TYPE_IMAGE_CAPTION -> {
-                    UserContributionFunnel.get()!!.logViewCaption()
+                    UserContributionFunnel.get().logViewCaption()
                     UserContributionEvent.logViewCaption()
                 }
                 EDIT_TYPE_IMAGE_TAG -> {
-                    UserContributionFunnel.get()!!.logViewTag()
+                    UserContributionFunnel.get().logViewTag()
                     UserContributionEvent.logViewTag()
                 }
                 else -> {
-                    UserContributionFunnel.get()!!.logViewMisc()
+                    UserContributionFunnel.get().logViewMisc()
                     UserContributionEvent.logViewMisc()
                 }
             }

@@ -14,18 +14,10 @@ class FeedConfigureFunnel(app: WikipediaApp, wiki: WikiSite?, private val source
     override fun preprocessSessionToken(eventData: JSONObject) {}
 
     fun done(orderedContentTypes: List<FeedContentType>) {
-        var enabledList: MutableList<Int>
-        val orderedList = ArrayList<Int>()
+        val orderedList = orderedContentTypes.map { it.code() }
         val enabledMap = HashMap<String, List<Int>>()
         for (language in app.language().appLanguageCodes) {
-            enabledList = ArrayList()
-            for (type in FeedContentType.values()) {
-                enabledList.add(if (type.isEnabled) 1 else 0)
-            }
-            enabledMap[language] = enabledList
-        }
-        for (type in orderedContentTypes) {
-            orderedList.add(type.code())
+            enabledMap[language] = FeedContentType.values().map { if (it.isEnabled) 1 else 0 }
         }
         log(
                 "source", source,

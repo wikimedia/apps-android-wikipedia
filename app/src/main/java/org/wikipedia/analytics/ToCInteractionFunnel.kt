@@ -10,7 +10,7 @@ class ToCInteractionFunnel(app: WikipediaApp, wiki: WikiSite?, private val pageI
 
     private var numOpens = 0
     private var numSectionClicks = 0
-    private var lastScrollStartMillis: Long = 0
+    private var lastScrollStartMillis = 0L
     private var totalOpenedSec = 0
 
     override fun preprocessData(eventData: JSONObject): JSONObject {

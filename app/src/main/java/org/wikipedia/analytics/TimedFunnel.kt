@@ -9,13 +9,10 @@ abstract class TimedFunnel @JvmOverloads constructor(app: WikipediaApp, schemaNa
         Funnel(app, schemaName, revision, sampleRate, wiki) {
 
     private var startTime = System.currentTimeMillis()
-    private var pauseTime: Long = 0
-
+    private var pauseTime = 0L
     /** Override me for deviant implementations.  */
     private val durationFieldName = "time_spent"
-
-    val duration = System.currentTimeMillis() - startTime
-
+    private val duration = System.currentTimeMillis() - startTime
     private val durationSeconds = TimeUnit.MILLISECONDS.toSeconds(duration)
 
     override fun preprocessData(eventData: JSONObject): JSONObject {

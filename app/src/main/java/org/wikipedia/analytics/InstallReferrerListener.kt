@@ -30,7 +30,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
     private fun queryReferrer(context: Context) {
         try {
             referrerClient = InstallReferrerClient.newBuilder(context).build()
-            referrerClient!!.startConnection(this)
+            referrerClient?.startConnection(this)
         } catch (e: SecurityException) {
             e.printStackTrace()
         }
@@ -42,17 +42,11 @@ class InstallReferrerListener : InstallReferrerStateListener {
                 processInstallReferrer()
                 Prefs.setInstallReferrerAttempts(Int.MAX_VALUE)
             }
-            InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED -> {
-            }
-            InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> {
-            }
-            else -> {
-            }
+            InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED -> { }
+            InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> { }
         }
         WikipediaApp.getInstance().mainThreadHandler.post {
-            if (referrerClient != null) {
-                referrerClient!!.endConnection()
-            }
+            referrerClient?.endConnection()
             referrerClient = null
             INSTANCE = null
         }
@@ -87,13 +81,13 @@ class InstallReferrerListener : InstallReferrerStateListener {
             return
         }
         val referrerStr = try {
-            referrerClient!!.installReferrer.installReferrer
+            referrerClient?.installReferrer?.installReferrer
         } catch (e: Exception) {
             e.printStackTrace()
             return
         }
         L.d("Received install referrer: $referrerStr")
-        if (referrerStr.isEmpty()) {
+        if (referrerStr.isNullOrEmpty()) {
             return
         }
         var refUrl: String? = null
@@ -114,8 +108,6 @@ class InstallReferrerListener : InstallReferrerStateListener {
                     InstallReferrerFunnel.PARAM_UTM_CAMPAIGN -> refUtmCampaign = item[1]
                     InstallReferrerFunnel.PARAM_UTM_SOURCE -> refUtmSource = item[1]
                     InstallReferrerFunnel.PARAM_CHANNEL -> refChannel = item[1]
-                    else -> {
-                    }
                 }
             }
         } catch (e: Exception) {
@@ -123,15 +115,15 @@ class InstallReferrerListener : InstallReferrerStateListener {
             // Don't worry about it.
         }
         // log the event only if at least one of the parameters is nonempty
-        if (refUrl!!.isNotEmpty() || refUtmMedium!!.isNotEmpty() ||
-                refUtmCampaign!!.isNotEmpty() || refUtmSource!!.isNotEmpty()) {
+        if (!refUrl.isNullOrEmpty() || !refUtmMedium.isNullOrEmpty() ||
+                !refUtmCampaign.isNullOrEmpty() || !refUtmSource.isNullOrEmpty()) {
             val funnel = InstallReferrerFunnel(WikipediaApp.getInstance())
             funnel.logInstall(refUrl, refUtmMedium, refUtmCampaign, refUtmSource)
         }
-        if (refUrl.isNotEmpty() && ShareUtil.canOpenUrlInApp(WikipediaApp.getInstance(), refUrl)) {
+        if (!refUrl.isNullOrEmpty() && ShareUtil.canOpenUrlInApp(WikipediaApp.getInstance(), refUrl)) {
             openPageFromUrl(WikipediaApp.getInstance(), refUrl)
         }
-        if (refChannel!!.isNotEmpty()) {
+        if (!refChannel.isNullOrEmpty()) {
             Prefs.setAppChannel(refChannel)
         }
     }
@@ -154,7 +146,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
             }
             Prefs.setInstallReferrerAttempts(attempts + 1)
             INSTANCE = InstallReferrerListener()
-            INSTANCE!!.queryReferrer(context)
+            INSTANCE?.queryReferrer(context)
         }
     }
 }

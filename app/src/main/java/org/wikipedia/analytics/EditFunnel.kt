@@ -11,7 +11,7 @@ import java.util.*
 open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         Funnel(app, SCHEMA_NAME, REV_ID, title.wikiSite) {
 
-    open fun logStart() {
+    fun logStart() {
         log(
                 "action", "start"
         )
@@ -31,7 +31,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    open fun logSaved(revID: Long) {
+    fun logSaved(revID: Long) {
         log(
                 "action", "saved",
                 "revID", revID
@@ -68,7 +68,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    open fun logAbuseFilterWarning(code: String?) {
+    fun logAbuseFilterWarning(code: String?) {
         log(
                 "action", "abuseFilterWarning",
                 "abuseFilterName", code
@@ -96,7 +96,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    open fun logError(code: String?) {
+    fun logError(code: String?) {
         log(
                 "action", "error",
                 "errorText", code
@@ -117,7 +117,7 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
         )
     }
 
-    open fun logSaveAttempt() {
+    fun logSaveAttempt() {
         log(
                 "action", "saveAttempt"
         )
@@ -125,8 +125,8 @@ open class EditFunnel(app: WikipediaApp, private val title: PageTitle) :
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
-        preprocessData(eventData, "pageNS", if (!title.namespace.isNullOrEmpty())
-            StringUtils.capitalize(title.namespace!!.toLowerCase(Locale.getDefault())) else title.namespace)
+        StringUtils.capitalize(title.namespace.orEmpty().toLowerCase(Locale.getDefault()))
+        preprocessData(eventData, "pageNS", title.namespace.orEmpty().toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault()))
         return super.preprocessData(eventData)
     }
 

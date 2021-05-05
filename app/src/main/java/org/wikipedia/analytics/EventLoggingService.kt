@@ -20,19 +20,19 @@ class EventLoggingService private constructor() {
             return
         }
         Completable.fromAction {
-            val eventStr = event.toString()
-            val dataURL = Uri.parse(EVENTLOG_URL)
-                    .buildUpon().query(eventStr)
-                    .build().toString()
-            if (ReleaseUtil.isDevRelease) {
-                L.d(eventStr)
-            }
-            if (dataURL.length > MAX_URL_LEN) {
-                L.logRemoteErrorIfProd(RuntimeException("EventLogging max length exceeded"))
-            }
-            val request: Request = Request.Builder().url(dataURL).post(EMPTY_REQ).build()
-            OkHttpConnectionFactory.client.newCall(request).execute().close()
-        }
+                    val eventStr = event.toString()
+                    val dataURL = Uri.parse(EVENTLOG_URL)
+                            .buildUpon().query(eventStr)
+                            .build().toString()
+                    if (ReleaseUtil.isDevRelease) {
+                        L.d(eventStr)
+                    }
+                    if (dataURL.length > MAX_URL_LEN) {
+                        L.logRemoteErrorIfProd(RuntimeException("EventLogging max length exceeded"))
+                    }
+                    val request = Request.Builder().url(dataURL).post(EMPTY_REQ).build()
+                    OkHttpConnectionFactory.client.newCall(request).execute().close()
+                }
                 .subscribeOn(Schedulers.io())
                 .subscribe({}) { throwable -> L.d("Lost EL data: " + event.toString(), throwable) }
     }

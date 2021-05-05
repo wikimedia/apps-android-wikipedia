@@ -68,8 +68,7 @@ class SessionFunnel(app: WikipediaApp) : Funnel(app, SCHEMA_NAME, REVISION) {
     }
 
     private fun hasTimedOut(): Boolean {
-        return (System.currentTimeMillis() - sessionData.lastTouchTime
-                > Prefs.getSessionTimeout() * DateUtils.MINUTE_IN_MILLIS)
+        return System.currentTimeMillis() - sessionData.lastTouchTime > Prefs.getSessionTimeout() * DateUtils.MINUTE_IN_MILLIS
     }
 
     private fun logSessionData() {

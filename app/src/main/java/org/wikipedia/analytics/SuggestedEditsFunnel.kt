@@ -15,15 +15,11 @@ import java.lang.reflect.Type
 class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val invokeSource: InvokeSource) :
         TimedFunnel(app, SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
-    private val parentSessionToken: String?
+    private val parentSessionToken = app.sessionFunnel.sessionToken
     private var helpOpenedCount = 0
     private var contributionsOpenedCount = 0
     private val statsCollection = SuggestedEditStatsCollection()
     private val uniqueTitles = mutableListOf<String>()
-
-    init {
-        parentSessionToken = app.sessionFunnel.sessionToken
-    }
 
     override fun preprocessSessionToken(eventData: JSONObject) {
         preprocessData(eventData, "session_token", parentSessionToken)
@@ -77,42 +73,31 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
     }
 
     fun cancel(action: DescriptionEditActivity.Action) {
-        if (action === DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-            statsCollection.addDescriptionStats.cancels++
-        } else if (action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-            statsCollection.translateDescriptionStats.cancels++
-        } else if (action === DescriptionEditActivity.Action.ADD_CAPTION) {
-            statsCollection.addCaptionStats.cancels++
-        } else if (action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-            statsCollection.translateCaptionStats.cancels++
+        when {
+            action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> statsCollection.addDescriptionStats.cancels++
+            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> statsCollection.translateDescriptionStats.cancels++
+            action === DescriptionEditActivity.Action.ADD_CAPTION -> statsCollection.addCaptionStats.cancels++
+            action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> statsCollection.translateCaptionStats.cancels++
         }
     }
 
     fun success(action: DescriptionEditActivity.Action) {
-        if (action === DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-            statsCollection.addDescriptionStats.successes++
-        } else if (action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-            statsCollection.translateDescriptionStats.successes++
-        } else if (action === DescriptionEditActivity.Action.ADD_CAPTION) {
-            statsCollection.addCaptionStats.successes++
-        } else if (action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-            statsCollection.translateCaptionStats.successes++
-        } else if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
-            statsCollection.imageTagStats.successes++
+        when {
+            action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> statsCollection.addDescriptionStats.successes++
+            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> statsCollection.translateDescriptionStats.successes++
+            action === DescriptionEditActivity.Action.ADD_CAPTION -> statsCollection.addCaptionStats.successes++
+            action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> statsCollection.translateCaptionStats.successes++
+            action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> statsCollection.imageTagStats.successes++
         }
     }
 
     fun failure(action: DescriptionEditActivity.Action) {
-        if (action === DescriptionEditActivity.Action.ADD_DESCRIPTION) {
-            statsCollection.addDescriptionStats.failures++
-        } else if (action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION) {
-            statsCollection.translateDescriptionStats.failures++
-        } else if (action === DescriptionEditActivity.Action.ADD_CAPTION) {
-            statsCollection.addCaptionStats.failures++
-        } else if (action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-            statsCollection.translateCaptionStats.failures++
-        } else if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
-            statsCollection.imageTagStats.failures++
+        when {
+            action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> statsCollection.addDescriptionStats.failures++
+            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION ->statsCollection.translateDescriptionStats.failures++
+            action === DescriptionEditActivity.Action.ADD_CAPTION -> statsCollection.addCaptionStats.failures++
+            action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> statsCollection.translateCaptionStats.failures++
+            action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> statsCollection.imageTagStats.failures++
         }
     }
 
@@ -185,24 +170,24 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
         private const val REV_ID = 18949003
         private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
         private const val SUGGESTED_EDITS_API_VERSION = "1.0"
-        const val SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add " + SUGGESTED_EDITS_UI_VERSION
-        const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION
-        const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto " + SUGGESTED_EDITS_UI_VERSION
-        const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom " + SUGGESTED_EDITS_UI_VERSION
         private var INSTANCE: SuggestedEditsFunnel? = null
+        const val SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom $SUGGESTED_EDITS_UI_VERSION"
 
         operator fun get(invokeSource: InvokeSource): SuggestedEditsFunnel {
             if (INSTANCE == null) {
                 INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
             } else if (INSTANCE!!.invokeSource != invokeSource) {
-                INSTANCE!!.log()
+                INSTANCE?.log()
                 INSTANCE = SuggestedEditsFunnel(WikipediaApp.getInstance(), invokeSource)
             }
             return INSTANCE!!
         }
 
         fun get(): SuggestedEditsFunnel {
-            return if (INSTANCE != null && INSTANCE!!.invokeSource != InvokeSource.SUGGESTED_EDITS) {
+            return if (INSTANCE?.invokeSource != InvokeSource.SUGGESTED_EDITS) {
                 INSTANCE!!
             } else Companion[InvokeSource.SUGGESTED_EDITS]
         }

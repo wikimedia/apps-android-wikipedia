@@ -13,9 +13,8 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
     override fun preprocessData(eventData: JSONObject): JSONObject {
         preprocessData(eventData, "source", invokeSource.getName())
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
-        preprocessData(eventData, "pageNS", if (!title.namespace.isNullOrEmpty())
-            title.namespace!!.toLowerCase(Locale.ROOT).capitalize(Locale.ROOT) else title.namespace)
-        return super.preprocessData(eventData)!!
+        preprocessData(eventData, "pageNS", title.namespace.orEmpty().toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault()))
+        return super.preprocessData(eventData)
     }
 
     fun logOpenTalk() {
