@@ -104,7 +104,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 return
             previousImageTagPage = imageTagPage
             previousSourceSummaryForEdit = sourceSummaryForEdit
-            SuggestedEditsFunnel.get().log()
+            SuggestedEditsFunnel.get()!!.log()
             SuggestedEditsFunnel.reset()
 
             if (cardActionType != null) {
