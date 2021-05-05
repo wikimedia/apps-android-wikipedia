@@ -27,38 +27,20 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
 
     fun impression(action: DescriptionEditActivity.Action) {
         when {
-            action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
-                statsCollection.addDescriptionStats.impressions++
-            }
-            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                statsCollection.translateDescriptionStats.impressions++
-            }
-            action === DescriptionEditActivity.Action.ADD_CAPTION -> {
-                statsCollection.addCaptionStats.impressions++
-            }
-            action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
-                statsCollection.translateCaptionStats.impressions++
-            }
-            action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> {
-                statsCollection.imageTagStats.impressions++
-            }
+            action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> statsCollection.addDescriptionStats.impressions++
+            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> statsCollection.translateDescriptionStats.impressions++
+            action === DescriptionEditActivity.Action.ADD_CAPTION -> statsCollection.addCaptionStats.impressions++
+            action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> statsCollection.translateCaptionStats.impressions++
+            action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> statsCollection.imageTagStats.impressions++
         }
     }
 
     fun click(title: String, action: DescriptionEditActivity.Action) {
         val stats: SuggestedEditStats = when {
-            action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> {
-                statsCollection.addDescriptionStats
-            }
-            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> {
-                statsCollection.translateDescriptionStats
-            }
-            action === DescriptionEditActivity.Action.ADD_CAPTION -> {
-                statsCollection.addCaptionStats
-            }
-            action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> {
-                statsCollection.translateCaptionStats
-            }
+            action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> statsCollection.addDescriptionStats
+            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> statsCollection.translateDescriptionStats
+            action === DescriptionEditActivity.Action.ADD_CAPTION -> statsCollection.addCaptionStats
+            action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> statsCollection.translateCaptionStats
             else -> return
         }
         stats.clicks++
@@ -94,7 +76,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
     fun failure(action: DescriptionEditActivity.Action) {
         when {
             action === DescriptionEditActivity.Action.ADD_DESCRIPTION -> statsCollection.addDescriptionStats.failures++
-            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION ->statsCollection.translateDescriptionStats.failures++
+            action === DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> statsCollection.translateDescriptionStats.failures++
             action === DescriptionEditActivity.Action.ADD_CAPTION -> statsCollection.addCaptionStats.failures++
             action === DescriptionEditActivity.Action.TRANSLATE_CAPTION -> statsCollection.translateCaptionStats.failures++
             action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> statsCollection.imageTagStats.failures++
