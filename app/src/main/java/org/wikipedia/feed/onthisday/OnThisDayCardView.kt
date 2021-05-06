@@ -38,7 +38,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
 
     init {
         binding.clickContainer.setOnClickListener { view -> onCardClicked(view) }
-        binding.yearLayout.year.setOnClickListener { view -> onCardClicked(view) }
+        binding.eventLayout.year.setOnClickListener { view -> onCardClicked(view) }
     }
 
     override fun onFooterClicked() {
@@ -66,12 +66,12 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
             .setLangCode(card.wikiSite().languageCode())
             .setCard(card)
             .setCallback(callback)
-        binding.yearLayout.text.text = card.text()
-        binding.yearLayout.year.text = DateUtil.yearToStringWithEra(card.year())
+        binding.eventLayout.text.text = card.text()
+        binding.eventLayout.year.text = DateUtil.yearToStringWithEra(card.year())
     }
 
     private fun footer(card: OnThisDayCard) {
-        binding.yearLayout.pagesIndicator.visibility = GONE
+        binding.eventLayout.pagesIndicator.visibility = GONE
         binding.cardFooterView.setFooterActionText(
             card.footerActionText(),
             card.wikiSite().languageCode()
@@ -82,8 +82,8 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
     override fun setCard(card: OnThisDayCard) {
         super.setCard(card)
         age = card.age
-        setLayoutDirectionByWikiSite(card.wikiSite(), binding.viewRtlContainer)
-        binding.yearLayout.yearsText.text = DateUtil.getYearDifferenceString(card.year())
+        setLayoutDirectionByWikiSite(card.wikiSite(), binding.rtlContainer)
+        binding.eventLayout.yearsText.text = DateUtil.getYearDifferenceString(card.year())
         updateOtdEventUI(card)
         header(card)
         footer(card)
@@ -108,10 +108,10 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
     }
 
     private fun updateOtdEventUI(card: OnThisDayCard) {
-        binding.yearLayout.pagesPager.visibility = GONE
+        binding.eventLayout.pagesPager.visibility = GONE
         var chosenPage: PageSummary? = null
         if (card.pages() != null) {
-            binding.yearLayout.page.root.visibility = VISIBLE
+            binding.eventLayout.page.root.visibility = VISIBLE
             for (pageSummary in card.pages()!!) {
                 chosenPage = pageSummary
                 if (pageSummary.thumbnailUrl != null) {
@@ -121,28 +121,28 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
             val finalChosenPage = chosenPage
             chosenPage?.let { page ->
                 if (page.thumbnailUrl == null) {
-                    binding.yearLayout.page.image.visibility = GONE
+                    binding.eventLayout.page.image.visibility = GONE
                 } else {
-                    binding.yearLayout.page.image.visibility = VISIBLE
-                    binding.yearLayout.page.image.loadImage(Uri.parse(page.thumbnailUrl))
+                    binding.eventLayout.page.image.visibility = VISIBLE
+                    binding.eventLayout.page.image.loadImage(Uri.parse(page.thumbnailUrl))
                 }
-                binding.yearLayout.page.description.text = page.description
-                binding.yearLayout.page.description.visibility =
+                binding.eventLayout.page.description.text = page.description
+                binding.eventLayout.page.description.visibility =
                     if (page.description!!.isEmpty()) GONE else VISIBLE
-                binding.yearLayout.page.title.maxLines =
+                binding.eventLayout.page.title.maxLines =
                     if (page.description!!.isEmpty()) 2 else 1
-                binding.yearLayout.page.title.text = StringUtil.fromHtml(page.displayTitle)
-                binding.yearLayout.page.root.setOnClickListener {
+                binding.eventLayout.page.title.text = StringUtil.fromHtml(page.displayTitle)
+                binding.eventLayout.page.root.setOnClickListener {
                     callback?.onSelectPage(
                         card,
                         HistoryEntry(
                             finalChosenPage!!.getPageTitle(card.wikiSite()),
                             HistoryEntry.SOURCE_ON_THIS_DAY_CARD
                         ),
-                        TransitionUtil.getSharedElements(context, binding.yearLayout.page.image)
+                        TransitionUtil.getSharedElements(context, binding.eventLayout.page.image)
                     )
                 }
-                binding.yearLayout.page.root.setOnLongClickListener { view ->
+                binding.eventLayout.page.root.setOnLongClickListener { view ->
                     val pageTitle = finalChosenPage!!.getPageTitle(card.wikiSite())
                     val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD)
                     LongPressMenu(view!!, true, object : LongPressMenu.Callback {
@@ -152,7 +152,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
                                 entry,
                                 TransitionUtil.getSharedElements(
                                     context,
-                                    binding.yearLayout.page.image
+                                    binding.eventLayout.page.image
                                 )
                             )
                         }
@@ -202,7 +202,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
                 }
             }
         } else {
-            binding.yearLayout.page.root.visibility = GONE
+            binding.eventLayout.page.root.visibility = GONE
         }
     }
 }
