@@ -22,39 +22,52 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
 
-
     override var card: SuggestedEditsCard? = null
         set(value) {
+            field = value
             value?.let {
                 header(it)
-                updateContents()
+                updateContents(it)
             }
-            field = value
         }
 
     override var callback: FeedAdapter.Callback? = null
         set(value) {
+            field = value
             binding.headerView.setCallback(value)
         }
 
-    private fun updateContents() {
-        setUpPagerWithSECards()
-        binding.cardFooter.setFooterActionText(card!!.footerActionText(), null)
+    override fun updateCardContent(card: SuggestedEditsCard) {
+        this.card = card
+    }
+
+    override fun onFooterClicked() {
+        callback?.onSeCardFooterClicked()
+    }
+
+    private fun updateContents(card: SuggestedEditsCard) {
+        setUpPagerWithSECards(card)
+        binding.cardFooter.setFooterActionText(card.footerActionText(), null)
         binding.cardFooter.callback = this
     }
 
-    private fun setUpPagerWithSECards() {
+    private fun setUpPagerWithSECards(card: SuggestedEditsCard) {
         binding.seCardsPager.adapter = SECardsPagerAdapter(context as AppCompatActivity, card)
         binding.seCardsPager.offscreenPageLimit = 3
         TabLayoutMediator(binding.seCardsIndicatorLayout, binding.seCardsPager) { _: TabLayout.Tab, _: Int -> }.attach()
     }
 
-    class SECardsPagerAdapter(activity: AppCompatActivity?, card: SuggestedEditsCard?) : PositionAwareFragmentStateAdapter(activity!!) {
+    private fun header(card: SuggestedEditsCard) {
+        binding.headerView.setTitle(card.title())
+            .setLangCode("")
+            .setCard(card)
+            .setCallback(callback)
+    }
+
+    class SECardsPagerAdapter(activity: AppCompatActivity, private val card: SuggestedEditsCard) : PositionAwareFragmentStateAdapter(activity) {
         private val seCardTypeList = ArrayList<DescriptionEditActivity.Action>()
-        private var card: SuggestedEditsCard? = null
 
         init {
-            this.card = card
             seCardTypeList.add(ADD_DESCRIPTION)
             seCardTypeList.add(ADD_CAPTION)
             seCardTypeList.add(ADD_IMAGE_TAGS)
@@ -65,22 +78,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         }
 
         override fun createFragment(position: Int): Fragment {
-            return SuggestedEditsCardItemFragment.newInstance(card!!.age, seCardTypeList[position])
+            return SuggestedEditsCardItemFragment.newInstance(card.age, seCardTypeList[position])
         }
-    }
-
-    private fun header(card: SuggestedEditsCard) {
-        binding.headerView.setTitle(card.title())
-                .setLangCode("")
-                .setCard(card)
-                .setCallback(callback)
-    }
-
-    override fun updateCardContent(card: SuggestedEditsCard) {
-        this.card = card
-    }
-
-    override fun onFooterClicked() {
-        callback?.onSeCardFooterClicked()
     }
 }

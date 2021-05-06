@@ -8,7 +8,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.FeedCardView
 
-class OfflineCardView constructor(context: Context) : LinearLayout(context), FeedCardView<Card?> {
+class OfflineCardView(context: Context) : LinearLayout(context), FeedCardView<Card?> {
 
     private val binding = ViewCardOfflineBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -17,6 +17,7 @@ class OfflineCardView constructor(context: Context) : LinearLayout(context), Fee
     }
 
     override var callback: FeedAdapter.Callback? = null
+
     override var card: Card? = null
 
     // Hide the top padding when detached so that if this View is reused further down the feed, it

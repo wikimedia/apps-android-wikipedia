@@ -9,12 +9,13 @@ import org.wikipedia.databinding.ViewListCardBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.views.DrawableItemDecoration
 
+@Suppress("LeakingThis")
 abstract class ListCardView<T : Card?>(context: Context) : DefaultFeedCardView<T>(context) {
     interface Callback {
         fun onFooterClick(card: Card)
     }
 
-    private val binding = ViewListCardBinding.inflate(LayoutInflater.from(context))
+    private val binding = ViewListCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
         binding.viewListCardList.layoutManager = LinearLayoutManager(context)
@@ -26,6 +27,7 @@ abstract class ListCardView<T : Card?>(context: Context) : DefaultFeedCardView<T
 
     override var callback: FeedAdapter.Callback? = null
         set(value) {
+            field = value
             binding.viewListCardHeader.setCallback(value)
         }
 

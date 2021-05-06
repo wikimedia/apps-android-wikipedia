@@ -12,21 +12,19 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
 import org.wikipedia.util.L10nUtil.getStringForArticleLanguage
 
-class MainPageCardView constructor(context: Context) : DefaultFeedCardView<MainPageCard?>(context) {
+class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard?>(context) {
 
-    private val binding = ViewStaticCardBinding.inflate(LayoutInflater.from(context), this, false)
-
-    init {
-        addView(binding.root)
-    }
+    private val binding = ViewStaticCardBinding.inflate(LayoutInflater.from(context), this, true)
 
     override var callback: FeedAdapter.Callback? = null
         set(value) {
+            field = value
             binding.cardHeader.setCallback(value)
         }
 
     override var card: MainPageCard? = null
         set(value) {
+            field = value
             value?.let {
                 binding.cardHeader.setTitle(getStringForArticleLanguage(it.wikiSite().languageCode(), R.string.view_main_page_card_title))
                     .setLangCode(it.wikiSite().languageCode())
@@ -36,7 +34,6 @@ class MainPageCardView constructor(context: Context) : DefaultFeedCardView<MainP
                 binding.cardFooter.setFooterActionText(getStringForArticleLanguage(it.wikiSite().languageCode(),
                     R.string.view_main_page_card_action), it.wikiSite().languageCode())
             }
-            field = value
         }
 
     private fun goToMainPage() {
