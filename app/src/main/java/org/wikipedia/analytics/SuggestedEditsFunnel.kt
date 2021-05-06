@@ -169,7 +169,7 @@ class SuggestedEditsFunnel private constructor(app: WikipediaApp, private val in
         }
 
         fun get(): SuggestedEditsFunnel {
-            return if (INSTANCE?.invokeSource != InvokeSource.SUGGESTED_EDITS) {
+            return if (INSTANCE != null && INSTANCE!!.invokeSource != InvokeSource.SUGGESTED_EDITS) {
                 INSTANCE!!
             } else Companion[InvokeSource.SUGGESTED_EDITS]
         }
