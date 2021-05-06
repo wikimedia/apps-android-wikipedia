@@ -100,4 +100,9 @@ public class StringUtilTest {
     public void testRemoveCiteMarkup() {
         assertThat(StringUtil.removeCiteMarkup("Lorem <cite data=\"123\">test</cite> <i>ipsum</i>"), is("Lorem test <i>ipsum</i>"));
     }
+
+    @Test
+    public void testSanitizeAbuseFilterCode() {
+        assertThat(StringUtil.sanitizeAbuseFilterCode("⧼abusefilter-warning-selfpublished⧽"), is("abusefilter-warning-selfpublished"));
+    }
 }

@@ -90,7 +90,7 @@ object StringUtil {
 
     @JvmStatic
     fun sanitizeAbuseFilterCode(code: String): String {
-        return code.replace("⧼", "").replace("⧽", "")
+        return code.replace("[⧼⧽]".toRegex(), "")
     }
 
     @JvmStatic
