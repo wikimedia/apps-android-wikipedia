@@ -22,26 +22,17 @@ class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard?>(co
 
     override fun setCard(card: MainPageCard) {
         super.setCard(card)
-        binding.cardHeader
-            .setTitle(
-                getStringForArticleLanguage(
-                    getCard()!!.wikiSite().languageCode(), R.string.view_main_page_card_title
-                )
-            )
-            .setLangCode(getCard()!!.wikiSite().languageCode())
-            .setCard(getCard()!!)
-            .setCallback(callback)
+        binding.cardHeader.setTitle(getStringForArticleLanguage(getCard()!!.wikiSite().languageCode(), R.string.view_main_page_card_title))
+                .setLangCode(getCard()!!.wikiSite().languageCode())
+                .setCard(getCard()!!)
+                .setCallback(callback)
         binding.cardFooter.callback = object : CardFooterView.Callback {
             override fun onFooterClicked() {
                 goToMainPage()
             }
         }
-        binding.cardFooter.setFooterActionText(
-            getStringForArticleLanguage(
-                getCard()!!.wikiSite().languageCode(),
-                R.string.view_main_page_card_action
-            ), getCard()!!.wikiSite().languageCode()
-        )
+        binding.cardFooter.setFooterActionText(getStringForArticleLanguage(getCard()!!.wikiSite().languageCode(),
+                R.string.view_main_page_card_action), getCard()!!.wikiSite().languageCode())
     }
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
