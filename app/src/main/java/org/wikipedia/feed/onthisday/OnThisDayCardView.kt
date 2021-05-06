@@ -12,9 +12,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.FeedFunnel
-import org.wikipedia.databinding.ItemOnThisDayPagesBinding
 import org.wikipedia.databinding.ViewCardOnThisDayBinding
-import org.wikipedia.databinding.ViewOnThisDayEventBinding
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.view.CardFooterView
@@ -36,23 +34,21 @@ import org.wikipedia.util.TransitionUtil.getSharedElements
 class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(context), CardFooterView.Callback {
 
     private val binding = ViewCardOnThisDayBinding.inflate(LayoutInflater.from(context), this, true)
-    private val otdEventViewBinding = ViewOnThisDayEventBinding.inflate(LayoutInflater.from(context), this, true)
-    private val otdItemViewBinding = ItemOnThisDayPagesBinding.inflate(LayoutInflater.from(context), this, true)
-
     private val funnel = FeedFunnel(WikipediaApp.getInstance())
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var age = 0
 
     init {
         binding.clickContainer.setOnClickListener { view -> onCardClicked(view) }
-        otdEventViewBinding.year.setOnClickListener { view -> onCardClicked(view) }
+        binding.yearLayout.year.setOnClickListener { view -> onCardClicked(view) }
     }
 
     override fun onFooterClicked() {
         funnel.cardClicked(CardType.ON_THIS_DAY, card!!.wikiSite().languageCode())
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation((context as Activity),
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
-        context.startActivity(OnThisDayActivity.newIntent(context, age, -1, card!!.wikiSite(), InvokeSource.ON_THIS_DAY_CARD_FOOTER), options.toBundle())
+        context.startActivity(OnThisDayActivity.newIntent(context, age, -1, card!!.wikiSite(),
+                InvokeSource.ON_THIS_DAY_CARD_FOOTER), options.toBundle())
     }
 
     override fun setCallback(callback: FeedAdapter.Callback?) {
@@ -65,12 +61,12 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(callback)
-        otdEventViewBinding.text.text = card.text()
-        otdEventViewBinding.year.text = yearToStringWithEra(card.year())
+        binding.yearLayout.text.text = card.text()
+        binding.yearLayout.year.text = yearToStringWithEra(card.year())
     }
 
     private fun footer(card: OnThisDayCard) {
-        otdEventViewBinding.pagesIndicator.visibility = GONE
+        binding.yearLayout.pagesIndicator.visibility = GONE
         binding.cardFooterView.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode())
         binding.cardFooterView.callback = this
     }
@@ -79,7 +75,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
         super.setCard(card)
         age = card.age
         setLayoutDirectionByWikiSite(card.wikiSite(), binding.viewRtlContainer)
-        otdEventViewBinding.yearsText.text = getYearDifferenceString(card.year())
+        binding.yearLayout.yearsText.text = getYearDifferenceString(card.year())
         updateOtdEventUI(card)
         header(card)
         footer(card)
@@ -95,10 +91,10 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
     }
 
     private fun updateOtdEventUI(card: OnThisDayCard) {
-        otdEventViewBinding.pagesPager.visibility = GONE
+        binding.yearLayout.pagesPager.visibility = GONE
         var chosenPage: PageSummary? = null
         if (card.pages() != null) {
-            otdEventViewBinding.page.root.visibility = VISIBLE
+            binding.yearLayout.page.root.visibility = VISIBLE
             for (pageSummary in card.pages()!!) {
                 chosenPage = pageSummary
                 if (pageSummary.thumbnailUrl != null) {
@@ -108,28 +104,28 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
             val finalChosenPage = chosenPage
             if (chosenPage != null) {
                 if (chosenPage.thumbnailUrl == null) {
-                    otdItemViewBinding.image.visibility = GONE
+                    binding.yearLayout.page.image.visibility = GONE
                 } else {
-                    otdItemViewBinding.image.visibility = VISIBLE
-                    otdItemViewBinding.image.loadImage(Uri.parse(chosenPage.thumbnailUrl))
+                    binding.yearLayout.page.image.visibility = VISIBLE
+                    binding.yearLayout.page.image.loadImage(Uri.parse(chosenPage.thumbnailUrl))
                 }
-                otdItemViewBinding.description.text = chosenPage.description
-                otdItemViewBinding.description.visibility = if (TextUtils.isEmpty(chosenPage.description)) GONE else VISIBLE
-                otdItemViewBinding.title.maxLines = if (TextUtils.isEmpty(chosenPage.description)) 2 else 1
-                otdItemViewBinding.title.text = fromHtml(chosenPage.displayTitle)
-                otdEventViewBinding.page.root.setOnClickListener {
+                binding.yearLayout.page.description.text = chosenPage.description
+                binding.yearLayout.page.description.visibility = if (TextUtils.isEmpty(chosenPage.description)) GONE else VISIBLE
+                binding.yearLayout.page.title.maxLines = if (TextUtils.isEmpty(chosenPage.description)) 2 else 1
+                binding.yearLayout.page.title.text = fromHtml(chosenPage.displayTitle)
+                binding.yearLayout.page.root.setOnClickListener {
                     if (callback != null) {
                         callback!!.onSelectPage(card, HistoryEntry(finalChosenPage!!.getPageTitle(card.wikiSite()),
-                                HistoryEntry.SOURCE_ON_THIS_DAY_CARD), getSharedElements(context, otdItemViewBinding.image))
+                                HistoryEntry.SOURCE_ON_THIS_DAY_CARD), getSharedElements(context, binding.yearLayout.page.image))
                     }
                 }
-                otdEventViewBinding.page.root.setOnLongClickListener { view ->
+                binding.yearLayout.page.root.setOnLongClickListener { view ->
                     val pageTitle = finalChosenPage!!.getPageTitle(card.wikiSite())
                     val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD)
                     LongPressMenu(view!!, true, object : LongPressMenu.Callback {
                         override fun onOpenLink(entry: HistoryEntry) {
                             if (callback != null) {
-                                callback!!.onSelectPage(card, entry, getSharedElements(context, otdItemViewBinding.image))
+                                callback!!.onSelectPage(card, entry, getSharedElements(context, binding.yearLayout.page.image))
                             }
                         }
 
@@ -161,7 +157,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
                 }
             }
         } else {
-            otdEventViewBinding.page.root.visibility = GONE
+            binding.yearLayout.page.root.visibility = GONE
         }
     }
 }
