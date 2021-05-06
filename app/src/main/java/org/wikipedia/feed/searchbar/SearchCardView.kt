@@ -21,8 +21,8 @@ class SearchCardView(context: Context) : DefaultFeedCardView<SearchCard>(context
         binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.color_group_22))
         FeedbackUtil.setButtonLongPressToast(binding.voiceSearchButton)
 
-        binding.searchContainer.setOnClickListener { getCallback()?.onSearchRequested(it) }
-        binding.voiceSearchButton.setOnClickListener { getCallback()?.onVoiceSearchRequested() }
+        binding.searchContainer.setOnClickListener { callback?.onSearchRequested(it) }
+        binding.voiceSearchButton.setOnClickListener { callback?.onVoiceSearchRequested() }
         binding.voiceSearchButton.visibility = if (SpeechRecognizer.isRecognitionAvailable(context)) VISIBLE else GONE
     }
 }

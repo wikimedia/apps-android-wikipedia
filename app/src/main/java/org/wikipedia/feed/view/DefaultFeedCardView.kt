@@ -8,23 +8,8 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.util.L10nUtil.isLangRTL
 
 abstract class DefaultFeedCardView<T : Card?>(context: Context?) : LinearLayout(context), FeedCardView<T> {
-    private var card: T? = null
-    private var callback: FeedAdapter.Callback? = null
-    override fun setCard(card: T) {
-        this.card = card
-    }
-
-    override fun getCard(): T? {
-        return card
-    }
-
-    override fun setCallback(callback: FeedAdapter.Callback?) {
-        this.callback = callback
-    }
-
-    fun getCallback(): FeedAdapter.Callback? {
-        return callback
-    }
+    override var card: T? = null
+    override var callback: FeedAdapter.Callback? = null
 
     protected fun setLayoutDirectionByWikiSite(wiki: WikiSite, rootView: View) {
         rootView.layoutDirection =
