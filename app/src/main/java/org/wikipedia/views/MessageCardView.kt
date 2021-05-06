@@ -10,7 +10,7 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
+import org.wikipedia.analytics.LoginFunnel.Companion.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.databinding.ViewMessageCardBinding
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.StringUtil
