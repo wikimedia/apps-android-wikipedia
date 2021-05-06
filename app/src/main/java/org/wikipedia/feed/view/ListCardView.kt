@@ -24,10 +24,10 @@ abstract class ListCardView<T : Card?>(context: Context) : DefaultFeedCardView<T
         binding.viewListCardList.isNestedScrollingEnabled = false
     }
 
-    override fun setCallback(callback: FeedAdapter.Callback?) {
-        super.setCallback(callback)
-        binding.viewListCardHeader.setCallback(callback)
-    }
+    override var callback: FeedAdapter.Callback? = null
+        set(value) {
+            binding.viewListCardHeader.setCallback(value)
+        }
 
     protected fun set(adapter: RecyclerView.Adapter<*>?) {
         binding.viewListCardList.adapter = adapter

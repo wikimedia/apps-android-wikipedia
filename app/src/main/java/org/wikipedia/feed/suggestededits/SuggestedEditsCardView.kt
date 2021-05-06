@@ -21,22 +21,21 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private val binding = ViewSuggestedEditsCardBinding.inflate(LayoutInflater.from(context), this, true)
-    private var card: SuggestedEditsCard? = null
 
-    override fun setCard(card: SuggestedEditsCard) {
-        if (card == getCard()) {
-            return
+
+    override var card: SuggestedEditsCard? = null
+        set(value) {
+            value?.let {
+                header(it)
+                updateContents()
+            }
+            field = value
         }
-        super.setCard(card)
-        this.card = card
-        header(card)
-        updateContents()
-    }
 
-    override fun setCallback(callback: FeedAdapter.Callback?) {
-        super.setCallback(callback)
-        binding.headerView.setCallback(callback)
-    }
+    override var callback: FeedAdapter.Callback? = null
+        set(value) {
+            binding.headerView.setCallback(value)
+        }
 
     private fun updateContents() {
         setUpPagerWithSECards()
@@ -74,14 +73,14 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         binding.headerView.setTitle(card.title())
                 .setLangCode("")
                 .setCard(card)
-                .setCallback(getCallback())
+                .setCallback(callback)
     }
 
     override fun updateCardContent(card: SuggestedEditsCard) {
-        setCard(card)
+        this.card = card
     }
 
     override fun onFooterClicked() {
-        getCallback()?.onSeCardFooterClicked()
+        callback?.onSeCardFooterClicked()
     }
 }
