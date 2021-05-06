@@ -13,7 +13,7 @@ import org.wikipedia.databinding.ViewCardFooterBinding
 import org.wikipedia.util.L10nUtil
 
 class CardFooterView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
-    interface Callback {
+    fun interface Callback {
         fun onFooterClicked()
     }
 
