@@ -106,6 +106,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     @NonNull Observable<MwQueryResponse> getSiteInfo();
 
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
+    @NonNull Observable<MwParseResponse> parseText(@NonNull @Query("page") String pageTitle);
+
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     @NonNull Observable<MwParseResponse> parseTextForMainPage(@NonNull @Query("page") String mainPageTitle);
 
