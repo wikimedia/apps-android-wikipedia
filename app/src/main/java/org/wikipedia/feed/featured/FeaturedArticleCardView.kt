@@ -35,25 +35,27 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
                     MotionEvent.obtain(0, 0, MotionEvent.ACTION_CANCEL, 0f, 0f, 0)
                 )
             } else {
-                card?.let {
-                    LongPressMenu(view, true, object : LongPressMenu.Callback {
-                        override fun onOpenLink(entry: HistoryEntry) {
+                LongPressMenu(view, true, object : LongPressMenu.Callback {
+                    override fun onOpenLink(entry: HistoryEntry) {
+                        card?.let {
                             callback?.onSelectPage(it, entry, false)
                         }
+                    }
 
-                        override fun onOpenInNewTab(entry: HistoryEntry) {
+                    override fun onOpenInNewTab(entry: HistoryEntry) {
+                        card?.let {
                             callback?.onSelectPage(it, entry, true)
                         }
+                    }
 
-                        override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                            callback?.onAddPageToList(entry, addToDefault)
-                        }
+                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                        callback?.onAddPageToList(entry, addToDefault)
+                    }
 
-                        override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                            callback?.onMovePageToList(page!!.listId, entry)
-                        }
-                    }).show(it.historyEntry())
-                }
+                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                        callback?.onMovePageToList(page!!.listId, entry)
+                    }
+                }).show(card?.historyEntry())
             }
             false
         }
@@ -64,14 +66,10 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
             field = value
             value?.let {
                 setLayoutDirectionByWikiSite(it.wikiSite(), binding.viewFeaturedArticleCardContentContainer)
-                val articleTitle = it.articleTitle()
-                val articleSubtitle = it.articleSubtitle()
-                val extract = it.extract()
-                val imageUri = it.image()
-                articleTitle(articleTitle)
-                articleSubtitle(articleSubtitle)
-                extract(extract)
-                image(imageUri)
+                articleTitle(it.articleTitle())
+                articleSubtitle(it.articleSubtitle())
+                extract(it.extract())
+                image(it.image())
                 header(it)
                 footer(it)
             }

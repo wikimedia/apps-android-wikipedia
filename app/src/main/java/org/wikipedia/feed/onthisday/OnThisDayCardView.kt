@@ -27,8 +27,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TransitionUtil
 
-class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(context),
-    CardFooterView.Callback {
+class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(context), CardFooterView.Callback {
 
     private val binding = ViewCardOnThisDayBinding.inflate(LayoutInflater.from(context), this, true)
     private val funnel = FeedFunnel(WikipediaApp.getInstance())

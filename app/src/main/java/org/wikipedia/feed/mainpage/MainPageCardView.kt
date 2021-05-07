@@ -12,7 +12,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
 import org.wikipedia.util.L10nUtil.getStringForArticleLanguage
 
-class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard?>(context) {
+class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard>(context) {
 
     private val binding = ViewStaticCardBinding.inflate(LayoutInflater.from(context), this, true)
 

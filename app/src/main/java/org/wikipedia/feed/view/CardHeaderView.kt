@@ -25,7 +25,7 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
 
     private val binding = ViewCardHeaderBinding.inflate(LayoutInflater.from(context), this)
 
-    private lateinit var card: Card
+    private var card: Card? = null
     private var callback: Callback? = null
     var titleView = binding.viewCardHeaderTitle
         private set
@@ -35,12 +35,14 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
     }
 
     private fun showOverflowMenu(anchorView: View) {
-        val menu = PopupMenu(anchorView.context, anchorView, Gravity.END)
-        menu.menuInflater.inflate(R.menu.menu_feed_card_header, menu.menu)
-        val editCardLangItem = menu.menu.findItem(R.id.menu_feed_card_edit_card_languages)
-        editCardLangItem.isVisible = card.type().contentType().isPerLanguage
-        menu.setOnMenuItemClickListener(CardHeaderMenuClickListener())
-        menu.show()
+        card?.let {
+            val menu = PopupMenu(anchorView.context, anchorView, Gravity.END)
+            menu.menuInflater.inflate(R.menu.menu_feed_card_header, menu.menu)
+            val editCardLangItem = menu.menu.findItem(R.id.menu_feed_card_edit_card_languages)
+            editCardLangItem.isVisible = it.type().contentType().isPerLanguage
+            menu.setOnMenuItemClickListener(CardHeaderMenuClickListener())
+            menu.show()
+        }
     }
 
     fun setCard(card: Card): CardHeaderView {
@@ -79,21 +81,23 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
 
     private inner class CardHeaderMenuClickListener : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
-            return when (item.itemId) {
-                R.id.menu_feed_card_dismiss -> {
-                    callback?.onRequestDismissCard(card)
-                    true
+            return card?.let {
+                when (item.itemId) {
+                    R.id.menu_feed_card_dismiss -> {
+                        callback?.onRequestDismissCard(it)
+                        true
+                    }
+                    R.id.menu_feed_card_edit_card_languages -> {
+                        callback?.onRequestEditCardLanguages(it)
+                        true
+                    }
+                    R.id.menu_feed_card_customize -> {
+                        callback?.onRequestCustomize(it)
+                        true
+                    }
+                    else -> false
                 }
-                R.id.menu_feed_card_edit_card_languages -> {
-                    callback?.onRequestEditCardLanguages(card)
-                    true
-                }
-                R.id.menu_feed_card_customize -> {
-                    callback?.onRequestCustomize(card)
-                    true
-                }
-                else -> false
-            }
+            } ?: run { false }
         }
     }
 }

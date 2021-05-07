@@ -3,14 +3,12 @@ package org.wikipedia.feed.image
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.databinding.ViewCardFeaturedImageBinding
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.richtext.RichTextUtil.stripHtml
-import org.wikipedia.views.ImageZoomHelper.Companion.setViewZoomable
-import org.wikipedia.views.ViewUtil.adjustImagePlaceholderHeight
-import org.wikipedia.views.ViewUtil.loadImage
+import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewUtil
 
 class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImageCard>(context) {
 
@@ -27,7 +25,7 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
             field = value
             value?.let {
                 image(it.baseImage())
-                description(StringUtils.defaultString(it.description()))
+                description(it.description().orEmpty())
                 header(it)
                 setClickListeners()
             }
@@ -48,11 +46,11 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
     }
 
     private fun loadImage(image: FeaturedImage) {
-        setViewZoomable(binding.viewFeaturedImageCardImage)
-        loadImage(binding.viewFeaturedImageCardImage, image.thumbnailUrl)
+        ImageZoomHelper.setViewZoomable(binding.viewFeaturedImageCardImage)
+        ViewUtil.loadImage(binding.viewFeaturedImageCardImage, image.thumbnailUrl)
         binding.viewFeaturedImageCardImagePlaceholder.layoutParams = LayoutParams(
             binding.viewFeaturedImageCardContentContainer.width,
-            adjustImagePlaceholderHeight(
+            ViewUtil.adjustImagePlaceholderHeight(
                 binding.viewFeaturedImageCardContentContainer.width.toFloat(),
                 image.thumbnail.width.toFloat(),
                 image.thumbnail.height.toFloat()
@@ -61,7 +59,7 @@ class FeaturedImageCardView(context: Context) : DefaultFeedCardView<FeaturedImag
     }
 
     private fun description(text: String) {
-        binding.viewFeaturedImageCardImageDescription.text = stripHtml(text)
+        binding.viewFeaturedImageCardImageDescription.text = RichTextUtil.stripHtml(text)
     }
 
     private fun setClickListeners() {
