@@ -2,7 +2,6 @@ package org.wikipedia.feed.view
 
 import android.content.Context
 import android.graphics.LinearGradient
-import android.graphics.Shader
 import android.graphics.Shader.TileMode
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
