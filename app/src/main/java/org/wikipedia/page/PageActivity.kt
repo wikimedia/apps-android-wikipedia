@@ -51,7 +51,6 @@ import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
-import org.wikipedia.util.ClipboardUtil.setPlainText
 import org.wikipedia.views.*
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.widgets.WidgetProviderFeaturedPage
@@ -569,7 +568,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun copyLink(url: String) {
-        setPlainText(this, null, url)
+        ClipboardUtil.setPlainText(this, null, url)
     }
 
     private fun showCopySuccessMessage() {
