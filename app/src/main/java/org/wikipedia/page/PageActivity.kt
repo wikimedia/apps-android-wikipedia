@@ -134,7 +134,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         hasTransitionAnimation = intent.getBooleanExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, false)
         binding.wikiArticleCardView.visibility = if (hasTransitionAnimation) View.VISIBLE else View.GONE
 
-        // Search setup
         val languageChanged = savedInstanceState?.let {
             app.appOrSystemLanguageCode != savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY).orEmpty()
         } ?: false
