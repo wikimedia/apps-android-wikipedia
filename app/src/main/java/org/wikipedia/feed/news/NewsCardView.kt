@@ -44,6 +44,7 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
             field = value
             binding.headerView.setCallback(value)
         }
+
     override var card: NewsCard? = null
         set(value) {
             field = value

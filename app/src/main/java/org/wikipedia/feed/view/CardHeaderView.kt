@@ -27,6 +27,8 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
 
     private lateinit var card: Card
     private var callback: Callback? = null
+    var titleView = binding.viewCardHeaderTitle
+        private set
 
     init {
         binding.viewListCardHeaderMenu.setOnClickListener { showOverflowMenu(it) }
@@ -59,10 +61,6 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
     fun setTitle(@StringRes id: Int): CardHeaderView {
         binding.viewCardHeaderTitle.setText(id)
         return this
-    }
-
-    fun getTitleView(): View {
-        return binding.viewCardHeaderTitle
     }
 
     fun setLangCode(langCode: String?): CardHeaderView {
