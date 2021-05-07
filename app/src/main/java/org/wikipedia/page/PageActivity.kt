@@ -84,9 +84,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         try {
             setContentView(binding.root)
         } catch (e: Exception) {
-            if (!e.message.isNullOrEmpty() && e.message!!.toLowerCase(Locale.getDefault()).contains("webview") ||
+            if (!e.message.isNullOrEmpty() && e.message!!.toLowerCase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
                 !ThrowableUtil.getInnermostThrowable(e).message.isNullOrEmpty() &&
-                ThrowableUtil.getInnermostThrowable(e).message!!.toLowerCase(Locale.getDefault()).contains("webview")) {
+                ThrowableUtil.getInnermostThrowable(e).message!!.toLowerCase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
                 // If the system failed to inflate our activity because of the WebView (which could
                 // be one of several types of exceptions), it likely means that the system WebView
                 // is in the process of being updated. In this case, show the user a message and
@@ -135,14 +135,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.wikiArticleCardView.visibility = if (hasTransitionAnimation) View.VISIBLE else View.GONE
 
         // Search setup
-        var languageChanged = false
-        savedInstanceState?.let {
-            if (it.getBoolean("isSearching")) {
-                startActivity(SearchActivity.newIntent(this, InvokeSource.TOOLBAR, null))
-            }
-            val language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY)
-            languageChanged = app.appOrSystemLanguageCode != language
-        }
+        val languageChanged = savedInstanceState?.let {
+            app.appOrSystemLanguageCode != savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY).orEmpty()
+        } ?: false
+
         if (languageChanged) {
             app.resetWikiSite()
             loadMainPage(TabPosition.EXISTING_TAB)
@@ -183,7 +179,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onPause() {
         if (isCabOpen) {
-            // Explicitly close any current ActionMode (see T147191)
             onPageCloseActionMode()
         }
         super.onPause()
@@ -576,14 +571,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun showOverflowMenu(anchor: View) {
-        val overflowView = PageActionOverflowView(this)
-        overflowView.show(
-            anchor,
-            overflowCallback,
-            pageFragment.currentTab,
-            pageFragment.model.shouldLoadAsMobileWeb(),
-            pageFragment.model.isWatched,
-            pageFragment.model.hasWatchlistExpiry()
+        PageActionOverflowView(this).show(anchor, overflowCallback, pageFragment.currentTab,
+            pageFragment.model.shouldLoadAsMobileWeb(), pageFragment.model.isWatched, pageFragment.model.hasWatchlistExpiry()
         )
     }
 
@@ -687,8 +676,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 }
                 watchlistFunnel.logShowTooltip()
                 Prefs.setWatchlistPageOnboardingTooltipShown(true)
-                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu, R.layout.view_watchlist_page_tooltip,
-                    -32, -8, aboveOrBelow = false, autoDismiss = false)
+                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
+                    R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
             }, 500)
         }
     }
@@ -723,6 +712,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     companion object {
         private const val LANGUAGE_CODE_BUNDLE_KEY = "language"
+        private const val EXCEPTION_MESSAGE_WEBVIEW = "webview"
         const val ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab"
         const val ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab"
         const val ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash"
