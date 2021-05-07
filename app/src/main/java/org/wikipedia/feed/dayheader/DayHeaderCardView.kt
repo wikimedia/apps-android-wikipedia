@@ -8,7 +8,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.FeedCardView
 
-class DayHeaderCardView constructor(context: Context) : FrameLayout(context), FeedCardView<Card?> {
+class DayHeaderCardView constructor(context: Context) : FrameLayout(context), FeedCardView<Card> {
 
     private val binding = ViewCardDayHeaderBinding.inflate(LayoutInflater.from(context), this, true)
 

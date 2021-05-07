@@ -8,7 +8,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.feed.view.FeedCardView
 
-class AccessibilityCardView(context: Context) : LinearLayout(context), FeedCardView<Card?> {
+class AccessibilityCardView(context: Context) : LinearLayout(context), FeedCardView<Card> {
 
     private val binding = ViewCardAccessibilityBinding.inflate(LayoutInflater.from(context), this, true)
 
