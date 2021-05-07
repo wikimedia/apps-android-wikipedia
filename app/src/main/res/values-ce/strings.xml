@@ -45,11 +45,11 @@
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_activity_title">Кхолла декъашхочун агӀо</string>
   <string name="dialog_create_account_checking_progress">Таллар</string>
-  <string name="create_account_email_hint">Электронан поштан адрес (ца хилча бе яц)</string>
+  <string name="create_account_email_hint">Электронан поштан адрес (ца хилча а мега)</string>
   <string name="create_account_password_repeat_hint">Юху а язъе пароль</string>
-  <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш яц</string>
+  <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш йац</string>
   <string name="create_account_email_error">Магийна доцу электронан поштан адрес</string>
-  <string name="create_account_generic_error">Декъашхочун агӀо кхолла йиш яц</string>
+  <string name="create_account_generic_error">Декъашхочун агӀо кхолла йиш йац</string>
   <string name="create_account_next">Кхин дӀа</string>
   <string name="create_account_ip_block_details">Мадарра</string>
   <string name="preferences_general_heading">Юкъара</string>

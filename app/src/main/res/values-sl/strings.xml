@@ -836,7 +836,7 @@
   <string name="suggested_edits_task_new">novo</string>
   <string name="suggested_edits_cc0_notice">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;pogoji uporabe&lt;/a&gt; in ta prispevek nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Predlagana urejanja</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipediji! Zakaj ne bi nadaljevali, kjer ste končali?</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipedije! Zakaj ne bi nadaljevali, kjer ste končali?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Imate trenutek za nadaljnje izboljševanje Wikipedije? Oglejte si te predloge za urejanje.</string>
   <string name="suggested_edits_contributions_screen_title">Prispevki uporabnika/ce %s</string>
   <string name="suggested_edits_contribution_language_label">Jezik</string>

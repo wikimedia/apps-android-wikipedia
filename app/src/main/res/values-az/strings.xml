@@ -384,4 +384,5 @@
   <string name="wikitext_bold">Qalın</string>
   <string name="wikitext_template">Şablon</string>
   <string name="main_drawer_help">Kömək</string>
+  <string name="watchlist_expiry_dialog_title">İzləmədə saxlama müddətini seçin</string>
 </resources>
