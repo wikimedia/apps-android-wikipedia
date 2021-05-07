@@ -41,6 +41,7 @@
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
+  <string name="error_next">अगला</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
   <string name="history_item_deleted">%s को इतिहास से हटाया गया</string>
   <string name="history_items_deleted">%d लेख इतिहास से हटाए गए</string>

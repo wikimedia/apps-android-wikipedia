@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Dbrant
+* Jakub Fabijan
 * Juan Cuartas
 * KuboF
 * Luis Miguel Obando
@@ -35,6 +36,7 @@
   <string name="offline_load_error_retry">Reprovi</string>
   <string name="page_error_back_to_main">Reveni</string>
   <string name="error_back">Reveni</string>
+  <string name="error_next">Sekva</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="history_item_deleted">%s estas forigita de historio</string>
   <string name="history_items_deleted">%d artikoloj estis forigitaj de historio</string>

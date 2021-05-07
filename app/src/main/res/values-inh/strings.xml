@@ -27,6 +27,7 @@
   <string name="offline_load_error_retry">Цхьаькхаза хьажа</string>
   <string name="page_error_back_to_main">ТIехьашкахьа</string>
   <string name="error_back">ЮхагIо</string>
+  <string name="error_next">ДӀахо</string>
   <string name="menu_clear_all_history">IоцIенде тархьар</string>
   <string name="history_item_deleted">Статья \"%s\" дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
   <string name="history_items_deleted">%d статья дIаяьккхай хьалха хьийжа хиннача статьяшта юкъера</string>
@@ -437,11 +438,51 @@
   <string name="reading_list_item_delete_undo">Юхадаккха</string>
   <string name="reading_list_deleted">%s яха мугӀам дӀабаьккхаб</string>
   <string name="saved_list_empty_title">Дешара мугӀамаш хӀанзехьа дац</string>
+  <string name="reading_lists_empty_message">ТӀехьагӀа еша дӀаяхка статьяш, хье офлайн вале/яле а.</string>
+  <string name="reading_list_empty">Укх мугӀама чу статьяш дӀаяхкаяц</string>
+  <string name="reading_list_article_offline">Дунен мазаца хоттам беце а дешалуш да</string>
+  <string name="reading_list_article_make_offline">Офлайн éша йиш хургйолаш хилийта ер статья</string>
+  <string name="reading_list_add_to_other_list">Кхыча мугӀамá тӀатоха</string>
+  <string name="reading_list_move_to_other_list">Кхыча мугӀама чу дехьаяккха</string>
+  <string name="reading_list_move_from_to_other_list">%s яхачура кхыча мугӀама чу дехьаяккха</string>
+  <string name="reading_list_remove_from_list">%s яхачура дӀаяккха</string>
+  <string name="reading_list_remove_from_lists">ДӀаяккха éша дӀаяхкача статьяй мугӀамашкара</string>
+  <string name="reading_list_select_item">Хьахаржа</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Офлайн-режима чура дӀаяккха</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">дукха мугӀамашка йолаш я из статья</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s массадолча мугӀамашка кхы еша аьттув хургбац офлайн-режиме:</string>
+  <string name="reading_lists_sync_reminder_title">Дешара мугӀамай синхронизаци хьалсага езий?</string>
+  <string name="reading_lists_sync_reminder_text">Хьа мугӀамашкара еша дӀаяхкача статьяштеи хьа аккаунтаи хӀанз синхронизаци е йиш я. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Цу хьакъехьа дукхагӀа довза&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Дешара мугӀамашта хӀанз тайп-тайпара устройстваш чу синхронизаци е йиш я. Хьай аккаунта чу ваьлле/яьлле мугӀамаш дӀадахкар (дӀаяздар) могадайта. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Ма дарра довза&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Синхронизаци хьалсага</string>
+  <string name="reading_list_login_reminder_title">Дешара мугӀамá синхронизаци е</string>
+  <string name="reading_lists_login_reminder_text">Дешара мугӀамашта хӀанз тайп-тайпара устройстваш чу синхронизаци е йиш я. Хьай аккаунта чу ваьлле/яьлле мугӀамаш дӀадахкар (дӀаяздар) могадайта.</string>
   <string name="reading_lists_login_button">Чувалар</string>
   <string name="reading_lists_ignore_button">ХӀанзехьа эшац</string>
   <string name="reading_lists_confirm_remote_delete_yes">ХӀаъа</string>
   <string name="reading_lists_confirm_remote_delete_no">A</string>
   <string name="reading_list_article_save_in_progress">ОагӀув хьачуйоаккхаш латт. Из хьачуяькхха йистеяьлча офлайн еша аьттув хургба.</string>
+  <string name="reading_list_articles_added_to_named">«%2$s» яхача мугӀама чу статьяш чуяьхай (%1$d)</string>
+  <string name="reading_list_articles_moved_to_named">%1$d статья чуяьккхай %2$s яхача мугӀама чу</string>
+  <string name="reading_list_delete_confirm">Боккъонца безам бий хьа %s яха мугӀам дӀабаккха?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Чувала(яла), синхронизаци хьалсогаргйолаш</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Ража чу вала(яла), хьа дешара мугӀамаш хьа аккаунта чу дӀаяздергдолаш.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Эшац</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Чувáла/яла</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Дешара мугӀама синхронизаци дӀайоаяьй</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Reading list sync is off for your account, and saved articles on your logged-in devices are no longer being backed up. Turn on reading list sync in Settings.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Дика да</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Оттамаш</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Дешара мугӀама синхронизаци хьалсага езий?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Дешара мугӀамаш чу юкъеяьха йолча статьяшта хӀанз синхронизаци е йиш я хьа аккаунтаца. &lt;a href=\"#faq\"&gt;ДукхагӀа довза&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Кха хьа ма гойта ер хоам</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Синхронизаци хьалсага</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">А, баркал</string>
+  <string name="default_reading_list_name">ДӀаяхка йола статьяш</string>
+  <string name="default_reading_list_description">Ӏа еша дӀаяхка йолча статьяй юххьанцара хула мугӀам</string>
+  <string name="no_user_lists_title">Статьяех мугӀамаш хьа а деш дӀаязъе</string>
+  <string name="no_user_lists_msg">Дешара мугӀамаш хьаде, масала, хье хинна волча моттигех лаьца, хьай хьашт долча темаех лаьца, иштта кхы а</string>
+  <string name="reading_list_saved_list_rename">%1$s (доакъашхочо хьабаьб)</string>
   <string name="reading_lists_menu_create_list">Керда мугӀам хьабе</string>
   <string name="reading_lists_menu_sort_by">Къоастадеш дӀанийсде укх тайпара...</string>
   <string name="reading_lists_refresh_sync_option">Юха хеца синхронизаци</string>
@@ -584,6 +625,9 @@
   <string name="view_featured_article_card_title">Хержа статья</string>
   <string name="feed_configure_activity_title">Лентай оттамаш хувца</string>
   <string name="feed_item_type_because_you_read">Ӏа хьалхагӀа йийшача статьяшка хьажжа кхы а статьяш хьахьекхай</string>
+  <string name="feed_item_type_suggested_edits">ОагӀонех лаьцар тоаде йиш я.</string>
+  <string name="feed_empty_message">Хьа лента даьсса да</string>
+  <string name="feed_configure_onboarding_action">Оттамаш де</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ХӀАЪА</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Эшац</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Хьатоаде хьай лента&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ХӀанз хьа харжа аьттув ба фу гойташ хургда а хьа лента тӀа, цу юкъера хьайна дукхагӀа эшаш дар малагӀа да а.</string>
@@ -612,6 +656,8 @@
   <string name="description_edit_help_title">Хоам: статьяех лаьца дар</string>
   <string name="description_edit_help_about_wikidata">Викидарех лаьца</string>
   <string name="description_edit_help_wikidata_guide">Викидарий Кулгалдар: статьяех а файлех а лаьца мишта язде деза хьехаш</string>
+  <string name="description_edit_anon_limit">Баркал хьона статьяех лаьцар тоаде сакъердам хиларах! ДӀахо тоаде йиш хургйолаш, хьай аккаунта гӀолла Википеде чувала(-яла) веза(еза) хьа.</string>
+  <string name="description_edit_license_notice">Статьях лаьцар тоадарца, Ӏа къоабалду &lt;a href=\"%1$s\"&gt;пайда эцара бехкамаш&lt;/a&gt; а, &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; яхача лицензех дола тӀехьагӀа юхадоаккхалургдоаца кепатохар а.</string>
   <string name="description_edit_success_done">Кийча да</string>
   <string name="suggested_edits_menu_info">Хоам</string>
   <string name="suggested_edits_task_multilingual_positive">Метташ тӀатоха</string>
@@ -700,7 +746,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Хе́ца</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">ТӀехдика да хьона, ишта дӀахо дӀабахийта Ӏа болх! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Ден-денна хьаде лаьрхӀа хиннар кхоачашдаьд! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Хьаде лаьрхӀа хиннар кхоачашдаьд Ӏа</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">ХӀара дийнахьа де лаьрхӀар кхоачашдаьд Ӏа</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_skip">Теркал ма де</string>
