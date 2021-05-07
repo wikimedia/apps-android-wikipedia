@@ -19,18 +19,18 @@ class GradientCircleNumberView constructor(context: Context, attrs: AttributeSet
     private val gradientColor1 = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
     private val gradientColor2 = ContextCompat.getColor(context, R.color.green50)
 
-    fun setNumber(number: Int) {
-        binding.numberView.text = number.toString()
-        applyGradient()
-    }
-
     private fun applyGradient() {
-        val textShader: Shader = LinearGradient(0f, 0f, 0f, binding.numberView.textSize,
+        val textShader = LinearGradient(0f, 0f, 0f, binding.numberView.textSize,
                 intArrayOf(gradientColor2, gradientColor1, gradientColor2),
                 floatArrayOf(0f, 0.5f, 1f), TileMode.CLAMP)
         val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(gradientColor1, gradientColor2))
         gradientDrawable.cornerRadius = 90f
         binding.numberView.paint.shader = textShader
         binding.baseNumberView.background = gradientDrawable
+    }
+
+    fun setNumber(number: Int) {
+        binding.numberView.text = number.toString()
+        applyGradient()
     }
 }
