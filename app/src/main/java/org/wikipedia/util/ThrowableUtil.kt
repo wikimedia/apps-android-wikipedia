@@ -16,7 +16,6 @@ import javax.net.ssl.SSLException
 
 object ThrowableUtil {
     // TODO: replace with Apache Commons Lang ExceptionUtils.
-    @JvmStatic
     fun getInnermostThrowable(e: Throwable): Throwable {
         var t = e
         while (t.cause != null) {
