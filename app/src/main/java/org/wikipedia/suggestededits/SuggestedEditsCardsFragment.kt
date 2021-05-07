@@ -86,7 +86,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         Prefs.setImageRecsItemSequence(Prefs.getImageRecsItemSequenceSuccess())
 
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get().impression(action)
+        SuggestedEditsFunnel.get()!!.impression(action)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -251,12 +251,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onPause() {
         super.onPause()
-        SuggestedEditsFunnel.get().pause()
+        SuggestedEditsFunnel.get()!!.pause()
     }
 
     override fun onResume() {
         super.onResume()
-        SuggestedEditsFunnel.get().resume()
+        SuggestedEditsFunnel.get()!!.resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -439,7 +439,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
             updateActionButton()
-            SuggestedEditsFunnel.get().impression(action)
+            SuggestedEditsFunnel.get()!!.impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position

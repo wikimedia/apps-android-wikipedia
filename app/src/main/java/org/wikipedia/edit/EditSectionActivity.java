@@ -356,10 +356,19 @@ public class EditSectionActivity extends BaseActivity {
      * Processes API error codes encountered during editing, and handles them as appropriate.
      * @param caught The MwException to handle.
      */
+    @SuppressWarnings("checkstyle:magicnumber")
     private void handleEditingException(@NonNull MwException caught) {
         String code = caught.getTitle();
 
-        if ("editconflict".equals(code)) {
+        // In the case of certain AbuseFilter responses, they are sent as a code, instead of a
+        // fully parsed response. We need to make one more API call to get the parsed message:
+        if (code.startsWith("abusefilter-") && caught.getMessage().contains("abusefilter-") && caught.getMessage().length() < 100) {
+            disposables.add(ServiceFactory.get(title.getWikiSite()).parseText("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.getMessage()))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(response -> showError(new MwException(new MwServiceError(code, response.getText()))),
+                            this::showError));
+        } else if ("editconflict".equals(code)) {
             new AlertDialog.Builder(EditSectionActivity.this)
                     .setTitle(R.string.edit_conflict_title)
                     .setMessage(R.string.edit_conflict_message)
