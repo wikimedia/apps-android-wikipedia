@@ -240,23 +240,20 @@ public class WikipediaApp extends Application {
     }
 
     public <T> DatabaseClient<T> getDatabaseClient(Class<T> cls) {
-        if (!databaseClients.containsKey(cls)) {
-            DatabaseClient<?> client;
-            if (cls.equals(HistoryEntry.class)) {
-                client = new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
-            } else if (cls.equals(PageImage.class)) {
-                client = new DatabaseClient<>(this, PageImage.DATABASE_TABLE);
-            } else if (cls.equals(RecentSearch.class)) {
-                client = new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
-            } else if (cls.equals(EditSummary.class)) {
-                client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
+        //noinspection unchecked
+        return (DatabaseClient<T>) databaseClients.computeIfAbsent(cls, clazz -> {
+            if (clazz.equals(HistoryEntry.class)) {
+                return new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
+            } else if (clazz.equals(PageImage.class)) {
+                return new DatabaseClient<>(this, PageImage.DATABASE_TABLE);
+            } else if (clazz.equals(RecentSearch.class)) {
+                return new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
+            } else if (clazz.equals(EditSummary.class)) {
+                return new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }
-            databaseClients.put(cls, client);
-        }
-        //noinspection unchecked
-        return (DatabaseClient<T>) databaseClients.get(cls);
+        });
     }
 
     /**

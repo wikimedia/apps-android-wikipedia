@@ -81,11 +81,8 @@ public final class SharedPreferenceCookieManager implements CookieJar {
         for (Cookie cookie : cookies) {
             // Default to the URI's domain if cookie's domain is not explicitly set
             String domainSpec = TextUtils.isEmpty(cookie.domain()) ? url.uri().getAuthority() : cookie.domain();
-            if (!cookieJar.containsKey(domainSpec)) {
-                cookieJar.put(domainSpec, new ArrayList<>());
-            }
 
-            List<Cookie> cookieList = cookieJar.get(domainSpec);
+            final List<Cookie> cookieList = cookieJar.computeIfAbsent(domainSpec, key -> new ArrayList<>());
             if (cookie.expiresAt() < System.currentTimeMillis() || "deleted".equals(cookie.value())) {
                 Iterator<Cookie> i = cookieList.iterator();
                 while (i.hasNext()) {

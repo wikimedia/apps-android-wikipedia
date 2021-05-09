@@ -169,11 +169,7 @@ public final class EventPlatformClient {
         private static void send() {
             Map<String, ArrayList<Event>> eventsByStream = new HashMap<>();
             for (Event event : QUEUE) {
-                String stream = event.getStream();
-                if (!eventsByStream.containsKey(stream) || eventsByStream.get(stream) == null) {
-                    eventsByStream.put(stream, new ArrayList<>());
-                }
-                eventsByStream.get(stream).add(event);
+                eventsByStream.computeIfAbsent(event.getStream(), key -> new ArrayList<>()).add(event);
             }
             for (String stream : eventsByStream.keySet()) {
                 if (isEventLoggingEnabled()) {
