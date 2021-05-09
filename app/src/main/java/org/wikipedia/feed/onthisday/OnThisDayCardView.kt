@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.isGone
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -127,10 +128,8 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard?>(
                     binding.eventLayout.page.image.loadImage(Uri.parse(page.thumbnailUrl))
                 }
                 binding.eventLayout.page.description.text = page.description
-                binding.eventLayout.page.description.visibility =
-                    if (page.description!!.isEmpty()) GONE else VISIBLE
-                binding.eventLayout.page.title.maxLines =
-                    if (page.description!!.isEmpty()) 2 else 1
+                binding.eventLayout.page.description.isGone = page.description.isNullOrEmpty()
+                binding.eventLayout.page.title.maxLines = if (page.description.isNullOrEmpty()) 2 else 1
                 binding.eventLayout.page.title.text = StringUtil.fromHtml(page.displayTitle)
                 binding.eventLayout.page.root.setOnClickListener {
                     callback?.onSelectPage(
