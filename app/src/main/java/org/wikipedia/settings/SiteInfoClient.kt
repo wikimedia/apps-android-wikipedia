@@ -15,7 +15,7 @@ object SiteInfoClient {
 
     @JvmStatic
     fun getMainPageForLang(lang: String): String {
-        getSiteInfoForLang(lang)?.let {
+        SITE_INFO_MAP.getOrDefault(lang, null)?.let {
             if (!it.mainpage.isNullOrEmpty()) {
                 return it.mainpage
             }
@@ -26,17 +26,11 @@ object SiteInfoClient {
     @JvmStatic
     val maxPagesPerReadingList: Int
         get() {
-            val info = getSiteInfoForLang(WikipediaApp.getInstance().wikiSite.languageCode())
+            val info = SITE_INFO_MAP.getOrDefault(WikipediaApp.getInstance().wikiSite.languageCode(), null)
             return if (info?.readingListsConfig != null && info.readingListsConfig.maxEntriesPerList > 0) {
                 info.readingListsConfig.maxEntriesPerList
             } else Constants.MAX_READING_LIST_ARTICLE_LIMIT
         }
-
-    private fun getSiteInfoForLang(lang: String): SiteInfo? {
-        return if (SITE_INFO_MAP.containsKey(lang)) {
-            SITE_INFO_MAP[lang]
-        } else null
-    }
 
     @JvmStatic
     fun updateFor(wiki: WikiSite) {

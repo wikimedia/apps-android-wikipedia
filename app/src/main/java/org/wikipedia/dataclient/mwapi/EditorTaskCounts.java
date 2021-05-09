@@ -45,7 +45,7 @@ public class EditorTaskCounts {
         if (counts != null && !(counts instanceof JsonArray)) {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDepictsEdits;
         }
-        return editsPerLanguage == null ? 0 : editsPerLanguage.get("*") == null ? 0 : editsPerLanguage.get("*");
+        return editsPerLanguage == null ? 0 : editsPerLanguage.getOrDefault("*", 0);
     }
 
     public int getTotalEdits() {
@@ -102,7 +102,7 @@ public class EditorTaskCounts {
         if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
             revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appDepictsEdits;
         }
-        return revertsPerLanguage == null ? 0 : revertsPerLanguage.get("*") == null ? 0 : revertsPerLanguage.get("*");
+        return revertsPerLanguage == null ? 0 : revertsPerLanguage.getOrDefault("*", 0);
     }
 
     public int getTotalReverts() {

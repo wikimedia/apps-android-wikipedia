@@ -20,6 +20,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -226,13 +227,9 @@ public enum FeedContentType implements EnumCode {
             type.setEnabled(i < enabledList.size() ? enabledList.get(i) : true);
             type.setOrder(i < orderList.size() ? orderList.get(i) : i);
             type.langCodesSupported.clear();
-            if (langSupportedMap.containsKey(type.code)) {
-                type.langCodesSupported.addAll(langSupportedMap.get(type.code));
-            }
+            type.langCodesSupported.addAll(langSupportedMap.getOrDefault(type.code, Collections.emptyList()));
             type.langCodesDisabled.clear();
-            if (langDisabledMap.containsKey(type.code)) {
-                type.langCodesDisabled.addAll(langDisabledMap.get(type.code));
-            }
+            type.langCodesDisabled.addAll(langDisabledMap.getOrDefault(type.code, Collections.emptyList()));
         }
     }
 }

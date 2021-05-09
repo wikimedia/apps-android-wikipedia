@@ -173,7 +173,7 @@ public class MwQueryPage {
     }
 
     @NonNull public List<MwServiceError> getErrorForAction(String actionName) {
-        return (actions != null && actions.containsKey(actionName)) ? actions.get(actionName) : Collections.emptyList();
+        return actions != null ? actions.getOrDefault(actionName, Collections.emptyList()) : Collections.emptyList();
     }
 
     public static class Revision {

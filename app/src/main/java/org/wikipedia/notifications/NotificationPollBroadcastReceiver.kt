@@ -208,7 +208,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                             n.category() == Notification.CATEGORY_LOGIN_FAIL && Prefs.notificationLoginFailEnabled() ||
                             n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled() ||
                             Prefs.showAllNotifications()) {
-                        NotificationPresenter.showNotification(context, n, (if (DBNAME_WIKI_NAME_MAP.containsKey(n.wiki())) DBNAME_WIKI_NAME_MAP[n.wiki()] else n.wiki())!!)
+                        NotificationPresenter.showNotification(context, n, DBNAME_WIKI_NAME_MAP.getOrDefault(n.wiki(), n.wiki()))
                     }
                 }
             }
@@ -223,7 +223,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun markItemsAsRead(items: List<Notification>) {
             val notificationsPerWiki = mutableMapOf<WikiSite, MutableList<Notification>>()
             for (item in items) {
-                val wiki = if (DBNAME_WIKI_SITE_MAP.containsKey(item.wiki())) DBNAME_WIKI_SITE_MAP[item.wiki()]!! else WikipediaApp.getInstance().wikiSite
+                val wiki = DBNAME_WIKI_SITE_MAP.getOrDefault(item.wiki(), WikipediaApp.getInstance().wikiSite)
                 if (!notificationsPerWiki.containsKey(wiki)) {
                     notificationsPerWiki[wiki] = mutableListOf()
                 }

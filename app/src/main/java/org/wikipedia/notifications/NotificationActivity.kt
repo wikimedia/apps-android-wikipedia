@@ -261,7 +261,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
-            val wiki = if (dbNameMap.containsKey(item.notification!!.wiki())) dbNameMap[item.notification!!.wiki()]!! else WikipediaApp.getInstance().wikiSite
+            val wiki = dbNameMap.getOrDefault(item.notification!!.wiki(), WikipediaApp.getInstance().wikiSite)
             if (!notificationsPerWiki.containsKey(wiki)) {
                 notificationsPerWiki[wiki] = ArrayList()
             }
