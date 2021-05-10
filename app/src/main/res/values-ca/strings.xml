@@ -18,6 +18,7 @@
 * Macofe
 * Mguix
 * SMP
+* Skurz0
 * Ssola
 * Toniher
 * Unapersona
@@ -46,6 +47,7 @@
   <string name="offline_load_error_retry">Reintenta</string>
   <string name="page_error_back_to_main">Vés enrere</string>
   <string name="error_back">Enrere</string>
+  <string name="error_next">Següent</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
   <string name="history_item_deleted">%s eliminat de l\'historial</string>
   <string name="history_items_deleted">%d articles eliminats de l\'historial</string>
@@ -871,7 +873,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Inicia</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Fantàstica, som-hi! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Heu superat l\'objectiu diari! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Heu superat l\'objectiu</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Heu superat l\'objectiu diari</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Hi ha disponible una nova tasca d\'edicions suggerides. Consisteix a entrenar un algorisme per a fer correspondre imatges amb articles que no en tenen.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Els articles de la Viquipèdia són escrits i editats per milers de voluntaris d\'arreu del món. Malauradament, molts dels articles no tenen imatges.\n\nSe us suggeriran imatges mitjançant un algorisme. Aquest obtindrà imatges d\'altres fonts i us suggerirà correspondències amb articles que no tinguin imatges.\n\nEls vostres comentaris ens ajudaran a millorar els suggeriments al llarg del temps. Atès que l\'objectiu d\'aquesta tasca és millorar les imatges suggerides, les correspondències que feu no es publicaran en cap moment,</string>
   <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Voldríem reconèixer la vostra contribució en aquesta tasca. Voldríeu que el vostre nom d\'usuari aparegués a la pàgina d\'entrenament de l\'algorisme?</string>
@@ -957,6 +959,7 @@
   <string name="image_recommendations_task_processing">S\'està processant…</string>
   <string name="image_recommendations_task_instruction">Voleu afegir la imatge a l\'article?</string>
   <string name="image_recommendations_task_choice_no">Per què heu seleccionat «no»?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Escull una o múltiples raons.</string>
   <string name="image_recommendations_task_choice_unsure">Per què no n\'esteu segur de la imatge?</string>
   <string name="image_recommendations_task_choice_not_relevant">No és rellevant</string>
   <string name="image_recommendations_task_choice_low_quality">Baixa qualitat</string>

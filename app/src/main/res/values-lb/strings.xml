@@ -603,6 +603,7 @@
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Ufank</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">Dir hutt d\'Dageszil erreecht</string>
+  <string name="file_page_suggestion_reason">Grond fir d\'Propos</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>

@@ -5,6 +5,7 @@
 * Alidemirtas
 * BaRaN6161 TURK
 * Bulgu
+* Cobija
 * Cooltey
 * Dbrant
 * Envlh
@@ -357,7 +358,7 @@
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
   <string name="page_offline_notice_cannot_load_while_offline">Madde çevrimdışı iken yüklenemez.</string>
   <string name="page_offline_notice_add_to_reading_list">İpucu: Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
-  <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrim dışı sürümünü okuyorsunuz.</string>
+  <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrimdışı sürümünü okuyorsunuz.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_customize_explore_feed">Yayın Akışını Keşfedin</string>
@@ -741,7 +742,7 @@
   <string name="suggested_edits_task_image_caption_description">Resimlere eksik kısa resim yazıları ekleyin</string>
   <string name="suggested_edits_task_translate_caption_title">Resim başlıklarını çevir</string>
   <string name="suggested_edits_task_translate_caption_description">Resim başlıklarını diğer dillere çevir</string>
-  <string name="suggested_edits_task_multilingual_title">Çok dilli editörler için daha fazla görev</string>
+  <string name="suggested_edits_task_multilingual_title">Çokdilli editörler için daha fazla görev</string>
   <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Siz %d resim altyazısını düzenleyene kadar kilitlendi</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d madde açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
