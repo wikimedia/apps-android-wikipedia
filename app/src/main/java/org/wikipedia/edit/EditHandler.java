@@ -48,7 +48,6 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         }
         Section section = currentPage.getSections().get(sectionID);
         Intent intent = new Intent(fragment.getActivity(), EditSectionActivity.class);
-        intent.setAction(EditSectionActivity.ACTION_EDIT_SECTION);
         intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.getId());
         intent.putExtra(EditSectionActivity.EXTRA_SECTION_HEADING, section.getHeading());
         intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
