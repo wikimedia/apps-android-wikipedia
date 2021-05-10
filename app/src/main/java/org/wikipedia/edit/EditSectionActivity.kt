@@ -39,25 +39,16 @@ import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.login.LoginActivity.Companion.newIntent
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageProperties
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog.Companion.newInstance
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
-import org.wikipedia.util.FeedbackUtil.showError
-import org.wikipedia.util.FeedbackUtil.showMessage
-import org.wikipedia.util.L10nUtil.setConditionalTextDirection
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.util.StringUtil.highlightEditText
-import org.wikipedia.util.StringUtil.sanitizeAbuseFilterCode
-import org.wikipedia.util.UriUtil.handleExternalLink
-import org.wikipedia.util.log.L.e
-import org.wikipedia.views.ViewAnimations.crossFade
-import org.wikipedia.views.ViewUtil.setCloseButtonInActionMode
+import org.wikipedia.util.*
+import org.wikipedia.util.log.L
+import org.wikipedia.views.ViewAnimations
+import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiTextKeyboardView
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -105,10 +96,8 @@ class EditSectionActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditSectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setNavigationBarColor(getThemedColor(this, android.R.attr.colorBackground))
-        if (intent.action != ACTION_EDIT_SECTION) {
-            throw RuntimeException("Much wrong action. Such exception. Wow")
-        }
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
+
         pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, 0)
         sectionHeading = intent.getStringExtra(EXTRA_SECTION_HEADING)
@@ -136,7 +125,7 @@ class EditSectionActivity : BaseActivity() {
             fetchSectionText()
         }
         binding.viewEditSectionError.backClickListener = View.OnClickListener { onBackPressed() }
-        setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode())
+        L10nUtil.setConditionalTextDirection(binding.editSectionText, pageTitle.wikiSite.languageCode())
         fetchSectionText()
         if (savedInstanceState != null && savedInstanceState.containsKey("sectionTextModified")) {
             sectionTextModified = savedInstanceState.getBoolean("sectionTextModified")
@@ -149,13 +138,13 @@ class EditSectionActivity : BaseActivity() {
             if (!sectionTextModified) {
                 sectionTextModified = true
                 // update the actionbar menu, which will enable the Next button.
-                supportInvalidateOptionsMenu()
+                invalidateOptionsMenu()
             }
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
         binding.editKeyboardOverlay.callback = WikiTextKeyboardView.Callback {
             bottomSheetPresenter.show(supportFragmentManager,
-                    newInstance(HistoryEntry(PageTitle(it, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
+                    LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(it, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null))
         }
         binding.editSectionText.setOnClickListener { finishActionMode() }
         updateTextSize()
@@ -180,17 +169,17 @@ class EditSectionActivity : BaseActivity() {
 
     private fun updateEditLicenseText() {
         val editLicenseText = findViewById<TextView>(R.id.edit_section_license_text)
-        editLicenseText.text = fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+        editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url)))
         editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
                 funnel.logLoginAttempt()
-                val loginIntent = newIntent(this@EditSectionActivity,
+                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity,
                         LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
                 startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN)
             } else {
-                handleExternalLink(this@EditSectionActivity, url.toUri())
+                UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
             }
         }
     }
@@ -201,7 +190,7 @@ class EditSectionActivity : BaseActivity() {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
                 updateEditLicenseText()
                 funnel.logLoginSuccess()
-                showMessage(this, R.string.login_success_toast)
+                FeedbackUtil.showMessage(this, R.string.login_success_toast)
             } else {
                 funnel.logLoginFailure()
             }
@@ -216,7 +205,7 @@ class EditSectionActivity : BaseActivity() {
         var summaryText = if (sectionHeading.isNullOrEmpty()) "" else "/* $sectionHeading */ "
         summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
-        summaryText = fromHtml(summaryText).toString()
+        summaryText = StringUtil.fromHtml(summaryText).toString()
         if (!isFinishing) {
             showProgressBar(true)
         }
@@ -258,7 +247,7 @@ class EditSectionActivity : BaseActivity() {
                 val data = Intent()
                 data.putExtra(EXTRA_SECTION_ID, sectionID)
                 setResult(EditHandler.RESULT_REFRESH_PAGE, data)
-                hideSoftKeyboard(this@EditSectionActivity)
+                DeviceUtil.hideSoftKeyboard(this@EditSectionActivity)
                 finish()
             }
             return
@@ -286,7 +275,7 @@ class EditSectionActivity : BaseActivity() {
         } else {
             showRetryDialog(caught)
         }
-        e(caught)
+        L.e(caught)
     }
 
     private fun showRetryDialog(t: Throwable) {
@@ -311,7 +300,7 @@ class EditSectionActivity : BaseActivity() {
         // In the case of certain AbuseFilter responses, they are sent as a code, instead of a
         // fully parsed response. We need to make one more API call to get the parsed message:
         if (code.startsWith("abusefilter-") && caught.message.contains("abusefilter-") && caught.message.length < 100) {
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).parseText("MediaWiki:" + sanitizeAbuseFilterCode(caught.message))
+            disposables.add(ServiceFactory.get(pageTitle.wikiSite).parseText("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.text))) }) { showError(it) })
@@ -346,7 +335,7 @@ class EditSectionActivity : BaseActivity() {
             }
             else -> {
                 // we must be showing the editing window, so show the Preview.
-                hideSoftKeyboard(this)
+                DeviceUtil.hideSoftKeyboard(this)
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
                 funnel.logPreview()
             }
@@ -392,7 +381,7 @@ class EditSectionActivity : BaseActivity() {
         val actionBarButtonBinding = ItemEditActionbarButtonBinding.inflate(layoutInflater)
         item.actionView = actionBarButtonBinding.root
         actionBarButtonBinding.editActionbarButtonText.text = item.title
-        actionBarButtonBinding.editActionbarButtonText.setTextColor(getThemedColor(this,
+        actionBarButtonBinding.editActionbarButtonText.setTextColor(ResourceUtil.getThemedColor(this,
                 if (item.isEnabled) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
         actionBarButtonBinding.root.tag = item
         actionBarButtonBinding.root.isEnabled = item.isEnabled
@@ -404,12 +393,12 @@ class EditSectionActivity : BaseActivity() {
         super.onActionModeStarted(mode)
         if (mode.tag == null) {
             // since we disabled the close button in the AndroidManifest.xml, we need to manually setup a close button when in an action mode if long pressed on texts.
-            setCloseButtonInActionMode(this@EditSectionActivity, mode)
+            ViewUtil.setCloseButtonInActionMode(this@EditSectionActivity, mode)
         }
     }
 
     fun showError(caught: Throwable?) {
-        hideSoftKeyboard(this)
+        DeviceUtil.hideSoftKeyboard(this)
         binding.viewEditSectionError.setError(caught)
         binding.viewEditSectionError.visibility = View.VISIBLE
     }
@@ -491,13 +480,13 @@ class EditSectionActivity : BaseActivity() {
                             editingAllowed = true
                         } else {
                             val error = editError[0]
-                            showError(this, MwException(error))
+                            FeedbackUtil.showError(this, MwException(error))
                         }
                         displaySectionText()
                     }) { throwable: Throwable? ->
                         showProgressBar(false)
                         showError(throwable)
-                        e(throwable)
+                        L.e(throwable)
                     })
         } else {
             displaySectionText()
@@ -506,7 +495,7 @@ class EditSectionActivity : BaseActivity() {
 
     private fun displaySectionText() {
         binding.editSectionText.setText(sectionWikitext)
-        crossFade(binding.viewProgressBar, binding.editSectionContainer)
+        ViewAnimations.crossFade(binding.viewProgressBar, binding.editSectionContainer)
         scrollToHighlight(textToHighlight)
         binding.editSectionText.isEnabled = editingAllowed
         binding.editKeyboardOverlay.isVisible = editingAllowed
@@ -519,14 +508,14 @@ class EditSectionActivity : BaseActivity() {
         binding.editSectionText.post {
             binding.editSectionScroll.fullScroll(View.FOCUS_DOWN)
             binding.editSectionText.postDelayed(500) {
-                highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
+                StringUtil.highlightEditText(binding.editSectionText, sectionWikitext!!, highlightText)
             }
         }
     }
 
     fun showProgressBar(enable: Boolean) {
         binding.viewProgressBar.isVisible = enable
-        supportInvalidateOptionsMenu()
+        invalidateOptionsMenu()
     }
 
     /**
@@ -557,7 +546,7 @@ class EditSectionActivity : BaseActivity() {
             editPreviewFragment.hide(binding.editSectionContainer)
             return
         }
-        hideSoftKeyboard(this)
+        DeviceUtil.hideSoftKeyboard(this)
         if (sectionTextModified) {
             val alert = AlertDialog.Builder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
@@ -573,7 +562,6 @@ class EditSectionActivity : BaseActivity() {
     }
 
     companion object {
-        const val ACTION_EDIT_SECTION = "org.wikipedia.edit_section"
         const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_HEADING = "org.wikipedia.edit_section.sectionheading"

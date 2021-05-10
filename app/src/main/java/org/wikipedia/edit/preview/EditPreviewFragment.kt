@@ -41,6 +41,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     private lateinit var references: PageReferences
     private lateinit var otherTag: EditSummaryTag
     private lateinit var funnel: EditFunnel
+    override lateinit var linkHandler: LinkHandler
 
     private var _binding: FragmentPreviewEditBinding? = null
     private val binding get() = _binding!!
@@ -55,7 +56,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
     override val isPreview = true
     override val toolbarMargin = 0
-    override val linkHandler = EditLinkHandler(requireContext())
 
     override val referencesGroup: List<PageReferences.Reference>?
         get() = references.referencesGroup
@@ -96,11 +96,12 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewEditBinding.inflate(layoutInflater, container, false)
         bridge = CommunicationBridge(this)
-        initWebView()
         val pageTitle = (requireActivity() as EditSectionActivity).pageTitle
         model.title = pageTitle
         model.curEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK)
         funnel = WikipediaApp.getInstance().funnelManager.getEditFunnel(pageTitle)
+        linkHandler = EditLinkHandler(requireContext())
+        initWebView()
 
         // build up summary tags...
         val summaryTagStrings = intArrayOf(
@@ -279,11 +280,11 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
          * @param runnable The runnable that is run if the user chooses to leave.
          */
         private fun showLeavingEditDialogue(runnable: Runnable) {
-            //Ask the user if they really meant to leave the edit workflow
+            // Ask the user if they really meant to leave the edit workflow
             val leavingEditDialog = AlertDialog.Builder(requireActivity())
                 .setMessage(R.string.dialog_message_leaving_edit)
                 .setPositiveButton(R.string.dialog_message_leaving_edit_leave) { dialog: DialogInterface, _: Int ->
-                    //They meant to leave; close dialogue and run specified action
+                    // They meant to leave; close dialogue and run specified action
                     dialog.dismiss()
                     runnable.run()
                 }
