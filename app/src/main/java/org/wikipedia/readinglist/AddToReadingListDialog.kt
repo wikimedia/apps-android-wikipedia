@@ -86,7 +86,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateLists() {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().allLists }
+        disposables.add(Observable.fromCallable { ReadingListDbHelper.allLists }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ lists ->
@@ -117,14 +117,14 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun showCreateListDialog() {
-        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title() }) { text, description ->
-            addAndDismiss(ReadingListDbHelper.instance().createList(text, description), titles)
+        readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }) { text, description ->
+            addAndDismiss(ReadingListDbHelper.createList(text, description), titles)
         }.show()
     }
 
     private fun addAndDismiss(readingList: ReadingList, titles: List<PageTitle>?) {
-        if (readingList.pages().size + titles!!.size > SiteInfoClient.maxPagesPerReadingList) {
-            val message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.maxPagesPerReadingList)
+        if (readingList.pages.size + titles!!.size > SiteInfoClient.maxPagesPerReadingList) {
+            val message = getString(R.string.reading_list_article_limit_message, readingList.title, SiteInfoClient.maxPagesPerReadingList)
             makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show()
             dismiss()
             return
@@ -139,15 +139,15 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles) }
+        disposables.add(Observable.fromCallable { ReadingListDbHelper.addPagesToListIfNotExist(readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ addedTitlesList ->
                     val message: String
                     if (addedTitlesList.isEmpty()) {
-                        message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title(), titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title())
+                        message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
                     } else {
-                        message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title()) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title())
+                        message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
                         ReadingListsFunnel().logAddToList(readingList, readingLists.size, invokeSource)
                     }
                     showViewListSnackBar(readingList, message)

@@ -95,7 +95,7 @@ class RandomFragment : Fragment() {
         }
 
         funnel = RandomizerFunnel(WikipediaApp.getInstance(), wikiSite,
-                arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)
+                (arguments?.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? InvokeSource)!!)
 
         return view
     }
@@ -151,7 +151,7 @@ class RandomFragment : Fragment() {
                 }
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    onMovePageToList(page!!.listId(), title)
+                    onMovePageToList(page!!.listId, title)
                 }
             }).show(HistoryEntry(title, HistoryEntry.SOURCE_RANDOM))
         } else {
@@ -210,7 +210,7 @@ class RandomFragment : Fragment() {
             return
         }
 
-        val d = Observable.fromCallable { ReadingListDbHelper.instance().findPageInAnyList(title) != null }
+        val d = Observable.fromCallable { ReadingListDbHelper.findPageInAnyList(title) != null }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ exists: Boolean ->
@@ -284,7 +284,7 @@ class RandomFragment : Fragment() {
                     return
                 }
                 for (page in event.pages) {
-                    if (page.apiTitle() == topTitle?.prefixedText && page.wiki().languageCode() == topTitle?.wikiSite?.languageCode()) {
+                    if (page.apiTitle == topTitle?.prefixedText && page.wiki.languageCode() == topTitle?.wikiSite?.languageCode()) {
                         updateSaveShareButton(topTitle)
                     }
                 }

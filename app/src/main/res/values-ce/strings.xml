@@ -30,7 +30,7 @@
   <string name="dialog_message_edit_failed_retry">ЮхагӀорта</string>
   <string name="dialog_message_edit_failed_cancel">Цаоьшу</string>
   <string name="menu_show_toc">Чулацам</string>
-  <string name="title_captcha">Язъе капча</string>
+  <string name="title_captcha">Йазйе капча</string>
   <string name="nav_item_login" fuzzy="true">ЧугӀо</string>
   <string name="login_username_hint">Декъашхочун цӀе</string>
   <string name="login_password_hint">Пароль</string>
@@ -45,14 +45,14 @@
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_activity_title">Кхолла декъашхочун агӀо</string>
   <string name="dialog_create_account_checking_progress">Таллар</string>
-  <string name="create_account_email_hint">Электронан поштан адрес (ца хилча бе яц)</string>
-  <string name="create_account_password_repeat_hint">Юху а язъе пароль</string>
-  <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш яц</string>
+  <string name="create_account_email_hint">Электронан поштан адрес (ца хилча а мега)</string>
+  <string name="create_account_password_repeat_hint">Йуха а йазйе пароль</string>
+  <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш йац</string>
   <string name="create_account_email_error">Магийна доцу электронан поштан адрес</string>
-  <string name="create_account_generic_error">Декъашхочун агӀо кхолла йиш яц</string>
+  <string name="create_account_generic_error">Декъашхочун агӀо кхолла йиш йац</string>
   <string name="create_account_next">Кхин дӀа</string>
   <string name="create_account_ip_block_details">Мадарра</string>
-  <string name="preferences_general_heading">Юкъара</string>
+  <string name="preferences_general_heading">Йукъара</string>
   <string name="send_feedback">ЗӀе</string>
   <string name="settings_activity_title" fuzzy="true">Параметраш</string>
   <string name="privacy_policy_description">Къайлаха политика</string>
@@ -76,7 +76,7 @@
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title" fuzzy="true">Лицензин йоза %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолаялита цаелира.</string>
-  <string name="crash_report_relaunch">Юху доладан</string>
+  <string name="crash_report_relaunch">Йуха доладан</string>
   <string name="crash_report_quit">АрагӀо</string>
   <string name="color_theme_select">Кечяр</string>
   <string name="color_theme_light">Сирла</string>
@@ -100,7 +100,7 @@
   <string name="suggested_edits_contribution_image_label">Сурт</string>
   <string name="app_shortcuts_search">Лахар</string>
   <string name="on_this_day_dialog_next_month">РогӀера бутт</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ДӀабаккха цийн мотт могӀаман юкъара?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ДӀабаккха цийн мотт могӀаман йукъара?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Хийца меттанаш</string>
   <string name="main_tooltip_watchlist_title">Тергаме могӀам</string>
   <string name="thank_label">Баркалла</string>

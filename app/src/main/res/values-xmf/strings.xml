@@ -290,7 +290,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">დოჭყაფა</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">მანგარი რე, ათაშ ქაჸუნით! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">დღაშ ღანკი მეჭირინაფილი რე!👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">თქვა ქემიოჭირინეთ ღანკის</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">თქვა ქემიოჭირინეთ ღანკის</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>

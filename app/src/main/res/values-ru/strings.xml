@@ -45,6 +45,7 @@
 * Rubin16
 * SimondR
 * Smigles
+* Soul Train
 * Staspotanin2
 * Stjn
 * Teretalexev
@@ -83,6 +84,7 @@
   <string name="offline_load_error_retry">Повторить</string>
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
+  <string name="error_next">Далее</string>
   <string name="menu_clear_all_history">Очистить историю</string>
   <string name="history_item_deleted">Статья \"%s\" удалена из истории просмотров</string>
   <string name="history_items_deleted">%d статей удалено из истории просмотров</string>
@@ -465,6 +467,7 @@
   <string name="reading_list_name_hint">Название этого списка</string>
   <string name="reading_list_description_hint">Описание (необязательно)</string>
   <string name="reading_list_item_deleted">%s удалено из списка</string>
+  <string name="reading_list_item_deleted_from_list">%1$s удалена из %2$s</string>
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_lists_item_deleted">%s удалено из списков</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
@@ -629,6 +632,7 @@
   <string name="view_random_card_title">Рандомизатор</string>
   <string name="view_random_article_card_title">Случайная статья</string>
   <string name="view_random_article_card_action">Ещё случайные статьи</string>
+  <string name="view_top_read_card_title">Самые читаемые</string>
   <string name="view_next_random_article">Скачать другую случайную статью</string>
   <string name="view_main_page_card_title">Сегодня в Википедии</string>
   <string name="view_main_page_card_action">Посмотреть Заглавную страницу</string>
@@ -834,6 +838,7 @@
   <string name="suggested_edits_ip_blocked_title">IP заблокирован</string>
   <string name="suggested_edits_last_edited">Последнее изменение</string>
   <string name="suggested_edits_last_edited_never">Никогда</string>
+  <string name="suggested_edits_task_new">новая</string>
   <string name="suggested_edits_reactivation_notification_title">Предложенные правки</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Есть минутка, чтобы продолжить улучшать Википедию? Ознакомьтесь с этими предложениями по редактированию.</string>
   <string name="suggested_edits_contribution_language_label">Язык</string>
@@ -844,11 +849,11 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Войти в Википедию</string>
-  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Текущая версия</string>
+  <string name="suggested_edits_contribution_current_revision_text">В настоящий момент ваша правка в Википедии — самая последняя</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Начать</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Великолепно, продолжайте в том же духе! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Ежедневная цель достигнута! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Вы достигли цели</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Вы достигли ежедневной цели</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>
@@ -891,6 +896,7 @@
     <item quantity="many">%d лет назад</item>
     <item quantity="other">%d лет назад</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">Вы совершили путешествие во времени 🚀</string>
   <string name="on_this_day_back_to_future">Назад в будущее</string>
   <string name="languages_list_activity_title">Добавить язык</string>
   <string name="languages_list_suggested_text">Предложенные</string>
@@ -929,6 +935,9 @@
   <string name="image_recommendations_task_reject">Нет</string>
   <string name="image_recommendations_task_not_sure">Затрудняюсь ответить</string>
   <string name="image_recommendations_task_processing">Обработка…</string>
+  <string name="image_recommendations_task_choice_noinfo">Не хватает информации</string>
+  <string name="image_recommendations_task_choice_nosubject">Не знаю эту тему</string>
+  <string name="image_recommendations_task_choice_other">Другое</string>
   <string name="image_recommendations_task_choice_continue">Продолжить</string>
   <string name="image_recommendations_faq">ЧаВо</string>
   <string name="wikitext_bold">Полужирный</string>

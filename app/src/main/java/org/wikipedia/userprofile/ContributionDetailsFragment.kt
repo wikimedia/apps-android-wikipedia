@@ -85,19 +85,19 @@ class ContributionDetailsFragment : Fragment() {
     private fun startTypeSpecificActivity() {
         when (contribution.editType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                UserContributionFunnel.get().logNavigateDescription()
+                UserContributionFunnel.get()!!.logNavigateDescription()
                 UserContributionEvent.logNavigateDescription()
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                UserContributionFunnel.get().logNavigateCaption()
+                UserContributionFunnel.get()!!.logNavigateCaption()
                 UserContributionEvent.logNavigateCaption()
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                UserContributionFunnel.get().logNavigateTag()
+                UserContributionFunnel.get()!!.logNavigateTag()
                 UserContributionEvent.logNavigateTag()
             }
             else -> {
-                UserContributionFunnel.get().logNavigateMisc()
+                UserContributionFunnel.get()!!.logNavigateMisc()
                 UserContributionEvent.logNavigateMisc()
             }
         }

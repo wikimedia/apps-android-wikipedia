@@ -32,6 +32,7 @@
   <string name="offline_load_error_retry">Повторен опит</string>
   <string name="page_error_back_to_main">Назад</string>
   <string name="error_back">Назад</string>
+  <string name="error_next">Следваща</string>
   <string name="menu_clear_all_history">Изчистване на историята</string>
   <string name="history_item_deleted">%s е премахната от историята</string>
   <string name="history_items_deleted">%d статии са премахнати от историята</string>
@@ -704,7 +705,7 @@
   <string name="suggested_edits_image_captions_task_detail">Опишете изображение, за да помогнете на читателите да разберат смисъла и контекста му.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Обобщава статията, за да помогне на читателите да добият представа за темата.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Преглеждания</string>
+  <string name="suggested_edits_views_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>
   <string name="suggested_edits_quality_perfect_text">Съвършено</string>
   <string name="suggested_edits_quality_excellent_text">Отлично</string>
@@ -739,7 +740,10 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Влизане в / присъединяване към Уикипедия</string>
-  <string name="suggested_edits_added_contribution_label" fuzzy="true">Добавили сте %d символа</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Добавихте %d знак</item>
+    <item quantity="other">Добавихте %d знака</item>
+  </plurals>
   <string name="file_page_activity_title">Страница на файла</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
@@ -821,7 +825,7 @@
   <string name="wikitext_preview_link">Преглед на връзката</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
+  <string name="main_tooltip_text">Здравейте %s, знаехте ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_text_v2">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_action_button">Започване</string>
   <string name="main_tooltip_watchlist_title">Списък за наблюдение</string>

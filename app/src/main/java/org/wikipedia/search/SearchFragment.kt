@@ -363,8 +363,8 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         } else {
             // We need a temporary language code holder because the previously selected search language code[searchLanguageCode]
             // gets overwritten when UI is re-drawn
-            funnel.searchLanguageSwitch(if (!tempLangCodeHolder.isNullOrEmpty() && tempLangCodeHolder != selectedLanguageCode)
-                tempLangCodeHolder else searchLanguageCode, selectedLanguageCode)
+            funnel.searchLanguageSwitch((if (!tempLangCodeHolder.isNullOrEmpty() && tempLangCodeHolder != selectedLanguageCode)
+                tempLangCodeHolder else searchLanguageCode)!!, selectedLanguageCode)
             tempLangCodeHolder = null
         }
         searchLanguageCode = selectedLanguageCode

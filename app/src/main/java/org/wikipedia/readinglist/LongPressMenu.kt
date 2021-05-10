@@ -37,9 +37,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
-            Completable.fromAction { listsContainingPage = ReadingListDbHelper.instance().let { helper ->
-                helper.getListsFromPageOccurrences(helper.getAllPageOccurrences(it.title))
-            } }
+            Completable.fromAction { listsContainingPage = ReadingListDbHelper.getListsFromPageOccurrences(ReadingListDbHelper.getAllPageOccurrences(it.title)) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
@@ -62,9 +60,9 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                 menu.setOnMenuItemClickListener(PageSaveMenuClickListener())
                 if (it.size == 1) {
                     val removeItem = menu.menu.findItem(R.id.menu_long_press_remove_from_lists)
-                    removeItem.title = anchorView.context.getString(R.string.reading_list_remove_from_list, it[0].title())
+                    removeItem.title = anchorView.context.getString(R.string.reading_list_remove_from_list, it[0].title)
                     val moveItem = menu.menu.findItem(R.id.menu_long_press_move_from_list_to_another_list)
-                    moveItem.title = anchorView.context.getString(R.string.reading_list_move_from_to_other_list, it[0].title())
+                    moveItem.title = anchorView.context.getString(R.string.reading_list_move_from_to_other_list, it[0].title)
                     moveItem.isVisible = true
                     moveItem.isEnabled = true
                 }
@@ -90,7 +88,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
             RemoveFromReadingListsDialog(list).deleteOrShowDialog(anchorView.context) { readingLists, _ ->
                 entry?.let {
                     if (anchorView.isAttachedToWindow) {
-                        val readingListNames = readingLists.map { readingList -> readingList.title() }.run {
+                        val readingListNames = readingLists.map { readingList -> readingList.title }.run {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 ListFormatter.getInstance().format(this)
                             } else {
@@ -126,7 +124,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                     true
                 }
                 R.id.menu_long_press_move_from_list_to_another_list -> {
-                    listsContainingPage?.let { list -> entry?.let { callback?.onMoveRequest(list[0].pages()[0], it) } }
+                    listsContainingPage?.let { list -> entry?.let { callback?.onMoveRequest(list[0].pages[0], it) } }
                     true
                 }
                 R.id.menu_long_press_remove_from_lists -> {

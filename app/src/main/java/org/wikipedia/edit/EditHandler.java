@@ -6,14 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 
 import com.google.gson.JsonObject;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.page.Page;
@@ -44,34 +42,18 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         if (currentPage == null) {
             return;
         }
-        if (!currentPage.getPageProperties().canEdit()) {
-            showUneditableDialog();
-            return;
-        }
         if (sectionID < 0 || sectionID >= currentPage.getSections().size()) {
             L.w("Attempting to edit a mismatched section ID.");
             return;
         }
         Section section = currentPage.getSections().get(sectionID);
         Intent intent = new Intent(fragment.getActivity(), EditSectionActivity.class);
-        intent.setAction(EditSectionActivity.ACTION_EDIT_SECTION);
         intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.getId());
         intent.putExtra(EditSectionActivity.EXTRA_SECTION_HEADING, section.getHeading());
         intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
         intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, currentPage.getPageProperties());
         intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText);
         fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION);
-    }
-
-    public void showUneditableDialog() {
-        new AlertDialog.Builder(fragment.requireActivity())
-                .setCancelable(false)
-                .setTitle(R.string.page_protected_can_not_edit_title)
-                .setMessage(AccountUtil.isLoggedIn()
-                        ? R.string.page_protected_can_not_edit
-                        : R.string.page_protected_can_not_edit_anon)
-                .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
-                .show();
     }
 
     @Override

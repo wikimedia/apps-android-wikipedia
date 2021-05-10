@@ -46,6 +46,7 @@
   <string name="offline_load_error_retry">重試</string>
   <string name="page_error_back_to_main">返回</string>
   <string name="error_back">返回</string>
+  <string name="error_next">下一個</string>
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="history_item_deleted">%s已從歷史移除</string>
   <string name="history_items_deleted">%d個條目已從歷史移除</string>
@@ -871,7 +872,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">開始</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">了不起，繼續加油！👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">達成每日目標！👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">您已達成目標</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">您達成了每日目標</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">現在有新的可用建議編輯。訓練一種用來把圖片與無圖例條目做匹配的演算法。</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">維基百科的條目是由來自於世界各地的數千名志工撰寫編輯，但遺憾的是，有許多條目內容裡缺少圖片。\n\n我們會使用一種會將圖片建議給您的演算法。該演算法會從其它來源提取圖片，並與還沒有圖片的條目做建議匹配。\n\n您的回饋將會隨著時間協助我們改善建議。因為此任務的目標是改善建議的圖片，所以您做出的匹配內容目前不會現在就發布出去。</string>
   <string name="suggested_edits_image_recommendations_onboarding_text2">我們想感謝您為這項成果所做出的貢獻。您願意讓我們的演算法訓練頁面上顯示出您的使用者名稱嗎？</string>
@@ -879,6 +880,7 @@
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
   <string name="file_page_add_image_tags_button">新增圖片標籤</string>
+  <string name="file_page_suggestion_reason">推薦原因</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -957,6 +959,8 @@
   <string name="image_recommendations_task_processing">處理中…</string>
   <string name="image_recommendations_task_instruction">您要添加這個圖片到條目裡嗎？</string>
   <string name="image_recommendations_task_choice_no">您為什麼沒有選擇呢？</string>
+  <string name="image_recommendations_task_choice_not_sure">您為什麼選擇不確定？</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">選擇一個或多個原因。</string>
   <string name="image_recommendations_task_choice_unsure">您為什麼不確定這張圖片？</string>
   <string name="image_recommendations_task_choice_not_relevant">不相關</string>
   <string name="image_recommendations_task_choice_low_quality">低品質</string>
@@ -969,6 +973,9 @@
   <string name="image_recommendations_task_choice_other">其它</string>
   <string name="image_recommendations_task_choice_continue">繼續</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建議原因：&lt;/b&gt;%s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">圖片在別種語言版本（%s）的維基百科上找到</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">圖片在維基數據（維基百科的公開數據來源）上找到</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">圖片在維基共享資源（維基百科的自由可用圖片來源）上找到</string>
   <string name="image_recommendations_faq">常見問題</string>
   <string name="image_recommendations_tooltip1">檢閱此條目來了解主題。</string>
   <string name="image_recommendations_tooltip2">檢查圖片與其相關資訊。</string>

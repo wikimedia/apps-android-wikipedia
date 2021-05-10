@@ -58,6 +58,7 @@
   <string name="offline_load_error_retry">Wiederholen</string>
   <string name="page_error_back_to_main">Zurück gehen</string>
   <string name="error_back">Zurück gehen</string>
+  <string name="error_next">Nächster</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
   <string name="history_item_deleted">%s aus dem Verlauf gelöscht</string>
   <string name="history_items_deleted">%d Artikel aus dem Verlauf gelöscht</string>
@@ -77,7 +78,7 @@
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
   <string name="menu_page_add_to_watchlist">Zur Beobachtungsliste hinzufügen</string>
-  <string name="menu_page_view_talk">Disskussionsseite anzeigen</string>
+  <string name="menu_page_view_talk">Diskussionsseite anzeigen</string>
   <string name="menu_page_view_edit_history">Versionsgeschichte anzeigen</string>
   <string name="menu_page_remove_from_watchlist">Von der Beobachtungsliste entfernen</string>
   <string name="edit_section_find_in_page">In Seite suchen</string>
@@ -883,7 +884,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Starten</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Toll, weiter so! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Tagesziel erreicht! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Du hast das Ziel erreicht</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Du hast das Tagesziel erreicht</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Eine neue Aufgabe „Vorgeschlagene Bearbeitungen“ ist jetzt verfügbar. Trainiere einen Algorithmus zum Zuordnen von Bildern zu nicht bebilderten Artikeln.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia-Artikel werden von Tausenden von Freiwilligen aus der ganzen Welt geschrieben und bearbeitet. Leider fehlen in vielen Artikeln Bilder, die dir mithilfe eines Algorithmus vorgeschlagen werden. Der Algorithmus zieht Bilder aus anderen Quellen und schlägt eine Übereinstimmung mit einem Artikel vor, der kein Bild hat. Da das Ziel dieser Aufgabe darin besteht, die vorgeschlagenen Bilder zu verbessern, werden die von dir gemachten Übereinstimmungen zu diesem Zeitpunkt nicht veröffentlicht.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text2">Wir möchten dich für deine Beiträge zu dieser Arbeit würdigen. Möchtest du, dass dein Benutzername auf unserer Algorithmus-Trainingsseite angezeigt wird?</string>
@@ -891,6 +892,7 @@
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
+  <string name="file_page_suggestion_reason">Vorschlagsgrund</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
@@ -969,6 +971,8 @@
   <string name="image_recommendations_task_processing">Verarbeite …</string>
   <string name="image_recommendations_task_instruction">Würdest du dieses Bild in den Artikel einfügen?</string>
   <string name="image_recommendations_task_choice_no">Warum hast du nein gewählt?</string>
+  <string name="image_recommendations_task_choice_not_sure">Warum hast du „nicht sicher“ gewählt?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Wähle einen oder mehrere Gründe.</string>
   <string name="image_recommendations_task_choice_unsure">Warum bist du dir bei diesem Bild nicht sicher?</string>
   <string name="image_recommendations_task_choice_not_relevant">Nicht zutreffend</string>
   <string name="image_recommendations_task_choice_low_quality">Niedrige Qualität</string>
@@ -981,6 +985,9 @@
   <string name="image_recommendations_task_choice_other">Andere</string>
   <string name="image_recommendations_task_choice_continue">Weiter</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Vorschlag Grund:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">Bild wurde in anderen Wikipedia-Sprachversion gefunden (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">Bild wurde auf Wikidata gefunden, der Quelle für offene Daten bei Wikipedia</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">Bild wurde auf Wikimedia Commons gefunden, der Wikipedia-Quelle für frei verwendbare Bilder</string>
   <string name="image_recommendations_faq">FAQ</string>
   <string name="image_recommendations_tooltip1">Lies diesen Artikel, um sein Thema zu verstehen.</string>
   <string name="image_recommendations_tooltip2">Prüfe das Bild und die zugehörigen Informationen.</string>

@@ -896,7 +896,7 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_get_started">Empezar</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">¡Genial, sigue así! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Has alcanzado el objetivo</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Has alcanzado el objetivo</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Los artículos de Wikipedia son escritos y editados por cientos de voluntarios en todo el mundo. Desafortunadamente, a muchos artículos les hacen faltan imágenes.\n\nSe te sugerirán imágenes utilizando un algoritmo. El algoritmo tomará imágenes de otras fuentes y sugerirá como coincidencia con un artículo que no tenga una imagen.\n\nTu retroalimentación nos ayudará a mejorar las sugerencias con el tiempo. Siendo que la meta de esta tarea es el mejorar las imágenes sugeridas, las combinaciones que hagas no serán publicadas aún.</string>
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
