@@ -55,6 +55,7 @@
   <string name="offline_load_error_retry">إعادة المحاولة</string>
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="error_back">رجوع</string>
+  <string name="error_next">التالي</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
   <string name="history_item_deleted">أزيلت %s من التاريخ</string>
   <string name="history_items_deleted">أُزيلت %d مقالة من التاريخ</string>

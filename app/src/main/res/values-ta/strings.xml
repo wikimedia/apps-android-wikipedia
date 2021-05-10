@@ -291,6 +291,7 @@
   <string name="button_continue_to_disambiguation">சம்மந்தப்பட்ட பக்கங்களை காட்டு</string>
   <string name="button_add_to_reading_list">படிக்கும் பட்டியலில் சேர்க</string>
   <string name="page_offline_notice_cannot_load_while_offline">அணை நிலையில் கட்டுரையை ஏற்றமுடியாது.</string>
+  <string name="page_offline_notice_add_to_reading_list">குறிப்பு: கட்டுரையை படிக்கும் பட்டியலில் சேர்க்கவும், நீங்கள் இணைப்பு நிலைக்கு திரும்பியதும் அது பதிவிறக்கப்படும்.</string>
   <string name="button_get_directions">வழிகளைப் பெறு</string>
   <string name="error_no_maps_app">வழிகாட்டி செயலிகள் ஏதும் இல்லை.</string>
   <string name="preference_title_show_link_previews">முன்னோட்ட இணைப்புகளை காண்பி</string>

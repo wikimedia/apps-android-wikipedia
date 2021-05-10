@@ -8,10 +8,7 @@ class FunnelManager(private val app: WikipediaApp) {
 
     private val editFunnels = Hashtable<PageTitle, EditFunnel>()
 
-    fun getEditFunnel(title: PageTitle): EditFunnel? {
-        if (!editFunnels.containsKey(title)) {
-            editFunnels[title] = EditFunnel(app, title)
-        }
-        return editFunnels[title]
+    fun getEditFunnel(title: PageTitle): EditFunnel {
+        return editFunnels.getOrPut(title) { EditFunnel(app, title) }
     }
 }
