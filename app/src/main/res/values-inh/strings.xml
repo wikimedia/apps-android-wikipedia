@@ -3,6 +3,7 @@
 * Adam-Yourist
 * ElizaMag
 * MuratTheTurkish
+* Умар
 -->
 <resources>
   <string name="app_name_prod">Википеди</string>
@@ -159,7 +160,7 @@
   <string name="create_account_ip_block_message">Бехк ма баккхалахь, хьа IP-цӀай блок теха латт керда дагара йоазонаш (аккаунташ) хьакхоллалургдоацаш.</string>
   <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
   <string name="create_account_ip_block_details">Цунах лаьца ма дарра</string>
-  <string name="preferences_general_heading">Юкъара</string>
+  <string name="preferences_general_heading">Йукъара</string>
   <string name="wikipedia_app_faq">«Википеди» приложенех лаьца каст-кастта тела хаттараш</string>
   <string name="send_feedback">Бувзам</string>
   <string name="create_account_account_created_toast">Дагара йоазув хьакхеллад!</string>
@@ -622,9 +623,21 @@
   <string name="view_continue_reading_card_subtitle_today">тахан</string>
   <string name="view_continue_reading_card_subtitle_read_date">Йийша хиннай %s хьалха</string>
   <string name="view_announcement_card_negative_action">А, баркал</string>
+  <string name="view_offline_card_text">Чудар хьагойта аьттув бац автономни режимах</string>
   <string name="view_featured_article_card_title">Хержа статья</string>
+  <string name="view_static_card_save_button_label">ДӀайила</string>
   <string name="feed_configure_activity_title">Лентай оттамаш хувца</string>
+  <string name="feed_configure_menu_reset">Юхаметтаоттае луттаргаш юххьанцара хиннача тайпара</string>
+  <string name="feed_configure_menu_select_all">Дерригаш хьагойта</string>
+  <string name="feed_configure_menu_deselect_all">Дерригаш дӀакъайладаха</string>
+  <string name="feed_configure_language_warning">Лентай деррига карточкаш дац хьахьувкхаш массадолча меттала. Оттамашка дӀаоттаде йиш я малагӀча метта Википеден разделашкара карточкаш хьагойта деза.</string>
+  <string name="feed_item_type_news">Карарча хана хулаш латтача хӀамаех лаьца статьяш</string>
+  <string name="feed_item_type_on_this_day">Укх дийнахьа тархьаре хинна хӀамаш</string>
   <string name="feed_item_type_because_you_read">Ӏа хьалхагӀа йийшача статьяшка хьажжа кхы а статьяш хьахьекхай</string>
+  <string name="feed_item_type_featured_article">Википеде чу хержа йола статья</string>
+  <string name="feed_item_type_trending">Укх дийнахьа эггара дукхагӀа ешаш йола статьяш</string>
+  <string name="feed_item_type_featured_image">Викиларма чура таханара сурт</string>
+  <string name="feed_item_type_main_page">Википеден керттера статья</string>
   <string name="feed_item_type_suggested_edits">ОагӀонех лаьцар тоаде йиш я.</string>
   <string name="feed_empty_message">Хьа лента даьсса да</string>
   <string name="feed_configure_onboarding_action">Оттамаш де</string>
