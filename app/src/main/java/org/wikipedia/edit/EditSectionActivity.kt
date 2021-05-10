@@ -138,7 +138,7 @@ class EditSectionActivity : BaseActivity() {
             if (!sectionTextModified) {
                 sectionTextModified = true
                 // update the actionbar menu, which will enable the Next button.
-                supportInvalidateOptionsMenu()
+                invalidateOptionsMenu()
             }
         }
         binding.editKeyboardOverlay.editText = binding.editSectionText
@@ -515,7 +515,7 @@ class EditSectionActivity : BaseActivity() {
 
     fun showProgressBar(enable: Boolean) {
         binding.viewProgressBar.isVisible = enable
-        supportInvalidateOptionsMenu()
+        invalidateOptionsMenu()
     }
 
     /**
