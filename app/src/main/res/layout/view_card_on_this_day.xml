@@ -8,18 +8,18 @@
     android:orientation="vertical">
 
     <org.wikipedia.feed.view.CardHeaderView
-        android:id="@+id/view_on_this_day_card_header"
+        android:id="@+id/card_header"
         android:layout_width="match_parent"
         android:layout_height="48dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/view_on_this_day_rtl_container"
+        android:id="@+id/rtl_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false">
 
         <LinearLayout
-            android:id="@+id/view_on_this_day_text_container"
+            android:id="@+id/text_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
-                android:id="@+id/view_on_this_day_click_container"
+                android:id="@+id/click_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
@@ -45,7 +45,7 @@
                 android:paddingBottom="8dp">
 
                 <include
-                    android:id="@+id/year_layout"
+                    android:id="@+id/event_layout"
                     layout="@layout/view_on_this_day_event" />
             </FrameLayout>
         </LinearLayout>

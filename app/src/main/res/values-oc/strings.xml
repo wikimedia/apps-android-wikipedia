@@ -19,6 +19,7 @@
   <string name="error_network_error">Impossible de se connectar a Internet.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="page_error_back_to_main">Tornar en arrièr</string>
+  <string name="error_next">Seguent</string>
   <string name="menu_clear_all_history">Voidar l\'istoric</string>
   <string name="history_item_delete_undo">Anullar</string>
   <string name="history_list_title">Istoric</string>

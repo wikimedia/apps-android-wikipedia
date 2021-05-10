@@ -4,6 +4,7 @@
 * Htawmonzel
 * MuratTheTurkish
 * Ninjastrikers
+* 咽頭べさ
 -->
 <resources>
   <string name="app_name_prod">ဝဳကဳပဳဒဳယာ</string>
@@ -27,6 +28,7 @@
   <string name="offline_load_error_retry">ကလေင်ကၠောန်</string>
   <string name="page_error_back_to_main">ကလေင် ဂတး</string>
   <string name="error_back">ကလေင် ဂတး</string>
+  <string name="error_next">ဆက်အာ</string>
   <string name="menu_clear_all_history">ဖအး အရာမဗှ်လဝ်တုဲ</string>
   <string name="history_item_deleted">%s ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
   <string name="history_items_deleted">%d လိက်ပရေင်ဂှ် ပတိတ်ထောအ် နူစရင်မဗှ်လဝ်</string>
