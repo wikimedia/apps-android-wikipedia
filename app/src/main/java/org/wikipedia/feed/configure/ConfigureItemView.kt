@@ -58,7 +58,7 @@ class ConfigureItemView(context: Context) : FrameLayout(context) {
 
     private fun showLangSelectDialog() {
         val view = ConfigureItemLanguageDialogView(context)
-        val tempDisabledList = contentType.langCodesDisabled
+        val tempDisabledList = contentType.langCodesDisabled.toMutableList()
         view.setContentType(adapter.langList, tempDisabledList)
         AlertDialog.Builder(context)
             .setView(view)
