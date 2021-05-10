@@ -43,9 +43,9 @@ import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 
 public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.page_list_item_title) TextView pageItemTitleTextView;
-    @BindView(R.id.page_list_item_description) TextView pageItemDescTextView;
-    @BindView(R.id.page_list_item_image) FaceAndColorDetectImageView pageItemImageView;
+    @BindView(R.id.title) TextView pageItemTitleTextView;
+    @BindView(R.id.description) TextView pageItemDescTextView;
+    @BindView(R.id.image) FaceAndColorDetectImageView pageItemImageView;
 
     private final WikiSite wiki;
     private final Activity activity;

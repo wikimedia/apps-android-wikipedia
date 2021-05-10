@@ -12,7 +12,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewCardFooterBinding
 import org.wikipedia.util.L10nUtil
 
-internal class CardFooterView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class CardFooterView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
         fun onFooterClicked()
     }

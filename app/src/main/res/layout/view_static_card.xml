@@ -7,12 +7,12 @@
     android:orientation="vertical">
 
     <org.wikipedia.feed.view.CardHeaderView
-        android:id="@+id/view_static_card_header"
+        android:id="@+id/card_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <org.wikipedia.feed.view.CardFooterView
-        android:id="@+id/view_static_card_footer"
+        android:id="@+id/card_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-12dp"/>
