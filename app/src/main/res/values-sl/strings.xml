@@ -942,12 +942,12 @@
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Potovali ste skozi čas 🚀</string>
   <string name="on_this_day_back_to_future">Nazaj v prihodnost</string>
-  <string name="languages_list_activity_title">Dodajte jezik</string>
+  <string name="languages_list_activity_title">Dodaj jezik</string>
   <string name="languages_list_suggested_text">Predlagano</string>
   <string name="languages_list_all_text">Vsi jeziki</string>
   <string name="wikipedia_languages_title">Jeziki Wikipedije</string>
   <string name="wikipedia_languages_your_languages_text">Vaš jezik</string>
-  <string name="wikipedia_languages_add_language_text">Dodajte jezik</string>
+  <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
   <string name="wikipedia_languages_remove_text">Odstrani jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odstrani jezik</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
