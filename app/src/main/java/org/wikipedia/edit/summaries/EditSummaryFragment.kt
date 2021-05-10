@@ -11,10 +11,8 @@ import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
-import org.wikipedia.util.DeviceUtil.showSoftKeyboard
-import org.wikipedia.views.ViewAnimations.fadeIn
-import org.wikipedia.views.ViewAnimations.fadeOut
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.views.ViewAnimations
 
 class EditSummaryFragment : Fragment() {
     lateinit var title: PageTitle
@@ -70,10 +68,10 @@ class EditSummaryFragment : Fragment() {
      * of the actionbar button(s) is updated.
      */
     fun show() {
-        fadeIn(binding.root) {
+        ViewAnimations.fadeIn(binding.root) {
             requireActivity().invalidateOptionsMenu()
             binding.editSummaryEdit.requestFocus()
-            showSoftKeyboard(binding.editSummaryEdit)
+            DeviceUtil.showSoftKeyboard(binding.editSummaryEdit)
         }
     }
 
@@ -83,8 +81,8 @@ class EditSummaryFragment : Fragment() {
      * button(s) is updated.
      */
     fun hide() {
-        fadeOut(binding.root) {
-            hideSoftKeyboard(requireActivity())
+        ViewAnimations.fadeOut(binding.root) {
+            DeviceUtil.hideSoftKeyboard(requireActivity())
             requireActivity().invalidateOptionsMenu()
         }
     }

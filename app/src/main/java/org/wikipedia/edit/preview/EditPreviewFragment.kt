@@ -18,7 +18,7 @@ import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
 import org.wikipedia.bridge.CommunicationBridge.JSEventListener
-import org.wikipedia.bridge.JavaScriptActionHandler.setTopMargin
+import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.FragmentPreviewEditBinding
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
@@ -189,7 +189,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 }
                 (requireActivity() as EditSectionActivity).showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
-                bridge.execute(setTopMargin(0))
+                bridge.execute(JavaScriptActionHandler.setTopMargin(0))
             }
         }
 
