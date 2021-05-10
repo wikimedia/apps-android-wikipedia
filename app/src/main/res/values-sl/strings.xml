@@ -836,7 +836,7 @@
   <string name="suggested_edits_task_new">novo</string>
   <string name="suggested_edits_cc0_notice">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;pogoji uporabe&lt;/a&gt; in ta prispevek nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Predlagana urejanja</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipediji! Zakaj ne bi nadaljevali, kjer ste končali?</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipedije! Zakaj ne bi nadaljevali, kjer ste končali?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Imate trenutek za nadaljnje izboljševanje Wikipedije? Oglejte si te predloge za urejanje.</string>
   <string name="suggested_edits_contributions_screen_title">Prispevki uporabnika/ce %s</string>
   <string name="suggested_edits_contribution_language_label">Jezik</string>
@@ -942,12 +942,12 @@
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Potovali ste skozi čas 🚀</string>
   <string name="on_this_day_back_to_future">Nazaj v prihodnost</string>
-  <string name="languages_list_activity_title">Dodajte jezik</string>
+  <string name="languages_list_activity_title">Dodaj jezik</string>
   <string name="languages_list_suggested_text">Predlagano</string>
   <string name="languages_list_all_text">Vsi jeziki</string>
   <string name="wikipedia_languages_title">Jeziki Wikipedije</string>
   <string name="wikipedia_languages_your_languages_text">Vaš jezik</string>
-  <string name="wikipedia_languages_add_language_text">Dodajte jezik</string>
+  <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
   <string name="wikipedia_languages_remove_text">Odstrani jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odstrani jezik</string>
   <plurals name="wikipedia_languages_remove_dialog_title">

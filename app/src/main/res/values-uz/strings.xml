@@ -32,6 +32,7 @@
   <string name="offline_load_error_retry">Qaytadan</string>
   <string name="page_error_back_to_main">Ortga</string>
   <string name="error_back">Ortga</string>
+  <string name="error_next">Keyingi</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalamoq</string>
   <string name="history_item_deleted">%s tarixdan o‘chirildi</string>
   <string name="history_items_deleted">%d ta maqola tarixdan o‘chirildi</string>
@@ -428,9 +429,14 @@
   <string name="reading_list_name_hint">Roʻyxat nomi</string>
   <string name="reading_list_description_hint">Taʼrifi (ixtiyoriy)</string>
   <string name="reading_list_item_deleted">%s roʻyxatdan oʻchirildi.</string>
+  <string name="reading_list_item_deleted_from_list">%1$s %2$s dan oʻchirildi</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d ta maqola roʻyxatdan oʻchirildi</item>
     <item quantity="other">%d ta maqola roʻyxatdan oʻchirldi</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d ta maqola %s dan oʻchirildi</item>
+    <item quantity="other">%d ta maqola %s dan oʻchirildi</item>
   </plurals>
   <string name="reading_list_items_deleted">%d ta maqola roʻyxatdan oʻchirildi</string>
   <string name="reading_lists_item_deleted">%s roʻyxatdan oʻchirildi</string>
@@ -661,6 +667,7 @@
   <string name="description_too_short">Matn juda ham qisqa.</string>
   <string name="description_ends_with_punctuation">Matn tinish belgilari bilan tugamasligi kerak.</string>
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
+  <string name="description_starts_with_lowercase">Kichik harflarda yozishni taqiqlash.</string>
   <string name="description_is_in_different_language">Matn kutilmagan tilda koʻrinadi. %s tilda boʻlishi kerak.</string>
   <string name="description_edit_success_saved">Maqola tavsifi saqlandi!</string>
   <string name="description_edit_success_saved_snackbar">Maqola tavsifi saqlandi!</string>
@@ -724,6 +731,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Rasm nomi (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Rasm nomi (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Rasm</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Wikimedia Commons fayli</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
   <string name="suggested_edits_image_preview_dialog_tags">Bandlar</string>
   <string name="suggested_edits_image_preview_dialog_date">Sana</string>
@@ -844,13 +852,20 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Oʻrganish surati algoritmi</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Tavsiya etilgan rasm maqolani yaxshilashi toʻgʻrisida qaror qabul qiling.</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Ishga tushirish</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Zoʻr, shunday davom eting! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Kundalik maqsadga erishdingiz! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Siz maqsadga erishdingiz</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Siz maqsadga erishdingiz</string>
+  <string name="suggested_edits_image_recommendations_onboarding_tooltip">Tavsiya etilgan yangi tahrir vazifasi endi mavjud. Tasvirlarni noaniq maqolalar bilan moslashtirish algoritmini oʻrgating.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text1">Vikipediya maqolalari butun dunyodagi minglab koʻngillilar tomonidan yoziladi va tahrir qilinadi. Afsuski, koʻplab maqolalarda rasmlar yetishmayapti.\n\nTasvirlar Sizga algoritm yordamida tavsiya etiladi. Algoritm boshqa manbalardan olingan rasmlarni yuklab oladi hamda rasmga ega boʻlmagan maqolaga mos kelishini taklif qiladi.\n\nSizning fikr-mulohazalaringiz vaqt oʻtishi bilan takliflarni yaxshilashga yordam beradi. Ushbu topshiriqning maqsadi tavsiya etilgan rasmlarni yaxshilashdan iborat bo\'lganligi sababli, Siz qilgan tavsiyalar hozircha nashr etilmaydi.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Ushbu saʼy-harakatga qoʻshgan hissangizni eʼtirof etmoqchimiz. Sizning foydalanuvchi ismingiz bizning algoritmni oʻrgatish sahifamizda koʻrsatilishini xohlaysizmi?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_consent">Ha, mening foydalanuvchi ismim algoritmni oʻrgatish sahifasida koʻrsatilishi mumkin</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
+  <string name="file_page_suggestion_reason">Taklif sababi</string>
   <string name="description_edit_revert_subtitle">Vikipediyaga hissa qoʻshnagingiz uchun tashakkur!</string>
   <string name="description_edit_revert_intro">Biz sizning qo\'lingizdan kelganicha harakat qilganingizni bilamiz, ammo sharhlovchilardan biri tashvishga tushdi. Tahriringiz qaytarilgan bo\'lishi mumkin bo\'lgan sabablarga quyidagilar kiradi:</string>
   <string name="description_edit_revert_reason1">sizning hissangiz quyidagi &lt;a href=\"%1$s\"&gt;yoʻriqnoma&lt;/a&gt;ga mos emas</string>
@@ -927,13 +942,29 @@
   <string name="image_recommendations_task_reject">Yoʻq</string>
   <string name="image_recommendations_task_not_sure">Aniq emas</string>
   <string name="image_recommendations_task_processing">Qayta ishlanmoqda…</string>
+  <string name="image_recommendations_task_instruction">Ushbu rasm bu maqolaga qoʻshilsinmi?</string>
+  <string name="image_recommendations_task_choice_no">Nega «Yoʻq»ni tanladingiz?</string>
+  <string name="image_recommendations_task_choice_not_sure">Nega ishonch hosil qilmadingiz?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Bir yoki bir necha sabablarni tanlang.</string>
+  <string name="image_recommendations_task_choice_unsure">Nima uchun bu rasmga ishonchingiz komil emas?</string>
   <string name="image_recommendations_task_choice_not_relevant">Tegishli emas</string>
   <string name="image_recommendations_task_choice_low_quality">Past sifatli</string>
   <string name="image_recommendations_task_choice_noinfo">Maʼlumot yetarli emas</string>
+  <string name="image_recommendations_task_choice_nosubject">Ushbu mavzuni bilmayman</string>
   <string name="image_recommendations_task_choice_offensive">Haqoratli</string>
+  <string name="image_recommendations_task_choice_invisible">Rasmni koʻrish imkonsiz</string>
+  <string name="image_recommendations_task_choice_understand">Vazifani tushunmaslik</string>
+  <string name="image_recommendations_task_choice_language">Tilni oʻqiy olmaslik</string>
   <string name="image_recommendations_task_choice_other">Boshqa</string>
   <string name="image_recommendations_task_choice_continue">Davom etish</string>
-  <string name="image_recommendations_task_suggestion_reason" fuzzy="true">&lt;b&gt;Taklif sababi:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Taklif sababi:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">rasm Vikipediyaning (%s) boshqa tillardagi versiyalarida topilgan</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">rasm Vikipediyaning ochiq maʼlumot manbasi boʻlgan Vikidatada topilgan</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">rasm Vikipediyaning erkin foydalaniladigan rasmlar manbai boʻlgan Vikimedia Commonsʼda topilgan</string>
+  <string name="image_recommendations_faq">FAQ</string>
+  <string name="image_recommendations_tooltip1">Mavzuni tushunish uchun ushbu maqolani koʻrib chiqing.</string>
+  <string name="image_recommendations_tooltip2">Rasmni va unga tegishli maʼlumotlarni tekshiring.</string>
+  <string name="image_recommendations_tooltip3">Rasm oʻquvchilarga ushbu mavzuni yaxshiroq tushunishga yordam beradimi yoki yoʻqligini hal qiling.</string>
   <string name="wikitext_bold">Qalin</string>
   <string name="wikitext_italic">Yotiq</string>
   <string name="wikitext_link">Havola</string>

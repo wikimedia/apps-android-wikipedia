@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/page_list_item_image"
+            android:id="@+id/image"
             style="@style/ImageViewDefault"
             android:layout_width="match_parent"
             android:layout_height="148dp"
@@ -30,7 +30,7 @@
             android:paddingBottom="16dp">
 
             <TextView
-                android:id="@+id/page_list_item_title"
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -42,7 +42,7 @@
                 android:transitionName="@string/transition_article_title" />
 
             <TextView
-                android:id="@+id/page_list_item_description"
+                android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
