@@ -244,6 +244,7 @@
   <string name="user_option_sync_label">Pustaka</string>
   <string name="notification_syncing_cancel_button">Wangdé</string>
   <string name="description_edit_translate_article_description_label_per_language">Pidarta suratan (%s)</string>
+  <string name="app_shortcuts_random">Ulah-aluh</string>
   <string name="thank_dialog_title_text">Wedhar \'Matur Suksma\'</string>
   <string name="thank_dialog_positive_button_text">Kirim matur suksma</string>
   <string name="thank_dialog_negative_button_text">Wangdé</string>

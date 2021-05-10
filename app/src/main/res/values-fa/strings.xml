@@ -106,7 +106,7 @@
   <string name="reading_list_page_share">اشتراک‌گذاری</string>
   <string name="menu_text_select_edit_here">ویرایش اینجا</string>
   <string name="last_updated_text">آخرین به‌روزرسانی %s</string>
-  <string name="talk_page_link_text">نمایش بحث</string>
+  <string name="talk_page_link_text">نمایش صفحهٔ بحث</string>
   <string name="edit_history_link_text">مشاهده تاریخچه ویرایش</string>
   <string name="map_view_link_text">دیدن در نقشه</string>
   <string name="other_languages_indication_text">به زبان‌های دیگر مطالعه کنید</string>
@@ -981,6 +981,7 @@
   <string name="image_recommendations_task_suggestion_reason_commons">این تصویر در ویکی‌انبار، منبع ویکی‌پدیا برای تصاویر قابل استفاده به‌صورت آزاد یافت شد</string>
   <string name="image_recommendations_faq">پرسش‌های رایج</string>
   <string name="image_recommendations_tooltip1">این مقاله را مرور کنید تا موضوع آن را درک کنید.</string>
+  <string name="image_recommendations_tooltip2">تصویر و اطلاعات مربوط به آن را بررسی کنید.</string>
   <string name="wikitext_bold">پررنگ</string>
   <string name="wikitext_italic">کج</string>
   <string name="wikitext_link">پیوند</string>
@@ -1014,6 +1015,8 @@
   <string name="menu_option_share_edit">اشتراک‌گذاری ویرایش</string>
   <string name="menu_option_user_profile">رخ‌نمای %s</string>
   <string name="menu_option_user_contributions">مشارکت‌های %s</string>
+  <string name="watchlist_details_watching_label">پی‌گیری کردن</string>
+  <string name="watchlist_details_watch_label">پی‌گیری</string>
   <string name="thank_label">سپاس</string>
   <string name="go_to_user_page">رفتن به صفحه کاربر</string>
   <string name="thank_dialog_title_text">ارسال «تشکر» به‌صورت عمومی</string>
