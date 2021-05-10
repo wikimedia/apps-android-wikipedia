@@ -39,9 +39,9 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
                     binding.viewAnnouncementText.text = StringUtil.fromHtml(it.extract())
                 }
                 if (!it.hasAction()) {
-                    binding.viewAnnouncementCardDialogButtonsContainer.visibility = GONE
+                    binding.viewAnnouncementCardButtonsContainer.visibility = GONE
                 } else {
-                    binding.viewAnnouncementCardDialogButtonsContainer.visibility = VISIBLE
+                    binding.viewAnnouncementCardButtonsContainer.visibility = VISIBLE
                     binding.viewAnnouncementActionPositive.text = it.actionTitle()
                     binding.viewAnnouncementDialogActionPositive.text = it.actionTitle()
                 }
