@@ -20,7 +20,7 @@ import org.wikipedia.util.UriUtil.isValidPageLink
 
 class LongPressHandler(view: View, private val historySource: Int, private val callback: LongPressMenu.Callback) : OnCreateContextMenuListener, OnTouchListener {
     interface WebViewMenuCallback : LongPressMenu.Callback {
-        val wikiSite: WikiSite
+        val wikiSite: WikiSite?
         val referrer: String?
     }
 
@@ -47,8 +47,10 @@ class LongPressHandler(view: View, private val historySource: Int, private val c
                 if (isValidPageLink(uri)) {
                     var wikiSite = WikiSite(uri)
                     // the following logic keeps the correct language code if the domain has multiple variants (e.g. zh).
-                    if (wikiSite.dbName() == (callback as WebViewMenuCallback).wikiSite.dbName() && wikiSite.languageCode() != callback.wikiSite.languageCode()) {
-                        wikiSite = callback.wikiSite
+                    (callback as WebViewMenuCallback).wikiSite?.run {
+                        if (wikiSite.dbName() == dbName() && wikiSite.languageCode() != languageCode()) {
+                            wikiSite = this
+                        }
                     }
                     title = wikiSite.titleForInternalLink(uri.path)
                     referrer = callback.referrer
