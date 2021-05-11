@@ -35,7 +35,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
         val title = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
-        SuggestedEditsFunnel.get().click(title.displayText, action)
+        SuggestedEditsFunnel.get()!!.click(title.displayText, action)
         return DescriptionEditFragment.newInstance(title,
                 intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 intent.getStringExtra(EXTRA_SOURCE_SUMMARY),
@@ -49,7 +49,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             fragment.binding.fragmentDescriptionEditView.loadReviewContent(false)
         } else {
             DeviceUtil.hideSoftKeyboard(this)
-            SuggestedEditsFunnel.get().cancel(action)
+            SuggestedEditsFunnel.get()!!.cancel(action)
             super.onBackPressed()
         }
     }

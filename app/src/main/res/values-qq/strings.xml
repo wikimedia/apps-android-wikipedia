@@ -963,9 +963,11 @@
   <string name="image_recommendations_task_reject">Button label for rejecting the recommended image.</string>
   <string name="image_recommendations_task_not_sure">Button label for being unsure about the current image recommendation.</string>
   <string name="image_recommendations_task_processing">Label shown when the current recommendation is being processed.</string>
-  <string name="image_recommendations_task_daily_amount">{{Optional}}\n\nLabel that shows the number of tasks that the user completed (the first %d symbol)), out of a total amount (the second %d symbol). This message must have no spaces.</string>
+  <string name="image_recommendations_task_daily_amount">{{Optional}}\n\nLabel that shows the number of tasks that the user completed (%1$d symbol), out of a total amount (the %2$d symbol). This message must have no spaces.</string>
   <string name="image_recommendations_task_instruction">Question asked for the user to evaluate the current image recommendation.</string>
   <string name="image_recommendations_task_choice_no">Follow-up question asked when the user rejects the recommendation.</string>
+  <string name="image_recommendations_task_choice_not_sure">Follow-up question asked when the user rejects the recommendation because they are not sure.\n\nThe words \"not sure\" are {{msg-wm|Wikipedia-android-strings-image recommendations task not sure}}.</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Prompt to choose reasons when the user rejects the recommendation.</string>
   <string name="image_recommendations_task_choice_unsure">Follow-up question asked when the user is unsure about the recommendation.</string>
   <string name="image_recommendations_task_choice_not_relevant">Checkbox label selected if the current image recommendation is not relevant.</string>
   <string name="image_recommendations_task_choice_low_quality">Checkbox label selected if the current image recommendation is low quality.</string>
@@ -1049,6 +1051,4 @@
   <string name="watchlist_page_moved">Label text to indicate that a page has been moved.</string>
   <string name="watchlist_page_protected">Label text to indicate that a page has been protected.</string>
   <string name="watchlist_page_deleted">Label text to indicate that a page has been deleted.</string>
-  <string name="image_recommendations_task_choice_not_sure">Follow-up question asked when the user rejects the recommendation because they are not sure.</string>
-  <string name="image_recommendations_prompt_to_choose_reasons">Prompt to choose reasons when the user rejects the recommendation.</string>
 </resources>

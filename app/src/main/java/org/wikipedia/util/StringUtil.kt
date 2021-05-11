@@ -90,6 +90,11 @@ object StringUtil {
     }
 
     @JvmStatic
+    fun sanitizeAbuseFilterCode(code: String): String {
+        return code.replace("[⧼⧽]".toRegex(), "")
+    }
+
+    @JvmStatic
     fun normalizedEquals(str1: String?, str2: String?): Boolean {
         return if (str1 == null || str2 == null) {
             str1 == null && str2 == null

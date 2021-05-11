@@ -9,6 +9,10 @@ import kotlin.math.abs
 
 class SwipeableListView constructor(context: Context, attrs: AttributeSet? = null) : ListView(context, attrs) {
 
+    fun interface OnSwipeOutListener {
+        fun onSwipeOut()
+    }
+
     var listener: OnSwipeOutListener? = null
     var rtl: Boolean = false
 
@@ -16,10 +20,6 @@ class SwipeableListView constructor(context: Context, attrs: AttributeSet? = nul
         // use GestureDetector to take over the onTouchEvent
         val gestureDetector = GestureDetector(context, ViewGestureListener())
         setOnTouchListener { _, motionEvent -> gestureDetector.onTouchEvent(motionEvent) }
-    }
-
-    interface OnSwipeOutListener {
-        fun onSwipeOut()
     }
 
     private fun swipeDetected(event1: MotionEvent, event2: MotionEvent): Boolean {

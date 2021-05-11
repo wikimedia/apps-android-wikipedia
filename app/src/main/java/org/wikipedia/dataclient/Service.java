@@ -40,7 +40,7 @@ public interface Service {
     String COMMONS_URL = "https://commons.wikimedia.org/";
     String URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/";
 
-    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=plaintext&";
+    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&";
 
     int PREFERRED_THUMB_SIZE = 320;
 
@@ -105,6 +105,9 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     @NonNull Observable<MwQueryResponse> getSiteInfo();
+
+    @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
+    @NonNull Observable<MwParseResponse> parseText(@NonNull @Query("page") String pageTitle);
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
     @NonNull Observable<MwParseResponse> parseTextForMainPage(@NonNull @Query("page") String mainPageTitle);
@@ -232,6 +235,9 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp|ids&rvlimit=1&converttitles=")
     @NonNull Observable<MwQueryResponse> getWikiTextForSection(@NonNull @Query("titles") String title, @Query("rvsection") int section);
+
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
+    @NonNull Observable<MwQueryResponse> getWikiTextForSectionWithInfo(@NonNull @Query("titles") String title, @Query("rvsection") int section);
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=parse&prop=text&sectionpreview=&pst=&mobileformat=")

@@ -1,7 +1,6 @@
 package org.wikipedia.dataclient.mwapi;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 public class MwException extends RuntimeException {
     @SuppressWarnings("unused") @NonNull private final MwServiceError error;
@@ -14,11 +13,11 @@ public class MwException extends RuntimeException {
         return error;
     }
 
-    @Nullable public String getTitle() {
+    @NonNull public String getTitle() {
         return error.getTitle();
     }
 
-    @Override @Nullable public String getMessage() {
+    @Override @NonNull public String getMessage() {
         return error.getDetails();
     }
 }

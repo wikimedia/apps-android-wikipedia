@@ -3,10 +3,9 @@ package org.wikipedia.analytics
 import org.json.JSONObject
 import org.wikipedia.WikipediaApp
 
-class ImageRecommendationsFunnel :
-        Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
+class ImageRecommendationsFunnel : Funnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
-    override fun preprocessSessionToken(eventData: JSONObject) { }
+    override fun preprocessSessionToken(eventData: JSONObject) {}
 
     fun logSubmit(lang: String, pageTitle: String, imageTitle: String, suggestionSource: String,
                   response: Int, reasons: List<Int>, detailsClicked: Boolean, infoClicked: Boolean, scrolled: Boolean,

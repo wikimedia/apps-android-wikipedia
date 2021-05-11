@@ -4,6 +4,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.util.MathUtil
 
 class SessionData {
+
     private val leadLatency = MathUtil.Averaged<Long>()
     var startTime: Long
     var lastTouchTime: Long

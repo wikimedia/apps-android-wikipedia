@@ -323,7 +323,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             yearTextView = v.findViewById(R.id.year);
             yearsInfoTextView = v.findViewById(R.id.years_text);
             pagesViewPager = v.findViewById(R.id.pages_pager);
-            pagesIndicator = v.findViewById(R.id.pages_item_indicator_view);
+            pagesIndicator = v.findViewById(R.id.pages_indicator);
             radioButtonImageView = v.findViewById(R.id.radio_image_view);
             this.wiki = wiki;
         }

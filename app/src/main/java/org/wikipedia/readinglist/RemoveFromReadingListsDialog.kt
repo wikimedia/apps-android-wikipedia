@@ -15,16 +15,18 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
     }
 
     init {
-        ReadingList.sort(listsContainingPage, ReadingList.SORT_BY_NAME_ASC)
+        listsContainingPage?.let {
+            ReadingList.sort(it as MutableList<ReadingList>, ReadingList.SORT_BY_NAME_ASC)
+        }
     }
 
     fun deleteOrShowDialog(context: Context, callback: Callback?) {
         if (listsContainingPage.isNullOrEmpty()) {
             return
         }
-        if (listsContainingPage.size == 1 && listsContainingPage[0].pages().isNotEmpty()) {
-            ReadingListDbHelper.instance().markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages()[0]))
-            callback?.onDeleted(listsContainingPage, listsContainingPage[0].pages()[0])
+        if (listsContainingPage.size == 1 && listsContainingPage[0].pages.isNotEmpty()) {
+            ReadingListDbHelper.markPagesForDeletion(listsContainingPage[0], listOf(listsContainingPage[0].pages[0]))
+            callback?.onDeleted(listsContainingPage, listsContainingPage[0].pages[0])
             return
         }
         showDialog(context, callback)
@@ -35,7 +37,7 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
             val listNames = arrayOfNulls<String>(it.size)
             val selected = BooleanArray(listNames.size)
             it.forEachIndexed { index, readingList ->
-                listNames[index] = readingList.title()
+                listNames[index] = readingList.title
             }
             AlertDialog.Builder(context)
                     .setTitle(R.string.reading_list_remove_from_lists)
@@ -45,12 +47,12 @@ class RemoveFromReadingListsDialog(private val listsContainingPage: List<Reading
                         for (i in listNames.indices) {
                             if (selected[i]) {
                                 atLeastOneSelected = true
-                                ReadingListDbHelper.instance().markPagesForDeletion(it[i], listOf(it[i].pages()[0]))
+                                ReadingListDbHelper.markPagesForDeletion(it[i], listOf(it[i].pages[0]))
                                 newLists.add(it[i])
                             }
                         }
                         if (atLeastOneSelected) {
-                            callback?.onDeleted(newLists, it[0].pages()[0])
+                            callback?.onDeleted(newLists, it[0].pages[0])
                         }
                     }
                     .setNegativeButton(R.string.reading_list_remove_from_list_dialog_cancel_button_text, null)
