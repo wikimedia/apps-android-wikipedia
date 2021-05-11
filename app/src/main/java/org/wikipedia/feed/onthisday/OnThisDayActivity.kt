@@ -19,13 +19,7 @@ class OnThisDayActivity : SingleFragmentActivity<OnThisDayFragment>() {
         const val AGE = "age"
         const val YEAR = "year"
         const val WIKISITE = "wikisite"
-        fun newIntent(
-            context: Context,
-            age: Int,
-            year: Int,
-            wikiSite: WikiSite,
-            invokeSource: InvokeSource
-        ): Intent {
+        fun newIntent(context: Context, age: Int, year: Int, wikiSite: WikiSite, invokeSource: InvokeSource): Intent {
             return Intent(context, OnThisDayActivity::class.java)
                 .putExtra(AGE, age)
                 .putExtra(WIKISITE, wikiSite)

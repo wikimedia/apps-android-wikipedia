@@ -2,7 +2,6 @@ package org.wikipedia.feed.onthisday
 
 import android.app.Activity
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,12 +29,9 @@ import org.wikipedia.databinding.FragmentOnThisDayBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
-import org.wikipedia.util.DateUtil.getDefaultDateFor
-import org.wikipedia.util.DateUtil.getMonthOnlyDateString
-import org.wikipedia.util.DateUtil.getYearDifferenceString
-import org.wikipedia.util.DateUtil.yearToStringWithEra
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.util.log.L.e
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.CustomDatePicker
 import org.wikipedia.views.HeaderMarginItemDecoration
 import java.util.*
@@ -45,36 +41,32 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
+    private lateinit var date: Calendar
+    private lateinit var wiki: WikiSite
+    private var funnel: OnThisDayFunnel? = null
+    private var yearOnCardView = 0
+    private var positionToScrollTo = 0
     private val disposables = CompositeDisposable()
     private val appCompatActivity get() = activity as AppCompatActivity?
     private var onThisDay: OnThisDay? = null
-    private var date: Calendar? = null
-    private var funnel: OnThisDayFunnel? = null
-    private var wiki: WikiSite? = null
-    private var yearOnCardView = 0
-    private var positionToScrollTo = 0
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val topDecorationDp = 24
         val age = requireActivity().intent.getIntExtra(OnThisDayActivity.AGE, 0)
 
         _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
-        wiki = requireActivity().intent.getParcelableExtra(OnThisDayActivity.WIKISITE)
-        date = getDefaultDateFor(age)
+        wiki = requireActivity().intent.getParcelableExtra(OnThisDayActivity.WIKISITE)!!
+        date = DateUtil.getDefaultDateFor(age)
         yearOnCardView = requireActivity().intent.getIntExtra(OnThisDayActivity.YEAR, -1)
         setUpToolbar()
-        binding.eventsRecycler.layoutManager =
-            LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        binding.eventsRecycler.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         binding.eventsRecycler.addItemDecoration(HeaderMarginItemDecoration(topDecorationDp, 0))
         setUpRecycler(binding.eventsRecycler)
         setUpTransitionAnimation(savedInstanceState, age)
         binding.progressBar.visibility = View.GONE
         binding.eventsRecycler.visibility = View.GONE
         binding.errorView.visibility = View.GONE
-        binding.errorView.backClickListener =
-            View.OnClickListener { requireActivity().finish() }
+        binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         binding.dayContainer.setOnClickListener { onCalendarClicked() }
         binding.toolbarDayContainer.setOnClickListener { onCalendarClicked() }
         binding.indicatorLayout.setOnClickListener { onIndicatorLayoutClicked() }
@@ -82,23 +74,22 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     }
 
     private fun setUpTransitionAnimation(savedInstanceState: Bundle?, age: Int) {
-        val animDelay =
-            if (requireActivity().window.sharedElementEnterTransition != null && savedInstanceState == null
-            ) 500 else 0
+        val animDelay = if (requireActivity().window.sharedElementEnterTransition != null &&
+            savedInstanceState == null) 500L else 0L
         binding.onThisDayTitleView.postDelayed({
             if (!isAdded) {
                 return@postDelayed
             }
             updateContents(age)
-        }, animDelay.toLong())
+        }, animDelay)
     }
 
     private fun updateContents(age: Int) {
-        val today = getDefaultDateFor(age)
+        val today = DateUtil.getDefaultDateFor(age)
         requestEvents(today[Calendar.MONTH], today[Calendar.DATE])
         funnel = OnThisDayFunnel(
             WikipediaApp.getInstance(), wiki,
-            (requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?)!!
+            (requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
         )
     }
 
@@ -106,7 +97,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.progressBar.visibility = View.VISIBLE
         binding.eventsRecycler.visibility = View.GONE
         binding.errorView.visibility = View.GONE
-        disposables.add(ServiceFactory.getRest(wiki!!).getOnThisDay(month + 1, date)
+        disposables.add(ServiceFactory.getRest(wiki).getOnThisDay(month + 1, date)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate {
@@ -123,9 +114,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             .subscribe({ response ->
                 onThisDay = response
                 binding.eventsRecycler.visibility = View.VISIBLE
-                binding.eventsRecycler.adapter = RecyclerAdapter(
-                    onThisDay!!.events(), wiki!!
-                )
+                binding.eventsRecycler.adapter = RecyclerAdapter(onThisDay!!.events(), wiki)
                 val events = onThisDay!!.events()
                 for (i in events.indices) {
                     if (yearOnCardView == events[i].year()) {
@@ -134,12 +123,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                     }
                 }
                 val beginningYear = events[events.size - 1].year()
-                binding.dayInfo.text = String.format(
-                    getString(R.string.events_count_text), events.size.toString(),
-                    yearToStringWithEra(beginningYear), events[0].year()
+                binding.dayInfo.text = getString(
+                    R.string.events_count_text, events.size.toString(),
+                    DateUtil.yearToStringWithEra(beginningYear), events[0].year()
                 )
             }) { throwable ->
-                e(throwable)
+                L.e(throwable)
                 binding.errorView.setError(throwable)
                 binding.errorView.visibility = View.VISIBLE
                 binding.eventsRecycler.visibility = View.GONE
@@ -151,12 +140,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         appCompatActivity!!.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         appCompatActivity!!.supportActionBar!!.title = ""
         binding.collapsingToolbarLayout.setCollapsedTitleTextColor(
-            getThemedColor(
+            ResourceUtil.getThemedColor(
                 requireContext(),
                 R.attr.material_theme_primary_color
             )
         )
-        binding.day.text = getMonthOnlyDateString(date!!.time)
+        binding.day.text = DateUtil.getMonthOnlyDateString(date.time)
         maybeHideDateIndicator()
         binding.appBar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
             binding.headerFrameLayout.alpha = 1.0f - abs(
@@ -169,9 +158,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                 binding.dropDownToolbar.visibility = View.VISIBLE
             }
             val newText =
-                if (verticalOffset <= -appBarLayout.totalScrollRange) getMonthOnlyDateString(
-                    date!!.time
-                ) else ""
+                if (verticalOffset <= -appBarLayout.totalScrollRange) DateUtil.getMonthOnlyDateString(date.time) else ""
             if (newText != binding.toolbarDay.text.toString()) {
                 appBarLayout.post { binding.toolbarDay.text = newText }
             }
@@ -180,7 +167,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     private fun maybeHideDateIndicator() {
         binding.indicatorLayout.visibility =
-            if (date!![Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] && date!![Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]
+            if (date[Calendar.MONTH] == Calendar.getInstance()[Calendar.MONTH] &&
+                date[Calendar.DATE] == Calendar.getInstance()[Calendar.DATE]
             ) View.GONE else View.VISIBLE
         binding.indicatorDate.text = String.format(
             Locale.getDefault(),
@@ -192,23 +180,23 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     override fun onDestroyView() {
         disposables.clear()
         binding.eventsRecycler.adapter = null
-        if (funnel != null && binding.eventsRecycler.adapter != null) {
-            funnel!!.done(binding.eventsRecycler.adapter!!.itemCount)
+        if (binding.eventsRecycler.adapter != null) {
+            funnel?.done(binding.eventsRecycler.adapter!!.itemCount)
             funnel = null
         }
         _binding = null
         super.onDestroyView()
     }
 
-    private fun setUpRecycler(recycler: RecyclerView?) {
-        recycler!!.isNestedScrollingEnabled = true
+    private fun setUpRecycler(recycler: RecyclerView) {
+        recycler.isNestedScrollingEnabled = true
         recycler.clipToPadding = false
     }
 
     override fun onDatePicked(month: Int, day: Int) {
         binding.eventsRecycler.visibility = View.GONE
-        date!![CustomDatePicker.LEAP_YEAR, month, day, 0] = 0
-        binding.day.text = getMonthOnlyDateString(date!!.time)
+        date[CustomDatePicker.LEAP_YEAR, month, day, 0] = 0
+        binding.day.text = DateUtil.getMonthOnlyDateString(date.time)
         binding.appBar.setExpanded(true)
         requestEvents(month, day)
         maybeHideDateIndicator()
@@ -216,9 +204,9 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     fun onCalendarClicked() {
         val newFragment = CustomDatePicker()
-        newFragment.setSelectedDay(date!![Calendar.MONTH], date!![Calendar.DATE])
+        newFragment.setSelectedDay(date[Calendar.MONTH], date[Calendar.DATE])
         newFragment.callback = this@OnThisDayFragment
-        newFragment.show(requireFragmentManager(), "date picker")
+        newFragment.show(parentFragmentManager, "date picker")
     }
 
     fun onIndicatorLayoutClicked() {
@@ -230,10 +218,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         private val wiki: WikiSite
     ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-        override fun onCreateViewHolder(
-            viewGroup: ViewGroup,
-            viewType: Int
-        ): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             return if (viewType == Companion.VIEW_TYPE_FOOTER) {
                 val itemView = LayoutInflater.from(viewGroup.context)
                     .inflate(R.layout.view_on_this_day_footer, viewGroup, false)
@@ -248,9 +233,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             if (holder is EventsViewHolder) {
                 holder.setFields(events[position])
-                if (funnel != null) {
-                    funnel!!.scrolledToPosition(position)
-                }
+                funnel?.scrolledToPosition(position)
             }
         }
 
@@ -270,32 +253,24 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
     }
 
-    private inner class EventsViewHolder(v: View, wiki: WikiSite) :
-        RecyclerView.ViewHolder(v) {
+    private inner class EventsViewHolder(v: View, private val wiki: WikiSite) : RecyclerView.ViewHolder(v) {
+
         private val descTextView: TextView = v.findViewById(R.id.text)
-        private val yearTextView: TextView
-        private val yearsInfoTextView: TextView
-        private val pagesViewPager: ViewPager2
-        private val pagesIndicator: TabLayout
-        private val radioButtonImageView: ImageView
-        private val wiki: WikiSite
+        private val yearTextView: TextView = v.findViewById(R.id.year)
+        private val yearsInfoTextView: TextView = v.findViewById(R.id.years_text)
+        private val pagesViewPager: ViewPager2 = v.findViewById(R.id.pages_pager)
+        private val pagesIndicator: TabLayout = v.findViewById(R.id.pages_indicator)
+        private val radioButtonImageView: ImageView = v.findViewById(R.id.radio_image_view)
 
         init {
             descTextView.setTextIsSelectable(true)
-            yearTextView = v.findViewById(R.id.year)
-            yearsInfoTextView = v.findViewById(R.id.years_text)
-            pagesViewPager = v.findViewById(R.id.pages_pager)
-            pagesIndicator = v.findViewById(R.id.pages_indicator)
-            radioButtonImageView = v.findViewById(R.id.radio_image_view)
-            this.wiki = wiki
         }
 
         fun setFields(event: OnThisDay.Event) {
             descTextView.text = event.text()
-            descTextView.visibility =
-                if (TextUtils.isEmpty(event.text())) View.GONE else View.VISIBLE
-            yearTextView.text = yearToStringWithEra(event.year())
-            yearsInfoTextView.text = getYearDifferenceString(event.year())
+            descTextView.visibility = if (event.text().isEmpty()) View.GONE else View.VISIBLE
+            yearTextView.text = DateUtil.yearToStringWithEra(event.year())
+            yearsInfoTextView.text = DateUtil.getYearDifferenceString(event.year())
             setPagesViewPager(event)
         }
 
@@ -335,11 +310,8 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         }
     }
 
-    internal inner class ViewPagerAdapter(
-        private val fragmentManager: FragmentManager,
-        private val pages: List<PageSummary>,
-        private val wiki: WikiSite
-    ) : RecyclerView.Adapter<OnThisDayPagesViewHolder>() {
+    internal inner class ViewPagerAdapter(private val fragmentManager: FragmentManager, private val pages: List<PageSummary>,
+        private val wiki: WikiSite) : RecyclerView.Adapter<OnThisDayPagesViewHolder>() {
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): OnThisDayPagesViewHolder {
             val itemView = LayoutInflater.from(viewGroup.context)

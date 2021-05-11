@@ -2,7 +2,6 @@ package org.wikipedia.feed.onthisday
 
 import android.app.Activity
 import android.net.Uri
-import android.text.TextUtils
 import android.view.View
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
@@ -48,9 +47,8 @@ class OnThisDayPagesViewHolder(
 
         selectedPage = page
         description.text = page.description
-        description.visibility =
-            if (TextUtils.isEmpty(page.description)) View.GONE else View.VISIBLE
-        title.maxLines = if (TextUtils.isEmpty(page.description)) 2 else 1
+        description.visibility = if (page.description.isNullOrEmpty()) View.GONE else View.VISIBLE
+        title.maxLines = if (page.description.isNullOrEmpty()) 2 else 1
         title.text = StringUtil.fromHtml(page.displayTitle)
         setImage(page.thumbnailUrl)
     }
@@ -103,7 +101,7 @@ class OnThisDayPagesViewHolder(
                 if (addToDefault) {
                     ReadingListBehaviorsUtil.addToDefaultList(
                         activity, entry.title, InvokeSource.NEWS_ACTIVITY
-                    ) { readingListId: Long ->
+                    ) { readingListId ->
                         bottomSheetPresenter.show(
                             fragmentManager,
                             MoveToReadingListDialog.newInstance(
