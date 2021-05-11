@@ -3,16 +3,14 @@ package org.wikipedia.feed.onthisday
 import android.app.Activity
 import android.net.Uri
 import android.text.TextUtils
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.databinding.ItemOnThisDayPagesBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
@@ -24,6 +22,7 @@ import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.*
+import org.wikipedia.views.FaceAndColorDetectImageView
 
 class OnThisDayPagesViewHolder(
     private val activity: Activity,
@@ -32,33 +31,38 @@ class OnThisDayPagesViewHolder(
     private val wiki: WikiSite
 ) : RecyclerView.ViewHolder(v) {
 
-    private var binding: ItemOnThisDayPagesBinding? = null
     private var selectedPage: PageSummary? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var image: FaceAndColorDetectImageView? = null
 
     init {
         DeviceUtil.setContextClickAsLongClick(v)
         this.itemView.setOnClickListener { onBaseViewClicked() }
         this.itemView.setOnLongClickListener { showOverflowMenu(it) }
-        binding = ItemOnThisDayPagesBinding.inflate(LayoutInflater.from(activity), this.itemView as ViewGroup, false)
+        image = this.itemView.findViewById(R.id.image)
     }
 
     fun setFields(page: PageSummary) {
+        val description = this.itemView.findViewById<TextView>(R.id.description)
+        val title = this.itemView.findViewById<TextView>(R.id.title)
+
         selectedPage = page
-        binding!!.description.text = page.description
-        binding!!.description.visibility =
+        description.text = page.description
+        description.visibility =
             if (TextUtils.isEmpty(page.description)) View.GONE else View.VISIBLE
-        binding!!.title.maxLines = if (TextUtils.isEmpty(page.description)) 2 else 1
-        binding!!.title.text = StringUtil.fromHtml(page.displayTitle)
+        title.maxLines = if (TextUtils.isEmpty(page.description)) 2 else 1
+        title.text = StringUtil.fromHtml(page.displayTitle)
         setImage(page.thumbnailUrl)
     }
 
     private fun setImage(url: String?) {
-        if (url == null) {
-            binding!!.image.visibility = View.GONE
-        } else {
-            binding!!.image.visibility = View.VISIBLE
-            binding!!.image.loadImage(Uri.parse(url))
+        image?.let {
+            if (url == null) {
+                it.visibility = View.GONE
+            } else {
+                it.visibility = View.VISIBLE
+                it.loadImage(Uri.parse(url))
+            }
         }
     }
 
@@ -67,7 +71,7 @@ class OnThisDayPagesViewHolder(
             selectedPage!!.getPageTitle(wiki),
             HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
         )
-        val sharedElements = TransitionUtil.getSharedElements(activity, binding!!.image)
+        val sharedElements = TransitionUtil.getSharedElements(activity, image!!)
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, *sharedElements)
         val intent = PageActivity.newIntentForNewTab(activity, entry, entry.title)
         if (sharedElements.isNotEmpty()) {
@@ -84,6 +88,7 @@ class OnThisDayPagesViewHolder(
             selectedPage!!.getPageTitle(wiki),
             HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
         )
+
         LongPressMenu(anchorView!!, true, object : LongPressMenu.Callback {
             override fun onOpenLink(entry: HistoryEntry) {
                 PageActivity.newIntentForNewTab(activity, entry, entry.title)
@@ -111,7 +116,10 @@ class OnThisDayPagesViewHolder(
                 } else {
                     bottomSheetPresenter.show(
                         fragmentManager,
-                        AddToReadingListDialog.newInstance(entry.title, InvokeSource.ON_THIS_DAY_ACTIVITY)
+                        AddToReadingListDialog.newInstance(
+                            entry.title,
+                            InvokeSource.ON_THIS_DAY_ACTIVITY
+                        )
                     )
                 }
             }
@@ -119,7 +127,11 @@ class OnThisDayPagesViewHolder(
             override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                 bottomSheetPresenter.show(
                     fragmentManager,
-                    MoveToReadingListDialog.newInstance(page!!.listId, entry.title, InvokeSource.ON_THIS_DAY_ACTIVITY)
+                    MoveToReadingListDialog.newInstance(
+                        page!!.listId,
+                        entry.title,
+                        InvokeSource.ON_THIS_DAY_ACTIVITY
+                    )
                 )
             }
         }).show(entry)

@@ -15,7 +15,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -46,15 +45,14 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     private var _binding: FragmentOnThisDayBinding? = null
     private val binding get() = _binding!!
-
-
+    private val disposables = CompositeDisposable()
+    private val appCompatActivity get() = activity as AppCompatActivity?
     private var onThisDay: OnThisDay? = null
     private var date: Calendar? = null
     private var funnel: OnThisDayFunnel? = null
     private var wiki: WikiSite? = null
     private var yearOnCardView = 0
     private var positionToScrollTo = 0
-    private val disposables = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,7 +75,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         binding.eventsRecycler.visibility = View.GONE
         binding.errorView.visibility = View.GONE
         binding.errorView.backClickListener =
-            View.OnClickListener { v: View? -> requireActivity().finish() }
+            View.OnClickListener { requireActivity().finish() }
         binding.dayContainer.setOnClickListener { onCalendarClicked() }
         binding.toolbarDayContainer.setOnClickListener { onCalendarClicked() }
         binding.indicatorLayout.setOnClickListener { onIndicatorLayoutClicked() }
@@ -85,9 +83,9 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     }
 
     private fun setUpTransitionAnimation(savedInstanceState: Bundle?, age: Int) {
-        val animDelay = if (requireActivity().window.sharedElementEnterTransition != null
-            && savedInstanceState == null
-        ) 500 else 0
+        val animDelay =
+            if (requireActivity().window.sharedElementEnterTransition != null && savedInstanceState == null
+            ) 500 else 0
         binding.onThisDayTitleView.postDelayed({
             if (!isAdded) {
                 return@postDelayed
@@ -123,7 +121,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                     }
                 }, 500)
             }
-            .subscribe({ response: OnThisDay? ->
+            .subscribe({ response ->
                 onThisDay = response
                 binding.eventsRecycler.visibility = View.VISIBLE
                 binding.eventsRecycler.adapter = RecyclerAdapter(
@@ -141,7 +139,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                     getString(R.string.events_count_text), events.size.toString(),
                     yearToStringWithEra(beginningYear), events[0].year()
                 )
-            }) { throwable: Throwable? ->
+            }) { throwable ->
                 e(throwable)
                 binding.errorView.setError(throwable)
                 binding.errorView.visibility = View.VISIBLE
@@ -161,7 +159,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         )
         binding.day.text = getMonthOnlyDateString(date!!.time)
         maybeHideDateIndicator()
-        binding.appBar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout: AppBarLayout, verticalOffset: Int ->
+        binding.appBar.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
             binding.headerFrameLayout.alpha = 1.0f - abs(
                 verticalOffset / appBarLayout.totalScrollRange
                     .toFloat()
@@ -191,9 +189,6 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             Calendar.getInstance()[Calendar.DATE]
         )
     }
-
-    private val appCompatActivity: AppCompatActivity?
-        get() = activity as AppCompatActivity?
 
     override fun onDestroyView() {
         disposables.clear()
@@ -278,13 +273,24 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
     private inner class EventsViewHolder(v: View, wiki: WikiSite) :
         RecyclerView.ViewHolder(v) {
-        private val descTextView: TextView
+        private val descTextView: TextView = v.findViewById(R.id.text)
         private val yearTextView: TextView
         private val yearsInfoTextView: TextView
         private val pagesViewPager: ViewPager2
         private val pagesIndicator: TabLayout
         private val radioButtonImageView: ImageView
         private val wiki: WikiSite
+
+        init {
+            descTextView.setTextIsSelectable(true)
+            yearTextView = v.findViewById(R.id.year)
+            yearsInfoTextView = v.findViewById(R.id.years_text)
+            pagesViewPager = v.findViewById(R.id.pages_pager)
+            pagesIndicator = v.findViewById(R.id.pages_indicator)
+            radioButtonImageView = v.findViewById(R.id.radio_image_view)
+            this.wiki = wiki
+        }
+
         fun setFields(event: OnThisDay.Event) {
             descTextView.text = event.text()
             descTextView.visibility =
@@ -304,7 +310,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
                 TabLayoutMediator(
                     pagesIndicator,
                     pagesViewPager
-                ) { tab: TabLayout.Tab?, position: Int -> }.attach()
+                ) { _, _ -> }.attach()
                 pagesViewPager.visibility = View.VISIBLE
                 pagesIndicator.visibility =
                     if (event.pages()!!.size == 1) View.GONE else View.VISIBLE
@@ -318,24 +324,12 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
             val pulse = AnimationUtils.loadAnimation(context, R.anim.pulse)
             radioButtonImageView.startAnimation(pulse)
         }
-
-        init {
-            descTextView = v.findViewById(R.id.text)
-            descTextView.setTextIsSelectable(true)
-            yearTextView = v.findViewById(R.id.year)
-            yearsInfoTextView = v.findViewById(R.id.years_text)
-            pagesViewPager = v.findViewById(R.id.pages_pager)
-            pagesIndicator = v.findViewById(R.id.pages_indicator)
-            radioButtonImageView = v.findViewById(R.id.radio_image_view)
-            this.wiki = wiki
-        }
     }
 
-    private inner class FooterViewHolder(v: View) :
-        RecyclerView.ViewHolder(v) {
+    private inner class FooterViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         init {
             val backToFutureView = v.findViewById<View>(R.id.back_to_future_text_view)
-            backToFutureView.setOnClickListener { v1: View? ->
+            backToFutureView.setOnClickListener {
                 binding.appBar.setExpanded(true)
                 binding.eventsRecycler.scrollToPosition(0)
             }
