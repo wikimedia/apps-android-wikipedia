@@ -8,11 +8,10 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
 
 class OnThisDayActivity : SingleFragmentActivity<OnThisDayFragment>() {
+
     override fun createFragment(): OnThisDayFragment {
         return OnThisDayFragment.newInstance(
-            intent.getIntExtra(AGE, 0), intent.getParcelableExtra(
-                WIKISITE
-            )
+            intent.getIntExtra(AGE, 0), intent.getParcelableExtra(WIKISITE)
         )
     }
 

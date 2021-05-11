@@ -55,19 +55,18 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private var positionToScrollTo = 0
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
-
+        val topDecorationDp = 24
         val age = requireActivity().intent.getIntExtra(OnThisDayActivity.AGE, 0)
+
+        _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
         wiki = requireActivity().intent.getParcelableExtra(OnThisDayActivity.WIKISITE)
         date = getDefaultDateFor(age)
         yearOnCardView = requireActivity().intent.getIntExtra(OnThisDayActivity.YEAR, -1)
         setUpToolbar()
         binding.eventsRecycler.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        val topDecorationDp = 24
         binding.eventsRecycler.addItemDecoration(HeaderMarginItemDecoration(topDecorationDp, 0))
         setUpRecycler(binding.eventsRecycler)
         setUpTransitionAnimation(savedInstanceState, age)
