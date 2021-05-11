@@ -28,8 +28,8 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
     init {
         val scrollView = ScrollView(context)
         val cardView = AnnouncementCardView(context)
-        cardView.setCard(AnnouncementCard(announcement))
-        cardView.setCallback(this)
+        cardView.card = AnnouncementCard(announcement)
+        cardView.localCallback = this
         scrollView.addView(cardView)
         scrollView.isVerticalScrollBarEnabled = true
         setView(scrollView)

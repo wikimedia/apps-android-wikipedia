@@ -1,8 +1,7 @@
 package org.wikipedia.analytics.eventplatform;
 
-import com.google.gson.Gson;
-
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockedStatic;
@@ -11,6 +10,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse;
 import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.test.TestFileUtil;
 
@@ -28,22 +28,18 @@ import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.times;
 import static org.wikipedia.analytics.eventplatform.DestinationEventService.LOGGING;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClient.JS_REGEXP_PATTERN;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.STREAM_CONFIGS;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.addEventMetadata;
-import static org.wikipedia.analytics.eventplatform.EventPlatformClient.getStreamConfig;
 import static org.wikipedia.analytics.eventplatform.EventPlatformClient.setStreamConfig;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.DEVICE;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.PAGEVIEW;
 import static org.wikipedia.analytics.eventplatform.SamplingConfig.Identifier.SESSION;
-import static org.wikipedia.json.GsonUtil.getDefaultGson;
 
 @SuppressWarnings("checkstyle:magicnumber")
 @RunWith(RobolectricTestRunner.class)
 public class EventPlatformClientTest {
 
     private static final String STREAM_CONFIGS_RESPONSE = "streamconfigs_response.json";
-    private static final Gson GSON = getDefaultGson();
 
     @Before
     public void reset() {
@@ -63,16 +59,8 @@ public class EventPlatformClientTest {
     @Test
     public void testGetStream() {
         setStreamConfig(new StreamConfig("test", null, null));
-        setStreamConfig(new StreamConfig("/^f[a-z]{2}$/", null, null));
-        setStreamConfig(new StreamConfig("/^mediawiki\\.job\\..+/", null, null));
-        setStreamConfig(new StreamConfig("/^swift\\.(.+\\.)?upload-complete$/", null, null));
-
-        assertThat(getStreamConfig("test"), is(notNullValue()));
-        assertThat(getStreamConfig("foo"), is(notNullValue()));
-        assertThat(getStreamConfig("mediawiki.job.foo"), is(notNullValue()));
-        assertThat(getStreamConfig("swift.foo.upload-complete"), is(notNullValue()));
-
-        assertThat(getStreamConfig("key.does.not.exist"), is(nullValue()));
+        assertThat(STREAM_CONFIGS.get("test"), is(notNullValue()));
+        assertThat(STREAM_CONFIGS.get("key.does.not.exist"), is(nullValue()));
     }
 
     @Test
@@ -85,6 +73,7 @@ public class EventPlatformClientTest {
         assertThat(serialized.contains("app_install_id"), is(true));
     }
 
+    @Ignore("Disabled for testing: https://phabricator.wikimedia.org/T281001")
     @Test
     public void testOutputBufferEnqueuesEventOnSubmit() {
         Event event = new Event("test", "test");
@@ -168,19 +157,6 @@ public class EventPlatformClientTest {
     }
 
     @Test
-    public void testJavascriptRegExpPatternMatching() {
-        assertThat("/foo/".matches(JS_REGEXP_PATTERN), is(true));
-        assertThat("/foo/i".matches(JS_REGEXP_PATTERN), is(true));
-        assertThat("/foo/suygm".matches(JS_REGEXP_PATTERN), is(true));
-        assertThat("/^mediawiki\\.job\\..+/".matches(JS_REGEXP_PATTERN), is(true));
-        assertThat("/^swift\\.(.+\\.)?upload-complete$/".matches(JS_REGEXP_PATTERN), is(true));
-
-        assertThat("foo".matches(JS_REGEXP_PATTERN), is(false));
-        assertThat("".matches(JS_REGEXP_PATTERN), is(false));
-        assertThat("/foo/z".matches(JS_REGEXP_PATTERN), is(false));
-    }
-
-    @Test
     public void testGetEventService() {
         StreamConfig streamConfig = new StreamConfig("test", null, LOGGING);
         assertThat(ServiceFactory.getAnalyticsRest(streamConfig), is(notNullValue()));
@@ -194,13 +170,11 @@ public class EventPlatformClientTest {
 
     @Test
     public void testStreamConfigMapSerializationDeserialization() throws IOException {
-        String json = TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE);
-        MwStreamConfigsResponse response = GSON.fromJson(json, MwStreamConfigsResponse.class);
-        Map<String, StreamConfig> originalStreamConfigs = response.getStreamConfigs();
+        Map<String, StreamConfig> originalStreamConfigs = GsonUnmarshaller.unmarshal(MwStreamConfigsResponse.class,
+                TestFileUtil.readRawFile(STREAM_CONFIGS_RESPONSE)).getStreamConfigs();
 
         Prefs.setStreamConfigs(originalStreamConfigs);
         Map<String, StreamConfig> restoredStreamConfigs = Prefs.getStreamConfigs();
         assertThat(GsonMarshaller.marshal(restoredStreamConfigs), is(GsonMarshaller.marshal(originalStreamConfigs)));
     }
-
 }

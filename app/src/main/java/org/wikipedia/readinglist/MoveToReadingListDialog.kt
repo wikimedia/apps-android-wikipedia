@@ -28,7 +28,7 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         val parentView = super.onCreateView(inflater, container, savedInstanceState)
         parentView.findViewById<TextView>(R.id.dialog_title).setText(R.string.reading_list_move_to)
         val sourceReadingListId = requireArguments().getLong(SOURCE_READING_LIST_ID)
-        sourceReadingList = ReadingListDbHelper.instance().getListById(sourceReadingListId, false)
+        sourceReadingList = ReadingListDbHelper.getListById(sourceReadingListId, false)
         if (sourceReadingList == null) {
             dismiss()
         }
@@ -42,12 +42,12 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
     }
 
     override fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.instance().movePagesToListAndDeleteSourcePages(sourceReadingList!!, readingList, titles) }
+        disposables.add(Observable.fromCallable { ReadingListDbHelper.movePagesToListAndDeleteSourcePages(sourceReadingList!!, readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ movedTitlesList ->
                     ReadingListsFunnel().logMoveToList(readingList, readingLists.size, invokeSource)
-                    showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title()) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title()))
+                    showViewListSnackBar(readingList, if (movedTitlesList.size == 1) getString(R.string.reading_list_article_moved_to_named, movedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size, readingList.title))
                     dismiss()
                 }) { obj -> L.w(obj) })
     }

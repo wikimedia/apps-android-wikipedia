@@ -1006,6 +1006,14 @@ public final class Prefs {
         setInt(R.string.preference_key_image_recs_day_id, day);
     }
 
+    public static boolean shouldShowImageRecsTooltip() {
+        return getBoolean(R.string.preference_key_image_recs_show_tooltip, true);
+    }
+
+    public static void setShowImageRecsTooltip(boolean enabled) {
+        setBoolean(R.string.preference_key_image_recs_show_tooltip, enabled);
+    }
+
     public static boolean shouldShowImageRecsOnboarding() {
         return getBoolean(R.string.preference_key_image_recs_show_onboarding, true);
     }

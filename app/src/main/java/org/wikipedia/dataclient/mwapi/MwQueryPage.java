@@ -46,6 +46,7 @@ public class MwQueryPage {
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
     @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
     @SerializedName("watchlistexpiry") @Nullable private String watchlistExpiry;
+    @Nullable private Map<String, List<MwServiceError>> actions;
     private boolean watched;
 
 
@@ -169,6 +170,10 @@ public class MwQueryPage {
 
     public long getLastRevId() {
         return lastrevid;
+    }
+
+    @NonNull public List<MwServiceError> getErrorForAction(String actionName) {
+        return (actions != null && actions.containsKey(actionName)) ? actions.get(actionName) : Collections.emptyList();
     }
 
     public static class Revision {

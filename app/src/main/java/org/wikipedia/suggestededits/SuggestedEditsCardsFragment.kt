@@ -86,7 +86,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         Prefs.setImageRecsItemSequence(Prefs.getImageRecsItemSequenceSuccess())
 
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get().impression(action)
+        SuggestedEditsFunnel.get()!!.impression(action)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -147,12 +147,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             if (action == IMAGE_RECOMMENDATION) {
                 requireView().post {
                     if (isAdded) {
-                        requireActivity().window.decorView.findViewById<TextView?>(R.id.menu_help).let {
+                        requireActivity().window.decorView.findViewById<TextView>(R.id.menu_help).let {
                             TextViewCompat.setCompoundDrawablesRelativeWithIntrinsicBounds(it, 0, 0, R.drawable.ic_open_in_new_black_24px, 0)
-                            TextViewCompat.setCompoundDrawableTintList(it, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
+                            TextViewCompat.setCompoundDrawableTintList(it, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_text_color)))
                             it.letterSpacing = binding.addContributionButton.letterSpacing
                             it.compoundDrawablePadding = DimenUtil.roundedDpToPx(4f)
-                            it.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+                            it.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_text_color))
                             it.text = getString(R.string.image_recommendations_faq)
                         }
                     }
@@ -251,12 +251,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onPause() {
         super.onPause()
-        SuggestedEditsFunnel.get().pause()
+        SuggestedEditsFunnel.get()!!.pause()
     }
 
     override fun onResume() {
         super.onResume()
-        SuggestedEditsFunnel.get().resume()
+        SuggestedEditsFunnel.get()!!.resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -439,7 +439,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
             updateActionButton()
-            SuggestedEditsFunnel.get().impression(action)
+            SuggestedEditsFunnel.get()!!.impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position

@@ -11,6 +11,7 @@
 * Hzy980512
 * Kanon und wikipedia
 * Kkairri
+* Kokoko-H
 * LaMagiaaa
 * Los688
 * Mirinano
@@ -61,6 +62,7 @@
   <string name="offline_load_error_retry">再試行</string>
   <string name="page_error_back_to_main">戻る</string>
   <string name="error_back">戻る</string>
+  <string name="error_next">次へ</string>
   <string name="menu_clear_all_history">履歴を消去</string>
   <string name="history_item_deleted">履歴から%sを削除しました</string>
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
@@ -456,6 +458,7 @@
   <string name="reading_list_name_hint">このリストの名前</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
   <string name="reading_list_item_deleted">%s はリストから削除されました</string>
+  <string name="reading_list_item_deleted_from_list">%1$s が %2$s から削除されました。</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d件の記事をリストから削除しました</item>
     <item quantity="other">%d件の記事をリストから削除しました</item>
@@ -686,6 +689,8 @@
   <string name="description_too_short">文章が短すぎます。</string>
   <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>
   <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>
+  <string name="description_starts_with_lowercase">小文字で始めるものは避けてください。</string>
+  <string name="description_is_in_different_language">テキストが予期しない言語で表示されています。言語は %s である必要があります。</string>
   <string name="description_edit_success_saved">記事の説明が公開されました!</string>
   <string name="description_edit_success_saved_snackbar">記事の説明が公開されました!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">記事の説明が公開されました! (%s)</string>
@@ -748,6 +753,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">画像キャプション (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">画像の説明 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ファイル</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">ウィキメディア・コモンズからのファイル</string>
   <string name="suggested_edits_image_preview_dialog_artist">作者</string>
   <string name="suggested_edits_image_preview_dialog_tags">タグ</string>
   <string name="suggested_edits_image_preview_dialog_date">日付</string>
@@ -868,9 +874,12 @@
     <item quantity="one">%d文字追加しました</item>
     <item quantity="other">%d文字追加しました</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">画像処理アルゴリズムの学習</string>
+  <string name="suggested_edits_image_recommendations_task_detail">提案された画像が記事の改善につながるかどうかを判断します。</string>
   <string name="suggested_edits_image_recommendations_task_get_started">始める</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">その調子です! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">あなたは目標を達成しました</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">毎日の目標を達成しました！👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">あなたは毎日の目標を達成しました</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>

@@ -18,6 +18,7 @@
 * Macofe
 * Mguix
 * SMP
+* Skurz0
 * Ssola
 * Toniher
 * Unapersona
@@ -46,6 +47,7 @@
   <string name="offline_load_error_retry">Reintenta</string>
   <string name="page_error_back_to_main">Vés enrere</string>
   <string name="error_back">Enrere</string>
+  <string name="error_next">Següent</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
   <string name="history_item_deleted">%s eliminat de l\'historial</string>
   <string name="history_items_deleted">%d articles eliminats de l\'historial</string>
@@ -229,7 +231,7 @@
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
   <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Un producte de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Un projecte de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
   <string name="edit_abandon_confirm_yes">Sí</string>
@@ -333,10 +335,10 @@
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
   <string name="button_continue_to_talk_page">Obre la pàgina de discussió</string>
-  <string name="button_continue_to_disambiguation">Mosta pàgines semblants</string>
+  <string name="button_continue_to_disambiguation">Mostra pàgines semblants</string>
   <string name="link_preview_disambiguation_description">Aquest títol es relaciona a més d\'una pàgina:</string>
   <string name="button_add_to_reading_list">Afegeix a la llista de lectura</string>
-  <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article mentre estigueu fora de línia.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article si no teniu connexió a Internet.</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: En afegir l\'article a una llista de lectura es baixarà una vegada torneu a estar en línia.</string>
   <string name="page_offline_notice_last_date">Esteu llegint una versió fora de línia de l\'article desada el %s.</string>
   <string name="button_get_directions">Obtén indicacions</string>
@@ -349,7 +351,7 @@
   <string name="preference_summary_collapse_tables">Amaga automàticament les taules en els articles. Per exemple, amb les infotaules, les referències i les anotacions.</string>
   <string name="nav_item_donate">Feu una donació</string>
   <string name="error_voice_search_not_available">Ho sentim, el reconeixement de veu no està disponible.</string>
-  <string name="location_service_disabled">Els serveis d\'ubicació estan inhabilitats.</string>
+  <string name="location_service_disabled">Els serveis d\'ubicació estan deshabilitats.</string>
   <string name="enable_location_service">Habilita</string>
   <string name="location_permissions_enable_prompt">Activa els permisos d\'ubicació per a veure els llocs propers.</string>
   <string name="location_permissions_enable_action">Activa</string>
@@ -368,7 +370,7 @@
   <string name="reference_list_title">Referències</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Atenuació d\'imatges (en el tema fosc)</string>
   <string name="preference_title_prefer_offline_content">Prefereix contingut fora de línia</string>
-  <string name="preference_summary_prefer_offline_content">Estalvia ús de dades carregant articles que són disponibles fora de línia en comptes de carregar la darrera versió de l\'article</string>
+  <string name="preference_summary_prefer_offline_content">Estalvia en l\'ús de dades carregant articles que són disponibles sense línia, en comptes de carregar la darrera versió de l\'article</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Coincideix amb el tema del sistema</string>
   <string name="page_footer_license_text">El contingut està disponible sota $1 si no s\'indica el contrari</string>
   <string name="empty_tab_title">Pestanya nova</string>
@@ -871,10 +873,10 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Inicia</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Fantàstica, som-hi! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Heu superat l\'objectiu diari! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Heu superat l\'objectiu</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Heu superat l\'objectiu diari</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Hi ha disponible una nova tasca d\'edicions suggerides. Consisteix a entrenar un algorisme per a fer correspondre imatges amb articles que no en tenen.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Els articles de la Viquipèdia són escrits i editats per milers de voluntaris d\'arreu del món. Malauradament, molts dels articles no tenen imatges.\n\nSe us suggeriran imatges mitjançant un algorisme. Aquest obtindrà imatges d\'altres fonts i us suggerirà correspondències amb articles que no tinguin imatges.\n\nEls vostres comentaris ens ajudaran a millorar els suggeriments al llarg del temps. Atès que l\'objectiu d\'aquesta tasca és millorar les imatges suggerides, les correspondències que feu no es publicaran en cap moment,</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2">Voldríem reconèixer la vostra contribució en aquesta tasca. Voldríeu que el vostre nom d\'usuari aparegués a la pàgina d\'entrenament de l\'algorisme?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Voldríem reconèixer la vostra contribució en aquesta tasca. Voldríeu que el vostre nom d\'usuari aparegués a la pàgina d\'entrenament de l\'algorisme?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Sí, podeu mostrar el meu nom d\'usuari a la pàgina d\'entrenament de l\'algorisme</string>
   <string name="file_page_activity_title">Pàgina de fitxer</string>
   <string name="file_page_add_image_caption_button">Afegir una llegenda a la imatge</string>
@@ -957,6 +959,7 @@
   <string name="image_recommendations_task_processing">S\'està processant…</string>
   <string name="image_recommendations_task_instruction">Voleu afegir la imatge a l\'article?</string>
   <string name="image_recommendations_task_choice_no">Per què heu seleccionat «no»?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Escull una o múltiples raons.</string>
   <string name="image_recommendations_task_choice_unsure">Per què no n\'esteu segur de la imatge?</string>
   <string name="image_recommendations_task_choice_not_relevant">No és rellevant</string>
   <string name="image_recommendations_task_choice_low_quality">Baixa qualitat</string>

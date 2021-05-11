@@ -51,7 +51,7 @@ public class RandomClient implements FeedClient {
                 .getRandomSummary()
                 .subscribeOn(Schedulers.io())
                 .onErrorResumeNext(throwable -> Observable.fromCallable(() -> {
-                    ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();
+                    ReadingListPage page = ReadingListDbHelper.INSTANCE.getRandomPage();
                     if (page == null) {
                         throw (Exception) throwable;
                     }

@@ -156,7 +156,7 @@
   <string name="logged_out_in_background_login">Aanmelden</string>
   <string name="logged_out_in_background_cancel">Annuleren</string>
   <string name="history_empty_title">Geen recent bekeken pagina\'s</string>
-  <string name="history_empty_message">Blijf op de hoogte van wat u hier hebt gelezen.</string>
+  <string name="history_empty_message">Blijf hier op de hoogte van wat u hebt gelezen.</string>
   <string name="history_offline_articles_toast">Sommige artikelen in de geschiedenis zijn mogelijk niet offline zichtbaar.</string>
   <string name="search_empty_message">Zoek en lees de vrije encyclopedie in uw eigen taal</string>
   <string name="search_empty_message_multilingual_upgrade">Doorzoek Wikimedia in meer talen</string>

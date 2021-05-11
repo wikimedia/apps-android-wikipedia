@@ -55,6 +55,7 @@
   <string name="offline_load_error_retry">إعادة المحاولة</string>
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="error_back">رجوع</string>
+  <string name="error_next">التالي</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
   <string name="history_item_deleted">أزيلت %s من التاريخ</string>
   <string name="history_items_deleted">أُزيلت %d مقالة من التاريخ</string>
@@ -430,14 +431,14 @@
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="zero">...</item>
     <item quantity="one">مقالة واحدة، %2$.2f ميغابايت</item>
-    <item quantity="two">...</item>
+    <item quantity="two">مقالتان</item>
     <item quantity="few">...</item>
     <item quantity="many">...</item>
     <item quantity="other">%1$d مقالات، %2$.2f ميغابايت</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="zero">...</item>
-    <item quantity="one">%1$d من 1 مقالة متاحة بلا اتصال، %3$.2f ميغابايت</item>
+    <item quantity="one">%1$d من ١ مقالة متاحة بلا اتصال، %3$.2f ميغابايت</item>
     <item quantity="two">...</item>
     <item quantity="few">...</item>
     <item quantity="many">...</item>

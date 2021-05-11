@@ -231,7 +231,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
                     @Override
                     public void onMoveRequest(@Nullable ReadingListPage page, @NonNull HistoryEntry entry) {
-                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON, true);
+                        moveToReadingList(page.getListId(), getTitle(), BOOKMARK_BUTTON, true);
                     }
                 }).show(getHistoryEntry());
             } else {
@@ -330,7 +330,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) requireActivity().getApplicationContext();
         model = new PageViewModel();
-        pageFragmentLoadState = new PageFragmentLoadState();
     }
 
     @Override
@@ -431,7 +430,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
-        pageFragmentLoadState.setUp(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
+        pageFragmentLoadState = new PageFragmentLoadState(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
 
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
@@ -530,9 +529,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             final ReadingListPage page = model.getReadingListPage();
             final PageTitle title = model.getTitle();
             disposables.add(Completable.fromAction(() -> {
-                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
-                        || !TextUtils.equals(page.description(), title.getDescription())) {
-                    ReadingListDbHelper.instance().updateMetadataByTitle(page,
+                if (!TextUtils.equals(page.getThumbUrl(), title.getThumbUrl())
+                        || !TextUtils.equals(page.getDescription(), title.getDescription())) {
+                    ReadingListDbHelper.INSTANCE.updateMetadataByTitle(page,
                             title.getDescription(), title.getThumbUrl());
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
@@ -852,7 +851,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void updateBookmarkAndMenuOptionsFromDao() {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.INSTANCE.findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
@@ -1205,7 +1204,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void verifyBeforeEditingDescription(@Nullable String text) {
-        if (getPage() != null && getPage().getPageProperties().canEdit()) {
+        if (getPage() != null) {
             if (!AccountUtil.isLoggedIn() && Prefs.getTotalAnonDescriptionsEdited() >= getResources().getInteger(R.integer.description_max_anon_edits)) {
                 new AlertDialog.Builder(requireActivity())
                         .setMessage(R.string.description_edit_anon_limit)
@@ -1216,8 +1215,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             } else {
                 startDescriptionEditActivity(text);
             }
-        } else {
-            getEditHandler().showUneditableDialog();
         }
     }
 

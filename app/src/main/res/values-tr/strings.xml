@@ -5,6 +5,7 @@
 * Alidemirtas
 * BaRaN6161 TURK
 * Bulgu
+* Cobija
 * Cooltey
 * Dbrant
 * Envlh
@@ -64,6 +65,7 @@
   <string name="offline_load_error_retry">Tekrar dene</string>
   <string name="page_error_back_to_main">Geri dön</string>
   <string name="error_back">Geri dön</string>
+  <string name="error_next">Sonraki</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
   <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
@@ -356,7 +358,7 @@
   <string name="button_add_to_reading_list">Okuma listesine ekle</string>
   <string name="page_offline_notice_cannot_load_while_offline">Madde çevrimdışı iken yüklenemez.</string>
   <string name="page_offline_notice_add_to_reading_list">İpucu: Maddeyi bir okuma listesine ekleyin; böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
-  <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrim dışı sürümünü okuyorsunuz.</string>
+  <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrimdışı sürümünü okuyorsunuz.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_customize_explore_feed">Yayın Akışını Keşfedin</string>
@@ -740,7 +742,7 @@
   <string name="suggested_edits_task_image_caption_description">Resimlere eksik kısa resim yazıları ekleyin</string>
   <string name="suggested_edits_task_translate_caption_title">Resim başlıklarını çevir</string>
   <string name="suggested_edits_task_translate_caption_description">Resim başlıklarını diğer dillere çevir</string>
-  <string name="suggested_edits_task_multilingual_title">Çok dilli editörler için daha fazla görev</string>
+  <string name="suggested_edits_task_multilingual_title">Çokdilli editörler için daha fazla görev</string>
   <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Siz %d resim altyazısını düzenleyene kadar kilitlendi</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d madde açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
@@ -886,7 +888,7 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Başla</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Çok iyi, devam edin! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Günlük hedefe ulaşıldı! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Hedefinize ulaştınız</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Günlük hedefinize ulaştınız</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Yeni bir Önerilen Değişiklikler görevi mevcut. Görüntüleri resimsiz sayfalarla eşleştirerek algoritmayı eğitin.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Vikipedi sayfaları dünyanın her yerinden binlerce gönüllü tarafından yazılıp düzenlenmektir. Ne yazık ki bir çok sayfanın resmi bulunmuyor.\n\nGörüntüler bir algoritma kullanılarak size önerilecek. Algoritma başka kaynaklardan resimleri çekecek ve resimsiz bir sayfa için öneride bulunacak.\n\nGeri bildiriminiz önerilerin zamanla iyileşmesine yardımcı olacak. Bu görevin amacı önerilen görüntülerin geliştirilmesi olduğu için, yaptığınız eşleştirmeler şimdilik yayınlanmayacak.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text2">Bu çalışmaya katkınızı takdir etmek istiyoruz. Algoritma eğitim sayfamızda kullanıcı adınızın görüntülenmesini ister misiniz?</string>
@@ -894,6 +896,7 @@
   <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
+  <string name="file_page_suggestion_reason">Öneri gerekçesi</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden gelenin en iyisini yaptığınızı biliyoruz, ancak inceleyicilerden birinin bir endişesi vardı. Düzenlemenizin geri alınmasının olası nedenleri şunlardır:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>
@@ -972,6 +975,8 @@
   <string name="image_recommendations_task_processing">İşleniyor…</string>
   <string name="image_recommendations_task_instruction">Bu görüntüyü sayfaya ekler miydiniz?</string>
   <string name="image_recommendations_task_choice_no">Neden hayır\'ı seçtiniz?</string>
+  <string name="image_recommendations_task_choice_not_sure">Neden emin değilim\'i seçtiniz?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Bir veya daha fazla gerekçe seçin.</string>
   <string name="image_recommendations_task_choice_unsure">Bu görüntüden neden emin değilsiniz?</string>
   <string name="image_recommendations_task_choice_not_relevant">Alakasız</string>
   <string name="image_recommendations_task_choice_low_quality">Düşük kalite</string>
@@ -984,6 +989,9 @@
   <string name="image_recommendations_task_choice_other">Diğer</string>
   <string name="image_recommendations_task_choice_continue">Devam et</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Öneri gerekçesi:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">resim başka dillerdeki Vikipedi\'de bulundu (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">resim, Vikipedi\'nin açık veri kaynağı Vikiveri\'de bulundu</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">resim, Vikipedi\'nin özgürce kullanılabilen resimler kaynağı Wikimedia Commons\'ta bulundu</string>
   <string name="image_recommendations_faq">SSS</string>
   <string name="image_recommendations_tooltip1">Konusunu anlamak için bu maddeyi gözden geçirin.</string>
   <string name="image_recommendations_tooltip2">Resmi ve ilişkili bilgiyi inceleyin.</string>
