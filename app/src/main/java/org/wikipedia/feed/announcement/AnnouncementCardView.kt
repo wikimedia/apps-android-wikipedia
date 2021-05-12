@@ -21,6 +21,7 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
     }
 
     private val binding = ViewCardAnnouncementBinding.inflate(LayoutInflater.from(context), this, true)
+    var localCallback: Callback? = null
 
     init {
         binding.viewAnnouncementText.movementMethod = LinkMovementMethod.getInstance()
@@ -91,14 +92,14 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
     private fun onPositiveActionClick() {
         card?.let {
             callback?.onAnnouncementPositiveAction(it, it.actionUri())
+            localCallback?.onAnnouncementPositiveAction(it, it.actionUri())
         }
     }
 
     private fun onNegativeActionClick() {
         card?.let {
             callback?.onAnnouncementNegativeAction(it)
+            localCallback?.onAnnouncementNegativeAction(it)
         }
     }
-
-    var announcementCardCallback: Callback? = null
 }
