@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
 import android.widget.ImageView
 import android.widget.MediaController
@@ -28,8 +27,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.FragmentUtil.getCallback
-import org.wikipedia.commons.FilePageActivity.Companion.newIntent
+import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -37,20 +36,9 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.DeviceUtil.isNavigationBarShowing
-import org.wikipedia.util.DimenUtil.dpToPx
-import org.wikipedia.util.DimenUtil.getNavigationBarHeight
-import org.wikipedia.util.FeedbackUtil.showMessage
-import org.wikipedia.util.FileUtil.isVideo
-import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
-import org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission
-import org.wikipedia.util.PermissionUtil.isPermitted
-import org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions
-import org.wikipedia.util.StringUtil.removeNamespace
-import org.wikipedia.util.log.L.d
-import org.wikipedia.util.log.L.e
-import org.wikipedia.util.log.L.v
-import org.wikipedia.views.ViewUtil.loadImage
+import org.wikipedia.util.*
+import org.wikipedia.util.log.L
+import org.wikipedia.views.ViewUtil
 
 class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     interface Callback {
@@ -102,7 +90,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         }
         imageTitle = PageTitle(
             Namespace.FILE.toLegacyString(),
-            removeNamespace(mediaListItem!!.title),
+            StringUtil.removeNamespace(mediaListItem!!.title),
             pageTitle!!.wikiSite
         )
     }
@@ -166,16 +154,16 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         }
         menu.findItem(R.id.menu_gallery_visit_image_page).isEnabled = mediaInfo != null
         menu.findItem(R.id.menu_gallery_share).isEnabled =
-            mediaInfo != null && !TextUtils.isEmpty(mediaInfo!!.thumbUrl) && imageView!!.drawable != null
+            mediaInfo != null && mediaInfo!!.thumbUrl.isNotEmpty() && imageView!!.drawable != null
         menu.findItem(R.id.menu_gallery_save).isEnabled =
-            mediaInfo != null && !TextUtils.isEmpty(mediaInfo!!.thumbUrl) && imageView!!.drawable != null
+            mediaInfo != null && mediaInfo!!.thumbUrl.isNotEmpty() && imageView!!.drawable != null
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_gallery_visit_image_page -> {
                 if (mediaInfo != null && imageTitle != null) {
-                    startActivity(newIntent(requireContext(), imageTitle!!))
+                    startActivity(FilePageActivity.newIntent(requireContext(), imageTitle!!))
                 }
                 return true
             }
@@ -194,7 +182,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun handleImageSaveRequest() {
-        if (!hasWriteExternalStoragePermission(requireActivity())) {
+        if (!PermissionUtil.hasWriteExternalStoragePermission(requireActivity())) {
             requestWriteExternalStoragePermission()
         } else {
             saveImage()
@@ -202,7 +190,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun requestWriteExternalStoragePermission() {
-        requestWriteStorageRuntimePermissions(
+        PermissionUtil.requestWriteStorageRuntimePermissions(
             this,
             Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION
         )
@@ -229,24 +217,24 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             }
             .subscribe({ response: MwQueryResponse ->
                 mediaPage = response.query()!!.firstPage()
-                if (isVideo(mediaListItem!!.type)) {
+                if (FileUtil.isVideo(mediaListItem!!.type)) {
                     loadVideo()
                 } else {
                     loadImage(
-                        getUrlForPreferredSize(
+                        ImageUrlUtil.getUrlForPreferredSize(
                             mediaInfo!!.thumbUrl,
                             Constants.PREFERRED_GALLERY_IMAGE_SIZE
                         )
                     )
                 }
             }) { throwable: Throwable? ->
-                showMessage(activity!!, R.string.gallery_error_draw_failed)
-                d(throwable)
+                FeedbackUtil.showMessage(requireActivity(), R.string.gallery_error_draw_failed)
+                L.d(throwable)
             })
     }
 
     private fun getMediaInfoDisposable(title: String, lang: String): Observable<MwQueryResponse> {
-        return if (isVideo(mediaListItem!!.type)) {
+        return if (FileUtil.isVideo(mediaListItem!!.type)) {
             ServiceFactory.get(if (mediaListItem!!.isInCommons) WikiSite(Service.COMMONS_URL) else pageTitle!!.wikiSite)
                 .getVideoInfo(title, lang)
         } else {
@@ -262,12 +250,12 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                 return
             }
             loading = true
-            d("Loading video from url: " + mediaInfo!!.bestDerivative!!.src)
+            L.d("Loading video from url: " + mediaInfo!!.bestDerivative!!.src)
             videoView!!.visibility = View.VISIBLE
             mediaController = MediaController(requireActivity())
-            if (!isNavigationBarShowing) {
+            if (!DeviceUtil.isNavigationBarShowing) {
                 mediaController!!.setPadding(
-                    0, 0, 0, dpToPx(getNavigationBarHeight(requireContext()))
+                    0, 0, 0, DimenUtil.dpToPx(DimenUtil.getNavigationBarHeight(requireContext()))
                         .toInt()
                 )
             }
@@ -286,7 +274,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             }
             videoView!!.setOnErrorListener { mp: MediaPlayer?, what: Int, extra: Int ->
                 updateProgressBar(false)
-                showMessage(
+                FeedbackUtil.showMessage(
                     activity!!,
                     R.string.gallery_error_video_failed
                 )
@@ -304,21 +292,21 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         videoContainer!!.visibility = View.VISIBLE
         videoPlayButton!!.visibility = View.VISIBLE
         videoView!!.visibility = View.GONE
-        if (mediaInfo == null || TextUtils.isEmpty(mediaInfo!!.thumbUrl)) {
+        if (mediaInfo == null || mediaInfo!!.thumbUrl.isEmpty()) {
             videoThumbnail!!.visibility = View.GONE
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail!!.visibility = View.VISIBLE
-            loadImage(videoThumbnail!!, mediaInfo!!.thumbUrl)
+            ViewUtil.loadImage(videoThumbnail!!, mediaInfo!!.thumbUrl)
         }
         videoThumbnail!!.setOnClickListener(videoThumbnailClickListener)
     }
 
     private fun loadImage(url: String) {
         imageView!!.visibility = View.INVISIBLE
-        v("Loading image from url: $url")
+        L.v("Loading image from url: $url")
         updateProgressBar(true)
-        loadImage(imageView!!, url, false, false, true, this)
+        ViewUtil.loadImage(imageView!!, url, false, false, true, this)
         // TODO: show error if loading failed.
     }
 
@@ -349,7 +337,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             return
         }
         object : ImagePipelineBitmapGetter(
-            getUrlForPreferredSize(
+            ImageUrlUtil.getUrlForPreferredSize(
                 mediaInfo!!.thumbUrl,
                 Constants.PREFERRED_GALLERY_IMAGE_SIZE
             )
@@ -376,12 +364,12 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         grantResults: IntArray
     ) {
         if (requestCode == Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION) {
-            if (isPermitted(grantResults)) {
+            if (PermissionUtil.isPermitted(grantResults)) {
                 saveImage()
             } else {
-                e("Write permission was denied by user")
-                showMessage(
-                    activity!!,
+                L.e("Write permission was denied by user")
+                FeedbackUtil.showMessage(
+                    requireActivity(),
                     R.string.gallery_save_image_write_permission_rationale
                 )
             }
@@ -400,7 +388,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun callback(): Callback? {
-        return getCallback(this, Callback::class.java)
+        return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
     companion object {

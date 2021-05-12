@@ -53,7 +53,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Companion.newIntent
-import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryItemFragment.Companion.newInstance
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -627,17 +626,17 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
      * text fields. For internal links, this activity will close, and pass the page title as
      * the result. For external links, they will be bounced out to the Browser.
      */
-    private val linkMovementMethod = LinkMovementMethodExt { url: String ->
-        v("Link clicked was $url")
-        url = resolveProtocolRelativeUrl(url)
+    private val linkMovementMethod = LinkMovementMethodExt { urlStr: String ->
+        v("Link clicked was $urlStr")
+        var url = resolveProtocolRelativeUrl(urlStr)
         if (url.startsWith("/wiki/")) {
             val title = app.wikiSite.titleForInternalLink(url)
             showLinkPreview(title)
         } else {
             val uri = Uri.parse(url)
             val authority = uri.authority
-            if (authority != null && WikiSite.supportedAuthority(authority)
-                && uri.path != null && uri.path!!.startsWith("/wiki/")
+            if (authority != null && WikiSite.supportedAuthority(authority) &&
+                uri.path != null && uri.path!!.startsWith("/wiki/")
             ) {
                 val title = WikiSite(uri).titleForUri(uri)
                 showLinkPreview(title)
@@ -778,7 +777,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
      */
     fun layOutGalleryDescription() {
         val item = currentItem
-        if (item == null || item.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
+        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
             infoContainer!!.visibility = View.GONE
             return
         }
@@ -813,7 +812,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
         updateProgressBar(false)
         val item = currentItem
-        if (item == null || item.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
+        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
             infoContainer!!.visibility = View.GONE
             return
         }
@@ -979,6 +978,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         const val EXTRA_REVISION = "revision"
         const val EXTRA_SOURCE = "source"
         private var TRANSITION_INFO: ImageHitInfo? = null
+
         @JvmStatic
         fun newIntent(
             context: Context, pageTitle: PageTitle?,
