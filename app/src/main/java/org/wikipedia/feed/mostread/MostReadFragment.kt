@@ -111,7 +111,6 @@ class MostReadFragment : Fragment() {
     }
 
     companion object {
-        @JvmStatic
         fun newInstance(card: MostReadItemCard): MostReadFragment {
             return MostReadFragment().apply {
                 arguments = bundleOf(MostReadArticlesActivity.MOST_READ_CARD to GsonMarshaller.marshal(card))
