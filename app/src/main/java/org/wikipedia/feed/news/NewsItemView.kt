@@ -22,10 +22,7 @@ class NewsItemView(context: Context) : WikiCardView(context) {
     var newsItem: NewsItem? = null
 
     init {
-        val layoutParams = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
-        )
+        val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         val margin = DimenUtil.roundedDpToPx(8f)
         layoutParams.setMargins(margin, margin, margin, margin)
         setLayoutParams(layoutParams)
