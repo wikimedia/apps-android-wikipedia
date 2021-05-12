@@ -45,7 +45,6 @@ object RichTextUtil {
         return getSpans(spanned, start, end).filter { isComposingSpan(spanned, it) }
     }
 
-    @JvmStatic
     fun getSpans(spanned: Spanned, start: Int, end: Int): Array<out Any> {
         return spanned.getSpans(start, end)
     }
@@ -54,7 +53,6 @@ object RichTextUtil {
         return spanned.getSpanFlags(span) and Spanned.SPAN_COMPOSING == Spanned.SPAN_COMPOSING
     }
 
-    @JvmStatic
     fun removeUnderlinesFromLinks(textView: TextView) {
         val text = textView.text
         if (text is Spanned) {
@@ -73,7 +71,6 @@ object RichTextUtil {
         }
     }
 
-    @JvmStatic
     fun removeUnderlinesFromLinksAndMakeBold(textView: TextView) {
         val text = textView.text
         if (text is Spanned) {
@@ -97,7 +94,6 @@ object RichTextUtil {
         return StringUtil.fromHtml(html).toString()
     }
 
-    @JvmStatic
     fun remove(text: CharSequence, @IntRange(from = 1) start: Int, end: Int): CharSequence {
         try {
             return TextUtils.concat(text.subSequence(0, start - 1), text.subSequence(end, text.length)).toSpanned()
