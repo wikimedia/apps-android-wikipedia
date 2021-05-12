@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.core.util.Pair
@@ -42,23 +43,21 @@ class MostReadFragment : Fragment() {
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
         val card = GsonUnmarshaller.unmarshal(MostReadListCard::class.java, requireActivity().intent.getStringExtra(MostReadArticlesActivity.MOST_READ_CARD))
-        requireActivity().actionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
 
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode())
-        initRecycler()
+
+        binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
+        binding.mostReadRecyclerView.isNestedScrollingEnabled = false
         binding.mostReadRecyclerView.adapter = RecyclerAdapter(card.items(), Callback())
+
         return binding.root
     }
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
-    }
-
-    private fun initRecycler() {
-        binding.mostReadRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.mostReadRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
-        binding.mostReadRecyclerView.isNestedScrollingEnabled = false
     }
 
     private class RecyclerAdapter constructor(items: List<MostReadItemCard>, private val callback: Callback) :
