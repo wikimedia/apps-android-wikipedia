@@ -47,11 +47,13 @@ class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     override var card: NewsCard? = null
         set(value) {
-            field = value
-            value?.let {
-                header(it)
-                setLayoutDirectionByWikiSite(it.wikiSite(), binding.rtlContainer)
-                setUpRecycler(it)
+            if (field != value) {
+                field = value
+                value?.let {
+                    header(it)
+                    setLayoutDirectionByWikiSite(it.wikiSite(), binding.rtlContainer)
+                    setUpRecycler(it)
+                }
             }
         }
 
