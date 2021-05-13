@@ -252,7 +252,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         binding.image.visibility = View.INVISIBLE
         L.v("Loading image from url: $url")
         updateProgressBar(true)
-        ViewUtil.loadImage(binding.image, url, false, false, true, this)
+        ViewUtil.loadImage(binding.image, url, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
         // TODO: show error if loading failed.
     }
 
@@ -278,8 +278,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
                     }
                     shareSubject?.let {
                         imageTitle?.let {
-                            callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject!!, imageTitle!!
-                            )
+                            callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject!!, imageTitle!!)
                         }
                     }
                 }
