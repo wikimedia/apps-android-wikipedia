@@ -75,7 +75,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/day_info_text_view"
+                        android:id="@+id/day_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="?attr/primary_text_color"
@@ -171,14 +171,14 @@
             android:scrollbars="vertical" />
 
         <ProgressBar
-            android:id="@+id/on_this_day_progress"
+            android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="48dp" />
 
         <org.wikipedia.views.WikiErrorView
-            android:id="@+id/on_this_day_error_view"
+            android:id="@+id/error_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />

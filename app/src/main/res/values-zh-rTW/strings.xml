@@ -323,7 +323,7 @@
   <string name="all_tab_items_closed">所有分頁已關閉</string>
   <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
   <string name="tool_tip_bookmark_icon_text">輕觸書籤圖標來儲存條目至閱讀清單裡。</string>
-  <string name="page_view_in_browser">以瀏覽器檢視頁面</string>
+  <string name="page_view_in_browser">在瀏覽器檢視頁面</string>
   <string name="tool_tip_toc_title">內容快速存取表格</string>
   <string name="tool_tip_toc_text">您現在可以往左滑動來開啟內容表格，並可以輕觸拖拉到此滾動按鈕來快速跳至條目的不同段落。</string>
   <string name="tool_tip_lang_button">您現在可以在應用程式裡搜尋及閱讀多個維基百科語言版本。\n\n\n輕觸圖標來添加更多語言。</string>

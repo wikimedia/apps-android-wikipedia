@@ -10,7 +10,7 @@
   <string name="search_hint">Википедин чухула лахар</string>
   <string name="nav_item_more">Кхин</string>
   <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>
-  <string name="page_error_retry">ЮхагӀорта</string>
+  <string name="page_error_retry">ЙухагӀорта</string>
   <string name="page_error_back_to_main">Юханехьа</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
@@ -27,7 +27,7 @@
   <string name="menu_save_changes" fuzzy="true">Ӏалашбе хийцамаш</string>
   <string name="edit_saved_successfully" fuzzy="true">Нисдар Ӏалашдина!</string>
   <string name="dialog_message_edit_failed">ГӀалат тадина!</string>
-  <string name="dialog_message_edit_failed_retry">ЮхагӀорта</string>
+  <string name="dialog_message_edit_failed_retry">ЙухагӀорта</string>
   <string name="dialog_message_edit_failed_cancel">Цаоьшу</string>
   <string name="menu_show_toc">Чулацам</string>
   <string name="title_captcha">Йазйе капча</string>
