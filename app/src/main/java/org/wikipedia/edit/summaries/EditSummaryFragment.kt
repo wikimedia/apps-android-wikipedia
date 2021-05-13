@@ -107,7 +107,6 @@ class EditSummaryFragment : Fragment() {
         }
     }
 
-
     companion object {
         private const val KEY_SUMMARY_TEXT = "summaryText"
     }
