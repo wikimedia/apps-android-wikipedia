@@ -337,15 +337,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
     }
 
     private val selectedPageCount: Int
-        get() {
-            var selectedCount = 0
-            displayedLists.forEach {
-                if (it is ReadingListPage && it.selected) {
-                    selectedCount++
-                }
-            }
-            return selectedCount
-        }
+        get() = displayedLists.count { it is ReadingListPage && it.selected }
 
     private fun unselectAllPages() {
         readingList?.let {
@@ -362,16 +354,11 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
      */
     private val selectedPages: List<ReadingListPage>
         get() {
-            val result = mutableListOf<ReadingListPage>()
-            readingList?.let {
-                displayedLists.forEach { list ->
-                    if (list is ReadingListPage && list.selected) {
-                        result.add(list)
-                        list.selected = false
-                    }
-                }
-            }
-            return result
+            return readingList?.let {
+                displayedLists.filterIsInstance<ReadingListPage>()
+                    .filter { it.selected }
+                    .onEach { it.selected = false }
+            } ?: emptyList()
         }
 
     private fun deleteSelectedPages() {
