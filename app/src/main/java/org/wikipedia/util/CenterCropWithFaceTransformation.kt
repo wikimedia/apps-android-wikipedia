@@ -63,7 +63,7 @@ class CenterCropWithFaceTransformation : BitmapTransformation() {
             }
         }
         m.setScale(scale, scale)
-        m.postTranslate(dx + half, dy + half)
+        m.postTranslate(dx, dy)
         val result = pool.getDirty(width, height, getNonNullConfig(inBitmap))
         // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
         TransformationUtils.setAlpha(inBitmap, result)

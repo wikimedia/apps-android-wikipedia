@@ -24,10 +24,12 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     override var card: SuggestedEditsCard? = null
         set(value) {
-            field = value
-            value?.let {
-                header(it)
-                updateContents(it)
+            if (field != value) {
+                field = value
+                value?.let {
+                    header(it)
+                    updateContents(it)
+                }
             }
         }
 
