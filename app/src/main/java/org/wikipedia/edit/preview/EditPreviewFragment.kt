@@ -1,7 +1,6 @@
 package org.wikipedia.edit.preview
 
 import android.content.Context
-import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,14 +9,12 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.google.gson.JsonObject
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
-import org.wikipedia.bridge.CommunicationBridge.JSEventListener
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.FragmentPreviewEditBinding
 import org.wikipedia.dataclient.RestService
@@ -57,13 +54,13 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override val isPreview = true
     override val toolbarMargin = 0
 
-    override val referencesGroup: List<PageReferences.Reference>?
+    override val referencesGroup
         get() = references.referencesGroup
 
-    override val selectedReferenceIndex: Int
+    override val selectedReferenceIndex
         get() = references.selectedIndex
 
-    val isActive: Boolean
+    val isActive
         get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
     /**
@@ -116,8 +113,8 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             val tag = EditSummaryTag(activity)
             tag.text = strings[i]
             tag.tag = i
-            tag.setOnClickListener { view: View ->
-                funnel.logEditSummaryTap((view.tag as Int))
+            tag.setOnClickListener { view ->
+                funnel.logEditSummaryTap(view.tag as Int)
                 tag.isSelected = !tag.selected
             }
             binding.editSummaryTagsContainer.addView(tag)
@@ -193,33 +190,19 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             }
         }
 
-        bridge.addListener("setup", object : JSEventListener {
-            override fun onMessage(messageType: String, messagePayload: JsonObject?) {}
-        })
-
-        bridge.addListener("final_setup", object : JSEventListener {
-            override fun onMessage(messageType: String, messagePayload: JsonObject?) {}
-        })
-
+        bridge.addListener("setup") { _, _ -> }
+        bridge.addListener("final_setup") { _, _ -> }
         bridge.addListener("link", linkHandler)
+        bridge.addListener("image") { _, _ -> }
+        bridge.addListener("media") { _, _ -> }
 
-        bridge.addListener("image", object : JSEventListener {
-            override fun onMessage(messageType: String, messagePayload: JsonObject?) {}
-        })
-
-        bridge.addListener("media", object : JSEventListener {
-            override fun onMessage(messageType: String, messagePayload: JsonObject?) {}
-        })
-
-        bridge.addListener("reference", object : JSEventListener {
-            override fun onMessage(messageType: String, messagePayload: JsonObject?) {
-                references =
-                    GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences::class.java)
-                if (references.referencesGroup!!.isNotEmpty()) {
-                    bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
-                }
+        bridge.addListener("reference") { _, messagePayload ->
+            references =
+                GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences::class.java)
+            if (references.referencesGroup!!.isNotEmpty()) {
+                bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
             }
-        })
+        }
     }
 
     override fun onDestroyView() {
@@ -283,7 +266,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             // Ask the user if they really meant to leave the edit workflow
             val leavingEditDialog = AlertDialog.Builder(requireActivity())
                 .setMessage(R.string.dialog_message_leaving_edit)
-                .setPositiveButton(R.string.dialog_message_leaving_edit_leave) { dialog: DialogInterface, _: Int ->
+                .setPositiveButton(R.string.dialog_message_leaving_edit_leave) { dialog, _: Int ->
                     // They meant to leave; close dialogue and run specified action
                     dialog.dismiss()
                     runnable.run()

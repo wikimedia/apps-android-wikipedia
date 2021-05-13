@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.edit.EditSectionActivity
@@ -15,19 +14,19 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.views.ViewAnimations
 
 class EditSummaryFragment : Fragment() {
-    lateinit var title: PageTitle
-    private lateinit var editSummaryHandler: EditSummaryHandler
     private var _binding: FragmentPreviewSummaryBinding? = null
     private val binding get() = _binding!!
+    lateinit var title: PageTitle
+    private lateinit var editSummaryHandler: EditSummaryHandler
 
     /**
      * Gets the custom ("other") summary, if any, that the user has entered.
      * @return Custom summary of the edit.
      */
-    val summary: String
+    val summary
         get() = binding.editSummaryEdit.text.toString()
 
-    val isActive: Boolean
+    val isActive
         get() = binding.root.visibility == View.VISIBLE
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -39,7 +38,7 @@ class EditSummaryFragment : Fragment() {
 
         // ...so that clicking the "Done" button on the keyboard will have the effect of
         // clicking the "Next" button in the actionbar:
-        binding.editSummaryEdit.setOnEditorActionListener { _: TextView?, actionId: Int, keyEvent: KeyEvent? ->
+        binding.editSummaryEdit.setOnEditorActionListener { _, actionId, keyEvent ->
             if ((keyEvent != null && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER) || actionId == EditorInfo.IME_ACTION_DONE) {
                 (requireActivity() as EditSectionActivity).clickNextButton()
             }
