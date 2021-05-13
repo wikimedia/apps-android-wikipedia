@@ -16,18 +16,16 @@ import org.wikipedia.views.ViewAnimations
 class EditSummaryFragment : Fragment() {
     private var _binding: FragmentPreviewSummaryBinding? = null
     private val binding get() = _binding!!
-    lateinit var title: PageTitle
+
     private lateinit var editSummaryHandler: EditSummaryHandler
+    lateinit var title: PageTitle
 
     /**
      * Gets the custom ("other") summary, if any, that the user has entered.
      * @return Custom summary of the edit.
      */
-    val summary
-        get() = binding.editSummaryEdit.text.toString()
-
-    val isActive
-        get() = binding.root.visibility == View.VISIBLE
+    val summary get() = binding.editSummaryEdit.text.toString()
+    val isActive get() = binding.root.visibility == View.VISIBLE
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewSummaryBinding.inflate(layoutInflater, container, false)
@@ -46,7 +44,7 @@ class EditSummaryFragment : Fragment() {
         }
 
         if (savedInstanceState != null) {
-            binding.editSummaryEdit.setText(savedInstanceState.getString("summaryText"))
+            binding.editSummaryEdit.setText(savedInstanceState.getString(KEY_SUMMARY_TEXT))
         }
         return binding.root
     }
@@ -96,7 +94,7 @@ class EditSummaryFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("summaryText", binding.editSummaryEdit.text.toString())
+        outState.putString(KEY_SUMMARY_TEXT, binding.editSummaryEdit.text.toString())
     }
 
     /**
@@ -107,5 +105,10 @@ class EditSummaryFragment : Fragment() {
         if (binding.editSummaryEdit.length() > 0) {
             editSummaryHandler.persistSummary()
         }
+    }
+
+
+    companion object {
+        private const val KEY_SUMMARY_TEXT = "summaryText"
     }
 }
