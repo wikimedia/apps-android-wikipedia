@@ -110,7 +110,7 @@ class EditSectionActivity : BaseActivity() {
                 binding.editSectionText, "", null)
         editPreviewFragment = supportFragmentManager.findFragmentById(R.id.edit_section_preview_fragment) as EditPreviewFragment
         editSummaryFragment = supportFragmentManager.findFragmentById(R.id.edit_section_summary_fragment) as EditSummaryFragment
-        editSummaryFragment.setTitle(pageTitle)
+        editSummaryFragment.title = pageTitle
         funnel = WikipediaApp.getInstance().funnelManager.getEditFunnel(pageTitle)
 
         // Only send the editing start log event if the activity is created for the first time
@@ -457,7 +457,7 @@ class EditSectionActivity : BaseActivity() {
             editSummaryFragment.hide()
         }
         if (editPreviewFragment.isActive) {
-            editPreviewFragment.hide()
+            editPreviewFragment.hide(binding.editSectionContainer)
         }
     }
 
@@ -542,7 +542,8 @@ class EditSectionActivity : BaseActivity() {
         if (editSummaryFragment.handleBackPressed()) {
             return
         }
-        if (editPreviewFragment.handleBackPressed()) {
+        if (editPreviewFragment.isActive) {
+            editPreviewFragment.hide(binding.editSectionContainer)
             return
         }
         DeviceUtil.hideSoftKeyboard(this)
