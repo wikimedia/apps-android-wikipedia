@@ -667,6 +667,7 @@
   <string name="image_recommendations_task_not_sure">Net sécher</string>
   <string name="image_recommendations_task_processing">Verschaffen...</string>
   <string name="image_recommendations_task_instruction">Géif Dir dëst Bild bei den Artikel derbäisetzen?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Sicht een oder méi Grënn eraus.</string>
   <string name="image_recommendations_task_choice_not_relevant">Net relevant</string>
   <string name="image_recommendations_task_choice_low_quality">Schlecht Qualitéit</string>
   <string name="image_recommendations_task_choice_noinfo">Net genuch Informatiounen</string>

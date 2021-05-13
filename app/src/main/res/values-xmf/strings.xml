@@ -27,6 +27,7 @@
   <string name="offline_load_error_retry">გომაჟირაფა</string>
   <string name="page_error_back_to_main">უკახალე დორთინა</string>
   <string name="error_back">უკახალე დორთინა</string>
+  <string name="error_next">უკული</string>
   <string name="menu_clear_all_history">ისტორიაშ ლასუა</string>
   <string name="history_item_deleted">%s ისტორიაშე ლასირი რე</string>
   <string name="history_items_deleted">%d სტატია ისტორიაშე ლასირი რე</string>
@@ -290,7 +291,8 @@
   <string name="suggested_edits_image_recommendations_task_get_started">დოჭყაფა</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">მანგარი რე, ათაშ ქაჸუნით! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">დღაშ ღანკი მეჭირინაფილი რე!👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">თქვა ქემიოჭირინეთ ღანკის</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">თქვა ქემიოჭირინეთ ირდღარ ღანკის</string>
+  <string name="file_page_suggestion_reason">მერზიაფაშ სამანჯელი</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
