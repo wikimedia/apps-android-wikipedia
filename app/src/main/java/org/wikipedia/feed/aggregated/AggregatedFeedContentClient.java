@@ -178,7 +178,7 @@ public class AggregatedFeedContentClient {
             aggregatedClient.cancel();
             UtcDate date = DateUtil.getUtcRequestDateFor(age);
             aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.getAggregatedLanguages())
-                    .flatMap(lang -> ServiceFactory.getRest(WikiSite.forLanguageCode(lang)).getAggregatedFeed(date.year(), date.month(), date.date()).subscribeOn(Schedulers.io()), Pair::new)
+                    .flatMap(lang -> ServiceFactory.getRest(WikiSite.forLanguageCode(lang)).getAggregatedFeed(date.getYear(), date.getMonth(), date.getDate()).subscribeOn(Schedulers.io()), Pair::new)
                     .toList()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(pairList -> {

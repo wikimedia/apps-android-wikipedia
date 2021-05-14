@@ -67,7 +67,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 MainPageNameData.valueFor(app.appOrSystemLanguageCode),
                 app.wikiSite)
         val date = DateUtil.getUtcRequestDateFor(0)
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getAggregatedFeed(date.year(), date.month(), date.date())
+        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getAggregatedFeed(date.year, date.month, date.date)
                 .flatMap { response: AggregatedFeedContent ->
                     if (response.tfa() != null) {
                         Observable.just(response.tfa())

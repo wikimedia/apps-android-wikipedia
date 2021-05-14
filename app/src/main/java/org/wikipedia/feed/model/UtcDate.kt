@@ -3,40 +3,21 @@ package org.wikipedia.feed.model
 import java.util.Calendar
 import java.util.TimeZone
 
-class UtcDate(age: Int) {
-    private val cal: Calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-    private val year: String
-    private val month: String
-    private val date: String
+class UtcDate(private val age: Int) {
 
-    fun baseCalendar(): Calendar {
-        return cal
-    }
-
-    fun year(): String {
-        return year
-    }
-
-    fun month(): String {
-        return month
-    }
-
-    fun date(): String {
-        return date
-    }
-
-    init {
-        cal.add(Calendar.DATE, -age)
-        year = cal[Calendar.YEAR].toString()
-        month = pad((cal[Calendar.MONTH] + 1).toString())
-        date = pad(cal[Calendar.DATE].toString())
-    }
-
-    companion object {
-        private fun pad(value: String): String {
-            return if (value.length == 1) {
-                "0$value"
-            } else value
+    val baseCalendar: Calendar
+        get() = Calendar.getInstance(TimeZone.getTimeZone("UTC")).also {
+            it.add(Calendar.DATE, -age)
         }
-    }
+
+    val year: String
+        get() = baseCalendar[Calendar.YEAR].toString()
+
+    // Month in String format, if its text is single digit, then add '0' at the beginning
+    val month: String
+        get() = (baseCalendar[Calendar.MONTH] + 1).toString().padStart(2, '0')
+
+    // Date in String format, if its text is single digit, then add '0' at the beginning
+    val date: String
+        get() = baseCalendar[Calendar.DATE].toString().padStart(2, '0')
 }

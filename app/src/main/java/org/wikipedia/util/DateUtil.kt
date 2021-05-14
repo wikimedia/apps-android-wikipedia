@@ -8,7 +8,12 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.GregorianCalendar
+import java.util.HashMap
+import java.util.Locale
+import java.util.TimeZone
 
 object DateUtil {
     private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
@@ -46,12 +51,12 @@ object DateUtil {
 
     @JvmStatic
     fun getFeedCardDayHeaderDate(age: Int): String {
-        return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar().time, "MMMM d")
+        return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar.time, "MMMM d")
     }
 
     @JvmStatic
     fun getFeedCardDateString(age: Int): String {
-        return getFeedCardDateString(UtcDate(age).baseCalendar())
+        return getFeedCardDateString(UtcDate(age).baseCalendar)
     }
 
     private fun getFeedCardDateString(date: Calendar): String {
