@@ -1,49 +1,42 @@
-package org.wikipedia.feed.model;
+package org.wikipedia.feed.model
 
-import androidx.annotation.NonNull;
+import java.util.Calendar
+import java.util.TimeZone
 
-import java.util.Calendar;
+class UtcDate(age: Int) {
+    private val cal: Calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+    private val year: String
+    private val month: String
+    private val date: String
 
-import static java.util.TimeZone.getTimeZone;
-
-public class UtcDate {
-    @NonNull private Calendar cal;
-    @NonNull private String year;
-    @NonNull private String month;
-    @NonNull private String date;
-
-    public UtcDate(int age) {
-        this.cal = Calendar.getInstance(getTimeZone("UTC"));
-        cal.add(Calendar.DATE, -age);
-        this.year = Integer.toString(cal.get(Calendar.YEAR));
-        this.month = pad(Integer.toString(cal.get(Calendar.MONTH) + 1));
-        this.date = pad(Integer.toString(cal.get(Calendar.DATE)));
+    fun baseCalendar(): Calendar {
+        return cal
     }
 
-    @NonNull
-    public Calendar baseCalendar() {
-        return cal;
+    fun year(): String {
+        return year
     }
 
-    @NonNull
-    public String year() {
-        return year;
+    fun month(): String {
+        return month
     }
 
-    @NonNull
-    public String month() {
-        return month;
+    fun date(): String {
+        return date
     }
 
-    @NonNull
-    public String date() {
-        return date;
+    init {
+        cal.add(Calendar.DATE, -age)
+        year = cal[Calendar.YEAR].toString()
+        month = pad((cal[Calendar.MONTH] + 1).toString())
+        date = pad(cal[Calendar.DATE].toString())
     }
 
-    private String pad(String value) {
-        if (value.length() == 1) {
-            return "0" + value;
+    companion object {
+        private fun pad(value: String): String {
+            return if (value.length == 1) {
+                "0$value"
+            } else value
         }
-        return value;
     }
 }
