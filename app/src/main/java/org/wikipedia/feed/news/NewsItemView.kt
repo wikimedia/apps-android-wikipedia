@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
+import androidx.core.view.setMargins
 import org.wikipedia.databinding.ViewHorizontalScrollListItemCardBinding
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.richtext.RichTextUtil
@@ -24,8 +25,7 @@ class NewsItemView(context: Context) : WikiCardView(context) {
 
     init {
         val layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        val margin = DimenUtil.roundedDpToPx(8f)
-        layoutParams.setMargins(margin, margin, margin, margin)
+        layoutParams.setMargins(DimenUtil.roundedDpToPx(8f))
         setLayoutParams(layoutParams)
     }
 
