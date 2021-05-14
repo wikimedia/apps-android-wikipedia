@@ -14,17 +14,13 @@ import android.util.Pair
 import android.view.Gravity
 import android.view.Menu
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import butterknife.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -46,6 +42,7 @@ import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.bridge.JavaScriptActionHandler.ImageHitInfo
 import org.wikipedia.commons.FilePageActivity.Companion.newIntent
 import org.wikipedia.commons.ImageTagsProvider.getImageTagsObservable
+import org.wikipedia.databinding.ActivityGalleryBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -85,91 +82,14 @@ import org.wikipedia.util.log.L.v
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations.ensureTranslationY
 import org.wikipedia.views.ViewUtil.loadImage
-import org.wikipedia.views.WikiErrorView
 import java.io.File
 import java.util.*
 
 class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemFragment.Callback {
+    private lateinit var binding: ActivityGalleryBinding
     private val app = WikipediaApp.getInstance()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var pageTitle: PageTitle? = null
-
-    @JvmField
-    @BindView(R.id.gallery_transition_receiver)
-    var transitionReceiver: ImageView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_toolbar_container)
-    var toolbarContainer: ViewGroup? = null
-
-    @JvmField
-    @BindView(R.id.gallery_toolbar)
-    var toolbar: Toolbar? = null
-
-    @JvmField
-    @BindView(R.id.gallery_toolbar_gradient)
-    var toolbarGradient: View? = null
-
-    @JvmField
-    @BindView(R.id.gallery_info_container)
-    var infoContainer: ViewGroup? = null
-
-    @JvmField
-    @BindView(R.id.gallery_info_gradient)
-    var infoGradient: View? = null
-
-    @JvmField
-    @BindView(R.id.gallery_progressbar)
-    var progressBar: ProgressBar? = null
-
-    @JvmField
-    @BindView(R.id.gallery_description_container)
-    var galleryDescriptionContainer: View? = null
-
-    @JvmField
-    @BindView(R.id.gallery_description_text)
-    var descriptionText: TextView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_license_container)
-    var licenseContainer: View? = null
-
-    @JvmField
-    @BindView(R.id.gallery_license_icon)
-    var licenseIcon: ImageView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_license_icon_by)
-    var byIcon: ImageView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_license_icon_sa)
-    var saIcon: ImageView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_credit_text)
-    var creditText: TextView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_item_pager)
-    var galleryPager: ViewPager2? = null
-
-    @JvmField
-    @BindView(R.id.view_gallery_error)
-    var errorView: WikiErrorView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_caption_edit_button)
-    var captionEditButton: ImageView? = null
-
-    @JvmField
-    @BindView(R.id.gallery_cta_container)
-    var ctaContainer: View? = null
-
-    @JvmField
-    @BindView(R.id.gallery_cta_button_text)
-    var ctaButtonText: TextView? = null
-    private var unbinder: Unbinder? = null
     private var imageEditType: ImageEditType? = null
     private val disposables = CompositeDisposable()
     private var imageCaptionDisposable: Disposable? = null
@@ -178,41 +98,38 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private var controlsShowing = true
     private var pageChangeListener: GalleryPageChangeListener? = GalleryPageChangeListener()
     private var funnel: GalleryFunnel? = null
-
     /**
      * If we have an intent that tells us a specific image to jump to within the gallery,
      * then this will be non-null.
      */
     private var initialFilename: String? = null
-
     /**
      * If we come back from savedInstanceState, then this will be the previous pager position.
      */
     private var initialImageIndex = -1
     private var galleryAdapter: GalleryItemAdapter? = null
     private val downloadReceiver = MediaDownloadReceiver()
-    private val downloadReceiverCallback: MediaDownloadReceiverCallback =
-        MediaDownloadReceiverCallback()
+    private val downloadReceiverCallback: MediaDownloadReceiverCallback = MediaDownloadReceiverCallback()
     private var targetLanguageCode: String? = null
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
-        unbinder = ButterKnife.bind(this)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = ""
         setNavigationBarColor(Color.BLACK)
-        toolbarGradient!!.background = getPowerGradient(R.color.black26, Gravity.TOP)
-        infoGradient!!.background = getPowerGradient(R.color.black38, Gravity.BOTTOM)
-        descriptionText!!.movementMethod = linkMovementMethod
-        creditText!!.movementMethod = linkMovementMethod
-        (errorView!!.findViewById<View>(R.id.view_wiki_error_icon) as ImageView)
+        binding.toolbarGradient.background = getPowerGradient(R.color.black26, Gravity.TOP)
+        binding.infoGradient.background = getPowerGradient(R.color.black38, Gravity.BOTTOM)
+        binding.descriptionText.movementMethod = linkMovementMethod
+        binding.creditText.movementMethod = linkMovementMethod
+        (binding.errorView.findViewById<View>(R.id.view_wiki_error_icon) as ImageView)
             .setColorFilter(ContextCompat.getColor(this, R.color.base70))
-        (errorView!!.findViewById<View>(R.id.view_wiki_error_text) as TextView)
+        (binding.errorView.findViewById<View>(R.id.view_wiki_error_text) as TextView)
             .setTextColor(ContextCompat.getColor(this, R.color.base70))
-        errorView!!.backClickListener = View.OnClickListener { v: View? -> onBackPressed() }
-        errorView!!.retryClickListener = View.OnClickListener { v: View? ->
-            errorView!!.visibility = View.GONE
+        binding.errorView.backClickListener = View.OnClickListener { v: View? -> onBackPressed() }
+        binding.errorView.retryClickListener = View.OnClickListener { v: View? ->
+            binding.errorView.visibility = View.GONE
             loadGalleryContent()
         }
         if (intent.hasExtra(EXTRA_PAGETITLE)) {
@@ -222,9 +139,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         revision = intent.getLongExtra(EXTRA_REVISION, 0)
         sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
-        galleryPager!!.adapter = galleryAdapter
-        galleryPager!!.registerOnPageChangeCallback(pageChangeListener!!)
-        galleryPager!!.offscreenPageLimit = 2
+        binding.pager.adapter = galleryAdapter
+        binding.pager.registerOnPageChangeCallback(pageChangeListener!!)
+        binding.pager.offscreenPageLimit = 2
         funnel = GalleryFunnel(
             app, intent.getParcelableExtra(EXTRA_WIKI),
             intent.getIntExtra(EXTRA_SOURCE, 0)
@@ -251,7 +168,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 ft.commitAllowingStateLoss()
             }
         }
-        toolbarContainer!!.post {
+        binding.toolbarContainer.post {
             if (isDestroyed) {
                 return@post
             }
@@ -259,24 +176,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         if (TRANSITION_INFO != null && TRANSITION_INFO!!.width > 0 && TRANSITION_INFO!!.height > 0) {
             val aspect = TRANSITION_INFO!!.height / TRANSITION_INFO!!.width
-            val params = if (displayWidthPx < displayHeightPx) FrameLayout.LayoutParams(
-                displayWidthPx, (displayWidthPx * aspect).toInt()
-            ) else FrameLayout.LayoutParams(
-                (displayHeightPx / aspect).toInt(), displayHeightPx
-            )
+            val params = if (displayWidthPx < displayHeightPx) FrameLayout.LayoutParams(displayWidthPx, (displayWidthPx * aspect).toInt())
+            else FrameLayout.LayoutParams((displayHeightPx / aspect).toInt(), displayHeightPx)
             params.gravity = Gravity.CENTER
-            transitionReceiver!!.layoutParams = params
-            transitionReceiver!!.visibility = View.VISIBLE
-            loadImage(
-                transitionReceiver!!,
-                TRANSITION_INFO!!.src,
-                TRANSITION_INFO!!.centerCrop,
-                false,
-                false,
-                null
-            )
+            binding.transitionReceiver.layoutParams = params
+            binding.transitionReceiver.visibility = View.VISIBLE
+            loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
+                largeRoundedSize = false, force = false, listener = null)
             val transitionMillis = 500
-            transitionReceiver!!.postDelayed({
+            binding.transitionReceiver.postDelayed({
                 if (isDestroyed) {
                     return@postDelayed
                 }
@@ -284,19 +192,20 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             }, transitionMillis.toLong())
         } else {
             TRANSITION_INFO = null
-            transitionReceiver!!.visibility = View.GONE
+            binding.transitionReceiver.visibility = View.GONE
             loadGalleryContent()
         }
+        binding.captionEditButton.setOnClickListener { onEditClick(it) }
+        binding.ctaButton.setOnClickListener { onTranslateClick(it) }
+        binding.licenseContainer.setOnClickListener { onLicenseClick(it) }
+        binding.licenseContainer.setOnLongClickListener { onLicenseLongClick(it) }
     }
 
     public override fun onDestroy() {
         disposables.clear()
         disposeImageCaptionDisposable()
-        galleryPager!!.unregisterOnPageChangeCallback(pageChangeListener!!)
+        binding.pager.unregisterOnPageChangeCallback(pageChangeListener!!)
         pageChangeListener = null
-        if (unbinder != null) {
-            unbinder!!.unbind()
-        }
         TRANSITION_INFO = null
         super.onDestroy()
     }
@@ -370,9 +279,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 true,
                 targetLanguageCode,
                 action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
-                OpenPageListener {
-                    if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS && currentItem != null && currentItem!!.imageTitle != null) {
-                        startActivity(newIntent(this@GalleryActivity, currentItem!!.imageTitle!!))
+                object : OpenPageListener {
+                    override fun open() {
+                        if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS && currentItem != null && currentItem!!.imageTitle != null) {
+                            startActivity(newIntent(this@GalleryActivity,
+                                currentItem!!.imageTitle!!))
+                        }
                     }
                 })
             layOutGalleryDescription()
@@ -380,10 +292,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
     }
 
-    @OnClick(R.id.gallery_caption_edit_button)
     fun onEditClick(v: View) {
         val item = currentItem
-        if (item == null || item.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
+        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
             return
         }
         val isProtected = v.tag != null && v.tag as Boolean
@@ -429,10 +340,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         )
     }
 
-    @OnClick(R.id.gallery_cta_button)
     fun onTranslateClick(v: View?) {
         val item = currentItem
-        if (item == null || item.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null || imageEditType == null) {
+        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null || imageEditType == null) {
             return
         }
         when (imageEditType) {
@@ -489,20 +399,18 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         )
     }
 
-    @OnClick(R.id.gallery_license_container)
-    fun onClick(v: View?) {
-        if (licenseIcon!!.contentDescription == null) {
+    fun onLicenseClick(v: View?) {
+        if (binding.licenseIcon.contentDescription == null) {
             return
         }
         showMessageAsPlainText(
-            (licenseIcon!!.context as Activity),
-            licenseIcon!!.contentDescription
+            (binding.licenseIcon.context as Activity),
+            binding.licenseIcon.contentDescription
         )
     }
 
-    @OnLongClick(R.id.gallery_license_container)
-    fun onLongClick(v: View?): Boolean {
-        val licenseUrl = licenseIcon!!.tag as String
+    fun onLicenseLongClick(v: View?): Boolean {
+        val licenseUrl = binding.licenseIcon.tag as String
         if (!TextUtils.isEmpty(licenseUrl)) {
             handleExternalLink(
                 this@GalleryActivity,
@@ -542,21 +450,19 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBoolean("controlsShowing", controlsShowing)
-        outState.putInt("pagerIndex", galleryPager!!.currentItem)
+        outState.putInt("pagerIndex", binding.pager.currentItem)
     }
 
     private fun updateProgressBar(visible: Boolean) {
-        progressBar!!.isIndeterminate = true
-        progressBar!!.visibility = if (visible) View.VISIBLE else View.GONE
+        binding.progressBar.isIndeterminate = true
+        binding.progressBar.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
     override fun onBackPressed() {
         // log the "gallery close" event only upon explicit closing of the activity
         // (back button, or home-as-up button in the toolbar)
         val item = currentItem
-        if (item != null && item.imageTitle != null && funnel != null) {
-            funnel!!.logGalleryClose(pageTitle, item.imageTitle!!.displayText)
-        }
+        item?.imageTitle?.let { funnel?.logGalleryClose(pageTitle, item.imageTitle!!.displayText) }
         if (TRANSITION_INFO != null) {
             showTransitionReceiver()
         }
@@ -568,23 +474,23 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun showTransitionReceiver() {
-        transitionReceiver!!.visibility = View.VISIBLE
+        binding.transitionReceiver.visibility = View.VISIBLE
     }
 
     private fun hideTransitionReceiver(delay: Boolean) {
-        if (transitionReceiver!!.visibility == View.GONE) {
+        if (binding.transitionReceiver.visibility == View.GONE) {
             return
         }
         if (delay) {
             val hideDelayMillis = 250
-            transitionReceiver!!.postDelayed({
-                if (isDestroyed || transitionReceiver == null) {
+            binding.transitionReceiver.postDelayed({
+                if (isDestroyed) {
                     return@postDelayed
                 }
-                transitionReceiver!!.visibility = View.GONE
+                binding.transitionReceiver.visibility = View.GONE
             }, hideDelayMillis.toLong())
         } else {
-            transitionReceiver!!.visibility = View.GONE
+            binding.transitionReceiver.visibility = View.GONE
         }
     }
 
@@ -595,11 +501,11 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun setControlsShowing(showing: Boolean) {
         controlsShowing = showing
         if (controlsShowing) {
-            ensureTranslationY(toolbarContainer!!, 0)
-            ensureTranslationY(infoContainer!!, 0)
+            ensureTranslationY(binding.toolbarContainer, 0)
+            ensureTranslationY(binding.infoContainer, 0)
         } else {
-            ensureTranslationY(toolbarContainer!!, -toolbarContainer!!.height)
-            ensureTranslationY(infoContainer!!, infoContainer!!.height)
+            ensureTranslationY(binding.toolbarContainer, -binding.toolbarContainer.height)
+            ensureTranslationY(binding.infoContainer, binding.infoContainer.height)
         }
     }
 
@@ -618,7 +524,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     fun setViewPagerEnabled(enabled: Boolean) {
-        galleryPager!!.isUserInputEnabled = enabled
+        binding.pager.isUserInputEnabled = enabled
     }
 
     /**
@@ -698,8 +604,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     fun showError(caught: Throwable?) {
-        errorView!!.setError(caught)
-        errorView!!.visibility = View.VISIBLE
+        binding.errorView.setError(caught)
+        binding.errorView.visibility = View.VISIBLE
     }
 
     private fun fetchGalleryItems() {
@@ -732,10 +638,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         fetchGalleryItems()
     }
 
-    private fun applyGalleryList(list: List<MediaListItem>) {
+    private fun applyGalleryList(mediaListItems: List<MediaListItem>) {
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
-        var list = list
+        var list = mediaListItems
         var initialImagePos = -1
         if (initialFilename != null) {
             for (item in list) {
@@ -762,15 +668,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         galleryAdapter!!.setList(list)
         if (initialImagePos != -1) {
             // if we have a target image to jump to, then do it!
-            galleryPager!!.setCurrentItem(initialImagePos, false)
+            binding.pager.setCurrentItem(initialImagePos, false)
         } else if (initialImageIndex >= 0 && initialImageIndex < galleryAdapter!!.itemCount) {
             // if we have a target image index to jump to, then do it!
-            galleryPager!!.setCurrentItem(initialImageIndex, false)
+            binding.pager.setCurrentItem(initialImageIndex, false)
         }
     }
 
     private val currentItem: GalleryItemFragment?
-        private get() = galleryAdapter!!.getFragmentAt(galleryPager!!.currentItem) as GalleryItemFragment?
+        get() = galleryAdapter!!.getFragmentAt(binding.pager.currentItem) as GalleryItemFragment?
 
     /**
      * Populate the description and license text fields with data from the current gallery item.
@@ -778,7 +684,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     fun layOutGalleryDescription() {
         val item = currentItem
         if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
-            infoContainer!!.visibility = View.GONE
+            binding.infoContainer.visibility = View.GONE
             return
         }
         updateProgressBar(true)
@@ -786,17 +692,17 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         imageCaptionDisposable =
             Observable.zip<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Pair<Boolean, Int>>(
                 getImageCaptions(
-                    item.imageTitle!!.prefixedText
+                    item.imageTitle!!.prefixedText!!
                 ),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(
-                    item.imageTitle!!.prefixedText
+                    item.imageTitle!!.prefixedText!!
                 ),
                 getImageTagsObservable(
                     currentItem!!.mediaPage!!.pageId(),
                     sourceWiki!!.languageCode()
                 ),
-                Function3 { captions: Map<String?, String?>?, protectionInfoRsp: MwQueryResponse, imageTags: Map<String?, List<String?>?> ->
-                    item.mediaInfo!!.captions = captions!!
+                Function3 { captions: Map<String?, String?>, protectionInfoRsp: MwQueryResponse, imageTags: Map<String?, List<String>> ->
+                    item.mediaInfo!!.captions = captions
                     Pair(protectionInfoRsp.query()!!.isEditProtected, imageTags.size)
                 })
                 .subscribeOn(Schedulers.io())
@@ -806,14 +712,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                         pair.first,
                         pair.second
                     )
-                }, Consumer { obj: Throwable -> obj.e() })
+                }, Consumer { obj: Throwable -> obj.stackTrace })
     }
 
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
         updateProgressBar(false)
         val item = currentItem
         if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
-            infoContainer!!.visibility = View.GONE
+            binding.infoContainer.visibility = View.GONE
             return
         }
         displayApplicableDescription(item)
@@ -822,19 +728,19 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         // and not the local Wikipedia.
         var captionEditable =
             isLoggedIn && item.mediaInfo!!.thumbUrl.contains(Service.URL_FRAGMENT_FROM_COMMONS)
-        captionEditButton!!.visibility =
+        binding.captionEditButton.visibility =
             if (captionEditable) View.VISIBLE else View.GONE
-        captionEditButton!!.setImageResource(R.drawable.ic_mode_edit_white_24dp)
-        captionEditButton!!.tag = isProtected
+        binding.captionEditButton.setImageResource(R.drawable.ic_mode_edit_white_24dp)
+        binding.captionEditButton.tag = isProtected
         if (isProtected) {
-            captionEditButton!!.setImageResource(R.drawable.ic_edit_pencil_locked)
+            binding.captionEditButton.setImageResource(R.drawable.ic_edit_pencil_locked)
             captionEditable = false
         }
         if (captionEditable) {
-            ctaContainer!!.visibility = View.VISIBLE
+            binding.ctaContainer.visibility = View.VISIBLE
             decideImageEditType(item, tagsCount)
         } else {
-            ctaContainer!!.visibility = View.GONE
+            binding.ctaContainer.visibility = View.GONE
         }
         setLicenseInfo(item)
     }
@@ -844,12 +750,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         if (!item.mediaInfo!!.captions.containsKey(sourceWiki!!.languageCode())) {
             imageEditType = ImageEditType.ADD_CAPTION
             targetLanguageCode = sourceWiki!!.languageCode()
-            ctaButtonText!!.text = getString(R.string.gallery_add_image_caption_button)
+            binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_button)
             return
         }
         if (tagsCount == 0) {
             imageEditType = ImageEditType.ADD_TAGS
-            ctaButtonText!!.text = getString(R.string.suggested_edits_feed_card_add_image_tags)
+            binding.ctaButtonText.text =
+                getString(R.string.suggested_edits_feed_card_add_image_tags)
             return
         }
 
@@ -860,7 +767,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 if (!item.mediaInfo!!.captions.containsKey(lang)) {
                     targetLanguageCode = lang
                     imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
-                    ctaButtonText!!.text = getString(
+                    binding.ctaButtonText.text = getString(
                         R.string.gallery_add_image_caption_in_language_button,
                         app.language().getAppLanguageLocalizedName(targetLanguageCode)
                     )
@@ -868,25 +775,25 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 }
             }
         }
-        ctaContainer!!.visibility = if (imageEditType == null) View.GONE else View.VISIBLE
+        binding.ctaContainer.visibility = if (imageEditType == null) View.GONE else View.VISIBLE
     }
 
     private fun displayApplicableDescription(item: GalleryItemFragment) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        val descriptionStr: CharSequence?
-        descriptionStr = if (item.mediaInfo!!.captions.containsKey(sourceWiki!!.languageCode())) {
-            item.mediaInfo!!.captions[sourceWiki!!.languageCode()]
+        val descriptionStr: CharSequence? =
+            if (item.mediaInfo!!.captions.containsKey(sourceWiki!!.languageCode())) {
+                item.mediaInfo!!.captions[sourceWiki!!.languageCode()]
+            } else {
+                fromHtml(
+                    item.mediaInfo!!.metadata!!.imageDescription()
+                )
+            }
+        if (descriptionStr != null && descriptionStr.isNotEmpty()) {
+            binding.descriptionContainer.visibility = View.VISIBLE
+            binding.descriptionText.text = strip(descriptionStr)
         } else {
-            fromHtml(
-                item.mediaInfo!!.metadata!!.imageDescription()
-            )
-        }
-        if (descriptionStr != null && descriptionStr.length > 0) {
-            galleryDescriptionContainer!!.visibility = View.VISIBLE
-            descriptionText!!.text = strip(descriptionStr)
-        } else {
-            galleryDescriptionContainer!!.visibility = View.GONE
+            binding.descriptionContainer.visibility = View.GONE
         }
     }
 
@@ -900,26 +807,26 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // determine which icon to display...
         if (license.licenseIcon == R.drawable.ic_license_by) {
-            licenseIcon!!.setImageResource(R.drawable.ic_license_cc)
-            byIcon!!.setImageResource(R.drawable.ic_license_by)
-            byIcon!!.visibility = View.VISIBLE
-            saIcon!!.setImageResource(R.drawable.ic_license_sharealike)
-            saIcon!!.visibility = View.VISIBLE
+            binding.licenseIcon.setImageResource(R.drawable.ic_license_cc)
+            binding.licenseIconBy.setImageResource(R.drawable.ic_license_by)
+            binding.licenseIconBy.visibility = View.VISIBLE
+            binding.licenseIconSa.setImageResource(R.drawable.ic_license_sharealike)
+            binding.licenseIconSa.visibility = View.VISIBLE
         } else {
-            licenseIcon!!.setImageResource(license.licenseIcon)
-            byIcon!!.visibility = View.GONE
-            saIcon!!.visibility = View.GONE
+            binding.licenseIcon.setImageResource(license.licenseIcon)
+            binding.licenseIconBy.visibility = View.GONE
+            binding.licenseIconSa.visibility = View.GONE
         }
 
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
-        licenseIcon!!.contentDescription = StringUtils.defaultIfBlank(
+        binding.licenseIcon.contentDescription = StringUtils.defaultIfBlank(
             item.mediaInfo!!.metadata!!.licenseShortName(),
             getString(R.string.gallery_fair_use_license)
         )
         // Give the license URL to the icon, to be received by the click handler (may be null).
-        licenseIcon!!.tag = item.mediaInfo!!.metadata!!.licenseUrl()
-        setContextClickAsLongClick(licenseContainer!!)
+        binding.licenseIcon.tag = item.mediaInfo!!.metadata!!.licenseUrl()
+        setContextClickAsLongClick(binding.licenseContainer)
         val creditStr = if (!TextUtils.isEmpty(
                 item.mediaInfo!!.metadata!!.artist()
             )
@@ -927,13 +834,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             .artist() else item.mediaInfo!!.metadata!!.credit()
 
         // if we couldn't find a attribution string, then default to unknown
-        creditText!!.text = fromHtml(
+        binding.creditText.text = fromHtml(
             StringUtils.defaultIfBlank(
                 creditStr,
                 getString(R.string.gallery_uploader_unknown)
             )
         )
-        infoContainer!!.visibility = View.VISIBLE
+        binding.infoContainer.visibility = View.VISIBLE
     }
 
     /**

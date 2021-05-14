@@ -9,12 +9,12 @@
     android:background="@android:color/black">
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/gallery_item_pager"
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <ImageView
-        android:id="@+id/gallery_transition_receiver"
+        android:id="@+id/transition_receiver"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
@@ -23,7 +23,7 @@
         android:contentDescription="@null"/>
 
     <FrameLayout
-        android:id="@+id/gallery_toolbar_container"
+        android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -33,19 +33,19 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/gallery_toolbar"
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/black26" />
 
             <View
-                android:id="@+id/gallery_toolbar_gradient"
+                android:id="@+id/toolbar_gradient"
                 android:layout_width="match_parent"
                 android:layout_height="80dp" />
         </LinearLayout>
 
         <ProgressBar
-            android:id="@+id/gallery_progressbar"
+            android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,19 +54,19 @@
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/gallery_info_container"
+        android:id="@+id/info_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical">
 
         <View
-            android:id="@+id/gallery_info_gradient"
+            android:id="@+id/info_gradient"
             android:layout_width="match_parent"
             android:layout_height="80dp" />
 
         <LinearLayout
-            android:id="@+id/gallery_description_container"
+            android:id="@+id/description_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
@@ -74,7 +74,7 @@
             android:background="@color/black38">
 
             <org.wikipedia.views.AppTextView
-                android:id="@+id/gallery_description_text"
+                android:id="@+id/description_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -88,7 +88,7 @@
                 tools:text="Sample image description text" />
 
             <ImageView
-                android:id="@+id/gallery_caption_edit_button"
+                android:id="@+id/caption_edit_button"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:padding="6dp"
@@ -105,7 +105,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/gallery_cta_container"
+            android:id="@+id/cta_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
@@ -115,7 +115,7 @@
             tools:visibility="visible">
 
             <LinearLayout
-                android:id="@+id/gallery_cta_button"
+                android:id="@+id/cta_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="12dp"
@@ -130,7 +130,7 @@
                     app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
                 <TextView
-                    android:id="@+id/gallery_cta_button_text"
+                    android:id="@+id/cta_button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -159,12 +159,12 @@
             android:paddingBottom="16dp">
 
             <LinearLayout
-                android:id="@+id/gallery_license_container"
+                android:id="@+id/license_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/gallery_license_icon"
+                    android:id="@+id/license_icon"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:contentDescription="@null"
@@ -172,7 +172,7 @@
                     tools:src="@drawable/ic_license_cc" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/gallery_license_icon_by"
+                    android:id="@+id/license_icon_by"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:layout_marginStart="4dp"
@@ -182,7 +182,7 @@
                     tools:src="@drawable/ic_license_by" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/gallery_license_icon_sa"
+                    android:id="@+id/license_icon_sa"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:layout_marginStart="4dp"
@@ -193,7 +193,7 @@
             </LinearLayout>
 
             <org.wikipedia.views.AppTextView
-                android:id="@+id/gallery_credit_text"
+                android:id="@+id/credit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -208,7 +208,7 @@
     </LinearLayout>
 
     <org.wikipedia.views.WikiErrorView
-        android:id="@+id/view_gallery_error"
+        android:id="@+id/error_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
