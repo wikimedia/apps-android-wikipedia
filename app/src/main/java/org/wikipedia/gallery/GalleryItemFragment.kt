@@ -93,7 +93,6 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         disposables.clear()
         binding.image.setOnClickListener(null)
         binding.videoThumbnail.setOnClickListener(null)
-        _binding = null
         super.onDestroyView()
     }
 

@@ -9,7 +9,6 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Pair
 import android.view.Gravity
 import android.view.Menu
@@ -22,13 +21,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import butterknife.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.functions.Consumer
-import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants
@@ -38,66 +34,48 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.GalleryFunnel
-import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler.ImageHitInfo
-import org.wikipedia.commons.FilePageActivity.Companion.newIntent
-import org.wikipedia.commons.ImageTagsProvider.getImageTagsObservable
+import org.wikipedia.commons.FilePageActivity
+import org.wikipedia.commons.ImageTagsProvider
+import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.databinding.ActivityGalleryBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
+import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditActivity.Companion.newIntent
-import org.wikipedia.gallery.GalleryItemFragment.Companion.newInstance
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.page.linkpreview.LinkPreviewDialog.Companion.newInstance
 import org.wikipedia.suggestededits.PageSummaryForEdit
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity.Companion.newIntent
-import org.wikipedia.suggestededits.SuggestedEditsSnackbars.OpenPageListener
-import org.wikipedia.suggestededits.SuggestedEditsSnackbars.show
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
+import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.ClipboardUtil.setPlainText
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
-import org.wikipedia.util.DimenUtil.displayHeightPx
-import org.wikipedia.util.DimenUtil.displayWidthPx
-import org.wikipedia.util.FeedbackUtil.showMessage
-import org.wikipedia.util.FeedbackUtil.showMessageAsPlainText
-import org.wikipedia.util.GradientUtil.getPowerGradient
-import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
-import org.wikipedia.util.ShareUtil.shareImage
-import org.wikipedia.util.ShareUtil.shareText
-import org.wikipedia.util.StringUtil.fromHtml
-import org.wikipedia.util.StringUtil.removeNamespace
-import org.wikipedia.util.StringUtil.strip
-import org.wikipedia.util.UriUtil.handleExternalLink
-import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
-import org.wikipedia.util.log.L.v
+import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
-import org.wikipedia.views.ViewAnimations.ensureTranslationY
-import org.wikipedia.views.ViewUtil.loadImage
+import org.wikipedia.views.ViewAnimations
+import org.wikipedia.views.ViewUtil
 import java.io.File
 import java.util.*
 
 class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemFragment.Callback {
+
     private lateinit var binding: ActivityGalleryBinding
-    private val app = WikipediaApp.getInstance()
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private lateinit var sourceWiki: WikiSite
+    private lateinit var funnel: GalleryFunnel
+    private var pageChangeListener: GalleryPageChangeListener? = GalleryPageChangeListener()
     private var pageTitle: PageTitle? = null
     private var imageEditType: ImageEditType? = null
     private val disposables = CompositeDisposable()
     private var imageCaptionDisposable: Disposable? = null
-    private var revision: Long = 0
-    private var sourceWiki: WikiSite? = null
+    private var revision = 0L
     private var controlsShowing = true
-    private var pageChangeListener: GalleryPageChangeListener? = GalleryPageChangeListener()
-    private var funnel: GalleryFunnel? = null
     /**
      * If we have an intent that tells us a specific image to jump to within the gallery,
      * then this will be non-null.
@@ -108,27 +86,30 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
      */
     private var initialImageIndex = -1
     private var galleryAdapter: GalleryItemAdapter? = null
+    private var targetLanguageCode: String? = null
+    private val app = WikipediaApp.getInstance()
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
     private val downloadReceiverCallback: MediaDownloadReceiverCallback = MediaDownloadReceiverCallback()
-    private var targetLanguageCode: String? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gallery)
+        binding = ActivityGalleryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = ""
         setNavigationBarColor(Color.BLACK)
-        binding.toolbarGradient.background = getPowerGradient(R.color.black26, Gravity.TOP)
-        binding.infoGradient.background = getPowerGradient(R.color.black38, Gravity.BOTTOM)
+        binding.toolbarGradient.background = GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP)
+        binding.infoGradient.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
         binding.descriptionText.movementMethod = linkMovementMethod
         binding.creditText.movementMethod = linkMovementMethod
         (binding.errorView.findViewById<View>(R.id.view_wiki_error_icon) as ImageView)
             .setColorFilter(ContextCompat.getColor(this, R.color.base70))
         (binding.errorView.findViewById<View>(R.id.view_wiki_error_text) as TextView)
             .setTextColor(ContextCompat.getColor(this, R.color.base70))
-        binding.errorView.backClickListener = View.OnClickListener { v: View? -> onBackPressed() }
-        binding.errorView.retryClickListener = View.OnClickListener { v: View? ->
+        binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
+        binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE
             loadGalleryContent()
         }
@@ -137,18 +118,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         initialFilename = intent.getStringExtra(EXTRA_FILENAME)
         revision = intent.getLongExtra(EXTRA_REVISION, 0)
-        sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)
+        sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)!!
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
         binding.pager.adapter = galleryAdapter
         binding.pager.registerOnPageChangeCallback(pageChangeListener!!)
         binding.pager.offscreenPageLimit = 2
-        funnel = GalleryFunnel(
-            app, intent.getParcelableExtra(EXTRA_WIKI),
-            intent.getIntExtra(EXTRA_SOURCE, 0)
-        )
+        funnel = GalleryFunnel(app, intent.getParcelableExtra(EXTRA_WIKI), intent.getIntExtra(EXTRA_SOURCE, 0))
         if (savedInstanceState == null) {
             if (initialFilename != null) {
-                funnel!!.logGalleryOpen(pageTitle, initialFilename!!)
+                funnel.logGalleryOpen(pageTitle, initialFilename!!)
             }
         } else {
             controlsShowing = savedInstanceState.getBoolean("controlsShowing")
@@ -176,12 +154,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         if (TRANSITION_INFO != null && TRANSITION_INFO!!.width > 0 && TRANSITION_INFO!!.height > 0) {
             val aspect = TRANSITION_INFO!!.height / TRANSITION_INFO!!.width
-            val params = if (displayWidthPx < displayHeightPx) FrameLayout.LayoutParams(displayWidthPx, (displayWidthPx * aspect).toInt())
-            else FrameLayout.LayoutParams((displayHeightPx / aspect).toInt(), displayHeightPx)
+            val params = if (DimenUtil.displayWidthPx < DimenUtil.displayHeightPx) FrameLayout.LayoutParams(DimenUtil.displayWidthPx, (DimenUtil.displayWidthPx * aspect).toInt())
+            else FrameLayout.LayoutParams((DimenUtil.displayHeightPx / aspect).toInt(), DimenUtil.displayHeightPx)
             params.gravity = Gravity.CENTER
             binding.transitionReceiver.layoutParams = params
             binding.transitionReceiver.visibility = View.VISIBLE
-            loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
+            ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO?.src, TRANSITION_INFO?.centerCrop!!,
                 largeRoundedSize = false, force = false, listener = null)
             val transitionMillis = 500
             binding.transitionReceiver.postDelayed({
@@ -196,9 +174,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             loadGalleryContent()
         }
         binding.captionEditButton.setOnClickListener { onEditClick(it) }
-        binding.ctaButton.setOnClickListener { onTranslateClick(it) }
-        binding.licenseContainer.setOnClickListener { onLicenseClick(it) }
-        binding.licenseContainer.setOnLongClickListener { onLicenseLongClick(it) }
+        binding.ctaButton.setOnClickListener { onTranslateClick() }
+        binding.licenseContainer.setOnClickListener { onLicenseClick() }
+        binding.licenseContainer.setOnLongClickListener { onLicenseLongClick() }
     }
 
     public override fun onDestroy() {
@@ -228,37 +206,27 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onDownload(item: GalleryItemFragment) {
-        if (funnel != null && item.imageTitle != null) {
-            funnel!!.logGallerySave(pageTitle, item.imageTitle!!.displayText)
+        item.imageTitle?.let {
+            funnel?.logGallerySave(pageTitle, it.displayText)
         }
         if (item.imageTitle != null && item.mediaInfo != null) {
             downloadReceiver.download(this, item.imageTitle!!, item.mediaInfo!!)
-            showMessage(this, R.string.gallery_save_progress)
+            FeedbackUtil.showMessage(this, R.string.gallery_save_progress)
         } else {
-            showMessage(this, R.string.err_cannot_save_file)
+            FeedbackUtil.showMessage(this, R.string.err_cannot_save_file)
         }
     }
 
-    override fun onShare(
-        item: GalleryItemFragment,
-        bitmap: Bitmap?,
-        subject: String,
-        title: PageTitle
-    ) {
-        if (funnel != null && item.imageTitle != null) {
-            funnel!!.logGalleryShare(pageTitle, item.imageTitle!!.displayText)
+    override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
+        item.imageTitle.let {
+            funnel.logGalleryShare(pageTitle, item.imageTitle!!.displayText)
         }
         if (bitmap != null && item.mediaInfo != null) {
-            shareImage(
-                this, bitmap, File(
-                    getUrlForPreferredSize(
-                        item.mediaInfo!!.thumbUrl,
-                        Constants.PREFERRED_GALLERY_IMAGE_SIZE
-                    )
-                ).name, subject, title.uri
-            )
+            ShareUtil.shareImage(this, bitmap,
+                File(ImageUrlUtil.getUrlForPreferredSize(item.mediaInfo!!.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE)).name,
+                subject, title.uri)
         } else {
-            shareText(this, title)
+            ShareUtil.shareText(this, title)
         }
     }
 
@@ -269,20 +237,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if ((requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
-            val action =
-                if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION)) data.getSerializableExtra(
-                    Constants.INTENT_EXTRA_ACTION
-                ) as DescriptionEditActivity.Action? else if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) DescriptionEditActivity.Action.ADD_IMAGE_TAGS else null
-            show(
-                this,
-                action,
-                true,
-                targetLanguageCode,
+            val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION)) data.getSerializableExtra(
+                        Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
+                        else if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) DescriptionEditActivity.Action.ADD_IMAGE_TAGS else null
+            SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode,
                 action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
-                object : OpenPageListener {
+                object : SuggestedEditsSnackbars.OpenPageListener {
                     override fun open() {
                         if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS && currentItem != null && currentItem!!.imageTitle != null) {
-                            startActivity(newIntent(this@GalleryActivity,
+                            startActivity(FilePageActivity.newIntent(this@GalleryActivity,
                                 currentItem!!.imageTitle!!))
                         }
                     }
@@ -313,36 +276,22 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun startCaptionEdit(item: GalleryItemFragment) {
         val title = PageTitle(
             item.imageTitle!!.prefixedText,
-            WikiSite(Service.COMMONS_URL, sourceWiki!!.languageCode())
+            WikiSite(Service.COMMONS_URL, sourceWiki.languageCode())
         )
-        val currentCaption = item.mediaInfo!!.captions[sourceWiki!!.languageCode()]
+        val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
         title.description = currentCaption
         val summary = PageSummaryForEdit(
-            title.prefixedText, sourceWiki!!.languageCode(), title,
-            title.displayText, StringUtils.defaultIfBlank(
-                fromHtml(
-                    item.mediaInfo!!.metadata!!.imageDescription()
-                ).toString(), null
-            ),
-            item.mediaInfo!!.thumbUrl
+            title.prefixedText, sourceWiki.languageCode(), title,
+            title.displayText, StringUtils.defaultIfBlank(StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription()).toString(),
+                null), item.mediaInfo!!.thumbUrl
         )
-        startActivityForResult(
-            newIntent(
-                this,
-                title,
-                null,
-                summary,
-                null,
-                DescriptionEditActivity.Action.ADD_CAPTION,
-                InvokeSource.GALLERY_ACTIVITY
-            ),
-            ACTIVITY_REQUEST_DESCRIPTION_EDIT
-        )
+        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null,
+            DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
     }
 
-    fun onTranslateClick(v: View?) {
+    fun onTranslateClick() {
         val item = currentItem
-        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null || imageEditType == null) {
+        if (item?.imageTitle == null || item.mediaInfo?.metadata == null || imageEditType == null) {
             return
         }
         when (imageEditType) {
@@ -353,69 +302,42 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun startTagsEdit(item: GalleryItemFragment) {
-        startActivityForResult(
-            newIntent(this, item.mediaPage!!, InvokeSource.GALLERY_ACTIVITY),
-            ACTIVITY_REQUEST_ADD_IMAGE_TAGS
-        )
+        startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(this, item.mediaPage!!,
+            InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
     }
 
     private fun startCaptionTranslation(item: GalleryItemFragment) {
-        val sourceTitle = PageTitle(
-            item.imageTitle!!.prefixedText,
-            WikiSite(Service.COMMONS_URL, sourceWiki!!.languageCode())
-        )
-        val targetTitle = PageTitle(
-            item.imageTitle!!.prefixedText,
-            WikiSite(
-                Service.COMMONS_URL,
-                StringUtils.defaultString(targetLanguageCode, app.language().appLanguageCodes[1])
-            )
-        )
-        var currentCaption = item.mediaInfo!!.captions[sourceWiki!!.languageCode()]
-        if (TextUtils.isEmpty(currentCaption)) {
-            currentCaption = fromHtml(
-                item.mediaInfo!!.metadata!!.imageDescription()
-            ).toString()
+        val sourceTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()))
+        val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
+            StringUtils.defaultString(targetLanguageCode, app.language().appLanguageCodes[1])))
+        var currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
+        if (currentCaption!!.isEmpty()) {
+            currentCaption = StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription()).toString()
         }
-        val sourceSummary = PageSummaryForEdit(
-            sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode(), sourceTitle,
-            sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl
-        )
-        val targetSummary = PageSummaryForEdit(
-            targetTitle.prefixedText, targetTitle.wikiSite.languageCode(), targetTitle,
-            targetTitle.displayText, null, item.mediaInfo!!.thumbUrl
-        )
-        startActivityForResult(
-            newIntent(
-                this,
-                targetTitle,
-                null,
-                sourceSummary,
-                targetSummary,
-                if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION else DescriptionEditActivity.Action.TRANSLATE_CAPTION,
-                InvokeSource.GALLERY_ACTIVITY
-            ),
-            ACTIVITY_REQUEST_DESCRIPTION_EDIT
-        )
+        val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode(),
+                            sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
+        val targetSummary = PageSummaryForEdit(targetTitle.prefixedText, targetTitle.wikiSite.languageCode(),
+            targetTitle, targetTitle.displayText, null, item.mediaInfo!!.thumbUrl)
+        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary,
+            targetSummary, if (sourceSummary.lang == targetSummary.lang) DescriptionEditActivity.Action.ADD_CAPTION
+            else DescriptionEditActivity.Action.TRANSLATE_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
     }
 
-    fun onLicenseClick(v: View?) {
+    fun onLicenseClick() {
         if (binding.licenseIcon.contentDescription == null) {
             return
         }
-        showMessageAsPlainText(
+        FeedbackUtil.showMessageAsPlainText(
             (binding.licenseIcon.context as Activity),
             binding.licenseIcon.contentDescription
         )
     }
 
-    fun onLicenseLongClick(v: View?): Boolean {
+    fun onLicenseLongClick(): Boolean {
         val licenseUrl = binding.licenseIcon.tag as String
-        if (!TextUtils.isEmpty(licenseUrl)) {
-            handleExternalLink(
-                this@GalleryActivity,
-                Uri.parse(resolveProtocolRelativeUrl(licenseUrl))
-            )
+        if (licenseUrl.isNotEmpty()) {
+            UriUtil.handleExternalLink(this@GalleryActivity,
+                Uri.parse(UriUtil.resolveProtocolRelativeUrl(licenseUrl)))
         }
         return true
     }
@@ -432,11 +354,11 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             // the pager has settled on a new position
             layOutGalleryDescription()
             val item = currentItem
-            if (currentPosition != -1 && item != null && item.imageTitle != null && funnel != null) {
+            if (currentPosition != -1 && item != null && item.imageTitle != null) {
                 if (position < currentPosition) {
-                    funnel!!.logGallerySwipeLeft(pageTitle, item.imageTitle!!.displayText)
+                    funnel.logGallerySwipeLeft(pageTitle, item.imageTitle!!.displayText)
                 } else if (position > currentPosition) {
-                    funnel!!.logGallerySwipeRight(pageTitle, item.imageTitle!!.displayText)
+                    funnel.logGallerySwipeRight(pageTitle, item.imageTitle!!.displayText)
                 }
             }
             currentPosition = position
@@ -462,7 +384,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         // log the "gallery close" event only upon explicit closing of the activity
         // (back button, or home-as-up button in the toolbar)
         val item = currentItem
-        item?.imageTitle?.let { funnel?.logGalleryClose(pageTitle, item.imageTitle!!.displayText) }
+        item?.imageTitle?.let { funnel.logGalleryClose(pageTitle, item.imageTitle!!.displayText) }
         if (TRANSITION_INFO != null) {
             showTransitionReceiver()
         }
@@ -494,24 +416,17 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
     }
 
-    /**
-     * Show or hide all the UI controls in this activity (slide them out or in).
-     * @param showing Whether to show or hide the controls.
-     */
     private fun setControlsShowing(showing: Boolean) {
         controlsShowing = showing
         if (controlsShowing) {
-            ensureTranslationY(binding.toolbarContainer, 0)
-            ensureTranslationY(binding.infoContainer, 0)
+            ViewAnimations.ensureTranslationY(binding.toolbarContainer, 0)
+            ViewAnimations.ensureTranslationY(binding.infoContainer, 0)
         } else {
-            ensureTranslationY(binding.toolbarContainer, -binding.toolbarContainer.height)
-            ensureTranslationY(binding.infoContainer, binding.infoContainer.height)
+            ViewAnimations.ensureTranslationY(binding.toolbarContainer, -binding.toolbarContainer.height)
+            ViewAnimations.ensureTranslationY(binding.infoContainer, binding.infoContainer.height)
         }
     }
 
-    /**
-     * Toggle showing or hiding of all the UI controls.
-     */
     fun toggleControls() {
         setControlsShowing(!controlsShowing)
     }
@@ -519,7 +434,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     fun showLinkPreview(title: PageTitle) {
         bottomSheetPresenter.show(
             supportFragmentManager,
-            newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null)
+            LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null)
         )
     }
 
@@ -527,14 +442,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.pager.isUserInputEnabled = enabled
     }
 
-    /**
-     * LinkMovementMethod for handling clicking of links in the description or metadata
-     * text fields. For internal links, this activity will close, and pass the page title as
-     * the result. For external links, they will be bounced out to the Browser.
-     */
     private val linkMovementMethod = LinkMovementMethodExt { urlStr: String ->
-        v("Link clicked was $urlStr")
-        var url = resolveProtocolRelativeUrl(urlStr)
+        L.v("Link clicked was $urlStr")
+        var url = UriUtil.resolveProtocolRelativeUrl(urlStr)
         if (url.startsWith("/wiki/")) {
             val title = app.wikiSite.titleForInternalLink(url)
             showLinkPreview(title)
@@ -554,30 +464,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                         app.wikiSite.authority()
                     ) + url
                 }
-                handleExternalLink(this@GalleryActivity, Uri.parse(url))
+                UriUtil.handleExternalLink(this@GalleryActivity, Uri.parse(url))
             }
         }
     }
 
-    /**
-     * Close this activity, with the specified PageTitle as the activity result, to be picked up
-     * by the activity that originally launched us.
-     * @param resultTitle PageTitle to pass as the activity result.
-     */
     @JvmOverloads
-    fun finishWithPageResult(
-        resultTitle: PageTitle,
-        historyEntry: HistoryEntry = HistoryEntry(
-            resultTitle,
-            HistoryEntry.SOURCE_GALLERY
-        )
-    ) {
-        val intent = PageActivity.newIntentForCurrentTab(
-            this@GalleryActivity,
-            historyEntry,
-            resultTitle,
-            false
-        )
+    fun finishWithPageResult(resultTitle: PageTitle, historyEntry: HistoryEntry = HistoryEntry(resultTitle, HistoryEntry.SOURCE_GALLERY)) {
+        val intent = PageActivity.newIntentForCurrentTab(this@GalleryActivity, historyEntry, resultTitle, false)
         setResult(ACTIVITY_RESULT_PAGE_SELECTED, intent)
         finish()
     }
@@ -587,20 +481,16 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
-        setPlainText(this, null, title.uri)
-        showMessage(this, R.string.address_copied)
+        ClipboardUtil.setPlainText(this, null, title.uri)
+        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
-        bottomSheetPresenter.showAddToListDialog(
-            supportFragmentManager,
-            title,
-            InvokeSource.LINK_PREVIEW_MENU
-        )
+        bottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
-        shareText(this, title)
+        ShareUtil.shareText(this, title)
     }
 
     fun showError(caught: Throwable?) {
@@ -630,9 +520,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             })
     }
 
-    /**
-     * Kicks off the activity after the views are initialized in onCreate.
-     */
     private fun loadGalleryContent() {
         updateProgressBar(false)
         fetchGalleryItems()
@@ -646,10 +533,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         if (initialFilename != null) {
             for (item in list) {
                 // the namespace of a file could be in a different language than English.
-                if (removeNamespace(item.title) == removeNamespace(
-                        initialFilename!!
-                    )
-                ) {
+                if (StringUtil.removeNamespace(item.title) == StringUtil.removeNamespace(initialFilename!!)) {
                     initialImagePos = list.indexOf(item)
                     break
                 }
@@ -691,28 +575,20 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         disposeImageCaptionDisposable()
         imageCaptionDisposable =
             Observable.zip<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Pair<Boolean, Int>>(
-                getImageCaptions(
-                    item.imageTitle!!.prefixedText!!
-                ),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(
-                    item.imageTitle!!.prefixedText!!
-                ),
-                getImageTagsObservable(
-                    currentItem!!.mediaPage!!.pageId(),
-                    sourceWiki!!.languageCode()
-                ),
-                Function3 { captions: Map<String?, String?>, protectionInfoRsp: MwQueryResponse, imageTags: Map<String?, List<String>> ->
+                MediaHelper.getImageCaptions(item.imageTitle!!.prefixedText!!),
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL))
+                    .getProtectionInfo(item.imageTitle!!.prefixedText!!),
+                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(),
+                    sourceWiki.languageCode()),
+                { captions: Map<String, String>, protectionInfoRsp: MwQueryResponse, imageTags: Map<String, List<String>> ->
                     item.mediaInfo!!.captions = captions
                     Pair(protectionInfoRsp.query()!!.isEditProtected, imageTags.size)
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(Consumer { pair: Pair<Boolean, Int> ->
-                    updateGalleryDescription(
-                        pair.first,
-                        pair.second
-                    )
-                }, Consumer { obj: Throwable -> obj.stackTrace })
+                .subscribe({ pair: Pair<Boolean, Int> ->
+                    updateGalleryDescription(pair.first, pair.second)
+                }, { obj: Throwable? -> obj?.stackTrace })
     }
 
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
@@ -726,8 +602,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
-        var captionEditable =
-            isLoggedIn && item.mediaInfo!!.thumbUrl.contains(Service.URL_FRAGMENT_FROM_COMMONS)
+        var captionEditable = AccountUtil.isLoggedIn && item.mediaInfo!!.thumbUrl.contains(Service.URL_FRAGMENT_FROM_COMMONS)
         binding.captionEditButton.visibility =
             if (captionEditable) View.VISIBLE else View.GONE
         binding.captionEditButton.setImageResource(R.drawable.ic_mode_edit_white_24dp)
@@ -747,9 +622,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     private fun decideImageEditType(item: GalleryItemFragment, tagsCount: Int) {
         imageEditType = null
-        if (!item.mediaInfo!!.captions.containsKey(sourceWiki!!.languageCode())) {
+        if (!item.mediaInfo!!.captions.containsKey(sourceWiki.languageCode())) {
             imageEditType = ImageEditType.ADD_CAPTION
-            targetLanguageCode = sourceWiki!!.languageCode()
+            targetLanguageCode = sourceWiki.languageCode()
             binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_button)
             return
         }
@@ -782,16 +657,16 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
         val descriptionStr: CharSequence? =
-            if (item.mediaInfo!!.captions.containsKey(sourceWiki!!.languageCode())) {
-                item.mediaInfo!!.captions[sourceWiki!!.languageCode()]
+            if (item.mediaInfo?.captions!!.containsKey(sourceWiki.languageCode())) {
+                item.mediaInfo?.captions!![sourceWiki.languageCode()]
             } else {
-                fromHtml(
+                StringUtil.fromHtml(
                     item.mediaInfo!!.metadata!!.imageDescription()
                 )
             }
         if (descriptionStr != null && descriptionStr.isNotEmpty()) {
             binding.descriptionContainer.visibility = View.VISIBLE
-            binding.descriptionText.text = strip(descriptionStr)
+            binding.descriptionText.text = StringUtil.strip(descriptionStr)
         } else {
             binding.descriptionContainer.visibility = View.GONE
         }
@@ -820,38 +695,20 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
-        binding.licenseIcon.contentDescription = StringUtils.defaultIfBlank(
-            item.mediaInfo!!.metadata!!.licenseShortName(),
-            getString(R.string.gallery_fair_use_license)
-        )
+        binding.licenseIcon.contentDescription = StringUtils.defaultIfBlank(item.mediaInfo!!.metadata!!.licenseShortName(),
+            getString(R.string.gallery_fair_use_license))
         // Give the license URL to the icon, to be received by the click handler (may be null).
         binding.licenseIcon.tag = item.mediaInfo!!.metadata!!.licenseUrl()
-        setContextClickAsLongClick(binding.licenseContainer)
-        val creditStr = if (!TextUtils.isEmpty(
-                item.mediaInfo!!.metadata!!.artist()
-            )
-        ) item.mediaInfo!!.metadata!!
-            .artist() else item.mediaInfo!!.metadata!!.credit()
+        DeviceUtil.setContextClickAsLongClick(binding.licenseContainer)
+        val creditStr = if (item.mediaInfo!!.metadata!!.artist().isNotEmpty()) item.mediaInfo!!.metadata!!.artist()
+        else item.mediaInfo!!.metadata!!.credit()
 
         // if we couldn't find a attribution string, then default to unknown
-        binding.creditText.text = fromHtml(
-            StringUtils.defaultIfBlank(
-                creditStr,
-                getString(R.string.gallery_uploader_unknown)
-            )
-        )
+        binding.creditText.text = StringUtil.fromHtml(StringUtils.defaultIfBlank(creditStr, getString(R.string.gallery_uploader_unknown)))
         binding.infoContainer.visibility = View.VISIBLE
     }
 
-    /**
-     * Adapter that will provide the contents for the ViewPager.
-     * Each media item will be represented by a GalleryItemFragment, which will be instantiated
-     * lazily, and then cached for future use.
-     */
-    private inner class GalleryItemAdapter internal constructor(activity: AppCompatActivity?) :
-        PositionAwareFragmentStateAdapter(
-            activity!!
-        ) {
+    private inner class GalleryItemAdapter(activity: AppCompatActivity?) : PositionAwareFragmentStateAdapter(activity!!) {
         private val list: MutableList<MediaListItem> = ArrayList()
         fun setList(list: List<MediaListItem>) {
             this.list.clear()
@@ -864,13 +721,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
 
         override fun createFragment(position: Int): Fragment {
-            return newInstance(pageTitle, list[position])
+            return GalleryItemFragment.newInstance(pageTitle, list[position])
         }
     }
 
     private inner class MediaDownloadReceiverCallback : MediaDownloadReceiver.Callback {
         override fun onSuccess() {
-            showMessage(this@GalleryActivity, R.string.gallery_save_success)
+            FeedbackUtil.showMessage(this@GalleryActivity, R.string.gallery_save_success)
         }
     }
 
@@ -887,10 +744,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         private var TRANSITION_INFO: ImageHitInfo? = null
 
         @JvmStatic
-        fun newIntent(
-            context: Context, pageTitle: PageTitle?,
-            filename: String, wiki: WikiSite, revision: Long, source: Int
-        ): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long, source: Int): Intent {
             val intent = Intent()
                 .setClass(context, GalleryActivity::class.java)
                 .putExtra(EXTRA_FILENAME, filename)
