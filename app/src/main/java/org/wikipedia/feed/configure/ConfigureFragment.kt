@@ -100,17 +100,13 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_feed_configure_select_all -> {
-                for (type in FeedContentType.values()) {
-                    type.isEnabled = true
-                }
+                FeedContentType.values().map { it.isEnabled = true }
                 touch()
                 binding.contentTypesRecycler.adapter?.notifyDataSetChanged()
                 true
             }
             R.id.menu_feed_configure_deselect_all -> {
-                for (type in FeedContentType.values()) {
-                    type.isEnabled = false
-                }
+                FeedContentType.values().map { it.isEnabled = false }
                 touch()
                 binding.contentTypesRecycler.adapter?.notifyDataSetChanged()
                 true
@@ -128,10 +124,9 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
 
     private fun prepareContentTypeList() {
         orderedContentTypes.clear()
-        orderedContentTypes.addAll(listOf(*FeedContentType.values()))
+        orderedContentTypes.addAll(FeedContentType.values())
         orderedContentTypes.sortWith { a, b -> a.order.compareTo(b.order) }
         // Remove items for which there are no available languages
-        val appLanguages = WikipediaApp.getInstance().language().appLanguageCodes
         val i = orderedContentTypes.iterator()
         while (i.hasNext()) {
             val feedContentType = i.next()
@@ -147,7 +142,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
             if (supportedLanguages.isEmpty()) {
                 continue
             }
-            val atLeastOneSupported = appLanguages.any { supportedLanguages.contains(it) }
+            val atLeastOneSupported = WikipediaApp.getInstance().language().appLanguageCodes.any { supportedLanguages.contains(it) }
             if (!atLeastOneSupported) {
                 i.remove()
             }
