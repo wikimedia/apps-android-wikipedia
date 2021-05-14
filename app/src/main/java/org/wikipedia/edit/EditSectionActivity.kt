@@ -202,7 +202,8 @@ class EditSectionActivity : BaseActivity() {
     }
 
     private fun doSave(token: String) {
-        var summaryText = if (sectionHeading.isNullOrEmpty()) "" else "/* $sectionHeading */ "
+        var summaryText = if (sectionHeading.isNullOrEmpty() ||
+            StringUtil.addUnderscores(sectionHeading) == pageTitle.prefixedText) "/* top */" else "/* $sectionHeading */ "
         summaryText += editPreviewFragment.summary
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
         summaryText = StringUtil.fromHtml(summaryText).toString()

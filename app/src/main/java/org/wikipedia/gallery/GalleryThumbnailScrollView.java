@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
@@ -74,7 +75,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         @Override
         public void onClick(View v) {
             if (mListener != null) {
-                mListener.onGalleryItemClicked((ImageView)v, mGalleryItem.imageInfo().getThumbUrl(), mGalleryItem.title());
+                mListener.onGalleryItemClicked((ImageView)v, mGalleryItem.imageInfo().getThumbUrl(), StringUtil.addUnderscores(mGalleryItem.title()));
             }
         }
 
