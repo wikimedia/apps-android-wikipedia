@@ -32,7 +32,6 @@ import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.view.FeedAdapter
-import org.wikipedia.feed.view.FeedCardView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.random.RandomActivity
@@ -49,7 +48,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private var _binding: FragmentFeedBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var feedAdapter: FeedAdapter<*>
+    private lateinit var feedAdapter: FeedAdapter<View>
     private val feedCallback = FeedCallback()
     private val feedScrollListener = FeedScrollListener()
     private val callback get() = getCallback(this, Callback::class.java)
@@ -59,17 +58,17 @@ class FeedFragment : Fragment(), BackPressedHandler {
     private var shouldElevateToolbar = false
 
     interface Callback {
-        fun onFeedSearchRequested(view: View?)
+        fun onFeedSearchRequested(view: View)
         fun onFeedVoiceSearchRequested()
-        fun onFeedSelectPage(entry: HistoryEntry?, openInNewBackgroundTab: Boolean)
-        fun onFeedSelectPageWithAnimation(entry: HistoryEntry?, shareElements: Array<Pair<View, String>>?)
-        fun onFeedAddPageToList(entry: HistoryEntry?, addToDefault: Boolean)
-        fun onFeedMovePageToList(sourceReadingList: Long, entry: HistoryEntry?)
-        fun onFeedNewsItemSelected(card: NewsCard?, view: NewsItemView?)
+        fun onFeedSelectPage(entry: HistoryEntry, openInNewBackgroundTab: Boolean)
+        fun onFeedSelectPageWithAnimation(entry: HistoryEntry, shareElements: Array<Pair<View, String>>)
+        fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
+        fun onFeedMovePageToList(sourceReadingList: Long, entry: HistoryEntry)
+        fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView)
         fun onFeedSeCardFooterClicked()
-        fun onFeedShareImage(card: FeaturedImageCard?)
-        fun onFeedDownloadImage(image: FeaturedImage?)
-        fun onFeaturedImageSelected(card: FeaturedImageCard?)
+        fun onFeedShareImage(card: FeaturedImageCard)
+        fun onFeedDownloadImage(image: FeaturedImage)
+        fun onFeaturedImageSelected(card: FeaturedImageCard)
         fun onLoginRequested()
         fun updateToolbarElevation(elevate: Boolean)
     }
@@ -82,7 +81,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
-        feedAdapter = FeedAdapter(coordinator, feedCallback)
+        feedAdapter = FeedAdapter<View>(coordinator, feedCallback)
         binding.feedView.adapter = feedAdapter
         binding.feedView.addOnScrollListener(feedScrollListener)
         binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
@@ -293,7 +292,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
             showConfigureActivity(card.type().code())
         }
 
-        override fun onNewsItemSelected(card: NewsCard, view: NewsItemView?) {
+        override fun onNewsItemSelected(card: NewsCard, view: NewsItemView) {
             callback?.let {
                 it.onFeedNewsItemSelected(card, view)
                 funnel.cardClicked(card.type(), card.wikiSite().languageCode())
