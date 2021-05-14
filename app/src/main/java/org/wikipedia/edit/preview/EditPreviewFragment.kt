@@ -34,34 +34,26 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewAnimations
 
 class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDialog.Callback {
+
+    private var _binding: FragmentPreviewEditBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var bridge: CommunicationBridge
     private lateinit var references: PageReferences
     private lateinit var otherTag: EditSummaryTag
     private lateinit var funnel: EditFunnel
-    override lateinit var linkHandler: LinkHandler
-
-    private var _binding: FragmentPreviewEditBinding? = null
-    private val binding get() = _binding!!
     private val summaryTags = mutableListOf<EditSummaryTag>()
     private val disposables = CompositeDisposable()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
+    override lateinit var linkHandler: LinkHandler
     override val model = PageViewModel()
-
-    override val webView
-        get() = binding.editPreviewWebview
-
+    override val webView get() = binding.editPreviewWebview
     override val isPreview = true
     override val toolbarMargin = 0
-
-    override val referencesGroup
-        get() = references.referencesGroup
-
-    override val selectedReferenceIndex
-        get() = references.selectedIndex
-
-    val isActive
-        get() = binding.editPreviewContainer.visibility == View.VISIBLE
+    override val referencesGroup get() = references.referencesGroup
+    override val selectedReferenceIndex get() = references.selectedIndex
 
     /**
      * Gets the overall edit summary, as specified by the user by clicking various tags,
@@ -101,11 +93,8 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         initWebView()
 
         // build up summary tags...
-        val summaryTagStrings = intArrayOf(
-            R.string.edit_summary_tag_typo,
-            R.string.edit_summary_tag_grammar,
-            R.string.edit_summary_tag_links
-        )
+        val summaryTagStrings = intArrayOf(R.string.edit_summary_tag_typo,
+            R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
         val strings = L10nUtil.getStringsForArticleLanguage(pageTitle, summaryTagStrings)
 
         summaryTags.clear()
@@ -135,11 +124,11 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
         if (savedInstanceState != null) {
             for (i in summaryTags.indices) {
-                summaryTags[i].isSelected = savedInstanceState.getBoolean("summaryTag$i", false)
+                summaryTags[i].isSelected = savedInstanceState.getBoolean(KEY_SUMMARY_TAG.plus(i), false)
             }
-            if (savedInstanceState.containsKey("otherTag")) {
+            if (savedInstanceState.containsKey(KEY_OTHER_TAG)) {
                 otherTag.isSelected = true
-                otherTag.text = savedInstanceState.getString("otherTag")
+                otherTag.text = savedInstanceState.getString(KEY_OTHER_TAG)
             }
         }
         binding.editPreviewContainer.visibility = View.GONE
@@ -225,10 +214,10 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         for (i in summaryTags.indices) {
-            outState.putBoolean("summaryTag$i", summaryTags[i].selected)
+            outState.putBoolean(KEY_SUMMARY_TAG.plus(i), summaryTags[i].selected)
         }
         if (otherTag.selected) {
-            outState.putString("otherTag", otherTag.toString())
+            outState.putString(KEY_OTHER_TAG, otherTag.toString())
         }
     }
 
@@ -280,5 +269,10 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         override var wikiSite: WikiSite
             get() = model.title!!.wikiSite
             set(wikiSite) {}
+    }
+
+    companion object {
+        private const val KEY_OTHER_TAG = "otherTag"
+        private const val KEY_SUMMARY_TAG = "summaryTag"
     }
 }
