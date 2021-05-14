@@ -855,7 +855,7 @@
     <item quantity="one">Hozzáadtál egy karaktert</item>
     <item quantity="other">Hozzáadtál %d karaktert</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Képjavasló algoritmus tanítása</string>
+  <string name="suggested_edits_image_recommendations_task_title">Képjavasló algoritmus</string>
   <string name="suggested_edits_image_recommendations_task_detail">Állapítsd meg, hogy az ajánlott kép hozzáadásával színvonalasabbá válik-e a cikk.</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Indítás</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Remek! Csak így tovább! 👍</string>

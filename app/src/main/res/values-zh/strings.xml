@@ -29,6 +29,7 @@
 * Shuiwater
 * Si109
 * SinonJZH
+* SolidBlock
 * SomeyaMako
 * TianyinLee
 * Tonylianlong
@@ -94,6 +95,8 @@
   <string name="menu_page_other_languages">更改语言</string>
   <string name="menu_page_find_in_page">在文章中查找</string>
   <string name="menu_page_add_to_watchlist">添加到监视列表</string>
+  <string name="menu_page_view_talk">查看讨论页</string>
+  <string name="menu_page_view_edit_history">查看编辑历史</string>
   <string name="menu_page_remove_from_watchlist">移出监视列表</string>
   <string name="edit_section_find_in_page">在页面中查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
@@ -232,6 +235,7 @@
   <string name="page_protected_can_not_edit_anon">对不起，该页面目前不能匿名编辑。</string>
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">添加到监视列表</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">跟踪你感兴趣的条目最近发生的事情。点击下拉菜单并选择&lt;b&gt;添加到监视列表&lt;/b&gt;以查看条目的变化。</string>
   <string name="settings_item_preferences">设置</string>
   <string name="settings_activity_title">设置</string>
   <string name="about_description">关于维基百科应用</string>
@@ -247,6 +251,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">使用的库</string>
   <string name="about_contributors_heading">贡献者</string>
   <string name="about_contributors">&lt;a href=“https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android”&gt;团队主页&lt;/a&gt;</string>
@@ -289,6 +294,8 @@
   <string name="page_similar_titles">类似页面</string>
   <string name="search_did_you_mean">您的意思是“%s”吗？</string>
   <string name="search_recent_header">最近搜索：</string>
+  <string name="search_results_count_zero">没有结果</string>
+  <string name="search_results_count">%d条结果</string>
   <string name="button_clear_all_recent_searches">清除最近搜索</string>
   <string name="clear_recent_searches_confirm">您确认要清除您的搜索历史？</string>
   <string name="clear_recent_searches_confirm_yes">确定</string>
@@ -352,6 +359,7 @@
   <string name="address_copied">地址已复制至剪贴板。</string>
   <string name="text_copied">文本已复制至剪贴板。</string>
   <string name="button_continue_to_article">阅读条目</string>
+  <string name="button_continue_to_talk_page">查看讨论页</string>
   <string name="button_continue_to_disambiguation">浏览类似页面</string>
   <string name="link_preview_disambiguation_description">此标题涉及多个页面：</string>
   <string name="button_add_to_reading_list">添加至阅读列表</string>
@@ -415,6 +423,8 @@
   <string name="text_size_increase">调高文本大小</string>
   <string name="text_size_decrease">调低文本大小</string>
   <string name="text_size_percent_default">%s（默认）</string>
+  <string name="text_style_title">字体</string>
+  <string name="nav_item_saved">已保存</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
   <string name="reading_list_move_to">移动至阅读列表</string>
   <string name="reading_list_create_new">创建新的</string>
@@ -456,8 +466,12 @@
   <string name="reading_list_name_hint">此列表的名称</string>
   <string name="reading_list_description_hint">描述（可选）</string>
   <string name="reading_list_item_deleted">%s已从列表中移除</string>
+  <string name="reading_list_item_deleted_from_list">%1$s已从%2$s移除</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="other">从列表中移除了 %d 篇文章</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="other">从%s中移除了%d个条目</item>
   </plurals>
   <string name="reading_list_items_deleted">%d个条目已从列表中移除</string>
   <string name="reading_lists_item_deleted">%s已从列表中移除</string>
@@ -605,11 +619,18 @@
   <string name="preference_summary_notification_user_talk">来自讨论页的消息</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
+  <string name="view_random_article_card_title">随机条目</string>
+  <string name="view_random_article_card_action">更多随机条目</string>
+  <string name="view_top_read_card_title">最多阅读</string>
+  <string name="view_top_read_card_action">更多最多阅读</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d千</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d00万</string>
   <string name="view_next_random_article">加载另一个随机条目</string>
   <string name="view_main_page_card_title">维基百科今日</string>
   <string name="view_main_page_card_action">查看主页</string>
   <string name="view_featured_image_card_title">每日图片</string>
   <string name="view_featured_image_card_download">下载</string>
+  <string name="view_featured_image_card_share">分享</string>
   <string name="menu_feed_card_dismiss">隐藏此卡片</string>
   <string name="menu_feed_card_dismissed">卡片已隐藏。</string>
   <string name="menu_feed_card_edit_card_languages">编辑卡片语言</string>
@@ -652,6 +673,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">取消</string>
   <string name="feed_accessibility_card_text">您已到达信息流的底部。</string>
   <string name="feed_accessibility_card_load_more_button">加载更多</string>
+  <string name="top_read_activity_title">%s中的最多阅读</string>
   <string name="description_edit_text_hint">条目描述</string>
   <string name="description_edit_article_description_label">条目</string>
   <string name="description_edit_translate_article_description_label_per_language">条目描述（%s）</string>
@@ -680,12 +702,15 @@
   <string name="description_too_short">文本过短。</string>
   <string name="description_ends_with_punctuation">文本不能以标点符号结尾。</string>
   <string name="description_starts_with_uppercase">若首个单词不是专有名词，请以小写字母开头。</string>
+  <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
+  <string name="description_is_in_different_language">文本似乎不是用预期的语言写的，语言应该是%s。</string>
   <string name="description_edit_success_saved">描述已发布！</string>
   <string name="description_edit_success_saved_snackbar">描述已发布！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">描述已发布！（%s）</string>
   <string name="description_edit_success_saved_image_caption_snackbar">图片说明已发布！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">图片说明已发布！（%s）</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">图片标签已发布！</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">图片标签已发布！</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">感觉不错？帮助我们添加更多。</string>
   <string name="description_edit_success_encouragement">您只是让维基百科更好地服务大家</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道吗？</string>
@@ -780,9 +805,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s阁下&lt;/b&gt;，下面，您可以找到一些快速又简单的方法来帮助改进维基百科。你一开始就会看到你做出的更改。祝您编辑顺利!</string>
   <string name="suggested_edits_image_captions_task_detail">描述图片以帮助读者理解图像的含义和上下文。</string>
   <string name="suggested_edits_add_descriptions_task_detail">总结条目以帮助读者一目了然地了解主题。</string>
-  <string name="suggested_edits_contributions_stat_tooltip" fuzzy="true">您的贡献总数和建议编辑。</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip" fuzzy="true">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
-  <string name="suggested_edits_page_views_stat_tooltip" fuzzy="true">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
+  <string name="suggested_edits_contributions_stat_tooltip">您迄今为止的贡献总数。</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">您连续贡献了多少天。如果您已经有一段时间没有贡献了，会显示您的最后一次贡献日期。</string>
+  <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您贡献的项目总浏览量。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">根据你的一个贡献被回退了多少次（被其他编辑者撤销）。被回退的编辑：%d。</string>
   <string name="suggested_edits_paused_message">建议编辑已暂停，直到%1$s。抱歉%2$s，您最近的一些贡献已经被回退了。</string>
   <string name="suggested_edits_disabled_message">建议编辑已被禁用。抱歉 %s，您近期的贡献有太多被回退了。</string>
@@ -843,6 +868,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">登录/加入维基百科</string>
   <string name="suggested_edits_contribution_type_image_tag">图片标签</string>
   <string name="suggested_edits_contribution_current_revision_text">你的编辑现已在维基百科</string>
+  <string name="suggested_card_more_edits">更多建议编辑</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="other">%1$s 个标签</item>
   </plurals>
@@ -853,7 +879,10 @@
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="other">您添加了 %d 个字符</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_detail">决定建议图片是否改善文章。</string>
   <string name="suggested_edits_image_recommendations_task_get_started">开始</string>
+  <string name="suggested_edits_image_recommendations_task_goal_progress">好，继续！👍</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">每日目标已达成！👏</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">你已达到每日目标</string>
   <string name="suggested_edits_image_recommendations_onboarding_text2">我们想认证你所提供的贡献。请问你想要你的用户名称被显示在我们的算法训练网页？</string>
   <string name="file_page_activity_title">文件页面</string>
@@ -899,6 +928,8 @@
     <item quantity="one">去年</item>
     <item quantity="other">%d年前</item>
   </plurals>
+  <string name="on_this_day_end_of_scroll_message">随时间旅行🚀</string>
+  <string name="on_this_day_back_to_future">回到未来</string>
   <string name="languages_list_activity_title">添加一种语言</string>
   <string name="languages_list_suggested_text">推荐</string>
   <string name="languages_list_all_text">所有语言</string>
@@ -932,14 +963,31 @@
   <string name="content_description_for_page_indicator">第%1$d页，共%2$d页</string>
   <string name="image_recommendations_task_accept">是</string>
   <string name="image_recommendations_task_reject">否</string>
+  <string name="image_recommendations_task_not_sure">不确定</string>
   <string name="image_recommendations_task_processing">进行中。。。</string>
+  <string name="image_recommendations_task_instruction">是否将这张图片添加到条目中？</string>
+  <string name="image_recommendations_task_choice_no">为什么选择“否”？</string>
   <string name="image_recommendations_task_choice_not_sure">为什么你选择不确定?</string>
   <string name="image_recommendations_prompt_to_choose_reasons">选择一个或者更多原因</string>
+  <string name="image_recommendations_task_choice_unsure">为什么对这张图不确定？</string>
+  <string name="image_recommendations_task_choice_not_relevant">不相关</string>
+  <string name="image_recommendations_task_choice_low_quality">低质</string>
+  <string name="image_recommendations_task_choice_noinfo">信息不足</string>
+  <string name="image_recommendations_task_choice_nosubject">不知道这个话题</string>
+  <string name="image_recommendations_task_choice_offensive">冒犯性</string>
+  <string name="image_recommendations_task_choice_invisible">看不到图</string>
+  <string name="image_recommendations_task_choice_understand">不理解任务</string>
+  <string name="image_recommendations_task_choice_language">不会这个语言</string>
   <string name="image_recommendations_task_choice_other">其他</string>
   <string name="image_recommendations_task_choice_continue">继续</string>
+  <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建议原因：&lt;/b&gt;%s</string>
   <string name="image_recommendations_task_suggestion_reason_wikilist">图片可以在别的语言版本的维基百科上得到（%s）</string>
   <string name="image_recommendations_task_suggestion_reason_wikidata">图片在维基数据上搜索的，维基百科关于公开数据的资源</string>
   <string name="image_recommendations_task_suggestion_reason_commons">图片是在’Wikimedia Commons\'上得到的，维基百科来源于免费用处的照片</string>
+  <string name="image_recommendations_faq">常见问题</string>
+  <string name="image_recommendations_tooltip1">重新查看此文章以了解话题。</string>
+  <string name="image_recommendations_tooltip2">查看图像以及有关信息。</string>
+  <string name="image_recommendations_tooltip3">决定图像是否帮助读者更好地了解话题。</string>
   <string name="wikitext_bold">粗体</string>
   <string name="wikitext_italic">斜体</string>
   <string name="wikitext_link">链接</string>
@@ -976,15 +1024,19 @@
   <string name="watchlist_details_watch_label">监视</string>
   <string name="thank_label">感谢</string>
   <string name="go_to_user_page">转至用户页</string>
+  <string name="thank_dialog_title_text">公开发送“感谢”</string>
+  <string name="thank_dialog_text">“感谢”是对维基百科上的编辑工作表示感谢的一种简单方式。“感谢”无法撤销，且可公开查看的。</string>
   <string name="thank_dialog_positive_button_text">发送感谢</string>
   <string name="thank_dialog_negative_button_text">取消</string>
   <string name="thank_success_message">您的“感谢”已发给 %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s及其讨论页已添加到您的监视列表，持续时间%2$s。</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">更改</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">永久</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1周</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1个月</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3个月</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6个月</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s及其讨论页已从您的监视列表移除。</string>
   <string name="watchlist_expiry_dialog_title">选择监视列表持续时间</string>
   <string name="watchlist_expiry_dialog_permanent">永久</string>
   <string name="watchlist_expiry_dialog_one_week">1周</string>
@@ -996,4 +1048,7 @@
   <string name="watchlist_filter_talk">讨论</string>
   <string name="watchlist_filter_pages">页面</string>
   <string name="watchlist_filter_other">其他</string>
+  <string name="watchlist_page_moved">已移动</string>
+  <string name="watchlist_page_protected">受保护</string>
+  <string name="watchlist_page_deleted">已删除</string>
 </resources>
