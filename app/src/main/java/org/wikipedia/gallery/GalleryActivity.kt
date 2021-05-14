@@ -206,7 +206,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     override fun onDownload(item: GalleryItemFragment) {
         item.imageTitle?.let {
-            funnel?.logGallerySave(pageTitle, it.displayText)
+            funnel.logGallerySave(pageTitle, it.displayText)
         }
         if (item.imageTitle != null && item.mediaInfo != null) {
             downloadReceiver.download(this, item.imageTitle!!, item.mediaInfo!!)
