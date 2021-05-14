@@ -198,7 +198,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getMediaList(pageTitle.prefixedText, revision)
                     .flatMap { mediaList ->
                         val maxImages = 10
-                        val items = mediaList.getItems("image", "video")
+                        val items = mediaList.getItems("image", "video").asReversed()
                         val titleList = mutableListOf<String>()
                         items.forEach {
                             if (it.showInGallery() && titleList.size < maxImages) {
