@@ -23,8 +23,8 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 
 @Suppress("UNCHECKED_CAST")
-class FeedAdapter<T>(private val coordinator: FeedCoordinatorBase, private val callback: Callback?) :
-    DefaultRecyclerAdapter<Card?, T>(coordinator.cards) where T : View {
+class FeedAdapter<T : View>(private val coordinator: FeedCoordinatorBase, private val callback: Callback?) :
+    DefaultRecyclerAdapter<Card?, T>(coordinator.cards) {
 
     interface Callback : ListCardItemView.Callback, CardHeaderView.Callback,
         FeaturedImageCardView.Callback, SearchCardView.Callback, NewsCardView.Callback,
