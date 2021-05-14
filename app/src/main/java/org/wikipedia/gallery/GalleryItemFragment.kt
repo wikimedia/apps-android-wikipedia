@@ -2,7 +2,6 @@ package org.wikipedia.gallery
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -57,7 +56,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         mediaListItem = requireArguments().getSerializable(ARG_GALLERY_ITEM) as MediaListItem?
         pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
         if (pageTitle == null) {
-            pageTitle = PageTitle(mediaListItem!!.title, WikiSite(Service.COMMONS_URL))
+            pageTitle = PageTitle(mediaListItem?.title, WikiSite(Service.COMMONS_URL))
         }
         imageTitle = PageTitle(Namespace.FILE.toLegacyString(), StringUtil.removeNamespace(mediaListItem!!.title),
             pageTitle!!.wikiSite
@@ -208,7 +207,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             }
             updateProgressBar(true)
             binding.videoView.setMediaController(mediaController)
-            binding.videoView.setOnPreparedListener { mp: MediaPlayer? ->
+            binding.videoView.setOnPreparedListener {
                 updateProgressBar(false)
                 // ...update the parent activity, which will trigger us to start playing!
                 (requireActivity() as GalleryActivity).layOutGalleryDescription()
@@ -297,7 +296,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         }
     }
 
-    private val shareSubject: String?
+    private val shareSubject
         get() = if (pageTitle != null) pageTitle!!.displayText else null
 
     private fun saveImage() {

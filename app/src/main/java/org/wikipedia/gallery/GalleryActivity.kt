@@ -441,7 +441,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.pager.isUserInputEnabled = enabled
     }
 
-    private val linkMovementMethod = LinkMovementMethodExt { urlStr: String ->
+    private val linkMovementMethod = LinkMovementMethodExt { urlStr ->
         L.v("Link clicked was $urlStr")
         var url = UriUtil.resolveProtocolRelativeUrl(urlStr)
         if (url.startsWith("/wiki/")) {
@@ -506,14 +506,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             .getMediaList(pageTitle!!.prefixedText, revision)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ mediaList: MediaList ->
+            .subscribe({ mediaList ->
                 applyGalleryList(
                     mediaList.getItems(
                         "image",
                         "video"
                     )
                 )
-            }) { caught: Throwable? ->
+            }) { caught ->
                 updateProgressBar(false)
                 showError(caught)
             })
@@ -558,12 +558,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
     }
 
-    private val currentItem: GalleryItemFragment?
+    private val currentItem
         get() = galleryAdapter!!.getFragmentAt(binding.pager.currentItem) as GalleryItemFragment?
 
-    /**
-     * Populate the description and license text fields with data from the current gallery item.
-     */
     fun layOutGalleryDescription() {
         val item = currentItem
         if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
@@ -587,7 +584,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair: Pair<Boolean, Int> ->
                     updateGalleryDescription(pair.first, pair.second)
-                }, { obj: Throwable? -> obj?.stackTrace })
+                }, { obj -> obj?.stackTrace })
     }
 
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
@@ -655,7 +652,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun displayApplicableDescription(item: GalleryItemFragment) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        val descriptionStr: CharSequence? =
+        val descriptionStr =
             if (item.mediaInfo?.captions!!.containsKey(sourceWiki.languageCode())) {
                 item.mediaInfo?.captions!![sourceWiki.languageCode()]
             } else {
