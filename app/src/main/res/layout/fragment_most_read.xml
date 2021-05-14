@@ -5,7 +5,7 @@
     android:fitsSystemWindows="true">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view_most_read_fullscreen_link_card_list"
+        android:id="@+id/most_read_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
