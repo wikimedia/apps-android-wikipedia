@@ -52,7 +52,6 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     val mediaInfo: ImageInfo?
         get() = if (mediaPage != null) mediaPage!!.imageInfo() else null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mediaListItem = requireArguments().getSerializable(ARG_GALLERY_ITEM) as MediaListItem?

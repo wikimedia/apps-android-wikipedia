@@ -38,7 +38,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.JavaScriptActionHandler.ImageHitInfo
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.commons.ImageTagsProvider
-import org.wikipedia.databinding.ActivityCreateAccountBinding
 import org.wikipedia.databinding.ActivityGalleryBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
