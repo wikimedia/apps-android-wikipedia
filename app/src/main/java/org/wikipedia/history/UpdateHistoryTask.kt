@@ -4,16 +4,19 @@ import io.reactivex.rxjava3.functions.Action
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.DatabaseClient
 import org.wikipedia.database.contract.PageHistoryContract
+import org.wikipedia.settings.Prefs
 
 /**
  * Save the history entry for the specified page.
  */
 class UpdateHistoryTask(private val entry: HistoryEntry) : Action {
     override fun run() {
-        val client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java)
-        client.upsert(HistoryEntry(entry.title, entry.timestamp, entry.source,
+        if(Prefs.isArticleHistoryEnabled()){
+            val client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java)
+            client.upsert(HistoryEntry(entry.title, entry.timestamp, entry.source,
                 entry.timeSpentSec + getPreviousTimeSpent(client)),
                 PageHistoryContract.Page.SELECTION)
+        }
     }
 
     private fun getPreviousTimeSpent(client: DatabaseClient<HistoryEntry>): Int {
