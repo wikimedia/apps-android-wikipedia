@@ -110,9 +110,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
             if (Prefs.isArticleHistoryEnabled()) {
                 AlertDialog.Builder(activity)
-                    .setTitle(R.string.dialog_title_clear_history)
-                    .setMessage(R.string.dialog_message_clear_history)
-                    .setPositiveButton(R.string.dialog_message_clear_history_yes) { _, _ ->
+                    .setTitle(R.string.preference_dialog_title_disable_article_history)
+                    .setMessage(R.string.preference_dialog_message_disable_article_history)
+                    .setPositiveButton(R.string.preference_dialog_message_disable_article_history_yes) { _, _ ->
                         AppCenter.setEnabled((newValue as Boolean?)!!)
                         (preference as SwitchPreferenceCompat).isChecked = false
                         Prefs.setArticleHistoryEnabled(false)
@@ -121,7 +121,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                         }
                             .subscribeOn(Schedulers.io()).subscribe()
                     }
-                    .setNegativeButton(R.string.dialog_message_clear_history_no, null)
+                    .setNegativeButton(R.string.preference_dialog_message_disable_article_history_no, null)
                     .show()
             }
             else{
@@ -137,8 +137,9 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
             if (Prefs.isSearchHistoryEnabled()) {
                 AlertDialog.Builder(activity)
-                    .setMessage(R.string.clear_recent_searches_confirm)
-                    .setPositiveButton(R.string.clear_recent_searches_confirm_yes) { _, _ ->
+                    .setTitle(R.string.preference_dialog_title_disable_search_history)
+                    .setMessage(R.string.preference_dialog_message_disable_search_history)
+                    .setPositiveButton(R.string.preference_dialog_message_disable_search_history_yes) { _, _ ->
                         AppCenter.setEnabled((newValue as Boolean?)!!)
                         (preference as SwitchPreferenceCompat).isChecked = false
                         Prefs.setSearchHistoryEnabled(false)
@@ -148,7 +149,7 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                         }
                             .subscribeOn(Schedulers.io()).subscribe()
                     }
-                    .setNegativeButton(R.string.clear_recent_searches_confirm_no, null)
+                    .setNegativeButton(R.string.preference_dialog_message_disable_search_history_no, null)
                     .show()
             }
             else{
