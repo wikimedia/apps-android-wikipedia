@@ -61,6 +61,14 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             AppCenter.setEnabled((newValue as Boolean?)!!)
             true
         }
+        findPreference(R.string.preference_key_remember_article_history).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any? ->
+            AppCenter.setEnabled((newValue as Boolean?)!!)
+            true
+        }
+        findPreference(R.string.preference_key_remember_search_history).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, newValue: Any? ->
+            AppCenter.setEnabled((newValue as Boolean?)!!)
+            true
+        }
     }
 
     fun updateLanguagePrefSummary() {

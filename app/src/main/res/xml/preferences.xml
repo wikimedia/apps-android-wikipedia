@@ -61,6 +61,16 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_privacy_settings_heading">
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_remember_article_history"
+            android:defaultValue="true"
+            android:title="@string/preference_title_remember_article_history"
+            android:summary="@string/preference_summary_remember_article_history" />
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_remember_search_history"
+            android:defaultValue="true"
+            android:title="@string/preference_title_remember_search_history"
+            android:summary="@string/preference_summary_remember_search_history" />
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_eventlogging_opt_in"
             android:defaultValue="true"
             android:title="@string/preference_title_eventlogging_opt_in"

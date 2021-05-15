@@ -296,7 +296,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private fun closeSearch() {
         isSearchActive = false
         hideSoftKeyboard(requireView())
-        addRecentSearch(query)
+        if(Prefs.isSearchHistoryEnabled()){
+            addRecentSearch(query)
+        }
     }
 
     private fun showPanel(panel: Int) {

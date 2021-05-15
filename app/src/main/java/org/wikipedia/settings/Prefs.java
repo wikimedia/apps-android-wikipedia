@@ -229,6 +229,22 @@ public final class Prefs {
         setBoolean(R.string.preference_key_eventlogging_opt_in, enabled);
     }
 
+    public static boolean isArticleHistoryEnabled() {
+        return getBoolean(R.string.preference_key_remember_article_history, true);
+    }
+
+    public static void setArticleHistoryEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_remember_article_history, enabled);
+    }
+
+    public static boolean isSearchHistoryEnabled() {
+        return getBoolean(R.string.preference_key_remember_search_history, true);
+    }
+
+    public static void setSearchHistoryEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_remember_search_history, enabled);
+    }
+
     public static String getAnnouncementsCountryOverride() {
         return getString(R.string.preference_key_announcement_country_override, null);
     }
