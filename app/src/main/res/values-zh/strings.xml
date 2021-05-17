@@ -33,6 +33,7 @@
 * SomeyaMako
 * TianyinLee
 * Tonylianlong
+* Tranve
 * Viztor
 * VulpesVulpes825
 * WQL
@@ -981,9 +982,9 @@
   <string name="image_recommendations_task_choice_other">其他</string>
   <string name="image_recommendations_task_choice_continue">继续</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;建议原因：&lt;/b&gt;%s</string>
-  <string name="image_recommendations_task_suggestion_reason_wikilist">图片可以在别的语言版本的维基百科上得到（%s）</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">图片可以在其他语言的维基百科上查找到（%s）</string>
   <string name="image_recommendations_task_suggestion_reason_wikidata">图片在维基数据上搜索的，维基百科关于公开数据的资源</string>
-  <string name="image_recommendations_task_suggestion_reason_commons">图片是在’Wikimedia Commons\'上得到的，维基百科来源于免费用处的照片</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">图片在维基共享资源（维基百科中自由版权图片的来源）上查找到</string>
   <string name="image_recommendations_faq">常见问题</string>
   <string name="image_recommendations_tooltip1">重新查看此文章以了解话题。</string>
   <string name="image_recommendations_tooltip2">查看图像以及有关信息。</string>
