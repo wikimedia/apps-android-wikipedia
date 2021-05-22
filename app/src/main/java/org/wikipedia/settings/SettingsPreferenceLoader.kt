@@ -7,6 +7,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.microsoft.appcenter.AppCenter
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -14,8 +16,10 @@ import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.auth.AccountUtil.userName
 import org.wikipedia.feed.configure.ConfigureActivity
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
+import org.wikipedia.search.RecentSearch
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.theme.ThemeFittingRoomActivity.Companion.newIntent
 
@@ -61,6 +65,8 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             AppCenter.setEnabled((newValue as Boolean?)!!)
             true
         }
+        findPreference(R.string.preference_key_remember_article_history).onPreferenceChangeListener = RememberArticleHistoryListener()
+        findPreference(R.string.preference_key_remember_search_history).onPreferenceChangeListener = RememberSearchHistoryListener()
     }
 
     fun updateLanguagePrefSummary() {
@@ -96,6 +102,61 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
                         .show()
             }
             // clicks are handled and preferences updated accordingly; don't pass the result through
+            return false
+        }
+    }
+
+    private inner class RememberArticleHistoryListener : Preference.OnPreferenceChangeListener {
+        override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
+            if (Prefs.isArticleHistoryEnabled()) {
+                AlertDialog.Builder(activity)
+                    .setTitle(R.string.preference_dialog_title_disable_article_history)
+                    .setMessage(R.string.preference_dialog_message_disable_article_history)
+                    .setPositiveButton(R.string.preference_dialog_message_disable_article_history_yes) { _, _ ->
+                        AppCenter.setEnabled((newValue as Boolean?)!!)
+                        (preference as SwitchPreferenceCompat).isChecked = false
+                        Prefs.setArticleHistoryEnabled(false)
+                        Completable.fromAction {
+                            WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java).deleteAll()
+                        }
+                            .subscribeOn(Schedulers.io()).subscribe()
+                    }
+                    .setNegativeButton(R.string.preference_dialog_message_disable_article_history_no, null)
+                    .show()
+            }
+            else{
+                AppCenter.setEnabled((newValue as Boolean?)!!)
+                (preference as SwitchPreferenceCompat).isChecked = true
+                Prefs.setArticleHistoryEnabled(true)
+            }
+            return false
+        }
+    }
+
+    private inner class RememberSearchHistoryListener : Preference.OnPreferenceChangeListener {
+        override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
+            if (Prefs.isSearchHistoryEnabled()) {
+                AlertDialog.Builder(activity)
+                    .setTitle(R.string.preference_dialog_title_disable_search_history)
+                    .setMessage(R.string.preference_dialog_message_disable_search_history)
+                    .setPositiveButton(R.string.preference_dialog_message_disable_search_history_yes) { _, _ ->
+                        AppCenter.setEnabled((newValue as Boolean?)!!)
+                        (preference as SwitchPreferenceCompat).isChecked = false
+                        Prefs.setSearchHistoryEnabled(false)
+                        Completable.fromAction {
+
+                            WikipediaApp.getInstance().getDatabaseClient(RecentSearch::class.java).deleteAll()
+                        }
+                            .subscribeOn(Schedulers.io()).subscribe()
+                    }
+                    .setNegativeButton(R.string.preference_dialog_message_disable_search_history_no, null)
+                    .show()
+            }
+            else{
+                AppCenter.setEnabled((newValue as Boolean?)!!)
+                (preference as SwitchPreferenceCompat).isChecked = true
+                Prefs.setSearchHistoryEnabled(true)
+            }
             return false
         }
     }
