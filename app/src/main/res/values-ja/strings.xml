@@ -18,6 +18,7 @@
 * Omotecho
 * Otokoume
 * Penn Station
+* RYU N
 * Rootflag
 * Runequest77
 * S2KTS
@@ -462,6 +463,10 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d件の記事をリストから削除しました</item>
     <item quantity="other">%d件の記事をリストから削除しました</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d件の記事を%sから削除しました</item>
+    <item quantity="other">%d件の記事を%sから削除しました</item>
   </plurals>
   <string name="reading_list_items_deleted">リストから%d件の記事を削除しました</string>
   <string name="reading_lists_item_deleted">リストから%sを削除しました</string>
