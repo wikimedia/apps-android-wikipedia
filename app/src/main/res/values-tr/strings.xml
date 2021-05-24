@@ -53,7 +53,7 @@
   <string name="search_hint">Vikipedi\'de ara</string>
   <string name="search_hint_voice_search">Ses girişi arama</string>
   <string name="search_hint_search_languages">Bir dil arayın</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Liste süzgeci</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Listelerimi filtrele</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
   <string name="nav_item_search">Ara</string>
@@ -79,7 +79,7 @@
   <string name="dialog_message_clear_history_yes">Evet</string>
   <string name="dialog_message_clear_history_no">Hayır</string>
   <string name="share_via">Şununla paylaş:</string>
-  <string name="image_share_via">Şununla paylaş</string>
+  <string name="image_share_via">Şununla paylaş:</string>
   <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Dili değiştir</string>

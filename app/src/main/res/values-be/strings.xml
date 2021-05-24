@@ -17,7 +17,7 @@
   <string name="app_name_beta">Вікіпедыя Бэта</string>
   <string name="app_name_alpha">Вікіпедыя Альфа</string>
   <string name="wikimedia">Вікімедыя</string>
-  <string name="search_hint">Пошук у Вікіпедыі</string>
+  <string name="search_hint">Знайсці ў Вікіпедыі</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
   <string name="error_network_error">Не атрымліваецца падключыцца да Інтэрнэту.</string>
   <string name="page_error_retry">Паўтарыць</string>
@@ -148,8 +148,8 @@
   <string name="edit_next">Далей</string>
   <string name="edit_done">Апублікаваць</string>
   <string name="edit_preview">Перадпаказ</string>
-  <string name="edit_summary_tag_typo">Выпраўлена адрукоўка</string>
-  <string name="edit_summary_tag_grammar">Выпраўлена правапіс</string>
+  <string name="edit_summary_tag_typo">Выпраўлена памылка друку</string>
+  <string name="edit_summary_tag_grammar">Выпраўлены правапіс</string>
   <string name="edit_summary_tag_links">Дададзеныя спасылкі</string>
   <string name="edit_summary_tag_other">Іншае</string>
   <string name="edit_summary_tag_other_hint">Іншыя спосабы, якімі Вы палепшылі старонку</string>
@@ -172,7 +172,7 @@
   <string name="table_close">Закрыць</string>
   <string name="widget_name_featured_page">Абраная старонка Вікіпедыі</string>
   <string name="widget_title_featured_page">Абраная старонка дня:</string>
-  <string name="widget_name_search">Пошук па Вікіпедыі</string>
+  <string name="widget_name_search">Знайсці ў Вікіпедыі</string>
   <string name="wiktionary_no_definitions_found">Ніякіх азначэнняў не знойдзена.</string>
   <string name="alpha_update_notification_title">Даступна новае абнаўленне альфа-версіі</string>
   <string name="alpha_update_notification_text">Націсніце, каб спампаваць</string>
