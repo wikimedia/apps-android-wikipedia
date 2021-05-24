@@ -8,12 +8,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Date
-import java.util.GregorianCalendar
-import java.util.HashMap
-import java.util.Locale
-import java.util.TimeZone
+import java.util.*
 
 object DateUtil {
     private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
