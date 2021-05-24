@@ -672,7 +672,27 @@
   <string name="description_edit_anon_limit">Баркал хьона статьяех лаьцар тоаде сакъердам хиларах! ДӀахо тоаде йиш хургйолаш, хьай аккаунта гӀолла Википеде чувала(-яла) веза(еза) хьа.</string>
   <string name="description_edit_license_notice">Статьях лаьцар тоадарца, Ӏа къоабалду &lt;a href=\"%1$s\"&gt;пайда эцара бехкамаш&lt;/a&gt; а, &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; яхача лицензех дола тӀехьагӀа юхадоаккхалургдоаца кепатохар а.</string>
   <string name="description_edit_success_done">Кийча да</string>
+  <string name="suggested_edits_describe_articles">Сатьях лаьца язде</string>
+  <string name="suggested_edits_caption_images">Суртех лаьцар</string>
+  <string name="suggested_edits_tag_images">Сурташта фосташ оттаяр</string>
+  <string name="suggested_edits_review_description">Стаьях лаьцарга хьалххе хьажар</string>
+  <string name="suggested_edits_add_description_button">Статьях лаьцар тӀатоха</string>
+  <string name="suggested_edits_edit_description_button">Статьях лаьцар тоаде</string>
+  <string name="suggested_edits_add_translation_button">Таржам тӀатоха</string>
+  <string name="suggested_edits_edit_translation_button">Таржам тоаде</string>
+  <string name="suggested_edits_add_caption_button">Суртах лаьцар тӀатоха</string>
+  <string name="suggested_edits_edit_caption_button">Суртах лаьцар тоаде</string>
+  <string name="suggested_edits_review_image_caption">Суртах лаьцарга хьалххе хьажар</string>
+  <string name="suggested_edits_my_contributions">Са къахьегам</string>
+  <string name="suggested_edits_no_description">Укх файлах лаьца хӀама яздаьдац</string>
+  <string name="suggested_edits_license_notice">Статьях лаьцар тӀатохарца, Ӏа къоабалду &lt;a href=\"%1$s\"&gt;Пайда эцара бехкамаш&lt;/a&gt; а, &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; яхача лицензех дола тӀехьагӀа кхы юхадоаккхалургдоаца кепатохар а.</string>
+  <string name="suggested_edits_image_caption_license_notice">Суртах лаьцар тӀатохарца, Ӏа къоабалду &lt;a href=\"%1$s\"&gt;Пайда эцара бехкамаш&lt;/a&gt; а, &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; яхача лицензех дола тӀехьагӀа кхы юхадоаккхалургдоаца кепатохар а.</string>
   <string name="suggested_edits_menu_info">Хоам</string>
+  <string name="suggested_edits_task_add_description_title">Статьяех лаьцар тӀатохар</string>
+  <string name="suggested_edits_task_add_description_description">Статьяех е суртех лаьца лоацца яздеш дáкъа лаца</string>
+  <string name="suggested_edits_task_image_caption_title">Суртех лаьцар тӀатохар</string>
+  <string name="suggested_edits_task_image_caption_description">Суртех лаьца лоацца тӀатохар</string>
+  <string name="suggested_edits_task_translate_caption_title">Суртех лаьцачунна таржам дар</string>
   <string name="suggested_edits_task_multilingual_positive">Метташ тӀатоха</string>
   <string name="suggested_edits_image_caption_summary_title_image">Файл</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
