@@ -16,6 +16,7 @@
 * Mar(c)
 * Marcelhospers
 * Mathonius
+* Mbch331
 * McDutchie
 * MedShot
 * Mirolith
@@ -44,7 +45,7 @@
   <string name="nav_item_back">Terug</string>
   <string name="page_tabs_back">Terug</string>
   <string name="nav_item_forward">Volgende</string>
-  <string name="search_hint">In Wikipedia zoeken</string>
+  <string name="search_hint">Doorzoek Wikipedia</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filter mijn lijst</string>
@@ -61,7 +62,7 @@
   <string name="error_back">Terug</string>
   <string name="error_next">Volgende</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
-  <string name="history_item_deleted">%s verwijderd uit geheugen</string>
+  <string name="history_item_deleted">%s verwijderd uit geschiedenis</string>
   <string name="history_items_deleted">%d pagina\'s uit geschiedenis verwijderd</string>
   <string name="history_item_delete_undo">Ongedaan maken</string>
   <string name="notification_archive_undo">Ongedaan maken</string>
@@ -226,14 +227,16 @@
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team pagina&lt;/a&gt;</string>
@@ -626,7 +629,7 @@
   <string name="menu_feed_card_edit_card_languages">Bewerk kaarttalen</string>
   <string name="menu_feed_overflow_label">Meer opties</string>
   <string name="feed_featured_image_share_subject">Uitgelichte afbeelding uit Wikimedia Commons</string>
-  <string name="feed">Verkennen</string>
+  <string name="feed">Hoofdpagina</string>
   <string name="home">Startpagina</string>
   <string name="view_static_card_icon_content_description">Kaartpictogram</string>
   <string name="view_card_news_title">Actueel</string>
@@ -884,6 +887,8 @@
   <string name="suggested_edits_image_recommendations_task_goal_complete">Dagelijks doel bereikt! 👏</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">U heeft het dagelijks doel bereikt</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Een nieuwe Voorgestelde Bewerkingen taak is beschikbaar. Train een algoritme om artikelen zonder afbeeldingen hiervan te voorzien.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia artikelen worden geschreven en bewerkt door duizenden vrijwilligers van over de hele wereld. Helaas missen veel artikelen afbeeldingen.\n\nAfbeeldingen worden u voorgesteld met behulp van een algoritme. Het algoritme haalt afbeeldingen uit andere bronnen en suggereert een overeenkomst met een artikel dat geen afbeelding heeft.\n\nUw feedback helpt ons de suggesties in de loop van de tijd te verbeteren. Omdat het doel van deze taak is om de voorgestelde afbeeldingen te verbeteren, worden de overeenkomsten die u maakt op dit moment niet gepubliceerd.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">We willen uw bijdragen aan deze inspanning graag erkennen. Wilt u dat uw gebruikersnaam zichtbaar is op de algoritme trainings pagina?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Toestaan om mijn gebruikersnaam weer te geven op de algoritme trainings pagina</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
@@ -1002,6 +1007,7 @@
   <string name="main_tooltip_text_v2">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="main_tooltip_action_button">Aan de slag</string>
   <string name="main_tooltip_watchlist_title">Volglijst</string>
+  <string name="main_tooltip_watchlist_text">Vind artikelen en pagina\'s die u heeft toegevoegd aan uw leeslijst in het Meer menu onder &lt;b&gt;Leeslijst&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuleren</string>
@@ -1025,20 +1031,25 @@
   <string name="thank_label">Bedanken</string>
   <string name="go_to_user_page">Ga naar gebruikerspagina</string>
   <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
+  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een redacteur op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en zijn overlegpagina zijn toegevoegd aan uw volglijst %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Wijzig</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">voor 1 week</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">voor 1 maand</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">voor 3 maanden</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">voor 6 maanden</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s en zijn overlegpagina zijn verwijderd uit uw volglijst.</string>
+  <string name="watchlist_expiry_dialog_title">Selecteer tijdsperiode voor Volglijst</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 week</string>
   <string name="watchlist_expiry_dialog_one_month">1 maand</string>
   <string name="watchlist_expiry_dialog_three_months">3 maanden</string>
   <string name="watchlist_expiry_dialog_six_months">6 maanden</string>
+  <string name="watchlist_empty">U heeft geen artikelen op uw leeslijst.</string>
   <string name="watchlist_filter_all">Alle</string>
   <string name="watchlist_filter_talk">Overleg</string>
   <string name="watchlist_filter_pages">Pagina\'s</string>

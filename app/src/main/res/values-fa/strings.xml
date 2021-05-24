@@ -212,7 +212,7 @@
   <string name="preferences_privacy_settings_heading">حریم شخصی</string>
   <string name="preference_title_eventlogging_opt_in">ارسال گزارش‌های استفاده</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، جمع‌آوری کند</string>
-  <string name="preference_title_auto_upload_crash_reports">ارسال گزارشات خطا</string>
+  <string name="preference_title_auto_upload_crash_reports">ارسال گزارش‌های خطا</string>
   <string name="preference_summary_auto_upload_crash_reports">به برنامه اجازه بدهید گزارش‌های خطا را بصورت خودکار به یک سرویس شخص ثالث ارسال کند تا بتوانیم گزارش خطای شما را بررسی و آن را سریعتر رفع کنیم.</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
   <string name="history_filter_list_hint">تاریخچهٔ پالایه</string>

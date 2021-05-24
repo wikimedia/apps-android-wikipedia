@@ -169,7 +169,7 @@ dependencies {
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.5'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '21.1.0'
+    String firebaseMessagingVersion = '22.0.0'
     String mlKitVersion = '16.1.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -218,11 +218,11 @@ dependencies {
     customImplementation "com.google.mlkit:language-id:$mlKitVersion"
 
     // For receiving push notifications for logged-in users.
-    prodImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    betaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    alphaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    devImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    customImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
+    prodImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    betaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    alphaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    devImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    customImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
