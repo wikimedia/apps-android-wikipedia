@@ -14,8 +14,8 @@ Step 2: (e.g., --beta --push):
 
 To run
 1) tell people on #wikimedia-mobile you're about to bump the version,
-   so hold off on merging to master
-2) git checkout master
+   so hold off on merging to main
+2) git checkout main
 3) git pull
 4) git reset --hard
 5) python scripts/make-release.py --prod
