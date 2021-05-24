@@ -44,6 +44,7 @@
   <string name="offline_load_error_retry">Újra</string>
   <string name="page_error_back_to_main">Vissza</string>
   <string name="error_back">Visszalépés</string>
+  <string name="error_next">Következő</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="history_item_deleted">%s eltávolítva az előzményekből</string>
   <string name="history_items_deleted">%d szócikk eltávolítva az előzményekből</string>
