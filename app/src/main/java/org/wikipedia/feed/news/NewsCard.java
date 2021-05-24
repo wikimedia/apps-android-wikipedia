@@ -38,6 +38,6 @@ public class NewsCard extends WikiSiteCard {
     }
 
     @Override protected int dismissHashCode() {
-        return (int) TimeUnit.MILLISECONDS.toDays(date.baseCalendar().getTime().getTime()) + wikiSite().hashCode();
+        return (int) TimeUnit.MILLISECONDS.toDays(date.getBaseCalendar().getTime().getTime()) + wikiSite().hashCode();
     }
 }

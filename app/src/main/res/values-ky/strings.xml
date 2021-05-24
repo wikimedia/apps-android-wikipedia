@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Askar Nazyrov
+* Bosogo
 * Envlh
 * Janatkg
 * MuratTheTurkish
@@ -9,7 +10,12 @@
   <string name="app_name_prod">Уикипедия</string>
   <string name="app_name_beta">Уикипедия Бета</string>
   <string name="app_name_alpha">Уикипедия Альфа</string>
+  <string name="wikimedia">Викимедиа</string>
+  <string name="nav_item_back">Артка</string>
+  <string name="page_tabs_back">Артка</string>
+  <string name="nav_item_forward">Алдыга</string>
   <string name="search_hint">Уикипедиядан издөө</string>
+  <string name="nav_item_search">Издөө</string>
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>

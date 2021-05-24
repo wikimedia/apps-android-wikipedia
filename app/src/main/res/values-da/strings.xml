@@ -42,6 +42,7 @@
   <string name="offline_load_error_retry">Prøv igen</string>
   <string name="page_error_back_to_main">Gå tilbage</string>
   <string name="error_back">Tilbage</string>
+  <string name="error_next">Næste</string>
   <string name="menu_clear_all_history">Ryd historik</string>
   <string name="history_item_deleted">%s fjernet fra historikken</string>
   <string name="history_items_deleted">%d artikler fjernet fra historikken</string>
