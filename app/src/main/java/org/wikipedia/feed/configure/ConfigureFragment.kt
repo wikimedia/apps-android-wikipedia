@@ -31,7 +31,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
     private val binding get() = _binding!!
 
     private lateinit var itemTouchHelper: ItemTouchHelper
-    private var funnel: FeedConfigureFunnel? = null
+    private lateinit var funnel: FeedConfigureFunnel
     private val orderedContentTypes = mutableListOf<FeedContentType>()
     private val disposables = CompositeDisposable()
 
@@ -87,9 +87,8 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
     override fun onDestroyView() {
         disposables.clear()
         if (orderedContentTypes.isNotEmpty()) {
-            funnel?.done(orderedContentTypes)
+            funnel.done(orderedContentTypes)
         }
-        funnel = null
         super.onDestroyView()
     }
 
