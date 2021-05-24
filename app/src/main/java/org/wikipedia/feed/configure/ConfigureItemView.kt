@@ -15,8 +15,8 @@ import org.wikipedia.feed.FeedContentType
 class ConfigureItemView(context: Context) : FrameLayout(context) {
 
     interface Callback {
-        fun onCheckedChanged(contentType: FeedContentType?, checked: Boolean)
-        fun onLanguagesChanged(contentType: FeedContentType?)
+        fun onCheckedChanged(contentType: FeedContentType, checked: Boolean)
+        fun onLanguagesChanged(contentType: FeedContentType)
     }
 
     private val binding = ItemFeedContentTypeBinding.inflate(LayoutInflater.from(context), this, true)
