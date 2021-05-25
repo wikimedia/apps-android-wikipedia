@@ -767,7 +767,6 @@
     <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
-    <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
     <string name="suggested_edits_image_preview_dialog_image">Image</string>
     <string name="suggested_edits_image_preview_dialog_file_commons">File from Wikimedia Commons</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
