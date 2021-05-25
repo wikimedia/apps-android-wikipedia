@@ -301,7 +301,6 @@ public abstract class FeedCoordinatorBase {
 
     private boolean shouldShowProgressCard(@NonNull FeedClient pendingClient) {
         return pendingClient instanceof SuggestedEditsFeedClient
-                || pendingClient instanceof AggregatedFeedContentClient
                 || pendingClient instanceof AnnouncementClient
                 || pendingClient instanceof BecauseYouReadClient;
     }
