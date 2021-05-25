@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.accessibility.AccessibilityCard;
-import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.announcement.AnnouncementClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
