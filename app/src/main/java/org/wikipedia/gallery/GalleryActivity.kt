@@ -35,7 +35,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.GalleryFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.bridge.JavaScriptActionHandler.ImageHitInfo
+import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.databinding.ActivityGalleryBinding
@@ -68,7 +68,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var sourceWiki: WikiSite
     private lateinit var funnel: GalleryFunnel
-    private var pageChangeListener: GalleryPageChangeListener? = GalleryPageChangeListener()
+    private var pageChangeListener = GalleryPageChangeListener()
     private var pageTitle: PageTitle? = null
     private var imageEditType: ImageEditType? = null
     private val disposables = CompositeDisposable()
@@ -84,12 +84,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
      * If we come back from savedInstanceState, then this will be the previous pager position.
      */
     private var initialImageIndex = -1
-    private var galleryAdapter: GalleryItemAdapter? = null
+    private lateinit var galleryAdapter: GalleryItemAdapter
     private var targetLanguageCode: String? = null
     private val app = WikipediaApp.getInstance()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val downloadReceiver = MediaDownloadReceiver()
-    private val downloadReceiverCallback: MediaDownloadReceiverCallback = MediaDownloadReceiverCallback()
+    private val downloadReceiverCallback = MediaDownloadReceiverCallback()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -120,7 +120,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)!!
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
         binding.pager.adapter = galleryAdapter
-        binding.pager.registerOnPageChangeCallback(pageChangeListener!!)
+        binding.pager.registerOnPageChangeCallback(pageChangeListener)
         binding.pager.offscreenPageLimit = 2
         funnel = GalleryFunnel(app, intent.getParcelableExtra(EXTRA_WIKI), intent.getIntExtra(EXTRA_SOURCE, 0))
         if (savedInstanceState == null) {
@@ -181,8 +181,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     public override fun onDestroy() {
         disposables.clear()
         disposeImageCaptionDisposable()
-        binding.pager.unregisterOnPageChangeCallback(pageChangeListener!!)
-        pageChangeListener = null
+        binding.pager.unregisterOnPageChangeCallback(pageChangeListener)
         TRANSITION_INFO = null
         super.onDestroy()
     }
@@ -468,7 +467,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
     }
 
-    @JvmOverloads
     fun finishWithPageResult(resultTitle: PageTitle, historyEntry: HistoryEntry = HistoryEntry(resultTitle, HistoryEntry.SOURCE_GALLERY)) {
         val intent = PageActivity.newIntentForCurrentTab(this@GalleryActivity, historyEntry, resultTitle, false)
         setResult(ACTIVITY_RESULT_PAGE_SELECTED, intent)
@@ -548,18 +546,18 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
 
         // pass the collection to the adapter!
-        galleryAdapter!!.setList(list)
+        galleryAdapter.setList(list)
         if (initialImagePos != -1) {
             // if we have a target image to jump to, then do it!
             binding.pager.setCurrentItem(initialImagePos, false)
-        } else if (initialImageIndex >= 0 && initialImageIndex < galleryAdapter!!.itemCount) {
+        } else if (initialImageIndex >= 0 && initialImageIndex < galleryAdapter.itemCount) {
             // if we have a target image index to jump to, then do it!
             binding.pager.setCurrentItem(initialImageIndex, false)
         }
     }
 
     private val currentItem
-        get() = galleryAdapter!!.getFragmentAt(binding.pager.currentItem) as GalleryItemFragment?
+        get() = galleryAdapter.getFragmentAt(binding.pager.currentItem) as GalleryItemFragment?
 
     fun layOutGalleryDescription() {
         val item = currentItem
@@ -576,15 +574,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                     .getProtectionInfo(item.imageTitle!!.prefixedText!!),
                 ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(),
                     sourceWiki.languageCode()),
-                { captions: Map<String, String>, protectionInfoRsp: MwQueryResponse, imageTags: Map<String, List<String>> ->
+                { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
                     Pair(protectionInfoRsp.query()!!.isEditProtected, imageTags.size)
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pair: Pair<Boolean, Int> ->
+                .subscribe({ pair ->
                     updateGalleryDescription(pair.first, pair.second)
-                }, { obj -> obj?.stackTrace })
+                }, { it?.stackTrace })
     }
 
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
@@ -705,7 +703,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private inner class GalleryItemAdapter(activity: AppCompatActivity?) : PositionAwareFragmentStateAdapter(activity!!) {
-        private val list: MutableList<MediaListItem> = ArrayList()
+        private val list = mutableListOf<MediaListItem>()
         fun setList(list: List<MediaListItem>) {
             this.list.clear()
             this.list.addAll(list)
@@ -729,7 +727,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     companion object {
         const val ACTIVITY_RESULT_PAGE_SELECTED = 1
-        private const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2
+        const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2
         const val ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 3
         const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 4
         const val EXTRA_PAGETITLE = "pageTitle"
@@ -737,7 +735,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         const val EXTRA_WIKI = "wiki"
         const val EXTRA_REVISION = "revision"
         const val EXTRA_SOURCE = "source"
-        private var TRANSITION_INFO: ImageHitInfo? = null
+        private var TRANSITION_INFO: JavaScriptActionHandler.ImageHitInfo? = null
 
         @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle?, filename: String, wiki: WikiSite, revision: Long, source: Int): Intent {
@@ -754,7 +752,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
 
         @JvmStatic
-        fun setTransitionInfo(hitInfo: ImageHitInfo) {
+        fun setTransitionInfo(hitInfo: JavaScriptActionHandler.ImageHitInfo) {
             TRANSITION_INFO = hitInfo
         }
     }

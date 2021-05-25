@@ -44,11 +44,9 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     private var pageTitle: PageTitle? = null
     private var mediaListItem: MediaListItem? = null
     var imageTitle: PageTitle? = null
-        private set
     var mediaPage: MwQueryPage? = null
-        private set
     private val disposables = CompositeDisposable()
-    val mediaInfo: ImageInfo?
+    val mediaInfo
         get() = if (mediaPage != null) mediaPage!!.imageInfo() else null
 
     override fun onCreate(savedInstanceState: Bundle?) {
