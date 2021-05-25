@@ -104,23 +104,21 @@ class SuggestedEditsCardItemFragment : Fragment() {
                 return
             previousImageTagPage = imageTagPage
             previousSourceSummaryForEdit = sourceSummaryForEdit
-            SuggestedEditsFunnel.get()!!.log()
+            SuggestedEditsFunnel.get().log()
             SuggestedEditsFunnel.reset()
 
             if (cardActionType != null) {
-                val openPageListener = object : SuggestedEditsSnackbars.OpenPageListener {
-                    override fun open() {
-                        if (cardActionType === ADD_IMAGE_TAGS) {
-                            startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title(), WikiSite(appLanguages[0]))))
-                            return
-                        }
-                        val pageTitle: PageTitle = previousSourceSummaryForEdit!!.pageTitle
-                        if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
-                            startActivity(GalleryActivity.newIntent(requireActivity(),
-                                    pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
-                        } else {
-                            startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
-                        }
+                val openPageListener = SuggestedEditsSnackbars.OpenPageListener {
+                    if (cardActionType === ADD_IMAGE_TAGS) {
+                        startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle(previousImageTagPage!!.title(), WikiSite(appLanguages[0]))))
+                        return@OpenPageListener
+                    }
+                    val pageTitle: PageTitle = previousSourceSummaryForEdit!!.pageTitle
+                    if (cardActionType === ADD_CAPTION || cardActionType === TRANSLATE_CAPTION) {
+                        startActivity(GalleryActivity.newIntent(requireActivity(),
+                            pageTitle, pageTitle.prefixedText, pageTitle.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                    } else {
+                        startActivity(PageActivity.newIntentForNewTab(requireContext(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
                     }
                 }
                 SuggestedEditsSnackbars.show(requireActivity(), cardActionType, true,

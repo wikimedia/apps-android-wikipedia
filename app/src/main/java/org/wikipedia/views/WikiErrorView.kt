@@ -60,6 +60,14 @@ class WikiErrorView : LinearLayout {
         }
     }
 
+    fun setIconColorFilter(color: Int) {
+        binding.viewWikiErrorIcon.setColorFilter(color)
+    }
+
+    fun setErrorTextColor(color: Int) {
+        binding.viewWikiErrorText.setTextColor(color)
+    }
+
     private fun getErrorType(caught: Throwable?): ErrorType {
         caught?.let {
             when {
