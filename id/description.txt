@@ -1,0 +1,7 @@
+Fitur:
+
+Kodenya 100% sumber terbuka. Jika Anda memiliki pengalaman dengan Java dan Android SDK, maka kami menantikan kontribusi Anda! https://github.com/wikimedia/apps-android-wikipedia
+
+TOS: https://m.wikimediafoundation.org/wiki/Terms_of_Use
+
+Wikimedia Foundation adalah organisasi nirlaba yang mendukung Wikipedia dan proyek Wikimedia lainnya. Yayasan Wikimedia adalah organisasi amal yang didanai terutama melalui sumbangan. Untuk informasi lebih lanjut, silakan kunjungi situs web kami: https://wikimediafoundation.org/wiki/Home.
