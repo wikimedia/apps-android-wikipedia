@@ -49,6 +49,7 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
@@ -66,6 +67,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var sourceWiki: WikiSite
     private lateinit var funnel: GalleryFunnel
+    private lateinit var galleryAdapter: GalleryItemAdapter
     private var pageChangeListener = GalleryPageChangeListener()
     private var pageTitle: PageTitle? = null
     private var imageEditType: ImageEditType? = null
@@ -82,7 +84,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
      * If we come back from savedInstanceState, then this will be the previous pager position.
      */
     private var initialImageIndex = -1
-    private lateinit var galleryAdapter: GalleryItemAdapter
     private var targetLanguageCode: String? = null
     private val app = WikipediaApp.getInstance()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -120,12 +121,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.pager.offscreenPageLimit = 2
         funnel = GalleryFunnel(app, intent.getParcelableExtra(EXTRA_WIKI), intent.getIntExtra(EXTRA_SOURCE, 0))
         if (savedInstanceState == null) {
-            if (initialFilename != null) {
-                funnel.logGalleryOpen(pageTitle, initialFilename!!)
+            initialFilename?.let {
+                funnel.logGalleryOpen(pageTitle, it)
             }
         } else {
-            controlsShowing = savedInstanceState.getBoolean("controlsShowing")
-            initialImageIndex = savedInstanceState.getInt("pagerIndex")
+            controlsShowing = savedInstanceState.getBoolean(KEY_CONTROLS_SHOWING)
+            initialImageIndex = savedInstanceState.getInt(KEY_PAGER_INDEX)
             // if we have a savedInstanceState, then the initial index overrides
             // the initial Title from our intent.
             initialFilename = null
@@ -154,7 +155,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             params.gravity = Gravity.CENTER
             binding.transitionReceiver.layoutParams = params
             binding.transitionReceiver.visibility = View.VISIBLE
-            ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO?.src, TRANSITION_INFO?.centerCrop!!,
+            ViewUtil.loadImage(binding.transitionReceiver, TRANSITION_INFO!!.src, TRANSITION_INFO!!.centerCrop,
                 largeRoundedSize = false, force = false, listener = null)
             val transitionMillis = 500
             binding.transitionReceiver.postDelayed({
@@ -212,8 +213,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     override fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle) {
-        item.imageTitle.let {
-            funnel.logGalleryShare(pageTitle, item.imageTitle!!.displayText)
+        item.imageTitle?.let {
+            funnel.logGalleryShare(pageTitle, it.displayText)
         }
         if (bitmap != null && item.mediaInfo != null) {
             ShareUtil.shareImage(this, bitmap,
@@ -234,16 +235,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             val action = if (data != null && data.hasExtra(Constants.INTENT_EXTRA_ACTION)) data.getSerializableExtra(
                         Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action?
                         else if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) DescriptionEditActivity.Action.ADD_IMAGE_TAGS else null
-            SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode,
-                action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
-                object : SuggestedEditsSnackbars.OpenPageListener {
-                    override fun open() {
-                        if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS && currentItem != null && currentItem!!.imageTitle != null) {
-                            startActivity(FilePageActivity.newIntent(this@GalleryActivity,
-                                currentItem!!.imageTitle!!))
-                        }
+            SuggestedEditsSnackbars.show(this, action, true,
+                targetLanguageCode, action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
+                currentItem?.let {
+                    if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS && it.imageTitle != null) {
+                        startActivity(FilePageActivity.newIntent(this@GalleryActivity, it.imageTitle!!))
                     }
-                })
+                }
+            }
             layOutGalleryDescription()
             setResult(if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) ACTIVITY_RESULT_IMAGE_CAPTION_ADDED else ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
         }
@@ -251,7 +250,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     fun onEditClick(v: View) {
         val item = currentItem
-        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
+        if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
             return
         }
         val isProtected = v.tag != null && v.tag as Boolean
@@ -268,17 +267,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun startCaptionEdit(item: GalleryItemFragment) {
-        val title = PageTitle(
-            item.imageTitle!!.prefixedText,
-            WikiSite(Service.COMMONS_URL, sourceWiki.languageCode())
-        )
+        val title = PageTitle(item.imageTitle!!.prefixedText,
+            WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()))
         val currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
         title.description = currentCaption
-        val summary = PageSummaryForEdit(
-            title.prefixedText, sourceWiki.languageCode(), title,
-            title.displayText, StringUtils.defaultIfBlank(StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription()).toString(),
-                null), item.mediaInfo!!.thumbUrl
-        )
+        val summary = PageSummaryForEdit(title.prefixedText, sourceWiki.languageCode(), title,
+            title.displayText, RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription()), item.mediaInfo!!.thumbUrl)
         startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null,
             DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.GALLERY_ACTIVITY), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
     }
@@ -305,8 +299,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         val targetTitle = PageTitle(item.imageTitle!!.prefixedText, WikiSite(Service.COMMONS_URL,
             StringUtils.defaultString(targetLanguageCode, app.language().appLanguageCodes[1])))
         var currentCaption = item.mediaInfo!!.captions[sourceWiki.languageCode()]
-        if (currentCaption!!.isEmpty()) {
-            currentCaption = StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription()).toString()
+        if (currentCaption.isNullOrEmpty()) {
+            currentCaption = RichTextUtil.stripHtml(item.mediaInfo!!.metadata!!.imageDescription())
         }
         val sourceSummary = PageSummaryForEdit(sourceTitle.prefixedText, sourceTitle.wikiSite.languageCode(),
                             sourceTitle, sourceTitle.displayText, currentCaption, item.mediaInfo!!.thumbUrl)
@@ -321,10 +315,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         if (binding.licenseIcon.contentDescription == null) {
             return
         }
-        FeedbackUtil.showMessageAsPlainText(
-            (binding.licenseIcon.context as Activity),
-            binding.licenseIcon.contentDescription
-        )
+        FeedbackUtil.showMessageAsPlainText((binding.licenseIcon.context as Activity),
+            binding.licenseIcon.contentDescription)
     }
 
     fun onLicenseLongClick(): Boolean {
@@ -347,12 +339,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         override fun onPageSelected(position: Int) {
             // the pager has settled on a new position
             layOutGalleryDescription()
-            val item = currentItem
-            if (currentPosition != -1 && item != null && item.imageTitle != null) {
-                if (position < currentPosition) {
-                    funnel.logGallerySwipeLeft(pageTitle, item.imageTitle!!.displayText)
-                } else if (position > currentPosition) {
-                    funnel.logGallerySwipeRight(pageTitle, item.imageTitle!!.displayText)
+            currentItem?.imageTitle?.let {
+                if (currentPosition != -1) {
+                    if (position < currentPosition) {
+                        funnel.logGallerySwipeLeft(pageTitle, it.displayText)
+                    } else if (position > currentPosition) {
+                        funnel.logGallerySwipeRight(pageTitle, it.displayText)
+                    }
                 }
             }
             currentPosition = position
@@ -365,8 +358,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putBoolean("controlsShowing", controlsShowing)
-        outState.putInt("pagerIndex", binding.pager.currentItem)
+        outState.putBoolean(KEY_CONTROLS_SHOWING, controlsShowing)
+        outState.putInt(KEY_PAGER_INDEX, binding.pager.currentItem)
     }
 
     private fun updateProgressBar(visible: Boolean) {
@@ -377,8 +370,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     override fun onBackPressed() {
         // log the "gallery close" event only upon explicit closing of the activity
         // (back button, or home-as-up button in the toolbar)
-        val item = currentItem
-        item?.imageTitle?.let { funnel.logGalleryClose(pageTitle, item.imageTitle!!.displayText) }
+        currentItem?.imageTitle?.let {
+            funnel.logGalleryClose(pageTitle, it.displayText)
+        }
         if (TRANSITION_INFO != null) {
             showTransitionReceiver()
         }
@@ -398,13 +392,13 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             return
         }
         if (delay) {
-            val hideDelayMillis = 250
+            val hideDelayMillis = 250L
             binding.transitionReceiver.postDelayed({
                 if (isDestroyed) {
                     return@postDelayed
                 }
                 binding.transitionReceiver.visibility = View.GONE
-            }, hideDelayMillis.toLong())
+            }, hideDelayMillis)
         } else {
             binding.transitionReceiver.visibility = View.GONE
         }
@@ -426,10 +420,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     fun showLinkPreview(title: PageTitle) {
-        bottomSheetPresenter.show(
-            supportFragmentManager,
-            LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null)
-        )
+        bottomSheetPresenter.show(supportFragmentManager,
+            LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null))
     }
 
     fun setViewPagerEnabled(enabled: Boolean) {
@@ -446,17 +438,14 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             val uri = Uri.parse(url)
             val authority = uri.authority
             if (authority != null && WikiSite.supportedAuthority(authority) &&
-                uri.path != null && uri.path!!.startsWith("/wiki/")
-            ) {
+                uri.path != null && uri.path!!.startsWith("/wiki/")) {
                 val title = WikiSite(uri).titleForUri(uri)
                 showLinkPreview(title)
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external
                 if (url.startsWith("/w/")) {
-                    url = String.format(
-                        "%1\$s://%2\$s", app.wikiSite.scheme(),
-                        app.wikiSite.authority()
-                    ) + url
+                    url = String.format("%1\$s://%2\$s", app.wikiSite.scheme(),
+                        app.wikiSite.authority()) + url
                 }
                 UriUtil.handleExternalLink(this@GalleryActivity, Uri.parse(url))
             }
@@ -492,25 +481,19 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun fetchGalleryItems() {
-        if (pageTitle == null) {
-            return
+        pageTitle?.let {
+            updateProgressBar(true)
+            disposables.add(ServiceFactory.getRest(it.wikiSite)
+                .getMediaList(it.prefixedText, revision)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ mediaList ->
+                    applyGalleryList(mediaList.getItems("image", "video"))
+                }) { caught ->
+                    updateProgressBar(false)
+                    showError(caught)
+                })
         }
-        updateProgressBar(true)
-        disposables.add(ServiceFactory.getRest(pageTitle!!.wikiSite)
-            .getMediaList(pageTitle!!.prefixedText, revision)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ mediaList ->
-                applyGalleryList(
-                    mediaList.getItems(
-                        "image",
-                        "video"
-                    )
-                )
-            }) { caught ->
-                updateProgressBar(false)
-                showError(caught)
-            })
     }
 
     private fun loadGalleryContent() {
@@ -518,16 +501,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         fetchGalleryItems()
     }
 
-    private fun applyGalleryList(mediaListItems: List<MediaListItem>) {
+    private fun applyGalleryList(mediaListItems: MutableList<MediaListItem>) {
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
-        var list = mediaListItems
         var initialImagePos = -1
-        if (initialFilename != null) {
-            for (item in list) {
+        initialFilename?.let {
+            for (item in mediaListItems) {
                 // the namespace of a file could be in a different language than English.
-                if (StringUtil.removeNamespace(item.title) == StringUtil.removeNamespace(initialFilename!!)) {
-                    initialImagePos = list.indexOf(item)
+                if (StringUtil.removeNamespace(item.title) == StringUtil.removeNamespace(it)) {
+                    initialImagePos = mediaListItems.indexOf(item)
                     break
                 }
             }
@@ -536,13 +518,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 // (this can happen if the user clicked on an SVG file, since we hide SVGs
                 // by default in the gallery; or lead image in the PageHeader or in the info box)
                 initialImagePos = 0
-                list = ArrayList(list)
-                list.add(initialImagePos, MediaListItem(initialFilename!!))
+                mediaListItems.add(initialImagePos, MediaListItem(it))
             }
         }
 
         // pass the collection to the adapter!
-        galleryAdapter.setList(list)
+        galleryAdapter.setList(mediaListItems)
         if (initialImagePos != -1) {
             // if we have a target image to jump to, then do it!
             binding.pager.setCurrentItem(initialImagePos, false)
@@ -552,12 +533,11 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
     }
 
-    private val currentItem
-        get() = galleryAdapter.getFragmentAt(binding.pager.currentItem) as GalleryItemFragment?
+    private val currentItem get() = galleryAdapter.getFragmentAt(binding.pager.currentItem) as GalleryItemFragment?
 
     fun layOutGalleryDescription() {
         val item = currentItem
-        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
+        if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
             binding.infoContainer.visibility = View.GONE
             return
         }
@@ -566,10 +546,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         imageCaptionDisposable =
             Observable.zip<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Pair<Boolean, Int>>(
                 MediaHelper.getImageCaptions(item.imageTitle!!.prefixedText!!),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL))
-                    .getProtectionInfo(item.imageTitle!!.prefixedText!!),
-                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(),
-                    sourceWiki.languageCode()),
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.imageTitle!!.prefixedText!!),
+                ImageTagsProvider.getImageTagsObservable(currentItem!!.mediaPage!!.pageId(), sourceWiki.languageCode()),
                 { captions, protectionInfoRsp, imageTags ->
                     item.mediaInfo!!.captions = captions
                     Pair(protectionInfoRsp.query()!!.isEditProtected, imageTags.size)
@@ -584,7 +562,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     fun updateGalleryDescription(isProtected: Boolean, tagsCount: Int) {
         updateProgressBar(false)
         val item = currentItem
-        if (item?.imageTitle == null || item.mediaInfo == null || item.mediaInfo!!.metadata == null) {
+        if (item?.imageTitle == null || item.mediaInfo?.metadata == null) {
             binding.infoContainer.visibility = View.GONE
             return
         }
@@ -593,8 +571,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
         var captionEditable = AccountUtil.isLoggedIn && item.mediaInfo!!.thumbUrl.contains(Service.URL_FRAGMENT_FROM_COMMONS)
-        binding.captionEditButton.visibility =
-            if (captionEditable) View.VISIBLE else View.GONE
+        binding.captionEditButton.visibility = if (captionEditable) View.VISIBLE else View.GONE
         binding.captionEditButton.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.captionEditButton.tag = isProtected
         if (isProtected) {
@@ -620,8 +597,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         if (tagsCount == 0) {
             imageEditType = ImageEditType.ADD_TAGS
-            binding.ctaButtonText.text =
-                getString(R.string.suggested_edits_feed_card_add_image_tags)
+            binding.ctaButtonText.text = getString(R.string.suggested_edits_feed_card_add_image_tags)
             return
         }
 
@@ -632,10 +608,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
                 if (!item.mediaInfo!!.captions.containsKey(lang)) {
                     targetLanguageCode = lang
                     imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION
-                    binding.ctaButtonText.text = getString(
-                        R.string.gallery_add_image_caption_in_language_button,
-                        app.language().getAppLanguageLocalizedName(targetLanguageCode)
-                    )
+                    binding.ctaButtonText.text = getString(R.string.gallery_add_image_caption_in_language_button,
+                        app.language().getAppLanguageLocalizedName(targetLanguageCode))
                     break
                 }
             }
@@ -646,14 +620,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     private fun displayApplicableDescription(item: GalleryItemFragment) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
-        val descriptionStr =
-            if (item.mediaInfo?.captions!!.containsKey(sourceWiki.languageCode())) {
-                item.mediaInfo?.captions!![sourceWiki.languageCode()]
-            } else {
-                StringUtil.fromHtml(
-                    item.mediaInfo!!.metadata!!.imageDescription()
-                )
-            }
+        val descriptionStr = item.mediaInfo?.captions!!.getOrElse(sourceWiki.languageCode()) {
+            StringUtil.fromHtml(item.mediaInfo!!.metadata!!.imageDescription())
+        }
+
         if (descriptionStr != null && descriptionStr.isNotEmpty()) {
             binding.descriptionContainer.visibility = View.VISIBLE
             binding.descriptionText.text = StringUtil.strip(descriptionStr)
@@ -663,12 +633,9 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     private fun setLicenseInfo(item: GalleryItemFragment) {
-        val license = ImageLicense(
-            item.mediaInfo!!.metadata!!.license(),
+        val license = ImageLicense(item.mediaInfo!!.metadata!!.license(),
             item.mediaInfo!!.metadata!!.licenseShortName(),
-            item.mediaInfo!!.metadata!!
-                .licenseUrl()
-        )
+            item.mediaInfo!!.metadata!!.licenseUrl())
 
         // determine which icon to display...
         if (license.licenseIcon == R.drawable.ic_license_by) {
@@ -698,7 +665,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.infoContainer.visibility = View.VISIBLE
     }
 
-    private inner class GalleryItemAdapter(activity: AppCompatActivity) : PositionAwareFragmentStateAdapter(activity!!) {
+    private inner class GalleryItemAdapter(activity: AppCompatActivity) : PositionAwareFragmentStateAdapter(activity) {
         private val list = mutableListOf<MediaListItem>()
         fun setList(list: List<MediaListItem>) {
             this.list.clear()
@@ -722,6 +689,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
     }
 
     companion object {
+        private const val KEY_CONTROLS_SHOWING = "controlsShowing"
+        private const val KEY_PAGER_INDEX = "pagerIndex"
         const val ACTIVITY_RESULT_PAGE_SELECTED = 1
         const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2
         const val ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 3
