@@ -14,8 +14,6 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -103,10 +101,8 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.infoGradient.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
         binding.descriptionText.movementMethod = linkMovementMethod
         binding.creditText.movementMethod = linkMovementMethod
-        (binding.errorView.findViewById<View>(R.id.view_wiki_error_icon) as ImageView)
-            .setColorFilter(ContextCompat.getColor(this, R.color.base70))
-        (binding.errorView.findViewById<View>(R.id.view_wiki_error_text) as TextView)
-            .setTextColor(ContextCompat.getColor(this, R.color.base70))
+        binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.base70))
+        binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.base70))
         binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE
