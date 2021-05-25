@@ -702,7 +702,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         binding.infoContainer.visibility = View.VISIBLE
     }
 
-    private inner class GalleryItemAdapter(activity: AppCompatActivity?) : PositionAwareFragmentStateAdapter(activity!!) {
+    private inner class GalleryItemAdapter(activity: AppCompatActivity) : PositionAwareFragmentStateAdapter(activity!!) {
         private val list = mutableListOf<MediaListItem>()
         fun setList(list: List<MediaListItem>) {
             this.list.clear()
