@@ -69,8 +69,8 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         val date = DateUtil.getUtcRequestDateFor(0)
         ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getAggregatedFeed(date.year, date.month, date.day)
                 .flatMap { response: AggregatedFeedContent ->
-                    if (response.tfa() != null) {
-                        Observable.just(response.tfa())
+                    if (response.tfa != null) {
+                        Observable.just(response.tfa)
                     } else {
                         // TODO: this logic can be removed if the feed API can return the featured article for all languages.
                         ServiceFactory.get(mainPageTitle.wikiSite).parseTextForMainPage(mainPageTitle.prefixedText)
