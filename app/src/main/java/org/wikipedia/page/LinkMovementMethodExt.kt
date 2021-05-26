@@ -1,10 +1,12 @@
 package org.wikipedia.page
 
+import android.net.Uri
 import android.text.Spannable
 import android.text.method.LinkMovementMethod
 import android.text.style.URLSpan
 import android.view.MotionEvent
 import android.widget.TextView
+import org.wikipedia.WikipediaApp
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 
@@ -60,5 +62,22 @@ class LinkMovementMethodExt : LinkMovementMethod {
             }
         }
         return super.onTouchEvent(widget, buffer, event)
+    }
+
+    internal class ErrorLinkHandler internal constructor() : LinkHandler(WikipediaApp.getInstance()) {
+        override var wikiSite = WikipediaApp.getInstance().wikiSite
+        override fun onMediaLinkClicked(title: PageTitle) {}
+        override fun onPageLinkClicked(anchor: String, linkText: String) {}
+        override fun onInternalLinkClicked(title: PageTitle) {
+            // Explicitly send everything to an external browser, since the error might be shown in
+            // a child activity of PageActivity, and we don't want to lose our place.
+            UriUtil.visitInExternalBrowser(WikipediaApp.getInstance(), Uri.parse(title.mobileUri))
+        }
+    }
+
+    companion object {
+        fun getExternalLinkMovementMethod(): LinkMovementMethodExt {
+            return LinkMovementMethodExt(ErrorLinkHandler())
+        }
     }
 }

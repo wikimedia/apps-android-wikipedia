@@ -7,27 +7,27 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/gallery_video_container"
+        android:id="@+id/video_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
         tools:visibility="visible">
 
         <VideoView
-            android:id="@+id/gallery_video"
+            android:id="@+id/video_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
         <ImageView
-            android:id="@+id/gallery_video_thumbnail"
+            android:id="@+id/video_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="fitCenter" />
 
         <ImageView
-            android:id="@+id/gallery_video_play_button"
+            android:id="@+id/video_play_button"
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_gravity="center"
@@ -36,7 +36,7 @@
     </FrameLayout>
 
     <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/gallery_image"
+        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@null"
@@ -44,7 +44,7 @@
         android:scaleType="fitCenter" />
 
     <ProgressBar
-        android:id="@+id/gallery_item_progress_bar"
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
