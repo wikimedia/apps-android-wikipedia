@@ -122,14 +122,14 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        SuggestedEditsFunnel.get()!!.pause()
+        SuggestedEditsFunnel.get().pause()
     }
 
     override fun onResume() {
         super.onResume()
         setUpTasks()
         refreshContents()
-        SuggestedEditsFunnel.get()!!.resume()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -155,7 +155,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.tasksRecyclerView.adapter = null
         disposables.clear()
         binding.suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
-        SuggestedEditsFunnel.get()!!.log()
+        SuggestedEditsFunnel.get().log()
         SuggestedEditsFunnel.reset()
         _binding = null
         super.onDestroyView()
@@ -332,14 +332,14 @@ class SuggestedEditsTasksFragment : Fragment() {
             clearContents()
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get()!!.logDisabled()
+            UserContributionFunnel.get().logDisabled()
             UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
-            UserContributionFunnel.get()!!.logPaused()
+            UserContributionFunnel.get().logPaused()
             UserContributionEvent.logPaused()
             return true
         }
