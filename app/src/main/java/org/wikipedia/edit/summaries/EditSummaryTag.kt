@@ -1,86 +1,54 @@
-package org.wikipedia.edit.summaries;
+package org.wikipedia.edit.summaries
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.AttributeSet;
-import android.widget.LinearLayout.LayoutParams;
+import android.content.Context
+import android.util.AttributeSet
+import android.widget.LinearLayout
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.setMargins
+import androidx.core.view.setPadding
+import org.wikipedia.R
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
 
-import androidx.annotation.AttrRes;
-import androidx.annotation.ColorInt;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.res.ResourcesCompat;
+class EditSummaryTag @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = android.R.attr.textViewStyle) :
+    AppCompatTextView(context, attrs, defStyle) {
+    private var _selected = false
+    val selected get() = _selected
 
-import org.wikipedia.R;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.ResourceUtil;
-
-public class EditSummaryTag extends AppCompatTextView {
-    public static final int MARGIN = 4;
-    public static final int PADDING = 8;
-
-    private Resources resources;
-    private boolean selected = false;
-
-    public EditSummaryTag(Context context) {
-        super(context);
-        setupEditSummaryTag(context);
+    init {
+        val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        val margin = DimenUtil.dpToPx(MARGIN.toFloat()).toInt()
+        val padding = DimenUtil.dpToPx(PADDING.toFloat()).toInt()
+        params.setMargins(margin)
+        layoutParams = params
+        setPadding(padding)
+        setOnClickListener {
+            _selected = !_selected
+            updateState()
+        }
+        updateState()
     }
 
-    public EditSummaryTag(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        setupEditSummaryTag(context);
+    override fun toString() = text.toString()
+
+    override fun setSelected(selected: Boolean) {
+        this._selected = selected
+        updateState()
     }
 
-    public EditSummaryTag(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        setupEditSummaryTag(context);
+    private fun updateState() {
+        @AttrRes val backgroundAttributeResource = if (selected) R.attr.edit_improve_tag_selected_drawable else R.attr.edit_improve_tag_unselected_drawable
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, backgroundAttributeResource))
+        @ColorInt val textColor = ResourcesCompat.getColor(resources!!,
+            if (selected) android.R.color.white else ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent), null)
+        setTextColor(textColor)
     }
 
-    private void setupEditSummaryTag(Context context) {
-        resources = context.getResources();
-
-        LayoutParams params = new LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT
-        );
-
-        int margin = (int) DimenUtil.dpToPx(MARGIN);
-        int padding = (int) DimenUtil.dpToPx(PADDING);
-        params.setMargins(margin, margin, margin, margin);
-        setLayoutParams(params);
-
-        setPadding(padding, padding, padding, padding);
-
-        setOnClickListener((view) -> {
-            selected = !selected;
-            updateState();
-        });
-
-        updateState();
-    }
-
-    @Override
-    public String toString() {
-        return getText().toString();
-    }
-
-    public boolean getSelected() {
-        return selected;
-    }
-
-    @Override
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-        updateState();
-    }
-
-    private void updateState() {
-        @AttrRes int backgroundAttributeResource = selected
-                ? R.attr.edit_improve_tag_selected_drawable : R.attr.edit_improve_tag_unselected_drawable;
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(getContext(), backgroundAttributeResource));
-
-        @ColorInt int textColor = ResourcesCompat.getColor(resources, selected
-                ? android.R.color.white : ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent), null);
-        setTextColor(textColor);
+    companion object {
+        const val MARGIN = 4
+        const val PADDING = 8
     }
 }
