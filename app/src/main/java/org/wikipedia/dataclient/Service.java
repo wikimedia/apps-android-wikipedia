@@ -18,7 +18,6 @@ import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.dataclient.wikidata.Search;
 import org.wikipedia.edit.Edit;
-import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.search.PrefixSearchResponse;
 
@@ -235,11 +234,6 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
     @NonNull Observable<MwQueryResponse> getWikiTextForSectionWithInfo(@NonNull @Query("titles") String title, @Query("rvsection") int section);
-
-    @FormUrlEncoded
-    @POST(MW_API_PREFIX + "action=parse&prop=text&sectionpreview=&pst=&mobileformat=")
-    @NonNull Observable<EditPreview> postEditPreview(@NonNull @Field("title") String title,
-                                                     @NonNull @Field("text") String text);
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=edit")
