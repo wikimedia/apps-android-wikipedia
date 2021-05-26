@@ -1,7 +1,7 @@
 package org.wikipedia.pageimages
 
-import android.content.ContentValues
 import android.database.Cursor
+import androidx.core.content.contentValuesOf
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.column.Column
 import org.wikipedia.database.contract.PageImageHistoryContract
@@ -18,16 +18,14 @@ class PageImageDatabaseTable : DatabaseTable<PageImage>(PageImageHistoryContract
         return PageImage(title, imageName)
     }
 
-    override fun toContentValues(obj: PageImage): ContentValues {
-        val contentValues = ContentValues()
-        contentValues.put(PageImageHistoryContract.Col.SITE.name, obj.title.wikiSite.authority())
-        contentValues.put(PageImageHistoryContract.Col.LANG.name, obj.title.wikiSite.languageCode())
-        contentValues.put(PageImageHistoryContract.Col.NAMESPACE.name, obj.title.namespace)
-        contentValues.put(PageImageHistoryContract.Col.API_TITLE.name, obj.title.prefixedText)
-        contentValues.put(PageImageHistoryContract.Col.DISPLAY_TITLE.name, obj.title.displayText)
-        contentValues.put(PageImageHistoryContract.Col.IMAGE_NAME.name, obj.imageName)
-        return contentValues
-    }
+    override fun toContentValues(obj: PageImage) = contentValuesOf(
+            PageImageHistoryContract.Col.SITE.name to obj.title.wikiSite.authority(),
+            PageImageHistoryContract.Col.LANG.name to obj.title.wikiSite.languageCode(),
+            PageImageHistoryContract.Col.NAMESPACE.name to obj.title.namespace,
+            PageImageHistoryContract.Col.API_TITLE.name to obj.title.prefixedText,
+            PageImageHistoryContract.Col.DISPLAY_TITLE.name to obj.title.displayText,
+            PageImageHistoryContract.Col.IMAGE_NAME.name to obj.imageName
+    )
 
     override fun getColumnsAdded(version: Int): Array<Column<*>> {
         return when (version) {

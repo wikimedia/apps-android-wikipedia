@@ -1,7 +1,7 @@
 package org.wikipedia.readinglist.database
 
-import android.content.ContentValues
 import android.database.Cursor
+import androidx.core.content.contentValuesOf
 import org.wikipedia.database.DatabaseTable
 import org.wikipedia.database.column.Column
 import org.wikipedia.database.contract.ReadingListContract
@@ -34,17 +34,15 @@ class ReadingListTable : DatabaseTable<ReadingList>(ReadingListContract.TABLE, R
         }
     }
 
-    public override fun toContentValues(obj: ReadingList): ContentValues {
-        val contentValues = ContentValues()
-        contentValues.put(ReadingListContract.Col.TITLE.name, obj.dbTitle)
-        contentValues.put(ReadingListContract.Col.MTIME.name, obj.mtime)
-        contentValues.put(ReadingListContract.Col.ATIME.name, obj.atime)
-        contentValues.put(ReadingListContract.Col.DESCRIPTION.name, obj.description)
-        contentValues.put(ReadingListContract.Col.SIZEBYTES.name, obj.sizeBytesFromPages)
-        contentValues.put(ReadingListContract.Col.DIRTY.name, if (obj.dirty) 1 else 0)
-        contentValues.put(ReadingListContract.Col.REMOTEID.name, obj.remoteId)
-        return contentValues
-    }
+    public override fun toContentValues(obj: ReadingList) = contentValuesOf(
+            ReadingListContract.Col.TITLE.name to obj.dbTitle,
+            ReadingListContract.Col.MTIME.name to obj.mtime,
+            ReadingListContract.Col.ATIME.name to obj.atime,
+            ReadingListContract.Col.DESCRIPTION.name to obj.description,
+            ReadingListContract.Col.SIZEBYTES.name to obj.sizeBytesFromPages,
+            ReadingListContract.Col.DIRTY.name to if (obj.dirty) 1 else 0,
+            ReadingListContract.Col.REMOTEID.name to obj.remoteId
+    )
 
     override fun getPrimaryKeySelection(obj: ReadingList, selectionArgs: Array<String>): String {
         return super.getPrimaryKeySelection(obj, ReadingListContract.Col.SELECTION)

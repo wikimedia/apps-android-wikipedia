@@ -1,7 +1,7 @@
 package org.wikipedia.readinglist.database
 
-import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
+import androidx.core.content.contentValuesOf
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -327,13 +327,11 @@ object ReadingListDbHelper {
         val db = writableDatabase
         db.beginTransaction()
         try {
-            var contentValues = ContentValues()
-            contentValues.put(ReadingListContract.Col.REMOTEID.name, -1)
-            var result = db.update(ReadingListContract.TABLE, contentValues, null, null)
+            var result = db.update(ReadingListContract.TABLE, contentValuesOf(ReadingListContract.Col.REMOTEID.name to -1),
+                    null, null)
             L.d("Updated $result lists in db.")
-            contentValues = ContentValues()
-            contentValues.put(ReadingListPageContract.Col.REMOTEID.name, -1)
-            result = db.update(ReadingListPageContract.TABLE, contentValues, null, null)
+            result = db.update(ReadingListPageContract.TABLE, contentValuesOf(ReadingListPageContract.Col.REMOTEID.name to -1),
+                    null, null)
             L.d("Updated $result pages in db.")
             db.setTransactionSuccessful()
         } finally {
@@ -370,10 +368,11 @@ object ReadingListDbHelper {
         val db = writableDatabase
         db.beginTransaction()
         try {
-            val contentValues = ContentValues()
-            contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.name, thumbUrl)
-            contentValues.put(ReadingListPageContract.Col.DESCRIPTION.name, description)
-            val result = db.update(ReadingListPageContract.TABLE, contentValues,
+            val result = db.update(ReadingListPageContract.TABLE,
+                    contentValuesOf(
+                            ReadingListPageContract.Col.THUMBNAIL_URL.name to thumbUrl,
+                            ReadingListPageContract.Col.DESCRIPTION.name to description,
+                    ),
                     ReadingListPageContract.Col.API_TITLE.name + " = ? AND " +
                             ReadingListPageContract.Col.DISPLAY_TITLE.name + " = ? AND " +
                             ReadingListPageContract.Col.LANG.name + " = ?", arrayOf(pageProto.apiTitle, pageProto.displayTitle, pageProto.lang))
@@ -652,9 +651,8 @@ object ReadingListDbHelper {
         val db = writableDatabase
         db.beginTransaction()
         try {
-            val contentValues = ContentValues()
-            contentValues.put(ReadingListPageContract.Col.STATUS.name, ReadingListPage.STATUS_QUEUE_FOR_SAVE)
-            val result = db.update(ReadingListPageContract.TABLE, contentValues,
+            val result = db.update(ReadingListPageContract.TABLE,
+                    contentValuesOf(ReadingListPageContract.Col.STATUS.name to ReadingListPage.STATUS_QUEUE_FOR_SAVE),
                     ReadingListPageContract.Col.STATUS.name + " = ? AND " +
                             ReadingListPageContract.Col.OFFLINE.name + " = ?", arrayOf(ReadingListPage.STATUS_SAVED.toString(), "0"))
             L.d("Updated $result pages in db.")

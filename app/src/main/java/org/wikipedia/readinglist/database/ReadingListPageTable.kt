@@ -1,8 +1,8 @@
 package org.wikipedia.readinglist.database
 
-import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import androidx.core.content.contentValuesOf
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.DatabaseTable
@@ -67,25 +67,23 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
         }
     }
 
-    public override fun toContentValues(obj: ReadingListPage): ContentValues {
-        val contentValues = ContentValues()
-        contentValues.put(ReadingListPageContract.Col.LISTID.name, obj.listId)
-        contentValues.put(ReadingListPageContract.Col.SITE.name, obj.wiki.authority())
-        contentValues.put(ReadingListPageContract.Col.LANG.name, obj.wiki.languageCode())
-        contentValues.put(ReadingListPageContract.Col.NAMESPACE.name, obj.namespace.code())
-        contentValues.put(ReadingListPageContract.Col.DISPLAY_TITLE.name, obj.displayTitle)
-        contentValues.put(ReadingListPageContract.Col.API_TITLE.name, obj.apiTitle)
-        contentValues.put(ReadingListPageContract.Col.MTIME.name, obj.mtime)
-        contentValues.put(ReadingListPageContract.Col.ATIME.name, obj.atime)
-        contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.name, obj.thumbUrl)
-        contentValues.put(ReadingListPageContract.Col.DESCRIPTION.name, obj.description)
-        contentValues.put(ReadingListPageContract.Col.REVID.name, obj.revId)
-        contentValues.put(ReadingListPageContract.Col.OFFLINE.name, if (obj.offline) 1 else 0)
-        contentValues.put(ReadingListPageContract.Col.STATUS.name, obj.status)
-        contentValues.put(ReadingListPageContract.Col.SIZEBYTES.name, obj.sizeBytes)
-        contentValues.put(ReadingListPageContract.Col.REMOTEID.name, obj.remoteId)
-        return contentValues
-    }
+    public override fun toContentValues(obj: ReadingListPage) = contentValuesOf(
+            ReadingListPageContract.Col.LISTID.name to obj.listId,
+            ReadingListPageContract.Col.SITE.name to obj.wiki.authority(),
+            ReadingListPageContract.Col.LANG.name to obj.wiki.languageCode(),
+            ReadingListPageContract.Col.NAMESPACE.name to obj.namespace.code(),
+            ReadingListPageContract.Col.DISPLAY_TITLE.name to obj.displayTitle,
+            ReadingListPageContract.Col.API_TITLE.name to obj.apiTitle,
+            ReadingListPageContract.Col.MTIME.name to obj.mtime,
+            ReadingListPageContract.Col.ATIME.name to obj.atime,
+            ReadingListPageContract.Col.THUMBNAIL_URL.name to obj.thumbUrl,
+            ReadingListPageContract.Col.DESCRIPTION.name to obj.description,
+            ReadingListPageContract.Col.REVID.name to obj.revId,
+            ReadingListPageContract.Col.OFFLINE.name to if (obj.offline) 1 else 0,
+            ReadingListPageContract.Col.STATUS.name to obj.status,
+            ReadingListPageContract.Col.SIZEBYTES.name to obj.sizeBytes,
+            ReadingListPageContract.Col.REMOTEID.name to obj.remoteId
+    )
 
     override fun getPrimaryKeySelection(obj: ReadingListPage, selectionArgs: Array<String>): String {
         return super.getPrimaryKeySelection(obj, ReadingListPageContract.Col.SELECTION)
