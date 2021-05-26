@@ -94,7 +94,7 @@ object ThrowableUtil {
     @JvmStatic
     fun parseBlockedError(info: MwServiceError.BlockInfo): String {
         val app = WikipediaApp.getInstance()
-        var retStr = WikipediaApp.getInstance().getString(R.string.error_blocked_title)
+        var retStr = app.getString(R.string.error_blocked_title)
         val title = PageTitle(UserAliasData.valueFor(app.appOrSystemLanguageCode), info.blockedBy, app.wikiSite)
 
         if (info.blockedBy.isNotEmpty()) {
@@ -106,10 +106,10 @@ object ThrowableUtil {
         retStr += "<br />" + app.getString(R.string.error_blocked_start, parseBlockedDate(info.blockTimeStamp))
         retStr += "<br />" + app.getString(R.string.error_blocked_expiry, parseBlockedDate(info.blockExpiry))
         retStr += "<br />" + app.getString(R.string.error_blocked_id, info.blockId.toString())
-        if (info.blockedBy.isNotEmpty()) {
-            retStr += "<br /><br />" + app.getString(R.string.error_blocked_footer, title.text, title.mobileUri)
+        retStr += if (info.blockedBy.isNotEmpty()) {
+            "<br /><br />" + app.getString(R.string.error_blocked_footer, title.text, title.mobileUri)
         } else {
-            retStr += "<br /><br />" + app.getString(R.string.error_blocked_footer_no_blocker)
+            "<br /><br />" + app.getString(R.string.error_blocked_footer_no_blocker)
         }
         return retStr
     }
