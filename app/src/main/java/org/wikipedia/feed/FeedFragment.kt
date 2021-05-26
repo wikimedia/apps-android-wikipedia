@@ -81,7 +81,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFeedBinding.inflate(inflater, container, false)
-        feedAdapter = FeedAdapter<View>(coordinator, feedCallback)
+        feedAdapter = FeedAdapter(coordinator, feedCallback)
         binding.feedView.adapter = feedAdapter
         binding.feedView.addOnScrollListener(feedScrollListener)
         binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
