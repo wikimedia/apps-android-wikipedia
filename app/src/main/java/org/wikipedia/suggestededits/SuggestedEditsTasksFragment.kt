@@ -191,10 +191,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                         latestEditDate = commonsResponse.query()!!.userInfo()!!.latestContrib
                     }
 
-                    val contributions = ArrayList<UserContribution>()
-                    contributions.addAll(wikidataResponse.query()!!.userContributions())
-                    contributions.addAll(commonsResponse.query()!!.userContributions())
-                    contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
+                    val contributions = (wikidataResponse.query()!!.userContributions()
+                            + commonsResponse.query()!!.userContributions())
+                            .sortedByDescending { it.date() }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()
                     wikidataResponse

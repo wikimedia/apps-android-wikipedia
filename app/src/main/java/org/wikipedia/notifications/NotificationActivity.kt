@@ -221,7 +221,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private fun postprocessAndDisplay() {
         // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.timestamp.compareTo(n1.timestamp) }
+        notificationList.sortByDescending { it.timestamp }
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.

@@ -8,6 +8,7 @@ import android.text.Spanned
 import android.text.TextWatcher
 import android.text.format.DateUtils
 import android.widget.EditText
+import androidx.core.text.getSpans
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -74,7 +75,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                         // Right now, on longer articles, this is quite heavy on the UI thread.
                         // remove any of our custom spans from the previous cycle...
                         var time = System.currentTimeMillis()
-                        val prevSpans = textBox.text.getSpans(0, textBox.text.length, SpanExtents::class.java)
+                        val prevSpans = textBox.text.getSpans<SpanExtents>()
                         for (sp in prevSpans) {
                             textBox.text.removeSpan(sp)
                         }

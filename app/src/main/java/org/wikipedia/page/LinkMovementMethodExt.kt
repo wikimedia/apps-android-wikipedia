@@ -6,6 +6,7 @@ import android.text.method.LinkMovementMethod
 import android.text.style.URLSpan
 import android.view.MotionEvent
 import android.widget.TextView
+import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -39,7 +40,7 @@ class LinkMovementMethodExt : LinkMovementMethod {
             val layout = widget.layout
             val line = layout.getLineForVertical(y)
             val off = layout.getOffsetForHorizontal(line, x.toFloat())
-            val links = buffer.getSpans(off, off, URLSpan::class.java)
+            val links = buffer.getSpans<URLSpan>(off, off)
             if (links.isNotEmpty()) {
                 val linkText = try {
                     buffer.subSequence(buffer.getSpanStart(links[0]), buffer.getSpanEnd(links[0])).toString()

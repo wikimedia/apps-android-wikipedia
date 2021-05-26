@@ -318,13 +318,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith { o2, o1 -> (o1.date.compareTo(o2.date)) }
+        sortedContributions.sortByDescending { it.date }
 
         if (!sortedContributions.isNullOrEmpty()) {
             var currentDate = sortedContributions[0].date
             var nextDate: Date
             displayedContributions.add(getCorrectDateString(currentDate))
-            for (position in 0 until sortedContributions.size) {
+            for (position in sortedContributions.indices) {
                 nextDate = sortedContributions[position].date
                 if (!DateUtils.isSameDay(nextDate, currentDate)) {
                     displayedContributions.add(getCorrectDateString(nextDate))

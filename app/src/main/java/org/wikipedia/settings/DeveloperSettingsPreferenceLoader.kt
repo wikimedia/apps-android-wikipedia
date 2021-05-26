@@ -174,11 +174,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         for (i in 0 until numOfLists) {
             index += 1
             val list = ReadingListDbHelper.createList("$listName $index", "")
-            val pages: MutableList<ReadingListPage> = ArrayList()
-            for (j in 0 until numOfArticles) {
-                val pageTitle = PageTitle("" + (j + 1), WikipediaApp.getInstance().wikiSite)
-                pages.add(ReadingListPage(pageTitle))
-            }
+            val pages = (0..numOfArticles).map { ReadingListPage(PageTitle("" + (it + 1), WikipediaApp.getInstance().wikiSite)) }
             ReadingListDbHelper.addPagesToList(list, pages, true)
         }
     }

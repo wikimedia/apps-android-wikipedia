@@ -24,24 +24,10 @@ class ReadingList(var dbTitle: String,
     val title = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else dbTitle
 
     val numPagesOffline: Int
-        get() {
-            var count = 0
-            for (page in pages) {
-                if (page.offline && page.status == ReadingListPage.STATUS_SAVED) {
-                    count++
-                }
-            }
-            return count
-        }
+        get() = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
 
     val sizeBytesFromPages: Long
-        get() {
-            var bytes = 0L
-            pages.forEach {
-                bytes += if (it.offline) it.sizeBytes else 0
-            }
-            return bytes
-        }
+        get() = pages.filter { it.offline }.sumOf { it.sizeBytes }
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
@@ -64,10 +50,10 @@ class ReadingList(var dbTitle: String,
         val DATABASE_TABLE = ReadingListTable()
         fun sort(list: ReadingList, sortMode: Int) {
             when (sortMode) {
-                SORT_BY_NAME_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_NAME_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
-                SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
+                SORT_BY_NAME_ASC -> list.pages.sortBy { it.accentAndCaseInvariantTitle() }
+                SORT_BY_NAME_DESC -> list.pages.sortByDescending { it.accentAndCaseInvariantTitle() }
+                SORT_BY_RECENT_ASC -> list.pages.sortBy { it.mtime }
+                SORT_BY_RECENT_DESC -> list.pages.sortByDescending { it.mtime }
                 else -> {
                 }
             }
@@ -75,10 +61,10 @@ class ReadingList(var dbTitle: String,
 
         fun sort(lists: MutableList<ReadingList>, sortMode: Int) {
             when (sortMode) {
-                SORT_BY_NAME_ASC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_NAME_DESC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()) }
-                SORT_BY_RECENT_ASC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> rhs.mtime.compareTo(lhs.mtime) }
-                SORT_BY_RECENT_DESC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> lhs.mtime.compareTo(rhs.mtime) }
+                SORT_BY_NAME_ASC -> lists.sortBy { it.accentAndCaseInvariantTitle() }
+                SORT_BY_NAME_DESC -> lists.sortByDescending { it.accentAndCaseInvariantTitle() }
+                SORT_BY_RECENT_ASC -> lists.sortBy { it.mtime }
+                SORT_BY_RECENT_DESC -> lists.sortByDescending { it.mtime }
                 else -> {
                 }
             }
