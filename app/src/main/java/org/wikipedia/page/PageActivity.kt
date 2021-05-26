@@ -196,7 +196,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 binding.pageToolbarContainer.post { handleIntent(it) }
             }
         } else if (galleryImageEdited(requestCode, resultCode)) {
-            pageFragment.refreshPage()
+            pageFragment.reloadFromBackstack()
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (app.tabCount == 0 && resultCode != TabActivity.RESULT_NEW_TAB) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.

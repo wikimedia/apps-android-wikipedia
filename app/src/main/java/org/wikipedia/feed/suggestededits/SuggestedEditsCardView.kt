@@ -62,6 +62,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     private fun header(card: SuggestedEditsCard) {
         binding.headerView.setTitle(card.title())
             .setCard(card)
+            .setLangCode(null)
             .setCallback(callback)
     }
 

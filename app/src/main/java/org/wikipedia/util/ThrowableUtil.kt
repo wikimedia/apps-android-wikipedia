@@ -3,10 +3,14 @@ package org.wikipedia.util
 import android.content.Context
 import org.json.JSONException
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.createaccount.CreateAccountException
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.login.LoginClient.LoginFailedException
+import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserAliasData
 import java.lang.Exception
 import java.net.SocketException
 import java.net.SocketTimeoutException
@@ -84,6 +88,36 @@ object ThrowableUtil {
         return throwableContainsException(e, UnknownHostException::class.java) ||
                 throwableContainsException(e, TimeoutException::class.java) ||
                 throwableContainsException(e, SSLException::class.java)
+    }
+
+    @JvmStatic
+    fun parseBlockedError(info: MwServiceError.BlockInfo): String {
+        val app = WikipediaApp.getInstance()
+        var retStr = "<b>${app.getString(R.string.error_blocked_title)}</b>"
+        val title = PageTitle(UserAliasData.valueFor(app.appOrSystemLanguageCode), info.blockedBy, app.wikiSite)
+
+        if (info.blockedBy.isNotEmpty()) {
+            retStr += "<br />" + app.getString(R.string.error_blocked_by, title.text, title.mobileUri)
+        }
+        if (info.blockReason.isNotEmpty()) {
+            retStr += "<br />" + app.getString(R.string.error_blocked_reason, info.blockReason)
+        }
+        retStr += "<br />" + app.getString(R.string.error_blocked_start, parseBlockedDate(info.blockTimeStamp))
+        retStr += "<br />" + app.getString(R.string.error_blocked_expiry, parseBlockedDate(info.blockExpiry))
+        retStr += "<br />" + app.getString(R.string.error_blocked_id, info.blockId.toString())
+        retStr += if (info.blockedBy.isNotEmpty()) {
+            "<br /><br />" + app.getString(R.string.error_blocked_footer, title.text, title.mobileUri)
+        } else {
+            "<br /><br />" + app.getString(R.string.error_blocked_footer_no_blocker)
+        }
+        return retStr
+    }
+
+    private fun parseBlockedDate(dateStr: String): String {
+        try {
+            return DateUtil.iso8601DateParse(dateStr).toString()
+        } catch (e: Exception) {}
+        return dateStr
     }
 
     class EmptyException : Exception()
