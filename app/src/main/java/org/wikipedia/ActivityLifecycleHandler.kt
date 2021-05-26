@@ -12,6 +12,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.Theme
 
 class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2 {
+
     private var haveMainActivity = false
     var isAnyActivityResumed = false
 
