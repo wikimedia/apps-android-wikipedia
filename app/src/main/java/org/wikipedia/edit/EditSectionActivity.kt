@@ -217,17 +217,16 @@ class EditSectionActivity : BaseActivity() {
                 if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ result: Edit ->
-                    val editResult = result.edit()
-                    if (result.hasEditResult() && editResult != null) {
+                .subscribe({ result ->
+                    result.edit?.run {
                         when {
-                            editResult.editSucceeded() -> onEditSuccess(EditSuccessResult(editResult.newRevId()))
-                            editResult.hasCaptchaResponse() -> onEditSuccess(CaptchaResult(editResult.captchaId()!!))
-                            editResult.hasSpamBlacklistResponse() -> onEditFailure(MwException(MwServiceError(editResult.code(), editResult.spamblacklist())))
-                            editResult.hasEditErrorCode() -> onEditFailure(MwException(MwServiceError(editResult.code(), editResult.info())))
+                            editSucceeded -> onEditSuccess(EditSuccessResult(newRevId))
+                            hasCaptchaResponse -> onEditSuccess(CaptchaResult(captchaId))
+                            hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code, spamblacklist)))
+                            hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code, info)))
                             else -> onEditFailure(IOException("Received unrecognized edit response"))
                         }
-                    } else {
+                    } ?: run {
                         onEditFailure(IOException("An unknown error occurred."))
                     }
                 }) { onEditFailure(it) }
