@@ -17,7 +17,7 @@ import org.wikipedia.util.ResourceUtil
 class NewsCardView(context: Context) : DefaultFeedCardView<NewsCard>(context) {
 
     interface Callback {
-        fun onNewsItemSelected(card: NewsCard, view: NewsItemView?)
+        fun onNewsItemSelected(card: NewsCard, view: NewsItemView)
     }
 
     private val binding = ViewCardNewsBinding.inflate(LayoutInflater.from(context), this, true)

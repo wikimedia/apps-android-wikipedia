@@ -94,7 +94,7 @@ object ThrowableUtil {
     @JvmStatic
     fun parseBlockedError(info: MwServiceError.BlockInfo): String {
         val app = WikipediaApp.getInstance()
-        var retStr = app.getString(R.string.error_blocked_title)
+        var retStr = "<b>${app.getString(R.string.error_blocked_title)}</b>"
         val title = PageTitle(UserAliasData.valueFor(app.appOrSystemLanguageCode), info.blockedBy, app.wikiSite)
 
         if (info.blockedBy.isNotEmpty()) {
