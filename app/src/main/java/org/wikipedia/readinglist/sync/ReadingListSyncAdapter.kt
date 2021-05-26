@@ -4,6 +4,7 @@ import android.accounts.Account
 import android.content.*
 import android.os.Bundle
 import android.text.TextUtils
+import androidx.core.os.bundleOf
 import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -519,16 +520,12 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
 
         @JvmStatic
         fun manualSyncWithForce() {
-            val extras = Bundle()
-            extras.putBoolean(SYNC_EXTRAS_FORCE_FULL_SYNC, true)
-            manualSync(extras)
+            manualSync(bundleOf(SYNC_EXTRAS_FORCE_FULL_SYNC to true))
         }
 
         fun manualSyncWithRefresh() {
             Prefs.setSuggestedEditsHighestPriorityEnabled(false)
-            val extras = Bundle()
-            extras.putBoolean(SYNC_EXTRAS_REFRESHING, true)
-            manualSync(extras)
+            manualSync(bundleOf(SYNC_EXTRAS_REFRESHING to true))
         }
 
         @JvmStatic
