@@ -1,12 +1,16 @@
 package org.wikipedia.dataclient.mwapi;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ThrowableUtil;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -118,6 +122,15 @@ public class MwServiceError implements ServiceError {
 
         @NonNull public String getBlockExpiry() {
             return StringUtils.defaultString(blockexpiry);
+        }
+
+        public boolean isBlocked() {
+            if (TextUtils.isEmpty(blockexpiry)) {
+                return false;
+            }
+            Date now = new Date();
+            Date expiry = DateUtil.iso8601DateParse(blockexpiry);
+            return expiry.after(now);
         }
     }
 }
