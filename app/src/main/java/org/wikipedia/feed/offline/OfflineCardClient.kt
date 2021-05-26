@@ -1,12 +1,11 @@
-package org.wikipedia.feed.searchbar
+package org.wikipedia.feed.offline
 
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.dataclient.DummyClient
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.offline.OfflineCard
 
-class SearchClient : DummyClient() {
+class OfflineCardClient : DummyClient() {
     override fun getNewCard(wiki: WikiSite?): Card {
-        return SearchCard()
+        return OfflineCard()
     }
 }
