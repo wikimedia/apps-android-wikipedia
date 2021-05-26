@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.MediaController
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -40,23 +41,23 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
 
     private var _binding: FragmentGalleryItemBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var mediaListItem: MediaListItem
+    private val disposables = CompositeDisposable()
     private var mediaController: MediaController? = null
     private var pageTitle: PageTitle? = null
-    private var mediaListItem: MediaListItem? = null
     var imageTitle: PageTitle? = null
     var mediaPage: MwQueryPage? = null
-    private val disposables = CompositeDisposable()
-    val mediaInfo
-        get() = if (mediaPage != null) mediaPage!!.imageInfo() else null
+    val mediaInfo get() = mediaPage?.imageInfo()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mediaListItem = requireArguments().getSerializable(ARG_GALLERY_ITEM) as MediaListItem?
+        mediaListItem = requireArguments().getSerializable(ARG_GALLERY_ITEM) as MediaListItem
         pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
         if (pageTitle == null) {
-            pageTitle = PageTitle(mediaListItem?.title, WikiSite(Service.COMMONS_URL))
+            pageTitle = PageTitle(mediaListItem.title, WikiSite(Service.COMMONS_URL))
         }
-        imageTitle = PageTitle(Namespace.FILE.toLegacyString(), StringUtil.removeNamespace(mediaListItem!!.title),
+        imageTitle = PageTitle(Namespace.FILE.toLegacyString(), StringUtil.removeNamespace(mediaListItem.title),
             pageTitle!!.wikiSite
         )
     }
@@ -79,8 +80,8 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         loadMedia()
     }
@@ -89,16 +90,17 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         disposables.clear()
         binding.image.setOnClickListener(null)
         binding.videoThumbnail.setOnClickListener(null)
+        _binding = null
         super.onDestroyView()
     }
 
     override fun onPause() {
         super.onPause()
-        if (mediaController != null) {
+        mediaController?.let {
             if (binding.videoView.isPlaying) {
                 binding.videoView.pause()
             }
-            mediaController!!.hide()
+            it.hide()
         }
     }
 
@@ -153,11 +155,11 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun loadMedia() {
-        if (pageTitle == null || mediaListItem == null) {
+        if (pageTitle == null) {
             return
         }
         updateProgressBar(true)
-        disposables.add(getMediaInfoDisposable(mediaListItem!!.title, WikipediaApp.getInstance().appOrSystemLanguageCode)
+        disposables.add(getMediaInfoDisposable(mediaListItem.title, WikipediaApp.getInstance().appOrSystemLanguageCode)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doAfterTerminate {
@@ -167,7 +169,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             }
             .subscribe({ response ->
                 mediaPage = response.query()!!.firstPage()
-                if (FileUtil.isVideo(mediaListItem!!.type)) {
+                if (FileUtil.isVideo(mediaListItem.type)) {
                     loadVideo()
                 } else {
                     loadImage(ImageUrlUtil.getUrlForPreferredSize(mediaInfo!!.thumbUrl,
@@ -180,19 +182,19 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
     }
 
     private fun getMediaInfoDisposable(title: String, lang: String): Observable<MwQueryResponse> {
-        return if (FileUtil.isVideo(mediaListItem!!.type)) {
-            ServiceFactory.get(if (mediaListItem!!.isInCommons) WikiSite(Service.COMMONS_URL) else
-                pageTitle!!.wikiSite).getVideoInfo(title, lang)
+        return if (FileUtil.isVideo(mediaListItem.type)) {
+            ServiceFactory.get(if (mediaListItem.isInCommons) WikiSite(Service.COMMONS_URL)
+            else pageTitle!!.wikiSite).getVideoInfo(title, lang)
         } else {
-            ServiceFactory.get(if (mediaListItem!!.isInCommons) WikiSite(Service.COMMONS_URL) else
-                pageTitle!!.wikiSite).getImageInfo(title, lang)
+            ServiceFactory.get(if (mediaListItem.isInCommons) WikiSite(Service.COMMONS_URL)
+            else pageTitle!!.wikiSite).getImageInfo(title, lang)
         }
     }
 
     private val videoThumbnailClickListener: View.OnClickListener = object : View.OnClickListener {
         private var loading = false
         override fun onClick(v: View) {
-            if (loading || mediaInfo == null || mediaInfo!!.bestDerivative == null) {
+            if (loading || mediaInfo?.bestDerivative == null) {
                 return
             }
             loading = true
@@ -265,15 +267,15 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
 
     private fun shareImage() {
         mediaInfo?.let {
-            object : ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(mediaInfo!!.thumbUrl,
+            object : ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl,
                     Constants.PREFERRED_GALLERY_IMAGE_SIZE)) {
                 override fun onSuccess(bitmap: Bitmap?) {
                     if (!isAdded) {
                         return
                     }
-                    shareSubject?.let {
-                        imageTitle?.let {
-                            callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject!!, imageTitle!!)
+                    shareSubject?.let { subject ->
+                        imageTitle?.let { title ->
+                            callback()?.onShare(this@GalleryItemFragment, bitmap, subject, title)
                         }
                     }
                 }
@@ -294,8 +296,7 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         }
     }
 
-    private val shareSubject
-        get() = if (pageTitle != null) pageTitle!!.displayText else null
+    private val shareSubject get() = pageTitle?.displayText
 
     private fun saveImage() {
         mediaInfo?.let { callback()?.onDownload(this) }
@@ -309,14 +310,10 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
         private const val ARG_PAGETITLE = "pageTitle"
         private const val ARG_GALLERY_ITEM = "galleryItem"
 
-        @JvmStatic
         fun newInstance(pageTitle: PageTitle?, item: MediaListItem): GalleryItemFragment {
-            val f = GalleryItemFragment()
-            val args = Bundle()
-            args.putParcelable(ARG_PAGETITLE, pageTitle)
-            args.putSerializable(ARG_GALLERY_ITEM, item)
-            f.arguments = args
-            return f
+            return GalleryItemFragment().apply {
+                arguments = bundleOf(ARG_PAGETITLE to pageTitle, ARG_GALLERY_ITEM to item)
+            }
         }
     }
 }
