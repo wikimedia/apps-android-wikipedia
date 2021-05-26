@@ -39,7 +39,7 @@ public interface Service {
     String COMMONS_URL = "https://commons.wikimedia.org/";
     String URL_FRAGMENT_FROM_COMMONS = "/wikipedia/commons/";
 
-    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&";
+    String MW_API_PREFIX = "w/api.php?format=json&formatversion=2&errorformat=html&errorsuselocal=1&";
 
     int PREFERRED_THUMB_SIZE = 320;
 

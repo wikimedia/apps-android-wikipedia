@@ -363,6 +363,15 @@
     <string name="empty_tab_title">New tab</string>
     <string name="menu_save_all_tabs">Save all tabs</string>
 
+    <string name="error_blocked_title">Your username or IP address has been blocked.</string>
+    <string name="error_blocked_by"><![CDATA[The block was made by <a href="%2$s">%1$s</a>]]></string>
+    <string name="error_blocked_reason">The reason given is: %s</string>
+    <string name="error_blocked_start">Start of block: %s</string>
+    <string name="error_blocked_expiry">Expiration of block: %s</string>
+    <string name="error_blocked_id">Block ID: %s</string>
+    <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+    <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
     <string name="crash_report_relaunch_or_quit">We\'re sorry, the Wikipedia app has experienced an error and was terminated.\n\nWould you like to start over or quit?</string>
@@ -767,7 +776,6 @@
     <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
-    <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
     <string name="suggested_edits_image_preview_dialog_image">Image</string>
     <string name="suggested_edits_image_preview_dialog_file_commons">File from Wikimedia Commons</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>

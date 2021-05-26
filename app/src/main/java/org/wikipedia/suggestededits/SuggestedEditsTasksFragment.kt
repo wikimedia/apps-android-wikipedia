@@ -28,6 +28,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.login.LoginActivity
@@ -57,7 +58,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
-    private var isIpBlocked = false
+    private var blockInfo: MwServiceError.BlockInfo? = null
     private var isPausedOrDisabled = false
     private var totalPageviews = 0L
     private var totalContributions = 0
@@ -166,7 +167,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
-        isIpBlocked = false
+        blockInfo = null
         isPausedOrDisabled = false
         totalContributions = 0
         latestEditStreak = 0
@@ -177,10 +178,10 @@ class SuggestedEditsTasksFragment : Fragment() {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
-                    if (wikidataResponse.query()!!.userInfo()!!.isBlocked ||
-                            commonsResponse.query()!!.userInfo()!!.isBlocked ||
-                            homeSiteResponse.query()!!.userInfo()!!.isBlocked) {
-                        isIpBlocked = true
+                    when {
+                        wikidataResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query()!!.userInfo()!!
+                        commonsResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = commonsResponse.query()!!.userInfo()!!
+                        homeSiteResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = homeSiteResponse.query()!!.userInfo()!!
                     }
 
                     totalContributions += wikidataResponse.query()!!.userInfo()!!.editCount
@@ -204,7 +205,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    if (isIpBlocked) {
+                    if (blockInfo != null) {
                         setIPBlockedStatus()
                     }
                 }
@@ -213,7 +214,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                         isPausedOrDisabled = true
                     }
 
-                    if (!isPausedOrDisabled && !isIpBlocked) {
+                    if (!isPausedOrDisabled && blockInfo == null) {
                         binding.pageViewStatsView.setTitle(it.toString())
                         totalPageviews = it
                         setFinalUIState()
@@ -311,9 +312,9 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setIPBlockedStatus() {
         clearContents()
-        binding.disabledStatesView.setIPBlocked()
+        binding.disabledStatesView.setIPBlocked(blockInfo)
         binding.disabledStatesView.visibility = VISIBLE
-        UserContributionFunnel.get()!!.logIpBlock()
+        UserContributionFunnel.get().logIpBlock()
         UserContributionEvent.logIpBlock()
     }
 
