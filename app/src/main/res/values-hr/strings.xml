@@ -211,7 +211,7 @@
   <string name="about_translators_heading">Prevoditelji</string>
   <string name="about_translators_translatewiki">Ovu aplikaciju preveli su su prevoditelji volonteri na projektu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
-  <string name="about_app_license">Izvorni kod dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licencijom &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Ako nije drugačije navedeno, sadržaj je dostupan pod licencijom &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Izvorni kod dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licencijom &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Ako nije drugačije navedeno, sadržaj je dostupan pod licencijom &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Zaklade Wikimedija&lt;/a&gt;</string>
   <string name="about_activity_title">O</string>
   <string name="edit_abandon_confirm">Stranica je promijenjena. Jeste li sigurni da želite izaći bez spremanja promjena?</string>
@@ -635,7 +635,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Datoteka</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umjetnik</string>
   <string name="suggested_edits_image_preview_dialog_tags">Oznake</string>

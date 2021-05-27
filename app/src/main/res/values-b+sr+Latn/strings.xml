@@ -189,7 +189,7 @@
   <string name="about_translators_heading">Prevodioci</string>
   <string name="about_translators_translatewiki">Ovu aplikaciju su preveli dobrovoljci sajta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorni kôd je dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-u&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-u&lt;/a&gt; pod licencom &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Sadržaj je dostupan pod licencom &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, osim ako nije drugačije navedeno.</string>
+  <string name="about_app_license" fuzzy="true">Izvorni kôd je dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-u&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-u&lt;/a&gt; pod licencom &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Sadržaj je dostupan pod licencom &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, osim ako nije drugačije navedeno.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Zadužbine Vikimedija&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaciji</string>
   <string name="edit_abandon_confirm">Stranica je izmenjena. Želite li zaista da izađete bez čuvanja promene?</string>
@@ -624,7 +624,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Počnimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umetnik</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Izvor/Fotograf</string>
