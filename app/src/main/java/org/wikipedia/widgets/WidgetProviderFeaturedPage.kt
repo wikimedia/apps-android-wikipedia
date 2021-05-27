@@ -9,6 +9,7 @@ import android.content.Intent
 import android.text.TextUtils
 import android.text.style.URLSpan
 import android.widget.RemoteViews
+import androidx.core.text.getSpans
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -101,7 +102,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         // Parse the HTML, and look for the first link, which should be the
         // article of the day.
         val text = StringUtil.fromHtml(pageLeadContent)
-        val spans = text.getSpans(0, text.length, URLSpan::class.java)
+        val spans = text.getSpans<URLSpan>()
         var titleText = ""
         for (span in spans) {
             if (!span.url.startsWith("/wiki/") ||

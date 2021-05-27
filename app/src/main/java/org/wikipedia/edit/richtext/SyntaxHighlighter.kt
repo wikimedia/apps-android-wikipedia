@@ -12,6 +12,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.ktx.clearSpans
 import org.wikipedia.util.log.L
 import java.util.*
 import java.util.concurrent.Callable
@@ -74,10 +75,7 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                         // Right now, on longer articles, this is quite heavy on the UI thread.
                         // remove any of our custom spans from the previous cycle...
                         var time = System.currentTimeMillis()
-                        val prevSpans = textBox.text.getSpans(0, textBox.text.length, SpanExtents::class.java)
-                        for (sp in prevSpans) {
-                            textBox.text.removeSpan(sp)
-                        }
+                        textBox.text.clearSpans<SpanExtents>()
                         val findTextList = mutableListOf<SpanExtents>()
 
                         // and add our new spans

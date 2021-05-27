@@ -41,12 +41,8 @@ object RichTextUtil {
      *
      * @see {@link android.view.inputmethod.BaseInputConnection.removeComposingSpans}
      */
-    private fun getComposingSpans(spanned: Spanned, start: Int, end: Int): List<Any?> {
-        return getSpans(spanned, start, end).filter { isComposingSpan(spanned, it) }
-    }
-
-    fun getSpans(spanned: Spanned, start: Int, end: Int): Array<out Any> {
-        return spanned.getSpans(start, end)
+    private fun getComposingSpans(spanned: Spanned, start: Int, end: Int): List<Any> {
+        return spanned.getSpans<Any>(start, end).filter { isComposingSpan(spanned, it) }
     }
 
     private fun isComposingSpan(spanned: Spanned, span: Any?): Boolean {
@@ -57,12 +53,12 @@ object RichTextUtil {
         val text = textView.text
         if (text is Spanned) {
             val spannable = text.toSpannable()
-            removeUnderlinesFromLinks(spannable, spannable.getSpans(0, spannable.length, URLSpan::class.java))
+            removeUnderlinesFromLinks(spannable, spannable.getSpans())
             textView.text = spannable
         }
     }
 
-    private fun removeUnderlinesFromLinks(spannable: Spannable, spans: Array<URLSpan>) {
+    private fun removeUnderlinesFromLinks(spannable: Spannable, spans: Array<out URLSpan>) {
         for (span in spans) {
             val start = spannable.getSpanStart(span)
             val end = spannable.getSpanEnd(span)
@@ -75,12 +71,12 @@ object RichTextUtil {
         val text = textView.text
         if (text is Spanned) {
             val spannable = text.toSpannable()
-            removeUnderlinesFromLinksAndMakeBold(spannable, spannable.getSpans(0, spannable.length, URLSpan::class.java))
+            removeUnderlinesFromLinksAndMakeBold(spannable, spannable.getSpans())
             textView.text = spannable
         }
     }
 
-    private fun removeUnderlinesFromLinksAndMakeBold(spannable: Spannable, spans: Array<URLSpan>) {
+    private fun removeUnderlinesFromLinksAndMakeBold(spannable: Spannable, spans: Array<out URLSpan>) {
         for (span in spans) {
             val start = spannable.getSpanStart(span)
             val end = spannable.getSpanEnd(span)
