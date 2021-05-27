@@ -134,7 +134,7 @@ class AggregatedFeedContentClient {
         private fun requestAggregated() {
             aggregatedClient.cancel()
             val date = DateUtil.getUtcRequestDateFor(age)
-            aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.getAggregatedLanguages())
+            aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.aggregatedLanguages)
                 .flatMap({ lang ->
                         ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
                             .getAggregatedFeed(date.year, date.month, date.day)
