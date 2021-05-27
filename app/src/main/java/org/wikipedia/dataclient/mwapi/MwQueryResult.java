@@ -65,6 +65,10 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
         return  tokens != null ? tokens.watch() : null;
     }
 
+    @Nullable public String rollbackToken() {
+        return tokens != null ? tokens.rollback() : null;
+    }
+
     @Nullable public String createAccountToken() {
         return tokens != null ? tokens.createAccount() : null;
     }
@@ -224,21 +228,22 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
         }
     }
 
+    @SuppressWarnings("unused,NullableProblems")
     private static class Tokens {
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("csrftoken")
-        @Nullable private String csrf;
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("createaccounttoken")
-        @Nullable private String createAccount;
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("logintoken")
-        @Nullable private String login;
-        @SuppressWarnings("unused,NullableProblems") @SerializedName("watchtoken")
-        @Nullable private String watch;
+        @SerializedName("csrftoken") @Nullable private String csrf;
+        @SerializedName("createaccounttoken") @Nullable private String createAccount;
+        @SerializedName("logintoken") @Nullable private String login;
+        @SerializedName("watchtoken") @Nullable private String watch;
+        @SerializedName("rollbacktoken") @Nullable private String rollback;
 
         @Nullable private String csrf() {
             return csrf;
         }
         @Nullable private String watch() {
             return watch;
+        }
+        @Nullable private String rollback() {
+            return rollback;
         }
 
         @Nullable private String createAccount() {
@@ -310,6 +315,10 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
 
         @NonNull public String getTitle() {
             return StringUtils.defaultString(title);
+        }
+
+        @NonNull public String getUser() {
+            return StringUtils.defaultString(user);
         }
 
         public long getRevFrom() {

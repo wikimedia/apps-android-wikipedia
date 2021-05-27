@@ -9,7 +9,7 @@ public class CsrfTokenClientTest extends MockRetrofitTest {
         String expected = "b6f7bd58c013ab30735cb19ecc0aa08258122cba+\\";
         enqueueFromFile("csrf_token.json");
 
-        new CsrfTokenClient(wikiSite(), 1, getApiService()).getToken().test().await()
+        new CsrfTokenClient(wikiSite(), 1, getApiService(), "csrf").getToken().test().await()
                 .assertComplete().assertNoErrors()
                 .assertValue(result -> result.equals(expected));
     }
@@ -17,14 +17,14 @@ public class CsrfTokenClientTest extends MockRetrofitTest {
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
 
-        new CsrfTokenClient(wikiSite(), 1, getApiService()).getToken().test().await()
+        new CsrfTokenClient(wikiSite(), 1, getApiService(), "csrf").getToken().test().await()
                 .assertError(Exception.class);
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
 
-        new CsrfTokenClient(wikiSite(), 1, getApiService()).getToken().test().await()
+        new CsrfTokenClient(wikiSite(), 1, getApiService(), "csrf").getToken().test().await()
                 .assertError(Exception.class);
     }
 }

@@ -338,7 +338,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun sendThanks() {
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).csrfToken
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).getToken("csrf")
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     ServiceFactory.get(WikiSite.forLanguageCode(languageCode)).postThanksToRevision(revisionId, it.query()!!.csrfToken()!!)

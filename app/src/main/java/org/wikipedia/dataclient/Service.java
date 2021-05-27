@@ -133,6 +133,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
 
+    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctoponly=1&rcshow=anon&rctype=edit|new")
     @NonNull Observable<MwQueryResponse> getRecentEdits(@Query("rclimit") int count);
 
@@ -147,12 +148,8 @@ public interface Service {
     // ------- CSRF, Login, and Create Account -------
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @NonNull Call<MwQueryResponse> getCsrfTokenCall();
-
-    @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=tokens&type=csrf")
-    @NonNull Observable<MwQueryResponse> getCsrfToken();
+    @GET(MW_API_PREFIX + "action=query&meta=tokens")
+    @NonNull Observable<MwQueryResponse> getToken(@Query("type") @NonNull String type);
 
     @SuppressWarnings("checkstyle:parameternumber")
     @FormUrlEncoded
@@ -268,6 +265,13 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=descriptiontranslations&gwetslimit=3")
     @NonNull Observable<MwQueryResponse> getEditorTaskTranslatableDescriptions(@NonNull @Query("gwetssource") String sourceLanguage,
                                                                                @NonNull @Query("gwetstarget") String targetLanguage);
+
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=rollback")
+    @NonNull Observable<MwPostResponse> postRollback(@NonNull @Field("title") String title,
+                                                      @NonNull @Field("user") String user,
+                                                      @NonNull @Field("summary") String summary,
+                                                      @NonNull @Field("token") String token);
 
 
     // ------- Wikidata -------

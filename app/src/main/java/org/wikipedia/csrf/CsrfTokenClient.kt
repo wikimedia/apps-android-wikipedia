@@ -15,9 +15,10 @@ import java.io.IOException
 import java.util.concurrent.Semaphore
 
 class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetries: Int,
-                      private val csrfService: Service) {
+                      private val csrfService: Service, private val type: String) {
     constructor(site: WikiSite) : this(site, site)
-    constructor(csrfWikiSite: WikiSite, loginWikiSite: WikiSite) : this(loginWikiSite, MAX_RETRIES, ServiceFactory.get(csrfWikiSite))
+    constructor(site: WikiSite, type: String) : this(site, 1, ServiceFactory.get(site), type)
+    constructor(csrfWikiSite: WikiSite, loginWikiSite: WikiSite) : this(loginWikiSite, MAX_RETRIES, ServiceFactory.get(csrfWikiSite), "csrf")
 
     val token: Observable<String>
         get() {
@@ -39,14 +40,21 @@ class CsrfTokenClient(private val loginWikiSite: WikiSite, private val numRetrie
                             return@create
                         }
 
-                        csrfService.csrfToken
+                        csrfService.getToken(type)
                                 .subscribeOn(Schedulers.io())
                                 .blockingSubscribe({
-                                    token = it.query()!!.csrfToken().orEmpty()
+                                    if (type == "rollback") {
+                                        token = it.query()!!.rollbackToken().orEmpty()
+                                    } else if (type == "csrf") {
+                                        token = it.query()!!.csrfToken().orEmpty()
+                                    }
+
                                     if (AccountUtil.isLoggedIn && token == ANON_TOKEN) {
                                         throw RuntimeException("App believes we're logged in, but got anonymous token.")
                                     }
-                                }, { L.e(it) })
+                                }, {
+                                    L.e(it)
+                                })
                         if (emitter.isDisposed) {
                             return@create
                         }

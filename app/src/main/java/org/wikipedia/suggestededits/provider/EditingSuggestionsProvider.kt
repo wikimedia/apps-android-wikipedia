@@ -320,7 +320,7 @@ object EditingSuggestionsProvider {
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                ServiceFactory.get(WikiSite.forLanguageCode(lang)).getRecentEdits(20)
+                ServiceFactory.get(WikiSite.forLanguageCode(lang)).getRecentEdits(10)
                         .map { response ->
                             for (candidate in response.query()!!.recentChanges) {
                                 if (candidate.ores == null) {

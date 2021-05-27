@@ -15,6 +15,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -81,9 +82,12 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
             // TODO
 
             AlertDialog.Builder(requireContext())
-                    .setMessage("TODO: revert right away, or take user to edit confirmation screen.")
-                    .setPositiveButton(android.R.string.ok, null)
-                    .show()
+                .setMessage("Do you want to roll back this edit right now?")
+                .setPositiveButton(android.R.string.ok) { _, _ ->
+                    doRollback()
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
 
             // val title = PageTitle(candidate!!.title, WikiSite.forLanguageCode(parent().langFromCode))
             // UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(title.getUriForAction("history")))
@@ -208,6 +212,35 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
         }
 
         parent().nextPage(this)
+    }
+
+    private fun doRollback() {
+        if (candidate == null) {
+            return
+        }
+
+        // Point of no return
+
+        binding.publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
+        binding.publishProgressCheck.visibility = GONE
+        binding.publishOverlayContainer.visibility = VISIBLE
+        binding.publishProgressBarComplete.visibility = GONE
+        binding.publishProgressBar.visibility = VISIBLE
+
+        val wiki = WikiSite.forLanguageCode(parent().langFromCode)
+
+        CsrfTokenClient(wiki, "rollback").token.subscribeOn(Schedulers.io())
+            .flatMap { token ->
+                ServiceFactory.get(wiki)
+                    .postRollback(candidate!!.title, candidate!!.user, "", token)
+                    .subscribeOn(Schedulers.io())
+            }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                onSuccess()
+            }, {
+                onError(it)
+            })
     }
 
     private fun onSuccess() {
