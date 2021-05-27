@@ -214,7 +214,7 @@
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_translators_translatewiki">ဤအက်ပ်ကို &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ရှိ စေတနာ့ဝန်ထမ်း ဘာသာပြန်သူများက ဘာသာပြန်ပေးထားသည်။</string>
   <string name="about_app_license_heading">လိုင်စင်</string>
-  <string name="about_app_license">ရင်းမြစ်ကုဒ်ကို &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; နှင့် &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; တို့တွင် &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။ သီးခြားဖော်ပြထားခြင်း မရှိပါက &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။</string>
+  <string name="about_app_license" fuzzy="true">ရင်းမြစ်ကုဒ်ကို &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; နှင့် &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; တို့တွင် &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။ သီးခြားဖော်ပြထားခြင်း မရှိပါက &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ဖြင့် ရယူနိုင်သည်။</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ဝီကီမီဒီယာ ဖောင်ဒေးရှင်း&lt;/a&gt; ၏ ထုတ်ကုန်တစ်ခု</string>
   <string name="about_activity_title">အကြောင်း</string>
   <string name="edit_abandon_confirm">ဤစာမျက်နှာသည် ပြောင်းလဲထားသည်။ သင့်ပြောင်းလဲမှုများအား မသိမ်းဆည်းဘဲ ထွက်ရန် သေချာပါသလား?</string>
@@ -689,7 +689,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ရုပ်ပုံ ပုံစာ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ရုပ်ပုံဖော်ပြချက် (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ဖိုင်</string>
   <string name="suggested_edits_image_preview_dialog_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>

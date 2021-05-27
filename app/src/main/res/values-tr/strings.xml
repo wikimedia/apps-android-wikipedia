@@ -248,7 +248,7 @@
   <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_app_license_heading">Lisans</string>
-  <string name="about_app_license">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Creative_Commons_Atıf-AynıLisanslaPaylaş_3.0_Yerelleştirilmemiş_lisans_metni\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
+  <string name="about_app_license" fuzzy="true">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Creative_Commons_Atıf-AynıLisanslaPaylaş_3.0_Yerelleştirilmemiş_lisans_metni\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
   <string name="edit_abandon_confirm">Sayfada değişiklikler yapıldı. Kaydetmeden çıkmak istediğinizden emin misiniz?</string>
@@ -763,7 +763,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Madde açıklaması ekle (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Başla</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Resim yazısı (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Resim açıklaması (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Dosya</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Wikimedia Commons\'tan dosya</string>
   <string name="suggested_edits_image_preview_dialog_artist">Sanatçı</string>

@@ -243,7 +243,7 @@
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
-  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
@@ -757,7 +757,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschrijving toevoegen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Afbeeldingsbijschrift (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Afbeeldingsbeschrijving (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Bestand</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Bestand van Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiest</string>

@@ -205,7 +205,7 @@
   <string name="about_translators_heading">Oersetters</string>
   <string name="about_translators_translatewiki">Dizze app is ferfryske troch de frijwillige oersetters fan &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisinsje</string>
-  <string name="about_app_license">Boarnekoade beskikber op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ûnder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-Lisinsje&lt;/a&gt;. At net oars oanjûn wurdt, is de ynhâld beskikber ûnder de lisinsje &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nammefermelding-Lyk diele&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Boarnekoade beskikber op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ûnder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-Lisinsje&lt;/a&gt;. At net oars oanjûn wurdt, is de ynhâld beskikber ûnder de lisinsje &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nammefermelding-Lyk diele&lt;/a&gt;.</string>
   <string name="about_wmf">In produkt fan \'e &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Oer</string>
   <string name="edit_abandon_confirm">De side is wizige. Wolle jo wier ôfslute sûnder jo feroarings te bewarjen?</string>
@@ -711,7 +711,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeskriuwing taheakje (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Begjinne</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Ofbyldbyskrift (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Ofbyldbeskriuwing (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Ofbylding</string>
   <string name="suggested_edits_image_preview_dialog_artist">Keunstner</string>
   <string name="suggested_edits_image_preview_dialog_tags">Lebels</string>

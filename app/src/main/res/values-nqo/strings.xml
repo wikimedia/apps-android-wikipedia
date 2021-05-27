@@ -198,7 +198,7 @@
   <string name="about_translators_heading">ߘߟߊߡߌߘߊߟߊ߲</string>
   <string name="about_translators_translatewiki">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߓߐߒߖߘߍߘߐ߫ ߘߟߊߡߌߘߟߊ ߟߎ߬ ߟߋ߬ ߓߟߏ߫ ߦߊ߲߬ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ߕߌ߰ߦߊ</string>
-  <string name="about_app_license">ߘߏߝߙߍߕߍ ߛߎ߲ ߦߋ߫ ߦߊ߲߬ ߠߋ߬  &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ߊ߬ ߣߌ߫  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ߊ߬ ߣߌ߫ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ߟߋ߬ ߟߊ߫ ߖߊ߬ߡߊߙߌ ߞߣߐ߫. ߝߏ߫ ߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬߸ ߞߣߐߘߐ ߦߋ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ߟߊ߫ ߖߊ߬ߡߊߙߌ ߟߋ߬ ߞߣߐ߫.</string>
+  <string name="about_app_license" fuzzy="true">ߘߏߝߙߍߕߍ ߛߎ߲ ߦߋ߫ ߦߊ߲߬ ߠߋ߬  &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ߊ߬ ߣߌ߫  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ߊ߬ ߣߌ߫ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ߟߋ߬ ߟߊ߫ ߖߊ߬ߡߊߙߌ ߞߣߐ߫. ߝߏ߫ ߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬߸ ߞߣߐߘߐ ߦߋ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ߟߊ߫ ߖߊ߬ߡߊߙߌ ߟߋ߬ ߞߣߐ߫.</string>
   <string name="about_wmf"> ߥߟߏߒߘߐ ߣߌ߲߬ ߦߋ߫ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; ߕߊ ߟߋ߬ ߘߌ߫</string>
   <string name="about_activity_title">ߡߊ߬ߘߎ߮</string>
   <string name="edit_abandon_confirm">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߬ ߠߊ߫. ߌ ߟߊ߫ ߣߴߊ߬ ߟߊ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߓߐ߫ ߞߵߊ߬ ߕߘߍ߬ ߌ ߡߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߞߎ߲߬ߘߎ߫؟</string>
@@ -623,7 +623,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ (%s) ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ߞߐߕߐ߮</string>
   <string name="suggested_edits_image_preview_dialog_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_preview_dialog_tags">ߘߎ߲ߛߓߍ ߟߎ߬</string>
