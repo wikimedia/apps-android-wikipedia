@@ -86,7 +86,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         Prefs.setImageRecsItemSequence(Prefs.getImageRecsItemSequenceSuccess())
 
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get()!!.impression(action)
+        SuggestedEditsFunnel.get().impression(action)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -164,12 +164,18 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_help -> {
-                if (action == ADD_IMAGE_TAGS) {
-                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_tags_help_url)
-                } else if (action == IMAGE_RECOMMENDATION) {
-                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_recs_help_url)
-                } else {
-                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                when (action) {
+                    ADD_IMAGE_TAGS -> {
+                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
+                            R.string.suggested_edits_image_tags_help_url)
+                    }
+                    IMAGE_RECOMMENDATION -> {
+                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
+                            R.string.suggested_edits_image_recs_help_url)
+                    }
+                    else -> {
+                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                    }
                 }
                 val child = topBaseChild()
                 if (child != null && child is ImageRecsFragment) {
@@ -260,12 +266,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onPause() {
         super.onPause()
-        SuggestedEditsFunnel.get()!!.pause()
+        SuggestedEditsFunnel.get().pause()
     }
 
     override fun onResume() {
         super.onResume()
-        SuggestedEditsFunnel.get()!!.resume()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -450,7 +456,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
             updateActionButton()
-            SuggestedEditsFunnel.get()!!.impression(action)
+            SuggestedEditsFunnel.get().impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position

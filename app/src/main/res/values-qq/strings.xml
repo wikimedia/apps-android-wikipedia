@@ -386,6 +386,14 @@
   <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.\n{{Identical|Content is available under}}</string>
   <string name="empty_tab_title">Label shown on a blank tab with no content.</string>
   <string name="menu_save_all_tabs">Label suggesting user to add all open tabs to a list.</string>
+  <string name="error_blocked_title">Label stating that the current user or IP is blocked.</string>
+  <string name="error_blocked_by">Label stating which user created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
+  <string name="error_blocked_reason">Label stating the reason for the block. The %s symbol is replaced by the reason.</string>
+  <string name="error_blocked_start">Label stating the starting date of the block. The %s symbol is replaced by the date.</string>
+  <string name="error_blocked_expiry">Label stating the expiry date of the block. The %s symbol is replaced by the date.</string>
+  <string name="error_blocked_id">Label stating the ID of the block. The %s symbol is replaced by the ID.</string>
+  <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
+  <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
@@ -756,7 +764,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
   <string name="suggested_edits_image_preview_dialog_image">Label for image file name on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Label for a file that originates from Wikimedia Commons.</string>
   <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>

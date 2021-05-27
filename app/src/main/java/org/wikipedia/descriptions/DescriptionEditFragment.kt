@@ -244,30 +244,28 @@ class DescriptionEditFragment : Fragment() {
                     }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->
-                        if (result.hasEditResult() && result.edit() != null) {
-                            result.edit()?.run {
-                                when {
-                                    editSucceeded() -> {
-                                        requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                                        funnel.logSaved(newRevId())
-                                    }
-                                    hasCaptchaResponse() -> {
-                                        // TODO: handle captcha.
-                                        // new CaptchaResult(result.edit().captchaId());
-                                        funnel.logCaptchaShown()
-                                    }
-                                    hasEditErrorCode() -> {
-                                        editFailed(MwException(MwServiceError(code(), spamblacklist())), false)
-                                    }
-                                    hasSpamBlacklistResponse() -> {
-                                        editFailed(MwException(MwServiceError(code(), info())), false)
-                                    }
-                                    else -> {
-                                        editFailed(IOException("Received unrecognized edit response"), true)
-                                    }
+                        result.edit?.run {
+                            when {
+                                editSucceeded -> {
+                                    requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
+                                    funnel.logSaved(newRevId)
+                                }
+                                hasCaptchaResponse -> {
+                                    // TODO: handle captcha.
+                                    // new CaptchaResult(result.edit().captchaId());
+                                    funnel.logCaptchaShown()
+                                }
+                                hasEditErrorCode -> {
+                                    editFailed(MwException(MwServiceError(code, spamblacklist)), false)
+                                }
+                                hasSpamBlacklistResponse -> {
+                                    editFailed(MwException(MwServiceError(code, info)), false)
+                                }
+                                else -> {
+                                    editFailed(IOException("Received unrecognized edit response"), true)
                                 }
                             }
-                        } else {
+                        } ?: run {
                             editFailed(IOException("An unknown error occurred."), true)
                         }
                     }) { caught -> editFailed(caught, true) })
