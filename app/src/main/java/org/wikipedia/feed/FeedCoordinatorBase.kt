@@ -31,11 +31,11 @@ abstract class FeedCoordinatorBase(private val context: Context) {
         fun finished(shouldUpdatePreviousCard: Boolean)
     }
 
-    private var wiki: WikiSite? = null
-    private var updateListener: FeedUpdateListener? = null
     private val pendingClients = mutableListOf<FeedClient>()
     private val callback = ClientRequestCallback()
     private val progressCard = ProgressCard()
+    private var wiki: WikiSite? = null
+    private var updateListener: FeedUpdateListener? = null
     private var currentDayCardAge = -1
     private val hiddenCards =
         Collections.newSetFromMap(object : LinkedHashMap<String?, Boolean?>() {
@@ -43,8 +43,8 @@ abstract class FeedCoordinatorBase(private val context: Context) {
                 return size > MAX_HIDDEN_CARDS
             }
         })
-    var age = 0
     val cards = mutableListOf<Card>()
+    var age = 0
 
     init {
         updateHiddenCards()

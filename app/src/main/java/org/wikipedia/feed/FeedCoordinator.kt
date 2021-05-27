@@ -14,6 +14,7 @@ import org.wikipedia.feed.onboarding.OnboardingClient
 import org.wikipedia.feed.searchbar.SearchClient
 
 class FeedCoordinator internal constructor(context: Context) : FeedCoordinatorBase(context) {
+
     private val aggregatedClient = AggregatedFeedContentClient()
 
     init {

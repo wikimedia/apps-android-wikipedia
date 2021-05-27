@@ -103,7 +103,6 @@ enum class FeedContentType(private val code: Int,
                 return list
             }
 
-        @JvmStatic
         fun saveState() {
             val enabledList = mutableListOf<Boolean>()
             val orderList = mutableListOf<Int>()
