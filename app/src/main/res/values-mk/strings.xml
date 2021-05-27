@@ -213,7 +213,7 @@
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
@@ -728,7 +728,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис на статијата (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Слика</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Податотека од Ризницата</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>

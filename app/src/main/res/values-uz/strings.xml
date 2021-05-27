@@ -215,7 +215,7 @@
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
-  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
+  <string name="about_app_license" fuzzy="true">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;  mahsuloti</string>
   <string name="about_activity_title">Ilova haqida</string>
   <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
@@ -729,7 +729,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maqola tavsifi (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Boshladik</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Rasm nomi (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Rasm nomi (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Rasm</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Wikimedia Commons fayli</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>

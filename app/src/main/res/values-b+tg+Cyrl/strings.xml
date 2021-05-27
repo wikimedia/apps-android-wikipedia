@@ -207,7 +207,6 @@
     <item quantity="other">%d саҳмҳо</item>
   </plurals>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Унвони акс (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Тавзеҳоти акс (%s)</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Маълумоти бештар</string>
   <string name="suggested_edits_article_cta_snackbar_action">Дидан</string>
   <string name="suggested_edits_encouragement_message">%s, шуморо барои вироишатон ташаккур кард. Шумо метавонед роҳҳои зиёде барои саҳм ба Википедиа ёбед.</string>

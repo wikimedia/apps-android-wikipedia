@@ -210,7 +210,7 @@
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели добровољци сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако није другачије наведено.</string>
+  <string name="about_app_license" fuzzy="true">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Желите ли заиста да изађете без чувања промене?</string>
@@ -670,7 +670,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис чланка (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис слике (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Датотека</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаке</string>

@@ -189,7 +189,7 @@
   <string name="about_translators_heading">Tradukeri</string>
   <string name="about_translators_translatewiki">Ica \'app\' tradukesis da voluntara tradukeri en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenco</string>
-  <string name="about_app_license">Fonto-kodexo disponebla en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Fonto-kodexo disponebla en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ca pagino modifikesis. Ka tu fakte deziras ekirar sen salvar tua modifikuri?</string>
@@ -435,6 +435,7 @@
   <string name="description_edit_add_image_caption">Adjuntez informo pri l\'imajo</string>
   <string name="description_edit_cancel_hint">Nihiligar</string>
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>
+  <string name="description_edit_success_done">Facita</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
   <string name="suggested_edits_edit_translation_button">Modifikar tradukuro</string>

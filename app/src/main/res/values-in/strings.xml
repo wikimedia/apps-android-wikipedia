@@ -237,7 +237,7 @@
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
+  <string name="about_app_license" fuzzy="true">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
@@ -736,7 +736,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Tambahkan deskripsi artikel (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Takarir gambar (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Deskripsi gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Berkas</string>
   <string name="suggested_edits_image_preview_dialog_artist">Seniman/Pembuat</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tag</string>
