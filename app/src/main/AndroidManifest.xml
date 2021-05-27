@@ -73,6 +73,28 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".page.PageActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.Page"
+            android:launchMode="singleTask"
+            android:parentActivityName=".main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.MainActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- the following lines are merged
+                     https://developer.android.com/training/app-links/deep-linking.html
+                     so http and https apply to all prefixes-->
+                <data android:host="*.wikipedia.org" android:pathPrefix="/wiki/" android:scheme="http" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/zh.*" android:scheme="https" />
+                <data android:host="*.wikipedia.org" android:pathPattern="/sr.*" android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".crash.CrashReportActivity"
             android:label="@string/crash_report_activity_title"
             android:noHistory="true"
