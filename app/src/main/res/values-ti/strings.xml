@@ -340,7 +340,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ናይ ጽሑፍ መግለጺታት ወስኽ (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ጀምር</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ናይ ምስሊ መግለጺ ጽሑፍ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ናይ ምስሊ መግለጺ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ምስሊ</string>
   <string name="suggested_edits_image_preview_dialog_artist">ስነ ጥበባዊ</string>
   <string name="suggested_edits_image_preview_dialog_tags">መፈለጥታታት</string>

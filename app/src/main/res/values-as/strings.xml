@@ -202,7 +202,7 @@
   <string name="about_translators_heading">অনুবাদকসকল</string>
   <string name="about_translators_translatewiki">এই এপ্‌টো স্বেচ্ছাসেৱক অনুবাদকে &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ত অনুবাদ কৰিছে।</string>
   <string name="about_app_license_heading">অনুজ্ঞাপত্ৰ</string>
-  <string name="about_app_license">উৎস ক\'ড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 অনুজ্ঞাপত্ৰৰ&lt;/a&gt; অধীনত &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেৰিট&lt;/a&gt; আৰু &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবত&lt;/a&gt; উপলব্ধ। অন্যভাৱে উল্লেখ নাথাকিলে সমল &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্ৰিয়েটিভ কমন্স এট্ৰিবিউচন-শ্বেয়াৰ এলাইক অনুজ্ঞাপত্ৰ&lt;/a&gt; অধীনত উপলব্ধ।</string>
+  <string name="about_app_license" fuzzy="true">উৎস ক\'ড &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 অনুজ্ঞাপত্ৰৰ&lt;/a&gt; অধীনত &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেৰিট&lt;/a&gt; আৰু &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবত&lt;/a&gt; উপলব্ধ। অন্যভাৱে উল্লেখ নাথাকিলে সমল &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্ৰিয়েটিভ কমন্স এট্ৰিবিউচন-শ্বেয়াৰ এলাইক অনুজ্ঞাপত্ৰ&lt;/a&gt; অধীনত উপলব্ধ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছনৰ&lt;/a&gt; এটা সামগ্ৰী</string>
   <string name="about_activity_title">বিষয়ে</string>
   <string name="edit_abandon_confirm">এই পৃষ্ঠাটো সলোৱা হৈছে। আপোনাৰ সালসলনি সাঁচি নোথোৱাকৈ গুচি যাব বুলি নিশ্চিতনে?</string>
@@ -502,7 +502,7 @@
   <string name="view_top_read_card_action">অধিক শীৰ্ষৰ পঠন</string>
   <string name="view_next_random_article">আন এটা যাদৃচ্ছিক প্ৰবন্ধ ল\'ড কৰক</string>
   <string name="view_main_page_card_title">ৱিকিপিডিয়াত আজি</string>
-  <string name="view_main_page_card_action">মুখ্য পৃষ্ঠা চাওক</string>
+  <string name="view_main_page_card_action">বেটুপাতলৈ যাওক</string>
   <string name="view_featured_image_card_title">অজিৰ নিৰ্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনল’ড কৰক</string>
   <string name="view_featured_image_card_share">ভাগবতৰা কৰক</string>
@@ -598,7 +598,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">আৰম্ভ কৰক</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ছবিৰ শিৰোনাম (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ছবিৰ বিৱৰণ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">চিত্ৰ</string>
   <string name="suggested_edits_image_preview_dialog_artist">শিল্পী</string>
   <string name="suggested_edits_image_preview_dialog_tags">টেগসমূহ</string>
