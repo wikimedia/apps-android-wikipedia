@@ -5,8 +5,9 @@ import android.view.ActionMode
 import android.view.MenuItem
 import android.view.View
 import android.widget.ScrollView
+import androidx.core.view.WindowInsetsCompat
 import org.wikipedia.edit.richtext.SyntaxHighlighter
-import org.wikipedia.util.DeviceUtil
+import org.wikipedia.ktx.windowInsetsControllerCompat
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
@@ -26,7 +27,7 @@ class FindInEditorActionProvider(private val scrollView: ScrollView,
         val view = super.onCreateActionView(menuItem)
         textView.tag?.let {
             setSearchViewQuery(it as String)
-            DeviceUtil.showSoftKeyboard(view)
+            view.windowInsetsControllerCompat?.show(WindowInsetsCompat.Type.ime())
         }
         return view
     }

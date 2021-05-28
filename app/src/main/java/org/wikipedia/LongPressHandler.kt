@@ -11,11 +11,12 @@ import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebView.HitTestResult
+import androidx.core.view.WindowInsetsCompat
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.ktx.windowInsetsControllerCompat
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
 import org.wikipedia.util.UriUtil.isValidPageLink
 
 class LongPressHandler(view: View, private val historySource: Int, private val callback: LongPressMenu.Callback) : OnCreateContextMenuListener, OnTouchListener {
@@ -74,7 +75,7 @@ class LongPressHandler(view: View, private val historySource: Int, private val c
     private fun showPopupMenu(view: View, createAnchorView: Boolean) {
         title?.let {
             if (!it.isSpecial && view.isAttachedToWindow) {
-                hideSoftKeyboard(view)
+                view.windowInsetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
                 HistoryEntry(it, historySource).let { entry ->
                     entry.referrer = referrer
                     var anchorView = view

@@ -9,11 +9,13 @@ import android.view.LayoutInflater
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewDescriptionEditBinding
+import org.wikipedia.ktx.windowInsetsControllerCompat
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
 import org.wikipedia.page.PageTitle
@@ -214,7 +216,8 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
             binding.viewDescriptionEditReadArticleBarContainer.hide()
             binding.viewDescriptionEditContainer.visibility = GONE
             binding.viewDescriptionEditHelpButton.visibility = GONE
-            DeviceUtil.hideSoftKeyboard(binding.viewDescriptionEditReviewContainer)
+            binding.viewDescriptionEditReviewContainer.windowInsetsControllerCompat?.hide(
+                WindowInsetsCompat.Type.ime())
         } else {
             binding.viewDescriptionEditReviewContainer.hide()
             binding.viewDescriptionEditReadArticleBarContainer.show()

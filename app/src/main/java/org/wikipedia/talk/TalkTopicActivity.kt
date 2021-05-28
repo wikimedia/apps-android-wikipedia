@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -29,6 +30,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.ktx.windowInsetsControllerCompat
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -91,7 +93,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             binding.replySaveButton.visibility = View.VISIBLE
             binding.replyTextLayout.visibility = View.VISIBLE
             binding.licenseText.visibility = View.VISIBLE
-            DeviceUtil.showSoftKeyboard(binding.replyTextLayout)
+            binding.replyTextLayout.windowInsetsControllerCompat?.show(WindowInsetsCompat.Type.ime())
             editFunnel.logStart()
             binding.talkScrollContainer.postDelayed({
                 if (!isDestroyed) {

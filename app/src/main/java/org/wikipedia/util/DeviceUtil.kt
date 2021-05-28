@@ -10,29 +10,15 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityManager
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.WindowInsetsCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.ktx.insetsControllerCompat
 
 object DeviceUtil {
-    /**
-     * Attempt to display the Android keyboard.
-     *
-     * FIXME: This should not need to exist.
-     * Android should always show the keyboard at the appropriate time. This method allows you to display the keyboard
-     * when Android fails to do so.
-     *
-     * @param view The currently focused view that will receive the keyboard input
-     */
-    @JvmStatic
-    fun showSoftKeyboard(view: View) {
-        val keyboard = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        keyboard.toggleSoftInput(0, 0)
-    }
-
     /**
      * Attempt to hide the Android Keyboard.
      *
@@ -43,14 +29,7 @@ object DeviceUtil {
      */
     @JvmStatic
     fun hideSoftKeyboard(activity: Activity) {
-        hideSoftKeyboard(activity.window.decorView)
-    }
-
-    @JvmStatic
-    fun hideSoftKeyboard(view: View) {
-        val keyboard = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
-        keyboard.hideSoftInputFromWindow(view.windowToken, 0)
+        activity.window.insetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
     }
 
     @JvmStatic

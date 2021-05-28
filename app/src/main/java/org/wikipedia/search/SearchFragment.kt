@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -23,6 +24,7 @@ import org.wikipedia.analytics.SearchFunnel
 import org.wikipedia.database.contract.SearchHistoryContract
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.ktx.windowInsetsControllerCompat
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -295,7 +297,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun closeSearch() {
         isSearchActive = false
-        hideSoftKeyboard(requireView())
+        requireView().windowInsetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
         addRecentSearch(query)
     }
 

@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.ktx.windowInsetsControllerCompat
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.views.ViewAnimations
@@ -68,7 +70,7 @@ class EditSummaryFragment : Fragment() {
         ViewAnimations.fadeIn(binding.root) {
             requireActivity().invalidateOptionsMenu()
             binding.editSummaryEdit.requestFocus()
-            DeviceUtil.showSoftKeyboard(binding.editSummaryEdit)
+            binding.editSummaryEdit.windowInsetsControllerCompat?.show(WindowInsetsCompat.Type.ime())
         }
     }
 

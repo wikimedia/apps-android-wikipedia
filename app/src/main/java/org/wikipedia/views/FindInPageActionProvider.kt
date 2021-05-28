@@ -9,8 +9,10 @@ import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.WindowInsetsCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.GroupFindInPageBinding
+import org.wikipedia.ktx.windowInsetsControllerCompat
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
@@ -69,11 +71,11 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
 
     private fun setButtonClickListeners() {
         binding.findInPagePrev.setOnClickListener {
-            DeviceUtil.hideSoftKeyboard(it)
+            it.windowInsetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
             listener?.onFindPrevClicked()
         }
         binding.findInPageNext.setOnClickListener {
-            DeviceUtil.hideSoftKeyboard(it)
+            it.windowInsetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
             listener?.onFindNextClicked()
         }
         binding.closeButton.setOnClickListener {
@@ -86,7 +88,7 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
             if (isFirstOccurrence) {
                 Toast.makeText(context, context.getString(R.string.find_first_occurence), Toast.LENGTH_SHORT).show()
             } else {
-                DeviceUtil.hideSoftKeyboard(it)
+                it.windowInsetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
                 listener?.onFindPrevLongClicked()
             }
             true
@@ -95,7 +97,7 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
             if (isLastOccurrence) {
                 Toast.makeText(context, context.getString(R.string.find_last_occurence), Toast.LENGTH_SHORT).show()
             } else {
-                DeviceUtil.hideSoftKeyboard(it)
+                it.windowInsetsControllerCompat?.hide(WindowInsetsCompat.Type.ime())
                 listener?.onFindNextLongClicked()
                 lastOccurrenceSearchFlag = true
             }
