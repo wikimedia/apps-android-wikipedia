@@ -54,6 +54,9 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
             getNextItem()
         }
 
+
+        val transparency = 0xcc000000
+        binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
 
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
@@ -151,6 +154,9 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
             binding.oresContainer.visibility = GONE
         }
         binding.articleTitleView.text = candidate!!.title
+
+        binding.userTextView.text = StringUtil.fromHtml("<b>User:</b> " + candidate!!.user)
+        binding.summaryTextView.text = StringUtil.fromHtml("<b>Summary:</b> " + candidate!!.comment)
 
         val sb = SpannableStringBuilder()
 

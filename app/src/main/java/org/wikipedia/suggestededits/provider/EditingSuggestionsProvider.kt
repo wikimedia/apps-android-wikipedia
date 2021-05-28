@@ -12,10 +12,12 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.log.L
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.*
 import java.util.concurrent.Semaphore
+import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.random.Random
 
@@ -35,7 +37,9 @@ object EditingSuggestionsProvider {
     private var imagesWithTranslatableCaptionCacheToLang: String = ""
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
+
     private val revertCandidateCache: Stack<MwQueryResult.RecentChange> = Stack()
+    private var revertCandidateLastRevId = 0L
 
     private val articlesWithMissingImagesCache = mutableListOf<String>()
     private var articlesWithMissingImagesCacheLang: String = ""
@@ -314,30 +318,43 @@ object EditingSuggestionsProvider {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: MwQueryResult.RecentChange? = null
             if (!revertCandidateCache.empty()) {
+                L.d(revertCandidateCache.toString())
                 cachedItem = revertCandidateCache.pop()
             }
 
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                ServiceFactory.get(WikiSite.forLanguageCode(lang)).getRecentEdits(10)
-                        .map { response ->
-                            for (candidate in response.query()!!.recentChanges) {
-                                if (candidate.ores == null) {
-                                    continue
-                                }
-                                revertCandidateCache.push(candidate)
+                ServiceFactory.get(WikiSite.forLanguageCode(lang))
+                    .getRecentEdits(10, /* revertCandidateLastTimeStamp */ "now")
+                    .map { response ->
+                        var maxRevId = 0L
+                        for (candidate in response.query()!!.recentChanges) {
+                            if (candidate.revTo > maxRevId) {
+                                maxRevId = candidate.revTo
                             }
-                            var item: MwQueryResult.RecentChange? = null
-                            if (!revertCandidateCache.empty()) {
-                                item = revertCandidateCache.pop()
+                            if (candidate.revTo <= revertCandidateLastRevId) {
+                                continue
                             }
-                            if (item == null) {
-                                throw ListEmptyException()
+                            if (candidate.ores == null) {
+                                continue
                             }
-                            item
+                            revertCandidateCache.push(candidate)
                         }
-                        .retry { t: Throwable -> t is ListEmptyException }
+                        if (maxRevId > revertCandidateLastRevId) {
+                            revertCandidateLastRevId = maxRevId
+                        }
+                        var item: MwQueryResult.RecentChange? = null
+                        if (!revertCandidateCache.empty()) {
+                            L.d(revertCandidateCache.toString())
+                            item = revertCandidateCache.pop()
+                        }
+                        if (item == null) {
+                            throw ListEmptyException()
+                        }
+                        item
+                    }
+                    .retryWhen { t -> t.delay(2, TimeUnit.SECONDS) }
             }
         }.doFinally { mutex.release() }
     }

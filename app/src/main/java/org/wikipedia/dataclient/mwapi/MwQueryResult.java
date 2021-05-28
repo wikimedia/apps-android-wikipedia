@@ -313,12 +313,25 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
         @Nullable private List<String> tags;
         private JsonElement oresscores;
 
+        @Override
+        public String toString() {
+            return title;
+        }
+
         @NonNull public String getTitle() {
             return StringUtils.defaultString(title);
         }
 
         @NonNull public String getUser() {
             return StringUtils.defaultString(user);
+        }
+
+        @NonNull public String getComment() {
+            return StringUtils.defaultString(parsedcomment);
+        }
+
+        @NonNull public String getTimeStamp() {
+            return StringUtils.defaultString(timestamp);
         }
 
         public long getRevFrom() {

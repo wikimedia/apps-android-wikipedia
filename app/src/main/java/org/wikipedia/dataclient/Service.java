@@ -135,7 +135,7 @@ public interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctoponly=1&rcshow=anon&rctype=edit|new")
-    @NonNull Observable<MwQueryResponse> getRecentEdits(@Query("rclimit") int count);
+    @NonNull Observable<MwQueryResponse> getRecentEdits(@Query("rclimit") int count, @Query("rcstart") String startTimeStamp);
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
