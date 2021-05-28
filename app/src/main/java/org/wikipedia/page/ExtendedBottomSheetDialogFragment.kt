@@ -1,11 +1,11 @@
 package org.wikipedia.page
 
 import android.os.Build
-import android.view.View
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.wikipedia.WikipediaApp
+import org.wikipedia.ktx.insetsControllerCompat
 
 open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
@@ -20,8 +20,7 @@ open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
             requireDialog().window?.run {
                 navigationBarColor = color
-                decorView.systemUiVisibility = if (isDarkThemeOrDarkBackground) decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv()
-                else View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR or decorView.systemUiVisibility
+                insetsControllerCompat?.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
             }
         }
     }

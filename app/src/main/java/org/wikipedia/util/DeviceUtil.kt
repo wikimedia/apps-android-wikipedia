@@ -37,30 +37,10 @@ object DeviceUtil {
         activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 
-    fun setLightSystemUiVisibility(activity: Activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!WikipediaApp.getInstance().currentTheme.isDark) {
-                // this make the system recognizes the status bar is light and will make status bar icons become visible
-                activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            } else {
-                resetSystemUiVisibility(activity)
-            }
-        }
-    }
-
-    private fun resetSystemUiVisibility(activity: Activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            activity.window.decorView.systemUiVisibility = 0
-        }
-    }
-
     @JvmStatic
     fun updateStatusBarTheme(activity: Activity, toolbar: Toolbar?, reset: Boolean) {
-        if (reset) {
-            resetSystemUiVisibility(activity)
-        } else {
-            setLightSystemUiVisibility(activity)
-        }
+        activity.window.insetsControllerCompat?.isAppearanceLightStatusBars =
+            !reset && !WikipediaApp.getInstance().currentTheme.isDark
         toolbar?.navigationIcon?.colorFilter = BlendModeColorFilterCompat
                 .createBlendModeColorFilterCompat(if (reset) Color.WHITE
                 else ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), BlendModeCompat.SRC_IN)

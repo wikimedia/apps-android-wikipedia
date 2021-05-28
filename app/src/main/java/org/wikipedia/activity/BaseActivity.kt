@@ -12,7 +12,6 @@ import android.provider.Settings
 import android.text.TextUtils
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.view.View
 import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +30,7 @@ import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.crash.CrashReportActivity
 import org.wikipedia.events.*
+import org.wikipedia.ktx.insetsControllerCompat
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
@@ -41,7 +41,6 @@ import org.wikipedia.recurring.RecurringTasksExecutor
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.PermissionUtil
 import org.wikipedia.util.ResourceUtil
@@ -90,7 +89,7 @@ abstract class BaseActivity : AppCompatActivity() {
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         registerReceiver(networkStateReceiver, filter)
 
-        DeviceUtil.setLightSystemUiVisibility(this)
+        window.insetsControllerCompat?.isAppearanceLightStatusBars = !WikipediaApp.getInstance().currentTheme.isDark
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         maybeShowLoggedOutInBackgroundDialog()
@@ -185,7 +184,7 @@ abstract class BaseActivity : AppCompatActivity() {
             val isDarkThemeOrDarkBackground = (WikipediaApp.getInstance().currentTheme.isDark ||
                     color == ContextCompat.getColor(this, android.R.color.black))
             window.navigationBarColor = color
-            window.decorView.systemUiVisibility = if (isDarkThemeOrDarkBackground) window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv() else View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR or window.decorView.systemUiVisibility
+            window.insetsControllerCompat?.isAppearanceLightNavigationBars = !isDarkThemeOrDarkBackground
         }
     }
 
