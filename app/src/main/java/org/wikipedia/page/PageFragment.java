@@ -1376,7 +1376,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public int getToolbarMargin() {
-        return ((PageActivity) requireActivity()).toolbarContainerView.getHeight();
+        return ((PageActivity) requireActivity()).getToolbarMargin();
     }
 
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
