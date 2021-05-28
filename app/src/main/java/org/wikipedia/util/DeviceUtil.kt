@@ -8,12 +8,13 @@ import android.os.Build
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
-import android.view.WindowManager
 import android.view.accessibility.AccessibilityManager
 import androidx.appcompat.widget.Toolbar
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.ktx.insetsControllerCompat
@@ -34,7 +35,11 @@ object DeviceUtil {
 
     @JvmStatic
     fun setWindowSoftInputModeResizable(activity: Activity) {
-        activity.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        ViewCompat.setOnApplyWindowInsetsListener(activity.window.decorView) { v, insets ->
+            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+            v.updatePadding(bottom = imeInsets.top)
+            insets
+        }
     }
 
     @JvmStatic
