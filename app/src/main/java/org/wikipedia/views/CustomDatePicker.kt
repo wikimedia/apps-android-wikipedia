@@ -16,19 +16,21 @@ import org.wikipedia.databinding.DatePickerDialogBinding
 import org.wikipedia.databinding.ViewCustomCalendarDayBinding
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
+import java.time.LocalDate
+import java.time.Month
 import java.util.*
 
 class CustomDatePicker : DialogFragment() {
     interface Callback {
-        fun onDatePicked(month: Int, day: Int)
+        fun onDatePicked(month: Month, day: Int)
     }
 
     private var _binding: DatePickerDialogBinding? = null
     private val binding get() = _binding!!
 
-    private val today = Calendar.getInstance()
-    private val selectedDay = Calendar.getInstance()
-    private val callbackDay = Calendar.getInstance()
+    private val today: LocalDate = LocalDate.now()
+    private var selectedDay: LocalDate = LocalDate.now()
+    private var callbackDay: LocalDate = LocalDate.now()
 
     var callback: Callback? = null
 
@@ -41,23 +43,23 @@ class CustomDatePicker : DialogFragment() {
         setNextMonthClickListener()
         return AlertDialog.Builder(requireActivity())
                 .setView(binding.root)
-                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text) { _: DialogInterface?, _: Int -> callback?.onDatePicked(callbackDay[Calendar.MONTH], callbackDay[Calendar.DATE]) }
+                .setPositiveButton(R.string.custom_date_picker_dialog_ok_button_text) { _, _ ->
+                    callback?.onDatePicked(callbackDay.month, callbackDay.dayOfMonth)
+                }
                 .setNegativeButton(R.string.custom_date_picker_dialog_cancel_button_text) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
                 .create()
     }
 
     private fun setPreviousMonthClickListener() {
         binding.previousMonth.setOnClickListener {
-            val currentMonth = selectedDay[Calendar.MONTH]
-            selectedDay[LEAP_YEAR, if (currentMonth == 0) Calendar.DECEMBER else currentMonth - 1] = 1
+            selectedDay = LocalDate.of(LEAP_YEAR, selectedDay.month - 1, 1)
             setMonthString()
         }
     }
 
     private fun setNextMonthClickListener() {
         binding.nextMonth.setOnClickListener {
-            val currentMonth = selectedDay[Calendar.MONTH]
-            selectedDay[LEAP_YEAR, if (currentMonth == Calendar.DECEMBER) Calendar.JANUARY else currentMonth + 1] = 1
+            selectedDay = LocalDate.of(LEAP_YEAR, selectedDay.month + 1, 1)
             setMonthString()
         }
     }
@@ -68,7 +70,7 @@ class CustomDatePicker : DialogFragment() {
     }
 
     private fun setMonthString() {
-        binding.currentMonth.text = DateUtil.getMonthOnlyWithoutDayDateString(selectedDay.time)
+        binding.currentMonth.text = DateUtil.getMonthOnlyWithoutDayDateString(selectedDay)
         binding.calendarGrid.adapter!!.notifyDataSetChanged()
     }
 
@@ -83,7 +85,7 @@ class CustomDatePicker : DialogFragment() {
         }
 
         override fun getItemCount(): Int {
-            return selectedDay.getActualMaximum(Calendar.DAY_OF_MONTH)
+            return selectedDay.month.maxLength()
         }
 
         inner class ViewHolder internal constructor(private val binding: ViewCustomCalendarDayBinding) :
@@ -91,20 +93,20 @@ class CustomDatePicker : DialogFragment() {
 
             init {
                 binding.root.setOnClickListener {
-                    selectedDay[Calendar.DATE] = adapterPosition + 1
-                    callbackDay[LEAP_YEAR, selectedDay[Calendar.MONTH]] = adapterPosition + 1
+                    selectedDay = selectedDay.withDayOfMonth(adapterPosition + 1)
+                    callbackDay = LocalDate.of(LEAP_YEAR, selectedDay.month, adapterPosition + 1)
                     setDayString()
                     notifyDataSetChanged()
                 }
             }
 
             fun setFields(position: Int) {
-                if (position == today[Calendar.DATE] && today[Calendar.MONTH] == selectedDay[Calendar.MONTH]) {
+                if (position == today.dayOfMonth && today.month == selectedDay.month) {
                     binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
                 } else {
                     binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color))
                 }
-                if (position == callbackDay[Calendar.DATE] && selectedDay[Calendar.MONTH] == callbackDay[Calendar.MONTH]) {
+                if (position == callbackDay.dayOfMonth && selectedDay.month == callbackDay.month) {
                     binding.dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
                     binding.dayText.typeface = Typeface.DEFAULT_BOLD
                     binding.dayCircleBackground.visibility = View.VISIBLE
@@ -121,9 +123,10 @@ class CustomDatePicker : DialogFragment() {
         binding.calendarDay.text = DateUtil.getFeedCardShortDateString(selectedDay)
     }
 
-    fun setSelectedDay(month: Int, day: Int) {
-        selectedDay[LEAP_YEAR, month] = day
-        callbackDay[LEAP_YEAR, month] = day
+    fun setSelectedDay(month: Month, day: Int) {
+        val date = LocalDate.of(LEAP_YEAR, month, day)
+        selectedDay = date
+        callbackDay = date
     }
 
     override fun onDestroyView() {

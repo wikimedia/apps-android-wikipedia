@@ -8,10 +8,15 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
     private val DATE_FORMATS = HashMap<String, SimpleDateFormat>()
+    private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
     // TODO: Switch to DateTimeFormatter when minSdk = 26.
     @JvmStatic
@@ -64,8 +69,8 @@ object DateUtil {
     }
 
     @JvmStatic
-    fun getFeedCardShortDateString(date: Calendar): String {
-        return getExtraShortDateString(date.time)
+    fun getFeedCardShortDateString(date: LocalDate): String {
+        return getDateStringWithSkeletonPattern(date, "MMM d")
     }
 
     fun getMDYDateString(date: Date): String {
@@ -78,12 +83,13 @@ object DateUtil {
     }
 
     @JvmStatic
-    fun getMonthOnlyWithoutDayDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MMMM")
+    fun getMonthOnlyDateString(date: LocalDate): String {
+        return getDateStringWithSkeletonPattern(date, "MMMM d")
     }
 
-    private fun getExtraShortDateString(date: Date): String {
-        return getDateStringWithSkeletonPattern(date, "MMM d")
+    @JvmStatic
+    fun getMonthOnlyWithoutDayDateString(date: LocalDate): String {
+        return getDateStringWithSkeletonPattern(date, "MMMM")
     }
 
     fun getTimeString(date: Date): String {
@@ -99,6 +105,11 @@ object DateUtil {
         return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
     }
 
+    private fun getDateStringWithSkeletonPattern(date: LocalDate, pattern: String): String {
+        return getCachedDateTimeFormatter(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern),
+            Locale.getDefault(), false).format(date)
+    }
+
     private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
         return DATE_FORMATS.getOrPut(pattern) {
             val df = SimpleDateFormat(pattern, locale)
@@ -106,6 +117,15 @@ object DateUtil {
                 df.timeZone = TimeZone.getTimeZone("UTC")
             }
             df
+        }
+    }
+
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
+        return DATE_TIME_FORMATTERS.getOrPut(pattern) {
+            if (utc)
+                DateTimeFormatter.ofPattern(pattern, locale).withZone(ZoneOffset.UTC)
+            else
+                DateTimeFormatter.ofPattern(pattern, locale)
         }
     }
 
@@ -123,13 +143,6 @@ object DateUtil {
     @JvmStatic
     fun getUtcRequestDateFor(age: Int): UtcDate {
         return UtcDate(age)
-    }
-
-    @JvmStatic
-    fun getDefaultDateFor(age: Int): Calendar {
-        val calendar = Calendar.getInstance(TimeZone.getDefault())
-        calendar.add(Calendar.DATE, -age)
-        return calendar
     }
 
     @Synchronized

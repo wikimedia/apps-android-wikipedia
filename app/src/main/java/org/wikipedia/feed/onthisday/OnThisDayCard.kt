@@ -8,12 +8,12 @@ import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
+import java.time.LocalDate
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int) : WikiSiteCard(wiki) {
     private val nextYear: Int
-    private val date: Calendar = DateUtil.getDefaultDateFor(age)
+    private val date: LocalDate = LocalDate.now().minusDays(age.toLong())
     private val eventShownOnCard: OnThisDay.Event
     var callback: FeedAdapter.Callback? = null
 
@@ -39,7 +39,7 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(date.time.time).toInt() + wikiSite().hashCode()
+        return date.toEpochDay().toInt() + wikiSite().hashCode()
     }
 
     fun footerActionText(): String {
@@ -54,7 +54,7 @@ class OnThisDayCard(events: List<OnThisDay.Event>, wiki: WikiSite, val age: Int)
         return eventShownOnCard.year
     }
 
-    fun date(): Calendar {
+    fun date(): LocalDate {
         return date
     }
 
