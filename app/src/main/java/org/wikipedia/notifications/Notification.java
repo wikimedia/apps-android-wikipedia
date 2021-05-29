@@ -9,10 +9,11 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.json.GsonUtil;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.UriUtil;
 
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Map;
 
@@ -74,8 +75,8 @@ public class Notification {
         return contents;
     }
 
-    @NonNull Date getTimestamp() {
-        return timestamp != null ? timestamp.date() : new Date();
+    @NonNull LocalDateTime getTimestamp() {
+        return timestamp != null ? timestamp.localDateTime() : LocalDateTime.now();
     }
 
     @NonNull String getUtcIso8601() {
@@ -129,8 +130,8 @@ public class Notification {
     public static class Timestamp {
         @SuppressWarnings("unused") @Nullable private String utciso8601;
 
-        public Date date() {
-            return DateUtil.iso8601DateParse(utciso8601);
+        public LocalDateTime localDateTime() {
+            return Instant.parse(utciso8601).atZone(ZoneOffset.UTC).toLocalDateTime();
         }
     }
 

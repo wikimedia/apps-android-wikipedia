@@ -43,8 +43,10 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 import java.util.*
-import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 
 class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callback {
     private lateinit var binding: ActivityNotificationsBinding
@@ -221,14 +223,13 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private fun postprocessAndDisplay() {
         // Sort them by descending date...
-        notificationList.sortWith { n1: Notification, n2: Notification -> n2.timestamp.compareTo(n1.timestamp) }
+        notificationList.sortByDescending { it.timestamp }
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
         notificationContainerList.clear()
-        var millis = Long.MAX_VALUE
+        var localDateTime: LocalDateTime = LocalDateTime.MAX
         for (n in notificationList) {
-
             // TODO: remove this condition when the time is right.
             if (n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled() ||
                     n.category() == Notification.CATEGORY_EDIT_THANK && Prefs.notificationThanksEnabled() ||
@@ -241,9 +242,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
                 if (!currentSearchQuery.isNullOrEmpty() && n.contents != null && !n.contents!!.header.contains(currentSearchQuery!!)) {
                     continue
                 }
-                if (millis - n.timestamp.time > TimeUnit.DAYS.toMillis(1)) {
+                if (abs(ChronoUnit.DAYS.between(n.timestamp, localDateTime)) > 1) {
                     notificationContainerList.add(NotificationListItemContainer(n.timestamp))
-                    millis = n.timestamp.time
+                    localDateTime = n.timestamp
                 }
                 notificationContainerList.add(NotificationListItemContainer(n))
             }
@@ -469,8 +470,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private inner class NotificationDateHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
         private val dateView: TextView = view.findViewById(R.id.notification_date_text)
-        fun bindItem(date: Date) {
-            dateView.text = getFeedCardDateString(date)
+        fun bindItem(localDateTime: LocalDateTime) {
+            dateView.text = getFeedCardDateString(localDateTime.toLocalDate())
         }
     }
 
@@ -496,7 +497,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
-                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].date!!)
+                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].localDateTime!!)
                 is NotificationItemHolderSwipeable -> holder.bindItem(notificationContainerList[pos])
                 is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos])
             }
@@ -570,11 +571,11 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     private class NotificationListItemContainer {
         val type: Int
         var notification: Notification? = null
-        var date: Date? = null
+        var localDateTime: LocalDateTime? = null
         var selected = false
 
-        constructor(date: Date) {
-            this.date = date
+        constructor(localDateTime: LocalDateTime) {
+            this.localDateTime = localDateTime
             type = ITEM_DATE_HEADER
         }
 

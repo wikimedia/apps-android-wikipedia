@@ -35,6 +35,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
+import java.time.Instant
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -158,8 +159,9 @@ class TalkTopicsActivity : BaseActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
                     it.query?.firstPage()?.revisions()?.getOrNull(0)?.let { revision ->
+                        val instant = Instant.parse(revision.timestamp())
                         binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
-                            DateUtils.getRelativeTimeSpanString(DateUtil.iso8601DateParse(revision.timeStamp()).time,
+                            DateUtils.getRelativeTimeSpanString(instant.toEpochMilli(),
                                 System.currentTimeMillis(), 0L), revision.user))
                     }
                     ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)

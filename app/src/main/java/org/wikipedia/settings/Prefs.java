@@ -20,9 +20,10 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -784,16 +785,15 @@ public final class Prefs {
         setBoolean(R.string.preference_key_match_system_theme, enabled);
     }
 
-    public static Date getSuggestedEditsPauseDate() {
-        Date date = new Date(0);
-        if (contains(R.string.preference_key_suggested_edits_pause_date)) {
-            date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
-        }
-        return date;
+    @NonNull
+    public static LocalDateTime getSuggestedEditsPauseDate() {
+        return !contains(R.string.preference_key_suggested_edits_pause_date)
+                ? LocalDate.of(1970, 1, 1).atStartOfDay()
+                : DateUtil.dbDateTimeParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
     }
 
-    public static void setSuggestedEditsPauseDate(Date date) {
-        setString(R.string.preference_key_suggested_edits_pause_date, DateUtil.dbDateFormat(date));
+    public static void setSuggestedEditsPauseDate(@NonNull LocalDateTime localDateTime) {
+        setString(R.string.preference_key_suggested_edits_pause_date, DateUtil.dbDateTimeFormat(localDateTime));
     }
 
     public static int getSuggestedEditsPauseReverts() {

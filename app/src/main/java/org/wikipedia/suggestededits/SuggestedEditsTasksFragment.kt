@@ -40,9 +40,10 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
-import java.util.*
-import java.util.concurrent.TimeUnit
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 import kotlin.collections.ArrayList
+import kotlin.math.abs
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -60,7 +61,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private var isPausedOrDisabled = false
     private var totalPageviews = 0L
     private var totalContributions = 0
-    private var latestEditDate = Date()
+    private var latestEditDate: LocalDate = LocalDate.now()
     private var latestEditStreak = 0
     private var revertSeverity = 0
 
@@ -184,18 +185,23 @@ class SuggestedEditsTasksFragment : Fragment() {
                         blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
                     }
 
-                    totalContributions += wikidataResponse.query?.userInfo()!!.editCount
-                    totalContributions += commonsResponse.query?.userInfo()!!.editCount
+                    val wikidataQuery = wikidataResponse.query!!
+                    val wikidataUserInfo = wikidataQuery.userInfo()!!
+                    val commonsQuery = commonsResponse.query!!
+                    val commonsUserInfo = commonsQuery.userInfo()!!
 
-                    latestEditDate = wikidataResponse.query?.userInfo()!!.latestContrib
-                    if (commonsResponse.query?.userInfo()!!.latestContrib.after(latestEditDate)) {
-                        latestEditDate = commonsResponse.query?.userInfo()!!.latestContrib
+                    totalContributions += wikidataUserInfo.editCount
+                    totalContributions += commonsUserInfo.editCount
+
+                    latestEditDate = wikidataUserInfo.latestContrib
+                    if (commonsUserInfo.latestContrib.isAfter(latestEditDate)) {
+                        latestEditDate = commonsUserInfo.latestContrib
                     }
 
                     val contributions = ArrayList<UserContribution>()
-                    contributions.addAll(wikidataResponse.query!!.userContributions())
-                    contributions.addAll(commonsResponse.query!!.userContributions())
-                    contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
+                    contributions.addAll(wikidataQuery.userContributions())
+                    contributions.addAll(commonsQuery.userContributions())
+                    contributions.sortByDescending { it.localDateTime }
                     latestEditStreak = getEditStreak(contributions)
                     revertSeverity = UserContributionsStats.getRevertSeverity()
                     wikidataResponse
@@ -256,7 +262,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         setUserStatsViewsAndTooltips()
 
         if (latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+            binding.editStreakStatsView.setTitle(
+                if (latestEditDate != LocalDate.MIN) DateUtil.getMDYDateString(latestEditDate)
+                else resources.getString(R.string.suggested_edits_last_edited_never)
+            )
             binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
         } else {
             binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
@@ -337,7 +346,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
+            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message,
+                DateUtil.getShortDateString(pauseEndDate.toLocalDate()), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logPaused()
             UserContributionEvent.logPaused()
@@ -353,22 +363,18 @@ class SuggestedEditsTasksFragment : Fragment() {
             return 0
         }
         // TODO: This is a bit naive, and should be updated once we switch to java.time.*
-        val calendar = GregorianCalendar()
-        calendar.time = Date()
-        // Start with a calendar that is fixed at the beginning of today's date
-        val baseCal = GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
-        val dayMillis = TimeUnit.DAYS.toMillis(1)
+        val today = LocalDate.now()
         var streak = 1
         for (c in contributions) {
-            if (c.date().time >= baseCal.timeInMillis) {
+            val daysBetween = abs(ChronoUnit.DAYS.between(c.localDateTime, today))
+            if (daysBetween == 0L) {
                 // this contribution was on the same day.
                 continue
-            } else if (c.date().time < (baseCal.timeInMillis - dayMillis)) {
+            } else if (daysBetween > 1) {
                 // this contribution is more than one day apart, so the streak is broken.
                 break
             }
             streak++
-            calendar.timeInMillis = calendar.timeInMillis - dayMillis
         }
         return streak
     }

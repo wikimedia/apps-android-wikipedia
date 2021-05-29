@@ -5,9 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
-import static org.wikipedia.util.DateUtil.iso8601DateFormat;
+import java.time.Instant;
 
 /** Base class for an Event Platform event. */
 public class Event {
@@ -20,7 +18,7 @@ public class Event {
     public Event(@NonNull String schema, @NonNull String stream) {
         this.schema = schema;
         this.meta = new Meta(stream);
-        this.dt = iso8601DateFormat(new Date());
+        this.dt = Instant.now().toString();
     }
 
     @NonNull public String getStream() {

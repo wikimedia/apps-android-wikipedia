@@ -31,7 +31,7 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.time.LocalDateTime
 import kotlin.collections.ArrayList
 
 class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistItemView.Callback, WatchlistLanguagePopupView.Callback {
@@ -157,7 +157,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     private fun onSuccess(watchlistItems: List<MwQueryResult.WatchlistItem>) {
         totalItems.clear()
         totalItems.addAll(watchlistItems)
-        totalItems.sortByDescending { it.date }
+        totalItems.sortByDescending { it.localDateTime }
         onUpdateList(totalItems)
     }
 
@@ -170,19 +170,18 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
         val items = ArrayList<Any>()
         items.add("") // placeholder for header
 
-        val calendar = Calendar.getInstance()
         var curDay = -1
 
         for (item in watchlistItems) {
             if ((filterMode == FILTER_MODE_ALL) ||
                     (filterMode == FILTER_MODE_PAGES && Namespace.of(item.ns).main()) ||
                     (filterMode == FILTER_MODE_TALK && Namespace.of(item.ns).talk()) ||
-                    (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() && !Namespace.of(item.ns).talk())) {
-
-                calendar.time = item.date
-                if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                    curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                    items.add(item.date)
+                    (filterMode == FILTER_MODE_OTHER && !Namespace.of(item.ns).main() &&
+                    !Namespace.of(item.ns).talk())) {
+                val dateTime = item.localDateTime
+                if (dateTime.dayOfYear != curDay) {
+                    curDay = dateTime.dayOfYear
+                    items.add(dateTime)
                 }
 
                 items.add(item)
@@ -208,9 +207,9 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
     }
 
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(date: Date) {
+        fun bindItem(date: LocalDateTime) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
-            textView.text = DateUtil.getMonthOnlyDateString(date)
+            textView.text = DateUtil.getMonthOnlyDateString(date.toLocalDate())
         }
     }
 
@@ -236,7 +235,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
             if (position == 0) {
                 return VIEW_TYPE_HEADER
             }
-            return if (items[position] is Date) {
+            return if (items[position] is LocalDateTime) {
                 VIEW_TYPE_DATE
             } else {
                 VIEW_TYPE_ITEM
@@ -263,7 +262,7 @@ class WatchlistFragment : Fragment(), WatchlistHeaderView.Callback, WatchlistIte
                     holder.bindItem()
                 }
                 is WatchlistDateViewHolder -> {
-                    holder.bindItem((items[position] as Date))
+                    holder.bindItem((items[position] as LocalDateTime))
                 }
                 else -> {
                     (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))

@@ -16,6 +16,9 @@ import org.wikipedia.util.log.L
 import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeoutException
 import javax.net.ssl.SSLException
 
@@ -120,7 +123,8 @@ object ThrowableUtil {
 
     private fun parseBlockedDate(dateStr: String): String {
         try {
-            return DateUtil.iso8601DateParse(dateStr).toString()
+            return Instant.parse(dateStr).atZone(ZoneOffset.UTC)
+                .format(DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy"))
         } catch (e: Exception) {}
         return dateStr
     }

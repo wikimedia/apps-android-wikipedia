@@ -7,6 +7,7 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.ListCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
+import java.time.ZoneOffset
 import java.util.concurrent.TimeUnit
 
 class TopReadListCard(private val articles: TopRead,
@@ -17,7 +18,7 @@ class TopReadListCard(private val articles: TopRead,
     }
 
     override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(articles.date!!)
+        return DateUtil.getFeedCardDateString(articles.date!!.toInstant().atZone(ZoneOffset.UTC).toLocalDate())
     }
 
     override fun type(): CardType {

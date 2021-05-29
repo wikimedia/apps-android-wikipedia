@@ -78,7 +78,8 @@ class ContributionDetailsFragment : Fragment() {
             ViewUtil.loadImageWithRoundedCorners(binding.contributionImage, contribution.imageUrl)
         }
         binding.dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label),
-                DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
+                DateUtil.getFeedCardDateString(contribution.localDateTime.toLocalDate()) +
+                        " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.localDateTime.toLocalTime()), -1)
         setTypeSpecificData()
     }
 

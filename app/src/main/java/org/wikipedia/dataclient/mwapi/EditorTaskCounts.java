@@ -12,8 +12,8 @@ import org.wikipedia.json.GsonUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 
+import java.time.LocalDate;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Map;
 
 @SuppressWarnings("unused")
@@ -129,14 +129,13 @@ public class EditorTaskCounts {
     }
 
     @NonNull
-    public Date getLastEditDate() {
-        Date date = new Date(0);
+    @SuppressWarnings("checkstyle:magicnumber")
+    public LocalDate getLastEditDate() {
         if (editStreak == null || (editStreak instanceof JsonArray)) {
-            return date;
+            return LocalDate.of(1970, 1, 1);
         }
         EditStreak streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak.class);
-        date = DateUtil.dbDateParse(StringUtils.defaultString(streak.lastEditTime));
-        return date;
+        return DateUtil.dbDateTimeParse(StringUtils.defaultString(streak.lastEditTime)).toLocalDate();
     }
 
     public static class Counts {

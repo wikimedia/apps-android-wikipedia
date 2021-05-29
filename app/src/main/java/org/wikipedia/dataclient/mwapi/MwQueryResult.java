@@ -12,11 +12,12 @@ import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.notifications.Notification;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
-import org.wikipedia.util.DateUtil;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -310,8 +311,9 @@ public class MwQueryResult implements PostProcessingTypeAdapter.PostProcessable 
             return StringUtils.defaultString(logtype);
         }
 
-        @NonNull public Date getDate() {
-            return DateUtil.iso8601DateParse(StringUtils.defaultString(timestamp));
+        @NonNull public LocalDateTime getLocalDateTime() {
+            return Instant.parse(StringUtils.defaultString(timestamp)).atZone(ZoneOffset.UTC)
+                    .toLocalDateTime();
         }
 
         @NonNull public String getParsedComment() {

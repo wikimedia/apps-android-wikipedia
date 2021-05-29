@@ -16,10 +16,12 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.UriUtil;
 
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.util.DateUtil.iso8601DateParse;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.
@@ -28,7 +30,7 @@ public class PageProperties implements Parcelable {
     private final int pageId;
     @NonNull private final Namespace namespace;
     private final long revisionId;
-    private final Date lastModified;
+    private final LocalDateTime lastModified;
     private final String displayTitleText;
     private String editProtectionStatus;
     private final boolean isMainPage;
@@ -58,16 +60,14 @@ public class PageProperties implements Parcelable {
         revisionId = pageSummary.getRevision();
         displayTitleText = defaultString(pageSummary.getDisplayTitle());
         geo = pageSummary.getGeo();
-        lastModified = new Date();
         leadImageName = UriUtil.decodeURL(StringUtils.defaultString(pageSummary.getLeadImageName()));
         leadImageUrl = pageSummary.getThumbnailUrl() != null
                 ? UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageSummary.getThumbnailUrl(), DimenUtil.calculateLeadImageWidth())) : null;
         leadImageWidth = pageSummary.getThumbnailWidth();
         leadImageHeight = pageSummary.getThumbnailHeight();
-        String lastModifiedText = pageSummary.getTimestamp();
-        if (lastModifiedText != null) {
-            lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
-        }
+        final String lastModifiedText = pageSummary.getTimestamp();
+        lastModified = lastModifiedText == null ? LocalDateTime.now()
+                : Instant.parse(lastModifiedText).atZone(ZoneOffset.UTC).toLocalDateTime();
         // assume formatversion=2 is used so we get real booleans from the API
 
         isMainPage = pageSummary.getType().equals(PageSummary.TYPE_MAIN_PAGE);
@@ -91,7 +91,7 @@ public class PageProperties implements Parcelable {
         leadImageName = "";
         leadImageWidth = 0;
         leadImageHeight = 0;
-        lastModified = new Date();
+        lastModified = LocalDateTime.now();
         canEdit = false;
         this.isMainPage = isMainPage;
         wikiBaseItem = null;
@@ -110,7 +110,7 @@ public class PageProperties implements Parcelable {
         return revisionId;
     }
 
-    public Date getLastModified() {
+    public LocalDateTime getLastModified() {
         return lastModified;
     }
 
@@ -187,7 +187,7 @@ public class PageProperties implements Parcelable {
         parcel.writeInt(pageId);
         parcel.writeInt(namespace.code());
         parcel.writeLong(revisionId);
-        parcel.writeLong(lastModified.getTime());
+        parcel.writeString(lastModified.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
         parcel.writeString(displayTitleText);
         parcel.writeValue(geo);
         parcel.writeString(editProtectionStatus);
@@ -205,7 +205,7 @@ public class PageProperties implements Parcelable {
         pageId = in.readInt();
         namespace = Namespace.of(in.readInt());
         revisionId = in.readLong();
-        lastModified = new Date(in.readLong());
+        lastModified = LocalDateTime.parse(in.readString());
         displayTitleText = in.readString();
         geo = (Location) in.readValue(Location.class.getClassLoader());
         editProtectionStatus = in.readString();

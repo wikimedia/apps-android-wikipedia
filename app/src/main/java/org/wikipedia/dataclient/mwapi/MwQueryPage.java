@@ -215,7 +215,7 @@ public class MwQueryPage {
             return StringUtils.defaultString(content);
         }
 
-        @NonNull public String timeStamp() {
+        @NonNull public String timestamp() {
             return StringUtils.defaultString(timeStamp);
         }
 

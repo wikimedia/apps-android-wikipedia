@@ -8,10 +8,11 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.util.DateUtil;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -65,13 +66,14 @@ public class Announcement {
         return type;
     }
 
-    @Nullable
-    public Date startTime() {
-        return DateUtil.iso8601DateParse(startTime);
+    @NonNull
+    public LocalDateTime startTime() {
+        return Instant.parse(startTime).atZone(ZoneOffset.UTC).toLocalDateTime();
     }
 
-    @Nullable Date endTime() {
-        return DateUtil.iso8601DateParse(endTime);
+    @NonNull
+    LocalDateTime endTime() {
+        return Instant.parse(endTime).atZone(ZoneOffset.UTC).toLocalDateTime();
     }
 
     @NonNull List<String> platforms() {

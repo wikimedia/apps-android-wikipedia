@@ -1,10 +1,10 @@
 package org.wikipedia.userprofile
 
 import org.wikipedia.dataclient.WikiSite
-import java.util.*
+import java.time.LocalDateTime
 
 class Contribution internal constructor(val qNumber: String, var apiTitle: String, var displayTitle: String, var description: String, val editType: Int, var imageUrl: String?,
-                                        val date: Date, val wikiSite: WikiSite, var pageViews: Long, var sizeDiff: Int, var top: Boolean, var tagCount: Int) {
+                                        val localDateTime: LocalDateTime, val wikiSite: WikiSite, var pageViews: Long, var sizeDiff: Int, var top: Boolean, var tagCount: Int) {
 
     companion object {
         const val EDIT_TYPE_GENERIC = 0

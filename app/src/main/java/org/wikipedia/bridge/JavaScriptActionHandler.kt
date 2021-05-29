@@ -14,8 +14,9 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 import java.util.*
-import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
@@ -121,7 +122,7 @@ object JavaScriptActionHandler {
         }
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
-        val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
+        val editedDaysAgo = ChronoUnit.DAYS.between(model.page!!.pageProperties.lastModified, LocalDate.now())
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.

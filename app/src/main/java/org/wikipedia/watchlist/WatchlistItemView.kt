@@ -52,7 +52,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.titleText.text = item.title
         binding.langCodeText.text = item.wiki.languageCode()
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment)
-        binding.timeText.text = DateUtil.getTimeString(item.date)
+        binding.timeText.text = DateUtil.getTimeString(item.localDateTime.toLocalTime())
         binding.userNameText.text = item.user
 
         binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_talk)

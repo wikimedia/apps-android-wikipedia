@@ -50,6 +50,8 @@ import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.nio.charset.StandardCharsets
+import java.time.Instant
+import java.time.ZoneOffset
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, LinkPreviewDialog.Callback {
     private var _binding: FragmentArticleEditDetailsBinding? = null
@@ -214,7 +216,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffText.scrollTo(0, 0)
         binding.diffText.text = ""
         binding.usernameButton.text = currentRevision!!.user
-        binding.editTimestamp.text = DateUtil.getDateAndTimeWithPipe(DateUtil.iso8601DateParse(currentRevision!!.timeStamp()))
+        val dateTime = Instant.parse(currentRevision!!.timestamp()).atZone(ZoneOffset.UTC).toLocalDateTime()
+        binding.editTimestamp.text = DateUtil.getDateAndTimeWithPipe(dateTime)
         binding.editComment.text = currentRevision!!.comment
         binding.newerIdButton.isClickable = newerRevisionId != -1L
         binding.olderIdButton.isClickable = olderRevisionId != 0L

@@ -1,8 +1,8 @@
 package org.wikipedia.dataclient.mwapi
 
-import org.wikipedia.util.DateUtil
-import java.text.ParseException
-import java.util.*
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 class UserContribution {
     val userid: Int = 0
@@ -13,23 +13,13 @@ class UserContribution {
     val ns: Int = 0
     val title: String = ""
     private val timestamp: String = ""
-    private var parsedDate: Date? = null
     val comment: String = ""
     val new: Boolean = false
     val minor: Boolean = false
     val top: Boolean = false
     val size: Int = 0
     val sizediff: Int = 0
-    val tags: List<String> = Collections.emptyList()
+    val tags: List<String> = emptyList()
 
-    fun date(): Date {
-        if (parsedDate == null) {
-            try {
-                parsedDate = DateUtil.iso8601DateParse(timestamp)
-            } catch (e: ParseException) {
-                // ignore
-            }
-        }
-        return parsedDate!!
-    }
+    val localDateTime: LocalDateTime by lazy { Instant.parse(timestamp).atZone(ZoneOffset.UTC).toLocalDateTime() }
 }

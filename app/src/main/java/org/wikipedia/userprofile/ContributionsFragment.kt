@@ -19,8 +19,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
-import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
@@ -45,10 +43,13 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
+import java.time.LocalDate
+import java.time.LocalDateTime
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
+import kotlin.collections.HashSet
 
 class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private var _binding: FragmentContributionsSuggestedEditsBinding? = null
@@ -171,7 +172,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
 
         var totalContributionCount = 0
-        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
+        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(emptyList())
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
@@ -206,8 +207,10 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             qLangMap[qNumber] = HashSet()
                         }
 
-                        wikidataContributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
-                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, 0))
+                        wikidataContributions.add(Contribution(qNumber, contribution.title, contribution.title,
+                            contributionDescription, editType, null, contribution.localDateTime,
+                            WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff,
+                            contribution.top, 0))
 
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
@@ -227,7 +230,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 Observable.just(wikidataContributions)
                             }
                 },
-                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
+                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(emptyList()) else
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
@@ -275,8 +278,11 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                         }
                                     }
 
-                                    contributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
-                                            WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
+                                    contributions.add(Contribution(qNumber, contribution.title,
+                                        contribution.title, contributionDescription, editType,
+                                        null, contribution.localDateTime,
+                                        WikiSite.forLanguageCode(contributionLanguage), 0,
+                                        contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
                             }, { wikidataContributions, commonsContributions ->
@@ -318,15 +324,15 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith { o2, o1 -> (o1.date.compareTo(o2.date)) }
+        sortedContributions.sortByDescending { it.localDateTime }
 
         if (!sortedContributions.isNullOrEmpty()) {
-            var currentDate = sortedContributions[0].date
-            var nextDate: Date
+            var currentDate = sortedContributions[0].localDateTime
+            var nextDate: LocalDateTime
             displayedContributions.add(getCorrectDateString(currentDate))
             for (position in 0 until sortedContributions.size) {
-                nextDate = sortedContributions[position].date
-                if (!DateUtils.isSameDay(nextDate, currentDate)) {
+                nextDate = sortedContributions[position].localDateTime
+                if (nextDate.toLocalDate() != currentDate.toLocalDate()) {
                     displayedContributions.add(getCorrectDateString(nextDate))
                     currentDate = nextDate
                 }
@@ -337,13 +343,15 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         binding.contributionsRecyclerView.visibility = VISIBLE
     }
 
-    private fun getCorrectDateString(date: Date): String {
-        val yesterday: Calendar = Calendar.getInstance()
-        yesterday.add(Calendar.DAY_OF_YEAR, -1)
+    private fun getCorrectDateString(localDateTime: LocalDateTime): String {
+        val today = LocalDate.now()
+        val yesterday = today.minusDays(1)
+        val localDate = localDateTime.toLocalDate()
         return when {
-            DateUtils.isSameDay(Calendar.getInstance().time, date) -> StringUtils.capitalize(getString(R.string.view_continue_reading_card_subtitle_today))
-            DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_contribution_date_yesterday_text)
-            else -> DateUtil.getFeedCardDateString(date)
+            today == localDate -> getString(R.string.view_continue_reading_card_subtitle_today)
+                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+            yesterday == localDate -> getString(R.string.suggested_edits_contribution_date_yesterday_text)
+            else -> DateUtil.getFeedCardDateString(localDate)
         }
     }
 

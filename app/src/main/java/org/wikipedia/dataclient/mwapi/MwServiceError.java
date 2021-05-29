@@ -7,18 +7,15 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
-import org.wikipedia.json.PostProcessingTypeAdapter;
-import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.ThrowableUtil;
 
-import java.util.Date;
+import java.time.Instant;
 import java.util.List;
 
 /**
  * Gson POJO for a MediaWiki API error.
  */
 @SuppressWarnings("unused")
-public class MwServiceError implements ServiceError, PostProcessingTypeAdapter.PostProcessable {
+public class MwServiceError implements ServiceError {
     @Nullable private String code;
     @Nullable private String text;
     @Nullable private String html;
@@ -71,14 +68,6 @@ public class MwServiceError implements ServiceError, PostProcessingTypeAdapter.P
         return null;
     }
 
-    @Override
-    public void postProcess() {
-        // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
-        if (("blocked".equals(code) || "autoblocked".equals(code)) && data != null && data.blockinfo != null) {
-            html = ThrowableUtil.getBlockMessageHtml(data.blockinfo);
-        }
-    }
-
     private static final class Data {
         @Nullable private List<Message> messages;
         @Nullable private BlockInfo blockinfo;
@@ -129,9 +118,9 @@ public class MwServiceError implements ServiceError, PostProcessingTypeAdapter.P
             if (TextUtils.isEmpty(blockexpiry)) {
                 return false;
             }
-            Date now = new Date();
-            Date expiry = DateUtil.iso8601DateParse(blockexpiry);
-            return expiry.after(now);
+            final Instant now = Instant.now();
+            final Instant expiry = Instant.parse(blockexpiry);
+            return expiry.isAfter(now);
         }
     }
 }

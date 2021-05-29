@@ -9,6 +9,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
+import java.time.ZonedDateTime
 import java.util.*
 
 /** Schemas for this abstract funnel are expected to have appInstallID and sessionToken fields. When
@@ -26,7 +27,7 @@ abstract class Funnel @JvmOverloads internal constructor(protected val app: Wiki
             this(app, schemaName, revision, SAMPLE_LOG_ALL, wiki)
 
     protected open fun preprocessData(eventData: JSONObject): JSONObject {
-        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(Date()))
+        preprocessData(eventData, DEFAULT_TIMESTAMP_KEY, DateUtil.iso8601LocalDateFormat(ZonedDateTime.now()))
         preprocessData(eventData, DEFAULT_APP_INSTALL_ID_KEY, app.appInstallID)
         preprocessSessionToken(eventData)
         return eventData

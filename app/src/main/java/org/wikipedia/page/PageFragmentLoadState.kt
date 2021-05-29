@@ -26,6 +26,8 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 class PageFragmentLoadState(private var model: PageViewModel,
                             private var fragment: PageFragment,
@@ -196,7 +198,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
             return
         }
         try {
-            val dateStr = DateUtil.getShortDateString(DateUtil.getHttpLastModifiedDate(dateHeader))
+            val date = ZonedDateTime.parse(dateHeader, DateTimeFormatter.RFC_1123_DATE_TIME).toLocalDate()
+            val dateStr = DateUtil.getShortDateString(date)
             Toast.makeText(fragment.requireContext().applicationContext,
                     fragment.getString(R.string.page_offline_notice_last_date, dateStr),
                     Toast.LENGTH_LONG).show()

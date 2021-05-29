@@ -9,6 +9,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.settings.Prefs
+import java.time.LocalDate
+import java.time.LocalDateTime
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -18,7 +20,7 @@ import kotlin.math.ceil
 object UserContributionsStats {
     private const val REVERT_SEVERITY_PAUSE_THRESHOLD = 5
     private const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
-    private const val PAUSE_DURATION_DAYS = 7
+    private const val PAUSE_DURATION_DAYS = 7L
 
     private var totalEdits: Int = 0
     var totalReverts: Int = 0
@@ -118,20 +120,19 @@ object UserContributionsStats {
         return getRevertSeverity() > REVERT_SEVERITY_DISABLE_THRESHOLD
     }
 
-    fun maybePauseAndGetEndDate(): Date? {
+    fun maybePauseAndGetEndDate(): LocalDateTime? {
+        val now = LocalDateTime.now()
+        val zeroDate = LocalDate.of(1970, 1, 1).atStartOfDay()
         val pauseDate = Prefs.getSuggestedEditsPauseDate()
-        var pauseEndDate: Date? = null
+        var pauseEndDate: LocalDateTime? = null
 
         // Are we currently in a pause period?
-        if (pauseDate.time != 0L) {
-            val cal = Calendar.getInstance()
-            cal.time = pauseDate
-            cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-            pauseEndDate = cal.time
+        if (pauseDate != zeroDate) {
+            pauseEndDate = pauseDate.plusDays(PAUSE_DURATION_DAYS)
 
-            if (Date().after((pauseEndDate))) {
+            if (now.isAfter(pauseEndDate)) {
                 // We've exceeded the pause period, so remove it.
-                Prefs.setSuggestedEditsPauseDate(Date(0))
+                Prefs.setSuggestedEditsPauseDate(zeroDate)
                 pauseEndDate = null
             }
         }
@@ -139,13 +140,10 @@ object UserContributionsStats {
         if (getRevertSeverity() > REVERT_SEVERITY_PAUSE_THRESHOLD) {
             // Do we need to impose a new pause?
             if (totalReverts > Prefs.getSuggestedEditsPauseReverts()) {
-                val cal = Calendar.getInstance()
-                cal.time = Date()
-                Prefs.setSuggestedEditsPauseDate(cal.time)
+                Prefs.setSuggestedEditsPauseDate(now)
                 Prefs.setSuggestedEditsPauseReverts(totalReverts)
 
-                cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-                pauseEndDate = cal.time
+                pauseEndDate = now.plusDays(PAUSE_DURATION_DAYS)
             }
         }
         return pauseEndDate

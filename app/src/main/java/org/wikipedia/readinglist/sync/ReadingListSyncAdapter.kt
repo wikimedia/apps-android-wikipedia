@@ -19,10 +19,11 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingList
 import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.text.ParseException
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 class ReadingListSyncAdapter : JobIntentService() {
 
@@ -409,8 +410,8 @@ class ReadingListSyncAdapter : JobIntentService() {
         return if (lastDateHeader.isNullOrEmpty()) {
             lastSyncTime
         } else try {
-            val date = DateUtil.getHttpLastModifiedDate(lastDateHeader)
-            DateUtil.iso8601DateFormat(date)
+            val zonedDateTime = ZonedDateTime.parse(lastDateHeader, DateTimeFormatter.RFC_1123_DATE_TIME)
+            zonedDateTime.format(DateTimeFormatter.ISO_INSTANT)
         } catch (e: ParseException) {
             lastSyncTime
         }

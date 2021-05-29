@@ -8,9 +8,8 @@ import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import io.reactivex.rxjava3.core.Observable;
 
@@ -28,9 +27,11 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_BETA_WITH_VERSION = 6;
     private static final int ANNOUNCEMENT_FOR_OLD_VERSION = 7;
     private AnnouncementList announcementList;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
 
     private static final String ANNOUNCEMENT_JSON_FILE = "announce_2016_11_21.json";
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    private static final LocalDateTime LOCAL_DATE_TIME = LocalDate.of(2016, 11, 20).atStartOfDay();
 
     @Before
     @Override
@@ -63,32 +64,31 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     }
 
     @Test public void testFundraisingParams() {
-        Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_FUNDRAISING_ANDROID);
+        final Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_FUNDRAISING_ANDROID);
         assertThat(announcement.hasAction(), is(true));
         assertThat(announcement.hasFooterCaption(), is(true));
         assertThat(announcement.hasImageUrl(), is(true));
     }
 
-    @Test public void testShouldShowByCountry() throws Throwable {
-        Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_SURVEY_ANDROID);
-        Date dateDuring = dateFormat.parse("2016-11-20");
-        assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(true));
-        assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), is(false));
-        assertThat(AnnouncementClient.shouldShow(announcement, null, dateDuring), is(false));
+    @Test public void testShouldShowByCountry() {
+        final Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_SURVEY_ANDROID);
+        assertThat(AnnouncementClient.shouldShow(announcement, "US", LOCAL_DATE_TIME), is(true));
+        assertThat(AnnouncementClient.shouldShow(announcement, "FI", LOCAL_DATE_TIME), is(false));
+        assertThat(AnnouncementClient.shouldShow(announcement, null, LOCAL_DATE_TIME), is(false));
     }
 
-    @Test public void testShouldShowByDate() throws Throwable {
-        Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_SURVEY_ANDROID);
-        Date dateBefore = dateFormat.parse("2016-08-01");
-        Date dateAfter = dateFormat.parse("2017-01-05");
+    @SuppressWarnings("checkstyle:magicnumber")
+    @Test public void testShouldShowByDate() {
+        final Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_SURVEY_ANDROID);
+        final LocalDateTime dateBefore = LocalDate.of(2016, 8, 1).atStartOfDay();
+        final LocalDateTime dateAfter = LocalDate.of(2017, 1, 5).atStartOfDay();
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateBefore), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateAfter), is(false));
     }
 
-    @Test public void testShouldShowByPlatform() throws Throwable {
-        Announcement announcementIOS = announcementList.getItems().get(ANNOUNCEMENT_IOS);
-        Date dateDuring = dateFormat.parse("2016-11-20");
-        assertThat(AnnouncementClient.shouldShow(announcementIOS, "US", dateDuring), is(false));
+    @Test public void testShouldShowByPlatform() {
+        final Announcement announcementIOS = announcementList.getItems().get(ANNOUNCEMENT_IOS);
+        assertThat(AnnouncementClient.shouldShow(announcementIOS, "US", LOCAL_DATE_TIME), is(false));
     }
 
     @Test public void testShouldShowForInvalidDates() {
@@ -96,24 +96,21 @@ public class AnnouncementClientTest extends MockRetrofitTest {
         assertThat(announcementList.getItems().get(ANNOUNCEMENT_NO_DATES), is(nullValue()));
     }
 
-    @Test public void testShouldShowForInvalidCountries() throws Throwable {
-        Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_NO_COUNTRIES);
-        Date dateDuring = dateFormat.parse("2016-11-20");
-        assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
-        assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), is(false));
-        assertThat(AnnouncementClient.shouldShow(announcement, "", dateDuring), is(false));
+    @Test public void testShouldShowForInvalidCountries() {
+        final Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_NO_COUNTRIES);
+        assertThat(AnnouncementClient.shouldShow(announcement, "US", LOCAL_DATE_TIME), is(false));
+        assertThat(AnnouncementClient.shouldShow(announcement, "FI", LOCAL_DATE_TIME), is(false));
+        assertThat(AnnouncementClient.shouldShow(announcement, "", LOCAL_DATE_TIME), is(false));
     }
 
-    @Test public void testBetaWithVersion() throws Throwable {
-        Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_BETA_WITH_VERSION);
-        Date dateDuring = dateFormat.parse("2016-11-20");
-        assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(true));
+    @Test public void testBetaWithVersion() {
+        final Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_BETA_WITH_VERSION);
+        assertThat(AnnouncementClient.shouldShow(announcement, "US", LOCAL_DATE_TIME), is(true));
     }
 
-    @Test public void testForOldVersion() throws Throwable {
-        Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_FOR_OLD_VERSION);
-        Date dateDuring = dateFormat.parse("2016-11-20");
-        assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
+    @Test public void testForOldVersion() {
+        final Announcement announcement = announcementList.getItems().get(ANNOUNCEMENT_FOR_OLD_VERSION);
+        assertThat(AnnouncementClient.shouldShow(announcement, "US", LOCAL_DATE_TIME), is(false));
     }
 
     private Observable<AnnouncementList> getObservable() {

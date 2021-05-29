@@ -16,7 +16,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.time.LocalDateTime
 
 class AnnouncementClient : FeedClient {
 
@@ -47,7 +47,7 @@ class AnnouncementClient : FeedClient {
         private fun buildCards(announcements: List<Announcement>): List<Card> {
             val cards = mutableListOf<Card>()
             val country = GeoUtil.geoIPCountry
-            val now = Date()
+            val now = LocalDateTime.now()
             for (announcement in announcements) {
                 if (shouldShow(announcement, country, now)) {
                     when (announcement.type()) {
@@ -63,10 +63,10 @@ class AnnouncementClient : FeedClient {
         }
 
         @JvmStatic
-        fun shouldShow(announcement: Announcement?, country: String?, date: Date): Boolean {
+        fun shouldShow(announcement: Announcement?, country: String?, localDateTime: LocalDateTime): Boolean {
             return (announcement != null && (announcement.platforms().contains(PLATFORM_CODE) ||
                     announcement.platforms().contains(PLATFORM_CODE_NEW)) &&
-                    matchesCountryCode(announcement, country) && matchesDate(announcement, date) &&
+                    matchesCountryCode(announcement, country) && matchesDate(announcement, localDateTime) &&
                     matchesVersionCodes(announcement.minVersion(), announcement.maxVersion()) && matchesConditions(announcement))
         }
 
@@ -81,13 +81,11 @@ class AnnouncementClient : FeedClient {
             } else announcement.countries().contains(countryCode)
         }
 
-        private fun matchesDate(announcement: Announcement, date: Date): Boolean {
+        private fun matchesDate(announcement: Announcement, localDateTime: LocalDateTime): Boolean {
             if (Prefs.ignoreDateForAnnouncements()) {
                 return true
             }
-            return if (announcement.startTime() != null && announcement.startTime()!!.after(date)) {
-                false
-            } else announcement.endTime() == null || !announcement.endTime()!!.before(date)
+            return !announcement.startTime().isAfter(localDateTime) && !announcement.endTime().isBefore(localDateTime)
         }
 
         private fun matchesConditions(announcement: Announcement): Boolean {

@@ -7,10 +7,11 @@ import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.util.DateUtil;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -38,11 +39,8 @@ public class UserInfo extends MwServiceError.BlockInfo {
         return editcount;
     }
 
-    @NonNull public Date getLatestContrib() {
-        Date date = new Date(0);
-        if (!TextUtils.isEmpty(latestcontrib)) {
-            date = DateUtil.iso8601DateParse(latestcontrib);
-        }
-        return date;
+    @NonNull public LocalDate getLatestContrib() {
+        return TextUtils.isEmpty(latestcontrib) ? LocalDate.MIN
+                : Instant.parse(latestcontrib).atZone(ZoneOffset.UTC).toLocalDate();
     }
 }

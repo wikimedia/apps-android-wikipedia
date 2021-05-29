@@ -3,9 +3,8 @@ package org.wikipedia.readinglist.sync
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.annotations.Required
-import org.wikipedia.util.DateUtil
 import java.text.Normalizer
-import java.util.*
+import java.time.Instant
 
 data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
                               val entries: List<RemoteReadingListEntry>?,
@@ -22,7 +21,7 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
                                  @SerializedName("deleted") val isDeleted: Boolean) {
 
         constructor(name: String, description: String?) :
-                this(0, false, name, description, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), false)
+                this(0, false, name, description, Instant.now().toString(), Instant.now().toString(), false)
 
         fun name(): String = Normalizer.normalize(name, Normalizer.Form.NFC)
         fun description(): String? = Normalizer.normalize(description.orEmpty(), Normalizer.Form.NFC)
@@ -38,7 +37,7 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>?,
                                       @SerializedName("deleted") val isDeleted: Boolean) {
 
         constructor(project: String, title: String) :
-                this(0, 0, project, title, DateUtil.iso8601DateFormat(Date()), DateUtil.iso8601DateFormat(Date()), null, false)
+                this(0, 0, project, title, Instant.now().toString(), Instant.now().toString(), null, false)
 
         fun project(): String = Normalizer.normalize(project, Normalizer.Form.NFC)
         fun title(): String = Normalizer.normalize(title, Normalizer.Form.NFC)
