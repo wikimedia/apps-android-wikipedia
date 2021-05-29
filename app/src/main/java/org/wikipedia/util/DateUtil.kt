@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
@@ -51,16 +52,13 @@ object DateUtil {
 
     @JvmStatic
     fun getFeedCardDayHeaderDate(age: Int): String {
-        return getDateStringWithSkeletonPattern(UtcDate(age).baseCalendar.time, "MMMM d")
+        return getDateStringWithSkeletonPattern(LocalDate.now(ZoneOffset.UTC).minusDays(age.toLong()),
+            "MMMM d")
     }
 
     @JvmStatic
     fun getFeedCardDateString(age: Int): String {
-        return getFeedCardDateString(UtcDate(age).baseCalendar)
-    }
-
-    private fun getFeedCardDateString(date: Calendar): String {
-        return getShortDateString(date.time)
+        return getShortDateString(LocalDate.now(ZoneOffset.UTC).minusDays(age.toLong()))
     }
 
     @JvmStatic
@@ -138,6 +136,11 @@ object DateUtil {
         val dateFormat = DateFormat.getMediumDateFormat(WikipediaApp.getInstance())
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
         return dateFormat.format(date)
+    }
+
+    @JvmStatic
+    fun getShortDateString(date: LocalDate): String {
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(date)
     }
 
     @JvmStatic

@@ -469,8 +469,8 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private inner class NotificationDateHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
         private val dateView: TextView = view.findViewById(R.id.notification_date_text)
-        fun bindItem(date: Date?) {
-            dateView.text = getFeedCardDateString(date!!)
+        fun bindItem(date: Date) {
+            dateView.text = getFeedCardDateString(date)
         }
     }
 
@@ -496,7 +496,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
             when (holder) {
-                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].date)
+                is NotificationDateHolder -> holder.bindItem(notificationContainerList[pos].date!!)
                 is NotificationItemHolderSwipeable -> holder.bindItem(notificationContainerList[pos])
                 is NotificationItemHolder -> holder.bindItem(notificationContainerList[pos])
             }
