@@ -33,13 +33,7 @@ data class Section(var id: Int = 0,
     }
 
     override fun toString(): String {
-        return ("Section{"
-                + "id=" + id
-                + ", level=" + level
-                + ", heading='" + heading + '\''
-                + ", anchor='" + anchor + '\''
-                + ", content='" + content + '\''
-                + '}')
+        return "Section{id=$id, level=$level, heading='$heading', anchor='$anchor', content='$content'}"
     }
 
     companion object {
