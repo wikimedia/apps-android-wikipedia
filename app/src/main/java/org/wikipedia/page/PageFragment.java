@@ -489,6 +489,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     // page has now loaded and trigger the remaining logic ourselves.
                     if (!"true".equals(pcsExists)) {
                         onPageSetupEvent();
+                        bridge.onMetadataReady();
                         bridge.onPcsReady();
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim());
                     }
@@ -1376,7 +1377,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public int getToolbarMargin() {
-        return ((PageActivity) requireActivity()).toolbarContainerView.getHeight();
+        return ((PageActivity) requireActivity()).getToolbarMargin();
     }
 
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {

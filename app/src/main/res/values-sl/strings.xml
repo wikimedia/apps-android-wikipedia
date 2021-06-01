@@ -171,8 +171,8 @@
   <string name="preferences_heading_experimental">Preizkusno</string>
   <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija bralnega seznama</string>
   <string name="preference_title_download_reading_list_articles">Prenesi članke na bralnem seznamu</string>
-  <string name="preference_summary_sync_reading_lists">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu v Wikipediji</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji</string>
+  <string name="preference_summary_sync_reading_lists">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v mojem računu v Wikipediji.</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranim sinhronizirane bralne sezname iz »%s«?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">S tem boste iz shranjevanja v oblaku v celoti izbrisali vse predhodno sinhronizirane bralne sezame. Odstranim z vašega računa »%s« vse sinhronizirane sezname?</string>
   <string name="preferences_privacy_settings_heading">Zasebnost</string>

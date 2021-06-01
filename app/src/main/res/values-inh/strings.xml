@@ -209,7 +209,7 @@
   <string name="about_translators_heading">Таржамхой</string>
   <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>
-  <string name="about_app_license" fuzzy="true">Юххьанцарча кóдá тӀакхача аьттув ба укхазеи → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; укхазеи → &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; укх лицензеца: &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце чударá тӀакхача аьттув ба &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; яхача лицензеца.</string>
+  <string name="about_app_license">Юххьанцарча кóдá тӀакхача аьттув ба укхаза → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;, укх лицензеца &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце, чударá тӀакхача аьттув ба укх лицензе бокъонашца: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонд Викимедиан продукт&lt;/a&gt;</string>
   <string name="about_activity_title">Приложенех лаьца</string>
   <string name="edit_abandon_confirm">ОагӀона тӀа хувцам баьб. Боккъонца лой хьона хувцам дӀа ца язбеш аравала?</string>
@@ -356,6 +356,14 @@
   <string name="page_footer_license_text">Чулоацамá тIакхоачилга $1 яхача лицензе бокъоношца да, нагахьа санна кхыдар белгалдаь деце.</string>
   <string name="empty_tab_title">Керда вкладка</string>
   <string name="menu_save_all_tabs">Еррига вкладкаш дӀаяхка</string>
+  <string name="error_blocked_title">Хьа цӀерá (аккаунтá) е IP-цӀайна блок техай</string>
+  <string name="error_blocked_by">Блок техар: &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Блок тохара бахьан: %s</string>
+  <string name="error_blocked_start">Блок тохар доладеннад: %s</string>
+  <string name="error_blocked_expiry">Блок тохар чакхдоал: %s</string>
+  <string name="error_blocked_id">Блок тохара идентификаци: %s</string>
+  <string name="error_blocked_footer">Хьа аьттув ба &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; яхачунца е кхыча &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
+  <string name="error_blocked_footer_no_blocker">Хьа аьттув ба &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;администратораца&lt;/a&gt; бувзаме а ваьнна хьона теха йолча блоках лаьца дувца.</string>
   <string name="crash_report_activity_title">Приложенен гӀалат</string>
   <string name="crash_report_relaunch_or_quit">Бехк ма баккхалахь, Википеден приложене чу гӀалат нийсделар, из бахьан долаш дӀакъовлаялар из.\n\nЮха хьаелла безам ба хьа из е аравала?</string>
   <string name="crash_report_relaunch">Юха хеца</string>
@@ -798,6 +806,28 @@
   <string name="suggested_edits_edit_streak_label_text">Тоадарий сери</string>
   <string name="suggested_edits_views_label_text">Хьажараш</string>
   <string name="suggested_edits_quality_label_text">Тоадара дикал</string>
+  <string name="suggested_edits_quality_perfect_text">Шийл дикагӀа йоаца</string>
+  <string name="suggested_edits_quality_excellent_text">ТӀехдика</string>
+  <string name="suggested_edits_quality_very_good_text">ЧӀоагӀа дика</string>
+  <string name="suggested_edits_quality_good_text">Дика</string>
+  <string name="suggested_edits_quality_okay_text">ЛерттӀа</string>
+  <string name="suggested_edits_quality_sufficient_text">Мегаш</string>
+  <string name="suggested_edits_quality_poor_text">Вó</string>
+  <string name="suggested_edits_quality_bad_text">Вó</string>
+  <string name="suggested_edits_label">Тоаде мегаш дар</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Къахьегам</item>
+    <item quantity="few">Къахьегам</item>
+    <item quantity="many">Къахьегам</item>
+    <item quantity="other">Къахьегам</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d ди</item>
+    <item quantity="few">%d ди</item>
+    <item quantity="many">%d ди</item>
+    <item quantity="other">%d ди</item>
+  </plurals>
+  <string name="suggested_edits_what_is_title">Фуд из Тоаде мегаш дар?</string>
   <string name="suggested_edits_contribution_language_label">Мотт</string>
   <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
   <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
