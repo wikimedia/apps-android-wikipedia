@@ -10,8 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.R
@@ -40,11 +38,10 @@ class RecentSearchesFragment : Fragment() {
             AlertDialog.Builder(requireContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
-                        disposables.add(Completable.fromAction {
-                            AppDatabase.getAppDatabase().recentSearchDao().deleteAll()
-                        }.subscribeOn(Schedulers.io()).subscribe {
-                            updateList()
-                        })
+                        disposables.add(AppDatabase.getAppDatabase().recentSearchDao().deleteAll()
+                                .subscribeOn(Schedulers.io())
+                                .subscribe({ updateList() }, { L.e(it) })
+                        )
                     }
                     .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
                     .create().show()
@@ -95,9 +92,8 @@ class RecentSearchesFragment : Fragment() {
     }
 
     fun updateList() {
-        disposables.add(Observable.fromCallable {
-            AppDatabase.getAppDatabase().recentSearchDao().getRecentSearches()
-        }.subscribeOn(Schedulers.io())
+        disposables.add(AppDatabase.getAppDatabase().recentSearchDao().getRecentSearches()
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ searches ->
                 recentSearchList.clear()
