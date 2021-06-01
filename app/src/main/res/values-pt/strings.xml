@@ -228,7 +228,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -734,7 +734,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Imagem</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>

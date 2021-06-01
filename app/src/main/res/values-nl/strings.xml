@@ -16,6 +16,7 @@
 * Mar(c)
 * Marcelhospers
 * Mathonius
+* Mbch331
 * McDutchie
 * MedShot
 * Mirolith
@@ -44,7 +45,7 @@
   <string name="nav_item_back">Terug</string>
   <string name="page_tabs_back">Terug</string>
   <string name="nav_item_forward">Volgende</string>
-  <string name="search_hint">In Wikipedia zoeken</string>
+  <string name="search_hint">Doorzoek Wikipedia</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filter mijn lijst</string>
@@ -61,7 +62,7 @@
   <string name="error_back">Terug</string>
   <string name="error_next">Volgende</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
-  <string name="history_item_deleted">%s verwijderd uit geheugen</string>
+  <string name="history_item_deleted">%s verwijderd uit geschiedenis</string>
   <string name="history_items_deleted">%d pagina\'s uit geschiedenis verwijderd</string>
   <string name="history_item_delete_undo">Ongedaan maken</string>
   <string name="notification_archive_undo">Ongedaan maken</string>
@@ -77,25 +78,25 @@
   <string name="search_redirect_from">Doorverwezen vanaf %s</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
-  <string name="menu_page_find_in_page">Op artikel zoeken</string>
+  <string name="menu_page_find_in_page">Zoek in artikel</string>
   <string name="menu_page_add_to_watchlist">Toevoegen aan volglijst</string>
   <string name="menu_page_view_talk">Overlegpagina bekijken</string>
   <string name="menu_page_view_edit_history">Bewerkingsgeschiedenis bekijken</string>
   <string name="menu_page_remove_from_watchlist">Verwijderen uit volglijst</string>
-  <string name="edit_section_find_in_page">Op pagina zoeken</string>
+  <string name="edit_section_find_in_page">Zoeken in pagina</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
   <string name="menu_page_add_to_default_list">Opslaan</string>
   <string name="feed_card_add_to_list">Aan leeslijst toevoegen</string>
   <string name="feed_card_add_to_default_list">Opslaan</string>
-  <string name="menu_page_share">Koppeling delen</string>
+  <string name="menu_page_share">Link delen</string>
   <string name="menu_page_open_a_new_tab">Een nieuw tabblad openen</string>
   <string name="menu_page_new_tab">Nieuw tabblad</string>
   <string name="menu_page_reading_lists">Leeslijsten</string>
   <string name="menu_page_recently_viewed">Onlangs bekeken</string>
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
-  <string name="menu_long_press_copy_page">Koppelingsadres kopiëren</string>
+  <string name="menu_long_press_copy_page">Linkadres kopiëren</string>
   <string name="menu_text_select_define">Definiëren</string>
   <string name="on_this_day_page_share">Delen</string>
   <string name="reading_list_page_share">Delen</string>
@@ -121,7 +122,7 @@
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
   <string name="dialog_message_edit_failed_cancel">Annuleren</string>
   <string name="dialog_message_leaving_edit">Uw wijzigingen zijn nog niet gepubliceerd. Weet u zeker dat u deze pagina wilt verlaten?</string>
-  <string name="dialog_message_leaving_edit_leave">Sluiten</string>
+  <string name="dialog_message_leaving_edit_leave">Verlaten</string>
   <string name="dialog_message_leaving_edit_stay">Blijven</string>
   <string name="menu_show_toc">Inhoudsopgave</string>
   <string name="search_no_results_found">Geen resultaten gevonden</string>
@@ -226,21 +227,23 @@
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team pagina&lt;/a&gt;</string>
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
-  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
+  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
@@ -385,6 +388,14 @@
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
   <string name="empty_tab_title">Nieuw tabblad</string>
   <string name="menu_save_all_tabs">Alle tabbladen opslaan</string>
+  <string name="error_blocked_title">Uw gebruikersnaam of IP adres is geblokkeerd.</string>
+  <string name="error_blocked_by">De blokkering is geactiveerd door &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">De gegeven reden is: %s</string>
+  <string name="error_blocked_start">Begindatum van blokkering: %s</string>
+  <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
+  <string name="error_blocked_id">Blokkering ID: %s</string>
+  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
@@ -626,7 +637,7 @@
   <string name="menu_feed_card_edit_card_languages">Bewerk kaarttalen</string>
   <string name="menu_feed_overflow_label">Meer opties</string>
   <string name="feed_featured_image_share_subject">Uitgelichte afbeelding uit Wikimedia Commons</string>
-  <string name="feed">Verkennen</string>
+  <string name="feed">Hoofdpagina</string>
   <string name="home">Startpagina</string>
   <string name="view_static_card_icon_content_description">Kaartpictogram</string>
   <string name="view_card_news_title">Actueel</string>
@@ -754,7 +765,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschrijving toevoegen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Afbeeldingsbijschrift (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Afbeeldingsbeschrijving (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Bestand</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Bestand van Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiest</string>
@@ -884,6 +894,8 @@
   <string name="suggested_edits_image_recommendations_task_goal_complete">Dagelijks doel bereikt! 👏</string>
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">U heeft het dagelijks doel bereikt</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Een nieuwe Voorgestelde Bewerkingen taak is beschikbaar. Train een algoritme om artikelen zonder afbeeldingen hiervan te voorzien.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia artikelen worden geschreven en bewerkt door duizenden vrijwilligers van over de hele wereld. Helaas missen veel artikelen afbeeldingen.\n\nAfbeeldingen worden u voorgesteld met behulp van een algoritme. Het algoritme haalt afbeeldingen uit andere bronnen en suggereert een overeenkomst met een artikel dat geen afbeelding heeft.\n\nUw feedback helpt ons de suggesties in de loop van de tijd te verbeteren. Omdat het doel van deze taak is om de voorgestelde afbeeldingen te verbeteren, worden de overeenkomsten die u maakt op dit moment niet gepubliceerd.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">We willen uw bijdragen aan deze inspanning graag erkennen. Wilt u dat uw gebruikersnaam zichtbaar is op de algoritme trainings pagina?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Toestaan om mijn gebruikersnaam weer te geven op de algoritme trainings pagina</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
@@ -1002,6 +1014,7 @@
   <string name="main_tooltip_text_v2">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="main_tooltip_action_button">Aan de slag</string>
   <string name="main_tooltip_watchlist_title">Volglijst</string>
+  <string name="main_tooltip_watchlist_text">Vind artikelen en pagina\'s die u heeft toegevoegd aan uw leeslijst in het Meer menu onder &lt;b&gt;Leeslijst&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Annuleren</string>
@@ -1025,20 +1038,25 @@
   <string name="thank_label">Bedanken</string>
   <string name="go_to_user_page">Ga naar gebruikerspagina</string>
   <string name="thank_dialog_title_text">Publiekelijk een bedankje sturen</string>
+  <string name="thank_dialog_text">\'Bedankjes\' zijn een gemakkelijke manier om waardering te tonen voor het werk van een redacteur op Wikipedia. \'Bedankjes\' kunnen niet ongedaan worden gemaakt en zijn openbaar zichtbaar</string>
   <string name="thank_dialog_positive_button_text">Bedankje sturen</string>
   <string name="thank_dialog_negative_button_text">Annuleren</string>
   <string name="thank_success_message">Uw bedankje is verstuurd naar %s 👍</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s en zijn overlegpagina zijn toegevoegd aan uw volglijst %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Wijzig</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">permanent</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">voor 1 week</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">voor 1 maand</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">voor 3 maanden</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">voor 6 maanden</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s en zijn overlegpagina zijn verwijderd uit uw volglijst.</string>
+  <string name="watchlist_expiry_dialog_title">Selecteer tijdsperiode voor Volglijst</string>
   <string name="watchlist_expiry_dialog_permanent">Permanent</string>
   <string name="watchlist_expiry_dialog_one_week">1 week</string>
   <string name="watchlist_expiry_dialog_one_month">1 maand</string>
   <string name="watchlist_expiry_dialog_three_months">3 maanden</string>
   <string name="watchlist_expiry_dialog_six_months">6 maanden</string>
+  <string name="watchlist_empty">U heeft geen artikelen op uw leeslijst.</string>
   <string name="watchlist_filter_all">Alle</string>
   <string name="watchlist_filter_talk">Overleg</string>
   <string name="watchlist_filter_pages">Pagina\'s</string>

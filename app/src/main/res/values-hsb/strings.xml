@@ -14,8 +14,10 @@
   <string name="nav_item_forward">Dale</string>
   <string name="search_hint">Wikipediju přepytać</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Namjetowane změny</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Moje lisćiny filtrować</string>
+  <string name="nav_item_suggested_edits">Změny</string>
   <string name="nav_item_more">Wjace</string>
+  <string name="nav_item_search">Pytać</string>
   <string name="error_network_error">Njemóžu so z internetom zwjazać.</string>
   <string name="page_error_retry">Znowa spytać</string>
   <string name="card_offline_error_retry">Znowa spytać</string>
@@ -24,12 +26,14 @@
   <string name="offline_load_error_retry">Znowa spytać</string>
   <string name="page_error_back_to_main">Wróćo hić</string>
   <string name="error_back">Wróćo hić</string>
+  <string name="error_next">Přichodne</string>
   <string name="menu_clear_all_history">Historiju zhašeć</string>
   <string name="history_item_deleted">%s je so z historije wotstroniło</string>
   <string name="history_items_deleted">%d zapiski z historije wotstronjene</string>
   <string name="history_item_delete_undo">Cofnyć</string>
   <string name="notification_archive_undo">Cofnyć</string>
   <string name="app_settings">Nastajenja za app</string>
+  <string name="history_list_title">Stawizny</string>
   <string name="dialog_title_clear_history">Historiju zhašeć</string>
   <string name="dialog_message_clear_history">To wotstroni twoju dospołnu historiju a začini wšitke tuchwilu wočinjene rajtarki. Chceš pokročić?</string>
   <string name="dialog_message_clear_history_yes">Haj</string>
@@ -39,7 +43,11 @@
   <string name="search_redirect_from">sposrědkowane wot %s</string>
   <string name="menu_page_show_tabs">Rajtarki pokazać</string>
   <string name="menu_page_other_languages">Rěč změnić</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Na stronje pytać</string>
+  <string name="menu_page_find_in_page">W zapisku pytać</string>
+  <string name="menu_page_add_to_watchlist">K wobkedźbowankam přidać</string>
+  <string name="menu_page_view_talk">Diskusiju sej wobhladać</string>
+  <string name="menu_page_view_edit_history">Starše wersije sej wobhladać</string>
+  <string name="menu_page_remove_from_watchlist">Z wobkedźbowankow wotstronić</string>
   <string name="edit_section_find_in_page">Na stronje pytać</string>
   <string name="menu_page_font_and_theme">Družinu pisma a barby</string>
   <string name="menu_page_add_to_list">K čitanskej lisćinje přidać</string>
@@ -48,6 +56,7 @@
   <string name="feed_card_add_to_default_list">Składować</string>
   <string name="menu_page_share">Wotkaz dźělić</string>
   <string name="menu_page_open_a_new_tab">Nowy rajtark wočinić</string>
+  <string name="menu_page_new_tab">Nowy rajtark</string>
   <string name="menu_page_reading_lists">Čitanske lisćiny</string>
   <string name="menu_page_recently_viewed">Njedawno wobhladane</string>
   <string name="menu_long_press_open_page">Wočinić</string>
@@ -74,7 +83,7 @@
   <string name="dialog_message_edit_failed">Wobdźěłanje njeje so poradźiło!</string>
   <string name="dialog_message_edit_failed_retry">Hišće raz spytać</string>
   <string name="dialog_message_edit_failed_cancel">Přetorhnyć</string>
-  <string name="dialog_message_leaving_edit">Twoje změny njejsu so hišće wozjewjeli. Chceš tutu stronu woprawdźe wopušćić?</string>
+  <string name="dialog_message_leaving_edit">Twoje změny njejsu so hišće wozjewili. Chceš tutu stronu woprawdźe wopušćić?</string>
   <string name="dialog_message_leaving_edit_leave">Wopušćić</string>
   <string name="dialog_message_leaving_edit_stay">Wostać</string>
   <string name="menu_show_toc">Zapis wobsaha</string>
@@ -97,9 +106,9 @@
   <string name="reading_lists_sync_login">Přizjewić</string>
   <string name="create_account_login">Přizjewić</string>
   <string name="menu_login">Přizjewić</string>
-  <string name="login_activity_title" fuzzy="true">We Wikipediji přizjewić</string>
-  <string name="login_in_progress_dialog_message">Přizjewješ so...</string>
-  <string name="login_success_toast" fuzzy="true">Přizjewjenje wuspěšne!</string>
+  <string name="login_activity_title">Přizjewić so</string>
+  <string name="login_in_progress_dialog_message">Přizjewjenje...</string>
+  <string name="login_success_toast">Přizjewjenje wuspěšne!</string>
   <string name="reset_password_title">Postaj swoje hesło</string>
   <string name="reset_password_description">Sy so z nachwilnym hesłom přizjewił(a). Zo by wotzamknył(a) přizjewjenje, postaj prošu tule swoje nowe hesło.</string>
   <string name="reset_password_hint">Nowe hesło</string>
@@ -433,6 +442,8 @@
   <string name="preference_summary_notification_thanks">Něchtó je so tebi dźakował za změnu</string>
   <string name="view_because_you_read_card_title">Přetož sy tole čitał(a)</string>
   <string name="view_random_card_title">Připad</string>
+  <string name="view_top_read_card_title">Najhusćišo čitane</string>
+  <string name="view_top_read_card_action">Wjace husto čitanych</string>
   <string name="view_next_random_article">Druhi připadny zapisk pokazać</string>
   <string name="view_main_page_card_title">Dźensa we Wikipediji</string>
   <string name="view_main_page_card_action">Hłownu stronu wobhladać</string>
@@ -457,6 +468,7 @@
   <string name="feed_item_type_trending">Najbóle čitane zapiski</string>
   <string name="feed_item_type_featured_image">Na Wikimedia Commons předstajeny wobraz</string>
   <string name="feed_item_type_main_page">Hłowna strona Wikipedije z aktualnym wobsahom</string>
+  <string name="top_read_activity_title">Najhusćišo čitane dnja %s</string>
   <string name="description_edit_text_hint" fuzzy="true">Wopis titula</string>
   <string name="description_edit_save">Wozjewić</string>
   <string name="description_edit_add_description" fuzzy="true">Wopis titula přidać</string>

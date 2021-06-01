@@ -113,8 +113,8 @@
   <string name="settings_item_preferences">ኣቀማምጣታት</string>
   <string name="settings_activity_title">ኣቀማምጣታት</string>
   <string name="about_description">ብዛዕባ መተግበሪ ዊኪፐድያ</string>
-  <string name="privacy_policy_description">ናይ ስትረት ሕጊ</string>
-  <string name="terms_of_use_description">ናይ ኣጠቓቕማ ኩነታት</string>
+  <string name="privacy_policy_description">ሕጊ ስትረት</string>
+  <string name="terms_of_use_description">ውዕላት ኣጠቓቕማ</string>
   <string name="about_wikipedia_url">https://ti.wikipedia.org/wiki/ዊኪፔዲያ:ብዛዕባ</string>
   <string name="android_app_request_an_account_url">https://ti.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="about_contributors_heading">ኣበርከትቲ</string>
@@ -125,7 +125,7 @@
   <string name="edit_abandon_confirm_no">ኣይፋል</string>
   <string name="edit_next">ዝቕጽል</string>
   <string name="edit_done">ኣሕትም</string>
-  <string name="edit_preview">ኣቐደሚ ትርኢት</string>
+  <string name="edit_preview">ኣቐዳሚ ትርኢት</string>
   <string name="edit_undo">ምለስ</string>
   <string name="edit_redo">እንደገና ፈጽም</string>
   <string name="edit_zoom_in">ኣዕብይ</string>
@@ -308,7 +308,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">ናይ ምስሊ መግለጺ ጽሑፍ ተሓቲሙ!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ናይ ምስሊ መግለጺ ጽሑፍ ተሓቲሙ! (%s)</string>
   <string name="description_edit_success_done">ተወዲኡ</string>
-  <string name="description_edit_success_did_you_know">ትፈልጡ ዶ?</string>
+  <string name="description_edit_success_did_you_know">ትፈልጥ ዶ?</string>
   <string name="description_edit_tutorial_title_descriptions">ናይ ጽሑፍ መግለጺታት</string>
   <string name="suggested_edits_review_description">ናይ ጽሑፍ መግለጺ ገምግም</string>
   <string name="suggested_edits_add_description_button">መግለጺ ወስኽ</string>
@@ -340,7 +340,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ናይ ጽሑፍ መግለጺታት ወስኽ (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ጀምር</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ናይ ምስሊ መግለጺ ጽሑፍ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ናይ ምስሊ መግለጺ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ምስሊ</string>
   <string name="suggested_edits_image_preview_dialog_artist">ስነ ጥበባዊ</string>
   <string name="suggested_edits_image_preview_dialog_tags">መፈለጥታታት</string>

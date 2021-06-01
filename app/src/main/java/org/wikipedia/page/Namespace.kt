@@ -11,14 +11,10 @@ import java.util.*
 /** An enumeration describing the different possible namespace codes. Do not attempt to use this
  * class to preserve URL path information such as Talk: or User: or localization.
  * @see [Wikipedia:Namespace](https://en.wikipedia.org/wiki/Wikipedia:Namespace)
- *
  * @see [Extension default namespaces](https://www.mediawiki.org/wiki/Extension_default_namespaces)
- *
- * @see [NSNumber+MWKTitleNamespace.h
  * @see [Manual:Namespace](https://www.mediawiki.org/wiki/Manual:Namespace.Built-in_namespaces)
- *
  * @see [Namespaces reported by API](https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces|namespacealiases)
-](https://github.com/wikimedia/wikipedia-ios/blob/master/Wikipedia/Code/NSNumber+MWKTitleNamespace.h) */
+ */
 @Suppress("unused")
 enum class Namespace(private val code: Int) : EnumCode {
     MEDIA(-2),

@@ -19,7 +19,7 @@
   <string name="menu_page_share" fuzzy="true">Екха</string>
   <string name="menu_long_press_open_page" fuzzy="true">Хьажорг схьаелла</string>
   <string name="menu_text_select_define">Къастам</string>
-  <string name="last_updated_text">ТӀаьххьара карлаяккхар: %s</string>
+  <string name="last_updated_text">ТӀаьххьара карлайаккхар: %s</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="langlinks_filter_hint">Лахар</string>
   <string name="langlinks_no_match" fuzzy="true">Хьан дехарца меттанаш цакарий</string>
@@ -61,10 +61,11 @@
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_translators_heading">гочдархой</string>
-  <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
+  <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чуьра шен лаамернигаш.</string>
   <string name="edit_next">Кхин дӀа</string>
   <string name="edit_done" fuzzy="true">Ӏалашдан</string>
   <string name="edit_preview">Хьалххе хьажар</string>
+  <string name="edit_summary_tag_grammar">Нийсайаздар</string>
   <string name="edit_summary_tag_other">Кхин</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
   <string name="table_close">ДӀачӀагӀа</string>
@@ -82,8 +83,8 @@
   <string name="color_theme_light">Сирла</string>
   <string name="color_theme_dark">Бодане</string>
   <string name="view_main_page_card_title">Тахана Википедехь</string>
-  <string name="view_featured_image_card_download">Чуяккха</string>
-  <string name="menu_feed_card_dismiss">ХӀара карточка къайлаяккха</string>
+  <string name="view_featured_image_card_download">Чуйаккха</string>
+  <string name="menu_feed_card_dismiss">ХӀара карточка къайлайаккха</string>
   <string name="menu_feed_card_dismissed">Карточка къайлаяьккхина.</string>
   <string name="feed_featured_image_share_subject">Викиларман дика суьрташ</string>
   <string name="feed">Талла</string>
@@ -104,7 +105,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Хийца меттанаш</string>
   <string name="main_tooltip_watchlist_title">Тергаме могӀам</string>
   <string name="thank_label">Баркалла</string>
-  <string name="thank_dialog_negative_button_text">Юхаяккхар</string>
+  <string name="thank_dialog_negative_button_text">Йухайаккхар</string>
   <string name="thank_success_message">Хьан \"Баркалла\" дӀадахийтина %s декъашхочуьнга 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">гуттара</string>
   <string name="watchlist_expiry_dialog_one_month">1 бутт</string>

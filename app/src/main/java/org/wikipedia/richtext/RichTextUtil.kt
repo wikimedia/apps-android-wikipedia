@@ -89,7 +89,6 @@ object RichTextUtil {
         }
     }
 
-    @JvmStatic
     fun stripHtml(html: String): String {
         return StringUtil.fromHtml(html).toString()
     }
