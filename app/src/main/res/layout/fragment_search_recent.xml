@@ -50,7 +50,7 @@
     <LinearLayout
         android:id="@+id/recent_searches"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <FrameLayout
@@ -89,10 +89,11 @@
 
         </FrameLayout>
 
-        <ListView
-            android:id="@+id/recent_searches_list"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recent_searches_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
 
     </LinearLayout>
 

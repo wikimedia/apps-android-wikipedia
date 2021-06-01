@@ -1,10 +1,6 @@
 package org.wikipedia;
 
 public final class Constants {
-    // Keep loader IDs unique to each loader. If the loader specified by the ID already exists, the
-    // last created loader is reused.
-    public static final int RECENT_SEARCHES_FRAGMENT_LOADER_ID = 101;
-
     public static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
     public static final int ACTIVITY_REQUEST_SETTINGS = 41;
