@@ -380,8 +380,8 @@
   <string name="error_blocked_start">封鎖起始：%s</string>
   <string name="error_blocked_expiry">封鎖期滿：%s</string>
   <string name="error_blocked_id">封鎖 ID：%s</string>
-  <string name="error_blocked_footer">您可以向&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或是其他&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E7%AE%A1%E7%90%86%E5%91%98\"&gt;管理員&lt;/a&gt;聯絡來商量該封鎖操作。</string>
-  <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:%E7%AE%A1%E7%90%86%E5%91%98\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
+  <string name="error_blocked_footer">您可以向&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或是其他&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;聯絡來商量該封鎖操作。</string>
+  <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
