@@ -312,6 +312,7 @@
   <string name="error_page_does_not_exist">Ica pagino ne existas</string>
   <string name="view_wiki_error_message_offline">Ne povas konektar a la interreto</string>
   <string name="reference_title">Refero %s</string>
+  <string name="error_blocked_footer_no_blocker">Vu povas kontaktar ul &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administranto&lt;/a&gt; por diskutar pri la blokuso.</string>
   <string name="crash_report_relaunch">Rikomencar</string>
   <string name="crash_report_quit">Ekirar</string>
   <string name="article_header_edit_hint">Redaktar</string>
