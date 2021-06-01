@@ -234,7 +234,7 @@
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>
-  <string name="about_app_license">소스 코드는 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 있으며, &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;에서 찾아볼 수 있습니다. 별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락&lt;/a&gt;에 따라 이용할 수 있습니다.</string>
+  <string name="about_app_license" fuzzy="true">소스 코드는 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 있으며, &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;에서 찾아볼 수 있습니다. 별도로 명시하지 않는 한 콘텐츠는 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락&lt;/a&gt;에 따라 이용할 수 있습니다.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀐 내용을 저장하지 않고 빠져나가겠습니까?</string>
@@ -448,9 +448,14 @@
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
   <string name="reading_list_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
+  <string name="reading_list_item_deleted_from_list"> %2$s에서 %1$s 문서가 제거되었습니다</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">목록에서 제거된 문서 %d개</item>
     <item quantity="other">목록에서 제거된 문서 %d개</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%s에서 제거된 문서 %d개</item>
+    <item quantity="other">%s에서 제거된 문서 %d개</item>
   </plurals>
   <string name="reading_list_items_deleted">%d개의 문서가 목록에서 제거됨</string>
   <string name="reading_lists_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
@@ -675,6 +680,7 @@
   <string name="description_too_short">텍스트가 너무 짧습니다.</string>
   <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>
   <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
+  <string name="description_starts_with_lowercase">소문자로 시작하지 마세요.</string>
   <string name="description_is_in_different_language">문구가 예측할 수 없는 언어로 되어있는 것 같습니다. 언어는 %s여야 합니다.</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
@@ -736,7 +742,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">파일</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">위키미디어 공용의 파일</string>
   <string name="suggested_edits_image_preview_dialog_artist">아티스트</string>
@@ -858,6 +863,7 @@
   <string name="suggested_edits_image_recommendations_task_goal_surpassed">일일 목표를 달성했습니다</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">새로운 편집 제안 작업을 사용할 수 있습니다. 삽화가 없는 문서에 이미지를 일치시키는 알고리즘을 트레이닝합니다.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">위키백과 문서는 전 세계의 자발적인 기여자 수천 명에 의해 작성되고 편집됩니다. 안타깝지만 많은 문서에 이미지가 없습니다.\n\n이미지는 알고리즘을 사용하여 제안됩니다. 이 알고리즘은 다른 출전으로부터 이미지를 가져와서 이미지가 없는 문서와 일치하는 항목을 제안합니다.\n\n여러분의 의견은 시간이 지남에 따라 우리가 제안을 개선하는 일에 도움을 줍니다. 이 작업의 목표가 이미지 제안을 개선하는 것이므로 여러분이 선택하는 일치 항목은 현 시점으로 게시되는 것은 아닙니다.</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">귀하가 성과를 이루는 데 기여해 주신 것에 감사드리고자 합니다. 알고리즘 교육 페이지에 사용자 이름을 표시해도 되겠습니까?</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>

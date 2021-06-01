@@ -71,11 +71,12 @@ class GalleryItemFragment : Fragment(), RequestListener<Drawable?> {
             }
             (requireActivity() as GalleryActivity).toggleControls()
         }
+        val imageScale = binding.image.scale
         binding.image.setOnMatrixChangeListener {
             if (!isAdded) {
                 return@setOnMatrixChangeListener
             }
-            (requireActivity() as GalleryActivity).setViewPagerEnabled(binding.image.scale <= 1f)
+            (requireActivity() as GalleryActivity).setViewPagerEnabled(imageScale <= 1f)
         }
         return binding.root
     }

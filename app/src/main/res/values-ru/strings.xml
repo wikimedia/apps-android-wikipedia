@@ -43,6 +43,7 @@
 * Ping08
 * Pplex.vhs
 * Redredsonia
+* Rivka Silinsky
 * Rubin16
 * SimondR
 * Smigles
@@ -417,6 +418,11 @@
   <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>
   <string name="menu_save_all_tabs">Сохранить все вкладки</string>
+  <string name="error_blocked_title">Ваше имя пользователя или IP адрес заблокировано</string>
+  <string name="error_blocked_reason">причина дона: %s</string>
+  <string name="error_blocked_start">\nНачало блока:%s</string>
+  <string name="error_blocked_expiry">Истечение срока действия блока: %s</string>
+  <string name="error_blocked_id">Идентификация блока: %s</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
@@ -816,7 +822,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Описание изображения (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Файл</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Файл с Викисклада</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
