@@ -11,12 +11,11 @@ import org.wikipedia.offline.OfflineObjectTable;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.talk.TalkPageSeenDatabaseTable;
 import org.wikipedia.util.log.L;
 
 public class Database extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 23;
+    private static final int DATABASE_VERSION = 24;
 
     private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
@@ -24,8 +23,7 @@ public class Database extends SQLiteOpenHelper {
             EditSummary.DATABASE_TABLE,
             ReadingList.DATABASE_TABLE,
             ReadingListPage.DATABASE_TABLE,
-            OfflineObjectTable.DATABASE_TABLE,
-            TalkPageSeenDatabaseTable.INSTANCE
+            OfflineObjectTable.DATABASE_TABLE
     };
 
     public Database(Context context) {

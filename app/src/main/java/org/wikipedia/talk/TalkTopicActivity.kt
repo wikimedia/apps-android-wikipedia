@@ -23,6 +23,7 @@ import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -184,7 +185,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { response ->
                     val talkTopic = response.topics?.find { t -> t.id == topicId }!!
-                    TalkPageSeenDatabaseTable.setTalkTopicSeen(talkTopic)
+                    AppDatabase.getAppDatabase().talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(sha = talkTopic.getIndicatorSha()))
                     currentRevision = response.revision
                     talkTopic
                 }

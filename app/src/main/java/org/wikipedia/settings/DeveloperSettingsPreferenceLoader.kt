@@ -10,6 +10,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.Event
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
@@ -20,7 +21,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.setupLeakCanary
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider.getNextArticleWithMissingDescription
-import org.wikipedia.talk.TalkPageSeenDatabaseTable.resetAllUnseen
 import org.wikipedia.util.StringUtil.fromHtml
 import java.util.*
 
@@ -139,7 +139,8 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
             true
         }
         findPreference(R.string.preference_developer_clear_all_talk_topics).onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            resetAllUnseen()
+            AppDatabase.getAppDatabase().talkPageSeenDao().deleteAll()
+                .subscribeOn(Schedulers.io()).subscribe()
             true
         }
         findPreference(R.string.preference_key_memory_leak_test).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference, _: Any? ->

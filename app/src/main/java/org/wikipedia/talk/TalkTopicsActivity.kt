@@ -17,6 +17,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.TalkFunnel
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.ActivityTalkTopicsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -82,6 +83,18 @@ class TalkTopicsActivity : BaseActivity() {
         funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
+
+
+
+
+
+        val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getAll()
+        seen.forEach {
+            L.d(it.sha)
+
+        }
+
+
     }
 
     public override fun onDestroy() {
@@ -215,7 +228,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
-            val seen = TalkPageSeenDatabaseTable.isTalkTopicSeen(topic)
+            val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getTalkPageSeen(topic.getIndicatorSha()).isNotEmpty()
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
             title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
             title.visibility = View.VISIBLE

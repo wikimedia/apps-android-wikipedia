@@ -9,12 +9,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import org.wikipedia.WikipediaApp
 import org.wikipedia.search.RecentSearch
 import org.wikipedia.search.RecentSearchDao
+import org.wikipedia.talk.TalkPageSeen
+import org.wikipedia.talk.TalkPageSeenDao
 
-@Database(entities = [RecentSearch::class], version = 23)
+@Database(entities = [RecentSearch::class, TalkPageSeen::class], version = 24)
 @TypeConverters(DateTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recentSearchDao(): RecentSearchDao
+    abstract fun talkPageSeenDao(): TalkPageSeenDao
 
     companion object {
         val MIGRATION_22_23 = object : Migration(22, 23) {
@@ -25,6 +28,10 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("ALTER TABLE recentsearches_temp RENAME TO recentsearches")
             }
         }
+        val MIGRATION_23_24 = object : Migration(23, 24) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+            }
+        }
 
         private var INSTANCE: AppDatabase? = null
 
@@ -32,7 +39,8 @@ abstract class AppDatabase : RoomDatabase() {
             if (INSTANCE == null) {
                 synchronized(AppDatabase::class) {
                     INSTANCE = Room.databaseBuilder(WikipediaApp.getInstance(), AppDatabase::class.java, "wikipedia.db")
-                        .addMigrations(MIGRATION_22_23)
+                        .addMigrations(MIGRATION_22_23, MIGRATION_23_24)
+                        .allowMainThreadQueries() // TODO: remove after migration
                         .fallbackToDestructiveMigration()
                         .build()
                 }
