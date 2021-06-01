@@ -246,7 +246,7 @@
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_app_license_heading">مجوز</string>
-  <string name="about_app_license">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
+  <string name="about_app_license" fuzzy="true">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
   <string name="about_wmf">محصولی از &lt;a href=\"https://wikimediafoundation.org/\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
@@ -384,6 +384,14 @@
   <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.</string>
   <string name="empty_tab_title">برگهٔ جدید</string>
   <string name="menu_save_all_tabs">ذخیرهٔ همهٔ برگه‌ها</string>
+  <string name="error_blocked_title">دسترسی حساب کاربری یا نشانی آی‌پی شما قطع شده‌است.</string>
+  <string name="error_blocked_by">این قطع دسترسی توسط &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; انجام شده‌است</string>
+  <string name="error_blocked_reason">دلیل ارائه‌شده: %s</string>
+  <string name="error_blocked_start">آغاز قطع دسترسی: %s</string>
+  <string name="error_blocked_expiry">زمان منقضی‌شدن قطع دسترسی: %s</string>
+  <string name="error_blocked_id">شناسهٔ قطع دسترسی: %s</string>
+  <string name="error_blocked_footer">برای گفتگو پیرامون قطع دسترسی می‌توانید با &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; یا یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; دیگر تماس بگیرید.</string>
+  <string name="error_blocked_footer_no_blocker">برای گفتگو پیرامون قطع دسترسی می‌توانید با یک &lt;a href=\"https://fa.wikipedia.org/wiki/ویکی‌پدیا:مدیران\"&gt;مدیر&lt;/a&gt; تماس بگیرید.</string>
   <string name="crash_report_activity_title">خطای برنامه</string>
   <string name="crash_report_relaunch_or_quit">با عرض پوزش، نرم‌افزار ویکی‌پدیا با خطا مواجه شد و بسته شد.\n\nآیا قصد شروع دوباره دارید یا می‌خواهید خارج شوید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>
@@ -753,7 +761,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع کن</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">توضیح تصویر (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">توضیح تصویر (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">تصویر</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">پرونده‌ای از ویکی‌انبار</string>
   <string name="suggested_edits_image_preview_dialog_artist">نام هنرمند</string>

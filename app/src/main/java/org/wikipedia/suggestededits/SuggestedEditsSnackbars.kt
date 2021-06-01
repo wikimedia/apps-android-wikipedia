@@ -10,7 +10,7 @@ import org.wikipedia.util.FeedbackUtil
 
 object SuggestedEditsSnackbars {
 
-   fun interface OpenPageListener {
+    fun interface OpenPageListener {
         fun open()
     }
 

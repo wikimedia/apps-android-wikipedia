@@ -242,7 +242,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -387,6 +387,14 @@
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
   <string name="menu_save_all_tabs">Salvar todas as guias</string>
+  <string name="error_blocked_title">Seu nome de usuário ou endereço IP foi bloqueado.</string>
+  <string name="error_blocked_by">O bloqueio foi feito por &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">O motivo dado é: %s</string>
+  <string name="error_blocked_start">Início do bloco: %s</string>
+  <string name="error_blocked_expiry">Expiração do bloqueio: %s</string>
+  <string name="error_blocked_id">ID de bloqueio: %s</string>
+  <string name="error_blocked_footer">Você pode entrar em contato &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
+  <string name="error_blocked_footer_no_blocker">Você pode entrar em contato com um &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="crash_report_activity_title">Erro no aplicativo</string>
   <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
@@ -756,7 +764,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Imagem</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Arquivo do Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>

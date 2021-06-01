@@ -195,7 +195,7 @@
   <string name="about_translators_heading">Тылбаасчыттар</string>
   <string name="about_translators_translatewiki">Бу дьибилгэти баҕалаах дьон манна тылбаастаабыттара - &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиссиэнсийэ</string>
-  <string name="about_app_license">Төрүт куод манна баар &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; уонна манна &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt;, лиссиэнсийэтэ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Атын ыйыллыбатах буоллаҕына иһинээҕитэ бу лиссиэнсийэ усулуобуйатынан тарҕанар: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Төрүт куод манна баар &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; уонна манна &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt;, лиссиэнсийэтэ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Атын ыйыллыбатах буоллаҕына иһинээҕитэ бу лиссиэнсийэ усулуобуйатынан тарҕанар: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt; Викимедиа Пуондата&lt;/a&gt; оҥорон таһаарыыта</string>
   <string name="about_activity_title">Бу туһунан</string>
   <string name="edit_abandon_confirm">Сирэйи уларыппыккын быһыылаах. Ону бигэргэппэккэ тахсаары гыммыккын. Уларыппаккын дуо?</string>
@@ -621,7 +621,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Кылгас быһаарыыны эбии (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Саҕалыырга</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Ойуу туһунан (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Ойуу туһунан (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Худуоһунньук</string>
   <string name="suggested_edits_image_preview_dialog_date">Күнэ-дьыла</string>
   <string name="suggested_edits_image_preview_dialog_source">Төрүтэ/Фотограф</string>

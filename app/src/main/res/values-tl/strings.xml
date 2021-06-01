@@ -214,7 +214,7 @@
   <string name="about_translators_heading">Mga Nagsalin</string>
   <string name="about_translators_translatewiki">Isinalin ang app na ito ng mga boluntaryong tagapagsalin sa &lt;a href=\"https://translatewiki.net\"&gt;&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
-  <string name="about_app_license">Makikita ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;lisensiyang Apache 2.0&lt;/a&gt;. Maliban lamang kung sinabi, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Makikita ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;lisensiyang Apache 2.0&lt;/a&gt;. Maliban lamang kung sinabi, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkto ng &lt;a href=\"https://wikimediafoundation.org/\"&gt;Pundasyong Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Patungkol</string>
   <string name="edit_abandon_confirm">Binago mo ang pahinang ito. Sigurado ka bang babalewalain mo ang mga pagbababagong ginawa mo?</string>
@@ -726,7 +726,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maglarawan (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Magsimula</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kapsyón (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Paglalarawan (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Larawan</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">File mula sa Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">May-akda</string>
