@@ -8,10 +8,6 @@
         <!-- https://github.com/skydoves/Balloon/blob/main/LICENSE -->
         (<a href="content:///android_asset/licenses/Balloon">license</a>),
 
-        <a href="https://jakewharton.github.io/butterknife/">ButterKnife</a>
-        <!-- https://raw.githubusercontent.com/JakeWharton/butterknife/master/LICENSE.txt -->
-        (<a href="content:///android_asset/licenses/ButterKnife">license</a>),
-
         <a href="https://github.com/michael-rapp/ChromeLikeTabSwitcher">ChromeLikeTabSwitcher</a>
         <!-- https://github.com/michael-rapp/ChromeLikeTabSwitcher/blob/master/LICENSE.txt -->
         (<a href="content:///android_asset/licenses/ChromeLikeTabSwitcher">license</a>),
