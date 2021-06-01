@@ -242,6 +242,7 @@
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">Nò</string>
   <string name="button_close_tab">Sara su la scheda</string>
+  <string name="error_blocked_reason">La reson fornida l\'è: %s</string>
   <string name="text_style_title">Tipo de caratter</string>
   <string name="notifications_mark_unread">Insegna come nananmò leggiud</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>
