@@ -207,7 +207,7 @@
   <string name="about_translators_heading">ညးတြာဲဘာသာဂမၠိုင်</string>
   <string name="about_translators_translatewiki">app ဏအ်ဂှ် ကၠာဲစၠောအ်လဝ် နကဵုမၞိဟ်မကၠာဲဘာသာ နကဵုစေတနာ ပ္ဍဲ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">လာင်ဇြေန်</string>
-  <string name="about_app_license">ကုဒ် တင်ဂၞင် မကလိဂွံမာန် ပ္ဍဲ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">ကုဒ် တင်ဂၞင် မကလိဂွံမာန် ပ္ဍဲ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">မဒှ်အရာ မကၠောန်ပတိတ် နူ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">ပရူ</string>
   <string name="edit_abandon_confirm">မုက်လိက်ဏအ် ပလေဝ်ပလေတ်လဝ်၊၊ မၞး မိက်ဂွံတိတ် နူမုက်လိက် သီုဟွံဂိုင်သိပ် ကွေဟ်ဟ်ရဟာ？</string>
@@ -713,7 +713,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">စုတ် ပရူပရာ လိက်ပရေင် (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">စကၠောန်ရ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ပရူပရာ ဗီု (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ပရူပရာ ဗီု (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ဝှာင်</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">ဝှာင်နူပ္ဍဲ ဝဳကဳမဳဒဳယာ ကောမ်မောန်</string>
   <string name="suggested_edits_image_preview_dialog_artist">သၟာပါန်ကွတ်</string>

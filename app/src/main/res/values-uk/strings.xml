@@ -226,7 +226,7 @@
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
-  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про программу</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
@@ -775,7 +775,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додати опис статті (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Розпочати</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Підпис зображення (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис зображення (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Файл</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Файл із Вікісховища</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>

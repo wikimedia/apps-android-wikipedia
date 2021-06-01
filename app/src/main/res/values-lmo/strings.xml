@@ -192,7 +192,7 @@
   <string name="about_translators_heading">Tradutor</string>
   <string name="about_translators_translatewiki">Questa applicazzion chì l\'è stada tradotta de tradutor volontari in su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; second conforma a la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; second conforma a la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodot de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazzion</string>
   <string name="edit_abandon_confirm">La pagina l\'è stada modificada. Te see sicur che te voeuret sortì senza salvà i cambiament?</string>
@@ -242,6 +242,7 @@
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">Nò</string>
   <string name="button_close_tab">Sara su la scheda</string>
+  <string name="error_blocked_reason">La reson fornida l\'è: %s</string>
   <string name="text_style_title">Tipo de caratter</string>
   <string name="notifications_mark_unread">Insegna come nananmò leggiud</string>
   <string name="preference_title_notification_poll">Verifica notifiche</string>

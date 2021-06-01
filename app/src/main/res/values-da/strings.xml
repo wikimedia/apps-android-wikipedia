@@ -221,7 +221,7 @@
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Kreditering-DelPåSammeVilkår-licensen&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kildekode tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Kreditering-DelPåSammeVilkår-licensen&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
@@ -729,7 +729,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Tilføj artikelbeskrivelse (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Billedtekst (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Billedebeskrivelse (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Fil</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fil fra Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Kunstner</string>
