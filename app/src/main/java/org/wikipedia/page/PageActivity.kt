@@ -411,7 +411,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 // the same cookie state as the browser does.
                 val language = wiki.languageCode().toLowerCase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
-                if (isDonationRelated) {
+                if (isDonationRelated || title.namespace() == Namespace.SPECIAL) {
                     UriUtil.visitInExternalBrowser(this, it)
                     finish()
                     return
