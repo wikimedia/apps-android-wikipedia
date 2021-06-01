@@ -16,17 +16,9 @@
         <!-- https://www.apache.org/licenses/ -->
         (<a href="content:///android_asset/licenses/CommonsLang3">license</a>),
 
-        <a href="http://frescolib.org/">Fresco</a>
-        <!-- https://raw.githubusercontent.com/facebook/fresco/master/LICENSE -->
-        (<a href="content:///android_asset/licenses/Fresco">license</a>),
-
         <a href="https://github.com/jhy/jsoup">jsoup</a>
         <!-- https://raw.githubusercontent.com/jhy/jsoup/master/LICENSE -->
         (<a href="content:///android_asset/licenses/jsoup">license</a>),
-
-        <a href="https://www.mapbox.com/android-sdk/">Mapbox Android SDK</a>
-        <!-- https://raw.githubusercontent.com/mapbox/mapbox-gl-native/master/LICENSE.md-->
-        (<a href="content:///android_asset/licenses/Mapbox">license</a>),
 
         <a href="https://square.github.io/okhttp/">OkHttp</a>
         <!-- https://raw.githubusercontent.com/square/okhttp/master/LICENSE.txt -->
