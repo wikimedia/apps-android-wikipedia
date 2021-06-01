@@ -20,7 +20,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.IntentFunnel
 import org.wikipedia.analytics.SearchFunnel
-import org.wikipedia.database.contract.SearchHistoryContract
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -347,11 +347,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private fun addRecentSearch(title: String?) {
         if (isValidQuery(title)) {
             disposables.add(Completable.fromAction {
-                app.getDatabaseClient(RecentSearch::class.java).upsert(RecentSearch(title), SearchHistoryContract.Query.SELECTION)
-            }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ recentSearchesFragment.updateList() }) { obj: Throwable -> obj.printStackTrace() })
+                AppDatabase.getAppDatabase().recentSearchDao().insertRecentSearch(RecentSearch(title))
+            }.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ recentSearchesFragment.updateList() }) { obj: Throwable -> obj.printStackTrace() })
         }
     }
 

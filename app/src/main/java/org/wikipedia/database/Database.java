@@ -22,7 +22,6 @@ public class Database extends SQLiteOpenHelper {
     private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
             PageImage.DATABASE_TABLE,
-            RecentSearch.DATABASE_TABLE,
             EditSummary.DATABASE_TABLE,
             ReadingList.DATABASE_TABLE,
             ReadingListPage.DATABASE_TABLE,

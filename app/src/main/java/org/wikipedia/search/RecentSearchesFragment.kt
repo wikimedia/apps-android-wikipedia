@@ -9,21 +9,23 @@ import android.view.ViewGroup
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.cursoradapter.widget.CursorAdapter
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.database.contract.SearchHistoryContract
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchRecentBinding
 import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
+import org.wikipedia.util.log.L
 
-class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+class RecentSearchesFragment : Fragment() {
     interface Callback {
         fun switchToSearch(text: String)
         fun onAddLanguageClicked()
@@ -32,7 +34,7 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     private var _binding: FragmentSearchRecentBinding? = null
     private val binding get() = _binding!!
     var callback: Callback? = null
-    private lateinit var adapter: RecentSearchesAdapter
+    //private lateinit var adapter: RecentSearchesAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
@@ -64,15 +66,25 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        adapter = RecentSearchesAdapter(requireContext(), null, true)
-        binding.recentSearchesList.adapter = adapter
+        //adapter = RecentSearchesAdapter(requireContext(), null, true)
+        //binding.recentSearchesList.adapter = adapter
         binding.recentSearchesList.onItemClickListener = OnItemClickListener { _, view: View, _, _ ->
             val entry = view.tag as RecentSearch
             callback?.switchToSearch(entry.text!!)
         }
-        val supportLoaderManager = LoaderManager.getInstance(this)
-        supportLoaderManager.initLoader(Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this)
-        supportLoaderManager.restartLoader(Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this)
+
+
+
+
+        Observable.fromCallable {
+            AppDatabase.getAppDatabase().recentSearchDao().getRecentSearches()
+        }.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { searches ->
+                searches.forEach {
+                    L.d(it.text.orEmpty())
+                }
+            }
     }
 
     override fun onDestroyView() {
@@ -81,9 +93,10 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         super.onDestroyView()
     }
 
+    /*
     override fun onCreateLoader(i: Int, bundle: Bundle?): Loader<Cursor> {
-        val uri = SearchHistoryContract.Query.URI
-        val order = SearchHistoryContract.Query.ORDER_MRU
+        //val uri = SearchHistoryContract.Query.URI
+        //val order = SearchHistoryContract.Query.ORDER_MRU
         return CursorLoader(requireContext(), uri, null, null, null, order)
     }
 
@@ -91,12 +104,13 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         if (!isAdded) {
             return
         }
-        adapter.swapCursor(cursorLoader)
+        //adapter.swapCursor(cursorLoader)
         val searchesEmpty = binding.recentSearchesList.count == 0
         binding.searchEmptyContainer.visibility = if (searchesEmpty) View.VISIBLE else View.INVISIBLE
         updateSearchEmptyView(searchesEmpty)
         binding.recentSearches.visibility = if (!searchesEmpty) View.VISIBLE else View.INVISIBLE
     }
+     */
 
     private fun updateSearchEmptyView(searchesEmpty: Boolean) {
         if (searchesEmpty) {
@@ -117,14 +131,11 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         callback?.onAddLanguageClicked()
     }
 
-    override fun onLoaderReset(cursorLoaderLoader: Loader<Cursor>) {
-        adapter.changeCursor(null)
-    }
-
     fun updateList() {
-        adapter.notifyDataSetChanged()
+        //adapter.notifyDataSetChanged()
     }
 
+    /*
     private inner class RecentSearchesAdapter(context: Context, c: Cursor?, autoRequery: Boolean) : CursorAdapter(context, c, autoRequery) {
         override fun newView(context: Context, cursor: Cursor, viewGroup: ViewGroup): View {
             return LayoutInflater.from(activity).inflate(R.layout.item_search_recent, viewGroup, false)
@@ -145,4 +156,5 @@ class RecentSearchesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             return RecentSearch.DATABASE_TABLE.fromCursor(cursor)
         }
     }
+     */
 }

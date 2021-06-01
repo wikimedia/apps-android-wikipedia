@@ -40,7 +40,6 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.push.WikipediaFirebaseMessagingService;
-import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.settings.SiteInfoClient;
@@ -247,8 +246,6 @@ public class WikipediaApp extends Application {
                 client = new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
             } else if (cls.equals(PageImage.class)) {
                 client = new DatabaseClient<>(this, PageImage.DATABASE_TABLE);
-            } else if (cls.equals(RecentSearch.class)) {
-                client = new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
                 client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
             } else {
