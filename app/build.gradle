@@ -257,13 +257,3 @@ private static Properties loadProperties(File file) {
     }
     return props
 }
-
-addSyncContentProviderAuthority 'readinglists', 'reading_lists'
-
-private void addSyncContentProviderAuthority(String path, String name) {
-    android.productFlavors.all { flavor ->
-        String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
-        resValue 'string', "${name.toLowerCase()}_authority", authority
-        buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
-    }
-}

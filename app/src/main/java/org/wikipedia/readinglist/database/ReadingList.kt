@@ -6,7 +6,7 @@ import org.wikipedia.WikipediaApp
 import java.io.Serializable
 import java.util.*
 
-class ReadingList(var dbTitle: String,
+class ReadingList(title: String,
                   var description: String?,
                   var mtime: Long = System.currentTimeMillis(),
                   var atime: Long = mtime,
@@ -19,35 +19,22 @@ class ReadingList(var dbTitle: String,
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
-    val isDefault = dbTitle.isEmpty()
+    val isDefault = title.isEmpty()
 
-    val title = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else dbTitle
+    var title = title
+        get() = if (isDefault) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else field
 
-    val numPagesOffline: Int
-        get() {
-            var count = 0
-            for (page in pages) {
-                if (page.offline && page.status == ReadingListPage.STATUS_SAVED) {
-                    count++
-                }
-            }
-            return count
-        }
+    val numPagesOffline
+        get() = pages.count { it.offline && it.status == ReadingListPage.STATUS_SAVED }
 
-    val sizeBytesFromPages: Long
-        get() {
-            var bytes = 0L
-            pages.forEach {
-                bytes += if (it.offline) it.sizeBytes else 0
-            }
-            return bytes
-        }
+    val sizeBytesFromPages
+        get() = pages.sumOf { if (it.offline) it.sizeBytes else 0 }
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
             accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase(Locale.getDefault())
         }
-        return accentAndCaseInvariantTitle as String
+        return accentAndCaseInvariantTitle!!
     }
 
     fun touch() {
@@ -62,14 +49,13 @@ class ReadingList(var dbTitle: String,
 
         @JvmField
         val DATABASE_TABLE = ReadingListTable()
+
         fun sort(list: ReadingList, sortMode: Int) {
             when (sortMode) {
                 SORT_BY_NAME_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()) }
                 SORT_BY_NAME_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()) }
                 SORT_BY_RECENT_ASC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> lhs.mtime.compareTo(rhs.mtime) }
                 SORT_BY_RECENT_DESC -> list.pages.sortWith { lhs: ReadingListPage, rhs: ReadingListPage -> rhs.mtime.compareTo(lhs.mtime) }
-                else -> {
-                }
             }
         }
 
@@ -79,8 +65,6 @@ class ReadingList(var dbTitle: String,
                 SORT_BY_NAME_DESC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()) }
                 SORT_BY_RECENT_ASC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> rhs.mtime.compareTo(lhs.mtime) }
                 SORT_BY_RECENT_DESC -> lists.sortWith { lhs: ReadingList, rhs: ReadingList -> lhs.mtime.compareTo(rhs.mtime) }
-                else -> {
-                }
             }
             // make the Default list sticky on top, regardless of sorting.
             lists.firstOrNull { it.isDefault }?.let {
@@ -119,7 +103,6 @@ class ReadingList(var dbTitle: String,
                         0
                     }
                 }
-                else -> { }
             }
 
             // make the Default list sticky on top, regardless of sorting.
