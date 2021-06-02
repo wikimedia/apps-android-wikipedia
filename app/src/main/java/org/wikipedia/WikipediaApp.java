@@ -236,11 +236,11 @@ public class WikipediaApp extends Application {
         if (!databaseClients.containsKey(cls)) {
             DatabaseClient<?> client;
             if (cls.equals(HistoryEntry.class)) {
-                client = new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
+                client = new DatabaseClient<>(HistoryEntry.DATABASE_TABLE);
             } else if (cls.equals(PageImage.class)) {
-                client = new DatabaseClient<>(this, PageImage.DATABASE_TABLE);
+                client = new DatabaseClient<>(PageImage.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
-                client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
+                client = new DatabaseClient<>(EditSummary.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }

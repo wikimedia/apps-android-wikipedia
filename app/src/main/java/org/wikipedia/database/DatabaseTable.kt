@@ -10,7 +10,7 @@ import org.wikipedia.database.column.Column
 import org.wikipedia.util.log.L
 import kotlin.math.max
 
-abstract class DatabaseTable<T>(private val tableName: String, val baseContentURI: Uri) {
+abstract class DatabaseTable<T>(val tableName: String, val baseContentURI: Uri) {
     protected abstract val dBVersionIntroducedAt: Int
 
     private val dBVersionDroppedAt: Int

@@ -1,50 +1,32 @@
 package org.wikipedia.database;
 
-import android.content.ContentProviderClient;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.os.RemoteException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.sqlite.db.SupportSQLiteQueryBuilder;
 
 public class DatabaseClient<T> {
-    @NonNull private final ContentProviderClient client;
     @NonNull private final DatabaseTable<T> databaseTable;
 
-    public DatabaseClient(@NonNull Context context,
-                          @NonNull DatabaseTable<T> databaseTable) {
-        this(databaseTable.acquireClient(context), databaseTable);
-    }
-
-    public DatabaseClient(@NonNull ContentProviderClient client,
-                          @NonNull DatabaseTable<T> databaseTable) {
-        this.client = client;
+    public DatabaseClient(@NonNull DatabaseTable<T> databaseTable) {
         this.databaseTable = databaseTable;
     }
 
     public void persist(T obj) {
-        try {
-            client.insert(uri(), toContentValues(obj));
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
+        AppDatabase.Companion.getAppDatabase().getWritableDatabase().insert(databaseTable.getTableName(),
+                SQLiteDatabase.CONFLICT_REPLACE, toContentValues(obj));
     }
 
-    public Cursor select(@Nullable String selection, @Nullable String[] selectionArgs,
-                         @Nullable String sortOrder) {
-        return select(uri(), selection, selectionArgs, sortOrder);
-    }
-
-    public Cursor select(@NonNull Uri uri, @Nullable String selection,
-                         @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-        try {
-            return client.query(uri, null, selection, selectionArgs, sortOrder);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
+    public Cursor select(@Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+        return AppDatabase.Companion.getAppDatabase().getReadableDatabase()
+                .query(SupportSQLiteQueryBuilder.builder(databaseTable.getTableName())
+                        .selection(selection, selectionArgs)
+                        .orderBy(sortOrder)
+                        .create());
     }
 
     public void deleteAll() {
@@ -52,40 +34,25 @@ public class DatabaseClient<T> {
     }
 
     public void deleteWhere(String selection, String[] selectionArgs) {
-        try {
-            client.delete(uri(), selection, selectionArgs);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
+        AppDatabase.Companion.getAppDatabase().getWritableDatabase()
+                .delete(databaseTable.getTableName(), selection, selectionArgs);
     }
 
     public void delete(@NonNull T obj, @NonNull String[] selectionArgs) {
-        try {
-            client.delete(
-                    uri(),
-                    getPrimaryKeySelection(obj, selectionArgs),
-                    getPrimaryKeySelectionArgs(obj)
-            );
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
+        AppDatabase.Companion.getAppDatabase().getWritableDatabase()
+                .delete(databaseTable.getTableName(),
+                        getPrimaryKeySelection(obj, selectionArgs), getPrimaryKeySelectionArgs(obj));
     }
 
     // TODO: migrate old tables to use unique constraints and just call insertWithOnConflict.
     public void upsert(@NonNull T obj, @NonNull String[] selectionArgs) {
-        try {
-            int rowsUpdated = client.update(
-                    uri(),
-                    toContentValues(obj),
-                    getPrimaryKeySelection(obj, selectionArgs),
-                    getPrimaryKeySelectionArgs(obj)
-            );
-            if (rowsUpdated == 0) {
-                // TODO: synchronize with other writes. There are two operations performed.
-                persist(obj);
-            }
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
+        int rowsUpdated = AppDatabase.Companion.getAppDatabase().getWritableDatabase()
+                .update(databaseTable.getTableName(), SQLiteDatabase.CONFLICT_REPLACE,
+                        toContentValues(obj), getPrimaryKeySelection(obj, selectionArgs),
+                        getPrimaryKeySelectionArgs(obj));
+        if (rowsUpdated == 0) {
+            // TODO: synchronize with other writes. There are two operations performed.
+            persist(obj);
         }
     }
 
