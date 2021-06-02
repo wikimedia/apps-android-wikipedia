@@ -38,8 +38,8 @@ class LoginClient {
             }, { caught -> cb.error(caught) }))
     }
 
-    fun login(wiki: WikiSite, userName: String, password: String, retypedPassword: String?, twoFactorCode: String?,
-        loginToken: String, cb: LoginCallback) {
+    fun login(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
+        twoFactorCode: String?, loginToken: String, cb: LoginCallback) {
         disposables.add(getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, loginToken)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -82,8 +82,7 @@ class LoginClient {
             })
     }
 
-    fun loginBlocking(wiki: WikiSite, userName: String,
-        password: String, twoFactorCode: String?): Observable<LoginResponse> {
+    fun loginBlocking(wiki: WikiSite, userName: String, password: String, twoFactorCode: String?): Observable<LoginResponse> {
         return getLoginToken(wiki)
             .flatMap { loginToken ->
                 getLoginResponse(wiki, userName, password, null, twoFactorCode, loginToken)
