@@ -83,18 +83,6 @@ class TalkTopicsActivity : BaseActivity() {
         funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
-
-
-
-
-
-        val seen = AppDatabase.getAppDatabase().talkPageSeenDao().getAll()
-        seen.forEach {
-            L.d(it.sha)
-
-        }
-
-
     }
 
     public override fun onDestroy() {
