@@ -30,10 +30,17 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         val MIGRATION_22_23 = object : Migration(22, 23) {
             override fun migrate(database: SupportSQLiteDatabase) {
+                // convert Recent Searches table
                 database.execSQL("CREATE TABLE recentsearches_temp (_id INTEGER NOT NULL, text TEXT NOT NULL, timestamp INTEGER NOT NULL, PRIMARY KEY(_id))")
                 database.execSQL("INSERT INTO recentsearches_temp (_id, text, timestamp) SELECT _id, text, timestamp FROM recentsearches")
                 database.execSQL("DROP TABLE recentsearches")
                 database.execSQL("ALTER TABLE recentsearches_temp RENAME TO recentsearches")
+
+                // convert Talk Pages Seen table
+                database.execSQL("CREATE TABLE talkpageseen_temp (_id INTEGER NOT NULL, sha TEXT NOT NULL, PRIMARY KEY(_id))")
+                database.execSQL("INSERT INTO talkpageseen_temp (_id, sha) SELECT _id, sha FROM talkpageseen")
+                database.execSQL("DROP TABLE talkpageseen")
+                database.execSQL("ALTER TABLE talkpageseen_temp RENAME TO talkpageseen")
             }
         }
 
