@@ -29,7 +29,6 @@ import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeFontChangeEvent;
 import org.wikipedia.history.HistoryEntry;
@@ -239,8 +238,6 @@ public class WikipediaApp extends Application {
                 client = new DatabaseClient<>(HistoryEntry.DATABASE_TABLE);
             } else if (cls.equals(PageImage.class)) {
                 client = new DatabaseClient<>(PageImage.DATABASE_TABLE);
-            } else if (cls.equals(EditSummary.class)) {
-                client = new DatabaseClient<>(EditSummary.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }

@@ -9,6 +9,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import org.wikipedia.WikipediaApp
+import org.wikipedia.edit.summaries.EditSummary
+import org.wikipedia.edit.summaries.EditSummaryDao
 import org.wikipedia.search.RecentSearch
 import org.wikipedia.search.RecentSearchDao
 import org.wikipedia.talk.TalkPageSeen
@@ -17,12 +19,15 @@ import org.wikipedia.talk.TalkPageSeenDao
 const val DATABASE_NAME = "wikipedia.db"
 const val DATABASE_VERSION = 23
 
-@Database(entities = [RecentSearch::class, TalkPageSeen::class], version = DATABASE_VERSION)
+@Database(entities = [RecentSearch::class,
+    TalkPageSeen::class,
+    EditSummary::class], version = DATABASE_VERSION)
 @TypeConverters(DateTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recentSearchDao(): RecentSearchDao
     abstract fun talkPageSeenDao(): TalkPageSeenDao
+    abstract fun editSummaryDao(): EditSummaryDao
 
     val readableDatabase: SupportSQLiteDatabase get() = openHelper.readableDatabase
     val writableDatabase: SupportSQLiteDatabase get() = openHelper.writableDatabase
@@ -41,6 +46,12 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("INSERT INTO talkpageseen_temp (_id, sha) SELECT _id, sha FROM talkpageseen")
                 database.execSQL("DROP TABLE talkpageseen")
                 database.execSQL("ALTER TABLE talkpageseen_temp RENAME TO talkpageseen")
+
+                // convert Edit Summaries table
+                database.execSQL("CREATE TABLE editsummaries_temp (_id INTEGER NOT NULL, summary TEXT NOT NULL, lastUsed INTEGER NOT NULL, PRIMARY KEY(_id))")
+                database.execSQL("INSERT INTO editsummaries_temp (_id, summary, lastUsed) SELECT _id, summary, lastUsed FROM editsummaries")
+                database.execSQL("DROP TABLE editsummaries")
+                database.execSQL("ALTER TABLE editsummaries_temp RENAME TO editsummaries")
             }
         }
 
