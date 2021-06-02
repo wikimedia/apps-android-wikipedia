@@ -197,9 +197,9 @@ abstract class FeedCoordinatorBase(private val context: Context) {
     }
 
     private inner class ClientRequestCallback : FeedClient.Callback {
-        override fun success(cardList: List<Card>) {
+        override fun success(cards: List<Card>) {
             var atLeastOneAppended = false
-            for (card in cardList) {
+            for (card in cards) {
                 if (!isCardHidden(card)) {
                     appendCard(card)
                     atLeastOneAppended = true
