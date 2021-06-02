@@ -14,11 +14,11 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
     override fun fromCursor(cursor: Cursor): ReadingListPage {
         val langCode = ReadingListPageContract.Col.LANG.value(cursor)
         val site = ReadingListPageContract.Col.SITE.value(cursor)
+        val nameSpace = ReadingListPageContract.Col.NAMESPACE.value(cursor)
+        val displayTitle = ReadingListPageContract.Col.DISPLAY_TITLE.value(cursor)
+        val apiTitle = ReadingListPageContract.Col.API_TITLE.value(cursor).orEmpty().ifEmpty { displayTitle }
         return ReadingListPage(langCode?.let { WikiSite(site, it) } ?: WikiSite(site),
-                ReadingListPageContract.Col.NAMESPACE.value(cursor),
-                ReadingListPageContract.Col.DISPLAY_TITLE.value(cursor),
-                ReadingListPageContract.Col.API_TITLE.value(cursor)).apply {
-            apiTitle = if (apiTitle.isEmpty()) displayTitle else apiTitle
+            nameSpace, displayTitle, apiTitle).apply {
             listId = ReadingListPageContract.Col.LISTID.value(cursor)
             id = ReadingListPageContract.Col.ID.value(cursor)
             description = ReadingListPageContract.Col.DESCRIPTION.value(cursor)
@@ -102,13 +102,13 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
                 return
             }
         }
-        ReadingListDbHelper.instance().run {
+        ReadingListDbHelper.run {
             currentLists.add(createDefaultList(db))
         }
     }
 
     private fun renameListsWithIdenticalNameAsDefault(db: SQLiteDatabase, lists: List<ReadingList>) {
-        ReadingListDbHelper.instance().run {
+        ReadingListDbHelper.run {
             for (list in lists) {
                 if (list.title.equals(WikipediaApp.getInstance().getString(R.string.default_reading_list_name), true)) {
                     list.title = WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename, list.title)

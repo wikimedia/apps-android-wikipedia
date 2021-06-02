@@ -10,7 +10,7 @@
   <string name="search_hint">Википедин чухула лахар</string>
   <string name="nav_item_more">Кхин</string>
   <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>
-  <string name="page_error_retry">ЮхагӀорта</string>
+  <string name="page_error_retry">ЙухагӀорта</string>
   <string name="page_error_back_to_main">Юханехьа</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
@@ -19,7 +19,7 @@
   <string name="menu_page_share" fuzzy="true">Екха</string>
   <string name="menu_long_press_open_page" fuzzy="true">Хьажорг схьаелла</string>
   <string name="menu_text_select_define">Къастам</string>
-  <string name="last_updated_text">ТӀаьххьара карлаяккхар: %s</string>
+  <string name="last_updated_text">ТӀаьххьара карлайаккхар: %s</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="langlinks_filter_hint">Лахар</string>
   <string name="langlinks_no_match" fuzzy="true">Хьан дехарца меттанаш цакарий</string>
@@ -27,10 +27,10 @@
   <string name="menu_save_changes" fuzzy="true">Ӏалашбе хийцамаш</string>
   <string name="edit_saved_successfully" fuzzy="true">Нисдар Ӏалашдина!</string>
   <string name="dialog_message_edit_failed">ГӀалат тадина!</string>
-  <string name="dialog_message_edit_failed_retry">ЮхагӀорта</string>
+  <string name="dialog_message_edit_failed_retry">ЙухагӀорта</string>
   <string name="dialog_message_edit_failed_cancel">Цаоьшу</string>
   <string name="menu_show_toc">Чулацам</string>
-  <string name="title_captcha">Язъе капча</string>
+  <string name="title_captcha">Йазйе капча</string>
   <string name="nav_item_login" fuzzy="true">ЧугӀо</string>
   <string name="login_username_hint">Декъашхочун цӀе</string>
   <string name="login_password_hint">Пароль</string>
@@ -45,14 +45,14 @@
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
   <string name="create_account_activity_title">Кхолла декъашхочун агӀо</string>
   <string name="dialog_create_account_checking_progress">Таллар</string>
-  <string name="create_account_email_hint">Электронан поштан адрес (ца хилча бе яц)</string>
-  <string name="create_account_password_repeat_hint">Юху а язъе пароль</string>
-  <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш яц</string>
+  <string name="create_account_email_hint">Электронан поштан адрес (ца хилча а мега)</string>
+  <string name="create_account_password_repeat_hint">Йуха а йазйе пароль</string>
+  <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш йац</string>
   <string name="create_account_email_error">Магийна доцу электронан поштан адрес</string>
-  <string name="create_account_generic_error">Декъашхочун агӀо кхолла йиш яц</string>
+  <string name="create_account_generic_error">Декъашхочун агӀо кхолла йиш йац</string>
   <string name="create_account_next">Кхин дӀа</string>
   <string name="create_account_ip_block_details">Мадарра</string>
-  <string name="preferences_general_heading">Юкъара</string>
+  <string name="preferences_general_heading">Йукъара</string>
   <string name="send_feedback">ЗӀе</string>
   <string name="settings_activity_title" fuzzy="true">Параметраш</string>
   <string name="privacy_policy_description">Къайлаха политика</string>
@@ -61,10 +61,11 @@
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="about_translators_heading">гочдархой</string>
-  <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
+  <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чуьра шен лаамернигаш.</string>
   <string name="edit_next">Кхин дӀа</string>
   <string name="edit_done" fuzzy="true">Ӏалашдан</string>
   <string name="edit_preview">Хьалххе хьажар</string>
+  <string name="edit_summary_tag_grammar">Нийсайаздар</string>
   <string name="edit_summary_tag_other">Кхин</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
   <string name="table_close">ДӀачӀагӀа</string>
@@ -76,14 +77,14 @@
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title" fuzzy="true">Лицензин йоза %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолаялита цаелира.</string>
-  <string name="crash_report_relaunch">Юху доладан</string>
+  <string name="crash_report_relaunch">Йуха доладан</string>
   <string name="crash_report_quit">АрагӀо</string>
   <string name="color_theme_select">Кечяр</string>
   <string name="color_theme_light">Сирла</string>
   <string name="color_theme_dark">Бодане</string>
   <string name="view_main_page_card_title">Тахана Википедехь</string>
-  <string name="view_featured_image_card_download">Чуяккха</string>
-  <string name="menu_feed_card_dismiss">ХӀара карточка къайлаяккха</string>
+  <string name="view_featured_image_card_download">Чуйаккха</string>
+  <string name="menu_feed_card_dismiss">ХӀара карточка къайлайаккха</string>
   <string name="menu_feed_card_dismissed">Карточка къайлаяьккхина.</string>
   <string name="feed_featured_image_share_subject">Викиларман дика суьрташ</string>
   <string name="feed">Талла</string>
@@ -100,11 +101,11 @@
   <string name="suggested_edits_contribution_image_label">Сурт</string>
   <string name="app_shortcuts_search">Лахар</string>
   <string name="on_this_day_dialog_next_month">РогӀера бутт</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ДӀабаккха цийн мотт могӀаман юкъара?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ДӀабаккха цийн мотт могӀаман йукъара?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Хийца меттанаш</string>
   <string name="main_tooltip_watchlist_title">Тергаме могӀам</string>
   <string name="thank_label">Баркалла</string>
-  <string name="thank_dialog_negative_button_text">Юхаяккхар</string>
+  <string name="thank_dialog_negative_button_text">Йухайаккхар</string>
   <string name="thank_success_message">Хьан \"Баркалла\" дӀадахийтина %s декъашхочуьнга 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">гуттара</string>
   <string name="watchlist_expiry_dialog_one_month">1 бутт</string>

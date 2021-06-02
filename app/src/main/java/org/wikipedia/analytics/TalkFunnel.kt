@@ -3,7 +3,7 @@ package org.wikipedia.analytics
 import org.json.JSONObject
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
-import org.wikipedia.auth.AccountUtil.isLoggedIn
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.page.PageTitle
 import java.util.*
 
@@ -11,10 +11,9 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         TimedFunnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
-        preprocessData(eventData, "source", invokeSource.getName())
-        preprocessData(eventData, "anon", !isLoggedIn)
-        preprocessData(eventData, "pageNS", if (!title.namespace.isNullOrEmpty())
-            title.namespace!!.toLowerCase(Locale.ROOT).capitalize(Locale.ROOT) else title.namespace)
+        preprocessData(eventData, "source", invokeSource.name)
+        preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
+        preprocessData(eventData, "pageNS", title.namespace.orEmpty().toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault()))
         return super.preprocessData(eventData)
     }
 

@@ -14,7 +14,7 @@
         android:text="@string/feed_accessibility_card_text" />
 
     <Button
-        android:id="@+id/view_card_accessibility_button_load_more"
+        android:id="@+id/load_more"
         style="@style/App.Button.White"
         android:layout_margin="8dp"
         android:text="@string/feed_accessibility_card_load_more_button" />

@@ -489,6 +489,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     // page has now loaded and trigger the remaining logic ourselves.
                     if (!"true".equals(pcsExists)) {
                         onPageSetupEvent();
+                        bridge.onMetadataReady();
                         bridge.onPcsReady();
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim());
                     }
@@ -530,7 +531,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             disposables.add(Completable.fromAction(() -> {
                 if (!TextUtils.equals(page.getThumbUrl(), title.getThumbUrl())
                         || !TextUtils.equals(page.getDescription(), title.getDescription())) {
-                    ReadingListDbHelper.instance().updateMetadataByTitle(page,
+                    ReadingListDbHelper.INSTANCE.updateMetadataByTitle(page,
                             title.getDescription(), title.getThumbUrl());
                 }
             }).subscribeOn(Schedulers.io()).subscribe());
@@ -847,7 +848,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void updateBookmarkAndMenuOptionsFromDao() {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.INSTANCE.findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
@@ -876,8 +877,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void sharePageLink() {
-        if (getPage() != null) {
-            ShareUtil.shareText(requireActivity(), getPage().getTitle());
+        if (model.getTitle() != null) {
+            ShareUtil.shareText(requireActivity(), model.getTitle());
         }
     }
 
@@ -1376,7 +1377,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public int getToolbarMargin() {
-        return ((PageActivity) requireActivity()).toolbarContainerView.getHeight();
+        return ((PageActivity) requireActivity()).getToolbarMargin();
     }
 
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {

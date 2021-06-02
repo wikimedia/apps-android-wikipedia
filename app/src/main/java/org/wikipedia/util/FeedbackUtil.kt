@@ -3,7 +3,6 @@ package org.wikipedia.util
 import android.app.Activity
 import android.content.Context
 import android.net.Uri
-import android.text.method.LinkMovementMethod
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +20,7 @@ import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.random.RandomActivity
@@ -130,7 +130,7 @@ object FeedbackUtil {
     @JvmStatic
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
-        SuggestedEditsFunnel.get().helpOpened()
+        SuggestedEditsFunnel.get()!!.helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
@@ -147,7 +147,7 @@ object FeedbackUtil {
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
-        textView.movementMethod = LinkMovementMethod.getInstance()
+        textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
         RichTextUtil.removeUnderlinesFromLinks(textView)
         val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
         actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))

@@ -1,11 +1,9 @@
 package org.wikipedia.auth
 
 import android.accounts.*
-import android.content.ContentResolver
 import android.content.Context
 import android.os.Bundle
 import androidx.core.os.bundleOf
-import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.auth.AccountUtil.account
@@ -62,23 +60,5 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
     private fun unsupportedOperation(): Bundle {
         return bundleOf(AccountManager.KEY_ERROR_CODE to AccountManager.ERROR_CODE_UNSUPPORTED_OPERATION,
                 AccountManager.KEY_ERROR_MESSAGE to "") // HACK: the docs indicate that this is a required key bit it's not displayed to the user.
-    }
-
-    override fun getAccountRemovalAllowed(response: AccountAuthenticatorResponse, account: Account): Bundle {
-        val result = super.getAccountRemovalAllowed(response, account)
-        if (result.containsKey(AccountManager.KEY_BOOLEAN_RESULT) &&
-                !result.containsKey(AccountManager.KEY_INTENT)) {
-            val allowed = result.getBoolean(AccountManager.KEY_BOOLEAN_RESULT)
-            if (allowed) {
-                for (auth in SYNC_AUTHORITIES) {
-                    ContentResolver.cancelSync(account, auth)
-                }
-            }
-        }
-        return result
-    }
-
-    companion object {
-        private val SYNC_AUTHORITIES = arrayOf(BuildConfig.READING_LISTS_AUTHORITY)
     }
 }

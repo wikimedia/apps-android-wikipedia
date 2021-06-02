@@ -10,10 +10,13 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
+import org.wikipedia.analytics.LoginFunnel.Companion.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.databinding.ViewMessageCardBinding
+import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 
 class MessageCardView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
@@ -68,11 +71,18 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
         binding.imageView.setImageResource(R.drawable.ic_suggested_edits_disabled)
     }
 
-    fun setIPBlocked() {
+    fun setIPBlocked(info: MwServiceError.BlockInfo?) {
         setDefaultState()
         binding.imageView.visibility = GONE
-        binding.messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
-        binding.messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
+        if (info == null) {
+            binding.messageTitleView.visibility = VISIBLE
+            binding.messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
+            binding.messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
+        } else {
+            binding.messageTitleView.visibility = GONE
+            binding.messageTextView.text = StringUtil.fromHtml(ThrowableUtil.parseBlockedError(info))
+            binding.messageTextView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+        }
         binding.positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }

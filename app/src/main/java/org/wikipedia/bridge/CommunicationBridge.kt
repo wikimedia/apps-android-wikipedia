@@ -30,7 +30,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
     private val pendingJSMessages = ArrayList<String>()
     private val pendingEvals = HashMap<String, ValueCallback<String>>()
 
-    interface JSEventListener {
+    fun interface JSEventListener {
         fun onMessage(messageType: String, messagePayload: JsonObject?)
     }
 
@@ -92,13 +92,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
     }
 
     fun addListener(type: String, listener: JSEventListener) {
-        if (eventListeners.containsKey(type)) {
-            eventListeners[type]!!.add(listener)
-        } else {
-            val listeners = ArrayList<JSEventListener>()
-            listeners.add(listener)
-            eventListeners[type] = listeners
-        }
+        eventListeners.getOrPut(type) { ArrayList() }.add(listener)
     }
 
     fun execute(js: String) {

@@ -76,7 +76,7 @@ class DescriptionEditFragment : Fragment() {
         }
         Prefs.setLastDescriptionEditTime(Date().time)
         Prefs.setSuggestedEditsReactivationPassStageOne(false)
-        SuggestedEditsFunnel.get().success(action)
+        SuggestedEditsFunnel.get()!!.success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
         if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == InvokeSource.PAGE_ACTIVITY) {
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
@@ -244,30 +244,28 @@ class DescriptionEditFragment : Fragment() {
                     }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->
-                        if (result.hasEditResult() && result.edit() != null) {
-                            result.edit()?.run {
-                                when {
-                                    editSucceeded() -> {
-                                        requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                                        funnel.logSaved(newRevId())
-                                    }
-                                    hasCaptchaResponse() -> {
-                                        // TODO: handle captcha.
-                                        // new CaptchaResult(result.edit().captchaId());
-                                        funnel.logCaptchaShown()
-                                    }
-                                    hasEditErrorCode() -> {
-                                        editFailed(MwException(MwServiceError(code(), spamblacklist())), false)
-                                    }
-                                    hasSpamBlacklistResponse() -> {
-                                        editFailed(MwException(MwServiceError(code(), info())), false)
-                                    }
-                                    else -> {
-                                        editFailed(IOException("Received unrecognized edit response"), true)
-                                    }
+                        result.edit?.run {
+                            when {
+                                editSucceeded -> {
+                                    requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
+                                    funnel.logSaved(newRevId)
+                                }
+                                hasCaptchaResponse -> {
+                                    // TODO: handle captcha.
+                                    // new CaptchaResult(result.edit().captchaId());
+                                    funnel.logCaptchaShown()
+                                }
+                                hasEditErrorCode -> {
+                                    editFailed(MwException(MwServiceError(code, spamblacklist)), false)
+                                }
+                                hasSpamBlacklistResponse -> {
+                                    editFailed(MwException(MwServiceError(code, info)), false)
+                                }
+                                else -> {
+                                    editFailed(IOException("Received unrecognized edit response"), true)
                                 }
                             }
-                        } else {
+                        } ?: run {
                             editFailed(IOException("An unknown error occurred."), true)
                         }
                     }) { caught -> editFailed(caught, true) })
@@ -343,9 +341,9 @@ class DescriptionEditFragment : Fragment() {
             FeedbackUtil.showError(requireActivity(), caught)
             L.e(caught)
             if (logError) {
-                funnel.logError(caught.message)
+                funnel.logError(caught.message!!)
             }
-            SuggestedEditsFunnel.get().failure(action)
+            SuggestedEditsFunnel.get()!!.failure(action)
         }
 
         override fun onHelpClick() {

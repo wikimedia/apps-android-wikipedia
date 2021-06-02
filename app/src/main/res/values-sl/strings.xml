@@ -30,6 +30,7 @@
   <string name="offline_load_error_retry">Poskusi znova</string>
   <string name="page_error_back_to_main">Pojdi nazaj</string>
   <string name="error_back">Pojdi nazaj</string>
+  <string name="error_next">Naprej</string>
   <string name="menu_clear_all_history">Izbriši zgodovino</string>
   <string name="history_item_deleted">Članek %s izbrisan iz zgodovine</string>
   <string name="history_items_deleted">%d člankov izbrisanih iz zgodovine</string>
@@ -170,8 +171,8 @@
   <string name="preferences_heading_experimental">Preizkusno</string>
   <string name="preference_title_sync_reading_lists_from_account">Sinhronizacija bralnega seznama</string>
   <string name="preference_title_download_reading_list_articles">Prenesi članke na bralnem seznamu</string>
-  <string name="preference_summary_sync_reading_lists">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu v Wikipediji</string>
-  <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji</string>
+  <string name="preference_summary_sync_reading_lists">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v mojem računu v Wikipediji.</string>
+  <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranim sinhronizirane bralne sezname iz »%s«?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">S tem boste iz shranjevanja v oblaku v celoti izbrisali vse predhodno sinhronizirane bralne sezame. Odstranim z vašega računa »%s« vse sinhronizirane sezname?</string>
   <string name="preferences_privacy_settings_heading">Zasebnost</string>
@@ -210,7 +211,7 @@
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorna koda je na voljo v repozitorijih &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Izvorna koda je na voljo v repozitorijih &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
   <string name="about_wmf">Izdelek &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O projektu</string>
   <string name="edit_abandon_confirm">Stran je bila spremenjena. Ali jo res želite zapustiti, ne da bi shranili svoje spremembe?</string>
@@ -751,7 +752,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začni</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Napis k sliki (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Slika</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Datoteka iz Wikimedijine zbirke</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umetnik/izdelovalec</string>
@@ -836,7 +836,7 @@
   <string name="suggested_edits_task_new">novo</string>
   <string name="suggested_edits_cc0_notice">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;pogoji uporabe&lt;/a&gt; in ta prispevek nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Predlagana urejanja</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipediji! Zakaj ne bi nadaljevali, kjer ste končali?</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipedije! Zakaj ne bi nadaljevali, kjer ste končali?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Imate trenutek za nadaljnje izboljševanje Wikipedije? Oglejte si te predloge za urejanje.</string>
   <string name="suggested_edits_contributions_screen_title">Prispevki uporabnika/ce %s</string>
   <string name="suggested_edits_contribution_language_label">Jezik</string>
@@ -899,6 +899,7 @@
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj napis k sliki</string>
   <string name="file_page_add_image_tags_button">Dodajte sliki oznake</string>
+  <string name="file_page_suggestion_reason">Razlog za predlog</string>
   <string name="description_edit_revert_subtitle">Hvala za urejanje Wikipedije!</string>
   <string name="description_edit_revert_intro">Vemo, da ste se potrudili po najboljših močeh, vendar je eden od pregledovalcev imel pomisleke. Možni razlogi za vrnitev vašega urejanja so:</string>
   <string name="description_edit_revert_reason1">vaš prispevek ni bil v skladu z eno od &lt;a href=\"%1$s\"&gt;smernic&lt;/a&gt;.</string>
@@ -942,12 +943,12 @@
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Potovali ste skozi čas 🚀</string>
   <string name="on_this_day_back_to_future">Nazaj v prihodnost</string>
-  <string name="languages_list_activity_title">Dodajte jezik</string>
+  <string name="languages_list_activity_title">Dodaj jezik</string>
   <string name="languages_list_suggested_text">Predlagano</string>
   <string name="languages_list_all_text">Vsi jeziki</string>
   <string name="wikipedia_languages_title">Jeziki Wikipedije</string>
   <string name="wikipedia_languages_your_languages_text">Vaš jezik</string>
-  <string name="wikipedia_languages_add_language_text">Dodajte jezik</string>
+  <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
   <string name="wikipedia_languages_remove_text">Odstrani jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odstrani jezik</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
@@ -978,8 +979,10 @@
   <string name="image_recommendations_task_accept">Da</string>
   <string name="image_recommendations_task_reject">Ne</string>
   <string name="image_recommendations_task_not_sure">Nisem prepričan/a</string>
+  <string name="image_recommendations_task_processing">Obdelujem ...</string>
   <string name="image_recommendations_task_instruction">Ali želite to sliko dodati v članek?</string>
   <string name="image_recommendations_task_choice_no">Zakaj ste izbrali ne?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Izberite enega ali več razlogov.</string>
   <string name="image_recommendations_task_choice_unsure">Zakaj niste prepričani o tej sliki?</string>
   <string name="image_recommendations_task_choice_not_relevant">Ni relevantna</string>
   <string name="image_recommendations_task_choice_low_quality">Slaba kakovost</string>
@@ -989,7 +992,12 @@
   <string name="image_recommendations_task_choice_invisible">Slike ne morem videti</string>
   <string name="image_recommendations_task_choice_understand">Ne razumem naloge</string>
   <string name="image_recommendations_task_choice_language">Ne razumem jezika</string>
+  <string name="image_recommendations_task_choice_other">Drugo</string>
+  <string name="image_recommendations_task_choice_continue">Nadaljuj</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Utemeljitev predloga:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">slika je bila najdena v drugih jezikovnih različicah Wikipedije (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">slika je bila najdena v Wikipodatkih, viru prostih podatkov za Wikipedijo</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">slika je bila najdena v Wikimedijini zbirki, viru prostih slik za Wikipedijo</string>
   <string name="image_recommendations_faq">PPV</string>
   <string name="image_recommendations_tooltip1">Preglejte članek, ds boste razumeli temo.</string>
   <string name="image_recommendations_tooltip2">Oglejte si sliko in povezane informacije.</string>
@@ -1027,7 +1035,7 @@
   <string name="menu_option_share_edit">Deli urejanje</string>
   <string name="menu_option_user_profile">Profil uporabnika/ce %s</string>
   <string name="menu_option_user_contributions">Prispevki uporabnika/ce %s</string>
-  <string name="watchlist_details_watching_label">Spremlja</string>
+  <string name="watchlist_details_watching_label">Spremljam</string>
   <string name="watchlist_details_watch_label">Spremljaj</string>
   <string name="thank_label">Zahvali se</string>
   <string name="go_to_user_page">Pojdi na uporabniško stran</string>

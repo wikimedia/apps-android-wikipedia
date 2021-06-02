@@ -216,7 +216,7 @@
     <string name="about_translators_heading">Translators</string>
     <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_app_license_heading">License</string>
-    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
+    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
@@ -362,6 +362,15 @@
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
     <string name="menu_save_all_tabs">Save all tabs</string>
+
+    <string name="error_blocked_title">Your username or IP address has been blocked.</string>
+    <string name="error_blocked_by"><![CDATA[The block was made by <a href="%2$s">%1$s</a>]]></string>
+    <string name="error_blocked_reason">The reason given is: %s</string>
+    <string name="error_blocked_start">Start of block: %s</string>
+    <string name="error_blocked_expiry">Expiration of block: %s</string>
+    <string name="error_blocked_id">Block ID: %s</string>
+    <string name="error_blocked_footer"><![CDATA[You can contact <a href="%2$s">%1$s</a> or another <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
+    <string name="error_blocked_footer_no_blocker"><![CDATA[You can contact an <a href="https://en.wikipedia.org/wiki/Wikipedia:Administrators">administrator</a> to discuss the block.]]></string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
@@ -767,7 +776,6 @@
     <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
-    <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
     <string name="suggested_edits_image_preview_dialog_image">Image</string>
     <string name="suggested_edits_image_preview_dialog_file_commons">File from Wikimedia Commons</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
@@ -1009,7 +1017,7 @@
     <string name="image_recommendations_task_reject">No</string>
     <string name="image_recommendations_task_not_sure">Not sure</string>
     <string name="image_recommendations_task_processing">Processing…</string>
-    <string name="image_recommendations_task_daily_amount">%d/%d</string>
+    <string name="image_recommendations_task_daily_amount">%1$d/%2$d</string>
     <string name="image_recommendations_task_instruction">Would you add this image to the article?</string>
     <string name="image_recommendations_task_choice_no">Why did you select no?</string>
     <string name="image_recommendations_task_choice_not_sure">Why did you select not sure?</string>

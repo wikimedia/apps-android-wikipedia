@@ -89,6 +89,11 @@ object StringUtil {
     }
 
     @JvmStatic
+    fun sanitizeAbuseFilterCode(code: String): String {
+        return code.replace("[⧼⧽]".toRegex(), "")
+    }
+
+    @JvmStatic
     fun normalizedEquals(str1: String?, str2: String?): Boolean {
         return if (str1 == null || str2 == null) {
             str1 == null && str2 == null
@@ -104,9 +109,16 @@ object StringUtil {
             // processing that fromHtml() performs.
             return sourceStr.toSpanned()
         }
-        sourceStr = sourceStr.replace("&#8206;".toRegex(), "\u200E")
-                .replace("&#8207;".toRegex(), "\u200F")
-                .replace("&amp;".toRegex(), "&")
+        sourceStr = sourceStr.replace("&#8206;", "\u200E")
+            .replace("&#8207;", "\u200F")
+            .replace("&amp;", "&")
+
+        // HACK: We don't want to display "images" in the html string, because they will just show
+        // up as a green square. Therefore, let's just disable the parsing of images by renaming
+        // <img> tags to something that the native Html parser doesn't recognize.
+        // This automatically covers both <img></img> and <img /> variations.
+        sourceStr = sourceStr.replace("<img ", "<figure ").replace("</img>", "</figure>")
+
         return sourceStr.parseAsHtml()
     }
 

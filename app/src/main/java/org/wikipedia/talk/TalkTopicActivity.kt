@@ -22,7 +22,6 @@ import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.TalkFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -35,7 +34,7 @@ import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.*
-import org.wikipedia.util.UriUtil.handleExternalLink
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
@@ -344,12 +343,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    waitForUpdatedRevision(it.edit()!!.newRevId())
+                    waitForUpdatedRevision(it.edit!!.newRevId)
                 }, {
                     onSaveError(it)
                 }))
     }
 
+    @Suppress("SameParameterValue")
     private fun waitForUpdatedRevision(newRevision: Long) {
         disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
                 .delay(2, TimeUnit.SECONDS)
@@ -392,7 +392,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun updateEditLicenseText() {
-        binding.licenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+        binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url)))
         binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
@@ -401,7 +401,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                         LoginFunnel.SOURCE_EDIT, editFunnel.sessionToken)
                 startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN)
             } else {
-                handleExternalLink(this, Uri.parse(url))
+                UriUtil.handleExternalLink(this, Uri.parse(url))
             }
         }
     }

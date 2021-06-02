@@ -4,6 +4,7 @@
 * CaiusSPQR
 * Dbrant
 * Eduardo Addad de Oliveira
+* Emma Franzen
 * Envlh
 * Fitoschido
 * Fúlvio
@@ -45,6 +46,7 @@
   <string name="offline_load_error_retry">Tentar novamente</string>
   <string name="page_error_back_to_main">Voltar</string>
   <string name="error_back">Voltar</string>
+  <string name="error_next">Próxima\nPróximo</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="history_item_deleted">%s removido do histórico</string>
   <string name="history_items_deleted">%d artigos removidos do histórico</string>
@@ -226,7 +228,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -732,7 +734,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Imagem</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>
@@ -854,9 +855,12 @@
     <item quantity="one">Adicionou %d carácter</item>
     <item quantity="other">Adicionou %d caracteres</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Você atingiu a meta diária</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Gostaríamos de reconhecer suas contribuições para este esforço. Você gostaria que seu nome de usuário fosse exibido em nossa página de treinamento de algoritmo?</string>
   <string name="file_page_activity_title">Página do ficheiro</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar etiquetas de imagens</string>
+  <string name="file_page_suggestion_reason">Razão da sugestão</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
@@ -929,6 +933,11 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
   <string name="edit_type_all">Todas as contribuições</string>
   <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
+  <string name="image_recommendations_task_choice_not_sure">Por que você selecionou não tenho certeza?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Escolha um ou vários motivos.</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">a imagem foi encontrada em outras versões de idioma da Wikipedia (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">a imagem foi encontrada no Wikidata, a fonte de dados abertos da Wikipedia</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">a imagem foi encontrada no Wikimedia Commons, a fonte da Wikipedia de imagens livremente utilizáveis</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
   <string name="wikitext_link">Hiperligação</string>

@@ -192,7 +192,7 @@
   <string name="about_translators_heading">Pamertal</string>
   <string name="about_translators_translatewiki">Aplikasi iki dipertal déning pamertal sukarila ing &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisènsi</string>
-  <string name="about_app_license">Kodhe sumber cumepak ing &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; lan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; kanthi pangayoman &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Yèn ora ana liyané sing diterangaké, tegesé isiné iki cumepak ing pangayomané &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Atribusi-DumSaèmper Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kodhe sumber cumepak ing &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; lan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; kanthi pangayoman &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Yèn ora ana liyané sing diterangaké, tegesé isiné iki cumepak ing pangayomané &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Atribusi-DumSaèmper Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Wetoné &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Ngenani</string>
   <string name="edit_abandon_confirm">Kaca iki wis kadandani. Apa kowé yakin arep metu tanpa nyimpen owah-owahanmu?</string>
@@ -586,7 +586,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Wuwuh wedharaning artikel (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Miwiti</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kateranganing gambar (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Wedharaning gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Juru kagunan</string>
   <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>
   <string name="suggested_edits_image_preview_dialog_source">Sumber/Juru foto</string>

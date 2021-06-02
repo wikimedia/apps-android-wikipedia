@@ -261,16 +261,14 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         val notificationsPerWiki: MutableMap<WikiSite, MutableList<Notification>> = HashMap()
         val selectionKey = if (items.size > 1) Random().nextLong() else null
         for (item in items) {
-            val wiki = if (dbNameMap.containsKey(item.notification!!.wiki())) dbNameMap[item.notification!!.wiki()]!! else WikipediaApp.getInstance().wikiSite
-            if (!notificationsPerWiki.containsKey(wiki)) {
-                notificationsPerWiki[wiki] = ArrayList()
-            }
-            notificationsPerWiki[wiki]!!.add(item.notification!!)
+            val notification = item.notification!!
+            val wiki = dbNameMap.getOrElse(notification.wiki()) { WikipediaApp.getInstance().wikiSite }
+            notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
             if (markUnread && !displayArchived) {
-                notificationList.add(item.notification!!)
+                notificationList.add(notification)
             } else {
-                notificationList.remove(item.notification)
-                NotificationFunnel(WikipediaApp.getInstance(), item.notification).logMarkRead(selectionKey)
+                notificationList.remove(notification)
+                NotificationFunnel(WikipediaApp.getInstance(), notification).logMarkRead(selectionKey)
             }
         }
         for (wiki in notificationsPerWiki.keys) {

@@ -7,16 +7,19 @@
 * Bonfire12
 * Buntschann
 * Dbrant
+* Fumi37s
 * GAMEZONE628
 * Hzy980512
 * Kanon und wikipedia
 * Kkairri
+* Kokoko-H
 * LaMagiaaa
 * Los688
 * Mirinano
 * Omotecho
 * Otokoume
 * Penn Station
+* RYU N
 * Rootflag
 * Runequest77
 * S2KTS
@@ -28,6 +31,7 @@
 * Takot
 * Thibaut120094
 * Tmv
+* UsagiNeko
 * Waki285
 * Wat
 * Wicklo
@@ -61,6 +65,7 @@
   <string name="offline_load_error_retry">再試行</string>
   <string name="page_error_back_to_main">戻る</string>
   <string name="error_back">戻る</string>
+  <string name="error_next">次へ</string>
   <string name="menu_clear_all_history">履歴を消去</string>
   <string name="history_item_deleted">履歴から%sを削除しました</string>
   <string name="history_items_deleted">履歴から%d件の記事を削除しました</string>
@@ -243,7 +248,7 @@
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
-  <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 ライセンス&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;クリエイティブ・コモンズ表示 - 継承ライセンス&lt;/a&gt;の下で提供されます。</string>
+  <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;の下で提供されます。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ウィキメディア財団&lt;/a&gt;のプロダクト</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
@@ -387,6 +392,7 @@
   <string name="page_footer_license_text">コンテンツは、特に記載されていない限り、$1のもとで利用可能です。</string>
   <string name="empty_tab_title">新しいタブ</string>
   <string name="menu_save_all_tabs">すべてのタブを保存</string>
+  <string name="error_blocked_title">あなたのユーザー名またはIPアドレスはブロックされています。</string>
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
@@ -456,9 +462,14 @@
   <string name="reading_list_name_hint">このリストの名前</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
   <string name="reading_list_item_deleted">%s はリストから削除されました</string>
+  <string name="reading_list_item_deleted_from_list">%1$s が %2$s から削除されました。</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d件の記事をリストから削除しました</item>
     <item quantity="other">%d件の記事をリストから削除しました</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d件の記事を%sから削除しました</item>
+    <item quantity="other">%d件の記事を%sから削除しました</item>
   </plurals>
   <string name="reading_list_items_deleted">リストから%d件の記事を削除しました</string>
   <string name="reading_lists_item_deleted">リストから%sを削除しました</string>
@@ -686,6 +697,8 @@
   <string name="description_too_short">文章が短すぎます。</string>
   <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>
   <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>
+  <string name="description_starts_with_lowercase">小文字で始めるものは避けてください。</string>
+  <string name="description_is_in_different_language">テキストが予期しない言語で表示されています。言語は %s である必要があります。</string>
   <string name="description_edit_success_saved">記事の説明が公開されました!</string>
   <string name="description_edit_success_saved_snackbar">記事の説明が公開されました!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">記事の説明が公開されました! (%s)</string>
@@ -746,8 +759,8 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">画像キャプション (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">画像の説明 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">ファイル</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">ウィキメディア・コモンズからのファイル</string>
   <string name="suggested_edits_image_preview_dialog_artist">作者</string>
   <string name="suggested_edits_image_preview_dialog_tags">タグ</string>
   <string name="suggested_edits_image_preview_dialog_date">日付</string>
@@ -868,9 +881,12 @@
     <item quantity="one">%d文字追加しました</item>
     <item quantity="other">%d文字追加しました</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">画像処理アルゴリズムの学習</string>
+  <string name="suggested_edits_image_recommendations_task_detail">提案された画像が記事の改善につながるかどうかを判断します。</string>
   <string name="suggested_edits_image_recommendations_task_get_started">始める</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">その調子です! 👍</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">あなたは目標を達成しました</string>
+  <string name="suggested_edits_image_recommendations_task_goal_complete">毎日の目標を達成しました！👏</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">あなたは毎日の目標を達成しました</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>

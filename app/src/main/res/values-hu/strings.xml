@@ -44,6 +44,7 @@
   <string name="offline_load_error_retry">Újra</string>
   <string name="page_error_back_to_main">Vissza</string>
   <string name="error_back">Visszalépés</string>
+  <string name="error_next">Következő</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="history_item_deleted">%s eltávolítva az előzményekből</string>
   <string name="history_items_deleted">%d szócikk eltávolítva az előzményekből</string>
@@ -224,7 +225,7 @@
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
-  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
+  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
@@ -733,7 +734,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Szócikkleírások hozzáadása (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kezdés</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Képaláírás (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Kép leírása (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Kép</string>
   <string name="suggested_edits_image_preview_dialog_artist">Művész</string>
   <string name="suggested_edits_image_preview_dialog_tags">Címkék</string>
@@ -855,7 +855,7 @@
     <item quantity="one">Hozzáadtál egy karaktert</item>
     <item quantity="other">Hozzáadtál %d karaktert</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Képjavasló algoritmus tanítása</string>
+  <string name="suggested_edits_image_recommendations_task_title">Képjavasló algoritmus</string>
   <string name="suggested_edits_image_recommendations_task_detail">Állapítsd meg, hogy az ajánlott kép hozzáadásával színvonalasabbá válik-e a cikk.</string>
   <string name="suggested_edits_image_recommendations_task_get_started">Indítás</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Remek! Csak így tovább! 👍</string>

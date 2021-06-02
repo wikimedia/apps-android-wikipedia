@@ -43,6 +43,7 @@
   <string name="offline_load_error_retry">Повторити</string>
   <string name="page_error_back_to_main">Повернутися</string>
   <string name="error_back">Повернутися</string>
+  <string name="error_next">Далі</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
   <string name="history_item_deleted">%s вилучено зі списку</string>
   <string name="history_items_deleted">%d статей вилучено зі списку</string>
@@ -225,7 +226,7 @@
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
-  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про программу</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
@@ -774,7 +775,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додати опис статті (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Розпочати</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Підпис зображення (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис зображення (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Файл</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Файл із Вікісховища</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
@@ -918,14 +918,15 @@
   <string name="suggested_edits_image_recommendations_task_get_started">Початок</string>
   <string name="suggested_edits_image_recommendations_task_goal_progress">Чудово, продовжуйте! 👍</string>
   <string name="suggested_edits_image_recommendations_task_goal_complete">Щоденну ціль досягнуто! 👏</string>
-  <string name="suggested_edits_image_recommendations_task_goal_surpassed" fuzzy="true">Ви досягли цілі</string>
+  <string name="suggested_edits_image_recommendations_task_goal_surpassed">Ви досягли щоденної цілі</string>
   <string name="suggested_edits_image_recommendations_onboarding_tooltip">Доступне нове завдання пропонованих редагувань. Тренуйте алгоритм, який співвідноситиме зображення з неілюстрованими статтями.</string>
   <string name="suggested_edits_image_recommendations_onboarding_text1">Статті Вікіпедії пишуть і редагують тисячі волонтерів з усього світу. На жаль, багатьом статтям бракує зображень.\n\nАлгоритм пропонуватиме вам зображення. Він вибиратиме зображення з інших джерел і пропонуватиме для нього статтю, в якій немає ілюстрацій.\n\nВаш відгук допоможе нам з часом покращити пропозиції. Оскільки мета цього завдання — покращити пропоновані зображення, результати вашого співвіднесення не будуть опубліковані.</string>
-  <string name="suggested_edits_image_recommendations_onboarding_text2" fuzzy="true">Ми б хотіли відзначити ваш внесок у цю роботу. Чи бажаєте, щоб ваше ім\'я користувача показувалося на сторінці тренування нашого алгоритму?</string>
+  <string name="suggested_edits_image_recommendations_onboarding_text2">Ми б хотіли відзначити ваш внесок у цю роботу. Чи бажаєте, щоб ваше ім\'я користувача показувалося на сторінці тренування нашого алгоритму?</string>
   <string name="suggested_edits_image_recommendations_onboarding_consent">Так, моє ім\'я користувача можна додати на сторінку тренування алгоритму</string>
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
   <string name="file_page_add_image_tags_button">Додати теґи зображень</string>
+  <string name="file_page_suggestion_reason">Причина пропозиції</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
@@ -1008,6 +1009,8 @@
   <string name="image_recommendations_task_processing">Обробка…</string>
   <string name="image_recommendations_task_instruction">Чи додали б ви це зображення до статті?</string>
   <string name="image_recommendations_task_choice_no">Чому ви обрали «ні»?</string>
+  <string name="image_recommendations_task_choice_not_sure">Чому ви обрали, що не впевнені?</string>
+  <string name="image_recommendations_prompt_to_choose_reasons">Оберіть одну чи декілька причин.</string>
   <string name="image_recommendations_task_choice_unsure">Чому ви не впевнені щодо цього зображення?</string>
   <string name="image_recommendations_task_choice_not_relevant">Не відповідне</string>
   <string name="image_recommendations_task_choice_low_quality">Низька якість</string>
@@ -1020,6 +1023,9 @@
   <string name="image_recommendations_task_choice_other">Інше</string>
   <string name="image_recommendations_task_choice_continue">Продовжити</string>
   <string name="image_recommendations_task_suggestion_reason">&lt;b&gt;Причина рекомендації:&lt;/b&gt; %s</string>
+  <string name="image_recommendations_task_suggestion_reason_wikilist">зображення знайдене в інших мовних версіях Вікіпедії (%s)</string>
+  <string name="image_recommendations_task_suggestion_reason_wikidata">зображення знайдене у Вікіданих, джерелі відкритих даних Вікіпедії</string>
+  <string name="image_recommendations_task_suggestion_reason_commons">зображення знайдене у Вікісховищі, джерелі вільно використовуваних зображень Вікіпедії</string>
   <string name="image_recommendations_faq">ЧаПи</string>
   <string name="image_recommendations_tooltip1">Перегляньте статтю, щоб зрозуміти, про що вона.</string>
   <string name="image_recommendations_tooltip2">Розгляньте зображення і пов\'язану інформацію.</string>
