@@ -4,8 +4,8 @@ import android.content.ContentProviderClient
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
-import android.database.sqlite.SQLiteDatabase
 import android.net.Uri
+import androidx.sqlite.db.SupportSQLiteDatabase
 import org.wikipedia.database.column.Column
 import org.wikipedia.util.log.L
 import kotlin.math.max
@@ -64,7 +64,7 @@ abstract class DatabaseTable<T>(private val tableName: String, val baseContentUR
      */
     protected abstract fun getUnfilteredPrimaryKeySelectionArgs(obj: T): Array<String?>
 
-    fun upgradeSchema(db: SQLiteDatabase, fromVersion: Int, toVersion: Int) {
+    fun upgradeSchema(db: SupportSQLiteDatabase, fromVersion: Int, toVersion: Int) {
         if (fromVersion < dBVersionIntroducedAt) {
             createTables(db)
             onUpgradeSchema(db, fromVersion, dBVersionIntroducedAt)
@@ -84,15 +84,15 @@ abstract class DatabaseTable<T>(private val tableName: String, val baseContentUR
         }
     }
 
-    protected open fun onUpgradeSchema(db: SQLiteDatabase, fromVersion: Int, toVersion: Int) {}
+    protected open fun onUpgradeSchema(db: SupportSQLiteDatabase, fromVersion: Int, toVersion: Int) {}
 
-    protected fun createTables(db: SQLiteDatabase) {
+    protected fun createTables(db: SupportSQLiteDatabase) {
         L.i("Creating table=$tableName")
         val cols = getColumnsAdded(dBVersionIntroducedAt)
         db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " ( " + cols.joinToString(", ") + " )")
     }
 
-    private fun dropTable(db: SQLiteDatabase) {
+    private fun dropTable(db: SupportSQLiteDatabase) {
         db.execSQL("DROP TABLE IF EXISTS $tableName")
         L.i("Dropped table=$tableName")
     }

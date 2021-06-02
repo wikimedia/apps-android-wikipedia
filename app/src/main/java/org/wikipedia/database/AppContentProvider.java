@@ -5,13 +5,13 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.sqlite.db.SupportSQLiteQueryBuilder;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.util.log.L;
 
@@ -30,23 +30,17 @@ public class AppContentProvider extends ContentProvider {
                                             @Nullable String[] selectionArgs,
                                             @Nullable String sortOrder) {
         AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
-
-        SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
-        builder.setTables(endpoint.tables());
-
-        SQLiteDatabase db = readableDatabase();
+        SupportSQLiteDatabase db = readableDatabase();
         final String groupBy = null;
         final String having = null;
 
-        if (LOG) {
-            L.d("selectionArgs=" + Arrays.toString(selectionArgs));
-            String sql = builder.buildQuery(projection, "(" + selection + ")", groupBy, having,
-                    sortOrder, null);
-            L.d("sql=" + sql);
-        }
-
-        Cursor cursor = builder.query(db, projection == null ? endpoint.projection() : projection,
-                selection, selectionArgs, groupBy, having, sortOrder);
+        Cursor cursor = db.query(SupportSQLiteQueryBuilder.builder(endpoint.tables())
+                .columns(projection)
+                .selection(selection, selectionArgs)
+                .groupBy(groupBy)
+                .having(having)
+                .orderBy(sortOrder)
+                .create());
 
         if (cursor != null) {
             if (LOG) {
@@ -65,9 +59,8 @@ public class AppContentProvider extends ContentProvider {
     @Nullable @Override public Uri insert(@NonNull Uri uri, ContentValues values) {
         AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
 
-        SQLiteDatabase db = writableDatabase();
-        final String nullColumnHack = null;
-        db.replaceOrThrow(endpoint.tables(), nullColumnHack, values);
+        SupportSQLiteDatabase db = writableDatabase();
+        db.insert(endpoint.tables(), SQLiteDatabase.CONFLICT_REPLACE, values);
 
         notifyChange(uri);
 
@@ -82,7 +75,7 @@ public class AppContentProvider extends ContentProvider {
                                 @Nullable String[] selectionArgs) {
         AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
 
-        SQLiteDatabase db = writableDatabase();
+        SupportSQLiteDatabase db = writableDatabase();
         int rows = db.delete(endpoint.tables(), selection, selectionArgs);
 
         notifyChange(uri);
@@ -93,8 +86,8 @@ public class AppContentProvider extends ContentProvider {
                                 @Nullable String selection, @Nullable String[] selectionArgs) {
         AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
 
-        SQLiteDatabase db = writableDatabase();
-        int rows = db.update(endpoint.tables(), values, selection, selectionArgs);
+        SupportSQLiteDatabase db = writableDatabase();
+        int rows = db.update(endpoint.tables(), SQLiteDatabase.CONFLICT_REPLACE, values, selection, selectionArgs);
 
         notifyChange(uri);
         return rows;
@@ -112,11 +105,11 @@ public class AppContentProvider extends ContentProvider {
         return getContext() == null ? null : getContext().getContentResolver();
     }
 
-    private SQLiteDatabase readableDatabase() {
-        return WikipediaApp.getInstance().getDatabase().getReadableDatabase();
+    private SupportSQLiteDatabase readableDatabase() {
+        return AppDatabase.Companion.getAppDatabase().getReadableDatabase();
     }
 
-    private SQLiteDatabase writableDatabase() {
-        return WikipediaApp.getInstance().getDatabase().getWritableDatabase();
+    private SupportSQLiteDatabase writableDatabase() {
+        return AppDatabase.Companion.getAppDatabase().getWritableDatabase();
     }
 }

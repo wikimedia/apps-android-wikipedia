@@ -6,18 +6,26 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.sqlite.db.SupportSQLiteOpenHelper
+import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import org.wikipedia.WikipediaApp
 import org.wikipedia.search.RecentSearch
 import org.wikipedia.search.RecentSearchDao
 import org.wikipedia.talk.TalkPageSeen
 import org.wikipedia.talk.TalkPageSeenDao
 
-@Database(entities = [RecentSearch::class, TalkPageSeen::class], version = 24)
+const val DATABASE_NAME = "wikipedia.db"
+const val DATABASE_VERSION = 23
+
+@Database(entities = [RecentSearch::class, TalkPageSeen::class], version = DATABASE_VERSION)
 @TypeConverters(DateTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recentSearchDao(): RecentSearchDao
     abstract fun talkPageSeenDao(): TalkPageSeenDao
+
+    val readableDatabase: SupportSQLiteDatabase get() = openHelper.readableDatabase
+    val writableDatabase: SupportSQLiteDatabase get() = openHelper.writableDatabase
 
     companion object {
         val MIGRATION_22_23 = object : Migration(22, 23) {
@@ -28,20 +36,25 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("ALTER TABLE recentsearches_temp RENAME TO recentsearches")
             }
         }
-        val MIGRATION_23_24 = object : Migration(23, 24) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-            }
-        }
 
         private var INSTANCE: AppDatabase? = null
 
         fun getAppDatabase(): AppDatabase {
             if (INSTANCE == null) {
                 synchronized(AppDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(WikipediaApp.getInstance(), AppDatabase::class.java, "wikipedia.db")
-                        .addMigrations(MIGRATION_22_23, MIGRATION_23_24)
+                    INSTANCE = Room.databaseBuilder(WikipediaApp.getInstance(), AppDatabase::class.java, DATABASE_NAME)
+                        .addMigrations(MIGRATION_22_23)
                         .allowMainThreadQueries() // TODO: remove after migration
                         .fallbackToDestructiveMigration()
+                        .openHelperFactory { configuration ->
+                            FrameworkSQLiteOpenHelperFactory().create(
+                                SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
+                                    .callback(Database(configuration.callback))
+                                    .name(configuration.name)
+                                    .noBackupDirectory(configuration.useNoBackupDirectory)
+                                    .build()
+                            )
+                        }
                         .build()
                 }
             }

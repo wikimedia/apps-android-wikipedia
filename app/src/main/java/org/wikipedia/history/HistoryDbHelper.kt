@@ -1,7 +1,8 @@
 package org.wikipedia.history
 
 import android.text.TextUtils
-import org.wikipedia.WikipediaApp
+import androidx.sqlite.db.SupportSQLiteQueryBuilder
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.database.contract.PageHistoryContract
 import org.wikipedia.history.HistoryFragment.IndexedHistoryEntry
 import org.wikipedia.page.PageTitle
@@ -15,7 +16,7 @@ import kotlin.collections.ArrayList
 object HistoryDbHelper {
 
     fun findHistoryItem(searchQuery: String): SearchResults {
-        val db = WikipediaApp.getInstance().database.readableDatabase
+        val db = AppDatabase.getAppDatabase().readableDatabase
         val titleCol = PageHistoryContract.PageWithImage.DISPLAY_TITLE.qualifiedName()
         var selection: String? = null
         var selectionArgs: Array<String>? = null
@@ -25,10 +26,11 @@ object HistoryDbHelper {
             selection = "UPPER($titleCol) LIKE UPPER(?) ESCAPE '\\'"
             selectionArgs = arrayOf("%$searchStr%")
         }
-        db.query(PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION,
-                selection,
-                selectionArgs,
-                null, null, PageHistoryContract.PageWithImage.ORDER_MRU).use { cursor ->
+        db.query(SupportSQLiteQueryBuilder.builder(PageHistoryContract.PageWithImage.TABLES)
+            .columns(PageHistoryContract.PageWithImage.PROJECTION)
+            .selection(selection, selectionArgs)
+            .orderBy(PageHistoryContract.PageWithImage.ORDER_MRU)
+            .create()).use { cursor ->
             if (cursor.moveToFirst()) {
                 val indexedEntry = IndexedHistoryEntry(cursor)
                 val pageTitle: PageTitle = indexedEntry.entry.title
@@ -40,7 +42,7 @@ object HistoryDbHelper {
     }
 
     fun filterHistoryItems(searchQuery: String): List<Any> {
-        val db = WikipediaApp.getInstance().database.readableDatabase
+        val db = AppDatabase.getAppDatabase().readableDatabase
         val titleCol = PageHistoryContract.PageWithImage.DISPLAY_TITLE.qualifiedName()
         var selection: String? = null
         var selectionArgs: Array<String>? = null
@@ -51,10 +53,11 @@ object HistoryDbHelper {
             selectionArgs = arrayOf("%$searchStr%")
         }
         val list = ArrayList<Any>()
-        db.query(PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION,
-                selection,
-                selectionArgs,
-                null, null, PageHistoryContract.PageWithImage.ORDER_MRU).use { cursor ->
+        db.query(SupportSQLiteQueryBuilder.builder(PageHistoryContract.PageWithImage.TABLES)
+            .columns(PageHistoryContract.PageWithImage.PROJECTION)
+            .selection(selection, selectionArgs)
+            .orderBy(PageHistoryContract.PageWithImage.ORDER_MRU)
+            .create()).use { cursor ->
             while (cursor.moveToNext()) {
                 val indexedEntry = IndexedHistoryEntry(cursor)
                 // Check the previous item, see if the times differ enough

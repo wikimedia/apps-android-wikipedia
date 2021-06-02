@@ -6,8 +6,10 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.sqlite.db.SupportSQLiteQueryBuilder;
 
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.AppDatabase;
 import org.wikipedia.database.contract.OfflineObjectContract;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
@@ -31,12 +33,12 @@ public class OfflineObjectDbHelper {
     }
 
     @Nullable public OfflineObject findObject(@NonNull String url, @Nullable String lang) {
-        SQLiteDatabase db = getReadableDatabase();
-        try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
-                TextUtils.isEmpty(lang) ? OfflineObjectContract.Col.URL.getName() + " = ?"
-                        : OfflineObjectContract.Col.URL.getName() + " = ? AND " + OfflineObjectContract.Col.LANG.getName() + " = ?",
-                TextUtils.isEmpty(lang) ? new String[]{url} : new String[]{url, lang},
-                null, null, null)) {
+        SupportSQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(SupportSQLiteQueryBuilder.builder(OfflineObjectContract.TABLE)
+                .selection(TextUtils.isEmpty(lang) ? OfflineObjectContract.Col.URL.getName() + " = ?"
+                                : OfflineObjectContract.Col.URL.getName() + " = ? AND " + OfflineObjectContract.Col.LANG.getName() + " = ?",
+                        TextUtils.isEmpty(lang) ? new String[]{url} : new String[]{url, lang})
+                .create())) {
             if (cursor.moveToFirst()) {
                 return OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
             }
@@ -47,9 +49,10 @@ public class OfflineObjectDbHelper {
             String[] parts = url.split("/");
             if (parts.length > 2) {
                 String fileName = parts[parts.length - 2].replaceAll("'", "%27");
-                try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
-                        OfflineObjectContract.Col.URL.getName() + " LIKE '%/' || ? || '/%'",
-                        new String[]{fileName}, null, null, null)) {
+                try (Cursor cursor = db.query(SupportSQLiteQueryBuilder.builder(OfflineObjectContract.TABLE)
+                        .selection(OfflineObjectContract.Col.URL.getName() + " LIKE '%/' || ? || '/%'",
+                                new String[]{fileName})
+                        .create())) {
                     if (cursor.moveToFirst()) {
                         return OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
                     }
@@ -63,16 +66,15 @@ public class OfflineObjectDbHelper {
     }
 
     public void addObject(@NonNull String url, @NonNull String lang, @NonNull String path, @NonNull String pageTitle) {
-        SQLiteDatabase db = getWritableDatabase();
+        SupportSQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
             // first find this item if it already exists in the db
             OfflineObject obj = null;
-            try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
-                    OfflineObjectContract.Col.URL.getName() + " = ? AND "
-                            + OfflineObjectContract.Col.LANG.getName() + " = ?",
-                    new String[]{url, lang},
-                    null, null, null)) {
+            try (Cursor cursor = db.query(SupportSQLiteQueryBuilder.builder(OfflineObjectContract.TABLE)
+                    .selection(OfflineObjectContract.Col.URL.getName() + " = ? AND "
+                            + OfflineObjectContract.Col.LANG.getName() + " = ?", new String[]{url, lang})
+                    .create())) {
                 if (cursor.moveToFirst()) {
                     obj = OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
                 }
@@ -91,13 +93,14 @@ public class OfflineObjectDbHelper {
             }
 
             if (doInsert) {
-                db.insertOrThrow(OfflineObjectContract.TABLE, null,
+                db.insert(OfflineObjectContract.TABLE, SQLiteDatabase.CONFLICT_REPLACE,
                         OfflineObjectTable.DATABASE_TABLE.toContentValues(obj));
             } else {
                 if (!path.equals(obj.getPath())) {
                     L.w("Existing offline object path is inconsistent.");
                 }
-                if (db.update(OfflineObjectContract.TABLE, OfflineObjectTable.DATABASE_TABLE.toContentValues(obj),
+                if (db.update(OfflineObjectContract.TABLE, SQLiteDatabase.CONFLICT_REPLACE,
+                        OfflineObjectTable.DATABASE_TABLE.toContentValues(obj),
                         OfflineObjectContract.Col.URL.getName() + " = ? AND "
                                 + OfflineObjectContract.Col.LANG.getName() + " = ?",
                         new String[]{url, lang}) != 1) {
@@ -111,13 +114,13 @@ public class OfflineObjectDbHelper {
     }
 
     public void deleteObjectsForPageId(long id) {
-        SQLiteDatabase db = getWritableDatabase();
+        SupportSQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
             List<OfflineObject> objects = new ArrayList<>();
-            try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
-                    OfflineObjectContract.Col.USEDBY.getName() + " LIKE '%|" + id + "|%'",
-                    null, null, null, null)) {
+            try (Cursor cursor = db.query(SupportSQLiteQueryBuilder.builder(OfflineObjectContract.TABLE)
+                    .selection(OfflineObjectContract.Col.USEDBY.getName() + " LIKE '%|" + id + "|%'", null)
+                    .create())) {
                 while (cursor.moveToNext()) {
                     OfflineObject obj = OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
                     if (!obj.getUsedBy().contains(id)) {
@@ -139,7 +142,8 @@ public class OfflineObjectDbHelper {
                     }
                     deleteFilesForObject(obj);
                 } else {
-                    if (db.update(OfflineObjectContract.TABLE, OfflineObjectTable.DATABASE_TABLE.toContentValues(obj),
+                    if (db.update(OfflineObjectContract.TABLE, SQLiteDatabase.CONFLICT_REPLACE,
+                            OfflineObjectTable.DATABASE_TABLE.toContentValues(obj),
                             OfflineObjectContract.Col.URL.getName() + " = ? AND "
                                     + OfflineObjectContract.Col.LANG.getName() + " = ?",
                             new String[]{obj.getUrl(), obj.getLang()}) != 1) {
@@ -154,11 +158,11 @@ public class OfflineObjectDbHelper {
     }
 
     public long getTotalBytesForPageId(long id) {
-        SQLiteDatabase db = getReadableDatabase();
+        SupportSQLiteDatabase db = getReadableDatabase();
         List<OfflineObject> objects = new ArrayList<>();
-        try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
-                OfflineObjectContract.Col.USEDBY.getName() + " LIKE '%|" + id + "|%'",
-                null, null, null, null)) {
+        try (Cursor cursor = db.query(SupportSQLiteQueryBuilder.builder(OfflineObjectContract.TABLE)
+                .selection(OfflineObjectContract.Col.USEDBY.getName() + " LIKE '%|" + id + "|%'", null)
+                .create())) {
             while (cursor.moveToNext()) {
                 OfflineObject obj = OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
                 if (!obj.getUsedBy().contains(id)) {
@@ -191,11 +195,11 @@ public class OfflineObjectDbHelper {
         }
     }
 
-    private SQLiteDatabase getReadableDatabase() {
-        return WikipediaApp.getInstance().getDatabase().getReadableDatabase();
+    private SupportSQLiteDatabase getReadableDatabase() {
+        return AppDatabase.Companion.getAppDatabase().getReadableDatabase();
     }
 
-    private SQLiteDatabase getWritableDatabase() {
-        return WikipediaApp.getInstance().getDatabase().getWritableDatabase();
+    private SupportSQLiteDatabase getWritableDatabase() {
+        return AppDatabase.Companion.getAppDatabase().getWritableDatabase();
     }
 }

@@ -25,7 +25,6 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
 import org.wikipedia.crash.AppCenterCrashesListener;
-import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
@@ -75,7 +74,6 @@ public class WikipediaApp extends Application {
     private SessionFunnel sessionFunnel;
     private NetworkConnectivityReceiver connectivityReceiver = new NetworkConnectivityReceiver();
     private ActivityLifecycleHandler activityLifecycleHandler = new ActivityLifecycleHandler();
-    private Database database;
     private String userAgent;
     private WikiSite wiki;
     private AppCenterCrashesListener crashListener;
@@ -99,10 +97,6 @@ public class WikipediaApp extends Application {
 
     public RxBus getBus() {
         return bus;
-    }
-
-    public Database getDatabase() {
-        return database;
     }
 
     public FunnelManager getFunnelManager() {
@@ -167,7 +161,6 @@ public class WikipediaApp extends Application {
 
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
-        database = new Database(this);
 
         initTabs();
 

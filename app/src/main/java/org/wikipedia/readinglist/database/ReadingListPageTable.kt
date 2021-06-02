@@ -2,7 +2,7 @@ package org.wikipedia.readinglist.database
 
 import android.content.ContentValues
 import android.database.Cursor
-import android.database.sqlite.SQLiteDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.DatabaseTable
@@ -58,7 +58,7 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
         }
     }
 
-    public override fun onUpgradeSchema(db: SQLiteDatabase, fromVersion: Int, toVersion: Int) {
+    public override fun onUpgradeSchema(db: SupportSQLiteDatabase, fromVersion: Int, toVersion: Int) {
         if (toVersion == dBVersionIntroducedAt) {
             val currentLists = mutableListOf<ReadingList>()
             createDefaultList(db, currentLists)
@@ -95,7 +95,7 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
         return arrayOf(obj.displayTitle)
     }
 
-    private fun createDefaultList(db: SQLiteDatabase, currentLists: MutableList<ReadingList>) {
+    private fun createDefaultList(db: SupportSQLiteDatabase, currentLists: MutableList<ReadingList>) {
         for (list in currentLists) {
             if (list.isDefault) {
                 // Already have a default list
@@ -107,7 +107,7 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
         }
     }
 
-    private fun renameListsWithIdenticalNameAsDefault(db: SQLiteDatabase, lists: List<ReadingList>) {
+    private fun renameListsWithIdenticalNameAsDefault(db: SupportSQLiteDatabase, lists: List<ReadingList>) {
         ReadingListDbHelper.run {
             for (list in lists) {
                 if (list.dbTitle.equals(WikipediaApp.getInstance().getString(R.string.default_reading_list_name), true)) {
