@@ -444,7 +444,7 @@ object ReadingListDbHelper {
                     return false
                 }
             }
-            db.query(SupportSQLiteQueryBuilder.builder(ReadingListPageContract.TABLE)
+            db.query(SupportSQLiteQueryBuilder.builder(ReadingListContract.TABLE)
                 .selection(ReadingListContract.Col.TITLE.name + " != ?", arrayOf(""))
                 .create()).use { cursor -> return !cursor.moveToFirst() }
         }
@@ -546,7 +546,7 @@ object ReadingListDbHelper {
             }
         }
         for (listId in listIds) {
-            db.query(SupportSQLiteQueryBuilder.builder(ReadingListPageContract.TABLE)
+            db.query(SupportSQLiteQueryBuilder.builder(ReadingListContract.TABLE)
                 .selection(ReadingListContract.Col.ID.name + " = ?", arrayOf(listId.toString()))
                 .create()).use { cursor ->
                 if (cursor.moveToFirst()) {
@@ -682,7 +682,7 @@ object ReadingListDbHelper {
     fun getListById(id: Long, populatePages: Boolean): ReadingList? {
         val db = readableDatabase
         var list: ReadingList? = null
-        db.query(SupportSQLiteQueryBuilder.builder(ReadingListPageContract.TABLE)
+        db.query(SupportSQLiteQueryBuilder.builder(ReadingListContract.TABLE)
             .selection(ReadingListContract.Col.ID.name + " = ?", arrayOf(id.toString()))
             .create()).use { cursor ->
             if (cursor.moveToFirst()) {
