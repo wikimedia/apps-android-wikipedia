@@ -243,7 +243,7 @@
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license" fuzzy="true">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
+  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
@@ -388,6 +388,11 @@
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
   <string name="empty_tab_title">Nuova scheda</string>
   <string name="menu_save_all_tabs">Salva tutte le schede</string>
+  <string name="error_blocked_title">Il tuo nome di utente o indirizzo IP è stato bloccato.</string>
+  <string name="error_blocked_start">Inizio del blocco: %s</string>
+  <string name="error_blocked_expiry">Scadenza del blocco: %s</string>
+  <string name="error_blocked_id">ID blocco: %s</string>
+  <string name="error_blocked_footer">Puoi contattare &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altro &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Amministratori\"&gt;amministratore&lt;/a&gt; per discutere del blocco.</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
