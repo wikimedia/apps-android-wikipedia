@@ -43,7 +43,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50360
+        versionCode 50361
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -172,9 +172,9 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 
     implementation "com.google.android.material:material:1.3.0"
-    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "androidx.core:core-ktx:1.5.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation "androidx.fragment:fragment-ktx:1.3.3"
+    implementation "androidx.fragment:fragment-ktx:1.3.4"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.1.1"
     implementation "androidx.recyclerview:recyclerview:1.2.0"
@@ -256,14 +256,4 @@ private static Properties loadProperties(File file) {
         System.err.println "\"${file}\" not found"
     }
     return props
-}
-
-addSyncContentProviderAuthority 'readinglists', 'reading_lists'
-
-private void addSyncContentProviderAuthority(String path, String name) {
-    android.productFlavors.all { flavor ->
-        String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
-        resValue 'string', "${name.toLowerCase()}_authority", authority
-        buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
-    }
 }

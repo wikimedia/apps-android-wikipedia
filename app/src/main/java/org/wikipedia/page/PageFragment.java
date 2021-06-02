@@ -877,8 +877,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void sharePageLink() {
-        if (getPage() != null) {
-            ShareUtil.shareText(requireActivity(), getPage().getTitle());
+        if (model.getTitle() != null) {
+            ShareUtil.shareText(requireActivity(), model.getTitle());
         }
     }
 
