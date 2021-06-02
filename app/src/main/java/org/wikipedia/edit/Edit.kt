@@ -18,11 +18,11 @@ class Edit : MwPostResponse() {
         val warning: String? = null
         val spamblacklist: String? = null
 
-        val editSucceeded = "Success" == status
-        val captchaId = captcha?.id.orEmpty()
-        val hasEditErrorCode = code != null
-        val hasCaptchaResponse = captcha != null
-        val hasSpamBlacklistResponse = spamblacklist != null
+        val editSucceeded get() = "Success" == status
+        val captchaId get() = captcha?.id.orEmpty()
+        val hasEditErrorCode get() = code != null
+        val hasCaptchaResponse get() = captcha != null
+        val hasSpamBlacklistResponse get() = spamblacklist != null
     }
 
     private class Captcha {
