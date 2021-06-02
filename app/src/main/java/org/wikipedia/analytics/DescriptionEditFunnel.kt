@@ -17,7 +17,7 @@ class DescriptionEditFunnel(app: WikipediaApp, title: PageTitle, private val typ
     }
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
-        preprocessData(eventData, "source", source.getName())
+        preprocessData(eventData, "source", source.name)
         return super.preprocessData(eventData)
     }
 
