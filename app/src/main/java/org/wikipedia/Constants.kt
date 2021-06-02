@@ -2,8 +2,6 @@ package org.wikipedia
 
 object Constants {
 
-    // Keep loader IDs unique to each loader. If the loader specified by the ID already exists, the
-    // last created loader is reused.
     const val ACTIVITY_REQUEST_ADD_A_LANGUAGE = 59
     const val ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH = 60
     const val ACTIVITY_REQUEST_BROWSE_TABS = 61
