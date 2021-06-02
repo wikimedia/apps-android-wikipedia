@@ -36,7 +36,7 @@ class ReadingListTable : DatabaseTable<ReadingList>(ReadingListContract.TABLE, R
 
     public override fun toContentValues(obj: ReadingList): ContentValues {
         val contentValues = ContentValues()
-        contentValues.put(ReadingListContract.Col.TITLE.name, obj.dbTitle)
+        contentValues.put(ReadingListContract.Col.TITLE.name, obj.title)
         contentValues.put(ReadingListContract.Col.MTIME.name, obj.mtime)
         contentValues.put(ReadingListContract.Col.ATIME.name, obj.atime)
         contentValues.put(ReadingListContract.Col.DESCRIPTION.name, obj.description)
@@ -51,7 +51,7 @@ class ReadingListTable : DatabaseTable<ReadingList>(ReadingListContract.TABLE, R
     }
 
     override fun getUnfilteredPrimaryKeySelectionArgs(obj: ReadingList): Array<String?> {
-        return arrayOf(obj.dbTitle)
+        return arrayOf(obj.title)
     }
 
     override val dBVersionIntroducedAt = 18

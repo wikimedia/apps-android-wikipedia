@@ -48,7 +48,7 @@ data class ReadingListPage(val wiki: WikiSite,
         if (accentAndCaseInvariantTitle == null) {
             accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).toLowerCase(Locale.getDefault())
         }
-        return accentAndCaseInvariantTitle as String
+        return accentAndCaseInvariantTitle!!
     }
 
     fun touch() {
