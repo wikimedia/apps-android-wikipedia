@@ -387,6 +387,14 @@
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
   <string name="menu_save_all_tabs">Salvar todas as guias</string>
+  <string name="error_blocked_title">Seu nome de usuário ou endereço IP foi bloqueado.</string>
+  <string name="error_blocked_by">O bloqueio foi feito por &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">O motivo dado é: %s</string>
+  <string name="error_blocked_start">Início do bloco: %s</string>
+  <string name="error_blocked_expiry">Expiração do bloqueio: %s</string>
+  <string name="error_blocked_id">ID de bloqueio: %s</string>
+  <string name="error_blocked_footer">Você pode entrar em contato &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ou outro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
+  <string name="error_blocked_footer_no_blocker">Você pode entrar em contato com um &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrador&lt;/a&gt; para discutir o bloqueio.</string>
   <string name="crash_report_activity_title">Erro no aplicativo</string>
   <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
