@@ -419,10 +419,13 @@
   <string name="empty_tab_title">Новая вкладка</string>
   <string name="menu_save_all_tabs">Сохранить все вкладки</string>
   <string name="error_blocked_title">Ваше имя пользователя или IP адрес заблокировано</string>
+  <string name="error_blocked_by">Блокировка была сделана участником &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">причина дона: %s</string>
   <string name="error_blocked_start">\nНачало блока:%s</string>
   <string name="error_blocked_expiry">Истечение срока действия блока: %s</string>
   <string name="error_blocked_id">Идентификация блока: %s</string>
+  <string name="error_blocked_footer">Вы можете связаться с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или другим &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
+  <string name="error_blocked_footer_no_blocker">Вы можете связаться с &lt;a href=\"https://ru.wikipedia.org/wiki/Википедия:Администраторы\"&gt;администратором&lt;/a&gt; для обсуждения блокировки.</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
