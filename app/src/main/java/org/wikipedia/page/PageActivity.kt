@@ -226,11 +226,12 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
             SuggestedEditsSnackbars.show(this, action, resultCode != DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS,
                 editLanguage, requestCode != Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
-                if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
-                    startActivity(FilePageActivity.newIntent(this, pageFragment.title))
-                } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
-                    startActivity(GalleryActivity.newIntent(this, pageFragment.title,
-                        pageFragment.title.prefixedText, pageFragment.title.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                pageFragment.title?.let {
+                    if (action === DescriptionEditActivity.Action.ADD_IMAGE_TAGS) {
+                        startActivity(FilePageActivity.newIntent(this, it))
+                    } else if (action === DescriptionEditActivity.Action.ADD_CAPTION || action === DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
+                        startActivity(GalleryActivity.newIntent(this, it, it.prefixedText, it.wikiSite, 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE))
+                    }
                 }
             }
         } else {
@@ -602,13 +603,15 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
 
         override fun talkClick() {
-            startActivity(TalkTopicsActivity.newIntent(this@PageActivity,
-                pageFragment.title.pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+            pageFragment.title?.run {
+                startActivity(TalkTopicsActivity.newIntent(this@PageActivity, pageTitleForTalkPage(), InvokeSource.PAGE_ACTIVITY))
+            }
         }
 
         override fun editHistoryClick() {
-            UriUtil.visitInExternalBrowser(this@PageActivity,
-                Uri.parse(pageFragment.title.getWebApiUrl("action=history")))
+            pageFragment.title?.run {
+                UriUtil.visitInExternalBrowser(this@PageActivity, Uri.parse(getWebApiUrl("action=history")))
+            }
         }
     }
 
@@ -667,17 +670,19 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun maybeShowWatchlistTooltip() {
-        if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn &&
-            pageFragment.historyEntry != null && pageFragment.historyEntry.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
-            binding.pageToolbarButtonShowOverflowMenu.postDelayed({
-                if (isDestroyed) {
-                    return@postDelayed
-                }
-                watchlistFunnel.logShowTooltip()
-                Prefs.setWatchlistPageOnboardingTooltipShown(true)
-                FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
-                    R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
-            }, 500)
+        pageFragment.historyEntry?.let {
+
+            if (!Prefs.isWatchlistPageOnboardingTooltipShown() && AccountUtil.isLoggedIn && it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS) {
+                binding.pageToolbarButtonShowOverflowMenu.postDelayed({
+                    if (isDestroyed) {
+                        return@postDelayed
+                    }
+                    watchlistFunnel.logShowTooltip()
+                    Prefs.setWatchlistPageOnboardingTooltipShown(true)
+                    FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
+                        R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
+                }, 500)
+            }
         }
     }
 
@@ -698,12 +703,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             if (event is ChangeTextSizeEvent) {
                 pageFragment.updateFontSize()
             } else if (event is ArticleSavedOrDeletedEvent) {
-                if (!pageFragment.isAdded || pageFragment.title == null) {
+                if (!pageFragment.isAdded) {
                     return
                 }
-                if (event.pages.any { it.apiTitle == pageFragment.title.prefixedText &&
-                            it.wiki.languageCode() == pageFragment.title.wikiSite.languageCode() }) {
-                    pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                pageFragment.title?.run {
+                    if (event.pages.any { it.apiTitle == prefixedText && it.wiki.languageCode() == wikiSite.languageCode() }) {
+                        pageFragment.updateBookmarkAndMenuOptionsFromDao()
+                    }
                 }
             }
         }

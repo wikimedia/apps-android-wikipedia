@@ -242,6 +242,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridgeListener
     val containerView get() = binding.pageContentsContainer
     val headerView get() = binding.pageHeaderView
     val isLoading get() = bridge.isLoading
+    val leadImageEditLang get() = leadImagesHandler.callToActionEditLang
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
