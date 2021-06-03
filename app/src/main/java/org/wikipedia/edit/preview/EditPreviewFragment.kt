@@ -99,7 +99,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
         summaryTags.clear()
         for (i in summaryTagStrings) {
-            val tag = EditSummaryTag(activity)
+            val tag = EditSummaryTag(requireActivity())
             tag.text = strings[i]
             tag.tag = i
             tag.setOnClickListener { view ->
@@ -110,7 +110,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             summaryTags.add(tag)
         }
 
-        otherTag = EditSummaryTag(activity)
+        otherTag = EditSummaryTag(requireActivity())
         otherTag.text = L10nUtil.getStringForArticleLanguage(pageTitle, R.string.edit_summary_tag_other)
         binding.editSummaryTagsContainer.addView(otherTag)
         otherTag.setOnClickListener {

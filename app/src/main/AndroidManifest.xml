@@ -286,13 +286,6 @@
             android:exported="false" />
 
         <provider
-            android:authorities="@string/reading_lists_authority"
-            android:name=".database.ReadingListsContentProvider"
-            android:exported="false"
-            android:syncable="true"
-            android:label="@string/user_option_sync_label" />
-
-        <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
@@ -336,18 +329,8 @@
         </receiver>
 
         <service
-            android:name=".readinglist.sync.ReadingListSyncService"
-            android:exported="false">
-
-            <intent-filter>
-                <action android:name="android.content.SyncAdapter" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.content.SyncAdapter"
-                android:resource="@xml/reading_list_sync_adapter" />
-
-        </service>
+            android:name=".readinglist.sync.ReadingListSyncAdapter"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <service
             android:name=".auth.AuthenticatorService"
