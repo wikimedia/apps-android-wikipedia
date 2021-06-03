@@ -77,8 +77,11 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
         }
 
     val topMargin get() = DimenUtil.roundedPxToDp((if (isLeadImageEnabled) DimenUtil.leadImageHeightForDevice(parentFragment.requireContext()) else parentFragment.toolbarMargin.toFloat()).toFloat())
-    val callToActionEditLang get() =
+    val leadImageEditLang get() =
         if (callToActionIsTranslation) callToActionTargetSummary?.pageTitle?.wikiSite?.languageCode() else callToActionSourceSummary?.pageTitle?.wikiSite?.languageCode()
+get() {
+        return leadImagesHandler.callToActionEditLang
+    }
 
     init {
         pageHeaderView.setWebView(webView)
