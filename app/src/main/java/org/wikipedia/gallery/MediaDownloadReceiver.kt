@@ -1,137 +1,127 @@
-package org.wikipedia.gallery;
+package org.wikipedia.gallery
 
-import android.app.DownloadManager;
-import android.content.BroadcastReceiver;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.text.TextUtils;
+import android.app.DownloadManager
+import android.content.BroadcastReceiver
+import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Environment
+import android.provider.MediaStore
+import androidx.core.content.contentValuesOf
+import androidx.core.content.getSystemService
+import androidx.core.net.toUri
+import org.wikipedia.R
+import org.wikipedia.WikipediaApp
+import org.wikipedia.feed.image.FeaturedImage
+import org.wikipedia.page.PageTitle
+import org.wikipedia.util.FileUtil.isAudio
+import org.wikipedia.util.FileUtil.isImage
+import org.wikipedia.util.FileUtil.isVideo
+import org.wikipedia.util.FileUtil.sanitizeFileName
+import java.io.File
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.FileUtil;
-
-import java.io.File;
-
-public class MediaDownloadReceiver extends BroadcastReceiver {
-    private static final String FILE_NAMESPACE = "File:";
-
-    public interface Callback {
-        void onSuccess();
+class MediaDownloadReceiver : BroadcastReceiver() {
+    interface Callback {
+        fun onSuccess()
     }
 
-    @Nullable private Callback callback;
+    var callback: Callback? = null
 
-    public void setCallback(@Nullable Callback callback) {
-        this.callback = callback;
+    fun download(context: Context, featuredImage: FeaturedImage) {
+        val filename = sanitizeFileName(featuredImage.title())
+        val targetDirectory = Environment.DIRECTORY_PICTURES
+        performDownloadRequest(context, featuredImage.original.source.toUri(), targetDirectory, filename, null)
     }
 
-    public void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
-        String filename = FileUtil.sanitizeFileName(featuredImage.title());
-        String targetDirectory = Environment.DIRECTORY_PICTURES;
-        performDownloadRequest(context, Uri.parse(featuredImage.getOriginal().getSource()), targetDirectory, filename, null);
-    }
-
-    public void download(@NonNull Context context, @NonNull PageTitle imageTitle, @NonNull ImageInfo mediaInfo) {
-        String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(imageTitle.getDisplayText()));
-        String fileUrl = mediaInfo.getOriginalUrl();
-        String targetDirectoryType;
-        if (FileUtil.isVideo(mediaInfo.getMimeType()) && mediaInfo.getBestDerivative() != null) {
-            targetDirectoryType = Environment.DIRECTORY_MOVIES;
-            fileUrl = mediaInfo.getBestDerivative().getSrc();
-        } else if (FileUtil.isAudio(mediaInfo.getMimeType())) {
-            targetDirectoryType = Environment.DIRECTORY_MUSIC;
-        } else if (FileUtil.isImage(mediaInfo.getMimeType())) {
-            targetDirectoryType = Environment.DIRECTORY_PICTURES;
+    fun download(context: Context, imageTitle: PageTitle, mediaInfo: ImageInfo) {
+        val saveFilename = sanitizeFileName(trimFileNamespace(imageTitle.displayText))
+        var fileUrl = mediaInfo.originalUrl
+        val targetDirectoryType: String
+        if (isVideo(mediaInfo.mimeType) && mediaInfo.bestDerivative != null) {
+            targetDirectoryType = Environment.DIRECTORY_MOVIES
+            fileUrl = mediaInfo.bestDerivative!!.src
+        } else if (isAudio(mediaInfo.mimeType)) {
+            targetDirectoryType = Environment.DIRECTORY_MUSIC
+        } else if (isImage(mediaInfo.mimeType)) {
+            targetDirectoryType = Environment.DIRECTORY_PICTURES
         } else {
-            targetDirectoryType = Environment.DIRECTORY_DOWNLOADS;
+            targetDirectoryType = Environment.DIRECTORY_DOWNLOADS
         }
-        performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, mediaInfo.getMimeType());
+        performDownloadRequest(context, fileUrl.toUri(), targetDirectoryType, saveFilename, mediaInfo.mimeType)
     }
 
-    private void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
-                                        @NonNull String targetDirectoryType,
-                                        @NonNull String targetFileName, @Nullable String mimeType) {
-        final String targetSubfolderName = WikipediaApp.getInstance().getString(R.string.app_name);
-        final File categoryFolder = Environment.getExternalStoragePublicDirectory(targetDirectoryType);
-        final File targetFolder = new File(categoryFolder, targetSubfolderName);
-        final File targetFile = new File(targetFolder, targetFileName);
+    private fun performDownloadRequest(context: Context, uri: Uri, targetDirectoryType: String,
+                                       targetFileName: String, mimeType: String?) {
+        val targetSubfolderName = WikipediaApp.getInstance().getString(R.string.app_name)
+        val categoryFolder = Environment.getExternalStoragePublicDirectory(targetDirectoryType)
+        val targetFolder = File(categoryFolder, targetSubfolderName)
+        val targetFile = File(targetFolder, targetFileName)
 
         // creates the directory if it doesn't exist else it's harmless
-        targetFolder.mkdir();
-
-        DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-        DownloadManager.Request request = new DownloadManager.Request(uri);
-        request.setDestinationUri(Uri.fromFile(targetFile));
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        targetFolder.mkdir()
+        val downloadManager = context.getSystemService<DownloadManager>()!!
+        val request = DownloadManager.Request(uri)
+        request.setDestinationUri(targetFile.toUri())
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
         if (mimeType != null) {
-            request.setMimeType(mimeType);
+            request.setMimeType(mimeType)
         }
-        request.allowScanningByMediaScanner();
-        downloadManager.enqueue(request);
+        request.allowScanningByMediaScanner()
+        downloadManager.enqueue(request)
     }
 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(action)) {
-            long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0);
-            DownloadManager.Query query = new DownloadManager.Query();
-            query.setFilterById(downloadId);
-            DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-            try (Cursor c = downloadManager.query(query)) {
+    override fun onReceive(context: Context, intent: Intent) {
+        val action = intent.action
+        if (DownloadManager.ACTION_DOWNLOAD_COMPLETE == action) {
+            val downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0)
+            val query = DownloadManager.Query()
+            query.setFilterById(downloadId)
+            val downloadManager = context.getSystemService<DownloadManager>()!!
+            downloadManager.query(query).use { c ->
                 if (c.moveToFirst()) {
-                    int statusIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS);
-                    int pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI);
-                    int mimeIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_MEDIA_TYPE);
+                    val statusIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS)
+                    val pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI)
+                    val mimeIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_MEDIA_TYPE)
                     if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(statusIndex)) {
-                        if (callback != null) {
-                            callback.onSuccess();
-                        }
-                        notifyContentResolver(context, Uri.parse(c.getString(pathIndex)).getPath(),
-                                c.getString(mimeIndex));
+                        callback?.onSuccess()
+                        notifyContentResolver(context, c.getString(pathIndex).toUri().path, c.getString(mimeIndex))
                     }
                 }
             }
         }
     }
 
-    @NonNull private static String trimFileNamespace(@NonNull String filename) {
-        return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
-    }
-
     // TODO: Research whether this whole call is necessary anymore.
-    private void notifyContentResolver(@NonNull Context context, @Nullable String path, @NonNull String mimeType) {
-        ContentValues values = new ContentValues();
-        Uri contentUri = null;
-        if (FileUtil.isVideo(mimeType)) {
-            values.put(MediaStore.Video.Media.DATA, path);
-            values.put(MediaStore.Video.Media.MIME_TYPE, mimeType);
-            contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-        } else if (FileUtil.isAudio(mimeType)) {
-            values.put(MediaStore.Audio.Media.DATA, path);
-            values.put(MediaStore.Audio.Media.MIME_TYPE, mimeType);
-            contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        } else if (!TextUtils.isEmpty(path)) {
-            values.put(MediaStore.Images.Media.DATA, path);
-            values.put(MediaStore.Images.Media.MIME_TYPE, mimeType);
-            contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+    private fun notifyContentResolver(context: Context, path: String?, mimeType: String) {
+        val values: ContentValues
+        var contentUri: Uri? = null
+        if (isVideo(mimeType)) {
+            values = contentValuesOf(MediaStore.Video.Media.DATA to path, MediaStore.Video.Media.MIME_TYPE to mimeType)
+            contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        } else if (isAudio(mimeType)) {
+            values = contentValuesOf(MediaStore.Audio.Media.DATA to path, MediaStore.Audio.Media.MIME_TYPE to mimeType)
+            contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+        } else if (!path.isNullOrEmpty()) {
+            values = contentValuesOf(MediaStore.Images.Media.DATA to path, MediaStore.Images.Media.MIME_TYPE to mimeType)
+            contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        } else {
+            values = ContentValues()
         }
         if (contentUri != null) {
             try {
-                context.getContentResolver().insert(contentUri, values);
-            } catch (Exception e) {
+                context.contentResolver.insert(contentUri, values)
+            } catch (e: Exception) {
                 // ignore
             }
+        }
+    }
+
+    companion object {
+        private const val FILE_NAMESPACE = "File:"
+
+        private fun trimFileNamespace(filename: String): String {
+            return if (filename.startsWith(FILE_NAMESPACE)) filename.substring(FILE_NAMESPACE.length) else filename
         }
     }
 }
