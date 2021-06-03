@@ -2,6 +2,7 @@ package org.wikipedia.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,8 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
+import org.wikipedia.database.room.History;
+import org.wikipedia.database.room.WikipediaRoomDatabase;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
@@ -77,6 +80,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
         }
 
         getToolbar().setNavigationIcon(null);
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                WikipediaRoomDatabase.Companion.getAppRoomDatabase(MainActivity.this).historyDAO().insertUsers(new History(1,"site","title"));
+            }
+        });
     }
 
     @Override
