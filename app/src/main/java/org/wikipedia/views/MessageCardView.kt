@@ -12,11 +12,10 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel.Companion.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.databinding.ViewMessageCardBinding
-import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 
 class MessageCardView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
@@ -71,17 +70,18 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
         binding.imageView.setImageResource(R.drawable.ic_suggested_edits_disabled)
     }
 
-    fun setIPBlocked(info: MwServiceError.BlockInfo?) {
+    fun setIPBlocked(message: String? = null) {
         setDefaultState()
         binding.imageView.visibility = GONE
-        if (info == null) {
+        if (message.isNullOrEmpty()) {
             binding.messageTitleView.visibility = VISIBLE
             binding.messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
             binding.messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
         } else {
             binding.messageTitleView.visibility = GONE
-            binding.messageTextView.text = StringUtil.fromHtml(ThrowableUtil.parseBlockedError(info))
+            binding.messageTextView.text = StringUtil.fromHtml(message)
             binding.messageTextView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+            RichTextUtil.removeUnderlinesFromLinks(binding.messageTextView)
         }
         binding.positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
