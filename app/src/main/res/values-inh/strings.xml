@@ -828,6 +828,7 @@
     <item quantity="other">%d ди</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Фуд из Тоаде мегаш дар?</string>
+  <string name="suggested_edits_what_is_text">Тоаде мегаш да аьнна хьагойташ долча йоазонаша Википеде чу кӀезига мукъагӀа къахьега аьттув хулийт.</string>
   <string name="suggested_edits_contribution_language_label">Мотт</string>
   <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
   <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
