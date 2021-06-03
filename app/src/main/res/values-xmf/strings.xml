@@ -389,7 +389,7 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
     <item quantity="few">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
-    <item quantity="other"/>
+    <item quantity="other">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
     <item quantity="many">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
   </plurals>
   <string name="reading_lists_login_button">მიშულა / ქაკათით ვიკიპედიას</string>
