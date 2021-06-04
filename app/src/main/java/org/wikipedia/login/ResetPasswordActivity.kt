@@ -114,9 +114,9 @@ class ResetPasswordActivity : BaseActivity() {
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String) {
+        override fun twoFactorPrompt(caught: Throwable, token: String?) {
             showProgressBar(false)
-            firstStepToken = token
+            firstStepToken = token.orEmpty()
             binding.login2faText.visibility = View.VISIBLE
             binding.login2faText.requestFocus()
             FeedbackUtil.showError(this@ResetPasswordActivity, caught)
