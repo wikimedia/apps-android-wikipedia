@@ -6,7 +6,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -24,7 +23,7 @@ class LoginClient {
 
     interface LoginCallback {
         fun success(result: LoginResult)
-        fun twoFactorPrompt(caught: Throwable, token: String)
+        fun twoFactorPrompt(caught: Throwable, token: String?)
         fun passwordResetPrompt(token: String?)
         fun error(caught: Throwable)
     }
@@ -34,12 +33,12 @@ class LoginClient {
         disposables.add(getLoginToken(wiki)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ loginToken ->
-                login(wiki, userName, password, null, null, loginToken!!, cb)
+                login(wiki, userName, password, null, null, loginToken, cb)
             }, { caught -> cb.error(caught) }))
     }
 
     fun login(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
-        twoFactorCode: String?, loginToken: String, cb: LoginCallback) {
+        twoFactorCode: String?, loginToken: String?, cb: LoginCallback) {
         disposables.add(getLoginResponse(wiki, userName, password, retypedPassword, twoFactorCode, loginToken)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -50,16 +49,9 @@ class LoginClient {
                         return@flatMap getExtendedInfo(wiki, loginResult)
                     } else if ("UI" == loginResult.status) {
                         when (loginResult) {
-                            is LoginOAuthResult -> {
-                                cb.twoFactorPrompt(LoginFailedException(loginResult.message),
-                                    loginToken)
-                            }
-                            is LoginResetPasswordResult -> {
-                                cb.passwordResetPrompt(loginToken)
-                            }
-                            else -> {
-                                cb.error(LoginFailedException(loginResult.message))
-                            }
+                            is LoginOAuthResult -> cb.twoFactorPrompt(LoginFailedException(loginResult.message), loginToken)
+                            is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)
+                            else -> cb.error(LoginFailedException(loginResult.message))
                         }
                     } else {
                         cb.error(LoginFailedException(loginResult.message))
@@ -94,14 +86,14 @@ class LoginClient {
                     throw IOException("Unexpected response when logging in.")
                 }
                 val loginResult = loginResponse.toLoginResult(wiki, password) ?: throw IOException("Unexpected response when logging in.")
-                if ("UI" == loginResult.status) {
+                if (LoginResult.STATUS_UI == loginResult.status) {
                     if (loginResult is LoginOAuthResult) {
                         // TODO: Find a better way to boil up the warning about 2FA
                         Toast.makeText(WikipediaApp.getInstance(),
                             R.string.login_2fa_other_workflow_error_msg, Toast.LENGTH_LONG).show()
                     }
                     throw LoginFailedException(loginResult.message)
-                } else if (!loginResult.pass() || loginResult.userName!!.isEmpty()) {
+                } else if (!loginResult.pass() || loginResult.userName.isNullOrEmpty()) {
                     throw LoginFailedException(loginResult.message)
                 }
                 loginResponse
@@ -115,7 +107,7 @@ class LoginClient {
                 val queryResponse =
                     GsonUtil.getDefaultGson().fromJson(response, MwQueryResponse::class.java)
                 val loginToken = queryResponse.query()!!.loginToken()
-                if (loginToken!!.isEmpty()) {
+                if (loginToken.isNullOrEmpty()) {
                     throw RuntimeException("Received empty login token: " + GsonUtil.getDefaultGson().toJson(response))
                 }
                 loginToken
@@ -124,7 +116,7 @@ class LoginClient {
 
     private fun getLoginResponse(wiki: WikiSite, userName: String, password: String, retypedPassword: String?,
         twoFactorCode: String?, loginToken: String?): Observable<LoginResponse> {
-        return if (twoFactorCode!!.isEmpty() && retypedPassword!!.isEmpty())
+        return if (twoFactorCode.isNullOrEmpty() && retypedPassword.isNullOrEmpty())
             ServiceFactory.get(wiki).postLogIn(userName, password, loginToken, Service.WIKIPEDIA_URL)
         else ServiceFactory.get(wiki).postLogIn(userName, password, retypedPassword, twoFactorCode, loginToken, true)
     }
@@ -149,6 +141,7 @@ class LoginClient {
 
         @SerializedName("clientlogin")
         private val clientLogin: ClientLogin? = null
+
         fun toLoginResult(site: WikiSite, password: String): LoginResult? {
             return clientLogin?.toLoginResult(site, password)
         }
@@ -158,22 +151,22 @@ class LoginClient {
             private val status: String? = null
             private val requests: List<Request>? = null
             private val message: String? = null
-
             @SerializedName("username")
             private val userName: String? = null
+
             fun toLoginResult(site: WikiSite, password: String): LoginResult {
                 var userMessage = message
-                if ("UI" == status) {
+                if (LoginResult.STATUS_UI == status) {
                     if (requests != null) {
                         for (req in requests) {
-                            if (req.id().endsWith("TOTPAuthenticationRequest")) {
+                            if (req.id.orEmpty().endsWith("TOTPAuthenticationRequest")) {
                                 return LoginOAuthResult(site, status, userName, password, message)
-                            } else if (req.id().endsWith("PasswordAuthenticationRequest")) {
+                            } else if (req.id.orEmpty().endsWith("PasswordAuthenticationRequest")) {
                                 return LoginResetPasswordResult(site, status, userName, password, message)
                             }
                         }
                     }
-                } else if ("PASS" != status && "FAIL" != status) {
+                } else if (LoginResult.STATUS_PASS != status && LoginResult.STATUS_FAIL != status) {
                     // TODO: String resource -- Looks like needed for others in this class too
                     userMessage = "An unknown error occurred."
                 }
@@ -182,12 +175,7 @@ class LoginClient {
         }
 
         private class Request {
-
-            private val id: String? = null
-
-            fun id(): String {
-                return StringUtils.defaultString(id)
-            }
+            val id: String? = null
         }
     }
 
