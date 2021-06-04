@@ -42,13 +42,13 @@ data class ReadingListPage(val wiki: WikiSite,
     @Transient
     var selected = false
 
-    val saving = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
+    val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
             accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).toLowerCase(Locale.getDefault())
         }
-        return accentAndCaseInvariantTitle as String
+        return accentAndCaseInvariantTitle!!
     }
 
     fun touch() {
