@@ -134,7 +134,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun onPause() {
         super.onPause()
-        downloadReceiver.setCallback(null)
+        downloadReceiver.callback = null
         requireContext().unregisterReceiver(downloadReceiver)
     }
 
@@ -142,7 +142,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         super.onResume()
         requireContext().registerReceiver(downloadReceiver,
                 IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.setCallback(downloadReceiverCallback)
+        downloadReceiver.callback = downloadReceiverCallback
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0)
         maybeShowWatchlistTooltip()
