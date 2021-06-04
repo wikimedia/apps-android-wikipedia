@@ -270,7 +270,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridgeListener
             it.deinit()
             avPlayer = null
         }
-        //uninitialize the bridge, so that no further JS events can have any effect.
+        // uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup()
         tocHandler.log()
         shareHandler.dispose()
@@ -350,11 +350,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridgeListener
         webView.addOnContentHeightChangedListener(scrollTriggerListener)
         webView.webViewClient = object : OkHttpWebViewClient() {
             override fun getModel(): PageViewModel {
-                return model
+                return this@PageFragment.model
             }
 
             override fun getLinkHandler(): LinkHandler {
-                return linkHandler
+                return this@PageFragment.linkHandler
             }
 
             override fun onPageFinished(view: WebView, url: String) {
@@ -593,7 +593,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridgeListener
     }
 
     fun loadPage(title: PageTitle, entry: HistoryEntry, pushBackStack: Boolean, squashBackstack: Boolean) {
-        //is the new title the same as what's already being displayed?
+        // is the new title the same as what's already being displayed?
         if (currentTab.backStack.isNotEmpty() && currentTab.backStack[currentTab.backStackPosition].title == title) {
             if (model.page == null) {
                 pageFragmentLoadState.loadFromBackStack()
