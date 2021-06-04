@@ -193,11 +193,11 @@ class LoginActivity : BaseActivity() {
     private inner class LoginCallback : LoginClient.LoginCallback {
         override fun success(result: LoginResult) {
             showProgressBar(false)
-            if (result.pass()) {
+            if (result.pass) {
                 val response = intent.extras?.getParcelable<AccountAuthenticatorResponse>(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)
                 updateAccount(response, result)
                 onLoginSuccess()
-            } else if (result.fail()) {
+            } else if (result.fail) {
                 val message = result.message.orEmpty()
                 FeedbackUtil.showMessage(this@LoginActivity, message)
                 funnel.logError(message)
@@ -205,7 +205,7 @@ class LoginActivity : BaseActivity() {
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String) {
+        override fun twoFactorPrompt(caught: Throwable, token: String?) {
             showProgressBar(false)
             firstStepToken = token
             binding.login2faText.visibility = View.VISIBLE

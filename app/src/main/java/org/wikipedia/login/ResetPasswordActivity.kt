@@ -100,23 +100,23 @@ class ResetPasswordActivity : BaseActivity() {
     private inner class LoginCallback : LoginClient.LoginCallback {
         override fun success(result: LoginResult) {
             showProgressBar(false)
-            if (result.pass()) {
+            if (result.pass) {
                 val extras = intent.extras
                 val response = extras?.getParcelable<AccountAuthenticatorResponse>(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)
                 updateAccount(response, result)
                 DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
                 setResult(RESULT_OK)
                 finish()
-            } else if (result.fail()) {
+            } else if (result.fail) {
                 val message = result.message
                 FeedbackUtil.showMessage(this@ResetPasswordActivity, message!!)
                 L.w("Login failed with result $message")
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String) {
+        override fun twoFactorPrompt(caught: Throwable, token: String?) {
             showProgressBar(false)
-            firstStepToken = token
+            firstStepToken = token.orEmpty()
             binding.login2faText.visibility = View.VISIBLE
             binding.login2faText.requestFocus()
             FeedbackUtil.showError(this@ResetPasswordActivity, caught)
