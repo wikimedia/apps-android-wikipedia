@@ -19,7 +19,7 @@ class SwitchPreferenceWithLinks : SwitchPreferenceMultiLine {
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
-        
+
         val view = holder.findViewById(android.R.id.summary) as TextView
 
         view.movementMethod = LinkMovementMethodExt { url ->
