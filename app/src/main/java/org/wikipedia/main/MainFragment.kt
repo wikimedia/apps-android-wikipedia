@@ -64,7 +64,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SettingsActivity
 import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.suggestededits.ImageRecsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.util.*
@@ -124,7 +123,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
 
         maybeShowEditsTooltip()
-        maybeShowImageRecsTooltip()
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().intent)
@@ -170,7 +168,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
             if (!Prefs.shouldShowSuggestedEditsTooltip()) {
                 FeedbackUtil.showMessage(this, R.string.login_success_toast)
             }
-            maybeShowImageRecsTooltip()
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (WikipediaApp.getInstance().tabCount == 0) {
                 // They browsed the tabs and cleared all of them, without wanting to open a new tab.
@@ -504,18 +501,6 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                         .setOnBalloonDismissListener {
                             WatchlistFunnel().logShowTooltipMore()
                             Prefs.setWatchlistMainOnboardingTooltipShown(true)
-                        }
-            }
-        }
-    }
-
-    private fun maybeShowImageRecsTooltip() {
-        if (ImageRecsFragment.isFeatureEnabled() && Prefs.shouldShowImageRecsTooltip() &&
-                Prefs.getExploreFeedVisitCount() >= SHOW_EDITS_SNACKBAR_COUNT) {
-            enqueueTooltip {
-                FeedbackUtil.showTooltip(requireActivity(), binding.mainNavTabLayout.findViewById(NavTab.EDITS.id()), R.layout.view_image_recs_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
-                        .setOnBalloonDismissListener {
-                            Prefs.setShowImageRecsTooltip(false)
                         }
             }
         }
