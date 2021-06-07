@@ -205,7 +205,7 @@ class LoginActivity : BaseActivity() {
             }
         }
 
-        override fun twoFactorPrompt(caught: Throwable, token: String) {
+        override fun twoFactorPrompt(caught: Throwable, token: String?) {
             showProgressBar(false)
             firstStepToken = token
             binding.login2faText.visibility = View.VISIBLE
