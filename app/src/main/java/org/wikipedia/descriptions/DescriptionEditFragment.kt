@@ -374,7 +374,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private fun updateDescriptionInArticle(articleText: String, newDescription: String): String {
-        return if (TEMPLATE_PARSE_REGEX.toRegex().matches(articleText)) {
+        return if (articleText.contains(TEMPLATE_PARSE_REGEX.toRegex())) {
             // update existing description template
             articleText.replaceFirst(TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
         } else {
