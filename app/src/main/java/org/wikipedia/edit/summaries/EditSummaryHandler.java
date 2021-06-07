@@ -17,7 +17,6 @@ import androidx.cursoradapter.widget.CursorAdapter;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.ContentProviderClientCompat;
 
 import java.util.Date;
 
@@ -38,19 +37,16 @@ public class EditSummaryHandler {
         EditSummaryAdapter adapter = new EditSummaryAdapter(container.getContext(), null, true);
         summaryEdit.setAdapter(adapter);
         adapter.setFilterQueryProvider((charSequence) -> {
-            ContentProviderClient client = EditSummary.DATABASE_TABLE
-                    .acquireClient(container.getContext().getApplicationContext());
-            Uri uri = EditHistoryContract.Summary.URI;
-            final String[] projection = null;
-            String selection = EditHistoryContract.Summary.SUMMARY.qualifiedName() + " like ?";
-            String[] selectionArgs = new String[] {charSequence + "%"};
-            String order = EditHistoryContract.Summary.ORDER_MRU;
-            try {
+            try (ContentProviderClient client = EditSummary.DATABASE_TABLE
+                    .acquireClient(container.getContext().getApplicationContext())) {
+                Uri uri = EditHistoryContract.Summary.URI;
+                final String[] projection = null;
+                String selection = EditHistoryContract.Summary.SUMMARY.qualifiedName() + " like ?";
+                String[] selectionArgs = new String[]{charSequence + "%"};
+                String order = EditHistoryContract.Summary.ORDER_MRU;
                 return client.query(uri, projection, selection, selectionArgs, order);
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
-            } finally {
-                ContentProviderClientCompat.close(client);
             }
         });
 

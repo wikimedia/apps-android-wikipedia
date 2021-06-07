@@ -11,7 +11,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.util.ContentProviderClientCompat;
 
 import java.util.concurrent.Callable;
 
@@ -40,13 +39,12 @@ public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
 
     private Cursor getInterestedHistoryEntry() {
         Context context = WikipediaApp.getInstance();
-        ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
-        try {
+        try (ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context)) {
             Uri uri = PageHistoryContract.PageWithImage.URI;
             String selection = ":sourceCol != ? and :sourceCol != ? and :sourceCol != ? and :timeSpentCol >= ?"
                     .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName())
                     .replaceAll(":timeSpentCol", PageHistoryContract.Page.TIME_SPENT.qualifiedName());
-            String[] selectionArgs = new String[] {Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),
+            String[] selectionArgs = new String[]{Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),
                     Integer.toString(HistoryEntry.SOURCE_RANDOM),
                     Integer.toString(HistoryEntry.SOURCE_FEED_MAIN_PAGE),
                     Integer.toString(context.getResources().getInteger(R.integer.article_engagement_threshold_sec))};
@@ -54,8 +52,6 @@ public class MainPageReadMoreTopicTask implements Callable<HistoryEntry> {
             return client.query(uri, null, selection, selectionArgs, order);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
-        } finally {
-            ContentProviderClientCompat.close(client);
         }
     }
 }
