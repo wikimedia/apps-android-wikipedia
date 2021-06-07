@@ -59,7 +59,7 @@ public class ReadingListDbHelperTest {
     @Test
     public void testUpdateListForFieldUpdate() {
         ReadingList list = readingListDbHelper.createList("Test2", "TestDesc");
-        list.setDbTitle("testTitle");
+        list.setTitle("testTitle");
         readingListDbHelper.updateList(list, false);
         List<ReadingList> lists = readingListDbHelper.getAllLists();
         assertThat(hasTitle(lists, "testTitle"), is(true));

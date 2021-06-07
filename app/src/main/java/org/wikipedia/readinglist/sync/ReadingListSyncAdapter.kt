@@ -1,10 +1,9 @@
 package org.wikipedia.readinglist.sync
 
-import android.accounts.Account
 import android.content.*
 import android.os.Bundle
 import android.text.TextUtils
-import org.wikipedia.BuildConfig
+import androidx.core.app.JobIntentService
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
@@ -25,12 +24,10 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import java.text.ParseException
 
-class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
-    constructor(context: Context, autoInitialize: Boolean) : super(context, autoInitialize)
-    constructor(context: Context, autoInitialize: Boolean, allowParallelSyncs: Boolean) : super(context, autoInitialize, allowParallelSyncs)
+class ReadingListSyncAdapter : JobIntentService() {
 
-    override fun onPerformSync(account: Account, extras: Bundle, authority: String,
-                               provider: ContentProviderClient, syncResult: SyncResult) {
+    override fun onHandleWork(intent: Intent) {
+        val extras = intent.extras!!
         if (isDisabledByRemoteConfig || !AccountUtil.isLoggedIn ||
                 !(Prefs.isReadingListSyncEnabled() || Prefs.isReadingListsRemoteDeletePending())) {
             L.d("Skipping sync of reading lists.")
@@ -127,7 +124,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
 
             // First, update our list hierarchy to match the remote hierarchy.
             for ((remoteItemsSynced, remoteList) in remoteListsModified.withIndex()) {
-                readingListSyncNotification.setNotificationProgress(context, remoteItemsTotal, remoteItemsSynced)
+                readingListSyncNotification.setNotificationProgress(applicationContext, remoteItemsTotal, remoteItemsSynced)
                 // Find the remote list in our local lists...
                 var localList: ReadingList? = null
                 var upsertNeeded = false
@@ -178,7 +175,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
                     upsertNeeded = true
                 } else {
                     if (!localList.isDefault && !StringUtil.normalizedEquals(localList.title, remoteList.name())) {
-                        localList.dbTitle = remoteList.name()
+                        localList.title = remoteList.name()
                         upsertNeeded = true
                     }
                     if (!localList.isDefault && !StringUtil.normalizedEquals(localList.description, remoteList.description())) {
@@ -261,7 +258,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
 
             // Determine whether any remote lists need to be created or updated
             for ((localItemsSynced, localList) in allLocalLists.withIndex()) {
-                readingListSyncNotification.setNotificationProgress(context, localItemsTotal, localItemsSynced)
+                readingListSyncNotification.setNotificationProgress(applicationContext, localItemsTotal, localItemsSynced)
                 val remoteList = RemoteReadingList(localList.title, localList.description)
                 var upsertNeeded = false
                 if (localList.remoteId > 0) {
@@ -386,7 +383,7 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
             Prefs.setReadingListsLastSyncTime(lastSyncTime)
             Prefs.setReadingListsDeletedIds(listIdsDeleted)
             Prefs.setReadingListPagesDeletedIds(pageIdsDeleted)
-            readingListSyncNotification.cancelNotification(context)
+            readingListSyncNotification.cancelNotification(applicationContext)
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent(extras.containsKey(SYNC_EXTRAS_REFRESHING))
             }
@@ -474,10 +471,13 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
     }
 
     companion object {
+        // Unique job ID for this service (do not duplicate).
+        private const val JOB_ID = 1001
         private const val SYNC_EXTRAS_FORCE_FULL_SYNC = "forceFullSync"
         private const val SYNC_EXTRAS_REFRESHING = "refreshing"
         private const val SYNC_EXTRAS_RETRYING = "retrying"
         private var IN_PROGRESS = false
+
         fun inProgress(): Boolean {
             return IN_PROGRESS
         }
@@ -537,6 +537,9 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
         }
 
         private fun manualSync(extras: Bundle) {
+            if (inProgress()) {
+                return
+            }
             if (AccountUtil.account() == null || !WikipediaApp.getInstance().isOnline) {
                 if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {
                     SavedPageSyncService.sendSyncEvent()
@@ -545,7 +548,10 @@ class ReadingListSyncAdapter : AbstractThreadedSyncAdapter {
             }
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true)
             extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true)
-            ContentResolver.requestSync(AccountUtil.account(), BuildConfig.READING_LISTS_AUTHORITY, extras)
+
+            enqueueWork(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java,
+                JOB_ID, Intent(WikipediaApp.getInstance(), ReadingListSyncAdapter::class.java)
+                    .putExtras(extras))
         }
     }
 }

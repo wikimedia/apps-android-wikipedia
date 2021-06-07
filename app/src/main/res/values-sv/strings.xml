@@ -225,7 +225,7 @@
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license" fuzzy="true">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
+  <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
@@ -370,6 +370,14 @@
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>
   <string name="menu_save_all_tabs">Spara alla flikar</string>
+  <string name="error_blocked_title">Ditt användarnamn eller din IP-adress har blockerats.</string>
+  <string name="error_blocked_by">Blockeringen gjordes av &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Den angivna anledningar var: %s</string>
+  <string name="error_blocked_start">Blockeringens början: %s</string>
+  <string name="error_blocked_expiry">Blockeringens slut: %s</string>
+  <string name="error_blocked_id">Blockerings-ID: %s</string>
+  <string name="error_blocked_footer">Du kan kontakta &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en annan &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
+  <string name="error_blocked_footer_no_blocker">Du kan kontakta en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratör&lt;/a&gt; för att diskutera blockeringen.</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
