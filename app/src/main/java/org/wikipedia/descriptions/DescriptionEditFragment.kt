@@ -393,6 +393,7 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_TARGET_SUMMARY = "targetSummary"
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`
+        @Suppress("RegExpRedundantEscape")
         const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})"
 
         fun newInstance(title: PageTitle,
