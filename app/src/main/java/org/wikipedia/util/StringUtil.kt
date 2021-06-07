@@ -9,6 +9,9 @@ import androidx.core.text.toSpanned
 import com.google.gson.Gson
 import okio.ByteString.Companion.encodeUtf8
 import org.json.JSONArray
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserAliasData
 import java.text.Collator
 import java.text.Normalizer
 
@@ -195,5 +198,9 @@ object StringUtil {
     @JvmStatic
     fun listToJSONString(list: List<Int>): String {
         return Gson().toJson(list)
+    }
+
+    fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {
+        return PageTitle(UserAliasData.valueFor(wiki.languageCode()), userName, wiki)
     }
 }
