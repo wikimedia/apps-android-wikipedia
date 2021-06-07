@@ -234,6 +234,7 @@ class DescriptionEditFragment : Fragment() {
                         var text = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].content()
                         val baseRevId = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].revId
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
+
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
                                 getEditComment().orEmpty(),
                                 if (AccountUtil.isLoggedIn) "user"
@@ -391,7 +392,8 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
-        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*}})"
+        // Don't remove the ending escaped `\\}`
+        const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})"
 
         fun newInstance(title: PageTitle,
                         highlightText: String?,
