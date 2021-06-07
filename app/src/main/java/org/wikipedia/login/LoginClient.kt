@@ -47,7 +47,7 @@ class LoginClient {
                 if (loginResult != null) {
                     if (loginResult.pass() && userName.isNotEmpty()) {
                         return@flatMap getExtendedInfo(wiki, loginResult)
-                    } else if ("UI" == loginResult.status) {
+                    } else if (LoginResult.STATUS_UI == loginResult.status) {
                         when (loginResult) {
                             is LoginOAuthResult -> cb.twoFactorPrompt(LoginFailedException(loginResult.message), loginToken)
                             is LoginResetPasswordResult -> cb.passwordResetPrompt(loginToken)

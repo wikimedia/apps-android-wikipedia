@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * MuratTheTurkish
 * Narazeni
 * Silovan
@@ -389,8 +390,8 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
     <item quantity="few">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
-    <item quantity="other">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
     <item quantity="many">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
+    <item quantity="other">ერკებულშე ეშალასირი სტატიაშ მუდანობა: %d</item>
   </plurals>
   <string name="reading_lists_login_button">მიშულა / ქაკათით ვიკიპედიას</string>
   <string name="reading_lists_ignore_button">ასე ვარი</string>
