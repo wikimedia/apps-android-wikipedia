@@ -179,7 +179,7 @@ dependencies {
     implementation "androidx.preference:preference-ktx:1.1.1"
     implementation "androidx.recyclerview:recyclerview:1.2.0"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation 'com.google.android:flexbox:2.0.1'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
 
