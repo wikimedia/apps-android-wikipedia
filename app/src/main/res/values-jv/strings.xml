@@ -538,8 +538,8 @@
   <string name="description_edit_translate_image_caption">Pertal kateranganing gambar</string>
   <string name="description_edit_cancel_hint">Wurung</string>
   <string name="description_edit_help_title" fuzzy="true">Pitulung: wedharaning sesirah</string>
-  <string name="description_edit_help_about_wikidata">Ngenani Wikidhata</string>
-  <string name="description_edit_help_wikidata_guide">Tuntunan Wikidhata kanggo nulis andharan</string>
+  <string name="description_edit_help_about_wikidata">Bab Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Pandom Wikidata kanggo nulis andharan</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
   <string name="description_edit_license_notice" fuzzy="true">Kanthi ngganti wedharaning sesirah, aku sarujuk marang &lt;a href=\"%1$s\"&gt;Pranatan Pangguna&lt;/a&gt; lan nguculaké sumbanganku ing pangayomané lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
