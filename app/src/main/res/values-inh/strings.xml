@@ -829,6 +829,13 @@
   </plurals>
   <string name="suggested_edits_what_is_title">Фуд из Тоаде мегаш дар?</string>
   <string name="suggested_edits_what_is_text">Тоаде мегаш да аьнна хьагойташ долча йоазонаша Википеде чу кӀезига мукъагӀа къахьега аьттув хулийт.</string>
+  <string name="suggested_edits_learn_more">Кхы а</string>
+  <string name="suggested_edits_paused_title">Соцадаьд</string>
+  <string name="suggested_edits_disabled_title">ДӀадоадаьд</string>
+  <string name="suggested_edits_ip_blocked_title">IP блок теха да</string>
+  <string name="suggested_edits_last_edited">ТӀехьара хувцам</string>
+  <string name="suggested_edits_last_edited_never">ЦIаккха</string>
+  <string name="suggested_edits_task_new">керда</string>
   <string name="suggested_edits_contribution_language_label">Мотт</string>
   <string name="suggested_edits_contribution_date_time_label">Таьрахь/Ха</string>
   <string name="suggested_edits_contribution_type_label">Къахьегама тайпа</string>
