@@ -266,14 +266,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
             topBaseChild()!!.publish()
         } else if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(),
-                topTitle!!,
-                null,
-                topChild()!!.sourceSummaryForEdit,
-                topChild()!!.targetSummaryForEdit,
-                action,
-                Constants.InvokeSource.SUGGESTED_EDITS),
-                Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
+                action, Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
 
