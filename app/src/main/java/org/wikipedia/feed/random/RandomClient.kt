@@ -22,7 +22,7 @@ class RandomClient : FeedClient {
     override fun request(context: Context, wiki: WikiSite, age: Int, cb: FeedClient.Callback) {
         cancel()
         disposables.add(
-            Observable.fromIterable(FeedContentType.getAggregatedLanguages())
+            Observable.fromIterable(FeedContentType.aggregatedLanguages)
                 .flatMap({ lang -> getRandomSummaryObservable(lang) }, { first, second -> Pair(first, second) })
                 .observeOn(AndroidSchedulers.mainThread())
                 .toList()

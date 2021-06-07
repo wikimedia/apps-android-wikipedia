@@ -376,7 +376,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
             view.setContentType(adapter.langList, tempDisabledList)
             AlertDialog.Builder(requireContext())
                 .setView(view)
-                .setTitle(contentType.titleId())
+                .setTitle(contentType.titleId)
                 .setPositiveButton(R.string.feed_lang_selection_dialog_ok_button_text) { _, _ ->
                     contentType.langCodesDisabled.clear()
                     contentType.langCodesDisabled.addAll(tempDisabledList)
