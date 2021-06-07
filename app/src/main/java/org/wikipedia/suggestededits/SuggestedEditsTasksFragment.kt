@@ -208,7 +208,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    if (blockMessage != null) {
+                    if (!blockMessage.isNullOrEmpty()) {
                         setIPBlockedStatus()
                     }
                 }
@@ -217,7 +217,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                         isPausedOrDisabled = true
                     }
 
-                    if (!isPausedOrDisabled && blockMessage == null) {
+                    if (!isPausedOrDisabled && blockMessage.isNullOrEmpty()) {
                         binding.pageViewStatsView.setTitle(it.toString())
                         totalPageviews = it
                         setFinalUIState()

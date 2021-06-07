@@ -9,8 +9,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.createaccount.CreateAccountException
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
-import org.wikipedia.dataclient.mwapi.MwParseResponse
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.login.LoginClient.LoginFailedException
@@ -100,7 +98,7 @@ object ThrowableUtil {
         Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo,
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parsePage("MediaWiki:Blockedtext"),
             ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
-            { userInfoResponse: MwQueryResponse, blockedParseResponse: MwParseResponse, reasonParseResponse: MwParseResponse ->
+            { userInfoResponse, blockedParseResponse, reasonParseResponse ->
                 parseBlockedError(blockedParseResponse.text, blockInfo,
                     reasonParseResponse.text, userInfoResponse.query()!!.userInfo()!!.name)
             }
