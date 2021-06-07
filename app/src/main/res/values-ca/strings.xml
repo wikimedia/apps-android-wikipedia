@@ -381,8 +381,8 @@
   <string name="error_blocked_start">Inici del blocatge: %s</string>
   <string name="error_blocked_expiry">Expiració del blocatge: %s</string>
   <string name="error_blocked_id">ID del blocatge: %s</string>
-  <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquip%C3%A8dia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
-  <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquip%C3%A8dia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
+  <string name="error_blocked_footer_no_blocker">Podeu contactar un &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
