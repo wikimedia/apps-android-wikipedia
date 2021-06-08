@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">@string/app_name_beta</string>
     <string name="channel">Google Play Beta Channel</string>
-    <string name="hockeyapp_app_id">223c136f356e1820ab4882a677fefc8c</string>
 
     <!-- TODO: remove and use the same account as prod when tokens are stored. -->
     <string name="account_name">Wikimedia (Beta)</string>

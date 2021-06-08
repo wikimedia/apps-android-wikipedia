@@ -28,16 +28,6 @@
     <string name="menu_link_preview_share_page">@string/menu_page_share</string>
     <string name="menu_link_preview_add_to_list">@string/menu_page_add_to_list</string>
 
-    <!-- Crash reporter -->
-    <!-- Do not change these names. These values override those in the HockeyApp SDK which has no
-         localization. -->
-    <string name="hockeyapp_crash_dialog_title" tools:ignore="UnusedResources">@string/crash_report_dialog_title</string>
-    <string name="hockeyapp_crash_dialog_message" tools:ignore="UnusedResources">@string/crash_report_dialog_text</string>
-    <string name="hockeyapp_crash_dialog_negative_button" tools:ignore="UnusedResources">@string/crash_report_dialog_dont_send_button</string>
-    <string name="hockeyapp_crash_dialog_neutral_button" tools:ignore="UnusedResources">@string/crash_report_dialog_always_send_button</string>
-    <string name="hockeyapp_crash_dialog_positive_button" tools:ignore="UnusedResources">@string/crash_report_dialog_send_button</string>
-    <!-- /Crash reporter -->
-
     <!-- The Feed -->
     <string name="nav_item_feed">@string/feed</string>
     <string name="feed_undo_dismiss_card">@string/reading_list_item_delete_undo</string>

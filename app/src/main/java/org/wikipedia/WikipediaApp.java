@@ -159,12 +159,6 @@ public class WikipediaApp extends Application {
         // https://developer.android.com/topic/performance/background-optimization.html#connectivity-action
         registerReceiver(connectivityReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
-        // HockeyApp exception handling interferes with the test runner, so enable it only for
-        // beta and stable releases
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            initExceptionHandling();
-        }
-
         refWatcher = Prefs.isMemoryLeakTestEnabled() ? LeakCanary.install(this) : RefWatcher.DISABLED;
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
@@ -381,10 +375,6 @@ public class WikipediaApp extends Application {
         L.v("logging out");
         AccountUtil.removeAccount();
         SharedPreferenceCookieManager.getInstance().clearAllCookies();
-    }
-
-    private void initExceptionHandling() {
-        //L.setRemoteLogger(crashReporter);
     }
 
     private void enableWebViewDebugging() {

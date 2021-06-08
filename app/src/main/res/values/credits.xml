@@ -17,10 +17,6 @@
         <!-- https://raw.githubusercontent.com/facebook/fresco/master/LICENSE -->
         (<a href="content:///android_asset/licenses/Fresco">license</a>),
 
-        <a href="https://hockeyapp.net/">HockeySDK-Android</a>
-        <!-- https://raw.githubusercontent.com/bitstadium/HockeySDK-Android/develop/LICENSE -->
-        (<a href="content:///android_asset/licenses/HockeySDK-Android">license</a>),
-
         <a href="https://github.com/jhy/jsoup">jsoup</a>
         <!-- https://raw.githubusercontent.com/jhy/jsoup/master/LICENSE -->
         (<a href="content:///android_asset/licenses/jsoup">license</a>),
