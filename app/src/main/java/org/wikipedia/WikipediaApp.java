@@ -25,7 +25,6 @@ import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -82,7 +81,6 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    private HockeyAppCrashReporter crashReporter;
     private RefWatcher refWatcher;
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
@@ -322,13 +320,13 @@ public class WikipediaApp extends Application {
 
     public void putCrashReportProperty(String key, String value) {
         if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter.putReportProperty(key, value);
+            //crashReporter.putReportProperty(key, value);
         }
     }
 
     public void checkCrashes(@NonNull Activity activity) {
         if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter.checkCrashes(activity);
+            //crashReporter.checkCrashes(activity);
         }
     }
 
@@ -386,12 +384,7 @@ public class WikipediaApp extends Application {
     }
 
     private void initExceptionHandling() {
-        crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
-        L.setRemoteLogger(crashReporter);
-    }
-
-    private HockeyAppCrashReporter.AutoUploadConsentAccessor consentAccessor() {
-        return Prefs::isCrashReportAutoUploadEnabled;
+        //L.setRemoteLogger(crashReporter);
     }
 
     private void enableWebViewDebugging() {
