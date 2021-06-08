@@ -196,7 +196,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación traduxéronla traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicencia</string>
-  <string name="about_app_license">El códigu fonte ta disponible\'n &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baxo la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicencia Apache 2.0&lt;/a&gt;. Si nun s\'especifica lo contrario, el conteníu ta disponible baxo una &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Llicencia Creative Commons Reconocimientu-CompartirIgual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">El códigu fonte ta disponible\'n &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baxo la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicencia Apache 2.0&lt;/a&gt;. Si nun s\'especifica lo contrario, el conteníu ta disponible baxo una &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Llicencia Creative Commons Reconocimientu-CompartirIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Un productu de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Tocante a</string>
   <string name="edit_abandon_confirm">Cambióse la páxina. ¿Seguro que quies salir ensin guardar los cambios?</string>
@@ -645,7 +645,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de la imaxe (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotógrafu</string>

@@ -9,7 +9,7 @@
     tools:context=".page.PageActivity">
 
     <org.wikipedia.views.FrameLayoutNavMenuTriggerer
-        android:id="@+id/activity_page_container"
+        android:id="@+id/container_with_nav_trigger"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

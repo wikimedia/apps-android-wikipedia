@@ -1,21 +1,28 @@
 package org.wikipedia.dataclient.mwapi;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.ServiceError;
+import org.wikipedia.json.PostProcessingTypeAdapter;
+import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.ThrowableUtil;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  * Gson POJO for a MediaWiki API error.
  */
-public class MwServiceError implements ServiceError {
-    @SuppressWarnings("unused") @Nullable private String code;
-    @SuppressWarnings("unused") @Nullable private String text;
-    @SuppressWarnings("unused") @Nullable private String html;
-    @SuppressWarnings("unused") @Nullable private Data data;
+@SuppressWarnings("unused")
+public class MwServiceError implements ServiceError, PostProcessingTypeAdapter.PostProcessable {
+    @Nullable private String code;
+    @Nullable private String text;
+    @Nullable private String html;
+    @Nullable private Data data;
 
     public MwServiceError() {
     }
@@ -29,6 +36,7 @@ public class MwServiceError implements ServiceError {
         return StringUtils.defaultString(code);
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     @Override @NonNull public String getDetails() {
         return StringUtils.defaultString(html);
     }
@@ -63,8 +71,17 @@ public class MwServiceError implements ServiceError {
         return null;
     }
 
+    @Override
+    public void postProcess() {
+        // Special case: if it's a Blocked error, parse the blockinfo structure ourselves.
+        if (("blocked".equals(code) || "autoblocked".equals(code)) && data != null && data.blockinfo != null) {
+            html = ThrowableUtil.getBlockMessageHtml(data.blockinfo);
+        }
+    }
+
     private static final class Data {
-        @SuppressWarnings("unused") @Nullable private List<Message> messages;
+        @Nullable private List<Message> messages;
+        @Nullable private BlockInfo blockinfo;
 
         @Nullable private List<Message> messages() {
             return messages;
@@ -72,11 +89,49 @@ public class MwServiceError implements ServiceError {
     }
 
     private static final class Message {
-        @SuppressWarnings("unused") @Nullable private String name;
-        @SuppressWarnings("unused") @Nullable private String html;
+        @Nullable private String name;
+        @Nullable private String html;
 
         @NonNull private String html() {
             return StringUtils.defaultString(html);
+        }
+    }
+
+    public static class BlockInfo {
+        private int blockid;
+        private int blockedbyid;
+        @Nullable private String blockreason;
+        @Nullable private String blockedby;
+        @Nullable private String blockedtimestamp;
+        @Nullable private String blockexpiry;
+
+        public int getBlockId() {
+            return blockid;
+        }
+
+        @NonNull public String getBlockedBy() {
+            return StringUtils.defaultString(blockedby);
+        }
+
+        @NonNull public String getBlockReason() {
+            return StringUtils.defaultString(blockreason);
+        }
+
+        @NonNull public String getBlockTimeStamp() {
+            return StringUtils.defaultString(blockedtimestamp);
+        }
+
+        @NonNull public String getBlockExpiry() {
+            return StringUtils.defaultString(blockexpiry);
+        }
+
+        public boolean isBlocked() {
+            if (TextUtils.isEmpty(blockexpiry)) {
+                return false;
+            }
+            Date now = new Date();
+            Date expiry = DateUtil.iso8601DateParse(blockexpiry);
+            return expiry.after(now);
         }
     }
 }

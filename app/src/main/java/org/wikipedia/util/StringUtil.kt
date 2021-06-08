@@ -9,6 +9,9 @@ import androidx.core.text.toSpanned
 import com.google.gson.Gson
 import okio.ByteString.Companion.encodeUtf8
 import org.json.JSONArray
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.UserAliasData
 import java.text.Collator
 import java.text.Normalizer
 
@@ -109,9 +112,16 @@ object StringUtil {
             // processing that fromHtml() performs.
             return sourceStr.toSpanned()
         }
-        sourceStr = sourceStr.replace("&#8206;".toRegex(), "\u200E")
-                .replace("&#8207;".toRegex(), "\u200F")
-                .replace("&amp;".toRegex(), "&")
+        sourceStr = sourceStr.replace("&#8206;", "\u200E")
+            .replace("&#8207;", "\u200F")
+            .replace("&amp;", "&")
+
+        // HACK: We don't want to display "images" in the html string, because they will just show
+        // up as a green square. Therefore, let's just disable the parsing of images by renaming
+        // <img> tags to something that the native Html parser doesn't recognize.
+        // This automatically covers both <img></img> and <img /> variations.
+        sourceStr = sourceStr.replace("<img ", "<figure ").replace("</img>", "</figure>")
+
         return sourceStr.parseAsHtml()
     }
 
@@ -188,5 +198,9 @@ object StringUtil {
     @JvmStatic
     fun listToJSONString(list: List<Int>): String {
         return Gson().toJson(list)
+    }
+
+    fun userPageTitleFromName(userName: String, wiki: WikiSite): PageTitle {
+        return PageTitle(UserAliasData.valueFor(wiki.languageCode()), userName, wiki)
     }
 }

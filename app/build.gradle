@@ -43,7 +43,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50359
+        versionCode 50362
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -134,10 +134,6 @@ android {
         }
     }
 
-    packagingOptions {
-        exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
-    }
-
     testOptions {
         unitTests {
             includeAndroidResources = true
@@ -165,11 +161,10 @@ dependencies {
     String okHttpVersion = '4.8.1'
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
-    String butterknifeVersion = '10.2.0'
     String mockitoVersion = '3.4.0'
     String leakCanaryVersion = '2.5'
     String kotlinCoroutinesVersion = '1.3.9'
-    String firebaseMessagingVersion = '21.1.0'
+    String firebaseMessagingVersion = '22.0.0'
     String mlKitVersion = '16.1.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -177,14 +172,14 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 
     implementation "com.google.android.material:material:1.3.0"
-    implementation "androidx.core:core-ktx:1.3.2"
+    implementation "androidx.core:core-ktx:1.5.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation "androidx.fragment:fragment-ktx:1.3.3"
+    implementation "androidx.fragment:fragment-ktx:1.3.4"
     implementation "androidx.palette:palette-ktx:1.0.0"
     implementation "androidx.preference:preference-ktx:1.1.1"
     implementation "androidx.recyclerview:recyclerview:1.2.0"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation 'com.google.android:flexbox:2.0.1'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
 
@@ -203,7 +198,6 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.0.4"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
-    implementation "com.jakewharton:butterknife:$butterknifeVersion"
     implementation 'com.microsoft.appcenter:appcenter-crashes:3.1.0'
     implementation 'org.apache.commons:commons-lang3:3.9'
     implementation 'org.jsoup:jsoup:1.12.1'
@@ -218,13 +212,11 @@ dependencies {
     customImplementation "com.google.mlkit:language-id:$mlKitVersion"
 
     // For receiving push notifications for logged-in users.
-    prodImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    betaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    alphaImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    devImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-    customImplementation "com.google.firebase:firebase-messaging:$firebaseMessagingVersion"
-
-    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+    prodImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    betaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    alphaImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    devImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
+    customImplementation "com.google.firebase:firebase-messaging-ktx:$firebaseMessagingVersion"
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
@@ -264,14 +256,4 @@ private static Properties loadProperties(File file) {
         System.err.println "\"${file}\" not found"
     }
     return props
-}
-
-addSyncContentProviderAuthority 'readinglists', 'reading_lists'
-
-private void addSyncContentProviderAuthority(String path, String name) {
-    android.productFlavors.all { flavor ->
-        String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
-        resValue 'string', "${name.toLowerCase()}_authority", authority
-        buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
-    }
 }

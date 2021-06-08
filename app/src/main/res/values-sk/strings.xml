@@ -375,6 +375,14 @@
   <string name="page_footer_license_text">Obsah je dostupný pod licenciou $1, pokiaľ nie je uvedené inak</string>
   <string name="empty_tab_title">Nová karta</string>
   <string name="menu_save_all_tabs">Uložiť všetky záložky</string>
+  <string name="error_blocked_title">Vaše používateľské meno alebo IP adresa boli zablokované.</string>
+  <string name="error_blocked_by">Zablokovanie vykonal/a &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Uvedený dôvod je: %s</string>
+  <string name="error_blocked_start">Začiatok blokovania: %s</string>
+  <string name="error_blocked_expiry">Koniec blokovania: %s</string>
+  <string name="error_blocked_id">ID bloku: %s</string>
+  <string name="error_blocked_footer">Môžete kontaktovať &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; alebo iného &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
+  <string name="error_blocked_footer_no_blocker">Môžete kontaktovať a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrátora&lt;/a&gt; pre diskutovanie o bloku.</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_relaunch">Začať odznova</string>
@@ -774,7 +782,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Pridať popis článku v jazyku %s</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_image">Súbor</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Súbor z Wikimédia Commons</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umelec</string>

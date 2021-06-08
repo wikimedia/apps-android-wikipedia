@@ -1,13 +1,18 @@
 package org.wikipedia.util
 
 import android.content.Context
+import androidx.annotation.WorkerThread
+import io.reactivex.rxjava3.core.Observable
 import org.json.JSONException
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.createaccount.CreateAccountException
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.login.LoginClient.LoginFailedException
-import java.lang.Exception
+import org.wikipedia.util.log.L
 import java.net.SocketException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -16,7 +21,6 @@ import javax.net.ssl.SSLException
 
 object ThrowableUtil {
     // TODO: replace with Apache Commons Lang ExceptionUtils.
-    @JvmStatic
     fun getInnermostThrowable(e: Throwable): Throwable {
         var t = e
         while (t.cause != null) {
@@ -85,6 +89,40 @@ object ThrowableUtil {
         return throwableContainsException(e, UnknownHostException::class.java) ||
                 throwableContainsException(e, TimeoutException::class.java) ||
                 throwableContainsException(e, SSLException::class.java)
+    }
+
+    @JvmStatic
+    @WorkerThread
+    fun getBlockMessageHtml(blockInfo: MwServiceError.BlockInfo): String {
+        var html = ""
+        Observable.zip(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo,
+            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parsePage("MediaWiki:Blockedtext"),
+            ServiceFactory.get(WikipediaApp.getInstance().wikiSite).parseText(blockInfo.blockReason),
+            { userInfoResponse, blockedParseResponse, reasonParseResponse ->
+                parseBlockedError(blockedParseResponse.text, blockInfo,
+                    reasonParseResponse.text, userInfoResponse.query()!!.userInfo()!!.name)
+            }
+        ).blockingSubscribe({ html = it }) { L.e(it) }
+        return html
+    }
+
+    @JvmStatic
+    fun parseBlockedError(template: String, info: MwServiceError.BlockInfo, reason: String, userName: String): String {
+        return template.replace("$1", "<a href=\"${StringUtil.userPageTitleFromName(info.blockedBy, WikipediaApp.getInstance().wikiSite).mobileUri}\">${info.blockedBy}</a>")
+            .replace("$2", reason)
+            .replace("$3", "") // IP address of user (TODO: somehow get from API?)
+            .replace("$4", "") // unknown parameter (unused?)
+            .replace("$5", info.blockId.toString())
+            .replace("$6", parseBlockedDate(info.blockExpiry))
+            .replace("$7", "<a href=\"${StringUtil.userPageTitleFromName(userName, WikipediaApp.getInstance().wikiSite).mobileUri}\">$userName</a>")
+            .replace("$8", parseBlockedDate(info.blockTimeStamp))
+    }
+
+    private fun parseBlockedDate(dateStr: String): String {
+        try {
+            return DateUtil.iso8601DateParse(dateStr).toString()
+        } catch (e: Exception) {}
+        return dateStr
     }
 
     class EmptyException : Exception()

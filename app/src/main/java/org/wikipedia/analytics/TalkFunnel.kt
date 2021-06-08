@@ -11,7 +11,7 @@ class TalkFunnel constructor(private val title: PageTitle, private val invokeSou
         TimedFunnel(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, SAMPLE_LOG_ALL) {
 
     override fun preprocessData(eventData: JSONObject): JSONObject {
-        preprocessData(eventData, "source", invokeSource.getName())
+        preprocessData(eventData, "source", invokeSource.name)
         preprocessData(eventData, "anon", !AccountUtil.isLoggedIn)
         preprocessData(eventData, "pageNS", title.namespace.orEmpty().toLowerCase(Locale.getDefault()).capitalize(Locale.getDefault()))
         return super.preprocessData(eventData)

@@ -535,7 +535,6 @@
   <string name="suggested_edits_feed_card_title">Wesıbnaye vurnayışi</string>
   <string name="suggested_edits_feed_card_add_description_button">Şınasnayışê meqaley cı kerê</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Dest pêke</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Şınastiya resımi (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Resım</string>
   <string name="suggested_edits_image_preview_dialog_artist">Senetkar</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiketi</string>

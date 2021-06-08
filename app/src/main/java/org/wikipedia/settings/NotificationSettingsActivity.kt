@@ -2,7 +2,6 @@ package org.wikipedia.settings
 
 import android.app.Activity
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.widget.CheckBox
 import android.widget.TextView
@@ -39,8 +38,7 @@ class NotificationSettingsActivity : SingleFragmentActivity<NotificationSettings
                     .setCancelable(false)
                     .setTitle(R.string.notifications_poll_enable_title)
                     .setView(view)
-                    .setPositiveButton(R.string.notifications_poll_enable_positive
-                    ) { _: DialogInterface?, _: Int -> Prefs.setNotificationPollEnabled(true) }
+                    .setPositiveButton(R.string.notifications_poll_enable_positive) { _, _ -> Prefs.setNotificationPollEnabled(true) }
                     .setNegativeButton(R.string.notifications_poll_enable_negative, null)
                     .setOnDismissListener { Prefs.setNotificationPollReminderEnabled(!checkbox.isChecked) }
                     .show()

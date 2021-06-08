@@ -192,7 +192,7 @@
   <string name="about_translators_heading">Pamertal</string>
   <string name="about_translators_translatewiki">Aplikasi iki dipertal déning pamertal sukarila ing &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisènsi</string>
-  <string name="about_app_license">Kodhe sumber cumepak ing &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; lan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; kanthi pangayoman &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Yèn ora ana liyané sing diterangaké, tegesé isiné iki cumepak ing pangayomané &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Atribusi-DumSaèmper Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kodhe sumber cumepak ing &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; lan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; kanthi pangayoman &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Yèn ora ana liyané sing diterangaké, tegesé isiné iki cumepak ing pangayomané &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Atribusi-DumSaèmper Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Wetoné &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Ngenani</string>
   <string name="edit_abandon_confirm">Kaca iki wis kadandani. Apa kowé yakin arep metu tanpa nyimpen owah-owahanmu?</string>
@@ -538,8 +538,8 @@
   <string name="description_edit_translate_image_caption">Pertal kateranganing gambar</string>
   <string name="description_edit_cancel_hint">Wurung</string>
   <string name="description_edit_help_title" fuzzy="true">Pitulung: wedharaning sesirah</string>
-  <string name="description_edit_help_about_wikidata">Ngenani Wikidhata</string>
-  <string name="description_edit_help_wikidata_guide">Tuntunan Wikidhata kanggo nulis andharan</string>
+  <string name="description_edit_help_about_wikidata">Bab Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Pandom Wikidata kanggo nulis andharan</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Matur nuwun kanggo kapentingan terus ing mbesut panyadra! Kanggo nggawe besutan tambahan, mangga mlebu menyang akun Wikipedia Panjenengan.</string>
   <string name="description_edit_license_notice" fuzzy="true">Kanthi ngganti wedharaning sesirah, aku sarujuk marang &lt;a href=\"%1$s\"&gt;Pranatan Pangguna&lt;/a&gt; lan nguculaké sumbanganku ing pangayomané lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
@@ -586,7 +586,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Wuwuh wedharaning artikel (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Miwiti</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kateranganing gambar (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Wedharaning gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Juru kagunan</string>
   <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>
   <string name="suggested_edits_image_preview_dialog_source">Sumber/Juru foto</string>

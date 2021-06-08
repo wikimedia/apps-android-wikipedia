@@ -15,8 +15,8 @@ import org.wikipedia.feed.FeedContentType
 class ConfigureItemView(context: Context) : FrameLayout(context) {
 
     interface Callback {
-        fun onCheckedChanged(contentType: FeedContentType?, checked: Boolean)
-        fun onLanguagesChanged(contentType: FeedContentType?)
+        fun onCheckedChanged(contentType: FeedContentType, checked: Boolean)
+        fun onLanguagesChanged(contentType: FeedContentType)
     }
 
     private val binding = ItemFeedContentTypeBinding.inflate(LayoutInflater.from(context), this, true)
@@ -44,8 +44,8 @@ class ConfigureItemView(context: Context) : FrameLayout(context) {
 
     fun setContents(contentType: FeedContentType) {
         this.contentType = contentType
-        binding.feedContentTypeTitle.setText(contentType.titleId())
-        binding.feedContentTypeSubtitle.setText(contentType.subtitleId())
+        binding.feedContentTypeTitle.setText(contentType.titleId)
+        binding.feedContentTypeSubtitle.setText(contentType.subtitleId)
         binding.feedContentTypeCheckbox.isChecked = contentType.isEnabled
         if (contentType.isPerLanguage && WikipediaApp.getInstance().language().appLanguageCodes.size > 1) {
             binding.feedContentTypeLangListContainer.visibility = VISIBLE
@@ -62,7 +62,7 @@ class ConfigureItemView(context: Context) : FrameLayout(context) {
         view.setContentType(adapter.langList, tempDisabledList)
         AlertDialog.Builder(context)
             .setView(view)
-            .setTitle(contentType.titleId())
+            .setTitle(contentType.titleId)
             .setPositiveButton(R.string.customize_lang_selection_dialog_ok_button_text) { _, _ ->
                 contentType.langCodesDisabled.clear()
                 contentType.langCodesDisabled.addAll(tempDisabledList)

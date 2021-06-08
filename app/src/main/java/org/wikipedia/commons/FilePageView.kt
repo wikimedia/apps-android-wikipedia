@@ -72,9 +72,8 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             addActionButton(context.getString(R.string.file_page_add_image_caption_button), imageCaptionOnClickListener(fragment, summaryForEdit))
         } else if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summaryForEdit.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
-                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),
-                    summaryForEdit.description, if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
+            addDetail(context.getString(R.string.description_edit_add_caption_label), summaryForEdit.description,
+                if (showEditButton) imageCaptionOnClickListener(fragment, summaryForEdit) else null)
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summaryForEdit, imageFromCommons))),

@@ -217,17 +217,16 @@ class EditSectionActivity : BaseActivity() {
                 if (captchaHandler.isActive) captchaHandler.captchaWord() else "null")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ result: Edit ->
-                    val editResult = result.edit()
-                    if (result.hasEditResult() && editResult != null) {
+                .subscribe({ result ->
+                    result.edit?.run {
                         when {
-                            editResult.editSucceeded() -> onEditSuccess(EditSuccessResult(editResult.newRevId()))
-                            editResult.hasCaptchaResponse() -> onEditSuccess(CaptchaResult(editResult.captchaId()!!))
-                            editResult.hasSpamBlacklistResponse() -> onEditFailure(MwException(MwServiceError(editResult.code(), editResult.spamblacklist())))
-                            editResult.hasEditErrorCode() -> onEditFailure(MwException(MwServiceError(editResult.code(), editResult.info())))
+                            editSucceeded -> onEditSuccess(EditSuccessResult(newRevId))
+                            hasCaptchaResponse -> onEditSuccess(CaptchaResult(captchaId))
+                            hasSpamBlacklistResponse -> onEditFailure(MwException(MwServiceError(code, spamblacklist)))
+                            hasEditErrorCode -> onEditFailure(MwException(MwServiceError(code, info)))
                             else -> onEditFailure(IOException("Received unrecognized edit response"))
                         }
-                    } else {
+                    } ?: run {
                         onEditFailure(IOException("An unknown error occurred."))
                     }
                 }) { onEditFailure(it) }
@@ -301,7 +300,7 @@ class EditSectionActivity : BaseActivity() {
         // In the case of certain AbuseFilter responses, they are sent as a code, instead of a
         // fully parsed response. We need to make one more API call to get the parsed message:
         if (code.startsWith("abusefilter-") && caught.message.contains("abusefilter-") && caught.message.length < 100) {
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).parseText("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
+            disposables.add(ServiceFactory.get(pageTitle.wikiSite).parsePage("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.text))) }) { showError(it) })

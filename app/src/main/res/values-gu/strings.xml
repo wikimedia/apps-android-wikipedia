@@ -2,6 +2,7 @@
 <!-- Authors:
 * Ashok modhvadia
 * Bhatakati aatma
+* CptViraj
 * Harsh4101991
 * KartikMistry
 * MuratTheTurkish
@@ -84,6 +85,7 @@
   <string name="read_more_section">વધુ વાંચો</string>
   <string name="gallery_menu_share">વહેંચો</string>
   <string name="tab_item_closed">%s બંધ.</string>
+  <string name="error_blocked_id">પ્રતિબંધ ID: %s</string>
   <string name="color_theme_select">થીમ</string>
   <string name="color_theme_light">આછુ</string>
   <string name="color_theme_dark">કાળું</string>

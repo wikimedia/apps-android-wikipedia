@@ -18,7 +18,7 @@ import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import org.wikipedia.Constants.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFeedFunnel
@@ -78,15 +78,15 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        action = arguments?.getSerializable(INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
+        action = arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
 
-        funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
+        funnel = SuggestedEditsFeedFunnel(action, requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
 
         // Reset image recommendations sequence to the last successful one
         Prefs.setImageRecsItemSequence(Prefs.getImageRecsItemSequenceSuccess())
 
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
-        SuggestedEditsFunnel.get()!!.impression(action)
+        SuggestedEditsFunnel.get().impression(action)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -164,12 +164,18 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_help -> {
-                if (action == ADD_IMAGE_TAGS) {
-                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_tags_help_url)
-                } else if (action == IMAGE_RECOMMENDATION) {
-                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_recs_help_url)
-                } else {
-                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                when (action) {
+                    ADD_IMAGE_TAGS -> {
+                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
+                            R.string.suggested_edits_image_tags_help_url)
+                    }
+                    IMAGE_RECOMMENDATION -> {
+                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext(),
+                            R.string.suggested_edits_image_recs_help_url)
+                    }
+                    else -> {
+                        FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                    }
                 }
                 val child = topBaseChild()
                 if (child != null && child is ImageRecsFragment) {
@@ -251,17 +257,17 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
 
     override fun onPause() {
         super.onPause()
-        SuggestedEditsFunnel.get()!!.pause()
+        SuggestedEditsFunnel.get().pause()
     }
 
     override fun onResume() {
         super.onResume()
-        SuggestedEditsFunnel.get()!!.resume()
+        SuggestedEditsFunnel.get().resume()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
             logSuccess()
             topChild()?.showAddedContributionView(data?.getStringExtra(EXTRA_SOURCE_ADDED_CONTRIBUTION))
             FeedbackUtil.showMessage(this,
@@ -303,7 +309,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
             topBaseChild()!!.publish()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
-                    action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+                    action, Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
 
@@ -439,7 +445,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
         override fun onPageSelected(position: Int) {
             updateBackButton(position)
             updateActionButton()
-            SuggestedEditsFunnel.get()!!.impression(action)
+            SuggestedEditsFunnel.get().impression(action)
 
             nextPageSelectedAutomatic = false
             prevPosition = position
@@ -452,10 +458,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     }
 
     companion object {
-        fun newInstance(action: DescriptionEditActivity.Action, invokeSource: InvokeSource): SuggestedEditsCardsFragment {
+        fun newInstance(action: DescriptionEditActivity.Action, invokeSource: Constants.InvokeSource): SuggestedEditsCardsFragment {
             val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
-            addTitleDescriptionsFragment.arguments = bundleOf(INTENT_EXTRA_ACTION to action,
-                    INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
+            addTitleDescriptionsFragment.arguments = bundleOf(Constants.INTENT_EXTRA_ACTION to action,
+                Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             return addTitleDescriptionsFragment
         }
     }

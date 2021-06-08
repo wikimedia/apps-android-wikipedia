@@ -229,7 +229,7 @@
   <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_app_license_heading">授權條款</string>
-  <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
+  <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_abandon_confirm">頁面已修改。確定要離開而不存儲您的更改嗎？</string>
@@ -374,6 +374,14 @@
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
   <string name="menu_save_all_tabs">儲存所有分頁</string>
+  <string name="error_blocked_title">您的使用者名稱或是 IP 位址已被封鎖。</string>
+  <string name="error_blocked_by">由&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;做出封鎖</string>
+  <string name="error_blocked_reason">指定原因：%s</string>
+  <string name="error_blocked_start">封鎖起始：%s</string>
+  <string name="error_blocked_expiry">封鎖期滿：%s</string>
+  <string name="error_blocked_id">封鎖 ID：%s</string>
+  <string name="error_blocked_footer">您可以向&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或是其他&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;聯絡來商量該封鎖操作。</string>
+  <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
@@ -744,7 +752,6 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">新增條目描述（%s）</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
   <string name="suggested_edits_image_preview_dialog_image">圖片</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">來自維基共享資源的檔案</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
