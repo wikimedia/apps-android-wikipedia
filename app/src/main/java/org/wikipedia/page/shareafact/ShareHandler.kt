@@ -49,7 +49,9 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
     }
 
     fun showWiktionaryDefinition(text: String) {
-        fragment.showBottomSheet(WiktionaryDialog.newInstance(fragment.title, text))
+        fragment.title?.let {
+            fragment.showBottomSheet(WiktionaryDialog.newInstance(it, text))
+        }
     }
 
     fun onTextSelected(mode: ActionMode) {
@@ -75,7 +77,7 @@ class ShareHandler(private val fragment: PageFragment, private val bridge: Commu
     }
 
     fun shouldEnableWiktionaryDialog(): Boolean {
-        return WiktionaryDialog.enabledLanguages.contains(fragment.title.wikiSite.languageCode())
+        return fragment.title?.run { WiktionaryDialog.enabledLanguages.contains(wikiSite.languageCode()) } ?: false
     }
 
     private inner class RequestTextSelectOnMenuItemClickListener constructor(private val purpose: String) : MenuItem.OnMenuItemClickListener {

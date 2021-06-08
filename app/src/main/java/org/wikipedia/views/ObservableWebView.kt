@@ -17,26 +17,26 @@ import kotlin.math.abs
 
 class ObservableWebView : WebView {
 
-    interface OnClickListener {
+    fun interface OnClickListener {
         fun onClick(x: Float, y: Float): Boolean
     }
 
-    interface OnScrollChangeListener {
+    fun interface OnScrollChangeListener {
         fun onScrollChanged(oldScrollY: Int, scrollY: Int, isHumanScroll: Boolean)
     }
 
-    interface OnDownMotionEventListener {
+    fun interface OnDownMotionEventListener {
         fun onDownMotionEvent()
     }
 
-    interface OnUpOrCancelMotionEventListener {
+    fun interface OnUpOrCancelMotionEventListener {
         fun onUpOrCancelMotionEvent()
     }
 
-    interface OnContentHeightChangedListener {
+    fun interface OnContentHeightChangedListener {
         fun onContentHeightChanged(contentHeight: Int)
     }
-    interface OnFastScrollListener {
+    fun interface OnFastScrollListener {
         fun onFastScroll()
     }
 
