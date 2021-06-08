@@ -34,18 +34,11 @@ object LanguageUtil {
             }
 
             // Query the installed keyboard languages, and add them to the list, if they don't exist.
-            val imm = WikipediaApp.getInstance()
-                .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            var ims = imm.enabledInputMethodList
-            if (ims == null) {
-                ims = emptyList()
-            }
+            val imm = WikipediaApp.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val ims = imm.enabledInputMethodList ?: emptyList()
             val langTagList = mutableListOf<String>()
             for (method in ims) {
-                var submethods = imm.getEnabledInputMethodSubtypeList(method, true)
-                if (submethods == null) {
-                    submethods = emptyList()
-                }
+                val submethods = imm.getEnabledInputMethodSubtypeList(method, true) ?: emptyList()
                 for (submethod in submethods) {
                     if (submethod.mode == "keyboard") {
                         var langTag =
@@ -64,8 +57,8 @@ object LanguageUtil {
                         }
                         // A Pinyin keyboard will report itself as zh-CN (simplified), but we want to add
                         // both Simplified and Traditional in that case.
-                        if (langTag.lowercase(Locale.getDefault()) == AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE && !langTagList.contains(
-                                "zh-TW")) {
+                        if (langTag.lowercase(Locale.getDefault()) == AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE &&
+                            !langTagList.contains("zh-TW")) {
                             langTagList.add("zh-TW")
                         }
                     }
