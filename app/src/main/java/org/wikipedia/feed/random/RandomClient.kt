@@ -27,11 +27,8 @@ class RandomClient : FeedClient {
                 .observeOn(AndroidSchedulers.mainThread())
                 .toList()
                 .subscribe({ pairs ->
-                    for (pair in pairs) {
-                        if (pair.first != null && pair.second != null) {
-                            FeedCoordinator.postCardsToCallback(cb, listOf(RandomCard(pair.second!!, age, WikiSite.forLanguageCode(pair.first!!))))
-                        }
-                    }
+                    val list = pairs.filter { it.first != null && it.second != null }.map { RandomCard(it.second!!, age, WikiSite.forLanguageCode(it.first!!)) }
+                    FeedCoordinator.postCardsToCallback(cb, list)
                 }) { t ->
                     L.v(t)
                     cb.error(t)
