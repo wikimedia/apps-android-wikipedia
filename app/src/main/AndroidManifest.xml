@@ -13,8 +13,6 @@
     -->
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- HockeyApp places a maxSdkVersion on the WRITE_EXTERNAL_STORAGE permission,
-     therefore we need to replace it with our own tag with no version restrictions. -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -69,8 +67,6 @@
         Set "value" to "Google Play" for Google Play Store.
         -->
         <meta-data android:name="@string/preference_key_app_channel" android:value="@string/channel" />
-        <meta-data android:name="net.hockeyapp.android.appIdentifier"
-            android:value="@string/hockeyapp_app_id" />
 
         <activity
             android:name=".main.MainActivity"

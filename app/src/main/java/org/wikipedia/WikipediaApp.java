@@ -157,12 +157,6 @@ public class WikipediaApp extends Application {
 
         zeroHandler = new WikipediaZeroHandler(this);
 
-        // HockeyApp exception handling interferes with the test runner, so enable it only for
-        // beta and stable releases
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            initExceptionHandling();
-        }
-
         refWatcher = Prefs.isMemoryLeakTestEnabled() ? LeakCanary.install(this) : RefWatcher.DISABLED;
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
@@ -354,10 +348,6 @@ public class WikipediaApp extends Application {
         if (!Prefs.suppressNotificationPolling()) {
             notificationReceiver.startPollTask(this);
         }
-    }
-
-    private void initExceptionHandling() {
-        //L.setRemoteLogger(crashReporter);
     }
 
     private CrashReporter.AutoUploadConsentAccessor consentAccessor() {
