@@ -52,7 +52,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsItemFragment.Callb
     private var funnel: SuggestedEditsFeedFunnel? = null
 
     var langFromCode: String = app.language().appLanguageCode
-    var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
+    var langToCode: String = app.language().appLanguageCodes.getOrElse(1) { "" }
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
 
     private val topTitle: PageTitle?

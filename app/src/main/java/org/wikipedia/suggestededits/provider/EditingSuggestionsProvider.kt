@@ -101,8 +101,7 @@ object EditingSuggestionsProvider {
                             if (pages.isEmpty()) {
                                 throw ListEmptyException()
                             }
-                            val titleList = ArrayList<String>()
-                            pages.forEach { titleList.add(it.title()) }
+                            val titleList = pages.map { it.title() }
                             ServiceFactory.get(WikiSite.forLanguageCode(targetLang)).getDescription(titleList.joinToString("|"))
                         }, { pages, response -> Pair(pages, response) })
                         .map { pair ->
