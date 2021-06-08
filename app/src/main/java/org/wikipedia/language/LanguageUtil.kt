@@ -116,15 +116,12 @@ object LanguageUtil {
     @JvmStatic
     val firstSelectedChineseVariant: String
         get() {
-            var firstSelectedChineseLangCode: String? = null
-            for (langCode in WikipediaApp.getInstance().language().appLanguageCodes) {
-                if (langCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
-                    firstSelectedChineseLangCode = langCode
-                    break
+            val firstSelectedChineseLangCode =
+                WikipediaApp.getInstance().language().appLanguageCodes.firstOrNull {
+                    it.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)
                 }
-            }
-            return StringUtils.defaultString(firstSelectedChineseLangCode,
-                AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)
+            return firstSelectedChineseLangCode.orEmpty()
+                .ifEmpty { AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE }
         }
 
     fun startsWithArticle(text: String, language: String): Boolean {
