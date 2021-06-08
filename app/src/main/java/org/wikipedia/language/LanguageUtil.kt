@@ -13,7 +13,7 @@ object LanguageUtil {
 
     private const val HONG_KONG_COUNTRY_CODE = "HK"
     private const val MACAU_COUNTRY_CODE = "MO"
-    private val TRADITIONAL_CHINESE_COUNTRY_CODES = mutableListOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
+    private val TRADITIONAL_CHINESE_COUNTRY_CODES = listOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
 
     @JvmStatic
     val availableLanguages: List<String>
@@ -128,7 +128,7 @@ object LanguageUtil {
         }
 
     fun startsWithArticle(text: String, language: String): Boolean {
-        val first = text.split(" ".toRegex()).toTypedArray()[0].lowercase(Locale.getDefault()).trim { it <= ' ' }
+        val first = text.split(" ".toRegex()).toTypedArray()[0].lowercase(Locale.getDefault()).trim()
 
         // When adding new languages:
         // # Update the documentation of the message description_starts_with_article
