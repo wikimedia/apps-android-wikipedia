@@ -73,13 +73,13 @@ class AggregatedFeedContentClient {
         }
     }
 
-    class TrendingArticles(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
+    class MostReadArticles(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
                                          outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
-                if (responses.containsKey(appLangCode) && !FeedContentType.TRENDING_ARTICLES.langCodesDisabled.contains(appLangCode)) {
+                if (responses.containsKey(appLangCode) && !FeedContentType.MOST_READ_ARTICLES.langCodesDisabled.contains(appLangCode)) {
                     responses[appLangCode]?.mostRead?.let {
                         outCards.add(MostReadListCard(it, WikiSite.forLanguageCode(appLangCode)))
                     }

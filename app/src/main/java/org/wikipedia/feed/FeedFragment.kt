@@ -369,7 +369,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
     private fun showCardLangSelectDialog(card: Card) {
         val contentType = card.type().contentType()
-        if (contentType.isPerLanguage) {
+        if (contentType != null && contentType.isPerLanguage) {
             val adapter = LanguageItemAdapter(requireContext(), contentType)
             val view = ConfigureItemLanguageDialogView(requireContext())
             val tempDisabledList = ArrayList(contentType.langCodesDisabled)

@@ -39,7 +39,7 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
             val menu = PopupMenu(anchorView.context, anchorView, Gravity.END)
             menu.menuInflater.inflate(R.menu.menu_feed_card_header, menu.menu)
             val editCardLangItem = menu.menu.findItem(R.id.menu_feed_card_edit_card_languages)
-            editCardLangItem.isVisible = it.type().contentType().isPerLanguage
+            editCardLangItem.isVisible = it.type().contentType()?.run { isPerLanguage } ?: false
             menu.setOnMenuItemClickListener(CardHeaderMenuClickListener())
             menu.show()
         }

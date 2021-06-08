@@ -56,9 +56,9 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
                 if (isLimitedToDomains(result.onThisDay())) {
                     addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.langCodesSupported, result.onThisDay())
                 }
-                FeedContentType.TRENDING_ARTICLES.langCodesSupported.clear()
+                FeedContentType.MOST_READ_ARTICLES.langCodesSupported.clear()
                 if (isLimitedToDomains(result.mostRead())) {
-                    addDomainNamesAsLangCodes(FeedContentType.TRENDING_ARTICLES.langCodesSupported, result.mostRead())
+                    addDomainNamesAsLangCodes(FeedContentType.MOST_READ_ARTICLES.langCodesSupported, result.mostRead())
                 }
                 FeedContentType.FEATURED_ARTICLE.langCodesSupported.clear()
                 if (isLimitedToDomains(result.featuredArticle())) {
