@@ -281,14 +281,8 @@ class ReadingListSyncAdapter : JobIntentService() {
                 }
             }
             for (localList in allLocalLists) {
-                val localPages = mutableListOf<ReadingListPage>()
-                val newEntries = mutableListOf<RemoteReadingListEntry>()
-                localList.pages.forEach {
-                    if (it.remoteId < 1) {
-                        localPages.add(it)
-                        newEntries.add(remoteEntryFromLocalPage(it))
-                    }
-                }
+                val localPages = localList.pages.filter { it.remoteId < 1 }
+                val newEntries = localPages.map { remoteEntryFromLocalPage(it) }
                 // Note: newEntries.size() is guaranteed to be equal to localPages.size()
                 if (newEntries.isEmpty()) {
                     continue
@@ -505,12 +499,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             if (list.remoteId <= 0) {
                 return
             }
-            val ids = mutableSetOf<String>()
-            pages.forEach {
-                if (it.remoteId > 0) {
-                    ids.add(list.remoteId.toString() + ":" + it.remoteId)
-                }
-            }
+            val ids = pages.map { it.remoteId }.filter { it > 0 }.map { "${list.remoteId}:$it" }.toSet()
             if (ids.isNotEmpty()) {
                 Prefs.addReadingListPagesDeletedIds(ids)
                 manualSync()

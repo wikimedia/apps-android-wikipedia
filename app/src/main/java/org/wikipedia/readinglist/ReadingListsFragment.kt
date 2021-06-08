@@ -181,12 +181,7 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
         }
 
         override fun createNewListClick() {
-            val existingTitles = mutableListOf<String>()
-            displayedLists.forEach {
-                if (it is ReadingList) {
-                    existingTitles.add(it.title)
-                }
-            }
+            val existingTitles = displayedLists.filterIsInstance<ReadingList>().map { it.title }
             ReadingListTitleDialog.readingListTitleDialog(requireActivity(), getString(R.string.reading_list_name_sample), "",
                     existingTitles) { text, description ->
                 ReadingListDbHelper.createList(text, description)

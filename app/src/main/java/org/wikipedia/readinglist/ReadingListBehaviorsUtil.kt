@@ -321,14 +321,7 @@ object ReadingListBehaviorsUtil {
             }
             list.pages.forEach { page ->
                 if (page.displayTitle.toLowerCase(Locale.getDefault()).contains(normalizedQuery)) {
-                    var noMatch = true
-                    result.forEach checkMatch@{
-                        if (it is ReadingListPage && it.displayTitle == page.displayTitle) {
-                            noMatch = false
-                            return@checkMatch
-                        }
-                    }
-                    if (noMatch) {
+                    if (result.none { it is ReadingListPage && it.displayTitle == page.displayTitle }) {
                         result.add(page)
                     }
                 }
