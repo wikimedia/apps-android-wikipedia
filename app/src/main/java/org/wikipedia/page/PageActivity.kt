@@ -84,9 +84,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         try {
             setContentView(binding.root)
         } catch (e: Exception) {
-            if (!e.message.isNullOrEmpty() && e.message!!.toLowerCase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
+            if (!e.message.isNullOrEmpty() && e.message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
                 !ThrowableUtil.getInnermostThrowable(e).message.isNullOrEmpty() &&
-                ThrowableUtil.getInnermostThrowable(e).message!!.toLowerCase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
+                ThrowableUtil.getInnermostThrowable(e).message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
                 // If the system failed to inflate our activity because of the WebView (which could
                 // be one of several types of exceptions), it likely means that the system WebView
                 // is in the process of being updated. In this case, show the user a message and
@@ -297,7 +297,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
-            pageFragment.tocHandler?.show()
+            pageFragment.tocHandler.show()
         }
     }
 
@@ -310,8 +310,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         bottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
-    override fun onPageInitWebView(webView: ObservableWebView) {
-        toolbarHideHandler.setScrollView(webView)
+    override fun onPageInitWebView(v: ObservableWebView) {
+        toolbarHideHandler.setScrollView(v)
     }
 
     override fun onPageLoadPage(title: PageTitle, entry: HistoryEntry) {
@@ -410,7 +410,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
                 // after having donated), then bounce it out to an external browser, since we don't have
                 // the same cookie state as the browser does.
-                val language = wiki.languageCode().toLowerCase(Locale.getDefault())
+                val language = wiki.languageCode().lowercase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
                 if (isDonationRelated || title.namespace() == Namespace.SPECIAL) {
                     UriUtil.visitInExternalBrowser(this, it)
@@ -490,8 +490,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             hideLinkPreview()
             onPageCloseActionMode()
             when (position) {
-                TabPosition.CURRENT_TAB -> pageFragment.loadPage(title, entry, true, false)
-                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(title, entry, true, true)
+                TabPosition.CURRENT_TAB -> pageFragment.loadPage(title, entry, pushBackStack = true, squashBackstack = false)
+                TabPosition.CURRENT_TAB_SQUASH -> pageFragment.loadPage(title, entry, pushBackStack = true, squashBackstack = true)
                 TabPosition.NEW_TAB_BACKGROUND -> pageFragment.openInNewBackgroundTab(title, entry)
                 TabPosition.NEW_TAB_FOREGROUND -> pageFragment.openInNewForegroundTab(title, entry)
                 else -> pageFragment.openFromExistingTab(title, entry)

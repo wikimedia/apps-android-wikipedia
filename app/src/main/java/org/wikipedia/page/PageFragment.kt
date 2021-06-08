@@ -589,10 +589,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        requireActivity().startActivityForResult(
-                            GalleryActivity.newIntent(requireActivity(), it, fileName, it.wikiSite, revision,
-                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE), Constants.ACTIVITY_REQUEST_GALLERY, options?.toBundle()
-                        )
+                        requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(), it, fileName, it.wikiSite, revision,
+                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE), Constants.ACTIVITY_REQUEST_GALLERY, options?.toBundle())
                     }
                 }
             }
@@ -791,24 +789,25 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("footer_item") { _, messagePayload ->
             messagePayload?.let { payload ->
-                val itemType = payload["itemType"].asString
-                if ("talkPage" == itemType) {
-                    model.title?.run { startTalkTopicActivity(this) }
-                } else if ("languages" == itemType) {
-                    startLangLinksActivity()
-                } else if ("lastEdited" == itemType) {
-                    model.title?.run {
-                        loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK))
-                    }
-                } else if ("coordinate" == itemType) {
-                    model.page?.let { page ->
-                        page.pageProperties.geo?.let { geo ->
-                            GeoUtil.sendGeoIntent(requireActivity(), geo, page.displayTitle)
+                when (payload["itemType"].asString) {
+                    "talkPage" -> model.title?.run { startTalkTopicActivity(this) }
+                    "languages" -> startLangLinksActivity()
+                    "lastEdited" -> {
+                        model.title?.run {
+                            loadPage(PageTitle("Special:History/$prefixedText", wikiSite), HistoryEntry(this, HistoryEntry.SOURCE_INTERNAL_LINK))
                         }
                     }
-                } else if ("disambiguation" == itemType) {
-                    // TODO
-                    // messagePayload contains an array of URLs called "payload".
+                    "coordinate" -> {
+                        model.page?.let { page ->
+                            page.pageProperties.geo?.let { geo ->
+                                GeoUtil.sendGeoIntent(requireActivity(), geo, page.displayTitle)
+                            }
+                        }
+                    }
+                    "disambiguation" -> {
+                        // TODO
+                        // messagePayload contains an array of URLs called "payload".
+                    }
                 }
             }
         }
