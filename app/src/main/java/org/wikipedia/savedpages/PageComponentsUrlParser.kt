@@ -5,31 +5,20 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl
 import org.wikipedia.util.log.L
 
-internal class PageComponentsUrlParser {
+object PageComponentsUrlParser {
     fun parse(html: String, site: WikiSite): List<String> {
-        val urls = mutableListOf<String>()
-        try {
+        return try {
             val document = Jsoup.parse(html)
-            // parsing css styles
             val css = document.select("link[rel=stylesheet]")
-            for (element in css) {
-                val url = element.attr("href")
-                if (url.isNotEmpty()) {
-                    urls.add(resolveProtocolRelativeUrl(site, url))
-                }
-            }
-
-            // parsing javascript files
             val javascript = document.select("script")
-            for (element in javascript) {
-                val url = element.attr("src")
-                if (url.isNotEmpty()) {
-                    urls.add(resolveProtocolRelativeUrl(site, url))
-                }
-            }
+
+            listOf(
+                css.map { it.attr("href") }, // parsing css styles
+                javascript.map { it.attr("src") } // parsing javascript files
+            ).flatten().filter { it.isNotEmpty() }.map { resolveProtocolRelativeUrl(site, it) }
         } catch (e: Exception) {
             L.d("Parsing exception$e")
+            emptyList()
         }
-        return urls
     }
 }

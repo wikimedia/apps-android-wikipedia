@@ -322,15 +322,7 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
     }
 
     private val selectedItems: List<NotificationListItemContainer>
-        get() {
-            val result: MutableList<NotificationListItemContainer> = ArrayList()
-            for (item in notificationContainerList) {
-                if (item.selected) {
-                    result.add(item)
-                }
-            }
-            return result
-        }
+        get() = notificationContainerList.filter { it.selected }
 
     override fun onArchive(notification: Notification) {
         bottomSheetPresenter.dismiss(supportFragmentManager)

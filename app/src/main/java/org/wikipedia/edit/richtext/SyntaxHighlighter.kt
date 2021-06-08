@@ -61,8 +61,8 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
             searchTask = SyntaxHighlightSearchMatchesTask(textBox.text, searchText, selectedMatchResultPosition)
             disposables.clear()
             disposables.add(Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentTask),
-                    Observable.fromCallable(searchTask), { f: MutableList<SpanExtents>, s: List<SpanExtents>? ->
-                f.addAll(s!!)
+                    Observable.fromCallable(searchTask), { f: MutableList<SpanExtents>, s: List<SpanExtents> ->
+                f.addAll(s)
                 f
             })
                     .subscribeOn(Schedulers.computation())
@@ -78,15 +78,10 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
                         for (sp in prevSpans) {
                             textBox.text.removeSpan(sp)
                         }
-                        val findTextList = mutableListOf<SpanExtents>()
+                        val findTextList = result
+                                .onEach { textBox.text.setSpan(it, it.start, it.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE) }
+                                .filter { it.syntaxRule.spanStyle == SyntaxRuleStyle.SEARCH_MATCHES } // and add our new spans
 
-                        // and add our new spans
-                        for (spanEx in result) {
-                            textBox.text.setSpan(spanEx, spanEx.start, spanEx.end, Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-                            if (spanEx.syntaxRule.spanStyle == SyntaxRuleStyle.SEARCH_MATCHES) {
-                                findTextList.add(spanEx)
-                            }
-                        }
                         if (!searchText.isNullOrEmpty()) {
                             syntaxHighlightListener?.findTextMatches(findTextList)
                         }
