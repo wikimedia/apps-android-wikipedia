@@ -201,6 +201,7 @@ dependencies {
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.5.4'
 
+    // Necessary for getting updated Root Certificates on older devices:
     implementation "com.google.android.gms:play-services-base:16.1.0"
 
     implementation "com.android.support:support-compat:$supportVersion"
@@ -230,7 +231,6 @@ dependencies {
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:5.5.0@aar"
     implementation "com.mapbox.mapboxsdk:mapbox-android-ui:2.2.10"
-    implementation 'net.hockeyapp.android:HockeySDK:5.1.0'
     implementation 'org.apache.commons:commons-lang3:3.5'
     implementation "commons-io:commons-io:2.5"
     implementation 'org.jsoup:jsoup:1.10.2'

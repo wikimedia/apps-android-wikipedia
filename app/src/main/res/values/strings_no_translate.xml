@@ -2,7 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">@string/app_name_prod</string>
     <string name="channel" />
-    <string name="hockeyapp_app_id">eb167874c1d6569430a9bcfd71d4c24d</string>
     <string name="mapbox_public_token">pk.eyJ1IjoiZG1pdHJ5YnJhbnQiLCJhIjoiY2lnd3FzdTI1MHNicHZrbTVhMno4anF4dCJ9.HG3mJUj8xbqOvk_ieFDCfA</string>
 
     <!-- URLs -->
