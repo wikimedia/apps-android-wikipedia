@@ -14,15 +14,12 @@ object LanguageUtil {
 
     private const val HONG_KONG_COUNTRY_CODE = "HK"
     private const val MACAU_COUNTRY_CODE = "MO"
-    private val TRADITIONAL_CHINESE_COUNTRY_CODES = mutableListOf(
-        Locale.TAIWAN.country,
-        HONG_KONG_COUNTRY_CODE,
-        MACAU_COUNTRY_CODE)
+    private val TRADITIONAL_CHINESE_COUNTRY_CODES = mutableListOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
 
     @JvmStatic
     val availableLanguages: List<String>
         get() {
-            val languages: MutableList<String> = ArrayList()
+            val languages = mutableListOf<String>()
 
             // First, look at languages installed on the system itself.
             var localeList = LocaleListCompat.getDefault()
@@ -44,7 +41,7 @@ object LanguageUtil {
             if (ims == null) {
                 ims = emptyList()
             }
-            val langTagList: MutableList<String?> = ArrayList()
+            val langTagList = mutableListOf<String>()
             for (method in ims) {
                 var submethods = imm.getEnabledInputMethodSubtypeList(method, true)
                 if (submethods == null) {
@@ -75,7 +72,7 @@ object LanguageUtil {
                     }
                 }
             }
-            if (!langTagList.isEmpty()) {
+            if (langTagList.isNotEmpty()) {
                 localeList = LocaleListCompat.forLanguageTags(listToCsv(langTagList))
                 for (i in 0 until localeList.size()) {
                     val langCode = localeToWikiLanguageCode(localeList[i])
@@ -102,12 +99,9 @@ object LanguageUtil {
     }
 
     private fun chineseLanguageCodeToWikiLanguageCode(locale: Locale): String {
-        val script = locale.script
-        when (script) {
+        when (locale.script) {
             "Hans" -> return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE
             "Hant" -> return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
-            else -> {
-            }
         }
 
         // Guess based on country. If the guess is incorrect, the user must explicitly choose the
