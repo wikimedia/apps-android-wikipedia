@@ -8,8 +8,6 @@ import android.view.MenuItem
 import android.view.View
 import android.view.View.OnLongClickListener
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.AppCompatImageView
@@ -349,9 +347,9 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
         private val wikiCodeView = view.findViewById<TextView>(R.id.notification_wiki_code)
         private val wikiCodeImageView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_image)
         private val wikiCodeBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_background)
-        private val imageContainerView = view.findViewById<FrameLayout>(R.id.notification_item_image_container)
+        private val imageContainerView = view.findViewById<View>(R.id.notification_item_image_container)
         private val imageBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_item_image_background)
-        private val imageSelectedView = view.findViewById<ImageView>(R.id.notification_item_selected_image)
+        private val imageSelectedView = view.findViewById<View>(R.id.notification_item_selected_image)
         private val imageView = view.findViewById<AppCompatImageView>(R.id.notification_item_image)
         lateinit var container: NotificationListItemContainer
 
