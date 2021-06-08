@@ -134,7 +134,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
 
     override fun onPause() {
         super.onPause()
-        downloadReceiver.setCallback(null)
+        downloadReceiver.callback = null
         requireContext().unregisterReceiver(downloadReceiver)
     }
 
@@ -142,7 +142,7 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         super.onResume()
         requireContext().registerReceiver(downloadReceiver,
                 IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.setCallback(downloadReceiverCallback)
+        downloadReceiver.callback = downloadReceiverCallback
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0)
         maybeShowWatchlistTooltip()
@@ -275,10 +275,10 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
                 MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
     }
 
-    override fun onFeedNewsItemSelected(newsCard: NewsCard, view: NewsItemView) {
+    override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
         view.newsItem?.let {
-            startActivity(NewsActivity.newIntent(requireActivity(), it, newsCard.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
+            startActivity(NewsActivity.newIntent(requireActivity(), it, card.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
         }
     }
 

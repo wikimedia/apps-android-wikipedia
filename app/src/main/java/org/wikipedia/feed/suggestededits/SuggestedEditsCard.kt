@@ -7,10 +7,8 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.util.DateUtil
 
-class SuggestedEditsCard(
-        wiki: WikiSite,
-        val age: Int
-) : WikiSiteCard(wiki) {
+class SuggestedEditsCard(wiki: WikiSite,
+                         val age: Int) : WikiSiteCard(wiki) {
 
     override fun type(): CardType {
         return CardType.SUGGESTED_EDITS
