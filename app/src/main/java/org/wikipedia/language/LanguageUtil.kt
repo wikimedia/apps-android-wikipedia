@@ -2,12 +2,11 @@ package org.wikipedia.language
 
 import android.content.Context
 import android.os.Build
-import android.text.TextUtils
 import android.view.inputmethod.InputMethodManager
 import androidx.core.os.LocaleListCompat
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
-import org.wikipedia.util.StringUtil.listToCsv
+import org.wikipedia.util.StringUtil
 import java.util.*
 
 object LanguageUtil {
@@ -50,9 +49,9 @@ object LanguageUtil {
                 for (submethod in submethods) {
                     if (submethod.mode == "keyboard") {
                         var langTag =
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && !TextUtils.isEmpty(
-                                    submethod.languageTag)) submethod.languageTag else submethod.locale
-                        if (TextUtils.isEmpty(langTag)) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && submethod.languageTag.isNotEmpty()) submethod.languageTag
+                            else submethod.locale
+                        if (langTag.isEmpty()) {
                             continue
                         }
                         if (langTag.contains("_")) {
@@ -73,7 +72,7 @@ object LanguageUtil {
                 }
             }
             if (langTagList.isNotEmpty()) {
-                localeList = LocaleListCompat.forLanguageTags(listToCsv(langTagList))
+                localeList = LocaleListCompat.forLanguageTags(StringUtil.listToCsv(langTagList))
                 for (i in 0 until localeList.size()) {
                     val langCode = localeToWikiLanguageCode(localeList[i])
                     if (langCode.isNotEmpty() && !languages.contains(langCode) && langCode != "und") {
