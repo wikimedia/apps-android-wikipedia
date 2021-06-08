@@ -738,7 +738,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@addListener
             }
             GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences::class.java)?.let {
-                if (it.referencesGroup != null && it.referencesGroup.isNotEmpty()) {
+                references = it
+                if (!it.referencesGroup.isNullOrEmpty()) {
                     showBottomSheet(ReferenceDialog())
                 }
             }
