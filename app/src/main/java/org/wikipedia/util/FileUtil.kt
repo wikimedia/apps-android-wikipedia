@@ -8,7 +8,7 @@ object FileUtil {
 
     @JvmStatic
     fun writeToFile(bytes: ByteArrayOutputStream, destinationFile: File): File {
-        val fo = FileOutputStream(destinationFile)
+        val fo = destinationFile.outputStream()
         try {
             fo.write(bytes.toByteArray())
         } finally {
@@ -26,15 +26,8 @@ object FileUtil {
     }
 
     @JvmStatic
-    fun readFile(inputStream: InputStream?): String {
-        BufferedReader(InputStreamReader(inputStream)).use { reader ->
-            val stringBuilder = StringBuilder()
-            var readStr: String?
-            while (reader.readLine().also { readStr = it } != null) {
-                stringBuilder.append(readStr).append('\n')
-            }
-            return stringBuilder.toString()
-        }
+    fun readFile(inputStream: InputStream): String {
+        return inputStream.reader().readLines().joinToString(separator = "\n")
     }
 
     @JvmStatic
