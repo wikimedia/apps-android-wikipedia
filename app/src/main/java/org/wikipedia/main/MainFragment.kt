@@ -253,13 +253,13 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
+    override fun onFeedSelectPageWithAnimation(entry: HistoryEntry, shareElements: Array<Pair<View, String>>) {
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *shareElements)
         val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
-        if (sharedElements.isNotEmpty()) {
+        if (shareElements.isNotEmpty()) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)
         }
-        startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
+        startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || shareElements.isEmpty()) null else options.toBundle())
     }
 
     override fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
@@ -270,15 +270,15 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
+    override fun onFeedMovePageToList(sourceReadingList: Long, entry: HistoryEntry) {
         bottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
+                MoveToReadingListDialog.newInstance(sourceReadingList, entry.title, InvokeSource.FEED))
     }
 
-    override fun onFeedNewsItemSelected(newsCard: NewsCard, view: NewsItemView) {
+    override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), view.imageView, getString(R.string.transition_news_item))
         view.newsItem?.let {
-            startActivity(NewsActivity.newIntent(requireActivity(), it, newsCard.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
+            startActivity(NewsActivity.newIntent(requireActivity(), it, card.wikiSite()), if (it.thumb() != null) options.toBundle() else null)
         }
     }
 
