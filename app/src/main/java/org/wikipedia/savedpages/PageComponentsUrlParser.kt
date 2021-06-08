@@ -12,10 +12,11 @@ object PageComponentsUrlParser {
             val css = document.select("link[rel=stylesheet]")
             val javascript = document.select("script")
 
-            listOf(
-                css.map { it.attr("href") }, // parsing css styles
-                javascript.map { it.attr("src") } // parsing javascript files
-            ).flatten().filter { it.isNotEmpty() }.map { resolveProtocolRelativeUrl(site, it) }
+            // parsing CSS styles and JavaScript files
+            listOf(css.map { it.attr("href") }, javascript.map { it.attr("src") })
+                .flatten()
+                .filter { it.isNotEmpty() }
+                .map { resolveProtocolRelativeUrl(site, it) }
         } catch (e: Exception) {
             L.d("Parsing exception$e")
             emptyList()

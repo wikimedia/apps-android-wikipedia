@@ -61,10 +61,10 @@ class SyntaxHighlighter(private var context: Context, val textBox: EditText, var
             searchTask = SyntaxHighlightSearchMatchesTask(textBox.text, searchText, selectedMatchResultPosition)
             disposables.clear()
             disposables.add(Observable.zip<MutableList<SpanExtents>, List<SpanExtents>, List<SpanExtents>>(Observable.fromCallable(currentTask),
-                    Observable.fromCallable(searchTask), { f: MutableList<SpanExtents>, s: List<SpanExtents> ->
-                f.addAll(s)
-                f
-            })
+                    Observable.fromCallable(searchTask), { f, s ->
+                        f.addAll(s)
+                        f
+                    })
                     .subscribeOn(Schedulers.computation())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->

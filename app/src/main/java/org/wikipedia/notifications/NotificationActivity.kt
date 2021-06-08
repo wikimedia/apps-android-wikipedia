@@ -314,15 +314,14 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     private val selectedItemCount get() = notificationContainerList.count { it.selected }
 
+    private val selectedItems get() = notificationContainerList.filter { it.selected }
+
     private fun unselectAllItems() {
         for (item in notificationContainerList) {
             item.selected = false
         }
         binding.notificationsRecyclerView.adapter?.notifyDataSetChanged()
     }
-
-    private val selectedItems: List<NotificationListItemContainer>
-        get() = notificationContainerList.filter { it.selected }
 
     override fun onArchive(notification: Notification) {
         bottomSheetPresenter.dismiss(supportFragmentManager)
@@ -341,18 +340,24 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
 
     @Suppress("LeakingThis")
     private open inner class NotificationItemHolder constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener, OnLongClickListener {
+        private val titleView = view.findViewById<TextView>(R.id.notification_item_title)
+        private val descriptionView = view.findViewById<TextView>(R.id.notification_item_description)
+        private val secondaryActionHintView = view.findViewById<TextView>(R.id.notification_item_secondary_action_hint)
+        private val tertiaryActionHintView = view.findViewById<TextView>(R.id.notification_item_tertiary_action_hint)
+        private val wikiCodeView = view.findViewById<TextView>(R.id.notification_wiki_code)
+        private val wikiCodeImageView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_image)
+        private val wikiCodeBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_wiki_code_background)
+        private val imageContainerView = view.findViewById<View>(R.id.notification_item_image_container)
+        private val imageBackgroundView = view.findViewById<AppCompatImageView>(R.id.notification_item_image_background)
+        private val imageSelectedView = view.findViewById<View>(R.id.notification_item_selected_image)
+        private val imageView = view.findViewById<AppCompatImageView>(R.id.notification_item_image)
         lateinit var container: NotificationListItemContainer
-        private val titleView: TextView
-        private val descriptionView: TextView
-        private val wikiCodeView: TextView
-        private val secondaryActionHintView: TextView
-        private val tertiaryActionHintView: TextView
-        private val wikiCodeBackgroundView: AppCompatImageView
-        private val wikiCodeImageView: AppCompatImageView
-        private val imageContainerView: View
-        private val imageSelectedView: View
-        private val imageView: AppCompatImageView
-        private val imageBackgroundView: AppCompatImageView
+
+        init {
+            itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
+            setContextClickAsLongClick(itemView)
+        }
 
         fun bindItem(container: NotificationListItemContainer) {
             this.container = container
@@ -453,23 +458,6 @@ class NotificationActivity : BaseActivity(), NotificationItemActionsDialog.Callb
             beginMultiSelect()
             toggleSelectItem(container)
             return true
-        }
-
-        init {
-            itemView.setOnClickListener(this)
-            itemView.setOnLongClickListener(this)
-            titleView = view.findViewById(R.id.notification_item_title)
-            descriptionView = view.findViewById(R.id.notification_item_description)
-            secondaryActionHintView = view.findViewById(R.id.notification_item_secondary_action_hint)
-            tertiaryActionHintView = view.findViewById(R.id.notification_item_tertiary_action_hint)
-            wikiCodeView = view.findViewById(R.id.notification_wiki_code)
-            wikiCodeImageView = view.findViewById(R.id.notification_wiki_code_image)
-            wikiCodeBackgroundView = view.findViewById(R.id.notification_wiki_code_background)
-            imageContainerView = view.findViewById(R.id.notification_item_image_container)
-            imageBackgroundView = view.findViewById(R.id.notification_item_image_background)
-            imageSelectedView = view.findViewById(R.id.notification_item_selected_image)
-            imageView = view.findViewById(R.id.notification_item_image)
-            setContextClickAsLongClick(itemView)
         }
     }
 
