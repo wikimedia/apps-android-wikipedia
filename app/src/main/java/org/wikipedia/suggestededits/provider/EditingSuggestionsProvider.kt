@@ -11,8 +11,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.restbase.ImageRecommendationResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import java.util.*
 import java.util.concurrent.Semaphore
 import kotlin.collections.ArrayList
@@ -289,7 +287,7 @@ object EditingSuggestionsProvider {
                 Observable.just(cachedItem)
             } else {
                 val stream = WikipediaApp.getInstance().assets.open("imagerecs/" + lang + "wiki_image_candidates.tsv")
-                val reader = BufferedReader(InputStreamReader(stream))
+                val reader = stream.bufferedReader()
                 while (true) {
                     val line = reader.readLine()
                     if (line.isNullOrEmpty()) {
