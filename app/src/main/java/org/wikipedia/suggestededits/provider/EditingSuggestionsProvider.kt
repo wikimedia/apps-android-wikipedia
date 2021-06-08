@@ -8,7 +8,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import java.util.*
 import java.util.concurrent.Semaphore
 import kotlin.collections.ArrayList
@@ -255,56 +254,6 @@ object EditingSuggestionsProvider {
                         .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
             }
         }.doFinally { mutex.release() }
-    }
-
-    fun getNextArticleWithMissingImage(lang: String, sequence: Int): Observable<ImageRecommendationResponse> {
-        return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedItem: ImageRecommendationResponse? = null
-            if (articlesWithMissingImagesCacheLang != lang) {
-                // evict the cache if the language has changed.
-                articlesWithMissingImagesCache.clear()
-            }
-            val installIdMod = 500
-            val installId = Prefs.getAppInstallId().orEmpty()
-            // Initialize the random number generator based on the user's install ID, modulo the
-            // total size of the expected test group.
-            val random = Random(installId.substring(installId.length - 4).toInt(16) % installIdMod)
-            var seqOffset = 0
-            // and seek to the appropriate position in the random sequence.
-            for (i in 0..sequence) {
-                seqOffset = random.nextInt(Int.MAX_VALUE)
-            }
-
-            articlesWithMissingImagesCacheLang = lang
-            if (articlesWithMissingImagesCache.isNotEmpty()) {
-                cachedItem = buildImageRecommendation(articlesWithMissingImagesCache[seqOffset % articlesWithMissingImagesCache.size])
-            }
-
-            if (cachedItem != null) {
-                Observable.just(cachedItem)
-            } else {
-                val stream = WikipediaApp.getInstance().assets.open("imagerecs/" + lang + "wiki_image_candidates.tsv")
-                val reader = stream.bufferedReader()
-                while (true) {
-                    val line = reader.readLine()
-                    if (line.isNullOrEmpty()) {
-                        break
-                    }
-                    articlesWithMissingImagesCache.add(line)
-                }
-
-                var item: ImageRecommendationResponse? = null
-                if (articlesWithMissingImagesCache.isNotEmpty()) {
-                    item = buildImageRecommendation(articlesWithMissingImagesCache[seqOffset % articlesWithMissingImagesCache.size])
-                }
-                Observable.just(item!!)
-            }
-        }.doFinally { mutex.release() }
-    }
-
-    private fun buildImageRecommendation(str: String): ImageRecommendationResponse {
-        val arr = str.split('\t')
-        return ImageRecommendationResponse(arr[0].toInt(), arr[1], arr[2].split(",").toList())
     }
 
     class ListEmptyException : RuntimeException()
