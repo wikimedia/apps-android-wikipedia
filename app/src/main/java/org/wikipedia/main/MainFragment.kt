@@ -253,13 +253,13 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onFeedSelectPageWithAnimation(entry: HistoryEntry, shareElements: Array<Pair<View, String>>) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *shareElements)
+    override fun onFeedSelectPageWithAnimation(entry: HistoryEntry, sharedElements: Array<Pair<View, String>>) {
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), *sharedElements)
         val intent = PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
-        if (shareElements.isNotEmpty()) {
+        if (sharedElements.isNotEmpty()) {
             intent.putExtra(Constants.INTENT_EXTRA_HAS_TRANSITION_ANIM, true)
         }
-        startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || shareElements.isEmpty()) null else options.toBundle())
+        startActivity(intent, if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle())
     }
 
     override fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
@@ -270,9 +270,9 @@ class MainFragment : Fragment(), BackPressedHandler, FeedFragment.Callback, Hist
         }
     }
 
-    override fun onFeedMovePageToList(sourceReadingList: Long, entry: HistoryEntry) {
+    override fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
         bottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(sourceReadingList, entry.title, InvokeSource.FEED))
+                MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
     }
 
     override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
