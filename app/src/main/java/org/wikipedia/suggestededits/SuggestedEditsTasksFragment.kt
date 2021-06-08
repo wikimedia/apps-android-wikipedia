@@ -57,7 +57,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
-    private var blockInfo: MwServiceError.BlockInfo? = null
+    private var blockMessage: String? = null
     private var isPausedOrDisabled = false
     private var totalPageviews = 0L
     private var totalContributions = 0
@@ -166,7 +166,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             return
         }
 
-        blockInfo = null
+        blockMessage = null
         isPausedOrDisabled = false
         totalContributions = 0
         latestEditStreak = 0
@@ -177,10 +177,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.userName!!, 10, null).subscribeOn(Schedulers.io()),
                 UserContributionsStats.getEditCountsObservable(), { homeSiteResponse, commonsResponse, wikidataResponse, _ ->
+                    var blockInfo: MwServiceError.BlockInfo? = null
                     when {
                         wikidataResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = wikidataResponse.query()!!.userInfo()!!
                         commonsResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = commonsResponse.query()!!.userInfo()!!
                         homeSiteResponse.query()!!.userInfo()!!.isBlocked -> blockInfo = homeSiteResponse.query()!!.userInfo()!!
+                    }
+                    if (blockInfo != null) {
+                        blockMessage = ThrowableUtil.getBlockMessageHtml(blockInfo)
                     }
 
                     totalContributions += wikidataResponse.query()!!.userInfo()!!.editCount
@@ -204,7 +208,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    if (blockInfo != null) {
+                    if (!blockMessage.isNullOrEmpty()) {
                         setIPBlockedStatus()
                     }
                 }
@@ -213,7 +217,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                         isPausedOrDisabled = true
                     }
 
-                    if (!isPausedOrDisabled && blockInfo == null) {
+                    if (!isPausedOrDisabled && blockMessage.isNullOrEmpty()) {
                         binding.pageViewStatsView.setTitle(it.toString())
                         totalPageviews = it
                         setFinalUIState()
@@ -311,7 +315,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setIPBlockedStatus() {
         clearContents()
-        binding.disabledStatesView.setIPBlocked(blockInfo)
+        binding.disabledStatesView.setIPBlocked(blockMessage)
         binding.disabledStatesView.visibility = VISIBLE
         UserContributionFunnel.get().logIpBlock()
         UserContributionEvent.logIpBlock()

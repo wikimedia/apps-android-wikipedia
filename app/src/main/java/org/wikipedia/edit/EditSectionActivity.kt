@@ -300,7 +300,7 @@ class EditSectionActivity : BaseActivity() {
         // In the case of certain AbuseFilter responses, they are sent as a code, instead of a
         // fully parsed response. We need to make one more API call to get the parsed message:
         if (code.startsWith("abusefilter-") && caught.message.contains("abusefilter-") && caught.message.length < 100) {
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).parseText("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
+            disposables.add(ServiceFactory.get(pageTitle.wikiSite).parsePage("MediaWiki:" + StringUtil.sanitizeAbuseFilterCode(caught.message))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.text))) }) { showError(it) })

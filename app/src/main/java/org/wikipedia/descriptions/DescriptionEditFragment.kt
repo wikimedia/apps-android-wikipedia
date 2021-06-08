@@ -43,7 +43,6 @@ import org.wikipedia.util.log.L
 import java.io.IOException
 import java.util.*
 import java.util.concurrent.TimeUnit
-import java.util.regex.Pattern
 
 class DescriptionEditFragment : Fragment() {
     interface Callback {
@@ -62,7 +61,6 @@ class DescriptionEditFragment : Fragment() {
     private var highlightText: String? = null
 
     private val disposables = CompositeDisposable()
-    private val templateParsePattern = Pattern.compile(TEMPLATE_PARSE_REGEX)
 
     private val successRunnable = Runnable {
         if (!isAdded) {
@@ -76,7 +74,7 @@ class DescriptionEditFragment : Fragment() {
         }
         Prefs.setLastDescriptionEditTime(Date().time)
         Prefs.setSuggestedEditsReactivationPassStageOne(false)
-        SuggestedEditsFunnel.get()!!.success(action)
+        SuggestedEditsFunnel.get().success(action)
         binding.fragmentDescriptionEditView.setSaveState(false)
         if (Prefs.shouldShowDescriptionEditSuccessPrompt() && invokeSource == InvokeSource.PAGE_ACTIVITY) {
             startActivityForResult(DescriptionEditSuccessActivity.newIntent(requireContext(), invokeSource),
@@ -169,7 +167,7 @@ class DescriptionEditFragment : Fragment() {
         binding.fragmentDescriptionEditView.setPageTitle(pageTitle)
         highlightText?.let { binding.fragmentDescriptionEditView.setHighlightText(it) }
         binding.fragmentDescriptionEditView.callback = EditViewCallback()
-        sourceSummary?.let { binding.fragmentDescriptionEditView.setSummaries(sourceSummary!!, targetSummary) }
+        sourceSummary?.let { binding.fragmentDescriptionEditView.setSummaries(it, targetSummary) }
         if (savedInstanceState != null) {
             binding.fragmentDescriptionEditView.description = savedInstanceState.getString(ARG_DESCRIPTION)
             binding.fragmentDescriptionEditView.loadReviewContent(savedInstanceState.getBoolean(ARG_REVIEWING))
@@ -198,12 +196,12 @@ class DescriptionEditFragment : Fragment() {
                 binding.fragmentDescriptionEditView.setError(null)
                 binding.fragmentDescriptionEditView.setSaveState(true)
                 cancelCalls()
-                getEditTokenThenSave(false)
+                getEditTokenThenSave()
                 funnel.logSaveAttempt()
             }
         }
 
-        private fun getEditTokenThenSave(forceLogin: Boolean) {
+        private fun getEditTokenThenSave() {
             val csrfClient = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 CsrfTokenClient(wikiCommons)
@@ -235,7 +233,8 @@ class DescriptionEditFragment : Fragment() {
                         }
                         var text = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].content()
                         val baseRevId = mwQueryResponse.query()!!.firstPage()!!.revisions()[0].revId
-                        text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description!!)
+                        text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
+
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
                                 getEditComment().orEmpty(),
                                 if (AccountUtil.isLoggedIn) "user"
@@ -285,14 +284,14 @@ class DescriptionEditFragment : Fragment() {
                         val languageCode = if (response.query()!!.siteInfo() != null && response.query()!!.siteInfo()!!.lang != null &&
                                 response.query()!!.siteInfo()!!.lang != AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) response.query()!!.siteInfo()!!.lang
                         else pageTitle.wikiSite.languageCode()
-                        getPostObservable(editToken, languageCode!!)
+                        getPostObservable(editToken, languageCode.orEmpty())
                     }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         if (response.successVal > 0) {
                             requireView().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4))
-                            funnel.logSaved(if (response.entity != null) response.entity!!.lastRevId else 0)
+                            funnel.logSaved(response.entity?.run { lastRevId } ?: 0)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)
                         }
@@ -300,7 +299,7 @@ class DescriptionEditFragment : Fragment() {
                         if (caught is MwException) {
                             val error = caught.error
                             if (error.badLoginState() || error.badToken()) {
-                                getEditTokenThenSave(true)
+                                getEditTokenThenSave()
                             } else {
                                 editFailed(caught, true)
                             }
@@ -314,11 +313,11 @@ class DescriptionEditFragment : Fragment() {
             return if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description!!,
+                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(),
                         getEditComment(), editToken, if (AccountUtil.isLoggedIn) "user" else null)
             } else {
                 ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle.wikiSite.dbName(),
-                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description!!, getEditComment(), editToken,
+                        pageTitle.prefixedText, binding.fragmentDescriptionEditView.description.orEmpty(), getEditComment(), editToken,
                         if (AccountUtil.isLoggedIn) "user" else null)
             }
         }
@@ -341,9 +340,9 @@ class DescriptionEditFragment : Fragment() {
             FeedbackUtil.showError(requireActivity(), caught)
             L.e(caught)
             if (logError) {
-                funnel.logError(caught.message!!)
+                funnel.logError(caught.message)
             }
-            SuggestedEditsFunnel.get()!!.failure(action)
+            SuggestedEditsFunnel.get().failure(action)
         }
 
         override fun onHelpClick() {
@@ -375,7 +374,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     private fun updateDescriptionInArticle(articleText: String, newDescription: String): String {
-        return if (templateParsePattern.matcher(articleText).find()) {
+        return if (articleText.contains(TEMPLATE_PARSE_REGEX.toRegex())) {
             // update existing description template
             articleText.replaceFirst(TEMPLATE_PARSE_REGEX.toRegex(), "$1$newDescription$3")
         } else {
@@ -385,7 +384,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     companion object {
-        private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         private const val ARG_TITLE = "title"
         private const val ARG_REVIEWING = "inReviewing"
         private const val ARG_DESCRIPTION = "description"
@@ -393,6 +391,9 @@ class DescriptionEditFragment : Fragment() {
         private const val ARG_ACTION = "action"
         private const val ARG_SOURCE_SUMMARY = "sourceSummary"
         private const val ARG_TARGET_SUMMARY = "targetSummary"
+        private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
+        // Don't remove the ending escaped `\\}`
+        @Suppress("RegExpRedundantEscape")
         const val TEMPLATE_PARSE_REGEX = "(\\{\\{[Ss]hort description\\|(?:1=)?)([^}|]+)([^}]*\\}\\})"
 
         fun newInstance(title: PageTitle,
