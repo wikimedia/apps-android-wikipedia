@@ -336,8 +336,7 @@ class ReadingListFragment : Fragment(), ReadingListItemActionsDialog.Callback {
         }
     }
 
-    private val selectedPageCount: Int
-        get() = displayedLists.count { it is ReadingListPage && it.selected }
+    private val selectedPageCount get() = displayedLists.count { it is ReadingListPage && it.selected }
 
     private fun unselectAllPages() {
         readingList?.let {
