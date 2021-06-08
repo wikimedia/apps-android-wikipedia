@@ -13,10 +13,9 @@ import androidx.core.graphics.BlendModeCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemWikipediaLanguageBinding
 import org.wikipedia.search.SearchFragment
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
-import org.wikipedia.util.ResourceUtil.getThemedAttributeId
-import org.wikipedia.util.ResourceUtil.getThemedColor
-import org.wikipedia.views.ViewUtil.formatLangButton
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.ViewUtil
 import java.util.*
 
 class WikipediaLanguagesItemView : LinearLayout {
@@ -36,10 +35,10 @@ class WikipediaLanguagesItemView : LinearLayout {
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
-        setBackgroundColor(getThemedColor(context, R.attr.paper_color))
+        setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context,
-                    getThemedAttributeId(context, R.attr.selectableItemBackground))
+                ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
         binding.wikiLanguageCheckbox.setOnCheckedChangeListener { _, _ ->
             callback?.onCheckedChanged(position)
@@ -49,11 +48,12 @@ class WikipediaLanguagesItemView : LinearLayout {
             callback?.onLongPress(position)
             true
         }
-        setContextClickAsLongClick(this)
+        DeviceUtil.setContextClickAsLongClick(this)
     }
 
     private fun updateBackgroundColor() {
-        setBackgroundColor(if (binding.wikiLanguageCheckbox.isChecked) getThemedColor(context, R.attr.multi_select_background_color) else getThemedColor(context, R.attr.paper_color))
+        setBackgroundColor(if (binding.wikiLanguageCheckbox.isChecked) ResourceUtil.getThemedColor(context, R.attr.multi_select_background_color)
+        else ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
     fun setContents(langCode: String, languageLocalizedName: String?, position: Int) {
@@ -61,10 +61,10 @@ class WikipediaLanguagesItemView : LinearLayout {
         binding.wikiLanguageOrder.text = (position + 1).toString()
         binding.wikiLanguageTitle.text = languageLocalizedName.orEmpty().capitalize(Locale.getDefault())
         binding.wikiLanguageCode.text = langCode
-        binding.wikiLanguageCode.setTextColor(getThemedColor(context, R.attr.material_theme_de_emphasised_color))
+        binding.wikiLanguageCode.setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color))
         binding.wikiLanguageCode.background.colorFilter = BlendModeColorFilterCompat
-                .createBlendModeColorFilterCompat(getThemedColor(context, R.attr.material_theme_de_emphasised_color), BlendModeCompat.SRC_IN)
-        formatLangButton(binding.wikiLanguageCode, langCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+                .createBlendModeColorFilterCompat(ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color), BlendModeCompat.SRC_IN)
+        ViewUtil.formatLangButton(binding.wikiLanguageCode, langCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
     }
 
     fun setCheckBoxEnabled(enabled: Boolean) {
@@ -72,7 +72,7 @@ class WikipediaLanguagesItemView : LinearLayout {
         binding.wikiLanguageCheckbox.visibility = if (enabled) VISIBLE else GONE
         if (!enabled) {
             binding.wikiLanguageCheckbox.isChecked = false
-            setBackgroundColor(getThemedColor(context, R.attr.paper_color))
+            setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         }
     }
 

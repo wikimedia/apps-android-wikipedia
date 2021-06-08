@@ -21,7 +21,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/feed_content_type_lang_list"
+                android:id="@+id/languageList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
