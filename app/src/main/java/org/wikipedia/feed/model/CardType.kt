@@ -9,7 +9,6 @@ import org.wikipedia.feed.dayheader.DayHeaderCardView
 import org.wikipedia.feed.featured.FeaturedArticleCardView
 import org.wikipedia.feed.image.FeaturedImageCardView
 import org.wikipedia.feed.mainpage.MainPageCardView
-import org.wikipedia.feed.mostread.MostReadCardView
 import org.wikipedia.feed.news.NewsCardView
 import org.wikipedia.feed.offline.OfflineCardView
 import org.wikipedia.feed.onthisday.OnThisDayCardView
@@ -17,6 +16,7 @@ import org.wikipedia.feed.progress.ProgressCardView
 import org.wikipedia.feed.random.RandomCardView
 import org.wikipedia.feed.searchbar.SearchCardView
 import org.wikipedia.feed.suggestededits.SuggestedEditsCardView
+import org.wikipedia.feed.topread.TopReadCardView
 import org.wikipedia.feed.view.FeedCardView
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
@@ -33,9 +33,9 @@ enum class CardType constructor(private val code: Int,
             return BecauseYouReadCardView(ctx)
         }
     },
-    MOST_READ_LIST(3, FeedContentType.MOST_READ_ARTICLES) {
+    TOP_READ_LIST(3, FeedContentType.TOP_READ_ARTICLES) {
         override fun newView(ctx: Context): FeedCardView<*> {
-            return MostReadCardView(ctx)
+            return TopReadCardView(ctx)
         }
     },
     FEATURED_ARTICLE(4, FeedContentType.FEATURED_ARTICLE) {
