@@ -160,13 +160,10 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
     private fun initWebView() {
         binding.editPreviewWebview.webViewClient = object : OkHttpWebViewClient() {
-            override fun getModel(): PageViewModel {
-                return this@EditPreviewFragment.model
-            }
 
-            override fun getLinkHandler(): LinkHandler {
-                return this@EditPreviewFragment.linkHandler
-            }
+            override val model get() = this@EditPreviewFragment.model
+
+            override val linkHandler get() = this@EditPreviewFragment.linkHandler
 
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
