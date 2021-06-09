@@ -7,7 +7,6 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import org.jetbrains.annotations.NotNull;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.offline.OfflineObjectTable;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -21,7 +20,6 @@ public class Database extends SupportSQLiteOpenHelper.Callback {
             PageImage.DATABASE_TABLE,
             ReadingList.DATABASE_TABLE,
             ReadingListPage.DATABASE_TABLE,
-            OfflineObjectTable.DATABASE_TABLE
     };
 
     public Database(SupportSQLiteOpenHelper.Callback callbackDelegate) {

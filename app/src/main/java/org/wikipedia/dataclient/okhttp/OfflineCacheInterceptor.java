@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.offline.OfflineObject;
-import org.wikipedia.offline.OfflineObjectDbHelper;
+import org.wikipedia.database.AppDatabase;
+import org.wikipedia.offline.db.OfflineObject;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
@@ -39,6 +39,7 @@ public class OfflineCacheInterceptor implements Interceptor {
     public static final String TITLE_HEADER = "X-Offline-Title";
     public static final String SAVE_HEADER = "X-Offline-Save";
     public static final String SAVE_HEADER_SAVE = "save";
+    private static final String OFFLINE_PATH = "offline_files";
 
     @Override
     public Response intercept(@NonNull Chain chain) throws IOException {
@@ -80,7 +81,7 @@ public class OfflineCacheInterceptor implements Interceptor {
             }
         }
 
-        OfflineObject obj = OfflineObjectDbHelper.instance().findObject(url, lang);
+        OfflineObject obj = AppDatabase.Companion.getAppDatabase().offlineObjectDao().findObject(url, lang);
         if (obj == null) {
             L.w("Offline object not present in database.");
             throw networkException;
@@ -150,7 +151,7 @@ public class OfflineCacheInterceptor implements Interceptor {
         long contentLength = Long.parseLong(response.header("Content-Length", "-1"));
 
         String cachePath = WikipediaApp.getInstance().getFilesDir().getAbsolutePath()
-                + File.separator + OfflineObjectDbHelper.OFFLINE_PATH;
+                + File.separator + OFFLINE_PATH;
         new File(cachePath).mkdirs();
 
         String filePath = cachePath + File.separator + getObjectFileName(request.url().toString(), lang, contentType);
@@ -181,7 +182,7 @@ public class OfflineCacheInterceptor implements Interceptor {
             return response;
         }
 
-        OfflineObject obj = new OfflineObject(request.url().toString(), lang, filePath, 0);
+        OfflineObject obj = new OfflineObject(0, request.url().toString(), lang, filePath, 0, "");
         Source cacheWritingSource = new CacheWritingSource(response.body().source(), sink, obj, title);
 
         return response.newBuilder()
@@ -189,7 +190,7 @@ public class OfflineCacheInterceptor implements Interceptor {
                 .build();
     }
 
-    private class CacheWritingSource implements Source {
+    private static class CacheWritingSource implements Source {
         private boolean cacheRequestClosed;
         private boolean failed;
         private BufferedSource source;
@@ -226,7 +227,8 @@ public class OfflineCacheInterceptor implements Interceptor {
 
                     if (!failed) {
                         // update the record in the database!
-                        OfflineObjectDbHelper.instance().addObject(obj.getUrl(), obj.getLang(), obj.getPath(), title);
+                        AppDatabase.Companion.getAppDatabase().offlineObjectDao()
+                                .addObject(obj.getUrl(), obj.getLang(), obj.getPath(), title);
                     }
                 }
                 return -1;
@@ -249,12 +251,12 @@ public class OfflineCacheInterceptor implements Interceptor {
             }
             source.close();
             if (failed) {
-                OfflineObjectDbHelper.deleteFilesForObject(obj);
+                AppDatabase.Companion.getAppDatabase().offlineObjectDao().deleteFilesForObject(obj);
             }
         }
     }
 
-    private class CacheWritingResponseBody extends ResponseBody {
+    private static class CacheWritingResponseBody extends ResponseBody {
         private Source source;
         private String contentType;
         private long contentLength;
@@ -278,7 +280,7 @@ public class OfflineCacheInterceptor implements Interceptor {
         }
     }
 
-    private class CachedResponseBody extends ResponseBody {
+    private static class CachedResponseBody extends ResponseBody {
         private File file;
         private String contentType;
 
@@ -310,7 +312,7 @@ public class OfflineCacheInterceptor implements Interceptor {
     // TODO: Remove after 2 releases
     public static void createCacheItemFor(ReadingListPage page, String url, String contents, String mimeType, String dateModified) {
         String cachePath = WikipediaApp.getInstance().getFilesDir().getAbsolutePath()
-                + File.separator + OfflineObjectDbHelper.OFFLINE_PATH;
+                + File.separator + OFFLINE_PATH;
         new File(cachePath).mkdirs();
 
         String filePath = cachePath + File.separator + getObjectFileName(url, page.getLang(), mimeType);
@@ -345,7 +347,8 @@ public class OfflineCacheInterceptor implements Interceptor {
             return;
         }
 
-        OfflineObjectDbHelper.instance().addObject(url, page.getLang(), filePath, page.getApiTitle());
+        AppDatabase.Companion.getAppDatabase().offlineObjectDao()
+                .addObject(url, page.getLang(), filePath, page.getApiTitle());
     }
 
 }

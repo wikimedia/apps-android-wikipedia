@@ -11,6 +11,8 @@ import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import org.wikipedia.WikipediaApp
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
+import org.wikipedia.offline.db.OfflineObject
+import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
@@ -21,19 +23,21 @@ const val DATABASE_VERSION = 23
 
 @Database(entities = [RecentSearch::class,
     TalkPageSeen::class,
-    EditSummary::class], version = DATABASE_VERSION)
+    EditSummary::class,
+    OfflineObject::class], version = DATABASE_VERSION)
 @TypeConverters(DateTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recentSearchDao(): RecentSearchDao
     abstract fun talkPageSeenDao(): TalkPageSeenDao
     abstract fun editSummaryDao(): EditSummaryDao
+    abstract fun offlineObjectDao(): OfflineObjectDao
 
     val readableDatabase: SupportSQLiteDatabase get() = openHelper.readableDatabase
     val writableDatabase: SupportSQLiteDatabase get() = openHelper.writableDatabase
 
     companion object {
-        val MIGRATION_22_23 = object : Migration(22, 23) {
+        private val MIGRATION_22_23 = object : Migration(22, 23) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // convert Recent Searches table
                 database.execSQL("CREATE TABLE recentsearches_temp (_id INTEGER NOT NULL, text TEXT NOT NULL, timestamp INTEGER NOT NULL, PRIMARY KEY(_id))")
@@ -52,6 +56,13 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("INSERT INTO editsummaries_temp (_id, summary, lastUsed) SELECT _id, summary, lastUsed FROM editsummaries")
                 database.execSQL("DROP TABLE editsummaries")
                 database.execSQL("ALTER TABLE editsummaries_temp RENAME TO editsummaries")
+
+                // convert Offline Objects table
+                database.execSQL("CREATE TABLE offlineobject_temp (_id INTEGER NOT NULL, url TEXT NOT NULL, lang TEXT NOT NULL, path TEXT NOT NULL, status INTEGER NOT NULL, usedby TEXT NOT NULL, PRIMARY KEY(_id))")
+                database.execSQL("INSERT INTO offlineobject_temp (_id, url, lang, path, status, usedby) SELECT _id, url, lang, path, status, usedby FROM offlineobject")
+                database.execSQL("DROP TABLE offlineobject")
+                database.execSQL("ALTER TABLE offlineobject_temp RENAME TO offlineobject")
+
             }
         }
 

@@ -10,6 +10,7 @@ import okio.Buffer
 import okio.Sink
 import okio.Timeout
 import org.wikipedia.WikipediaApp
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.database.contract.PageImageHistoryContract
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
@@ -21,7 +22,6 @@ import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.client
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.gallery.MediaList
-import org.wikipedia.offline.OfflineObjectDbHelper
 import org.wikipedia.page.PageTitle
 import org.wikipedia.pageimages.PageImage
 import org.wikipedia.readinglist.database.ReadingListDbHelper
@@ -93,7 +93,7 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     private fun deletePageContents(page: ReadingListPage) {
-        Completable.fromAction { OfflineObjectDbHelper.instance().deleteObjectsForPageId(page.id) }.subscribeOn(Schedulers.io())
+        Completable.fromAction { AppDatabase.getAppDatabase().offlineObjectDao().deleteObjectsForPageId(page.id) }.subscribeOn(Schedulers.io())
                 .subscribe({}) { obj -> L.e(obj) }
     }
 
@@ -199,7 +199,7 @@ class SavedPageSyncService : JobIntentService() {
                         page.displayTitle = summaryRsp.body()!!.displayTitle
                         page.description = summaryRsp.body()!!.description
                         reqSaveFiles(page, pageTitle, fileUrls)
-                        val totalSize = OfflineObjectDbHelper.instance().getTotalBytesForPageId(page.id)
+                        val totalSize = AppDatabase.getAppDatabase().offlineObjectDao().getTotalBytesForPageId(page.id)
                         L.i("Saved page " + pageTitle.prefixedText + " (" + totalSize + ")")
                         totalSize
                     }
