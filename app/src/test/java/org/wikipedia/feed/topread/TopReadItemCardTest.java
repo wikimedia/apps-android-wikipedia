@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread;
+package org.wikipedia.feed.topread;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,19 +15,19 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.not;
 
 @RunWith(RobolectricTestRunner.class)
-public class MostReadItemCardTest {
+public class TopReadItemCardTest {
     private static WikiSite TEST = WikiSite.forLanguageCode("test");
-    private MostRead content;
+    private TopRead content;
 
     @Before public void setUp() throws Throwable {
         String json = TestFileUtil.readRawFile("mostread_2016_11_07.json");
-        content = GsonUnmarshaller.unmarshal(MostRead.class, json);
+        content = GsonUnmarshaller.unmarshal(TopRead.class, json);
     }
 
     @Test public void testTitleNormalization() {
-        List<MostReadItemCard> mostReadItemCards = MostReadListCard.toItems(content.articles(), TEST);
-        for (MostReadItemCard mostReadItemCard : mostReadItemCards) {
-            assertThat(mostReadItemCard.title(), not(containsString("_")));
+        List<TopReadItemCard> topReadItemCards = TopReadListCard.toItems(content.articles(), TEST);
+        for (TopReadItemCard topReadItemCard : topReadItemCards) {
+            assertThat(topReadItemCard.title(), not(containsString("_")));
         }
     }
 }

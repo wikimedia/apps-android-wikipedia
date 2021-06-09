@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread;
+package org.wikipedia.feed.topread;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class MostReadListCard extends ListCard<MostReadItemCard> {
-    @NonNull private final MostRead articles;
+public class TopReadListCard extends ListCard<TopReadItemCard> {
+    @NonNull private final TopRead articles;
 
-    public MostReadListCard(@NonNull MostRead articles, @NonNull WikiSite wiki) {
+    public TopReadListCard(@NonNull TopRead articles, @NonNull WikiSite wiki) {
         super(toItems(articles.articles(), wiki), wiki);
         this.articles = articles;
     }
@@ -35,7 +35,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @NonNull
     @Override public CardType type() {
-        return CardType.MOST_READ_LIST;
+        return CardType.TOP_READ_LIST;
     }
 
     @NonNull
@@ -45,11 +45,11 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @NonNull
     @VisibleForTesting
-    public static List<MostReadItemCard> toItems(@NonNull List<MostReadArticles> articles,
-                                          @NonNull WikiSite wiki) {
-        List<MostReadItemCard> cards = new ArrayList<>();
-        for (MostReadArticles article : articles) {
-            cards.add(new MostReadItemCard(article, wiki));
+    public static List<TopReadItemCard> toItems(@NonNull List<TopReadArticles> articles,
+                                                @NonNull WikiSite wiki) {
+        List<TopReadItemCard> cards = new ArrayList<>();
+        for (TopReadArticles article : articles) {
+            cards.add(new TopReadItemCard(article, wiki));
         }
         return cards;
     }

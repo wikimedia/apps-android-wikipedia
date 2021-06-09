@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread;
+package org.wikipedia.feed.topread;
 
 import android.net.Uri;
 
@@ -13,11 +13,11 @@ import org.wikipedia.page.PageTitle;
 import java.util.Collections;
 import java.util.List;
 
-public class MostReadItemCard extends Card {
-    @NonNull private final MostReadArticles page;
+public class TopReadItemCard extends Card {
+    @NonNull private final TopReadArticles page;
     @NonNull private final WikiSite wiki;
 
-    MostReadItemCard(@NonNull MostReadArticles page, @NonNull WikiSite wiki) {
+    TopReadItemCard(@NonNull TopReadArticles page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }
@@ -40,7 +40,7 @@ public class MostReadItemCard extends Card {
     }
 
     @NonNull
-    public List<MostReadArticles.ViewHistory> getViewHistory() {
+    public List<TopReadArticles.ViewHistory> getViewHistory() {
         return page.getViewHistory() != null ? page.getViewHistory() : Collections.emptyList();
     }
 

@@ -26,11 +26,11 @@ import org.wikipedia.feed.image.FeaturedImage
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.feed.mostread.MostReadArticlesActivity
-import org.wikipedia.feed.mostread.MostReadListCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.news.NewsItemView
 import org.wikipedia.feed.random.RandomCardView
+import org.wikipedia.feed.topread.TopReadArticlesActivity
+import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.AppLanguageLookUpTable
@@ -339,8 +339,8 @@ class FeedFragment : Fragment(), BackPressedHandler {
         }
 
         override fun onFooterClick(card: Card) {
-            if (card is MostReadListCard) {
-                startActivity(MostReadArticlesActivity.newIntent(requireContext(), card))
+            if (card is TopReadListCard) {
+                startActivity(TopReadArticlesActivity.newIntent(requireContext(), card))
             }
         }
 
@@ -369,7 +369,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
 
     private fun showCardLangSelectDialog(card: Card) {
         val contentType = card.type().contentType()
-        if (contentType.isPerLanguage) {
+        if (contentType != null && contentType.isPerLanguage) {
             val adapter = LanguageItemAdapter(requireContext(), contentType)
             val view = ConfigureItemLanguageDialogView(requireContext())
             val tempDisabledList = ArrayList(contentType.langCodesDisabled)
