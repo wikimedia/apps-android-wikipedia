@@ -48,7 +48,7 @@ class TopReadCardView(context: Context) : ListCardView<TopReadListCard>(context)
 
         override fun onBindViewHolder(holder: DefaultViewHolder<ListCardItemView>, position: Int) {
             val item = item(position)
-            holder.view.setCard(card).setHistoryEntry(HistoryEntry(item.pageTitle(), HistoryEntry.SOURCE_FEED_MOST_READ))
+            holder.view.setCard(card).setHistoryEntry(HistoryEntry(item.pageTitle, HistoryEntry.SOURCE_FEED_MOST_READ))
             holder.view.setNumber(position + 1)
             holder.view.setPageViews(item.pageViews)
             holder.view.setGraphView(item.viewHistory)
