@@ -7,7 +7,7 @@ import org.wikipedia.feed.model.Card
 interface FeedClient {
 
     interface Callback {
-        fun success(cards: List<Card?>)
+        fun success(cards: List<Card>)
         fun error(caught: Throwable)
     }
 

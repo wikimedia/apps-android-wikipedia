@@ -129,7 +129,7 @@ class ConfigureFragment : Fragment(), ConfigureItemView.Callback {
         val i = orderedContentTypes.iterator()
         while (i.hasNext()) {
             val feedContentType = i.next()
-            if (!feedContentType.showInConfig()) {
+            if (!feedContentType.showInConfig) {
                 i.remove()
                 continue
             }

@@ -96,11 +96,8 @@ class ReadingListPageTable : DatabaseTable<ReadingListPage>(ReadingListPageContr
     }
 
     private fun createDefaultList(db: SupportSQLiteDatabase, currentLists: MutableList<ReadingList>) {
-        for (list in currentLists) {
-            if (list.isDefault) {
-                // Already have a default list
-                return
-            }
+        if (currentLists.any { it.isDefault }) {
+            return
         }
         ReadingListDbHelper.run {
             currentLists.add(createDefaultList(db))
