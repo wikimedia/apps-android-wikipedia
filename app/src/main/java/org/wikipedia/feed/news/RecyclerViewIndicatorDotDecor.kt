@@ -68,10 +68,7 @@ class RecyclerViewIndicatorDotDecor(private val radius: Float,
         outRect.bottom = indicatorHeight
     }
 
-    private fun drawInactiveDots(canvas: Canvas,
-                                 indicatorStartX: Float,
-                                 indicatorPositionY: Float,
-                                 itemCount: Int) {
+    private fun drawInactiveDots(canvas: Canvas, indicatorStartX: Float, indicatorPositionY: Float, itemCount: Int) {
         val itemWidth = radius * 2 + indicatorItemPadding
         var start = indicatorStartX + radius
         for (i in 0 until itemCount) {
@@ -80,10 +77,7 @@ class RecyclerViewIndicatorDotDecor(private val radius: Float,
         }
     }
 
-    private fun drawActiveDot(canvas: Canvas,
-                              indicatorStartX: Float,
-                              indicatorPositionY: Float,
-                              highlightPosition: Int) {
+    private fun drawActiveDot(canvas: Canvas, indicatorStartX: Float, indicatorPositionY: Float, highlightPosition: Int) {
         val itemWidth = radius * 2 + indicatorItemPadding
         val highlightStart = indicatorStartX + radius + itemWidth * highlightPosition
         canvas.drawCircle(highlightStart, indicatorPositionY, radius, activePaint)
