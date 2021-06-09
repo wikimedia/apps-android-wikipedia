@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread;
+package org.wikipedia.feed.topread;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("unused")
-public final class MostReadArticles extends PageSummary {
+public final class TopReadArticles extends PageSummary {
     private int views;
     private int rank;
     @SerializedName("view_history") private List<ViewHistory> viewHistory;

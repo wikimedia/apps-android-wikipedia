@@ -12,16 +12,12 @@ import androidx.core.util.Pair
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewListCardItemBinding
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.mostread.MostReadArticles.ViewHistory
+import org.wikipedia.feed.topread.TopReadArticles.ViewHistory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageAvailableOfflineHandler.check
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.TransitionUtil
+import org.wikipedia.util.*
 import org.wikipedia.views.ViewUtil
 import kotlin.math.roundToInt
 
