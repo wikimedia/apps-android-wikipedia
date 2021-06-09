@@ -48,3 +48,38 @@
 -keep class org.wikipedia.** { <init>(...); *; }
 -keep enum org.wikipedia.** { <init>(...); *; }
 # --- /Wikipedia ---
+
+-keepattributes *Annotation*, InnerClasses
+-dontnote kotlinx.serialization.AnnotationsKt # core serialization annotations
+
+-keepclassmembers class kotlinx.serialization.json.** {
+    *** Companion;
+}
+-keepclasseswithmembers class kotlinx.serialization.json.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+-keep,includedescriptorclasses class org.wikipedia.**$$serializer { *; }
+-keepclassmembers class org.wikipedia.** {
+    *** Companion;
+}
+-keepclasseswithmembers class org.wikipedia.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+-keepattributes *Annotation*, InnerClasses
+-dontnote kotlinx.serialization.AnnotationsKt
+
+ -keepclassmembers class kotlinx.serialization.json.** {
+     *** Companion;
+ }
+ -keepclasseswithmembers class kotlinx.serialization.json.** {
+     kotlinx.serialization.KSerializer serializer(...);
+ }
+
+ -keep,includedescriptorclasses class org.wikipedia.**$$serializer { *; }
+ -keepclassmembers class org.wikipedia.** {
+     *** Companion;
+ }
+ -keepclasseswithmembers class org.wikipedia.** {
+     kotlinx.serialization.KSerializer serializer(...);
+ }
