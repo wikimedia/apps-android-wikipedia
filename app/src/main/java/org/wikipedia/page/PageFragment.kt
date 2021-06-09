@@ -333,13 +333,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         webView.addOnContentHeightChangedListener(scrollTriggerListener)
         webView.webViewClient = object : OkHttpWebViewClient() {
-            override fun getModel(): PageViewModel {
-                return this@PageFragment.model
-            }
 
-            override fun getLinkHandler(): LinkHandler {
-                return this@PageFragment.linkHandler
-            }
+            override val model get() = this@PageFragment.model
+
+            override val linkHandler get() = this@PageFragment.linkHandler
 
             override fun onPageFinished(view: WebView, url: String) {
                 bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
