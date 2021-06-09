@@ -1,4 +1,4 @@
-package org.wikipedia.search
+package org.wikipedia.edit.db
 
 import android.provider.BaseColumns
 import androidx.room.ColumnInfo
@@ -6,8 +6,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity(tableName = "recentsearches")
-class RecentSearch constructor(
+@Entity(tableName = "editsummaries")
+class EditSummary constructor(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = BaseColumns._ID) var id: Int = 0,
-    val text: String,
-    val timestamp: Date = Date())
+    val summary: String,
+    val lastUsed: Date = Date()) {
+
+    override fun toString(): String {
+        return summary
+    }
+}

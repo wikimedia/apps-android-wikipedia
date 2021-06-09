@@ -6,6 +6,7 @@ import android.widget.AutoCompleteTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.database.AppDatabase.Companion.getAppDatabase
+import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil.setConditionalTextDirection
 

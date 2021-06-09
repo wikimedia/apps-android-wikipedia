@@ -9,12 +9,12 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import org.wikipedia.WikipediaApp
-import org.wikipedia.edit.summaries.EditSummary
-import org.wikipedia.edit.summaries.EditSummaryDao
-import org.wikipedia.search.RecentSearch
-import org.wikipedia.search.RecentSearchDao
-import org.wikipedia.talk.TalkPageSeen
-import org.wikipedia.talk.TalkPageSeenDao
+import org.wikipedia.edit.db.EditSummary
+import org.wikipedia.edit.db.EditSummaryDao
+import org.wikipedia.search.db.RecentSearch
+import org.wikipedia.search.db.RecentSearchDao
+import org.wikipedia.talk.db.TalkPageSeen
+import org.wikipedia.talk.db.TalkPageSeenDao
 
 const val DATABASE_NAME = "wikipedia.db"
 const val DATABASE_VERSION = 23

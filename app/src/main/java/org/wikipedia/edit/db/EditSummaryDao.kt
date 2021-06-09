@@ -1,4 +1,4 @@
-package org.wikipedia.edit.summaries
+package org.wikipedia.edit.db
 
 import androidx.room.*
 import io.reactivex.rxjava3.core.Single

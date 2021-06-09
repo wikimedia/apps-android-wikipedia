@@ -34,6 +34,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.util.*
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L

@@ -1,4 +1,4 @@
-package org.wikipedia.talk
+package org.wikipedia.talk.db
 
 import androidx.room.Dao
 import androidx.room.Insert
