@@ -15,14 +15,14 @@ interface OfflineObjectDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateOfflineObject(obj: OfflineObject)
 
-    @Query("SELECT * FROM offlineobject WHERE url = :url AND lang = :lang")
-    fun getOfflineObject(url: String, lang: String): List<OfflineObject>
+    @Query("SELECT * FROM offlineobject WHERE url = :url AND lang = :lang LIMIT 1")
+    fun getOfflineObject(url: String, lang: String): OfflineObject?
 
-    @Query("SELECT * FROM offlineobject WHERE url = :url")
-    fun getOfflineObject(url: String): List<OfflineObject>
+    @Query("SELECT * FROM offlineobject WHERE url = :url LIMIT 1")
+    fun getOfflineObject(url: String): OfflineObject?
 
-    @Query("SELECT * FROM offlineobject WHERE url LIKE '%/' || :urlFragment || '/%'")
-    fun searchForOfflineObject(urlFragment: String): List<OfflineObject>
+    @Query("SELECT * FROM offlineobject WHERE url LIKE '%/' || :urlFragment || '/%' LIMIT 1")
+    fun searchForOfflineObject(urlFragment: String): OfflineObject?
 
     @Query("SELECT * FROM offlineobject WHERE url LIKE '%|' || :id || '|%'")
     fun getFromUsedById(id: Long): List<OfflineObject>
@@ -34,25 +34,23 @@ interface OfflineObjectDao {
     fun deleteAll()
 
     fun findObject(url: String, lang: String?): OfflineObject? {
-        var objList = if (lang.isNullOrEmpty()) getOfflineObject(url) else getOfflineObject(url, lang)
+        var obj = if (lang.isNullOrEmpty()) getOfflineObject(url) else getOfflineObject(url, lang)
 
         // Couldn't find an exact match, so...
         // If we're trying to load an image from Commons, try to look for any other resolution.
-        if (objList.isEmpty() && url.contains("/commons/thumb/")) {
+        if (obj == null && url.contains("/commons/thumb/")) {
             val parts = url.split("/").toTypedArray()
             if (parts.size > 2) {
                 val fileName = parts[parts.size - 2].replace("'".toRegex(), "%27")
-                objList = searchForOfflineObject(fileName)
+                obj = searchForOfflineObject(fileName)
             }
         }
-        return if (objList.isEmpty()) null else objList[0]
+        return obj
     }
 
     fun addObject(url: String, lang: String, path: String, pageTitle: String) {
         // first find this item if it already exists in the db
-        val objList = getOfflineObject(url, lang)
-        var obj: OfflineObject? = null
-        if (objList.isNotEmpty()) { obj = objList[0] }
+        var obj = getOfflineObject(url, lang)
 
         var doInsert = false
         if (obj == null) {
