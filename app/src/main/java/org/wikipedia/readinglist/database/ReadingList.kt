@@ -1,26 +1,33 @@
 package org.wikipedia.readinglist.database
 
+import android.provider.BaseColumns
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import java.io.Serializable
 import java.util.*
 
-class ReadingList(title: String,
-                  var description: String?,
-                  var mtime: Long = System.currentTimeMillis(),
-                  var atime: Long = mtime,
-                  var id: Long = 0,
-                  val pages: MutableList<ReadingListPage> = mutableListOf(),
-                  var sizeBytes: Long = 0,
-                  var dirty: Boolean = true,
-                  var remoteId: Long = 0) : Serializable {
+@Entity(tableName = "localreadinglist")
+class ReadingList(@ColumnInfo(name = "readingListTitle") var _title: String,
+                  @ColumnInfo(name = "readingListDescription") var description: String?,
+                  @ColumnInfo(name = "readingListMtime") var mtime: Long = System.currentTimeMillis(),
+                  @ColumnInfo(name = "readingListAtime") var atime: Long = mtime,
+                  @PrimaryKey(autoGenerate = true) @ColumnInfo(name = BaseColumns._ID) var id: Long = 0,
+                  @ColumnInfo(name = "readingListSizeBytes") var sizeBytes: Long = 0,
+                  @ColumnInfo(name = "readingListDirty") var dirty: Boolean = true,
+                  @ColumnInfo(name = "readingListRemoteId") var remoteId: Long = 0) : Serializable {
+
+    val pages = mutableListOf<ReadingListPage>()
 
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
-    var title = title
-        get() = if (field.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else field
+    var title
+        get() = if (_title.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else _title
+        set(value) { _title = value }
 
     val isDefault
         get() = title == WikipediaApp.getInstance().getString(R.string.default_reading_list_name)

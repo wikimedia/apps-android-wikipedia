@@ -1,5 +1,9 @@
 package org.wikipedia.readinglist.database
 
+import android.provider.BaseColumns
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -9,14 +13,15 @@ import org.wikipedia.settings.Prefs
 import java.io.Serializable
 import java.util.*
 
+@Entity(tableName = "localreadinglistpage")
 data class ReadingListPage(val wiki: WikiSite,
                            val namespace: Namespace,
-                           var displayTitle: String,
+                           @ColumnInfo(name = "title") var displayTitle: String,
                            var apiTitle: String,
                            var description: String? = null,
-                           var thumbUrl: String? = null,
+                           @ColumnInfo(name = "thumbnailUrl") var thumbUrl: String? = null,
                            var listId: Long = -1,
-                           var id: Long = 0,
+                           @PrimaryKey(autoGenerate = true) @ColumnInfo(name = BaseColumns._ID) var id: Long = 0,
                            var mtime: Long = 0,
                            var atime: Long = 0,
                            var offline: Boolean = Prefs.isDownloadingReadingListArticlesEnabled(),

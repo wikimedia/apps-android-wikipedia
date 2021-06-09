@@ -13,6 +13,8 @@ import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
+import org.wikipedia.readinglist.database.ReadingList
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
@@ -24,8 +26,11 @@ const val DATABASE_VERSION = 23
 @Database(entities = [RecentSearch::class,
     TalkPageSeen::class,
     EditSummary::class,
-    OfflineObject::class], version = DATABASE_VERSION)
-@TypeConverters(DateTypeConverter::class)
+    OfflineObject::class,
+    ReadingList::class,
+    ReadingListPage::class], version = DATABASE_VERSION)
+@TypeConverters(DateTypeConverter::class,
+    WikiSiteTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recentSearchDao(): RecentSearchDao

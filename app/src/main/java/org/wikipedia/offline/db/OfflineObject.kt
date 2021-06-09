@@ -15,7 +15,7 @@ data class OfflineObject(
     var usedby: String = "") {
 
     val usedBy: List<Long> get() {
-        return usedby.split('|').map {
+        return usedby.split('|').filter { it.isNotEmpty() }.map {
             it.toLong()
         }
     }
@@ -23,12 +23,16 @@ data class OfflineObject(
     fun addUsedBy(id: Long) {
         val set = usedBy.toMutableSet()
         set.add(id)
-        usedby = set.joinToString("|")
+        updateUsedBy(set)
     }
 
     fun removeUsedBy(id: Long) {
         val set = usedBy.toMutableSet()
         set.remove(id)
-        usedby = set.joinToString("|")
+        updateUsedBy(set)
+    }
+
+    private fun updateUsedBy(set: Set<Long>) {
+        usedby = "|${set.joinToString("|")}|"
     }
 }
