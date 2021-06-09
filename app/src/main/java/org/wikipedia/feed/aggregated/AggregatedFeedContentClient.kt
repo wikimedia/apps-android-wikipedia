@@ -14,9 +14,9 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
-import org.wikipedia.feed.mostread.MostReadListCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
+import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 
@@ -73,15 +73,20 @@ class AggregatedFeedContentClient {
         }
     }
 
-    class TrendingArticles(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
+    class TopReadArticles(aggregatedClient: AggregatedFeedContentClient) : BaseClient(aggregatedClient) {
         override fun getCardFromResponse(responses: Map<String, AggregatedFeedContent>,
                                          wiki: WikiSite,
                                          age: Int,
                                          outCards: MutableList<Card>) {
             for (appLangCode in WikipediaApp.getInstance().language().appLanguageCodes) {
-                if (responses.containsKey(appLangCode) && !FeedContentType.TRENDING_ARTICLES.langCodesDisabled.contains(appLangCode)) {
-                    responses[appLangCode]?.mostRead?.let {
-                        outCards.add(MostReadListCard(it, WikiSite.forLanguageCode(appLangCode)))
+                if (responses.containsKey(appLangCode) && !FeedContentType.TOP_READ_ARTICLES.langCodesDisabled.contains(appLangCode)) {
+                    responses[appLangCode]?.topRead?.let {
+                        outCards.add(
+                            TopReadListCard(
+                                it,
+                                WikiSite.forLanguageCode(appLangCode)
+                            )
+                        )
                     }
                 }
             }

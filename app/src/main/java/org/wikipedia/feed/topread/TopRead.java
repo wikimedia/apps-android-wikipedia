@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread;
+package org.wikipedia.feed.topread;
 
 import androidx.annotation.NonNull;
 
@@ -8,15 +8,15 @@ import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("unused,NullableProblems")
-public final class MostRead {
+public final class TopRead {
     @Required @NonNull private Date date;
-    @Required @NonNull private List<MostReadArticles> articles;
+    @Required @NonNull private List<TopReadArticles> articles;
 
     @NonNull public Date date() {
         return date;
     }
 
-    @NonNull public List<MostReadArticles> articles() {
+    @NonNull public List<TopReadArticles> articles() {
         return articles;
     }
 }

@@ -42,16 +42,10 @@ class LangLinksActivity : BaseActivity() {
     private var siteInfoList: List<SiteMatrix.SiteInfo>? = null
 
     private val entriesByAppLanguages: List<PageTitle>
-        get() {
-            val list = mutableListOf<PageTitle>()
-            for (entry in languageEntries) {
-                if (entry.wikiSite.languageCode() == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
-                        app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
-                        app.language().appLanguageCodes.contains(entry.wikiSite.languageCode())) {
-                    list.add(entry)
-                }
-            }
-            return list
+        get() = languageEntries.filter {
+            it.wikiSite.languageCode() == AppLanguageLookUpTable.NORWEGIAN_LEGACY_LANGUAGE_CODE &&
+                    app.language().appLanguageCodes.contains(AppLanguageLookUpTable.NORWEGIAN_BOKMAL_LANGUAGE_CODE) ||
+                    app.language().appLanguageCodes.contains(it.wikiSite.languageCode())
         }
 
     public override fun onCreate(savedInstanceState: Bundle?) {

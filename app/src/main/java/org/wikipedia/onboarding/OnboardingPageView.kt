@@ -12,10 +12,8 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewOnboardingPageBinding
@@ -119,23 +117,25 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         binding.languageListContainer.languagesList.adapter = LanguageListAdapter(getListData(dataType))
     }
 
-    private fun getListData(dataType: String?): List<String?> {
-        val items = mutableListOf<String>()
-        if (dataType != null && dataType == context.getString(R.string.language_data)) {
-            for (code in WikipediaApp.getInstance().language().appLanguageCodes) {
-                items.add(StringUtils.capitalize(WikipediaApp.getInstance().language().getAppLanguageLocalizedName(code)))
-            }
+    private fun getListData(dataType: String?): List<String> {
+        return if (dataType == context.getString(R.string.language_data)) {
+            val language = WikipediaApp.getInstance().language()
+            language.appLanguageCodes.map { language.getAppLanguageLocalizedName(it) }
+                .mapNotNull { localizedName ->
+                    localizedName?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                }
+        } else {
+            emptyList()
         }
-        return items
     }
 
-    inner class LanguageListAdapter internal constructor(private val items: List<String?>) : RecyclerView.Adapter<OptionsViewHolder>() {
+    inner class LanguageListAdapter internal constructor(private val items: List<String>) : RecyclerView.Adapter<OptionsViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionsViewHolder {
             return OptionsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_onboarding_options_recycler, parent, false))
         }
 
         override fun onBindViewHolder(holder: OptionsViewHolder, position: Int) {
-            holder.optionLabelTextView.textDirection = if (ViewCompat.LAYOUT_DIRECTION_LTR == ViewCompat.getLayoutDirection(binding.primaryTextView)) View.TEXT_DIRECTION_LTR else View.TEXT_DIRECTION_RTL
+            holder.optionLabelTextView.textDirection = binding.primaryTextView.layoutDirection
             holder.optionLabelTextView.text = context.getString(R.string.onboarding_option_string, (position + 1).toString(), items[position])
         }
 

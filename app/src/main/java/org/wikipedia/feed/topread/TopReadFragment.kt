@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread
+package org.wikipedia.feed.topread
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -32,7 +32,7 @@ import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
 
-class MostReadFragment : Fragment() {
+class TopReadFragment : Fragment() {
 
     private var _binding: FragmentMostReadBinding? = null
     private val binding get() = _binding!!
@@ -42,7 +42,7 @@ class MostReadFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentMostReadBinding.inflate(inflater, container, false)
 
-        val card = GsonUnmarshaller.unmarshal(MostReadListCard::class.java, requireActivity().intent.getStringExtra(MostReadArticlesActivity.MOST_READ_CARD))
+        val card = GsonUnmarshaller.unmarshal(TopReadListCard::class.java, requireActivity().intent.getStringExtra(TopReadArticlesActivity.MOST_READ_CARD))
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.top_read_activity_title, card.subtitle())
 
         L10nUtil.setConditionalLayoutDirection(binding.root, card.wikiSite().languageCode())
@@ -60,8 +60,8 @@ class MostReadFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private class RecyclerAdapter constructor(items: List<MostReadItemCard>, private val callback: Callback) :
-        DefaultRecyclerAdapter<MostReadItemCard, ListCardItemView>(items) {
+    private class RecyclerAdapter constructor(items: List<TopReadItemCard>, private val callback: Callback) :
+        DefaultRecyclerAdapter<TopReadItemCard, ListCardItemView>(items) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<ListCardItemView> {
             return DefaultViewHolder(ListCardItemView(parent.context))
@@ -110,9 +110,9 @@ class MostReadFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(card: MostReadItemCard): MostReadFragment {
-            return MostReadFragment().apply {
-                arguments = bundleOf(MostReadArticlesActivity.MOST_READ_CARD to GsonMarshaller.marshal(card))
+        fun newInstance(card: TopReadItemCard): TopReadFragment {
+            return TopReadFragment().apply {
+                arguments = bundleOf(TopReadArticlesActivity.MOST_READ_CARD to GsonMarshaller.marshal(card))
             }
         }
     }
