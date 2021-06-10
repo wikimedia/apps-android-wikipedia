@@ -18,12 +18,12 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.ReadingListsFunnel
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.DialogAddToReadingListBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListTitleDialog.readingListTitleDialog
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.DimenUtil.getDimension
@@ -86,7 +86,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateLists() {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.allLists }
+        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListDao().getAllLists() }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ lists ->
@@ -118,7 +118,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun showCreateListDialog() {
         readingListTitleDialog(requireActivity(), "", "", readingLists.map { it.title }) { text, description ->
-            addAndDismiss(ReadingListDbHelper.createList(text, description), titles)
+            addAndDismiss(AppDatabase.getAppDatabase().readingListDao().createList(text, description), titles)
         }.show()
     }
 
@@ -139,7 +139,7 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { ReadingListDbHelper.addPagesToListIfNotExist(readingList, titles) }
+        disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().addPagesToListIfNotExist(readingList, titles) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ addedTitlesList ->

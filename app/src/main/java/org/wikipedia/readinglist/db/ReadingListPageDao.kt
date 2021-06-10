@@ -1,10 +1,6 @@
 package org.wikipedia.readinglist.db
 
-import android.content.ContentValues
-import android.database.sqlite.SQLiteDatabase
 import androidx.room.*
-import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.sqlite.db.SupportSQLiteQueryBuilder
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
@@ -12,13 +8,11 @@ import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
-import org.wikipedia.util.log.L
 import java.util.*
 
 @Dao
@@ -43,21 +37,25 @@ interface ReadingListPageDao {
 
     @Query("SELECT * FROM localreadinglistpage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND title = :displayTitle AND apiTitle = :apiTitle AND listId = :listId AND status != :excludedStatus")
     fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace, displayTitle: String,
-                        apiTitle: String, listId: Long, excludedStatus: Long): ReadingListPage?
+        apiTitle: String, listId: Long, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM localreadinglistpage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND title = :displayTitle AND apiTitle = :apiTitle AND status != :excludedStatus")
     fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace, displayTitle: String,
-                        apiTitle: String, excludedStatus: Long): ReadingListPage?
+        apiTitle: String, excludedStatus: Long): ReadingListPage?
 
     @Query("SELECT * FROM localreadinglistpage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND title = :displayTitle AND apiTitle = :apiTitle AND status != :excludedStatus")
     fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace, displayTitle: String,
-                        apiTitle: String, excludedStatus: Long): List<ReadingListPage>
+        apiTitle: String, excludedStatus: Long): List<ReadingListPage>
 
     @Query("SELECT * FROM localreadinglistpage WHERE listId = :listId AND status != :excludedStatus")
     fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
 
     @Query("UPDATE localreadinglistpage SET thumbnailUrl = :thumbUrl, description = :description WHERE lang = :lang AND title = :displayTitle AND apiTitle = :apiTitle")
-    fun updateThumbAndDescriptionByName(lang: String, displayTitle: String, apiTitle: String, thumbUrl: String?, description: String?)
+    fun updateThumbAndDescriptionByName(lang: String, displayTitle: String, apiTitle: String,
+        thumbUrl: String?, description: String?)
+
+    @Query("UPDATE localreadinglistpage SET status = :newStatus WHERE status = :oldStatus AND offline = :offline")
+    fun updateStatus(oldStatus: Long, newStatus: Long, offline: Boolean)
 
     @Query("SELECT * FROM localreadinglistpage ORDER BY RANDOM() LIMIT 1")
     fun getRandomPage(): ReadingListPage?
@@ -68,6 +66,23 @@ interface ReadingListPageDao {
     @Query("DELETE FROM localreadinglistpage WHERE status = :status")
     fun deletePagesByStatus(status: Long)
 
+    @Query("UPDATE localreadinglistpage SET remoteId = -1")
+    fun markAllPagesUnsynced()
+
+    @Query("SELECT * FROM localreadinglistpage WHERE remoteId < 1")
+    fun getAllPagesToBeSynced(): List<ReadingListPage>
+
+    val allPagesToBeSaved
+        get() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
+
+    val allPagesToBeForcedSave
+        get() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
+
+    val allPagesToBeUnsaved
+        get() = getPagesByStatus(ReadingListPage.STATUS_SAVED, false)
+
+    val allPagesToBeDeleted
+        get() = getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
 
     fun populateListPages(list: ReadingList) {
         list.pages.addAll(getPagesByListId(list.id, ReadingListPage.STATUS_QUEUE_FOR_DELETE))
@@ -114,12 +129,15 @@ interface ReadingListPageDao {
     }
 
     fun updateMetadataByTitle(pageProto: ReadingListPage, description: String?, thumbUrl: String?) {
-        updateThumbAndDescriptionByName(pageProto.lang, pageProto.displayTitle, pageProto.apiTitle, thumbUrl, description)
+        updateThumbAndDescriptionByName(pageProto.lang, pageProto.displayTitle, pageProto.apiTitle,
+            thumbUrl, description)
     }
 
     fun findPageInAnyList(title: PageTitle): ReadingListPage? {
-        return getPageByParams(title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
-            title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+        return getPageByParams(
+            title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
+            title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
+        )
     }
 
     fun findPageForSearchQueryInAnyList(searchQuery: String): SearchResults {
@@ -127,20 +145,27 @@ interface ReadingListPageDao {
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
         }
-        normalizedQuery = normalizedQuery.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        normalizedQuery = normalizedQuery.replace("\\", "\\\\")
+            .replace("%", "\\%").replace("_", "\\_")
 
         val page = findPageBySearchTerm("%$normalizedQuery%")
-        return if (page == null) SearchResults() else SearchResults(mutableListOf(
-            SearchResult(PageTitle(page.apiTitle, page.wiki, page.thumbUrl, page.description,
-                page.displayTitle), SearchResult.SearchResultType.READING_LIST)
-        ))
+        return if (page == null) SearchResults() else SearchResults(
+            mutableListOf(
+                SearchResult(
+                    PageTitle(page.apiTitle, page.wiki, page.thumbUrl, page.description, page.displayTitle),
+                    SearchResult.SearchResultType.READING_LIST
+                )
+            )
+        )
     }
-
 
     fun pageExistsInList(list: ReadingList, title: PageTitle): Boolean {
         return getPageByTitle(list, title) != null
     }
 
+    fun resetUnsavedPageStatus() {
+        updateStatus(ReadingListPage.STATUS_SAVED, ReadingListPage.STATUS_QUEUE_FOR_SAVE, false)
+    }
 
     @Transaction
     fun markPagesForDeletion(list: ReadingList, pages: List<ReadingListPage>, queueForSync: Boolean = true) {
@@ -207,13 +232,12 @@ interface ReadingListPageDao {
         }
     }
 
-
-
-
-    private fun getPageByTitle(list: ReadingList, title: PageTitle): ReadingListPage? {
-        return getPageByParams(title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
+    fun getPageByTitle(list: ReadingList, title: PageTitle): ReadingListPage? {
+        return getPageByParams(
+            title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
             title.displayText, title.prefixedText, list.id,
-            ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+            ReadingListPage.STATUS_QUEUE_FOR_DELETE
+        )
     }
 
     fun addPageToList(list: ReadingList, title: PageTitle, queueForSync: Boolean) {
@@ -242,29 +266,11 @@ interface ReadingListPageDao {
     }
 
     fun getAllPageOccurrences(title: PageTitle): List<ReadingListPage> {
-        return getPagesByParams(title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
-            title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE)
+        return getPagesByParams(
+            title.wikiSite, title.wikiSite.languageCode(), title.namespace(),
+            title.displayText, title.prefixedText, ReadingListPage.STATUS_QUEUE_FOR_DELETE
+        )
     }
-
-    fun getAllPagesToBeSaved(): List<ReadingListPage> {
-        return getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_SAVE, true)
-    }
-
-    fun getAllPagesToBeForcedSave(): List<ReadingListPage> {
-        return getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_FORCED_SAVE, true)
-    }
-
-    fun getAllPagesToBeUnsaved(): List<ReadingListPage> {
-        return getPagesByStatus(ReadingListPage.STATUS_SAVED, false)
-    }
-
-    fun getAllPagesToBeDeleted(): List<ReadingListPage> {
-        return getPagesByStatus(ReadingListPage.STATUS_QUEUE_FOR_DELETE)
-    }
-
-    @Query("SELECT * FROM localreadinglistpage WHERE remoteId < 1")
-    fun getAllPagesToBeSynced(): List<ReadingListPage>
-
 
     private fun addPageToList(list: ReadingList, title: PageTitle) {
         val protoPage = ReadingListPage(title)
@@ -277,7 +283,4 @@ interface ReadingListPageDao {
         // TODO: is id autoincremented automatically?
         insertReadingListPage(page)
     }
-
-
-
 }

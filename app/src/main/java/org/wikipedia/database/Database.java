@@ -8,8 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.readinglist.database.ReadingList;
-import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.log.L;
 
 public class Database extends SupportSQLiteOpenHelper.Callback {
@@ -17,9 +15,7 @@ public class Database extends SupportSQLiteOpenHelper.Callback {
 
     private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
-            PageImage.DATABASE_TABLE,
-            ReadingList.DATABASE_TABLE,
-            ReadingListPage.DATABASE_TABLE,
+            PageImage.DATABASE_TABLE
     };
 
     public Database(SupportSQLiteOpenHelper.Callback callbackDelegate) {

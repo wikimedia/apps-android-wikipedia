@@ -24,7 +24,6 @@ import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.gallery.MediaList
 import org.wikipedia.page.PageTitle
 import org.wikipedia.pageimages.PageImage
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -45,13 +44,13 @@ class SavedPageSyncService : JobIntentService() {
             // Reading list sync was started in the meantime, so bail.
             return
         }
-        val pagesToSave = ReadingListDbHelper.allPagesToBeForcedSave
+        val pagesToSave = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeForcedSave.toMutableList()
         if ((!Prefs.isDownloadOnlyOverWiFiEnabled() || DeviceUtil.isOnWiFi()) &&
                 Prefs.isDownloadingReadingListArticlesEnabled()) {
-            pagesToSave.addAll(ReadingListDbHelper.allPagesToBeSaved)
+            pagesToSave.addAll(AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeSaved)
         }
-        val pagesToUnSave = ReadingListDbHelper.allPagesToBeUnsaved
-        val pagesToDelete = ReadingListDbHelper.allPagesToBeDeleted
+        val pagesToUnSave = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeUnsaved
+        val pagesToDelete = AppDatabase.getAppDatabase().readingListPageDao().allPagesToBeDeleted
         var shouldSendSyncEvent = false
         try {
             for (page in pagesToDelete) {
@@ -64,11 +63,11 @@ class SavedPageSyncService : JobIntentService() {
             L.e("Error while deleting page: " + e.message)
         } finally {
             if (pagesToDelete.isNotEmpty()) {
-                ReadingListDbHelper.purgeDeletedPages()
+                AppDatabase.getAppDatabase().readingListPageDao().purgeDeletedPages()
                 shouldSendSyncEvent = true
             }
             if (pagesToUnSave.isNotEmpty()) {
-                ReadingListDbHelper.resetUnsavedPageStatus()
+                AppDatabase.getAppDatabase().readingListPageDao().resetUnsavedPageStatus()
                 shouldSendSyncEvent = true
             }
         }
@@ -110,7 +109,7 @@ class SavedPageSyncService : JobIntentService() {
             } else if (savedPageSyncNotification.isSyncCanceled()) {
                 // Mark remaining pages as online-only!
                 queue.add(page)
-                ReadingListDbHelper.markPagesForOffline(queue, offline = false, forcedSave = false)
+                AppDatabase.getAppDatabase().readingListPageDao().markPagesForOffline(queue, offline = false, forcedSave = false)
                 break
             }
             savedPageSyncNotification.setNotificationProgress(applicationContext, itemsTotal, itemsSaved)
@@ -147,7 +146,7 @@ class SavedPageSyncService : JobIntentService() {
             if (success) {
                 page.status = ReadingListPage.STATUS_SAVED
                 page.sizeBytes = totalSize
-                ReadingListDbHelper.updatePage(page)
+                AppDatabase.getAppDatabase().readingListPageDao().updateReadingListPage(page)
                 itemsSaved++
                 sendSyncEvent()
             }

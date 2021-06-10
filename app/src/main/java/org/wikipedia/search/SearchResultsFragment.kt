@@ -20,6 +20,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.SearchFunnel
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -28,7 +29,6 @@ import org.wikipedia.history.HistoryDbHelper.findHistoryItem
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColor
@@ -136,7 +136,7 @@ class SearchResultsFragment : Fragment() {
         updateProgressBar(true)
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
             Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
-                    if (searchTerm.length >= 2) Observable.fromCallable { ReadingListDbHelper.findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
                     if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
                         val searchResults = if (searchResponse?.query()!!.pages() != null) {

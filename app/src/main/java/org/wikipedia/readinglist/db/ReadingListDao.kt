@@ -1,15 +1,11 @@
 package org.wikipedia.readinglist.db
 
-import android.database.sqlite.SQLiteDatabase
 import androidx.room.*
-import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.sqlite.db.SupportSQLiteQueryBuilder
-import io.reactivex.rxjava3.core.Single
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.readinglist.database.ReadingListDbHelper
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.util.log.L
 
@@ -26,8 +22,14 @@ interface ReadingListDao {
 
     @Query("SELECT * FROM localreadinglist")
     fun getListsWithoutContents(): List<ReadingList>
-    
-    fun getAllLists(): MutableList<ReadingList> {
+
+    @Query("SELECT * FROM localreadinglist WHERE _id = :id")
+    fun getListById(id: Long): ReadingList?
+
+    @Query("UPDATE localreadinglist SET readingListRemoteId = -1")
+    fun markAllListsUnsynced()
+
+    fun getAllLists(): List<ReadingList> {
         val lists = getListsWithoutContents()
         lists.forEach {
             AppDatabase.getAppDatabase().readingListPageDao().populateListPages(it)
@@ -35,34 +37,28 @@ interface ReadingListDao {
         return lists.toMutableList()
     }
 
-
     fun getListById(id: Long, populatePages: Boolean): ReadingList? {
-        val db = ReadingListDbHelper.readableDatabase
-        var list: ReadingList? = null
-        db.query(SupportSQLiteQueryBuilder.builder(ReadingListContract.TABLE)
-            .selection(ReadingListContract.Col.ID.name + " = ?", arrayOf(id.toString()))
-            .create()).use { cursor ->
-            if (cursor.moveToFirst()) {
-                list = ReadingList.DATABASE_TABLE.fromCursor(cursor)
-            }
-        }
-
-        return list?.apply {
+        return getListById(id)?.apply {
             if (populatePages) {
-                populateListPages(db, this)
+                AppDatabase.getAppDatabase().readingListPageDao().populateListPages(this)
             }
         }
     }
 
-
-
-
+    fun getAllListsWithUnsyncedPages(): List<ReadingList> {
+        val lists = getListsWithoutContents()
+        val pages = AppDatabase.getAppDatabase().readingListPageDao().getAllPagesToBeSynced()
+        pages.forEach { page ->
+            lists.first { it.id == page.listId }.apply { this.pages.add(page) }
+        }
+        return lists
+    }
 
     fun updateList(list: ReadingList, queueForSync: Boolean) {
         updateLists(listOf(list), queueForSync)
     }
 
-    private fun updateLists(lists: List<ReadingList>, queueForSync: Boolean) {
+    fun updateLists(lists: List<ReadingList>, queueForSync: Boolean) {
         for (list in lists) {
             if (queueForSync) {
                 list.dirty = true
@@ -86,7 +82,22 @@ interface ReadingListDao {
         }
     }
 
-
+    fun getListsFromPageOccurrences(pages: List<ReadingListPage>): List<ReadingList> {
+        val lists = mutableListOf<ReadingList>()
+        val listIds = mutableSetOf<Long>()
+        for (page in pages) {
+            listIds.add(page.listId)
+        }
+        for (listId in listIds) {
+            getListById(listId)?.let {
+                lists.add(it)
+            }
+        }
+        pages.forEach { page ->
+            lists.filter { it.id == page.listId }.map { it.pages.add(page) }
+        }
+        return lists
+    }
 
 
     fun createList(title: String, description: String?): ReadingList {
@@ -103,7 +114,7 @@ interface ReadingListDao {
             lists.find { it.isDefault }?.run {
                 return this
             }
-            L.w("Recreating default list (should not happen).")
+            L.w("(Re)creating default list.")
             return createNewList("", WikipediaApp.getInstance().getString(R.string.default_reading_list_description))
         }
 

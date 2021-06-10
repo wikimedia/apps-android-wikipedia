@@ -25,15 +25,22 @@ import org.wikipedia.talk.db.TalkPageSeenDao
 const val DATABASE_NAME = "wikipedia.db"
 const val DATABASE_VERSION = 23
 
-@Database(entities = [RecentSearch::class,
-    TalkPageSeen::class,
-    EditSummary::class,
-    OfflineObject::class,
-    ReadingList::class,
-    ReadingListPage::class], version = DATABASE_VERSION)
-@TypeConverters(DateTypeConverter::class,
+@Database(
+    entities = [
+        RecentSearch::class,
+        TalkPageSeen::class,
+        EditSummary::class,
+        OfflineObject::class,
+        ReadingList::class,
+        ReadingListPage::class
+    ],
+    version = DATABASE_VERSION
+)
+@TypeConverters(
+    DateTypeConverter::class,
     WikiSiteTypeConverter::class,
-    NapespaceTypeConverter::class)
+    NapespaceTypeConverter::class
+)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recentSearchDao(): RecentSearchDao
@@ -78,12 +85,17 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        private var INSTANCE: AppDatabase? = null
+        @Volatile
+        private var instance: AppDatabase? = null
 
         fun getAppDatabase(): AppDatabase {
-            if (INSTANCE == null) {
+            if (instance == null) {
                 synchronized(AppDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(WikipediaApp.getInstance(), AppDatabase::class.java, DATABASE_NAME)
+                    instance = Room.databaseBuilder(
+                        WikipediaApp.getInstance(),
+                        AppDatabase::class.java,
+                        DATABASE_NAME
+                    )
                         .addMigrations(MIGRATION_22_23)
                         .allowMainThreadQueries() // TODO: remove after migration
                         .fallbackToDestructiveMigration()
@@ -99,7 +111,7 @@ abstract class AppDatabase : RoomDatabase() {
                         .build()
                 }
             }
-            return INSTANCE!!
+            return instance!!
         }
     }
 }

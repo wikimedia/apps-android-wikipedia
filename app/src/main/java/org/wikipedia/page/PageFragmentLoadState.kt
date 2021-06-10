@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.database.contract.PageImageHistoryContract
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -20,7 +21,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.pageimages.PageImage
-import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -126,7 +126,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
     private fun pageLoadCheckReadingLists() {
         model.title?.let {
             disposables.clear()
-            disposables.add(Observable.fromCallable { ReadingListDbHelper.findPageInAnyList(it) }
+            disposables.add(Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageInAnyList(it) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { pageLoadFromNetwork { networkError -> fragment.onPageLoadError(networkError) } }

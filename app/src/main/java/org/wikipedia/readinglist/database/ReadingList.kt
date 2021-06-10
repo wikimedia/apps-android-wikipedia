@@ -3,6 +3,7 @@ package org.wikipedia.readinglist.database
 import android.provider.BaseColumns
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
@@ -13,7 +14,7 @@ import java.util.*
 // TODO: create default reading list upon initial DB creation.
 
 @Entity(tableName = "localreadinglist")
-class ReadingList(@ColumnInfo(name = "readingListTitle") var _title: String,
+class ReadingList(@ColumnInfo(name = "readingListTitle") var listTitle: String,
                   @ColumnInfo(name = "readingListDescription") var description: String?,
                   @ColumnInfo(name = "readingListMtime") var mtime: Long = System.currentTimeMillis(),
                   @ColumnInfo(name = "readingListAtime") var atime: Long = mtime,
@@ -22,14 +23,15 @@ class ReadingList(@ColumnInfo(name = "readingListTitle") var _title: String,
                   @ColumnInfo(name = "readingListDirty") var dirty: Boolean = true,
                   @ColumnInfo(name = "readingListRemoteId") var remoteId: Long = 0) : Serializable {
 
+    @Ignore
     val pages = mutableListOf<ReadingListPage>()
 
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
     var title
-        get() = if (_title.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else _title
-        set(value) { _title = value }
+        get() = if (listTitle.isEmpty()) WikipediaApp.getInstance().getString(R.string.default_reading_list_name) else listTitle
+        set(value) { listTitle = value }
 
     val isDefault
         get() = title == WikipediaApp.getInstance().getString(R.string.default_reading_list_name)
