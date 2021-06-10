@@ -55,6 +55,7 @@
   <string name="offline_load_error_retry">Coba lagi</string>
   <string name="page_error_back_to_main">Kembali</string>
   <string name="error_back">Kembali</string>
+  <string name="error_next">Berikutnya</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
   <string name="history_item_deleted">%s dihapus dari riwayat</string>
   <string name="history_items_deleted">%d artikel dihapus dari riwayat</string>
@@ -379,6 +380,10 @@
   <string name="page_footer_license_text">Konten tersedia di bawah $1 kecuali dinyatakan lain</string>
   <string name="empty_tab_title">Tab baru</string>
   <string name="menu_save_all_tabs">Simpan semua tab</string>
+  <string name="error_blocked_title">Nama pengguna atau alamat IP anda telah disekat.</string>
+  <string name="error_blocked_by">Penyekatan dilakukan oleh &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Alasan yang diberikan adalah: %s</string>
+  <string name="error_blocked_start">Mulai penyekatan: %s</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
