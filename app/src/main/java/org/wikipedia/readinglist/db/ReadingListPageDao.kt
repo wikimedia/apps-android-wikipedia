@@ -23,53 +23,53 @@ interface ReadingListPageDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateReadingListPage(page: ReadingListPage)
 
-    @Query("SELECT * FROM localreadinglistpage")
+    @Query("SELECT * FROM ReadingListPage")
     fun getAllPages(): List<ReadingListPage>
 
-    @Query("SELECT * FROM localreadinglistpage WHERE _id = :id")
+    @Query("SELECT * FROM ReadingListPage WHERE id = :id")
     fun getPageById(id: Long): ReadingListPage?
 
-    @Query("SELECT * FROM localreadinglistpage WHERE status = :status AND offline = :offline")
+    @Query("SELECT * FROM ReadingListPage WHERE status = :status AND offline = :offline")
     fun getPagesByStatus(status: Long, offline: Boolean): List<ReadingListPage>
 
-    @Query("SELECT * FROM localreadinglistpage WHERE status = :status")
+    @Query("SELECT * FROM ReadingListPage WHERE status = :status")
     fun getPagesByStatus(status: Long): List<ReadingListPage>
 
-    @Query("SELECT * FROM localreadinglistpage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND title = :displayTitle AND apiTitle = :apiTitle AND listId = :listId AND status != :excludedStatus")
+    @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND displayTitle = :displayTitle AND apiTitle = :apiTitle AND listId = :listId AND status != :excludedStatus")
     fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace, displayTitle: String,
         apiTitle: String, listId: Long, excludedStatus: Long): ReadingListPage?
 
-    @Query("SELECT * FROM localreadinglistpage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND title = :displayTitle AND apiTitle = :apiTitle AND status != :excludedStatus")
+    @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND displayTitle = :displayTitle AND apiTitle = :apiTitle AND status != :excludedStatus")
     fun getPageByParams(wiki: WikiSite, lang: String, ns: Namespace, displayTitle: String,
         apiTitle: String, excludedStatus: Long): ReadingListPage?
 
-    @Query("SELECT * FROM localreadinglistpage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND title = :displayTitle AND apiTitle = :apiTitle AND status != :excludedStatus")
+    @Query("SELECT * FROM ReadingListPage WHERE wiki = :wiki AND lang = :lang AND namespace = :ns AND displayTitle = :displayTitle AND apiTitle = :apiTitle AND status != :excludedStatus")
     fun getPagesByParams(wiki: WikiSite, lang: String, ns: Namespace, displayTitle: String,
         apiTitle: String, excludedStatus: Long): List<ReadingListPage>
 
-    @Query("SELECT * FROM localreadinglistpage WHERE listId = :listId AND status != :excludedStatus")
+    @Query("SELECT * FROM ReadingListPage WHERE listId = :listId AND status != :excludedStatus")
     fun getPagesByListId(listId: Long, excludedStatus: Long): List<ReadingListPage>
 
-    @Query("UPDATE localreadinglistpage SET thumbnailUrl = :thumbUrl, description = :description WHERE lang = :lang AND title = :displayTitle AND apiTitle = :apiTitle")
+    @Query("UPDATE ReadingListPage SET thumbUrl = :thumbUrl, description = :description WHERE lang = :lang AND displayTitle = :displayTitle AND apiTitle = :apiTitle")
     fun updateThumbAndDescriptionByName(lang: String, displayTitle: String, apiTitle: String,
         thumbUrl: String?, description: String?)
 
-    @Query("UPDATE localreadinglistpage SET status = :newStatus WHERE status = :oldStatus AND offline = :offline")
+    @Query("UPDATE ReadingListPage SET status = :newStatus WHERE status = :oldStatus AND offline = :offline")
     fun updateStatus(oldStatus: Long, newStatus: Long, offline: Boolean)
 
-    @Query("SELECT * FROM localreadinglistpage ORDER BY RANDOM() LIMIT 1")
+    @Query("SELECT * FROM ReadingListPage ORDER BY RANDOM() LIMIT 1")
     fun getRandomPage(): ReadingListPage?
 
-    @Query("SELECT * FROM localreadinglistpage WHERE UPPER(title) LIKE UPPER(:term) ESCAPE '\\'")
+    @Query("SELECT * FROM ReadingListPage WHERE UPPER(displayTitle) LIKE UPPER(:term) ESCAPE '\\'")
     fun findPageBySearchTerm(term: String): ReadingListPage?
 
-    @Query("DELETE FROM localreadinglistpage WHERE status = :status")
+    @Query("DELETE FROM ReadingListPage WHERE status = :status")
     fun deletePagesByStatus(status: Long)
 
-    @Query("UPDATE localreadinglistpage SET remoteId = -1")
+    @Query("UPDATE ReadingListPage SET remoteId = -1")
     fun markAllPagesUnsynced()
 
-    @Query("SELECT * FROM localreadinglistpage WHERE remoteId < 1")
+    @Query("SELECT * FROM ReadingListPage WHERE remoteId < 1")
     fun getAllPagesToBeSynced(): List<ReadingListPage>
 
     val allPagesToBeSaved

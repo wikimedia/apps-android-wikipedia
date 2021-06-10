@@ -1,7 +1,5 @@
 package org.wikipedia.readinglist.database
 
-import android.provider.BaseColumns
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
@@ -13,15 +11,17 @@ import java.util.*
 
 // TODO: create default reading list upon initial DB creation.
 
-@Entity(tableName = "localreadinglist")
-class ReadingList(@ColumnInfo(name = "readingListTitle") var listTitle: String,
-                  @ColumnInfo(name = "readingListDescription") var description: String?,
-                  @ColumnInfo(name = "readingListMtime") var mtime: Long = System.currentTimeMillis(),
-                  @ColumnInfo(name = "readingListAtime") var atime: Long = mtime,
-                  @PrimaryKey(autoGenerate = true) @ColumnInfo(name = BaseColumns._ID) var id: Long = 0,
-                  @ColumnInfo(name = "readingListSizeBytes") var sizeBytes: Long = 0,
-                  @ColumnInfo(name = "readingListDirty") var dirty: Boolean = true,
-                  @ColumnInfo(name = "readingListRemoteId") var remoteId: Long = 0) : Serializable {
+@Entity
+class ReadingList(
+    var listTitle: String,
+    var description: String?,
+    var mtime: Long = System.currentTimeMillis(),
+    var atime: Long = mtime,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    var sizeBytes: Long = 0,
+    var dirty: Boolean = true,
+    var remoteId: Long = 0
+) : Serializable {
 
     @Ignore
     val pages = mutableListOf<ReadingListPage>()

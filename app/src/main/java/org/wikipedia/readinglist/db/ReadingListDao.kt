@@ -20,13 +20,13 @@ interface ReadingListDao {
     @Delete
     fun deleteReadingList(list: ReadingList)
 
-    @Query("SELECT * FROM localreadinglist")
+    @Query("SELECT * FROM ReadingList")
     fun getListsWithoutContents(): List<ReadingList>
 
-    @Query("SELECT * FROM localreadinglist WHERE _id = :id")
+    @Query("SELECT * FROM ReadingList WHERE id = :id")
     fun getListById(id: Long): ReadingList?
 
-    @Query("UPDATE localreadinglist SET readingListRemoteId = -1")
+    @Query("UPDATE ReadingList SET remoteId = -1")
     fun markAllListsUnsynced()
 
     fun getAllLists(): List<ReadingList> {

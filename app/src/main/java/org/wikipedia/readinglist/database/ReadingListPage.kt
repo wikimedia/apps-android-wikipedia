@@ -1,7 +1,5 @@
 package org.wikipedia.readinglist.database
 
-import android.provider.BaseColumns
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.apache.commons.lang3.StringUtils
@@ -13,39 +11,39 @@ import org.wikipedia.settings.Prefs
 import java.io.Serializable
 import java.util.*
 
-@Entity(tableName = "localreadinglistpage")
-data class ReadingListPage(val wiki: WikiSite,
-                           val namespace: Namespace,
-                           @ColumnInfo(name = "title") var displayTitle: String,
-                           var apiTitle: String,
-                           var description: String? = null,
-                           @ColumnInfo(name = "thumbnailUrl") var thumbUrl: String? = null,
-                           var listId: Long = -1,
-                           @PrimaryKey(autoGenerate = true) @ColumnInfo(name = BaseColumns._ID) var id: Long = 0,
-                           var mtime: Long = 0,
-                           var atime: Long = 0,
-                           var offline: Boolean = Prefs.isDownloadingReadingListArticlesEnabled(),
-                           var status: Long = STATUS_QUEUE_FOR_SAVE,
-                           var sizeBytes: Long = 0,
-                           var lang: String = "en",
-                           var revId: Long = 0,
-                           var remoteId: Long = 0) : Serializable {
+@Entity
+data class ReadingListPage(
+    val wiki: WikiSite,
+    val namespace: Namespace,
+    var displayTitle: String,
+    var apiTitle: String,
+    var description: String? = null,
+    var thumbUrl: String? = null,
+    var listId: Long = -1,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    var mtime: Long = 0,
+    var atime: Long = 0,
+    var offline: Boolean = Prefs.isDownloadingReadingListArticlesEnabled(),
+    var status: Long = STATUS_QUEUE_FOR_SAVE,
+    var sizeBytes: Long = 0,
+    var lang: String = "en",
+    var revId: Long = 0,
+    var remoteId: Long = 0
+) : Serializable {
 
     constructor(title: PageTitle) :
-            this(title.wikiSite, title.namespace(), title.displayText, title.prefixedText, title.description, title.thumbUrl) {
+            this(title.wikiSite, title.namespace(), title.displayText, title.prefixedText,
+                title.description, title.thumbUrl, lang = title.wikiSite.languageCode()) {
         val now = System.currentTimeMillis()
         mtime = now
         atime = now
     }
 
-    @Transient
-    private var accentAndCaseInvariantTitle: String? = null
+    @Transient private var accentAndCaseInvariantTitle: String? = null
 
-    @Transient
-    var downloadProgress = 0
+    @Transient var downloadProgress = 0
 
-    @Transient
-    var selected = false
+    @Transient var selected = false
 
     val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
 

@@ -11,12 +11,12 @@ interface TalkPageSeenDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTalkPageSeen(talkPageSeen: TalkPageSeen)
 
-    @Query("SELECT * FROM talkpageseen WHERE sha = :sha")
+    @Query("SELECT * FROM TalkPageSeen WHERE sha = :sha")
     fun getTalkPageSeen(sha: String): List<TalkPageSeen>
 
-    @Query("SELECT * FROM talkpageseen")
+    @Query("SELECT * FROM TalkPageSeen")
     fun getAll(): List<TalkPageSeen>
 
-    @Query("DELETE FROM talkpageseen")
+    @Query("DELETE FROM TalkPageSeen")
     fun deleteAll(): Single<Unit>
 }

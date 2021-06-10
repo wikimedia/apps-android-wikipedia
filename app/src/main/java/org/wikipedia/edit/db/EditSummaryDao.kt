@@ -8,9 +8,9 @@ interface EditSummaryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertEditSummary(summary: EditSummary): Single<Unit>
 
-    @Query("SELECT * FROM editsummaries ORDER BY lastUsed DESC")
+    @Query("SELECT * FROM EditSummary ORDER BY lastUsed DESC")
     fun getEditSummaries(): Single<List<EditSummary>>
 
-    @Query("DELETE FROM editsummaries")
+    @Query("DELETE FROM EditSummary")
     fun deleteAll(): Single<Unit>
 }

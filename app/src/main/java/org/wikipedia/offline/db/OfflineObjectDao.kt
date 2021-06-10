@@ -15,22 +15,22 @@ interface OfflineObjectDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateOfflineObject(obj: OfflineObject)
 
-    @Query("SELECT * FROM offlineobject WHERE url = :url AND lang = :lang LIMIT 1")
+    @Query("SELECT * FROM OfflineObject WHERE url = :url AND lang = :lang LIMIT 1")
     fun getOfflineObject(url: String, lang: String): OfflineObject?
 
-    @Query("SELECT * FROM offlineobject WHERE url = :url LIMIT 1")
+    @Query("SELECT * FROM OfflineObject WHERE url = :url LIMIT 1")
     fun getOfflineObject(url: String): OfflineObject?
 
-    @Query("SELECT * FROM offlineobject WHERE url LIKE '%/' || :urlFragment || '/%' LIMIT 1")
+    @Query("SELECT * FROM OfflineObject WHERE url LIKE '%/' || :urlFragment || '/%' LIMIT 1")
     fun searchForOfflineObject(urlFragment: String): OfflineObject?
 
-    @Query("SELECT * FROM offlineobject WHERE usedby LIKE '%|' || :id || '|%'")
+    @Query("SELECT * FROM OfflineObject WHERE usedByStr LIKE '%|' || :id || '|%'")
     fun getFromUsedById(id: Long): List<OfflineObject>
 
     @Delete
     fun deleteOfflineObject(obj: OfflineObject)
 
-    @Query("DELETE FROM offlineobject")
+    @Query("DELETE FROM OfflineObject")
     fun deleteAll()
 
     fun findObject(url: String, lang: String?): OfflineObject? {
