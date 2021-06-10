@@ -25,18 +25,15 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
 import org.wikipedia.crash.AppCenterCrashesListener;
-import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeFontChangeEvent;
-import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.AcceptLanguageUtil;
 import org.wikipedia.language.AppLanguageState;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.push.WikipediaFirebaseMessagingService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.RemoteConfig;
@@ -47,11 +44,8 @@ import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 import java.util.UUID;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -66,7 +60,6 @@ import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
-    private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<>());
     private Handler mainThreadHandler;
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
@@ -229,22 +222,6 @@ public class WikipediaApp extends Application {
             return newWiki;
         }
         return wiki;
-    }
-
-    public <T> DatabaseClient<T> getDatabaseClient(Class<T> cls) {
-        if (!databaseClients.containsKey(cls)) {
-            DatabaseClient<?> client;
-            if (cls.equals(HistoryEntry.class)) {
-                client = new DatabaseClient<>(HistoryEntry.DATABASE_TABLE);
-            } else if (cls.equals(PageImage.class)) {
-                client = new DatabaseClient<>(PageImage.DATABASE_TABLE);
-            } else {
-                throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
-            }
-            databaseClients.put(cls, client);
-        }
-        //noinspection unchecked
-        return (DatabaseClient<T>) databaseClients.get(cls);
     }
 
     /**

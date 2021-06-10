@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -28,7 +27,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.database.contract.PageHistoryContract
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentHistoryBinding
 import org.wikipedia.main.MainActivity
 import org.wikipedia.main.MainFragment
@@ -138,7 +137,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     }
 
     private fun onClearHistoryClick() {
-        disposables.add(Completable.fromAction { WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java).deleteAll() }
+        disposables.add(AppDatabase.getAppDatabase().historyEntryDao().deleteAll()
                 .subscribeOn(Schedulers.io())
                 .doAfterTerminate { reloadHistoryItems() }
                 .subscribe())
@@ -189,8 +188,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val selectedEntryList = mutableListOf<HistoryEntry>()
         for (entry in selectedEntries) {
             selectedEntryList.add(entry)
-            WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java).delete(entry,
-                    PageHistoryContract.PageWithImage.SELECTION)
+            AppDatabase.getAppDatabase().historyEntryDao().delete(entry)
         }
         selectedEntries.clear()
         if (selectedEntryList.isNotEmpty()) {
@@ -203,10 +201,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
         snackbar.setAction(R.string.history_item_delete_undo) {
-            val client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry::class.java)
-            for (entry in entries) {
-                client.upsert(entry, PageHistoryContract.PageWithImage.SELECTION)
-            }
+            AppDatabase.getAppDatabase().historyEntryDao().insert(entries)
             reloadHistoryItems()
         }
         snackbar.show()

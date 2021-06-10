@@ -6,13 +6,15 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.sqlite.db.SupportSQLiteOpenHelper
-import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory
 import org.wikipedia.WikipediaApp
 import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.history.db.HistoryEntryDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
+import org.wikipedia.pageimages.db.PageImage
+import org.wikipedia.pageimages.db.PageImageDao
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.db.ReadingListDao
@@ -27,6 +29,8 @@ const val DATABASE_VERSION = 23
 
 @Database(
     entities = [
+        HistoryEntry::class,
+        PageImage::class,
         RecentSearch::class,
         TalkPageSeen::class,
         EditSummary::class,
@@ -43,6 +47,8 @@ const val DATABASE_VERSION = 23
 )
 abstract class AppDatabase : RoomDatabase() {
 
+    abstract fun historyEntryDao(): HistoryEntryDao
+    abstract fun pageImagesDao(): PageImageDao
     abstract fun recentSearchDao(): RecentSearchDao
     abstract fun talkPageSeenDao(): TalkPageSeenDao
     abstract fun editSummaryDao(): EditSummaryDao
@@ -105,15 +111,6 @@ abstract class AppDatabase : RoomDatabase() {
                         .addMigrations(MIGRATION_22_23)
                         .allowMainThreadQueries() // TODO: remove after migration
                         .fallbackToDestructiveMigration()
-                        .openHelperFactory { configuration ->
-                            FrameworkSQLiteOpenHelperFactory().create(
-                                SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
-                                    .callback(Database(configuration.callback))
-                                    .name(configuration.name)
-                                    .noBackupDirectory(configuration.useNoBackupDirectory)
-                                    .build()
-                            )
-                        }
                         .build()
                 }
             }

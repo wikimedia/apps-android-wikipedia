@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class OfflineObject(
-    @PrimaryKey(autoGenerate = true) var id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val url: String,
     val lang: String,
     val path: String,
