@@ -10,6 +10,8 @@ import org.wikipedia.WikipediaApp
 import java.io.Serializable
 import java.util.*
 
+// TODO: create default reading list upon initial DB creation.
+
 @Entity(tableName = "localreadinglist")
 class ReadingList(@ColumnInfo(name = "readingListTitle") var _title: String,
                   @ColumnInfo(name = "readingListDescription") var description: String?,
@@ -40,7 +42,7 @@ class ReadingList(@ColumnInfo(name = "readingListTitle") var _title: String,
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).toLowerCase(Locale.getDefault())
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(title).lowercase(Locale.getDefault())
         }
         return accentAndCaseInvariantTitle!!
     }
@@ -54,9 +56,6 @@ class ReadingList(@ColumnInfo(name = "readingListTitle") var _title: String,
         const val SORT_BY_NAME_DESC = 1
         const val SORT_BY_RECENT_ASC = 2
         const val SORT_BY_RECENT_DESC = 3
-
-        @JvmField
-        val DATABASE_TABLE = ReadingListTable()
 
         fun sort(list: ReadingList, sortMode: Int) {
             when (sortMode) {

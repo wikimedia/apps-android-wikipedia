@@ -178,8 +178,6 @@ enum class Namespace(private val code: Int) : EnumCode {
     }
 
     companion object {
-        @JvmStatic
-        val CODE_ENUM: CodeEnum<Namespace> = CodeEnum { code -> of(code) }
         private const val TALK_MASK = 0x1
         private val MAP = EnumCodeMap(Namespace::class.java)
 

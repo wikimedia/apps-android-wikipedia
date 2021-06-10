@@ -15,6 +15,8 @@ import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.readinglist.db.ReadingListDao
+import org.wikipedia.readinglist.db.ReadingListPageDao
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
@@ -30,13 +32,16 @@ const val DATABASE_VERSION = 23
     ReadingList::class,
     ReadingListPage::class], version = DATABASE_VERSION)
 @TypeConverters(DateTypeConverter::class,
-    WikiSiteTypeConverter::class)
+    WikiSiteTypeConverter::class,
+    NapespaceTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun recentSearchDao(): RecentSearchDao
     abstract fun talkPageSeenDao(): TalkPageSeenDao
     abstract fun editSummaryDao(): EditSummaryDao
     abstract fun offlineObjectDao(): OfflineObjectDao
+    abstract fun readingListDao(): ReadingListDao
+    abstract fun readingListPageDao(): ReadingListPageDao
 
     val readableDatabase: SupportSQLiteDatabase get() = openHelper.readableDatabase
     val writableDatabase: SupportSQLiteDatabase get() = openHelper.writableDatabase
@@ -67,6 +72,8 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("INSERT INTO offlineobject_temp (_id, url, lang, path, status, usedby) SELECT _id, url, lang, path, status, usedby FROM offlineobject")
                 database.execSQL("DROP TABLE offlineobject")
                 database.execSQL("ALTER TABLE offlineobject_temp RENAME TO offlineobject")
+
+                // TODO: rename fields in ReadingList and ReadingListPage to match new fields.
 
             }
         }

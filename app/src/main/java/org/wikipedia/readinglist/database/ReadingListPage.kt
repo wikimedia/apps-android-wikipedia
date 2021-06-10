@@ -51,7 +51,7 @@ data class ReadingListPage(val wiki: WikiSite,
 
     fun accentAndCaseInvariantTitle(): String {
         if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).toLowerCase(Locale.getDefault())
+            accentAndCaseInvariantTitle = StringUtils.stripAccents(displayTitle).lowercase(Locale.getDefault())
         }
         return accentAndCaseInvariantTitle!!
     }
@@ -65,9 +65,6 @@ data class ReadingListPage(val wiki: WikiSite,
         const val STATUS_SAVED = 1L
         const val STATUS_QUEUE_FOR_DELETE = 2L
         const val STATUS_QUEUE_FOR_FORCED_SAVE = 3L
-
-        @JvmField
-        val DATABASE_TABLE = ReadingListPageTable()
 
         @JvmStatic
         fun toPageSummary(page: ReadingListPage): PageSummary {
