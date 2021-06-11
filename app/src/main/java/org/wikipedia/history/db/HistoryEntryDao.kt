@@ -33,14 +33,15 @@ interface HistoryEntryDao {
     }
 
     @Transaction
-    fun updateTimeSpent(entry: HistoryEntry) {
+    fun upsertWithTimeSpent(entry: HistoryEntry, timeSpent: Int) {
         val curEntry = findEntryBy(entry.authority, entry.lang, entry.apiTitle)
         if (curEntry != null) {
-            curEntry.timeSpentSec = entry.timeSpentSec
+            curEntry.timeSpentSec += timeSpent
             curEntry.source = entry.source
             curEntry.timestamp = entry.timestamp
             insertEntry(curEntry)
         } else {
+            entry.timeSpentSec += timeSpent
             insertEntry(entry)
         }
     }

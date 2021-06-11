@@ -530,8 +530,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            it.timeSpentSec += timeSpentSec
-            Completable.fromCallable { AppDatabase.getAppDatabase().historyEntryDao().updateTimeSpent(it) }
+            Completable.fromCallable { AppDatabase.getAppDatabase().historyEntryDao().upsertWithTimeSpent(it, timeSpentSec) }
                 .subscribeOn(Schedulers.io())
                 .subscribe({}) { caught -> L.e(caught) }
         }
