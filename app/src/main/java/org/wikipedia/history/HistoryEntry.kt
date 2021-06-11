@@ -18,7 +18,7 @@ class HistoryEntry(
     val apiTitle: String,
     val displayTitle: String,
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val namespace: String?,
+    val namespace: String,
     var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
@@ -42,7 +42,9 @@ class HistoryEntry(
     }
 
     // To be set when navigating back and forth between articles.
-    @Transient var referrer: String? = null
+    @IgnoredOnParcel
+    @Transient
+    var referrer: String? = null
 
     companion object {
         const val SOURCE_SEARCH = 1

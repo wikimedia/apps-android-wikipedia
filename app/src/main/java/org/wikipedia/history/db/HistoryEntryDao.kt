@@ -40,6 +40,8 @@ interface HistoryEntryDao {
             curEntry.source = entry.source
             curEntry.timestamp = entry.timestamp
             insertEntry(curEntry)
+        } else {
+            insertEntry(entry)
         }
     }
 }

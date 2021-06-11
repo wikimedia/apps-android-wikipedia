@@ -13,7 +13,7 @@ interface HistoryEntryWithImageDao {
 
     // TODO: convert to PagingSource.
     // https://developer.android.com/topic/libraries/architecture/paging/v3-overview
-    @Query("SELECT * FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.authority = PageImage.authority AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
+    @Query("SELECT HistoryEntry.*, PageImage.imageName FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.namespace = PageImage.namespace AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
     fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
 
     // TODO: convert to PagingSource.
@@ -37,12 +37,10 @@ interface HistoryEntryWithImageDao {
 
     fun filterHistoryItems(searchQuery: String): List<Any> {
         val list = mutableListOf<Any>()
-        var normalizedQuery = StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
-        if (normalizedQuery.isEmpty()) {
-            return list
-        }
-        normalizedQuery = normalizedQuery.replace("\\", "\\\\")
-            .replace("%", "\\%").replace("_", "\\_")
+        val normalizedQuery = StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
+            .replace("\\", "\\\\")
+            .replace("%", "\\%")
+            .replace("_", "\\_")
 
         val entries = findEntriesBySearchTerm("%$normalizedQuery%")
 

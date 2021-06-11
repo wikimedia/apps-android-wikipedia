@@ -7,7 +7,7 @@ data class HistoryEntryWithImage(
     val lang: String,
     val apiTitle: String,
     val displayTitle: String,
-    val namespace: String?,
+    val namespace: String,
     val timestamp: Date,
     val source: Int,
     val timeSpentSec: Int,
