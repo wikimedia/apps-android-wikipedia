@@ -28,7 +28,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     abstract val linkHandler: LinkHandler
 
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-        if (model.shouldLoadAsMobileWeb()) {
+        if (model.shouldLoadAsMobileWeb) {
             // If the page was loaded as Mobile Web, then pass all link clicks through
             // to our own link handler.
             linkHandler.onUrlClick(UriUtil.decodeURL(url), null, "")
@@ -96,7 +96,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         model.title?.let { title ->
             // TODO: Find a common way to set this header between here and RetrofitFactory.
             builder.header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(title.wikiSite))
-            if (model.shouldSaveOffline()) {
+            if (model.isInReadingList) {
                 builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
             }
             builder.header(OfflineCacheInterceptor.LANG_HEADER, title.wikiSite.languageCode())
