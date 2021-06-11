@@ -95,6 +95,16 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("CREATE TABLE ReadingListPage (id INTEGER NOT NULL, wiki TEXT NOT NULL, namespace INTEGER NOT NULL, displayTitle TEXT NOT NULL, apiTitle TEXT NOT NULL, description TEXT, thumbUrl TEXT, listId INTEGER NOT NULL, mtime INTEGER NOT NULL, atime INTEGER NOT NULL, offline INTEGER NOT NULL, status INTEGER NOT NULL, sizeBytes INTEGER NOT NULL, lang TEXT NOT NULL, revId INTEGER NOT NULL, remoteId INTEGER NOT NULL, PRIMARY KEY(id))")
                 database.execSQL("INSERT INTO ReadingListPage (id, wiki, namespace, displayTitle, apiTitle, description, thumbUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId) SELECT _id, site, namespace, title, apiTitle, description, thumbnailUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId FROM localreadinglistpage")
                 database.execSQL("DROP TABLE localreadinglistpage")
+
+                // convert History table
+                database.execSQL("CREATE TABLE IF NOT EXISTS `HistoryEntry` (`authority` TEXT NOT NULL, `lang` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `displayTitle` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `namespace` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `source` INTEGER NOT NULL, `timeSpentSec` INTEGER NOT NULL)")
+                database.execSQL("INSERT INTO HistoryEntry (id, authority, lang, apiTitle, displayTitle, namespace, source, timestamp, timeSpentSec) SELECT _id, site, lang, title, displayTitle, COALESCE(namespace,''), source, timestamp, timeSpent FROM history")
+                database.execSQL("DROP TABLE history")
+
+                // convert Page Images table
+                database.execSQL("CREATE TABLE IF NOT EXISTS `PageImage` (`lang` TEXT NOT NULL, `namespace` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `imageName` TEXT, PRIMARY KEY(`lang`, `namespace`, `apiTitle`))")
+                database.execSQL("INSERT INTO PageImage (lang, namespace, apiTitle, imageName) SELECT lang, COALESCE(namespace,''), title, imageName FROM pageimages")
+                database.execSQL("DROP TABLE pageimages")
             }
         }
 
