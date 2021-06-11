@@ -11,12 +11,12 @@ import org.wikipedia.feed.featured.FeaturedArticleCard
 import org.wikipedia.feed.image.FeaturedImageCard
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.model.CardType
-import org.wikipedia.feed.mostread.MostReadListCard
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.offline.OfflineCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.progress.ProgressCard
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient
+import org.wikipedia.feed.topread.TopReadListCard
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ThrowableUtil
@@ -263,7 +263,7 @@ abstract class FeedCoordinatorBase(private val context: Context) {
 
     private fun isDailyCardType(card: Card): Boolean {
         return card is NewsCard || card is OnThisDayCard ||
-                card is MostReadListCard || card is FeaturedArticleCard ||
+                card is TopReadListCard || card is FeaturedArticleCard ||
                 card is FeaturedImageCard
     }
 

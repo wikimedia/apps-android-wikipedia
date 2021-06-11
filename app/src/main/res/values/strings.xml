@@ -209,7 +209,6 @@
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
     <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
     <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
-    <string name="suggested_edits_image_recs_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Train_image_algorithm</string>
     <string name="about_libraries_heading">Libraries used</string>
     <string name="about_contributors_heading">Contributors</string>
     <string name="about_contributors"><![CDATA[<a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android">Team page</a>]]></string>
@@ -898,16 +897,6 @@
         <item quantity="one">You added %d character</item>
         <item quantity="other">You added %d characters</item>
     </plurals>
-    <string name="suggested_edits_image_recommendations_task_title">Train image algorithm</string>
-    <string name="suggested_edits_image_recommendations_task_detail">Decide if a suggested image will improve an article.</string>
-    <string name="suggested_edits_image_recommendations_task_get_started">Start</string>
-    <string name="suggested_edits_image_recommendations_task_goal_progress">Great, keep going! 👍</string>
-    <string name="suggested_edits_image_recommendations_task_goal_complete">Daily goal achieved! 👏</string>
-    <string name="suggested_edits_image_recommendations_task_goal_surpassed">You reached the daily goal</string>
-    <string name="suggested_edits_image_recommendations_onboarding_tooltip">A new Suggested Edits task is now available. Train an algorithm to match images with unillustrated articles.</string>
-    <string name="suggested_edits_image_recommendations_onboarding_text1">Wikipedia articles are written and edited by thousands of volunteers from around the world. Unfortunately, many articles lack images.\n\nImages will be suggested to you using an algorithm. The algorithm will pull images from other sources and suggest a match with an article that does not have an image.\n\nYour feedback will help us improve the suggestions over time. Because the goal of this task is to improve the suggested images, the matches you make will not be published at this time.</string>
-    <string name="suggested_edits_image_recommendations_onboarding_text2">We would like to recognize your contributions to this effort. Would you like your username displayed on our algorithm training page?</string>
-    <string name="suggested_edits_image_recommendations_onboarding_consent">Yes, my username can be displayed on the algorithm training page</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
@@ -1012,35 +1001,6 @@
     <!-- Content description -->
     <string name="content_description_for_page_indicator">Page %1$d of %2$d</string>
     <!-- /Content description -->
-
-    <string name="image_recommendations_task_accept">Yes</string>
-    <string name="image_recommendations_task_reject">No</string>
-    <string name="image_recommendations_task_not_sure">Not sure</string>
-    <string name="image_recommendations_task_processing">Processing…</string>
-    <string name="image_recommendations_task_daily_amount">%1$d/%2$d</string>
-    <string name="image_recommendations_task_instruction">Would you add this image to the article?</string>
-    <string name="image_recommendations_task_choice_no">Why did you select no?</string>
-    <string name="image_recommendations_task_choice_not_sure">Why did you select not sure?</string>
-    <string name="image_recommendations_prompt_to_choose_reasons">Choose one or multiple reasons.</string>
-    <string name="image_recommendations_task_choice_unsure">Why are you not sure about this image?</string>
-    <string name="image_recommendations_task_choice_not_relevant">Not relevant</string>
-    <string name="image_recommendations_task_choice_low_quality">Low quality</string>
-    <string name="image_recommendations_task_choice_noinfo">Not enough information</string>
-    <string name="image_recommendations_task_choice_nosubject">Don\'t know this subject</string>
-    <string name="image_recommendations_task_choice_offensive">Offensive</string>
-    <string name="image_recommendations_task_choice_invisible">Can\'t see image</string>
-    <string name="image_recommendations_task_choice_understand">Don\'t understand the task</string>
-    <string name="image_recommendations_task_choice_language">Cannot read the language</string>
-    <string name="image_recommendations_task_choice_other">Other</string>
-    <string name="image_recommendations_task_choice_continue">Continue</string>
-    <string name="image_recommendations_task_suggestion_reason"><![CDATA[<b>Suggestion reason:</b> %s]]></string>
-    <string name="image_recommendations_task_suggestion_reason_wikilist">image was found in other language versions of Wikipedia (%s)</string>
-    <string name="image_recommendations_task_suggestion_reason_wikidata">image was found on Wikidata, Wikipedia\'s source of open data</string>
-    <string name="image_recommendations_task_suggestion_reason_commons">image was found on Wikimedia Commons, Wikipedia\'s source of freely usable images</string>
-    <string name="image_recommendations_faq">FAQ</string>
-    <string name="image_recommendations_tooltip1">Review this article to understand its topic.</string>
-    <string name="image_recommendations_tooltip2">Inspect the image and its associated information.</string>
-    <string name="image_recommendations_tooltip3">Decide if the image will help readers better understand this topic.</string>
 
     <string name="wikitext_bold">Bold</string>
     <string name="wikitext_italic">Italic</string>
