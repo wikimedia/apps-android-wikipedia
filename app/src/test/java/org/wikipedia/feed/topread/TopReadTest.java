@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread;
+package org.wikipedia.feed.topread;
 
 import androidx.annotation.NonNull;
 
@@ -19,14 +19,14 @@ import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(RobolectricTestRunner.class)
 @SuppressWarnings("checkstyle:magicnumber")
-public class MostReadTest {
-    @NonNull public static MostRead unmarshal(@NonNull String filename) throws Throwable {
+public class TopReadTest {
+    @NonNull public static TopRead unmarshal(@NonNull String filename) throws Throwable {
         String json = TestFileUtil.readRawFile(filename);
-        return GsonUnmarshaller.unmarshal(MostRead.class, json);
+        return GsonUnmarshaller.unmarshal(TopRead.class, json);
     }
 
     @Test public void testUnmarshalManyArticles() throws Throwable {
-        MostRead subject = unmarshal("most_read.json");
+        TopRead subject = unmarshal("most_read.json");
 
         assertThat(subject.date(), is(date("2016-06-01Z")));
 

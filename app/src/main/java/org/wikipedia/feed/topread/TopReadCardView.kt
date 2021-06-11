@@ -1,4 +1,4 @@
-package org.wikipedia.feed.mostread
+package org.wikipedia.feed.topread
 
 import android.content.Context
 import org.wikipedia.feed.view.CardFooterView
@@ -8,8 +8,8 @@ import org.wikipedia.feed.view.ListCardView
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.views.DefaultViewHolder
 
-class MostReadCardView(context: Context) : ListCardView<MostReadListCard>(context) {
-    override var card: MostReadListCard? = null
+class TopReadCardView(context: Context) : ListCardView<TopReadListCard>(context) {
+    override var card: TopReadListCard? = null
         set(value) {
             field = value
             value?.let {
@@ -20,27 +20,27 @@ class MostReadCardView(context: Context) : ListCardView<MostReadListCard>(contex
             }
         }
 
-    private fun footer(card: MostReadListCard) {
+    private fun footer(card: TopReadListCard) {
         footerView.visibility = VISIBLE
         footerView.callback = getFooterCallback(card)
         footerView.setFooterActionText(card.footerActionText(), card.wikiSite().languageCode())
     }
 
-    private fun header(card: MostReadListCard) {
+    private fun header(card: TopReadListCard) {
         headerView.setTitle(card.title())
             .setLangCode(card.wikiSite().languageCode())
             .setCard(card)
             .setCallback(callback)
     }
 
-    fun getFooterCallback(card: MostReadListCard): CardFooterView.Callback {
+    fun getFooterCallback(card: TopReadListCard): CardFooterView.Callback {
         return CardFooterView.Callback {
             callback?.onFooterClick(card)
         }
     }
 
-    private inner class RecyclerAdapter constructor(items: List<MostReadItemCard>) :
-        ListCardRecyclerAdapter<MostReadItemCard>(items) {
+    private inner class RecyclerAdapter constructor(items: List<TopReadItemCard>) :
+        ListCardRecyclerAdapter<TopReadItemCard>(items) {
 
         override fun callback(): ListCardItemView.Callback? {
             return callback

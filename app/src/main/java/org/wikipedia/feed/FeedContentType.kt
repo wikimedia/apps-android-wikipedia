@@ -27,9 +27,9 @@ enum class FeedContentType(private val code: Int,
             return if (isEnabled) AggregatedFeedContentClient.FeaturedArticle(aggregatedClient) else null
         }
     },
-    TRENDING_ARTICLES(3, R.string.view_top_read_card_title, R.string.feed_item_type_trending, true) {
+    TOP_READ_ARTICLES(3, R.string.view_top_read_card_title, R.string.feed_item_type_trending, true) {
         override fun newClient(aggregatedClient: AggregatedFeedContentClient, age: Int): FeedClient? {
-            return if (isEnabled) AggregatedFeedContentClient.TrendingArticles(aggregatedClient) else null
+            return if (isEnabled) AggregatedFeedContentClient.TopReadArticles(aggregatedClient) else null
         }
     },
     FEATURED_IMAGE(7, R.string.view_featured_image_card_title, R.string.feed_item_type_featured_image, false) {

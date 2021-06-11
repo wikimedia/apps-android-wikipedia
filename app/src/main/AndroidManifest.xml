@@ -211,7 +211,7 @@
             android:name=".onboarding.InitialOnboardingActivity"/>
 
         <activity
-            android:name=".feed.mostread.MostReadArticlesActivity"
+            android:name=".feed.topread.TopReadArticlesActivity"
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity android:name=".feed.onthisday.OnThisDayActivity"
