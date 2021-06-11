@@ -30,10 +30,7 @@ import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
@@ -56,7 +53,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         pageTitle = intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
+        binding.talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 120))
         binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         binding.talkRecyclerView.adapter = TalkTopicItemAdapter()
 
@@ -82,6 +79,7 @@ class TalkTopicsActivity : BaseActivity() {
         funnel.logOpenTalk()
 
         binding.talkNewTopicButton.visibility = View.GONE
+        binding.talkLastModified.visibility = View.GONE
     }
 
     public override fun onDestroy() {
@@ -153,8 +151,16 @@ class TalkTopicsActivity : BaseActivity() {
         binding.talkErrorView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.GONE
 
-        disposables.add(ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
+        disposables.add(ServiceFactory.get(pageTitle.wikiSite).getLastModified(pageTitle.prefixedText)
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap {
+                    it.query()?.firstPage()?.revisions()?.getOrNull(0)?.let { revision ->
+                        binding.talkLastModified.text = StringUtil.fromHtml(getString(R.string.talk_last_modified,
+                            DateUtil.getRelativeTimeSpanString(revision.timeStamp()), revision.user))
+                    }
+                    ServiceFactory.getRest(pageTitle.wikiSite).getTalkPage(pageTitle.prefixedText)
+                }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     binding.talkProgressBar.visibility = View.GONE
@@ -181,6 +187,7 @@ class TalkTopicsActivity : BaseActivity() {
         } else {
             binding.talkErrorView.visibility = View.GONE
             binding.talkNewTopicButton.show()
+            binding.talkLastModified.visibility = View.VISIBLE
             binding.talkRecyclerView.visibility = View.VISIBLE
             binding.talkRecyclerView.adapter?.notifyDataSetChanged()
         }
@@ -196,6 +203,7 @@ class TalkTopicsActivity : BaseActivity() {
             updateOnEmpty()
         } else {
             binding.talkNewTopicButton.hide()
+            binding.talkLastModified.visibility = View.GONE
             binding.talkErrorView.visibility = View.VISIBLE
             binding.talkErrorView.setError(t)
         }
@@ -204,6 +212,7 @@ class TalkTopicsActivity : BaseActivity() {
     private fun updateOnEmpty() {
         binding.talkRecyclerView.visibility = View.GONE
         binding.talkEmptyContainer.visibility = View.VISIBLE
+        binding.talkLastModified.visibility = View.GONE
         // Allow them to create a new topic anyway
         binding.talkNewTopicButton.show()
     }

@@ -3,6 +3,7 @@ package org.wikipedia.util
 import android.icu.text.RelativeDateTimeFormatter
 import android.os.Build
 import android.text.format.DateFormat
+import android.text.format.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
@@ -147,6 +148,10 @@ object DateUtil {
 
     fun get24HrFormatTimeOnlyString(date: Date): String {
         return getDateStringWithSkeletonPattern(date, "kk:mm")
+    }
+
+    fun getRelativeTimeSpanString(dateStr: String): CharSequence {
+        return DateUtils.getRelativeTimeSpanString(iso8601DateParse(dateStr).time, Calendar.getInstance().time.time, DateUtils.WEEK_IN_MILLIS)
     }
 
     @JvmStatic
