@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.model.CodeEnum
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.staticdata.*

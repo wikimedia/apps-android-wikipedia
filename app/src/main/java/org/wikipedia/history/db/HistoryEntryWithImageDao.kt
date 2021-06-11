@@ -10,9 +10,13 @@ import java.util.*
 
 @Dao
 interface HistoryEntryWithImageDao {
+
+    // TODO: convert to PagingSource.
+    // https://developer.android.com/topic/libraries/architecture/paging/v3-overview
     @Query("SELECT * FROM HistoryEntry LEFT OUTER JOIN PageImage ON (HistoryEntry.authority = PageImage.authority AND HistoryEntry.apiTitle = PageImage.apiTitle AND HistoryEntry.lang = PageImage.lang) WHERE UPPER(HistoryEntry.displayTitle) LIKE UPPER(:term) ESCAPE '\\' ORDER BY timestamp DESC")
     fun findEntriesBySearchTerm(term: String): List<HistoryEntryWithImage>
 
+    // TODO: convert to PagingSource.
     @Query("SELECT * FROM HistoryEntry WHERE source != :excludeSource1 AND source != :excludeSource2 AND source != :excludeSource3 AND timeSpentSec >= :minTimeSpent ORDER BY timestamp DESC LIMIT :limit")
     fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
 
@@ -64,10 +68,10 @@ interface HistoryEntryWithImageDao {
         return list
     }
 
-    fun findEntryForReadMore(age: Int, minTimeSpent: Int): HistoryEntry? {
+    fun findEntryForReadMore(age: Int, minTimeSpent: Int): List<HistoryEntry> {
         val entries = findEntriesBy(HistoryEntry.SOURCE_MAIN_PAGE, HistoryEntry.SOURCE_RANDOM,
             HistoryEntry.SOURCE_FEED_MAIN_PAGE, minTimeSpent, age + 1)
-        return if (entries.isEmpty()) null else toHistoryEntry(entries[age % entries.size])
+        return entries.map { toHistoryEntry(it) }
     }
 
     private fun toHistoryEntry(entryWithImage: HistoryEntryWithImage): HistoryEntry {

@@ -99,7 +99,6 @@ interface ReadingListDao {
         return lists
     }
 
-
     fun createList(title: String, description: String?): ReadingList {
         if (title.isEmpty()) {
             L.w("Attempted to create list with empty title (default).")

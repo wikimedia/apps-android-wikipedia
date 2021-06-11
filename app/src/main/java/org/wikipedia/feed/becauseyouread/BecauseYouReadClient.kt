@@ -29,8 +29,8 @@ class BecauseYouReadClient : FeedClient {
             }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ entry ->
-                    if (entry == null) cb.success(emptyList()) else getCardForHistoryEntry(entry, cb)
+                .subscribe({ entries ->
+                    if (entries.isEmpty()) cb.success(emptyList()) else getCardForHistoryEntry(entries[age % entries.size], cb)
                 }) { cb.success(emptyList()) })
     }
 

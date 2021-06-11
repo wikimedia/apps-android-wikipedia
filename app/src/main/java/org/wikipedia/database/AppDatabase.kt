@@ -44,7 +44,7 @@ const val DATABASE_VERSION = 23
 @TypeConverters(
     DateTypeConverter::class,
     WikiSiteTypeConverter::class,
-    NapespaceTypeConverter::class
+    NamespaceTypeConverter::class
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -95,7 +95,6 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("CREATE TABLE ReadingListPage (id INTEGER NOT NULL, wiki TEXT NOT NULL, namespace INTEGER NOT NULL, displayTitle TEXT NOT NULL, apiTitle TEXT NOT NULL, description TEXT, thumbUrl TEXT, listId INTEGER NOT NULL, mtime INTEGER NOT NULL, atime INTEGER NOT NULL, offline INTEGER NOT NULL, status INTEGER NOT NULL, sizeBytes INTEGER NOT NULL, lang TEXT NOT NULL, revId INTEGER NOT NULL, remoteId INTEGER NOT NULL, PRIMARY KEY(id))")
                 database.execSQL("INSERT INTO ReadingListPage (id, wiki, namespace, displayTitle, apiTitle, description, thumbUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId) SELECT _id, site, namespace, title, apiTitle, description, thumbnailUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId FROM localreadinglistpage")
                 database.execSQL("DROP TABLE localreadinglistpage")
-
             }
         }
 

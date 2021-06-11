@@ -3,7 +3,7 @@ package org.wikipedia.database
 import androidx.room.TypeConverter
 import org.wikipedia.page.Namespace
 
-class NapespaceTypeConverter {
+class NamespaceTypeConverter {
     @TypeConverter
     fun intToNamespace(value: Int?): Namespace? {
         return if (value == null) null else Namespace.of(value)
