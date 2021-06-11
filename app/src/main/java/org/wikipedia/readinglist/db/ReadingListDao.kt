@@ -12,7 +12,7 @@ import org.wikipedia.util.log.L
 @Dao
 interface ReadingListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertReadingList(list: ReadingList)
+    fun insertReadingList(list: ReadingList): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateReadingList(list: ReadingList)
@@ -119,8 +119,7 @@ interface ReadingListDao {
 
     private fun createNewList(title: String, description: String?): ReadingList {
         val protoList = ReadingList(title, description)
-        // TODO: is the id auto-incremented properly?
-        insertReadingList(protoList)
+        protoList.id = insertReadingList(protoList)
         return protoList
     }
 }

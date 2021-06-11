@@ -18,7 +18,7 @@ import java.util.*
 @Dao
 interface ReadingListPageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertReadingListPage(page: ReadingListPage)
+    fun insertReadingListPage(page: ReadingListPage): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateReadingListPage(page: ReadingListPage)
@@ -280,7 +280,6 @@ interface ReadingListPageDao {
 
     private fun insertPageIntoDb(list: ReadingList, page: ReadingListPage) {
         page.listId = list.id
-        // TODO: is id autoincremented automatically?
-        insertReadingListPage(page)
+        page.id = insertReadingListPage(page)
     }
 }

@@ -65,34 +65,34 @@ abstract class AppDatabase : RoomDatabase() {
         private val MIGRATION_22_23 = object : Migration(22, 23) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // convert Recent Searches table
-                database.execSQL("CREATE TABLE RecentSearch (text TEXT NOT NULL, timestamp INTEGER NOT NULL, PRIMARY KEY(text))")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `RecentSearch` (`text` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, PRIMARY KEY(`text`))")
                 database.execSQL("INSERT INTO RecentSearch (text, timestamp) SELECT text, timestamp FROM recentsearches")
                 database.execSQL("DROP TABLE recentsearches")
 
                 // convert Talk Pages Seen table
-                database.execSQL("CREATE TABLE TalkPageSeen_temp (sha TEXT NOT NULL, PRIMARY KEY(sha))")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `TalkPageSeen_temp` (`sha` TEXT NOT NULL, PRIMARY KEY(`sha`))")
                 database.execSQL("INSERT INTO TalkPageSeen_temp (sha) SELECT sha FROM talkpageseen")
                 database.execSQL("DROP TABLE talkpageseen")
                 database.execSQL("ALTER TABLE TalkPageSeen_temp RENAME TO TalkPageSeen")
 
                 // convert Edit Summaries table
-                database.execSQL("CREATE TABLE EditSummary (summary TEXT NOT NULL, lastUsed INTEGER NOT NULL, PRIMARY KEY(summary))")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `EditSummary` (`summary` TEXT NOT NULL, `lastUsed` INTEGER NOT NULL, PRIMARY KEY(`summary`))")
                 database.execSQL("INSERT INTO EditSummary (summary, lastUsed) SELECT summary, lastUsed FROM editsummaries")
                 database.execSQL("DROP TABLE editsummaries")
 
                 // convert Offline Objects table
-                database.execSQL("CREATE TABLE OfflineObject_temp (id INTEGER NOT NULL, url TEXT NOT NULL, lang TEXT NOT NULL, path TEXT NOT NULL, status INTEGER NOT NULL, usedByStr TEXT NOT NULL, PRIMARY KEY(id))")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `OfflineObject_temp` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `url` TEXT NOT NULL, `lang` TEXT NOT NULL, `path` TEXT NOT NULL, `status` INTEGER NOT NULL, `usedByStr` TEXT NOT NULL)")
                 database.execSQL("INSERT INTO OfflineObject_temp (id, url, lang, path, status, usedByStr) SELECT _id, url, lang, path, status, usedby FROM offlineobject")
                 database.execSQL("DROP TABLE offlineobject")
                 database.execSQL("ALTER TABLE OfflineObject_temp RENAME TO OfflineObject")
 
                 // convert Reading List table
-                database.execSQL("CREATE TABLE ReadingList (id INTEGER NOT NULL, listTitle TEXT NOT NULL, description TEXT, mtime INTEGER NOT NULL, atime INTEGER NOT NULL, sizeBytes INTEGER NOT NULL, dirty INTEGER NOT NULL, remoteId INTEGER NOT NULL, PRIMARY KEY(id))")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `ReadingList` (`listTitle` TEXT NOT NULL, `description` TEXT, `mtime` INTEGER NOT NULL, `atime` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `sizeBytes` INTEGER NOT NULL, `dirty` INTEGER NOT NULL, `remoteId` INTEGER NOT NULL)")
                 database.execSQL("INSERT INTO ReadingList (id, listTitle, description, mtime, atime, sizeBytes, dirty, remoteId) SELECT _id, readingListTitle, readingListDescription, readingListMtime, readingListAtime, readingListSizeBytes, readingListDirty, readingListRemoteId FROM localreadinglist")
                 database.execSQL("DROP TABLE localreadinglist")
 
                 // convert Reading List Page table
-                database.execSQL("CREATE TABLE ReadingListPage (id INTEGER NOT NULL, wiki TEXT NOT NULL, namespace INTEGER NOT NULL, displayTitle TEXT NOT NULL, apiTitle TEXT NOT NULL, description TEXT, thumbUrl TEXT, listId INTEGER NOT NULL, mtime INTEGER NOT NULL, atime INTEGER NOT NULL, offline INTEGER NOT NULL, status INTEGER NOT NULL, sizeBytes INTEGER NOT NULL, lang TEXT NOT NULL, revId INTEGER NOT NULL, remoteId INTEGER NOT NULL, PRIMARY KEY(id))")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `ReadingListPage` (`wiki` TEXT NOT NULL, `namespace` INTEGER NOT NULL, `displayTitle` TEXT NOT NULL, `apiTitle` TEXT NOT NULL, `description` TEXT, `thumbUrl` TEXT, `listId` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mtime` INTEGER NOT NULL, `atime` INTEGER NOT NULL, `offline` INTEGER NOT NULL, `status` INTEGER NOT NULL, `sizeBytes` INTEGER NOT NULL, `lang` TEXT NOT NULL, `revId` INTEGER NOT NULL, `remoteId` INTEGER NOT NULL)")
                 database.execSQL("INSERT INTO ReadingListPage (id, wiki, namespace, displayTitle, apiTitle, description, thumbUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId) SELECT _id, site, namespace, title, apiTitle, description, thumbnailUrl, listId, mtime, atime, offline, status, sizeBytes, lang, revId, remoteId FROM localreadinglistpage")
                 database.execSQL("DROP TABLE localreadinglistpage")
 
