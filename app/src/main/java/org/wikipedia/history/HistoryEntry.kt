@@ -1,12 +1,16 @@
 package org.wikipedia.history
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
 import java.util.*
 
+@Parcelize
 @Entity
 class HistoryEntry(
     val authority: String = "",
@@ -15,18 +19,19 @@ class HistoryEntry(
     val displayTitle: String,
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val namespace: String?,
-    val timestamp: Date = Date(),
-    val source: Int = SOURCE_INTERNAL_LINK,
-    val timeSpentSec: Int = 0
-) {
-    constructor(title: PageTitle, source: Int) : this(title.wikiSite.authority(),
+    var timestamp: Date = Date(),
+    var source: Int = SOURCE_INTERNAL_LINK,
+    var timeSpentSec: Int = 0,
+) : Parcelable {
+    constructor(title: PageTitle, source: Int, timestamp: Date = Date(), timeSpentSec: Int = 0) : this(title.wikiSite.authority(),
         title.wikiSite.languageCode(), title.text, title.displayText, namespace = title.namespace,
-        source = source) {
+        timestamp = timestamp, source = source, timeSpentSec = timeSpentSec) {
         pageTitle = title
     }
 
+    @IgnoredOnParcel
     @Ignore
-    var pageTitle: PageTitle? = null
+    private var pageTitle: PageTitle? = null
 
     val title: PageTitle get() {
         if (pageTitle == null) {

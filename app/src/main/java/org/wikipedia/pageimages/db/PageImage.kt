@@ -30,7 +30,7 @@ data class PageImage(
 
     @IgnoredOnParcel
     @Ignore
-    var pageTitle: PageTitle? = null
+    private var pageTitle: PageTitle? = null
 
     val title: PageTitle get() {
         if (pageTitle == null) {

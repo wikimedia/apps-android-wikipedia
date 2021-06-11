@@ -11,6 +11,7 @@ import org.wikipedia.edit.db.EditSummary
 import org.wikipedia.edit.db.EditSummaryDao
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.db.HistoryEntryDao
+import org.wikipedia.history.db.HistoryEntryWithImageDao
 import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.pageimages.db.PageImage
@@ -48,6 +49,7 @@ const val DATABASE_VERSION = 23
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun historyEntryDao(): HistoryEntryDao
+    abstract fun historyEntryWithImageDao(): HistoryEntryWithImageDao
     abstract fun pageImagesDao(): PageImageDao
     abstract fun recentSearchDao(): RecentSearchDao
     abstract fun talkPageSeenDao(): TalkPageSeenDao

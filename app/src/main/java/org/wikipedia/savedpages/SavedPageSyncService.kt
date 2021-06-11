@@ -11,7 +11,6 @@ import okio.Sink
 import okio.Timeout
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.database.contract.PageImageHistoryContract
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -23,7 +22,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.events.PageDownloadEvent
 import org.wikipedia.gallery.MediaList
 import org.wikipedia.page.PageTitle
-import org.wikipedia.pageimages.PageImage
+import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
@@ -297,8 +296,7 @@ class SavedPageSyncService : JobIntentService() {
     }
 
     private fun persistPageThumbnail(title: PageTitle, url: String) {
-        app.getDatabaseClient(PageImage::class.java).upsert(
-                PageImage(title, url), PageImageHistoryContract.Image.SELECTION)
+        AppDatabase.getAppDatabase().pageImagesDao().insertPageImage(PageImage(title, url))
     }
 
     private fun isRetryable(t: Throwable): Boolean {

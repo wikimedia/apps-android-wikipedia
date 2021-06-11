@@ -53,7 +53,6 @@ import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementClient
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.history.UpdateHistoryTask
 import org.wikipedia.json.GsonUtil
 import org.wikipedia.language.LangLinksActivity
 import org.wikipedia.login.LoginActivity
@@ -531,8 +530,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     private fun addTimeSpentReading(timeSpentSec: Int) {
         model.curEntry?.let {
-            HistoryEntry(it.title, Date(), it.source, timeSpentSec)
-            Completable.fromAction(UpdateHistoryTask(it))
+            it.timeSpentSec += timeSpentSec
+            Completable.fromCallable { AppDatabase.getAppDatabase().historyEntryDao().updateTimeSpent(it) }
                 .subscribeOn(Schedulers.io())
                 .subscribe({}) { caught -> L.e(caught) }
         }

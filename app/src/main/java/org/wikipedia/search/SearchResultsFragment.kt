@@ -25,7 +25,6 @@ import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.history.HistoryDbHelper.findHistoryItem
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
@@ -137,7 +136,7 @@ class SearchResultsFragment : Fragment() {
         disposables.add(Observable.timer(if (force) 0 else DELAY_MILLIS.toLong(), TimeUnit.MILLISECONDS).flatMap {
             Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(searchLanguageCode)).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
                     if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().readingListPageDao().findPageForSearchQueryInAnyList(searchTerm) } else Observable.just(SearchResults()),
-                    if (searchTerm.length >= 2) Observable.fromCallable { findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
+                    if (searchTerm.length >= 2) Observable.fromCallable { AppDatabase.getAppDatabase().historyEntryWithImageDao().findHistoryItem(searchTerm) } else Observable.just(SearchResults()),
                     { searchResponse, readingListSearchResults, historySearchResults ->
                         val searchResults = if (searchResponse?.query()!!.pages() != null) {
                             // noinspection ConstantConditions

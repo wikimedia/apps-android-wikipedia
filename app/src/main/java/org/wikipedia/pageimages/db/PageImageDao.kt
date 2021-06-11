@@ -8,5 +8,4 @@ import androidx.room.OnConflictStrategy
 interface PageImageDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertPageImage(pageImage: PageImage)
-
 }

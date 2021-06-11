@@ -281,11 +281,6 @@
             android:theme="@style/AppTheme.ActionBar"  />
 
         <provider
-            android:authorities="${applicationId}"
-            android:name=".database.AppContentProvider"
-            android:exported="false" />
-
-        <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
