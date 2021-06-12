@@ -1,7 +1,10 @@
 package org.wikipedia.dataclient
 
 import androidx.collection.LruCache
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.Request
 import okhttp3.Response
 import org.apache.commons.lang3.StringUtils
@@ -94,6 +97,7 @@ object ServiceFactory {
 
     private fun createRetrofit(wiki: WikiSite?, baseUrl: String): Retrofit {
         val okHttpClientBuilder = client.newBuilder()
+        val contentType = "application/json".toMediaType()
         if (wiki != null) {
             okHttpClientBuilder.addInterceptor(LanguageVariantHeaderInterceptor(wiki))
         }
@@ -103,7 +107,7 @@ object ServiceFactory {
             .client(client.newBuilder().addInterceptor(LanguageVariantHeaderInterceptor(
                 wiki!!)).build())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
+            .addConverterFactory(Json.asConverterFactory(contentType))
             .build()
     }
 
