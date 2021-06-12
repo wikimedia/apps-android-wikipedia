@@ -211,7 +211,7 @@
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license" fuzzy="true">Izvorna koda je na voljo v repozitorijih &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
+  <string name="about_app_license">Izvorna koda je na voljo v repozitorijih &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
   <string name="about_wmf">Izdelek &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O projektu</string>
   <string name="edit_abandon_confirm">Stran je bila spremenjena. Ali jo res želite zapustiti, ne da bi shranili svoje spremembe?</string>
@@ -360,6 +360,11 @@
   <string name="page_footer_license_text">Vsebina je na voljo pod licenco $1, razen če je navedeno drugače.</string>
   <string name="empty_tab_title">Nov zavihek</string>
   <string name="menu_save_all_tabs">Shrani vse zavihke</string>
+  <string name="error_blocked_title">Vaše uporabniško ime ali IP-naslov je bil(o) blokiran(o).</string>
+  <string name="error_blocked_reason">Navedeni razlog: %s</string>
+  <string name="error_blocked_start">Začetek blokade: %s</string>
+  <string name="error_blocked_expiry">Potek blokade: %s</string>
+  <string name="error_blocked_id">ID blokade: %s</string>
   <string name="crash_report_activity_title">Napaka aplikacije</string>
   <string name="crash_report_relaunch_or_quit">Žal je prišlo do napake aplikacije Wikipedija, zato je bila prekinjena.\n\nŽelite začeti znova ali aplikacijo zapreti?</string>
   <string name="crash_report_relaunch">Začni znova</string>

@@ -572,7 +572,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     private fun showOverflowMenu(anchor: View) {
         PageActionOverflowView(this).show(anchor, overflowCallback, pageFragment.currentTab,
-            pageFragment.model.shouldLoadAsMobileWeb(), pageFragment.model.isWatched, pageFragment.model.hasWatchlistExpiry()
+            pageFragment.model.shouldLoadAsMobileWeb, pageFragment.model.isWatched, pageFragment.model.hasWatchlistExpiry
         )
     }
 
