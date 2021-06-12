@@ -5,7 +5,10 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 
+import kotlinx.serialization.Serializable;
+
 @SuppressWarnings("unused")
+@Serializable
 public class MwParseResponse extends MwResponse {
     @Nullable private Parse parse;
 

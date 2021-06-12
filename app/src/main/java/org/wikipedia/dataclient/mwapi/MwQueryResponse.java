@@ -9,6 +9,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Collections;
 import java.util.Map;
 
+import kotlinx.serialization.Serializable;
+
+@Serializable
 public class MwQueryResponse extends MwResponse {
 
     @SuppressWarnings("unused") @SerializedName("batchcomplete") private boolean batchComplete;
